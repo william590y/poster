@@ -1,0 +1,365 @@
+\documentclass[final]{beamer}
+
+% 30in x 40in  ->  76.2cm x 101.6cm
+\usepackage[
+  orientation=portrait,
+  size=custom,
+  width=76.2,
+  height=101.6,
+  scale=1.18
+]{beamerposter}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{ragged2e}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,fit}
+\usepackage{microtype}
+
+\definecolor{CornellRed}{HTML}{B31B1B}
+\definecolor{CornellDark}{HTML}{861313}
+\definecolor{CornellInk}{HTML}{242424}
+\definecolor{CornellGray}{HTML}{666666}
+\definecolor{CornellPale}{HTML}{F5EEEE}
+\definecolor{CornellRule}{HTML}{D9C5C5}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{background canvas}{bg=white}
+\setbeamercolor{normal text}{fg=CornellInk,bg=white}
+\setbeamertemplate{itemize item}{\color{CornellRed}$\blacktriangleright$}
+\setbeamertemplate{itemize subitem}{\color{CornellRed}$\bullet$}
+\setlength{\leftmargini}{1.15cm}
+
+% ---- headings: three levels ----
+\newcommand{\sectionhead}[1]{%
+  {\color{CornellRed}\fontsize{52}{60}\selectfont\bfseries #1\par}%
+  \vspace{0.14cm}%
+  {\color{CornellRule}\rule{\linewidth}{1.6pt}}%
+  \vspace{0.35cm}%
+}
+
+\newcommand{\blockhead}[1]{%
+  {\color{CornellRed}\fontsize{42}{50}\selectfont\bfseries #1\par}%
+  \vspace{0.12cm}%
+  {\color{CornellRule}\rule{\linewidth}{1.5pt}}%
+  \vspace{0.30cm}%
+}
+
+\newcommand{\sidehead}[1]{%
+  {\color{CornellRed}\fontsize{38}{45}\selectfont\bfseries #1\par}%
+  \vspace{0.12cm}%
+  {\color{CornellRule}\rule{\linewidth}{1.4pt}}%
+  \vspace{0.28cm}%
+}
+
+% Bullet lists sit tighter to their heading than the beamer default.
+\newenvironment{posteritemize}%
+  {\vspace{-0.55cm}\begin{itemize}\setlength{\itemsep}{0.34cm}}%
+  {\end{itemize}}
+
+% ---- figure captions (numbered, no float) ----
+\newcounter{posterfig}
+\newcommand{\figcaption}[1]{%
+  \stepcounter{posterfig}%
+  \vspace{0.32cm}%
+  {\fontsize{24}{30}\selectfont\color{CornellGray}\justifying
+   \textbf{Figure \theposterfig:} #1\par}%
+}
+
+% ---- drop-in slot for an image that is not in the folder yet ----
+% Renders the image if present, otherwise a labelled placeholder of the
+% same footprint so the layout does not move when you add the file.
+\newcommand{\figslot}[2]{% {filename}{height in cm}
+  \IfFileExists{#1}%
+    {\includegraphics[width=0.94\linewidth,height=#2cm,keepaspectratio]{#1}}%
+    {\begin{tikzpicture}
+       \node[rounded corners=8pt,draw=CornellRule,line width=2pt,dashed,
+             fill=CornellPale!45,minimum width=0.94\linewidth,minimum height=#2cm,
+             align=center,font=\fontsize{26}{32}\selectfont,text=CornellGray]
+            {\texttt{#1}\\[0.25cm]drop the file in this folder};
+     \end{tikzpicture}}%
+}
+
+\begin{document}
+\begin{frame}[t]
+
+% =========================== HEADER ===========================
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[CornellDark]
+    (current page.north west)
+    rectangle
+    ([yshift=-14.4cm]current page.north east);
+
+  % Abstract geometric line motif inspired by the Oxford poster.
+  \begin{scope}[shift={([xshift=46cm,yshift=-0.4cm]current page.north west)},
+                draw=white,opacity=0.27,line width=1.6pt]
+    \draw (0,0) -- (6,-1) -- (10,2.5) -- (16,1.8) -- (19,-3) --
+          (15,-7) -- (10,-5) -- (6,-9) -- (0,-6) -- (2,-2) -- cycle;
+    \draw (6,-1) -- (10,-5);
+    \draw (10,2.5) -- (13,-1) -- (19,-3);
+    \draw (13,-1) -- (15,-7);
+    \draw (2,-2) -- (6,-1);
+    \draw (6,-9) -- (10,-5);
+    \draw (16,1.8) -- (22,-0.3) -- (24,-4.5);
+    \draw (0,-6) -- (-5,-9);
+  \end{scope}
+
+  \node[anchor=north west,text width=49cm,align=left]
+    at ([xshift=2.7cm,yshift=-2.1cm]current page.north west) {%
+      {\color{white}\fontsize{72}{80}\selectfont\bfseries
+       Latent Planning for Long-Horizon\\[-0.05cm]
+       Event Prediction\par}
+      \vspace{0.6cm}
+      {\color{white}\fontsize{34}{41}\selectfont
+       \textit{Haohuan Li} \quad \textit{Menghan Xu} \quad
+       \textit{William Liaw} \quad \textit{Kevin Ellis}\par}
+      \vspace{0.22cm}
+      {\color{white!85}\fontsize{29}{35}\selectfont
+       Cornell Bowers Computer Science \quad $\cdot$ \quad BURE / AI-MI SURP}
+    };
+
+  \node[anchor=north east]
+    at ([xshift=-2.6cm,yshift=-2.9cm]current page.north east) {%
+      \includegraphics[width=19cm]{cornell-bowers-cs-logo-white.png}
+    };
+\end{tikzpicture}
+
+\vspace*{15.2cm}
+
+% ============================ BODY ============================
+\begin{columns}[t,totalwidth=0.94\paperwidth]
+
+% ---------------------- LARGE VISUAL AREA ---------------------
+\begin{column}{0.68\paperwidth}
+
+  \sectionhead{Visual overview}
+
+  {\fontsize{35}{43}\selectfont\justifying
+  Long-horizon prediction requires a model to preserve useful information and decide
+  how far into the future to reason. The Predictron learns a latent Markov reward
+  process and blends predictions from several internally imagined planning depths.}
+
+  \vspace{0.6cm}
+
+  % Main architecture figure. Rewards and discounts ride on the latent
+  % transitions; values hang below each state; each depth unrolls one more step.
+  % Every connector runs through empty space -- no line crosses a box.
+  \begin{center}
+  \begin{tikzpicture}[
+    enc/.style={rounded corners=9pt,draw=CornellRed,line width=2.5pt,fill=CornellPale,
+                minimum height=4.0cm,align=center,inner sep=0.45cm,
+                font=\fontsize{32}{39}\selectfont},
+    state/.style={circle,draw=CornellRed,line width=2.8pt,fill=white,minimum size=5.0cm,
+                  align=center,font=\fontsize{36}{42}\selectfont\bfseries},
+    emit/.style={rounded corners=5pt,draw=CornellRule,line width=1.5pt,fill=CornellPale,
+                 align=center,inner sep=0.28cm,font=\fontsize{26}{31}\selectfont},
+    value/.style={rounded corners=7pt,draw=CornellGray,line width=2pt,fill=white,
+                  minimum width=6.8cm,minimum height=3.0cm,align=center,
+                  font=\fontsize{29}{35}\selectfont},
+    depth/.style={rounded corners=8pt,draw=CornellRed,line width=2.2pt,fill=CornellPale,
+                 minimum width=10.8cm,minimum height=4.2cm,align=center,
+                 font=\fontsize{28}{35}\selectfont\bfseries},
+    arr/.style={-{Latex[length=6mm,width=3.6mm]},line width=2.6pt,draw=CornellRed},
+    outarr/.style={-{Latex[length=4.5mm,width=2.8mm]},line width=1.9pt,draw=CornellGray},
+    steplab/.style={font=\fontsize{24}{29}\selectfont,text=CornellGray}
+  ]
+    % --- input row: observation then encoder, side by side ---
+    \node[enc,minimum width=13.4cm] (obs)     at (-10.0,0) {Observed trajectory $x_{1:t}$};
+    \node[enc,minimum width=10.4cm] (encoder) at (  6.0,0) {Encoder $e_\theta$};
+    \draw[arr] (obs) -- (encoder);
+
+    % --- latent state chain ---
+    \node[state] (s0) at (-14.8,-8.2) {$s_0$};
+    \node[state] (s1) at (  0.0,-8.2) {$s_1$};
+    \node[state] (s2) at ( 14.8,-8.2) {$s_2$};
+
+    % Encoder feeds the first latent state; the elbow runs above the state row.
+    \draw[arr] (encoder.south) -- ++(0,-1.3) -| (s0.north);
+
+    % Each latent transition emits a reward and a discount.
+    \draw[arr] (s0) -- node[emit,above=0.45cm] {reward $r_0$\\discount $\gamma_0$} (s1);
+    \draw[arr] (s1) -- node[emit,above=0.45cm] {reward $r_1$\\discount $\gamma_1$} (s2);
+    \draw[arr] (s2.east) -- ++(2.2,0)
+          node[right=0.25cm,font=\fontsize{36}{42}\selectfont] {$\cdots$};
+
+    % --- value head under each state ---
+    \foreach \x/\k in {-14.8/0, 0/1, 14.8/2}{
+      \node[value] (v\k) at (\x,-14.4) {value $v_{\k}$};
+      \draw[outarr] (s\k.south) -- (v\k.north);
+    }
+
+    % --- one prediction per planning depth ---
+    \node[depth] (p0) at (-14.8,-19.9) {depth 0\\[0.1cm]$g^{(0)}=v_0$};
+    \node[depth] (p1) at (  0.0,-19.9) {depth 1\\[0.1cm]$g^{(1)}=r_0+\gamma_0 v_1$};
+    \node[depth] (p2) at ( 14.8,-19.9) {depth 2\\[0.1cm]$g^{(2)}=r_0+\gamma_0(r_1+\gamma_1 v_2)$};
+
+    \foreach \k in {0,1,2}{ \draw[outarr] (v\k.south) -- (p\k.north); }
+
+    % Each depth extends the previous one by a single imagined step.
+    \draw[arr] (p0.east) -- node[steplab,above=0.15cm] {$+1$ step} (p1.west);
+    \draw[arr] (p1.east) -- node[steplab,above=0.15cm] {$+1$ step} (p2.west);
+
+    % --- adaptive mixture ---
+    \node[rounded corners=9pt,draw=CornellRed,line width=2.5pt,fill=CornellDark,
+          text=white,minimum width=41cm,minimum height=5.4cm,align=center,
+          font=\fontsize{34}{41}\selectfont\bfseries] (blend) at (0,-26.1)
+          {Adaptive mixture over planning depths\\[0.3cm]
+           $\displaystyle g_\lambda=\sum_{k=0}^{K} w_k\,g^{(k)}$};
+
+    \foreach \x in {-14.8, 0, 14.8}{
+      \draw[arr] (\x,-22.0) -- (\x,-23.4);
+    }
+  \end{tikzpicture}
+  \end{center}
+
+  \figcaption{Latent planning architecture. Adapted from Silver, D., Hasselt, H.,
+  Hessel, M., Schaul, T., Guez, A., Harley, T., \& Degris, T. (2017, July).
+  The predictron: End-to-end learning and planning. In \textit{International
+  Conference on Machine Learning} (pp. 3191--3199). PMLR.}
+
+  \vspace{0.95cm}
+
+  \begin{columns}[t,totalwidth=\linewidth]
+    \begin{column}{0.48\linewidth}
+      \blockhead{Predictron}
+      {\fontsize{31}{39}\selectfont\justifying
+      Describe data, model, or experimental setup.\par}
+    \end{column}
+    \begin{column}{0.48\linewidth}
+      \blockhead{Methods}
+      {\fontsize{31}{39}\selectfont\justifying
+      Describe data, model, or experimental setup.\par}
+      \vspace{0.45cm}
+      \begin{center}\figslot{example-image}{12.5}\end{center}
+      \figcaption{Overview of the proposed pipeline.}
+    \end{column}
+  \end{columns}
+
+  \vspace{1.1cm}
+
+  \sectionhead{Experimental pipeline}
+  \begin{center}
+  \begin{tikzpicture}[
+    box/.style={rounded corners=7pt,draw=CornellRule,line width=1.8pt,fill=white,
+                minimum width=10.0cm,minimum height=5.2cm,text width=8.8cm,
+                align=center,font=\fontsize{28}{35}\selectfont},
+    arr/.style={-{Latex[length=5.5mm,width=3.4mm]},line width=2.4pt,draw=CornellRed}
+  ]
+    % Line breaks are explicit so the labels never hyphenate.
+    \node[box] (data)   at (-18.0,0) {Trajectory data};
+    \node[box] (latent) at ( -6.0,0) {Latent planning\\model};
+    \node[box] (probe)  at (  6.0,0) {Frozen evaluation\\probe};
+    \node[box] (metric) at ( 18.0,0) {Event / duration\\metric};
+    \draw[arr] (data)--(latent);
+    \draw[arr] (latent)--(probe);
+    \draw[arr] (probe)--(metric);
+  \end{tikzpicture}
+  \end{center}
+
+\end{column}
+
+% ----------------------- NARROW SIDEBAR -----------------------
+\begin{column}{0.225\paperwidth}
+
+  \sidehead{Introduction}
+  {\fontsize{29}{36}\selectfont\justifying
+  Motivate the problem in 3--5 sentences. State why it matters and what gap
+  your work fills.\par}
+  \vspace{0.95cm}
+  {\fontsize{29}{36}\selectfont
+  \begin{posteritemize}
+    \item Key point one
+    \item Key point two
+  \end{posteritemize}}
+
+  \vspace{1.2cm}
+
+  \sidehead{Markov reward process (MRP)}
+  {\fontsize{29}{36}\selectfont
+  An MRP is defined by:
+  \begin{equation}
+    s',\, r,\, \gamma = p(s,\alpha)
+  \end{equation}
+  \vspace{-0.35cm}
+  \begin{posteritemize}
+    \item $s'$: Next state
+    \item $r$: Reward
+    \item $\gamma$: Discount factor
+  \end{posteritemize}}
+
+  \vspace{1.2cm}
+
+  \sidehead{Equations}
+  {\fontsize{29}{36}\selectfont
+  \begin{equation}
+    \hat{y} = \arg\max_{y} \; p(y \mid x; \theta)
+  \end{equation}}
+
+  \vspace{1.2cm}
+
+  \sidehead{Results}
+  \begin{center}
+  {\fontsize{28}{35}\selectfont
+  \renewcommand{\arraystretch}{1.35}
+  \begin{tabular}{lcc}
+    \toprule
+    Method & Accuracy & F1 \\
+    \midrule
+    Baseline & 0.812 & 0.795 \\
+    \textbf{Ours} & \textbf{0.904} & \textbf{0.891} \\
+    \bottomrule
+  \end{tabular}}
+  \end{center}
+  \vspace{0.3cm}
+  {\fontsize{24}{30}\selectfont\color{CornellGray}
+   \textbf{Table 1:} Comparison on the test set.\par}
+
+  \vspace{1.2cm}
+
+  \sidehead{Conclusions}
+  {\fontsize{29}{36}\selectfont
+  \begin{posteritemize}
+    \item Main takeaway
+    \item Limitation and future work
+  \end{posteritemize}}
+
+  \vspace{1.2cm}
+
+  \sidehead{References}
+  {\fontsize{25}{31}\selectfont\justifying
+  [1] Author, A. (2024). Title of the paper. \textit{Journal}, 12(3), 45--67.\par}
+
+\end{column}
+\end{columns}
+
+% =========================== FOOTER ===========================
+\begin{tikzpicture}[remember picture,overlay]
+  \fill[CornellDark]
+    (current page.south west)
+    rectangle
+    ([yshift=5.6cm]current page.south east);
+
+  \begin{scope}[shift={([xshift=48cm,yshift=0.35cm]current page.south west)},
+                draw=white,opacity=0.24,line width=1.5pt]
+    \draw (0,0) -- (5,4) -- (11,3) -- (15,5) -- (21,2) --
+          (17,-1) -- (10,0) -- (6,-2) -- cycle;
+    \draw (5,4) -- (10,0);
+    \draw (11,3) -- (17,-1);
+    \draw (15,5) -- (17,-1);
+  \end{scope}
+
+  \node[anchor=west]
+    at ([xshift=2.7cm,yshift=2.8cm]current page.south west)
+    {\color{white}\fontsize{30}{37}\selectfont\bfseries Cornell Bowers Computer Science};
+
+  \node[anchor=east]
+    at ([xshift=-2.7cm,yshift=2.8cm]current page.south east)
+    {\color{white!88}\fontsize{26}{32}\selectfont
+     william.liaw@cornell.edu \quad $\cdot$ \quad Ithaca, New York};
+\end{tikzpicture}
+
+\end{frame}
+\end{document}

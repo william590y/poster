@@ -75,10 +75,10 @@
 \newcommand{\figslot}[2]{% {filename}{height in cm}
   \IfFileExists{#1}%
     {\includegraphics[width=0.94\linewidth,height=#2cm,keepaspectratio]{#1}}%
-    {\begin{tikzpicture}
+    {\begin{tikzpicture}[baseline=(ph.south)]
        \node[rounded corners=8pt,draw=CornellRule,line width=2pt,dashed,
              fill=CornellPale!45,minimum width=0.94\linewidth,minimum height=#2cm,
-             align=center,font=\fontsize{26}{32}\selectfont,text=CornellGray]
+             align=center,font=\fontsize{26}{32}\selectfont,text=CornellGray] (ph)
             {\texttt{#1}\\[0.25cm]drop the file in this folder};
      \end{tikzpicture}}%
 }
@@ -91,7 +91,7 @@
   \fill[CornellDark]
     (current page.north west)
     rectangle
-    ([yshift=-14.4cm]current page.north east);
+    ([yshift=-13.3cm]current page.north east);
 
   % Abstract geometric line motif inspired by the Oxford poster.
   \begin{scope}[shift={([xshift=46cm,yshift=-0.4cm]current page.north west)},
@@ -110,13 +110,20 @@
   \node[anchor=north west,text width=49cm,align=left]
     at ([xshift=2.7cm,yshift=-2.1cm]current page.north west) {%
       {\color{white}\fontsize{72}{80}\selectfont\bfseries
-       Latent Planning for Long-Horizon\\[-0.05cm]
-       Event Prediction\par}
+       Temporal Abstraction in World Modeling\\[-0.05cm]
+       for Long-Horizon Event Prediction\par}
       \vspace{0.6cm}
       {\color{white}\fontsize{34}{41}\selectfont
-       \textit{Haohuan Li} \quad \textit{Menghan Xu} \quad
-       \textit{William Liaw} \quad \textit{Kevin Ellis}\par}
-      \vspace{0.22cm}
+       \setlength{\tabcolsep}{0pt}%
+       \begin{tabular}{@{}l@{\hspace{1.3cm}}l@{\hspace{1.3cm}}l@{\hspace{1.3cm}}l@{}}
+         \textit{Haohuan Li} & \textit{Menghan Xu} &
+         \textit{William Liaw} & \textit{Kevin Ellis}\\[0.14cm]
+         {\fontsize{26}{32}\selectfont\color{white!85}hl2498@cornell.edu} &
+         {\fontsize{26}{32}\selectfont\color{white!85}mx253@cornell.edu} &
+         {\fontsize{26}{32}\selectfont\color{white!85}wjl86@cornell.edu} &
+         {\fontsize{26}{32}\selectfont\color{white!85}kellis@cornell.edu}
+       \end{tabular}\par}
+      \vspace{0.3cm}
       {\color{white!85}\fontsize{29}{35}\selectfont
        Cornell Bowers Computer Science \quad $\cdot$ \quad BURE / AI-MI SURP}
     };
@@ -127,7 +134,7 @@
     };
 \end{tikzpicture}
 
-\vspace*{15.2cm}
+\vspace*{12.1cm}
 
 % ============================ BODY ============================
 \begin{columns}[t,totalwidth=0.94\paperwidth]
@@ -138,27 +145,29 @@
   \sectionhead{Visual overview}
 
   {\fontsize{35}{43}\selectfont\justifying
-  Long-horizon prediction requires a model to preserve useful information and decide
-  how far into the future to reason. The Predictron learns a latent Markov reward
-  process and blends predictions from several internally imagined planning depths.}
+  Long-horizon prediction requires a world model that preserves useful information and
+  decides how far ahead to reason. Temporal abstraction makes this tractable: latent
+  steps span many timescales rather than a single tick. The Predictron learns a latent
+  Markov reward process and blends predictions over several imagined depths, so the
+  horizon is learned rather than fixed.}
 
-  \vspace{0.6cm}
+  \vspace{0.45cm}
 
-  % Main architecture figure. Rewards and discounts ride on the latent
-  % transitions; values hang below each state; each depth unrolls one more step.
+  % Main architecture figure. Each latent state emits its own reward, discount
+  % and value, so all three sit together in the box below that state; each depth
+  % unrolls one more step.
   % Every connector runs through empty space -- no line crosses a box.
   \begin{center}
   \begin{tikzpicture}[
+    scale=0.68,transform shape,
     enc/.style={rounded corners=9pt,draw=CornellRed,line width=2.5pt,fill=CornellPale,
                 minimum height=4.0cm,align=center,inner sep=0.45cm,
                 font=\fontsize{32}{39}\selectfont},
     state/.style={circle,draw=CornellRed,line width=2.8pt,fill=white,minimum size=5.0cm,
                   align=center,font=\fontsize{36}{42}\selectfont\bfseries},
-    emit/.style={rounded corners=5pt,draw=CornellRule,line width=1.5pt,fill=CornellPale,
-                 align=center,inner sep=0.28cm,font=\fontsize{26}{31}\selectfont},
-    value/.style={rounded corners=7pt,draw=CornellGray,line width=2pt,fill=white,
-                  minimum width=6.8cm,minimum height=3.0cm,align=center,
-                  font=\fontsize{29}{35}\selectfont},
+    emit/.style={rounded corners=7pt,draw=CornellGray,line width=2pt,fill=CornellPale,
+                 minimum width=10.0cm,minimum height=6.0cm,inner sep=0.42cm,
+                 font=\fontsize{28}{35}\selectfont},
     depth/.style={rounded corners=8pt,draw=CornellRed,line width=2.2pt,fill=CornellPale,
                  minimum width=10.8cm,minimum height=4.2cm,align=center,
                  font=\fontsize{28}{35}\selectfont\bfseries},
@@ -172,29 +181,34 @@
     \draw[arr] (obs) -- (encoder);
 
     % --- latent state chain ---
-    \node[state] (s0) at (-14.8,-8.2) {$s_0$};
-    \node[state] (s1) at (  0.0,-8.2) {$s_1$};
-    \node[state] (s2) at ( 14.8,-8.2) {$s_2$};
+    \node[state] (s0) at (-14.8,-6.9) {$s_0$};
+    \node[state] (s1) at (  0.0,-6.9) {$s_1$};
+    \node[state] (s2) at ( 14.8,-6.9) {$s_2$};
 
     % Encoder feeds the first latent state; the elbow runs above the state row.
-    \draw[arr] (encoder.south) -- ++(0,-1.3) -| (s0.north);
+    \draw[arr] (encoder.south) -- ++(0,-1.2) -| (s0.north);
 
-    % Each latent transition emits a reward and a discount.
-    \draw[arr] (s0) -- node[emit,above=0.45cm] {reward $r_0$\\discount $\gamma_0$} (s1);
-    \draw[arr] (s1) -- node[emit,above=0.45cm] {reward $r_1$\\discount $\gamma_1$} (s2);
+    % Transitions carry no labels: reward and discount belong to the state that
+    % emits them, so they live in that state's box below.
+    \draw[arr] (s0) -- (s1);
+    \draw[arr] (s1) -- (s2);
     \draw[arr] (s2.east) -- ++(2.2,0)
           node[right=0.25cm,font=\fontsize{36}{42}\selectfont] {$\cdots$};
 
-    % --- value head under each state ---
-    \foreach \x/\k in {-14.8/0, 0/1, 14.8/2}{
-      \node[value] (v\k) at (\x,-14.4) {value $v_{\k}$};
-      \draw[outarr] (s\k.south) -- (v\k.north);
-    }
+    % --- what each state emits: value, reward and discount together ---
+    \node[emit] (v0) at (-14.8,-13.4) {\begin{tabular}{@{}l@{\hspace{0.55cm}}l@{}}
+      value & $v_0$\\[0.1cm] reward & $r_0$\\[0.1cm] discount & $\gamma_0$\end{tabular}};
+    \node[emit] (v1) at (  0.0,-13.4) {\begin{tabular}{@{}l@{\hspace{0.55cm}}l@{}}
+      value & $v_1$\\[0.1cm] reward & $r_1$\\[0.1cm] discount & $\gamma_1$\end{tabular}};
+    \node[emit] (v2) at ( 14.8,-13.4) {\begin{tabular}{@{}l@{\hspace{0.55cm}}l@{}}
+      value & $v_2$\\[0.1cm] reward & $r_2$\\[0.1cm] discount & $\gamma_2$\end{tabular}};
+
+    \foreach \k in {0,1,2}{ \draw[outarr] (s\k.south) -- (v\k.north); }
 
     % --- one prediction per planning depth ---
-    \node[depth] (p0) at (-14.8,-19.9) {depth 0\\[0.1cm]$g^{(0)}=v_0$};
-    \node[depth] (p1) at (  0.0,-19.9) {depth 1\\[0.1cm]$g^{(1)}=r_0+\gamma_0 v_1$};
-    \node[depth] (p2) at ( 14.8,-19.9) {depth 2\\[0.1cm]$g^{(2)}=r_0+\gamma_0(r_1+\gamma_1 v_2)$};
+    \node[depth] (p0) at (-14.8,-19.5) {depth 0\\[0.1cm]$g^{(0)}=v_0$};
+    \node[depth] (p1) at (  0.0,-19.5) {depth 1\\[0.1cm]$g^{(1)}=r_0+\gamma_0 v_1$};
+    \node[depth] (p2) at ( 14.8,-19.5) {depth 2\\[0.1cm]$g^{(2)}=r_0+\gamma_0(r_1+\gamma_1 v_2)$};
 
     \foreach \k in {0,1,2}{ \draw[outarr] (v\k.south) -- (p\k.north); }
 
@@ -205,33 +219,22 @@
     % --- adaptive mixture ---
     \node[rounded corners=9pt,draw=CornellRed,line width=2.5pt,fill=CornellDark,
           text=white,minimum width=41cm,minimum height=5.4cm,align=center,
-          font=\fontsize{34}{41}\selectfont\bfseries] (blend) at (0,-26.1)
+          font=\fontsize{34}{41}\selectfont\bfseries] (blend) at (0,-25.3)
           {Adaptive mixture over planning depths\\[0.3cm]
            $\displaystyle g_\lambda=\sum_{k=0}^{K} w_k\,g^{(k)}$};
 
-    \foreach \x in {-14.8, 0, 14.8}{
-      \draw[arr] (\x,-22.0) -- (\x,-23.4);
-    }
+    \foreach \k in {0,1,2}{ \draw[arr] (p\k.south) -- ++(0,-1.0); }
   \end{tikzpicture}
   \end{center}
 
-  \figcaption{Latent planning architecture. Adapted from Silver, D., Hasselt, H.,
-  Hessel, M., Schaul, T., Guez, A., Harley, T., \& Degris, T. (2017, July).
-  The predictron: End-to-end learning and planning. In \textit{International
-  Conference on Machine Learning} (pp. 3191--3199). PMLR.}
+  \figcaption{Latent planning architecture, adapted from Silver et al.~[1].}
 
-  \vspace{0.95cm}
+  \vspace{0.4cm}
 
   \begin{columns}[t,totalwidth=\linewidth]
     \begin{column}{0.48\linewidth}
       \blockhead{Predictron}
       {\fontsize{31}{39}\selectfont\justifying
-      $k$-Step Preturn:
-        \begin{equation}
-          g^k = r^1 + \gamma^1 \left( r^2 + \gamma^2 \left( \dots + \gamma^{k-1}(r^k + \gamma^k v^k) \dots \right)\right)
-        \end{equation}
-      \vspace{0.5cm}
-
       $\lambda$-Preturn:
         \begin{equation}
           g^\lambda = \sum_{k=0}^{K} w_k g^k
@@ -240,13 +243,6 @@
         \begin{equation}
           w^k = \begin{cases} (1-\lambda^k) \prod_{j=0}^{k-1} \lambda^j & \text{if } k < K \\ \prod_{j=0}^{K-1} \lambda^j & \text{if } k = K \end{cases}
         \end{equation}
-      \vspace{0.5cm}
-
-      Backward Accumulation Sweep:
-        \begin{equation}
-          g^{k,\lambda} = (1-\lambda^k)v^k + \lambda^k \left( r^{k+1} + \gamma^{k+1} g^{k+1,\lambda} \right)
-        \end{equation}
-      \vspace{0.5cm}
 
       \par}
     \end{column}
@@ -257,39 +253,98 @@
         \begin{equation}
           L^{0:K} = \frac{1}{2K} \sum_{k=0}^K \left\Vert{} \mathbb{E}_p[g \mid s] - \mathbb{E}_m[g^k \mid s] \right\Vert{}^2
         \end{equation}
-        \vspace{0.5cm}
-        \begin{equation}
+          \begin{equation}
           L^\lambda = \frac{1}{2} \left\Vert{} \mathbb{E}_p[g \mid s] - \mathbb{E}_m[g^\lambda \mid s] \right\Vert{}^2
-        \end{equation}
-        \vspace{0.5cm}
-        \begin{equation}
-          L_{\text{cons}} = \frac{1}{2} \sum_{k=0}^K \left\Vert{} \mathbb{E}_m[g^\lambda \mid s] - \mathbb{E}_m[g^k \mid s] \right\Vert{}^2
         \end{equation}
       \par}
 
     \end{column}
   \end{columns}
 
-  \vspace{1.1cm}
+  \vspace{0.3cm}
 
-  \sectionhead{Experimental pipeline}
-  \begin{center}
-  \begin{tikzpicture}[
-    box/.style={rounded corners=7pt,draw=CornellRule,line width=1.8pt,fill=white,
-                minimum width=10.0cm,minimum height=5.2cm,text width=8.8cm,
-                align=center,font=\fontsize{28}{35}\selectfont},
-    arr/.style={-{Latex[length=5.5mm,width=3.4mm]},line width=2.4pt,draw=CornellRed}
-  ]
-    % Line breaks are explicit so the labels never hyphenate.
-    \node[box] (data)   at (-18.0,0) {Trajectory data};
-    \node[box] (latent) at ( -6.0,0) {Latent planning\\model};
-    \node[box] (probe)  at (  6.0,0) {Frozen evaluation\\probe};
-    \node[box] (metric) at ( 18.0,0) {Event / duration\\metric};
-    \draw[arr] (data)--(latent);
-    \draw[arr] (latent)--(probe);
-    \draw[arr] (probe)--(metric);
-  \end{tikzpicture}
-  \end{center}
+  \sectionhead{JESA: joint embedding successor architecture}
+
+  \begin{columns}[t,totalwidth=\linewidth]
+    \begin{column}{0.40\linewidth}
+      {\fontsize{32}{40}\selectfont\justifying
+      JESA trains the predictron against a \emph{separate} base encoder $\phi$ rather
+      than against pixels: the model rolls its own latent forward one step and
+      regresses onto $\phi(o_{t+1})$. The hatched arrow marks where the gradient is
+      cut, which keeps the two branches from collapsing onto a constant
+      embedding.\par}
+    \end{column}
+
+    \begin{column}{0.57\linewidth}
+      % Commutative square: observations across the top, latents across the
+      % bottom. The right-hand branch carries the stop-gradient hatch.
+      \begin{center}
+      \begin{tikzpicture}[
+        scale=0.62,transform shape,
+        obs/.style={circle,draw=CornellRed,line width=2.5pt,fill=CornellPale,
+                    minimum size=4.4cm,align=center,
+                    font=\fontsize{30}{36}\selectfont},
+        lat/.style={rounded corners=7pt,draw=CornellRed,line width=2.5pt,fill=white,
+                    minimum width=9.0cm,minimum height=3.6cm,align=center,
+                    font=\fontsize{28}{34}\selectfont},
+        tgt/.style={rounded corners=7pt,draw=CornellGray,line width=2.5pt,
+                    fill=CornellPale,minimum width=9.0cm,minimum height=3.6cm,
+                    align=center,font=\fontsize{28}{34}\selectfont},
+        arr/.style={-{Latex[length=5.5mm,width=3.4mm]},line width=2.4pt,draw=CornellRed},
+        lab/.style={font=\fontsize{27}{33}\selectfont,text=CornellInk},
+        glab/.style={font=\fontsize{23}{28}\selectfont,text=CornellGray,align=center}
+      ]
+        \node[obs] (o0) at ( 0,0)  {$o_t$};
+        \node[obs] (o1) at (14,0)  {$o_{t+1}$};
+        \node[lat] (s0) at ( 0,-9) {$s_t$};
+        \node[tgt] (z1) at (14,-9) {$\phi(o_{t+1})$};
+
+        \draw[arr] (o0) -- node[lab,above=0.18cm] {$a_t$} (o1);
+        \draw[arr] (o0) -- node[lab,left=0.22cm] {$f_\theta$} (s0);
+        \draw[arr] (o1) -- node[lab,right=0.22cm] {$\phi$} (z1);
+        \draw[arr] (s0) -- node[lab,above=0.18cm] {$m_\theta$} (z1);
+
+        % Stop-gradient hatch on the target branch.
+        \draw[line width=2.4pt,draw=CornellRed] (13.3,-4.95) -- (14.7,-4.25);
+        \draw[line width=2.4pt,draw=CornellRed] (13.3,-5.45) -- (14.7,-4.75);
+
+      \end{tikzpicture}
+      \end{center}
+      {\fontsize{29}{36}\selectfont
+      \begin{equation*}
+        \mathcal{L}_{\mathrm{JESA}}=\mathbb{E}\Big\lVert\,\phi(s_0)-
+        \sum_{t=0}^{\infty}\gamma^{t}\,\phi(s_{t+1})\Big\rVert^{2}
+      \end{equation*}}
+      \figcaption{JESA as a commutative square; the hatched arrow is the
+      stop-gradient.}
+    \end{column}
+  \end{columns}
+
+  \vspace{0.3cm}
+
+  \sectionhead{Kernels and reconstruction}
+
+  {\fontsize{31}{39}\selectfont\justifying
+  Written with a general kernel $k$, the return is
+  \vspace{-0.2cm}
+  \begin{equation*}
+    G_k=\int_{0}^{\infty} k(t)\,r(t)\,\mathrm{d}t ,
+  \end{equation*}
+  so the familiar discounted return is the exponential choice $k(t)=e^{-t/\tau}$. How
+  faithfully the event train reconstructs from a \emph{bank} of such returns depends
+  on the kernel shape.\par}
+
+  \vspace{0.25cm}
+
+  \begin{columns}[t,totalwidth=\linewidth]
+    \begin{column}{0.48\linewidth}
+      \figslot{kernels-uniform.png}{13.5}
+    \end{column}
+    \begin{column}{0.48\linewidth}
+      \figslot{kernels-gaussian.png}{13.5}
+    \end{column}
+  \end{columns}
+
 
 \end{column}
 
@@ -300,68 +355,53 @@
   {\fontsize{29}{36}\selectfont\justifying
   Motivate the problem in 3--5 sentences. State why it matters and what gap
   your work fills.\par}
-  \vspace{0.95cm}
+  \vspace{0.5cm}
   {\fontsize{29}{36}\selectfont
   \begin{posteritemize}
     \item Key point one
     \item Key point two
   \end{posteritemize}}
 
-  \vspace{1.2cm}
+  \vspace{0.6cm}
 
-  \sidehead{Markov reward process (MRP)}
-  {\fontsize{29}{36}\selectfont
-  An MRP is defined by:
-  \begin{equation}
-    s',\, r,\, \gamma = p(s,\alpha)
-  \end{equation}
-  \vspace{-0.35cm}
-  \begin{posteritemize}
-    \item $s'$: Next state
-    \item $r$: Reward
-    \item $\gamma$: Discount factor
-  \end{posteritemize}}
+  \sidehead{Why joint embedding?}
 
-  \vspace{0.8cm}
-
-  Value function of an MRP $p$: the expected return from
-state $s$
-  \begin{equation}
-    v_{p}(s) = E_{p} [g_{t} | s_{t} = s]
-  \end{equation}
-  
-  \begin{equation}
-    v_{p}(s) = E_{p} [r+\gamma v_{p}(s') | s]
-  \end{equation}
-
-  \vspace{1.2cm}
-
-  \sidehead{Equations}
-  {\fontsize{29}{36}\selectfont
-  \begin{equation}
-    \hat{y} = \arg\max_{y} \; p(y \mid x; \theta)
-  \end{equation}}
-
-  \vspace{1.2cm}
-
-  \sidehead{Results}
   \begin{center}
-  {\fontsize{28}{35}\selectfont
-  \renewcommand{\arraystretch}{1.35}
-  \begin{tabular}{lcc}
-    \toprule
-    Method & Accuracy & F1 \\
-    \midrule
-    Baseline & 0.812 & 0.795 \\
-    \textbf{Ours} & \textbf{0.904} & \textbf{0.891} \\
-    \bottomrule
-  \end{tabular}}
+  \figslot{phi-embedding.png}{9}
   \end{center}
-  \vspace{0.3cm}
-  {\fontsize{24}{30}\selectfont\color{CornellGray}
-   \textbf{Table 1:} Comparison on the test set.\par}
+  \figcaption{Base-encoder embeddings $\phi(s)$ over a maze (hue $=$ embedding angle,
+  value $=\lvert\phi\rvert$), with the PCA projection alongside.}
 
-  \vspace{1.2cm}
+  \vspace{0.5cm}
+  {\fontsize{27}{34}\selectfont\justifying
+  $\phi$ is trained with \textbf{contrastive successor features} (CSF), the mutual
+  information skill learning (MISL) objective of Zheng et al.~[2]. MISL maximises the
+  empowerment-style mutual information between states and skills,\par}
+  \vspace{0.1cm}
+  {\fontsize{24}{30}\selectfont
+  \begin{equation*}
+    I(s;z)=\underbrace{H(z)}_{\text{skill diversity}}
+           -\underbrace{H(z\mid s)}_{\text{identifiability}},
+  \end{equation*}}
+  \vspace{-0.2cm}
+  {\fontsize{27}{34}\selectfont\justifying
+  which organises the embedding by long-horizon reachability rather than by
+  appearance.\par}
+
+  \vspace{0.6cm}
+
+  \sidehead{Successor features $\psi(s,z)$}
+  \begin{center}
+  \figslot{psi-successor-features.png}{14.5}
+  \end{center}
+  \figcaption{$\psi(s,z)$ per canonical $z$ (rows): maze colouring, PCA, rollouts.}
+  \vspace{0.4cm}
+  {\fontsize{27}{34}\selectfont\justifying
+  Each $z$ induces its own field
+  $\psi(s,z)=\mathbb{E}\big[\sum_k \gamma^k\phi(s_k)\mid s_0=s,z\big]$: a fixed $z$
+  traces a coherent long-horizon path.\par}
+
+  \vspace{0.6cm}
 
   \sidehead{Conclusions}
   {\fontsize{29}{36}\selectfont
@@ -370,14 +410,15 @@ state $s$
     \item Limitation and future work
   \end{posteritemize}}
 
-  \vspace{1.2cm}
+  \vspace{0.6cm}
 
   \sidehead{References}
   {\fontsize{25}{31}\selectfont\justifying
-  [1] Silver, D., Hasselt, H.,
-  Hessel, M., Schaul, T., Guez, A., Harley, T., \& Degris, T. (2017, July).
-  The predictron: End-to-end learning and planning. In \textit{International
-  Conference on Machine Learning} (pp. 3191--3199). PMLR.\par}
+  [1] Silver, D., et al. (2017). The predictron: End-to-end learning and planning.
+  \textit{ICML}, 3191--3199.\par
+  \vspace{0.35cm}
+  [2] Zheng, C., Tuyls, J., Peng, J., \& Eysenbach, B. (2025). Can a MISL fly?
+  Analysis and ingredients for mutual information skill learning. \textit{ICLR}.\par}
 
 \end{column}
 \end{columns}

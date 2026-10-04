@@ -22,7 +22,7 @@ import xml.etree.ElementTree as ET
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 DECK = os.environ.get('DECK_PATH') or os.path.join(ROOT, 'AI_Safety_and_Existential_Risk.pptx')
 SOFFICE = '/root/.claude/skills/synced/ceb39289-bb87-46dd-a0b0-6166f033cec2_ce7dbb7b-a240-4473-b2d0-1ddff77530c0/pptx/scripts/office/soffice.py'
-DEFAULT_DOWNLOAD = 'https://github.com/william590y/poster/raw/main/ai-safety-presentation/AI_Safety_and_Existential_Risk.pptx'
+DEFAULT_DOWNLOAD = 'https://github.com/william590y/poster/releases/download/ai-safety-deck/AI_Safety_and_Existential_Risk.pptx'
 
 NS = {
     'p': 'http://schemas.openxmlformats.org/presentationml/2006/main',

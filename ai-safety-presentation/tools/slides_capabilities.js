@@ -4,6 +4,7 @@
 const path = require('path');
 const fs = require('fs');
 const sharp = require('sharp');
+const { execFileSync } = require('child_process');
 const { HEX, MX, A, imgSize, fit } = require('./lib');
 
 const R = (f) => A('research', 'capabilities', f);
@@ -601,81 +602,151 @@ async function closeupSlide(d) {
   return s;
 }
 
-// ---------------------------------------------------------------- 5. creative collage
-async function creativeSlide(d) {
+// ---------------------------------------------------------------- 5. creative: tool-made work (GIFs from the creators' own clips)
+// High-quality looping GIF from a real clip (trim / speed-up / crop / scale only), cached under assets/slides/capabilities/media.
+// poster = a time (s) in the source whose frame is shown first for holdStart s — always the clip's OWN finished frame, so
+// static previews/PDF exports show the result instead of a blank canvas; the loop then replays the clip in order.
+const CR = (f) => R(`rev2/creative/${f}`);
+function makeGif(name, { src, ss = 0, to, speed = 1, crop: cr, width, fps = 15, holdStart = 0, holdEnd = 0, poster = null, stats = 'full' }) {
+  const out = path.join(OUT, 'media', name);
+  if (fs.existsSync(out)) return out;
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  const vf = [cr ? `crop=${cr}` : null, `scale=${width}:-2:flags=lanczos`, 'setsar=1', 'format=rgb24'].filter(Boolean).join(',');
+  const args = ['-v', 'error', '-y', '-ss', String(ss)];
+  if (to !== undefined) args.push('-to', String(to));
+  args.push('-i', src);
+  let fc = `[0:v]setpts=(PTS-STARTPTS)/${speed},fps=${fps},${vf},settb=1/${fps}[seg];`;
+  let last = 'seg';
+  if (poster !== null) {
+    const pf = out.replace(/\.gif$/, '-poster.png');
+    execFileSync('ffmpeg', ['-v', 'error', '-y', '-ss', String(poster), '-i', src, '-frames:v', '1', pf]);
+    args.push('-loop', '1', '-framerate', String(fps), '-t', String(holdStart), '-i', pf);
+    fc += `[1:v]fps=${fps},${vf},settb=1/${fps}[p];[p][seg]concat=n=2:v=1:a=0[c];`;
+    last = 'c';
+  } else if (holdStart) { fc += `[seg]tpad=start_mode=clone:start_duration=${holdStart}[c];`; last = 'c'; }
+  if (holdEnd) { fc += `[${last}]tpad=stop_mode=clone:stop_duration=${holdEnd}[e];`; last = 'e'; }
+  fc += `[${last}]split[a][b];[a]palettegen=stats_mode=${stats}[pal];[b][pal]paletteuse=dither=sierra2_4a`;
+  args.push('-filter_complex', fc, '-loop', '0', out);
+  execFileSync('ffmpeg', args, { stdio: 'inherit' });
+  execFileSync('gifsicle', ['-b', '-O3', out]);
+  return out;
+}
+
+// Dark caption band across the bottom of a media tile: tool line (caps, coloured) + one-line fact.
+function band(d, s, g, tool, fact, { h = 0.52, toolColor = 'FF8A8C' } = {}) {
+  const b = d.name('band');
+  s.addShape(d.pres.shapes.RECTANGLE, { x: g.x, y: g.y + g.h - h, w: g.w, h, fill: { color: '0A0C10', transparency: 22 }, line: { color: '0A0C10', width: 0, transparency: 100 }, objectName: b });
+  const t = d.text(s, [
+    { text: tool, options: { fontSize: 9.5, bold: true, color: toolColor, charSpacing: 1, breakLine: true } },
+    { text: fact, options: { fontSize: 11.5, color: 'FFFFFF' } },
+  ], { x: g.x + 0.12, y: g.y + g.h - h + 0.03, w: g.w - 0.24, h: h - 0.06, valign: 'middle' });
+  return [b, t];
+}
+
+async function tile(d, s, file, box, tool, fact, opts = {}) {
+  const fr = await d.frame(s, file, box, { border: false, pad: 0 });
+  return [...fr, ...band(d, s, fr.geom, tool, fact, opts)];
+}
+
+// ---- 5a. drawing & painting, stroke by stroke
+async function paintSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  s.addText(`${KICK} · CREATIVITY · 2`, { placeholder: 'kicker' });
-  s.addText('Machines now draw, design and build worlds', { placeholder: 'title' });
+  s.addText(`${KICK} · CREATIVITY · 3`, { placeholder: 'kicker' });
+  s.addText('Machines now draw and paint, stroke by stroke', { placeholder: 'title' });
 
-  // three columns with equal 0.45" gutters, spanning the full content width; the fact sheet's width is set by its height
-  const top = 1.78, G = 0.45, W1 = 4.33, W2 = 3.9, W3 = CW - W1 - W2 - 2 * G;
-  const x2 = MX + W1 + G, x3 = x2 + W2 + G;
+  const jug = makeGif('stillwet-opus55-jug.gif', { src: CR('video/stillwet-opus55-jug-replay-1920.mp4'), ss: 0, to: 20.08, speed: 1.35, width: 1100, holdStart: 1.0, holdEnd: 2.5 });
+  const notes = makeGif('viticci-astra-apple-notes.gif', { src: CR('video/viticci-astra-draws-portrait-apple-notes.mp4'), ss: 0, to: 179.8, speed: 15, crop: '1107:830:500:100', width: 960, poster: 179.6, holdStart: 1.5, holdEnd: 2.0 });
+  const robot = makeGif('thijs-astra-robot-paints.gif', { src: CR('video/thijs-astra-robot-paints-golden-gate-1080p.mp4'), ss: 19.5, to: 68.1, speed: 4, width: 960, poster: 67.9, holdStart: 1.5, holdEnd: 1.5 });
+  const duel = makeGif('fateev-astra-vs-fable-paint.gif', { src: CR('video/fateev-astra-vs-fable51-ms-paint-1080p.mp4'), ss: 0, to: 43.1, speed: 3, width: 960, poster: 43.0, holdStart: 1.2, holdEnd: 2.0 });
 
-  // col 1: heron progression (user original, its tiny caption strips cropped off) + Register headline
+  // hero: Claude Opus 5.5 painting in a simulated oil-paint engine (stillwet.art)
+  const hw = 4.6, hh = hw * 0.8, top = 1.78;
+  const hero = await d.frame(s, jug, { x: MX, y: top, w: hw, h: hh }, { border: false, pad: 0 });
+  const hg = hero.geom;
+  const hc = chip(d, s, 'CLAUDE OPUS 5.5 · SIMULATED OIL PAINT', hg.x + 0.1, hg.y + 0.1, 3.55, { h: 0.3, fontSize: 10 });
+  const hcap = d.text(s, [
+    { text: 'Every brushstroke is written as code and laid down by a simulation of wet oil paint — ', options: { color: d.S.txt } },
+    { text: '“No image generator.”', options: { color: d.S.txt, bold: true, italic: true, breakLine: true } },
+    { text: 'stillwet.art · a 69-minute session, replayed from its log · Sep 27, 2026', options: { color: d.S.muted, fontSize: 11 } },
+  ], { x: MX, y: hg.y + hg.h + 0.1, w: hw, h: 6.5 - (hg.y + hg.h + 0.1), fontSize: 13.5, valign: 'top' });
+
+  // right: 2 × 2 grid
+  const gx = MX + hw + 0.35, G = 0.18, cw = (12.73 - gx - G) / 2;
+  const r1h = cw * 0.75, r2y = top + r1h + 0.16, r2h = cw * 9 / 16;
+  // the user's heron drawings (a model refining its own pencil drawing, rounds 1-4)
   const hfile = await heronGrid();
-  const hnat = await imgSize(hfile);
-  const heron = await d.frame(s, hfile, { x: MX, y: top, w: W1, h: W1 * hnat.h / hnat.w }, { border: false, pad: 0 });
-  const hg = heron.geom, hs = hg.w / hnat.w;
-  const badges = HERON_TILES.flatMap(([, , , , cx, cy], i) => {
+  const heron = await d.frame(s, hfile, { x: gx, y: top, w: cw, h: r1h }, { border: false, pad: 0 });
+  const hgg = heron.geom, hnat = await imgSize(hfile), hs = hgg.w / hnat.w;
+  const badges = HERON_TILES.flatMap(([, , , , bx0, by0], i) => {
     const b = d.name('badge');
-    const bx = hg.x + cx * hs + 0.07, by = hg.y + cy * hs + 0.07;
-    s.addShape(d.pres.shapes.RECTANGLE, { x: bx, y: by, w: 0.26, h: 0.26, fill: { color: '161A22' }, line: { color: '161A22', width: 0 }, objectName: b });
-    return [b, d.text(s, String(i + 1), { x: bx, y: by, w: 0.26, h: 0.26, fontSize: 11, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle' })];
+    const bx = hgg.x + bx0 * hs + 0.06, by = hgg.y + by0 * hs + 0.06;
+    s.addShape(d.pres.shapes.RECTANGLE, { x: bx, y: by, w: 0.24, h: 0.24, fill: { color: '161A22' }, line: { color: '161A22', width: 0 }, objectName: b });
+    return [b, d.text(s, String(i + 1), { x: bx, y: by, w: 0.24, h: 0.24, fontSize: 10, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle' })];
   });
-  const hc = chip(d, s, 'PENCIL DRAWINGS BY A MODEL · ROUNDS 1 → 4', hg.x, hg.y + hg.h + 0.06, hg.w, { h: 0.28, fill: '161A22', transparency: 0, fontSize: 10 });
-  const reg = await d.frame(s, await crop(R('register-genie-gamedev.png'), 'register-genie.png', { l: 28, t: 6, w: 2010, h: 348 }), { x: MX, y: 5.68, w: W1, h: 0.8 }, { rot: -1.5, align: 'left' });
+  const heronB = band(d, s, hgg, 'PENCIL · ROUNDS 1 → 4', 'A model redraws a heron, refining its own strokes');
+  const noteT = await tile(d, s, notes, { x: gx + cw + G, y: top, w: cw, h: r1h }, 'GPT-6 ASTRA · APPLE NOTES ON A MAC', 'Draws a portrait with the mouse, then colours it');
+  const robotT = await tile(d, s, robot, { x: gx, y: r2y, w: cw, h: r2h }, 'GPT-6 ASTRA · ROBOT ARM, REAL PAINT', 'Teaches itself to paint the Golden Gate');
+  const duelT = await tile(d, s, duel, { x: gx + cw + G, y: r2y, w: cw, h: r2h }, 'COMPUTER USE · MS PAINT', 'GPT-6 Astra vs Claude Fable 5.1, same photo');
 
-  // col 2: GPT Image 2.5 cow (public domain) + Genie 3 world
-  const cow = await d.frame(s, R('commons-gptimage25-cow-ufo.png'), { x: x2, y: top, w: W2, h: W2 * 960 / 1280 }, { border: false, pad: 0 });
-  const cg = cow.geom;
-  const cc = d.text(s, [
-    { text: 'GPT Image 2.5 · Sep 2026 · ', options: { bold: true, color: d.S.txt } },
-    { text: 'prompt: “1960’s art of cow getting abducted by UFO in midwest”', options: { color: d.S.muted } },
-  ], { x: cg.x, y: cg.y + cg.h + 0.05, w: cg.w, h: 0.4, fontSize: 10.5, valign: 'top' });
-  // a wide strip of the generated world (temple ruin, vines, palms) above the page's wordmark — no page text or buttons;
-  // shown smaller than its source and contrast-stretched to undo the page's dark scrim
-  const gfile = path.join(OUT, 'genie3-world.png');
-  await sharp(R('gdm-genie3-hero.png')).extract({ left: 560, top: 60, width: 1760, height: 507 }).resize({ width: 1170 })
-    .normalise({ lower: 1, upper: 99 }).sharpen({ sigma: 0.8 }).toFile(gfile);
-  const gnat = await imgSize(gfile);
-  const gy = cg.y + cg.h + 0.05 + 0.4 + 0.18;
-  const genie = await d.frame(s, gfile, { x: x2, y: gy, w: W2, h: W2 * gnat.h / gnat.w }, { border: false, pad: 0 });
-  const gg = genie.geom;
-  const gc = chip(d, s, 'GENIE 3 · A PROMPT BECOMES A WORLD', gg.x + 0.08, gg.y + gg.h - 0.08 - 0.27, 3.08, { h: 0.27, fontSize: 10 }); // over the foliage
-
-  // col 3: Hercules fact sheet (public domain) + zoom on panel 12 (Cerberus)
-  const HERC = R('commons-chatgpt-hercules-factsheet.png');
-  const herc = await d.frame(s, HERC, { x: x3, y: top, w: W3, h: W3 * 1357 / 960 }, { border: false, pad: 0 });
-  const kg = herc.geom;
-  const kcap = d.text(s, [
-    { text: 'ChatGPT · Sep 2026 · ', options: { bold: true, color: d.S.txt } },
-    { text: 'prompt: “Create a fact sheet on the twelve labours of Hercules”', options: { color: d.S.muted } },
-  ], { x: kg.x, y: kg.y + kg.h + 0.05, w: kg.w, h: 0.4, fontSize: 10.5, valign: 'top' });
-  const zb = { l: 730, t: 932, w: 190, h: 176 }; // panel 12 artwork only (below the "12" badge), in the 960×1357 source
-  const ks = kg.w / 960;
-  const p12 = d.name('p12');
-  s.addShape(d.pres.shapes.RECTANGLE, { x: kg.x + zb.l * ks, y: kg.y + zb.t * ks, w: zb.w * ks, h: zb.h * ks, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 2 }, objectName: p12 });
-  const zw = 1.5, zh = (zw - 0.1) * zb.h / zb.w + 0.1;
-  const zoom = await d.frame(s, await crop(HERC, 'hercules-cerberus.png', zb), { x: kg.x + 0.1, y: kg.y + kg.h - zh - 0.62, w: zw, h: zh }, { pad: 0.05, frameColor: HEX.red });
-  const zg = zoom.geom;
-  // inside the fact sheet's width, so the column gutter stays clear
-  const kc = chip(d, s, 'SPOT THE ERROR: FOUR-HEADED CERBERUS', kg.x + 0.05, zg.y + zg.h + 0.05, kg.w - 0.1, { h: 0.3, fontSize: 10, fill: HEX.red, transparency: 0, charSpacing: 0 });
-
-  d.animate(s, [...heron, ...badges, ...hc], { auto: true, effect: 'fade', dur: 600 });
-  d.animate(s, [...cow, cc], { effect: 'fade' });
-  d.animate(s, [...herc, kcap], { effect: 'fade' });
-  d.animate(s, [p12, ...zoom, ...kc], { effect: 'zoom', dur: 450 });
-  d.animate(s, [...genie, ...gc], { effect: 'fade' });
-  d.animate(s, [...reg], { effect: 'slam', dur: 450 });
-  d.source(s, 'Images: user original (heron) · Wikimedia Commons, public domain (GPT Image 2.5 and ChatGPT, Sep 2026) · Google DeepMind, Genie 3 page (Oct 2026) · The Register, Jan 29, 2026.');
+  d.animate(s, [...hero, ...hc], { auto: true, effect: 'fade', dur: 600 });
+  d.animate(s, [hcap], { auto: true, effect: 'fade', dur: 500, after: 200 });
+  d.animate(s, [...heron, ...badges, ...heronB], { effect: 'fade' });
+  d.animate(s, noteT, { auto: true, effect: 'fade', after: 150 });
+  d.animate(s, robotT, { effect: 'fade' });
+  d.animate(s, duelT, { auto: true, effect: 'fade', after: 150 });
+  d.source(s, 'stillwet.art (Sep 27, 2026) · user original (heron) · X: Federico Viticci (Sep 4), thijs @cdngdev (Sep 8), Alexey Fateev (Sep 5, 2026). Clips trimmed and sped up.');
   s.addNotes([
-    'MESSAGE: creative work — drawing, illustration, design, video, music, playable 3-D worlds — is no longer a human-only domain.',
-    'Heron (user original, assets/original/image4.png): four successive pencil drawings made by a model iteratively refining its own technique ("Final 1" → "Final 4"; the labelled error falls from 6.34 to 3.37 as it adds close-up passes and tone-following pressure). On the slide the tiny caption strip under each drawing is cropped off and replaced by the numbers 1–4 (= Final 1–4); say the error figures aloud if useful.',
-    'Cow: generated with GPT Image 2.5 (ChatGPT Images 2.5, released Sep 8, 2026) from the 10-word prompt "1960\'s art of cow getting abducted by UFO in midwest". Wikimedia Commons, uploaded by Karl432 to show progress in image generation; license: public domain (CC0 + PD-algorithm tags on the Commons file page, checked Oct 4, 2026). https://commons.wikimedia.org/wiki/File:1960%27s_art_of_cow_getting_abducted_by_UFO_in_midwest_(GPT_Image_2.5_September_2026).png',
-    'Hercules fact sheet: generated from the one-line prompt "Create a fact sheet on the twelve labours of Hercules" (ChatGPT, Sep 2026; the Commons file page lists the author field as "GPT Image 2.5", but the manifest only records ChatGPT, so say "ChatGPT"). Fully designed, legible text — but note the error: the "three-headed Cerberus" has four heads (red inset = panel 12 enlarged from the same image). Wikimedia Commons, public domain (CC0 + PD-algorithm tags, checked Oct 4, 2026). https://commons.wikimedia.org/wiki/File:AI_generated_fact_sheet_on_the_Twelve_labours_of_Hercules_(ChatGPT_September_2026).png . Related: TechCrunch, Apr 21, 2026, "ChatGPT\'s new Images 2.0 model is surprisingly good at generating text."',
-    'Genie 3 (Google DeepMind world model; a strip of the official page\'s hero frame, cropped above the page\'s wordmark and contrast-stretched to offset the page\'s dark overlay, https://deepmind.google/models/genie/): turns prompts into explorable worlds; public "Project Genie" access launched Jan 29, 2026. The Register, Brandon Vigliarolo, Jan 29, 2026: "Google\'s Project Genie could put even more game developers out of work" — https://www.theregister.com/software/2026/01/29/googles-project-genie-turns-prompts-into-interactive-worlds/4186526 . (Bloomberg, Jan 30: "Unity, Video Game Stocks Fall as Google\'s AI Tool Sparks Fears" — headline via Wikipedia citation only.)',
-    'Not shown (space) — music: Variety, Corbin Bolies, Sep 18, 2026: "Sony Music, Universal Music Group Sue Suno Over Label-Backed Model: \'Fruit of the Same Poisoned Tree\'" (Suno v6 released Sep 9, 2026). https://variety.com/2026/music/news/sony-music-universal-music-sue-suno-label-backed-model-1236866921/',
-    'Video: Google\'s 2026 video model is Gemini Omni ("Create anything from any input – starting with video"; Gemini Omni 1.1 Flash, Aug 2026): https://deepmind.google/models/gemini-omni/ . Note OpenAI\'s Sora — the 2024 showpiece — was shut down in 2026 (app closed Apr 26, API Sep 24), so do not cite Sora as current.',
+    'MESSAGE: these are not image generators spitting out pixels — everyone has seen those. These are models using TOOLS the way a human artist does: picking a brush, laying down a stroke, looking, correcting. (In slideshow mode the clips animate; each opens on its own finished frame.)',
+    'HERO — Claude Opus 5.5 on stillwet.art: "Stoneware Jug with Two Lemons and a Knife", Round 16, "painted at a virtual easel, one passage at a time · 69-minute session". Site: "The model wrote every brushstroke as code and a simulation of oil paint carried them out, replayed here sped up. No image generator." and "Each one paints by writing a program against a simulation of oil paint on linen: bristle brushes, wet paint, drying, layered glazes. No image model is involved." Painters "never see a picture of his work" (they paint "after Caspar David Friedrich" from written research). Built by alice (@aliceisplaying), who posted it on X on Sep 28 ("canvas, brushes, paint, no undo, simulated drying etc.") and on Hacker News Oct 2 (Show HN, 378 points). https://stillwet.art/p/r16-c1.html · https://stillwet.art/ · https://x.com/aliceisplaying/status/2104672235093119196 . GIF = the site\'s replay (it opens on the finished painting), sped up 1.35×.',
+    'HERON (user original): four successive pencil drawings by a model iteratively refining its own technique ("Final 1" → "Final 4"; the labelled error falls from 6.34 to 3.37 as it adds close-up passes and tone-following pressure).',
+    'APPLE NOTES — Federico Viticci (MacStories), Sep 4, 2026: "I gave Astra a portrait of me. And I watched as it used Apple Notes on my Mac to draw me. This model feels incredible." The note\'s on-screen timestamps run from 12:39 AM to 1:38 AM (about an hour; our reading of the recording). Clip sped up 15×, cropped to the note. https://x.com/viticci/status/2096025249582039180',
+    'ROBOT ARM — thijs (@cdngdev), Sep 8, 2026: "i gave astra a robot, a paint brush, and a camera then asked it to paint the golden gate bridge in real life!" … "it figured out how to control the robot, and progressively got better throughout its attempts." Real acrylic on paper; attempts 01→04, ending on the line-up of all attempts. 4.97M views — the most-viewed post in our research; Sam Altman quote-posted it: "i want one!". Clip from 0:19, sped up 4×. https://x.com/cdngdev/status/2097339677128982873',
+    'MS PAINT — Alexey Fateev, Sep 5, 2026: he gave GPT-6 Astra and Claude Fable 5.1 the same photo and asked each to draw him in Paint via computer use (labels burned into the video; Astra left, Fable 5.1 right). A single creator test, not a benchmark (and the post itself contains profanity — don\'t read it out). 1.27M views. Sped up 3×. https://x.com/superalesha/status/2096323876623954108',
+    'Not found: no verified 2026 video of an agent painting in Krita or GIMP (only GitHub plugins exist), so these real recordings in Apple Notes, Paint and a physical robot stand in. Others we have (Q&A): Adobe\'s Kris Kashtanova, "Told GPT-6 Astra to draw me in @Photoshop" (Sep 5); taiyakisun: Astra colours his line art in Clip Studio Paint (3.15M views); Anthropic\'s Jake Eaton: Opus 5.5 paintings that are "a python program generated pixel by pixel. there is no image model" (Sep 22; company employee).',
+    'Why it matters for safety (one line): the same skill — operating real software and real machines from a goal — is what makes autonomous agents powerful. And "a screen recording of the drawing process used to be the strongest evidence an artist could offer" (explainx.ai, Sep 6) — that evidence no longer proves a human made it.',
+  ].join('\n\n'));
+  return s;
+}
+
+// ---- 5b. building worlds: Unreal, Blender, CAD, a whole game
+async function worldsSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  s.addText(`${KICK} · CREATIVITY · 4`, { placeholder: 'kicker' });
+  s.addText('…and build worlds in Blender, Unreal and CAD', { placeholder: 'title' });
+
+  const city = makeGif('shumer-astra-manhattan.gif', { src: CR('gif/shumer-astra-manhattan-unreal.gif'), width: 900 });
+  const train = makeGif('krcha-astra-steam-train.gif', { src: CR('video/krcha-astra-steam-train-blender-1920.mp4'), ss: 0, to: 10.5, speed: 1.2, crop: '1802:1014:60:62', width: 960, holdEnd: 1.0 });
+  const cad = makeGif('mecagent-astra-solidworks.gif', { src: CR('video/mecagent-astra-solidworks-turbofan-1080p.mp4'), ss: 0, to: 23.45, speed: 1.6, crop: '1682:946:42:66', width: 960, holdStart: 1.0, holdEnd: 1.5 });
+  const game = makeGif('emmtee-astra-paperroute.gif', { src: CR('gif/emmtee-astra-paperroute-gameplay.gif'), width: 900 });
+
+  const G = 0.24, cw = (CW - 2 * G) / 3, ch = cw * 9 / 16, y1 = 1.78, y2 = y1 + ch + 0.22;
+  const X = (i) => MX + i * (cw + G);
+  const t1 = await tile(d, s, city, { x: X(0), y: y1, w: cw, h: ch }, 'UNREAL ENGINE · GPT-6 ASTRA', 'Manhattan, built street by street “over a week”');
+  const t2 = await tile(d, s, train, { x: X(1), y: y1, w: cw, h: ch }, 'BLENDER · GPT-6 ASTRA', 'An old drawing → “3,295 fully editable” objects');
+  const t3 = await tile(d, s, cad, { x: X(2), y: y1, w: cw, h: ch }, 'SOLIDWORKS CAD · GPT-6 ASTRA', 'A turbofan, sketched and assembled (vendor demo)');
+  const t4 = await tile(d, s, game, { x: X(0), y: y2, w: cw, h: ch }, 'A COMPLETE 3-D GAME · GPT-6 ASTRA', '“Not a demo. A FINISHED, playable game.”');
+  // same person, same request, 56 days apart
+  const bat1 = await d.frame(s, CR('stills/ollivier-sol-bat-jul11-t101-fur-render.jpg'), { x: X(1), y: y2, w: cw, h: ch }, { border: false, pad: 0 });
+  const b1 = band(d, s, bat1.geom, 'BLENDER · JUL 11, 2026 · “SOL”', '“make me a realistic bat”', { toolColor: LIGHT });
+  const bat2 = await d.frame(s, CR('stills/ollivier-astra-bat-sep5-final-render.jpg'), { x: X(2), y: y2, w: cw, h: ch }, { border: false, pad: 0 });
+  const b2 = band(d, s, bat2.geom, 'BLENDER · SEP 5, 2026 · GPT-6 ASTRA', 'Same person, same request, 56 days later');
+  const cx = X(2) - G / 2, cy = y2 + ch / 2 - 0.2;
+  const dot = d.name('dot');
+  s.addShape(d.pres.shapes.OVAL, { x: cx - 0.42, y: cy - 0.42, w: 0.84, h: 0.84, fill: { color: HEX.red }, line: { color: '0A0C10', width: 2.5 }, shadow: { type: 'outer', color: '000000', blur: 10, offset: 3, angle: 90, opacity: 0.6 }, objectName: dot });
+  const dotT = d.text(s, [{ text: '56', options: { fontSize: 20, bold: true, breakLine: true } }, { text: 'DAYS', options: { fontSize: 8.5, bold: true, charSpacing: 1 } }], { x: cx - 0.42, y: cy - 0.36, w: 0.84, h: 0.72, color: 'FFFFFF', align: 'center', valign: 'middle', fontFace: 'Arial' });
+
+  [t1, t2, t3, t4].forEach((g, i) => d.animate(s, g, { auto: true, effect: 'fade', dur: 500, after: i === 0 ? 100 : 120 }));
+  d.animate(s, [...bat1, ...b1], { effect: 'fade' });
+  d.animate(s, [...bat2, ...b2, dot, dotT], { effect: 'fade' });
+  d.source(s, 'X posts: Matt Shumer (Sep 3), Tom Krcha (Sep 4), MecAgent (Sep 9), Emm Tee (Sep 12), Alix Ollivier (Jul 11 & Sep 5), 2026. Creator-reported claims; clips trimmed and sped up.');
+  s.addNotes([
+    'MESSAGE: since GPT-6 Astra launched (Sep 3, 2026) the internet has filled with models operating professional 3-D tools end to end — game engines, Blender, CAD — producing editable scenes, parts and whole games, not just pictures. Epic even built an MCP server into Unreal Engine 5.8 (June 2026) so agents "can drive the editor" (VP Land, Jun 24: "Unreal Engine 5.8 Embeds an MCP Server So AI Agents Can Drive the Editor").',
+    'UNREAL — Matt Shumer, Sep 3: "GPT-6 Astra built this Manhattan world in Unreal Engine over the course of a week. It was literally able to go street by street to make each one perfect." 4.62M views. CAVEAT from his own review: "Astra used existing assets, including MetaHuman characters, so it didn\'t create every object or person from scratch", and "Claude is still better at creating the visual pieces themselves." Shumer had early access. https://x.com/mattshumer_/status/2095609734845927525',
+    'BLENDER TRAIN — Tom Krcha, Sep 4: "I took an old drawing of a steam train, gave it to Astra to reconstruct it in Blender. After few minutes it crafted 3,295 fully editable detailed objects with beautiful geometry." (object count is creator-reported). 2.07M views. Note the reference drawing open next to the model. https://x.com/tomkrcha/status/2095756085890310311',
+    'CAD — MecAgent (an AI-for-CAD startup — a VENDOR DEMO of its own harness), Sep 9: "GPT-6 Astra on CAD (SolidWorks 2026) with the MecAgent harness." Sketches, revolves and patterns become nacelle, fan blades and core, assembled into a turbofan; the clip opens on the finished assembly. 469K views. https://x.com/MecAgent/status/2097676816592797816 . (Similar: adam\'s Onshape cutaway turbofan, 3.61M views, also a vendor. OpenAI reports Astra 95.9% on BenchCAD vs Claude Fable 5.1 84.3% — vendor-reported, Claude runs with modified settings.)',
+    'GAME — Emm Tee (@builtbysketch), Sep 12: "I spent 1.6 billion tokens building a full game with GPT-6 ASTRA. Not a demo. A FINISHED, playable game." PaperRoute, a Paperboy-style browser game, is live at https://www.paperroute.lol/ (loaded Oct 4). 3.45M views; token count creator-reported. https://x.com/builtbysketch/status/2098777028078211283',
+    'BATS — Alix Ollivier. Jul 11, 2026: "Just asked Sol to download Blender, set up the MCP, and make me a realistic bat…" → a plush-toy bat (left; the post only says "Sol", presumably GPT-5.6 Sol — don\'t assert). Sep 5: "I asked Astra to make a photorealistic bat in Blender, and it just kept going until I ran out of tokens." → the photoreal Cycles render (right). Same person, same request, 56 days apart. 3.79M views. https://x.com/aollivier82/status/2076042781647098092 · https://x.com/aollivier82/status/2096226819401801896',
+    'CAVEATS: these are showcases chosen by their creators (several had early access; some are vendors); nobody has independently checked the numbers (3,295 objects, 1.6B tokens, the week-long build). Viral clips are sometimes recycled — 36Kr (Jun 2026) reported a "Claude Fable 5 showcase" that "might be entirely handcrafted" — so every clip here is tied to its named creator\'s original post. Views as of Oct 4, 2026.',
   ].join('\n\n'));
   return s;
 }
@@ -1006,7 +1077,8 @@ async function build(d) {
   await hleSlide(d);
   await heroSlide(d);
   await closeupSlide(d);
-  await creativeSlide(d);
+  await paintSlide(d);
+  await worldsSlide(d);
   await videoSlide(d);
   await navierSlide(d);
   await headlinesSlide(d);

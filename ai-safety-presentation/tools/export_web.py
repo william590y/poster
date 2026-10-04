@@ -182,11 +182,11 @@ def matte(on_black, on_white):
 def render(pptx):
     """pptx -> list of 1920px PNG paths (one per listed slide), in a temp dir the caller removes."""
     tmp = tempfile.mkdtemp()
-    shutil.copy(pptx, os.path.join(tmp, 'deck.pptx'))
-    subprocess.run(['python3', SOFFICE, '--headless', '--convert-to', 'pdf', '--outdir', tmp, os.path.join(tmp, 'deck.pptx')],
+    subprocess.run(['python3', SOFFICE, '--headless', '--convert-to', 'pdf', '--outdir', tmp, pptx],
                    check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=1800)
-    subprocess.run(['pdftoppm', '-png', '-scale-to-x', '1920', '-scale-to-y', '-1', os.path.join(tmp, 'deck.pdf'),
-                    os.path.join(tmp, 's')], check=True)
+    pdf = os.path.join(tmp, os.path.splitext(os.path.basename(pptx))[0] + '.pdf')
+    subprocess.run(['pdftoppm', '-png', '-scale-to-x', '1920', '-scale-to-y', '-1', pdf, os.path.join(tmp, 's')], check=True)
+    os.remove(pdf)
     return tmp, sorted(glob.glob(os.path.join(tmp, 's-*.png')))
 
 
@@ -291,49 +291,54 @@ def main():
 
     # render slide images (full slides: thumbnails, posters and the base image of unlayered slides)
     from PIL import Image
-    tmp, pages = render(DECK)
-    assert len(pages) == len(slides), (len(pages), len(slides))
-    lay = [s for s in slides if s['part'] in layered]
-    base_pages, top_pages, tmps = {}, {}, [tmp]
-    if lay:
-        vdir = tempfile.mkdtemp(); tmps.append(vdir)
-        parts = [s['part'] for s in lay]
-        layers = {}
-        for kind, keep, bg in (('base', 0, None), ('black', 1, '000000'), ('white', 1, 'FFFFFF')):
-            xml = {p: layer_slide(z.read(p), layered[p][keep], layered[p][2], bg) for p in parts}
-            write_variant(z, os.path.join(vdir, kind + '.pptx'), set(parts), xml)
-            t, pg = render(os.path.join(vdir, kind + '.pptx'))
-            tmps.append(t)
-            assert len(pg) == len(parts), (kind, len(pg), len(parts))
-            layers[kind] = dict(zip(parts, pg))
-        base_pages = layers['base']
-        top_pages = {p: (layers['black'][p], layers['white'][p]) for p in parts}
-    for s, p in zip(slides, pages):
-        full = Image.open(p).convert('RGB')
-        base = Image.open(base_pages[s['part']]).convert('RGB') if s['part'] in base_pages else full
-        base.save(os.path.join(out, s['img']), 'JPEG', quality=90, optimize=True, progressive=True, subsampling=0)
-        if s['part'] in top_pages:
-            top = matte(*(Image.open(f) for f in top_pages[s['part']]))
-            bb = top.getchannel('A').getbbox()
-            if bb:
-                W, H = top.size
-                name = f'slides/top-{s["n"]:02d}.png'
-                top.crop(bb).save(os.path.join(out, name), optimize=True)
-                s['overlay'] = {'src': name, 'x': round(bb[0] / W, 5), 'y': round(bb[1] / H, 5),
-                                'w': round((bb[2] - bb[0]) / W, 5), 'h': round((bb[3] - bb[1]) / H, 5)}
-        # poster frames for embedded videos: crop the rendered cover from the slide image
-        for m in s['media']:
-            if m['kind'] == 'video':
-                W, H = full.size
-                box = (int(m['x'] * W), int(m['y'] * H), int((m['x'] + m['w']) * W), int((m['y'] + m['h']) * H))
-                pname = m['src'].rsplit('.', 1)[0] + '-poster.jpg'
-                full.crop(box).save(os.path.join(out, pname), 'JPEG', quality=88)
-                m['poster'] = pname
-        full.thumbnail((480, 270))
-        full.save(os.path.join(out, s['thumb']), 'JPEG', quality=82, optimize=True)
-        s.pop('part')
-    for t in tmps:
-        shutil.rmtree(t, ignore_errors=True)
+    tmps = []
+    try:
+        tmp, pages = render(DECK)
+        tmps.append(tmp)
+        assert len(pages) == len(slides), (len(pages), len(slides))
+        lay = [s for s in slides if s['part'] in layered]
+        base_pages, top_pages = {}, {}
+        if lay:
+            vdir = tempfile.mkdtemp(); tmps.append(vdir)
+            parts = [s['part'] for s in lay]
+            layers = {}
+            for kind, keep, bg in (('base', 0, None), ('black', 1, '000000'), ('white', 1, 'FFFFFF')):
+                xml = {p: layer_slide(z.read(p), layered[p][keep], layered[p][2], bg) for p in parts}
+                write_variant(z, os.path.join(vdir, kind + '.pptx'), set(parts), xml)
+                t, pg = render(os.path.join(vdir, kind + '.pptx'))
+                os.remove(os.path.join(vdir, kind + '.pptx'))
+                tmps.append(t)
+                assert len(pg) == len(parts), (kind, len(pg), len(parts))
+                layers[kind] = dict(zip(parts, pg))
+            base_pages = layers['base']
+            top_pages = {p: (layers['black'][p], layers['white'][p]) for p in parts}
+        for s, p in zip(slides, pages):
+            full = Image.open(p).convert('RGB')
+            base = Image.open(base_pages[s['part']]).convert('RGB') if s['part'] in base_pages else full
+            base.save(os.path.join(out, s['img']), 'JPEG', quality=90, optimize=True, progressive=True, subsampling=0)
+            if s['part'] in top_pages:
+                top = matte(*(Image.open(f) for f in top_pages[s['part']]))
+                bb = top.getchannel('A').getbbox()
+                if bb:
+                    W, H = top.size
+                    name = f'slides/top-{s["n"]:02d}.png'
+                    top.crop(bb).save(os.path.join(out, name), optimize=True)
+                    s['overlay'] = {'src': name, 'x': round(bb[0] / W, 5), 'y': round(bb[1] / H, 5),
+                                    'w': round((bb[2] - bb[0]) / W, 5), 'h': round((bb[3] - bb[1]) / H, 5)}
+            # poster frames for embedded videos: crop the rendered cover from the slide image
+            for m in s['media']:
+                if m['kind'] == 'video':
+                    W, H = full.size
+                    box = (int(m['x'] * W), int(m['y'] * H), int((m['x'] + m['w']) * W), int((m['y'] + m['h']) * H))
+                    pname = m['src'].rsplit('.', 1)[0] + '-poster.jpg'
+                    full.crop(box).save(os.path.join(out, pname), 'JPEG', quality=88)
+                    m['poster'] = pname
+            full.thumbnail((480, 270))
+            full.save(os.path.join(out, s['thumb']), 'JPEG', quality=82, optimize=True)
+            s.pop('part')
+    finally:
+        for t in tmps:
+            shutil.rmtree(t, ignore_errors=True)
     print('layered slides (shapes above clips):', [s['n'] for s in lay])
 
     size_mb = os.path.getsize(DECK) / 1e6

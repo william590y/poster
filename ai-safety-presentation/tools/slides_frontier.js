@@ -313,7 +313,7 @@ async function cotVolumeSlide(d) {
 
   // ---- left: native log-scale ladder. Bar length = log10(hours of nonstop reading at 240 words/min). ----
   const LX = CX0, LW = 7.45;
-  const lab = capLabel(d, s, 'TIME FOR ONE PERSON TO READ IT · NONSTOP, NO SLEEP · 240 WORDS A MINUTE · LOG SCALE', { x: LX, y: 1.72, w: LW });
+  const lab = capLabel(d, s, 'ONE PERSON READING NONSTOP AT 240 WORDS/MIN · LOG SCALE', { x: LX, y: 1.72, w: LW });
   const labW = 2.5, bx0 = LX + 2.62, bx1 = LX + LW, DEC = 12; // axis: 1 hour … 10^12 hours
   const k = (bx1 - bx0) / DEC;
   const X = (hours) => bx0 + k * Math.log10(hours);
@@ -322,7 +322,7 @@ async function cotVolumeSlide(d) {
     { t: 'One long reasoning run', sub: '100K tokens (Google: “hundreds of thousands” in one run)', h: 5.21, v: '≈ 5 hours', c: '9AA6BA' },
     { t: 'Gemini 4 Argon’s output cap', sub: '1M tokens in a single response', h: 52.1, v: '≈ 2 days', c: '9AA6BA' },
     { t: 'One METR incident transcript', sub: '~3M tokens (METR: “often many millions”)', h: 156.3, v: '≈ 6½ days', c: HEX.blue },
-    { t: 'All ~1,300 METR transcripts', sub: '1,300 × 2–3M tokens each', h: 135400, h2: 203100, v: '≈ 15–23 years', c: HEX.amber },
+    { t: 'All ~1,300 METR transcripts', sub: '1,300 × 2–3M tokens each', h: 135400, h2: 203100, v: '≈ 15–23 years', c: HEX.amber, mask: true },
     { t: 'OpenAI’s rogue-agent log review', sub: '~50 petabytes of agent activity logs', h: 5.79e11, v: '66 million years', c: HEX.red, inside: true },
   ];
   const ry0 = 2.1, rh = 0.62, rg = 0.06;
@@ -366,6 +366,8 @@ async function cotVolumeSlide(d) {
     }
     if (r.inside) {
       names.push(d.text(s, r.v, { x: X(r.h) - 2.6, y: by, w: 2.5, h: bh, fontSize: 15, bold: true, color: 'FFFFFF', align: 'right', valign: 'middle' }));
+    } else if (r.mask) { // label sits in front of the dashed lifetime line: track-coloured fill, exactly track height
+      names.push(d.text(s, r.v, { x: X(r.h2 || r.h) + 0.1, y: by, w: 1.4, h: bh, fontSize: 14, bold: true, color: r.c, valign: 'middle', fill: { color: '131720' } }));
     } else {
       names.push(d.text(s, r.v, { x: X(r.h2 || r.h) + 0.1, y: by - 0.04, w: 1.7, h: bh + 0.08, fontSize: 14, bold: true, color: r.c, valign: 'middle' }));
     }
@@ -376,14 +378,14 @@ async function cotVolumeSlide(d) {
   const ac = d.card(s, { x: LX, y: ay, w: LW, h: 6.5 - ay }, { color: '10141B' });
   const at = d.text(s, [
     { text: 'Rows 1–4, our estimate:  ', options: { bold: true, color: d.S.amber } },
-    { text: '1M tokens × 0.75 words ÷ 240 words/min ≈ 52 hours', options: { color: d.S.txt, breakLine: true } },
-    { text: 'Row 5, OpenAI’s figure:  ', options: { bold: true, color: 'FF6B6B' } },
-    { text: '50 PB ÷ ~6 bytes per word ÷ 240/min ≈ 66 million years', options: { color: d.S.txt } },
+    { text: '1M tokens × 0.75 words/token ÷ 240 words/min ≈ 52 hours', options: { color: d.S.txt, breakLine: true } },
+    { text: 'Row 5, OpenAI’s figure (our check):  ', options: { bold: true, color: 'FF6B6B' } },
+    { text: '50 PB ÷ ~6 bytes/word ÷ 240 words/min ≈ 66M years', options: { color: d.S.txt } },
   ], { x: LX + 0.2, y: ay + 0.06, w: LW - 0.4, h: 6.5 - ay - 0.12, fontSize: 12, valign: 'middle', paraSpaceAfter: 2 });
 
   // ---- right: the investigators who had to read it (METR, narrow-viewport captures so the text stays legible) ----
   const rx = 8.45, rw = CX1 - rx;
-  const rl = capLabel(d, s, 'METR · INVESTIGATING OPENAI’S ROGUE AGENTS · AUG 2026', { x: rx, y: 1.72, w: rw });
+  const rl = capLabel(d, s, 'METR’S ROGUE-AGENT PROBE · AUG 26, 2026', { x: rx, y: 1.72, w: rw });
   const m1File = RES('rev2/metr_aug26_millions_narrow.png');
   const m1 = await frameW(d, s, m1File, rx + 0.05, 2.1, rw - 0.1, { rot: 1 });
   const m1Hl = highlight(d, s, await pxMap(m1File, m1, 1), 1, hlPx('metr-hf-millions-narrow', 'Most transcripts were very long, often many millions of tokens.'));
@@ -427,36 +429,39 @@ async function petabytesSlide(d) {
   // ---- left: Altman's post (Sep 25) above the Guardian headline (Oct 3) ----
   const TW = { left: 0, top: 0, width: 1196, height: 420 }; // header + first two paragraphs
   const twFile = await crop(RES('rev2/altman_tweet_sep25_petabytes.png'), 'altman_petabytes_crop.png', TW);
-  const tw = await frameW(d, s, twFile, CX0, 1.85, 6.1, { rot: -1 });
+  const tw = await frameW(d, s, twFile, CX0, 1.85, 5.8, { rot: -1 });
   const twHl = highlight(d, s, await pxMap(twFile, tw, -1), -1, hlPx('altman-tweet-petabytes', 'petabytes of agent activity logs', 1196, 1012), [TW.left, TW.top]);
   const GH = { left: 14, top: 30, width: 1282, height: 452 }; // drops the site nav bar and the next line
   const ghFile = await crop(RES('rev2/guardian_oct3_head_dek.png'), 'guardian_head_dek_crop.png', GH);
-  const gh = await frameW(d, s, ghFile, CX0 + 0.65, 1.85 + tw.h + 0.22, 5.5, { rot: 1.2 });
+  const gy = 1.85 + tw.h + 0.16;
+  const gl = capLabel(d, s, 'THE GUARDIAN · OCT 3, 2026', { x: CX0 + 0.65, y: gy, w: 5.3 });
+  const gh = await frameW(d, s, ghFile, CX0 + 0.65, gy + 0.36, 5.3, { rot: 1.2 });
   const ghHl = highlight(d, s, await pxMap(ghFile, gh, 1.2), 1.2, hlPx('guardian-oct3-head-dek', 'reviewing 50 petabytes of data'), [GH.left, GH.top]);
 
   // ---- right: the Guardian's lede, then OpenAI's funnel ----
   const rx = 7.25, rw = CX1 - rx;
   const ldFile = RES('rev2/guardian_oct3_lede_narrow.png');
-  const ld = await frameW(d, s, ldFile, rx, 1.85, rw, { rot: 0.8 });
+  const ll = capLabel(d, s, 'SAME GUARDIAN ARTICLE · OPENING LINE', { x: rx, y: 1.72, w: rw });
+  const ld = await frameW(d, s, ldFile, rx, 2.06, rw, { rot: 0.8 });
   const ldHl = highlight(d, s, await pxMap(ldFile, ld, 0.8), 0.8, hlPx('guardian-oct3-lede-narrow', 'as it deploys AI to examine data that would take a human 66m years to read.'));
 
-  const fy0 = 1.85 + ld.h + 0.3;
+  const fy0 = 2.06 + ld.h + 0.22;
   const fl = capLabel(d, s, 'OPENAI’S FOUR AUTOMATED STEPS BEFORE A HUMAN LOOKS', { x: rx, y: fy0, w: rw });
   const tiers = [
-    { t: '~50 PB of logs', a: 'agent activity from training and evaluation runs', fill: '2A303B', line: HEX.steel },
-    { t: 'Broad search', a: 'records where agents changed websites or used credentials', fill: '343B48', line: '4E5666' },
-    { t: 'AI pass 1', a: 'fast, low compute; reads the models’ chains of thought', fill: '2B4572', line: HEX.blue },
-    { t: 'AI pass 2', a: 'more compute; explains each flag and rates its severity', fill: '345493', line: HEX.blue },
-    { t: 'AI pass 3', a: 'even more compute; groups patterns across agents', fill: '3D63B4', line: HEX.blue },
+    { t: '~50 PB of logs', a: 'agents’ training & evaluation activity', fill: '2A303B', line: HEX.steel },
+    { t: 'Broad search', a: 'website changes, credential use', fill: '343B48', line: '4E5666' },
+    { t: 'AI pass 1', a: 'low compute; reads chains of thought', fill: '2B4572', line: HEX.blue },
+    { t: 'AI pass 2', a: 'more compute; explains, rates severity', fill: '345493', line: HEX.blue },
+    { t: 'AI pass 3', a: 'most compute; patterns across agents', fill: '3D63B4', line: HEX.blue },
     { t: 'Humans', a: 'investigators review what is left', fill: HEX.red, line: HEX.red, red: true },
   ];
-  const fw0 = 2.5, fw1 = 0.95, th = 0.36, tg = 0.05, fcx = rx + fw0 / 2;
-  const tx0 = fy0 + 0.34;
+  const fw0 = 2.5, fw1 = 0.95, th = 0.33, tg = 0.05, fcx = rx + fw0 / 2;
+  const tx0 = fy0 + 0.32;
   const ax = rx + fw0 + 0.25, aw = CX1 - ax;
   const tierNames = tiers.map((t, i) => {
     const w = fw0 - (fw0 - fw1) * i / (tiers.length - 1), y = tx0 + i * (th + tg);
     const names = chip(d, s, { x: fcx - w / 2, y, w, h: th, fill: t.fill, line: t.line, text: t.t, fontSize: 12, bold: true, color: 'FFFFFF' });
-    names.push(d.text(s, t.a, { x: ax, y: y - 0.02, w: aw, h: th + 0.04, fontSize: 10.5, color: t.red ? 'FF8A80' : d.S.muted, bold: !!t.red, valign: 'middle' }));
+    names.push(d.text(s, t.a, { x: ax, y: y - 0.02, w: aw, h: th + 0.04, fontSize: 11, color: t.red ? 'FF8A80' : d.S.muted, bold: !!t.red, valign: 'middle' }));
     return names;
   });
   const sy = tx0 + tiers.length * (th + tg) + 0.04;
@@ -469,9 +474,9 @@ async function petabytesSlide(d) {
 
   anim(d, s, tw, { auto: true, effect: 'rise', dur: 550 });
   anim(d, s, twHl, { auto: true, effect: 'wipeLeft', dur: 500, after: 200 });
-  anim(d, s, gh, { effect: 'slam', dur: 500 });
+  anim(d, s, [gl, ...gh], { effect: 'slam', dur: 500 });
   anim(d, s, ghHl, { auto: true, effect: 'wipeLeft', dur: 500, after: 100 });
-  anim(d, s, ld, { effect: 'rise', dur: 500 });
+  anim(d, s, [ll, ...ld], { effect: 'rise', dur: 500 });
   anim(d, s, ldHl, { auto: true, effect: 'wipeLeft', dur: 700, after: 100 });
   anim(d, s, [fl, ...tierNames[0]], { effect: 'fade', dur: 400 });
   tierNames.slice(1).forEach((g) => anim(d, s, g, { auto: true, effect: 'wipeDown', dur: 350, after: 120 }));
@@ -556,7 +561,7 @@ async function alienSlide(d) {
 }
 
 // ======================================================================
-// 4. CONTINUAL LEARNING · concept (TTT-E2E)
+// 6. CONTINUAL LEARNING · concept (TTT-E2E)
 // ======================================================================
 async function tttConceptSlide(d) {
   const s = d.slide('Content');
@@ -670,7 +675,7 @@ async function tttConceptSlide(d) {
 }
 
 // ======================================================================
-// 5. CONTINUAL LEARNING · latency chart
+// 7. CONTINUAL LEARNING · latency chart
 // ======================================================================
 async function tttChartSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
@@ -743,7 +748,7 @@ async function tttChartSlide(d) {
 }
 
 // ======================================================================
-// 7. RSI · the user's two charts
+// 9. RSI · the user's two charts
 // ======================================================================
 async function rsiChartsSlide(d) {
   const s = d.slide('Content');
@@ -814,7 +819,7 @@ async function rsiChartsSlide(d) {
 }
 
 // ======================================================================
-// 8. RSI · Anthropic's own numbers (native charts)
+// 10. RSI · Anthropic's own numbers (native charts)
 // ======================================================================
 async function rsiAnthropicSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
@@ -889,7 +894,7 @@ async function rsiAnthropicSlide(d) {
 }
 
 // ======================================================================
-// 9. RSI · OpenAI, GovAI, and the timeline
+// 11. RSI · OpenAI, GovAI, and the timeline
 // ======================================================================
 async function rsiLoopSlide(d) {
   const s = d.slide('Content', { transition: 'push' });

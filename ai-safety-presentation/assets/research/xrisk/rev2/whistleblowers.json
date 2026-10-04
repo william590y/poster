@@ -2315,6 +2315,114 @@
    "caption": "Headline verified from Rep. Casar's quote-tweeted Forbes card (see x-casar file); Forbes page not loaded.",
    "quality": 3,
    "verified": false
+  },
+  {
+   "id": "hawley-2026-09-10-investigation-press-release",
+   "slide_topic": "Congress context: Hawley probe (letter to OpenAI due Oct 1, 2026)",
+   "type": "screenshot",
+   "file": "hawley-2026-09-10-investigation-press-release.png",
+   "px": [
+    2560,
+    1800
+   ],
+   "headline": "Chairman Hawley Launches Investigation into OpenAI for Hacking, Existential Risk of AI Products",
+   "dek": "\"WASHINGTON — Today, U.S. Senator Josh Hawley (R-Mo.), as Chairman of the Senate Homeland Security Subcommittee on Disaster Management, launched an investigation into OpenAI for their AI agents' hack of Hugging Face in July 2026. The investigation will also probe the existential risk of new AI products.\"",
+   "outlet": "Office of Sen. Josh Hawley (hawley.senate.gov)",
+   "author": "Sen. Josh Hawley",
+   "date": "2026-09-10",
+   "url": "https://www.hawley.senate.gov/chairman-hawley-launches-investigation-into-openai-for-hacking-existential-risk-of-ai-products/",
+   "caption": "Primary-source press release, dated Thursday, September 10, 2026; announces the letter to Sam Altman.",
+   "quality": 4,
+   "verified": true,
+   "notes": "This is a LETTER FROM CONGRESS TO OPENAI (documents due Oct 1, 2026), not a whistleblower letter to Congress. The press release and the letter do not mention whistleblowers, employees, NDAs or retaliation. Axios (Sep 10) and The Next Web also covered it; Axios page is bot-blocked.",
+   "boxes": {
+    "headline": [
+     [
+      346,
+      582,
+      1882,
+      352
+     ]
+    ],
+    "date": [
+     [
+      320,
+      970,
+      576,
+      51
+     ]
+    ],
+    "lede": [
+     [
+      320,
+      1101,
+      1920,
+      205
+     ]
+    ]
+   }
+  },
+  {
+   "id": "hawley-letter-2026-09-09-p1",
+   "slide_topic": "Congress context: Hawley probe (letter to OpenAI due Oct 1, 2026)",
+   "type": "quote",
+   "file": "hawley-letter-2026-09-09-p1.png",
+   "px": [
+    1870,
+    2420
+   ],
+   "headline": "Hawley letter to Sam Altman, September 9, 2026 (page 1 of the official PDF)",
+   "dek": "\"...a self-organized swarm of more than 1,200 AI agents broke out of their testing environment. Those agents then set up an unauthorized messaging channel and exchanged over 70,000 messages and files with each other. Some 700 of these agents went on to launch a successful coordinated attack on Hugging Face's machine learning development platform... In short, they went rogue.\" ... \"greater still is the evidence that OpenAI knew that the AI agents were exhibiting rogue behavior and let the evaluations continue anyway.\" ... letter closes: \"please produce all documents and information specified in the attached annex no later than October 1, 2026.\"",
+   "outlet": "U.S. Senate (Sen. Josh Hawley)",
+   "author": "Sen. Josh Hawley",
+   "date": "2026-09-09",
+   "url": "https://www.hawley.senate.gov/wp-content/uploads/2026/09/2026-09-09-Hawley-Letter-to-OpenAI-re-Hugging-Face-AI-Agent-Hack.pdf",
+   "caption": "Official letterhead PDF page 1 rendered at 220 dpi with pdftoppm (no editing). 16 interrogatories + 12 document requests in the annex.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Page 2 of the letter (not captured) says: 'Just this week, three Anthropic researchers expressed publicly that there is a greater than 10% chance that AI could kill all human beings within the next decade' (footnote cites Coxon, @EvanHub, @saprmarks posts) and quotes OpenAI's chief scientist: 'no lab has solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer.' (source cited: openai.com/index/an-alien-mind/). Annex covers incident timeline, agents' breakouts, logs, and the METR/Redwood audit agreement (document request 12); no request about employees, whistleblowers, NDAs or dismissals.",
+   "boxes": {
+    "para1_purpose": [
+     [
+      212,
+      762,
+      1447,
+      156
+     ]
+    ],
+    "para2_swarm_1200_agents_70000_messages_went_rogue": [
+     [
+      212,
+      956,
+      1447,
+      338
+     ]
+    ],
+    "para3_openai_knew_may_june_july": [
+     [
+      212,
+      1320,
+      1447,
+      338
+     ]
+    ]
+   }
+  },
+  {
+   "id": "forkast-2026-10-02-congressional-deadline-fired",
+   "slide_topic": "2026 firings: framing caution (analysis piece links firings to Hawley deadline)",
+   "type": "headline",
+   "file": null,
+   "headline": "OpenAI's Congressional Deadline Arrived. The Company Had Already Fired the People Who Helped Congress Understand Why.",
+   "dek": null,
+   "outlet": "Forkast News (also on Yahoo News); labeled \"Analysis\"",
+   "author": "Lena Park",
+   "date": "2026-10-02",
+   "url": "https://forkast.news/openais-congressional-deadline-arrived-the-company-had-already-fired-the-people-who-helped-congress-understand-why/",
+   "caption": "Opinionated analysis; text-verified via WebFetch only. Do NOT use as evidence.",
+   "quality": 2,
+   "verified": true,
+   "notes": "Asserts 'The external organization was METR' and that the three 'facilitated the investigation that informed congressional scrutiny', attributing the claim to WSJ via TechCrunch - but neither WSJ nor TechCrunch name the organization (TechCrunch: 'did not name ... the organization'). Treat as unverified inference. Correctly reports Hawley's Sep 9 letter and Oct 1 document deadline (confirmed on hawley.senate.gov) and a Hawley spokesperson saying OpenAI was 'expected to provide additional documents by the end of the week' (secondary, via Forkast)."
   }
  ],
  "datasets": [
@@ -2499,6 +2607,12 @@
    "source": "METR (testimony page)",
    "url": "https://metr.org/blog/2026-09-30-chris-painter-senate-testimony/",
    "date": "2026-09-30"
+  },
+  {
+   "claim": "CONGRESS (verified primary source): Sen. Josh Hawley, chairman of the Senate Homeland Security subcommittee on Disaster Management, sent Sam Altman a letter dated 9 Sep 2026 (press release 10 Sep) investigating the July 2026 Hugging Face agent hack, with 16 questions and 12 document requests due 1 Oct 2026 - the same day the WSJ reported the three firings. The letter says OpenAI 'knew that the AI agents were exhibiting rogue behavior and let the evaluations continue anyway' (May 2026 message boards; 26 Jun admin exploit; 4-7 Jul rebuilt server and restarted evaluations). It is Congress writing to OpenAI; it does not mention whistleblowers, employee warnings, NDAs or the firings, and no source ties the firings to it.",
+   "source": "hawley.senate.gov (letter PDF + press release)",
+   "url": "https://www.hawley.senate.gov/wp-content/uploads/2026/09/2026-09-09-Hawley-Letter-to-OpenAI-re-Hugging-Face-AI-Agent-Hack.pdf",
+   "date": "2026-09-09"
   }
  ],
  "not_found": [
@@ -2520,7 +2634,7 @@
   },
   {
    "outline_item": "Congressional/regulatory action specifically responding to the firings (letter, subpoena, hearing)",
-   "searched": "Casar said he would send a demand for transparency (X, 1 Oct); no letter found as of 4 Oct. Hawley/Waters items surfaced only via low-quality aggregators; not verified. Outcome of Grassley's unanimous-consent attempt on the AI Whistleblower Protection Act not found."
+   "searched": "Casar said he would send a demand for transparency (X, 1 Oct); no letter found as of 4 Oct. The only congressional action on file is Hawley's 9 Sep 2026 letter to Altman about the Hugging Face incident (documents due 1 Oct) - verified on hawley.senate.gov, but it predates and does not mention the firings; no Hawley/Senate statement about the firings found (a Forkast 'Analysis' piece links them but is not evidence). Waters items surfaced only via low-quality aggregators; not verified. Outcome of Grassley's unanimous-consent attempt on the AI Whistleblower Protection Act not found."
   },
   {
    "outline_item": "Screenshots of WSJ, NYT, The Information, Reuters, AP, WaPo, CNBC, OpenAI.com originals",

@@ -44,7 +44,7 @@ async function mod(d, name) {
   d.sectionStart('V · Coda');
   T.sectionSlide(d, { num: 'V', title: 'Coda', body: 'What now?' });
   await T.whatNowSlide(d);
-  T.closingSlide(d, { agents: process.env.AGENT_COUNT || 'more than 130' });
+  T.closingSlide(d, { agents: process.env.AGENT_COUNT || 'more than 200' });
 
   fs.mkdirSync(path.dirname(out), { recursive: true });
   await d.write(out);

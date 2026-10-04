@@ -1,5 +1,5 @@
 // THE ACCELERATION · capabilities: METR horizon, benchmark graveyard, HLE, creative work (incl. @anabology's 18-hour Claude film
-// and clips credited to an unannounced "Fable 5.5"), video, mathematics in crisis (incl. OpenAI's 100+ held-back results and the
+// and clips credited to an unannounced "Fable 5.5", incl. @cherry_mx_reds' 30-style animation), video, mathematics in crisis (incl. OpenAI's 100+ held-back results and the
 // unconfirmed Hodge/BSD rumors).
 // Sources: assets/research/capabilities/manifest.json (verified items, datasets, facts),
 //          assets/research/openweights/manifest.json (video item), user originals image4.png / image5.png.
@@ -1009,6 +1009,78 @@ async function fableSlide(d) {
     'MIDDLE — r/singularity, "Fable 5.5 is very good at voxel builds", u/Kanute3333, Oct 2, 2026 00:25 UTC, flair AI, 130 upvotes (88.7%), 41 comments. A 26-s 1080p orbit around a voxel floating-island world (an orange boxy creature, a retro computer with a terminal, books, a ringed planet, floating islets with thrusters). GIF = 6 s of the orbit (4–10 s), 1120 px, 15 fps. The OP gave no prompt. Asked "How do you have fable 5.5?", he replied: "It\'s automatically routing to Fable 5.5 in the rollout phase. Fable 5.5 will be released in the next days." Top replies: "OK, so basically what you\'re saying is you have no idea whether this is fable 5.5" (17 pts); "everyon downvoting it, Fable 5.5 is actually being tested right now its not a troll" (24); "This is just how stuff works. They are already A/B testing as they always do. release soon (probably with haiku too)" (19). ' + FAB.reddit + ' · video ' + FAB.vredd,
     'RUMOR TRAIL: Salio (X, Aug 13 / Sep 10): "Claude Fable 5.5 Leaks: Astra Killer", launch "late September or early October" (unsourced). Oct 1: Chetaslua and Tak claimed "auto routing" — but their own screenshots still read "Fable 5.1"; the "evidence" is the model recognising a nickname. Oct 1, imjustnewatai: "I\'m hearing of a Tuesday release" (the post names no date; presumably Tue Oct 6 — our inference; no source given) ' + FAB.rumor + ' . Oct 2, Chubby (@kimmonismus): "Caveat: I can\'t verify any of this." ' + FAB.chubby + ' . Kingy AI (Curtis Pyke, Oct 1–3), "Claude Fable 5.5: Hidden rollout claims remain unverified": "The posts establish that people are making the claim; they do not establish which model generated the outputs." ' + FAB.kingy + ' . AI Tools Review (Oct 3): "a model\'s own answer about its name is not evidence." ' + FAB.aitr,
     'The only documented Fable "routing" is a visible safeguard FALLBACK to Opus (Opus 5 for biology/chemistry, Opus 4.8 for offensive cyber), with a notice — not a silent switch to a newer Fable. ' + FAB.fallback + ' . No Anthropic statement confirms or denies the routing claims. If Anthropic announces it before the talk, re-check anthropic.com/news and update this slide.',
+    'NEXT SLIDE: a third clip with the same label — Tak\'s one-line-prompt animation, ~30 art styles in 17 seconds.',
+  ].join('\n\n'));
+  return s;
+}
+
+// ---------------------------------------------------------------- 5f. a third "Fable 5.5" clip: Tak's one-line-prompt style montage
+const TAK = {
+  post: 'https://x.com/cherry_mx_reds/status/2105816670896009224',
+  video: 'https://x.com/cherry_mx_reds/status/2105816670896009224/video/1',
+  routed: 'https://x.com/cherry_mx_reds/status/2105758325887365382',
+  akim: 'https://x.com/jehoiachineth/status/2105832628750553512',
+  artHistory: 'https://x.com/cherry_mx_reds/status/2106089331420983592',
+  dot: 'https://x.com/cherry_mx_reds/status/2105825930799432073',
+  chetaslua: 'https://x.com/chetaslua/status/2105757136219504862',
+  list: 'https://github.com/coolbat/awesome-fable-5.5-usecase',
+};
+
+async function takSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  s.addText(`${KICK} · CREATIVITY · 8`, { placeholder: 'kicker' });
+  s.addText('One prompt, “15 minutes later”: ~30 art styles', { placeholder: 'title' });
+
+  // ---- left: the accelerating montage as a looping GIF (real footage, trimmed only; frame 0 = the risograph style)
+  const gw = 6.3, gh = gw * 9 / 16, y0 = 1.76;
+  const gif = await d.frame(s, F55('tak-fable55-style-montage-riso-first-960.gif'), { x: MX, y: y0, w: gw, h: gh }, { border: false, pad: 0 });
+  const claim = d.text(s, 'CREDITED TO “FABLE 5.5” BY THE POSTER · UNVERIFIED · LOOP: 7 S OF THE 17-S CLIP', { x: MX, y: y0 + gh + 0.04, w: gw, h: 0.26, fontSize: 10, bold: true, color: 'FFD166', charSpacing: 1, valign: 'middle' });
+  const cy = y0 + gh + 0.42;
+  const caveat = d.text(s, [
+    { text: 'Why “5.5”? ', options: { bold: true, color: 'FFD166' } },
+    { text: 'Four hours earlier he posted “I am getting routed to Fable 5.5” — under a Claude Code header reading “Fable 5.1”. ', options: { color: d.S.txt } },
+    { text: 'The “Fable 5.5 画” and “ED. 55” painted into the clip are generated art, not evidence.', options: { color: d.S.muted } },
+  ], { x: MX, y: cy, w: gw, h: 6.52 - cy, fontSize: 14, valign: 'top' });
+
+  // ---- right, top: the post itself (real screenshot, cropped to author + text; the counts go in the tab)
+  const rx = MX + gw + 0.3, rw = 12.73 - rx;
+  const pcrop = await crop(F55('tak-x-post-fable55-cool-animation-screenshot.png'), 'fable55-tak-post-head.png', { l: 100, t: 118, w: 1160, h: 404 });
+  const pp = await d.frame(s, pcrop, { x: rx, y: y0, w: rw, h: (rw - 0.1) * 404 / 1160 + 0.1 }, { pad: 0.05, link: TAK.post });
+  const pmark = highlight(d, s, pp.geom, 1160, [[12, 276, 480, 40]]); // "FABLE 5.5 IS SO GOOD AT THESE."
+  const ptab = outletTab(d, s, pp.geom, 'X · OCT 2, 2026 · 163K VIEWS · 2.1K LIKES', 'br', 0, { pad: 0.05 });
+
+  // ---- right, bottom: the full 17-s clip WITH SOUND (click to play), embedded unmodified; cover = 25 of its frames
+  const mp4 = F55('tak-fable55-cool-animation-1080p60-with-audio.mp4');
+  const cover = path.join(OUT, 'fable55-tak-contact-sheet-cover.jpg');
+  if (!fs.existsSync(cover)) {
+    fs.mkdirSync(OUT, { recursive: true });
+    const play = '<svg width="1920" height="1080"><circle cx="960" cy="540" r="99" fill="#0A0C10" fill-opacity="0.72" stroke="#FFFFFF" stroke-width="7"/>'
+      + '<polygon points="927,486 927,594 1020,540" fill="#FFFFFF"/></svg>';
+    await sharp(F55('tak-fable55-contact-sheet-25-styles-1920x1080.png')).composite([{ input: Buffer.from(play) }]).jpeg({ quality: 93 }).toFile(cover);
+  }
+  const ly = pp.geom.y + pp.geom.h + 0.3;
+  const vlab = label(d, s, '► CLICK: FULL CLIP WITH SOUND · COVER = 25 OF ITS FRAMES', rx, ly, rw, { color: 'FF8A8C' });
+  const vy = ly + 0.34, vh = 6.52 - vy, vw = vh * 16 / 9;
+  const vid = await d.localVideo(s, { file: mp4, cover, box: { x: rx, y: vy, w: vw, h: vh } });
+  // three facts beside the clip
+  const fx = rx + vw + 0.25, fw = 12.73 - fx, fh = vh / 3;
+  const facts = [['17 s', '1080p60, with sound'], ['~30', 'styles, one character'], ['1 s → 0.03 s', 'per style, speeding up']];
+  const fnames = facts.flatMap(([v, l], i) => [
+    d.text(s, v, { x: fx, y: vy + i * fh, w: fw, h: 0.42, fontSize: i === 2 ? 16 : 24, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' }),
+    d.text(s, l, { x: fx, y: vy + i * fh + 0.44, w: fw, h: 0.26, fontSize: 10, color: d.S.muted, valign: 'top' }),
+  ]);
+
+  d.animate(s, [...gif, claim], { auto: true, effect: 'fade', dur: 600 });
+  d.animate(s, [...pp, ...pmark, ...ptab], { auto: true, effect: 'rise', dur: 450, after: 200 });
+  d.animate(s, [caveat], { effect: 'fade', dur: 500 });
+  d.animate(s, [vlab, ...vid, ...fnames], { effect: 'fade', dur: 600 });
+  d.source(s, 'X: Tak @cherry_mx_reds, “Hey Fable, please make a cool animation” (Oct 2, 2026) and “routed” post (Oct 1); counts as of Oct 4. Contact sheet = frames from the clip. Attribution to “Fable 5.5” is the poster’s claim.');
+  s.addNotes([
+    'MESSAGE: same unverified label, a different kind of skill — art direction. One person types one line, and (by his account) gets back, 15 minutes later, a polished 17-second animation in which one coffee-drinking character is redrawn in about 30 art styles, the cuts speeding up from ~1 s per style to near-subliminal flashes. Whatever model made it, this is what a "make me something cool" prompt now returns. The reply under it says it plainly (Akim, 24 likes): "A generic design agency would charge like 5k to make this 2 or 3 years ago💀💀" ' + TAK.akim,
+    'THE POST (verbatim, verified via api.fxtwitter.com, re-checked Oct 4, 2026): Tak (@cherry_mx_reds; verified account, ~6.4K followers, bio "I build with AI • Art • Games • Model Tester • Community OpenClaw maintainer"), Oct 2, 2026, 00:26 UTC: "\\"Hey Fable, please make a cool animation\\" / 15 minutes later. / FABLE 5.5 IS SO GOOD AT THESE. / HOW???" — 163,125 views, 2,174 likes, 886 bookmarks, 81 reposts, 73 replies, 34 quotes (Oct 4, evening). ' + TAK.post,
+    'ON THE SLIDE: LEFT = looping GIF of the accelerating part of the montage (6.40–13.35 s of the clip; 960×540, 20 fps, silent; trimmed only — starts on the risograph style, runs ~30 styles: Starry-Night impasto, X-ray, thermal camera, vaporwave, Bauhaus, 8-bit, newspaper, Delft tile… and ends on line art). RIGHT = real screenshot of the post (author + text; the yellow marker is a native overlay, not on the pixels), and the full 17.07-s clip, 1920×1080 60 fps H.264 + AAC with its soundtrack, embedded unmodified (downloaded from ' + TAK.video + '). Its cover is a 5×5 contact sheet of 25 unedited frames from the clip (one per style, in order) with a play button added. Pacing from a frame-by-frame cut analysis: ~1.07 s per style for the first four, ~0.53 s, ~0.27 s, ~0.13 s from 8.5 s, 0.03–0.07 s flashes from ~10.7 s, a line-art hold 12.8–16.0 s, then a flash back to the opening ukiyo-e frame.',
+    'CAVEATS (say them): (1) "Fable 5.5" is the poster\'s own label. Anthropic has announced no Fable 5.5 — the newest official Fable is Claude Fable 5.1 (Sep 1, 2026); see the previous slide. (2) Why he says 5.5: about four hours earlier (Oct 1, 20:34 UTC; 159K views) he posted "HOLY S**T / I am getting routed to Fable 5.5 / Nice knowing ya" with a Claude Code screenshot whose header reads "Fable 5.1 with low effort · Claude Max" — the "evidence" was the model\'s answer to a trivia question, not a model name. ' + TAK.routed + ' (3) Text painted INSIDE the animation — the ukiyo-e signature "Fable 5.5 画", "ED. 55" on the risograph print, "Nº 5.5 — 1924" on the Soviet poster, the joke newspaper headline "LOCAL MAN SIPS COFFEE" — is generated artwork, not evidence of which model made it (and not a real headline). (4) Beyond the one-line prompt and "15 minutes later", he gave no tool, code, workflow or access details; we cannot reproduce or time it. (5) The two replies visible logged-out neither confirm nor dispute the attribution; the rest are behind X\'s login wall.',
+    'Context, if asked: the community list "awesome-fable-5.5-usecase" carries this post with its own caveat — "These posts are community claims. They are not an official model card." ' + TAK.list + ' . Tak\'s follow-ups with the same label: "I asked for a dot. Fable 5.5 gave me a Pixar side quest. Yeah, it’s over." (Oct 2; 6,178 likes, 824K views; stated prompt "make me an animation about a dot") ' + TAK.dot + ' and an "ART HISTORY SPEEDRUN" ("40,000 years of it in 15 seconds with a cat subplot") ' + TAK.artHistory + ' . Chetaslua posted a similar Superman-in-many-art-styles clip credited to "Fable 5.5" about four hours earlier (Oct 1; 671K views) ' + TAK.chetaslua + ' . Kingy AI\'s write-up: "We have not reproduced them in a matched test or verified a Fable 5.5 backend." ' + FAB.kingy,
   ].join('\n\n'));
   return s;
 }
@@ -1623,6 +1695,7 @@ async function build(d) {
   await anabologyFilmSlide(d);
   await anabologySatireSlide(d);
   await fableSlide(d);
+  await takSlide(d);
   await videoSlide(d);
   await navierSlide(d);
   await headlinesSlide(d);

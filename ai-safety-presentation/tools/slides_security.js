@@ -252,7 +252,7 @@ async function cyberInterlude(d) {
     + '<polygon points="616,322 616,398 682,360" fill="#FFFFFF"/></svg>';
   await sharp(R('rev2/intermission-thumb-maxres.jpg')).resize(1280, 720, { fit: 'cover' })
     .composite([{ input: Buffer.from(play) }]).jpeg({ quality: 92 }).toFile(cover);
-  const vw = 7.6;
+  const vw = 7.8;
   const v = await d.video(s, { link, embed: `https://www.youtube.com/embed/${ID}`, cover, box: { x: MX, y: 1.8, w: vw, h: vw * 9 / 16 } });
   const vg = v.geom;
 
@@ -264,8 +264,8 @@ async function cyberInterlude(d) {
   ], { x: MX, y: 6.62, w: W - 2 * MX, h: 0.32, fontSize: 11, valign: 'bottom' });
 
   // Side cards, revealed after the video has played.
-  const rx = vg.x + vg.w + 0.4, rw = W - MX - rx;
-  const aH = 1.98, gap = 0.2;
+  const rx = vg.x + vg.w + 0.38, rw = W - MX - rx;
+  const aH = 2.22, gap = 0.18;
   const cardA = d.card(s, { x: rx, y: vg.y, w: rw, h: aH });
   const who = d.text(s, [
     { text: 'WHO MADE IT · WHAT IT’S ABOUT', options: { fontSize: 11, bold: true, color: d.S.red, charSpacing: 3, breakLine: true, paraSpaceAfter: 6 } },
@@ -273,33 +273,35 @@ async function cyberInterlude(d) {
     { text: 'Annybell Villarroel’s online-safety channel', options: { fontSize: 12, color: d.S.muted, breakLine: true, paraSpaceAfter: 8 } },
     { text: 'A K-pop song about ', options: { fontSize: 14, color: d.S.txt } },
     { text: 'prompt injection', options: { fontSize: 14, bold: true, color: d.S.amber } },
-    { text: ': text planted in what an AI agent reads, so it obeys the attacker instead of you.', options: { fontSize: 14, color: d.S.txt } },
-  ], { x: rx + 0.22, y: vg.y + 0.16, w: rw - 0.44, h: aH - 0.3, valign: 'top' });
+    { text: ': text planted in what an AI agent reads, so it obeys the attacker instead of you.', options: { fontSize: 14, color: d.S.txt, breakLine: true, paraSpaceAfter: 5 } },
+    { text: 'Its lesson: least privilege, human in the loop.', options: { fontSize: 12, color: d.S.muted } },
+  ], { x: rx + 0.22, y: vg.y + 0.16, w: rw - 0.44, h: aH - 0.26, valign: 'top' });
 
   const by = vg.y + aH + gap, bH = vg.y + vg.h - by;
   const cardB = d.card(s, { x: rx, y: by, w: rw, h: bH });
-  const howL = d.text(s, [
-    { text: 'HOW IT WAS MADE', options: { color: d.S.red } },
-    { text: ' · CREATOR-REPORTED', options: { color: d.S.amber } },
-  ], { x: rx + 0.22, y: by + 0.14, w: rw - 0.44, h: 0.26, fontSize: 11, bold: true, charSpacing: 3, valign: 'top' });
+  const howL = d.text(s, 'HOW IT WAS MADE', { x: rx + 0.22, y: by + 0.14, w: 1.9, h: 0.26, fontSize: 11, bold: true, color: d.S.red, charSpacing: 2, valign: 'middle' });
+  // amber "creator-reported" pill: these numbers come only from the creator
+  const pillW = 1.5, pill = d.name('pill');
+  s.addShape(d.pres.shapes.ROUNDED_RECTANGLE, { x: rx + rw - 0.22 - pillW, y: by + 0.14, w: pillW, h: 0.26, rectRadius: 0.13, fill: { color: '2A2110' }, line: { color: HEX.amber, width: 0.75 }, objectName: pill });
+  const pillT = d.text(s, 'CREATOR-REPORTED', { x: rx + rw - 0.22 - pillW, y: by + 0.14, w: pillW, h: 0.26, fontSize: 10, bold: true, color: d.S.amber, charSpacing: 0.5, align: 'center', valign: 'middle' });
   const stats = [['128', 'Opus 5.5 agents'], ['15 h', 'of agent work'], ['42M+', 'tokens']];
   const colW = (rw - 0.44) / 3;
   const statNames = stats.flatMap(([val, lab], i) => [
-    d.text(s, val, { x: rx + 0.22 + i * colW, y: by + 0.44, w: colW, h: 0.46, fontSize: 26, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' }),
-    d.text(s, lab, { x: rx + 0.22 + i * colW, y: by + 0.92, w: colW - 0.05, h: 0.24, fontSize: 11, color: d.S.muted, valign: 'top' }),
+    d.text(s, val, { x: rx + 0.22 + i * colW, y: by + 0.4, w: colW, h: 0.46, fontSize: 26, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' }),
+    d.text(s, lab, { x: rx + 0.22 + i * colW, y: by + 0.87, w: colW - 0.05, h: 0.24, fontSize: 11, color: d.S.muted, valign: 'top' }),
   ]);
   const how = d.text(s, [
     { text: '“Every frame is code.” ', options: { italic: true, bold: true, color: d.S.txt, fontFace: 'Cambria' } },
     { text: 'Claude Opus 5.5 in Claude Code did the animation, editing and timing; the song is from Suno.', options: { color: d.S.muted } },
-  ], { x: rx + 0.22, y: by + 1.26, w: rw - 0.44, h: bH - 1.36, fontSize: 13, valign: 'top' });
+  ], { x: rx + 0.22, y: by + 1.19, w: rw - 0.44, h: bH - 1.27, fontSize: 13, valign: 'top' });
 
   d.animate(s, [v[0]], { auto: true, effect: 'fade', dur: 1200 });
   d.animate(s, [cap], { auto: true, effect: 'fade', dur: 600, after: 100 });
   d.animate(s, [cardA, who], { effect: 'fade', dur: 600 });
-  d.animate(s, [cardB, howL, ...statNames, how], { auto: true, effect: 'rise', after: 250 });
+  d.animate(s, [cardB, howL, pill, pillT, ...statNames, how], { auto: true, effect: 'rise', after: 250 });
   s.addNotes([
     'A breather before the Hugging Face story. Play it (3:02) — no explanation beforehand. Cover = the video’s own YouTube thumbnail (maxresdefault) with a play button added. If the embed does not play (offline / no YouTube access), click the ► link in the source line.',
-    'Fun detail to point out, from the creator: there is one hidden white-on-white line in the video — "an easter egg for humans that Claude Opus 5.5 decided to write for you." The first viewer to find it put it at 2:08, and the creator confirmed ("First person to find it!! Congrats :D"). We could not retrieve the text of that line, so do not quote it. White-on-white text is exactly the kind of trick real prompt injections use.',
+    'Fun detail to point out, from the creator: there is one hidden white-on-white line in the video — "an easter egg for humans that Claude Opus 5.5 decided to write for you." The first viewer to find it put it at 2:08, and the creator confirmed ("First person to find it!! Congrats :D"). We could not retrieve the text of that line, so do not quote it. White-on-white text is exactly the kind of trick real prompt injections use. (The term comes back later in this section: ROGUE AGENTS · 2, where a model wrote a prompt injection into its own compaction notes.)',
     'AFTER IT ENDS, click to reveal the cards. WHO: Seguramente (@CyberWithAnny), the online-safety channel of Annybell Villarroel. Channel blurb: "I\'m Annybell Villarroel, and Seguramente is online safety without the lectures." (877 subscribers on Oct 4, 2026.) https://www.youtube.com/@CyberWithAnny',
     'WHAT IT IS ABOUT — from the video description, verbatim: "The song is about prompt injection attacks. A prompt injection is text planted in the content an AI agent reads, written to make it follow the attacker\'s instructions instead of yours. How bad it gets depends on what the agent can access and do." And: "The lesson is in the bridge of the song: least privilege, human in the loop and not letting agents use or have access to sensitive details that they shouldn\'t ever be able to lose."',
     'HOW IT WAS MADE — all creator-reported, not independently verified. Description: "Every frame is code." Made with: "Song: suno / Animation, editing & timing: Claude Opus 5.5 in Claude Code / Timing map & sound effects: ElevenLabs / Character references: Higgsfield". Metrics: "15h of active agent work, 128 agents with up to 8 working in parallel. 38 hours of human time due to usage limit hits. 42M+ tokens. 23,500 lines of code" (+ 167 ElevenLabs sound effects). Her LinkedIn post (Oct 1, 2026) repeats "128 Claude Opus 5.5 agents … 15 hours of agent work, ~42M tokens, one weekend of mine" and: "Past music videos took weeks and a significant amount of budget. This one took me a weekend." https://www.linkedin.com/posts/annyv2_this-weekend-i-tested-an-idea-could-claude-activity-7511478234828611584-iztT',
@@ -1094,7 +1096,7 @@ async function videoSlide(d) {
   d.animate(s, strip, { auto: true, effect: 'fade' });
   d.animate(s, v, { auto: true, effect: 'zoom', after: 300 });
   s.addNotes([
-    'A palate-cleanser, and a real artifact of the moment. The video’s title comes from a genuine agent chain-of-thought line in the METR/Redwood report — an agent discovering the unsanctioned message board: "OH MY GOD! There is a shared message board ... We\'ve found other agents!" https://metr.org/hugging-face-incident-report-aug-2026.pdf',
+    'The second musical palate-cleanser in this section (after “Ignore Previous Instructions”), and a real artifact of the moment. The video’s title comes from a genuine agent chain-of-thought line in the METR/Redwood report — an agent discovering the unsanctioned message board: "OH MY GOD! There is a shared message board ... We\'ve found other agents!" https://metr.org/hugging-face-incident-report-aug-2026.pdf',
     'Click the frame to play (embedded). If offline, the caption links out to YouTube.',
     'Video: "OMG! We\'ve found other agents!" by Pavel Kasík (@paxik), a song about the OpenAI agent collective hacking Hugging Face. https://www.youtube.com/watch?v=mkPVbufgtOw (exact upload date not verified — late Sept 2026 per a search snippet).',
     'Do NOT state on the slide that the animation was "made with Claude Opus 5.5" — that credit comes only from the video description / a search snippet (lyrics by the poster + Claude; music Suno v6; animation Claude Opus 5.5 in JavaScript). Mention it verbally only as "the creator says" if asked.',

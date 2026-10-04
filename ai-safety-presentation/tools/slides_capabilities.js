@@ -942,21 +942,22 @@ async function fableSlide(d) {
   // 7.4 s of the reel (Type → Flow), loop phase rotated so the first frame is the full “MAKE IT MOVE.” title card
   const reel = loopGif('blueemi99-fable55-reel.gif', F55('blueemi99-fable55-motion-source.mp4'), [[2.3, 8.9], [1.52, 2.3]], { width: 1280, fps: 24 });
   const voxel = makeGif('kanute-fable55-voxel-orbit.gif', { src: F55('reddit-kanute3333-fable55-voxel-source.mp4'), ss: 4, to: 10, width: 1120, fps: 15 });
-  const claim = (x, y) => chip(d, s, 'CLAIMED: “FABLE 5.5” · UNVERIFIED', x + 0.08, y + 0.08, 3.05, { h: 0.28, fontSize: 10, fill: '0A0C10', transparency: 15, color: 'FFD166' });
+  // provenance line directly under each clip (outside the picture, so no artwork is covered)
+  const claim = (x) => [d.text(s, 'CREDITED TO “FABLE 5.5” BY THE POSTER · UNVERIFIED', { x, y: y0 + ch + 0.05, w: cw, h: 0.26, fontSize: 10, bold: true, color: 'FFD166', charSpacing: 1, valign: 'middle' })];
 
   // column 1: @blueemi99's motion-design reel + his post
   const t1 = await d.frame(s, reel, { x: x1, y: y0, w: cw, h: ch }, { border: false, pad: 0 });
-  const k1 = claim(x1, y0);
+  const k1 = claim(x1);
   const bcrop = await crop(F55('blueemi99-x-post-fable55-motion-video-screenshot.png'), 'fable55-blueemi99-post-head.png', { l: 0, t: 0, w: 1138, h: 306 });
-  const py = y0 + ch + 0.3;
+  const py = y0 + ch + 0.46;
   const bp = await d.frame(s, bcrop, { x: x1, y: py, w: cw, h: (cw - 0.1) * 306 / 1138 + 0.1 }, { pad: 0.05, link: FAB.blue });
   const btab = outletTab(d, s, bp.geom, 'X · OCT 2, 2026 · 75.7K VIEWS', 'br', 0, { pad: 0.05 });
-  const bnote = d.text(s, 'A 15-second reel with its own sound design. No prompt or workflow was shared.',
+  const bnote = d.text(s, 'A 15-second reel with its own sound design; no prompt shared.',
     { x: x1, y: bp.geom.y + bp.geom.h + 0.34, w: cw, h: 6.52 - (bp.geom.y + bp.geom.h + 0.34), fontSize: 12, color: d.S.muted, valign: 'top' });
 
   // column 2: the r/singularity voxel world + the post title and the thread's own exchange
   const t2 = await d.frame(s, voxel, { x: x2, y: y0, w: cw, h: ch }, { border: false, pad: 0 });
-  const k2 = claim(x2, y0);
+  const k2 = claim(x2);
   const rcrop = await crop(F55('reddit-post-header-title-author.png'), 'fable55-reddit-head.png', { l: 0, t: 40, w: 1186, h: 140 });
   const rp = await d.frame(s, rcrop, { x: x2, y: py, w: cw, h: (cw - 0.1) * 140 / 1186 + 0.1 }, { pad: 0.05, link: FAB.reddit });
   const rtab = outletTab(d, s, rp.geom, 'R/SINGULARITY · OCT 2 · 130 UPVOTES', 'br', 0, { pad: 0.05 });
@@ -1470,13 +1471,13 @@ async function rumorsSlide(d) {
   // red "unconfirmed" stamp on the empty top-right of the post (clear of its text)
   const sg = sf.geom;
   const stamp = d.name('stamp');
-  const stW = 2.25, stH = 0.42, stX = sg.x + sg.w - stW - 0.25, stY = sg.y + 0.12;
+  const stW = 2.25, stH = 0.4, stX = sg.x + sg.w - stW - 0.14, stY = sg.y + 0.03;
   s.addShape(d.pres.shapes.RECTANGLE, { x: stX, y: stY, w: stW, h: stH, rotate: -6, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 2.5 }, objectName: stamp });
   const stampT = d.text(s, 'UNCONFIRMED', { x: stX, y: stY, w: stW, h: stH, rotate: -6, fontSize: 15, bold: true, color: d.S.red, charSpacing: 1.5, align: 'center', valign: 'middle', fontFace: 'Arial' });
 
   const gy = sg.y + sg.h + 0.5;
-  const gcrop = await crop(MR('gizmodo-openai-reportedly-trying-hodge.png'), 'math-gizmodo-hodge-head.png', { l: 0, t: 20, w: 980, h: 570 });
-  const gh = 6.5 - gy, gw = (gh - 0.12) * 980 / 570 + 0.12;
+  const gcrop = await crop(MR('gizmodo-openai-reportedly-trying-hodge.png'), 'math-gizmodo-hodge-head.png', { l: 0, t: 98, w: 980, h: 492 });
+  const gh = 6.5 - gy, gw = (gh - 0.12) * 980 / 492 + 0.12;
   const gf = await d.frame(s, gcrop, { x: MX + 0.05, y: gy, w: gw, h: gh }, { rot: 1.2, link: MRU.gizmodo });
   const gtab = outletTab(d, s, gf.geom, 'GIZMODO · SEP 17', 'tl', 1.2);
   const tx = MX + gw + 0.35, tw = MX + lw - tx;

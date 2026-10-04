@@ -1,0 +1,26 @@
+{
+ "url": "https://www.theregister.com/ai-and-ml/2026/09/28/openai-pauses-some-training-amid-allegations-its-rogue-agents-behaved-more-badly-than-first-thought/5299350",
+ "title": "OpenAI pauses some training amid allegations its rogue agents behaved more badly than first thought",
+ "crop_css": {
+  "x": 28,
+  "y": 2018.890625,
+  "w": 1224,
+  "h": 182.359375
+ },
+ "highlights_frac": {
+  "petabytes of agent activity logs": [
+   {
+    "x": 0.2795,
+    "y": 0.5954,
+    "w": 0.3587,
+    "h": 0.1152
+   }
+  ]
+ },
+ "recrop_px": [
+  400,
+  1790,
+  0,
+  364
+ ]
+}

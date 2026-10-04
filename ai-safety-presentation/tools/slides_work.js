@@ -243,16 +243,17 @@ async function hwDesignSlide(d) {
 
   // left: 2×2 wall of real demo media (GIFs play in slideshow)
   const gw = 7.55, gap = 0.2, tw = (gw - gap) / 2, th = tw * 9 / 16, gy = 1.8;
-  // Autodesk's official demo, re-cut so each clip opens on the agent's chat (the typed request, zoomed in on the chat box)
-  // and then shows the result in Fusion. Each loop starts on the finished request, so a static preview shows it too.
+  // Autodesk's official demo, re-cut so each clip shows the agent's chat (the typed request, zoomed in on the chat box)
+  // and the result in Fusion. The CAD loop starts on the finished request (a populated chat panel); the CAM loop is
+  // rotated to start on the toolpaths (its chat crop is mostly empty panel), so a static preview/PDF shows real content.
   const FUS = 'cad-autodesk-mcp-enclosure-mold-cam.mp4';
   const chat1 = [1200, 675, 256, 260], cad = [1440, 810, 240, 120];       // request 1 · Fusion design view
   const chat3 = [960, 540, 40, 530], cam = [1280, 720, 430, 200], sim = [1020, 574, 480, 196]; // request 3 · CAM viewer · simulation
   const fusionCad = mp4Montage(FUS, 'cad-fusion-prompt-enclosure.gif', [
     { ss: 8.4, to: 8.95, crop: chat1 }, { ss: 40.65, to: 43.4, crop: cad }, { ss: 4.5, to: 8.4, crop: chat1 },
   ], { width: 960, fps: 15 });
-  const fusionCam = mp4Montage(FUS, 'cad-fusion-prompt-toolpaths.gif', [
-    { ss: 63.6, to: 64.2, crop: chat3 }, { ss: 74.4, to: 76.7, crop: cam }, { ss: 80.4, to: 85.1, crop: sim }, { ss: 61.6, to: 63.6, crop: chat3 },
+  const fusionCam = mp4Montage(FUS, 'cad-fusion-prompt-toolpaths-camfirst.gif', [
+    { ss: 74.4, to: 76.7, crop: cam }, { ss: 80.4, to: 85.1, crop: sim }, { ss: 61.6, to: 64.2, crop: chat3 },
   ], { width: 960, fps: 15 });
   const cells = [
     [fusionCad, 'CAD · AUTODESK FUSION + CLAUDE OPUS 4.8', 'One chat request → a molded Raspberry Pi case'],
@@ -295,7 +296,7 @@ async function hwDesignSlide(d) {
   d.source(s, 'Sources: Autodesk Fusion blog & demos (Sep 15, 2026) · OpenAI demo still via Hackaday (Sep 5, 2026) · Quilter (Dec 2025) · EEBench (atopile, Sep 29, 2026) · HWE-Bench (arXiv 2604.14709).');
   s.addNotes([
     'Four real demos of AI doing hardware design. Top row (Autodesk’s official demo of its new Fusion Compute MCP, Sep 15, 2026): an agent — the model selector in the video reads “Opus 4.8 High” (Claude) — is asked to design a two-part injection-molded enclosure for a Raspberry Pi 4; it builds the parametric case, then a family mold with core and cavity, then programs the CNC toolpaths. Autodesk: “That is a design-to-manufacturing chain that normally requires several people over several days, now driven end to end from a chat window.” (Autodesk’s own demo.)',
-    'How the two GIFs were cut (trim, crop and scale only; nothing else changed): top-left = the request being typed in the chat, zoomed in on the chat box (video 0:04.5–0:08.95; it reads verbatim “Start Fusion and design a two-part injection molded enclousore for a Raspberry Pi4.” — typo in the original), then the finished case with the Raspberry Pi board in Fusion (0:40.6–0:43.4). Top-right = a later request typed in the same chat, “Create a setup and toolpaths to machine both parts” (1:01.6–1:04.2), then the CAM toolpaths on the mold plates (1:14.4–1:16.7) and Fusion’s machining simulation of the cavity plate (1:20.4–1:25.1). The mold itself came from an earlier request in the video: “Create a core and a cavity to mold both parts at the same time. I’ll want a center injection to inject both parts at once.” Autodesk’s caption overlays (“Co-Design with your AI Agent” etc.) are part of the original video.',
+    'How the two GIFs were cut (trim, crop and scale only; nothing else changed): top-left = the request being typed in the chat, zoomed in on the chat box (video 0:04.5–0:08.95; it reads verbatim “Start Fusion and design a two-part injection molded enclousore for a Raspberry Pi4.” — typo in the original), then the finished case with the Raspberry Pi board in Fusion (0:40.6–0:43.4). Top-right = the CAM toolpaths on the mold plates (1:14.4–1:16.7) and Fusion’s machining simulation of the cavity plate (1:20.4–1:25.1), then the request that produced them, typed later in the same chat: “Create a setup and toolpaths to machine both parts” (1:01.6–1:04.2); the loop starts on the toolpaths so the still/PDF view is not an empty chat panel. The mold itself came from an earlier request in the video: “Create a core and a cavity to mold both parts at the same time. I’ll want a center injection to inject both parts at once.” Autodesk’s caption overlays (“Co-Design with your AI Agent” etc.) are part of the original video.',
     'Bottom left (a still, not a clip): image from OpenAI’s GPT-6 Astra launch demo (via Hackaday) — on the left the KiCad board mid-placement, footprints still outside the outline and connections shown as unrouted ratsnest lines; on the right a 3D render of the board. OpenAI’s caption for the video: “a 15-second condensed playback of GPT-6 Astra performing printed circuit board (PCB) layout in KiCad, turning an electronic schematic into a manufacturable PCB by placing components and routing copper connections” (a 2 min 54 s run). The clip itself could not be downloaded (Cloudflare/Vimeo), so this is the still. JLCPCB independently had Astra design a 44 × 34 mm amplifier board from a four-line brief: 0 ERC / 0 DRC violations under the configured rules (caveat: some rule categories were ignored, and a clean DRC is not a manufacturability check). Hackaday’s verdict was skeptical: “there is still a long way to go before hardware engineers can receive their pink slips.”',
     'Bottom right: Quilter “Project Speedrun” — an 843-component, 8-layer, dual-board Linux computer laid out with Quilter’s physics-driven AI (not an LLM); it booted on first power-up. 38.5 hours of human work vs 428 hours quoted for manual layout (Quilter’s own figures; the clip is a marketing render of the real design).',
     'Right: EEBench — 13 original, held-out electrical-engineering design tasks; each design is built and simulated (SPICE at worst-case tolerance corners): “No human graders. No LLM-as-judge.” Score = 0.65 × technical + 0.35 × cost-efficiency. Leaderboard Sep 29, 2026 — the chart shows the top 8 models, best configuration per model: Claude Opus 5.5 [xhigh] 75.0 ±8.3, GPT-6 Astra 69.3 ±10.7, Claude Sonnet 5.5 67.2, Grok 4.7 64.0, GPT-6.1 Sol 63.6, Claude Opus 5 61.6, Grok 4.6 57.1, Claude Fable 5.1 56.4 (next: GPT-6 Sol 56.3, Gemini 3.8 Flash 55.4, Claude Fable 5 54.3, Claude Opus 4.8 51.4). The top score on Sep 1 was 61.6 (Claude Opus 5). CAVEATS: built and funded by atopile, a company that sells PCB design tools; wide error bars; PCB layout is out of scope in V1. xAI now reports EEBench in its model cards (Grok 4.6) and launch posts (Grok 4.7: 64.0%).',
@@ -1322,11 +1323,11 @@ async function robotWorkSlide(d) {
   // ---- left: the report itself (title block + key findings, highlights added) ----
   const lw = 6.3;
   const title = await crop('rev2/robotwork-title-block.png', 'robotwork-title.png', { l: 60, t: 30, w: 1400, h: 352 });
-  const t1 = await frameW(d, s, title, CX0 + 0.05, 1.8, 2.75, { rot: -1.5 });
+  const t1 = await frameW(d, s, title, CX0 + 0.05, 1.8, 2.45, { rot: -1.5 });
   const meth = d.text(s, [
     { text: 'ANTHROPIC RESEARCH · ECONOMICS', options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 1, breakLine: true, paraSpaceAfter: 2 } },
-    { text: 'Claude rated all 7,594 physical tasks in O*NET, the US job database: could a robot that exists today do it, and where? (~650,000 web searches)', options: { fontSize: 12, color: d.S.muted } },
-  ], { x: CX0 + 3.05, y: 1.74, w: lw - 3.05, h: 1.0, valign: 'top' });
+    { text: 'Claude rated all 7,594 physical tasks in O*NET, the US job database: could a robot that exists today do it, and where?', options: { fontSize: 14, color: d.S.muted } },
+  ], { x: CX0 + 2.75, y: 1.74, w: lw - 2.75, h: 0.94, valign: 'top' });
   const kfOff = { l: 30, t: 298 };
   const kf = await crop('rev2/robotwork-key-findings.png', 'robotwork-kf-b23.png', { ...kfOff, w: 1305, h: 566 });
   const kfF = await frameW(d, s, kf, CX0, 2.98, lw);
@@ -1336,18 +1337,23 @@ async function robotWorkSlide(d) {
     [82, 707, 1237, 42], [82, 760, 100, 42], // about 80% … robots or LLMs
   ], kfOff);
   const kfBottom = kfF.geom.y + kfF.geom.h + 0.06;
-  const kfCap = d.text(s, 'Key findings, anthropic.com, Sep 30, 2026 (highlights added)', { x: CX0, y: kfBottom + 0.06, w: lw, h: 0.26, fontSize: 10, italic: true, color: d.S.steel });
+  // the headline number's robustness caveat (Appendix A.4) belongs on the slide, not only in the notes
+  const kfCap = d.text(s, [
+    { text: 'Caveat: ', options: { fontSize: 14, bold: true, color: d.S.amber } },
+    { text: 'Claude’s ratings; a stricter check gives about half, not ¾', options: { fontSize: 14, color: d.S.txt, breakLine: true } },
+    { text: 'Key findings, anthropic.com, Sep 30, 2026 (highlights added) · stricter check: Appendix A.4', options: { fontSize: 10, italic: true, color: d.S.steel } },
+  ], { x: CX0, y: kfBottom + 0.06, w: lw, h: 0.56, valign: 'top' });
 
   // ---- right: Figure 3 as a native chart ----
   const rx = 7.2, rw = CX1 - rx;
   const lab = capLabel(d, s, 'SHARE OF ALL US WORK TIME, BY WHERE A ROBOT CAN DO THE TASK', { x: rx, y: 1.72, w: rw, charSpacing: 1 });
-  const box = { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 2.3 };
+  const box = { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 2.12 };
   const L = { x: 0.08, y: 0.06, w: 0.9, h: 0.88 };
   const labels = ['Cognitive & interpersonal', 'E0: no robot can do it', 'E1: purpose-built site', 'E2: structured site', 'E3: open world'];
   const vals = [54, 12, 23, 10, 1];
   const ch = d.chart(s, 'bar', [{ name: 'Share of work time', labels, values: vals }], box, {
     barDir: 'col', layout: L, chartColors: ['4A5263', HEX.steel, HEX.red, HEX.red, HEX.red], showValue: true, dataLabelFormatCode: '0"%"',
-    dataLabelPosition: 'outEnd', dataLabelFontSize: 13, dataLabelFontBold: true, valAxisMinVal: 0, valAxisMaxVal: 60, valAxisMajorUnit: 20,
+    dataLabelPosition: 'outEnd', dataLabelFontSize: 13, dataLabelFontBold: true, valAxisMinVal: 0, valAxisMaxVal: 60, valAxisMajorUnit: 30,
     valAxisLabelFormatCode: '0"%"', catAxisHidden: true, barGapWidthPct: 40,
   });
   // category labels drawn as text (two short lines each) so the renderer never rotates or truncates them
@@ -1358,7 +1364,7 @@ async function robotWorkSlide(d) {
   const catT = cats.map((ln, i) => d.text(s, ln.map((txt, j) => ({ text: txt, options: { breakLine: j < ln.length - 1, bold: ln.length === 3 && j === 0 } })),
     { x: cx(i) - cwid / 2 - 0.08, y: box.y + box.h + 0.03, w: cwid + 0.16, h: 0.58, fontSize: 11, color: i >= 2 ? 'FF8A8C' : d.S.muted, align: 'center', valign: 'top' }));
   // bracket over the three robot-doable bars (E1–E3)
-  const ba = cx(2) - 0.4, bb = cx(4) + 0.4, by = vy(37);
+  const ba = cx(2) - 0.4, bb = cx(4) + 0.4, by = vy(36); // label spans ~38–52%: clear of the 30% and 60% gridlines
   const brk = [];
   [[ba, by, bb - ba, 0], [ba, by, 0, 0.12], [bb, by, 0, 0.12]].forEach(([x, y, w, h]) => {
     const n = d.name('brk');
@@ -1367,17 +1373,18 @@ async function robotWorkSlide(d) {
   });
   brk.push(d.text(s, [
     { text: 'ROBOTS CAN DO: 34% OF ALL WORK', options: { bold: true, color: 'FF8A8C', breakLine: true } },
-    { text: '= 74% of physical work, mostly in controlled settings', options: { color: d.S.muted } },
-  ], { x: ba - 0.3, y: by - 0.52, w: bb - ba + 0.6, h: 0.46, fontSize: 11, align: 'center', valign: 'bottom' }));
+    { text: '= 74% of physical work, mostly controlled settings', options: { color: d.S.muted } },
+  ], { x: ba - 0.3, y: by - 0.52, w: CX1 - 0.12 - (ba - 0.3), h: 0.46, fontSize: 11, align: 'center', valign: 'bottom' }));
 
   // ---- bottom right: who is exposed (press clipping + two stats) ----
-  const yb = box.y + box.h + 0.76;
+  const catBottom = box.y + box.h + 0.03 + 0.58;
+  const yb = catBottom + 0.3;
   const cnbc = R2('robotwork-cnbctv18-machines-have-a-type.png');
-  const cw = 2.55;
-  const c1 = await frameW(d, s, cnbc, rx + 0.05, yb + 0.1, cw, { rot: 1.5 });
-  const sx = rx + cw + 0.4, sw = CX1 - sx;
-  const st1 = stat(d, s, { x: sx, y: yb - 0.04, w: sw, value: '$22.88 vs $52.97', valueSize: 19, labelSize: 12, labelH: 0.4, color: d.S.amber, label: 'hourly pay: most robot-exposed fifth of workers vs unexposed' });
-  const st2 = stat(d, s, { x: sx, y: yb + 0.78, w: sw, value: '9 of 10', valueSize: 19, labelSize: 12, labelH: 0.4, color: d.S.amber, label: 'most-exposed jobs are vehicle operators (taxi drivers top)' });
+  const cw = 2.4;
+  const c1 = await frameW(d, s, cnbc, rx + 0.05, yb + 0.12, cw, { rot: 1.5 });
+  const sx = rx + cw + 0.35, sw = CX1 - sx;
+  const st1 = stat(d, s, { x: sx, y: yb, w: sw, value: '$22.88 vs $52.97', valueSize: 19, labelSize: 12, labelH: 0.42, color: d.S.amber, label: 'hourly pay: most robot-exposed fifth of workers vs unexposed' });
+  const st2 = stat(d, s, { x: sx, y: yb + 0.8, w: sw, value: '9 of 10', valueSize: 19, labelSize: 12, labelH: 0.42, color: d.S.amber, label: 'of the 10 most robot-exposed occupations (20K+ jobs) are vehicle operators' });
 
   d.animate(s, [...t1, meth, ...kfF, kfCap], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, kfHl.slice(0, 3), { auto: true, effect: 'wipeLeft', dur: 500, stagger: 350, after: 150 });
@@ -1394,7 +1401,7 @@ async function robotWorkSlide(d) {
     'Chart (Figure 3, all US work time): 54% cognitive and interpersonal; physical work is the other 46% — 12% that no robot can do (E0), 23% robots can do in purpose-built environments (E1), 10% in structured human facilities (E2), 1% in unstructured environments (E3). E1+E2+E3 = 34% of all work = 74% of physical work. Of physical tasks only 1.9% are E3 — robots mostly need controlled settings.',
     'Who is exposed (Figure 5, top-quintile exposed vs unexposed workers): 31.2% vs 51.2% female (−20 pp); 8.3% vs 63.2% with a bachelor’s degree (−55 pp); hourly wage $22.88 vs $52.97; unemployment 5.2% vs 2.2%. Most exposed occupations (Figure 4, ≥20,000 jobs): taxi drivers 2.2 on the 0–3 index (citing Waymo robotaxis), agricultural equipment operators 2.1, light truck drivers 2.1 — 9 of the top 10 are vehicle operators. Nursing and general repair jobs are barely exposed.',
     'Press: CNBC-TV18 (Asmi Saxena, Oct 2, 2026): “The machines have a type: male, blue-collar and lower-paid” — dek: “A new Anthropic study finds the jobs most exposed to physical automation are held mostly by men, with fewer qualifications and smaller pay packets. But the price tag means no stampede is imminent.” (That price tag is the next slide.)',
-    'Robustness caveat (Appendix A.4): excluding ratings that rely on robots doing only related tasks lowers the exposed share of physical work from about three-quarters to about a half.',
+    'Robustness caveat (Appendix A.4, also shown on the slide): “Excluding ratings that rely on related robots decreases the share of exposed physical work from about three-quarters to a half.” Dropping demonstration-only evidence lowers it by about 1 point. So the 74% is an upper-end reading of Claude’s ratings; say “between half and three-quarters”.',
     'URLs: ' + RW_URL + ' · PDF: https://cdn.sanity.io/files/4zrzovbb/website/401a473469db99fd39bba1ca6d9a5653a70e2f12.pdf · Appendix: https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf · Data release (CC BY 4.0): https://huggingface.co/datasets/Anthropic/EconomicIndex/tree/main/robot_exposure · CNBC-TV18: https://www.cnbctv18.com/technology/anthropic-study-ai-robots-blue-collar-jobs-physical-workers-automation-risk-20003393.htm',
   ].join('\n\n'));
   return s;

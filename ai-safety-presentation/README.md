@@ -17,7 +17,7 @@ Built from William Liaw's one-page outline (`assets/original/outline.pptx`), exp
 | I · The Acceleration | AI dominates the economy · information is physical (data centers, supply, environment) · capabilities (METR horizon, benchmark graveyard, Humanity's Last Exam) · creative capabilities · *“i'm upping my p(doom)”* video · mathematics in crisis (Navier–Stokes, aftermath, VibeMathed) · engineering · academia · video Turing test · VLA robotics |
 | II · Inside the Machine | Neuralese / latent reasoning · “an alien mind” · continual learning & test-time training (TTT-E2E) · the intelligence explosion · recursive self-improvement |
 | III · The Alignment Problem | Expert alarm (wall of headlines, CAIS statement) · orthogonality thesis · instrumental convergence · specification gaming · cybersecurity · the Hugging Face intrusion · rogue agents · *“We found other agents”* video · alignment & control |
-| IV · The World | AI and the military · geopolitical rivalry · use by bad actors · open weights · abliteration & deepfakes · model welfare & “pain” directions · *“AI is a normal technology?”* video |
+| IV · The World | AI and the military · geopolitical rivalry · use by bad actors · open weights · abliteration & deepfakes · model welfare & “pain” directions · *“I really felt the AGI profoundly this time”* video (“Escape Velocity”, @anabology) |
 | V · Coda | So what do we do? · one more thing |
 
 ## Truthfulness policy

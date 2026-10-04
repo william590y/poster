@@ -163,7 +163,7 @@ function stat(d, s, o) {
 function chip(d, s, text, x, y, w, fill, { h = 0.3, fontSize = 10.5, color = 'FFFFFF', charSpacing = 1 } = {}) {
   const r = d.name('chip');
   s.addShape(d.pres.shapes.ROUNDED_RECTANGLE, { x, y, w, h, rectRadius: 0.06, fill: { color: fill }, line: { color: fill, width: 0 }, objectName: r });
-  const t = d.text(s, text, { x: x + 0.1, y, w: w - 0.2, h, fontSize, bold: true, color, valign: 'middle', charSpacing });
+  const t = d.text(s, text, { x: x + 0.08, y, w: w - 0.16, h, fontSize, bold: true, color, valign: 'middle', charSpacing });
   return [r, t];
 }
 
@@ -567,21 +567,23 @@ async function trainingSlide(d) {
   // right: the arithmetic, the week bar, the trend
   const rx = 4.85, rw = W - MX - rx;
   const lab1 = label(d, s, 'THE ARITHMETIC · EPOCH AI ESTIMATES (OPENAI HAS NOT DISCLOSED THE ENERGY)', rx, 1.72, rw);
-  // the 233 MW cell ties the run back to slide 6's yardsticks (fact #77: ≈197,000 homes, ≈¼ of a typical reactor);
-  // operators and the 503 GWh cell are trimmed to make room for its two-line label
+  // Values sit at their measured widths (21pt Arial bold) with equal operator slots between them; each label may run
+  // under the following operator. The 233 MW label ties the run back to slide 6's yardsticks (fact #77: ≈197,000
+  // average US homes, ≈ a quarter of a typical reactor).
   const cells = [
-    ['100,000+', 'GPUs (Nvidia GB200)', 1.28],
-    ['2.33 kW', 'per GPU, incl. servers & cooling', 1.3],
-    ['233 MW', 'nonstop ≈ 200,000 US homes (¼ of a reactor)', 1.56],
-    ['~90 days', 'of pretraining (assumed)', 1.26],
-    ['503 GWh', 'of electricity', 1.36],
+    ['100,000+', 'GPUs (Nvidia GB200)', 1.225],
+    ['2.33 kW', 'per GPU, incl.\nservers & cooling', 1.086],
+    ['233 MW', 'nonstop ≈ 200,000 US homes (¼ of a reactor)', 1.086],
+    ['~90 days', 'of pretraining (assumed)', 1.241],
+    ['503 GWh', 'of electricity', 1.248],
   ];
-  const opW = 0.28, eqY = 2.04, eq = [];
+  const vpad = 0.04, eqY = 2.04, eq = [];
+  const opW = (rw - cells.reduce((a, c) => a + c[2] + vpad, 0)) / (cells.length - 1);
   let cx = rx;
-  cells.forEach(([v, l, w], i) => {
-    const last = i === cells.length - 1;
+  cells.forEach(([v, l, vw], i) => {
+    const last = i === cells.length - 1, w = vw + vpad;
     eq.push(d.text(s, v, { x: cx, y: eqY, w, h: 0.45, fontSize: 21, bold: true, color: last ? d.S.red : d.S.txt, fontFace: 'Arial', valign: 'bottom' }));
-    eq.push(d.text(s, l, { x: cx, y: eqY + 0.5, w: w - 0.05, h: 0.42, fontSize: 11, color: d.S.muted, valign: 'top' }));
+    eq.push(d.text(s, l, { x: cx, y: eqY + 0.5, w: last ? rx + rw - cx : w + opW - 0.1, h: 0.42, fontSize: 11, color: d.S.muted, valign: 'top' }));
     cx += w;
     if (!last) { eq.push(d.text(s, i % 2 ? '=' : '×', { x: cx, y: eqY, w: opW, h: 0.45, fontSize: 20, color: d.S.steel, align: 'center', valign: 'bottom' })); cx += opW; }
   });
@@ -602,8 +604,9 @@ async function trainingSlide(d) {
     s.addShape(d.pres.shapes.RECTANGLE, { x: dx(i), y: by, w: f * bw, h: bh, fill: { color: HEX.red }, line: { color: HEX.red, width: 0.75 }, objectName: n });
     segs.push(n);
   }
-  const fillT = d.text(s, [{ text: 'GPT-6 Astra ≈ 3.7 days', options: { bold: true } }, { text: '  (503 GWh)' }],
-    { x: rx + 0.14, y: by, w: dx(3) + 0.66 * bw - rx - 0.2, h: bh, fontSize: 15, color: 'FFFFFF', valign: 'middle' });
+  // caption kept inside day 1 (two lines) so no gap ever runs through its letters; 503 GWh is in the arithmetic above
+  const fillT = d.text(s, [{ text: 'GPT-6 Astra', options: { breakLine: true } }, { text: '≈ 3.7 days' }],
+    { x: rx + 0.1, y: by, w: bw - 0.12, h: bh, fontSize: 14, bold: true, color: 'FFFFFF', valign: 'middle', lineSpacingMultiple: 0.95 });
   // plausible range whisker under the day labels (2.2 – 6.1 days)
   const wy = by + bh + 0.37, w0 = rx + 2.16 * (bw + gap), w1 = rx + 6.14 * (bw + gap);
   const whisk = [line(d, s, w0, wy, w1 - w0, 0, HEX.muted, { width: 1.25 }), line(d, s, w0, wy - 0.07, 0, 0.14, HEX.muted, { width: 1.25 }), line(d, s, w1, wy - 0.07, 0, 0.14, HEX.muted, { width: 1.25 })];
@@ -633,8 +636,8 @@ async function trainingSlide(d) {
   d.animate(s, [q], { auto: true, effect: 'fade', after: 200 });
   d.animate(s, [lab1, ...eq], { effect: 'wipeLeft', dur: 900 });
   d.animate(s, [lab2, ...week], { effect: 'fade', dur: 400 });
-  // the red segments fill day by day (each wipes in after the previous), the caption wipes across with them
-  d.animate(s, [...segs.map((name, i) => ({ name, delay: i * 340, dur: i < 3 ? 340 : 230 })), { name: fillT, dur: 1250 }], { auto: true, effect: 'wipeLeft', after: 150 });
+  // the red segments fill day by day (each wipes in after the previous); the caption wipes in with day 1
+  d.animate(s, [...segs.map((name, i) => ({ name, delay: i * 340, dur: i < 3 ? 340 : 230 })), { name: fillT, dur: 340 }], { auto: true, effect: 'wipeLeft', after: 150 });
   d.animate(s, whisk, { effect: 'fade' });
   d.animate(s, [lab3, ...tgroups.flatMap((g, i) => g.map(name => ({ name, delay: i * 220 })))], { effect: 'rise' });
   d.animate(s, fut, { effect: 'zoom', dur: 450 });
@@ -646,7 +649,7 @@ async function trainingSlide(d) {
     'ARITHMETIC (central case): 100,000 GPUs × 2.327 kW per GPU all-in = 232.7 MW. × 90 days × 24 h = 2,160 h → 232.7 MW × 2,160 h = 502,600 MWh ≈ 503 GWh. NYC: 50,104 GWh in 2025 ÷ 365 = 137.3 GWh per day (× 7 = 961 GWh per week). 503 ÷ 137.3 = 3.66 days (= 0.52 of a week).',
     'INPUTS AND SOURCES: (1) GPU count “more than 100,000” — OpenAI’s Aidan Clark via Fortune (Sep 3, 2026); Greg Brockman via Stratechery (Sep 4, 2026); Huang via PC Gamer (Sep 7, 2026). We use exactly 100,000 (a lower bound). Abilene’s first two buildings hold 100,800 GB200s (Epoch, citing Crusoe: “Each building has been designed to operate up to 50,000 NVIDIA GB200 NVL72s”). OpenAI says only “our Stargate site in Texas”; “Abilene” is Epoch’s/the press’s attribution. (2) 2.327 kW per GPU — Epoch AI’s model database (GPT-6 Astra row, updated Sep 23, 2026) estimates a training power draw of 232.67 MW = ~1,200 W per GB200 × 1.82 server overhead × PUE ~1.065 (Epoch estimation method). Cross-checks: HPE QuickSpecs — a GB200 NVL72 rack (72 GPUs) has a “TDP … 132 kW nominal” = 1.83 kW per GPU before cooling; SpaceX S-1 — “approximately 110,000 GB200 processors, approximately 210 megawatts of compute power” = 1.91 kW per GPU (IT only). (3) 90 days — Epoch’s assumption (“~100k GB200s over 90 days at 25% FP8 MFU”, ~1e27 FLOP); OpenAI has not disclosed the duration. (4) NYC = NYISO Load Zone J, 2025 annual energy 50,104 GWh (2026 Gold Book, Table I-2).',
     'RANGE: low = 206 MW (Crusoe’s 206 MW first phase ÷ 100,000) × 60 days = 297 GWh = 2.2 days; high = 292.7 MW (Epoch’s 295 MW peak facility power for buildings 1–2 ÷ 100,800 GPUs × 100,000) × 120 days = 843 GWh = 6.1 days. All cases assume near-peak draw (actual average draw is probably a bit lower), and cover PRETRAINING ONLY — RL post-training, experiments and inference are not disclosed and come on top.',
-    'Other ways to say 233 MW: ~4% of NYC’s average load; the continuous use of ~197,000 average US homes; about a quarter of a typical nuclear reactor; about half of Hoover Dam’s average output. The whole ~503 GWh run ≈ a year of electricity for ~48,500 US homes.',
+    'Other ways to say 233 MW (the slide’s label under 233 MW rounds the first two to “≈ 200,000 US homes (¼ of a reactor)”): the continuous use of ~197,000 average US homes (EIA: 1.18 kW average draw per home); about a quarter of a typical 1 GW nuclear reactor (DOE); ~4% of NYC’s average load; about half of Hoover Dam’s average output. The whole ~503 GWh run ≈ a year of electricity for ~48,500 US homes.',
     'TREND (Epoch power × Epoch training time ÷ NYC’s 5.72 GWh per hour): GPT-3 (2020) 5.1 MW × 355 h = 1.8 GWh ≈ 19 minutes; GPT-4 (2023) 19.9 MW × 2,280 h = 45.5 GWh ≈ 8 hours; Grok 3 (2025) 110 MW × 2,160 h = 237.5 GWh ≈ 1.7 days; GPT-6 Astra ≈ 3.7 days. All are estimates, not company disclosures.',
     'WHERE IT IS HEADING: Huang’s next 400,000 GPUs at the same ~2.33 kW each ≈ 0.93 GW — one nuclear reactor. Epoch AI/EPRI (Aug 11, 2025): training power has grown ~2.2× a year and “the largest individual frontier training runs in 2030 will likely draw 4-16 gigawatts (GW) of power” → 4 ÷ 5.72 = 0.7× to 16 ÷ 5.72 = 2.8× New York City’s average demand (the top end is ~1.5× NYC’s 2025 summer peak). That is a forecast.',
     'URLs: https://www.pcgamer.com/software/ai/jensen-huang-says-100-000-nvidia-gpus-were-used-to-train-openais-latest-model-gpt-6-astra-and-theres-already-plans-to-bring-quadruple-that-amount-of-hardware-online/ · https://fortune.com/2026/09/03/openai-debuts-gpt-6-astra-computer-use-greg-brockman-says-start-of-agi/ · https://stratechery.com/2026/an-interview-with-openai-president-greg-brockman-about-astra-and-alignment/ · https://epoch.ai/data/all_ai_models.csv · https://epoch.ai/data/ai-models-documentation/estimation · https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene · https://www.hpe.com/us/en/collaterals/collateral.a50009224enw.html · https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm · https://www.nyiso.com/documents/20142/2226333/2026-Gold-Book-Public.pdf · https://epoch.ai/publications/power-demands-of-frontier-ai-training · https://www.eia.gov/electricity/sales_revenue_price/pdf/table_5A.pdf',
@@ -748,7 +751,7 @@ async function nuclearSlide(d) {
     g.push(...await d.frame(s, D(r.clip), { x: rx + 0.14, y: y + 0.12, w: cw, h: rh - 0.24 }, { rot: r.rot, pad: 0.05 }));
     g.push(d.text(s, r.mw, { x: fx, y: y + 0.08, w: 1.42, h: 0.46, fontSize: 25, bold: true, color: d.S.amber, fontFace: 'Arial', valign: 'middle' }));
     g.push(d.text(s, [
-      { text: r.name, options: { bold: true, color: d.S.txt, fontSize: 12.5, breakLine: true } },
+      { text: r.name, options: { bold: true, color: d.S.txt, fontSize: 13, breakLine: true } },
       { text: r.where, options: { color: d.S.muted, fontSize: 11 } },
     ], { x: fx + 1.46, y: y + 0.08, w: fw - 1.46, h: 0.46, valign: 'middle' }));
     g.push(d.text(s, r.deal, { x: fx, y: y + 0.6, w: fw, h: 0.32, fontSize: 13, color: d.S.txt, valign: 'middle' }));

@@ -1,2 +1,5 @@
 node_modules/
 build/
+# research folders still being written by agents (removed once curated)
+assets/research/*
+!assets/research/ttt_session/

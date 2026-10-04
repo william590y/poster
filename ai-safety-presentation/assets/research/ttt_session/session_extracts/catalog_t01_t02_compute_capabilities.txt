@@ -1,0 +1,88 @@
+1	
+2	===== t01_economy_compute
+3	- fig_epoch_data_center_sizes_manhattan.png [2400x2882,7515K] https://epoch.ai/assets/images/data-insights;
+4	- fig_epoch_hyperscaler_capex_vs_cashflow.png [2400x1946,273K] https://epoch.ai/assets/images/data-insights;
+5	- fig_epoch_largest_dc_compute_doubling.png [2400x2066,324K] https://epoch.ai/assets/images/data-insights;
+6	- fig_epoch_total_ai_datacenter_power.png [2400x1751,187K] https://data.sec.gov/api/xbrl/companyconcept/ https://epoch.ai/assets/images/data-insights;
+7	S h01_yahoo_ai_swallows_wall_street.png [1800x1168,405K] blk=False | AI Swallows Wall Street: Stocks Hit Record 45% of S&P 500 Market Cap | AI Swallows Wall Street: Stocks Hit Record 45% of S&P 500 Market Cap | https://finance.yahoo.com/markets/stocks/articles/ai-swallows-wall-street-stocks-094052523.html
+8	- h01_yahoo_ai_swallows_wall_street_crop.png [1210x250,34K] 
+9	- h01_yahoo_ai_swallows_wall_street_og.jpg [1200x675,105K] https://finance.yahoo.com/markets/stocks/articles/ai-swallows-wall-street-stocks-094052523.html
+10	S h02_cnbc_amazon_capex_220b.png [2160x1102,229K] blk=False | Amazon hikes 2026 capex to $220 billion due to higher memory costs | Amazon (AMZN) Q2 earnings report 2026 | https://www.cnbc.com/2026/07/30/amazon-amzn-q2-earnings-report-2026.html
+11	- h02_cnbc_amazon_capex_220b_crop.png [1900x735,88K] 
+12	- h02_cnbc_amazon_capex_220b_og.jpg [1920x1080,100K] https://www.cnbc.com/2026/07/30/amazon-amzn-q2-earnings-report-2026.html
+13	S h03_guardian_xai_turbines_illegal.png [1800x1484,1969K] blk=False | Elon Musk’s xAI datacenter generating extra electricity illegally, regulator rules | Elon Musk’s xAI datacenter generating extra electricity illegally, reg | https://www.theguardian.com/technology/2026/jan/15/elon-musk-xai-datacenter-memphis
+14	- h03_guardian_xai_turbines_illegal_crop.png [1280x1204,1786K] 
+15	- h03_guardian_xai_turbines_illegal_og.jpg [1200x630,173K] https://www.theguardian.com/technology/2026/jan/15/elon-musk-xai-datacenter-memphis
+16	S h04_cnbc_ai_memory_sold_out.png [2160x1102,116K] blk=False | AI memory is sold out, causing an unprecedented surge in prices | AI memory is sold out, causing an unprecedented surge in prices | https://www.cnbc.com/2026/01/10/micron-ai-memory-shortage-hbm-nvidia-samsung.html
+17	- h04_cnbc_ai_memory_sold_out_crop.png [1900x735,79K] https://www.nytimes.com/2026/07/14/business/energy-environment/pjm-electricity-prices-data-centers.html
+18	- h04_cnbc_ai_memory_sold_out_og.jpg [1920x1080,300K] https://www.cnbc.com/2026/01/10/micron-ai-memory-shortage-hbm-nvidia-samsung.html
+19	S h06_utilitydive_pjm_6_3b.png [1800x1290,482K] blk=False | Data centers drove $6.3B in PJM capacity auction costs: market monitor | Data centers drove $6.3B in PJM capacity auction costs: market monitor | https://www.utilitydive.com/news/pjm-data-centers-capacity-auction-imm-bowring/825626/
+20	- h06_utilitydive_pjm_6_3b_crop.png [1700x830,109K] 
+21	- h06_utilitydive_pjm_6_3b_og.jpg [698x435,31K] https://www.utilitydive.com/news/pjm-data-centers-capacity-auction-imm-bowring/825626/
+22	S h07_icn_ny_moratorium.png [2256x1310,766K] blk=False | New York Becomes First State in the Nation to Pause New Hyperscale Data Centers | New York Becomes First State in the Nation to Pause New Hyperscale Dat | https://insideclimatenews.org/news/14072026/new-york-first-data-center-moratorium/
+23	- h07_icn_ny_moratorium_crop.png [2140x920,141K] 
+24	- h07_icn_ny_moratorium_og.jpg [1846x1231,954K] https://insideclimatenews.org/news/14072026/new-york-first-data-center-moratorium/
+25	S h08_cnbc_meta_hyperion_5gw.png [2160x1214,168K] blk=False | Meta’s Louisiana data center investment to reach $50 billion, aided by generous tax incent | Meta Louisiana data center investment reaches $50 billion amid AI push | https://www.cnbc.com/2026/07/13/meta-louisiana-data-center-investment-reaches-50-billion-amid-ai-push.html
+26	- h08_cnbc_meta_hyperion_5gw_crop.png [2160x800,126K] 
+27	- h08_cnbc_meta_hyperion_5gw_og.jpg [1920x1080,177K] https://www.cnbc.com/2026/07/13/meta-louisiana-data-center-investment-reaches-50-billion-amid-ai-push.html
+28	S h09_guardian_zuckerberg_manhattan.png [1800x1642,836K] blk=False | Zuckerberg says Meta will build data center the size of Manhattan in latest AI push | Zuckerberg says Meta will build data center the size of Manhattan in l | https://www.theguardian.com/technology/2025/jul/16/zuckerberg-meta-data-center-ai-manhattan
+29	- h09_guardian_zuckerberg_manhattan_crop.png [1280x420,50K] 
+30	- h09_guardian_zuckerberg_manhattan_og.jpg [1200x630,57K] https://www.theguardian.com/technology/2025/jul/16/zuckerberg-meta-data-center-ai-manhattan
+31	- img_epoch_stargate_abilene.png [1436x746,1984K] 
+32	- img_epoch_stargate_abilene_cooling_zoom.png [1668x906,2414K] https://epoch.ai/assets/images/data-insights/$p.png; https://epoch.ai/assets/images/posts/2025/what-you-need-to-know-about-ai-data-centers/stargate.png;
+33	- img_epoch_stargate_banner.png [1536x864,3619K] 
+34	- img_epoch_stargate_michigan.png [1752x1010,3838K] 
+35	- img_epoch_stargate_milam.png [1752x1010,2517K] 
+36	- img_epoch_stargate_new-mexico.png [1238x1078,3680K] 
+37	- img_epoch_stargate_shackelford.png [1752x1010,3533K] 
+38	- img_meta_hyperion_manhattan_overlay_bloomberg_og.jpg [1200x630,111K] https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iqME8RQfBe.I/v1/1200x630.jpg https://datacenters.atmeta.com/wp-content/uploads/2024/12/Richland-Parish-Data-Cener.jpg
+39	- img_meta_richland_parish_official.jpg [2400x1200,970K] https://assets.bwbx.io/images/users/iqjWHBFdfxIU/iqME8RQfBe.I/v1/1200x630.jpg https://datacenters.atmeta.com/wp-content/uploads/2024/12/Richland-Parish-Data-Cener.jpg
+40	- img_statista_bigtech_capex_2026.jpeg [1200x1200,457K] https://cdn.statcdn.com/Infographic/images/normal/35046.jpeg
+41	
+42	===== t02_capabilities_creative
+43	- fig_arcagi3_astra_action_efficiency.png [2640x1540,246K] 
+44	- h_aimusic_guardian_og.jpg [1200x630,79K] https://www.theguardian.com/music/ng-interactive/2026/aug/13/ai-music
+45	S h_aimusic_guardian_top.png [2600x1640,1748K] blk=False | ‘I feel like I’m at war’: are we losing the battle against machine-made music? | ‘I feel like I’m at war’: are we losing the battle against machine-mad | https://www.theguardian.com/music/ng-interactive/2026/aug/13/ai-music
+46	- h_aimusic_guardian_top_crop.png [2600x1512,1655K] https://www.axios.com/2026/07/07/ai-hacking-benchmarking-tests
+47	S h_arcprize_astra.png [2560x1800,696K] blk=False | OpenAI's GPT-6 Astra on ARC-AGI-3 | OpenAI's GPT-6 Astra on ARC-AGI-3 | ARC Prize | https://arcprize.org/blog/astra
+48	S h_axios_tests.png [1812x1350,611K] blk=False | AI's hacking skills are outgrowing existing tests | AI models are outpacing cybersecurity tests | https://www.axios.com/2026/07/07/ai-hacking-benchmarking-tests
+49	- h_axios_tests_og.jpg [1366x768,64K] https://www.axios.com/2026/07/07/ai-hacking-benchmarking-tests
+50	S h_bbc_sweden_ai_song.png [2560x1720,1411K] blk=False | Song banned from Swedish charts for being AI creation | Song banned from Swedish charts for being AI creation | https://www.bbc.com/news/articles/cp829jey9z7o
+51	- h_bbc_sweden_ai_song_crop.png [1960x870,432K] https://www.yahoo.com/entertainment/music/articles/olivia-rodrigo-song-dethroned-ai-165827216.html
+52	- h_bbc_sweden_ai_song_og.jpg [1024x576,50K] https://www.bbc.com/news/articles/cp829jey9z7o
+53	S h_decoder_metr_mythos.png [2560x1800,2040K] blk=False | METR says it can barely measure Claude Mythos, Palo Alto Networks warns of autonomous AI a | METR says it can barely measure Claude Mythos, Palo Alto Networks warn | https://the-decoder.com/metr-says-it-can-barely-measure-claude-mythos-palo-alto-networks-warns-of-autonomous-a
+54	- h_decoder_metr_mythos_crop.png [1380x630,189K] 
+55	- h_decoder_metr_mythos_og.png [1200x670,1663K] https://the-decoder.com/metr-says-it-can-barely-measure-claude-mythos-palo-alto-networks-warns-of-autonomous-a
+56	S h_deezer_techcrunch.png [2560x1720,524K] blk=False | Music streamer Deezer says more than 50% of daily uploads are AI-generated | Music streamer Deezer says more than 50% of daily uploads are AI-gener | https://techcrunch.com/2026/07/21/music-streamer-deezer-says-more-than-50-of-daily-uploads-are-ai-generated/
+57	- h_deezer_techcrunch_crop.png [2560x988,424K] 
+58	- h_deezer_techcrunch_og.png [1200x600,198K] https://techcrunch.com/2026/07/21/music-streamer-deezer-says-more-than-50-of-daily-uploads-are-ai-generated/
+59	S h_eldagsen_guardian_2023.png [2600x1800,1018K] blk=False | Photographer admits prize-winning image was AI-generated | Photographer admits prize-winning image was AI-generated | Sony world  | https://www.theguardian.com/technology/2023/apr/17/photographer-admits-prize-winning-image-was-ai-generated
+60	- h_eldagsen_guardian_2023_crop.png [1940x1672,706K] 
+61	- h_eldagsen_guardian_2023_og.jpg [1200x630,53K] https://www.theguardian.com/technology/2023/apr/17/photographer-admits-prize-winning-image-was-ai-generated
+62	S h_itunes_ai_no1_yahoo.png [1800x1200,1043K] blk=False | Olivia Rodrigo’s New Song Dethroned An AI-Generated Track From No. 1 | Olivia Rodrigo’s New Song Dethroned An AI-Generated Track From No. 1 | https://www.yahoo.com/entertainment/music/articles/olivia-rodrigo-song-dethroned-ai-165827216.html
+63	- h_itunes_ai_no1_yahoo_crop.png [1640x1035,987K] https://www.axios.com/local/columbus/2026/08/07/ohio-state-fair-ai-poster-backlash
+64	S h_mittr_metr_graph.png [2560x1800,1257K] blk=False | This is the most misunderstood graph in AI | This is the most misunderstood graph in AI | MIT Technology Review | https://www.technologyreview.com/2026/02/05/1132254/this-is-the-most-misunderstood-graph-in-ai/
+65	- h_mittr_metr_graph_crop.png [2540x820,83K] 
+66	- h_mittr_metr_graph_og.jpg [1200x600,109K] https://www.technologyreview.com/2026/02/05/1132254/this-is-the-most-misunderstood-graph-in-ai/
+67	S h_ohio_fair_ai_poster_axios.png [1800x1780,1044K] blk=False | Why the Ohio State Fair AI poster struck a nerve | An AI poster won an Ohio State Fair contest — here's why it struck a n | https://www.axios.com/local/columbus/2026/08/07/ohio-state-fair-ai-poster-backlash
+68	- h_ohio_fair_ai_poster_axios_crop.png [1560x1590,929K] 
+69	- h_ohio_fair_ai_poster_axios_og.jpg [1366x768,214K] https://www.axios.com/local/columbus/2026/08/07/ohio-state-fair-ai-poster-backlash
+70	S h_seedance_guardian.png [1800x1642,1297K] blk=False | ‘It’s over for us’: release of new AI video generator Seedance 2.0 spooks Hollywood | ‘It’s over for us’: release of new AI video generator Seedance 2.0 spo | https://www.theguardian.com/film/2026/feb/13/new-ai-video-generator-seedance-tom-cruise-brad-pitt
+71	- h_seedance_guardian_og.jpg [1200x630,79K] https://www.theguardian.com/film/2026/feb/13/new-ai-video-generator-seedance-tom-cruise-brad-pitt
+72	S h_seedance_guardian_top.png [2600x1640,1485K] blk=False | ‘It’s over for us’: release of new AI video generator Seedance 2.0 spooks Hollywood | ‘It’s over for us’: release of new AI video generator Seedance 2.0 spo | https://www.theguardian.com/film/2026/feb/13/new-ai-video-generator-seedance-tom-cruise-brad-pitt
+73	- h_seedance_guardian_top_crop.png [1950x1512,761K] 
+74	- img_openai_images2_35mm_photograph.png [1600x1060,1917K] https://images.ctfassets.net/kftzwdyauwt9;
+75	- img_openai_images2_candid_people_1.png [1600x1067,1750K] https://images.ctfassets.net/kftzwdyauwt9;
+76	- img_openai_images2_candid_people_2.png [1600x1078,2038K] https://images.ctfassets.net/kftzwdyauwt9;
+77	- img_openai_images2_computer_lab.png [1600x1073,2249K] https://images.ctfassets.net/kftzwdyauwt9;
+78	- img_openai_images2_high_fashion.png [1600x1062,1266K] https://images.ctfassets.net/kftzwdyauwt9;
+79	- img_openai_images2_lecture_hall.png [1600x1067,1454K] https://images.ctfassets.net/kftzwdyauwt9;
+80	- img_theatre_dopera_spatial_2022.jpg [2048x1365,397K] https://commons.wikimedia.org/w/api.php?action=query&titles=File:Th%C3%A9%C3%A2tre%20D%E2%80%99op%C3%A9ra%20Sp https://upload.wikimedia.org/wikipedia/commons/b/bf/Th%C3%A9%C3%A2tre_D%E2%80%99op%C3%A9ra_Spatial.jpg
+81	- img_veo31_still_cartographer.jpg [1440x810,124K] 
+82	- img_veo31_still_cliffs.jpg [1440x810,211K] 
+83	- img_veo31_still_old_sailor.jpg [1440x810,133K] 
+84	- img_veo31_still_train_station.jpg [1440x810,105K] 
+85	- img_veo31_still_two_men.jpg [1440x810,161K] 
+86	- img_veo31_still_violinist.jpg [1440x810,98K] 
+87	- img_veo31_still_wok.jpg [1440x810,76K] 
+88	

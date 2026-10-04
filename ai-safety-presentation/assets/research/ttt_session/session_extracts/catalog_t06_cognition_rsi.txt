@@ -1,0 +1,36 @@
+256	===== t06_cognition_rsi
+257	S f02_openai_agent_workdays_chart.png [1240x690,43K] blk=False | Before June 2026, total agent runtime across the research organization was still below tha | Research acceleration: The view inside OpenAI | OpenAI | https://openai.com/index/research-acceleration-view-inside-openai/
+258	- f03_openai_lines_changed_chart.png [1220x682,52K] 
+259	- f04_openai_agent_task_success_chart.png [1210x895,119K] 
+260	- f05_openai_rl_compute_pause_chart.png [1210x1235,134K] 
+261	- f06_openai_experiment_velocity_chart.png [1220x680,52K] 
+262	S f07_vals_rsi_extrapolation_hires.png [1566x895,104K] blk=False |  | Vals RSI Index Leaderboard and Methodology | Vals AI | https://www.vals.ai/benchmarks/rsi_index
+263	- f08_anthropic_rd_automation_index.png [1920x1230,234K] https://www-cdn.anthropic.com/images/4zrzovbb/website;
+264	- f09_anthropic_code_per_person_8x.png [2200x1276,144K] https://www.anthropic.com/institute/recursive-self-improvement
+265	- f10a_anthropic_session_success_rate_to_may2026.png [2200x1276,182K] https://www.anthropic.com/institute/recursive-self-improvement
+266	- f10b_anthropic_session_success_rate_to_sep2026.png [1920x1277,130K] https://www.anthropic.com/institute/recursive-self-improvement
+267	- f11_anthropic_researcher_detour_judgment.png [2200x1276,187K] https://www.anthropic.com/institute/recursive-self-improvement
+268	S h01_openai_alien_mind_og.png [1600x900,662K] blk=False | An Alien Mind | An Alien Mind | OpenAI | https://openai.com/index/an-alien-mind/
+269	S h01_openai_alien_mind_top.png [2560x1520,138K] blk=False | An Alien Mind | An Alien Mind | OpenAI | https://openai.com/index/an-alien-mind/
+270	- h02_openai_research_acceleration_og.png [1600x900,554K] https://openai.com/index/research-acceleration-view-inside-openai/
+271	S h02_openai_research_acceleration_top.png [2560x1520,159K] blk=False | Research acceleration: The view inside OpenAI | Research acceleration: The view inside OpenAI | OpenAI | https://openai.com/index/research-acceleration-view-inside-openai/
+272	- h03_vals_rsi_index_og.png [1200x630,46K] https://www.vals.ai/benchmarks/rsi_index
+273	S h03_vals_rsi_index_top.png [2560x1600,169K] blk=False | Vals RSI Index | Vals RSI Index Leaderboard and Methodology | Vals AI | https://www.vals.ai/benchmarks/rsi_index
+274	S h04_anthropic_when_ai_builds_itself.png [2560x1150,157K] blk=False | When AI builds itself | When AI builds itself \ Anthropic | https://www.anthropic.com/institute/recursive-self-improvement
+275	- h04_anthropic_when_ai_builds_itself_og.jpg [2400x1260,29K] https://www.anthropic.com/institute/recursive-self-improvement
+276	S h05_anthropic_measuring_pace.png [2560x1600,110K] blk=False | Measurements
+277	for understanding the
+278	pace of AI development
+279	inside frontier labs | Measurements for understanding the pace of AI development inside front | https://www.anthropic.com/institute/measuring-pace-of-ai-development
+280	S h06_guardian_kaplan_biggest_decision.png [2560x1835,1019K] blk=False | ‘The biggest decision yet’: Jared Kaplan on allowing AI to train itself | ‘The biggest decision yet’: Jared Kaplan on allowing AI to train itsel | https://www.theguardian.com/technology/ng-interactive/2025/dec/02/jared-kaplan-artificial-intelligence-train-i
+281	- h06_guardian_kaplan_og.jpg [1200x630,95K] https://www.theguardian.com/technology/ng-interactive/2025/dec/02/jared-kaplan-artificial-intelligence-train-i
+282	S h07_ap_abc_rsi_labs_say_near.png [1360x655,82K] blk=False | Will AI models achieve the ability to improve autonomously? Leading labs say the scenario  | Will AI models achieve the ability to improve autonomously? Leading la | https://abcnews.com/US/wireStory/ai-models-achieve-ability-improve-autonomously-leading-labs-136582737
+283	S h09_time_race_to_make_ai_build_itself.png [1700x800,685K] blk=False | Inside the Race to Make AI Build Itself | What Happens When AI Starts Building AI? Inside Recursive Self-Improve | https://time.com/article/2026/08/07/ai-recursive-self-improvement-anthropic-openai/
+284	S h10_mittr_rsi_not_so_quickly.png [2460x710,56K] blk=False | AI’s recursive self-improvement might not come so quickly after all | AI’s recursive self-improvement might not come so quickly after all |  | https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement/
+285	S h11_reuters_ksl_claude_leads_quarter.png [1980x443,58K] blk=False | Anthropic says Claude now leads a quarter of work building its next AI models | Anthropic says Claude now leads a quarter of work building its next AI | https://www.ksl.com/article/51625496/anthropic-says-claude-now-leads-a-quarter-of-work-building-its-next-ai-mo
+286	- h12_techcrunch_og.jpg [1024x683,40K] https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/
+287	S h12_techcrunch_opaque_recurrence.png [2560x908,327K] blk=False | OpenAI’s new reasoning technique alarms AI safety experts | OpenAI’s new reasoning technique alarms AI safety experts | TechCrunch | https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/
+288	S s01_alien_mind_cot_passage_crop.png [1230x835,83K] blk=False | This tool continues to be critical as we study the Astra class of models. However, unfortu | An Alien Mind | OpenAI | https://openai.com/index/an-alien-mind/
+289	S s02_alien_mind_rsi_passage_crop.png [1240x735,82K] blk=False | A lot of new research happened in this period, and our understanding of these systems is a | An Alien Mind | OpenAI | https://openai.com/index/an-alien-mind/
+290	S s03_openai_intern_passage_crop.png [1240x465,59K] blk=False | We aim to safely build an automated AI researcher that can work under human supervision to | Research acceleration: The view inside OpenAI | OpenAI | https://openai.com/index/research-acceleration-view-inside-openai/
+291	S s04_vals_rsi_key_takeaways_crop.png [1325x810,138K] blk=False | Key Takeaways | Vals RSI Index Leaderboard and Methodology | Vals AI | https://www.vals.ai/benchmarks/rsi_index

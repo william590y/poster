@@ -218,7 +218,7 @@ async function hwDesignSlide(d) {
   const cells = [
     [R2('cad-autodesk-mcp-enclosure.gif'), 'CAD · AUTODESK FUSION + CLAUDE OPUS 4.8', 'One chat request → a molded Raspberry Pi case'],
     [R2('cad-autodesk-mcp-mold-toolpaths.gif'), 'CAM · SAME AGENT, NEXT REQUEST', '…then the mold and the CNC toolpaths to cut it'],
-    [R2('pcb-astra-kicad-hackaday.jpg'), 'PCB · GPT-6 ASTRA IN KICAD · OPENAI DEMO, STILL', 'Board layout mid-placement, and its 3D render', { clear: true }],
+    [R2('pcb-astra-kicad-hackaday.jpg'), 'PCB · GPT-6 ASTRA IN KICAD · STILL', 'OpenAI demo: layout mid-placement, plus 3D render', { clear: true }],
     [R2('pcb-quilter-speedrun-board-360.gif'), 'PCB · QUILTER “PROJECT SPEEDRUN”', '843-part Linux computer — booted on first power-up'],
   ];
   const tiles = [];
@@ -400,50 +400,55 @@ async function paidWorkSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
   head(s, 'THE ACCELERATION · LABOR · 2', 'Real paid work: AI’s success rate is soaring');
 
-  const colW = (CW - 0.45) / 2, ax = CX0, bx = CX0 + colW + 0.45;
-  const zap = await crop('rev2/labor-automationbench-leaderboard-top10.png', 'labor-zapier-head.png', { l: 180, t: 10, w: 2020, h: 228 });
-  const cais = await crop('rev2/labor-rli-cais-blog-header.png', 'labor-cais-rli-head.png', { l: 70, t: 40, w: 1820, h: 360 });
-  const cw = colW - 0.3;
-  const hz = await hFor(zap, cw), hc = await hFor(cais, cw), hb = Math.max(hz, hc);
-  const c1 = await frameW(d, s, zap, ax + 0.15, 1.84 + (hb - hz) / 2, cw, { rot: -1 });
-  const c2 = await frameW(d, s, cais, bx + 0.15, 1.84 + (hb - hc) / 2, cw, { rot: 1 });
-  const ly = 1.84 + hb + 0.22, cy = ly + 0.28, chH = 6.5 - cy - 1.0;
+  // Two rows, one per benchmark: [real leaderboard crop] [native chart of the trend] [big stat].
+  const zap = await crop('rev2/labor-automationbench-leaderboard-top10.png', 'labor-zapier-top5.png', { l: 388, t: 1366, w: 957, h: 530 });
+  const rli = await crop('rev2/labor-rli-leaderboard-panel.png', 'labor-rli-top4.png', { l: 15, t: 15, w: 985, h: 470 });
+  const sx = 9.85, sw = CX1 - sx;          // stat column
+  const rowA = 1.72, rowB = 4.3, ch0 = 0.33; // row tops (labels), label-to-content offset
+  const clipH = 6.5 - (rowB + ch0) - 0.02;   // clipping height (same in both rows)
+  const pad = 0.06;
+  const zw = (clipH - 2 * pad) * 957 / 530 + 2 * pad, rw2 = (clipH - 2 * pad) * 985 / 470 + 2 * pad;
 
-  // A: AutomationBench — best strict pass rate among models released up to each month (all re-run on v1.0.6)
-  const la = capLabel(d, s, 'AUTOMATIONBENCH (ZAPIER) · BEST MODEL BY RELEASE MONTH, 2026', { x: ax, y: ly, w: colW, charSpacing: 1 });
+  // Row A: AutomationBench (Zapier)
+  const lz = capLabel(d, s, 'AUTOMATIONBENCH · ZAPIER, OCT 4, 2026', { x: CX0, y: rowA, w: zw + 0.4, charSpacing: 1 });
+  const c1 = await d.frame(s, zap, { x: CX0 + 0.04, y: rowA + ch0, w: zw, h: clipH }, { rot: -1 });
+  const ax = CX0 + zw + 0.42, aw = sx - 0.35 - ax;
+  const la = capLabel(d, s, 'BEST MODEL RELEASED BY EACH MONTH, 2026 · v1.0.6', { x: ax, y: rowA, w: aw, charSpacing: 1 });
   const ca = d.chart(s, 'line', [{ name: 'Best score', labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'], values: [8.68, 11.57, 16.59, 16.89, 17.05, 28.77, 30.44, 51.29] }],
-    { x: ax - 0.1, y: cy, w: colW + 0.1, h: chH }, {
+    { x: ax - 0.1, y: rowA + ch0 - 0.04, w: aw + 0.1, h: clipH + 0.1 }, {
       chartColors: [HEX.red], lineSize: 3, lineDataSymbolSize: 7, showValue: true, dataLabelFormatCode: '0"%"', dataLabelPosition: 't',
       dataLabelFontSize: 11, valAxisMinVal: 0, valAxisMaxVal: 60, valAxisMajorUnit: 20, valAxisLabelFormatCode: '0"%"', catAxisLabelFontSize: 11,
     });
-  const sy = cy + chH + 0.14;
-  const big = (x, v) => d.text(s, v, { x, y: sy, w: 1.05, h: 0.56, fontSize: 32, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'top' });
-  const lbl = (x, t) => d.text(s, t, { x: x + 1.1, y: sy + 0.04, w: colW - 1.1, h: 0.82, fontSize: 13, color: d.S.muted, valign: 'top' });
-  const sa = [big(ax, '~4×'), lbl(ax, 'in five months on identical tasks: April’s leader Opus 4.7 scores 13.4%, Gemini 4 Argon 51.3%. Business workflows in 47 real apps; strict pass/fail.')];
+  const sa = stat(d, s, { x: sx, y: rowA + 0.02, w: sw, value: '~6×', valueSize: 40, labelSize: 14, labelH: 1.25,
+    label: 'in seven months on the same tasks: 8.7% (Feb) → 51.3% (Sep). Workflows in 47 simulated business apps; strict pass/fail.' });
 
-  // B: Remote Labor Index — best automation rate over time (240 real freelance projects, human-judged)
-  const lb = capLabel(d, s, 'REMOTE LABOR INDEX (CAIS + SCALE) · BEST AUTOMATION RATE', { x: bx, y: ly, w: colW, charSpacing: 1 });
-  const cb = d.chart(s, 'bar', [{ name: 'Automation rate', labels: ['Launch · Oct ’25', 'Opus 4.6 · by Jun ’26', 'Fable 5 · Jul ’26', 'GPT-6 Astra · Oct ’26'], values: [2.5, 4.17, 15.8, 20.83] }],
-    { x: bx - 0.1, y: cy, w: colW + 0.1, h: chH }, {
+  // Row B: Remote Labor Index (CAIS + Scale)
+  const lr = capLabel(d, s, 'REMOTE LABOR INDEX · SCALE, OCT 4, 2026', { x: CX0, y: rowB, w: rw2 + 0.4, charSpacing: 1 });
+  const c2 = await d.frame(s, rli, { x: CX0 + 0.04, y: rowB + ch0, w: rw2, h: clipH }, { rot: 1 });
+  const bx = CX0 + rw2 + 0.42, bw = sx - 0.35 - bx;
+  const lb = capLabel(d, s, 'BEST AUTOMATION RATE OVER TIME', { x: bx, y: rowB, w: bw, charSpacing: 1 });
+  const cb = d.chart(s, 'bar', [{ name: 'Automation rate', labels: ['Launch\nOct ’25', 'Opus 4.6\nby Jun ’26', 'Fable 5\nJul ’26', 'GPT-6 Astra\nSep–Oct ’26'], values: [2.5, 4.17, 15.8, 20.83] }],
+    { x: bx - 0.1, y: rowB + ch0 - 0.04, w: bw + 0.1, h: clipH + 0.12 }, {
       barDir: 'col', chartColors: [HEX.steel, HEX.steel, HEX.amber, HEX.red], showValue: true, dataLabelFormatCode: '0.0"%"', dataLabelPosition: 'outEnd',
       dataLabelFontSize: 12, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 25,
-      catAxisLabelFontSize: 11, barGapWidthPct: 55,
+      catAxisLabelFontSize: 11, barGapWidthPct: 45,
     });
-  const sb = [big(bx, '8×'), lbl(bx, 'in under a year. 240 real freelance jobs (3D, design, video, data…) worth $144K, each judged by humans against a paid professional’s work.')];
+  const sb = stat(d, s, { x: sx, y: rowB + 0.02, w: sw, value: '8×', valueSize: 40, labelSize: 14, labelH: 1.25,
+    label: 'in under a year: 2.5% → 20.8%. 240 real freelance jobs worth $144K, each judged by humans against a paid professional’s work.' });
 
-  d.animate(s, c1, { auto: true, effect: 'rise', dur: 450 });
+  d.animate(s, [lz, ...c1], { auto: true, effect: 'rise', dur: 450 });
   d.animate(s, [la, ca], { auto: true, effect: 'wipeLeft', dur: 1100, after: 100 });
   d.animate(s, sa, { auto: true, effect: 'fade', after: 100 });
-  d.animate(s, c2, { effect: 'rise', dur: 450 });
+  d.animate(s, [lr, ...c2], { effect: 'rise', dur: 450 });
   d.animate(s, [lb, cb], { auto: true, effect: 'wipeLeft', dur: 1000, after: 100 });
   d.animate(s, sb, { auto: true, effect: 'fade', after: 100 });
 
   d.source(s, 'Sources: Zapier AutomationBench v1.0.6 (accessed Oct 4, 2026) & arXiv 2604.18934 · CAIS blog (Jul 1, 2026) & Scale Labs RLI leaderboard (Oct 4, 2026) · arXiv 2510.26787.');
   s.addNotes([
-    'Two benchmarks built from real, paid work. Left — AutomationBench (Zapier, Apr 21, 2026): 600+ held-out business workflows across Sales, Marketing, Operations, Support, Finance and HR in 47 simulated apps (CRM, inbox, calendars…), built on patterns from Zapier’s 2B+ monthly tasks across 3.7M companies; strict scoring — every end-state assertion must hold (“mostly-right is still wrong”); “No LLM-as-judge.”',
-    'At launch: “Even the best frontier models currently score below 10%” (Opus 4.7 9.9%). Today (leaderboard v1.0.6): Gemini 4 Argon (High) 51.29%, Claude Sonnet 5.5 44.75%, Claude Opus 5.5 42.47%, GPT 6 Astra (Max) 41.4%. Zapier re-runs every model when the version changes, so compare within v1.0.6: April’s leader Opus 4.7 scores 13.39% on v1.0.6 vs 51.29% for Gemini 4 Argon (Sep 2026) — ~4x in five months. The chart is the best v1.0.6 score among models released up to each month (our compilation; release months from Artificial Analysis / Wikipedia).',
+    'Two benchmarks built from real, paid work; each row shows a crop of the live leaderboard (Oct 4, 2026), the trend, and the headline multiple. Top — AutomationBench (Zapier, Apr 21, 2026): 600+ held-out business workflows across Sales, Marketing, Operations, Support, Finance and HR in 47 simulated apps — each task runs in an isolated environment (CRM records, inbox threads, calendars…); Zapier’s page calls them “47 real tools”, meaning simulated versions of real apps — built on patterns from Zapier’s 2B+ monthly tasks across 3.7M companies; strict scoring — every end-state assertion must hold (“mostly-right is still wrong”); “No LLM-as-judge.”',
+    'At launch: “Even the best frontier models currently score below 10%” (Opus 4.7 9.9%). Today (leaderboard v1.0.6): Gemini 4 Argon (High) 51.29%, Claude Sonnet 5.5 44.75%, Claude Opus 5.5 42.47%, GPT 6 Astra (Max) 41.4%. Zapier re-runs every model when the version changes, so everything is compared within v1.0.6. The chart is the best v1.0.6 score among models released up to each month (our compilation; release months from Artificial Analysis / Wikipedia): Gemini 3.1 Pro 8.68% (Feb) → Gemini 4 Argon 51.29% (Sep), ~6x in seven months; from April (GPT-5.5, 16.59%) it is ~3x. (Another cut: April’s launch leader Opus 4.7 scores 13.39% on v1.0.6 — ~4x to Gemini 4 Argon.)',
     'Failure mode worth naming: “More often than not, models declared success while actually failing. 72% of Opus’s failures, 91% of Gemini’s, and 84% of GPT 5.4’s involved this false confidence.” (AutomationBench paper.) Also: Claude Fable 5.1’s own safety classifier refused steps on ~40% of tasks (260 of 657), which Opus 5 then completed as a fallback.',
-    'Right — Remote Labor Index (Center for AI Safety + Scale AI): 240 real freelance projects (3D & CAD, architecture, graphic design, video and animation, audio, data analysis, web apps…) representing 6,000+ hours of work valued at $143,991; mean human completion time 28.9 hours. Every deliverable is judged by human evaluators against a gold-standard deliverable from a paid professional; the automation rate is the share of projects where the AI’s work is as good or better. At launch (Oct 30, 2025) the best agent automated 2.5%; the previous published leader was Opus 4.6 + Claude Cowork at 4.17% (exact date not found); Fable 5 15.8% (Jul 1, 2026); GPT-6 Astra 20.83% on today’s leaderboard (posted between Sep 3 and Oct 4, 2026). CAIS: “The frontier has more than quadrupled in under eight months.” (Fable 5 was first announced as 16.1%; CAIS pages now show 15.8%.)',
+    'Bottom — Remote Labor Index (Center for AI Safety + Scale AI): 240 real freelance projects (3D & CAD, architecture, graphic design, video and animation, audio, data analysis, web apps…) representing 6,000+ hours of work valued at $143,991; mean human completion time 28.9 hours. Every deliverable is judged by human evaluators against a gold-standard deliverable from a paid professional; the automation rate is the share of projects where the AI’s work is as good or better. At launch (Oct 30, 2025) the best agent automated 2.5%; the previous published leader was Opus 4.6 + Claude Cowork at 4.17% (exact date not found); Fable 5 15.8% (Jul 1, 2026); GPT-6 Astra 20.83% on today’s leaderboard (posted between Sep 3 and Oct 4, 2026 — hence “Sep–Oct ’26” on the chart; exact date not found). CAIS: “The frontier has more than quadrupled in under eight months.” (Fable 5 was first announced as 16.1%; CAIS pages now show 15.8%.)',
     'Caveats (CAIS): an automated LLM judge overestimated the newest models ~2.9x (GPT-5.5: 17.9% vs 6.25% by humans) — and on one architecture project “GPT‑5.5’s good-looking render is faked with an image generator”; its actual 3D model was crude. Agents that look done but are not is itself a safety problem. ~80% of real projects are still not automated.',
     'URLs: https://zapier.com/benchmarks · https://arxiv.org/abs/2604.18934 · https://safe.ai/blog/significant-increase-in-digital-labor-automation · https://labs.scale.com/leaderboard/rli · https://dashboard.safe.ai/ · https://www.remotelabor.ai/ · https://arxiv.org/abs/2510.26787 · https://www.zdnet.com/article/anthropic-fable-5-freelance-work-performance-record/',
   ].join('\n\n'));
@@ -467,45 +472,51 @@ async function openaiNoticeClip() {
 // ========== 1f. Labor: GDPval ==========
 async function gdpvalSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'THE ACCELERATION · LABOR · 3', 'AI matched or beat experts 85% of the time');
+  head(s, 'THE ACCELERATION · LABOR · 3', 'OpenAI: AI tied or beat experts 85% of the time');
 
   // left: GDPval wins + ties vs industry professionals, with the 50% parity line
   const lw = 6.55;
   const lab = capLabel(d, s, 'GDPVAL · DELIVERABLE JUDGED AS GOOD AS OR BETTER THAN AN EXPERT’S', { x: CX0, y: 1.72, w: lw, charSpacing: 1 });
   const box = { x: CX0 - 0.1, y: 1.98, w: lw + 0.1, h: 3.55 };
-  const L = { x: 0.07, y: 0.07, w: 0.92, h: 0.72 };
+  const L = { x: 0.07, y: 0.12, w: 0.92, h: 0.72 };
   const labels = ['GPT-4o (2024)', 'o3 (Apr ’25)', 'GPT-5 (Aug ’25)', 'Opus 4.1 (Sep ’25)', 'GPT-5.2 (Dec ’25)', 'GPT-5.4 (Mar ’26)', 'GPT-5.5 (Apr ’26)'].map(l => l.replace(/ (’\d\d\))/, '\u00A0$1'));
   const vals = [12.4, 34.1, 38.8, 47.6, 70.9, 83.0, 84.9];
   const ch = d.chart(s, 'bar', [{ name: 'Wins + ties', labels, values: vals }], box, {
     barDir: 'col', layout: L, chartColors: vals.map(v => (v >= 50 ? HEX.red : HEX.steel)), showValue: true, dataLabelFormatCode: '0.0"%"',
     dataLabelPosition: 'outEnd', dataLabelFontSize: 12, dataLabelFontBold: true, valAxisMinVal: 0, valAxisMaxVal: 100, valAxisMajorUnit: 25,
-    valAxisLabelFormatCode: '0"%"', catAxisLabelFontSize: 10, barGapWidthPct: 45,
+    valAxisLabelFormatCode: '0"%"', catAxisLabelFontSize: 11, barGapWidthPct: 45,
   });
   const py = box.y + box.h * (L.y + L.h * 0.5), px0 = box.x + box.w * L.x, px1 = box.x + box.w * (L.x + L.w);
   const par = d.name('parity');
   s.addShape(d.pres.shapes.LINE, { x: px0, y: py, w: px1 - px0, h: 0, line: { color: HEX.amber, width: 1.5, dashType: 'dash' }, objectName: par });
   const parT = d.text(s, '50% = parity with industry experts', { x: px0 + 0.08, y: py - 0.3, w: 3.0, h: 0.26, fontSize: 11, bold: true, color: d.S.amber, valign: 'bottom' });
+  // the red bars are OpenAI's own reported numbers: say so on the chart itself (bracket over the three bars)
+  const pa = box.x + box.w * (L.x + L.w * 4 / 7) + 0.1, pb = box.x + box.w * (L.x + L.w) - 0.1, pyb = box.y + 0.03;
+  const brk = d.name('brk');
+  s.addShape(d.pres.shapes.LINE, { x: pa, y: pyb + 0.3, w: pb - pa, h: 0, line: { color: HEX.red, width: 1.25 }, objectName: brk });
+  const brkT = d.text(s, 'OPENAI-REPORTED', { x: pa, y: pyb, w: pb - pa, h: 0.26, fontSize: 10, bold: true, color: d.S.red, charSpacing: 1, align: 'center', valign: 'bottom' });
   const note = d.text(s, [
-    { text: '44 occupations; tasks written by professionals with ~14 years’ experience; graded blind by other experts. ', options: { color: d.S.muted } },
-    { text: 'First four: GDPval paper (Sep 2025). GPT-5.2–5.5: OpenAI-reported, via press.', options: { color: d.S.steel, italic: true } },
-  ], { x: CX0, y: box.y + box.h + 0.08, w: lw, h: 0.85, fontSize: 12, valign: 'top' });
+    { text: 'OpenAI’s own benchmark: 44 occupations; tasks written by professionals with ~14 years’ experience; graded blind by other experts. ', options: { color: d.S.muted } },
+    { text: 'Grey: GDPval paper (Sep 2025). Red: OpenAI-reported, via press.', options: { color: d.S.steel, italic: true } },
+  ], { x: CX0, y: box.y + box.h + 0.08, w: lw, h: 0.85, fontSize: 14, valign: 'top' });
 
   // right: the headline, then OpenAI stops publishing the number
   const rx = 7.5, rw = CX1 - rx;
   const mtp = R2('labor-marktechpost-gpt55-gdpval.png');
-  const c1 = await frameW(d, s, mtp, rx + 0.1, 1.86, rw - 0.2, { rot: -1.2 });
-  const mBottom = 1.86 + await hFor(mtp, rw - 0.2);
+  const kw = rw - 0.8; // clippings narrower than the column so the full VentureBeat sentence fits below
+  const c1 = await frameW(d, s, mtp, rx + 0.4, 1.86, kw, { rot: -1.2 });
+  const mBottom = 1.86 + await hFor(mtp, kw);
   const l2 = capLabel(d, s, 'SINCE THEN: NO NEW NUMBER FROM OPENAI', { x: rx, y: mBottom + 0.22, w: rw, color: d.S.amber });
   const notice = await openaiNoticeClip();
-  const c2 = await frameW(d, s, notice, rx + 0.1, mBottom + 0.55, rw - 0.2, { rot: 1 });
-  const nBottom = mBottom + 0.55 + await hFor(notice, rw - 0.2);
+  const c2 = await frameW(d, s, notice, rx + 0.4, mBottom + 0.55, kw, { rot: 1 });
+  const nBottom = mBottom + 0.55 + await hFor(notice, kw);
   const vb = d.text(s, [
-    { text: '“One notable omission from OpenAI’s Astra launch materials is GDPval.”', options: { italic: true, fontFace: 'Cambria', color: d.S.txt, breakLine: true } },
+    { text: '“One notable omission from OpenAI’s Astra launch materials is GDPval, the company’s own benchmark for measuring performance on economically valuable, real-world work.”', options: { italic: true, fontFace: 'Cambria', color: d.S.txt, breakLine: true } },
     { text: '— VentureBeat, Sep 3, 2026. An independent re-run (Artificial Analysis) now ranks Claude Opus 5.5 first.', options: { fontSize: 11, color: d.S.muted } },
   ], { x: rx, y: nBottom + 0.2, w: rw, h: 6.5 - nBottom - 0.2, fontSize: 14, valign: 'top' });
 
   d.animate(s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 1200 });
-  d.animate(s, [par, parT, note], { auto: true, effect: 'fade', after: 100 });
+  d.animate(s, [par, parT, brk, brkT, note], { auto: true, effect: 'fade', after: 100 });
   d.animate(s, c1, { effect: 'slam', dur: 350 });
   d.animate(s, [l2, ...c2], { effect: 'rise', dur: 450 });
   d.animate(s, [vb], { auto: true, effect: 'fade', after: 200 });
@@ -1157,11 +1168,11 @@ async function factorySlide(d) {
   // bottom row: two headline clippings + output targets
   const elec = await crop('rev2/robots-electrek-xpeng-iron-production.png', 'robots-electrek-head.png', { l: 30, t: 108, w: 1265, h: 272 });
   const eng = await crop('rev2/robots-engadget-xpeng-iron-walked-out.png', 'robots-engadget-head.png', { l: 12, t: 82, w: 1560, h: 340 });
-  const c1 = await frameW(d, s, elec, CX0 + 0.05, by + 0.04, 3.7, { rot: -1.2 });
-  const c2 = await frameW(d, s, eng, 4.62, by + 0.04, 3.55, { rot: 1.2 });
-  const sx = 8.55, sw = (CX1 - sx - 0.25) / 2;
-  const st1 = stat(d, s, { x: sx, y: by - 0.06, w: sw, value: '1,000+', valueSize: 28, labelSize: 12, labelH: 0.62, label: 'IRON robots a month: XPENG’s target by end-2026' });
-  const st2 = stat(d, s, { x: sx + sw + 0.25, y: by - 0.06, w: sw, value: '20,000', valueSize: 28, labelSize: 12, labelH: 0.62, label: 'humanoids Unitree plans to ship in 2026 (~5,500 in 2025)' });
+  const c1 = await frameW(d, s, elec, CX0 + 0.05, by + 0.04, 3.45, { rot: -1.2 });
+  const c2 = await frameW(d, s, eng, 4.35, by + 0.04, 3.35, { rot: 1.2 });
+  const sx = 8.1, sw = (CX1 - sx - 0.25) / 2;
+  const st1 = stat(d, s, { x: sx, y: by - 0.1, w: sw, value: '1,000+', valueSize: 24, labelSize: 14, labelH: 0.76, label: 'IRON robots a month: XPENG’s end-2026 target' });
+  const st2 = stat(d, s, { x: sx + sw + 0.25, y: by - 0.1, w: sw, value: 'Up to 20,000', valueSize: 24, labelSize: 14, labelH: 0.76, label: 'humanoids: Unitree CEO’s 2026 shipment target (~5,500 in 2025)' });
 
   d.animate(s, iron, { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, fig, { effect: 'fade', dur: 600 });
@@ -1192,7 +1203,7 @@ async function unitreeSlide(d) {
   const hh = hw * 9 / 16;
   const gx = CX0 + hw + gap, gwid = CX1 - gx, tw = (gwid - tg) / 2, th = tw * 9 / 16;
   const hero = await tile(d, s, R2('robots-unitree-g1-wall-backflips.gif'), { x: CX0, y: gy, w: hw, h: hh },
-    'UNITREE G1 · WALL BACKFLIPS · FEB 2026', 'Spring Festival Gala rehearsal footage (official Unitree video)');
+    'UNITREE G1 · WALL BACKFLIPS', 'From Unitree’s official gala video (Feb 16, 2026)');
   const cells = [
     ['robots-unitree-gala-stage-cluster-kungfu.gif', 'LIVE ON CCTV · FEB 16, 2026', 'Kung fu with staffs at the gala'],
     ['robots-unitree-g1-airflare-spin.gif', 'AIRFLARE SPIN', 'Unitree claims 7.5 rotations'],
@@ -1227,7 +1238,7 @@ async function unitreeSlide(d) {
 
   d.source(s, 'Sources: official Unitree videos (Spring Festival Gala, Feb 16, 2026; H2 training, Jan 4, 2026; sparring, Sep 7, 2026) · CGTN (2025 gala) · SCMP (Feb 17, 2026) · BGR (Feb 26, 2026).');
   s.addNotes([
-    'All clips are official Unitree uploads (trimmed only; they play in slideshow) except the 2025 gala clip (CGTN broadcast). Big clip: G1 humanoids running at a wall, stepping up it and backflipping off in quick succession — rehearsal footage from Unitree’s official “Spring Festival Gala Robots — a Full Release of Additional Details” video (Feb 16, 2026; 27.9M views on X).',
+    'All clips are official Unitree uploads (trimmed only; they play in slideshow) except the 2025 gala clip (CGTN broadcast). Big clip: G1 humanoids running at a wall, stepping up it and backflipping off in quick succession — from Unitree’s official “Spring Festival Gala Robots — a Full Release of Additional Details” video (Feb 16, 2026; 27.9M views on X), which mixes CCTV gala broadcast shots with rehearsal-hall footage; we have not confirmed which of the two this segment is, so do not call it either.',
     'Grid: (1) the CCTV gala broadcast — dozens of G1s doing kung fu with staffs and nunchaku beside child martial artists (CMG says the gala averaged 325M concurrent viewers per minute — state-media figure). (2) A breakdance Airflare — Unitree claims “seven-and-a-half rotations”; it also claims launched aerial flips over 3 m high and group movement up to 4 m/s (all Unitree’s own claims). (3) The 180 cm H2 throwing flying kicks a metre or two from a man who flinches back — on-screen label “No speed-up in this video”; Unitree’s post: “Please use robots in a friendly and safe manner, and keep a safe distance.” (4) Sep 7, 2026: Unitree claims “The World’s First Real-Time World Model-Driven Fully Autonomous Humanoid Robot Combat” (UnifoLM-X2-1.0) — a vendor claim; in its split-screen version some panels are the model’s predicted future frames, not real footage.',
     'Caveat: the gala routines were choreographed; at the Temple of Heaven show a week later (49 G1s) staff said the routines ran on “pre-programmed instructions” without remote control (Global Times). Agility is not general intelligence — but combine these bodies with the VLA brains from three slides ago.',
     'One year earlier (Jan 28, 2025 gala): Unitree H1s performed a stiff Yangko folk dance twirling handkerchiefs (“Yangge Bot”, CGTN). SCMP: Unitree plans to ship up to 20,000 humanoids in 2026, up from ~5,500. BGR: “it’s hard not to imagine the show as a scene out of a sci-fi nightmare. It only takes one mistake to cause an injury.”',

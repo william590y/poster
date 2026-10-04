@@ -638,22 +638,6 @@ function makeGif(name, { src, ss = 0, to, speed = 1, crop: cr, width, fps = 15, 
   return out;
 }
 
-// Dark caption band across the bottom of a media tile: tool line (caps, coloured) + one-line fact.
-function band(d, s, g, tool, fact, { h = 0.52, toolColor = 'FF8A8C', transparency = 22 } = {}) {
-  const b = d.name('band');
-  s.addShape(d.pres.shapes.RECTANGLE, { x: g.x, y: g.y + g.h - h, w: g.w, h, fill: { color: '0A0C10', transparency }, line: { color: '0A0C10', width: 0, transparency: 100 }, objectName: b });
-  const t = d.text(s, [
-    { text: tool, options: { fontSize: 10, bold: true, color: toolColor, charSpacing: 1, breakLine: true } },
-    { text: fact, options: { fontSize: 11.5, color: 'FFFFFF' } },
-  ], { x: g.x + 0.12, y: g.y + g.h - h + 0.03, w: g.w - 0.24, h: h - 0.06, valign: 'middle' });
-  return [b, t];
-}
-
-async function tile(d, s, file, box, tool, fact, opts = {}) {
-  const fr = await d.frame(s, file, box, { border: false, pad: 0 });
-  return [...fr, ...band(d, s, fr.geom, tool, fact, opts)];
-}
-
 // Caption strip UNDER a media tile (outside the picture, so no artwork is covered): tool line (caps, coloured) + one-line fact.
 const CAP_H = 0.42;
 function capBelow(d, s, g, tool, fact, { toolColor = 'FF8A8C' } = {}) {
@@ -747,29 +731,31 @@ async function worldsSlide(d) {
   s.addText('…and build worlds in Blender, Unreal and CAD', { placeholder: 'title' });
 
   const city = makeGif('shumer-astra-manhattan.gif', { src: CR('gif/shumer-astra-manhattan-unreal.gif'), width: 900 });
-  const train = makeGif('krcha-astra-steam-train.gif', { src: CR('video/krcha-astra-steam-train-blender-1920.mp4'), ss: 0, to: 10.5, speed: 1.2, crop: '1802:1014:60:62', width: 960, holdEnd: 1.0 });
+  // crop to the Blender viewport + the whole reference-drawing window (y 607–1157 in the 1920×1248 source), not the menu bar
+  const train = makeGif('krcha-astra-steam-train-v2.gif', { src: CR('video/krcha-astra-steam-train-blender-1920.mp4'), ss: 0, to: 10.5, speed: 1.2, crop: '1800:1012:60:146', width: 960, holdEnd: 1.0 });
   const cad = makeGif('mecagent-astra-solidworks.gif', { src: CR('video/mecagent-astra-solidworks-turbofan-1080p.mp4'), ss: 0, to: 23.45, speed: 1.6, crop: '1682:946:42:66', width: 960, holdStart: 1.0, holdEnd: 1.5 });
   const game = makeGif('emmtee-astra-paperroute.gif', { src: CR('gif/emmtee-astra-paperroute-gameplay.gif'), width: 900 });
 
-  const G = 0.24, cw = (CW - 2 * G) / 3, ch = cw * 9 / 16, y1 = 1.78, y2 = y1 + ch + 0.22;
-  const X = (i) => MX + i * (cw + G);
-  const t1 = await tile(d, s, city, { x: X(0), y: y1, w: cw, h: ch }, 'UNREAL ENGINE · GPT-6 ASTRA · MANHATTAN', '“over the course of a week” (creator-reported)');
-  const t2 = await tile(d, s, train, { x: X(1), y: y1, w: cw, h: ch }, 'BLENDER · GPT-6 ASTRA', 'An old drawing → “3,295 fully editable” objects');
-  const t3 = await tile(d, s, cad, { x: X(2), y: y1, w: cw, h: ch }, 'SOLIDWORKS CAD · GPT-6 ASTRA', 'A turbofan, sketched and assembled (vendor demo)');
-  const t4 = await tile(d, s, game, { x: X(0), y: y2, w: cw, h: ch }, 'GPT-6 ASTRA · A “FINISHED” 3-D GAME', '“Not a demo. A FINISHED, playable game.” — its creator');
-  // same person, same request, 56 days apart
-  const bat1 = await d.frame(s, CR('stills/ollivier-sol-bat-jul11-t101-fur-render.jpg'), { x: X(1), y: y2, w: cw, h: ch }, { border: false, pad: 0 });
-  const b1 = band(d, s, bat1.geom, 'BLENDER · JUL 11, 2026 · “SOL”', '“make me a realistic bat”', { toolColor: LIGHT });
-  const bat2 = await d.frame(s, CR('stills/ollivier-astra-bat-sep5-final-render.jpg'), { x: X(2), y: y2, w: cw, h: ch }, { border: false, pad: 0 });
-  const b2 = band(d, s, bat2.geom, 'BLENDER · SEP 5, 2026 · GPT-6 ASTRA', 'Same person, same request, 56 days later');
-  const cx = X(2) - G / 2, cy = y2 + ch / 2 - 0.2;
+  // 3 × 2 grid of 16:9 tiles, every caption BELOW its picture (as on the previous slide) so no artwork is covered
+  const top = 1.76, bottom = 6.52, RG = 0.16, G = 0.42;
+  const ch = (bottom - top - 2 * CAP_H - RG) / 2, cw = ch * 16 / 9;
+  const x0 = MX + (CW - 3 * cw - 2 * G) / 2, y1 = top, y2 = top + ch + CAP_H + RG;
+  const X = (i) => x0 + i * (cw + G);
+  const t1 = await capTile(d, s, city, { x: X(0), y: y1, w: cw, h: ch }, 'UNREAL ENGINE · GPT-6 ASTRA · MANHATTAN', '“over the course of a week” (creator-reported)');
+  const t2 = await capTile(d, s, train, { x: X(1), y: y1, w: cw, h: ch }, 'BLENDER · GPT-6 ASTRA', 'An old drawing → “3,295 fully editable” objects');
+  const t3 = await capTile(d, s, cad, { x: X(2), y: y1, w: cw, h: ch }, 'SOLIDWORKS CAD · GPT-6 ASTRA', 'A turbofan, sketched and assembled (vendor demo)');
+  const t4 = await capTile(d, s, game, { x: X(0), y: y2, w: cw, h: ch }, 'GPT-6 ASTRA · A “FINISHED” 3-D GAME', '“Not a demo. A FINISHED, playable game.” — creator');
+  // same person, same subject (a realistic bat in Blender), 56 days apart — the two prompts were worded differently
+  const bat1 = await capTile(d, s, CR('stills/ollivier-sol-bat-jul11-t101-fur-render.jpg'), { x: X(1), y: y2, w: cw, h: ch }, 'BLENDER · JUL 11, 2026 · “SOL”', '“make me a realistic bat”', { toolColor: LIGHT });
+  const bat2 = await capTile(d, s, CR('stills/ollivier-astra-bat-sep5-final-render.jpg'), { x: X(2), y: y2, w: cw, h: ch }, 'BLENDER · SEP 5, 2026 · GPT-6 ASTRA', 'Same person, same subject, 56 days later');
+  const cx = X(2) - G / 2, cy = y2 + ch / 2;
   const dot = d.name('dot');
   s.addShape(d.pres.shapes.OVAL, { x: cx - 0.48, y: cy - 0.48, w: 0.96, h: 0.96, fill: { color: HEX.red }, line: { color: '0A0C10', width: 2.5 }, shadow: { type: 'outer', color: '000000', blur: 10, offset: 3, angle: 90, opacity: 0.6 }, objectName: dot });
   const dotT = d.text(s, [{ text: '56', options: { fontSize: 21, bold: true, breakLine: true } }, { text: 'DAYS', options: { fontSize: 10, bold: true, charSpacing: 0.5 } }], { x: cx - 0.48, y: cy - 0.4, w: 0.96, h: 0.8, color: 'FFFFFF', align: 'center', valign: 'middle', fontFace: 'Arial' });
 
   [t1, t2, t3, t4].forEach((g, i) => d.animate(s, g, { auto: true, effect: 'fade', dur: 500, after: i === 0 ? 100 : 120 }));
-  d.animate(s, [...bat1, ...b1], { effect: 'fade' });
-  d.animate(s, [...bat2, ...b2, dot, dotT], { effect: 'fade' });
+  d.animate(s, bat1, { effect: 'fade' });
+  d.animate(s, [...bat2, dot, dotT], { effect: 'fade' });
   d.source(s, 'X posts: Matt Shumer (Sep 3; Astra “used existing assets, including MetaHuman characters”), Tom Krcha (Sep 4), MecAgent (Sep 9), Emm Tee (Sep 12), Alix Ollivier (Jul 11, Sep 5), 2026 · creator-reported.');
   s.addNotes([
     'MESSAGE: since GPT-6 Astra launched (Sep 3, 2026) the internet has filled with models operating professional 3-D tools end to end — game engines, Blender, CAD — producing editable scenes, parts and whole games, not just pictures. Epic even built an MCP server into Unreal Engine 5.8 (June 2026) so agents "can drive the editor" (VP Land, Jun 24: "Unreal Engine 5.8 Embeds an MCP Server So AI Agents Can Drive the Editor").',
@@ -777,7 +763,7 @@ async function worldsSlide(d) {
     'BLENDER TRAIN — Tom Krcha, Sep 4: "I took an old drawing of a steam train, gave it to Astra to reconstruct it in Blender. After few minutes it crafted 3,295 fully editable detailed objects with beautiful geometry." (object count is creator-reported). 2.07M views. Note the reference drawing open next to the model. https://x.com/tomkrcha/status/2095756085890310311',
     'CAD — MecAgent (an AI-for-CAD startup — a VENDOR DEMO of its own harness), Sep 9: "GPT-6 Astra on CAD (SolidWorks 2026) with the MecAgent harness." Sketches, revolves and patterns become nacelle, fan blades and core, assembled into a turbofan; the clip opens on the finished assembly. 469K views. https://x.com/MecAgent/status/2097676816592797816 . (Similar: adam\'s Onshape cutaway turbofan, 3.61M views, also a vendor. OpenAI reports Astra 95.9% on BenchCAD vs Claude Fable 5.1 84.3% — vendor-reported, Claude runs with modified settings.)',
     'GAME — Emm Tee (@builtbysketch), Sep 12: "I spent 1.6 billion tokens building a full game with GPT-6 ASTRA. Not a demo. A FINISHED, playable game." PaperRoute, a Paperboy-style browser game, is live at https://www.paperroute.lol/ (loaded Oct 4). 3.45M views; token count creator-reported. https://x.com/builtbysketch/status/2098777028078211283',
-    'BATS — Alix Ollivier. Jul 11, 2026: "Just asked Sol to download Blender, set up the MCP, and make me a realistic bat…" → a plush-toy bat (left; the post only says "Sol", presumably GPT-5.6 Sol — don\'t assert). Sep 5: "I asked Astra to make a photorealistic bat in Blender, and it just kept going until I ran out of tokens." → the photoreal Cycles render (right). Same person, same request, 56 days apart. 3.79M views. https://x.com/aollivier82/status/2076042781647098092 · https://x.com/aollivier82/status/2096226819401801896',
+    'BATS — Alix Ollivier. Jul 11, 2026: "Just asked Sol to download Blender, set up the MCP, and make me a realistic bat…" → a plush-toy bat (left; the post only says "Sol", presumably GPT-5.6 Sol — don\'t assert). Sep 5: "I asked Astra to make a photorealistic bat in Blender, and it just kept going until I ran out of tokens." → the photoreal Cycles render (right). Same person, same subject, 56 days apart — but NOT the identical prompt: the July request also asked Sol to install Blender and set up the MCP (and to make a video), while in September Astra was asked for a "photorealistic" bat and left running until the tokens ran out. 3.79M views. https://x.com/aollivier82/status/2076042781647098092 · https://x.com/aollivier82/status/2096226819401801896',
     'CAVEATS: these are showcases chosen by their creators (several had early access; some are vendors); nobody has independently checked the numbers (3,295 objects, 1.6B tokens, the week-long build). Viral clips are sometimes recycled — 36Kr (Jun 2026) reported a "Claude Fable 5 showcase" that "might be entirely handcrafted" — so every clip here is tied to its named creator\'s original post. Views as of Oct 4, 2026.',
   ].join('\n\n'));
   return s;
@@ -1047,17 +1033,18 @@ async function aftermathSlide(d) {
   const by = y0 + chh + 0.25, bh = 6.52 - by, bx = MX, bw = CW;
   const bz = [d.card(s, { x: bx, y: by, w: bw, h: bh })];
   const lw = 3.55;
-  const head = await d.frame(s, R('rev2/buzzard-grieve-header.png'), { x: bx + 0.2, y: by + 0.16, w: 3.3, h: 3.3 * 228 / 966 }, { align: 'left', pad: 0.05, link: 'https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/' });
+  const head = await d.frame(s, R('rev2/buzzard-grieve-header.png'), { x: bx + 0.2, y: by + 0.15, w: 3.0, h: 3.0 * 228 / 966 }, { align: 'left', pad: 0.05, link: 'https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/' });
   const hg = head.geom;
   const whoB = d.text(s, 'Kevin Buzzard (Imperial College London) · Oct 1, 2026', { x: bx + 0.22, y: hg.y + hg.h + 0.08, w: lw + 0.2, h: 0.24, fontSize: 11, color: d.S.muted, valign: 'top' });
-  // FLT: the "11 days" line, kept small — the post's real title line (legible size) + what took 11 days, verbatim
-  const fy = hg.y + hg.h + 0.44;
+  // FLT: the "11 days" line, kept small — the post's real title line (legible size) + what took 11 days, verbatim.
+  // Short lead-in so the quote sits in two lines with bottom padding (the FLT title frame above names the topic).
+  const fy = hg.y + hg.h + 0.4;
   const flt = await d.frame(s, await crop(R('buzzard-flt-title.png'), 'buzzard-flt-crop.png', { l: 28, t: 36, w: 712, h: 62 }), { x: bx + 0.2, y: fy, w: 2.5, h: 2.4 * 62 / 712 + 0.1 }, { align: 'left', pad: 0.05, link: 'https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/' });
   const fg = flt.geom;
   const fltT = d.text(s, [
-    { text: 'Sep 4, on Anthropic’s Lean proof of Fermat’s Last Theorem: ', options: { color: d.S.muted } },
+    { text: 'Sep 4, on the Lean proof of FLT: ', options: { color: d.S.muted } },
     { text: '“I was given £1M to run my project over 5 years; Anthropic took only 11 days…”', options: { color: d.S.txt, italic: true, fontFace: 'Cambria' } },
-  ], { x: bx + 0.22, y: fg.y + fg.h + 0.08, w: lw + 0.2, h: by + bh - 0.08 - (fg.y + fg.h + 0.08), fontSize: 10.5, valign: 'top' });
+  ], { x: bx + 0.22, y: fg.y + fg.h + 0.06, w: lw + 0.2, h: by + bh - 0.12 - (fg.y + fg.h + 0.06), fontSize: 10.5, valign: 'top' });
   const div = line(d, s, bx + lw + 0.55, by + 0.25, bx + lw + 0.55, by + bh - 0.25, { color: HEX.line, width: 1 });
   const px = bx + lw + 0.8, pw = bx + bw - 0.25 - px;
   const pull = d.text(s, [

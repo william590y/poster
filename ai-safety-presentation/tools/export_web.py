@@ -94,9 +94,17 @@ def youtube_id(url):
 
 
 def gif_to_mp4(src, dst):
+    # light denoise removes GIF dither noise (visually lossless here) so the H.264 loop is ~8x smaller
     subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', src, '-movflags', '+faststart', '-pix_fmt', 'yuv420p',
-                    '-vf', 'scale=trunc(iw/2)*2:trunc(ih/2)*2', '-c:v', 'libx264', '-crf', '18', '-preset', 'slow', '-an', dst],
+                    '-vf', 'hqdn3d=1.5:1.5:6:6,scale=trunc(iw/2)*2:trunc(ih/2)*2', '-c:v', 'libx264', '-crf', '22', '-preset', 'slow', '-an', dst],
                    check=True)
+
+
+def gif_to_webm(src, dst):
+    # VP9 copy for browsers without H.264 (e.g. open-source Chromium builds); same denoise as the mp4
+    subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', src, '-pix_fmt', 'yuv420p',
+                    '-vf', 'hqdn3d=1.5:1.5:6:6,scale=trunc(iw/2)*2:trunc(ih/2)*2', '-c:v', 'libvpx-vp9', '-crf', '33', '-b:v', '0',
+                    '-row-mt', '1', '-deadline', 'good', '-cpu-used', '2', '-an', dst], check=True)
 
 
 def main():
@@ -147,11 +155,12 @@ def main():
                         tmpgif = os.path.join(tempfile.gettempdir(), 'deck_' + os.path.basename(tgt))
                         with open(tmpgif, 'wb') as f:
                             f.write(z.read(tgt))
-                        name = f'loop-{len(mp4cache) + 1:02d}.mp4'
-                        gif_to_mp4(tmpgif, os.path.join(out, 'media', name))
+                        base = f'loop-{len(mp4cache) + 1:02d}'
+                        gif_to_mp4(tmpgif, os.path.join(out, 'media', base + '.mp4'))
+                        gif_to_webm(tmpgif, os.path.join(out, 'media', base + '.webm'))
                         os.remove(tmpgif)
-                        mp4cache[tgt] = f'media/{name}'
-                    media.append({'kind': 'loop', 'src': mp4cache[tgt], **g})
+                        mp4cache[tgt] = f'media/{base}'
+                    media.append({'kind': 'loop', 'webm': mp4cache[tgt] + '.webm', 'src': mp4cache[tgt] + '.mp4', **g})
         slides.append({'n': n, 'img': f'slides/slide-{n:02d}.jpg', 'thumb': f'thumbs/thumb-{n:02d}.jpg',
                        'notes': notes_text(z, part, rels), 'media': media})
 

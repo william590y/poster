@@ -149,8 +149,9 @@ async function latentSlide(d) {
   const tagCot = pxTag(d, s, P2, 1, [707, 287, 967, 319], [
     { text: 'CoT: hallucinated rule ', options: { color: 'FF6B6B' } }, { text: '✗', options: { color: 'FF6B6B' } },
   ], { line: HEX.red });
-  const tagCoco = pxTag(d, s, P2, 1, [662, 417, 1004, 449], [
-    { text: 'Continuous thoughts: correct ', options: { color: '8FD694' } }, { text: '✓', options: { color: '8FD694' } },
+  // Only Coconut with TWO continuous thoughts (k=2) is right; k=1 ends at the wrong node (paper, Fig. 6 caption).
+  const tagCoco = pxTag(d, s, P2, 1, [618, 417, 1004, 449], [
+    { text: '2 continuous thoughts: correct ', options: { color: '8FD694' } }, { text: '✓', options: { color: '8FD694' } },
   ], { line: '5FB86A' });
 
   // top-right explanation
@@ -165,14 +166,19 @@ async function latentSlide(d) {
 
   // bottom-left takeaways
   const bx = CX0, bw = CX1 - w2 - 0.4 - CX0;
+  // The hallucinated rule is quoted here at body size (the figure's own text renders too small for the room).
   const t2 = d.text(s, [
     { text: 'THE PAYOFF', options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 2, breakLine: true, paraSpaceAfter: 4 } },
-    { text: 'On this logic puzzle, word-by-word reasoning hallucinated a fact. Reasoning in vectors kept several paths open at once — and found the right answer.', options: { color: d.S.muted, fontSize: 14 } },
-  ], { x: bx, y: 4.45, w: bw, h: 1.15, valign: 'top' });
+    { text: 'On this logic puzzle, word-by-word reasoning invented a fact: ', options: { color: d.S.muted } },
+    { text: '“Every yumpus is a rempus.”', options: { color: 'FF6B6B', bold: true } },
+    { text: ' With ', options: { color: d.S.muted } },
+    { text: 'two', options: { color: '8FD694', bold: true } },
+    { text: ' continuous thoughts the model kept several paths open at once and found the right answer (one thought wasn’t enough).', options: { color: d.S.muted } },
+  ], { x: bx, y: 4.36, w: bw, h: 1.38, fontSize: 14, valign: 'top' });
   const t3 = d.text(s, [
     { text: 'THE PRICE', options: { fontSize: 10, bold: true, color: d.S.red, charSpacing: 2, breakLine: true, paraSpaceAfter: 4 } },
-    { text: 'No transcript. Nothing a human — or a safety monitor — can read.', options: { color: d.S.txt, bold: true, fontSize: 17 } },
-  ], { x: bx, y: 5.7, w: bw, h: 0.85, valign: 'top' });
+    { text: 'No transcript, just vectors. A safety monitor has no words to read.', options: { color: d.S.txt, bold: true, fontSize: 16 } },
+  ], { x: bx, y: 5.8, w: bw, h: 0.72, valign: 'top' });
 
   anim(d, s, fig1, { auto: true, effect: 'rise', dur: 600 });
   anim(d, s, [t1], { auto: true, effect: 'fade', after: 150 });
@@ -183,8 +189,8 @@ async function latentSlide(d) {
   s.addNotes([
     'Today’s reasoning models write out a chain of thought in English before answering — and that transcript is one of the best safety tools we have: we can read it and catch intent to misbehave.',
     'Latent reasoning removes the words. In Coconut (“Chain of Continuous Thought”), the model’s last hidden state is fed straight back in as the next input instead of being turned into a token. Top figure: during training, language steps are replaced one stage at a time by [Thought] slots — continuous vectors — until the whole chain of reasoning is vectors.',
-    'Bottom figure (ProsQA): asked “Is Alex a gorpus or bompus?”, the word-based chain of thought gets stuck and hallucinates an edge (“Every yumpus is a rempus”). Coconut with two continuous thoughts finds the correct path — the paper argues continuous thoughts can hold several candidate next steps at once, like a breadth-first search. (The red and green callouts sit over the figure’s own small “(Hallucination)” and “(Correct Path)” labels, enlarged for the room.)',
-    'The safety cost: those vectors are not language. There is nothing to read. This is what people mean by “neuralese”.',
+    'Bottom figure (ProsQA): asked “Is Alex a gorpus or bompus?”, the word-based chain of thought gets stuck and hallucinates an edge (“Every yumpus is a rempus”). Coconut with two continuous thoughts finds the correct path (with only one continuous thought it ends at the wrong node — the red ✗ marked “Wrong Target”). The paper argues continuous thoughts can hold several candidate next steps at once, like a breadth-first search. (The red and green callouts sit over the figure’s own small “(Hallucination)” and “(Correct Path)” labels, enlarged for the room.)',
+    'The safety cost: those vectors are not language. There is no text to read. The paper’s own Fig. 4 (“A case study where we decode the continuous thought into language tokens”) shows a continuous thought can be partly decoded into tokens, but that takes probing tools, not reading. This is what people mean by “neuralese”.',
     'Source: the two figures are from the Coconut paper (user-supplied images). https://arxiv.org/abs/2412.06769',
   ].join('\n\n'));
   return s;
@@ -236,7 +242,7 @@ async function astraSlide(d) {
 
   d.source(s, 'Sources: TechCrunch (Russell Brandom), Sep 2, 2026 · Transformer (Celia Ford), Sep 4, 2026, quoting the GPT-6 Astra system card · Korbak et al., arXiv:2507.11473 (Jul 2025).');
   s.addNotes([
-    'Latent reasoning is no longer a lab curiosity. TechCrunch (Sep 2, 2026): OpenAI’s new Astra model uses “recurrent depth,” a technique that lets it operate outside sequential thinking — making its chain of thought harder to monitor. OpenAI has not published architecture details; the description is TechCrunch’s.',
+    'Latent reasoning is no longer a lab curiosity. TechCrunch (Sep 2, 2026), dek: “OpenAI’s new Astra model will use “recurrent depth,” a technique that allows it to operate outside sequential thinking, making the model’s chain of thought harder to monitor.” The “recurrent depth” description is TechCrunch’s reporting; the system-card quotes on the slide come via Transformer.',
     'Quotes in that article: Buck Shlegeris (Redwood Research CEO): “…if OpenAI pushes this technique further, they’ll have the option to massively increase the recurrence and totally destroys CoT monitorability.” Ryan Greenblatt: “My biggest concern is that a natural progression from here would involve scaling up the opaque reasoning to the point where the model reasons entirely or almost entirely in latent space.” OpenAI’s Jakub Pachocki: “OpenAI has worked to preserve and utilize chain-of-thought monitoring since our very first reasoning models.”',
     'The Astra system card itself (as quoted by Transformer): “Astra shows a substantial decrease in chain-of-thought monitorability compared to previous models.” And: “If the model were to try to sandbag covertly, we would likely be unable to catch it.” Tomek Korbak (OpenAI): “I am deeply worried by the trend of decreasing CoT monitorability.”',
     'We were warned. July 2025: 41 researchers from OpenAI, Google DeepMind, Anthropic, Meta, UK AISI, Redwood, Apollo, METR and others (incl. Bengio, Pachocki, Shane Legg) called chain-of-thought monitorability “a new and fragile opportunity” and asked developers to consider how their decisions affect it. Bowen Baker (OpenAI) to VentureBeat: “Higher-compute RL, alternative model architectures, certain forms of process supervision, may all lead to models that obfuscate their thinking.”',
@@ -329,7 +335,7 @@ async function tttConceptSlide(d) {
 
   // right: concept diagram
   const rx = 6.1, rw = CX1 - rx;
-  const r0 = capLabel(d, s, 'ONE FIX · END-TO-END TEST-TIME TRAINING (TTT-E2E, DEC 2025)', { x: rx, y: 1.72, w: rw });
+  const r0 = capLabel(d, s, 'ONE APPROACH · END-TO-END TEST-TIME TRAINING (TTT-E2E, DEC 2025)', { x: rx, y: 1.72, w: rw });
   const box = d.card(s, { x: rx, y: 2.08, w: rw, h: 3.12 }, { color: '10141B' });
 
   const chipW = 0.24, chipH = 0.36, gap = 0.06, nChips = 8;
@@ -416,7 +422,7 @@ async function tttConceptSlide(d) {
   s.addNotes([
     'Today’s models are frozen after training. Anything they learn in a conversation lives only in the context window and is gone when the window closes. Dwarkesh Patel called this the main reason he did not expect AGI right around the corner: “The lack of continual learning is a huge huge problem.” (June 2025.) Transformer (Jan 2026): “AI’s inability to continually learn remains one of the biggest problems standing in the way of truly general purpose models. Might it soon be solved?” — Dario Amodei (Aug 2025): “We have some evidence to suggest that [continual learning] is another of those problems that is not as difficult as it seems.” Anthropic’s Sholto Douglas predicted it would be solved “in a satisfying way” in 2026.',
     'One concrete approach: End-to-End Test-Time Training (TTT-E2E), Astera Institute / NVIDIA / Stanford / UC Berkeley / UCSD, Dec 2025. A standard Transformer keeps every past token in memory (the KV cache) and each new token attends to all of them, so cost per token rises with context length. TTT-E2E instead keeps training on the text it is reading — next-token prediction on its own context — so the context gets written into a fixed-size set of weights. Abstract: “We formulate long-context language modeling as a problem in continual learning rather than architecture design.”',
-    'Diagram is a conceptual illustration, not the paper’s architecture figure.',
+    'Diagram is a conceptual illustration, not the paper’s architecture figure. To be precise about scope: the paper is about long-context language modelling (tested at 8K–128K tokens), where the model learns within a single context. It is a step toward the on-the-job learning Dwarkesh describes, not a demonstration of it.',
     'Why this matters for safety: a model whose weights change while it works is a model whose behaviour can drift after every evaluation we ran on it.',
     'URLs: https://www.dwarkesh.com/p/timelines-june-2025 · https://www.transformernews.ai/p/teaching-ai-to-continual-learning · https://arxiv.org/abs/2512.23675 · code: https://github.com/test-time-training/e2e',
   ].join('\n\n'));
@@ -446,7 +452,7 @@ async function tttChartSlide(d) {
   });
   const cav = d.text(s, [
     { text: 'Caveats: ', options: { bold: true, color: d.S.amber } },
-    { text: 'below ~32K tokens TTT-E2E is actually slower; the paper tests only up to 128K; and on needle-in-a-haystack recall, full attention still wins.', options: { color: d.S.muted } },
+    { text: 'at 32K tokens and below TTT-E2E is actually slower; the paper tests only up to 128K; and on needle-in-a-haystack recall, full attention still wins.', options: { color: d.S.muted } },
   ], { x: CX0, y: 6.0, w: cw, h: 0.5, fontSize: 12, valign: 'top' });
 
   // right column: stats + native quality chart (paper Fig. 1 left)
@@ -480,15 +486,16 @@ async function tttChartSlide(d) {
   anim(d, s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 1200 });
   anim(d, s, s1, { effect: 'zoom', dur: 450 });
   anim(d, s, s2, { effect: 'zoom', dur: 450 });
+  // caveats qualify the speed chart and the 2.7× / 35× claims, so they land right after them
+  anim(d, s, [cav], { auto: true, effect: 'fade', dur: 400, after: 200 });
   anim(d, s, [qLab, ch2, qCap], { effect: 'wipeLeft', dur: 900 });
-  anim(d, s, [cav], { effect: 'fade', dur: 400 });
 
   d.source(s, 'Data: Tandon et al., arXiv:2512.23675, Fig. 1 (both panels; values recovered from the paper’s vector figure) · 35×: NVIDIA Technical Blog (Yu Sun & Yejin Choi), Jan 9, 2026.');
   s.addNotes([
     'This chart is rebuilt from the paper’s own Figure 1 (values recovered from the figure’s vector geometry, accurate to about ±0.0002 s). It shows prefill time per 1,000 tokens for 3-billion-parameter models on a single H100 as the context doubles from 8K to 128K tokens (the x-axis doubles each step, as in the paper).',
     'Full attention: 0.014 s at 8K rising to 0.073 s at 128K — the cost per token keeps growing because every token looks back at every earlier token. TTT-E2E: about 0.025–0.027 s at every length — flat. At 128K that is 2.7× faster (0.0734 / 0.0274 = 2.68). NVIDIA reports 35× faster at 2 million tokens on its blog (vendor-reported; not in the paper’s figure).',
     'Right chart (quality): rebuilt from the left panel of the paper’s Figure 1 (values recovered from the vector figure, ±0.0003). It plots each method’s test loss minus full attention’s, so full attention is the zero line and below zero is better. TTT-E2E sits at about −0.013 at every length; Mamba 2 goes from −0.016 at 8K to +0.032 at 128K and Gated DeltaNet from −0.006 to +0.034 (the paper’s other baselines — SWA, hybrid SWA, TTT-KVB — are omitted for legibility; all end above zero). The paper: for 3B models trained on 164B tokens, TTT-E2E “scales with context length in the same way as Transformer with full attention, while others, such as Mamba 2 and Gated DeltaNet, do not.”',
-    'Honest caveats: (1) At short contexts TTT-E2E is slower than full attention; it only wins beyond roughly 32K tokens. (2) The paper evaluates up to 128K; “effectively infinite context” is an extrapolation of the constant-latency property, not a tested claim. (3) Weights-as-memory is lossy: on needle-in-a-haystack retrieval (Table 2), “Transformer with full attention dramatically outperforms the other methods, including ours, especially in long context.” (4) Fig. 8: “training latency is still a significant limitation of our current implementation.”',
+    'Honest caveats: (1) At short contexts TTT-E2E is slower than full attention: still slower at 32K (0.0258 vs 0.0239 s per 1K tokens); the lines cross between 32K and 64K, so of the lengths tested it only wins from 64K up. (2) The paper evaluates up to 128K; “effectively infinite context” is an extrapolation of the constant-latency property, not a tested claim. (3) Weights-as-memory is lossy: on needle-in-a-haystack retrieval (Table 2), “Transformer with full attention dramatically outperforms the other methods, including ours, especially in long context.” (4) Fig. 8: “training latency is still a significant limitation of our current implementation.”',
     'Follow-on work in 2026: Self-Guided Test-Time Training (S-TTT, arXiv:2607.09415, Jul 2026) reports up to 15% relative improvement on long-context benchmarks.',
     'URLs: https://arxiv.org/abs/2512.23675 · https://arxiv.org/html/2512.23675v1 · https://developer.nvidia.com/blog/reimagining-llm-memory-using-context-as-training-data-unlocks-models-that-learn-at-test-time/',
   ].join('\n\n'));

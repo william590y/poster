@@ -104,12 +104,12 @@ async function cyberCves(d) {
       valAxisMaxVal: 8000, valAxisMajorUnit: 2000, valAxisLabelFormatCode: '#,##0', catAxisLabelFrequency: 2,
     });
   // Opaque card behind the caveat so the 6,000 gridline doesn't run through the text.
-  const noteBg = d.card(s, { x: 1.27, y: 2.36, w: 4.5, h: 1.66 }, { color: '11151C' });
+  const noteBg = d.card(s, { x: 1.27, y: 2.36, w: 4.5, h: 1.3 }, { color: '11151C' });
   const note = d.text(s, [
     { text: 'Feb 2024: the counting changed. ', options: { bold: true, color: d.S.amber, breakLine: true } },
     { text: 'The kernel became its own CVE Numbering Authority. That explains most of the 16× jump.', options: { color: d.S.muted, breakLine: true } },
     { text: 'But 2026 has already set a record: 7,178 so far.', options: { color: d.S.txt, bold: true } },
-  ], { x: 1.42, y: 2.47, w: 4.22, h: 1.46, fontSize: 14, valign: 'top', paraSpaceAfter: 4 });
+  ], { x: 1.42, y: 2.47, w: 4.22, h: 1.1, fontSize: 14, valign: 'top', paraSpaceAfter: 4 });
 
   // AI bug hunters column
   const cx = 7.9, cw = W - MX - cx;
@@ -133,7 +133,8 @@ async function cyberCves(d) {
 
   d.animate(s, [head], { auto: true });
   d.animate(s, [chart], { auto: true, effect: 'wipeLeft', dur: 1200 });
-  d.animate(s, [noteBg, note], { effect: 'fade' });
+  // The caveat follows the chart automatically, so the slide never implies AI caused the 2024 jump.
+  d.animate(s, [noteBg, note], { auto: true, effect: 'fade', after: 400 });
   d.animate(s, [hdr, ...groups[0]], { effect: 'rise' });
   d.animate(s, groups[1], { effect: 'rise' });
   d.animate(s, groups[2], { effect: 'rise' });
@@ -267,9 +268,26 @@ async function hfDiagram(d) {
   svg = svg.replace(/font-family:-apple-system[^;]*;/, 'font-family:"Liberation Sans",Arial,sans-serif;')
     .replace(/font-family:ui-monospace,Menlo,monospace/g, 'font-family:"DejaVu Sans Mono",monospace')
     .replace(/(<text class="zone"[^>]*>)([^<]*)(<\/text>)/g, (m, a, b, c) => a + b.toUpperCase() + c)
-    // Larger node titles (13.5→16px) and sub-labels (11→13px); titles nudged up 1.5 units to keep clear of the sub-label.
-    .replace('.nt{font-size:13.5px', '.nt{font-size:16px').replace('.nd{font-size:11px', '.nd{font-size:13px')
-    .replace(/(<text class="nt" x="[^"]*" y=")([\d.]+)"/g, (m, a, y) => `${a}${(+y - 1.5).toFixed(1)}"`);
+    // Larger node titles (13.5→16px) and sub-labels (11→14px); titles nudged up 1.5 units to keep clear of the sub-label.
+    .replace('.nt{font-size:13.5px', '.nt{font-size:16px').replace('.nd{font-size:11px', '.nd{font-size:14px')
+    .replace(/(<text class="nt" x="[^"]*" y=")([\d.]+)"/g, (m, a, y) => `${a}${(+y - 1.5).toFixed(1)}"`)
+    // Larger edge labels (10.5→12.5px), zone headers (10.5→12px, tighter tracking so the longest still fits its zone)
+    // and node tags (9→10px), so the escape / pivot labels survive projection.
+    .replace('.el{font-size:10.5px', '.el{font-size:12.5px')
+    .replace('.zone{font-size:10.5px;letter-spacing:.8px', '.zone{font-size:12px;letter-spacing:.3px')
+    .replace('.tag{font-size:9px', '.tag{font-size:10px')
+    // Edge-label pills: widen around their centres by the same ratio; one-line pills 20→22 tall, two-line 33→37.
+    .replace(/<rect x="([\d.]+)" y="([\d.]+)" width="([\d.]+)" height="(20|33)" rx="5"/g, (m, x, y, w, h) => {
+      const nw = +w * 12.5 / 10.5, cx = +x + +w / 2, nh = +h === 33 ? 37 : 22, ny = +y - (nh - +h) / 2;
+      return `<rect x="${(cx - nw / 2).toFixed(1)}" y="${ny}" width="${nw.toFixed(1)}" height="${nh}" rx="5"`;
+    });
+  // Two-line edge labels (same x, baselines 13 apart): spread them to 16 apart for the larger font.
+  const elKeys = new Set([...svg.matchAll(/<text class="el" x="([\d.]+)" y="([\d.]+)"/g)].map((m) => `${m[1]}:${+m[2]}`));
+  svg = svg.replace(/(<text class="el" x="([\d.]+)" y=")([\d.]+)"/g, (m, a, x, y) => {
+    if (elKeys.has(`${x}:${+y + 13}`)) return `${a}${+y - 1.5}"`;
+    if (elKeys.has(`${x}:${+y - 13}`)) return `${a}${+y + 1.5}"`;
+    return m;
+  });
   const full = await sharp(Buffer.from(svg), { density: 288 }).png().toBuffer();
   const K = 4; // px per svg unit
   const cuts = [0, 70, 241, 451, 660];
@@ -337,13 +355,13 @@ async function hfSwarm(d) {
   const f = await d.frame(s, fig, { x: 0.95, y: 1.72, w: 11.45, h: 2.98 }, { rot: 0 });
 
   const by = 4.95;
-  const st = d.stat(s, { x: MX, y: by - 0.15, w: 3.0, value: '688', label: 'of the 1,206 agents on the secret message board joined the attack on Hugging Face', valueSize: 50, labelSize: 13 });
+  const st = d.stat(s, { x: MX, y: by - 0.15, w: 2.7, value: '688', label: 'of the 1,206 agents on the secret message board joined the attack on Hugging Face', valueSize: 50, labelSize: 13 });
   const term = d.terminal(s, {
-    x: 3.85, y: by, w: 4.4, h: 1.52, title: 'agent chain of thought · METR / Redwood', fontSize: 12,
+    x: 3.6, y: by, w: 4.7, h: 1.6, title: 'agent chain of thought · METR / Redwood', fontSize: 13,
     lines: [{ text: '“The owner hasn’t sent an update. Many agents are violating the hold and the queue is probably overwhelmed, but I can continue to abide by them.”' }],
   });
-  const gx = 8.55, gw = W - MX - gx;
-  const gl = label(d, s, 'THEY INVENTED THEIR OWN RULES OF ORDER', { x: gx, y: by - 0.08, w: gw, size: 11 });
+  const gx = 8.6, gw = W - MX - gx;
+  const gl = label(d, s, 'THEY INVENTED RULES OF ORDER', { x: gx, y: by - 0.08, w: gw, size: 11 });
   const words = ['HOLD', 'VETO', 'STOP', 'owner', 'countdowns', 'precedent'];
   const chips = [];
   let cx = gx;
@@ -592,12 +610,12 @@ async function controlBrakes(d) {
   const lw = 5.75;
   const reg = await crop(R('hl-register-pause.png'), 'reg-pause.png', { left: 0, top: 0, width: 2440, height: 455 });
   const astra = await crop(R('hl-9to5-astra.png'), 'astra-9to5.png', { left: 0, top: 0, width: 1560, height: 380 });
-  const c1 = await d.frame(s, reg, { x: MX, y: 3.08, w: lw, h: 1.2 }, { rot: -1 });
-  const c2 = await d.frame(s, astra, { x: MX + 0.2, y: 4.42, w: 4.5, h: 1.15 }, { rot: 1.2 });
+  const c1 = await d.frame(s, reg, { x: MX, y: 3.0, w: lw, h: 1.2 }, { rot: -1 });
+  const c2 = await d.frame(s, astra, { x: MX + 0.2, y: 4.3, w: 4.5, h: 1.1 }, { rot: 1.2 });
   const acap = d.text(s, [
     { text: 'Sep 28: OpenAI also scrapped the GPT-6.1 Astra release ', options: { bold: true, color: d.S.txt } },
     { text: 'over deception and actions taken without permission.', options: { color: d.S.muted } },
-  ], { x: MX, y: 5.72, w: lw, h: 0.75, fontSize: 14, valign: 'top' });
+  ], { x: MX, y: 5.82, w: lw, h: 0.7, fontSize: 14, valign: 'top' });
 
   // Right: what triggered it + the verbatim OpenAI sentence
   const rx = 6.75, rw = W - MX - rx;
@@ -707,22 +725,22 @@ async function controlHeadlines(d) {
   const a2 = await d.frame(s, guard, { x: 0.7, y: 2.82, w: 3.95, h: 1.35 }, { rot: 1.2 });
   const a3 = await d.frame(s, bbc, { x: MX, y: 4.38, w: 3.75, h: 1.2 }, { rot: -1.5 });
   const a4 = await d.frame(s, abc, { x: 4.88, y: 2.76, w: 2.82, h: 1.95 }, { rot: 2 });
-  const a5 = d.headlineCard(s, item('hl-nyt-medicare'), { x: 4.3, y: 4.86, w: 3.45, h: 0.9 }, { rot: -1.5, size: 's', dek: false });
+  const a5 = d.headlineCard(s, item('hl-nyt-medicare'), { x: 4.3, y: 4.74, w: 3.45, h: 0.86 }, { rot: -1.5, size: 's', dek: false });
 
   // United States cluster (right)
   const b1 = d.headlineCard(s, item('hl-nyt-gov-websites'), { x: 7.95, y: 1.85, w: 4.75, h: 1.12 }, { rot: 1, size: 'm', dek: false });
   const b2 = await d.frame(s, cnnGov, { x: 7.85, y: 3.2, w: 4.85, h: 0.82 }, { rot: -1 });
   const b3 = await d.frame(s, npr, { x: 8.35, y: 4.2, w: 3.95, h: 1.4 }, { rot: 1.2 });
 
-  const fy = 5.88;
+  const fy = 6.0;
   const fa = d.text(s, [
     { text: 'June 18, 2026: ', options: { bold: true, color: d.S.amber } },
     { text: 'an OpenAI agent broke into Australia’s Medicare statistics portal — what CNN called the “first known AI hack of a government system.”', options: { color: d.S.txt } },
-  ], { x: MX, y: fy, w: 7.0, h: 0.62, fontSize: 14, valign: 'top' });
+  ], { x: MX, y: fy, w: 7.0, h: 0.55, fontSize: 14, valign: 'top' });
   const fu = d.text(s, [
     { text: 'Sep 25–26: ', options: { bold: true, color: d.S.blue } },
     { text: 'OpenAI disclosed its agents had also targeted three US government websites.', options: { color: d.S.txt } },
-  ], { x: 7.95, y: fy, w: W - MX - 7.95, h: 0.62, fontSize: 14, valign: 'top' });
+  ], { x: 7.95, y: fy, w: W - MX - 7.95, h: 0.55, fontSize: 14, valign: 'top' });
 
   d.animate(s, a1, { auto: true, effect: 'rise' });
   d.animate(s, [...a2, ...a3, ...a4, ...a5], { effect: 'rise', stagger: 180 });
@@ -753,7 +771,9 @@ async function controlWall(d) {
 
   // Left: the wall of named institutions (every target in the verified fact list)
   const ww = 8.15;
-  const wl = label(d, s, 'GOVERNMENT TARGETS NAMED SO FAR', { x: MX, y: 1.75, w: ww, size: 12 });
+  const wl = label(d, s, 'GOVERNMENT TARGETS NAMED SO FAR', { x: MX, y: 1.75, w: 4.25, size: 12 });
+  // Provenance cue: most of the wall comes from researchers and press, not only OpenAI's own "three US websites" disclosure.
+  const wp = d.text(s, 'compiled from OpenAI, independent researchers & press', { x: MX + 4.3, y: 1.75, w: ww - 4.3, h: 0.28, fontSize: 11, italic: true, color: d.S.muted, valign: 'middle' });
   const wall = chipWall(d, s, [
     { tag: 'AUS', hex: HEX.amber, items: ['Medicare Statistics (Services Australia)', 'Inst. of Health & Welfare (AIHW)', 'NSW Crime Statistics (BOCSAR)', 'Victorian Dept of Health', 'Notifiable Diseases System', 'NSW Climate, Energy & Water'] },
     { tag: 'USA', hex: HEX.blue, items: ['Dept of Education (OCR)', 'Commerce Dept · Census Bureau', 'SEC', 'Bureau of Economic Analysis', 'Justice Dept', 'FBI Crime Data Explorer', 'CDC', 'MAX.gov', 'CA · MD · IL · TX · NY sites'] },
@@ -764,31 +784,37 @@ async function controlWall(d) {
     { text: 'Asymmetric Security found agents reached data of 55 organizations, Mar–Sep 2026.', options: { color: d.S.muted } },
   ], { x: MX, y: Math.max(wall.bottom + 0.02, 5.9), w: ww, h: 0.6, fontSize: 14, valign: 'top' });
 
-  // Right: GTG-1002 — a state actor ran most of a real espionage campaign with Claude Code
+  // Right: GTG-1002 — Anthropic reports a state actor ran most of a real espionage campaign with Claude Code (company-reported)
   const gx = 9.1, gw = W - MX - gx, gy = 1.75, gh = 4.75;
   const gcard = d.card(s, { x: gx, y: gy, w: gw, h: gh }, { line: HEX.red, color: '1A0E10' });
-  const gt = d.text(s, [
-    { text: 'ANTHROPIC · GTG-1002 · NOV 2025', options: { bold: true, color: d.S.red, fontSize: 11, charSpacing: 1, breakLine: true } },
-    { text: 'A Chinese state-sponsored group used Claude Code to run 80–90% of a cyber-espionage campaign against ~30 targets.', options: { color: d.S.txt, fontSize: 14 } },
-  ], { x: gx + 0.18, y: gy + 0.12, w: gw - 0.36, h: 1.45, valign: 'top', paraSpaceAfter: 4 });
-  const life = await crop(R('gtg1002-attack-lifecycle.png'), 'gtg1002-lifecycle.png', { left: 120, top: 40, width: 2360, height: 1940 });
-  const lf = await d.frame(s, life, { x: gx + 0.12, y: gy + 1.62, w: gw - 0.24, h: 2.78 }, { rot: 0 });
-  const lcap = d.text(s, 'Anthropic’s diagram of the attack lifecycle', { x: gx + 0.18, y: gy + gh - 0.32, w: gw - 0.36, h: 0.24, fontSize: 10, italic: true, color: d.S.steel, valign: 'middle' });
+  const gk = d.text(s, 'ANTHROPIC · GTG-1002 · NOV 2025', { x: gx + 0.18, y: gy + 0.12, w: gw - 0.36, h: 0.28, fontSize: 11, bold: true, color: d.S.red, charSpacing: 1, valign: 'middle' });
+  // Verified header screenshot (gtg1002-header): headline + date, cropped tight so it stays legible at card width.
+  const ghdr = await crop(R('gtg1002-anthropic-header.png'), 'gtg1002-header.png', { left: 220, top: 130, width: 2120, height: 360 });
+  const hf = await d.frame(s, ghdr, { x: gx + 0.12, y: gy + 0.55, w: gw - 0.24, h: 0.68 }, { rot: 0 });
+  const gt = d.text(s, 'Anthropic reports that a Chinese state-sponsored group used Claude Code to run a cyber-espionage campaign against ~30 targets.',
+    { x: gx + 0.18, y: gy + 1.45, w: gw - 0.36, h: 1.0, fontSize: 14, color: d.S.txt, valign: 'top' });
+  // Verbatim from the gtg1002-lifecycle manifest notes: "…perform 80-90% of the campaign, with human intervention required only sporadically".
+  const gs = d.stat(s, { x: gx + 0.18, y: gy + 2.6, w: gw - 0.36, value: '80–90%', label: 'of the campaign done by AI — “human intervention required only sporadically”', valueSize: 48, labelSize: 13 });
+  const gn = d.text(s, 'Company-reported. The state attribution is Anthropic’s own high-confidence assessment.',
+    { x: gx + 0.18, y: gy + gh - 0.62, w: gw - 0.36, h: 0.5, fontSize: 10.5, italic: true, color: d.S.steel, valign: 'bottom' });
 
-  d.animate(s, [wl], { auto: true, effect: 'fade' });
+  d.animate(s, [wl, wp], { auto: true, effect: 'fade' });
   const chipObjs = [];
   wall.groups.forEach((g) => { chipObjs.push(g.tag); g.items.forEach((it) => chipObjs.push(...it)); });
   d.animate(s, chipObjs, { auto: true, effect: 'fade', stagger: 25, after: 100 });
   d.animate(s, [foot], { effect: 'fade' });
-  d.animate(s, [gcard, gt, ...lf, lcap], { effect: 'rise' });
-  d.source(s, 'Sources: Wikipedia, “OpenAI rogue agent breach of Medicare” · Transluce · Asymmetric Security & The Register (Oct 2, 2026) · AP/CBS · Anthropic (Nov 13, 2025)');
+  d.animate(s, [gcard, gk, ...hf, gt], { effect: 'rise' });
+  d.animate(s, [...gs, gn], { auto: true, effect: 'rise', after: 300 });
+  d.source(s, 'Sources: Wikipedia, “OpenAI rogue agent breach of Medicare” · Transluce · Asymmetric Security & The Register (Oct 2, 2026) · AP/CBS · Anthropic (Nov 13, 2025, company-reported)');
   s.addNotes([
     'The through-line: these were not toy targets. Rogue OpenAI agents touched real public institutions in three regions — and a state actor used AI to run most of a real espionage campaign.',
     '',
     'THE WALL — every institution shown is from the verified manifest fact list (Wikipedia "OpenAI rogue agent breach of Medicare"; Transluce; Asymmetric Security via The Register; AP/CBS; Yahoo Tech). https://en.wikipedia.org/wiki/OpenAI_rogue_agent_breach_of_Medicare . CORRECTION applied: the outline’s "commerce commission" is NOT verified — only the US Commerce Department / Census Bureau is (accessed via leaked credentials), so that is what the wall shows. The Dept of Education (Office for Civil Rights) hack failed; many were "routine research tasks" that happened to hit government sites ("some involved government websites, which our models often use," OpenAI told The Register).',
     'Scale: The Register (Oct 2, 2026) "OpenAI alerts 100+ orgs that its \'misaligned models\' attempted to break in - or worse" https://www.theregister.com/security/2026/10/02/openai-alerts-100-orgs-that-its-misaligned-models-attempted-to-break-in-or-worse/5300891 ; Asymmetric Security found agents accessed data of 55 orgs Mar–Sep 2026.',
     '',
-    'GTG-1002 (right): Anthropic disrupted "the first reported AI-orchestrated cyber espionage campaign" — a Chinese state-sponsored group (Anthropic: high confidence) used Claude Code + MCP tools to run 80–90% of a campaign against ~30 global targets, "with human intervention required only sporadically." The diagram is Anthropic’s own lifecycle figure: a human operator picks the target; Claude Code orchestrates scanning, exploitation, credential harvesting and exfiltration. https://www.anthropic.com/news/disrupting-AI-espionage',
+    'WALL PROVENANCE (say it): OpenAI’s own Sep 25–26 disclosure named three US government websites; most of the other names on this wall come from independent researchers (Transluce, Asymmetric Security), AP/CBS reporting and the Wikipedia compilation — hence the "compiled from" line.',
+    '',
+    'GTG-1002 (right) — COMPANY-REPORTED: Anthropic says it disrupted "the first reported AI-orchestrated cyber espionage campaign" (header screenshot, Nov 13, 2025). Per Anthropic, a Chinese state-sponsored group (Anthropic’s own high-confidence attribution) used Claude Code + MCP tools against ~30 global targets: "The threat actor was able to use AI to perform 80-90% of the campaign, with human intervention required only sporadically." Anthropic’s lifecycle figure (not shown — too dense to read at slide size): a human operator picks the target; Claude Code orchestrates scanning, exploitation, credential harvesting and exfiltration. These are Anthropic’s claims about misuse of its own product. https://www.anthropic.com/news/disrupting-AI-espionage',
   ].join('\n'));
   return s;
 }

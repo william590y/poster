@@ -73,13 +73,15 @@ async function neuripsClip() {
 }
 
 // π0 Fig. 3 without the camera-photo row: rectangular crop to y=478 (keeps the q_t / noise labels on the right),
-// then the top sliver of the photos (left of x=620, below y=442) is painted white.
+// then the top sliver of the photos (left of x=620, below y=442) is painted white, as is the orphaned arrow stub
+// at the far-left edge (crop px 0–13, y≈237; its source line was cropped away) that pointed into the VLM box.
 async function pi0Crop() {
   fs.mkdirSync(OUT, { recursive: true });
   const out = path.join(OUT, 'vla-pi0-fig3-blocks.png');
   const base = await sharp(R('vla-pi0-overview-fig3.png')).extract({ left: 372, top: 0, width: 1282, height: 478 }).png().toBuffer();
   const white = await sharp({ create: { width: 620, height: 36, channels: 3, background: '#FFFFFF' } }).png().toBuffer();
-  await sharp(base).composite([{ input: white, left: 0, top: 442 }]).png().toFile(out);
+  const stub = await sharp({ create: { width: 14, height: 16, channels: 3, background: '#FFFFFF' } }).png().toBuffer();
+  await sharp(base).composite([{ input: white, left: 0, top: 442 }, { input: stub, left: 0, top: 230 }]).png().toFile(out);
   return out;
 }
 
@@ -244,7 +246,7 @@ async function codeSlide(d) {
     'Google: “75% of all new code at Google is now AI-generated and approved by engineers, up from 50% last fall” (Sundar Pichai, Cloud Next ’26, Apr 22 2026); 25% in 2024. Semafor also reports Snap reached 65% AI-generated code and immediately cut planned headcount.',
     'Anthropic CFO Krishna Rao: “90 plus percent of our code is actually written by Claude Code.” Fortune: Boris Cherny (Anthropic) — “100% for two+ months now”; roon (OpenAI) — “100%, I don’t write code anymore.” These are self-reported figures by the companies and individuals.',
     'Layoffs: Block cut more than 4,000 jobs (~40% of staff) citing AI; Jack Dorsey said most companies will do the same. Challenger: AI was the top cited reason for layoffs in April 2026 (21,490 of 88,387 cuts, 26%). H1 2026: 101,743 announced cuts cited AI (~23% of all) vs 54,836 in all of 2025; tech-sector cuts up 83% YoY.',
-    'Caveat: “cited AI” is what companies say in announcements — some firms may use AI as a convenient framing for cuts driven by other factors. Microsoft has not given a 2026 figure for AI-written code (only “20–30%” in April 2025).',
+    'Caveat: “cited AI” is what companies say in announcements — some firms may use AI as a convenient framing for cuts driven by other factors. We found no 2026 figure from Microsoft; the latest public number is Nadella’s “20–30%” (April 2025).',
     'URLs: https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/ · https://www.semafor.com/article/04/24/2026/google-ceo-says-75-of-companys-new-code-is-ai-generated · https://www.aol.com/articles/anthropic-cfo-says-ai-now-224949000.html · https://fortune.com/2026/01/29/100-percent-of-code-at-anthropic-and-openai-is-now-ai-written-boris-cherny-roon/ · https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey · https://www.cbsnews.com/news/ai-layoffs-job-cuts-challenger-report-april-2026/ · https://www.hrdive.com/news/tech-layoffs-surge-83percent-h1-2026-challenger-ai-disruption/824320/',
   ].join('\n\n'));
   return s;
@@ -394,15 +396,16 @@ async function tavusSlide(d) {
   const shotBottom = 1.8 + await hFor(page, sw);
   // two-bar comparison drawn with native shapes (exact label placement)
   const bars = [];
-  const rowsT = [['Previous Tavus system', 2.4, HEX.steel], ['Griffin-Lite', 48.0, HEX.red]];
+  // value labels as the source states them (26/54 = 48.1%; Tavus says “48%”), not v.toFixed(1)
+  const rowsT = [['Previous Tavus system', 2.4, HEX.steel, '2.4%'], ['Griffin-Lite', 48.0, HEX.red, '48%']];
   const bx = rx + 2.05, perPct = 2.0 / 48, by0 = shotBottom + 0.26;
-  rowsT.forEach(([name, v, col], i) => {
+  rowsT.forEach(([name, v, col, vs], i) => {
     const yy = by0 + i * 0.4;
     bars.push(d.text(s, name, { x: rx, y: yy, w: 1.95, h: 0.32, fontSize: 12, color: d.S.muted, align: 'right', valign: 'middle' }));
     const b = d.name('bar');
     s.addShape(d.pres.shapes.RECTANGLE, { x: bx, y: yy + 0.02, w: v * perPct, h: 0.28, fill: { color: col }, line: { color: col, width: 0 }, objectName: b });
     bars.push(b);
-    bars.push(d.text(s, `${v.toFixed(1)}%`, { x: bx + v * perPct + 0.08, y: yy, w: 0.8, h: 0.32, fontSize: 14, bold: true, color: i ? d.S.red : d.S.txt, valign: 'middle' }));
+    bars.push(d.text(s, vs, { x: bx + v * perPct + 0.08, y: yy, w: 0.8, h: 0.32, fontSize: 14, bold: true, color: i ? d.S.red : d.S.txt, valign: 'middle' }));
   });
   const cavY = by0 + 0.4 + 0.32 + 0.12;
   const cav = d.text(s, 'Company-run study (26 of 54 vs 1 of 41, one-minute calls) — not independently verified.',
@@ -508,7 +511,7 @@ async function vlaWallSlide(d) {
     [R('vla-deepmind-gr2-blog.png'), 5.55, 1.85, 4.15, 1.5],
     [R('vla-figure-helix25.png'), 10.0, 1.95, 2.7, -2],
     [R('vla-bnnbloomberg-robot-brain.png'), 5.4, 3.25, 3.95, -1.5],
-    [R('vla-robotreport-gr2.png'), 9.75, 2.88, 2.95, 2],
+    [R('vla-robotreport-gr2.png'), 9.75, 2.78, 2.95, 2],
     [nvidia, 0.75, 4.1, 4.3, 1.5],
     [R('vla-mittr-humanoid-gig.png'), 5.6, 4.95, 4.1, 1],
   ];
@@ -516,20 +519,20 @@ async function vlaWallSlide(d) {
   for (const [f, x, y, w, rot] of items) fr.push(await frameW(d, s, f, x, y, w, { rot }));
   const factRows = [
     ['30', 'unseen homes, zero-shot (Figure Helix 2.5)'],
-    ['<200', 'examples to adapt to a new robot body (Gemini Robotics 2)'],
+    ['<200', 'examples, typically, to adapt to a new robot body (Gemini Robotics 2)'], // DeepMind: “typically with less than 200 examples”
     ['2', 'related episodes to run an unfamiliar air fryer (π0.7)'],
   ];
   const facts = [];
   const fx = 10.0, vw = 0.8, tw = CX1 - fx - vw - 0.06;
-  facts.push(capLabel(d, s, 'GENERALIZATION', { x: fx, y: 3.72, w: CX1 - fx, color: d.S.red }));
-  const rowH = [0.5, 0.74, 0.74];
-  let fy = 4.04;
+  facts.push(capLabel(d, s, 'GENERALIZATION', { x: fx, y: 3.62, w: CX1 - fx, color: d.S.red }));
+  const rowH = [0.5, 0.98, 0.74];
+  let fy = 3.94;
   factRows.forEach(([v, t], i) => {
     facts.push(d.text(s, v, { x: fx, y: fy - 0.02, w: vw, h: 0.42, fontSize: 24, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'top' }));
     facts.push(d.text(s, t, { x: fx + vw + 0.06, y: fy, w: tw, h: rowH[i], fontSize: 14, color: d.S.muted, valign: 'top' }));
-    fy += rowH[i] + 0.09;
+    fy += rowH[i] + 0.07;
   });
-  facts.push(d.text(s, 'Company-reported results', { x: fx, y: fy - 0.04, w: CX1 - fx, h: 0.24, fontSize: 11, italic: true, color: d.S.amber, valign: 'top' }));
+  facts.push(d.text(s, 'Company-reported results', { x: fx, y: fy - 0.06, w: CX1 - fx, h: 0.22, fontSize: 11, italic: true, color: d.S.amber, valign: 'top' }));
 
   fr.forEach((f, i) => d.animate(s, f, { auto: true, effect: i % 3 === 0 ? 'slam' : 'rise', dur: i % 3 === 0 ? 330 : 420, after: i ? 90 : 0 }));
   d.animate(s, facts, { effect: 'fade' });
@@ -577,7 +580,7 @@ async function vlaArchSlide(d) {
     ], { x: xs[i] + 0.18, y: y + 0.84, w: ws[i] - 0.3, h: h - 0.9, valign: 'top' }));
     return g;
   };
-  steps.push(await mk(0, { kicker: 'INPUT', ic: ['FaCamera', 'FaCommentAlt'], title: 'Camera + words', sub: '“fold the shirt”' }));
+  steps.push(await mk(0, { kicker: 'INPUT', ic: ['FaCamera', 'FaCommentAlt'], title: 'Camera + words', sub: '“fold shirt”' }));
   steps.push(await mk(1, { kicker: 'THE BRAIN · ~90% OF π0', ic: ['FaBrain'], hot: true, title: 'Pre-trained VLM / LLM', sub: 'Off-the-shelf language model: Gemma 2.6B (π0), Llama 2 7B (OpenVLA)' }));
   steps.push(await mk(2, { kicker: 'BOLTED ON', ic: ['FaCogs'], title: 'Action expert', sub: 'small head, ~300M (π0)' }));
   steps.push(await mk(3, { kicker: 'OUTPUT', ic: ['FaRobot'], title: 'Robot actions', sub: 'Δx, Δθ, Δgrip' }));

@@ -32,8 +32,8 @@ async function shipSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
   heading(s, 'THE WORLD · AI AND THE MILITARY · 1', 'An AI hallucination almost started a war');
 
-  const cnn = await d.frame(s, D('cnn-ship-head.png'), { x: MX, y: 1.8, w: 6.9, h: 2.05 }, { rot: -1.2 });
-  const giz = await d.frame(s, R('gizmodo-almost-started-war.png'), { x: 1.35, y: 3.68, w: 5.6, h: 2.75 }, { rot: 1.5 });
+  const cnn = await d.frame(s, D('cnn-ship-head.png'), { x: MX, y: 1.8, w: 6.9, h: 1.76 }, { rot: -1.2 });
+  const giz = await d.frame(s, R('gizmodo-almost-started-war.png'), { x: 1.35, y: 3.62, w: 5.6, h: 2.75 }, { rot: 1.5 });
 
   // right column: what happened
   const rx = 7.95, rw = W - MX - rx;
@@ -51,11 +51,12 @@ async function shipSlide(d) {
     step(d, s, 3, rx, 3.7, [M('AI packages the claim into a '), B('standard intelligence report'), M(', circulated across the military')], { w: sw }),
     step(d, s, 4, rx, 4.45, [B('Armed troops prepare to board'), M('; military planes are in the air. Caught only just before the operation')], { w: sw, h: 0.72 }),
   ];
-  const qc = d.card(s, { x: rx, y: 5.42, w: rw, h: 1.08 }, { color: '2A0C0E', line: HEX.red });
+  const qc = d.card(s, { x: rx, y: 5.27, w: rw, h: 1.23 }, { color: '2A0C0E', line: HEX.red });
   const q = d.text(s, [
     { text: '“Entirely false” — but it “almost started a war.”', options: { fontSize: 19, bold: true, color: d.S.txt, fontFace: 'Arial', breakLine: true } },
-    { text: '“AI allows you to get to a bad idea faster.” — a CNN source', options: { fontSize: 13, italic: true, color: d.S.muted } },
-  ], { x: rx + 0.22, y: 5.5, w: rw - 0.4, h: 0.92, valign: 'middle' });
+    { text: '“AI allows you to get to a bad idea faster.”', options: { fontSize: 14, italic: true, color: d.S.txt, breakLine: true } },
+    { text: '— CNN source', options: { fontSize: 12, color: d.S.muted } },
+  ], { x: rx + 0.22, y: 5.33, w: rw - 0.4, h: 1.11, valign: 'middle' });
 
   d.animate(s, cnn, { auto: true, effect: 'slam', dur: 450 });
   d.animate(s, giz, { auto: true, effect: 'rise', delay: 150, dur: 600 });
@@ -84,11 +85,11 @@ async function memoSlide(d) {
 
   const rx = 7.85, rw = W - MX - rx;
   const txt = d.text(s, [
-    { text: 'The same memo demands models “free from usage policy constraints” and “any lawful use” in every AI contract. ', options: { color: d.S.muted } },
+    { text: 'The same memo demands models “free from usage policy constraints that may limit lawful military applications” and “any lawful use” in every AI contract. ', options: { color: d.S.muted } },
     { text: 'Anthropic kept two limits: no mass domestic surveillance, no fully autonomous weapons.', options: { color: d.S.txt, bold: true } },
-  ], { x: rx, y: 1.78, w: rw, h: 1.3, fontSize: 15, valign: 'top' });
-  const cbs = await d.frame(s, D('cbs-head.png'), { x: rx + 0.15, y: 3.12, w: rw - 0.3, h: 1.82 }, { rot: 1.2 });
-  const tnw = await d.frame(s, R('tnw-appeals-court-anthropic.png'), { x: rx, y: 5.24, w: rw, h: 1.23 }, { rot: -1 });
+  ], { x: rx, y: 1.78, w: rw, h: 1.55, fontSize: 15, valign: 'top' });
+  const cbs = await d.frame(s, D('cbs-head.png'), { x: rx + 0.15, y: 3.4, w: rw - 0.3, h: 1.68 }, { rot: 1.2 });
+  const tnw = await d.frame(s, R('tnw-appeals-court-anthropic.png'), { x: rx, y: 5.3, w: rw, h: 1.2 }, { rot: -1 });
 
   d.animate(s, head, { auto: true, effect: 'rise', dur: 500 });
   d.animate(s, [...memo, memoCap], { auto: true, effect: 'rise', delay: 150, dur: 600 });
@@ -139,7 +140,7 @@ async function warRoomSlide(d) {
   d.animate(s, [...grok, grokDek], { effect: 'slam', dur: 450 });
   d.animate(s, [...con, conDek], { effect: 'rise' });
   d.animate(s, [...eur, kq], { effect: 'zoom', dur: 450 });
-  d.source(s, 'Sources: The Defense Post, Sep 10, 2026 · The Guardian, Apr 3, 2024 & Dec 1, 2023 (+972/Local Call) · TechCrunch, Oct 1, 2026 · DefenseScoop, Jul 14, 2025 · Euronews; Payne, arXiv:2602.14740.');
+  d.source(s, 'Sources: The Defense Post, Sep 10, 2026 · The Guardian, Apr 3, 2024 & Dec 1, 2023 (+972/Local Call) · TechCrunch, Oct 1, 2026 · DefenseScoop, Jul 14, 2025 · Euronews, Feb 27, 2026; Payne, arXiv:2602.14740.');
   s.addNotes([
     'Wall of headlines — AI is already inside military decision loops.',
     'Ukraine (The Defense Post, Sep 10, 2026): Ukraine is testing whether AI can let drones detect, acquire and hit moving ground targets without continuous pilot control — drones fly 2 km and must acquire a moving lightly armored vehicle from ≥500 m; 7 companies evaluated (MoD + Brave1). The image is a Ukrainian Ministry of Defence promotional graphic for the test program — present it as such, not as combat footage. The headline under it is The Defense Post’s own.',
@@ -154,7 +155,7 @@ async function warRoomSlide(d) {
 // ---------------------------------------------------------------- 4. No guardrails
 async function guardrailsSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  heading(s, 'THE WORLD · GEOPOLITICAL RIVALRY · 1', 'Trump says the only AI guardrail is him');
+  heading(s, 'THE WORLD · GEOPOLITICAL RIVALRY · 1', 'Trump: the only guardrail AI needs is him');
 
   const cap = d.text(s, [
     { text: 'Donald J. Trump', options: { bold: true, color: d.S.txt } },
@@ -181,8 +182,8 @@ async function guardrailsSlide(d) {
   d.animate(s, [eoLab, ...npr], { effect: 'rise' });
   d.source(s, 'Sources: Truth Social post (archived at trumpstruth.org/statuses/41712); highlights added · CNN (Liptak), Sep 14, 2026 · NPR (Huo Jingnan), Dec 11, 2025.');
   s.addNotes([
-    'Trump, Truth Social, Sep 14, 2026, 9:58 AM (exact text, from the Trump’s Truth archive; truthsocial.com itself blocked automated capture): “The only control or ‘guardrails’ that AI needs is a STRONG AND SMART (High IQ!) PRESIDENT, and the U.S.A. has that, in spades! … like Dario (Anthropic!), who is now pretending to be a ‘perfect little angel’ … We already have tremendous CRIMINAL and REGULATORY power over these companies! … WHOEVER WINS AI, WINS! We are leading China, and all others …” The yellow highlights are mine; the archive header (broken avatar image) is cropped off.',
-    'CNN (Kevin Liptak, Sep 14, 2026): Trump spent Monday angrily rejecting calls from AI industry leaders for more regulation, in a daylong string of posts, putting outpacing China above public concerns. To Jensen Huang by phone: “The robots will not be taking over. The AI will not be taking over the rest of the world. The whole thing is a hoax.” CBS and NBC ran similar headlines (“Trump says AI doesn’t need guardrails, calls growing concerns ‘a hoax’”).',
+    'Trump, Truth Social, Sep 14, 2026, 9:58 AM (exact text, from the Trump’s Truth archive; truthsocial.com itself blocked automated capture): “The only control or ‘guardrails’ that AI needs is a STRONG AND SMART (High IQ!) PRESIDENT, and the U.S.A. has that, in spades! … like Dario (Anthropic!), who is now pretending to be a ‘perfect little angel’ … We already have tremendous CRIMINAL and REGULATORY power over these companies! … WHOEVER WINS AI, WINS! We are leading China, and all others …” Note the wording: he says this is the only guardrail AI “needs” — the same post also says “We already have tremendous CRIMINAL and REGULATORY power over these companies!” The yellow highlights are mine; the archive header (broken avatar image) is cropped off.',
+    'CNN (Kevin Liptak, Sep 14, 2026): Trump spent Monday angrily rejecting calls from AI industry leaders for more regulation, in a daylong string of posts, putting outpacing China above public concerns. To Jensen Huang by phone: “The robots will not be taking over. The AI will not be taking over the rest of the world. The whole thing is a hoax.” Same day elsewhere — NBC: “Trump says AI doesn’t need guardrails, calls growing concerns ‘a hoax’” (Megan Brand); CBS: “Trump dismisses push for AI regulation despite warnings from tech leaders” (Kathryn Watson), both Sep 14, 2026.',
     'State-law preemption: “Ensuring a National Policy Framework for Artificial Intelligence”, signed Dec 11, 2025 — creates a DOJ “AI Litigation Task Force” to challenge state AI laws. NPR: “It may not be legal.”',
     'URLs: https://truthsocial.com/@realDonaldTrump/117269745153543631 · https://www.trumpstruth.org/statuses/41712 · https://www.cnn.com/2026/09/14/politics/trump-vance-ai-alarms · https://www.npr.org/2025/12/11/nx-s1-5638562/trump-ai-david-sacks-executive-order',
   ].join('\n\n'));
@@ -191,7 +192,7 @@ async function guardrailsSlide(d) {
 // ---------------------------------------------------------------- 5. Race with China
 async function raceSlide(d) {
   const s = d.slide('Content', { transition: 'pushLeft' });
-  heading(s, 'THE WORLD · GEOPOLITICAL RIVALRY · 2', 'Racing China — while selling it chips');
+  heading(s, 'THE WORLD · GEOPOLITICAL RIVALRY · 2', 'Racing China — while letting it buy chips');
 
   const pbs = await d.frame(s, D('pbs-xi.png'), { x: MX, y: 1.76, w: 3.45, h: 4.78 }, { rot: -1.2 });
   const rx = 4.45;
@@ -227,7 +228,7 @@ async function raceSlide(d) {
     'DeepSeek moment (Tom’s Hardware, Jan 28, 2025): DeepSeek’s R1 release wiped $589 billion off Nvidia’s market value in one day — the largest single-day loss in stock-market history; DeepSeek claimed similar performance at a fraction of the hardware cost.',
     'Export controls loosened (The Register, Dec 9, 2025): Trump said Nvidia may ship H200s to “approved customers in China” if Washington gets a 25 percent cut; Blackwell and Rubin remain off limits.',
     'China substitutes (DigiTimes, Oct 1, 2026): Huawei’s chairman says its Ascend chips are now ahead of Nvidia in China, with domestic supply driving AI-chip substitution — company claim.',
-    'Summit (PBS/AP, Sep 26, 2026): after a three-day Trump–Xi summit in Washington, the two governments agreed to establish a channel for handling AI-related incidents and to accelerate military crisis communications. Trump: “We’re leading by at least a year, maybe a year and a half. Some people say two years. I’m not looking to open it up.” (The White House reportedly calls it the “U.S.–China Super Intelligence (SI) Dialogue” — not page-verified, don’t state as fact.)',
+    'Summit (PBS/AP, Sep 26, 2026): after a three-day Trump–Xi summit in Washington, the two governments agreed to establish a channel for handling AI-related incidents and to accelerate military crisis communications. Trump: “We’re leading by at least a year, maybe a year and a half. Some people say two years. I’m not looking to open it up.”',
     'URLs: https://www.pbs.org/newshour/world/china-and-u-s-agree-to-establish-ai-safety-channel-and-continue-trade-and-military-talks · https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-loses-usd589-billion-in-market-cap-broad-stock-plunge-triggered-by-deepseek-ai-release · https://www.theregister.com/on-prem/2025/12/09/trump-says-nvidia-can-sell-h200s-to-china/2020308 · https://www.digitimes.com/newsshow/article.asp?datePublish=2026/10/01&pages=pd&seq=232',
   ].join('\n\n'));
 }
@@ -275,8 +276,8 @@ async function yemenSlide(d) {
   const figNote = d.text(s, 'Bar lengths as in the report’s Figure 1 (p. 114)', { x: gx - 0.6, y: gy + 2.1, w: gw + 0.6, h: 0.26, fontSize: 10, italic: true, color: d.S.steel, align: 'right' });
 
   const medLab = label(d, s, 'MEDIA NAMED THE HOUTHIS — THE REPORT DOES NOT', { x: lx, y: 5.32, w: lw }, d.S.amber);
-  const mee = await d.frame(s, D('mee-head.png'), { x: lx, y: 5.66, w: 3.0, h: 0.89 }, { rot: -1 });
-  const meeT = d.text(s, 'Anthropic’s report says only “northern Yemen” (an area media describe as largely Houthi-controlled).', { x: lx + 3.2, y: 5.62, w: lw - 3.2, h: 0.93, fontSize: 14, color: d.S.muted, valign: 'middle' });
+  const mee = await d.frame(s, D('mee-head.png'), { x: lx, y: 5.69, w: 3.6, h: 0.83 }, { rot: -1 });
+  const meeT = d.text(s, 'The report says only “northern Yemen.”', { x: lx + 3.8, y: 5.69, w: lw - 3.8, h: 0.83, fontSize: 14, color: d.S.muted, valign: 'middle' });
 
   const rx = 6.85, rw = W - MX - rx;
   const exc = await d.frame(s, D('yemen-detail-hl.png'), { x: rx, y: 1.8, w: rw, h: 4.2 }, { rot: 0 });
@@ -291,6 +292,7 @@ async function yemenSlide(d) {
   d.animate(s, [medLab, ...mee, meeT], { effect: 'fade' });
   d.source(s, 'Source: Anthropic, “Detecting and countering misuse of AI: September 2026,” case GTG-87001, pp. 112–114 · Middle East Eye (citing the FT), Sep 11, 2026.');
   s.addNotes([
+    'On the p. 113 excerpt (right), point at the two highlighted lines: Claude Code “in place of human software engineers”, and “within hours, the actors returned to Claude to work out why it failed.”',
     'Anthropic Threat Intelligence report, Sept 10, 2026, case GTG-87001: “We identified a cell of threat actors based in northern Yemen running three weapons development programs: a guided rocket that used a commodity phone-class flight computer with final-phase homing guidance; a multi-stage ballistic missile with a stated range goal above 2,000 km; and a multi-variant missile (referred to as the ‘R2000’ set) that included a hypersonic glide vehicle variant.”',
     '“The actors used Claude Code in place of human software engineers to develop the guidance, navigation, and control (GNC) software …” They ran several Claude instances as a mini engineering team (one coding, one researching, one reviewing). “Our safeguards blocked many of their requests, but not all of them.” They hid their goals and split work across sessions so no single session revealed full intent. “We do not have evidence the actors succeeded in fielding an operational device; but they did test-fire a guided rocket. This field test appears to have failed: within hours, the actors returned to Claude to work out why it failed.” They also built an offline simulation toolkit that no longer needs Claude.',
     'The bars redraw the report’s Figure 1 (systems-engineering V) at its proportions: the rocket reached flight test (full track); the ballistic-missile bar ends at “Simulation”, about 47% of the track (the report’s table: medium- and intermediate-range and hypersonic-glide variants); the multi-variant family ends at “Design”, about 29%. Anthropic notes its visibility into the overall program was limited.',
@@ -305,11 +307,11 @@ async function bioSlide(d) {
   heading(s, 'THE WORLD · USE BY BAD ACTORS · 2', 'OpenAI’s o3 beat 94% of expert virologists');
 
   const lx = MX, lw = 6.1;
-  const sv = d.text(s, '94%', { x: lx, y: 1.72, w: 2.1, h: 1.0, fontSize: 60, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'middle' });
+  const sv = d.text(s, '2×', { x: lx, y: 1.72, w: 1.3, h: 1.0, fontSize: 60, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'middle' });
   const sl = d.text(s, [
-    { text: 'of expert virologists outscored by o3 ', options: { color: d.S.txt, bold: true } },
-    { text: 'on lab-troubleshooting questions from their own specialties', options: { color: d.S.muted } },
-  ], { x: lx + 2.2, y: 1.8, w: lw - 2.2, h: 0.85, fontSize: 15, valign: 'middle' });
+    { text: 'o3 scored 43.8% ', options: { color: d.S.txt, bold: true } },
+    { text: 'vs. the 22.1% expert virologists averaged on lab-troubleshooting questions in their own sub-areas', options: { color: d.S.muted } },
+  ], { x: lx + 1.4, y: 1.8, w: lw - 1.4, h: 0.85, fontSize: 15, valign: 'middle' });
 
   const vct = [
     ['o3', 43.8], ['Gemini 2.5 Pro', 37.6], ['o4-mini', 37.0], ['o1', 35.4], ['Claude 3.7 Sonnet', 30.8],
@@ -358,7 +360,7 @@ async function bioSlide(d) {
   groups.slice(1).forEach(g => d.animate(s, g, { auto: true, effect: 'rise', delay: 150 }));
   d.source(s, 'Sources: SecureBio / Center for AI Safety, Virology Capabilities Test (Götting et al., arXiv:2504.16137), Apr 2025 · Anthropic threat reports, Aug 27, 2025 & Sep 10, 2026 (GTG-27005).');
   s.addNotes([
-    'Virology Capabilities Test (SecureBio + Center for AI Safety, Apr 2025): troubleshooting complex virology lab protocols. Expert virologists with internet access averaged 22.1% on questions in their own sub-areas; OpenAI’s o3 reached 43.8% and outperformed 94% of expert virologists on question subsets tailored to their specialties. Other models: Gemini 2.5 Pro 37.6%, o4-mini 37.0%, o1 35.4%, Claude 3.7 Sonnet 30.8%, GPT-4.5 Preview 28.3%, GPT-4o 18.8%. The expert bar is an average, not a percentile. (TIME had the exclusive.)',
+    'Virology Capabilities Test (SecureBio + Center for AI Safety, Apr 2025): troubleshooting complex virology lab protocols. Expert virologists with internet access averaged 22.1% on questions in their own sub-areas; OpenAI’s o3 reached 43.8% and outperformed 94% of expert virologists on question subsets tailored to their specialties. Other models: Gemini 2.5 Pro 37.6%, o4-mini 37.0%, o1 35.4%, Claude 3.7 Sonnet 30.8%, GPT-4.5 Preview 28.3%, GPT-4o 18.8%. The expert bar is an average, not a percentile. The “2×” callout = 43.8 / 22.1 ≈ 1.98 — roughly double; as the VCT authors present it, o3’s figure is its overall accuracy and the experts’ is their average on their own sub-areas. (TIME had the exclusive.)',
     'Why it matters: tacit lab know-how used to be the bottleneck for would-be bioweapons makers.',
     'Anthropic, Sept 2026 report (biological misuse): state-linked researchers used Claude on dual-use biology (say “dual-use” — work that could aid bioweapons — not that a weapons program was observed): gain-of-function virology, avian-flu mammalian adaptation, venom/toxin design, via reseller relays that evaded regional blocks and rerouted refused prompts to more permissive models.',
     'Anthropic, Sept 2026 (GTG-27005): a Russia-based freelance team used Claude Code to build an autonomous FPV kamikaze drone swarm whose onboard model could select targets (including a “person” target class) and issue detonation commands without a human in the loop.',

@@ -17,7 +17,7 @@ def highlight(src, rects, out, box=None, color=(255, 209, 102)):
     if box: img = img.crop(box)
     img.save(os.path.join(O, out))
 
-crop('cnn-ai-china-ship.png', (0, 30, 2430, 710), 'cnn-ship-head.png')
+crop('cnn-ai-china-ship.png', (0, 30, 2430, 616), 'cnn-ship-head.png')  # ends below the date row (byline dropped; authors are in the source line)
 crop('cbs-hegseth-anthropic-supply-chain-risk.png', (0, 0, 1260, 515), 'cbs-head.png')
 crop('cnn-trump-ai-hoax.png', (0, 62, 2440, 640), 'cnn-hoax-head.png')
 crop('npr-ai-preemption-eo.png', (0, 0, 1369, 375), 'npr-head.png')
@@ -39,7 +39,12 @@ crop('pbs-us-china-ai-channel.png', (213, 8, 1226, 1450), 'pbs-xi.png')
 crop('register-h200-china.png', (0, 0, 2407, 470), 'register-h200.png')
 crop('toms-deepseek-nvidia.png', (0, 0, 1261, 520), 'toms-deepseek.png')
 crop('digitimes-huawei-ascend.png', (40, 60, 1520, 445), 'digitimes-huawei.png')
-crop('mee-houthis-claude.png', (0, 0, 1997, 490), 'mee-head.png')
+# MEE: red live-blog bar stacked above headline + date (the 'This is an entry from' breadcrumb line is skipped)
+def splice_rows(src, bands, out):
+    im = Image.open(os.path.join(R, src)).convert('RGB')
+    parts = [np.array(im.crop((0, y0, im.width, y1))) for (y0, y1) in bands]
+    Image.fromarray(np.concatenate(parts, axis=0)).save(os.path.join(O, out))
+splice_rows('mee-houthis-claude.png', [(0, 100), (185, 490)], 'mee-head.png')
 crop('anthropic-yemen-gtg87001-figure.png', (0, 0, 1522, 1175), 'yemen-vee.png')
 
 # Hegseth memo p.4 — the key sentence highlighted, cropped to the 'Speed Wins' paragraph

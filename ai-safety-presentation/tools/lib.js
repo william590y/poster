@@ -50,7 +50,7 @@ function makePres() {
     objects: [
       { placeholder: { options: { name: 'kicker', type: 'body', x: MX, y: 2.45, w: 8, h: 0.45, fontSize: 16, bold: true, color: S.red, charSpacing: 6, margin: 0 }, text: '' } },
       { placeholder: { options: { name: 'title', type: 'title', x: MX, y: 2.95, w: 9.5, h: 1.4, fontSize: 54, bold: true, color: S.txt, valign: 'top', align: 'left', margin: 0, fontFace: THEME.headFontFace }, text: '' } },
-      { placeholder: { options: { name: 'body', type: 'body', x: MX, y: 4.45, w: 8, h: 1.0, fontSize: 18, color: S.muted, valign: 'top', margin: 0 }, text: '' } },
+      { placeholder: { options: { name: 'body', type: 'body', x: MX, y: 4.45, w: 10.6, h: 1.0, fontSize: 18, color: S.muted, valign: 'top', margin: 0 }, text: '' } },
     ],
     slideNumber: slideNum,
   });

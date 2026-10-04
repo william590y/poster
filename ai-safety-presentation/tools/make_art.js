@@ -19,16 +19,19 @@ function base(extra, glow = { x: 0.82, y: 0.85, r: 0.75, c: '#7A0F14', o: 0.55 }
   <rect width="100%" height="100%" fill="url(#v)"/></svg>`;
 }
 
-function network(n, region, maxD, nodeColor, lineOp) {
+function network(n, region, maxD, nodeColor, lineOp, hole) {
   const pts = [];
-  for (let i = 0; i < n; i++) {
+  // hole: optional ellipse {cx, cy, rx, ry} kept free of nodes (and of lines crossing it) so text stays clean
+  const inHole = (x, y) => hole && ((x - hole.cx) / hole.rx) ** 2 + ((y - hole.cy) / hole.ry) ** 2 < 1;
+  while (pts.length < n) {
     const x = region.x0 + rnd() * (region.x1 - region.x0), y = region.y0 + rnd() * (region.y1 - region.y0);
-    pts.push([x, y]);
+    if (!inHole(x, y)) pts.push([x, y]);
   }
   let s = '';
   for (let i = 0; i < n; i++) for (let j = i + 1; j < n; j++) {
     const d = Math.hypot(pts[i][0] - pts[j][0], pts[i][1] - pts[j][1]);
-    if (d < maxD) s += `<line x1="${pts[i][0]}" y1="${pts[i][1]}" x2="${pts[j][0]}" y2="${pts[j][1]}" stroke="#C7CCD6" stroke-opacity="${(lineOp * (1 - d / maxD)).toFixed(3)}" stroke-width="2"/>`;
+    const mx = (pts[i][0] + pts[j][0]) / 2, my = (pts[i][1] + pts[j][1]) / 2;
+    if (d < maxD && !inHole(mx, my)) s += `<line x1="${pts[i][0]}" y1="${pts[i][1]}" x2="${pts[j][0]}" y2="${pts[j][1]}" stroke="#C7CCD6" stroke-opacity="${(lineOp * (1 - d / maxD)).toFixed(3)}" stroke-width="2"/>`;
   }
   for (const [x, y] of pts) {
     const hot = rnd() < 0.12, r = hot ? 7 + rnd() * 6 : 2.5 + rnd() * 4;
@@ -63,7 +66,7 @@ function expCurve() {
     'bg_section.png': base(grid(120, 0.03) + network(60, { x0: 2400, x1: 3900, y0: 200, y1: 2100 }, 380, '#AEB6C4', 0.16), { x: 0.9, y: 0.5, r: 0.6, c: '#8C1117', o: 0.5 }),
     'bg_content.png': base('', { x: 1.0, y: 1.0, r: 0.9, c: '#3A0A0D', o: 0.35 }),
     'bg_exp.png': base(grid(160, 0.03) + expCurve(), { x: 0.95, y: 0.05, r: 0.7, c: '#8C1117', o: 0.45 }),
-    'bg_closing.png': base(network(220, { x0: -100, x1: 3940, y0: -100, y1: 2260 }, 330, '#AEB6C4', 0.14), { x: 0.5, y: 0.5, r: 0.6, c: '#6E0D12', o: 0.5 }),
+    'bg_closing.png': base(network(170, { x0: -100, x1: 3940, y0: -100, y1: 2260 }, 330, '#AEB6C4', 0.14, { cx: 1920, cy: 1080, rx: 1750, ry: 700 }), { x: 0.5, y: 0.5, r: 0.6, c: '#6E0D12', o: 0.32 }),
   };
   for (const [name, svg] of Object.entries(jobs)) {
     await sharp(Buffer.from(svg)).png({ compressionLevel: 9 }).resize(2560, 1440).toFile(path.join(OUT, name));

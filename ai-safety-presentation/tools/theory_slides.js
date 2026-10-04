@@ -45,7 +45,7 @@ function agendaSlide(d) {
       { text: `ACT ${num}   `, options: { color: d.S.red, bold: true, fontSize: 11, charSpacing: 3 } },
       { text: title, options: { color: d.S.txt, bold: true, fontSize: 20, fontFace: 'Arial', breakLine: true } },
       { text: sub, options: { color: d.S.muted, fontSize: 13 } },
-    ], { x: lx, y: p.y - 0.4, w: 4.2, h: 0.8, align: 'right', valign: 'middle' });
+    ], { x: lx, y: p.y - 0.78, w: 4.2, h: 0.72, align: 'right', valign: 'bottom' });
     names.push([dot, t1]);
   });
   const intro = d.text(s, [
@@ -72,10 +72,10 @@ async function explosionSlide(d) {
   s.addText('INSIDE THE MACHINE · RECURSIVE SELF-IMPROVEMENT', { placeholder: 'kicker' });
   s.addText('The intelligence explosion', { placeholder: 'title' });
   const q = d.text(s, [
-    { text: '“', options: { fontSize: 54, color: d.S.red, bold: true, fontFace: 'Cambria', breakLine: true } },
-    { text: '…an ultraintelligent machine could design even better machines; there would then unquestionably be an ‘intelligence explosion,’ and the intelligence of man would be left far behind. Thus the first ultraintelligent machine is the last invention that man need ever make, provided that the machine is docile enough to tell us how to keep it under control.”', options: { fontSize: 17, color: d.S.txt, italic: true, fontFace: 'Cambria', breakLine: true } },
-    { text: '— I. J. Good, 1965', options: { fontSize: 12, color: d.S.muted } },
-  ], { x: MX, y: 1.65, w: 5.5, h: 4.75, valign: 'top' });
+    { text: '“', options: { fontSize: 30, color: d.S.red, bold: true, fontFace: 'Cambria' } },
+    { text: '…an ultraintelligent machine could design even better machines; there would then unquestionably be an ‘intelligence explosion,’ and the intelligence of man would be left far behind. Thus the first ultraintelligent machine is the last invention that man need ever make, provided that the machine is docile enough to tell us how to keep it under control.”', options: { fontSize: 19, color: d.S.txt, italic: true, fontFace: 'Cambria', breakLine: true, paraSpaceAfter: 10 } },
+    { text: '— I. J. Good, 1965', options: { fontSize: 13, color: d.S.muted } },
+  ], { x: MX, y: 1.9, w: 5.6, h: 4.4, valign: 'middle' });
   // loop diagram
   const cx = 9.7, cy = 4.0, r = 1.5;
   const steps = [['FaRobot', 'AI does AI research'], ['FaMicrochip', 'Better AI'], ['FaBolt', 'Faster research'], ['FaRedoAlt', 'Even better AI']];
@@ -101,11 +101,23 @@ async function explosionSlide(d) {
     nn.push(d.text(s, steps[i][1], { x: lx, y: ly, w: lw, h: 0.38, fontSize: 14, bold: true, color: d.S.txt, align: side === 'center' ? 'center' : side === 'left' ? 'right' : 'left', valign: 'middle' }));
     nodes.push(nn);
   }
-  const center = d.text(s, [{ text: '×', options: { fontSize: 40, bold: true, color: d.S.red, breakLine: true } }, { text: 'each lap faster', options: { fontSize: 12, color: d.S.muted } }], { x: cx - 1, y: cy - 0.6, w: 2, h: 1.2, align: 'center', valign: 'middle' });
+  // clockwise arrowheads between the nodes
+  const arrows = [];
+  for (const deg of [-45, 45, 135, 225]) {
+    const a = deg * Math.PI / 180, ax = cx + r * Math.cos(a), ay = cy + r * Math.sin(a);
+    const rot = Math.atan2(-Math.sin(a), -Math.cos(a)) * 180 / Math.PI; // tangent (−sin, cos) → rotation of an up-pointing triangle
+    const n = d.name('arrow');
+    s.addShape(d.pres.shapes.ISOSCELES_TRIANGLE, { x: ax - 0.11, y: ay - 0.11, w: 0.22, h: 0.22, rotate: rot, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 }, objectName: n });
+    arrows.push(n);
+  }
+  const cIcon = d.name('cicon');
+  s.addImage({ data: await icon('FaTachometerAlt', '#E5383B'), x: cx - 0.3, y: cy - 0.55, w: 0.6, h: 0.6, objectName: cIcon });
+  const cText = d.text(s, 'each lap faster', { x: cx - 1, y: cy + 0.12, w: 2, h: 0.35, fontSize: 13, color: d.S.muted, align: 'center', valign: 'middle' });
+  const center = [cIcon, cText];
   d.animate(s, [q], { auto: true });
-  d.animate(s, [ring, ...nodes[0]], { effect: 'fade' });
+  d.animate(s, [ring, ...arrows, ...nodes[0]], { effect: 'fade' });
   nodes.slice(1).forEach(n => d.animate(s, n, { auto: true, effect: 'fade', after: 250 }));
-  d.animate(s, [center], { auto: true, effect: 'zoom', after: 250 });
+  d.animate(s, center, { auto: true, effect: 'zoom', after: 250 });
   d.source(s, 'Good, I. J. (1965). Speculations Concerning the First Ultraintelligent Machine. Advances in Computers 6, pp. 31–88.');
   s.addNotes('Good wrote this in 1965. The caveat at the end is the whole field of AI safety in one clause. Full passage: “Let an ultraintelligent machine be defined as a machine that can far surpass all the intellectual activities of any man however clever. Since the design of machines is one of these intellectual activities, an ultraintelligent machine could design even better machines; …” Source: Good, I. J. (1965), Speculations Concerning the First Ultraintelligent Machine, Advances in Computers 6 (quoted at https://en.wikipedia.org/wiki/I._J._Good).');
   return s;
@@ -124,23 +136,23 @@ async function whatNowSlide(d) {
   const cw = (W - 2 * MX - 3 * 0.3) / 4;
   const groups = [];
   for (let i = 0; i < items.length; i++) {
-    const x = MX + i * (cw + 0.3), y = 1.95;
+    const x = MX + i * (cw + 0.3), y = 1.9;
     const g = [];
-    g.push(d.card(s, { x, y, w: cw, h: 3.6 }));
+    g.push(d.card(s, { x, y, w: cw, h: 3.75 }));
     const c = d.name('c');
     s.addShape(d.pres.shapes.OVAL, { x: x + 0.3, y: y + 0.35, w: 0.9, h: 0.9, fill: { color: '2A0C0E' }, line: { color: HEX.red, width: 1 }, objectName: c });
     g.push(c);
     const im = d.name('im');
     s.addImage({ data: await icon(items[i][0], '#E5383B'), x: x + 0.52, y: y + 0.57, w: 0.46, h: 0.46, objectName: im });
     g.push(im);
-    g.push(d.text(s, items[i][1], { x: x + 0.3, y: y + 1.45, w: cw - 0.6, h: 0.45, fontSize: 19, bold: true, color: d.S.txt, fontFace: 'Arial' }));
-    g.push(d.text(s, items[i][2], { x: x + 0.3, y: y + 1.95, w: cw - 0.6, h: 1.5, fontSize: 14, color: d.S.muted, valign: 'top' }));
+    g.push(d.text(s, items[i][1], { x: x + 0.3, y: y + 1.4, w: cw - 0.5, h: 0.45, fontSize: 21, bold: true, color: d.S.txt, fontFace: 'Arial' }));
+    g.push(d.text(s, items[i][2], { x: x + 0.3, y: y + 1.95, w: cw - 0.5, h: 1.7, fontSize: 17, color: d.S.muted, valign: 'top' }));
     groups.push(g);
   }
   const bottom = d.text(s, [
     { text: 'The window is not closed. ', options: { bold: true, color: d.S.txt } },
     { text: 'But it is closing at the speed of the curve you have seen all talk.', options: { color: d.S.muted } },
-  ], { x: MX, y: 5.85, w: W - 2 * MX, h: 0.5, fontSize: 18 });
+  ], { x: MX, y: 5.95, w: W - 2 * MX, h: 0.55, fontSize: 21 });
   groups.forEach((g, i) => d.animate(s, g, { auto: true, effect: 'rise', after: i ? 100 : 200 }));
   d.animate(s, [bottom], { effect: 'fade' });
   s.addNotes('End on agency: there is real work to do, and it needs people.');
@@ -151,7 +163,7 @@ function closingSlide(d, { agents = 'dozens of' } = {}) {
   const s = d.slide('Closing', { transition: 'fadeBlack' });
   const a = d.text(s, 'ONE MORE THING', { x: MX, y: 2.0, w: W - 2 * MX, h: 0.4, fontSize: 14, bold: true, color: d.S.red, charSpacing: 6, align: 'center' });
   const b = d.text(s, 'This presentation was made by an AI.', { x: MX, y: 2.55, w: W - 2 * MX, h: 0.9, fontSize: 40, bold: true, color: d.S.txt, align: 'center', fontFace: 'Arial' });
-  const c = d.text(s, `Every headline was found, every chart was built and every slide was designed by Claude — ${agents} AI agents working in parallel from a one-page outline — while its author watched.`, { x: 1.8, y: 3.6, w: W - 3.6, h: 1.0, fontSize: 18, color: d.S.muted, align: 'center' });
+  const c = d.text(s, `Every headline was found, every chart was built and every slide was designed by Claude — ${agents} AI agents working in parallel from a one-page outline — while its author watched.`, { x: 1.8, y: 3.6, w: W - 3.6, h: 1.0, fontSize: 18, color: d.S.txt, align: 'center' });
   const e = d.text(s, 'Thank you. Sleep well.', { x: MX, y: 5.2, w: W - 2 * MX, h: 0.5, fontSize: 22, italic: true, color: d.S.txt, align: 'center', fontFace: 'Cambria' });
   d.animate(s, [a], { auto: true, dur: 800 });
   d.animate(s, [b], { effect: 'fade', dur: 900 });

@@ -8,7 +8,7 @@ const { icon } = require('./icons');
 
 const R = (f) => A('research', 'security', f);
 const OUT = A('slides', 'security');
-const KICK = 'LOSS OF CONTROL';
+const KICK = 'THE ALIGNMENT PROBLEM';
 
 // Verified manifest items (headline cards pull their text straight from here, so it stays verbatim).
 const MAN = JSON.parse(fs.readFileSync(R('manifest.json'), 'utf8'));

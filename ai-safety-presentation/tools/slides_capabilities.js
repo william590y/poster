@@ -1434,7 +1434,7 @@ async function pipelineSlide(d) {
   const ag = af.geom;
   const atab = outletTab(d, s, ag, 'X · @SCOTTNARMSTRONG (NYU) · SEP 15 · 58.9K VIEWS', 'tl', 0.8);
   // native marker over '"hundreds" of proofs of results, I was told,' (rotated with the clipping about its centre)
-  const ahl = [[790, 272, 328, 44], [8, 312, 272, 44]].map(([x, y, w, h]) => {
+  const ahl = [[790, 272, 328, 44], [8, 312, 262, 44]].map(([x, y, w, h]) => {
     const k = ag.w / 1168, th = 0.8 * Math.PI / 180;
     const cx = ag.x + ag.w / 2, cy = ag.y + ag.h / 2;
     const bx = ag.x + (x + w / 2) * k - cx, by = ag.y + (y + h / 2) * k - cy;
@@ -1444,7 +1444,7 @@ async function pipelineSlide(d) {
     return n;
   });
   // red "UNCONFIRMED HEARSAY" stamp in the empty right part of the post's header row (clear of the text)
-  const stW = 2.35, stH = 0.32, stX = ag.x + ag.w - stW - 0.38, stY = ag.y + 0.05;
+  const stW = 2.35, stH = 0.32, stX = ag.x + ag.w - stW - 0.55, stY = ag.y + 0.05;
   const stamp = d.name('stamp');
   s.addShape(d.pres.shapes.RECTANGLE, { x: stX, y: stY, w: stW, h: stH, rotate: -3, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 2 }, objectName: stamp });
   const stampT = d.text(s, 'UNCONFIRMED HEARSAY', { x: stX, y: stY, w: stW, h: stH, rotate: -3, fontSize: 12, bold: true, color: d.S.red, charSpacing: 1, align: 'center', valign: 'middle', fontFace: 'Arial' });
@@ -1517,21 +1517,21 @@ async function rumorsSlide(d) {
   s.addShape(d.pres.shapes.RECTANGLE, { x: stX, y: stY, w: stW, h: stH, rotate: -6, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 2.5 }, objectName: stamp });
   const stampT = d.text(s, 'UNCONFIRMED', { x: stX, y: stY, w: stW, h: stH, rotate: -6, fontSize: 15, bold: true, color: d.S.red, charSpacing: 1.5, align: 'center', valign: 'middle', fontFace: 'Arial' });
 
-  const gy = sg.y + sg.h + 0.44;
+  const gy = sg.y + sg.h + 0.4;
   const gcrop = await crop(MR('gizmodo-openai-reportedly-trying-hodge.png'), 'math-gizmodo-hodge-head.png', { l: 0, t: 98, w: 980, h: 492 });
   const gh = 6.5 - gy, gw = (gh - 0.12) * 980 / 492 + 0.12;
   const gf = await d.frame(s, gcrop, { x: MX + 0.05, y: gy, w: gw, h: gh }, { rot: 1.2, link: MRU.gizmodo });
   const gtab = outletTab(d, s, gf.geom, 'GIZMODO · SEP 17', 'tl', 1.2);
   const tx = MX + gw + 0.35, tw = MX + lw - tx;
   const info = d.text(s, [
-    { text: 'Via The Information', options: { bold: true, color: d.S.steel } },
-    { text: ', citing ', options: { color: d.S.txt } },
+    { text: 'The Information', options: { bold: true, color: d.S.steel } },
+    { text: ' (', options: { color: d.S.txt } },
     { text: 'one', options: { color: d.S.txt, bold: true } },
-    { text: ' OpenAI source: staff “expect to soon crack the Hodge Conjecture”', options: { color: d.S.txt, breakLine: true, paraSpaceAfter: 5 } },
+    { text: ' OpenAI source): staff “expect to soon crack the Hodge Conjecture”', options: { color: d.S.txt, breakLine: true, paraSpaceAfter: 4 } },
     { text: 'Skeptic: ', options: { bold: true, color: d.S.steel } },
     { text: '“What would close even mean for BSD?” ', options: { italic: true, color: d.S.txt } },
     { text: '— Elliot Glazer', options: { color: d.S.muted, fontSize: 12 } },
-  ], { x: tx, y: gy - 0.04, w: tw, h: 6.54 - gy, fontSize: 14, valign: 'top' });
+  ], { x: tx, y: gy - 0.03, w: tw, h: 6.55 - gy, fontSize: 14, valign: 'top' });
 
   // ---- right: what is actually on the record, the status, and the betting
   const rx = MX + lw + 0.45, rw = 12.73 - rx;
@@ -1553,7 +1553,9 @@ async function rumorsSlide(d) {
   const r3 = label(d, s, 'POLYMARKET · WHICH ONE WILL AN AI LAB ANNOUNCE NEXT? (%)', rx, cy + cH + 0.2, rw, { color: d.S.blue });
   const ds = DS['polymarket-hodge-bsd-daily'];
   const mon = { '09': 'Sep', '10': 'Oct' };
-  const labs = ds.labels.map((l) => `${mon[l.slice(5, 7)]} ${+l.slice(8)}`); // every point labelled; tickLblSkip 7 shows Sep 10/17/24, Oct 1
+  // Weekly labels at indices 0, 7, 14, 21 and tickLblSkip = 7, so PowerPoint (which draws every 7th label from index 0) and
+  // LibreOffice (which ignores tickLblSkip and draws every label) both show exactly Sep 10 / Sep 17 / Sep 24 / Oct 1.
+  const labs = ds.labels.map((l, i) => (i % 7 === 0 ? `${mon[l.slice(5, 7)]} ${+l.slice(8)}` : ''));
   const pick = ['Hodge Conjecture', 'Birch and Swinnerton-Dyer', 'No solution by Dec 31, 2027'];
   const series = pick.map((nm) => ({ name: nm === 'Hodge Conjecture' ? 'Hodge' : nm === 'Birch and Swinnerton-Dyer' ? 'BSD' : 'None by 2027', labels: labs, values: ds.series.find((x) => x.name === nm).values }));
   const chartY = cy + cH + 0.48;

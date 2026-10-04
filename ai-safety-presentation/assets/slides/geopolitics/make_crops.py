@@ -19,7 +19,7 @@ def highlight(src, rects, out, box=None, color=(255, 209, 102)):
 
 crop('cnn-ai-china-ship.png', (0, 30, 2430, 710), 'cnn-ship-head.png')
 crop('cbs-hegseth-anthropic-supply-chain-risk.png', (0, 0, 1260, 515), 'cbs-head.png')
-crop('cnn-trump-ai-hoax.png', (0, 100, 2440, 640), 'cnn-hoax-head.png')
+crop('cnn-trump-ai-hoax.png', (0, 62, 2440, 640), 'cnn-hoax-head.png')
 crop('npr-ai-preemption-eo.png', (0, 0, 1369, 375), 'npr-head.png')
 crop('guardian-lavender.png', (345, 75, 1615, 960), 'lavender.png')
 crop('guardian-gospel.png', (345, 75, 1615, 1000), 'gospel.png')

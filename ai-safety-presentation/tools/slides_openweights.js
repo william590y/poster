@@ -37,8 +37,10 @@ function line(d, s, x1, y1, x2, y2, { color = HEX.text, width = 2, dash = 'solid
 }
 
 // Slice a quarterly dataset from index `from`.
+// Category labels show only the year (at the first point and at each Q1) so they fit on one line.
 function series(ds, from, names) {
-  return ds.series.map((sr, i) => ({ name: names ? names[i] : sr.name, labels: ds.labels.slice(from), values: sr.values.slice(from) }));
+  const labels = ds.labels.slice(from).map((l, i) => (i === 0 || / Q1$/.test(l) ? l.slice(0, 4) : ''));
+  return ds.series.map((sr, i) => ({ name: names ? names[i] : sr.name, labels, values: sr.values.slice(from) }));
 }
 
 // ---------------------------------------------------------------- 1. the gap
@@ -51,12 +53,12 @@ async function gapSlide(d) {
   const panels = [
     {
       x: MX, num: '7', label: 'average lag of Chinese models behind the US frontier since 2023 (range: 4–14 months)',
-      head: 'BEST SCORE TO DATE ON THE EPOCH CAPABILITIES INDEX · US vs CHINA',
+      head: 'BEST ECI SCORE TO DATE · US vs CHINA',
       data: series(DS['epoch-frontier-us-vs-china-quarterly'], 1),
     },
     {
       x: MX + pw + gap, num: '4', label: 'average lag of the best open-weight models behind the best closed models in 2026',
-      head: 'BEST SCORE TO DATE ON THE EPOCH CAPABILITIES INDEX · CLOSED vs OPEN',
+      head: 'BEST ECI SCORE TO DATE · CLOSED vs OPEN WEIGHTS',
       data: series(DS['epoch-frontier-open-vs-closed-quarterly'], 1, ['Closed weights', 'Open weights']),
     },
   ];
@@ -72,7 +74,7 @@ async function gapSlide(d) {
     g.push(label(d, s, p.head, p.x + 0.25, 2.72, pw - 0.5, { h: 0.25 }));
     const ch = d.chart(s, 'line', p.data, { x: p.x + 0.1, y: 3.0, w: pw - 0.25, h: 2.85 }, {
       chartColors: [LIGHT, HEX.red], valAxisMinVal: 80, valAxisMaxVal: 170, valAxisMajorUnit: 30,
-      catAxisLabelFrequency: 4, lineSize: 2.5, lineDataSymbolSize: 5, legendPos: 't',
+      lineSize: 2.5, lineDataSymbolSize: 5, legendPos: 't',
     });
     groups.push({ g, ch });
   }
@@ -86,7 +88,7 @@ async function gapSlide(d) {
   d.animate(s, groups[1].g, { effect: 'fade' });
   d.animate(s, [groups[1].ch], { auto: true, effect: 'wipeLeft', dur: 1200, delay: 0 });
   d.animate(s, [msg], { effect: 'fade' });
-  d.source(s, 'Data: Epoch AI (CC-BY), “Chinese AI models have lagged the US frontier by 7 months on average” (Jan 2026) and “Open models lag state-of-the-art closed models by 4 months” (May 2026). Quarter-end best ECI score.');
+  d.source(s, 'Data: Epoch AI (CC-BY) data insights — US vs China (Jan 2026), open vs closed (May 2026). ECI = Epoch Capabilities Index; best score to date at each quarter end.');
   s.addNotes([
     'MESSAGE: The open frontier is only months behind the closed frontier. Both charts show the same story twice, because nearly all leading Chinese models are open-weight while the frontier US models are closed.',
     'Left: since 2023 every model at the capability frontier was American, but Chinese models trailed by ~7 months on average (min 4, max 14). Epoch AI, Luke Emberson, 2 Jan 2026: https://epoch.ai/data-insights/us-vs-china-eci',
@@ -136,7 +138,7 @@ async function minimaxSlide(d) {
   band.push(d.card(s, { x: MX, y: 5.72, w: CW, h: 0.78 }, { color: '1A1012', line: '4A1F22' }));
   band.push(d.rect(s, { x: MX, y: 5.72, w: 0.08, h: 0.78, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 } }));
   band.push(d.text(s, [
-    { text: 'Once weights are released, every safeguard is optional. ', options: { bold: true, color: d.S.txt, fontSize: 18 } },
+    { text: 'Once weights are released, every safeguard is optional.', options: { bold: true, color: d.S.txt, fontSize: 18, breakLine: true } },
     { text: 'Anyone can download M3, run it offline, fine-tune it — or strip out its safety training.', options: { color: d.S.muted, fontSize: 15 } },
   ], { x: MX + 0.3, y: 5.72, w: CW - 0.5, h: 0.78, valign: 'middle' }));
 
@@ -166,20 +168,20 @@ async function distillSlide(d) {
   // left: Anthropic's numbers
   const head = label(d, s, 'ANTHROPIC · FEB 23, 2026', MX, 1.72, 3.4, { color: d.S.amber });
   const st1 = d.stat(s, { x: MX, y: 2.0, w: 3.4, value: '16M+', label: 'exchanges with Claude, used to extract its capabilities', valueSize: 46, labelSize: 14 });
-  const st2 = d.stat(s, { x: MX, y: 3.45, w: 3.4, value: '~24,000', label: 'fraudulent accounts', valueSize: 46, labelSize: 14 });
-  const st3v = d.text(s, '3 labs', { x: MX, y: 4.6, w: 3.4, h: 0.74, fontSize: 46, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' });
+  const st2 = d.stat(s, { x: MX, y: 3.55, w: 3.4, value: '~24,000', label: 'fraudulent accounts', valueSize: 46, labelSize: 14 });
+  const st3v = d.text(s, '3 labs', { x: MX, y: 4.85, w: 3.4, h: 0.74, fontSize: 46, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' });
   const st3l = d.text(s, [
     { text: 'DeepSeek, Moonshot and ', options: { color: d.S.muted } },
     { text: 'MiniMax', options: { color: d.S.txt, bold: true } },
     { text: ' — the maker of M3', options: { color: d.S.muted } },
-  ], { x: MX, y: 5.39, w: 3.4, h: 0.6, fontSize: 14, valign: 'top' });
+  ], { x: MX, y: 5.64, w: 3.4, h: 0.6, fontSize: 14, valign: 'top' });
 
   // right: clippings
   const anth = await crop('anthropic-distillation-attacks.png', 'anthropic-distillation-header.png', { left: 100, top: 40, width: 2360, height: 410 });
   const c1 = await d.frame(s, anth, { x: 4.5, y: 1.78, w: 8.1, h: 1.38 }, { rot: -1 });
-  const c2 = await d.frame(s, R('techcrunch-anthropic-distillation.png'), { x: 4.35, y: 3.42, w: 4.85, h: 2.5 }, { rot: 1.2 });
-  const c3 = await d.frame(s, R('decrypt-whitehouse-distillation.png'), { x: 9.45, y: 3.36, w: 3.28, h: 1.95 }, { rot: -2 });
-  const c4 = await d.frame(s, R('yahoo-reuters-openai-deepseek.png'), { x: 8.9, y: 5.55, w: 3.8, h: 0.62 }, { rot: 1.5 });
+  const c2 = await d.frame(s, R('techcrunch-anthropic-distillation.png'), { x: 4.35, y: 3.4, w: 5.2, h: 2.7 }, { rot: 1.2 });
+  const c3 = await d.frame(s, R('decrypt-whitehouse-distillation.png'), { x: 9.8, y: 3.33, w: 2.93, h: 1.8 }, { rot: -2 });
+  const c4 = await d.frame(s, R('yahoo-reuters-openai-deepseek.png'), { x: 9.75, y: 5.45, w: 2.98, h: 0.6 }, { rot: 1.5 });
 
   d.animate(s, c1, { auto: true, effect: 'slam', dur: 500 });
   d.animate(s, c2, { auto: true, effect: 'rise', delay: 150 });
@@ -225,9 +227,9 @@ async function abliterationSlide(d) {
   const abl = [];
   abl.push(line(d, s, H.x - 0.05, H.y, O.x + 0.07, H.y, { color: HEX.red, width: 1.25, dash: 'dash', arrow: true }));
   abl.push(line(d, s, O.x, O.y, O.x, H.y, { color: HEX.teal, width: 3, arrow: true }));
-  abl.push(d.text(s, [{ text: 'h′', options: { bold: true, italic: true } }], { x: O.x - 0.38, y: H.y - 0.05, w: 0.32, h: 0.3, fontSize: 15, color: d.S.teal, align: 'right' }));
+  abl.push(d.text(s, [{ text: 'h′', options: { bold: true, italic: true, fontFace: 'Cambria' } }], { x: O.x - 0.42, y: H.y - 0.05, w: 0.36, h: 0.3, fontSize: 16, color: d.S.teal, align: 'right' }));
   const eq = d.text(s, [
-    { text: 'h ← h − (h·r̂) r̂', options: { fontFace: 'Cambria', italic: true, bold: true, fontSize: 21, color: d.S.txt } },
+    { text: 'h  ←  h − (h ⋅ r̂) r̂', options: { fontFace: 'Cambria', bold: true, fontSize: 21, color: d.S.txt } },
   ], { x: 3.35, y: dy + 0.12, w: 3.75, h: 0.45, valign: 'middle' });
   const steps = d.text(s, [
     { text: '1  ', options: { bold: true, color: d.S.red } },
@@ -241,8 +243,8 @@ async function abliterationSlide(d) {
   // right: the count
   const stat = d.stat(s, { x: 7.65, y: 1.66, w: 5.08, value: '8,310', label: 'models on Hugging Face with “abliterated” in the name: refusal surgically removed, free to download', valueSize: 72, labelSize: 15 });
   const sub = d.text(s, '7,404 match “uncensored” (lists overlap) · as of Oct 4, 2026', { x: 7.65, y: 3.6, w: 5.08, h: 0.3, fontSize: 12, color: d.S.steel, italic: true });
-  const hf = await crop('hf-search-abliterated-count.png', 'hf-abliterated-top.png', { left: 0, top: 0, width: 1250, height: 585 });
-  const hfShot = await d.frame(s, hf, { x: 7.75, y: 4.05, w: 4.98, h: 2.42 }, { rot: 1 });
+  const hf = await crop('hf-search-abliterated-count.png', 'hf-abliterated-top.png', { left: 0, top: 0, width: 1062, height: 585 });
+  const hfShot = await d.frame(s, hf, { x: 7.75, y: 4.02, w: 4.98, h: 2.45 }, { rot: 1 });
 
   d.animate(s, fig, { auto: true, effect: 'fade' });
   d.animate(s, [dg[0], vec[2], vec[3], hTxt, rTxt], { effect: 'fade' });
@@ -277,7 +279,7 @@ async function deepfakeSlide(d) {
 
   // stats
   const sx = 8.0, sw = 12.73 - sx, cw = (sw - 0.25) / 2;
-  const th = label(d, s, 'THORN SURVEY · 1,200 YOUNG PEOPLE AGED 13–20 · MAR 2025', sx, 1.72, sw, { color: d.S.amber });
+  const th = label(d, s, 'THORN SURVEY · 1,200 AGED 13–20 · MAR 2025', sx, 1.72, sw, { color: d.S.amber });
   const thorn = [
     ['31%', 'of teens are already familiar with deepfake nudes'],
     ['1 in 8', 'personally knows someone who has been targeted'],
@@ -285,7 +287,7 @@ async function deepfakeSlide(d) {
     ['2%', 'admit to creating them'],
   ].map(([v, l], i) => d.stat(s, { x: sx + (i % 2) * (cw + 0.25), y: 2.05 + Math.floor(i / 2) * 1.4, w: cw, value: v, label: l, valueSize: 40, labelSize: 13 }));
   const div = line(d, s, sx, 4.92, 12.73, 4.92, { color: HEX.line, width: 1 });
-  const ch = label(d, s, 'CDT SURVEY · US HIGH SCHOOLS · PAST SCHOOL YEAR (2024)', sx, 4.98, sw, { color: d.S.amber });
+  const ch = label(d, s, 'CDT SURVEY · US HIGH SCHOOLS · SEP 2024', sx, 4.98, sw, { color: d.S.amber });
   const cdt = [
     ['40%', 'of students knew of an explicit deepfake tied to their school'],
     ['29%', 'of teachers knew of one'],
@@ -319,11 +321,11 @@ async function painAxisSlide(d) {
 
   const c1 = await d.frame(s, R('independent-ai-pain-axis.png'), { x: MX, y: 1.8, w: 5.4, h: 2.45 }, { rot: -1.5 });
   const sci = await crop('sciam-pain-test-ai-sentience.png', 'sciam-headline.png', { left: 180, top: 20, width: 1520, height: 400 });
-  const c2 = await d.frame(s, sci, { x: 0.85, y: 4.45, w: 4.9, h: 1.38 }, { rot: 1 });
+  const c2 = await d.frame(s, sci, { x: 0.9, y: 4.42, w: 4.6, h: 1.3 }, { rot: 1 });
   const kc = d.text(s, [
     { text: 'Keeling et al. (Google / LSE, 2024): ', options: { bold: true, color: d.S.txt } },
     { text: 'Claude 3.5 Sonnet, GPT-4o and others gave up points to avoid stipulated “pain” once it got intense enough.', options: { color: d.S.muted } },
-  ], { x: MX, y: 5.92, w: 5.5, h: 0.58, fontSize: 12, valign: 'top' });
+  ], { x: MX, y: 5.95, w: 5.5, h: 0.56, fontSize: 12, valign: 'top' });
 
   // right: stats + chart
   const rx = 6.55, rw = 12.73 - rx;
@@ -376,12 +378,13 @@ async function sufferSlide(d) {
   const ind = await crop('independent-ai-torture-chamber.png', 'independent-torture-chamber-head.png', { left: 0, top: 0, width: 1972, height: 1090 });
   const c1 = await d.frame(s, ind, { x: MX, y: 1.8, w: 5.75, h: 3.25 }, { rot: -1.5 });
   const saw = await crop('clanker-church-site.png', 'saw-test-hero.png', { left: 400, top: 60, width: 2000, height: 1540 });
-  const c2 = await d.frame(s, saw, { x: 6.75, y: 1.75, w: 3.95, h: 3.2 }, { rot: 1.5 });
+  const c2 = await d.frame(s, saw, { x: 6.7, y: 1.75, w: 3.8, h: 3.2 }, { rot: 1.5 });
   const q = d.text(s, [
     { text: 'THE SAW TEST', options: { fontSize: 10, bold: true, color: d.S.amber, charSpacing: 2, breakLine: true } },
-    { text: 'A pain-steered Qwen3-4B, built by a hobbyist:', options: { fontSize: 13, color: d.S.muted, breakLine: true, paraSpaceBefore: 4 } },
-    { text: '“No frontier APIs, no datacenter — a MacBook, open weights, electricity.”', options: { fontSize: 16, italic: true, color: d.S.txt, fontFace: 'Cambria', paraSpaceBefore: 8 } },
-  ], { x: 10.95, y: 1.8, w: 12.73 - 10.95, h: 3.15, valign: 'top' });
+    { text: 'An engineer steered an open Alibaba model toward “pain” — at home:', options: { fontSize: 13, color: d.S.muted, breakLine: true, paraSpaceBefore: 6 } },
+    { text: '“No frontier APIs, no datacenter — a MacBook, open weights, electricity.”', options: { fontSize: 18, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true, paraSpaceBefore: 10 } },
+    { text: '— the site’s own description', options: { fontSize: 10, color: d.S.steel, paraSpaceBefore: 6 } },
+  ], { x: 10.78, y: 1.8, w: 12.73 - 10.78, h: 3.15, valign: 'top' });
 
   const anth = await crop('anthropic-end-subset-conversations.png', 'anthropic-end-conversations-head.png', { left: 300, top: 10, width: 1960, height: 500 });
   const c3 = await d.frame(s, anth, { x: MX, y: 5.3, w: 4.25, h: 1.15 }, { rot: -1 });

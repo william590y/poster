@@ -10,7 +10,36 @@ import json
 import re
 import shutil
 import sys
+import io
 import zipfile
+
+from PIL import Image
+
+MAX_SIDE = 2400  # px; ~180 dpi across a full 13.3" slide
+
+
+def optimize_image(name, data):
+    """Downscale oversized media (screenshots are captured at 2x) to keep the deck small."""
+    ext = name.rsplit('.', 1)[-1].lower()
+    if ext not in ('png', 'jpg', 'jpeg'):
+        return data
+    try:
+        im = Image.open(io.BytesIO(data))
+        im.load()
+    except Exception:
+        return data
+    w, h = im.size
+    if max(w, h) <= MAX_SIDE and len(data) < 1_500_000:
+        return data
+    if max(w, h) > MAX_SIDE:
+        r = MAX_SIDE / max(w, h)
+        im = im.resize((round(w * r), round(h * r)), Image.LANCZOS)
+    out = io.BytesIO()
+    if ext == 'png':
+        im.save(out, 'PNG', optimize=True)
+    else:
+        im.convert('RGB').save(out, 'JPEG', quality=86, optimize=True, progressive=True)
+    return out.getvalue() if len(out.getvalue()) < len(data) else data
 
 TRANSITIONS = {
     'none': '',
@@ -143,6 +172,8 @@ def main(deck):
     zout = zipfile.ZipFile(tmp, 'w', zipfile.ZIP_DEFLATED)
     for info in zin.infolist():
         data = zin.read(info.filename)
+        if info.filename.startswith('ppt/media/'):
+            data = optimize_image(info.filename, data)
         if info.filename == 'ppt/theme/theme1.xml':
             data = theme_xml(data.decode('utf-8'), theme).encode('utf-8')
         if info.filename.endswith('.xml'):

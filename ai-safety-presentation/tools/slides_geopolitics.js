@@ -75,8 +75,8 @@ async function memoSlide(d) {
   const s = d.slide('Content', { transition: 'pushLeft' });
   heading(s, 'THE WORLD · AI AND THE MILITARY · 2', 'The Pentagon chose speed over alignment');
 
-  const head = await d.frame(s, R('hegseth-memo-header.png'), { x: MX, y: 1.74, w: 5.3, h: 2.1 }, { rot: -1.5 });
-  const memo = await d.frame(s, D('memo-speed-hl.png'), { x: 0.72, y: 3.74, w: 6.35, h: 2.8 }, { rot: 0.8 });
+  const head = await d.frame(s, R('hegseth-memo-header.png'), { x: MX + 0.05, y: 1.72, w: 5.1, h: 2.02 }, { rot: -1.5 });
+  const memo = await d.frame(s, D('memo-speed-hl.png'), { x: 0.75, y: 3.86, w: 6.15, h: 2.68 }, { rot: 0.8 });
 
   const rx = 7.55, rw = W - MX - rx;
   const txt = d.text(s, [
@@ -114,7 +114,7 @@ async function warRoomSlide(d) {
   const grok = await d.frame(s, A('original', 'image11.png'), { x: MX, y: 4.55, w: 4.0, h: 0.66 }, { rot: 1 });
   const grokDek = d.text(s, [
     { text: 'Trump “spent hours” asking Grok how Venezuelans would react to Maduro’s capture — ', options: { color: d.S.muted } },
-    { text: 'a month before the U.S. seized him', options: { color: d.S.txt, bold: true } },
+    { text: 'about a month before the U.S. captured him', options: { color: d.S.txt, bold: true } },
     { text: ' (Time, via TechCrunch)', options: { color: d.S.muted } },
   ], { x: MX + 0.05, y: 5.38, w: 3.95, h: 1.05, fontSize: 14, valign: 'top' });
 
@@ -122,8 +122,8 @@ async function warRoomSlide(d) {
   const conDek = d.text(s, 'Up to $200M each: Anthropic, Google, OpenAI, xAI (Jul 2025)', { x: 4.8, y: 6.27, w: 3.8, h: 0.28, fontSize: 11, color: d.S.muted });
 
   const eur = await d.frame(s, D('euronews-wargames.png'), { x: 8.85, y: 4.98, w: 3.88, h: 0.55 }, { rot: 0.8 });
-  const st = d.stat(s, { x: 8.9, y: 5.55, w: 1.75, value: '95%', valueSize: 40, color: d.S.red, label: '' });
-  const stLab = d.text(s, 'of simulated nuclear crises saw frontier models choose escalation (KCL, 2026)', { x: 10.6, y: 5.66, w: 2.13, h: 0.85, fontSize: 12, color: d.S.muted, valign: 'middle' });
+  const st = d.stat(s, { x: 8.9, y: 5.55, w: 1.3, value: '95%', valueSize: 40, color: d.S.red, label: '' });
+  const stLab = d.text(s, 'of simulated war games saw AI models choose nuclear escalation (KCL, 2026)', { x: 10.2, y: 5.66, w: 2.53, h: 0.85, fontSize: 12, color: d.S.muted, valign: 'middle' });
 
   d.animate(s, ukr, { auto: true, effect: 'rise', dur: 500 });
   d.animate(s, lav, { auto: true, effect: 'rise', delay: 120, dur: 500 });
@@ -198,6 +198,10 @@ async function raceSlide(d) {
     { text: '“We’re leading by at least a year, maybe a year and a half.”', options: { fontFace: 'Cambria', italic: true, fontSize: 18, color: d.S.txt, breakLine: true } },
     { text: 'Trump at the Xi summit, Sep 2026', options: { fontSize: 12, color: d.S.muted } },
   ], { x: rx + 2 * (cw3 + 0.25), y: 4.4, w: cw3, h: 1.6, valign: 'top' });
+  const brake = d.text(s, [
+    { text: 'A first step: ', options: { bold: true, color: d.S.txt } },
+    { text: 'a U.S.–China channel for AI-related incidents, agreed Sep 2026', options: { color: d.S.muted } },
+  ], { x: rx, y: 6.02, w: W - MX - rx, h: 0.45, fontSize: 14, valign: 'middle' });
   const div = d.name('div');
   s.addShape(d.pres.shapes.LINE, { x: rx, y: 4.28, w: W - MX - rx, h: 0, line: { color: HEX.line, width: 1 }, objectName: div });
 
@@ -208,6 +212,7 @@ async function raceSlide(d) {
   d.animate(s, [div, ...s1], { effect: 'zoom', dur: 400 });
   d.animate(s, s2, { effect: 'zoom', dur: 400 });
   d.animate(s, [q], { effect: 'fade' });
+  d.animate(s, [brake], { effect: 'fade' });
   d.source(s, 'Sources: PBS News/AP, Sep 26, 2026 · Tom’s Hardware, Jan 28, 2025 · The Register, Dec 9, 2025 · DigiTimes, Oct 1, 2026.');
   s.addNotes([
     'The race framing drives everything: “WHOEVER WINS AI, WINS!” — and it cuts both ways.',
@@ -226,7 +231,7 @@ async function yemenSlide(d) {
 
   const lx = MX, lw = 5.75;
   const lab = label(d, s, 'GTG-87001 · NORTHERN YEMEN · ANTHROPIC, SEPT 2026', { x: lx, y: 1.78, w: lw });
-  const intro = d.text(s, 'A cell ran three weapons programs and used Claude Code to write the guidance software. How far each got:', { x: lx, y: 2.12, w: lw, h: 0.62, fontSize: 15, color: d.S.txt, valign: 'top' });
+  const intro = d.text(s, 'A cell ran three weapons programs and used Claude Code to write the guidance software. How far Claude carried each:', { x: lx, y: 2.12, w: lw, h: 0.62, fontSize: 15, color: d.S.txt, valign: 'top' });
 
   // stage diagram (adapted from the report's Figure 1)
   const gx = lx + 2.45, gw = lw - 2.45, gy = 2.95;
@@ -236,7 +241,7 @@ async function yemenSlide(d) {
     const sx = gx + (i + 1) * gw / 3;
     diag.push(d.text(s, t, { x: sx - 1.0, y: gy, w: 1.0, h: 0.26, fontSize: 10, bold: true, color: d.S.steel, align: 'right', charSpacing: 1 }));
     const tk = d.name('tick');
-    s.addShape(d.pres.shapes.LINE, { x: sx, y: gy + 0.3, w: 0, h: 1.95, line: { color: HEX.line, width: 0.75, dashType: 'dash' }, objectName: tk });
+    s.addShape(d.pres.shapes.LINE, { x: sx, y: gy + 0.3, w: 0, h: 1.75, line: { color: HEX.line, width: 0.75, dashType: 'dash' }, objectName: tk });
     diag.push(tk);
   });
   const rows = [
@@ -260,11 +265,11 @@ async function yemenSlide(d) {
     diag.push(lt, track);
     bars.push(g);
   });
-  const figNote = d.text(s, 'Adapted from the report’s Figure 1 (p. 114)', { x: gx, y: gy + 2.3, w: gw, h: 0.26, fontSize: 10, italic: true, color: d.S.steel, align: 'right' });
+  const figNote = d.text(s, 'Adapted from the report’s Figure 1 (p. 114)', { x: gx, y: gy + 2.08, w: gw, h: 0.26, fontSize: 10, italic: true, color: d.S.steel, align: 'right' });
 
-  const medLab = label(d, s, 'MEDIA NAMED THE HOUTHIS — THE REPORT DOES NOT', { x: lx, y: 5.5, w: lw }, d.S.amber);
-  const mee = await d.frame(s, D('mee-head.png'), { x: lx, y: 5.82, w: 2.95, h: 0.75 }, { rot: -1 });
-  const meeT = d.text(s, 'Anthropic says only “northern Yemen.” It is not an ICBM, and no chat logs were published.', { x: lx + 3.1, y: 5.82, w: lw - 3.1, h: 0.72, fontSize: 11, color: d.S.muted, valign: 'middle' });
+  const medLab = label(d, s, 'MEDIA NAMED THE HOUTHIS — THE REPORT DOES NOT', { x: lx, y: 5.38, w: lw }, d.S.amber);
+  const mee = await d.frame(s, D('mee-head.png'), { x: lx, y: 5.72, w: 3.2, h: 0.82 }, { rot: -1 });
+  const meeT = d.text(s, 'Anthropic’s report says only “northern Yemen.” The stated range goal was >2,000 km — not an ICBM.', { x: lx + 3.4, y: 5.72, w: lw - 3.4, h: 0.82, fontSize: 11, color: d.S.muted, valign: 'middle' });
 
   const rx = 6.85, rw = W - MX - rx;
   const exc = await d.frame(s, D('yemen-detail-hl.png'), { x: rx, y: 1.8, w: rw, h: 4.2 }, { rot: 0 });
@@ -316,10 +321,10 @@ async function bioSlide(d) {
   const rx = 7.2, rw = W - MX - rx;
   const lab = label(d, s, 'MEANWHILE, IN ANTHROPIC’S THREAT REPORTS', { x: rx, y: 1.78, w: rw });
   const cases = [
-    ['FaBiohazard', 'Bioweapons research', 'SEP 2026', 'State-linked researchers used Claude on gain-of-function virology and toxin design via relays that dodged blocks'],
-    ['GiDeliveryDrone', 'Autonomous kamikaze swarm', 'SEP 2026', 'A Russia-based team built FPV drones that pick targets, incl. a “person” class, with no human in the loop'],
-    ['FaMoneyBillWave', '“Vibe-hacking” extortion', 'AUG 2025', 'One actor used Claude Code to extort at least 17 organizations; ransoms sometimes over $500,000'],
-    ['FaUserSecret', 'North Korean IT workers', 'AUG 2025', 'Operatives who can’t code used Claude to land and keep remote jobs at Fortune 500 tech firms'],
+    ['FaBiohazard', 'Bioweapons research', 'SEP 2026', 'State-linked researchers used Claude on gain-of-function virology and toxin design'],
+    ['GiDeliveryDrone', 'Kamikaze drones, no human in the loop', 'SEP 2026', 'A Russia-based team used Claude Code to build an FPV swarm that selects targets, incl. “person”'],
+    ['FaMoneyBillWave', '“Vibe-hacking” extortion', 'AUG 2025', 'One actor used Claude Code to extort 17+ organizations; ransoms sometimes over $500,000'],
+    ['FaUserSecret', 'North Korean IT workers', 'AUG 2025', 'Operatives who can’t code used Claude to land and keep jobs at Fortune 500 tech firms'],
   ];
   const ch = 1.0, gap = 0.12;
   const groups = [];
@@ -335,7 +340,7 @@ async function bioSlide(d) {
     g.push(d.text(s, [
       { text: t, options: { bold: true, fontSize: 14, color: d.S.txt } },
       { text: `   ${dt}`, options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 1, breakLine: true } },
-      { text: body, options: { fontSize: 13, color: d.S.muted } },
+      { text: body, options: { fontSize: 14, color: d.S.muted } },
     ], { x: rx + 0.88, y: y + 0.07, w: rw - 1.02, h: ch - 0.14, valign: 'middle' }));
     groups.push(g);
   }

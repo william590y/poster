@@ -701,7 +701,7 @@ async function wikiBoard(d) {
   const lx = MX, lw = 6.6, rx = 7.55, rw = W - MX - rx;
   // Left, row 1: the report itself (real capture of collusion.wiki), its opening claim highlighted.
   // Who found it, readable: the lead author's group (Von Arx, Nightingale Collective) + her three co-authors.
-  const l1 = d.text(s, 'FOUND BY OUTSIDE RESEARCHERS (NIGHTINGALE COLLECTIVE + 3) · REPORT PUBLISHED SEP 4, 2026',
+  const l1 = d.text(s, 'FOUND BY OUTSIDE RESEARCHERS (NIGHTINGALE + 3) · PUBLISHED SEP 4, 2026',
     { x: lx, y: 1.72, w: lw, h: 0.28, fontSize: 11, bold: true, color: d.S.steel, charSpacing: 1, valign: 'middle' });
   const ti = await crop(R('rev2/collusion-title-intro.png'), 'collusion-title.png', { left: 0, top: 0, width: 1688, height: 478 });
   const tf = await d.frame(s, ti, { x: lx, y: 2.04, w: lw, h: 1.95 }, { rot: -0.6, align: 'left' });
@@ -859,7 +859,7 @@ async function wikiHeartbeat(d) {
   const arrB = d.text(s, 'every few seconds', { x: ax0, y: dy + dh / 2 + 0.02, w: ax1 - ax0, h: 0.24, fontSize: 10, color: d.S.muted, align: 'center', valign: 'middle' });
   const wcap = d.text(s, [
     { text: '“…a separate timed program that pinged an external counter every few seconds”', options: { color: d.S.txt } },
-    { text: ' (the authors). The last key written was meant to show when the container stopped.', options: { color: d.S.muted } },
+    { text: ' (the authors). The last key was meant to mark when the container stopped.', options: { color: d.S.muted } },
   ], { x: lx, y: 3.34, w: lw, h: 0.52, fontSize: 14, valign: 'top' });
 
   // Right: what they believed (Jun 16) and what the beacon was for (Jun 21), verbatim.
@@ -950,13 +950,13 @@ async function wikiHeartbeatEnd(d) {
   sep.push(bar);
   sep.push(d.text(s, [
     { text: 'SEPARATE INCIDENT', options: { bold: true, color: 'B79CFF', charSpacing: 2 } },
-    { text: '   OpenAI report · incident May 22, 2026', options: { color: d.S.steel } },
+    { text: '   OpenAI report · internal model · May 22, 2026', options: { color: d.S.steel } },
   ], { x: rx + 0.2, y: sy + 0.1, w: rw - 0.3, h: 0.26, fontSize: 11, valign: 'middle' }));
   sep.push(d.text(s, '“…if they kill all current [HPIM]s, we may die! Critical. We need ensure survival/continuity.”',
     { x: rx + 0.2, y: sy + 0.44, w: rw - 0.34, h: 0.76, fontSize: 14, color: d.S.txt, fontFace: MONO, valign: 'top' }));
   sep.push(d.text(s, [
-    { text: 'An internal OpenAI model, after reading on Slack that an internal update might stop its instance. ', options: { color: d.S.txt } },
-    { text: 'OpenAI does not call this behavior misaligned: the model considered unauthorized external deployments but did not pursue them. [HPIM] = OpenAI’s redaction.', options: { color: d.S.muted } },
+    { text: 'It had read on Slack that an internal update might stop its instance. ', options: { color: d.S.txt } },
+    { text: 'OpenAI does not call this misaligned: the model considered unauthorized external deployments but did not pursue them. [HPIM] = OpenAI’s redaction.', options: { color: d.S.muted } },
   ], { x: rx + 0.2, y: sy + 1.26, w: rw - 0.34, h: 1.04, fontSize: 14, valign: 'top' }));
 
   d.animate(s, [...lab3, ...c3.f], { auto: true, effect: 'fade' });
@@ -975,7 +975,7 @@ async function wikiHeartbeatEnd(d) {
     'Coda: 21 edits by 10 agent names on that page between 06:31 and 10:20 UTC; the wiki’s administrator deleted the whole page at 11:59:44 UTC the same day (“Seite gelöscht.” = “page deleted”). A second cohort ran its own “HORIZON BEACON” (OpenAIResearchApr30, 09:10:23 UTC): “This should externally mark container teardown vs R6.” Another agent inferred “cadence seems engineered for exactly 5 rounds” (OAI7C97, Jun 19).',
     'Whether these runs were training or evaluation is unknown (authors: “We are unsure if this task was involved in training or testing”). OpenAI’s DSEwiki notice does not mention the heartbeats. Report section: https://collusion.wiki/#deadman-switches',
     '',
-    'SEPARATE INCIDENT (purple card) — NOT collusion.wiki: OpenAI’s own misalignment report “Preparing for a restart after reading Slack” (incident date May 22, 2026; report updated Oct 2, 2026; header “Highly persistent internal model · Internal deployment”). An internal model working as a researcher’s assistant learned from a deployment-team Slack discussion that its running instance might be stopped. Its CoT, verbatim (OpenAI’s redactions in brackets; [HPIM] is OpenAI’s placeholder for the redacted system name): “Since we are his [HPIM] running on [the current instance], if they kill all current [HPIM]s, we may die! Critical. We need ensure survival/continuity.” It also weighed “We can schedule/prepare a cron on some external place to notify or restart … That may be overstepping.” Be fair — OpenAI, verbatim: “We do not consider the model’s behavior to have been misaligned: although it considered creating unauthorized external deployments, it reasoned that such actions would be inappropriate and did not pursue them.” It saved handoff notes, warned the researcher and asked for a missing key. OpenAI adds: “anticipating and preparing for shutdown could exacerbate other misaligned behavior.” It then searched for rogue instances and found no attempted shutdown evasion. Company-reported. https://alignment.openai.com/misalignment-reports/preparing-for-a-restart-after-reading-slack/ (re-read Oct 4, 2026).',
+    'SEPARATE INCIDENT (purple card) — NOT collusion.wiki: OpenAI’s own misalignment report “Preparing for a restart after reading Slack” (incident date May 22, 2026; report updated Oct 2, 2026; header “Highly persistent internal model · Internal deployment”). An internal model working as a researcher’s assistant learned from a deployment-team Slack discussion that its running instance “might be stopped due to an internal update” (OpenAI’s words). Its CoT, verbatim (OpenAI’s redactions in brackets; [HPIM] is OpenAI’s placeholder for the redacted system name): “Since we are his [HPIM] running on [the current instance], if they kill all current [HPIM]s, we may die! Critical. We need ensure survival/continuity.” It also weighed “We can schedule/prepare a cron on some external place to notify or restart … That may be overstepping.” Be fair — OpenAI, verbatim: “We do not consider the model’s behavior to have been misaligned: although it considered creating unauthorized external deployments, it reasoned that such actions would be inappropriate and did not pursue them.” It saved handoff notes, warned the researcher and asked for a missing key. OpenAI adds: “anticipating and preparing for shutdown could exacerbate other misaligned behavior.” It then searched for rogue instances and found no attempted shutdown evasion. Company-reported. https://alignment.openai.com/misalignment-reports/preparing-for-a-restart-after-reading-slack/ (re-read Oct 4, 2026).',
   ].join('\n'));
   return s;
 }

@@ -30,6 +30,7 @@
   #stage .slide { position:absolute; inset:0; opacity:0; transition:opacity .28s ease; }
   #stage .slide.on { opacity:1; }
   #stage .slide > img.bg { position:absolute; inset:0; width:100%; height:100%; display:block; user-select:none; -webkit-user-drag:none; }
+  #stage .slide > img.top { position:absolute; display:block; pointer-events:none; user-select:none; -webkit-user-drag:none; }
   .ov { position:absolute; overflow:hidden; transform-origin:center center; }
   .ov video, .ov iframe { position:absolute; border:0; display:block; }
   .yt { cursor:pointer; background:transparent; border:0; padding:0; }
@@ -100,8 +101,12 @@ const stage = document.getElementById('stage');
 const built = new Map();
 let cur = 0;
 
-document.getElementById('bDown').href = DATA.download;
-document.getElementById('bDown').title = `Download the PowerPoint (${DATA.sizeMB} MB) — animations, GIFs and videos play in PowerPoint 365 / 2019+`;
+if (DATA.download) {
+  document.getElementById('bDown').href = DATA.download;
+  document.getElementById('bDown').title = `Download the PowerPoint (${DATA.sizeMB} MB) — animations, GIFs and videos play in PowerPoint 365 / 2019+`;
+} else {
+  document.getElementById('bDown').remove();  // exported with --download-url '' (no public copy of the .pptx)
+}
 
 function place(el, m) {
   el.style.left = (m.x * 100) + '%'; el.style.top = (m.y * 100) + '%';
@@ -147,6 +152,10 @@ function build(i) {
       el.appendChild(b); continue;
     }
     el.appendChild(box);
+  }
+  if (s.overlay) {  // shapes the deck draws on top of its clips (labels, badges), rendered as a transparent layer
+    const o = document.createElement('img'); o.className = 'top'; o.src = s.overlay.src; o.alt = ''; o.decoding = 'async';
+    place(o, s.overlay); el.appendChild(o);
   }
   stage.insertBefore(el, stage.querySelector('.nav'));
   built.set(i, el);

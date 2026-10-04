@@ -4,10 +4,11 @@ Every slide is rendered to a full-HD image; the real media is then laid over it 
 .pptx: GIFs become looping H.264 videos (sharper and ~10x smaller than GIF), YouTube embeds become click-to-play iframes,
 embedded mp4s become <video> players. Speaker notes (with their source links) are shown in a toggleable panel.
 
-Usage: python tools/export_web.py [OUT_DIR] [--download-url URL]
+Usage: python tools/export_web.py [OUT_DIR] [--download-url URL]   (--download-url '' hides the download button)
   default OUT_DIR = /home/user/blog/aisafety ; build the deck first (./build.sh)
 """
 import glob
+import hashlib
 import html
 import json
 import os
@@ -22,6 +23,7 @@ import xml.etree.ElementTree as ET
 ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 DECK = os.environ.get('DECK_PATH') or os.path.join(ROOT, 'AI_Safety_and_Existential_Risk.pptx')
 SOFFICE = '/root/.claude/skills/synced/ceb39289-bb87-46dd-a0b0-6166f033cec2_ce7dbb7b-a240-4473-b2d0-1ddff77530c0/pptx/scripts/office/soffice.py'
+CACHE = os.path.join(ROOT, 'build', 'webcache')
 DEFAULT_DOWNLOAD = 'https://github.com/william590y/poster/releases/download/ai-safety-deck/AI_Safety_and_Existential_Risk.pptx'
 
 NS = {
@@ -88,6 +90,82 @@ def geom(pic, cx, cy):
     return {k: (round(v, 5) if isinstance(v, float) else v) for k, v in g.items()}
 
 
+MC = 'http://schemas.openxmlformats.org/markup-compatibility/2006'
+
+
+def box_of(el, cx, cy):
+    """Fractional bounding box of a top-level shape, or None if it has no explicit transform."""
+    x = next((f for f in (el.find('p:spPr/a:xfrm', NS), el.find('p:xfrm', NS), el.find('p:grpSpPr/a:xfrm', NS)) if f is not None), None)
+    if x is None or x.find('a:off', NS) is None:
+        return None
+    o, e = x.find('a:off', NS), x.find('a:ext', NS)
+    return (int(o.get('x')) / cx, int(o.get('y')) / cy, int(e.get('cx')) / cx, int(e.get('cy')) / cy)
+
+
+def overlaps(a, b):
+    return a is None or (a[0] < b[0] + b[2] and b[0] < a[0] + a[2] and a[1] < b[1] + b[3] and b[1] < a[1] + a[3])
+
+
+def layer_slide(xml, keep, overlay):
+    """Copy of a slide keeping only the top-level shapes whose index is in `keep`. For the overlay layer the background
+    and the layout/master shapes are dropped so it renders on a transparent page."""
+    import io
+    for _, (pfx, uri) in ET.iterparse(io.BytesIO(xml), events=('start-ns',)):
+        if pfx and not re.match(r'ns\d+$', pfx):
+            ET.register_namespace(pfx, uri)
+    root = ET.fromstring(xml)
+    tree = root.find('p:cSld/p:spTree', NS)
+    for i, el in enumerate(list(tree)[2:]):
+        if i not in keep:
+            tree.remove(el)
+    for el in list(root):
+        if el.tag.split('}')[1] in ('timing', 'transition', 'AlternateContent', 'extLst'):
+            root.remove(el)
+    root.attrib.pop('{%s}Ignorable' % MC, None)
+    if overlay:
+        root.set('showMasterSp', '0')
+        csld = root.find('p:cSld', NS)
+        if csld.find('p:bg', NS) is not None:
+            csld.remove(csld.find('p:bg', NS))
+        bg = ET.Element('{%s}bg' % NS['p'])
+        bgpr = ET.SubElement(bg, '{%s}bgPr' % NS['p'])
+        ET.SubElement(bgpr, '{%s}noFill' % NS['a'])
+        ET.SubElement(bgpr, '{%s}effectLst' % NS['a'])
+        csld.insert(0, bg)
+    return ET.tostring(root, encoding='UTF-8', xml_declaration=True)
+
+
+def write_variant(z, out_path, parts, xml_by_part):
+    """Write a copy of the deck that lists only `parts` (in order), with their XML replaced."""
+    rels = rels_of(z, 'ppt/presentation.xml')
+    keep_ids = {rid for rid, (_, tgt, _) in rels.items() if tgt in parts}
+    pres = z.read('ppt/presentation.xml').decode('utf8')
+    pres = re.sub(r'<p:sldId [^>]*?r:id="([^"]+)"[^>]*/>', lambda m: m.group(0) if m.group(1) in keep_ids else '', pres)
+    with zipfile.ZipFile(out_path, 'w', zipfile.ZIP_DEFLATED) as zo:
+        for info in z.infolist():
+            if info.filename == 'ppt/presentation.xml':
+                zo.writestr(info, pres)
+            elif info.filename in xml_by_part:
+                zo.writestr(info, xml_by_part[info.filename])
+            else:
+                zo.writestr(info, z.read(info.filename))
+
+
+def render(pptx, transparent=False):
+    """pptx -> list of 1920px PNG paths (one per listed slide), in a temp dir the caller removes."""
+    tmp = tempfile.mkdtemp()
+    shutil.copy(pptx, os.path.join(tmp, 'deck.pptx'))
+    subprocess.run(['python3', SOFFICE, '--headless', '--convert-to', 'pdf', '--outdir', tmp, os.path.join(tmp, 'deck.pptx')],
+                   check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=1800)
+    if transparent:
+        subprocess.run(['pdftocairo', '-png', '-transp', '-scale-to-x', '1920', '-scale-to-y', '-1', os.path.join(tmp, 'deck.pdf'),
+                        os.path.join(tmp, 's')], check=True)
+    else:
+        subprocess.run(['pdftoppm', '-png', '-scale-to-x', '1920', '-scale-to-y', '-1', os.path.join(tmp, 'deck.pdf'),
+                        os.path.join(tmp, 's')], check=True)
+    return tmp, sorted(glob.glob(os.path.join(tmp, 's-*.png')))
+
+
 def youtube_id(url):
     m = re.search(r'(?:embed/|watch\?v=|youtu\.be/)([\w-]{6,})', url)
     return m.group(1) if m else None
@@ -117,13 +195,14 @@ def main():
     out = args[0] if args else '/home/user/blog/aisafety'
     if not os.path.exists(DECK):
         sys.exit('build the deck first (./build.sh)')
+    os.makedirs(CACHE, exist_ok=True)
     for sub in ('slides', 'thumbs', 'media'):
         shutil.rmtree(os.path.join(out, sub), ignore_errors=True)
         os.makedirs(os.path.join(out, sub))
 
     z = zipfile.ZipFile(DECK)
     parts, cx, cy = ordered_slides(z)
-    slides, mp4cache = [], {}
+    slides, mp4cache, layered = [], {}, {}
     for n, part in enumerate(parts, 1):
         rels = rels_of(z, part)
         root = ET.fromstring(z.read(part))
@@ -146,48 +225,88 @@ def main():
                     name = f's{n:02d}-{k}{os.path.splitext(tgt)[1]}'
                     with open(os.path.join(out, 'media', name), 'wb') as f:
                         f.write(z.read(tgt))
-                    media.append({'kind': 'video', 'src': f'media/{name}', **g})
+                    media.append({'kind': 'video', 'src': f'media/{name}', '_pic': pic, **g})
                 continue
             if blip is not None:
                 typ, tgt, ext = rels.get(blip.get(R_EMBED), (None, None, None))
                 if tgt and tgt.lower().endswith('.gif') and not ext:
                     if tgt not in mp4cache:
-                        tmpgif = os.path.join(tempfile.gettempdir(), 'deck_' + os.path.basename(tgt))
-                        with open(tmpgif, 'wb') as f:
-                            f.write(z.read(tgt))
+                        data = z.read(tgt)
+                        key = os.path.join(CACHE, hashlib.sha1(data).hexdigest())  # encodes are slow: reuse across exports
+                        if not (os.path.exists(key + '.mp4') and os.path.exists(key + '.webm')):
+                            tmpgif = key + '.gif'
+                            with open(tmpgif, 'wb') as f:
+                                f.write(data)
+                            gif_to_mp4(tmpgif, key + '.part.mp4')
+                            gif_to_webm(tmpgif, key + '.part.webm')
+                            os.replace(key + '.part.mp4', key + '.mp4')
+                            os.replace(key + '.part.webm', key + '.webm')
+                            os.remove(tmpgif)
                         base = f'loop-{len(mp4cache) + 1:02d}'
-                        gif_to_mp4(tmpgif, os.path.join(out, 'media', base + '.mp4'))
-                        gif_to_webm(tmpgif, os.path.join(out, 'media', base + '.webm'))
-                        os.remove(tmpgif)
+                        shutil.copy(key + '.mp4', os.path.join(out, 'media', base + '.mp4'))
+                        shutil.copy(key + '.webm', os.path.join(out, 'media', base + '.webm'))
                         mp4cache[tgt] = f'media/{base}'
-                    media.append({'kind': 'loop', 'webm': mp4cache[tgt] + '.webm', 'src': mp4cache[tgt] + '.mp4', **g})
-        slides.append({'n': n, 'img': f'slides/slide-{n:02d}.jpg', 'thumb': f'thumbs/thumb-{n:02d}.jpg',
+                    media.append({'kind': 'loop', 'webm': mp4cache[tgt] + '.webm', 'src': mp4cache[tgt] + '.mp4', '_pic': pic, **g})
+        # Shapes drawn above a clip (labels, letter badges, loop nodes) would be hidden under the web <video>. For such slides
+        # the base image is rendered from the shapes up to the first clip, and everything after it goes in a transparent layer.
+        kids = list(root.find('p:cSld/p:spTree', NS))[2:]
+        clip_ids = {id(pic) for pic in root.iter('{%s}pic' % NS['p'])
+                    if any(m.get('_pic') is pic for m in media if m['kind'] in ('loop', 'video'))}
+        clip_idx = [i for i, el in enumerate(kids) if id(el) in clip_ids or any(id(d) in clip_ids for d in el.iter())]
+        if clip_idx:
+            first = clip_idx[0]
+            boxes = [box_of(kids[i], cx, cy) for i in clip_idx]
+            above = [i for i in range(first + 1, len(kids)) if i not in clip_idx]
+            if any(overlaps(box_of(kids[i], cx, cy), b) for i in above for b in boxes if b):
+                layered[part] = (set(range(first)) | set(clip_idx), set(above))
+        for m in media:
+            m.pop('_pic', None)
+        slides.append({'n': n, 'part': part, 'img': f'slides/slide-{n:02d}.jpg', 'thumb': f'thumbs/thumb-{n:02d}.jpg',
                        'notes': notes_text(z, part, rels), 'media': media})
 
-    # render slide images
-    tmp = tempfile.mkdtemp()
-    shutil.copy(DECK, os.path.join(tmp, 'deck.pptx'))
-    subprocess.run(['python3', SOFFICE, '--headless', '--convert-to', 'pdf', '--outdir', tmp, os.path.join(tmp, 'deck.pptx')],
-                   check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=1200)
-    subprocess.run(['pdftoppm', '-png', '-scale-to-x', '1920', '-scale-to-y', '-1', os.path.join(tmp, 'deck.pdf'),
-                    os.path.join(tmp, 's')], check=True)
+    # render slide images (full slides: thumbnails, posters and the base image of unlayered slides)
     from PIL import Image
-    pages = sorted(glob.glob(os.path.join(tmp, 's-*.png')))
+    tmp, pages = render(DECK)
     assert len(pages) == len(slides), (len(pages), len(slides))
+    lay = [s for s in slides if s['part'] in layered]
+    base_pages, top_pages, tmps = {}, {}, [tmp]
+    if lay:
+        vdir = tempfile.mkdtemp(); tmps.append(vdir)
+        parts = [s['part'] for s in lay]
+        for kind in ('base', 'top'):
+            xml = {p: layer_slide(z.read(p), layered[p][0 if kind == 'base' else 1], kind == 'top') for p in parts}
+            write_variant(z, os.path.join(vdir, kind + '.pptx'), set(parts), xml)
+            t, pg = render(os.path.join(vdir, kind + '.pptx'), transparent=(kind == 'top'))
+            tmps.append(t)
+            assert len(pg) == len(parts), (kind, len(pg), len(parts))
+            (base_pages if kind == 'base' else top_pages).update(zip(parts, pg))
     for s, p in zip(slides, pages):
-        im = Image.open(p).convert('RGB')
-        im.save(os.path.join(out, s['img']), 'JPEG', quality=90, optimize=True, progressive=True, subsampling=0)
+        full = Image.open(p).convert('RGB')
+        base = Image.open(base_pages[s['part']]).convert('RGB') if s['part'] in base_pages else full
+        base.save(os.path.join(out, s['img']), 'JPEG', quality=90, optimize=True, progressive=True, subsampling=0)
+        if s['part'] in top_pages:
+            top = Image.open(top_pages[s['part']]).convert('RGBA')
+            bb = top.getchannel('A').getbbox()
+            if bb:
+                W, H = top.size
+                name = f'slides/top-{s["n"]:02d}.png'
+                top.crop(bb).save(os.path.join(out, name), optimize=True)
+                s['overlay'] = {'src': name, 'x': round(bb[0] / W, 5), 'y': round(bb[1] / H, 5),
+                                'w': round((bb[2] - bb[0]) / W, 5), 'h': round((bb[3] - bb[1]) / H, 5)}
         # poster frames for embedded videos: crop the rendered cover from the slide image
         for m in s['media']:
             if m['kind'] == 'video':
-                W, H = im.size
+                W, H = full.size
                 box = (int(m['x'] * W), int(m['y'] * H), int((m['x'] + m['w']) * W), int((m['y'] + m['h']) * H))
                 pname = m['src'].rsplit('.', 1)[0] + '-poster.jpg'
-                im.crop(box).save(os.path.join(out, pname), 'JPEG', quality=88)
+                full.crop(box).save(os.path.join(out, pname), 'JPEG', quality=88)
                 m['poster'] = pname
-        im.thumbnail((480, 270))
-        im.save(os.path.join(out, s['thumb']), 'JPEG', quality=82, optimize=True)
-    shutil.rmtree(tmp)
+        full.thumbnail((480, 270))
+        full.save(os.path.join(out, s['thumb']), 'JPEG', quality=82, optimize=True)
+        s.pop('part')
+    for t in tmps:
+        shutil.rmtree(t, ignore_errors=True)
+    print('layered slides (shapes above clips):', [s['n'] for s in lay])
 
     size_mb = os.path.getsize(DECK) / 1e6
     tpl = open(os.path.join(os.path.dirname(os.path.abspath(__file__)), 'web_viewer.html')).read()

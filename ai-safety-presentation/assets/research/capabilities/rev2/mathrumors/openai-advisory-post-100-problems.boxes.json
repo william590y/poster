@@ -1,0 +1,37 @@
+{
+ "clip": {
+  "x": 300,
+  "y": 130,
+  "w": 680,
+  "h": 660
+ },
+ "scrollY": 0,
+ "dpr": 2,
+ "inner": [
+  1280,
+  1000
+ ],
+ "rel": {
+  "this model has now resolved more than 100 long-standing open problems across most areas of mathematics": [
+   {
+    "x": 453.1,
+    "y": 482.2,
+    "w": 146,
+    "h": 20
+   },
+   {
+    "x": 38.3,
+    "y": 510.2,
+    "w": 562.9,
+    "h": 20
+   },
+   {
+    "x": 38.3,
+    "y": 538.2,
+    "w": 100.1,
+    "h": 20
+   }
+  ],
+  "The pace of its progress in mathematics has surprised the mathematicians within OpenAI": null
+ }
+}

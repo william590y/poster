@@ -1,5 +1,5 @@
 // THE ACCELERATION · work: engineering (CAD, PCB, chips), economically valuable labor (ALE, AutomationBench, RLI, GDPval),
-// software jobs, academia, video, robotics (VLA, humanoid factories, Unitree).
+// software jobs, academia, video, robotics (VLA, humanoid factories, Unitree, Anthropic's "What work can robots do?").
 const path = require('path');
 const fs = require('fs');
 const sharp = require('sharp');
@@ -1481,6 +1481,8 @@ async function build(d) {
   await vlaDemoSlide(d);
   await factorySlide(d);
   await unitreeSlide(d);
+  await robotWorkSlide(d);
+  await robotCostSlide(d);
 }
 
 module.exports = { build };

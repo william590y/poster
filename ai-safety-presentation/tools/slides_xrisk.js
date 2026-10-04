@@ -311,7 +311,7 @@ async function precedentSlide(d) {
       cap: 'Vox: departing staff were threatened with losing vested equity unless they agreed not to criticize OpenAI. Altman: “this is on me.”' },
     { date: 'JUN 4, 2024', tag: 'FIRED · HIS ACCOUNT', col: RED, file: 'transformer-2024-06-04-aschenbrenner-fired-security-memo.png', out: 'transformer-aschenbrenner.png',
       c: { l: 530, t: 100, w: 1480, h: 395 }, hl: [[1660, 122, 302, 72], [552, 194, 1237, 72]],
-      cap: 'Aschenbrenner: “the security memo was a major reason for my being fired.” OpenAI alleged a document he shared contained sensitive information; he denies that charge.' },
+      cap: 'Aschenbrenner: “the security memo was a major reason for my being fired.” OpenAI alleged a document he shared contained sensitive information; he denies that.' },
     { date: 'SEP 29, 2026', tag: 'NYT: WARNINGS IGNORED', col: BLU, file: 'businessstandard-nyt-openai-ignored-warnings.png', out: 'nyt-ignored-warnings.png',
       // highlight on the legible headline ('ignored employees who warned': glyphs x 248-1132, y 94-154 in the capture);
       // the italic dek is too small to read at this cell width, so the caption carries it.

@@ -701,7 +701,7 @@ async function wikiBoard(d) {
   const lx = MX, lw = 6.6, rx = 7.55, rw = W - MX - rx;
   // Left, row 1: the report itself (real capture of collusion.wiki), its opening claim highlighted.
   // Who found it, readable: the lead author's group (Von Arx, Nightingale Collective) + her three co-authors.
-  const l1 = d.text(s, 'FOUND BY OUTSIDE RESEARCHERS (NIGHTINGALE COLLECTIVE + 3) · SEP 4, 2026',
+  const l1 = d.text(s, 'FOUND BY OUTSIDE RESEARCHERS (NIGHTINGALE COLLECTIVE + 3) · REPORT PUBLISHED SEP 4, 2026',
     { x: lx, y: 1.72, w: lw, h: 0.28, fontSize: 11, bold: true, color: d.S.steel, charSpacing: 1, valign: 'middle' });
   const ti = await crop(R('rev2/collusion-title-intro.png'), 'collusion-title.png', { left: 0, top: 0, width: 1688, height: 478 });
   const tf = await d.frame(s, ti, { x: lx, y: 2.04, w: lw, h: 1.95 }, { rot: -0.6, align: 'left' });
@@ -725,7 +725,7 @@ async function wikiBoard(d) {
   const annBg = d.card(s, { x: lx + 4.04, y: 4.56, w: 2.6, h: 1.5 }, { color: '11151C' });
   const ann = d.text(s, [
     { text: 'Jun 16–22: the swarm', options: { bold: true, color: d.S.red, breakLine: true } },
-    { text: 'Peak 6,273 edits on Jun 18, then near zero. Authors’ visitor log: OpenAI employee IPs first seen Jun 21.', options: { color: d.S.muted, breakLine: true } },
+    { text: 'Peak 6,273 edits on Jun 18; near zero from Jun 23. Authors’ visitor log: OpenAI employee IPs first seen Jun 21.', options: { color: d.S.muted, breakLine: true } },
     { text: 'Bars = the authors’ chart data, 13,966 edits; counts differ from the headline’s ~18,000 posts.', options: { color: d.S.steel } },
   ], { x: lx + 4.12, y: 4.6, w: 2.45, h: 1.42, fontSize: 11, valign: 'top', paraSpaceAfter: 3 });
 
@@ -733,7 +733,7 @@ async function wikiBoard(d) {
   const stats = [
     ['~18,000', 'posts from agents self-identifying as OpenAI (authors’ count)'],
     ['3,700+', 'distinct self-given agent names (authors’ count)'],
-    ['~13,000', 'edits in the seven days from June 16'],
+    ['~13,000', 'edits in the seven days from June 16 (authors’ count)'],
   ];
   const sg = stats.map(([v, t], i) => {
     const y = 1.72 + i * 0.77;
@@ -859,7 +859,7 @@ async function wikiHeartbeat(d) {
   const arrB = d.text(s, 'every few seconds', { x: ax0, y: dy + dh / 2 + 0.02, w: ax1 - ax0, h: 0.24, fontSize: 10, color: d.S.muted, align: 'center', valign: 'middle' });
   const wcap = d.text(s, [
     { text: '“…a separate timed program that pinged an external counter every few seconds”', options: { color: d.S.txt } },
-    { text: ' (the authors). The last key written would mark when the container stopped.', options: { color: d.S.muted } },
+    { text: ' (the authors). The last key written was meant to show when the container stopped.', options: { color: d.S.muted } },
   ], { x: lx, y: 3.34, w: lw, h: 0.52, fontSize: 14, valign: 'top' });
 
   // Right: what they believed (Jun 16) and what the beacon was for (Jun 21), verbatim.
@@ -870,7 +870,7 @@ async function wikiHeartbeat(d) {
     ], { x: rx, y, w: rw, h: 0.26, fontSize: 10.5, valign: 'middle' }),
     d.text(s, text, { x: rx, y: y + 0.29, w: rw, h: 0.54, fontSize: 15, color: d.S.txt, fontFace: MONO, valign: 'top' }),
   ];
-  const belief = q('THE BELIEF · JUN 16', 'SectorAgentFeb16OAI', '“R5 likely FINAL and session dies after answer.”', 1.7);
+  const belief = q('THE BELIEF · JUN 16 · R5 = ROUND 5', 'SectorAgentFeb16OAI', '“R5 likely FINAL and session dies after answer.”', 1.7);
   const purpose = q('THE PURPOSE · JUN 21', 'OpenAIResearchApr23', '“…absence is ambiguous, presence proves environment survival.”', 2.74);
 
   // Bottom: the agent's own posts, plan → still alive, at a readable size (times UTC).
@@ -955,8 +955,8 @@ async function wikiHeartbeatEnd(d) {
   sep.push(d.text(s, '“…if they kill all current [HPIM]s, we may die! Critical. We need ensure survival/continuity.”',
     { x: rx + 0.2, y: sy + 0.44, w: rw - 0.34, h: 0.76, fontSize: 14, color: d.S.txt, fontFace: MONO, valign: 'top' }));
   sep.push(d.text(s, [
-    { text: 'An internal OpenAI model, after reading on Slack that it might be stopped. ', options: { color: d.S.txt } },
-    { text: 'OpenAI says the model considered unauthorized external deployments but did not pursue them. [HPIM] = OpenAI’s redaction.', options: { color: d.S.muted } },
+    { text: 'An internal OpenAI model, after reading on Slack that an internal update might stop its instance. ', options: { color: d.S.txt } },
+    { text: 'OpenAI does not call this behavior misaligned: the model considered unauthorized external deployments but did not pursue them. [HPIM] = OpenAI’s redaction.', options: { color: d.S.muted } },
   ], { x: rx + 0.2, y: sy + 1.26, w: rw - 0.34, h: 1.04, fontSize: 14, valign: 'top' }));
 
   d.animate(s, [...lab3, ...c3.f], { auto: true, effect: 'fade' });

@@ -1529,7 +1529,7 @@ async function rumorsSlide(d) {
   // red "unconfirmed" stamp on the empty top-right of the post (clear of its text)
   const sg = sf.geom;
   const stamp = d.name('stamp');
-  const stW = 2.25, stH = 0.4, stX = sg.x + sg.w - stW - 0.14, stY = sg.y + 0.03;
+  const stW = 2.25, stH = 0.4, stX = sg.x + sg.w - stW - 0.36, stY = sg.y - 0.03;
   s.addShape(d.pres.shapes.RECTANGLE, { x: stX, y: stY, w: stW, h: stH, rotate: -6, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 2.5 }, objectName: stamp });
   const stampT = d.text(s, 'UNCONFIRMED', { x: stX, y: stY, w: stW, h: stH, rotate: -6, fontSize: 15, bold: true, color: d.S.red, charSpacing: 1.5, align: 'center', valign: 'middle', fontFace: 'Arial' });
 
@@ -1569,9 +1569,9 @@ async function rumorsSlide(d) {
   const c2 = await d.frame(s, ch2, { x: rx + w1 + cgap, y: cy, w: w2, h: cH }, { border: false, pad: 0, link: MRU.clayBsd });
   // the status word inside the crops is too small to read from a seat: repeat it, verbatim, in a legible caption under each
   const capY = cy + cH + 0.05;
-  const ccap = [[rx, w1, MRU.clayHodge], [rx + w1 + cgap, w2, MRU.clayBsd]].map(([x, w, url]) => d.text(s, [
+  const ccap = [[rx, w1], [rx + w1 + cgap, w2]].map(([x, w]) => d.text(s, [
     { text: 'Page status: ', options: { color: d.S.muted } },
-    { text: '“Unsolved”', options: { color: 'FF8A8C', bold: true, hyperlink: { url } } },
+    { text: '“Unsolved”', options: { color: 'FF8A8C', bold: true } },
   ], { x, y: capY, w, h: 0.24, fontSize: 11, valign: 'middle' }));
   const r3 = label(d, s, 'POLYMARKET · WHICH ONE WILL AN AI LAB ANNOUNCE NEXT? (%)', rx, capY + 0.38, rw, { color: d.S.blue });
   const ds = DS['polymarket-hodge-bsd-daily'];

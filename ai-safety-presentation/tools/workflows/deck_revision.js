@@ -2,14 +2,16 @@ export const meta = {
   name: 'deck-revision',
   description: 'Research, edit, independently review and fix requested changes to one or more sections of the AI safety deck',
   phases: [
-    { title: 'Research', detail: 'one agent per requested item: verify facts, capture real screenshots/media' },
+    { title: 'Research', detail: 'one agent per requested item: verify facts, capture real screenshots/media', model: 'sonnet' },
     { title: 'Edit', detail: 'apply all changes to the section module, render, self-check' },
-    { title: 'Review', detail: 'independent visual + truthfulness review' },
+    { title: 'Review', detail: 'independent visual + truthfulness review', model: 'sonnet' },
     { title: 'Fix', detail: 'apply review findings' },
   ],
 }
 
 const ROOT = '/home/user/poster/ai-safety-presentation'
+// Non-editing agents (research, review) run on Sonnet; editing/fixing agents inherit the session model.
+const RESEARCH_MODEL = (args && args.researchModel) || 'sonnet'
 const COMMON = `Project: ${ROOT} builds a ~85-slide talk deck "AI Safety and Existential Risk" (pptxgenjs). Read ${ROOT}/tools/SLIDE_BRIEF.md (rules, API,
 and the Media section) and ${ROOT}/tools/RESEARCH_BRIEF.md (truthfulness rules). TODAY IS 2026-10-04 (after your training data — use the web).
 WebSearch may be exhausted for this session; if so use WebFetch on known URLs or DuckDuckGo through the headless browser:
@@ -80,7 +82,7 @@ Final answer: what changed.`
 const results = await pipeline(
   args.modules,
   async (m) => {
-    const res = await parallel(m.items.map(it => () => agent(researchPrompt(m, it), { label: `research:${m.name}:${it.key}`, phase: 'Research', agentType: 'general-purpose' })))
+    const res = await parallel(m.items.map(it => () => agent(researchPrompt(m, it), { label: `research:${m.name}:${it.key}`, phase: 'Research', agentType: 'general-purpose', model: RESEARCH_MODEL })))
     return res.map((r, i) => r || `(research "${m.items[i].key}" returned nothing)`)
   },
   async (research, m) => {
@@ -91,7 +93,7 @@ const results = await pipeline(
     const rounds = []
     let report = prev.edit
     for (let round = 1; round <= 2; round++) {
-      const review = await agent(reviewPrompt(m, report, round), { label: `review:${m.name}#${round}`, phase: 'Review', schema: ISSUES, agentType: 'general-purpose' })
+      const review = await agent(reviewPrompt(m, report, round), { label: `review:${m.name}#${round}`, phase: 'Review', schema: ISSUES, agentType: 'general-purpose', model: RESEARCH_MODEL })
       if (!review) break
       const major = review.issues.filter(i => i.severity === 'major').length
       const entry = { round, overall: review.overall, issues: review.issues.length, major }

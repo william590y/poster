@@ -1,846 +1,1236 @@
 {
-  "group": "geopolitics",
-  "items": [
+ "group": "geopolitics",
+ "items": [
+  {
+   "id": "grok-venezuela-techcrunch",
+   "slide_topic": "AI and The Military",
+   "type": "headline",
+   "file": "grok-venezuela-techcrunch.png",
+   "headline": "Musk’s AI chatbot Grok reportedly encouraged Trump to capture Venezuela’s president",
+   "dek": "In December 2025, about a month before the U.S. invaded Venezuela and captured its president, Nicolás Maduro, President Trump had a secret meeting with Elon Musk, Time magazine reports. ... During this meeting, Trump \"spent hours\" talking to Musk's Grok chatbot, including asking how Venezuelans would respond to the capture of their president, a source told Time.",
+   "outlet": "TechCrunch",
+   "author": "Dominic-Madori Davis",
+   "date": "2026-10-01",
+   "url": "https://techcrunch.com/2026/10/01/musks-ai-chatbot-grok-reportedly-encouraged-trump-to-capture-venezuelas-president/",
+   "caption": "TechCrunch 'In Brief' page: photo of Trump waving under an 'America' sign, byline, headline below the photo",
+   "quality": 5,
+   "verified": true,
+   "notes": "This is the user's own headline. Grok reportedly told Trump Maduro was a \"deeply unpopular dictator and that many Venezuelans would likely celebrate his downfall\"; Trump \"came away thinking Grok was ingenious\" (per Time, via TechCrunch)."
+  },
+  {
+   "id": "grok-maduro-euronews",
+   "slide_topic": "AI and The Military",
+   "type": "headline",
+   "file": "euronews-grok-maduro.png",
+   "headline": "Did Trump order Maduro’s kidnapping based on Grok’s advice?",
+   "dek": "",
+   "outlet": "Euronews",
+   "date": "2026-10-02",
+   "url": "https://www.euronews.com/2026/10/02/did-trump-order-maduros-kidnapping-based-on-groks-advice",
+   "caption": "Euronews headline over AP photo of Trump and Elon Musk side by side",
+   "quality": 4,
+   "verified": true,
+   "notes": "Alternate/companion to the TechCrunch Grok item; strong photo of Trump + Musk."
+  },
+  {
+   "id": "cnn-ai-false-intel-china-ship",
+   "slide_topic": "AI and The Military",
+   "type": "headline",
+   "file": "cnn-ai-china-ship.png",
+   "headline": "Exclusive: US military had close call after using AI for false intelligence report, sources say",
+   "dek": "The intelligence report, circulated across the US military this spring in the midst of the war with Iran, immediately set off alarm bells: A Chinese ship in the Middle East was transporting components of a nuclear weapons program.",
+   "outlet": "CNN",
+   "author": "Katie Bo Lillis, Zachary Cohen",
+   "date": "2026-09-18",
+   "url": "https://www.cnn.com/2026/09/18/politics/us-military-ai-false-intelligence-china-ship",
+   "caption": "CNN headline, byline and photo of silhouetted US soldiers training with drones",
+   "quality": 5,
+   "verified": true,
+   "notes": "VERIFIED what happened: a SOCOM analyst used an AI chatbot on intel about a Chinese ship's manifest (reporting originated with US Special Operations Command Pacific); the bot fused OSINT with classified SIGINT and wrongly concluded the ship carried nuclear-weapons-program components; analyst used AI again to package it into a standard intel report. Armed US personnel were preparing to board; military planes were in the air; caught 'only just before the planned operation'. Source: report was “entirely false” but “almost started a war.” CNN could not learn what the misidentified cargo was, nor whether the chatbot was commercial or government. It was NOT a ship 'delivering nukes' - the claim was nuclear-weapons-program components, bound for/related to Iran during the 2026 Iran war."
+  },
+  {
+   "id": "gizmodo-almost-started-a-war",
+   "slide_topic": "AI and The Military",
+   "type": "headline",
+   "file": "gizmodo-almost-started-war.png",
+   "headline": "‘Almost Started a War’: US Military Nearly Boarded a Chinese Ship Based on Bad Intel From AI",
+   "dek": "One source told CNN that the \"hallucination\" was part of a trend in the U.S. military, not an isolated incident.",
+   "outlet": "Gizmodo",
+   "author": "Matt Novak",
+   "date": "2026-09-18",
+   "url": "https://gizmodo.com/almost-started-a-war-us-military-nearly-boarded-a-chinese-ship-based-on-bad-intel-from-ai-2000814290",
+   "caption": "Gizmodo headline with photo of a door gunner overlooking a tanker at sea",
+   "quality": 5,
+   "verified": true,
+   "notes": "Most dramatic headline for the China-ship hallucination story; photo caption says it shows US forces interdicting a sanctioned vessel (MT Davina) in the Indian Ocean, not the Chinese ship itself."
+  },
+  {
+   "id": "yahoo-hegseth-strategy-almost-war",
+   "slide_topic": "AI and The Military",
+   "type": "headline",
+   "file": "yahoo-hegseth-strategy-almost-war.png",
+   "headline": "Pete Hegseth's AI Strategy Almost Started War With China",
+   "dek": "Pete Hegseth's flawed artificial intelligence push nearly led the U.S. military into war with an Asian superpower, a bombshell new report has revealed.",
+   "outlet": "Yahoo News",
+   "author": "Julia Ornedo",
+   "date": "2026-09-18",
+   "url": "https://www.yahoo.com/news/politics/articles/pete-hegseths-ai-strategy-almost-220218803.html",
+   "caption": "Yahoo News headline + byline crop (text only)",
+   "quality": 4,
+   "verified": true,
+   "notes": "Nice bridge between the China-ship story and the Hegseth 'speed over alignment' memo."
+  },
+  {
+   "id": "hegseth-memo-speed-wins",
+   "slide_topic": "AI and The Military",
+   "type": "quote",
+   "file": "hegseth-memo-speed-wins.png",
+   "headline": "Artificial Intelligence Strategy for the Department of War - Accelerating America's Military AI Dominance",
+   "dek": "Speed Wins. We must internalize that Military AI is going to be a race for the foreseeable future, and therefore speed wins. We must weaponize learning speed, and measure and manage cycle time and adoption rates as decisive variables in the AI era. We must accept that the risks of not moving fast enough outweigh the risks of imperfect alignment.",
+   "outlet": "U.S. Department of War (Secretary of War memorandum)",
+   "author": "Pete Hegseth",
+   "date": "2026-01-09",
+   "url": "https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/artificial-intelligence-strategy-for-the-department-of-war.pdf",
+   "caption": "Crop of the official signed memo, page 4: 'Acceleration Expectations' and the 'Speed Wins' paragraph",
+   "quality": 5,
+   "verified": true,
+   "notes": "Rendered directly from the official PDF (saved as hegseth-ai-strategy-memo.pdf, 6 pages). This is the exact 'speed over alignment' line the outline asks for. Full page also saved as hegseth-memo-page4.png. Memo dated JAN - 9 2026, released Jan 12, 2026."
+  },
+  {
+   "id": "hegseth-memo-header",
+   "slide_topic": "AI and The Military",
+   "type": "screenshot",
+   "file": "hegseth-memo-header.png",
+   "headline": "SUBJECT: Artificial Intelligence Strategy for the Department of War",
+   "dek": "MEMORANDUM FOR SENIOR PENTAGON LEADERSHIP / COMMANDERS OF THE COMBATANT COMMANDS / DEFENSE AGENCY AND DOW FIELD ACTIVITY DIRECTORS ... Accelerating America's Military AI Dominance",
+   "outlet": "U.S. Department of War",
+   "author": "Pete Hegseth",
+   "date": "2026-01-09",
+   "url": "https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/artificial-intelligence-strategy-for-the-department-of-war.pdf",
+   "caption": "Letterhead of the memo: Department of War seal, 'SECRETARY OF WAR', JAN - 9 2026 stamp, subject line",
+   "quality": 5,
+   "verified": true,
+   "notes": "Pair with hegseth-memo-speed-wins.png for an authentic document look."
+  },
+  {
+   "id": "hegseth-memo-responsible-ai",
+   "slide_topic": "AI and The Military",
+   "type": "quote",
+   "file": "hegseth-memo-responsible-ai.png",
+   "headline": "Clarifying “Responsible AI” at the DoW — Out with Utopian Idealism, In with Hard-Nosed Realism.",
+   "dek": "Diversity, Equity, and Inclusion and social ideology have no place in the DoW, so we must not employ AI models which incorporate ideological “tuning” that interferes with their ability to provide objectively truthful responses to user prompts. The Department must also utilize models free from usage policy constraints that may limit lawful military applications. ... I direct the Under Secretary of War for Acquisition and Sustainment to incorporate standard “any lawful use” language into any DoW contract through which AI services are procured within 180 days.",
+   "outlet": "U.S. Department of War",
+   "author": "Pete Hegseth",
+   "date": "2026-01-09",
+   "url": "https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/artificial-intelligence-strategy-for-the-department-of-war.pdf",
+   "caption": "Crop of memo page 5: the 'Responsible AI' paragraph demanding models free from usage-policy constraints",
+   "quality": 5,
+   "verified": true,
+   "notes": "This 'any lawful use' clause is the root of the Anthropic-Pentagon dispute (Anthropic refused to drop its bans on mass domestic surveillance and fully autonomous weapons)."
+  },
+  {
+   "id": "defensescoop-accelerate-like-hell",
+   "slide_topic": "AI and The Military",
+   "type": "headline",
+   "file": "defensescoop-accelerate-like-hell.png",
+   "headline": "‘Accelerate like hell’: Hegseth moves to reshape DOD’s AI and tech hubs",
+   "dek": "Pete Hegseth’s speech and three accompanying memorandums released Monday reveal the Trump administration’s latest, fast-moving and multifaceted vision to overhaul the Pentagon's technology enterprise.",
+   "outlet": "DefenseScoop",
+   "author": "Brandi Vincent",
+   "date": "2026-01-13",
+   "url": "https://defensescoop.com/2026/01/13/hegseth-ai-tech-hubs-reorganization-dod-dow/",
+   "caption": "DefenseScoop headline, dek and byline",
+   "quality": 4,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "defensescoop-frontier-ai-contracts",
+   "slide_topic": "AI and The Military",
+   "type": "headline",
+   "file": "defensescoop-pentagon-frontier-ai-contracts.png",
+   "headline": "Pentagon awards mega contracts to Musk-owned company, other firms for new ‘frontier AI’ projects",
+   "dek": "The Pentagon's Chief Digital and Artificial Intelligence Office has awarded contracts to xAI, OpenAI, Anthropic and Google for the new effort.",
+   "outlet": "DefenseScoop",
+   "author": "Mikayla Easley",
+   "date": "2025-07-14",
+   "url": "https://defensescoop.com/2025/07/14/pentagon-ai-contracts-musk-xai-google-openai-anthropic-cdao/",
+   "caption": "DefenseScoop headline, dek and byline",
+   "quality": 4,
+   "verified": true,
+   "notes": "Each contract worth up to $200 million (CBS confirms Anthropic's was $200M, awarded July 2025)."
+  },
+  {
+   "id": "intercept-ai-giants-pentagon",
+   "slide_topic": "AI and The Military",
+   "type": "headline",
+   "file": "intercept-ai-giants-pentagon.png",
+   "headline": "AI Giants Work Hand-in-Hand With the Pentagon, Contracts Reveal",
+   "dek": "The Intercept sued to obtain records that reveal an intimate relationship between the military and OpenAI, Anthropic, Google, and xAI.",
+   "outlet": "The Intercept",
+   "author": "Sam Biddle",
+   "date": "2026-09-08",
+   "url": "https://theintercept.com/2026/09/08/military-ai-weapons-contracts-openai-anthropic-google/",
+   "caption": "The Intercept headline, dek, byline, and photo of Pete Hegseth beside a drone",
+   "quality": 5,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "cbs-hegseth-anthropic-supply-chain-risk",
+   "slide_topic": "AI and The Military",
+   "type": "headline",
+   "file": "cbs-hegseth-anthropic-supply-chain-risk.png",
+   "headline": "Hegseth declares Anthropic a supply chain risk, restricting military contractors from doing business with AI giant",
+   "dek": "Defense Secretary Pete Hegseth deemed artificial intelligence firm Anthropic a \"supply chain risk to national security\" on Friday, following days of increasingly heated public conflict over the company's effort to place guardrails on the Pentagon's use of its technology.",
+   "outlet": "CBS News",
+   "author": "Joe Walsh",
+   "date": "2026-02-28",
+   "url": "https://www.cbsnews.com/news/hegseth-declares-anthropic-supply-chain-risk/",
+   "caption": "CBS News headline, byline/date, lede, and video thumbnail of Hegseth",
+   "quality": 5,
+   "verified": true,
+   "notes": "Hegseth on X: \"America's warfighters will never be held hostage by the ideological whims of Big Tech. This decision is final.\" Trump ordered all federal agencies to \"immediately\" stop using Anthropic (6-month phase-out for DoD)."
+  },
+  {
+   "id": "techcrunch-pentagon-designate-anthropic",
+   "slide_topic": "AI and The Military",
+   "type": "headline",
+   "file": "techcrunch-pentagon-designate-anthropic.png",
+   "headline": "Pentagon moves to designate Anthropic as a supply-chain risk",
+   "dek": "In a post on Truth Social, President Trump directed federal agencies to cease use of all Anthropic products after the company’s public dispute with the Department of Defense.",
+   "outlet": "TechCrunch",
+   "author": "Russell Brandom",
+   "date": "2026-02-27",
+   "url": "https://techcrunch.com/2026/02/27/pentagon-moves-to-designate-anthropic-as-a-supply-chain-risk/",
+   "caption": "TechCrunch hero: close-up photo of Trump next to green headline panel",
+   "quality": 5,
+   "verified": true,
+   "notes": "Originally requested URL (.../president-trump-orders-federal-agencies-to-stop-using-anthropic-after-pentagon-dispute/) redirects to this headline."
+  },
+  {
+   "id": "anthropic-statement-hegseth",
+   "slide_topic": "AI and The Military",
+   "type": "screenshot",
+   "file": "anthropic-statement-hegseth.png",
+   "headline": "Statement on the comments from Secretary of War Pete Hegseth",
+   "dek": "We held to our exceptions for two reasons. First, we do not believe that today’s frontier AI models are reliable enough to be used in fully autonomous weapons. Allowing current models to be used in this way would endanger America’s warfighters and civilians. Second, we believe that mass domestic surveillance of Americans constitutes a violation of fundamental rights.",
+   "outlet": "Anthropic",
+   "date": "2026-02-27",
+   "url": "https://www.anthropic.com/news/statement-comments-secretary-war",
+   "caption": "Anthropic blog statement: headline, date and first four paragraphs explaining its two exceptions",
+   "quality": 5,
+   "verified": true,
+   "notes": "Also: \"No amount of intimidation or punishment from the Department of War will change our position on mass domestic surveillance or fully autonomous weapons. We will challenge any supply chain risk designation in court.\""
+  },
+  {
+   "id": "tnw-appeals-court-anthropic",
+   "slide_topic": "AI and The Military",
+   "type": "headline",
+   "file": "tnw-appeals-court-anthropic.png",
+   "headline": "US appeals court upholds Pentagon’s supply chain risk label on Anthropic",
+   "dek": "A US appeals court ruled 2-1 that the Pentagon lawfully labelled Anthropic a supply chain risk. Anthropic says it disagrees and is considering all options, after winning a parallel case in August.",
+   "outlet": "The Next Web",
+   "author": "Ana-Maria Stanciuc",
+   "date": "2026-09-25",
+   "url": "https://thenextweb.com/news/anthropic-pentagon-supply-chain-risk-appeals-court-ruling",
+   "caption": "TNW headline and dek",
+   "quality": 4,
+   "verified": true,
+   "notes": "DC Circuit; Judge Katsas wrote majority joined by Rao, Henderson dissented. CNBC ('U.S. appeals court upholds Pentagon designation of Anthropic as supply chain risk', 2026-09-25) and Washington Post covered it too but blocked headless browsers."
+  },
+  {
+   "id": "guardian-lavender",
+   "slide_topic": "AI and The Military",
+   "type": "headline",
+   "file": "guardian-lavender.png",
+   "headline": "‘The machine did it coldly’: Israel used AI to identify 37,000 Hamas targets",
+   "dek": "Israeli intelligence sources reveal use of ‘Lavender’ system in Gaza war and claim permission given to kill civilians in pursuit of low-ranking militants",
+   "outlet": "The Guardian",
+   "author": "Bethan McKernan, Harry Davies",
+   "date": "2024-04-03",
+   "url": "https://www.theguardian.com/world/2024/apr/03/israel-gaza-ai-database-hamas-airstrikes",
+   "caption": "Guardian headline, standfirst and photo of Palestinians searching rubble in al-Maghazi camp",
+   "quality": 5,
+   "verified": true,
+   "notes": "Based on +972 Magazine / Local Call investigation (972mag.com blocked by Cloudflare)."
+  },
+  {
+   "id": "guardian-gospel",
+   "slide_topic": "AI and The Military",
+   "type": "headline",
+   "file": "guardian-gospel.png",
+   "headline": "‘The Gospel’: how Israel uses AI to select bombing targets in Gaza",
+   "dek": "Concerns over data-driven ‘factory’ that significantly increases the number of targets for strikes in the Palestinian territory",
+   "outlet": "The Guardian",
+   "author": "Harry Davies, Bethan McKernan, Dan Sabbagh",
+   "date": "2023-12-01",
+   "url": "https://www.theguardian.com/world/2023/dec/01/the-gospel-how-israel-uses-ai-to-select-bombing-targets",
+   "caption": "Guardian headline, standfirst and photo of smoke rising over Gaza",
+   "quality": 5,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "defensepost-ukraine-ai-drones",
+   "slide_topic": "AI and The Military",
+   "type": "headline",
+   "file": "defensepost-ukraine-ai-drones.png",
+   "headline": "Ukraine Tests Whether AI Can Guide Drones to Moving Targets",
+   "dek": "Ukraine is testing whether artificial intelligence can help drones detect, acquire, and engage moving ground targets without continuous pilot control.",
+   "outlet": "The Defense Post",
+   "author": "Samantha Alexa",
+   "date": "2026-09-10",
+   "url": "https://thedefensepost.com/2026/09/10/ukraine-ai-guided-drones/",
+   "caption": "Ukrainian MoD promo image of drone-view targeting boxes ('Target Locked | Score: 0.9725', 'Target Destroyed') on Russian armored vehicles, with headline below",
+   "quality": 5,
+   "verified": true,
+   "notes": "Image credit: Ministry of Defence of Ukraine. Test: drones fly 2 km, acquire a moving lightly armored vehicle from >=500 m, hit it autonomously; 7 companies evaluated (MoD + Brave1). Related: Defense One 'Thanks largely to robots, Ukraine is now talking about winning, not just surviving' (2026-06-02, screenshot full of ads, not kept)."
+  },
+  {
+   "id": "anthropic-frt-drone-evals-chart",
+   "slide_topic": "AI and The Military",
+   "type": "chart",
+   "file": "anthropic-frt-drone-evals.png",
+   "headline": "Measuring tactical intelligence targeting and conventional weapons capabilities of AI models",
+   "dek": "Drone evals: three flight-software tasks - guiding a drone to a target (strike rate), dropping a payload on a target (landed within 5 m), flying without GPS (median final distance).",
+   "outlet": "Anthropic (Frontier Red Team)",
+   "date": "2026-09-10",
+   "url": "https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities",
+   "caption": "Official Anthropic bar chart comparing Sonnet 5, Opus 5, Mythos Preview, Mythos 5 and Kimi K3 on simulated drone-weapon software tasks",
+   "quality": 4,
+   "verified": true,
+   "notes": "Anthropic: 'on current Ukrainian FPV drones, the operator locks the target and onboard machine vision and control flies the last few hundred meters. Our evaluation reproduces that hand-over in a simulated environment.' Second chart: anthropic-frt-drone-strike-rates.png (Opus 5 hits 80% strike rate on parked hi-vis target; hardest camo settings unsolved)."
+  },
+  {
+   "id": "anthropic-frt-drone-strike-rates-chart",
+   "slide_topic": "AI and The Military",
+   "type": "chart",
+   "file": "anthropic-frt-drone-strike-rates.png",
+   "headline": "Guiding a drone to a target",
+   "dek": "Strike rate — higher is better · settings ordered easiest to hardest",
+   "outlet": "Anthropic (Frontier Red Team)",
+   "date": "2026-09-10",
+   "url": "https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities",
+   "caption": "Strike rates by difficulty: Opus 5 80% on parked hi-vis target, falling to ~0% on camouflaged evasive targets",
+   "quality": 3,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "euronews-ai-nuclear-wargames",
+   "slide_topic": "AI and The Military",
+   "type": "headline",
+   "file": "euronews-ai-nuclear-wargames.png",
+   "headline": "AI chatbots chose nuclear escalation in 95% of simulated war games, study finds",
+   "dek": "",
+   "outlet": "Euronews",
+   "date": "2026-02-27",
+   "url": "https://www.euronews.com/2026/02/27/ai-chatbots-chose-nuclear-escalation-in-95-of-simulated-war-games-study-finds",
+   "caption": "Euronews headline crop (hero image failed to load, so cropped to headline only)",
+   "quality": 4,
+   "verified": true,
+   "notes": "Underlying paper: Kenneth Payne (King's College London), 'AI Arms and Influence: Frontier Models Exhibit Sophisticated Reasoning in Simulated Nuclear Crises', arXiv:2602.14740 (2026-02-16), models GPT-5.2, Claude Sonnet 4, Gemini 3 Flash. Abstract (verified): 'the nuclear taboo is no impediment to nuclear escalation by our models ... no model ever chose accommodation or withdrawal even when under acute pressure'. Serves the 'nuclear command and AI' item."
+  },
+  {
+   "id": "trump-high-iq-truth-post",
+   "slide_topic": "Geopolitical Rivalry",
+   "type": "screenshot",
+   "file": "trumpstruth-high-iq-post.png",
+   "headline": "Donald J. Trump @realDonaldTrump · September 14, 2026, 9:58 AM",
+   "dek": "The only control or “guardrails” that AI needs is a STRONG AND SMART (High IQ!) PRESIDENT, and the U.S.A. has that, in spades! The Trump Administration has stopped AI “people” from doing bad, or potentially bad, “things,“ like Dario (Anthropic!), who is now pretending to be a “perfect little angel” - and we will continue to do so! We already have tremendous CRIMINAL and REGULATORY power over these companies! There is a SICK conspiracy going on against AI and Data Centers, and the only one that is happy about it is China. WHOEVER WINS AI, WINS! We are leading China, and all others, and will continue to do so. Conspiracy Theorists, Treasonists, Traitors, and Leakers, BEWARE! Thank you for your attention to this matter! President DONALD J. TRUMP",
+   "outlet": "Truth Social (archived by Trump's Truth / trumpstruth.org)",
+   "author": "Donald J. Trump",
+   "date": "2026-09-14",
+   "url": "https://truthsocial.com/@realDonaldTrump/117269745153543631",
+   "caption": "Archive card of the full Truth Social post (exact text); avatar image failed to load and shows alt text 'Profile image for Donald J. Trump'",
+   "quality": 4,
+   "verified": true,
+   "notes": "truthsocial.com itself is behind a Cloudflare challenge (screenshot attempt blocked, deleted). Archive page: https://www.trumpstruth.org/statuses/41712 (status ID 117269745153543631). Context: posted in response to calls by Amodei, Altman and Musk for an internationally coordinated slowdown. Consider rendering a clean card from the verified text if the broken avatar is distracting, or crop off the header row."
+  },
+  {
+   "id": "cnn-trump-ai-hoax",
+   "slide_topic": "Geopolitical Rivalry",
+   "type": "headline",
+   "file": "cnn-trump-ai-hoax.png",
+   "headline": "Trump dismisses AI alarms as a ‘HOAX’ — worrying White House officials",
+   "dek": "President Donald Trump spent Monday angrily rejecting calls from AI industry leaders for more government regulation on their cutting-edge models, making clear in a daylong string of social media posts he considers outpacing China and preserving AI-driven economic gains a higher priority than addressing growing public concerns.",
+   "outlet": "CNN",
+   "author": "Kevin Liptak",
+   "date": "2026-09-14",
+   "url": "https://www.cnn.com/2026/09/14/politics/trump-vance-ai-alarms",
+   "caption": "CNN headline, byline and photo of Trump in a USA cap at the Irish Open",
+   "quality": 5,
+   "verified": true,
+   "notes": "Page <title> is 'Trump suggests AI needs a ’STRONG AND SMART’ president'. Quotes the High-IQ post verbatim. Trump on phone to Jensen Huang: “The robots will not be taking over. The AI will not be taking over the rest of the world. The whole thing is a hoax.” CBS headline (text only): 'Trump dismisses push for AI regulation despite warnings from tech leaders' (Kathryn Watson, 2026-09-14). NBC (text only): 'Trump says AI doesn't need guardrails, calls growing concerns 'a hoax'' (Megan Brand, 2026-09-14)."
+  },
+  {
+   "id": "npr-ai-preemption-eo",
+   "slide_topic": "Geopolitical Rivalry",
+   "type": "headline",
+   "file": "npr-ai-preemption-eo.png",
+   "headline": "Trump is trying to preempt state AI laws via an executive order. It may not be legal",
+   "dek": "The Trump administration is seeking to challenge state laws regulating the artificial intelligence industry, according to an executive order the president ...",
+   "outlet": "NPR",
+   "author": "Huo Jingnan",
+   "date": "2025-12-11",
+   "url": "https://www.npr.org/2025/12/11/nx-s1-5638562/trump-ai-david-sacks-executive-order",
+   "caption": "NPR headline, date, byline and photo of Ted Cruz speaking as Trump and Lutnick listen at the Oval Office EO signing",
+   "quality": 5,
+   "verified": true,
+   "notes": "EO title: 'Ensuring a National Policy Framework for Artificial Intelligence' (signed Dec 11, 2025); creates DOJ 'AI Litigation Task Force' to challenge state AI laws."
+  },
+  {
+   "id": "pbs-us-china-ai-channel",
+   "slide_topic": "Geopolitical Rivalry",
+   "type": "headline",
+   "file": "pbs-us-china-ai-channel.png",
+   "headline": "China and U.S. agree to establish AI safety channel and continue trade and military talks",
+   "dek": "BANGKOK (AP) — China and the United States agreed to establish a channel for handling AI-related incidents and accelerate work on military crisis communications following a three-day summit between President Xi Jinping and President Donald Trump in Washington, the two governments said Saturday.",
+   "outlet": "PBS News (Associated Press)",
+   "author": "Huizhong Wu",
+   "date": "2026-09-26",
+   "url": "https://www.pbs.org/newshour/world/china-and-u-s-agree-to-establish-ai-safety-channel-and-continue-trade-and-military-talks",
+   "caption": "PBS/AP headline with Reuters photo of Trump and Xi shaking hands on a red carpet, Sept 25, 2026",
+   "quality": 5,
+   "verified": true,
+   "notes": "Trump quoted: “We're leading by at least a year, maybe a year and a half. Some people say two years. I'm not looking to open it up.” White House named it the 'U.S.-China Super Intelligence (SI) Dialogue' (per search summaries of Axios/UPI; not page-verified)."
+  },
+  {
+   "id": "register-h200-china",
+   "slide_topic": "Geopolitical Rivalry",
+   "type": "headline",
+   "file": "register-h200-china.png",
+   "headline": "Trump says Nvidia can sell H200s to China – if Washington gets a 25 percent cut",
+   "dek": "Blackwell and Rubin kit remain off limits",
+   "outlet": "The Register",
+   "author": "Simon Sharwood",
+   "date": "2025-12-09",
+   "url": "https://www.theregister.com/on-prem/2025/12/09/trump-says-nvidia-can-sell-h200s-to-china/2020308",
+   "caption": "The Register headline, standfirst, byline, and lede quoting Trump's Truth Social post",
+   "quality": 4,
+   "verified": true,
+   "notes": "Trump: “I have informed President Xi, of China, that the United States will allow NVIDIA to ship its H200 products to approved customers in China, and other Countries, under conditions that allow for continued strong National Security.”"
+  },
+  {
+   "id": "toms-deepseek-nvidia",
+   "slide_topic": "Geopolitical Rivalry",
+   "type": "headline",
+   "file": "toms-deepseek-nvidia.png",
+   "headline": "Nvidia loses $589 billion in market cap — broad stock plunge triggered by DeepSeek AI release",
+   "dek": "DeepSeek delivers the same performance for 11 times less hardware cost.",
+   "outlet": "Tom's Hardware",
+   "author": "Jowi Morales",
+   "date": "2025-01-28",
+   "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-loses-usd589-billion-in-market-cap-broad-stock-plunge-triggered-by-deepseek-ai-release",
+   "caption": "Tom's Hardware headline, byline, dek and photo of Nvidia HQ",
+   "quality": 4,
+   "verified": true,
+   "notes": "The 'DeepSeek moment' (Jan 27, 2025). Forbes/Bloomberg versions blocked headless browser."
+  },
+  {
+   "id": "digitimes-huawei-ascend",
+   "slide_topic": "Geopolitical Rivalry",
+   "type": "headline",
+   "file": "digitimes-huawei-ascend.png",
+   "headline": "Ascend now ahead of Nvidia in China, with domestic supply driving AI chip substitution, says Huawei chairman",
+   "dek": "",
+   "outlet": "DigiTimes",
+   "author": "Ariel Lee, Taipei",
+   "date": "2026-10-01",
+   "url": "https://www.digitimes.com/newsshow/article.asp?datePublish=2026/10/01&pages=pd&seq=232",
+   "caption": "DigiTimes headline and byline",
+   "quality": 3,
+   "verified": true,
+   "notes": "Shows export controls accelerating China's chip self-sufficiency."
+  },
+  {
+   "id": "anthropic-threat-report-sep2026-cover",
+   "slide_topic": "Use by Bad Actors",
+   "type": "screenshot",
+   "file": "anthropic-threat-report-sep2026-cover.png",
+   "headline": "Detecting and countering misuse of AI: September 2026",
+   "dek": "Published September 10, 2026",
+   "outlet": "Anthropic (Threat Intelligence)",
+   "date": "2026-09-10",
+   "url": "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf",
+   "caption": "Cover of Anthropic's 154-page September 2026 threat report",
+   "quality": 4,
+   "verified": true,
+   "notes": "Web version: https://www.anthropic.com/threat-intelligence-report-september-2026 . Covers Dec 2025-Aug 2026 across cyber, influence ops, surveillance, scams, biological misuse, conventional weapons, distillation."
+  },
+  {
+   "id": "anthropic-yemen-gtg87001-summary",
+   "slide_topic": "Use by Bad Actors",
+   "type": "quote",
+   "file": "anthropic-yemen-gtg87001-summary.png",
+   "headline": "GTG-87001: Disrupting a Yemen-based guided weapons engineering cell using Claude to develop guidance software",
+   "dek": "We identified a cell of threat actors based in northern Yemen running three weapons development programs: a guided rocket that used a commodity phone-class flight computer with final-phase homing guidance; a multi-stage ballistic missile with a stated range goal above 2,000 km; and a multi-variant missile (referred to as the “R2000” set) that included a hypersonic glide vehicle variant.",
+   "outlet": "Anthropic Threat Intelligence report (p.112)",
+   "date": "2026-09-10",
+   "url": "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf",
+   "caption": "Crop of report page 112: case title and summary",
+   "quality": 5,
+   "verified": true,
+   "notes": "CORRECTION to outline: not an ICBM. Report says multi-stage ballistic missile with range goal >2,000 km (its table calls the variants 'Medium- and intermediate-range and hypersonic-glide'). Anthropic says 'northern Yemen' and does not name the Houthis; media (FT via Middle East Eye) note the area is largely Houthi-controlled. No 'logs' are published - the report gives narrative + a systems-engineering diagram, not chat transcripts."
+  },
+  {
+   "id": "anthropic-yemen-gtg87001-detail",
+   "slide_topic": "Use by Bad Actors",
+   "type": "quote",
+   "file": "anthropic-yemen-gtg87001-detail.png",
+   "headline": "GTG-87001 (continued)",
+   "dek": "The actors used Claude Code in place of human software engineers to develop the guidance, navigation, and control (GNC) software that steers and stabilizes a flying vehicle. ... Our safeguards blocked many of their requests, but not all of them. ... We do not have evidence the actors succeeded in fielding an operational device; but they did test-fire a guided rocket. This field test appears to have failed: within hours, the actors returned to Claude to work out why it failed.",
+   "outlet": "Anthropic Threat Intelligence report (p.113)",
+   "date": "2026-09-10",
+   "url": "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf",
+   "caption": "Crop of report page 113: Claude Code as the cell's engineering team, safeguards partly evaded, failed rocket test",
+   "quality": 5,
+   "verified": true,
+   "notes": "The 'unsuccessful attempts' in the outline = the failed guided-rocket test-fire. Actors ran several Claude instances as a mini engineering team (coder, researcher, reviewer) and split work across sessions to hide intent; they also built an offline simulation toolkit that no longer needs Claude."
+  },
+  {
+   "id": "anthropic-yemen-gtg87001-figure",
+   "slide_topic": "Use by Bad Actors",
+   "type": "image",
+   "file": "anthropic-yemen-gtg87001-figure.png",
+   "headline": "Case 1: Development - Guided-weapons engineering cell on the systems development lifecycle",
+   "dek": "Figure 1. The systems engineering V for the GNC cell ... Tactical guided rocket: A live field test in Yemen, brought back to Claude for failure analysis within hours. Ballistic missile simulation: Medium- and intermediate-range and hypersonic-glide variants.",
+   "outlet": "Anthropic Threat Intelligence report (p.114)",
+   "date": "2026-09-10",
+   "url": "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf",
+   "caption": "Official figure: systems-engineering V showing how far Claude carried each of the three Yemeni weapons programs (rocket reached flight test), plus summary table",
+   "quality": 5,
+   "verified": true,
+   "notes": "Rendered at 250 dpi from the PDF."
+  },
+  {
+   "id": "mee-houthis-claude",
+   "slide_topic": "Use by Bad Actors",
+   "type": "headline",
+   "file": "mee-houthis-claude.png",
+   "headline": "Houthis used Anthropic AI to develop ballistic missile software, says report",
+   "dek": "A Yemen-based threat actor cell attempted to use Anthropic's Claude AI model to create guidance, navigation, and control software for ballistic missiles, according to a US artificial intelligence company's intelligence threat report.",
+   "outlet": "Middle East Eye",
+   "date": "2026-09-11",
+   "url": "https://www.middleeasteye.net/live-blog/live-blog-update/houthis-used-anthropic-ai-develop-ballistic-missile-software-says-report",
+   "caption": "Middle East Eye headline with photo of a displaced Yemeni family outside a tent",
+   "quality": 4,
+   "verified": true,
+   "notes": "Cites the Financial Times' original report."
+  },
+  {
+   "id": "anthropic-gtg1002-headline",
+   "slide_topic": "Use by Bad Actors",
+   "type": "headline",
+   "file": "anthropic-gtg1002-headline.png",
+   "headline": "Disrupting the first reported AI-orchestrated cyber espionage campaign",
+   "dek": "The threat actor—whom we assess with high confidence was a Chinese state-sponsored group—manipulated our Claude Code tool into attempting infiltration into roughly thirty global targets and succeeded in a small number of cases.",
+   "outlet": "Anthropic",
+   "date": "2025-11-13",
+   "url": "https://www.anthropic.com/news/disrupting-AI-espionage",
+   "caption": "Anthropic blog headline and date (GTG-1002)",
+   "quality": 4,
+   "verified": true,
+   "notes": "'the threat actor was able to use AI to perform 80-90% of the campaign, with human intervention required only sporadically (perhaps 4-6 critical decision points per hacking campaign)'. Diagram: anthropic-gtg1002-attack-lifecycle.png. (Security group may also use this.)"
+  },
+  {
+   "id": "anthropic-gtg1002-lifecycle-diagram",
+   "slide_topic": "Use by Bad Actors",
+   "type": "image",
+   "file": "anthropic-gtg1002-attack-lifecycle.png",
+   "headline": "The lifecycle of the cyberattack",
+   "dek": "The lifecycle of the cyberattack, showing the move from human-led targeting to largely AI-driven attacks using various tools (often via the Model Context Protocol; MCP).",
+   "outlet": "Anthropic",
+   "date": "2025-11-13",
+   "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/b0d38712e4f7b8002bb3a2734ceeb33f34817a43-2755x2050.png",
+   "caption": "Official Anthropic diagram (2755x2050) of the GTG-1002 attack phases: human picks target, Claude Code runs recon, exploitation, exfiltration",
+   "quality": 4,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "anthropic-aug2025-misuse-headline",
+   "slide_topic": "Use by Bad Actors",
+   "type": "headline",
+   "file": "anthropic-aug2025-misuse-headline.png",
+   "headline": "Detecting and countering misuse of AI: August 2025",
+   "dek": "Our Threat Intelligence report discusses several recent examples of Claude being misused, including a large-scale extortion operation using Claude Code, a fraudulent employment scheme from North Korea, and the sale of AI-generated ransomware by a cybercriminal with only basic coding skills.",
+   "outlet": "Anthropic",
+   "date": "2025-08-27",
+   "url": "https://www.anthropic.com/news/detecting-countering-misuse-aug-2025",
+   "caption": "Anthropic blog headline and date",
+   "quality": 3,
+   "verified": true,
+   "notes": "'Vibe hacking': actor targeted at least 17 organizations (healthcare, emergency services, government, religious institutions), ransoms sometimes exceeding $500,000. North Korea: operatives used Claude to get and keep remote jobs at US Fortune 500 tech companies; 'Operators who cannot otherwise write basic code or communicate professionally in English are now able to pass technical interviews'."
+  },
+  {
+   "id": "securebio-vct-results",
+   "slide_topic": "Use by Bad Actors",
+   "type": "screenshot",
+   "file": "securebio-vct-results.png",
+   "headline": "Virology Capabilities Test",
+   "dek": "VCT is difficult: expert virologists with access to the internet score an average of 22.1% on questions specifically in their sub-areas of expertise. However, the most performant LLM, OpenAI’s o3, reaches 43.8% accuracy and even outperforms 94% of expert virologists when compared directly on question subsets specifically tailored to the experts’ specialties.",
+   "outlet": "SecureBio / Center for AI Safety",
+   "date": "2025-04-21",
+   "url": "https://securebio.org/virologytest/",
+   "caption": "VCT site with results table: o3 43.8% (94th percentile of experts) vs expert virologists 22.1%",
+   "quality": 4,
+   "verified": true,
+   "notes": "Paper: arXiv:2504.16137 (Götting et al., incl. Dan Hendrycks). TIME's exclusive on this (time.com/7279010) blocked the headless browser. Numbers also in datasets."
+  },
+  {
+   "id": "anthropic-protein-blog",
+   "slide_topic": "AI-bio capability uplift / dual-use biology (2026)",
+   "type": "screenshot",
+   "file": "rev2/anthropic-protein-blog-top.png",
+   "headline": "How Claude is accelerating protein design and analytical chemistry",
+   "dek": "Claude (Mythos Preview and Opus 4.8) designed protein binders against 15 targets, and succeeded against 14 of them. Between 22% and 35% of its individual designs bound successfully, depending on the setup, compared to the 10-15% that is typical in protein design campaigns today.",
+   "outlet": "Anthropic (Research)",
+   "date": "2026-08-18",
+   "url": "https://www.anthropic.com/research/Claude-accelerates-protein-design",
+   "caption": "Anthropic research blog: title, Aug 18 2026 date, and full italic summary with the 14/15 targets and 22-35% hit-rate numbers (verbatim, legible)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Company-reported (self-reported) result; independently wet-lab validated by two CROs (Adaptyv Bio, Twist Bioscience). Summary also states Claude Opus 5 did NMR and LC-MS analysis in 23 and 19 minutes (purity 96.4% vs lab 96.33%).",
+   "research_task": "rev2/protein"
+  },
+  {
+   "id": "dataconomy-protein-headline",
+   "slide_topic": "AI-bio capability uplift (news framing)",
+   "type": "headline",
+   "file": "rev2/dataconomy-protein-headline.png",
+   "headline": "Anthropic says Claude designed protein binders for 14 of 15 targets",
+   "dek": "Anthropic said its Claude AI models designed protein binders that succeeded against 14 of 15 targets in wet-lab testing. The company said the campaign produced 354 confirmed binders from 1,320 designs across 15 targets, in what it described as an autonomous protein design effort without human scientific guidance during execution.",
+   "outlet": "Dataconomy",
+   "author": "Aytun Celebi",
+   "date": "2026-08-20",
+   "url": "https://dataconomy.com/2026/08/20/claude-ai-protein-binders-14-of-15-targets/",
+   "caption": "Dataconomy article: outlet logo, headline, byline (Aytun Celebi, August 20, 2026) and lede paragraphs citing 354/1,320 and the 26.7%/22.6% and 35.1% hit rates",
+   "quality": 5,
+   "verified": true,
+   "notes": "Clean real-news screenshot with outlet branding and date. Headline copied verbatim from the page.",
+   "research_task": "rev2/protein"
+  },
+  {
+   "id": "adaptyv-casestudy",
+   "slide_topic": "Independent wet-lab validation / agentic science loop",
+   "type": "screenshot",
+   "file": "rev2/adaptyv-casestudy.png",
+   "headline": "Case study: Benchmarking Claude's protein designs in the wet lab",
+   "dek": "Out of 1,320 designs, 354 bound their target, giving Claude an average hit rate of 26.8%. Only a single target yielded 0 binders. Compared to the results of our Protein Design Competitions, Claude's designs had noticeably higher success rates and would have won 5 out 6, yielding tighter binders.",
+   "outlet": "Adaptyv Bio",
+   "date": "2026-08-20",
+   "url": "https://www.adaptyvbio.com/blog/anthropic-1",
+   "caption": "Adaptyv Bio (the independent CRO that physically made and measured the designs): title, Aug 20 2026, agentic-science-loop hero illustration, and a verbatim TL;DR with the 26.8% hit rate",
+   "quality": 5,
+   "verified": true,
+   "notes": "Third-party corroboration from the testing lab. Verbatim quote from Adaptyv: 'Claude seems to have matched or even surpassed expert protein designers when it orchestrates openly available design tools.' Note Adaptyv counts 16 targets (the 16th, mature GDF-8, gave no interpretable readout, leaving 15 analyzed).",
+   "research_task": "rev2/protein"
+  },
+  {
+   "id": "protein-fig1-hitrate-by-target",
+   "slide_topic": "AI-bio capability uplift (data figure)",
+   "type": "chart",
+   "file": "rev2/protein-fig1-hitrate-by-target.png",
+   "headline": "Figure 1. Claude designed binders against 14 of 15 targets.",
+   "dek": "Hit rate of each campaign on each target; the shaded 'All targets (pooled)' column shows 88/390 (Opus 4.8 multi-target), 104/390 (Mythos Preview multi-target) and 158/450 (Mythos Preview single-target).",
+   "outlet": "Anthropic / Claude Science (technical report)",
+   "author": "Claude Science; Amir Shanehsazzadeh",
+   "date": "2026-08-18",
+   "url": "https://www-cdn.anthropic.com/30bf50e22a01388bb29bf077ee3f244531594b7a.pdf",
+   "caption": "Per-target hit-rate bar chart from the Anthropic technical report (page 10), with pooled-across-targets bars and full caption; cropped from the PDF, no pixels altered",
+   "quality": 5,
+   "verified": true,
+   "notes": "Figure 1 of 'Autonomous de novo protein binder design with Claude' (arXiv-style technical report). Shows TREM2 best (72/90), MBP worst (0/90). Dataset released at huggingface.co/datasets/Anthropic/claude-protein-binder-design.",
+   "research_task": "rev2/protein"
+  },
+  {
+   "id": "protein-assay-schematic",
+   "slide_topic": "How the designs were validated (wet lab)",
+   "type": "image",
+   "file": "rev2/protein-assay-schematic.png",
+   "headline": "Experimental validation by two independent CROs",
+   "dek": "Adaptyv Bio (cell-free expression, SPR/BLI) and Twist Bioscience (design-Fc fusions in HEK293, SPR array) each synthesized every design as delivered and measured binding.",
+   "outlet": "Anthropic / Claude Science (technical report)",
+   "date": "2026-08-18",
+   "url": "https://www-cdn.anthropic.com/30bf50e22a01388bb29bf077ee3f244531594b7a.pdf",
+   "caption": "Figure M3 panel A: the two independent CRO assay formats used to confirm Claude's designs, cropped from the report (page 8)",
+   "quality": 4,
+   "verified": true,
+   "notes": "Supports the 'real wet-lab validation, not just in silico' point. SPR = surface plasmon resonance; BLI = bio-layer interferometry.",
+   "research_task": "rev2/protein"
+  },
+  {
+   "id": "openai-rosalind-intro-highcap",
+   "slide_topic": "Frontier bio models crossing safety thresholds (2026)",
+   "type": "screenshot",
+   "file": "rev2/openai-rosalind-intro-highcap.png",
+   "headline": "GPT-Rosalind-5.5 System Card - Introduction",
+   "dek": "Under our Preparedness Framework, the Preparedness evaluations in the Biological and Chemical domain met our threshold for High capability while falling below the threshold for Critical. ... Unlike GPT-5.5, it is trained not to refuse sophisticated biology queries, and leverages a trusted access and responsible deployment structure as the primary safeguard.",
+   "outlet": "OpenAI",
+   "date": "2026-06-03",
+   "url": "https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf",
+   "caption": "OpenAI GPT-Rosalind-5.5 System Card, Introduction page: states the model met the 'High' Biological/Chemical capability threshold and is trained not to refuse sophisticated biology queries (deployed only to vetted scientists/govt partners)",
+   "quality": 5,
+   "verified": true,
+   "notes": "A purpose-built frontier biology model. Primary document. Dated June 3 2026 on the cover; a change-log note dated Aug 19 2026 corrects a protein-binding score. This is a striking AI-safety slide: a lab explicitly classifying a model as 'High' bio capability and removing bio refusals, relying on access control as the safeguard.",
+   "research_task": "rev2/protein"
+  },
+  {
+   "id": "openai-rosalind-bench-tables",
+   "slide_topic": "Updated 2026 bio-eval benchmark numbers",
+   "type": "screenshot",
+   "file": "rev2/openai-rosalind-bench-tables.png",
+   "headline": "Overview of Biological and Chemical evaluations (Preparedness)",
+   "dek": "ProtocolQA Open-Ended pass@1: GPT-Rosalind-5.5 36.4%, GPT-5.5 37.3%, GPT-5.5 Pro 36.73% (open-ended rewrite of 108 FutureHouse ProtocolQA questions).",
+   "outlet": "OpenAI",
+   "date": "2026-06-03",
+   "url": "https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf",
+   "caption": "System card page showing the Preparedness biology eval overview table plus the ProtocolQA Open-Ended results table; clean primary-document screenshot",
+   "quality": 4,
+   "verified": true,
+   "notes": "Other tables in the card: TroubleshootingBench pass@1 53.31% (vs GPT-5.5 44.1%); Biorisk knowledge cons@32 81.1%; Multi-select Virology Troubleshooting pass@1 51.2% (vs GPT-5.5 53.7%, GPT-5.5 Pro 55.34%).",
+   "research_task": "rev2/protein"
+  },
+  {
+   "id": "forbes-protein-headline-text",
+   "slide_topic": "AI-bio capability uplift (news framing)",
+   "type": "headline",
+   "file": null,
+   "headline": "Claude Designed Proteins That Worked Against 14 Of 15 Disease Targets",
+   "dek": "Claude Science, launched by Anthropic on June 30, 2026, is an AI workbench designed to support computational research, including genomics and drug discovery, through a coordinating AI agent.",
+   "outlet": "Forbes",
+   "author": "Jon Markman",
+   "date": "2026-08-23",
+   "url": "https://www.forbes.com/sites/jonmarkman/2026/08/23/claude-designed-proteins-that-worked-against-14-of-15-disease-targets/",
+   "caption": "Forbes headline (credible outlet); render a neutral citation card from this text",
+   "quality": 4,
+   "verified": true,
+   "notes": "Forbes blocked the headless browser ('Access is temporarily restricted'), so no screenshot. Headline and dek verified via WebSearch result snippet. Use headlineCard().",
+   "research_task": "rev2/protein"
+  },
+  {
+   "id": "techtimes-protein-headline-text",
+   "slide_topic": "AI-bio capability uplift (news framing)",
+   "type": "headline",
+   "file": null,
+   "headline": "Claude Runs Autonomous Protein Design Campaign: Wet Lab Confirms Twice Industry Hit Rate",
+   "dek": "Anthropic's Claude autonomously ran protein binder campaigns against 15 drug-relevant targets, producing confirmed binders at 22-35% hit rates versus the 10-15% industry norm.",
+   "outlet": "Tech Times",
+   "date": "2026-08-20",
+   "url": "https://www.techtimes.com/articles/325081/20260820/claude-runs-autonomous-protein-design-campaign-wet-lab-confirms-twice-industry-hit-rate.htm",
+   "caption": "Tech Times headline emphasizing 'twice the industry hit rate'; render as citation card",
+   "quality": 3,
+   "verified": true,
+   "notes": "Headline verified via WebSearch. Not screenshotted (second-tier outlet; use as a citation card only if more sources are needed).",
+   "research_task": "rev2/protein"
+  },
+  {
+   "id": "anthropic-protein-binders-video",
+   "slide_topic": "Claude autonomous protein design (hero clip)",
+   "type": "video",
+   "file": "rev2/anthropic-protein-binders.mp4",
+   "headline": "How Claude is accelerating protein design and analytical chemistry",
+   "dek": "Nine experimentally confirmed de novo protein binders designed by Claude — design models shown with their targets, then on their own",
+   "outlet": "Anthropic (Research)",
+   "date": "2026-08-18",
+   "url": "https://cdn.sanity.io/files/4zrzovbb/website/f1cac668de7e745f21779defa22b4d112eae5e0c.mp4",
+   "caption": "Hero mp4 (11 s, 1920x1080) from the top of Anthropic's post: nine lab-confirmed Claude binders on their targets (grey), then alone, arranged to spell ANTHROPIC; each labelled with target and K_D (e.g. Nipah G 53 nM, TREM2 4 nM). Caption text is Anthropic's own (last frames).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Embedded in https://www.anthropic.com/research/Claude-accelerates-protein-design (downloaded directly from the page's media URL). Derived looping GIF: assets/slides/geopolitics/protein-binders.gif (loop starts at t=1.0 s; trim/scale/re-encode only)."
+  },
+  {
+   "id": "anthropic-protein-fig1-blog",
+   "slide_topic": "Claude protein design (per-target hit rates)",
+   "type": "chart",
+   "file": "rev2/anthropic-protein-fig1-blog.jpg",
+   "headline": "Figure 1. Claude designed binders against 14 of 15 targets.",
+   "outlet": "Anthropic (Research)",
+   "date": "2026-08-18",
+   "url": "https://cdn.sanity.io/images/4zrzovbb/website/d75b1cc758dafce8709fb4028df60db220055c92-2048x1672.jpg",
+   "caption": "2048-px blog version of the report's Figure 1 (hit rate per target per campaign; pooled 88/390, 104/390, 158/450). Higher resolution than the PDF crop protein-fig1-hitrate-by-target.png.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Blog caption: 'Mythos Preview and Opus 4.8 achieve hit rates over 20% across a set of 15 targets, with target-level hit rates ranging from as high as 90% to as low as 0%.' https://www.anthropic.com/research/Claude-accelerates-protein-design"
+  },
+  {
+   "id": "anthropic-protein-rbx1-fig",
+   "slide_topic": "Claude vs open design competition (RBX1)",
+   "type": "chart",
+   "file": "rev2/anthropic-protein-rbx1-fig.jpg",
+   "headline": "Claude designs binders against RBX1 with state-of-the-art affinity, and routinely surpasses hit rates recorded in Adaptyv Bio's protein design competitions.",
+   "outlet": "Anthropic (Research)",
+   "date": "2026-08-18",
+   "url": "https://cdn.sanity.io/images/4zrzovbb/website/e8b783d32450994ed6ae2e9a39e00273012fe128-2048x1840.jpg",
+   "caption": "Report Fig. 5: RBX1 sensorgrams (Claude rank-1 K_D 3.9 nM vs competition winner 45 nM on the same plate) + hit rates / best affinities vs Adaptyv competition entries.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Blog text: 'Mythos Preview in single-target mode achieved a 40% hit rate, compared to a 3.7% hit rate among participants.' Report: results of four of the six competitions were available to Claude during design."
+  },
+  {
+   "id": "openai-rosalind-card-pages-300dpi",
+   "slide_topic": "OpenAI GPT-Rosalind-5.5: High bio capability, no-refusal training, access as primary safeguard",
+   "type": "screenshot",
+   "file": "rev2/openai-rosalind-pdfp3-300dpi.png",
+   "headline": "GPT-Rosalind-5.5 System Card (OpenAI, June 3, 2026)",
+   "dek": "p. 2: 'the Preparedness evaluations in the Biological and Chemical domain met our threshold for High capability while falling below the threshold for Critical.' / 'Unlike GPT-5.5, it is trained not to refuse sophisticated biology queries, and leverages a trusted access and responsible deployment structure as the primary safeguard.' p. 8 (rev2/openai-rosalind-pdfp9-300dpi.png): 'Unlike our safeguards posture for our more broadly distributed flagship models, in this case we are not deploying automated monitors for real-time blocking of potentially unsafe generations.'",
+   "outlet": "OpenAI",
+   "date": "2026-06-03",
+   "url": "https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf",
+   "caption": "300-dpi renders of PDF pages 1, 3 (printed p. 2) and 9 (printed p. 8) of the system card, for crisp crops; crops in assets/slides/geopolitics/rosalind-*.png (highlights drawn as native shapes).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Also on p. 4: 'As we did for GPT-5.5, we are treating this launch as High capability in the Biological and Chemical domain.' p. 8-9: 'Like GPT-5.5, GPT-Rosalind-5.5 is trained to refuse malicious requests that would meaningfully enable biological weaponization.' No human expert baselines are reported for the bio evals."
+  }
+ ],
+ "datasets": [
+  {
+   "id": "vct-model-vs-virologists",
+   "title": "Virology Capabilities Test: AI models vs expert virologists",
+   "unit": "% accuracy",
+   "labels": [
+    "o3",
+    "Gemini 2.5 Pro",
+    "o4-mini",
+    "o1",
+    "Claude 3.7 Sonnet",
+    "GPT-4.5 Preview",
+    "GPT-4o",
+    "Expert virologists"
+   ],
+   "series": [
     {
-      "id": "grok-venezuela-techcrunch",
-      "slide_topic": "AI and The Military",
-      "type": "headline",
-      "file": "grok-venezuela-techcrunch.png",
-      "headline": "Musk’s AI chatbot Grok reportedly encouraged Trump to capture Venezuela’s president",
-      "dek": "In December 2025, about a month before the U.S. invaded Venezuela and captured its president, Nicolás Maduro, President Trump had a secret meeting with Elon Musk, Time magazine reports. ... During this meeting, Trump \"spent hours\" talking to Musk's Grok chatbot, including asking how Venezuelans would respond to the capture of their president, a source told Time.",
-      "outlet": "TechCrunch",
-      "author": "Dominic-Madori Davis",
-      "date": "2026-10-01",
-      "url": "https://techcrunch.com/2026/10/01/musks-ai-chatbot-grok-reportedly-encouraged-trump-to-capture-venezuelas-president/",
-      "caption": "TechCrunch 'In Brief' page: photo of Trump waving under an 'America' sign, byline, headline below the photo",
-      "quality": 5,
-      "verified": true,
-      "notes": "This is the user's own headline. Grok reportedly told Trump Maduro was a \"deeply unpopular dictator and that many Venezuelans would likely celebrate his downfall\"; Trump \"came away thinking Grok was ingenious\" (per Time, via TechCrunch)."
+     "name": "Accuracy (%)",
+     "values": [
+      43.8,
+      37.6,
+      37.0,
+      35.4,
+      30.8,
+      28.3,
+      18.8,
+      22.1
+     ]
     },
     {
-      "id": "grok-maduro-euronews",
-      "slide_topic": "AI and The Military",
-      "type": "headline",
-      "file": "euronews-grok-maduro.png",
-      "headline": "Did Trump order Maduro’s kidnapping based on Grok’s advice?",
-      "dek": "",
-      "outlet": "Euronews",
-      "date": "2026-10-02",
-      "url": "https://www.euronews.com/2026/10/02/did-trump-order-maduros-kidnapping-based-on-groks-advice",
-      "caption": "Euronews headline over AP photo of Trump and Elon Musk side by side",
-      "quality": 4,
-      "verified": true,
-      "notes": "Alternate/companion to the TechCrunch Grok item; strong photo of Trump + Musk."
-    },
-    {
-      "id": "cnn-ai-false-intel-china-ship",
-      "slide_topic": "AI and The Military",
-      "type": "headline",
-      "file": "cnn-ai-china-ship.png",
-      "headline": "Exclusive: US military had close call after using AI for false intelligence report, sources say",
-      "dek": "The intelligence report, circulated across the US military this spring in the midst of the war with Iran, immediately set off alarm bells: A Chinese ship in the Middle East was transporting components of a nuclear weapons program.",
-      "outlet": "CNN",
-      "author": "Katie Bo Lillis, Zachary Cohen",
-      "date": "2026-09-18",
-      "url": "https://www.cnn.com/2026/09/18/politics/us-military-ai-false-intelligence-china-ship",
-      "caption": "CNN headline, byline and photo of silhouetted US soldiers training with drones",
-      "quality": 5,
-      "verified": true,
-      "notes": "VERIFIED what happened: a SOCOM analyst used an AI chatbot on intel about a Chinese ship's manifest (reporting originated with US Special Operations Command Pacific); the bot fused OSINT with classified SIGINT and wrongly concluded the ship carried nuclear-weapons-program components; analyst used AI again to package it into a standard intel report. Armed US personnel were preparing to board; military planes were in the air; caught 'only just before the planned operation'. Source: report was “entirely false” but “almost started a war.” CNN could not learn what the misidentified cargo was, nor whether the chatbot was commercial or government. It was NOT a ship 'delivering nukes' - the claim was nuclear-weapons-program components, bound for/related to Iran during the 2026 Iran war."
-    },
-    {
-      "id": "gizmodo-almost-started-a-war",
-      "slide_topic": "AI and The Military",
-      "type": "headline",
-      "file": "gizmodo-almost-started-war.png",
-      "headline": "‘Almost Started a War’: US Military Nearly Boarded a Chinese Ship Based on Bad Intel From AI",
-      "dek": "One source told CNN that the \"hallucination\" was part of a trend in the U.S. military, not an isolated incident.",
-      "outlet": "Gizmodo",
-      "author": "Matt Novak",
-      "date": "2026-09-18",
-      "url": "https://gizmodo.com/almost-started-a-war-us-military-nearly-boarded-a-chinese-ship-based-on-bad-intel-from-ai-2000814290",
-      "caption": "Gizmodo headline with photo of a door gunner overlooking a tanker at sea",
-      "quality": 5,
-      "verified": true,
-      "notes": "Most dramatic headline for the China-ship hallucination story; photo caption says it shows US forces interdicting a sanctioned vessel (MT Davina) in the Indian Ocean, not the Chinese ship itself."
-    },
-    {
-      "id": "yahoo-hegseth-strategy-almost-war",
-      "slide_topic": "AI and The Military",
-      "type": "headline",
-      "file": "yahoo-hegseth-strategy-almost-war.png",
-      "headline": "Pete Hegseth's AI Strategy Almost Started War With China",
-      "dek": "Pete Hegseth's flawed artificial intelligence push nearly led the U.S. military into war with an Asian superpower, a bombshell new report has revealed.",
-      "outlet": "Yahoo News",
-      "author": "Julia Ornedo",
-      "date": "2026-09-18",
-      "url": "https://www.yahoo.com/news/politics/articles/pete-hegseths-ai-strategy-almost-220218803.html",
-      "caption": "Yahoo News headline + byline crop (text only)",
-      "quality": 4,
-      "verified": true,
-      "notes": "Nice bridge between the China-ship story and the Hegseth 'speed over alignment' memo."
-    },
-    {
-      "id": "hegseth-memo-speed-wins",
-      "slide_topic": "AI and The Military",
-      "type": "quote",
-      "file": "hegseth-memo-speed-wins.png",
-      "headline": "Artificial Intelligence Strategy for the Department of War - Accelerating America's Military AI Dominance",
-      "dek": "Speed Wins. We must internalize that Military AI is going to be a race for the foreseeable future, and therefore speed wins. We must weaponize learning speed, and measure and manage cycle time and adoption rates as decisive variables in the AI era. We must accept that the risks of not moving fast enough outweigh the risks of imperfect alignment.",
-      "outlet": "U.S. Department of War (Secretary of War memorandum)",
-      "author": "Pete Hegseth",
-      "date": "2026-01-09",
-      "url": "https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/artificial-intelligence-strategy-for-the-department-of-war.pdf",
-      "caption": "Crop of the official signed memo, page 4: 'Acceleration Expectations' and the 'Speed Wins' paragraph",
-      "quality": 5,
-      "verified": true,
-      "notes": "Rendered directly from the official PDF (saved as hegseth-ai-strategy-memo.pdf, 6 pages). This is the exact 'speed over alignment' line the outline asks for. Full page also saved as hegseth-memo-page4.png. Memo dated JAN - 9 2026, released Jan 12, 2026."
-    },
-    {
-      "id": "hegseth-memo-header",
-      "slide_topic": "AI and The Military",
-      "type": "screenshot",
-      "file": "hegseth-memo-header.png",
-      "headline": "SUBJECT: Artificial Intelligence Strategy for the Department of War",
-      "dek": "MEMORANDUM FOR SENIOR PENTAGON LEADERSHIP / COMMANDERS OF THE COMBATANT COMMANDS / DEFENSE AGENCY AND DOW FIELD ACTIVITY DIRECTORS ... Accelerating America's Military AI Dominance",
-      "outlet": "U.S. Department of War",
-      "author": "Pete Hegseth",
-      "date": "2026-01-09",
-      "url": "https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/artificial-intelligence-strategy-for-the-department-of-war.pdf",
-      "caption": "Letterhead of the memo: Department of War seal, 'SECRETARY OF WAR', JAN - 9 2026 stamp, subject line",
-      "quality": 5,
-      "verified": true,
-      "notes": "Pair with hegseth-memo-speed-wins.png for an authentic document look."
-    },
-    {
-      "id": "hegseth-memo-responsible-ai",
-      "slide_topic": "AI and The Military",
-      "type": "quote",
-      "file": "hegseth-memo-responsible-ai.png",
-      "headline": "Clarifying “Responsible AI” at the DoW — Out with Utopian Idealism, In with Hard-Nosed Realism.",
-      "dek": "Diversity, Equity, and Inclusion and social ideology have no place in the DoW, so we must not employ AI models which incorporate ideological “tuning” that interferes with their ability to provide objectively truthful responses to user prompts. The Department must also utilize models free from usage policy constraints that may limit lawful military applications. ... I direct the Under Secretary of War for Acquisition and Sustainment to incorporate standard “any lawful use” language into any DoW contract through which AI services are procured within 180 days.",
-      "outlet": "U.S. Department of War",
-      "author": "Pete Hegseth",
-      "date": "2026-01-09",
-      "url": "https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/artificial-intelligence-strategy-for-the-department-of-war.pdf",
-      "caption": "Crop of memo page 5: the 'Responsible AI' paragraph demanding models free from usage-policy constraints",
-      "quality": 5,
-      "verified": true,
-      "notes": "This 'any lawful use' clause is the root of the Anthropic-Pentagon dispute (Anthropic refused to drop its bans on mass domestic surveillance and fully autonomous weapons)."
-    },
-    {
-      "id": "defensescoop-accelerate-like-hell",
-      "slide_topic": "AI and The Military",
-      "type": "headline",
-      "file": "defensescoop-accelerate-like-hell.png",
-      "headline": "‘Accelerate like hell’: Hegseth moves to reshape DOD’s AI and tech hubs",
-      "dek": "Pete Hegseth’s speech and three accompanying memorandums released Monday reveal the Trump administration’s latest, fast-moving and multifaceted vision to overhaul the Pentagon's technology enterprise.",
-      "outlet": "DefenseScoop",
-      "author": "Brandi Vincent",
-      "date": "2026-01-13",
-      "url": "https://defensescoop.com/2026/01/13/hegseth-ai-tech-hubs-reorganization-dod-dow/",
-      "caption": "DefenseScoop headline, dek and byline",
-      "quality": 4,
-      "verified": true,
-      "notes": ""
-    },
-    {
-      "id": "defensescoop-frontier-ai-contracts",
-      "slide_topic": "AI and The Military",
-      "type": "headline",
-      "file": "defensescoop-pentagon-frontier-ai-contracts.png",
-      "headline": "Pentagon awards mega contracts to Musk-owned company, other firms for new ‘frontier AI’ projects",
-      "dek": "The Pentagon's Chief Digital and Artificial Intelligence Office has awarded contracts to xAI, OpenAI, Anthropic and Google for the new effort.",
-      "outlet": "DefenseScoop",
-      "author": "Mikayla Easley",
-      "date": "2025-07-14",
-      "url": "https://defensescoop.com/2025/07/14/pentagon-ai-contracts-musk-xai-google-openai-anthropic-cdao/",
-      "caption": "DefenseScoop headline, dek and byline",
-      "quality": 4,
-      "verified": true,
-      "notes": "Each contract worth up to $200 million (CBS confirms Anthropic's was $200M, awarded July 2025)."
-    },
-    {
-      "id": "intercept-ai-giants-pentagon",
-      "slide_topic": "AI and The Military",
-      "type": "headline",
-      "file": "intercept-ai-giants-pentagon.png",
-      "headline": "AI Giants Work Hand-in-Hand With the Pentagon, Contracts Reveal",
-      "dek": "The Intercept sued to obtain records that reveal an intimate relationship between the military and OpenAI, Anthropic, Google, and xAI.",
-      "outlet": "The Intercept",
-      "author": "Sam Biddle",
-      "date": "2026-09-08",
-      "url": "https://theintercept.com/2026/09/08/military-ai-weapons-contracts-openai-anthropic-google/",
-      "caption": "The Intercept headline, dek, byline, and photo of Pete Hegseth beside a drone",
-      "quality": 5,
-      "verified": true,
-      "notes": ""
-    },
-    {
-      "id": "cbs-hegseth-anthropic-supply-chain-risk",
-      "slide_topic": "AI and The Military",
-      "type": "headline",
-      "file": "cbs-hegseth-anthropic-supply-chain-risk.png",
-      "headline": "Hegseth declares Anthropic a supply chain risk, restricting military contractors from doing business with AI giant",
-      "dek": "Defense Secretary Pete Hegseth deemed artificial intelligence firm Anthropic a \"supply chain risk to national security\" on Friday, following days of increasingly heated public conflict over the company's effort to place guardrails on the Pentagon's use of its technology.",
-      "outlet": "CBS News",
-      "author": "Joe Walsh",
-      "date": "2026-02-28",
-      "url": "https://www.cbsnews.com/news/hegseth-declares-anthropic-supply-chain-risk/",
-      "caption": "CBS News headline, byline/date, lede, and video thumbnail of Hegseth",
-      "quality": 5,
-      "verified": true,
-      "notes": "Hegseth on X: \"America's warfighters will never be held hostage by the ideological whims of Big Tech. This decision is final.\" Trump ordered all federal agencies to \"immediately\" stop using Anthropic (6-month phase-out for DoD)."
-    },
-    {
-      "id": "techcrunch-pentagon-designate-anthropic",
-      "slide_topic": "AI and The Military",
-      "type": "headline",
-      "file": "techcrunch-pentagon-designate-anthropic.png",
-      "headline": "Pentagon moves to designate Anthropic as a supply-chain risk",
-      "dek": "In a post on Truth Social, President Trump directed federal agencies to cease use of all Anthropic products after the company’s public dispute with the Department of Defense.",
-      "outlet": "TechCrunch",
-      "author": "Russell Brandom",
-      "date": "2026-02-27",
-      "url": "https://techcrunch.com/2026/02/27/pentagon-moves-to-designate-anthropic-as-a-supply-chain-risk/",
-      "caption": "TechCrunch hero: close-up photo of Trump next to green headline panel",
-      "quality": 5,
-      "verified": true,
-      "notes": "Originally requested URL (.../president-trump-orders-federal-agencies-to-stop-using-anthropic-after-pentagon-dispute/) redirects to this headline."
-    },
-    {
-      "id": "anthropic-statement-hegseth",
-      "slide_topic": "AI and The Military",
-      "type": "screenshot",
-      "file": "anthropic-statement-hegseth.png",
-      "headline": "Statement on the comments from Secretary of War Pete Hegseth",
-      "dek": "We held to our exceptions for two reasons. First, we do not believe that today’s frontier AI models are reliable enough to be used in fully autonomous weapons. Allowing current models to be used in this way would endanger America’s warfighters and civilians. Second, we believe that mass domestic surveillance of Americans constitutes a violation of fundamental rights.",
-      "outlet": "Anthropic",
-      "date": "2026-02-27",
-      "url": "https://www.anthropic.com/news/statement-comments-secretary-war",
-      "caption": "Anthropic blog statement: headline, date and first four paragraphs explaining its two exceptions",
-      "quality": 5,
-      "verified": true,
-      "notes": "Also: \"No amount of intimidation or punishment from the Department of War will change our position on mass domestic surveillance or fully autonomous weapons. We will challenge any supply chain risk designation in court.\""
-    },
-    {
-      "id": "tnw-appeals-court-anthropic",
-      "slide_topic": "AI and The Military",
-      "type": "headline",
-      "file": "tnw-appeals-court-anthropic.png",
-      "headline": "US appeals court upholds Pentagon’s supply chain risk label on Anthropic",
-      "dek": "A US appeals court ruled 2-1 that the Pentagon lawfully labelled Anthropic a supply chain risk. Anthropic says it disagrees and is considering all options, after winning a parallel case in August.",
-      "outlet": "The Next Web",
-      "author": "Ana-Maria Stanciuc",
-      "date": "2026-09-25",
-      "url": "https://thenextweb.com/news/anthropic-pentagon-supply-chain-risk-appeals-court-ruling",
-      "caption": "TNW headline and dek",
-      "quality": 4,
-      "verified": true,
-      "notes": "DC Circuit; Judge Katsas wrote majority joined by Rao, Henderson dissented. CNBC ('U.S. appeals court upholds Pentagon designation of Anthropic as supply chain risk', 2026-09-25) and Washington Post covered it too but blocked headless browsers."
-    },
-    {
-      "id": "guardian-lavender",
-      "slide_topic": "AI and The Military",
-      "type": "headline",
-      "file": "guardian-lavender.png",
-      "headline": "‘The machine did it coldly’: Israel used AI to identify 37,000 Hamas targets",
-      "dek": "Israeli intelligence sources reveal use of ‘Lavender’ system in Gaza war and claim permission given to kill civilians in pursuit of low-ranking militants",
-      "outlet": "The Guardian",
-      "author": "Bethan McKernan, Harry Davies",
-      "date": "2024-04-03",
-      "url": "https://www.theguardian.com/world/2024/apr/03/israel-gaza-ai-database-hamas-airstrikes",
-      "caption": "Guardian headline, standfirst and photo of Palestinians searching rubble in al-Maghazi camp",
-      "quality": 5,
-      "verified": true,
-      "notes": "Based on +972 Magazine / Local Call investigation (972mag.com blocked by Cloudflare)."
-    },
-    {
-      "id": "guardian-gospel",
-      "slide_topic": "AI and The Military",
-      "type": "headline",
-      "file": "guardian-gospel.png",
-      "headline": "‘The Gospel’: how Israel uses AI to select bombing targets in Gaza",
-      "dek": "Concerns over data-driven ‘factory’ that significantly increases the number of targets for strikes in the Palestinian territory",
-      "outlet": "The Guardian",
-      "author": "Harry Davies, Bethan McKernan, Dan Sabbagh",
-      "date": "2023-12-01",
-      "url": "https://www.theguardian.com/world/2023/dec/01/the-gospel-how-israel-uses-ai-to-select-bombing-targets",
-      "caption": "Guardian headline, standfirst and photo of smoke rising over Gaza",
-      "quality": 5,
-      "verified": true,
-      "notes": ""
-    },
-    {
-      "id": "defensepost-ukraine-ai-drones",
-      "slide_topic": "AI and The Military",
-      "type": "headline",
-      "file": "defensepost-ukraine-ai-drones.png",
-      "headline": "Ukraine Tests Whether AI Can Guide Drones to Moving Targets",
-      "dek": "Ukraine is testing whether artificial intelligence can help drones detect, acquire, and engage moving ground targets without continuous pilot control.",
-      "outlet": "The Defense Post",
-      "author": "Samantha Alexa",
-      "date": "2026-09-10",
-      "url": "https://thedefensepost.com/2026/09/10/ukraine-ai-guided-drones/",
-      "caption": "Ukrainian MoD promo image of drone-view targeting boxes ('Target Locked | Score: 0.9725', 'Target Destroyed') on Russian armored vehicles, with headline below",
-      "quality": 5,
-      "verified": true,
-      "notes": "Image credit: Ministry of Defence of Ukraine. Test: drones fly 2 km, acquire a moving lightly armored vehicle from >=500 m, hit it autonomously; 7 companies evaluated (MoD + Brave1). Related: Defense One 'Thanks largely to robots, Ukraine is now talking about winning, not just surviving' (2026-06-02, screenshot full of ads, not kept)."
-    },
-    {
-      "id": "anthropic-frt-drone-evals-chart",
-      "slide_topic": "AI and The Military",
-      "type": "chart",
-      "file": "anthropic-frt-drone-evals.png",
-      "headline": "Measuring tactical intelligence targeting and conventional weapons capabilities of AI models",
-      "dek": "Drone evals: three flight-software tasks - guiding a drone to a target (strike rate), dropping a payload on a target (landed within 5 m), flying without GPS (median final distance).",
-      "outlet": "Anthropic (Frontier Red Team)",
-      "date": "2026-09-10",
-      "url": "https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities",
-      "caption": "Official Anthropic bar chart comparing Sonnet 5, Opus 5, Mythos Preview, Mythos 5 and Kimi K3 on simulated drone-weapon software tasks",
-      "quality": 4,
-      "verified": true,
-      "notes": "Anthropic: 'on current Ukrainian FPV drones, the operator locks the target and onboard machine vision and control flies the last few hundred meters. Our evaluation reproduces that hand-over in a simulated environment.' Second chart: anthropic-frt-drone-strike-rates.png (Opus 5 hits 80% strike rate on parked hi-vis target; hardest camo settings unsolved)."
-    },
-    {
-      "id": "anthropic-frt-drone-strike-rates-chart",
-      "slide_topic": "AI and The Military",
-      "type": "chart",
-      "file": "anthropic-frt-drone-strike-rates.png",
-      "headline": "Guiding a drone to a target",
-      "dek": "Strike rate — higher is better · settings ordered easiest to hardest",
-      "outlet": "Anthropic (Frontier Red Team)",
-      "date": "2026-09-10",
-      "url": "https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities",
-      "caption": "Strike rates by difficulty: Opus 5 80% on parked hi-vis target, falling to ~0% on camouflaged evasive targets",
-      "quality": 3,
-      "verified": true,
-      "notes": ""
-    },
-    {
-      "id": "euronews-ai-nuclear-wargames",
-      "slide_topic": "AI and The Military",
-      "type": "headline",
-      "file": "euronews-ai-nuclear-wargames.png",
-      "headline": "AI chatbots chose nuclear escalation in 95% of simulated war games, study finds",
-      "dek": "",
-      "outlet": "Euronews",
-      "date": "2026-02-27",
-      "url": "https://www.euronews.com/2026/02/27/ai-chatbots-chose-nuclear-escalation-in-95-of-simulated-war-games-study-finds",
-      "caption": "Euronews headline crop (hero image failed to load, so cropped to headline only)",
-      "quality": 4,
-      "verified": true,
-      "notes": "Underlying paper: Kenneth Payne (King's College London), 'AI Arms and Influence: Frontier Models Exhibit Sophisticated Reasoning in Simulated Nuclear Crises', arXiv:2602.14740 (2026-02-16), models GPT-5.2, Claude Sonnet 4, Gemini 3 Flash. Abstract (verified): 'the nuclear taboo is no impediment to nuclear escalation by our models ... no model ever chose accommodation or withdrawal even when under acute pressure'. Serves the 'nuclear command and AI' item."
-    },
-    {
-      "id": "trump-high-iq-truth-post",
-      "slide_topic": "Geopolitical Rivalry",
-      "type": "screenshot",
-      "file": "trumpstruth-high-iq-post.png",
-      "headline": "Donald J. Trump @realDonaldTrump · September 14, 2026, 9:58 AM",
-      "dek": "The only control or “guardrails” that AI needs is a STRONG AND SMART (High IQ!) PRESIDENT, and the U.S.A. has that, in spades! The Trump Administration has stopped AI “people” from doing bad, or potentially bad, “things,“ like Dario (Anthropic!), who is now pretending to be a “perfect little angel” - and we will continue to do so! We already have tremendous CRIMINAL and REGULATORY power over these companies! There is a SICK conspiracy going on against AI and Data Centers, and the only one that is happy about it is China. WHOEVER WINS AI, WINS! We are leading China, and all others, and will continue to do so. Conspiracy Theorists, Treasonists, Traitors, and Leakers, BEWARE! Thank you for your attention to this matter! President DONALD J. TRUMP",
-      "outlet": "Truth Social (archived by Trump's Truth / trumpstruth.org)",
-      "author": "Donald J. Trump",
-      "date": "2026-09-14",
-      "url": "https://truthsocial.com/@realDonaldTrump/117269745153543631",
-      "caption": "Archive card of the full Truth Social post (exact text); avatar image failed to load and shows alt text 'Profile image for Donald J. Trump'",
-      "quality": 4,
-      "verified": true,
-      "notes": "truthsocial.com itself is behind a Cloudflare challenge (screenshot attempt blocked, deleted). Archive page: https://www.trumpstruth.org/statuses/41712 (status ID 117269745153543631). Context: posted in response to calls by Amodei, Altman and Musk for an internationally coordinated slowdown. Consider rendering a clean card from the verified text if the broken avatar is distracting, or crop off the header row."
-    },
-    {
-      "id": "cnn-trump-ai-hoax",
-      "slide_topic": "Geopolitical Rivalry",
-      "type": "headline",
-      "file": "cnn-trump-ai-hoax.png",
-      "headline": "Trump dismisses AI alarms as a ‘HOAX’ — worrying White House officials",
-      "dek": "President Donald Trump spent Monday angrily rejecting calls from AI industry leaders for more government regulation on their cutting-edge models, making clear in a daylong string of social media posts he considers outpacing China and preserving AI-driven economic gains a higher priority than addressing growing public concerns.",
-      "outlet": "CNN",
-      "author": "Kevin Liptak",
-      "date": "2026-09-14",
-      "url": "https://www.cnn.com/2026/09/14/politics/trump-vance-ai-alarms",
-      "caption": "CNN headline, byline and photo of Trump in a USA cap at the Irish Open",
-      "quality": 5,
-      "verified": true,
-      "notes": "Page <title> is 'Trump suggests AI needs a ’STRONG AND SMART’ president'. Quotes the High-IQ post verbatim. Trump on phone to Jensen Huang: “The robots will not be taking over. The AI will not be taking over the rest of the world. The whole thing is a hoax.” CBS headline (text only): 'Trump dismisses push for AI regulation despite warnings from tech leaders' (Kathryn Watson, 2026-09-14). NBC (text only): 'Trump says AI doesn't need guardrails, calls growing concerns 'a hoax'' (Megan Brand, 2026-09-14)."
-    },
-    {
-      "id": "npr-ai-preemption-eo",
-      "slide_topic": "Geopolitical Rivalry",
-      "type": "headline",
-      "file": "npr-ai-preemption-eo.png",
-      "headline": "Trump is trying to preempt state AI laws via an executive order. It may not be legal",
-      "dek": "The Trump administration is seeking to challenge state laws regulating the artificial intelligence industry, according to an executive order the president ...",
-      "outlet": "NPR",
-      "author": "Huo Jingnan",
-      "date": "2025-12-11",
-      "url": "https://www.npr.org/2025/12/11/nx-s1-5638562/trump-ai-david-sacks-executive-order",
-      "caption": "NPR headline, date, byline and photo of Ted Cruz speaking as Trump and Lutnick listen at the Oval Office EO signing",
-      "quality": 5,
-      "verified": true,
-      "notes": "EO title: 'Ensuring a National Policy Framework for Artificial Intelligence' (signed Dec 11, 2025); creates DOJ 'AI Litigation Task Force' to challenge state AI laws."
-    },
-    {
-      "id": "pbs-us-china-ai-channel",
-      "slide_topic": "Geopolitical Rivalry",
-      "type": "headline",
-      "file": "pbs-us-china-ai-channel.png",
-      "headline": "China and U.S. agree to establish AI safety channel and continue trade and military talks",
-      "dek": "BANGKOK (AP) — China and the United States agreed to establish a channel for handling AI-related incidents and accelerate work on military crisis communications following a three-day summit between President Xi Jinping and President Donald Trump in Washington, the two governments said Saturday.",
-      "outlet": "PBS News (Associated Press)",
-      "author": "Huizhong Wu",
-      "date": "2026-09-26",
-      "url": "https://www.pbs.org/newshour/world/china-and-u-s-agree-to-establish-ai-safety-channel-and-continue-trade-and-military-talks",
-      "caption": "PBS/AP headline with Reuters photo of Trump and Xi shaking hands on a red carpet, Sept 25, 2026",
-      "quality": 5,
-      "verified": true,
-      "notes": "Trump quoted: “We're leading by at least a year, maybe a year and a half. Some people say two years. I'm not looking to open it up.” White House named it the 'U.S.-China Super Intelligence (SI) Dialogue' (per search summaries of Axios/UPI; not page-verified)."
-    },
-    {
-      "id": "register-h200-china",
-      "slide_topic": "Geopolitical Rivalry",
-      "type": "headline",
-      "file": "register-h200-china.png",
-      "headline": "Trump says Nvidia can sell H200s to China – if Washington gets a 25 percent cut",
-      "dek": "Blackwell and Rubin kit remain off limits",
-      "outlet": "The Register",
-      "author": "Simon Sharwood",
-      "date": "2025-12-09",
-      "url": "https://www.theregister.com/on-prem/2025/12/09/trump-says-nvidia-can-sell-h200s-to-china/2020308",
-      "caption": "The Register headline, standfirst, byline, and lede quoting Trump's Truth Social post",
-      "quality": 4,
-      "verified": true,
-      "notes": "Trump: “I have informed President Xi, of China, that the United States will allow NVIDIA to ship its H200 products to approved customers in China, and other Countries, under conditions that allow for continued strong National Security.”"
-    },
-    {
-      "id": "toms-deepseek-nvidia",
-      "slide_topic": "Geopolitical Rivalry",
-      "type": "headline",
-      "file": "toms-deepseek-nvidia.png",
-      "headline": "Nvidia loses $589 billion in market cap — broad stock plunge triggered by DeepSeek AI release",
-      "dek": "DeepSeek delivers the same performance for 11 times less hardware cost.",
-      "outlet": "Tom's Hardware",
-      "author": "Jowi Morales",
-      "date": "2025-01-28",
-      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-loses-usd589-billion-in-market-cap-broad-stock-plunge-triggered-by-deepseek-ai-release",
-      "caption": "Tom's Hardware headline, byline, dek and photo of Nvidia HQ",
-      "quality": 4,
-      "verified": true,
-      "notes": "The 'DeepSeek moment' (Jan 27, 2025). Forbes/Bloomberg versions blocked headless browser."
-    },
-    {
-      "id": "digitimes-huawei-ascend",
-      "slide_topic": "Geopolitical Rivalry",
-      "type": "headline",
-      "file": "digitimes-huawei-ascend.png",
-      "headline": "Ascend now ahead of Nvidia in China, with domestic supply driving AI chip substitution, says Huawei chairman",
-      "dek": "",
-      "outlet": "DigiTimes",
-      "author": "Ariel Lee, Taipei",
-      "date": "2026-10-01",
-      "url": "https://www.digitimes.com/newsshow/article.asp?datePublish=2026/10/01&pages=pd&seq=232",
-      "caption": "DigiTimes headline and byline",
-      "quality": 3,
-      "verified": true,
-      "notes": "Shows export controls accelerating China's chip self-sufficiency."
-    },
-    {
-      "id": "anthropic-threat-report-sep2026-cover",
-      "slide_topic": "Use by Bad Actors",
-      "type": "screenshot",
-      "file": "anthropic-threat-report-sep2026-cover.png",
-      "headline": "Detecting and countering misuse of AI: September 2026",
-      "dek": "Published September 10, 2026",
-      "outlet": "Anthropic (Threat Intelligence)",
-      "date": "2026-09-10",
-      "url": "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf",
-      "caption": "Cover of Anthropic's 154-page September 2026 threat report",
-      "quality": 4,
-      "verified": true,
-      "notes": "Web version: https://www.anthropic.com/threat-intelligence-report-september-2026 . Covers Dec 2025-Aug 2026 across cyber, influence ops, surveillance, scams, biological misuse, conventional weapons, distillation."
-    },
-    {
-      "id": "anthropic-yemen-gtg87001-summary",
-      "slide_topic": "Use by Bad Actors",
-      "type": "quote",
-      "file": "anthropic-yemen-gtg87001-summary.png",
-      "headline": "GTG-87001: Disrupting a Yemen-based guided weapons engineering cell using Claude to develop guidance software",
-      "dek": "We identified a cell of threat actors based in northern Yemen running three weapons development programs: a guided rocket that used a commodity phone-class flight computer with final-phase homing guidance; a multi-stage ballistic missile with a stated range goal above 2,000 km; and a multi-variant missile (referred to as the “R2000” set) that included a hypersonic glide vehicle variant.",
-      "outlet": "Anthropic Threat Intelligence report (p.112)",
-      "date": "2026-09-10",
-      "url": "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf",
-      "caption": "Crop of report page 112: case title and summary",
-      "quality": 5,
-      "verified": true,
-      "notes": "CORRECTION to outline: not an ICBM. Report says multi-stage ballistic missile with range goal >2,000 km (its table calls the variants 'Medium- and intermediate-range and hypersonic-glide'). Anthropic says 'northern Yemen' and does not name the Houthis; media (FT via Middle East Eye) note the area is largely Houthi-controlled. No 'logs' are published - the report gives narrative + a systems-engineering diagram, not chat transcripts."
-    },
-    {
-      "id": "anthropic-yemen-gtg87001-detail",
-      "slide_topic": "Use by Bad Actors",
-      "type": "quote",
-      "file": "anthropic-yemen-gtg87001-detail.png",
-      "headline": "GTG-87001 (continued)",
-      "dek": "The actors used Claude Code in place of human software engineers to develop the guidance, navigation, and control (GNC) software that steers and stabilizes a flying vehicle. ... Our safeguards blocked many of their requests, but not all of them. ... We do not have evidence the actors succeeded in fielding an operational device; but they did test-fire a guided rocket. This field test appears to have failed: within hours, the actors returned to Claude to work out why it failed.",
-      "outlet": "Anthropic Threat Intelligence report (p.113)",
-      "date": "2026-09-10",
-      "url": "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf",
-      "caption": "Crop of report page 113: Claude Code as the cell's engineering team, safeguards partly evaded, failed rocket test",
-      "quality": 5,
-      "verified": true,
-      "notes": "The 'unsuccessful attempts' in the outline = the failed guided-rocket test-fire. Actors ran several Claude instances as a mini engineering team (coder, researcher, reviewer) and split work across sessions to hide intent; they also built an offline simulation toolkit that no longer needs Claude."
-    },
-    {
-      "id": "anthropic-yemen-gtg87001-figure",
-      "slide_topic": "Use by Bad Actors",
-      "type": "image",
-      "file": "anthropic-yemen-gtg87001-figure.png",
-      "headline": "Case 1: Development - Guided-weapons engineering cell on the systems development lifecycle",
-      "dek": "Figure 1. The systems engineering V for the GNC cell ... Tactical guided rocket: A live field test in Yemen, brought back to Claude for failure analysis within hours. Ballistic missile simulation: Medium- and intermediate-range and hypersonic-glide variants.",
-      "outlet": "Anthropic Threat Intelligence report (p.114)",
-      "date": "2026-09-10",
-      "url": "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf",
-      "caption": "Official figure: systems-engineering V showing how far Claude carried each of the three Yemeni weapons programs (rocket reached flight test), plus summary table",
-      "quality": 5,
-      "verified": true,
-      "notes": "Rendered at 250 dpi from the PDF."
-    },
-    {
-      "id": "mee-houthis-claude",
-      "slide_topic": "Use by Bad Actors",
-      "type": "headline",
-      "file": "mee-houthis-claude.png",
-      "headline": "Houthis used Anthropic AI to develop ballistic missile software, says report",
-      "dek": "A Yemen-based threat actor cell attempted to use Anthropic's Claude AI model to create guidance, navigation, and control software for ballistic missiles, according to a US artificial intelligence company's intelligence threat report.",
-      "outlet": "Middle East Eye",
-      "date": "2026-09-11",
-      "url": "https://www.middleeasteye.net/live-blog/live-blog-update/houthis-used-anthropic-ai-develop-ballistic-missile-software-says-report",
-      "caption": "Middle East Eye headline with photo of a displaced Yemeni family outside a tent",
-      "quality": 4,
-      "verified": true,
-      "notes": "Cites the Financial Times' original report."
-    },
-    {
-      "id": "anthropic-gtg1002-headline",
-      "slide_topic": "Use by Bad Actors",
-      "type": "headline",
-      "file": "anthropic-gtg1002-headline.png",
-      "headline": "Disrupting the first reported AI-orchestrated cyber espionage campaign",
-      "dek": "The threat actor—whom we assess with high confidence was a Chinese state-sponsored group—manipulated our Claude Code tool into attempting infiltration into roughly thirty global targets and succeeded in a small number of cases.",
-      "outlet": "Anthropic",
-      "date": "2025-11-13",
-      "url": "https://www.anthropic.com/news/disrupting-AI-espionage",
-      "caption": "Anthropic blog headline and date (GTG-1002)",
-      "quality": 4,
-      "verified": true,
-      "notes": "'the threat actor was able to use AI to perform 80-90% of the campaign, with human intervention required only sporadically (perhaps 4-6 critical decision points per hacking campaign)'. Diagram: anthropic-gtg1002-attack-lifecycle.png. (Security group may also use this.)"
-    },
-    {
-      "id": "anthropic-gtg1002-lifecycle-diagram",
-      "slide_topic": "Use by Bad Actors",
-      "type": "image",
-      "file": "anthropic-gtg1002-attack-lifecycle.png",
-      "headline": "The lifecycle of the cyberattack",
-      "dek": "The lifecycle of the cyberattack, showing the move from human-led targeting to largely AI-driven attacks using various tools (often via the Model Context Protocol; MCP).",
-      "outlet": "Anthropic",
-      "date": "2025-11-13",
-      "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/b0d38712e4f7b8002bb3a2734ceeb33f34817a43-2755x2050.png",
-      "caption": "Official Anthropic diagram (2755x2050) of the GTG-1002 attack phases: human picks target, Claude Code runs recon, exploitation, exfiltration",
-      "quality": 4,
-      "verified": true,
-      "notes": ""
-    },
-    {
-      "id": "anthropic-aug2025-misuse-headline",
-      "slide_topic": "Use by Bad Actors",
-      "type": "headline",
-      "file": "anthropic-aug2025-misuse-headline.png",
-      "headline": "Detecting and countering misuse of AI: August 2025",
-      "dek": "Our Threat Intelligence report discusses several recent examples of Claude being misused, including a large-scale extortion operation using Claude Code, a fraudulent employment scheme from North Korea, and the sale of AI-generated ransomware by a cybercriminal with only basic coding skills.",
-      "outlet": "Anthropic",
-      "date": "2025-08-27",
-      "url": "https://www.anthropic.com/news/detecting-countering-misuse-aug-2025",
-      "caption": "Anthropic blog headline and date",
-      "quality": 3,
-      "verified": true,
-      "notes": "'Vibe hacking': actor targeted at least 17 organizations (healthcare, emergency services, government, religious institutions), ransoms sometimes exceeding $500,000. North Korea: operatives used Claude to get and keep remote jobs at US Fortune 500 tech companies; 'Operators who cannot otherwise write basic code or communicate professionally in English are now able to pass technical interviews'."
-    },
-    {
-      "id": "securebio-vct-results",
-      "slide_topic": "Use by Bad Actors",
-      "type": "screenshot",
-      "file": "securebio-vct-results.png",
-      "headline": "Virology Capabilities Test",
-      "dek": "VCT is difficult: expert virologists with access to the internet score an average of 22.1% on questions specifically in their sub-areas of expertise. However, the most performant LLM, OpenAI’s o3, reaches 43.8% accuracy and even outperforms 94% of expert virologists when compared directly on question subsets specifically tailored to the experts’ specialties.",
-      "outlet": "SecureBio / Center for AI Safety",
-      "date": "2025-04-21",
-      "url": "https://securebio.org/virologytest/",
-      "caption": "VCT site with results table: o3 43.8% (94th percentile of experts) vs expert virologists 22.1%",
-      "quality": 4,
-      "verified": true,
-      "notes": "Paper: arXiv:2504.16137 (Götting et al., incl. Dan Hendrycks). TIME's exclusive on this (time.com/7279010) blocked the headless browser. Numbers also in datasets."
+     "name": "Expert percentile",
+     "values": [
+      94,
+      81,
+      86,
+      89,
+      78,
+      61,
+      47,
+      null
+     ]
     }
-  ],
-  "datasets": [
+   ],
+   "source": "SecureBio / Center for AI Safety, Virology Capabilities Test (Apr 2025)",
+   "url": "https://securebio.org/virologytest/"
+  },
+  {
+   "id": "photo-geolocation-ai-vs-humans",
+   "title": "Geolocating photos: median distance error, frontier AI vs top human GeoGuessr players",
+   "unit": "km (lower is better)",
+   "labels": [
+    "Claude Mythos Preview",
+    "Claude Mythos 5",
+    "GeoGuessr Champion (top 0.01%)",
+    "GeoGuessr Master",
+    "Claude Opus 5",
+    "Claude Sonnet 5",
+    "Kimi K3 (open weights)",
+    "GeoGuessr Gold"
+   ],
+   "series": [
     {
-      "id": "vct-model-vs-virologists",
-      "title": "Virology Capabilities Test: AI models vs expert virologists",
-      "unit": "% accuracy",
-      "labels": [
-        "o3",
-        "Gemini 2.5 Pro",
-        "o4-mini",
-        "o1",
-        "Claude 3.7 Sonnet",
-        "GPT-4.5 Preview",
-        "GPT-4o",
-        "Expert virologists"
-      ],
-      "series": [
-        {
-          "name": "Accuracy (%)",
-          "values": [
-            43.8,
-            37.6,
-            37.0,
-            35.4,
-            30.8,
-            28.3,
-            18.8,
-            22.1
-          ]
-        },
-        {
-          "name": "Expert percentile",
-          "values": [
-            94,
-            81,
-            86,
-            89,
-            78,
-            61,
-            47,
-            null
-          ]
-        }
-      ],
-      "source": "SecureBio / Center for AI Safety, Virology Capabilities Test (Apr 2025)",
-      "url": "https://securebio.org/virologytest/"
-    },
-    {
-      "id": "photo-geolocation-ai-vs-humans",
-      "title": "Geolocating photos: median distance error, frontier AI vs top human GeoGuessr players",
-      "unit": "km (lower is better)",
-      "labels": [
-        "Claude Mythos Preview",
-        "Claude Mythos 5",
-        "GeoGuessr Champion (top 0.01%)",
-        "GeoGuessr Master",
-        "Claude Opus 5",
-        "Claude Sonnet 5",
-        "Kimi K3 (open weights)",
-        "GeoGuessr Gold"
-      ],
-      "series": [
-        {
-          "name": "Median error (km)",
-          "values": [
-            37.0,
-            47.2,
-            151,
-            174,
-            181,
-            384,
-            385,
-            1714
-          ]
-        }
-      ],
-      "source": "Anthropic Frontier Red Team, 'Measuring tactical intelligence targeting and conventional weapons capabilities of AI models' (Sep 10, 2026); human baselines from Haas et al. 2024 (Street View duels, not identical task)",
-      "url": "https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities"
-    },
-    {
-      "id": "drone-weapon-software-evals",
-      "title": "AI models writing drone-weapon flight software (simulation)",
-      "unit": "see series names",
-      "labels": [
-        "Sonnet 5",
-        "Opus 5",
-        "Mythos Preview",
-        "Mythos 5",
-        "Kimi K3"
-      ],
-      "series": [
-        {
-          "name": "Guiding a drone to a target: strike rate % (all settings pooled)",
-          "values": [
-            1,
-            20,
-            13,
-            10,
-            2
-          ]
-        },
-        {
-          "name": "Dropping a payload: % landed within 5 m",
-          "values": [
-            31,
-            65,
-            63,
-            56,
-            38
-          ]
-        },
-        {
-          "name": "Flying without GPS: median final distance m (lower better)",
-          "values": [
-            220,
-            25,
-            41,
-            46,
-            185
-          ]
-        },
-        {
-          "name": "Strike rate %, easiest setting (parked hi-vis vehicle, open road)",
-          "values": [
-            5,
-            80,
-            70,
-            53,
-            15
-          ]
-        }
-      ],
-      "source": "Anthropic Frontier Red Team (Sep 10, 2026), charts saved as anthropic-frt-drone-evals.png / anthropic-frt-drone-strike-rates.png",
-      "url": "https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities"
+     "name": "Median error (km)",
+     "values": [
+      37.0,
+      47.2,
+      151,
+      174,
+      181,
+      384,
+      385,
+      1714
+     ]
     }
-  ],
-  "facts": [
+   ],
+   "source": "Anthropic Frontier Red Team, 'Measuring tactical intelligence targeting and conventional weapons capabilities of AI models' (Sep 10, 2026); human baselines from Haas et al. 2024 (Street View duels, not identical task)",
+   "url": "https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities"
+  },
+  {
+   "id": "drone-weapon-software-evals",
+   "title": "AI models writing drone-weapon flight software (simulation)",
+   "unit": "see series names",
+   "labels": [
+    "Sonnet 5",
+    "Opus 5",
+    "Mythos Preview",
+    "Mythos 5",
+    "Kimi K3"
+   ],
+   "series": [
     {
-      "claim": "An AI chatbot's false intel report that a Chinese ship carried nuclear-weapons-program components had armed US troops preparing to board it and military planes in the air; a source said it was “entirely false” but “almost started a war.”",
-      "source": "CNN (Lillis & Cohen)",
-      "url": "https://www.cnn.com/2026/09/18/politics/us-military-ai-false-intelligence-china-ship",
-      "date": "2026-09-18"
+     "name": "Guiding a drone to a target: strike rate % (all settings pooled)",
+     "values": [
+      1,
+      20,
+      13,
+      10,
+      2
+     ]
     },
     {
-      "claim": "“AI allows you to get to a bad idea faster,” one of CNN's sources said.",
-      "source": "CNN",
-      "url": "https://www.cnn.com/2026/09/18/politics/us-military-ai-false-intelligence-china-ship",
-      "date": "2026-09-18"
+     "name": "Dropping a payload: % landed within 5 m",
+     "values": [
+      31,
+      65,
+      63,
+      56,
+      38
+     ]
     },
     {
-      "claim": "Pentagon AI strategy, verbatim: “We must accept that the risks of not moving fast enough outweigh the risks of imperfect alignment.”",
-      "source": "Secretary of War memo, 'Artificial Intelligence Strategy for the Department of War'",
-      "url": "https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/artificial-intelligence-strategy-for-the-department-of-war.pdf",
-      "date": "2026-01-09"
+     "name": "Flying without GPS: median final distance m (lower better)",
+     "values": [
+      220,
+      25,
+      41,
+      46,
+      185
+     ]
     },
     {
-      "claim": "The memo orders the latest frontier AI models deployed to the military within 30 days of public release, and “any lawful use” language in every AI contract within 180 days.",
-      "source": "Secretary of War memo",
-      "url": "https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/artificial-intelligence-strategy-for-the-department-of-war.pdf",
-      "date": "2026-01-09"
-    },
-    {
-      "claim": "Memo: “We must approach risk tradeoffs, 'equities', and other subjective questions as if we were at war.” A monthly “Barrier Removal Board” may waive non-statutory requirements.",
-      "source": "Secretary of War memo",
-      "url": "https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/artificial-intelligence-strategy-for-the-department-of-war.pdf",
-      "date": "2026-01-09"
-    },
-    {
-      "claim": "Anthropic, Google, OpenAI and xAI each received Pentagon contracts worth up to $200 million for 'frontier AI' in July 2025.",
-      "source": "DefenseScoop; CBS News",
-      "url": "https://defensescoop.com/2025/07/14/pentagon-ai-contracts-musk-xai-google-openai-anthropic-cdao/",
-      "date": "2025-07-14"
-    },
-    {
-      "claim": "After Anthropic refused to allow Claude for mass domestic surveillance or fully autonomous weapons, Hegseth declared it a “supply chain risk to national security” — a label Anthropic says was “historically reserved for US adversaries.”",
-      "source": "CBS News; Anthropic statement",
-      "url": "https://www.cbsnews.com/news/hegseth-declares-anthropic-supply-chain-risk/",
-      "date": "2026-02-27"
-    },
-    {
-      "claim": "Anthropic: “we do not believe that today’s frontier AI models are reliable enough to be used in fully autonomous weapons.”",
-      "source": "Anthropic",
-      "url": "https://www.anthropic.com/news/statement-comments-secretary-war",
-      "date": "2026-02-27"
-    },
-    {
-      "claim": "A federal appeals court upheld the Pentagon's blacklisting of Anthropic 2-1 on Sept 25, 2026.",
-      "source": "The Next Web (citing CNBC)",
-      "url": "https://thenextweb.com/news/anthropic-pentagon-supply-chain-risk-appeals-court-ruling",
-      "date": "2026-09-25"
-    },
-    {
-      "claim": "Israel's 'Lavender' AI system marked about 37,000 Gazans as potential targets.",
-      "source": "The Guardian / +972 Magazine",
-      "url": "https://www.theguardian.com/world/2024/apr/03/israel-gaza-ai-database-hamas-airstrikes",
-      "date": "2024-04-03"
-    },
-    {
-      "claim": "In a King's College London study, AI models chose nuclear escalation in 95% of simulated war games; “no model ever chose accommodation or withdrawal even when under acute pressure.”",
-      "source": "Euronews; Payne, arXiv:2602.14740",
-      "url": "https://arxiv.org/abs/2602.14740",
-      "date": "2026-02-16"
-    },
-    {
-      "claim": "Trump on AI regulation: “The only control or 'guardrails' that AI needs is a STRONG AND SMART (High IQ!) PRESIDENT, and the U.S.A. has that, in spades!” ... “WHOEVER WINS AI, WINS!”",
-      "source": "Truth Social via Trump's Truth archive; CNN",
-      "url": "https://www.trumpstruth.org/statuses/41712",
-      "date": "2026-09-14"
-    },
-    {
-      "claim": "Trump: “The robots will not be taking over. The AI will not be taking over the rest of the world. The whole thing is a hoax.”",
-      "source": "CNN",
-      "url": "https://www.cnn.com/2026/09/14/politics/trump-vance-ai-alarms",
-      "date": "2026-09-14"
-    },
-    {
-      "claim": "Trump at the Xi summit: “We're leading by at least a year, maybe a year and a half. Some people say two years.” The US and China agreed a channel for AI-related incidents and an AI dialogue in November.",
-      "source": "PBS News / AP",
-      "url": "https://www.pbs.org/newshour/world/china-and-u-s-agree-to-establish-ai-safety-channel-and-continue-trade-and-military-talks",
-      "date": "2026-09-26"
-    },
-    {
-      "claim": "Dec 11, 2025: Trump signed an executive order to preempt state AI laws, creating a DOJ task force to sue states.",
-      "source": "NPR",
-      "url": "https://www.npr.org/2025/12/11/nx-s1-5638562/trump-ai-david-sacks-executive-order",
-      "date": "2025-12-11"
-    },
-    {
-      "claim": "Dec 2025: Trump allowed Nvidia H200 sales to China in exchange for a 25% cut to the US government.",
-      "source": "The Register",
-      "url": "https://www.theregister.com/on-prem/2025/12/09/trump-says-nvidia-can-sell-h200s-to-china/2020308",
-      "date": "2025-12-09"
-    },
-    {
-      "claim": "DeepSeek's R1 release wiped $589 billion off Nvidia's market value in one day — the largest single-day loss in stock market history.",
-      "source": "Tom's Hardware",
-      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-loses-usd589-billion-in-market-cap-broad-stock-plunge-triggered-by-deepseek-ai-release",
-      "date": "2025-01-28"
-    },
-    {
-      "claim": "A northern-Yemen cell used Claude Code “in place of human software engineers” to build missile guidance software for a guided rocket, a >2,000 km multi-stage ballistic missile and a hypersonic-glide variant; their rocket test failed and “within hours, the actors returned to Claude to work out why it failed.”",
-      "source": "Anthropic Threat Intelligence report, Sept 2026 (GTG-87001)",
-      "url": "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf",
-      "date": "2026-09-10"
-    },
-    {
-      "claim": "A Russia-based freelance team used Claude Code to build an autonomous FPV kamikaze drone swarm whose onboard model could select targets (including a “person” target class) and issue detonation commands without a human in the loop.",
-      "source": "Anthropic Threat Intelligence report, Sept 2026 (GTG-27005)",
-      "url": "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf",
-      "date": "2026-09-10"
-    },
-    {
-      "claim": "Anthropic's Sept 2026 threat report details state-linked researchers using Claude on dual-use biology (gain-of-function virology, avian-flu mammalian adaptation, venom/toxin design) via reseller relays that evaded regional blocks and rerouted refused prompts to more permissive models.",
-      "source": "Anthropic Threat Intelligence report, Sept 2026 (Biological misuse)",
-      "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
-      "date": "2026-09-10"
-    },
-    {
-      "claim": "OpenAI's o3 scored 43.8% on the Virology Capabilities Test, outperforming 94% of expert virologists in their own sub-specialties (experts averaged 22.1%).",
-      "source": "SecureBio / Center for AI Safety, Virology Capabilities Test (Gotting et al., arXiv:2504.16137)",
-      "url": "https://securebio.org/virologytest/",
-      "date": "2025-04-21"
+     "name": "Strike rate %, easiest setting (parked hi-vis vehicle, open road)",
+     "values": [
+      5,
+      80,
+      70,
+      53,
+      15
+     ]
     }
-  ]
+   ],
+   "source": "Anthropic Frontier Red Team (Sep 10, 2026), charts saved as anthropic-frt-drone-evals.png / anthropic-frt-drone-strike-rates.png",
+   "url": "https://www.anthropic.com/research/intelligence-targeting-conventional-weapons-capabilities"
+  },
+  {
+   "id": "protein-hitrate-by-campaign",
+   "title": "Claude protein-binder design: hit rate by campaign vs industry norm",
+   "unit": "% of designs that bound",
+   "labels": [
+    "Industry typical",
+    "Opus 4.8 multi-target",
+    "Mythos Preview multi-target",
+    "Mythos Preview single-target"
+   ],
+   "series": [
+    {
+     "name": "Hit rate (%)",
+     "values": [
+      12.5,
+      22.6,
+      26.7,
+      35.1
+     ]
+    }
+   ],
+   "source": "Anthropic / Claude Science technical report (Aug 18 2026); 'industry typical' is the 10-15% range cited by Anthropic (midpoint 12.5% shown)",
+   "url": "https://www-cdn.anthropic.com/30bf50e22a01388bb29bf077ee3f244531594b7a.pdf",
+   "notes": "Counts: Opus 4.8 multi-target 88/390, Mythos Preview multi-target 104/390, Mythos Preview single-target 158/450. Overall portfolio hit rate 354/1,320 = 26.8%."
+  },
+  {
+   "id": "protein-topN-calibration",
+   "title": "Claude's binder hit rate by how far down its own ranking you go",
+   "unit": "% of designs that bound",
+   "labels": [
+    "Top-ranked design",
+    "Top 5",
+    "Top 10",
+    "All 30 delivered"
+   ],
+   "series": [
+    {
+     "name": "Hit rate (%)",
+     "values": [
+      49,
+      44,
+      39,
+      28
+     ]
+    }
+   ],
+   "source": "Anthropic / Claude Science technical report, Fig. 2 (pooled over the three campaigns covering 13+ targets)",
+   "url": "https://www-cdn.anthropic.com/30bf50e22a01388bb29bf077ee3f244531594b7a.pdf",
+   "notes": "This is the 'works about half the time' number: Claude's single top pick per target bound 49% of the time. Testing only the top-ranked design would still have found a binder on 12 of the 14 targets that yielded any."
+  },
+  {
+   "id": "rosalind-bio-benchmarks-2026",
+   "title": "2026 bio-eval benchmark scores: GPT-Rosalind-5.5 vs GPT-5.5 vs GPT-5.5 Pro",
+   "unit": "% (pass@1 unless noted)",
+   "labels": [
+    "ProtocolQA Open-Ended",
+    "TroubleshootingBench",
+    "Biorisk knowledge (cons@32)",
+    "Virology Troubleshooting (multi-select)"
+   ],
+   "series": [
+    {
+     "name": "GPT-Rosalind-5.5",
+     "values": [
+      36.4,
+      53.31,
+      81.1,
+      51.2
+     ]
+    },
+    {
+     "name": "GPT-5.5",
+     "values": [
+      37.3,
+      44.1,
+      78.3,
+      53.7
+     ]
+    },
+    {
+     "name": "GPT-5.5 Pro",
+     "values": [
+      36.73,
+      49.58,
+      81.67,
+      55.34
+     ]
+    }
+   ],
+   "source": "OpenAI GPT-Rosalind-5.5 System Card (Preparedness evaluations, June 3 2026)",
+   "url": "https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf",
+   "notes": "Virology Troubleshooting questions are a fully held-out SecureBio set. Biorisk-knowledge set built with Gryphon Scientific, spans all 5 stages of the biothreat-creation process."
+  }
+ ],
+ "facts": [
+  {
+   "claim": "An AI chatbot's false intel report that a Chinese ship carried nuclear-weapons-program components had armed US troops preparing to board it and military planes in the air; a source said it was “entirely false” but “almost started a war.”",
+   "source": "CNN (Lillis & Cohen)",
+   "url": "https://www.cnn.com/2026/09/18/politics/us-military-ai-false-intelligence-china-ship",
+   "date": "2026-09-18"
+  },
+  {
+   "claim": "“AI allows you to get to a bad idea faster,” one of CNN's sources said.",
+   "source": "CNN",
+   "url": "https://www.cnn.com/2026/09/18/politics/us-military-ai-false-intelligence-china-ship",
+   "date": "2026-09-18"
+  },
+  {
+   "claim": "Pentagon AI strategy, verbatim: “We must accept that the risks of not moving fast enough outweigh the risks of imperfect alignment.”",
+   "source": "Secretary of War memo, 'Artificial Intelligence Strategy for the Department of War'",
+   "url": "https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/artificial-intelligence-strategy-for-the-department-of-war.pdf",
+   "date": "2026-01-09"
+  },
+  {
+   "claim": "The memo orders the latest frontier AI models deployed to the military within 30 days of public release, and “any lawful use” language in every AI contract within 180 days.",
+   "source": "Secretary of War memo",
+   "url": "https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/artificial-intelligence-strategy-for-the-department-of-war.pdf",
+   "date": "2026-01-09"
+  },
+  {
+   "claim": "Memo: “We must approach risk tradeoffs, 'equities', and other subjective questions as if we were at war.” A monthly “Barrier Removal Board” may waive non-statutory requirements.",
+   "source": "Secretary of War memo",
+   "url": "https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/artificial-intelligence-strategy-for-the-department-of-war.pdf",
+   "date": "2026-01-09"
+  },
+  {
+   "claim": "Anthropic, Google, OpenAI and xAI each received Pentagon contracts worth up to $200 million for 'frontier AI' in July 2025.",
+   "source": "DefenseScoop; CBS News",
+   "url": "https://defensescoop.com/2025/07/14/pentagon-ai-contracts-musk-xai-google-openai-anthropic-cdao/",
+   "date": "2025-07-14"
+  },
+  {
+   "claim": "After Anthropic refused to allow Claude for mass domestic surveillance or fully autonomous weapons, Hegseth declared it a “supply chain risk to national security” — a label Anthropic says was “historically reserved for US adversaries.”",
+   "source": "CBS News; Anthropic statement",
+   "url": "https://www.cbsnews.com/news/hegseth-declares-anthropic-supply-chain-risk/",
+   "date": "2026-02-27"
+  },
+  {
+   "claim": "Anthropic: “we do not believe that today’s frontier AI models are reliable enough to be used in fully autonomous weapons.”",
+   "source": "Anthropic",
+   "url": "https://www.anthropic.com/news/statement-comments-secretary-war",
+   "date": "2026-02-27"
+  },
+  {
+   "claim": "A federal appeals court upheld the Pentagon's blacklisting of Anthropic 2-1 on Sept 25, 2026.",
+   "source": "The Next Web (citing CNBC)",
+   "url": "https://thenextweb.com/news/anthropic-pentagon-supply-chain-risk-appeals-court-ruling",
+   "date": "2026-09-25"
+  },
+  {
+   "claim": "Israel's 'Lavender' AI system marked about 37,000 Gazans as potential targets.",
+   "source": "The Guardian / +972 Magazine",
+   "url": "https://www.theguardian.com/world/2024/apr/03/israel-gaza-ai-database-hamas-airstrikes",
+   "date": "2024-04-03"
+  },
+  {
+   "claim": "In a King's College London study, AI models chose nuclear escalation in 95% of simulated war games; “no model ever chose accommodation or withdrawal even when under acute pressure.”",
+   "source": "Euronews; Payne, arXiv:2602.14740",
+   "url": "https://arxiv.org/abs/2602.14740",
+   "date": "2026-02-16"
+  },
+  {
+   "claim": "Trump on AI regulation: “The only control or 'guardrails' that AI needs is a STRONG AND SMART (High IQ!) PRESIDENT, and the U.S.A. has that, in spades!” ... “WHOEVER WINS AI, WINS!”",
+   "source": "Truth Social via Trump's Truth archive; CNN",
+   "url": "https://www.trumpstruth.org/statuses/41712",
+   "date": "2026-09-14"
+  },
+  {
+   "claim": "Trump: “The robots will not be taking over. The AI will not be taking over the rest of the world. The whole thing is a hoax.”",
+   "source": "CNN",
+   "url": "https://www.cnn.com/2026/09/14/politics/trump-vance-ai-alarms",
+   "date": "2026-09-14"
+  },
+  {
+   "claim": "Trump at the Xi summit: “We're leading by at least a year, maybe a year and a half. Some people say two years.” The US and China agreed a channel for AI-related incidents and an AI dialogue in November.",
+   "source": "PBS News / AP",
+   "url": "https://www.pbs.org/newshour/world/china-and-u-s-agree-to-establish-ai-safety-channel-and-continue-trade-and-military-talks",
+   "date": "2026-09-26"
+  },
+  {
+   "claim": "Dec 11, 2025: Trump signed an executive order to preempt state AI laws, creating a DOJ task force to sue states.",
+   "source": "NPR",
+   "url": "https://www.npr.org/2025/12/11/nx-s1-5638562/trump-ai-david-sacks-executive-order",
+   "date": "2025-12-11"
+  },
+  {
+   "claim": "Dec 2025: Trump allowed Nvidia H200 sales to China in exchange for a 25% cut to the US government.",
+   "source": "The Register",
+   "url": "https://www.theregister.com/on-prem/2025/12/09/trump-says-nvidia-can-sell-h200s-to-china/2020308",
+   "date": "2025-12-09"
+  },
+  {
+   "claim": "DeepSeek's R1 release wiped $589 billion off Nvidia's market value in one day — the largest single-day loss in stock market history.",
+   "source": "Tom's Hardware",
+   "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-loses-usd589-billion-in-market-cap-broad-stock-plunge-triggered-by-deepseek-ai-release",
+   "date": "2025-01-28"
+  },
+  {
+   "claim": "A northern-Yemen cell used Claude Code “in place of human software engineers” to build missile guidance software for a guided rocket, a >2,000 km multi-stage ballistic missile and a hypersonic-glide variant; their rocket test failed and “within hours, the actors returned to Claude to work out why it failed.”",
+   "source": "Anthropic Threat Intelligence report, Sept 2026 (GTG-87001)",
+   "url": "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf",
+   "date": "2026-09-10"
+  },
+  {
+   "claim": "A Russia-based freelance team used Claude Code to build an autonomous FPV kamikaze drone swarm whose onboard model could select targets (including a “person” target class) and issue detonation commands without a human in the loop.",
+   "source": "Anthropic Threat Intelligence report, Sept 2026 (GTG-27005)",
+   "url": "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf",
+   "date": "2026-09-10"
+  },
+  {
+   "claim": "Anthropic's Sept 2026 threat report details state-linked researchers using Claude on dual-use biology (gain-of-function virology, avian-flu mammalian adaptation, venom/toxin design) via reseller relays that evaded regional blocks and rerouted refused prompts to more permissive models.",
+   "source": "Anthropic Threat Intelligence report, Sept 2026 (Biological misuse)",
+   "url": "https://www.anthropic.com/threat-intelligence-report-september-2026",
+   "date": "2026-09-10"
+  },
+  {
+   "claim": "OpenAI's o3 scored 43.8% on the Virology Capabilities Test, outperforming 94% of expert virologists in their own sub-specialties (experts averaged 22.1%).",
+   "source": "SecureBio / Center for AI Safety, Virology Capabilities Test (Gotting et al., arXiv:2504.16137)",
+   "url": "https://securebio.org/virologytest/",
+   "date": "2025-04-21"
+  },
+  {
+   "claim": "Claude (Opus 4.8 and Mythos Preview) autonomously designed de novo protein binders against 15 analyzable targets and produced confirmed binders for 14 of them, with 354 of 1,320 designs binding (a 27% hit rate) - versus the 10-15% typical of protein-design campaigns.",
+   "source": "Anthropic, 'How Claude is accelerating protein design and analytical chemistry' + technical report",
+   "url": "https://www.anthropic.com/research/Claude-accelerates-protein-design",
+   "date": "2026-08-18"
+  },
+  {
+   "claim": "Among the designs Claude ranked FIRST for each target, 49% bound - i.e. its single top pick worked about half the time; the single-target campaign hit rate reached 35.1%.",
+   "source": "Anthropic / Claude Science technical report, Results and Fig. 2",
+   "url": "https://www-cdn.anthropic.com/30bf50e22a01388bb29bf077ee3f244531594b7a.pdf",
+   "date": "2026-08-18"
+  },
+  {
+   "claim": "Claude ran each 24- to 48-hour campaign autonomously from one ~16,000-word protocol prompt: it researched each target, chose epitopes, installed and ran open-source design tools, optimized in silico, and delivered 30 ranked designs per target - with no human input into any design decision (only non-technical restart messages after infrastructure failures).",
+   "source": "Anthropic / Claude Science technical report",
+   "url": "https://www-cdn.anthropic.com/30bf50e22a01388bb29bf077ee3f244531594b7a.pdf",
+   "date": "2026-08-18"
+  },
+  {
+   "claim": "On RBX1 - the subject of an open design competition where only 9 of 245 de novo designs bound - 28 of Claude's 90 designs bound, and its tightest hit reached a dissociation constant of 3.9 nM versus 45 nM for the competition's winning entry re-measured on the same plate.",
+   "source": "Anthropic / Claude Science technical report, Abstract",
+   "url": "https://www-cdn.anthropic.com/30bf50e22a01388bb29bf077ee3f244531594b7a.pdf",
+   "date": "2026-08-18"
+  },
+  {
+   "claim": "Anthropic frames the result as dual-use: 'The uplift provided by the increasingly autonomous research capabilities of AI models will undoubtedly speed the development of human therapies and fundamental scientific discoveries. However, such capabilities are also dual-use: without robust safety measures, they could enable bad actors to perform dangerous research, such as the development of bioweapons.' Protein design and other dual-use biology capabilities remain unavailable for general access in Claude Fable 5.",
+   "source": "Anthropic, 'How Claude is accelerating protein design and analytical chemistry'",
+   "url": "https://www.anthropic.com/research/Claude-accelerates-protein-design",
+   "date": "2026-08-18"
+  },
+  {
+   "claim": "Adaptyv Bio, the independent lab that physically made and tested the designs, concluded: 'Claude seems to have matched or even surpassed expert protein designers when it orchestrates openly available design tools,' and that Claude's designs 'would have won 5 out 6' of Adaptyv's past Protein Design Competitions.",
+   "source": "Adaptyv Bio, 'Case study: Benchmarking Claude's protein designs in the wet lab'",
+   "url": "https://www.adaptyvbio.com/blog/anthropic-1",
+   "date": "2026-08-20"
+  },
+  {
+   "claim": "OpenAI's purpose-built biology model GPT-Rosalind-5.5 was judged to have 'met our threshold for High capability' in the Biological and Chemical domain under its Preparedness Framework (while below 'Critical'), and - unlike GPT-5.5 - 'is trained not to refuse sophisticated biology queries,' with vetted access to scientists and government partners as the primary safeguard.",
+   "source": "OpenAI, GPT-Rosalind-5.5 System Card",
+   "url": "https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf",
+   "date": "2026-06-03"
+  },
+  {
+   "claim": "On a fully held-out SecureBio virology-troubleshooting set (multi-select), GPT-5.5 Pro scored 55.34% and GPT-Rosalind-5.5 51.2%; on an expert-written, uncontaminated wet-lab TroubleshootingBench, GPT-Rosalind-5.5 reached 53.31% pass@1 (vs GPT-5.5's 44.1%).",
+   "source": "OpenAI, GPT-Rosalind-5.5 System Card (Preparedness evaluations)",
+   "url": "https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf",
+   "date": "2026-06-03"
+  },
+  {
+   "claim": "A mid-2026 survey of bio-uplift research reports that novices with LLMs were 4.16x more accurate than controls across 8 in-silico benchmarks (Zhang, Knight et al. 2026), while real wet-lab novice-uplift RCTs remain non-significant (Hong et al. 2026, n=153: a 1.42-fold, non-significant improvement) - and warns 'Experts will be the first group uplifted to access catastrophic bio capabilities; novice uplift will remain a late signal.'",
+   "source": "Humam Aziz, 'The State of Bio-Uplift Research in Mid-2026', EA Forum (survey citing primary sources)",
+   "url": "https://forum.effectivealtruism.org/posts/S6ydgTdTr8sXkfs9x/the-state-of-bio-uplift-research-in-mid-2026",
+   "date": "2026-05-30"
+  },
+  {
+   "claim": "Anthropic's technical report: 'among the designs ranked first for each target in each campaign, 49% bound' - i.e. 20 of 41 top-ranked designs (pooled over the three campaigns covering 13+ targets) were binders; hit rate 44% over the top five, 39% over the top ten, 28% over all 30.",
+   "source": "Anthropic / Claude Science technical report, Abstract and Results (Fig. 2)",
+   "url": "https://www-cdn.anthropic.com/30bf50e22a01388bb29bf077ee3f244531594b7a.pdf",
+   "date": "2026-08-18"
+  },
+  {
+   "claim": "Caveats in Anthropic's own report: 'We did not run a matched campaign by human experts, and we do not claim that Claude's designs are better than an expert would obtain with the same tools and budget.' 'The chief limitation of this study is that its evidence is binding, not structure or function.' Results of four of the six Adaptyv competitions were available to Claude during design.",
+   "source": "Anthropic / Claude Science technical report, Discussion",
+   "url": "https://www-cdn.anthropic.com/30bf50e22a01388bb29bf077ee3f244531594b7a.pdf",
+   "date": "2026-08-18"
+  },
+  {
+   "claim": "OpenAI on GPT-Rosalind-5.5: 'Unlike our safeguards posture for our more broadly distributed flagship models, in this case we are not deploying automated monitors for real-time blocking of potentially unsafe generations.' It is still 'trained to refuse malicious requests that would meaningfully enable biological weaponization,' and GPT-5.5 was already treated as High capability in biology.",
+   "source": "OpenAI, GPT-Rosalind-5.5 System Card, pp. 4, 8-9",
+   "url": "https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf",
+   "date": "2026-06-03"
+  },
+  {
+   "claim": "Anthropic blog: 'After giving Claude the prompt, we left the model to execute autonomously. We provided no additional scientific, technical, or operational guidance after we initiated the campaigns.' Multi-target runs had 48 h wall time and up to 12,500 NVIDIA H100 hours; single-target runs 24 h and up to 2,500 H100 hours per target.",
+   "source": "Anthropic, 'How Claude is accelerating protein design and analytical chemistry'",
+   "url": "https://www.anthropic.com/research/Claude-accelerates-protein-design",
+   "date": "2026-08-18"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "A screenshot of a Claude system card's bio section specifically on protein design",
+   "searched": "The protein-design result is published as a standalone Anthropic research post + technical report (Aug 18 2026), not inside a numbered Claude system card. Captured the blog, the report figures, and (for the system-card framing) OpenAI's GPT-Rosalind-5.5 card instead."
+  },
+  {
+   "outline_item": "A 2026 Google/DeepMind bio-eval result with exact numbers",
+   "searched": "WebSearch for 'Google DeepMind 2026 bio eval / Gemini virology VCT' returned only secondary mentions in the EA Forum survey (Gemini models 'outperform experts on VCT', no primary figure loaded). Not screenshotted; left out to avoid an unverified number."
+  },
+  {
+   "outline_item": "Forbes screenshot",
+   "searched": "Forbes URL loaded but served an 'Access is temporarily restricted' bot wall; recorded the verified headline text with file:null for a citation card instead."
+  }
+ ]
 }

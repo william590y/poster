@@ -1384,7 +1384,7 @@ async function robotWorkSlide(d) {
   const c1 = await frameW(d, s, cnbc, rx + 0.05, yb + 0.12, cw, { rot: 1.5 });
   const sx = rx + cw + 0.35, sw = CX1 - sx;
   const st1 = stat(d, s, { x: sx, y: yb, w: sw, value: '$22.88 vs $52.97', valueSize: 19, labelSize: 12, labelH: 0.42, color: d.S.amber, label: 'hourly pay: most robot-exposed fifth of workers vs unexposed' });
-  const st2 = stat(d, s, { x: sx, y: yb + 0.8, w: sw, value: '9 of 10', valueSize: 19, labelSize: 12, labelH: 0.42, color: d.S.amber, label: 'of the 10 most-exposed occupations (20K+ jobs) are vehicle operators' });
+  const st2 = stat(d, s, { x: sx, y: yb + 0.8, w: sw, value: '9 of 10', valueSize: 19, labelSize: 12, labelH: 0.42, color: d.S.amber, label: 'most-exposed occupations (20K+ jobs) are vehicle operators' });
 
   d.animate(s, [...t1, meth, ...kfF, kfCap], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, kfHl.slice(0, 3), { auto: true, effect: 'wipeLeft', dur: 500, stagger: 350, after: 150 });

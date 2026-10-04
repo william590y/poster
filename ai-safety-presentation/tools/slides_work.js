@@ -185,7 +185,7 @@ async function pi0Crop() {
 // ========== 1. Engineering: CAD Bench ==========
 async function cadSlide(d) {
   const s = d.slide('Content');
-  head(s, 'THE ACCELERATION · ENGINEERING', 'AI agents are learning real engineering design');
+  head(s, 'THE ACCELERATION · ENGINEERING · 1', 'AI agents are learning real engineering design');
 
   const lb = await crop('cadbench-v3-leaderboard.png', 'cad-leaderboard-top5.png', { l: 0, t: 0, w: 1820, h: 562 });
   const shot = await frameW(d, s, lb, CX0, 1.8, 7.35);
@@ -259,7 +259,8 @@ async function hwDesignSlide(d) {
     [fusionCad, 'CAD · AUTODESK FUSION + CLAUDE OPUS 4.8', 'One chat request → a molded Raspberry Pi case'],
     [fusionCam, 'CAM · SAME AGENT, LATER REQUEST', '…then CNC toolpaths to machine the mold plates'],
     [R2('pcb-astra-kicad-hackaday.jpg'), 'PCB · GPT-6 ASTRA IN KICAD · STILL', 'OpenAI demo: layout mid-placement, plus 3D render', { clear: true }],
-    [R2('pcb-quilter-speedrun-board-360.gif'), 'PCB · QUILTER “PROJECT SPEEDRUN”', '843-part Linux computer — booted on first power-up'],
+    // Quilter is a physics-driven layout AI, not an LLM agent, and the boot claim is Quilter's own: say both on the tile
+    [R2('pcb-quilter-speedrun-board-360.gif'), 'PCB · QUILTER · NON-LLM LAYOUT AI', 'Vendor claim: 843-part PC booted on first power-up'],
   ];
   const tiles = [];
   for (let i = 0; i < 4; i++) {
@@ -298,7 +299,7 @@ async function hwDesignSlide(d) {
     'Four real demos of AI doing hardware design. Top row (Autodesk’s official demo of its new Fusion Compute MCP, Sep 15, 2026): an agent — the model selector in the video reads “Opus 4.8 High” (Claude) — is asked to design a two-part injection-molded enclosure for a Raspberry Pi 4; it builds the parametric case, then a family mold with core and cavity, then programs the CNC toolpaths. Autodesk: “That is a design-to-manufacturing chain that normally requires several people over several days, now driven end to end from a chat window.” (Autodesk’s own demo.)',
     'How the two GIFs were cut (trim, crop and scale only; nothing else changed): top-left = the request being typed in the chat, zoomed in on the chat box (video 0:04.5–0:08.95; it reads verbatim “Start Fusion and design a two-part injection molded enclousore for a Raspberry Pi4.” — typo in the original), then the finished case with the Raspberry Pi board in Fusion (0:40.6–0:43.4). Top-right = the CAM toolpaths on the mold plates (1:14.4–1:16.7) and Fusion’s machining simulation of the cavity plate (1:20.4–1:25.1), then the request that produced them, typed later in the same chat: “Create a setup and toolpaths to machine both parts” (1:01.6–1:04.2); the loop starts on the toolpaths so the still/PDF view is not an empty chat panel. The mold itself came from an earlier request in the video: “Create a core and a cavity to mold both parts at the same time. I’ll want a center injection to inject both parts at once.” Autodesk’s caption overlays (“Co-Design with your AI Agent” etc.) are part of the original video.',
     'Bottom left (a still, not a clip): image from OpenAI’s GPT-6 Astra launch demo (via Hackaday) — on the left the KiCad board mid-placement, footprints still outside the outline and connections shown as unrouted ratsnest lines; on the right a 3D render of the board. OpenAI’s caption for the video: “a 15-second condensed playback of GPT-6 Astra performing printed circuit board (PCB) layout in KiCad, turning an electronic schematic into a manufacturable PCB by placing components and routing copper connections” (a 2 min 54 s run). The clip itself could not be downloaded (Cloudflare/Vimeo), so this is the still. JLCPCB independently had Astra design a 44 × 34 mm amplifier board from a four-line brief: 0 ERC / 0 DRC violations under the configured rules (caveat: some rule categories were ignored, and a clean DRC is not a manufacturability check). Hackaday’s verdict was skeptical: “there is still a long way to go before hardware engineers can receive their pink slips.”',
-    'Bottom right: Quilter “Project Speedrun” — an 843-component, 8-layer, dual-board Linux computer laid out with Quilter’s physics-driven AI (not an LLM); it booted on first power-up. 38.5 hours of human work vs 428 hours quoted for manual layout (Quilter’s own figures; the clip is a marketing render of the real design).',
+    'Bottom right: Quilter “Project Speedrun” — an 843-component, 8-layer, dual-board Linux computer laid out with Quilter’s physics-driven AI (not an LLM, and not an agent in the chat sense — the tile says so); per Quilter, it booted on first power-up. 38.5 hours of human work vs 428 hours quoted for manual layout (Quilter’s own figures; the clip is a marketing render of the real design).',
     'Right: EEBench — 13 original, held-out electrical-engineering design tasks; each design is built and simulated (SPICE at worst-case tolerance corners): “No human graders. No LLM-as-judge.” Score = 0.65 × technical + 0.35 × cost-efficiency. Leaderboard Sep 29, 2026 — the chart shows the top 8 models, best configuration per model: Claude Opus 5.5 [xhigh] 75.0 ±8.3, GPT-6 Astra 69.3 ±10.7, Claude Sonnet 5.5 67.2, Grok 4.7 64.0, GPT-6.1 Sol 63.6, Claude Opus 5 61.6, Grok 4.6 57.1, Claude Fable 5.1 56.4 (next: GPT-6 Sol 56.3, Gemini 3.8 Flash 55.4, Claude Fable 5 54.3, Claude Opus 4.8 51.4). The top score on Sep 1 was 61.6 (Claude Opus 5). CAVEATS: built and funded by atopile, a company that sells PCB design tools; wide error bars; PCB layout is out of scope in V1. xAI now reports EEBench in its model cards (Grok 4.6) and launch posts (Grok 4.7: 64.0%).',
     'Chips: HWE-Bench (arXiv, Apr 2026) — 417 real bug fixes from open-source chip repositories (OpenTitan, CVA6, XiangShan…): the best agent (GPT-5.4) resolves 70.7%, >90% on small cores, <65% on SoC-level projects (spring-2026 models). Analog Design Bench (arXiv, Sep 27, 2026): full-spec pass rates from 8% to 78% on 50 transistor-level tasks in two-hour attempts (best: Claude Fable 5).',
     'Safety angle (say it): xAI’s Grok 4.6 model card, section “Engineering acceleration”: “agents that accelerate rocket design, IC layout, and datacenter power-and-cooling optimization compress the timelines of progress across the physical systems that enable further advances in AI capabilities and utility.” AI is starting to design the hardware that makes better AI.',
@@ -379,7 +380,7 @@ async function hwJobsSlide(d) {
 // ========== 1d. Labor: Agents' Last Exam ==========
 async function aleSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  head(s, 'THE ACCELERATION · LABOR', 'Agents’ Last Exam: 0% to 16% in four months');
+  head(s, 'THE ACCELERATION · LABOR · 1', 'Agents’ Last Exam: top score 0% → 16% since June');
 
   // left: official homepage (title + tagline) and the official video's wall of agents at work
   const lw = 6.15;
@@ -401,8 +402,9 @@ async function aleSlide(d) {
   // and the same Fable 5 at XHigh effort now passes 7.9% — so part of the jump is effort/harness, not only newer models
   const rows = [
     ['Claude Opus 5.5 (Max)', 15.8, HEX.red], ['Claude Opus 5 (Max)', 13.2, HEX.red], ['GPT-6 Sol (Medium)', 13.2, HEX.red], ['GPT-6 Astra (High)', 10.5, HEX.red],
-    ['Claude Fable 5 (XHigh effort)', 7.9, HEX.amber],
-    ['GPT-5.5 (default) · June launch', 0, HEX.steel], ['Claude Fable 5 (default) · June launch', 0, HEX.steel], ['Composer 2.5 (Cursor) · June launch', 0, HEX.steel],
+    // amber row sits directly above its own June-launch row so "same model, more effort" reads on the slide itself
+    ['Same Fable 5, at XHigh effort', 7.9, HEX.amber],
+    ['Claude Fable 5 (default) · June launch', 0, HEX.steel], ['GPT-5.5 (default) · June launch', 0, HEX.steel], ['Composer 2.5 (Cursor) · June launch', 0, HEX.steel],
   ];
   const ch = d.chart(s, 'bar', [{ name: 'Pass rate', labels: rows.map(r => r[0]).reverse(), values: rows.map(r => r[1]).reverse() }],
     { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 2.38 }, {
@@ -430,7 +432,7 @@ async function aleSlide(d) {
   s.addNotes([
     'Agents’ Last Exam (UC Berkeley RDI, Dawn Song’s group; arXiv 2606.05405, June 2026) is built to test whether agents are “job-ready”: 1,500+ expert-sourced tasks (target 5,000) across 55 occupations in 13 industry clusters — architecture, neuroscience, animation, engineering CAD, finance, law… — done in real professional software, with verifiable outcomes. Homepage tagline: “Challenge and measure AI agents on economically valuable and real-world tasks.”',
     'At launch (June 2026): “On ALE’s hardest tier, every frontier agent we tested, including Fable 5, achieved a 0% success rate.” And: “The age of useful agents is here. The age of truly job-ready agents is not.”',
-    'Today (live leaderboard, accessed Oct 4, 2026): on that same hardest “Last-Exam” split (38 tasks), Claude Opus 5.5 in Claude Code (max effort) passes 15.8% (6 of 38); Claude Opus 5 and GPT-6 Sol 13.2%; GPT-6 Astra (High) 10.5%. The June launch configurations (Claude Code + Fable 5 at default effort, Codex + GPT-5.5 default, Cursor + Composer 2.5) still show 0.0% on the same split — so the jump from 0% is on the same task set. But say it: the same Claude Fable 5 run at XHigh effort now passes 7.9% (amber bar), so part of the jump comes from effort settings and harness, not only from newer models. Leaderboard entries are not dated, so “four months” is launch-to-today (best published result then vs now). The benchmark is “Led by Berkeley RDI and 300+ industry experts” (homepage); the arXiv abstract says 250+ at submission.',
+    'Today (live leaderboard, accessed Oct 4, 2026): on that same hardest “Last-Exam” split (38 tasks), Claude Opus 5.5 in Claude Code (max effort) passes 15.8% (6 of 38); Claude Opus 5 and GPT-6 Sol 13.2%; GPT-6 Astra (High) 10.5%. The June launch configurations (Claude Code + Fable 5 at default effort, Codex + GPT-5.5 default, Cursor + Composer 2.5) still show 0.0% on the same split — so the jump from 0% is on the same task set. But say it: the same Claude Fable 5 run at XHigh effort now passes 7.9% (amber bar, labelled “Same Fable 5” on the slide, directly above its 0% June run), so part of the jump comes from effort settings and harness, not only from newer models — which is why the title says “top score”, not “models”. Leaderboard entries are not dated, so “since June” (about four months) is launch-to-today (best published result then vs now). The benchmark is “Led by Berkeley RDI and 300+ industry experts” (homepage); the arXiv abstract says 250+ at submission.',
     'Overall (152 public tasks): Claude Opus 5.5 38.2% pass rate (63.2% partial credit), GPT-6 Astra 34.2%; in June the best overall was 24.0% (GPT-5.5). Taking the best run per task across all agents gives 56.6%. “Pass rate” = share of runs with a perfect score.',
     'Caveat from the launch post: the most common failure is agents declaring success before verifying their work — “Done. All checks pass.” when files are missing or counts are wrong.',
     'Left: official homepage (crop) and a 4.7-second excerpt (0:70.5–0:75.2, trimmed/scaled only) of the official 80-second intro video: four agent sessions in real desktop software (CAD, an audio workstation, spreadsheets…), then the camera pulls back to a wall of dozens of sessions. The GIF plays in slideshow mode.',
@@ -523,22 +525,25 @@ async function gdpvalSlide(d) {
   const lab = capLabel(d, s, 'GDPVAL · DELIVERABLE JUDGED AS GOOD AS OR BETTER THAN AN EXPERT’S', { x: CX0, y: 1.72, w: lw, charSpacing: 1 });
   const box = { x: CX0 - 0.1, y: 1.98, w: lw + 0.1, h: 3.55 };
   const L = { x: 0.07, y: 0.12, w: 0.92, h: 0.72 };
-  const labels = ['GPT-4o (2024)', 'o3 (Apr ’25)', 'GPT-5 (Aug ’25)', 'Opus 4.1 (Sep ’25)', 'GPT-5.2 (Dec ’25)', 'GPT-5.4 (Mar ’26)', 'GPT-5.5 (Apr ’26)'].map(l => l.replace(/ (’\d\d\))/, '\u00A0$1'));
-  const vals = [12.4, 34.1, 38.8, 47.6, 70.9, 83.0, 84.9];
+  // bars in model-release order, labelled by release month (Claude Opus 4.1: Aug 5, 2025; GPT-5: Aug 7, 2025 —
+  // the GDPval paper that scored both is Sep 2025)
+  const labels = ['GPT-4o (2024)', 'o3 (Apr ’25)', 'Opus 4.1 (Aug ’25)', 'GPT-5 (Aug ’25)', 'GPT-5.2 (Dec ’25)', 'GPT-5.4 (Mar ’26)', 'GPT-5.5 (Apr ’26)'].map(l => l.replace(/ (’\d\d\))/, '\u00A0$1'));
+  const vals = [12.4, 34.1, 47.6, 38.8, 70.9, 83.0, 84.9];
   const ch = d.chart(s, 'bar', [{ name: 'Wins + ties', labels, values: vals }], box, {
     barDir: 'col', layout: L, chartColors: vals.map(v => (v >= 50 ? HEX.red : HEX.steel)), showValue: true, dataLabelFormatCode: '0.0"%"',
     dataLabelPosition: 'outEnd', dataLabelFontSize: 12, dataLabelFontBold: true, valAxisMinVal: 0, valAxisMaxVal: 100, valAxisMajorUnit: 25,
     valAxisLabelFormatCode: '0"%"', catAxisLabelFontSize: 11, barGapWidthPct: 45,
   });
   const py = box.y + box.h * (L.y + L.h * 0.5), px0 = box.x + box.w * L.x, px1 = box.x + box.w * (L.x + L.w);
-  // parity line drawn as two segments with a gap around the Opus 4.1 data label (47.6%), which sits right on 50%
-  const gc = box.x + box.w * (L.x + L.w * 3.5 / 7), gh = 0.36;
+  // parity line drawn as two segments with a gap around the Opus 4.1 data label (47.6%, bar 3 of 7), which sits right on 50%
+  const gc = box.x + box.w * (L.x + L.w * 2.5 / 7), gh = 0.36;
   const par = [[px0, gc - gh], [gc + gh, px1]].map(([a, b]) => {
     const n = d.name('parity');
     s.addShape(d.pres.shapes.LINE, { x: a, y: py, w: b - a, h: 0, line: { color: HEX.amber, width: 1.5, dashType: 'dash' }, objectName: n });
     return n;
   });
-  const parT = d.text(s, '50% = parity with industry experts', { x: px0 + 0.08, y: py - 0.3, w: 3.0, h: 0.26, fontSize: 11, bold: true, color: d.S.amber, valign: 'bottom' });
+  // two short lines over the first two (low) bars, clear of the Opus 4.1 label at bar 3
+  const parT = d.text(s, '50% = parity with\nindustry experts', { x: px0 + 0.08, y: py - 0.5, w: gc - gh - px0 - 0.12, h: 0.46, fontSize: 11, bold: true, color: d.S.amber, valign: 'bottom' });
   // the red bars are OpenAI's own reported numbers: say so on the chart itself (bracket over the three bars)
   const pa = box.x + box.w * (L.x + L.w * 4 / 7) + 0.1, pb = box.x + box.w * (L.x + L.w) - 0.1, pyb = box.y + 0.03;
   const brk = d.name('brk');
@@ -573,7 +578,7 @@ async function gdpvalSlide(d) {
   d.source(s, 'Sources: OpenAI, GDPval (arXiv 2510.04374, Sep 2025) · The Next Web (Mar 5, 2026) · MarkTechPost (Apr 23, 2026) · evals.openai.com (Oct 4, 2026) · VentureBeat (Sep 3, 2026) · Artificial Analysis GDPval-AA v2.1.');
   s.addNotes([
     'GDPval is OpenAI’s own benchmark of economically valuable work: 44 occupations across the 9 sectors contributing most to US GDP; tasks (with reference files) written by professionals averaging 14 years of experience; other experts compare the AI’s deliverable with the expert’s, blind. The metric is the share of tasks where the AI’s deliverable is judged as good as or better than the expert’s (wins + ties); 50% = parity.',
-    'Paper (Sep 2025): GPT-4o 12.4%, o3 high 34.1%, GPT-5 high 38.8%, Claude Opus 4.1 47.6% (best at the time — an Anthropic model on OpenAI’s benchmark). Later OpenAI-reported results (we could not load openai.com, so these are as reported by the press): GPT-5.2 70.9% and GPT-5.4 “matched or exceeded industry professionals in 83% of comparisons” (The Next Web, Mar 5, 2026); GPT-5.5 84.9% (MarkTechPost, Apr 23, 2026).',
+    'Paper (Sep 2025): GPT-4o 12.4%, o3 high 34.1%, GPT-5 high 38.8%, Claude Opus 4.1 47.6% (best at the time — an Anthropic model on OpenAI’s benchmark). Bars are in release order and labelled by release month: Claude Opus 4.1 came out Aug 5, 2025, two days before GPT-5 (Aug 7); “Sep 2025” is the paper’s date, not either model’s. Later OpenAI-reported results (we could not load openai.com, so these are as reported by the press): GPT-5.2 70.9% and GPT-5.4 “matched or exceeded industry professionals in 83% of comparisons” (The Next Web, Mar 5, 2026); GPT-5.5 84.9% (MarkTechPost, Apr 23, 2026).',
     'Then: “One notable omission from OpenAI’s Astra launch materials is GDPval, the company’s own benchmark for measuring performance on economically valuable, real-world work.” (VentureBeat, Sep 3, 2026 — the same article quotes Greg Brockman: “Welcome to the AGI era.”) OpenAI’s GDPval leaderboard page now reads: “The OpenAI-hosted GDPval leaderboard is no longer active.” We do not know why; do not speculate beyond the facts.',
     'Independent: Artificial Analysis re-runs the 220 public GDPval tasks agentically and scores them by blind pairwise Elo (a different metric): Claude Opus 5.5 leads at 1867, Claude Sonnet 5.5 1840; GPT-6 Astra (max) 1542. Best Elo rose from 920 (GPT-5, Aug 2025) to 1867 (Sep 2026).',
     'Caveat: “as good as an expert on a well-specified one-off task” is not “can do the expert’s job” — but the trend line crossed parity within a year.',
@@ -585,7 +590,7 @@ async function gdpvalSlide(d) {
 // ========== 2. Software jobs: the junior engineer is disappearing ==========
 async function juniorSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'THE ACCELERATION · JOBS', 'The junior engineer is disappearing');
+  head(s, 'THE ACCELERATION · JOBS · 1', 'The junior engineer is disappearing');
 
   const lx = CX0, lw = 5.85, rx = 6.95, rw = CX1 - rx;
   const vy = 2.1, vh = 2.9;
@@ -657,9 +662,13 @@ async function codeSlide(d) {
 
   // left: Google code-share chart + AI layoffs stat
   const lw = 3.4;
-  const lab = capLabel(d, s, 'NEW GOOGLE CODE WRITTEN BY AI', { x: CX0, y: 1.72, w: lw });
+  // the three bars are Google's own figures (Pichai): say so on the chart label
+  const lab = capLabel(d, s, [
+    { text: 'NEW GOOGLE CODE WRITTEN BY AI', options: { breakLine: true } },
+    { text: 'GOOGLE-REPORTED', options: { color: d.S.amber } },
+  ], { x: CX0, y: 1.72, w: lw, h: 0.44 });
   const ch = d.chart(s, 'bar', [{ name: 'Google', labels: ['2024', 'Fall 2025', 'Apr 2026'], values: [0.25, 0.5, 0.75] }],
-    { x: CX0 - 0.1, y: 2.0, w: lw + 0.1, h: 4.45 }, {
+    { x: CX0 - 0.1, y: 2.2, w: lw + 0.1, h: 4.25 }, {
       barDir: 'col', chartColors: [HEX.steel, HEX.amber, HEX.red], showValue: true, dataLabelFormatCode: '0%', dataLabelPosition: 'outEnd',
       dataLabelFontSize: 14, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 0.9, valAxisMinVal: 0,
       catAxisLabelFontSize: 11, barGapWidthPct: 35,
@@ -678,9 +687,11 @@ async function codeSlide(d) {
   const c2 = await frameW(d, s, fortune, 8.87, 2.15, 3.83, { rot: 1.5 });
   const c3 = await frameW(d, s, cnn, 4.5, 3.6, 4.05, { rot: 1.2 });
   const c4 = await frameW(d, s, cbs, 7.42, 5.08, 4.85, { rot: -1.5 });
+  // the 90% / 100% code shares are the labs' own (executive / engineer) statements: tag them on the slide
+  const selfRep = capLabel(d, s, 'SELF-REPORTED BY THE LABS', { x: 8.95, y: 1.72, w: 3.7, color: d.S.amber, charSpacing: 1 });
 
   d.animate(s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 800 });
-  d.animate(s, [...c1, ...c2], { auto: true, effect: 'rise', dur: 450, after: 200 });
+  d.animate(s, [...c1, ...c2, selfRep], { auto: true, effect: 'rise', dur: 450, after: 200 });
   d.anim[s._num].groups[1].effects.forEach((e, i) => { e.delay = Math.floor(i / 2) * 220; });
   d.animate(s, c3, { effect: 'slam', dur: 350 });
   d.animate(s, c4, { auto: true, effect: 'slam', dur: 350, after: 250 });
@@ -689,8 +700,9 @@ async function codeSlide(d) {
   d.source(s, 'Sources: Google blog / Semafor (Apr 2026) · Business Insider (May 2026) · Fortune (Jan 2026) · CNN (Feb 2026) · CBS News (May 2026) · HR Dive / Challenger, Gray & Christmas (Jul 2026).');
   s.addNotes([
     'Google: “75% of all new code at Google is now AI-generated and approved by engineers, up from 50% last fall” (Sundar Pichai, Cloud Next ’26, Apr 22 2026); 25% in 2024. Semafor also reports Snap reached 65% AI-generated code and immediately cut planned headcount.',
-    'Anthropic CFO Krishna Rao: “90 plus percent of our code is actually written by Claude Code.” Fortune: Boris Cherny (Anthropic) — “100% for two+ months now”; roon (OpenAI) — “100%, I don’t write code anymore.” These are self-reported figures by the companies and individuals.',
-    'Layoffs: Block cut more than 4,000 jobs (~40% of staff) citing AI; Jack Dorsey said most companies will do the same. Challenger: AI was the top cited reason for layoffs in April 2026 (21,490 of 88,387 cuts, 26%). H1 2026: 101,743 announced cuts cited AI (~23% of all) vs 54,836 in all of 2025; tech-sector cuts up 83% YoY.',
+    'Anthropic CFO Krishna Rao: “90 plus percent of our code is actually written by Claude Code.” Fortune: Boris Cherny (Anthropic) — “100% for two+ months now”; roon (OpenAI) — “100%, I don’t write code anymore.” These are self-reported figures by the companies and individuals (the slide tags them “self-reported by the labs”; the Google bars are tagged “Google-reported”).',
+    'If asked “which is it — 80, 90 or 100%?”: they are different measures. 90%+ = Anthropic’s CFO on a podcast (May 2026), share of code “written by Claude Code”. 100% = two engineers talking about their own personal code (Fortune, Jan 2026), not a company-wide figure. 80%+ (the later “Claude is building Claude” slide) = Anthropic’s own measure of code MERGED into its codebase (Fortune, Jun 5, 2026). All are self-reported; none is independently measured.',
+    'Layoffs: Block cut more than 4,000 jobs (~40% of staff) citing AI; Jack Dorsey said most companies will do the same. (CNN’s headline on the slide says “nearly half its staff”; the cut was 4,000+ jobs, roughly 40% — say “about 40%” if you quote a number.) Challenger: AI was the top cited reason for layoffs in April 2026 (21,490 of 88,387 cuts, 26%). H1 2026: 101,743 announced cuts cited AI (~23% of all) vs 54,836 in all of 2025; tech-sector cuts up 83% YoY.',
     'Caveat: “cited AI” is what companies say in announcements — some firms may use AI as a convenient framing for cuts driven by other factors. We found no 2026 figure from Microsoft; the latest public number is Nadella’s “20–30%” (April 2025).',
     'URLs: https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/ · https://www.semafor.com/article/04/24/2026/google-ceo-says-75-of-companys-new-code-is-ai-generated · https://www.aol.com/articles/anthropic-cfo-says-ai-now-224949000.html · https://fortune.com/2026/01/29/100-percent-of-code-at-anthropic-and-openai-is-now-ai-written-boris-cherny-roon/ · https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey · https://www.cbsnews.com/news/ai-layoffs-job-cuts-challenger-report-april-2026/ · https://www.hrdive.com/news/tech-layoffs-surge-83percent-h1-2026-challenger-ai-disruption/824320/',
   ].join('\n\n'));
@@ -700,7 +712,7 @@ async function codeSlide(d) {
 // ========== 4. Academia: arXiv rate limit ==========
 async function arxivSlide(d) {
   const s = d.slide('Content');
-  head(s, 'THE ACCELERATION · ACADEMIA', 'arXiv now caps submitters at two papers a month');
+  head(s, 'THE ACCELERATION · ACADEMIA · 1', 'arXiv now caps submitters at two papers a month');
 
   const chartImg = R('acad-arxiv-monthly-submissions-sep2026.png');
   const cw = 6.95;
@@ -724,11 +736,12 @@ async function arxivSlide(d) {
   co.push(capLabel(d, s, 'CS.AI ALONE · MONTHLY', { x: csx, y: ky + 0.06, w: csw, charSpacing: 1 }));
   // Native dark sparkline of arXiv's own “cs.AI submissions per month, 2024 - 2026” chart (same post).
   // Monthly values were traced from the official chart image (acad-arxiv-csai-growth.png: red-line pixels sampled at
-  // each month tick, ±~30) — used only for the line's shape. The two labelled values are the post's figures
-  // (~300 at the start, ~3,300 at the end; “over 6X” in two years).
+  // each month tick, ±~30). The two labelled values are readings of that chart (~300 in Jan 2024, ~3,300 in Sep 2026),
+  // i.e. ~10× over the 2 yr 8 mo the chart spans; the post's own text says “over 6X” for “the past two years”. The caption
+  // states both, each with its own window, so the labels and the multiple agree.
   const csaiTrace = [330, 550, 510, 420, 530, 540, 620, 570, 520, 770, 570, 780, 560, 790, 730, 750, 1220, 1030, 1020, 1250,
     1390, 1560, 1230, 1180, 1590, 1510, 1680, 2020, 2770, 2340, 2140, 2870, 3280];
-  const spY = ky + 0.36, spH = 1.06, vMax = 4400;
+  const spY = ky + 0.36, spH = 0.9, vMax = 4400;
   const L = { x: 0.03, y: 0.02, w: 0.94, h: 0.96 }; // manual plot-area layout (fractions of the chart box)
   const px = { x: csx + L.x * csw, y: spY + L.y * spH, w: L.w * csw, h: L.h * spH }; // plot area, inches
   const ptX = (i) => px.x + (i + 0.5) / csaiTrace.length * px.w; // 'between' category placement
@@ -751,9 +764,10 @@ async function arxivSlide(d) {
   co.push(d.text(s, '2024', { x: px.x, y: axY, w: 0.6, h: 0.18, fontSize: 10, color: d.S.steel, valign: 'top' }));
   co.push(d.text(s, '2026', { x: px.x + px.w - 0.6, y: axY, w: 0.6, h: 0.18, fontSize: 10, color: d.S.steel, align: 'right', valign: 'top' }));
   co.push(d.text(s, [
-    { text: '>6× ', options: { bold: true, color: d.S.red } },
-    { text: 'in two years', options: { color: d.S.txt } },
-  ], { x: csx, y: ky + kh - 0.38, w: csw, h: 0.26, fontSize: 13, valign: 'middle' }));
+    { text: '~10× ', options: { bold: true, color: d.S.red } },
+    { text: 'since Jan 2024', options: { color: d.S.txt, breakLine: true } },
+    { text: 'arXiv: “over 6×” in two years', options: { fontSize: 10, color: d.S.muted } },
+  ], { x: csx, y: ky + kh - 0.5, w: csw, h: 0.44, fontSize: 13, valign: 'bottom' }));
 
   // right column: official post + headline + quote
   const rx = 7.95, rw = CX1 - rx;
@@ -776,7 +790,7 @@ async function arxivSlide(d) {
   s.addNotes([
     'From October 1, 2026 arXiv limits every submitter (the cap applies to the submitter, i.e. the account that uploads the paper) to two submissions per calendar month and three active submissions at any time — across ALL categories; rejected submissions count. arXiv calls it a stopgap while it works out best practice for authors using advanced AI tools.',
     'Numbers from the official post: September 2016: 9,869 submissions · September 2024: 20,569 · September 2026: 40,363 — doubled in two years, generating almost 9,000 support tickets. Total submissions as of Oct 1 2026: 3,192,873.',
-    'The small sparkline redraws arXiv’s own chart from the same post, “cs.AI submissions per month, 2024 - 2026”: from roughly 300 a month (Jan 2024) to roughly 3,300 in the latest month shown (the final point sits on the 2026-09 tick of arXiv’s chart; our research note read it as Aug 2026). The line’s monthly values were traced from the official chart image (approximate, shape only); the two labelled values are the post’s own figures. The post says cs.AI submissions grew more than 6x in two years. Compare arXiv as a whole: 2x in two years. The AI category itself is where the flood is fastest.',
+    'The small sparkline redraws arXiv’s own chart from the same post, “cs.AI submissions per month, 2024 - 2026”: from roughly 300 a month (Jan 2024) to roughly 3,300 in the latest month shown (the final point sits on the 2026-09 tick of arXiv’s chart; our research note read it as Aug 2026). The line’s monthly values were traced from the official chart image (approximate); the two labelled values (~300, ~3,300) are our readings of that chart, not numbers printed in the post — so “~10× since Jan 2024” is our reading too. The post’s own text: “Increases over the past two years in cs.AI (over 6X increase)”. Both are right for their windows: the chart spans 2 years 8 months; over the last two years alone (Sep 2024 ≈ 500 → Sep 2026 ≈ 3,300) the rise is just over 6×. If asked, quote arXiv’s “over 6×”. Compare arXiv as a whole: 2x in two years. The AI category itself is where the flood is fastest.',
     'Rationale quote (verbatim): “There is also a marked increase in dense, AI-written papers. AI tools are making it easy for authors to flood arXiv and other repositories with these low-value papers.” They also cite “thin papers of narrow scope” and “salami” papers.',
     'Context: in Oct 2025 arXiv CS already stopped accepting un-reviewed review articles and position papers because of an “unmanageable influx”; in May 2026 it announced one-year bans for authors who submit unchecked LLM output (hallucinated references, leftover prompts) — 404 Media.',
     'Cybernews headline date is approximate (~Oct 1–2, 2026).',
@@ -843,7 +857,7 @@ async function reviewSlide(d) {
 // ========== 6. Video Turing test: Tavus Griffin ==========
 async function tavusSlide(d) {
   const s = d.slide('Content', { transition: 'zoom' });
-  head(s, 'THE ACCELERATION · VIDEO', 'Tavus: 48% thought its AI was a real person');
+  head(s, 'THE ACCELERATION · VIDEO · 1', 'Tavus: 48% thought its AI was a real person');
 
   // official Tavus upload (openweights manifest: video-tavus-griffin)
   const vw = 6.45;
@@ -1152,7 +1166,7 @@ async function realRevealSlide(d) {
 // ========== 8. VLA: wall of headlines ==========
 async function vlaWallSlide(d) {
   const s = d.slide('Content');
-  head(s, 'THE ACCELERATION · ROBOTICS', 'Robots are getting foundation-model brains');
+  head(s, 'THE ACCELERATION · ROBOTICS · 1', 'Robots are getting foundation-model brains');
 
   const nvidia = await crop('vla-nvidia-gtc2026-physical-ai.png', 'vla-nvidia-head.png', { l: 0, t: 0, w: 1640, h: 715 });
   // three columns with clear gaps: π0.7 + NVIDIA (left), Gemini Robotics 2 / Spirit AI / Robot Report (middle),

@@ -191,7 +191,7 @@ class Deck {
 
   // Muted source line at the bottom of a content slide.
   source(s, text, { y = 6.62, x = MX, w = W - 2 * MX } = {}) {
-    return this.text(s, text, { x, y, w, h: 0.32, fontSize: 9, color: this.S.steel, valign: 'bottom', italic: true });
+    return this.text(s, text, { x, y, w, h: 0.32, fontSize: 10, color: this.S.steel, valign: 'bottom', italic: true });
   }
 
   // Dark card background (subtle tint, no edge stripes).
@@ -246,6 +246,26 @@ class Deck {
     }
     names.geom = g;
     return names;
+  }
+
+  // Native chart with the deck's consistent dark styling. type: 'line' | 'bar' | 'area' | 'scatter' | 'doughnut'
+  chart(s, type, data, box, opts = {}) {
+    const name = opts.objectName || this.name('chart');
+    const T = this.pres.charts[type.toUpperCase()];
+    const base = {
+      ...box, objectName: name,
+      chartColors: [HEX.red, HEX.steel, HEX.blue, HEX.amber, HEX.teal, 'C9D1D9'],
+      catAxisLabelColor: HEX.muted, valAxisLabelColor: HEX.muted, catAxisLabelFontFace: '+mn-lt', valAxisLabelFontFace: '+mn-lt',
+      catAxisLabelFontSize: 11, valAxisLabelFontSize: 11, catAxisLineColor: HEX.line, valAxisLineShow: false,
+      valGridLine: { color: HEX.line, size: 0.75 }, catGridLine: { style: 'none' },
+      showLegend: (data.length > 1), legendPos: 't', legendColor: HEX.muted, legendFontFace: '+mn-lt', legendFontSize: 11,
+      dataLabelColor: HEX.text, dataLabelFontFace: '+mn-lt', dataLabelFontSize: 11,
+      titleColor: HEX.text, titleFontFace: '+mj-lt', titleFontSize: 14,
+      lineSize: 3, lineDataSymbol: 'circle', lineDataSymbolSize: 7,
+      valAxisTitleColor: HEX.muted, catAxisTitleColor: HEX.muted, valAxisTitleFontSize: 11, catAxisTitleFontSize: 11,
+    };
+    s.addChart(T, data, { ...base, ...opts, objectName: name });
+    return name;
   }
 
   async write(file) {

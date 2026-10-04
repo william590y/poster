@@ -1,0 +1,44 @@
+{
+ "clip": {
+  "x": 300,
+  "y": 60,
+  "w": 680,
+  "h": 520
+ },
+ "scrollY": 1180,
+ "dpr": 2,
+ "inner": [
+  1280,
+  1000
+ ],
+ "rel": {
+  "advise on how to coordinate their dissemination": [
+   {
+    "x": 393.1,
+    "y": 28.2,
+    "w": 214.4,
+    "h": 20
+   },
+   {
+    "x": 38.3,
+    "y": 56.2,
+    "w": 144.8,
+    "h": 20
+   }
+  ],
+  "Importantly, the group will not be responsible for advising us on how to pace our internal progress on mathematics": [
+   {
+    "x": 233.8,
+    "y": 360.2,
+    "w": 367.5,
+    "h": 20
+   },
+   {
+    "x": 38.3,
+    "y": 388.2,
+    "w": 492.3,
+    "h": 20
+   }
+  ]
+ }
+}

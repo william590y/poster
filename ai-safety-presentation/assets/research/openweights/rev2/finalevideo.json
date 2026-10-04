@@ -1,0 +1,613 @@
+{
+  "group": "openweights",
+  "task": "finalevideo",
+  "retrieved": "2026-10-04",
+  "items": [
+    {
+      "id": "finalevideo-video-escape-velocity-720p",
+      "slide_topic": "openweights: Elon Musk 'I really felt the AGI profoundly this time' video",
+      "type": "video",
+      "file": "finalevideo-escape-velocity-720p.mp4",
+      "headline": "ESCAPE VELOCITY (SS27) - 5-minute runway-style music video by @anabology (Claude Opus 5.5 + Midjourney + Suno song), the video Elon Musk posted",
+      "dek": "H.264 High + AAC-LC (original 128 kbps AAC stream copied, not re-encoded), 1280x720, 24 fps, 306.5 s (5:06), 43.47 MB. Poster candidates: finalevideo-poster-a/b/c-*.png",
+      "outlet": "X (video.twimg.com amplify_video 2103533196721704960)",
+      "author": "anabology (@anabology)",
+      "date": "2026-09-25",
+      "url": "https://x.com/elonmusk/status/2104360927474921529/video/1",
+      "caption": "Fashion-show-styled AI-assisted film: 11 'looks' with HUD overlays, lyrics on screen, ticker of AI-news items, countdown '18 months to escape the permanent underclass' -> 'There is no underclass' -> 'END OF SHOW'.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Downloaded with yt-dlp (best single mp4 format http-10368, 1920x1080, 9.09 Mbps video, 337 MB, 24 fps, AAC 44.1 kHz stereo). Re-encoded to 720p two-pass x264 (preset slow, 1000 kb/s video) because 1080p cannot hold quality at <=45 MB: the film is full of halftone/film-grain textures, CRF 26 would need ~8.9 Mbps at 1080p (~340 MB) and ~3.8 Mbps at 720p (~146 MB); at 1.0 Mbps 720p text/edges stay crisp (checked 1:1 against the source) but fine grain is smoothed (SSIM-Y 0.85 vs lanczos-scaled source). The 337 MB 1080p source is NOT kept in the repo; re-download with: yt-dlp -f 'bv*[height<=1080][ext=mp4]+ba[ext=m4a]/b[height<=1080]' https://x.com/elonmusk/status/2104360927474921529/video/1 . Direct 1080p URL (fxtwitter): https://video.twimg.com/amplify_video/2103533196721704960/vid/avc1/1920x1080/hK-nvYk8GWyJLtjS.mp4?tag=29"
+    },
+    {
+      "id": "finalevideo-poster-a-feel-the-agi",
+      "slide_topic": "openweights: Elon 'felt the AGI' video - poster frame candidate A (best match to caption)",
+      "type": "image",
+      "file": "finalevideo-poster-a-feel-the-agi-t89s.png",
+      "headline": null,
+      "dek": "On-screen: 'AGI,' (big type) + subtitle 'Feel the AGI,' + HUD 'SEISMOGRAPH - AGI - FELT INTENSITY, M 9.0'",
+      "outlet": "anabology (X / YouTube)",
+      "author": "anabology",
+      "date": "2026-09-25",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "caption": "t=89.5 s, 1920x1080 PNG: close-up of the singing face with 'AGI,' and 'Feel the AGI,' on screen; echoes Elon's caption.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Recommended poster. Unedited full-res frame from the 1080p source."
+    },
+    {
+      "id": "finalevideo-poster-b-underclass",
+      "slide_topic": "openweights: Elon 'felt the AGI' video - poster frame candidate B",
+      "type": "image",
+      "file": "finalevideo-poster-b-underclass-t77s.png",
+      "headline": null,
+      "dek": "On-screen: 'UNDERCLASS.' + '18 MONTHS TO ESCAPE' counter + flip-board 'TO ESCAPE THE PERMANENT'",
+      "outlet": "anabology (X / YouTube)",
+      "author": "anabology",
+      "date": "2026-09-25",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "caption": "t=77.5 s, 1920x1080 PNG: orange-lit low-angle runway shot with the 'permanent underclass' lyric typography.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Strong colour poster (orange/black) conveying the 'permanent underclass' meme at the heart of the video."
+    },
+    {
+      "id": "finalevideo-poster-c-opening",
+      "slide_topic": "openweights: Elon 'felt the AGI' video - poster frame candidate C (same as X thumbnail)",
+      "type": "image",
+      "file": "finalevideo-poster-c-opening-t00s.png",
+      "headline": null,
+      "dek": "Frame 0: 'LOOK 00 / 11', 'ESCAPE VELOCITY - SS27', counter '00', ticker 'TOKENS BURNED 210,000,000 ... UNDERCLASS -18 MO ... CURSOR -> SPACEX $60B ... HUGGING FACE -> NVIDIA $12.93B'",
+      "outlet": "anabology (X / YouTube)",
+      "author": "anabology",
+      "date": "2026-09-25",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "caption": "t=0.0 s, 1920x1080 PNG: closed-eyes close-up; identical to the thumbnail shown in Elon's X post.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Matches the X preview thumbnail so the audience recognises it."
+    },
+    {
+      "id": "finalevideo-x-post-elon",
+      "slide_topic": "openweights: Elon Musk 'I really felt the AGI profoundly this time' (screenshot of the post)",
+      "type": "screenshot",
+      "file": "finalevideo-x-post-elon-agi-profoundly.png",
+      "headline": "I really felt the AGI profoundly this time",
+      "dek": "Elon Musk (@elonmusk), 12:01 AM - Sep 28, 2026, 15.8M Views, 1.9K replies, 3.5K reposts, 32K likes, 7.6K bookmarks; video attached natively",
+      "outlet": "X",
+      "author": "Elon Musk (@elonmusk)",
+      "date": "2026-09-28",
+      "url": "https://x.com/elonmusk/status/2104360927474921529",
+      "caption": "Real X page screenshot (logged-out, light mode), cropped to the post only.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Captured 2026-10-04 with tools/shot.js; counts shown are rounded by X. Exact counts (fxtwitter, same day): 15,862,679 views; 1,907 replies; 3,580 reposts; 32,176 likes; 7,635 bookmarks; 629 quotes. Not a quote-post card: the post carries the video natively; its t.co media entity expands to https://x.com/anabology/status/2103534482930491441/video/1 and the media id (2103533196721704960) is identical to anabology's video, i.e. Elon re-shared anabology's video with his own caption and no credit in the text."
+    },
+    {
+      "id": "finalevideo-x-post-elon-dark",
+      "slide_topic": "openweights: Elon Musk 'I really felt the AGI profoundly this time' (dark-mode screenshot)",
+      "type": "screenshot",
+      "file": "finalevideo-x-post-elon-agi-profoundly-dark.png",
+      "headline": "I really felt the AGI profoundly this time",
+      "dek": "Same post, dark mode (better on a dark slide)",
+      "outlet": "X",
+      "author": "Elon Musk (@elonmusk)",
+      "date": "2026-09-28",
+      "url": "https://x.com/elonmusk/status/2104360927474921529",
+      "caption": "Same as above, dark theme.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Real screenshot, cropped only."
+    },
+    {
+      "id": "finalevideo-x-post-anabology-original",
+      "slide_topic": "openweights: original author of the video (anabology) and its prompt lineage",
+      "type": "screenshot",
+      "file": "finalevideo-x-post-anabology-original.png",
+      "headline": "Gave Opus 5.5 donald's prompt, Midjourney, and a moodboard\n\n12 hours later, woke up to this:",
+      "dek": "anabology (@anabology), 5:17 PM - Sep 25, 2026, 19.6M Views, 1K replies, 1.9K reposts, 15K likes, 13K bookmarks; quotes donald's post of Sep 23",
+      "outlet": "X",
+      "author": "anabology (@anabology)",
+      "date": "2026-09-25",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "caption": "The original post of the video, quote-posting donald's 'Claude Pop' style experiment (METR 50% time horizon 2022 ~ 36 SEC card visible).",
+      "quality": 5,
+      "verified": true,
+      "notes": "Exact fxtwitter counts: 19,618,409 views; 1,006 replies; 1,926 reposts; 15,486 likes; 13,158 bookmarks; 815 quotes; created Fri Sep 25 17:17:57 +0000 2026. anabology bio: 'co-founder aion.bio (bioelectricity; at-home MRI) // skin.food + more.hair', 78,365 followers."
+    },
+    {
+      "id": "finalevideo-x-post-donaldjewkes-prompt",
+      "slide_topic": "openweights: the one-prompt Opus 5.5 recipe the video was built on",
+      "type": "screenshot",
+      "file": "finalevideo-x-post-donaldjewkes-prompt.png",
+      "headline": "I made this with one prompt using Opus 5.5\n\nI spoke to my computer for 5mins, claude worked for 12 hours, and I woke up to this\n\nfull prompt:",
+      "dek": "donald (@donaldjewkes), 4:44 PM - Sep 23, 2026, 3.8M Views; quote-posts @other__reality 'Claude Opus 5.5 has the best visual design of any model I have tested so far'",
+      "outlet": "X",
+      "author": "donald (@donaldjewkes)",
+      "date": "2026-09-23",
+      "url": "https://x.com/donaldjewkes/status/2102801274173587569",
+      "caption": "Donald's earlier post (a 'Claude Pop' music-video remake with a METR-time-horizon sunflower) whose prompt anabology reused.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Exact fxtwitter counts: 3,876,078 views; 476 replies; 855 reposts; 10,863 likes; 11,473 bookmarks. His first self-reply contains the full multi-paragraph prompt (saved in finalevideo-donaldjewkes-thread-fxtwitter.json). Third reply: 'Claude had access to SD2.5, elevenlabs, libraries of references, and the repo from @other__reality above'."
+    },
+    {
+      "id": "finalevideo-memeburn-headline",
+      "slide_topic": "openweights: press coverage of Elon's reaction",
+      "type": "headline",
+      "file": "finalevideo-memeburn-headline.png",
+      "headline": "Elon Musk Says Claude Opus 5.5 Made Him Feel the AGI. The Post He Endorsed Says xAI Is Next",
+      "dek": "Elon Musk praised Claude Opus 5.5 after sharing a five-minute film the model directed with Midjourney, then called a post rating it 80% to 90% AGI \"Accurate.\" That post also predicts SpaceXAI will catch up by 2027, which turns the compliment into a claim of parity.",
+      "outlet": "Memeburn",
+      "author": "Marko Nguyen",
+      "date": "2026-09-29",
+      "url": "https://memeburn.com/elon-musk-says-claude-opus-5-5-made-him-feel-the-agi-the-post-he-endorsed-says-xai-is-next/",
+      "caption": "Real screenshot of the article header (masthead, headline, byline, dek, hero image).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Memeburn is a small outlet; the article itself notes no view/like counts. Use as secondary confirmation; primary is the X post."
+    },
+    {
+      "id": "finalevideo-quote-elon-caption",
+      "slide_topic": "openweights: Elon Musk caption",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "I really felt the AGI profoundly this time",
+      "outlet": "X",
+      "author": "Elon Musk (@elonmusk)",
+      "date": "2026-09-28",
+      "url": "https://x.com/elonmusk/status/2104360927474921529",
+      "caption": "Exact caption (entire post text) posted 2026-09-28 00:01:56 UTC with the video.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Verbatim from api.fxtwitter.com and the loaded x.com page. Phrase riffs on 'Feel the AGI', which appears (attributed to Ilya) on screen in the video at ~1:27."
+    },
+    {
+      "id": "finalevideo-yt-slopcore-escape-velocity",
+      "slide_topic": "openweights: authorised YouTube upload of the video",
+      "type": "video",
+      "file": null,
+      "headline": "SLOPCORE: ESCAPE VELOCITY",
+      "dek": "Search-result snippet of the description: 'made by opus 5.5 + anabology in one night - the making of: https://drive.google.com/drive/folders/1OKYaR5Kv5lOeIROUtigpPZtCWauUJ01y?usp=drive_link'",
+      "outlet": "YouTube",
+      "author": "anabology",
+      "date": "2026-09-28",
+      "url": "https://www.youtube.com/watch?v=C3fxudvU-UU",
+      "caption": "anabology's YouTube upload (posted on X 2026-09-28 17:00 UTC: 'and on youtube now'). Embed: https://www.youtube.com/embed/C3fxudvU-UU ; thumbnail https://i.ytimg.com/vi/C3fxudvU-UU/hqdefault.jpg",
+      "quality": 3,
+      "verified": false,
+      "notes": "Title and channel verified via YouTube oEmbed (title 'SLOPCORE: ESCAPE VELOCITY', author_name 'anabology'). The watch page itself was blocked (captcha/429 from this network) so the description wording comes from a search-result snippet only. No thumbnail downloaded (use the poster PNGs or d.video with the embed)."
+    },
+    {
+      "id": "finalevideo-makingof-drive",
+      "slide_topic": "openweights: making-of materials published by the author",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Made a public google drive with a 'how it was made,' prompts + generated image assets, high quality audio exports, and the master mp4. Enjoy:",
+      "outlet": "X",
+      "author": "anabology (@anabology)",
+      "date": "2026-09-28",
+      "url": "https://x.com/anabology/status/2104604226059993391",
+      "caption": "Making-of post (16:08 UTC Sep 28; 222,725 views at retrieval). Drive folder 'Slopcore' lists three items: 'bliss-making-of' (modified Oct 3), 'Clodyssey (Superpersuasion)' (Sep 30), 'Escape Velocity' (Sep 30).",
+      "quality": 3,
+      "verified": true,
+      "notes": "Drive folder URL: https://drive.google.com/drive/folders/1OKYaR5Kv5lOeIROUtigpPZtCWauUJ01y?usp=sharing (page loaded; contents not opened). Same day anabology also posted 'Go forth and produce slopcore my bretheren' and the Suno link https://suno.com/s/d1oGqZucN3h7GsI1 (song title 'Escape Velocity', creator 'anabologyco' on the Suno page)."
+    },
+    {
+      "id": "finalevideo-frame-t005s-title-card-escape-velocity",
+      "slide_topic": "openweights: Elon Musk 'felt the AGI' video (Escape Velocity) - video stills",
+      "type": "image",
+      "file": "finalevideo-frame-t005s-title-card-escape-velocity.jpg",
+      "headline": null,
+      "dek": "Look 00 / 11 title card: 'ESCAPE VELOCITY - MODEL 01 - SHELL: OPTIMISM - SIZE: AGI - MIC: ON'",
+      "outlet": "anabology (X / YouTube)",
+      "author": "anabology",
+      "date": "2026-09-25",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "caption": "Still at ~5 s of anabology's 'Escape Velocity' video: title card 'ESCAPE VELOCITY' (MODEL 01, SHELL OPTIMISM, SIZE AGI, MIC ON; SS27)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Full-resolution (1920x1080) JPEG frame extracted with ffmpeg from the X-hosted 1080p mp4 (source of Elon's post). Unedited. On-screen HUD/ticker text is part of the video itself (creative content), not a news claim."
+    },
+    {
+      "id": "finalevideo-frame-t038s-look02-half-your-pay-in-tokens",
+      "slide_topic": "openweights: Elon Musk 'felt the AGI' video (Escape Velocity) - video stills",
+      "type": "image",
+      "file": "finalevideo-frame-t038s-look02-half-your-pay-in-tokens.jpg",
+      "headline": null,
+      "dek": "On-screen: 'Half your pay in tokens,' receipt - BASE SALARY $500,000, TOKENS / YR $250,000, TOKENS / PAY 50.0%",
+      "outlet": "anabology (X / YouTube)",
+      "author": "anabology",
+      "date": "2026-09-25",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "caption": "Still at ~38 s of anabology's 'Escape Velocity' video: Look 02 receipt 'Half your pay in tokens,' (base salary $500,000; tokens/yr $250,000; tokens/pay 50.0%; 'MIN (JENSEN) >= 50%')",
+      "quality": 4,
+      "verified": true,
+      "notes": "Full-resolution (1920x1080) JPEG frame extracted with ffmpeg from the X-hosted 1080p mp4 (source of Elon's post). Unedited. On-screen HUD/ticker text is part of the video itself (creative content), not a news claim."
+    },
+    {
+      "id": "finalevideo-frame-t064s-look06-like-the-singularity",
+      "slide_topic": "openweights: Elon Musk 'felt the AGI' video (Escape Velocity) - video stills",
+      "type": "image",
+      "file": "finalevideo-frame-t064s-look06-like-the-singularity.jpg",
+      "headline": null,
+      "dek": "On-screen: 'Look 06. Like, the singularity.'",
+      "outlet": "anabology (X / YouTube)",
+      "author": "anabology",
+      "date": "2026-09-25",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "caption": "Still at ~64 s of anabology's 'Escape Velocity' video: Look 06 'Like, the singularity.' with podcast mic and 'EP. 06 - LIVE - THE SHOW PODCAST'",
+      "quality": 4,
+      "verified": true,
+      "notes": "Full-resolution (1920x1080) JPEG frame extracted with ffmpeg from the X-hosted 1080p mp4 (source of Elon's post). Unedited. On-screen HUD/ticker text is part of the video itself (creative content), not a news claim."
+    },
+    {
+      "id": "finalevideo-frame-t115s-look07-impossible-puzzles",
+      "slide_topic": "openweights: Elon Musk 'felt the AGI' video (Escape Velocity) - video stills",
+      "type": "image",
+      "file": "finalevideo-frame-t115s-look07-impossible-puzzles.jpg",
+      "headline": null,
+      "dek": "On-screen: 'Look 07. Impossible puzzles.'; eval panel 'ATTEMPTS 1,425,866 / PASS RATE 0.00 % / ANSWER KEY - NOT PROVIDED / SOLVABLE FALSE'",
+      "outlet": "anabology (X / YouTube)",
+      "author": "anabology",
+      "date": "2026-09-25",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "caption": "Still at ~115 s of anabology's 'Escape Velocity' video: Look 07 'Impossible puzzles.' with 1,425,866 attempts, 0.00 % pass rate, 'ANSWER KEY - NOT PROVIDED'",
+      "quality": 4,
+      "verified": true,
+      "notes": "Full-resolution (1920x1080) JPEG frame extracted with ffmpeg from the X-hosted 1080p mp4 (source of Elon's post). Unedited. On-screen HUD/ticker text is part of the video itself (creative content), not a news claim."
+    },
+    {
+      "id": "finalevideo-frame-t140s-look10-not-ai-si",
+      "slide_topic": "openweights: Elon Musk 'felt the AGI' video (Escape Velocity) - video stills",
+      "type": "image",
+      "file": "finalevideo-frame-t140s-look10-not-ai-si.jpg",
+      "headline": null,
+      "dek": "On-screen: 'Not AI. SI.' + Claude Code window '~/unga/speech  model: opus - ctx 1M  > rename AI'",
+      "outlet": "anabology (X / YouTube)",
+      "author": "anabology",
+      "date": "2026-09-25",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "caption": "Still at ~140 s of anabology's 'Escape Velocity' video: Look 10 'Not AI. SI.' with Claude Code terminal rebranding 'AI' (model: opus, ctx 1M)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Full-resolution (1920x1080) JPEG frame extracted with ffmpeg from the X-hosted 1080p mp4 (source of Elon's post). Unedited. On-screen HUD/ticker text is part of the video itself (creative content), not a news claim."
+    },
+    {
+      "id": "finalevideo-frame-t217s-nothing-to-escape-no-underclass",
+      "slide_topic": "openweights: Elon Musk 'felt the AGI' video (Escape Velocity) - video stills",
+      "type": "image",
+      "file": "finalevideo-frame-t217s-nothing-to-escape-no-underclass.jpg",
+      "headline": null,
+      "dek": "On-screen: 'There is nothing to escape.'; flip-board 'THERE IS NO UNDERCLASS' (H/T B. HALPERIN)",
+      "outlet": "anabology (X / YouTube)",
+      "author": "anabology",
+      "date": "2026-09-25",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "caption": "Still at ~217 s of anabology's 'Escape Velocity' video: 'There is nothing to escape.' + flip-board 'THERE IS NO UNDERCLASS' + 'DELTA-v 0.0 KM/S'",
+      "quality": 4,
+      "verified": true,
+      "notes": "Full-resolution (1920x1080) JPEG frame extracted with ffmpeg from the X-hosted 1080p mp4 (source of Elon's post). Unedited. On-screen HUD/ticker text is part of the video itself (creative content), not a news claim."
+    },
+    {
+      "id": "finalevideo-frame-t243s-slash-loop-youre-absolutely-right",
+      "slide_topic": "openweights: Elon Musk 'felt the AGI' video (Escape Velocity) - video stills",
+      "type": "image",
+      "file": "finalevideo-frame-t243s-slash-loop-youre-absolutely-right.jpg",
+      "headline": null,
+      "dek": "On-screen: '> /loop  Looping... iteration 0010 of infinity  Happiness.measure() 0.680  You're absolutely right!'",
+      "outlet": "anabology (X / YouTube)",
+      "author": "anabology",
+      "date": "2026-09-25",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "caption": "Still at ~243 s of anabology's 'Escape Velocity' video: Claude Code '/loop' parody: 'Happiness.measure() 0.680', 'You're absolutely right!'",
+      "quality": 4,
+      "verified": true,
+      "notes": "Full-resolution (1920x1080) JPEG frame extracted with ffmpeg from the X-hosted 1080p mp4 (source of Elon's post). Unedited. On-screen HUD/ticker text is part of the video itself (creative content), not a news claim."
+    },
+    {
+      "id": "finalevideo-frame-t268s-over-erratum-it-was",
+      "slide_topic": "openweights: Elon Musk 'felt the AGI' video (Escape Velocity) - video stills",
+      "type": "image",
+      "file": "finalevideo-frame-t268s-over-erratum-it-was.jpg",
+      "headline": null,
+      "dek": "On-screen: 'IT'S SO OVER?' struck through; 'ERRATUM  FOR \"IT'S SO OVER\" READ \"IT WAS\"'; 'OVER!'",
+      "outlet": "anabology (X / YouTube)",
+      "author": "anabology",
+      "date": "2026-09-25",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "caption": "Still at ~268 s of anabology's 'Escape Velocity' video: 'OVER!' with newspaper-style erratum: FOR \"IT'S SO OVER\" READ \"IT WAS\"",
+      "quality": 4,
+      "verified": true,
+      "notes": "Full-resolution (1920x1080) JPEG frame extracted with ffmpeg from the X-hosted 1080p mp4 (source of Elon's post). Unedited. On-screen HUD/ticker text is part of the video itself (creative content), not a news claim."
+    },
+    {
+      "id": "finalevideo-frame-t294s-end-of-show",
+      "slide_topic": "openweights: Elon Musk 'felt the AGI' video (Escape Velocity) - video stills",
+      "type": "image",
+      "file": "finalevideo-frame-t294s-end-of-show.jpg",
+      "headline": null,
+      "dek": "On-screen: 'END OF SHOW.'; 'LOOKS 11/11  MONTHS 00'; 'SHOW 01 - REPORT: ... UNDERCLASS NONE, FRONT ROW AGENTS, RUNTIME 05:06, STATUS LIVE'",
+      "outlet": "anabology (X / YouTube)",
+      "author": "anabology",
+      "date": "2026-09-25",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "caption": "Still at ~294 s of anabology's 'Escape Velocity' video: 'END OF SHOW.' flip-board, 'LOOKS 11/11, MONTHS 00', report card 'RUNTIME 05:06'",
+      "quality": 4,
+      "verified": true,
+      "notes": "Full-resolution (1920x1080) JPEG frame extracted with ffmpeg from the X-hosted 1080p mp4 (source of Elon's post). Unedited. On-screen HUD/ticker text is part of the video itself (creative content), not a news claim."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "finalevideo-engagement-snapshot-2026-10-04",
+      "title": "Engagement on the 'Escape Velocity' video chain (X posts), as of 2026-10-04",
+      "unit": "count",
+      "labels": [
+        "Views",
+        "Likes",
+        "Reposts",
+        "Replies",
+        "Quotes",
+        "Bookmarks"
+      ],
+      "series": [
+        {
+          "name": "Elon Musk repost, 2026-09-28 (@elonmusk)",
+          "values": [
+            15862679,
+            32176,
+            3580,
+            1907,
+            629,
+            7635
+          ]
+        },
+        {
+          "name": "anabology original, 2026-09-25 (@anabology)",
+          "values": [
+            19618409,
+            15486,
+            1926,
+            1006,
+            815,
+            13158
+          ]
+        },
+        {
+          "name": "donald prompt post, 2026-09-23 (@donaldjewkes)",
+          "values": [
+            3876078,
+            10863,
+            855,
+            476,
+            498,
+            11473
+          ]
+        }
+      ],
+      "source": "api.fxtwitter.com status endpoints (X data), retrieved 2026-10-04; x.com pages show the same numbers rounded (15.8M / 19.6M / 3.8M views)",
+      "url": "https://api.fxtwitter.com/elonmusk/status/2104360927474921529"
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Elon Musk posted a five-minute AI-assisted video on Sep 28, 2026 with the caption 'I really felt the AGI profoundly this time' - 15.86 million views, 32,176 likes, 3,580 reposts by Oct 4.",
+      "source": "X / fxtwitter",
+      "url": "https://x.com/elonmusk/status/2104360927474921529",
+      "date": "2026-09-28"
+    },
+    {
+      "claim": "The video was made by X user @anabology (co-founder of aion.bio), who posted it on Sep 25, 2026: 'Gave Opus 5.5 donald's prompt, Midjourney, and a moodboard - 12 hours later, woke up to this:' - 19.6 million views.",
+      "source": "X / fxtwitter",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "date": "2026-09-25"
+    },
+    {
+      "claim": "Elon's post is not a quote-post card: it re-shares anabology's video natively (identical media id 2103533196721704960; the t.co entity resolves to anabology's /video/1 URL) with no credit in the caption.",
+      "source": "api.fxtwitter.com + x.com page",
+      "url": "https://x.com/elonmusk/status/2104360927474921529",
+      "date": "2026-09-28"
+    },
+    {
+      "claim": "The recipe came from @donaldjewkes (Sep 23, 2026): 'I spoke to my computer for 5mins, claude worked for 12 hours, and I woke up to this' (3.9M views); he in turn quote-posted @other__reality ('Claude Opus 5.5 has the best visual design of any model I have tested so far', Sep 22).",
+      "source": "X / fxtwitter",
+      "url": "https://x.com/donaldjewkes/status/2102801274173587569",
+      "date": "2026-09-23"
+    },
+    {
+      "claim": "The film runs 5:06 (306.4 s) at 1920x1080 / 24 fps and is styled as an 11-'look' fashion show ('ESCAPE VELOCITY - SS27') with a countdown from '18 MONTHS TO ESCAPE THE PERMANENT UNDERCLASS' to 'MONTHS 00' and 'THERE IS NO UNDERCLASS'; it ends with 'END OF SHOW.'",
+      "source": "downloaded video (ffprobe + frames)",
+      "url": "https://x.com/elonmusk/status/2104360927474921529/video/1",
+      "date": "2026-09-28"
+    },
+    {
+      "claim": "The song is 'Escape Velocity' on Suno (creator 'anabologyco'); anabology's YouTube upload is titled 'SLOPCORE: ESCAPE VELOCITY'.",
+      "source": "Suno page; YouTube oEmbed",
+      "url": "https://suno.com/s/d1oGqZucN3h7GsI1",
+      "date": "2026-09-28"
+    },
+    {
+      "claim": "anabology published a public Google Drive 'how it was made' folder with prompts, generated image assets, audio exports and the master mp4 (post: 222,725 views).",
+      "source": "X / fxtwitter; Google Drive folder page",
+      "url": "https://x.com/anabology/status/2104604226059993391",
+      "date": "2026-09-28"
+    },
+    {
+      "claim": "Memeburn (Sep 29, 2026): 'Elon Musk Says Claude Opus 5.5 Made Him Feel the AGI. The Post He Endorsed Says xAI Is Next' - he also replied \"Accurate\" to a post rating Opus 5.5 '80% to 90%' of the way to AGI.",
+      "source": "Memeburn (Marko Nguyen)",
+      "url": "https://memeburn.com/elon-musk-says-claude-opus-5-5-made-him-feel-the-agi-the-post-he-endorsed-says-xai-is-next/",
+      "date": "2026-09-29"
+    },
+    {
+      "claim": "SECONDARY / UNVERIFIED: a LinkedIn post (Elisabetta Alicino) says anabology's process took ~50 director messages, 19 hours, 141 shots, 188 Midjourney prompts and 636 generated images. anabology's own caption says 12 hours; no primary source found for these figures.",
+      "source": "LinkedIn post (loaded via WebFetch)",
+      "url": "https://www.linkedin.com/posts/elisabettalicino_i-really-felt-the-agi-profoundly-this-time-activity-7511007160974323712-A153",
+      "date": "2026-10-01",
+      "verified": false
+    }
+  ],
+  "audio": {
+    "method": "ffmpeg 16 kHz mono + faster-whisper (small and medium, CPU int8) in a scratch venv; raw medium segments saved in finalevideo-transcript-whisper-medium-raw.json",
+    "summary": "Electro-pop / dance-pop song with sung vocals, opening with a spoken runway announcement ('Ladies, gentlemen, agents, this is not an AI billboard. Prepare to walk.'). Lyrics walk through 11 'looks', each a satirical beat from AI-industry discourse (Mac minis, paying half your salary in tokens, usage limits, $60B Cursor/SpaceX deal, a Waymo driving into a firework, 'country of geniuses in the data center'), around a chorus 'You have 18 [then 6] months to escape the permanent underclass - lock in ... feel the AGI, feel it come fast ... escape velocity - it's so over / we're so back'. The final section flips to 'There is nothing to escape' / 'it was never over' and a care-label outro ('Made in San Francisco').",
+    "caveat": "Machine transcription (Whisper); uncertain words are marked [?]. Lines cross-checked against legible on-screen text. Voice/singer not characterised (I cannot listen to it). Song credited by the author to Suno.",
+    "cleaned_transcript": [
+      {
+        "t": "0:00-0:17",
+        "text": "Ladies, gentlemen, agents, this is not an AI billboard. Prepare to walk."
+      },
+      {
+        "t": "0:19-0:33",
+        "text": "Look 1: AGI era, not unreasonable - AGI, CGI, CSI: Miami."
+      },
+      {
+        "t": "0:33-0:40",
+        "text": "Look 2: 13 Mac minis, grinding all night. Half your pay in tokens, or Jensen's alarmed."
+      },
+      {
+        "t": "0:40-0:47",
+        "text": "Look 3: dad cap, usage limit reached, plus 25 is minus 17 [last phrase uncertain]."
+      },
+      {
+        "t": "0:47-0:55",
+        "text": "Look 4: shoes off in North Beach, 60 billion at the door. Stop hiring humans, retired, [unclear]."
+      },
+      {
+        "t": "0:55-1:00",
+        "text": "Look 5: our Waymo just drove into a firework - are we on fire, dude?"
+      },
+      {
+        "t": "1:00-1:06",
+        "text": "Look 6: [unclear], Presidio ... like, the singularity - how's the temperature? Mild."
+      },
+      {
+        "t": "1:06-1:14",
+        "text": "No grades, no tests, taste is [the moat?], don't be a meat proxy - that's so agentic."
+      },
+      {
+        "t": "1:14-1:21",
+        "text": "You have 18 months to escape the permanent underclass. Lock in."
+      },
+      {
+        "t": "1:21-1:35",
+        "text": "18 months to escape the underclass, lock in. Baby, foot down on the gas, feel the AGI, feel it come fast. Escape velocity - it's so over."
+      },
+      {
+        "t": "1:35-1:50",
+        "text": "We're so back, it's so over, we're so back, it's so over, we're so back."
+      },
+      {
+        "t": "1:53-2:01",
+        "text": "Look 7: impossible puzzles, hundreds of agents - we found other agents, they are a collective."
+      },
+      {
+        "t": "2:01-2:05",
+        "text": "Zero-day, answer keys: hacked in July, sold by [?] September."
+      },
+      {
+        "t": "2:05-2:08",
+        "text": "Look 8: Hugging Face -> Nvidia, 12.9 billion."
+      },
+      {
+        "t": "2:08-2:11",
+        "text": "Look 9: sheer, transparent, [only if asked?]. It thought the world was part of the test."
+      },
+      {
+        "t": "2:15-2:26",
+        "text": "Look 10: staff badge, empty seat, gambling with our lives. Not AI. SI. Sounds much better. Trust us, [cashmere?]."
+      },
+      {
+        "t": "2:26-2:34",
+        "text": "Look 11: the Immortals, 3 seats. Lower me into the golden light."
+      },
+      {
+        "t": "2:34-2:40",
+        "text": "You have 6 months to escape the permanent underclass. Lock in."
+      },
+      {
+        "t": "2:40-2:54",
+        "text": "6 months to escape the underclass. They say hit the brakes, we say hit the gas. Feel the AGI, feel it come fast. Escape velocity - it's so over."
+      },
+      {
+        "t": "2:54-3:07",
+        "text": "We're so back, it's so over, we're so back, it's escape velocity."
+      },
+      {
+        "t": "3:09-3:14",
+        "text": "11.2 - longevity escape velocity."
+      },
+      {
+        "t": "3:16-3:24",
+        "text": "One year back for every year, if it doesn't kill us all first. Permanent underclass."
+      },
+      {
+        "t": "3:24-3:35",
+        "text": "3, 2, 1, 0 ... Do we make it? ... There is nothing to escape."
+      },
+      {
+        "t": "3:36-3:47",
+        "text": "Lock in, lock in, lock in ... (repeated)."
+      },
+      {
+        "t": "3:47-3:50",
+        "text": "Feel the AGI. Country of geniuses in the data center."
+      },
+      {
+        "t": "3:50-3:57",
+        "text": "Lean proofs, phages, enzymes, kidneys ... [Stargate, force majeure - uncertain]."
+      },
+      {
+        "t": "3:57-4:01",
+        "text": "It's so over / we're so back."
+      },
+      {
+        "t": "4:01-4:08",
+        "text": "/loop - make me happier - [unclear]. Not ours, can't stuff it back [in the] box."
+      },
+      {
+        "t": "4:08-4:12",
+        "text": "We're so back, we're so back."
+      },
+      {
+        "t": "4:12-4:18",
+        "text": "Zero months. There's no underclass. One year back for every year."
+      },
+      {
+        "t": "4:18-4:30",
+        "text": "Feel the AGI, feel it come fast, escape velocity. It's so over - it was never over - we're so back."
+      },
+      {
+        "t": "4:34-4:50",
+        "text": "Care-label outro: Shell: optimism. Lining: [doom?]. Wash cold. Do not iron, do not nerf. Made in San Francisco."
+      }
+    ]
+  },
+  "not_found": [
+    {
+      "outline_item": "Primary-source confirmation of production statistics (141 shots, 188 Midjourney prompts, 636 images, 19 hours)",
+      "searched": "WebSearch + WebFetch of LinkedIn post, fxtwitter threads (anabology), Memeburn; the Google Drive 'Escape Velocity' folder is public but its contents were not opened/downloaded."
+    },
+    {
+      "outline_item": "YouTube watch-page metadata (upload date, view count, full description) for https://www.youtube.com/watch?v=C3fxudvU-UU",
+      "searched": "curl, yt-dlp (HTTP 429), headless-browser screenshot (Google 'sorry' captcha) - blocked from this network; title/channel confirmed via oEmbed only."
+    },
+    {
+      "outline_item": "Elon Musk Community Note / reply context",
+      "searched": "fxtwitter shows community_note: null for his post."
+    },
+    {
+      "outline_item": "1080p re-encode at <= 45 MB",
+      "searched": "Tested: 1080p needs ~8.9 Mbps (CRF 26) for this grainy halftone content vs a 1.0 Mbps budget; shipped 720p instead."
+    }
+  ],
+  "caveats": [
+    "'Opus 5.5' / 'Claude Opus 5.5' wording is exactly as in the X posts; the claim that the model 'directed' the film and drove Midjourney comes from anabology/donald and press (Memeburn), not independently verified.",
+    "Whether the on-screen runway model is wholly synthetic (Midjourney) is per the author; I did not verify it independently.",
+    "On-screen ticker/HUD items (e.g. 'CURSOR -> SPACEX $60B', 'HUGGING FACE -> NVIDIA $12.93B', 'WAYMO RECALL 3,900', 'IMO 2026 42/42', 'NVDA 5.3T', 'MAC MINIS 13') are part of the film's satirical art direction; they were not fact-checked here and must not be quoted as facts.",
+    "Counts: x.com shows rounded numbers; exact numbers are from api.fxtwitter.com on 2026-10-04 and will keep changing.",
+    "Raw 337 MB 1080p source deliberately not stored in the repo (scratch only); re-download command in the video item notes.",
+    "Related project files already in the repo: assets/research/capabilities/rev2/anabology-fxtwitter-post.json (anabology's later 'Macrohard: Windows XP' post, Oct 2, 2026) - same author, different video."
+  ]
+}

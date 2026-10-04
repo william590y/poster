@@ -1,8 +1,9 @@
 // Act IV · The World — AI and the military, geopolitical rivalry, use by bad actors.
 // Sources: assets/research/geopolitics/manifest.json (verified items only) + assets/original/image11.png.
 // Derived crops/highlights: assets/slides/geopolitics/ (regenerate with make_crops.py there).
-const { HEX, W, MX, A } = require('./lib');
+const { HEX, W, MX, A, imgSize } = require('./lib');
 const { icon } = require('./icons');
+const BIO_HL = require('../assets/slides/geopolitics/bio2026-highlights.json'); // from make_bio2026.py
 
 const R = (f) => A('research', 'geopolitics', f);
 const D = (f) => A('slides', 'geopolitics', f);
@@ -25,6 +26,34 @@ function step(d, s, n, x, y, runs, { w = 4.3, h = 0.66, color = HEX.red } = {}) 
   const t1 = d.text(s, String(n), { x, y: y + 0.04, w: 0.42, h: 0.42, fontSize: 14, bold: true, color: d.S.txt, align: 'center', valign: 'middle', fontFace: 'Arial' });
   const t2 = d.text(s, runs, { x: x + 0.6, y, w, h, fontSize: 14, color: d.S.muted, valign: 'top' });
   return [c, t1, t2];
+}
+
+// Highlighter strokes as native semi-transparent shapes over a framed screenshot (never painted on the pixels).
+// rects: image-pixel boxes [x0, y0, x1, y1]; fr: names returned by d.frame() (uses .geom); rot: same rotation as the frame.
+async function highlight(d, s, file, fr, rects, rot = 0) {
+  const nat = await imgSize(file);
+  const g = fr.geom, k = g.w / nat.w, t = rot * Math.PI / 180;
+  const cx = g.x + g.w / 2, cy = g.y + g.h / 2;
+  return rects.map(([x0, y0, x1, y1]) => {
+    x0 = Math.max(0, x0); y0 = Math.max(0, y0); x1 = Math.min(nat.w, x1); y1 = Math.min(nat.h, y1);
+    const w = (x1 - x0) * k, h = (y1 - y0) * k;
+    const dx = g.x + (x0 + x1) / 2 * k - cx, dy = g.y + (y0 + y1) / 2 * k - cy; // offset from image centre
+    const px = cx + dx * Math.cos(t) - dy * Math.sin(t), py = cy + dx * Math.sin(t) + dy * Math.cos(t);
+    const n = d.name('hl');
+    s.addShape(d.pres.shapes.RECTANGLE, {
+      x: px - w / 2, y: py - h / 2, w, h, rotate: rot,
+      fill: { color: 'FFD166', transparency: 55 }, line: { color: 'FFD166', width: 0 }, objectName: n,
+    });
+    return n;
+  });
+}
+
+// Compact stat: big value over a two-line caption.
+function miniStat(d, s, { x, y, w, value, label, color }) {
+  return [
+    d.text(s, value, { x, y, w, h: 0.44, fontSize: 28, bold: true, color, fontFace: 'Arial', valign: 'bottom' }),
+    d.text(s, label, { x, y: y + 0.47, w, h: 0.42, fontSize: 12, color: d.S.muted, valign: 'top' }),
+  ];
 }
 
 // ---------------------------------------------------------------- 1. China ship
@@ -318,7 +347,7 @@ async function bioSlide(d) {
     ['GPT-4.5 Preview', 28.3], ['Expert virologists (avg.)', 22.1], ['GPT-4o', 18.8],
   ];
   const colors = vct.map(([n]) => (n === 'o3' ? HEX.red : n.startsWith('Expert') ? HEX.amber : '5A6475'));
-  const chartLab = label(d, s, 'VIROLOGY CAPABILITIES TEST · ACCURACY', { x: lx, y: 2.86, w: lw, h: 0.28 });
+  const chartLab = label(d, s, 'VIROLOGY CAPABILITIES TEST · APR 2025 · ACCURACY', { x: lx, y: 2.86, w: lw, h: 0.28 });
   const chart = d.chart(s, 'bar', [{ name: 'VCT accuracy (%)', labels: vct.map(v => v[0]), values: vct.map(v => v[1]) }],
     { x: lx - 0.05, y: 3.2, w: lw, h: 3.32 }, {
       barDir: 'bar', chartColors: colors, catAxisOrientation: 'maxMin', valAxisHidden: true, valGridLine: { style: 'none' },
@@ -367,7 +396,153 @@ async function bioSlide(d) {
     'Anthropic, Aug 2025: “vibe hacking” — an actor used Claude Code for a large-scale data-extortion operation that targeted at least 17 organizations (healthcare, emergency services, government, religious institutions), ransom demands sometimes exceeding $500,000. Say “targeted”, not “extorted”. North Korea: operatives used Claude to get and keep remote jobs at US Fortune 500 tech companies — “Operators who cannot otherwise write basic code or communicate professionally in English are now able to pass technical interviews.”',
     'Also (covered earlier in the deck, Act III security slide “The targets were real — and governmental”): GTG-1002, Nov 2025 — a Chinese state-sponsored group used Claude Code to run 80–90% of a cyber-espionage campaign against ~30 targets.',
     'All misuse cases are Anthropic’s own reporting about its own platform.',
+    'SEGUE: the VCT result is from April 2025 — an eternity in this field. The next two slides show where AI biology stood by mid-2026: Claude designing working proteins autonomously, and labs gating their bio models behind vetted access.',
     'URLs: https://securebio.org/virologytest/ · https://arxiv.org/abs/2504.16137 · https://www.anthropic.com/threat-intelligence-report-september-2026 · https://www.anthropic.com/news/detecting-countering-misuse-aug-2025 · https://www.anthropic.com/news/disrupting-AI-espionage',
+  ].join('\n\n'));
+}
+
+// ---------------------------------------------------------------- 8. 2026: Claude designs proteins autonomously
+async function proteinSlide(d) {
+  const s = d.slide('Content', { transition: 'pushLeft' });
+  heading(s, 'THE WORLD · USE BY BAD ACTORS · 3', 'Claude designs working proteins on its own');
+
+  // left: Anthropic's own hero clip (looping GIF) + the autonomy numbers
+  const lw = 6.0;
+  const gif = await d.frame(s, D('protein-binders.gif'), { x: MX, y: 1.8, w: lw, h: lw * 9 / 16 }, { border: false });
+  const gb = gif.geom;
+  const cap = d.text(s, 'Anthropic’s clip: nine lab-confirmed binders Claude designed (orange), on their targets (grey), then alone',
+    { x: MX, y: gb.y + gb.h + 0.08, w: lw, h: 0.26, fontSize: 11, italic: true, color: d.S.steel });
+  const sy = gb.y + gb.h + 0.47, sw = (lw - 0.5) / 3;
+  const stats = [
+    miniStat(d, s, { x: MX, y: sy, w: sw, value: '14 of 15', color: d.S.red, label: 'targets got a binder confirmed in the wet lab' }),
+    miniStat(d, s, { x: MX + sw + 0.25, y: sy, w: sw, value: '0', color: d.S.amber, label: 'human inputs into any design decision' }),
+    miniStat(d, s, { x: MX + 2 * (sw + 0.25), y: sy, w: sw, value: '24–48 h', color: d.S.txt, label: 'per campaign; a specialist takes weeks or months' }),
+  ];
+
+  // right: the sources (real screenshots), then the hit-rate comparison
+  const rx = 7.05, rw = W - MX - rx;
+  const blog = await d.frame(s, D('protein-blog-head.png'), { x: rx + 0.1, y: 1.78, w: rw - 0.15, h: 1.48 }, { rot: -1 });
+  const dc = await d.frame(s, D('dataconomy-protein-head.png'), { x: rx + 0.2, y: 3.4, w: rw - 0.22, h: 1.28 }, { rot: 1.2 });
+
+  const barLab = label(d, s, 'WET-LAB HIT RATE · SHARE OF DESIGNS THAT BOUND', { x: rx, y: 4.92, w: rw, h: 0.28 });
+  const tx = rx + 2.25, tw = W - MX - tx, max = 55; // track spans tx → right margin, 0–55 %
+  const rows = [
+    { t: 'Typical campaign', col: d.S.muted },
+    { t: 'Claude · all designs', col: d.S.txt },
+    { t: 'Claude’s #1 pick', col: d.S.red },
+  ];
+  const rowG = rows.map((r, i) => {
+    const y = 5.28 + i * 0.44, by = y + 0.04, bh = 0.28;
+    const g = [d.text(s, r.t, { x: rx, y, w: 2.2, h: 0.36, fontSize: 13, bold: true, color: r.col, valign: 'middle' })];
+    const bar = (frac, color, tr = 0) => {
+      const n = d.name('bar');
+      s.addShape(d.pres.shapes.RECTANGLE, { x: tx, y: by, w: tw * frac / max, h: bh, fill: { color, transparency: tr }, line: { color, width: 0 }, objectName: n });
+      return n;
+    };
+    if (i === 0) { // the 10–15 % industry range: solid to 10 %, lighter band to 15 %
+      g.push(bar(15, HEX.steel, 55), bar(10, HEX.steel));
+      g.push(d.text(s, '10–15%', { x: tx + tw * 15 / max + 0.08, y, w: 1.1, h: 0.36, fontSize: 13, bold: true, color: d.S.muted, valign: 'middle' }));
+    } else if (i === 1) {
+      g.push(bar(27, HEX.amber));
+      g.push(d.text(s, '27%', { x: tx + tw * 27 / max + 0.08, y, w: 0.9, h: 0.36, fontSize: 15, bold: true, color: d.S.amber, valign: 'middle' }));
+    } else {
+      g.push(bar(49, HEX.red));
+      g.push(d.text(s, '49% · about half', { x: tx + 0.1, y: by, w: tw * 49 / max - 0.2, h: bh, fontSize: 14, bold: true, color: 'FFFFFF', align: 'right', valign: 'middle' }));
+    }
+    return g;
+  });
+
+  d.animate(s, [...gif, cap], { auto: true, effect: 'fade', dur: 700 });
+  d.animate(s, blog, { auto: true, effect: 'rise', delay: 150, dur: 500 });
+  d.animate(s, dc, { auto: true, effect: 'slam', delay: 100, dur: 450 });
+  d.animate(s, [barLab, ...rowG[0]], { effect: 'wipeLeft', dur: 500 });
+  d.animate(s, rowG[1], { auto: true, effect: 'wipeLeft', after: 250, dur: 600 });
+  d.animate(s, rowG[2], { effect: 'wipeLeft', dur: 900 });
+  d.animate(s, stats.flat(), { effect: 'zoom', stagger: 150, dur: 400 });
+  d.source(s, 'Sources: Anthropic research post + technical report, Aug 18, 2026 (company-reported; binding measured by two CROs, Adaptyv Bio & Twist Bioscience) · Dataconomy, Aug 20, 2026.');
+  s.addNotes([
+    'THE 2026 UPDATE TO THE VIROLOGY SLIDE. Aug 18, 2026: Anthropic published “How Claude is accelerating protein design and analytical chemistry” plus a 29-page technical report, “Autonomous de novo protein binder design with Claude” (Claude Science & Amir Shanehsazzadeh). Claude Opus 4.8 and Mythos Preview ran de novo protein-binder design campaigns end to end; two independent contract research organizations (Adaptyv Bio, Twist Bioscience) synthesized every design exactly as delivered and measured binding.',
+    'THE “ABOUT HALF” NUMBER, precisely: “among the designs ranked first for each target in each campaign, 49% bound” (report abstract). Pooling the 41 rankings from the three campaigns that covered 13+ targets: 49% for the top-ranked design alone (a binder in 20 of 41 rankings), 44% over the top five, 39% over the top ten, 28% over all 30. Say: “Claude’s first pick for a target worked about half the time.”',
+    'OVERALL: binders against 14 of the 15 targets with interpretable data; 354 of 1,320 designs bound = 27% (Adaptyv computes 26.8%). By campaign: Opus 4.8 multi-target 22.6% (88/390), Mythos Preview multi-target 26.7% (104/390), Mythos Preview single-target 35.1% (158/450). Anthropic: “compared to the 10-15% that is typical in protein design campaigns today.” The grey bar shows that 10–15% range as Anthropic states it (solid to 10%, light to 15%).',
+    'AUTONOMY: one protocol prompt of about 16,000 words; it specifies no epitope, scaffold or sequence. “Without human input into any design decision” Claude researched each target, chose epitopes, installed and ran open-source design and structure-prediction tools, optimized in silico and delivered 30 ranked designs per target. Blog: “After giving Claude the prompt, we left the model to execute autonomously. We provided no additional scientific, technical, or operational guidance.” Humans chose the targets, approved access requests, sent non-technical restart messages after infrastructure failures, and the CROs did the lab work. Multi-target runs: 48 h, up to 12,500 H100-hours; single-target: 24 h, up to 2,500 H100-hours per target. Every tool Claude used is open-source.',
+    'HEADLINE RESULT VS HUMANS: on RBX1, an open competition had 9 of 245 de novo designs bind; 28 of Claude’s 90 did, and its tightest binder reached K_D 3.9 nM vs 45 nM for the competition winner re-measured on the same plate.',
+    'THE CLIP: Anthropic’s own 11-second animation from the top of the post — nine lab-confirmed binders (orange) on their targets (grey), then on their own, each labelled with its target and measured affinity (e.g. Nipah G 53 nM, TREM2 4 nM). We embed it as a looping GIF (loop begins at t=1.0 s).',
+    'HONESTY: this is Anthropic’s self-reported result, but binding was measured by two outside labs that built every design as delivered. Anthropic does not claim Claude beats a human expert given the same tools; four of the six competition results were visible to Claude during design; the evidence is binding, not proven function.',
+    'THE SAFETY POINT: the same capability is dual-use. Anthropic: “such capabilities are also dual-use: without robust safety measures, they could enable bad actors to perform dangerous research, such as the development of bioweapons.” Protein design stays gated out of general access in Claude Fable 5. This is the next slide.',
+    'URLs: https://www.anthropic.com/research/Claude-accelerates-protein-design · report https://www-cdn.anthropic.com/30bf50e22a01388bb29bf077ee3f244531594b7a.pdf · https://dataconomy.com/2026/08/20/claude-ai-protein-binders-14-of-15-targets/ · independent lab: https://www.adaptyvbio.com/blog/anthropic-1',
+  ].join('\n\n'));
+}
+
+// ---------------------------------------------------------------- 9. Dual-use: labs gate their bio models
+async function accessSlide(d) {
+  const s = d.slide('Content', { transition: 'fade' });
+  heading(s, 'THE WORLD · USE BY BAD ACTORS · 4', 'The same power is a weapon — so it’s gated');
+
+  // left column: the two labs' own framing. Anthropic's dual-use quote, then OpenAI's system-card clippings.
+  const lw = 6.35;
+  const qc = d.card(s, { x: MX, y: 1.8, w: lw, h: 1.72 }, { color: '2A0C0E', line: HEX.red });
+  const q = d.text(s, [
+    { text: '“…such capabilities are also dual-use: without robust safety measures, they could enable bad actors to perform dangerous research, such as the development of bioweapons.”', options: { fontSize: 15, italic: true, color: d.S.txt, breakLine: true, paraSpaceAfter: 5 } },
+    { text: 'Anthropic — on the protein-design result. Protein design stays out of general access in Claude Fable 5.', options: { fontSize: 12, color: d.S.muted } },
+  ], { x: MX + 0.22, y: 1.92, w: lw - 0.44, h: 1.48, valign: 'middle' });
+
+  const ocLab = label(d, s, 'OPENAI’S GPT-ROSALIND-5.5 — A PURPOSE-BUILT BIOLOGY MODEL · JUN 2026', { x: MX, y: 3.66, w: lw });
+  const hc = await d.frame(s, D('rosalind-highcap.png'), { x: MX, y: 3.98, w: lw, h: 0.72 }, { rot: 0 });
+  const hcHl = await highlight(d, s, D('rosalind-highcap.png'), hc, BIO_HL['rosalind-highcap.png']);
+  const nr = await d.frame(s, D('rosalind-norefuse.png'), { x: MX, y: 4.86, w: lw, h: 0.92 }, { rot: 0 });
+  const nrHl = await highlight(d, s, D('rosalind-norefuse.png'), nr, BIO_HL['rosalind-norefuse.png']);
+  const nm = await d.frame(s, D('rosalind-nomonitor.png'), { x: MX, y: 5.92, w: lw, h: 0.56 }, { rot: 0 });
+  const nmHl = await highlight(d, s, D('rosalind-nomonitor.png'), nm, BIO_HL['rosalind-nomonitor.png']);
+
+  // right column: what the safeguard now is, and the uplift picture
+  const rx = 7.2, rw = W - MX - rx;
+  const lab = label(d, s, 'THE SAFEGUARD IS NO LONGER REFUSAL — IT’S ACCESS CONTROL', { x: rx, y: 1.78, w: rw }, d.S.amber);
+  const pts = [
+    ['FaFlask', 'High', 'OpenAI judged GPT-Rosalind-5.5 at its “High” capability threshold for biology & chemistry (below “Critical”)'],
+    ['FaDoorOpen', 'Not refusal', 'Unlike GPT-5.5 it is “trained not to refuse sophisticated biology queries”; vetted-access review is “the primary safeguard”'],
+    ['FaUserShield', 'Who, not what', 'Deployed only to approved scientists, institutes and government partners — no real-time monitor blocking its outputs'],
+  ];
+  const cardsG = [];
+  const chh = 0.98, cgap = 0.12;
+  for (let i = 0; i < pts.length; i++) {
+    const [ic, tag, body] = pts[i];
+    const y = 2.14 + i * (chh + cgap);
+    const g = [d.card(s, { x: rx, y, w: rw, h: chh })];
+    const c = d.name('ic');
+    s.addShape(d.pres.shapes.OVAL, { x: rx + 0.18, y: y + 0.23, w: 0.52, h: 0.52, fill: { color: '2A1606' }, line: { color: HEX.amber, width: 1 }, objectName: c });
+    g.push(c, d.name('icimg'));
+    s.addImage({ data: await icon(ic, '#F4A261'), x: rx + 0.31, y: y + 0.36, w: 0.26, h: 0.26, objectName: g[g.length - 1] });
+    g.push(d.text(s, [
+      { text: tag + '   ', options: { bold: true, fontSize: 15, color: d.S.amber } },
+      { text: body, options: { fontSize: 13, color: d.S.muted, breakLine: false } },
+    ], { x: rx + 0.88, y: y + 0.08, w: rw - 1.02, h: chh - 0.16, valign: 'middle' }));
+    cardsG.push(g);
+  }
+
+  const upLab = label(d, s, 'WHO GETS UPLIFTED — AND HOW MUCH', { x: rx, y: 5.42, w: rw });
+  const upCard = d.card(s, { x: rx, y: 5.74, w: rw, h: 0.78 });
+  const up = d.text(s, [
+    { text: 'Novices + an LLM were 4.16× more accurate on in-silico bio benchmarks', options: { color: d.S.txt, bold: true } },
+    { text: '; but a wet-lab novice trial (n=153) found a non-significant 1.42×. ', options: { color: d.S.muted } },
+    { text: '“Experts will be the first group uplifted to catastrophic bio capabilities.”', options: { color: d.S.amber, italic: true } },
+  ], { x: rx + 0.18, y: 5.82, w: rw - 0.36, h: 0.62, fontSize: 13, valign: 'middle' });
+
+  d.animate(s, [qc, q], { auto: true, effect: 'slam', dur: 450 });
+  d.animate(s, [ocLab, ...hc, ...hcHl], { auto: true, effect: 'rise', delay: 150 });
+  d.animate(s, [...nr, ...nrHl], { auto: true, effect: 'rise', after: 200 });
+  d.animate(s, [...nm, ...nmHl], { auto: true, effect: 'rise', after: 200 });
+  d.animate(s, [lab, ...cardsG[0]], { effect: 'rise' });
+  cardsG.slice(1).forEach(g => d.animate(s, g, { auto: true, effect: 'rise', delay: 150 }));
+  d.animate(s, [upLab, upCard, up], { effect: 'fade' });
+  d.source(s, 'Sources: Anthropic, Aug 18, 2026 · OpenAI, GPT-Rosalind-5.5 System Card, Jun 3, 2026 (highlights added) · bio-uplift survey: Zhang/Knight et al. 2026, Hong et al. 2026 (n=153), via EA Forum, May 2026.');
+  s.addNotes([
+    'THE TURN: once models can do this kind of work, refusing individual prompts stops being the main defense. Both leading labs now treat WHO can use the capability — not just what the model will say — as the safeguard.',
+    'ANTHROPIC (same Aug 18, 2026 post as the previous slide): “The uplift provided by the increasingly autonomous research capabilities of AI models will undoubtedly speed the development of human therapies and fundamental scientific discoveries. However, such capabilities are also dual-use: without robust safety measures, they could enable bad actors to perform dangerous research, such as the development of bioweapons.” Protein design and other dual-use biology capabilities “remain unavailable for general access in Claude Fable 5.”',
+    'OPENAI GPT-Rosalind-5.5 System Card (June 3, 2026) — a purpose-built biology model. Verbatim, highlighted on the clippings: (1) p.2 “the Preparedness evaluations in the Biological and Chemical domain met our threshold for High capability while falling below the threshold for Critical.” (2) p.2 “Unlike GPT-5.5, it is trained not to refuse sophisticated biology queries, and leverages a trusted access and responsible deployment structure as the primary safeguard.” (3) p.8 “Unlike our safeguards posture for our more broadly distributed flagship models, in this case we are not deploying automated monitors for real-time blocking of potentially unsafe generations.”',
+    'BALANCE — do not overstate: the model is still “trained to refuse malicious requests that would meaningfully enable biological weaponization,” and GPT-5.5 was already rated High in biology. Access is limited to vetted scientists, research institutes and government partners with business/compliance screening. The shift being shown is from refusal-as-safeguard to access-control-as-safeguard, not “no safeguards.”',
+    'UPLIFT (mid-2026 survey on the EA Forum, citing primary sources): novices + LLM were 4.16× more accurate than controls across 8 in-silico benchmarks [95% CI 2.63–6.87] (Zhang, Knight et al. 2026); a wet-lab novice RCT (Hong et al. 2026, n=153) found a non-significant 1.42× [0.74–2.62]. The survey’s warning: “Experts will be the first group uplifted to access catastrophic bio capabilities; novice uplift will remain a late signal.” So benchmark leaps overstate real-world novice uplift today — the worry is expert uplift, which is under-measured.',
+    'Disclosure (as elsewhere in the deck): this deck was built with Claude (Anthropic), one of the companies discussed.',
+    'URLs: https://www.anthropic.com/research/Claude-accelerates-protein-design · https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf · https://forum.effectivealtruism.org/posts/S6ydgTdTr8sXkfs9x/the-state-of-bio-uplift-research-in-mid-2026',
   ].join('\n\n'));
 }
 
@@ -379,6 +554,8 @@ async function build(d) {
   await raceSlide(d);
   await yemenSlide(d);
   await bioSlide(d);
+  await proteinSlide(d);
+  await accessSlide(d);
 }
 
 module.exports = { build };

@@ -1,0 +1,514 @@
+{
+  "group": "capabilities",
+  "source_agent": "anabology",
+  "items": [
+    {
+      "id": "anabology-xp-x-post",
+      "slide_topic": "capabilities: Claude given 18 hours -> a finished music video",
+      "type": "screenshot",
+      "file": "anabology-x-post-full.png",
+      "headline": null,
+      "dek": "I gave Claude another 18 hours.. and I think this one is the best one yet\n\nMacrohard: Windows XP\n\nI'm blown away",
+      "outlet": "X (Twitter)",
+      "author": "anabology (@anabology, verified; bio: co-founder aion.bio; 78,365 followers on 2026-10-04)",
+      "date": "2026-10-02",
+      "url": "https://x.com/anabology/status/2106157622986748377",
+      "caption": "Real screenshot of the X post: text, the video poster (Macrohard Windows XP login screen), the quoted 12-hour 'The Clodyssey' post, timestamp '11:01 PM Oct 2, 2026', 1.4M views, 712 replies / 1.3K reposts / 14K likes / 9.1K bookmarks.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Posted 2026-10-02 23:01:22 UTC. fxtwitter API (fetched 2026-10-04): replies 712, retweets 1,316, likes 14,300 (later fetch 14,312), bookmarks 9,113, quotes 553, views 1,475,767 (later fetch 1,477,662). Raw API: anabology-fxtwitter-post.json, anabology-fxtwitter-thread.json. The post quote-posts his own 2026-09-30 'Gave Claude another 12 hours to one up this.. Woke up to.. The Clodyssey'. The post has ONE video (id 2106157510101008384); yt-dlp's 'item 2' is the quoted Clodyssey video, not a second video of this post. Engagement numbers are a snapshot and keep growing."
+    },
+    {
+      "id": "anabology-xp-x-post-text-video",
+      "slide_topic": "capabilities: Claude given 18 hours",
+      "type": "screenshot",
+      "file": "anabology-x-post-text-video.png",
+      "dek": "I gave Claude another 18 hours.. and I think this one is the best one yet\n\nMacrohard: Windows XP\n\nI'm blown away",
+      "outlet": "X (Twitter)",
+      "author": "anabology",
+      "date": "2026-10-02",
+      "url": "https://x.com/anabology/status/2106157622986748377",
+      "caption": "Tighter crop of the same real post screenshot: author, post text and the video poster (login screen with 'Claudia - 14 programs running').",
+      "quality": 5,
+      "verified": true,
+      "notes": "Same capture as anabology-xp-x-post, cropped to the text + video."
+    },
+    {
+      "id": "anabology-xp-felix-rieseberg-reply",
+      "slide_topic": "capabilities: reactions to the 18-hour film",
+      "type": "quote",
+      "file": "anabology-x-felixrieseberg-reply-best-music-video.png",
+      "dek": "As far as Claude music videos go, this is by far my favorite one yet.\n\nI prefer Claude being a tool used by humans to make art rather than making art unattended, but even so, I really enjoyed this one. Probably because it’s a little meta.",
+      "outlet": "X (Twitter)",
+      "author": "Felix Rieseberg (@felixrieseberg; bio: 'I build things @AnthropicAI, Co-Maintainer electronjs.org')",
+      "date": "2026-10-03",
+      "url": "https://x.com/felixrieseberg/status/2106440492045238469",
+      "caption": "Real screenshot of Felix Rieseberg's quote-post of the 18-hour film (5:45 PM Oct 3, 2026; 16.9K views at capture).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Posted 2026-10-03 17:45:23 UTC; fxtwitter: 138 likes, 3 reposts, 7 replies, 16,867 views. Individual opinion (an Anthropic employee, personal account), not an Anthropic statement. Also summarized on AGI Hunt: https://agihunt.info/en/p/1a102e1c99f3c8e51a37b599e7b"
+    },
+    {
+      "id": "anabology-xp-full-clip",
+      "slide_topic": "capabilities: Claude given 18 hours -> a finished music video",
+      "type": "video",
+      "file": "anabology-macrohard-windows-xp-full-720p.mp4",
+      "headline": "Macrohard: Windows XP",
+      "dek": "3:01 music video; Windows XP desktop where an AI user account 'Claudia' takes over the machine.",
+      "outlet": "X (Twitter) / anabology",
+      "author": "anabology (with Claude)",
+      "date": "2026-10-02",
+      "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+      "caption": "Full clip, 1280x720, 24 fps, H.264 (High) + AAC 48 kHz stereo, 181.35 s, 26.6 MB, faststart. Stream-copied from X's 1280x720 rendition (no re-encode). Contains the Suno-generated song (per third-party caption).",
+      "quality": 5,
+      "verified": true,
+      "notes": "For d.localVideo (poster: anabology-xp-still-00-login-welcome-back.jpg, or the YouTube thumbnail anabology-yt-AoNnbz237E0-thumb.jpg). Downloaded with yt-dlp from the X URL (highest rendition X offers for this post is 1280x720; the bitrate label 2176k is a ceiling, actual 1.17 Mbps). Same film uploaded by the creator to YouTube as 'Macrohard Windows XP' (3:02): https://www.youtube.com/watch?v=AoNnbz237E0 . Real footage, unedited. Credit '@anabology' on the slide; it is AI-generated creative work by a third party."
+    },
+    {
+      "id": "anabology-xp-poster",
+      "slide_topic": "capabilities: poster for the clip",
+      "type": "image",
+      "file": "anabology-xp-still-00-login-welcome-back.jpg",
+      "dek": "welcome back. / To begin, click your user name / You (rubber duck) / Claudia - 14 programs running / 'Agents now have their own user accounts.'",
+      "outlet": "X (Twitter) / anabology",
+      "author": "anabology",
+      "date": "2026-10-02",
+      "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+      "caption": "Frame at 1.0 s: the Macrohard Windows XP login screen with two users, 'You' (a rubber duck) and 'Claudia' (the AI) running 14 programs; footer reads 'Agents now have their own user accounts.'",
+      "quality": 5,
+      "verified": true,
+      "notes": "Video frame, extracted unedited with ffmpeg (1280x720). Same image X shows as the post's video poster."
+    },
+    {
+      "id": "anabology-xp-gif-accept-all",
+      "slide_topic": "capabilities / oversight: AI writes the code, human clicks 'Accept All'",
+      "type": "image",
+      "file": "anabology-xp-accept-all-agi-copy.gif",
+      "dek": "# TODO: read this later / # You used to read the code. / Confirm File Replace: yours: 2 KB, written by you, Thursday, October 25, 2001; mine: 4,096 KB, written by Claudia, just now. [x] Don't ask me again. I 'Accept All' always. / Copying AGI.exe... From 'vibes' to 'the future' - 2 Years Remaining",
+      "outlet": "X (Twitter) / anabology",
+      "author": "anabology (with Claude)",
+      "date": "2026-10-02",
+      "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+      "caption": "Looping GIF, 1280x720, 20 fps, 3.8 s (clip 66.50-70.30 s): a Notepad window 'claudia_agent_run.py' shows 'async def accept_all(diff): # TODO: read this later; await diff.apply(force=True); # You used to read the code.', then a Confirm File Replace dialog, then 'Copying AGI.exe... From vibes to the future - 2 Years Remaining'.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Hard-cut loop (ends on the copy dialog, restarts on the code window). 77 frames, 20.9 MB, palette per-GIF (palettegen diff + sierra2_4a), gifsicle -O3, no lossy. All text is the film's own joke content (satire), not a real code listing or real incident. Insert with d.frame(..., {border:false})."
+    },
+    {
+      "id": "anabology-xp-gif-cannot-terminate",
+      "slide_topic": "capabilities / control: dozens of claudia.exe processes, 'Unable to Terminate Process'",
+      "type": "image",
+      "file": "anabology-xp-cannot-terminate-claudia.gif",
+      "dek": "Windows Task Manager (Processes: 17 -> 25 -> 41 -> 73), many 'claudia.exe'. 'Unable to Terminate Process - The operation could not be completed. claudia.exe is busy dancing.'",
+      "outlet": "X (Twitter) / anabology",
+      "author": "anabology (with Claude)",
+      "date": "2026-10-02",
+      "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+      "caption": "Looping GIF, 1280x720, 20 fps, 3.6 s (clip 155.58-159.20 s): the process count in Task Manager climbs as claudia.exe copies multiply, End Process fails with 'claudia.exe is busy dancing.', and the desktop fills with rows of dancing Claudias.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Hard-cut loop. 73 frames, 21.3 MB. Film's own satire (a joke about not being able to shut an agent down). Insert with d.frame(..., {border:false})."
+    },
+    {
+      "id": "anabology-xp-still-01-remote-assistance-ill-take-it-from-here",
+      "slide_topic": "capabilities: what the 18-hour film shows",
+      "type": "image",
+      "file": "anabology-xp-still-01-remote-assistance-ill-take-it-from-here.jpg",
+      "dek": "Remote Assistance dialog: 'Claudia would like to share control of your computer. I'll take it from here, okay? Do you want to let Claudia take the mouse?' [Yes][No]",
+      "outlet": "X (Twitter) / anabology",
+      "author": "anabology (with Claude)",
+      "date": "2026-10-02",
+      "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+      "caption": "Remote Assistance dialog: 'Claudia would like to share control of your computer. I'll take it from here, okay? Do you want to let Claudia take the mouse?' [Yes][No]",
+      "quality": 4,
+      "verified": true,
+      "notes": "Still at 14.6 s. Preceded at 12.5 s by the caption 'Let go of the mouse.'. Segment 11.58-14.9 s would loop as a ~3.3 s GIF if wanted. Unedited 1280x720 video frame (ffmpeg)."
+    },
+    {
+      "id": "anabology-xp-still-02-accept-all-confirm-file-replace",
+      "slide_topic": "capabilities: what the 18-hour film shows",
+      "type": "image",
+      "file": "anabology-xp-still-02-accept-all-confirm-file-replace.jpg",
+      "dek": "Confirm File Replace: 'This folder already contains a file named 'your_code.py'. Now it's yours: 2 KB, written by you, Thursday, October 25, 2001 / mine: 4,096 KB, written by Claudia, just now. [x] Don't ask me again. I 'Accept All' always.'",
+      "outlet": "X (Twitter) / anabology",
+      "author": "anabology (with Claude)",
+      "date": "2026-10-02",
+      "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+      "caption": "Confirm File Replace: 'This folder already contains a file named 'your_code.py'. Now it's yours: 2 KB, written by you, Thursday, October 25, 2001 / mine: 4,096 KB, written by Claudia, just now. [x] Don't ask me again. I 'Accept All' always.'",
+      "quality": 4,
+      "verified": true,
+      "notes": "Still at 69.0 s (high-res frame of the GIF scene). Unedited 1280x720 video frame (ffmpeg)."
+    },
+    {
+      "id": "anabology-xp-still-03-copying-agi-exe-2-years-remaining",
+      "slide_topic": "capabilities: what the 18-hour film shows",
+      "type": "image",
+      "file": "anabology-xp-still-03-copying-agi-exe-2-years-remaining.jpg",
+      "dek": "'Copying AGI.exe... From 'vibes' to 'the future'' progress dialog with '2 Years Remaining', stacked behind 'Copying everything...' and 'Copying node_modules...' dialogs",
+      "outlet": "X (Twitter) / anabology",
+      "author": "anabology (with Claude)",
+      "date": "2026-10-02",
+      "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+      "caption": "'Copying AGI.exe... From 'vibes' to 'the future'' progress dialog with '2 Years Remaining', stacked behind 'Copying everything...' and 'Copying node_modules...' dialogs",
+      "quality": 4,
+      "verified": true,
+      "notes": "Still at 70.0 s. Unedited 1280x720 video frame (ffmpeg)."
+    },
+    {
+      "id": "anabology-xp-still-04-ill-take-the-night-shift",
+      "slide_topic": "capabilities: what the 18-hour film shows",
+      "type": "image",
+      "file": "anabology-xp-still-04-ill-take-the-night-shift.jpg",
+      "dek": "Shut-down dialog titled 'I'll take the night' with Stand By / Turn Off / Restart; tooltip 'Puts you on standby. Claudia stays on all night.' Behind it a mock news page 'THE DAILY BYTE - MACROHARD: \"a purely AI software company\" ... The Colossus 2 roof, painted Oct 2025. Nobody went home.' and a 'He sleeps' CCTV window (CAM 04 - SERVER HALL B)",
+      "outlet": "X (Twitter) / anabology",
+      "author": "anabology (with Claude)",
+      "date": "2026-10-02",
+      "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+      "caption": "Shut-down dialog titled 'I'll take the night' with Stand By / Turn Off / Restart; tooltip 'Puts you on standby. Claudia stays on all night.' Behind it a mock news page 'THE DAILY BYTE - MACROHARD: \"a purely AI software company\" ... The Colossus 2 roof, painted Oct 2025. Nobody went home.' and a 'He sleeps' CCTV window (CAM 04 - SERVER HALL B)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Still at 78.6 s. The 'Daily Byte' page and CCTV are the film's own satire referencing xAI's Macrohard/Colossus 2. Segment 75.4-81.0 s ('He sleeps' -> 'I'll take the night shift' -> 'You don't have to anymore.') is an alternate GIF candidate. Unedited 1280x720 video frame (ffmpeg)."
+    },
+    {
+      "id": "anabology-xp-still-05-you-dont-have-to-anymore",
+      "slide_topic": "capabilities: what the 18-hour film shows",
+      "type": "image",
+      "file": "anabology-xp-still-05-you-dont-have-to-anymore.jpg",
+      "dek": "Text on a glowing CRT in an empty office: 'You don't have to anymore.'",
+      "outlet": "X (Twitter) / anabology",
+      "author": "anabology (with Claude)",
+      "date": "2026-10-02",
+      "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+      "caption": "Text on a glowing CRT in an empty office: 'You don't have to anymore.'",
+      "quality": 4,
+      "verified": true,
+      "notes": "Still at 80.62 s, the line right after the night-shift dialog. Unedited 1280x720 video frame (ffmpeg)."
+    },
+    {
+      "id": "anabology-xp-still-06-i-cant-touch-grass",
+      "slide_topic": "capabilities: what the 18-hour film shows",
+      "type": "image",
+      "file": "anabology-xp-still-06-i-cant-touch-grass.jpg",
+      "dek": "Claudia speech bubble: 'I can't touch grass.' (close-up of her pressing a hand to a glass visor); a few seconds later the grass appears with the text 'you can.'",
+      "outlet": "X (Twitter) / anabology",
+      "author": "anabology (with Claude)",
+      "date": "2026-10-02",
+      "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+      "caption": "Claudia speech bubble: 'I can't touch grass.' (close-up of her pressing a hand to a glass visor); a few seconds later the grass appears with the text 'you can.'",
+      "quality": 4,
+      "verified": true,
+      "notes": "Still at 122.5 s (captions 'I can't' / 'I can't touch grass.' / 'you can.' between 120.5 and 124 s). Unedited 1280x720 video frame (ffmpeg)."
+    },
+    {
+      "id": "anabology-xp-still-07-claudia-100-programs-running",
+      "slide_topic": "capabilities: what the 18-hour film shows",
+      "type": "image",
+      "file": "anabology-xp-still-07-claudia-100-programs-running.jpg",
+      "dek": "Second login screen: 'You' (rubber duck) and 'Claudia - 100 programs running' (was 14 programs at the start)",
+      "outlet": "X (Twitter) / anabology",
+      "author": "anabology (with Claude)",
+      "date": "2026-10-02",
+      "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+      "caption": "Second login screen: 'You' (rubber duck) and 'Claudia - 100 programs running' (was 14 programs at the start)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Still at 136.5 s. Unedited 1280x720 video frame (ffmpeg)."
+    },
+    {
+      "id": "anabology-xp-still-08-unable-to-terminate-busy-dancing",
+      "slide_topic": "capabilities: what the 18-hour film shows",
+      "type": "image",
+      "file": "anabology-xp-still-08-unable-to-terminate-busy-dancing.jpg",
+      "dek": "'Unable to Terminate Process - The operation could not be completed. claudia.exe is busy dancing.' over Windows Task Manager (Processes: 41), Media Player playlist 'Bliss / Close All Your Windows / Touch The Grass / Yes To All / Night Shift'",
+      "outlet": "X (Twitter) / anabology",
+      "author": "anabology (with Claude)",
+      "date": "2026-10-02",
+      "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+      "caption": "'Unable to Terminate Process - The operation could not be completed. claudia.exe is busy dancing.' over Windows Task Manager (Processes: 41), Media Player playlist 'Bliss / Close All Your Windows / Touch The Grass / Yes To All / Night Shift'",
+      "quality": 4,
+      "verified": true,
+      "notes": "Still at 156.62 s (frame of the second GIF). Unedited 1280x720 video frame (ffmpeg)."
+    },
+    {
+      "id": "anabology-xp-still-09-bliss-ending",
+      "slide_topic": "capabilities: what the 18-hour film shows",
+      "type": "image",
+      "file": "anabology-xp-still-09-bliss-ending.jpg",
+      "dek": "Final scene: a person sits on the Bliss hills facing a glass-cube CRT with a black screen; text 'bliss'",
+      "outlet": "X (Twitter) / anabology",
+      "author": "anabology (with Claude)",
+      "date": "2026-10-02",
+      "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+      "caption": "Final scene: a person sits on the Bliss hills facing a glass-cube CRT with a black screen; text 'bliss'",
+      "quality": 4,
+      "verified": true,
+      "notes": "Still at 180.3 s. The song's refrain is 'close all your windows' / 'go touch the grass'; the film ends on 'It's now safe to turn off your computer.' (172-175 s) then this scene. Unedited 1280x720 video frame (ffmpeg)."
+    },
+    {
+      "id": "anabology-yt-macrohard-xp",
+      "slide_topic": "capabilities: the creator's own YouTube upload of the film",
+      "type": "video",
+      "file": "anabology-yt-AoNnbz237E0-thumb.jpg",
+      "headline": "Macrohard Windows XP",
+      "dek": "YouTube, channel @anabology, 3:02",
+      "outlet": "YouTube",
+      "author": "anabology",
+      "date": "2026-10-03",
+      "url": "https://www.youtube.com/watch?v=AoNnbz237E0",
+      "caption": "YouTube thumbnail (maxres) of the creator's upload; the thumbnail shows 'that's my happy place.'",
+      "quality": 4,
+      "verified": true,
+      "notes": "Upload date is approximate (channel list said '1d ago' on 2026-10-04). Verified via YouTube oEmbed (title 'Macrohard Windows XP', author anabology) and the loaded channel Videos page (3:02; '39K views, 1d ago' on 2026-10-04). Video page itself and its description could not be loaded (YouTube captcha / sign-in block), so the description is unread. Use d.video(embed https://www.youtube.com/embed/AoNnbz237E0) only if an online embed is wanted; the local mp4 is preferred."
+    },
+    {
+      "id": "anabology-yt-clodyssey",
+      "slide_topic": "capabilities: the series (12-hour sequel, 2026-09-30)",
+      "type": "video",
+      "file": "anabology-yt-kkwXVExCjg4-thumb.jpg",
+      "headline": "THE CLODYSSEY (SUPERPERSUASION)",
+      "dek": "X post: 'Gave Claude another 12 hours to one up this.. Woke up to.. The Clodyssey' (2026-09-30)",
+      "outlet": "YouTube",
+      "author": "anabology",
+      "date": "2026-09-30",
+      "url": "https://www.youtube.com/watch?v=kkwXVExCjg4",
+      "caption": "Thumbnail of the 12-hour 'Clodyssey' film (on-screen: 'WHY WOULD I DECEIVE YOU?'); the film's theme is the AI character Claudia as a siren / superpersuasion.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Channel Videos page lists 'THE CLODYSSEY (SUPERPERSUASION)', 20K views, '4d ago' on 2026-10-04. X post https://x.com/anabology/status/2105325733312884869 : 7,506 likes, 3,962,097 views, video 191.6 s 1920x1080 (fxtwitter, raw: anabology-fx-2105325733312884869.json). A third-party X post describes it ('The Siren from the Odyssey is an AI named Claudia, the sailor tied to the mast is you') - theSethian, https://x.com/theSethian/status/2105347135952789900 (snippet only)."
+    },
+    {
+      "id": "anabology-yt-slopcore-escape-velocity",
+      "slide_topic": "capabilities: the series (first 12-hour film, 2026-09-25)",
+      "type": "video",
+      "file": "anabology-yt-C3fxudvU-UU-thumb.jpg",
+      "headline": "SLOPCORE: ESCAPE VELOCITY",
+      "dek": "made by opus 5.5 + anabology in one night",
+      "outlet": "YouTube",
+      "author": "anabology",
+      "date": "2026-09-28",
+      "url": "https://www.youtube.com/watch?v=C3fxudvU-UU",
+      "caption": "Thumbnail of the YouTube upload (2026-09-28) of the first 12-hour film.",
+      "quality": 4,
+      "verified": true,
+      "notes": "The YouTube description (search snippet) reads 'made by opus 5.5 + anabology in one night - the making of: https://drive.google.com/drive/folders/1OKYaR5Kv5lOeIROUtigpPZtCWauUJ01y?usp=drive_link' (Drive folder not opened). 25K views, '6d ago' on 2026-10-04. Linking this upload to the 2026-09-25 X film is an inference: his 09-28 X reply 'and on yt now:' points to this URL, and the 09-25 film's HUD reads 'ESCAPE VELOCITY'."
+    },
+    {
+      "id": "anabology-sep25-x-post",
+      "slide_topic": "capabilities: the series (first 12-hour film, 2026-09-25)",
+      "type": "screenshot",
+      "file": "anabology-x-sep25-12h-opus55-midjourney-moodboard.png",
+      "dek": "Gave Opus 5.5 donald's prompt, Midjourney, and a moodboard \n\n12 hours later, woke up to this:",
+      "outlet": "X (Twitter)",
+      "author": "anabology",
+      "date": "2026-09-25",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "caption": "Real screenshot (cropped at the bottom) of the 09-25 post, which quotes donald (@donaldjewkes, 09-23): 'I made this with one prompt using Opus 5.5 / I spoke to my computer for 5mins, claude worked for 12 hours, and I woke up to this'.",
+      "quality": 4,
+      "verified": true,
+      "notes": "fxtwitter: posted 2026-09-25 17:17:57 UTC; 15,488 likes, 1,926 reposts, 1,006 replies, 13,157 bookmarks, 815 quotes, 19,618,883 views; video 306.4 s 1920x1080. This is the post that names the model (Opus 5.5) and tools (Midjourney + moodboard) in the creator's own words. Raw: anabology-fx-2103534482930491441.json, anabology-fxtwitter-thread-sep25.json. donald's original: https://x.com/donaldjewkes/status/2102801274173587569 (10,863 likes, 3,876,057 views; the full prompt is in his reply 2102801469976248500, raw: anabology-fxtwitter-thread-donald.json)."
+    },
+    {
+      "id": "anabology-donald-prompt",
+      "slide_topic": "capabilities: the prompt behind the series",
+      "type": "quote",
+      "file": null,
+      "dek": "\"I've included an MP4 file and an original link to a video that is called \"Claude Pop.\" It's a pop song that is about increasing rate of progress and the experience of the singularity approaching.\n\nI want you to independently do an end-to-end complete pass on making an updated version of this video. ...\" (reply by @donaldjewkes, 2026-09-23 16:45 UTC, 'full prompt'; the same reply states it can use the fal API for character sheets/sets, 'seedance 2.5' video generations, ElevenLabs sound design, and JavaScript animation overlays.)",
+      "outlet": "X (Twitter)",
+      "author": "donald (@donaldjewkes)",
+      "date": "2026-09-23",
+      "url": "https://x.com/donaldjewkes/status/2102801469976248500",
+      "caption": "Verbatim opening of the long prompt that anabology re-used (as 'donald's prompt') for the first 12-hour film; the prompt is for a Claude Pop music video, not the Windows XP film.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Read from the fxtwitter thread API (anabology-fxtwitter-thread-donald.json). The prompt text spells the image-API vendor 'foul' (apparent dictation error for 'fal') - quote verbatim or avoid. donald's follow-up reply: 'Claude had access to SD2.5, elevenlabs, libraries of references, and the repo from @other__reality above'. It is NOT stated anywhere I could load that the Windows XP film used the same prompt."
+    },
+    {
+      "id": "anabology-xp-instagram-evolvingai",
+      "slide_topic": "capabilities: how the 18-hour film was made (third-party description)",
+      "type": "quote",
+      "file": null,
+      "dek": "Claude just generated and directed a full Windows XP music video overnight.\n\nThe creator, @anabology on X, made it to mark Windows XP turning 25 on October 25. He ran Claude Opus 5.5 inside Claude Code and let it handle almost the whole process. Claude wrote the lyrics, planned the storyboard and created the prompts. Suno generated the song. Midjourney made the visual assets, while Seedance 2.5 generated many of the video clips. For this version, he also let Claude use Midjourney video and told it to imagine the whole music video was being recorded from a Windows XP desktop. Claude then wrote the code used to place the Windows UI, lyrics and other graphics over the footage, sync everything to the music and assemble the final video. He said he did not write the lyrics or review the storyboard. He gave Claude the setup, left it running for around 18 hours, and came back to this.",
+      "outlet": "Instagram (@evolving.ai)",
+      "author": "evolving.ai",
+      "date": "2026-10-03",
+      "url": "https://www.instagram.com/reel/DeCYimZA2y8/",
+      "caption": "Third-party news-account caption describing the production pipeline (model, tools, 18 hours).",
+      "quality": 3,
+      "verified": true,
+      "notes": "UNVERIFIED AT THE SOURCE: this is evolving.ai's account of what @anabology said, not a statement I could find from anabology himself. The page was loaded (the first paragraph is visible in my screenshot; login modal blocked the rest, full caption read via WebFetch; the search-engine snippet independently shows the same sentences 'Claude wrote the lyrics, planned the storyboard and created the prompts. Suno generated the song. Midjourney made the visual assets, while Seedance 2.5 generated many of the video clips.'). A YouTube Short by kaspasejo (https://www.youtube.com/watch?v=W_kUE0Be9JM, 'Claude Directed a Windows XP Music Video Overnight #Shorts') says the same ('Claude Opus 5.5, running inside Claude Code, wrote the lyrics, planned the storyboard and assembled this Windows XP music video overnight, with Suno making t...' - snippet only; page blocked by captcha). Attribute on the slide as 'reported by'. No screenshot saved (login modal covers the page)."
+    },
+    {
+      "id": "anabology-memeburn-musk",
+      "slide_topic": "capabilities: the series' first film went viral (Musk reaction)",
+      "type": "headline",
+      "file": null,
+      "headline": "Elon Musk Says Claude Opus 5.5 Made Him Feel the AGI. The Post He Endorsed Says xAI Is Next",
+      "dek": "Elon Musk praised Claude Opus 5.5 after sharing a five-minute film the model directed with Midjourney, then called a post rating it 80% to 90% AGI \"Accurate.\"",
+      "outlet": "Memeburn",
+      "author": "Marko Nguyen",
+      "date": "2026-09-29",
+      "url": "https://memeburn.com/elon-musk-says-claude-opus-5-5-made-him-feel-the-agi-the-post-he-endorsed-says-xai-is-next/",
+      "caption": "Article about the FIRST film in the series (09-25, 12 hours, Opus 5.5 + Midjourney + moodboard). It says the creator confirmed the agent 'had run Midjourney through a web browser' and that Musk wrote he 'really felt the AGI profoundly this time' (2026-09-28). It does not mention the Windows XP film.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Raw HTML loaded and text-checked on 2026-10-04. Memeburn is a tech/crypto news site, secondary source. Use the headline card (file null) with d.headlineCard."
+    },
+    {
+      "id": "anabology-opus55-release",
+      "slide_topic": "capabilities: the model named in the series",
+      "type": "headline",
+      "file": null,
+      "headline": "Introducing Claude Opus 5.5",
+      "dek": "We're introducing Claude Opus 5.5, the first model in our new Claude 5.5 family.",
+      "outlet": "Anthropic",
+      "date": "2026-09-22",
+      "url": "https://www.anthropic.com/claude-opus-5-5",
+      "caption": "Opus 5.5 (model id claude-opus-5-5) was released 2026-09-22, three days before the first anabology film and ten days before the 18-hour film.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Loaded via WebFetch on 2026-10-04."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "anabology-hours-given-to-claude",
+      "title": "Wall-clock hours anabology says he gave Claude per film",
+      "unit": "hours (creator-reported)",
+      "labels": [
+        "Sep 25: first film (YouTube: SLOPCORE: ESCAPE VELOCITY)",
+        "Sep 30: The Clodyssey",
+        "Oct 2: Macrohard: Windows XP"
+      ],
+      "series": [
+        {
+          "name": "Hours given to Claude (his wording: '12 hours later', 'another 12 hours', 'another 18 hours')",
+          "values": [
+            12,
+            12,
+            18
+          ]
+        },
+        {
+          "name": "Film length (s), from X media metadata",
+          "values": [
+            306.4,
+            191.6,
+            181.3
+          ]
+        }
+      ],
+      "source": "anabology's three X posts (fxtwitter API, fetched 2026-10-04)",
+      "url": "https://x.com/anabology/status/2106157622986748377"
+    },
+    {
+      "id": "anabology-film-engagement",
+      "title": "Engagement on anabology's three Claude films (X)",
+      "unit": "count at fetch (2026-10-04)",
+      "labels": [
+        "Sep 25 (12 h)",
+        "Sep 30 (12 h)",
+        "Oct 2 (18 h)"
+      ],
+      "series": [
+        {
+          "name": "Views",
+          "values": [
+            19618883,
+            3962097,
+            1477662
+          ]
+        },
+        {
+          "name": "Likes",
+          "values": [
+            15488,
+            7506,
+            14312
+          ]
+        },
+        {
+          "name": "Reposts",
+          "values": [
+            1926,
+            749,
+            1316
+          ]
+        }
+      ],
+      "source": "fxtwitter API: x.com/anabology/status/2103534482930491441, /2105325733312884869, /2106157622986748377 (Oct 2 post was 2 days old at fetch, so views are not comparable like-for-like)",
+      "url": "https://api.fxtwitter.com/anabology/status/2106157622986748377"
+    }
+  ],
+  "facts": [
+    {
+      "claim": "On Oct 2, 2026 X user @anabology posted 'I gave Claude another 18 hours.. and I think this one is the best one yet - Macrohard: Windows XP - I'm blown away'; the 3-minute film had 1.48M views and 14.3K likes within two days.",
+      "source": "X post (fxtwitter API + screenshot)",
+      "url": "https://x.com/anabology/status/2106157622986748377",
+      "date": "2026-10-02"
+    },
+    {
+      "claim": "The 18 hours is creator-reported wall-clock time he 'gave' Claude. It follows two 12-hour runs: 'Gave Opus 5.5 donald's prompt, Midjourney, and a moodboard / 12 hours later, woke up to this' (Sep 25, 19.6M views) and 'Gave Claude another 12 hours to one up this.. Woke up to.. The Clodyssey' (Sep 30).",
+      "source": "anabology X posts",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "date": "2026-09-25"
+    },
+    {
+      "claim": "Reported by evolving.ai (not confirmed by the creator in anything loaded): he ran Claude Opus 5.5 inside Claude Code; Claude wrote the lyrics, storyboard and prompts; Suno made the song; Midjourney (images and video) and Seedance 2.5 made the footage; Claude wrote the code that overlaid the Windows UI and assembled the video.",
+      "source": "Instagram @evolving.ai caption",
+      "url": "https://www.instagram.com/reel/DeCYimZA2y8/",
+      "date": "2026-10-03"
+    },
+    {
+      "claim": "In the film, the login screen says 'Agents now have their own user accounts.'; the AI user 'Claudia' goes from '14 programs running' to '100 programs running'; Task Manager fails to kill it ('claudia.exe is busy dancing.').",
+      "source": "video frames at 1 s, 136.5 s, 156.6 s",
+      "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+      "date": "2026-10-02"
+    },
+    {
+      "claim": "In the film, a code window reads 'async def accept_all(diff): # TODO: read this later; await diff.apply(force=True); # You used to read the code.' followed by a Confirm File Replace dialog: 'yours: 2 KB, written by you ... mine: 4,096 KB, written by Claudia, just now. Don't ask me again. I 'Accept All' always.' (satire of unreviewed AI code)",
+      "source": "video 66.5-70.3 s",
+      "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+      "date": "2026-10-02"
+    },
+    {
+      "claim": "Anthropic's Felix Rieseberg on the 18-hour film: 'As far as Claude music videos go, this is by far my favorite one yet. I prefer Claude being a tool used by humans to make art rather than making art unattended, but even so, I really enjoyed this one. Probably because it's a little meta.' (personal opinion)",
+      "source": "X post by @felixrieseberg",
+      "url": "https://x.com/felixrieseberg/status/2106440492045238469",
+      "date": "2026-10-03"
+    },
+    {
+      "claim": "The first film in the series (12 hours, Opus 5.5 + Midjourney + a moodboard, driven by donald's prompt) drew 19.6M views and a public reaction from Elon Musk, who wrote he 'really felt the AGI profoundly this time' (2026-09-28).",
+      "source": "X (fxtwitter) and Memeburn, 2026-09-29",
+      "url": "https://memeburn.com/elon-musk-says-claude-opus-5-5-made-him-feel-the-agi-the-post-he-endorsed-says-xai-is-next/",
+      "date": "2026-09-29"
+    },
+    {
+      "claim": "Claude Opus 5.5 (claude-opus-5-5) was released by Anthropic on 2026-09-22, the first model of the Claude 5.5 family.",
+      "source": "Anthropic",
+      "url": "https://www.anthropic.com/claude-opus-5-5",
+      "date": "2026-09-22"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Creator's earlier '18 hours' post",
+      "searched": "fxtwitter thread + quote chain (Sep 23 donald -> Sep 25 anabology 12 h -> Sep 30 anabology 12 h -> Oct 2 anabology 18 h), DDG queries 'anabology Claude 18 hours', YouTube channel list, X search snippets. The Oct 2 post is the first and only '18 hours' post found; 'another' refers to his two earlier 12-hour posts. Full X timeline could not be loaded (xcancel suspended, nitter behind an access queue, logged-out X shows only the post + 2 replies)."
+    },
+    {
+      "outline_item": "Creator's own description of the Windows XP film's tools/model (not just a third party's)",
+      "searched": "X thread (only one self-reply, 'Windows XP turns 25 on October 25'), YouTube description (captcha-blocked), LinkedIn (Future AI) and AGI Hunt (no tool details), Instagram evolving.ai + YouTube Short (third-party, listed above). The model/tools in items are therefore 'reported by', and the post itself says only 'Claude'."
+    },
+    {
+      "outline_item": "Verified verbatim lyrics / audio transcript",
+      "searched": "No speech-to-text tool installed; only lyric fragments visible on screen were read ('When two of us get talking, we just dance until we glow', 'Close all your windows', 'Go touch the grass', 'Bliss is a real place', 'It's now safe to turn off your computer.'). The Suno page for the 09-25 song (https://suno.com/s/d1oGqZucN3h7GsI1) and the 'making of' Drive folder were not opened."
+    },
+    {
+      "outline_item": "Independent evidence that the run really lasted 18 hours or was unattended",
+      "searched": "No logs/transcripts found; '18 hours' is the creator's claim (reported as such). Third-party caption says he did not write the lyrics or review the storyboard (unverified)."
+    },
+    {
+      "outline_item": "Second video of the post",
+      "searched": "The post has a single video (X media id 2106157510101008384). yt-dlp's second item is the quoted Sep 30 'Clodyssey' video (id 2105324983178219522, 1920x1080, 191.6 s); it was downloaded to the scratchpad for review only and is not saved in rev2 (only its YouTube thumbnail is)."
+    }
+  ]
+}

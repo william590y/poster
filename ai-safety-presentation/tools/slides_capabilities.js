@@ -342,13 +342,30 @@ async function hleSlide(d) {
     { text: 'Center for AI Safety & Scale AI', options: { fontSize: 11, color: d.S.muted } },
   ], { x: MX + 0.1, y: 2.32, w: 2.5, h: 1.2, valign: 'top' });
 
-  // right column: the independent leaderboard itself (Claude Opus 5.5 on top)
+  // right column: the same independent leaderboard as a native chart (best setting per model, top 8 models), Opus 5.5 on top
   const rx = 7.5, rw = 12.73 - rx;
-  // right edge flush with the bottom band's frame; the column head starts at the frame's left edge
-  const lbImg = await crop(R('aa-hle-leaderboard-oct2026.png'), 'hle-aa-leaderboard-top12.png', { l: 40, t: 395, w: 905, h: 535 });
-  const lb = await d.frame(s, lbImg, { x: rx, y: 2.04, w: rw, h: 2.94 }, { align: 'right' });
-  const lbX = lb.geom.x - 0.06;
-  const lbLab = label(d, s, 'ARTIFICIAL ANALYSIS LEADERBOARD · OCT 4, 2026', lbX, 1.7, 12.73 - lbX);
+  const best = new Map();
+  ds.context_scores.forEach((c) => {
+    const m = c.model.replace(/ \(.*\)$/, '');
+    if (!best.has(m) || best.get(m).score < c.score) best.set(m, c);
+  });
+  const top = [...best.entries()].sort((a, b) => b[1].score - a[1].score).slice(0, 8);
+  const lbLab = label(d, s, 'ARTIFICIAL ANALYSIS LEADERBOARD · OCT 4, 2026', rx, 1.7, rw);
+  const lbSub = d.text(s, 'Same test as the chart · score (%) · best setting per model',
+    { x: rx, y: 1.98, w: rw, h: 0.26, fontSize: 11, color: d.S.muted, valign: 'top' });
+  const lb = d.chart(s, 'bar', [{
+    name: 'HLE score (%)',
+    labels: top.map(([m, c]) => m + (c.note ? '*' : '')),
+    values: top.map(([, c]) => c.score),
+  }], { x: rx - 0.05, y: 2.28, w: rw + 0.05, h: 2.4 }, {
+    barDir: 'bar', catAxisOrientation: 'maxMin', chartColors: top.map(([m]) => (m === 'Claude Opus 5.5' ? HEX.red : '6B7383')),
+    barGapWidthPct: 40, showLegend: false, layout: { x: 0.34, y: 0.01, w: 0.6, h: 0.98 },
+    valAxisMinVal: 0, valAxisMaxVal: 70, valAxisHidden: true, valGridLine: { style: 'none' }, catAxisLineShow: false,
+    showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '0.0', dataLabelFontSize: 12, dataLabelFontBold: true,
+    catAxisLabelFontSize: 12, catAxisLabelColor: LIGHT,
+  });
+  const lbFoot = d.text(s, '* Gemini 4 Argon: AA marks it “not publicly available”',
+    { x: rx, y: 4.7, w: rw, h: 0.26, fontSize: 11, color: d.S.muted, valign: 'top' });
 
   // bottom band: the organizers' own note, verbatim — one contiguous paragraph of the "Update September 17, 2026" entry
   const nc = await crop(R('scale-hle-rolling-noise-ceiling.png'), 'hle-noise-ceiling-para.png', { l: 30, t: 292, w: 1340, h: 150 });
@@ -362,17 +379,17 @@ async function hleSlide(d) {
   d.animate(s, [lab, sub, { name: ch, effect: 'wipeLeft', dur: 1400 }], { auto: true, effect: 'fade' });
   d.animate(s, [ann], { auto: true, effect: 'fade', after: 100 });
   d.animate(s, [bill], { effect: 'fade' });
-  d.animate(s, [lbLab, ...lb], { effect: 'fade' });
+  d.animate(s, [lbLab, lbSub, { name: lb, effect: 'wipeLeft', dur: 1000 }, lbFoot], { effect: 'fade' });
   d.animate(s, [ncLab, ...ncF], { effect: 'rise' });
-  d.source(s, 'Data: Artificial Analysis, Humanity’s Last Exam (text-only, no tools), artificialanalysis.ai, accessed Oct 4, 2026 · Scale AI / CAIS HLE page, labs.scale.com (update of Sep 17, 2026).');
+  d.source(s, 'Data: Artificial Analysis, artificialanalysis.ai/evaluations/humanitys-last-exam (text-only, no tools; accessed Oct 4, 2026) · Scale AI / CAIS, labs.scale.com (update of Sep 17, 2026).');
   s.addNotes([
     'MESSAGE: even the test designed to be the last one is falling fast — and its organizers are already preparing a replacement.',
     'Humanity\'s Last Exam (HLE) launched in January 2025 from the Center for AI Safety and Scale AI, "designed to be the last academic exam of its kind for AI": ~2,500 expert-written questions across many fields. Frontier models then scored under 10%.',
     'Chart: ONE source throughout — Artificial Analysis (AA), independent runs on HLE\'s 2,158 text-only questions (multimodal questions excluded), pass@1, LLM-graded, no tools. Best AA score to date by model release quarter (OpenAI/Anthropic/Google models): Q4 \'24 7.0% (o1, Dec 2024) · Q1 \'25 18.0% (Gemini 2.5 Pro Preview) · Q2 \'25 22.5% (Gemini 2.5 Pro) · Q3 \'25 28.5% (GPT-5 high) · Q4 \'25 39.7% (Gemini 3 Pro Preview) · Q1 \'26 47.0% (Gemini 3.1 Pro Preview) · Q2 \'26 55.5% (Claude Fable 5) · Q3 \'26 61.4% (Claude Opus 5.5, max with fallback, released Sep 22, 2026). https://artificialanalysis.ai/evaluations/humanitys-last-exam',
     'Q4 \'26 SO FAR (Oct 1–4): no new record — the bar carries Opus 5.5\'s 61.4% forward. The only model released Oct 1–4 that AA has scored is InclusionAI\'s open-weights Ling 3.1 Flash (Oct 1): 39.4%. https://artificialanalysis.ai/models/ling-3-1-flash',
-    'AA leaderboard (Oct 4, top settings): Claude Opus 5.5 61.4% · Claude Fable 5.1 59.1% · Gemini 4 Argon 57.1% (AA marks it "not publicly available") · GPT-6 Astra 54.7% · GPT-6.1 Sol 52.9%. AA\'s Sep 22 article: "Humanity\'s Last Exam 61.4% (previous best 59.1%, Claude Fable 5.1)". https://artificialanalysis.ai/articles/claude-opus-5-5',
+    'Right chart = the same AA leaderboard, best setting per model, top 8 models (Oct 4): Claude Opus 5.5 61.4% (max with fallback) · Claude Fable 5.1 59.1% (max with fallback) · Gemini 4 Argon 57.1% (high; AA marks it "not publicly available") · Claude Fable 5 55.5% (max, Opus 4.8 fallback) · Claude Sonnet 5.5 55.0% (max with fallback) · Claude Opus 5 54.9% (max) · GPT-6 Astra 54.7% (max) · GPT-6.1 Sol 52.9% (max). Next: GPT-5.6 Sol 49.5%. AA\'s Sep 22 article: "Humanity\'s Last Exam 61.4% (previous best 59.1%, Claude Fable 5.1)". https://artificialanalysis.ai/articles/claude-opus-5-5',
     'If asked (Q&A only, vendor-run, not comparable with the chart): Anthropic\'s Claude Opus 5.5 system card (Table 8.1.A) reports 64.4% on the full 2,500-question HLE without tools and 67.7% with tools (web search, web fetch, code execution), max effort, averaged over five trials, graded by Claude Opus 4.6. https://anthropic.com/claude-opus-5-5-system-card · https://www.anthropic.com/news/claude-opus-5-5 · SiliconANGLE, Sep 22: "Anthropic releases Claude Opus 5.5 and OpenAI counters with two cheaper GPT-6 models" https://siliconangle.com/2026/09/22/anthropic-releases-claude-opus-5-5-and-openai-counters-with-two-cheaper-gpt-6-models/',
-    'Why not the official board: the Scale AI / CAIS leaderboard (labs.scale.com/leaderboard/humanitys_last_exam) uses the full multimodal set and, as of Oct 4, 2026, does not list Claude Opus 5.5 yet — its top entry is GPT 6 Astra at 54.80 ±1.94 (Fable 5.1 xhigh 46.50). Numbers from different question sets are not mixed on this chart.',
+    'Why not the official board: the Scale AI / CAIS leaderboard (labs.scale.com/leaderboard/humanitys_last_exam) uses the full multimodal set and, as of Oct 4, 2026, does not list Claude Opus 5.5 yet — its top entry is GPT 6 Astra at 54.80 ±1.94 (Fable 5.1 xhigh 46.50). Numbers from different question sets are not mixed on this chart. Scores depend heavily on who runs the test and how: Claude Fable 5.1 = 60.9% (Anthropic system card, full set, no tools), 59.1% (AA, max, text-only), 46.5% (official board, xhigh); GPT-6 Astra = 54.8% official vs 54.7% on AA. So Opus 5.5\'s 64.4% from Anthropic is not an official record.',
     'Verbatim (Scale/CAIS leaderboard, "Update September 17, 2026"): "The goal of HLE-Rolling is to provide a seamless migration path for researchers in the future once frontier models begin to hit the noise ceiling on the original HLE dataset." HLE-Rolling is a continually updated fork of HLE.',
     'CAVEAT: I have found no major-outlet headline declaring HLE "saturated" — it is not saturated yet (≈61%). The point is the speed, and that the organizers are planning for the end.',
   ].join('\n\n'));

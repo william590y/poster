@@ -201,8 +201,8 @@ async function hwDesignSlide(d) {
   // left: 2×2 wall of real demo media (GIFs play in slideshow)
   const gw = 7.55, gap = 0.2, tw = (gw - gap) / 2, th = tw * 9 / 16, gy = 1.8;
   const cells = [
-    [gifScaled('cad-autodesk-mcp-enclosure.gif', 960), 'CAD · AUTODESK FUSION + CLAUDE OPUS 4.8', 'One chat request → a two-part molded Raspberry Pi case'],
-    [gifScaled('cad-autodesk-mcp-mold-toolpaths.gif', 960), 'CAM · SAME AGENT, NEXT REQUEST', '…then the mold and the CNC toolpaths to cut it'],
+    [R2('cad-autodesk-mcp-enclosure.gif'), 'CAD · AUTODESK FUSION + CLAUDE OPUS 4.8', 'One chat request → a two-part molded Raspberry Pi case'],
+    [R2('cad-autodesk-mcp-mold-toolpaths.gif'), 'CAM · SAME AGENT, NEXT REQUEST', '…then the mold and the CNC toolpaths to cut it'],
     [R2('pcb-astra-kicad-hackaday.jpg'), 'PCB · GPT-6 ASTRA IN KICAD (OPENAI DEMO)', 'Schematic → placed, routed, manufacturable board'],
     [R2('pcb-quilter-speedrun-board-360.gif'), 'PCB · QUILTER “PROJECT SPEEDRUN”', '843-part Linux computer — booted on first power-up'],
   ];
@@ -1127,8 +1127,107 @@ async function vlaDemoSlide(d) {
   return s;
 }
 
+// ========== 11. Robotics: humanoids leaving the factory (XPENG IRON, Figure BotQ) ==========
+async function factorySlide(d) {
+  const s = d.slide('Content', { transition: 'fade' });
+  head(s, 'THE ACCELERATION · ROBOTICS · 4', 'Humanoids are leaving the factory');
+
+  const gap = 0.33, gw = (CW - gap) / 2, gh = gw * 9 / 16, gy = 1.8;
+  const iron = await tile(d, s, R2('robots-xpeng-iron-walks-off-line.gif'), { x: CX0, y: gy, w: gw, h: gh },
+    'XPENG IRON · GUANGZHOU · SEP 8, 2026', 'XPENG says the first IRON “autonomously walked off the lines”');
+  const fig = await tile(d, s, R2('robots-figure-botq-200-bots.gif'), { x: CX0 + gw + gap, y: gy, w: gw, h: gh },
+    'FIGURE 03 HUMANOIDS · FIGURE’S BOTQ FACTORY', 'Output: 1 robot a day → 1 an hour in under 120 days (Figure)');
+  const by = gy + gh + 0.3;
+
+  // bottom row: two headline clippings + output targets
+  const elec = await crop('rev2/robots-electrek-xpeng-iron-production.png', 'robots-electrek-head.png', { l: 30, t: 108, w: 1265, h: 272 });
+  const eng = await crop('rev2/robots-engadget-xpeng-iron-walked-out.png', 'robots-engadget-head.png', { l: 12, t: 82, w: 1560, h: 340 });
+  const c1 = await frameW(d, s, elec, CX0 + 0.05, by + 0.04, 3.7, { rot: -1.2 });
+  const c2 = await frameW(d, s, eng, 4.62, by + 0.04, 3.55, { rot: 1.2 });
+  const sx = 8.55, sw = (CX1 - sx - 0.25) / 2;
+  const st1 = stat(d, s, { x: sx, y: by - 0.06, w: sw, value: '1,000+', valueSize: 28, labelSize: 12, labelH: 0.62, label: 'IRON robots a month: XPENG’s target by end-2026' });
+  const st2 = stat(d, s, { x: sx + sw + 0.25, y: by - 0.06, w: sw, value: '20,000', valueSize: 28, labelSize: 12, labelH: 0.62, label: 'humanoids Unitree plans to ship in 2026 (~5,500 in 2025)' });
+
+  d.animate(s, iron, { auto: true, effect: 'fade', dur: 600 });
+  d.animate(s, fig, { effect: 'fade', dur: 600 });
+  d.animate(s, c1, { effect: 'slam', dur: 350 });
+  d.animate(s, c2, { auto: true, effect: 'slam', dur: 350, after: 200 });
+  d.animate(s, [...st1, ...st2], { effect: 'rise', dur: 450 });
+  d.anim[s._num].groups[d.anim[s._num].groups.length - 1].effects.forEach((e, i) => { e.delay = Math.floor(i / 2) * 250; });
+
+  d.source(s, 'Sources: XPENG press release & official video (Sep 8, 2026) · Figure AI, “Ramping Figure 03 Production” (Apr 29, 2026) · Electrek (Sep 7, 2026) · Engadget (Sep 22, 2026) · SCMP (Feb 17, 2026) · CnEVPost (Jul 15, 2026).');
+  s.addNotes([
+    'Left (plays in slideshow): XPENG’s official ceremony video, Sep 8, 2026 — the first IRON humanoid walks down the aisle between the robotic assembly cells of XPENG’s new humanoid production line in Guangzhou (burned-in subtitles: “This is the first IRON robot / rolling off the production line at XPENG Robotics”). XPENG: IRON “autonomously walked off the lines”; CEO He Xiaopeng then hung a staff badge on it. “Autonomous” and “world’s first” are XPENG’s claims — no outlet verified them independently; no Reuters/Bloomberg story; the number of IRON units built so far is not public.',
+    'XPENG release: over 80% of the line’s core processes automated; IRON has 76 degrees of freedom in the body and 21 per hand, and three Turing AI chips (2,250 TOPS); mass production by end of 2026, market launch and deliveries in 2027. He Xiaopeng: “the robot production lines were created from scratch with no precedent to follow. Today’s step is small, but XPENG is building the production lines for an entirely new product category.” XPENG’s robotics unit raised over US$900M (Aug 24, 2026) at a valuation over US$6.3B. Target: more than 1,000 IRONs a month by end-2026 (CnEVPost). Electrek: “Tesla is still converting a car line. XPeng just turned one on.” (Musk once predicted ~10,000 Optimus robots in 2026.) Engadget’s dek is the honest caveat: “completing a working day will be a tougher test.”',
+    'Right (plays in slideshow): Figure’s official footage of ~200 finished Figure 03 humanoids at its BotQ factory (count from the video’s file name). Figure says it delivered over 350 Figure 03s and went from 1 robot per day to 1 per hour — “a 24x throughput improvement in under 120 days” (vendor-reported, Apr 29, 2026).',
+    'Unitree: CEO Wang Xingxing plans to ship as many as 20,000 humanoids in 2026, up from about 5,500 in 2025 (SCMP, citing 36Kr). Unitree listed on Shanghai’s STAR Market on Aug 19, 2026 and opened up as much as 629%.',
+    'Video: https://www.youtube.com/watch?v=p9P84bt3AQY (XPENG official) · NBC News report: https://www.youtube.com/watch?v=_2hL9iabiEM · URLs: https://www.xpeng.com/news/01a080371029a057bc8e8a02a2c6012b · https://electrek.co/2026/09/07/xpeng-iron-humanoid-robot-production-line/ · https://www.engadget.com/2261658/xpeng-building-humanoid-robots-walked-out-after-assembled/ · https://cnevpost.com/2026/07/15/xpeng-aims-1000-robots-month-2027-global-roll-out/ · https://www.figure.ai/news/ramping-figure-03-production · https://www.scmp.com/tech/big-tech/article/3343825/kung-fu-somersaults-and-scale-unitree-eyes-20000-robot-output-2026-after-gala',
+  ].join('\n\n'));
+  return s;
+}
+
+// ========== 12. Robotics: Unitree — from a stiff folk dance (2025) to kung fu flips (2026) ==========
+async function unitreeSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  head(s, 'THE ACCELERATION · ROBOTICS · 5', 'From stiff dancing to kung fu flips in a year');
+
+  // hero (left) + 2×2 grid (right) with equal heights
+  const gap = 0.3, tg = 0.19, gy = 1.8;
+  const hw = (CW - gap - tg + tg * 16 / 9) / 2; // hero height = grid height (2 rows + gap)
+  const hh = hw * 9 / 16;
+  const gx = CX0 + hw + gap, gwid = CX1 - gx, tw = (gwid - tg) / 2, th = tw * 9 / 16;
+  const hero = await tile(d, s, R2('robots-unitree-g1-wall-backflips.gif'), { x: CX0, y: gy, w: hw, h: hh },
+    'UNITREE G1 · WALL BACKFLIPS · FEB 2026', 'Spring Festival Gala rehearsal footage (official Unitree video)');
+  const cells = [
+    ['robots-unitree-gala-stage-cluster-kungfu.gif', 'LIVE ON CCTV · FEB 16, 2026', 'Kung fu with staffs at the gala'],
+    ['robots-unitree-g1-airflare-spin.gif', 'AIRFLARE SPIN', 'Unitree claims 7.5 rotations'],
+    ['robots-unitree-h2-flying-kicks.gif', 'H2 · 180 CM · “NO SPEED-UP”', 'Flying kicks right next to a person'],
+    ['robots-unitree-autonomous-boxing.gif', 'SPARRING · SEP 7, 2026', 'Unitree: “fully autonomous” combat'],
+  ];
+  const tiles = [];
+  for (let i = 0; i < 4; i++) {
+    const [f, t, sub] = cells[i];
+    tiles.push(await tile(d, s, gifScaled(f, 640), { x: gx + (i % 2) * (tw + tg), y: gy + Math.floor(i / 2) * (th + tg), w: tw, h: th }, t, sub, { band: { h: 0.46 } }));
+  }
+  const by = gy + Math.max(hh, 2 * th + tg) + 0.3;
+
+  // bottom row: one year earlier (2025 gala) + headlines
+  const oldH = 6.5 - by - 0.02, oldW = oldH * 16 / 9;
+  const old = await tile(d, s, gifScaled('robots-unitree-2025-gala-yangko-h1.gif', 480), { x: CX0, y: by, w: oldW, h: oldH }, null);
+  const oldT = d.text(s, [
+    { text: 'ONE YEAR EARLIER', options: { fontSize: 10, bold: true, color: d.S.red, charSpacing: 2, breakLine: true } },
+    { text: 'Jan 2025 gala: Unitree H1s doing a stiff folk dance', options: { fontSize: 12, color: d.S.muted } },
+  ], { x: CX0 + oldW + 0.15, y: by, w: 1.9, h: oldH, valign: 'middle' });
+  const scmp = await crop('rev2/robots-scmp-unitree-20000-output.png', 'robots-scmp-head.png', { l: 14, t: 95, w: 1470, h: 192 });
+  const bgr = await crop('rev2/robots-bgr-sci-fi-nightmare.png', 'robots-bgr-head.png', { l: 0, t: 62, w: 1460, h: 300 });
+  const scx = CX0 + oldW + 2.2;
+  const c1 = await frameW(d, s, scmp, scx, by + 0.12, 3.75, { rot: -1 });
+  const c2 = await frameW(d, s, bgr, scx + 3.95, by + 0.02, CX1 - (scx + 3.95) - 0.05, { rot: 1.2 });
+
+  d.animate(s, hero, { auto: true, effect: 'fade', dur: 600 });
+  tiles.forEach((t, i) => d.animate(s, t, { auto: true, effect: 'fade', dur: 400, after: i ? 100 : 200 }));
+  d.animate(s, [...old, oldT], { effect: 'fade', dur: 450 });
+  d.animate(s, c1, { effect: 'slam', dur: 350 });
+  d.animate(s, c2, { auto: true, effect: 'slam', dur: 350, after: 250 });
+
+  d.source(s, 'Sources: official Unitree videos (Spring Festival Gala, Feb 16, 2026; H2 training, Jan 4, 2026; sparring, Sep 7, 2026) · CGTN (2025 gala) · SCMP (Feb 17, 2026) · BGR (Feb 26, 2026).');
+  s.addNotes([
+    'All clips are official Unitree uploads (trimmed only; they play in slideshow) except the 2025 gala clip (CGTN broadcast). Big clip: G1 humanoids running at a wall, stepping up it and backflipping off in quick succession — rehearsal footage from Unitree’s official “Spring Festival Gala Robots — a Full Release of Additional Details” video (Feb 16, 2026; 27.9M views on X).',
+    'Grid: (1) the CCTV gala broadcast — dozens of G1s doing kung fu with staffs and nunchaku beside child martial artists (CMG says the gala averaged 325M concurrent viewers per minute — state-media figure). (2) A breakdance Airflare — Unitree claims “seven-and-a-half rotations”; it also claims launched aerial flips over 3 m high and group movement up to 4 m/s (all Unitree’s own claims). (3) The 180 cm H2 throwing flying kicks a metre or two from a man who flinches back — on-screen label “No speed-up in this video”; Unitree’s post: “Please use robots in a friendly and safe manner, and keep a safe distance.” (4) Sep 7, 2026: Unitree claims “The World’s First Real-Time World Model-Driven Fully Autonomous Humanoid Robot Combat” (UnifoLM-X2-1.0) — a vendor claim; in its split-screen version some panels are the model’s predicted future frames, not real footage.',
+    'Caveat: the gala routines were choreographed; at the Temple of Heaven show a week later (49 G1s) staff said the routines ran on “pre-programmed instructions” without remote control (Global Times). Agility is not general intelligence — but combine these bodies with the VLA brains from three slides ago.',
+    'One year earlier (Jan 28, 2025 gala): Unitree H1s performed a stiff Yangko folk dance twirling handkerchiefs (“Yangge Bot”, CGTN). SCMP: Unitree plans to ship up to 20,000 humanoids in 2026, up from ~5,500. BGR: “it’s hard not to imagine the show as a scene out of a sci-fi nightmare. It only takes one mistake to cause an injury.”',
+    'Videos: gala https://www.youtube.com/watch?v=Ykiuz1ZdGBc (X: https://x.com/UnitreeRobotics/status/2023430834695627030) · H2 training https://www.youtube.com/watch?v=JZllfrHRc4g (https://x.com/UnitreeRobotics/status/2007746313220415717) · sparring https://www.youtube.com/watch?v=qkIJELDgULA (https://x.com/UnitreeRobotics/status/2096932273602048258) · 2025 gala https://news.cgtn.com/news/2025-01-28/Tradition-meets-tech-Unitree-robots-dance-at-Spring-Festival-Gala-1Axm5TuIAve/index.html · PR: https://www.prnewswire.com/news-releases/kung-fu-meets-spring--unitree-spring-festival-gala-robots-present-cyber-real-kung-fu-in-the-year-of-the-horse-302689281.html · https://www.scmp.com/tech/big-tech/article/3343825/kung-fu-somersaults-and-scale-unitree-eyes-20000-robot-output-2026-after-gala · https://www.bgr.com/2108405/china-new-year-robots-sci-fi-nightmare/ · https://www.globaltimes.cn/page/202602/1355607.shtml',
+  ].join('\n\n'));
+  return s;
+}
+
 async function build(d) {
   await cadSlide(d);
+  await hwDesignSlide(d);
+  await hwJobsSlide(d);
+  await aleSlide(d);
+  await paidWorkSlide(d);
+  await gdpvalSlide(d);
   await juniorSlide(d);
   await codeSlide(d);
   await arxivSlide(d);
@@ -1139,6 +1238,8 @@ async function build(d) {
   await vlaWallSlide(d);
   await vlaArchSlide(d);
   await vlaDemoSlide(d);
+  await factorySlide(d);
+  await unitreeSlide(d);
 }
 
 module.exports = { build };

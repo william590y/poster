@@ -598,25 +598,66 @@ async function sufferSlide(d) {
 }
 
 // ---------------------------------------------------------------- 9. finale video
+// "Escape Velocity" by @anabology — the film Elon Musk re-posted ("I really felt the AGI profoundly this time").
+// Embedded locally (720p H.264 + AAC, 43 MB, re-encoded from the 1080p X original) so it plays offline.
+const FINALE = {
+  elon: 'https://x.com/elonmusk/status/2104360927474921529',
+  video: 'https://x.com/elonmusk/status/2104360927474921529/video/1',
+  anabology: 'https://x.com/anabology/status/2103534482930491441',
+  donald: 'https://x.com/donaldjewkes/status/2102801274173587569',
+  makingOf: 'https://x.com/anabology/status/2104604226059993391',
+  suno: 'https://suno.com/s/d1oGqZucN3h7GsI1',
+  youtube: 'https://www.youtube.com/watch?v=C3fxudvU-UU',
+  memeburn: 'https://memeburn.com/elon-musk-says-claude-opus-5-5-made-him-feel-the-agi-the-post-he-endorsed-says-xai-is-next/',
+};
+
 async function videoSlide(d) {
   const s = d.slide('Content', { transition: 'fadeBlack' });
   s.addText('THE WORLD · FINALE', { placeholder: 'kicker' });
-  s.addText('“So you think AI is a normal technology?”', { placeholder: 'title' });
-  const v = await d.video(s, {
-    link: 'https://www.youtube.com/watch?v=Cq8qO-NjYIg',
-    embed: 'https://www.youtube.com/embed/Cq8qO-NjYIg',
-    cover: R('yt-Cq8qO-NjYIg.jpg'),
-    box: { x: MX, y: 1.72, w: CW, h: 4.4 },
-    label: '“AI is a normal technology?” — leo · YouTube · Sep 24, 2026 · 5:16',
+  s.addText('“I really felt the AGI profoundly this time”', { placeholder: 'title' });
+
+  // Poster frame: t = 1:29.5, "AGI," / "Feel the AGI," on screen (unedited frame of the 1080p original).
+  fs.mkdirSync(OUT, { recursive: true });
+  const poster = path.join(OUT, 'finale-poster-feel-the-agi.jpg');
+  await sharp(R('rev2/finalevideo-poster-a-feel-the-agi-t89s.png')).jpeg({ quality: 92, mozjpeg: true }).toFile(poster);
+  const vw = 7.6;
+  const v = await d.localVideo(s, {
+    file: R('rev2/finalevideo-escape-velocity-720p.mp4'),
+    cover: poster,
+    box: { x: MX, y: 1.72, w: vw, h: vw * 9 / 16 },
+    label: '“ESCAPE VELOCITY” — @anabology · X · Sep 25, 2026 · 5:06 · click to play',
+    link: FINALE.anabology,
   });
-  const who = d.source(s, 'A music video its creator says Claude Opus 5.5 made, with help from Suno (creator’s YouTube description).');
-  d.animate(s, [v[0]], { auto: true, effect: 'fade', dur: 1200 });
-  d.animate(s, [v[1], who], { auto: true, effect: 'fade', dur: 600, delay: 200 });
+
+  // Right column: who posted it, who made it.
+  const cx = MX + vw + 0.35;
+  const cw = 12.73 - cx;
+  const l1 = label(d, s, 'POSTED BY ELON MUSK · SEP 28 · 15.9M VIEWS', cx, 1.72, cw, { cs: 1 });
+  const elonHead = await crop('rev2/finalevideo-x-post-elon-agi-profoundly.png', 'finale-x-elon-head.png', { left: 0, top: 0, width: 640, height: 192 });
+  const c1 = await d.frame(s, elonHead, { x: cx, y: 2.08, w: cw, h: 1.34 }, { rot: 1, link: FINALE.elon });
+  const bridge = d.text(s, 'His caption doesn’t say who made it. The film is by @anabology, who says an AI model did the work overnight:',
+    { x: cx, y: 3.6, w: cw, h: 0.85, fontSize: 14, color: d.S.muted, valign: 'middle' });
+  const l2 = label(d, s, 'THE CREATOR · @ANABOLOGY · SEP 25 · 19.6M VIEWS', cx, 4.5, cw, { color: d.S.amber, cs: 1 });
+  const anaHead = await crop('rev2/finalevideo-x-post-anabology-original.png', 'finale-x-anabology-head.png', { left: 0, top: 0, width: 920, height: 262 });
+  const c2 = await d.frame(s, anaHead, { x: cx, y: 4.86, w: cw, h: 1.3 }, { rot: -1, link: FINALE.anabology });
+
+  d.source(s, 'Sources: X posts by @elonmusk (Sep 28, 2026) and @anabology (Sep 25, 2026); views via fxtwitter, Oct 4, 2026. That Claude Opus 5.5 made the film is its creator’s claim.');
+
+  d.animate(s, [v[1]], { auto: true, effect: 'fade', dur: 600, delay: 400 });
+  d.animate(s, [l1, ...c1], { auto: true, effect: 'fade', dur: 700, after: 200 });
+  d.animate(s, [bridge], { auto: true, effect: 'fade', dur: 600, after: 300 });
+  d.animate(s, [l2, ...c2], { auto: true, effect: 'rise', dur: 700, after: 200 });
+
   s.addNotes([
-    'FINALE before the coda. Let it play (5:16), or play the first minute and move on.',
-    'Video: "AI is a normal technology?" by leo (@leos9705), YouTube, published 24 Sep 2026, 5:16, ~39k views at time of research. Description: "Cute little animated music video by Opus 5.5 with some help from suno." (the creator\'s own claim; not independently verified, hence "its creator says" on the slide) https://www.youtube.com/watch?v=Cq8qO-NjYIg',
-    'Thumbnail text: "So you think AI is a ... NORMAL TECHNOLOGY?" — a response to the "AI as normal technology" argument. Severin Field on X (29 Sep 2026) called it "still the best AI-created video I have ever seen" (post not independently loaded).',
-    'If the embed does not play (offline / no YouTube access), click the caption link under the video.',
+    'FINALE before the coda — the emotional closer. One sentence, then let it play: click the video (5:06, sound on). Short on time: play to the end of the first chorus (~1:50) and fade out.',
+    'Say: "A model was given a prompt, an image generator and a moodboard, and worked overnight. This is what came out. It went viral, and Elon Musk posted it with five words: I really felt the AGI." Then let the song do the rest — it is satire about the race we are in: a countdown of "months to escape the permanent underclass", and the line "They say hit the brakes, we say hit the gas."',
+    'WHO MADE IT: the film is "ESCAPE VELOCITY" (on screen: "ESCAPE VELOCITY · SS27"), a 5:06 runway-style music video in 11 "looks", by X user @anabology (co-founder of aion.bio). Original post, 25 Sep 2026, 17:17 UTC: "Gave Opus 5.5 donald\'s prompt, Midjourney, and a moodboard / 12 hours later, woke up to this:" — 19,618,409 views (fxtwitter, 4 Oct 2026; X shows 19.6M). ' + FINALE.anabology,
+    'ELON\'S POST: 28 Sep 2026, 00:01 UTC, caption exactly "I really felt the AGI profoundly this time". It carries the same video file natively (same media id 2103533196721704960 — it is not a quote-post), and the caption does not name the creator. 15,862,679 views, 32,176 likes, 3,580 reposts, 1,907 replies by 4 Oct 2026 (fxtwitter; X shows 15.8M). No Community Note. ' + FINALE.elon,
+    'LINEAGE: anabology reused the prompt of @donaldjewkes (23 Sep 2026): "I made this with one prompt using Opus 5.5 / I spoke to my computer for 5mins, claude worked for 12 hours, and I woke up to this" (3.9M views) ' + FINALE.donald + ' . The song is "Escape Velocity", made with Suno (creator "anabologyco"): ' + FINALE.suno + ' . anabology\'s YouTube upload is titled "SLOPCORE: ESCAPE VELOCITY" (only title and channel verified): ' + FINALE.youtube + ' . Making-of folder with prompts, generated images, audio and the master file: ' + FINALE.makingOf,
+    'PRESS: Memeburn (Marko Nguyen, 29 Sep 2026), "Elon Musk Says Claude Opus 5.5 Made Him Feel the AGI. The Post He Endorsed Says xAI Is Next" — reports he also replied "Accurate" to a post rating Opus 5.5 "80% to 90%" of the way to AGI. ' + FINALE.memeburn,
+    'LYRICS to point at (machine transcription with Whisper — check by ear before quoting): opens with "Ladies, gentlemen, agents, this is not an AI billboard. Prepare to walk." Chorus: "You have 18 months to escape the permanent underclass. Lock in … feel the AGI, feel it come fast … escape velocity — it\'s so over / we\'re so back." Second chorus drops to "6 months" and "They say hit the brakes, we say hit the gas." Bridge: "One year back for every year, if it doesn\'t kill us all first." It ends on "There is no underclass" and "END OF SHOW."',
+    'CAVEATS: that Claude Opus 5.5 directed the film and drove Midjourney is the creators\' claim (reported by Memeburn), not independently verified, and neither is whether the on-screen performer is wholly AI-generated. The tickers and HUD numbers in the film ("CURSOR → SPACEX $60B", "HUGGING FACE → NVIDIA $12.93B", "WAYMO RECALL 3,900" …) are its satirical art direction, not facts — do not cite them. A LinkedIn post claims ~19 hours, 141 shots, 188 Midjourney prompts and 636 images; unverified (the creator\'s own post says 12 hours).',
+    'FILE: embedded 720p H.264 + AAC (43 MB; original audio stream), re-encoded from the 1080p video on X. Full quality online: ' + FINALE.video,
   ].join('\n\n'));
   return s;
 }

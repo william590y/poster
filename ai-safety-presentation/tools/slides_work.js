@@ -1320,16 +1320,16 @@ async function robotWorkSlide(d) {
   head(s, 'THE ACCELERATION · ROBOTICS · 6', 'Anthropic: robots can do 74% of physical tasks');
 
   // ---- left: the report itself (title block + key findings, highlights added) ----
-  const lw = 6.15;
+  const lw = 6.3;
   const title = await crop('rev2/robotwork-title-block.png', 'robotwork-title.png', { l: 60, t: 30, w: 1400, h: 352 });
   const t1 = await frameW(d, s, title, CX0 + 0.05, 1.8, 2.75, { rot: -1.5 });
   const meth = d.text(s, [
     { text: 'ANTHROPIC RESEARCH · ECONOMICS', options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 1, breakLine: true, paraSpaceAfter: 2 } },
-    { text: 'Claude rated all 7,594 physical tasks in O*NET, the US job database: could a robot that exists today do it, and where?', options: { fontSize: 12, color: d.S.muted } },
+    { text: 'Claude rated all 7,594 physical tasks in O*NET, the US job database: could a robot that exists today do it, and where? (~650,000 web searches)', options: { fontSize: 12, color: d.S.muted } },
   ], { x: CX0 + 3.05, y: 1.74, w: lw - 3.05, h: 1.0, valign: 'top' });
   const kfOff = { l: 30, t: 298 };
   const kf = await crop('rev2/robotwork-key-findings.png', 'robotwork-kf-b23.png', { ...kfOff, w: 1305, h: 566 });
-  const kfF = await frameW(d, s, kf, CX0, 2.92, lw);
+  const kfF = await frameW(d, s, kf, CX0, 2.98, lw);
   const kfHl = await hlLines(d, s, kf, kfF, [
     [82, 315, 1230, 42], [82, 367, 1156, 42], [82, 420, 716, 42], // three-quarters of physical tasks … 34% of working hours
     [804, 420, 478, 42], [82, 473, 832, 42], // male, less educated, lower paid
@@ -1373,11 +1373,11 @@ async function robotWorkSlide(d) {
   // ---- bottom right: who is exposed (press clipping + two stats) ----
   const yb = box.y + box.h + 0.76;
   const cnbc = R2('robotwork-cnbctv18-machines-have-a-type.png');
-  const cw = 2.75;
+  const cw = 2.55;
   const c1 = await frameW(d, s, cnbc, rx + 0.05, yb + 0.1, cw, { rot: 1.5 });
   const sx = rx + cw + 0.4, sw = CX1 - sx;
   const st1 = stat(d, s, { x: sx, y: yb - 0.04, w: sw, value: '$22.88 vs $52.97', valueSize: 19, labelSize: 12, labelH: 0.4, color: d.S.amber, label: 'hourly pay: most robot-exposed fifth of workers vs unexposed' });
-  const st2 = stat(d, s, { x: sx, y: yb + 0.78, w: sw, value: '9 of 10', valueSize: 19, labelSize: 12, labelH: 0.4, color: d.S.amber, label: 'most-exposed jobs are vehicle operators; taxi drivers top (2.2 of 3)' });
+  const st2 = stat(d, s, { x: sx, y: yb + 0.78, w: sw, value: '9 of 10', valueSize: 19, labelSize: 12, labelH: 0.4, color: d.S.amber, label: 'most-exposed jobs are vehicle operators (taxi drivers top)' });
 
   d.animate(s, [...t1, meth, ...kfF, kfCap], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, kfHl.slice(0, 3), { auto: true, effect: 'wipeLeft', dur: 500, stagger: 350, after: 150 });
@@ -1433,7 +1433,7 @@ async function robotCostSlide(d) {
   const gy0 = box.y + box.h * L.y, gh = box.h * L.h / 5;
   const tag = d.text(s, '◄ robots already ~$2.5K a year cheaper', { x: box.x + box.w * (L.x + L.w * 48 / 380) + 0.62, y: gy0 + gh * 0.5 - 0.15, w: 3.2, h: 0.3, fontSize: 12, bold: true, color: '5FD3C4', valign: 'middle' });
   const note = d.text(s, [
-    { text: 'Packers: robots costing over $2 million replace ~14 workers. ', options: { color: d.S.muted } },
+    { text: 'Hand packers: robots costing over $2 million replace ~14 workers. ', options: { color: d.S.muted } },
     { text: 'Robot costs are Claude’s estimates (purchase spread over ~10 years + upkeep); the human bar is median pay × share of the job robots can do (Fig. 7).', options: { color: d.S.steel, italic: true } },
   ], { x: CX0, y: box.y + box.h + 0.1, w: lw, h: 0.9, fontSize: 13, valign: 'top' });
 

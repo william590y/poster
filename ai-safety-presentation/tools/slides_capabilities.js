@@ -1029,7 +1029,7 @@ const TAK = {
 async function takSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
   s.addText(`${KICK} · CREATIVITY · 8`, { placeholder: 'kicker' });
-  s.addText('He says: one prompt, “15 minutes later” → ~30 styles', { placeholder: 'title' });
+  s.addText('He says: one prompt, 15 minutes → ~30 styles', { placeholder: 'title' });
 
   // ---- left: the accelerating montage as a looping GIF (real footage, trimmed only; frame 0 = the risograph style)
   const gw = 6.3, gh = gw * 9 / 16, y0 = 1.76;

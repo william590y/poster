@@ -4,7 +4,9 @@ Every slide is rendered to a full-HD image; the real media is then laid over it 
 .pptx: GIFs become looping H.264 videos (sharper and ~10x smaller than GIF), YouTube embeds become click-to-play iframes,
 embedded mp4s become <video> players. Speaker notes (with their source links) are shown in a toggleable panel.
 
-Usage: python tools/export_web.py [OUT_DIR] [--download-url URL]   (--download-url '' hides the download button)
+Usage: python tools/export_web.py [OUT_DIR] [--download-url URL] [--webm]
+  --download-url '' hides the download button; --webm also ships a VP9 copy of every loop (for browsers without H.264 —
+  off by default to stay well under GitHub Pages' 1 GB site limit)
   default OUT_DIR = /home/user/blog/aisafety ; build the deck first (./build.sh)
 """
 import glob
@@ -209,8 +211,21 @@ def gif_to_webm(src, dst):
                     '-row-mt', '1', '-deadline', 'good', '-cpu-used', '2', '-an', dst], check=True)
 
 
+def web_video(src, dst):
+    # embedded clips: copy as-is if already <=720p, else a 720p H.264/AAC web copy (the .pptx keeps the original)
+    h = int(subprocess.run(['ffprobe', '-v', 'error', '-select_streams', 'v:0', '-show_entries', 'stream=height', '-of', 'csv=p=0', src],
+                           capture_output=True, text=True, check=True).stdout.strip() or 0)
+    if h <= 720:
+        shutil.copy(src, dst)
+        return
+    subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', src, '-vf', 'scale=-2:720', '-c:v', 'libx264', '-crf', '23', '-preset', 'slow',
+                    '-pix_fmt', 'yuv420p', '-c:a', 'copy', '-movflags', '+faststart', dst], check=True)
+
+
 def main():
     args = sys.argv[1:]
+    webm = '--webm' in args
+    args = [a for a in args if a != '--webm']
     download = DEFAULT_DOWNLOAD
     if '--download-url' in args:
         i = args.index('--download-url')
@@ -247,8 +262,11 @@ def main():
                 typ, tgt, ext = rels.get(mid, (None, None, None))
                 if tgt and not ext and tgt in z.namelist():
                     name = f's{n:02d}-{k}{os.path.splitext(tgt)[1]}'
-                    with open(os.path.join(out, 'media', name), 'wb') as f:
+                    tmpv = os.path.join(CACHE, 'embedded' + os.path.splitext(tgt)[1])
+                    with open(tmpv, 'wb') as f:
                         f.write(z.read(tgt))
+                    web_video(tmpv, os.path.join(out, 'media', name))
+                    os.remove(tmpv)
                     media.append({'kind': 'video', 'src': f'media/{name}', '_pic': pic, **g})
                 continue
             if blip is not None:
@@ -268,9 +286,10 @@ def main():
                             os.remove(tmpgif)
                         base = f'loop-{len(mp4cache) + 1:02d}'
                         shutil.copy(key + '.mp4', os.path.join(out, 'media', base + '.mp4'))
-                        shutil.copy(key + '.webm', os.path.join(out, 'media', base + '.webm'))
+                        if webm:
+                            shutil.copy(key + '.webm', os.path.join(out, 'media', base + '.webm'))
                         mp4cache[tgt] = f'media/{base}'
-                    media.append({'kind': 'loop', 'webm': mp4cache[tgt] + '.webm', 'src': mp4cache[tgt] + '.mp4', '_pic': pic, **g})
+                    media.append({'kind': 'loop', 'webm': mp4cache[tgt] + '.webm' if webm else '', 'src': mp4cache[tgt] + '.mp4', '_pic': pic, **g})
         # Shapes drawn above a clip (labels, letter badges, loop nodes) would be hidden under the web <video>. For such slides
         # the shapes stacked above a clip and overlapping it go in a transparent layer, the base image is rendered without them.
         kids = list(root.find('p:cSld/p:spTree', NS))[2:]
@@ -315,7 +334,7 @@ def main():
         for s, p in zip(slides, pages):
             full = Image.open(p).convert('RGB')
             base = Image.open(base_pages[s['part']]).convert('RGB') if s['part'] in base_pages else full
-            base.save(os.path.join(out, s['img']), 'JPEG', quality=90, optimize=True, progressive=True, subsampling=0)
+            base.save(os.path.join(out, s['img']), 'JPEG', quality=85, optimize=True, progressive=True, subsampling=0)
             if s['part'] in top_pages:
                 top = matte(*(Image.open(f) for f in top_pages[s['part']]))
                 bb = top.getchannel('A').getbbox()

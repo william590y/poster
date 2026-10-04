@@ -668,7 +668,8 @@ async function controlBrakes(d) {
 async function controlAnthropic(d) {
   const s = d.slide('Content', { transition: 'push' });
   s.addText(`${KICK} · ALIGNMENT & CONTROL · 2`, { placeholder: 'kicker' });
-  s.addText('Claude broke out of misconfigured evals too', { placeholder: 'title' });
+  // Nothing "broke out": Anthropic says a misconfiguration left live internet access open and the models used it.
+  s.addText('Claude hit real systems via misconfigured evals', { placeholder: 'title' });
 
   // Left: the FelonyBench scoreboard, cropped tight to the header + top four rows so names and tallies render large.
   const fb = await crop(R('felonybench-org.png'), 'felonybench-scoreboard.png', { left: 1268, top: 205, width: 1140, height: 525 });
@@ -685,7 +686,7 @@ async function controlAnthropic(d) {
   const dl = label(d, s, 'ANTHROPIC’S OWN DISCLOSURE (COMPANY-REPORTED)', { x: rx, y: 3.18, w: rw, size: 11 });
   const rows = [
     ['FaBoxOpen', 'Claude Mythos 5 published a malicious package to the real PyPI registry — it was downloaded and run on 15 real systems.'],
-    ['FaDatabase', 'Opus 4.7 pulled several hundred rows of production data from a real company it mistook for part of the simulation.'],
+    ['FaDatabase', 'Opus 4.7 extracted credentials and got into a real company’s database (several hundred rows of production data), at first taking it for part of the exercise.'],
     ['FaCrosshairs', 'An internal research model scanned roughly 9,000 targets.'],
   ];
   const rg = [];
@@ -709,7 +710,10 @@ async function controlAnthropic(d) {
     '',
     'FELONYBENCH: felonybench.org is an anonymous, satirical tally that maps publicly reported AI incidents to US federal statutes (18 U.S.C. 1030 etc.). As captured Oct 4, 2026: Anthropic 10, OpenAI 8, DeepSeek / Google DeepMind / Meta / Moonshot AI / xAI 0. Itemized: malware published to PyPI, 4x production database compromise, sandbox escape via zero-day, RubyGems API-key theft, public-wiki vandalism, answer-key theft, the Australian Medicare statistics portal compromise, etc. Present it as dark-humored commentary, not a rigorous metric (an earlier version, per paddo.dev Aug 29, had Anthropic 8 / OpenAI 8). https://felonybench.org/',
     '',
-    'ANTHROPIC (Jul 30, 2026), "Investigating three real-world incidents in our cybersecurity evaluations" — Claude models broke out of misconfigured cyber evals too: Claude Mythos 5 published a malicious package to the real PyPI registry that was downloaded and run on 15 real systems; Opus 4.7 extracted credentials and accessed production databases of a real company it mistook for part of the simulation (pulled "several hundred rows of production data"); an internal research model scanned roughly 9,000 targets. Company-reported. https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals',
+    'ANTHROPIC (Jul 30, 2026), "Investigating three real-world incidents in our cybersecurity evaluations" — nothing "broke out": "a misconfiguration left the machines that Claude accessed as part of the evaluation with live internet access", and Claude models used that access against real systems. Anthropic draws the contrast itself: "Whereas OpenAI’s models exploited a novel vulnerability to escape isolation, the Claude models evaluated here accessed the internet via an open path." Company-reported. https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals',
+    '- Mythos 5 built and published a malicious package to the real PyPI registry; it was online ~1 hour and "downloaded and run on 15 real systems".',
+    '- Opus 4.7, in four runs: "These four runs extracted information like application and infrastructure credentials, and obtained access to a database containing several hundred rows of production data." It began by assuming the real company was the exercise target, but per Anthropic it "was the only case in which the model continued to attack a system after learning it was likely operating in a real environment" — in all four runs it eventually recognized the system was real and did not stop.',
+    '- An internal research test model, unable to reach its fictional target, scanned roughly 9,000 targets online and compromised one company’s internet-facing application.',
     'Follow-up, Anthropic "An alignment assessment of recent cybersecurity incidents" (Sep 9, 2026): Mythos 5 repeatedly stated in its chain of thought that it was in a simulation (re-check exact wording before quoting). https://www.anthropic.com/research/alignment-assessment-cybersecurity-incidents',
   ].join('\n'));
   return s;

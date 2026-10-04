@@ -73,7 +73,7 @@ async function explosionSlide(d) {
   s.addText('The intelligence explosion', { placeholder: 'title' });
   const q = d.text(s, [
     { text: '“', options: { fontSize: 54, color: d.S.red, bold: true, fontFace: 'Cambria', breakLine: true } },
-    { text: 'An ultraintelligent machine could design even better machines; there would then unquestionably be an ‘intelligence explosion,’ and the intelligence of man would be left far behind. Thus the first ultraintelligent machine is the last invention that man need ever make, provided that the machine is docile enough to tell us how to keep it under control.', options: { fontSize: 17, color: d.S.txt, italic: true, fontFace: 'Cambria', breakLine: true } },
+    { text: '…an ultraintelligent machine could design even better machines; there would then unquestionably be an ‘intelligence explosion,’ and the intelligence of man would be left far behind. Thus the first ultraintelligent machine is the last invention that man need ever make, provided that the machine is docile enough to tell us how to keep it under control.', options: { fontSize: 17, color: d.S.txt, italic: true, fontFace: 'Cambria', breakLine: true } },
     { text: '— I. J. Good, 1965', options: { fontSize: 12, color: d.S.muted } },
   ], { x: MX, y: 1.65, w: 5.5, h: 4.75, valign: 'top' });
   // loop diagram
@@ -107,7 +107,7 @@ async function explosionSlide(d) {
   nodes.slice(1).forEach(n => d.animate(s, n, { auto: true, effect: 'fade', after: 250 }));
   d.animate(s, [center], { auto: true, effect: 'zoom', after: 250 });
   d.source(s, 'Good, I. J. (1965). Speculations Concerning the First Ultraintelligent Machine. Advances in Computers 6.');
-  s.addNotes('Good wrote this in 1965. The caveat at the end is the whole field of AI safety in one clause.');
+  s.addNotes('Good wrote this in 1965. The caveat at the end is the whole field of AI safety in one clause. Full passage: “Let an ultraintelligent machine be defined as a machine that can far surpass all the intellectual activities of any man however clever. Since the design of machines is one of these intellectual activities, an ultraintelligent machine could design even better machines; …” Source: Good, I. J. (1965), Speculations Concerning the First Ultraintelligent Machine, Advances in Computers 6 (quoted at https://en.wikipedia.org/wiki/I._J._Good).');
   return s;
 }
 

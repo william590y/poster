@@ -81,7 +81,7 @@
       "caption": "Real X page screenshot (logged-out, light mode), cropped to the post only.",
       "quality": 5,
       "verified": true,
-      "notes": "Captured 2026-10-04 with tools/shot.js; counts shown are rounded by X. Exact counts (fxtwitter, same day): 15,862,679 views; 1,907 replies; 3,580 reposts; 32,176 likes; 7,635 bookmarks; 629 quotes. Not a quote-post card: the post carries the video natively; its t.co media entity expands to https://x.com/anabology/status/2103534482930491441/video/1 and the media id (2103533196721704960) is identical to anabology's video, i.e. Elon re-shared anabology's video with his own caption and no credit in the text."
+      "notes": "Captured 2026-10-04 with tools/shot.js; counts shown are rounded by X. Exact counts (fxtwitter, same day): 15,862,679 views; 1,907 replies; 3,580 reposts; 32,176 likes; 7,635 bookmarks; 629 quotes. Not a quote-post card: the post carries the video natively; its t.co media entity expands to https://x.com/anabology/status/2103534482930491441/video/1 and the media id (2103533196721704960) is identical to anabology's video, i.e. Elon re-shared anabology's video with his own caption and no credit in the text. Later snapshot (fxtwitter, 2026-10-04 ~19:54 UTC): 15,865,189 views; 1,907 replies; 3,560 reposts; 32,201 likes; 7,640 bookmarks; 632 quotes (counts drift slightly; reposts can go down)."
     },
     {
       "id": "finalevideo-x-post-elon-dark",

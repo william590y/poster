@@ -1,5 +1,5 @@
 // Slides that are built from first principles (no research assets needed).
-const { HEX, W, H, MX } = require('./lib');
+const { HEX, W, H, MX, A } = require('./lib');
 const { icon } = require('./icons');
 
 // Position on the exponential curve drawn in assets/art/bg_exp.png (t in [0,1]).
@@ -80,8 +80,11 @@ async function explosionSlide(d) {
   const cx = 9.7, cy = 4.0, r = 1.5;
   const steps = [['FaRobot', 'AI does AI research'], ['FaMicrochip', 'Better AI'], ['FaBolt', 'Faster research'], ['FaRedoAlt', 'Even better AI']];
   const g = [];
-  const ring = d.name('ring');
-  s.addShape(d.pres.shapes.OVAL, { x: cx - r, y: cy - r, w: 2 * r, h: 2 * r, fill: { color: HEX.bg, transparency: 100 }, line: { color: HEX.red, width: 2, dashType: 'dash' }, objectName: ring });
+  // animated loop (tools/make_loop_gif.py): dashed ring + clockwise arrows + a pulse that laps faster each time; drawn on the
+  // matching crop of the slide background, so it sits seamlessly under the native nodes/labels
+  const ring = d.name('ringgif');
+  const HALF = 2.05;
+  s.addImage({ path: A('art', 'loop_explosion.gif'), x: cx - HALF, y: cy - HALF, w: 2 * HALF, h: 2 * HALF, objectName: ring });
   const nodes = [];
   for (let i = 0; i < steps.length; i++) {
     const a = -Math.PI / 2 + i * Math.PI / 2;
@@ -101,21 +104,12 @@ async function explosionSlide(d) {
     nn.push(d.text(s, steps[i][1], { x: lx, y: ly, w: lw, h: 0.38, fontSize: 14, bold: true, color: d.S.txt, align: side === 'center' ? 'center' : side === 'left' ? 'right' : 'left', valign: 'middle' }));
     nodes.push(nn);
   }
-  // clockwise arrowheads between the nodes
-  const arrows = [];
-  for (const deg of [-45, 45, 135, 225]) {
-    const a = deg * Math.PI / 180, ax = cx + r * Math.cos(a), ay = cy + r * Math.sin(a);
-    const rot = Math.atan2(-Math.sin(a), -Math.cos(a)) * 180 / Math.PI; // tangent (−sin, cos) → rotation of an up-pointing triangle
-    const n = d.name('arrow');
-    s.addShape(d.pres.shapes.ISOSCELES_TRIANGLE, { x: ax - 0.11, y: ay - 0.11, w: 0.22, h: 0.22, rotate: rot, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 }, objectName: n });
-    arrows.push(n);
-  }
   const cIcon = d.name('cicon');
   s.addImage({ data: await icon('FaTachometerAlt', '#E5383B'), x: cx - 0.3, y: cy - 0.55, w: 0.6, h: 0.6, objectName: cIcon });
   const cText = d.text(s, 'each lap faster', { x: cx - 1, y: cy + 0.12, w: 2, h: 0.35, fontSize: 13, color: d.S.muted, align: 'center', valign: 'middle' });
   const center = [cIcon, cText];
   d.animate(s, [q], { auto: true });
-  d.animate(s, [ring, ...arrows, ...nodes[0]], { effect: 'fade' });
+  d.animate(s, [ring, ...nodes[0]], { effect: 'fade' });
   nodes.slice(1).forEach(n => d.animate(s, n, { auto: true, effect: 'fade', after: 250 }));
   d.animate(s, center, { auto: true, effect: 'zoom', after: 250 });
   d.source(s, 'Good, I. J. (1965). Speculations Concerning the First Ultraintelligent Machine. Advances in Computers 6, pp. 31–88.');

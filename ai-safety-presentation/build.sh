@@ -7,6 +7,7 @@ cd "$(dirname "$0")"
 OUT=build/AI_Safety_and_Existential_Risk.pptx
 [ -d node_modules ] || npm install --silent
 node tools/make_art.js >/dev/null
+[ -f assets/art/loop_explosion.gif ] || python3 tools/make_loop_gif.py >/dev/null
 node tools/build_deck.js "$OUT"
 python3 tools/postprocess.py "$OUT"
 cp "$OUT" ./AI_Safety_and_Existential_Risk.pptx

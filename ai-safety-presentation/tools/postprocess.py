@@ -7,8 +7,10 @@ script maps objectNames to shape ids and writes the OOXML.
 Usage: python tools/postprocess.py build/deck.pptx   (reads build/deck.anim.json, rewrites in place)
 """
 import json
+import os
 import re
 import shutil
+import subprocess
 import sys
 import io
 import zipfile
@@ -37,6 +39,11 @@ def optimize_image(name, data):
     out = io.BytesIO()
     if ext == 'png':
         im.save(out, 'PNG', optimize=True)
+        # optional (DECK_QUANTIZE=1): palette quantization with pngquant to shrink the deck; off by default to keep full quality
+        if os.environ.get('DECK_QUANTIZE') == '1' and shutil.which('pngquant') and out.tell() > 400_000:
+            r = subprocess.run(['pngquant', '--quality=75-95', '--speed', '3', '-'], input=out.getvalue(), capture_output=True)
+            if r.returncode == 0 and 0 < len(r.stdout) < out.tell():
+                out = io.BytesIO(r.stdout)
     else:
         im.convert('RGB').save(out, 'JPEG', quality=86, optimize=True, progressive=True)
     return out.getvalue() if len(out.getvalue()) < len(data) else data

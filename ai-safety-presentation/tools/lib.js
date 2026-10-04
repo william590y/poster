@@ -248,6 +248,24 @@ class Deck {
     return names;
   }
 
+  // Embedded local video file (mp4) — plays inside PowerPoint (click to play). Use for clips that YouTube can't embed or
+  // that need to work offline. cover = poster image shown before playback. Returns names (+ .geom).
+  async localVideo(s, { file, cover, box, label, link }) {
+    const names = [];
+    const nat = await imgSize(cover);
+    const g = fit(nat, box);
+    const coverData = 'data:image/' + (cover.endsWith('.png') ? 'png' : 'jpeg') + ';base64,' + fs.readFileSync(cover).toString('base64');
+    const n = this.name('lvideo');
+    s.addMedia({ type: 'video', path: file, x: g.x, y: g.y, w: g.w, h: g.h, cover: coverData, objectName: n });
+    names.push(n);
+    if (label) {
+      const run = link ? { text: label, options: { color: this.S.muted, hyperlink: { url: link } } } : { text: label, options: { color: this.S.muted } };
+      names.push(this.text(s, [{ text: '►  ', options: { color: this.S.red, bold: true } }, run], { x: g.x, y: g.y + g.h + 0.08, w: g.w, h: 0.3, fontSize: 11 }));
+    }
+    names.geom = g;
+    return names;
+  }
+
   // Native chart with the deck's consistent dark styling. type: 'line' | 'bar' | 'area' | 'scatter' | 'doughnut'
   chart(s, type, data, box, opts = {}) {
     const name = opts.objectName || this.name('chart');

@@ -33,13 +33,15 @@ async function shipSlide(d) {
   heading(s, 'THE WORLD · AI AND THE MILITARY · 1', 'An AI hallucination almost started a war');
 
   const cnn = await d.frame(s, D('cnn-ship-head.png'), { x: MX, y: 1.8, w: 6.9, h: 2.05 }, { rot: -1.2 });
-  const giz = await d.frame(s, R('gizmodo-almost-started-war.png'), { x: 1.35, y: 3.68, w: 5.6, h: 2.86 }, { rot: 1.5 });
+  const giz = await d.frame(s, R('gizmodo-almost-started-war.png'), { x: 1.35, y: 3.68, w: 5.6, h: 2.75 }, { rot: 1.5 });
 
   // right column: what happened
   const rx = 7.95, rw = W - MX - rx;
   const lab = label(d, s, 'WHAT CNN’S SOURCES DESCRIBE · SPRING 2026', { x: rx, y: 1.78, w: rw });
-  const line = d.name('spine');
-  s.addShape(d.pres.shapes.LINE, { x: rx + 0.21, y: 2.45, w: 0, h: 2.5, line: { color: HEX.line, width: 1.5 }, objectName: line });
+  // spine in two segments so each half appears with its own steps (no line dangling into empty space)
+  const line = d.name('spine'), line2 = d.name('spine');
+  s.addShape(d.pres.shapes.LINE, { x: rx + 0.21, y: 2.45, w: 0, h: 0.95, line: { color: HEX.line, width: 1.5 }, objectName: line });
+  s.addShape(d.pres.shapes.LINE, { x: rx + 0.21, y: 3.4, w: 0, h: 1.5, line: { color: HEX.line, width: 1.5 }, objectName: line2 });
   const B = (t, c) => ({ text: t, options: { bold: true, color: c || d.S.txt } });
   const M = (t) => ({ text: t, options: { color: d.S.muted } });
   const sw = rw - 0.6;
@@ -52,13 +54,13 @@ async function shipSlide(d) {
   const qc = d.card(s, { x: rx, y: 5.42, w: rw, h: 1.08 }, { color: '2A0C0E', line: HEX.red });
   const q = d.text(s, [
     { text: '“Entirely false” — but it “almost started a war.”', options: { fontSize: 19, bold: true, color: d.S.txt, fontFace: 'Arial', breakLine: true } },
-    { text: '“AI allows you to get to a bad idea faster.” — CNN sources', options: { fontSize: 13, italic: true, color: d.S.muted } },
+    { text: '“AI allows you to get to a bad idea faster.” — a CNN source', options: { fontSize: 13, italic: true, color: d.S.muted } },
   ], { x: rx + 0.22, y: 5.5, w: rw - 0.4, h: 0.92, valign: 'middle' });
 
   d.animate(s, cnn, { auto: true, effect: 'slam', dur: 450 });
   d.animate(s, giz, { auto: true, effect: 'rise', delay: 150, dur: 600 });
   d.animate(s, [lab, line, ...st[0], ...st[1]], { effect: 'fade', stagger: 0, dur: 500 });
-  d.animate(s, [...st[2], ...st[3]], { effect: 'fade', dur: 500 });
+  d.animate(s, [line2, ...st[2], ...st[3]], { effect: 'fade', dur: 500 });
   d.animate(s, [qc, q], { effect: 'slam', dur: 450 });
   d.source(s, 'Sources: CNN exclusive (Lillis & Cohen), Sep 18, 2026 · Gizmodo, Sep 18, 2026 (photo shows a separate interdiction, MT Davina — not the Chinese ship).');
   s.addNotes([
@@ -75,25 +77,27 @@ async function memoSlide(d) {
   const s = d.slide('Content', { transition: 'pushLeft' });
   heading(s, 'THE WORLD · AI AND THE MILITARY · 2', 'The Pentagon chose speed over alignment');
 
-  const head = await d.frame(s, R('hegseth-memo-header.png'), { x: MX + 0.05, y: 1.72, w: 5.1, h: 2.02 }, { rot: -1.5 });
-  const memo = await d.frame(s, D('memo-speed-hl.png'), { x: 0.75, y: 3.86, w: 6.15, h: 2.68 }, { rot: 0.8 });
+  const head = await d.frame(s, R('hegseth-memo-header.png'), { x: 0.9, y: 1.75, w: 6.3, h: 2.2 }, { rot: -1.5 });
+  // 'Speed Wins' paragraph only (p. 4), wide so the key line reads at ~16pt
+  const memo = await d.frame(s, D('memo-speed-hl.png'), { x: MX, y: 4.38, w: 6.95, h: 1.75 }, { rot: 0.8 });
+  const memoCap = d.text(s, 'Same memo, p. 4 · “Acceleration Expectations” (highlight added)', { x: MX + 0.1, y: memo.geom.y + memo.geom.h + 0.16, w: 6.8, h: 0.26, fontSize: 11, italic: true, color: d.S.steel });
 
-  const rx = 7.55, rw = W - MX - rx;
+  const rx = 7.85, rw = W - MX - rx;
   const txt = d.text(s, [
     { text: 'The same memo demands models “free from usage policy constraints” and “any lawful use” in every AI contract. ', options: { color: d.S.muted } },
     { text: 'Anthropic kept two limits: no mass domestic surveillance, no fully autonomous weapons.', options: { color: d.S.txt, bold: true } },
-  ], { x: rx, y: 1.78, w: rw, h: 1.15, fontSize: 15, valign: 'top' });
-  const cbs = await d.frame(s, D('cbs-head.png'), { x: rx + 0.1, y: 3.02, w: 5.0, h: 2.12 }, { rot: 1.2 });
-  const tnw = await d.frame(s, R('tnw-appeals-court-anthropic.png'), { x: rx, y: 5.22, w: 5.1, h: 1.32 }, { rot: -1 });
+  ], { x: rx, y: 1.78, w: rw, h: 1.3, fontSize: 15, valign: 'top' });
+  const cbs = await d.frame(s, D('cbs-head.png'), { x: rx + 0.15, y: 3.12, w: rw - 0.3, h: 1.82 }, { rot: 1.2 });
+  const tnw = await d.frame(s, R('tnw-appeals-court-anthropic.png'), { x: rx, y: 5.24, w: rw, h: 1.23 }, { rot: -1 });
 
   d.animate(s, head, { auto: true, effect: 'rise', dur: 500 });
-  d.animate(s, memo, { auto: true, effect: 'rise', delay: 150, dur: 600 });
+  d.animate(s, [...memo, memoCap], { auto: true, effect: 'rise', delay: 150, dur: 600 });
   d.animate(s, [txt], { effect: 'fade' });
   d.animate(s, cbs, { effect: 'slam', dur: 450 });
   d.animate(s, tnw, { effect: 'slam', dur: 450 });
   d.source(s, 'Sources: Secretary of War memo “Artificial Intelligence Strategy for the Department of War,” Jan 9, 2026 (pp. 1, 4–5) · CBS News, Feb 28, 2026 · The Next Web, Sep 25, 2026.');
   s.addNotes([
-    'These are real rendered pages of the official memo PDF (letterhead from page 1; highlighted passage from page 4). Verbatim key line: “We must accept that the risks of not moving fast enough outweigh the risks of imperfect alignment.” (Section “Speed Wins”, under “Acceleration Expectations”.) Memo dated Jan 9, 2026; released Jan 12, 2026.',
+    'These are real rendered pages of the official memo PDF (letterhead from page 1; the “Speed Wins” paragraph from page 4, highlight added). Verbatim key line: “We must accept that the risks of not moving fast enough outweigh the risks of imperfect alignment.” (Section “Speed Wins”, under “Acceleration Expectations”.) Memo dated Jan 9, 2026; released Jan 12, 2026.',
     'Other directives in the same memo: latest frontier models deployed within 30 days of public release; “We must approach risk tradeoffs, ‘equities’, and other subjective questions as if we were at war”; a monthly “Barrier Removal Board” may waive non-statutory requirements. Page 5 (“Clarifying ‘Responsible AI’”): the Department must use “models free from usage policy constraints that may limit lawful military applications”, and standard “any lawful use” language goes into every AI contract within 180 days.',
     'Consequence — the Anthropic–Pentagon dispute: Anthropic held two exceptions (mass domestic surveillance of Americans; fully autonomous weapons). Anthropic, Feb 27, 2026: “we do not believe that today’s frontier AI models are reliable enough to be used in fully autonomous weapons.” Hegseth declared Anthropic a “supply chain risk to national security” — a label Anthropic says was “historically reserved for US adversaries” — and Trump ordered federal agencies to stop using Anthropic (6-month DoD phase-out). Sept 25, 2026: DC Circuit upheld the designation 2–1 (Katsas, joined by Rao; Henderson dissenting); Anthropic had won a parallel case in August.',
     'Link back to the previous slide: Yahoo News headline the day of the CNN story — “Pete Hegseth’s AI Strategy Almost Started War With China.”',
@@ -107,34 +111,38 @@ async function warRoomSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
   heading(s, 'THE WORLD · AI AND THE MILITARY · 3', 'AI is already in the war room');
 
-  const ukr = await d.frame(s, D('ukraine-drones.png'), { x: MX, y: 1.82, w: 4.0, h: 2.4 }, { rot: -2 });
+  // MoD promo photo stacked above The Defense Post's own headline (see make_crops.py)
+  const ukr = await d.frame(s, D('ukraine-drones.png'), { x: MX, y: 1.8, w: 4.0, h: 2.08 }, { rot: -2 });
+  const ukrCap = d.text(s, 'Image: Ukrainian Ministry of Defence promo graphic', { x: ukr.geom.x - 0.06, y: ukr.geom.y + ukr.geom.h + 0.14, w: ukr.geom.w + 0.12, h: 0.24, fontSize: 11, italic: true, color: d.S.steel });
   const lav = await d.frame(s, D('lavender.png'), { x: 4.72, y: 1.8, w: 3.9, h: 2.75 }, { rot: 1.4 });
   const gos = await d.frame(s, D('gospel.png'), { x: 8.83, y: 1.8, w: 3.9, h: 2.9 }, { rot: -1.2 });
 
-  const grok = await d.frame(s, A('original', 'image11.png'), { x: MX, y: 4.55, w: 4.0, h: 0.66 }, { rot: 1 });
+  const grok = await d.frame(s, A('original', 'image11.png'), { x: MX, y: 4.5, w: 4.0, h: 0.66 }, { rot: 1 });
   const grokDek = d.text(s, [
-    { text: 'Trump “spent hours” asking Grok how Venezuelans would react to Maduro’s capture — ', options: { color: d.S.muted } },
-    { text: 'about a month before the U.S. captured him', options: { color: d.S.txt, bold: true } },
+    { text: 'Trump reportedly “spent hours” with Grok, incl. asking how Venezuelans would react to Maduro’s capture — ', options: { color: d.S.muted } },
+    { text: 'a month before the U.S. captured him', options: { color: d.S.txt, bold: true } },
     { text: ' (Time, via TechCrunch)', options: { color: d.S.muted } },
-  ], { x: MX + 0.05, y: 5.38, w: 3.95, h: 1.05, fontSize: 14, valign: 'top' });
+  ], { x: MX + 0.05, y: 5.36, w: 3.95, h: 1.19, fontSize: 14, valign: 'top' });
 
   const con = await d.frame(s, R('defensescoop-pentagon-frontier-ai-contracts.png'), { x: 4.75, y: 4.95, w: 3.85, h: 1.3 }, { rot: -1 });
   const conDek = d.text(s, 'Up to $200M each: Anthropic, Google, OpenAI, xAI (Jul 2025)', { x: 4.8, y: 6.27, w: 3.8, h: 0.28, fontSize: 11, color: d.S.muted });
 
   const eur = await d.frame(s, D('euronews-wargames.png'), { x: 8.85, y: 4.98, w: 3.88, h: 0.55 }, { rot: 0.8 });
-  const st = d.stat(s, { x: 8.9, y: 5.55, w: 1.3, value: '95%', valueSize: 40, color: d.S.red, label: '' });
-  const stLab = d.text(s, 'of simulated war games saw AI models choose nuclear escalation (KCL, 2026)', { x: 10.2, y: 5.66, w: 2.53, h: 0.85, fontSize: 12, color: d.S.muted, valign: 'middle' });
+  const kq = d.text(s, [
+    { text: '“No model ever chose accommodation or withdrawal even when under acute pressure.”', options: { fontFace: 'Cambria', italic: true, fontSize: 14, color: d.S.txt, breakLine: true } },
+    { text: 'KCL / Payne, 2026 · simulation', options: { fontSize: 11, color: d.S.muted } },
+  ], { x: 8.92, y: 5.8, w: 3.81, h: 0.74, valign: 'top' });
 
-  d.animate(s, ukr, { auto: true, effect: 'rise', dur: 500 });
+  d.animate(s, [...ukr, ukrCap], { auto: true, effect: 'rise', dur: 500 });
   d.animate(s, lav, { auto: true, effect: 'rise', delay: 120, dur: 500 });
   d.animate(s, gos, { auto: true, effect: 'rise', delay: 120, dur: 500 });
   d.animate(s, [...grok, grokDek], { effect: 'slam', dur: 450 });
   d.animate(s, [...con, conDek], { effect: 'rise' });
-  d.animate(s, [...eur, st[0], stLab], { effect: 'zoom', dur: 450 });
+  d.animate(s, [...eur, kq], { effect: 'zoom', dur: 450 });
   d.source(s, 'Sources: The Defense Post, Sep 10, 2026 · The Guardian, Apr 3, 2024 & Dec 1, 2023 (+972/Local Call) · TechCrunch, Oct 1, 2026 · DefenseScoop, Jul 14, 2025 · Euronews; Payne, arXiv:2602.14740.');
   s.addNotes([
     'Wall of headlines — AI is already inside military decision loops.',
-    'Ukraine (The Defense Post, Sep 10, 2026): Ukraine is testing whether AI can let drones detect, acquire and hit moving ground targets without continuous pilot control — drones fly 2 km and must acquire a moving lightly armored vehicle from ≥500 m; 7 companies evaluated (MoD + Brave1). The image is a Ukrainian Ministry of Defence promotional graphic.',
+    'Ukraine (The Defense Post, Sep 10, 2026): Ukraine is testing whether AI can let drones detect, acquire and hit moving ground targets without continuous pilot control — drones fly 2 km and must acquire a moving lightly armored vehicle from ≥500 m; 7 companies evaluated (MoD + Brave1). The image is a Ukrainian Ministry of Defence promotional graphic for the test program — present it as such, not as combat footage. The headline under it is The Defense Post’s own.',
     'Israel (The Guardian, based on +972 Magazine / Local Call): “Lavender” marked about 37,000 Gazans as potential targets; intelligence sources claim permission was given to kill civilians in pursuit of low-ranking militants. “The Gospel”: a data-driven “factory” that greatly increases the number of strike targets.',
     'Grok / Venezuela (the user’s headline, TechCrunch, Oct 1, 2026, reporting Time): in Dec 2025, about a month before the U.S. invaded Venezuela and captured Nicolás Maduro, Trump reportedly “spent hours” with Musk’s Grok, including asking how Venezuelans would respond to Maduro’s capture. Grok reportedly called Maduro a “deeply unpopular dictator” whose downfall many would celebrate; Trump “came away thinking Grok was ingenious.” Single-source reporting via Time — say “reportedly.”',
     'Pentagon contracts (DefenseScoop, Jul 14, 2025): CDAO awarded “frontier AI” contracts worth up to $200M each to xAI, OpenAI, Anthropic and Google. The Intercept (Sep 8, 2026) later obtained records showing the labs working “hand-in-hand” with the Pentagon.',
@@ -146,7 +154,7 @@ async function warRoomSlide(d) {
 // ---------------------------------------------------------------- 4. No guardrails
 async function guardrailsSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  heading(s, 'THE WORLD · GEOPOLITICAL RIVALRY · 1', 'The White House rejects AI guardrails');
+  heading(s, 'THE WORLD · GEOPOLITICAL RIVALRY · 1', 'Trump says the only AI guardrail is him');
 
   const cap = d.text(s, [
     { text: 'Donald J. Trump', options: { bold: true, color: d.S.txt } },
@@ -192,18 +200,18 @@ async function raceSlide(d) {
   const dig = await d.frame(s, D('digitimes-huawei.png'), { x: 8.68, y: 2.92, w: 4.05, h: 1.15 }, { rot: -0.8 });
 
   const cw3 = (W - MX - rx - 0.5) / 3;
-  const s1 = d.stat(s, { x: rx, y: 4.3, w: cw3, value: '$589B', valueSize: 44, color: d.S.red, label: 'wiped off Nvidia in one day by DeepSeek’s R1 (Jan 27, 2025)' });
-  const s2 = d.stat(s, { x: rx + cw3 + 0.25, y: 4.3, w: cw3, value: '25%', valueSize: 44, color: d.S.amber, label: 'U.S. government cut on Nvidia H200 sales to China, allowed Dec 2025' });
+  const s1 = d.stat(s, { x: rx, y: 4.42, w: cw3, value: '$589B', valueSize: 44, color: d.S.red, label: 'wiped off Nvidia in one day by DeepSeek’s R1 (Jan 27, 2025)' });
+  const s2 = d.stat(s, { x: rx + cw3 + 0.25, y: 4.42, w: cw3, value: '25%', valueSize: 44, color: d.S.amber, label: 'U.S. cut of Nvidia’s H200 sales to China (Dec 2025)' });
   const q = d.text(s, [
     { text: '“We’re leading by at least a year, maybe a year and a half.”', options: { fontFace: 'Cambria', italic: true, fontSize: 18, color: d.S.txt, breakLine: true } },
     { text: 'Trump at the Xi summit, Sep 2026', options: { fontSize: 12, color: d.S.muted } },
-  ], { x: rx + 2 * (cw3 + 0.25), y: 4.4, w: cw3, h: 1.6, valign: 'top' });
+  ], { x: rx + 2 * (cw3 + 0.25), y: 4.52, w: cw3, h: 1.45, valign: 'top' });
   const brake = d.text(s, [
     { text: 'A first step: ', options: { bold: true, color: d.S.txt } },
     { text: 'a U.S.–China channel for AI-related incidents, agreed Sep 2026', options: { color: d.S.muted } },
-  ], { x: rx, y: 6.02, w: W - MX - rx, h: 0.45, fontSize: 14, valign: 'middle' });
+  ], { x: rx, y: 6.06, w: W - MX - rx, h: 0.45, fontSize: 14, valign: 'middle' });
   const div = d.name('div');
-  s.addShape(d.pres.shapes.LINE, { x: rx, y: 4.28, w: W - MX - rx, h: 0, line: { color: HEX.line, width: 1 }, objectName: div });
+  s.addShape(d.pres.shapes.LINE, { x: rx, y: 4.4, w: W - MX - rx, h: 0, line: { color: HEX.line, width: 1 }, objectName: div });
 
   d.animate(s, pbs, { auto: true, effect: 'rise', dur: 600 });
   d.animate(s, toms, { auto: true, effect: 'rise', delay: 100, dur: 450 });
@@ -233,24 +241,23 @@ async function yemenSlide(d) {
   const lab = label(d, s, 'GTG-87001 · NORTHERN YEMEN · ANTHROPIC, SEPT 2026', { x: lx, y: 1.78, w: lw });
   const intro = d.text(s, 'A cell ran three weapons programs and used Claude Code to write the guidance software. How far Claude carried each:', { x: lx, y: 2.12, w: lw, h: 0.62, fontSize: 15, color: d.S.txt, valign: 'top' });
 
-  // stage diagram (adapted from the report's Figure 1)
-  const gx = lx + 2.45, gw = lw - 2.45, gy = 2.95;
-  const stages = ['Design', 'Simulation', 'Flight test'];
-  const diag = [];
-  stages.forEach((t, i) => {
-    const sx = gx + (i + 1) * gw / 3;
-    diag.push(d.text(s, t, { x: sx - 1.0, y: gy, w: 1.0, h: 0.26, fontSize: 10, bold: true, color: d.S.steel, align: 'right', charSpacing: 1 }));
-    const tk = d.name('tick');
-    s.addShape(d.pres.shapes.LINE, { x: sx, y: gy + 0.3, w: 0, h: 1.75, line: { color: HEX.line, width: 0.75, dashType: 'dash' }, objectName: tk });
-    diag.push(tk);
-  });
+  // stage diagram: bar lengths measured from the report's Figure 1 (p. 114) — rocket reached flight test (full track),
+  // ballistic missile ends at 'Simulation' (47% of the track), the multi-variant family at 'Design' (29%).
+  const gx = lx + 2.45, gw = lw - 2.45, gy = 2.8;
+  const diag = [
+    d.text(s, 'CONCEPT', { x: gx, y: gy, w: 1.4, h: 0.26, fontSize: 10, bold: true, color: d.S.steel, charSpacing: 1 }),
+    d.text(s, 'FLIGHT TEST / OPS  →', { x: gx + gw - 2.0, y: gy, w: 2.0, h: 0.26, fontSize: 10, bold: true, color: d.S.steel, align: 'right', charSpacing: 1 }),
+  ];
+  const axis = d.name('axis');
+  s.addShape(d.pres.shapes.LINE, { x: gx, y: gy + 0.32, w: gw, h: 0, line: { color: HEX.line, width: 1 }, objectName: axis });
+  diag.push(axis);
   const rows = [
-    ['Guided rocket', 'phone-class flight computer, homing', 3, HEX.red, 'TEST-FIRED · FAILED'],
-    ['Ballistic missile', 'multi-stage, range goal >2,000 km', 2, HEX.amber, ''],
-    ['“R2000” missile family', 'incl. a hypersonic glide vehicle', 1, HEX.steel, ''],
+    ['Guided rocket', 'phone-class flight computer, homing', 1.0, HEX.red, 'REACHED FLIGHT TEST', 'FFFFFF'],
+    ['Ballistic missile', 'multi-stage, range goal >2,000 km', 0.473, HEX.amber, 'SIMULATION', HEX.ink],
+    ['“R2000” missile family', 'incl. a hypersonic glide vehicle', 0.29, HEX.steel, 'DESIGN', HEX.ink],
   ];
   const bars = [];
-  rows.forEach(([t, sub, n, col, tag], i) => {
+  rows.forEach(([t, sub, frac, col, tag, tagCol], i) => {
     const y = gy + 0.42 + i * 0.62;
     const lt = d.text(s, [
       { text: t, options: { bold: true, fontSize: 14, color: d.S.txt, breakLine: true } },
@@ -258,18 +265,18 @@ async function yemenSlide(d) {
     ], { x: lx, y: y - 0.06, w: 2.4, h: 0.56, valign: 'middle' });
     const track = d.name('track');
     s.addShape(d.pres.shapes.RECTANGLE, { x: gx, y: y + 0.08, w: gw, h: 0.3, fill: { color: HEX.card2 }, line: { color: HEX.card2, width: 0 }, objectName: track });
+    const bw = gw * frac;
     const bar = d.name('bar');
-    s.addShape(d.pres.shapes.RECTANGLE, { x: gx, y: y + 0.08, w: gw * n / 3, h: 0.3, fill: { color: col }, line: { color: col, width: 0 }, objectName: bar });
-    const g = [bar];
-    if (tag) g.push(d.text(s, tag, { x: gx + 0.1, y: y + 0.08, w: gw - 0.2, h: 0.3, fontSize: 10, bold: true, color: 'FFFFFF', align: 'right', valign: 'middle', charSpacing: 1 }));
+    s.addShape(d.pres.shapes.RECTANGLE, { x: gx, y: y + 0.08, w: bw, h: 0.3, fill: { color: col }, line: { color: col, width: 0 }, objectName: bar });
+    const g = [bar, d.text(s, tag, { x: gx + 0.05, y: y + 0.08, w: bw - 0.13, h: 0.3, fontSize: 10, bold: true, color: tagCol, align: 'right', valign: 'middle', charSpacing: 1 })];
     diag.push(lt, track);
     bars.push(g);
   });
-  const figNote = d.text(s, 'Adapted from the report’s Figure 1 (p. 114)', { x: gx, y: gy + 2.08, w: gw, h: 0.26, fontSize: 10, italic: true, color: d.S.steel, align: 'right' });
+  const figNote = d.text(s, 'Bar lengths as in the report’s Figure 1 (p. 114)', { x: gx - 0.6, y: gy + 2.1, w: gw + 0.6, h: 0.26, fontSize: 10, italic: true, color: d.S.steel, align: 'right' });
 
-  const medLab = label(d, s, 'MEDIA NAMED THE HOUTHIS — THE REPORT DOES NOT', { x: lx, y: 5.38, w: lw }, d.S.amber);
-  const mee = await d.frame(s, D('mee-head.png'), { x: lx, y: 5.72, w: 3.2, h: 0.82 }, { rot: -1 });
-  const meeT = d.text(s, 'Anthropic’s report says only “northern Yemen.” The stated range goal was >2,000 km — not an ICBM.', { x: lx + 3.4, y: 5.72, w: lw - 3.4, h: 0.82, fontSize: 11, color: d.S.muted, valign: 'middle' });
+  const medLab = label(d, s, 'MEDIA NAMED THE HOUTHIS — THE REPORT DOES NOT', { x: lx, y: 5.32, w: lw }, d.S.amber);
+  const mee = await d.frame(s, D('mee-head.png'), { x: lx, y: 5.66, w: 3.0, h: 0.89 }, { rot: -1 });
+  const meeT = d.text(s, 'Anthropic’s report says only “northern Yemen” (an area media describe as largely Houthi-controlled).', { x: lx + 3.2, y: 5.62, w: lw - 3.2, h: 0.93, fontSize: 14, color: d.S.muted, valign: 'middle' });
 
   const rx = 6.85, rw = W - MX - rx;
   const exc = await d.frame(s, D('yemen-detail-hl.png'), { x: rx, y: 1.8, w: rw, h: 4.2 }, { rot: 0 });
@@ -286,8 +293,8 @@ async function yemenSlide(d) {
   s.addNotes([
     'Anthropic Threat Intelligence report, Sept 10, 2026, case GTG-87001: “We identified a cell of threat actors based in northern Yemen running three weapons development programs: a guided rocket that used a commodity phone-class flight computer with final-phase homing guidance; a multi-stage ballistic missile with a stated range goal above 2,000 km; and a multi-variant missile (referred to as the ‘R2000’ set) that included a hypersonic glide vehicle variant.”',
     '“The actors used Claude Code in place of human software engineers to develop the guidance, navigation, and control (GNC) software …” They ran several Claude instances as a mini engineering team (one coding, one researching, one reviewing). “Our safeguards blocked many of their requests, but not all of them.” They hid their goals and split work across sessions so no single session revealed full intent. “We do not have evidence the actors succeeded in fielding an operational device; but they did test-fire a guided rocket. This field test appears to have failed: within hours, the actors returned to Claude to work out why it failed.” They also built an offline simulation toolkit that no longer needs Claude.',
-    'The bars are adapted from the report’s Figure 1 (systems-engineering V): the rocket reached flight test; the ballistic-missile work reached simulation (the report’s table: medium- and intermediate-range and hypersonic-glide variants); the multi-variant family reached design. Anthropic notes its visibility into the overall program was limited.',
-    'ACCURACY: Not an ICBM (stated range goal >2,000 km = medium/intermediate range). Anthropic says “northern Yemen” and does not name the Houthis; the FT and Middle East Eye do (the area is largely Houthi-controlled). There are no published chat logs — only the report’s narrative and diagram.',
+    'The bars redraw the report’s Figure 1 (systems-engineering V) at its proportions: the rocket reached flight test (full track); the ballistic-missile bar ends at “Simulation”, about 47% of the track (the report’s table: medium- and intermediate-range and hypersonic-glide variants); the multi-variant family ends at “Design”, about 29%. Anthropic notes its visibility into the overall program was limited.',
+    'ACCURACY: The rocket bar says “reached flight test” (Figure 1’s own label); the report says the test “appears to have failed” — keep that hedge when speaking. Not an ICBM (stated range goal >2,000 km = medium/intermediate range). Anthropic says “northern Yemen” and does not name the Houthis; the FT and Middle East Eye do (the area is largely Houthi-controlled). There are no published chat logs — only the report’s narrative and diagram.',
     'URLs: https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf · https://www.anthropic.com/threat-intelligence-report-september-2026 · https://www.middleeasteye.net/live-blog/live-blog-update/houthis-used-anthropic-ai-develop-ballistic-missile-software-says-report',
   ].join('\n\n'));
 }
@@ -306,7 +313,7 @@ async function bioSlide(d) {
 
   const vct = [
     ['o3', 43.8], ['Gemini 2.5 Pro', 37.6], ['o4-mini', 37.0], ['o1', 35.4], ['Claude 3.7 Sonnet', 30.8],
-    ['GPT-4.5 Preview', 28.3], ['Expert virologists', 22.1], ['GPT-4o', 18.8],
+    ['GPT-4.5 Preview', 28.3], ['Expert virologists (avg.)', 22.1], ['GPT-4o', 18.8],
   ];
   const colors = vct.map(([n]) => (n === 'o3' ? HEX.red : n.startsWith('Expert') ? HEX.amber : '5A6475'));
   const chart = d.chart(s, 'bar', [{ name: 'VCT accuracy (%)', labels: vct.map(v => v[0]), values: vct.map(v => v[1]) }],
@@ -321,9 +328,9 @@ async function bioSlide(d) {
   const rx = 7.2, rw = W - MX - rx;
   const lab = label(d, s, 'MEANWHILE, IN ANTHROPIC’S THREAT REPORTS', { x: rx, y: 1.78, w: rw });
   const cases = [
-    ['FaBiohazard', 'Bioweapons research', 'SEP 2026', 'State-linked researchers used Claude on gain-of-function virology and toxin design'],
+    ['FaBiohazard', 'Dual-use bio research', 'SEP 2026', 'State-linked researchers used Claude on gain-of-function virology and toxin design'],
     ['GiDeliveryDrone', 'Kamikaze drones, no human in the loop', 'SEP 2026', 'A Russia-based team used Claude Code to build an FPV swarm that selects targets, incl. “person”'],
-    ['FaMoneyBillWave', '“Vibe-hacking” extortion', 'AUG 2025', 'One actor used Claude Code to extort 17+ organizations; ransoms sometimes over $500,000'],
+    ['FaMoneyBillWave', '“Vibe-hacking” extortion', 'AUG 2025', 'One actor used Claude Code to target 17+ organizations for extortion; ransom demands sometimes over $500K'],
     ['FaUserSecret', 'North Korean IT workers', 'AUG 2025', 'Operatives who can’t code used Claude to land and keep jobs at Fortune 500 tech firms'],
   ];
   const ch = 1.0, gap = 0.12;
@@ -353,10 +360,10 @@ async function bioSlide(d) {
   s.addNotes([
     'Virology Capabilities Test (SecureBio + Center for AI Safety, Apr 2025): troubleshooting complex virology lab protocols. Expert virologists with internet access averaged 22.1% on questions in their own sub-areas; OpenAI’s o3 reached 43.8% and outperformed 94% of expert virologists on question subsets tailored to their specialties. Other models: Gemini 2.5 Pro 37.6%, o4-mini 37.0%, o1 35.4%, Claude 3.7 Sonnet 30.8%, GPT-4.5 Preview 28.3%, GPT-4o 18.8%. The expert bar is an average, not a percentile. (TIME had the exclusive.)',
     'Why it matters: tacit lab know-how used to be the bottleneck for would-be bioweapons makers.',
-    'Anthropic, Sept 2026 report (biological misuse): state-linked researchers used Claude on dual-use biology — gain-of-function virology, avian-flu mammalian adaptation, venom/toxin design — via reseller relays that evaded regional blocks and rerouted refused prompts to more permissive models.',
+    'Anthropic, Sept 2026 report (biological misuse): state-linked researchers used Claude on dual-use biology (say “dual-use” — work that could aid bioweapons — not that a weapons program was observed): gain-of-function virology, avian-flu mammalian adaptation, venom/toxin design, via reseller relays that evaded regional blocks and rerouted refused prompts to more permissive models.',
     'Anthropic, Sept 2026 (GTG-27005): a Russia-based freelance team used Claude Code to build an autonomous FPV kamikaze drone swarm whose onboard model could select targets (including a “person” target class) and issue detonation commands without a human in the loop.',
-    'Anthropic, Aug 2025: “vibe hacking” — an actor used Claude Code for a large-scale data-extortion operation against at least 17 organizations (healthcare, emergency services, government, religious institutions), ransoms sometimes exceeding $500,000. North Korea: operatives used Claude to get and keep remote jobs at US Fortune 500 tech companies — “Operators who cannot otherwise write basic code or communicate professionally in English are now able to pass technical interviews.”',
-    'Also (covered earlier in the deck): GTG-1002, Nov 2025 — a Chinese state-sponsored group used Claude Code to run 80–90% of a cyber-espionage campaign against ~30 targets.',
+    'Anthropic, Aug 2025: “vibe hacking” — an actor used Claude Code for a large-scale data-extortion operation that targeted at least 17 organizations (healthcare, emergency services, government, religious institutions), ransom demands sometimes exceeding $500,000. Say “targeted”, not “extorted”. North Korea: operatives used Claude to get and keep remote jobs at US Fortune 500 tech companies — “Operators who cannot otherwise write basic code or communicate professionally in English are now able to pass technical interviews.”',
+    'Also (covered earlier in the deck, Act III security slide “The targets were real — and governmental”): GTG-1002, Nov 2025 — a Chinese state-sponsored group used Claude Code to run 80–90% of a cyber-espionage campaign against ~30 targets.',
     'All misuse cases are Anthropic’s own reporting about its own platform.',
     'URLs: https://securebio.org/virologytest/ · https://arxiv.org/abs/2504.16137 · https://www.anthropic.com/threat-intelligence-report-september-2026 · https://www.anthropic.com/news/detecting-countering-misuse-aug-2025 · https://www.anthropic.com/news/disrupting-AI-espionage',
   ].join('\n\n'));

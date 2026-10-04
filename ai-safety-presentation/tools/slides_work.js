@@ -51,6 +51,33 @@ async function frameW(d, s, file, x, y, w, o = {}) {
   return d.frame(s, file, { x, y, w, h }, o);
 }
 
+// NeurIPS blog post: headline + the "178 submissions (18.4% …) will be desk rejected" bullet, stacked into one clipping.
+// The bullet is re-wrapped onto two lines (verbatim text, split between words) so it stays legible at clipping size.
+async function neuripsClip() {
+  fs.mkdirSync(OUT, { recursive: true });
+  const out = path.join(OUT, 'acad-neurips-position-clip.png');
+  const src = R('acad-neurips-position-ai-papers.png');
+  const k = 1.3; // bullet upscale
+  const head = await sharp(src).extract({ left: 20, top: 258, width: 1630, height: 240 }).resize({ width: 960 }).png().toBuffer();
+  const hm = await sharp(head).metadata();
+  const b1 = await sharp(src).extract({ left: 10, top: 1530, width: 729, height: 62 }).resize({ width: Math.round(729 * k) }).png().toBuffer();
+  const b2 = await sharp(src).extract({ left: 739, top: 1530, width: 351, height: 62 }).resize({ width: Math.round(351 * k) }).png().toBuffer();
+  const b1m = await sharp(b1).metadata(), b2m = await sharp(b2).metadata();
+  const Wd = 1100, pad = 44, gap = 40, lead = 10;
+  const bx = Math.round((Wd - b1m.width) / 2);
+  const by = pad + hm.height + gap;
+  const Hd = by + b1m.height + lead + b2m.height + pad - 6;
+  const rule = await sharp({ create: { width: Wd - 120, height: 3, channels: 3, background: '#E3E5E8' } }).png().toBuffer();
+  await sharp({ create: { width: Wd, height: Hd, channels: 3, background: '#FFFFFF' } })
+    .composite([
+      { input: head, left: Math.round((Wd - hm.width) / 2), top: pad },
+      { input: rule, left: 60, top: pad + hm.height + Math.round(gap / 2) - 1 },
+      { input: b1, left: bx, top: by },
+      { input: b2, left: bx + Math.round((62 - 10) * k), top: by + b1m.height + lead },
+    ]).png().toFile(out);
+  return out;
+}
+
 // ========== 1. Engineering: CAD Bench ==========
 async function cadSlide(d) {
   const s = d.slide('Content');
@@ -75,14 +102,20 @@ async function cadSlide(d) {
   const lab = capLabel(d, s, 'OVERALL SCORE · CAD BENCH V3 (0–100)', { x: cx, y: 1.72, w: cw });
   const colors = ds.values.map((v, i) => (i < 4 ? HEX.red : i === 4 ? HEX.amber : HEX.steel)).reverse();
   const ch = d.chart(s, 'bar', [{ name: 'Overall', labels: [...ds.labels].reverse(), values: [...ds.values].reverse() }],
-    { x: cx - 0.1, y: 2.0, w: cw + 0.1, h: 4.45 }, {
+    { x: cx - 0.1, y: 2.0, w: cw + 0.1, h: 4.0 }, {
       barDir: 'bar', chartColors: colors, showValue: true, dataLabelFormatCode: '0.0', dataLabelPosition: 'outEnd', dataLabelFontSize: 10,
       valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 68, valAxisMinVal: 0, catAxisLabelFontSize: 10, barGapWidthPct: 35,
       catAxisLineShow: false,
     });
+  const key = d.text(s, [
+    { text: 'Red', options: { bold: true, color: d.S.red } },
+    { text: ': top four — their confidence intervals overlap (benchmark authors’ note). ', options: { color: d.S.muted } },
+    { text: 'Amber', options: { bold: true, color: d.S.amber } },
+    { text: ': Opus 5, the previous model.', options: { color: d.S.muted } },
+  ], { x: cx, y: 6.08, w: cw, h: 0.42, fontSize: 11, valign: 'top' });
 
   anim(d, s, shot, { auto: true, effect: 'rise', dur: 600 });
-  anim(d, s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 900, after: 150 });
+  anim(d, s, [lab, ch, { name: key, effect: 'fade', delay: 700, dur: 500 }], { auto: true, effect: 'wipeLeft', dur: 900, after: 150 });
   anim(d, s, [...st1, ...st2, ...st3], { effect: 'rise', stagger: 0, dur: 450 });
   // stagger the three stats as one click
   const g = d.anim[s._num].groups[2].effects;
@@ -105,9 +138,25 @@ async function juniorSlide(d) {
   head(s, 'THE ACCELERATION · ENGINEERING · 2', 'The junior engineer is disappearing');
 
   const lx = CX0, lw = 5.85, rx = 6.95, rw = CX1 - rx;
-  const vy = 2.1, vh = 3.0;
+  const vy = 2.1, vh = 2.9;
   const l1 = capLabel(d, s, 'SOFTWARE DEVELOPERS BY AGE · HEADCOUNT (LATE 2022 = 1.0)', { x: lx, y: 1.72, w: lw });
-  const can = await d.frame(s, R('swe-stanford-canaries-swe-by-age.png'), { x: lx, y: vy, w: lw, h: vh }, { align: 'left' });
+  const canFile = R('swe-stanford-canaries-swe-by-age.png');
+  const can = await d.frame(s, canFile, { x: lx, y: vy, w: lw, h: vh }, { align: 'left' });
+  // native annotation over the chart's white margin (source px -> slide inches)
+  const cn = await imgSize(canFile), cg = can.geom;
+  const P = (px, py) => ({ x: cg.x + px * cg.w / cn.w, y: cg.y + py * cg.h / cn.h });
+  const annot = [];
+  const jEnd = P(1268, 748), jLab = P(1345, 748); // end of the blue 22–25 line (mid-2026, ~0.81)
+  const sEnd = P(1268, 226), sLab = P(1345, 226); // between the 41–49 and 35–40 line ends
+  const arrow = (from, to, color, width) => {
+    const n = d.name('annot');
+    s.addShape(d.pres.shapes.LINE, { x: to.x, y: to.y, w: from.x - to.x, h: 0, line: { color, width, beginArrowType: 'triangle' }, objectName: n });
+    return n;
+  };
+  annot.push(arrow({ x: jLab.x - 0.03, y: jEnd.y }, jEnd, HEX.red, 1.75));
+  annot.push(d.text(s, 'Ages 22–25', { x: jLab.x, y: jLab.y - 0.15, w: 1.25, h: 0.3, fontSize: 13, bold: true, color: HEX.red, valign: 'middle' }));
+  annot.push(arrow({ x: sLab.x - 0.03, y: sEnd.y }, sEnd, '7A808A', 1));
+  annot.push(d.text(s, 'Ages 35–49', { x: sLab.x, y: sLab.y - 0.13, w: 1.25, h: 0.26, fontSize: 11, bold: true, color: '5A606B', valign: 'middle' }));
 
   const l2 = capLabel(d, s, 'JOB POSTINGS ON INDEED · INDEX, FEB 2020 = 100', { x: rx, y: 1.72, w: rw });
   const labels = ['Feb ’20', 'Jul ’20', 'Jan ’21', 'Jul ’21', 'Jan ’22', 'Jul ’22', 'Jan ’23', 'Jul ’23', 'Jan ’24', 'Jul ’24', 'Jan ’25', 'Jul ’25', 'Jan ’26', 'Jul ’26', 'Sep ’26'];
@@ -120,10 +169,10 @@ async function juniorSlide(d) {
   });
 
   // bottom-left: three stats
-  const sy = 5.28, sw = 1.8, sg = 0.22;
-  const a = stat(d, s, { x: lx, y: sy, w: sw, value: '−20%', valueSize: 34, labelSize: 12, labelH: 0.7, label: 'Devs aged 22–25 since late 2022 (35+ grew)' });
-  const b = stat(d, s, { x: lx + sw + sg, y: sy, w: sw, value: '−65%', valueSize: 34, labelSize: 12, labelH: 0.7, label: 'New-grad hiring at Big Tech vs 2019' });
-  const c = stat(d, s, { x: lx + 2 * (sw + sg), y: sy, w: sw + 0.1, value: '−76%', valueSize: 34, labelSize: 12, labelH: 0.7, label: 'New-grad hiring at early-stage startups vs 2019' });
+  const sy = 5.2, sw = 1.87, sg = 0.18;
+  const a = stat(d, s, { x: lx, y: sy, w: sw, value: '−20%', valueSize: 34, labelSize: 14, labelH: 0.75, label: 'Devs aged 22–25 since late 2022 (35+ grew)' });
+  const b = stat(d, s, { x: lx + sw + sg, y: sy, w: sw, value: '−65%', valueSize: 34, labelSize: 14, labelH: 0.75, label: 'New-grad hiring at Big Tech vs 2019' });
+  const c = stat(d, s, { x: lx + 2 * (sw + sg), y: sy, w: sw, value: '−76%', valueSize: 34, labelSize: 14, labelH: 0.75, label: 'New-grad hiring at early-stage startups vs 2019' });
 
   // bottom-right: honest caveat
   const cav = d.text(s, [
@@ -133,7 +182,7 @@ async function juniorSlide(d) {
     { text: ', while all postings are ~3% above.', options: { color: d.S.muted } },
   ], { x: rx, y: sy + 0.08, w: rw, h: 1.25, fontSize: 14, valign: 'top' });
 
-  anim(d, s, [l1, ...can], { auto: true, effect: 'rise', dur: 600 });
+  anim(d, s, [l1, ...can, ...annot], { auto: true, effect: 'rise', dur: 600 });
   anim(d, s, [l2, ch], { auto: true, effect: 'wipeLeft', dur: 1000, after: 100 });
   anim(d, s, [...a, ...b, ...c], { effect: 'rise', dur: 450 });
   d.anim[s._num].groups[2].effects.forEach((e, i) => { e.delay = Math.floor(i / 2) * 250; });
@@ -163,7 +212,7 @@ async function codeSlide(d) {
       dataLabelFontSize: 14, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 0.9, valAxisMinVal: 0,
       catAxisLabelFontSize: 11, barGapWidthPct: 35,
     });
-  const st = stat(d, s, { x: CX0, y: 4.95, w: lw, value: '101,743', valueSize: 36, labelSize: 13, labelH: 0.8, label: 'announced US job cuts citing AI in H1 2026 — nearly double all of 2025 (Challenger)' });
+  const st = stat(d, s, { x: CX0, y: 4.95, w: lw, value: '101,743', valueSize: 36, labelSize: 14, labelH: 0.85, label: 'announced US job cuts citing AI in H1 2026 — nearly double all of 2025 (Challenger)' });
 
   // right: collage of clippings
   const semafor = R('swe-semafor-google75.png');
@@ -212,7 +261,7 @@ async function arxivSlide(d) {
   co.push(d.card(s, { x: g.x + 1.05, y: g.y + 0.75, w: 3.25, h: 1.42 }, { color: '10141B', line: HEX.red }));
   co.push(d.text(s, [
     { text: '40,363', options: { fontSize: 36, bold: true, color: d.S.red, fontFace: 'Arial', breakLine: true } },
-    { text: 'submissions in Sept 2026 — 2× Sept 2024, 4× Sept 2016', options: { fontSize: 13, color: d.S.txt } },
+    { text: 'submissions in Sept 2026 — 2× Sept 2024, 4× Sept 2016', options: { fontSize: 14, color: d.S.txt } },
   ], { x: g.x + 1.22, y: g.y + 0.82, w: 2.95, h: 1.28, valign: 'middle' }));
 
   // right column: official post + headline + quote
@@ -250,7 +299,7 @@ async function reviewSlide(d) {
   head(s, 'THE ACCELERATION · ACADEMIA · 2', 'Peer review is drowning in AI');
 
   const lw = 6.1;
-  const lab = capLabel(d, s, 'SUBMISSIONS TO THE TOP TWO ML CONFERENCES', { x: CX0, y: 1.72, w: lw });
+  const lab = capLabel(d, s, 'NEURIPS & ICLR SUBMISSIONS PER YEAR', { x: CX0, y: 1.72, w: lw });
   const yrs = ['2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024', '2025', '2026'];
   const ch = d.chart(s, 'line', [
     { name: 'NeurIPS', labels: yrs, values: [3240, 4856, 6743, 9467, 9122, 10411, 12343, 15671, 21575, 30709] },
@@ -259,36 +308,42 @@ async function reviewSlide(d) {
     chartColors: [HEX.red, HEX.amber], lineSize: 3, lineDataSymbolSize: 6, valAxisMinVal: 0, valAxisMaxVal: 35000, valAxisMajorUnit: 5000,
     valAxisLabelFormatCode: '#,##0', legendPos: 't',
   });
-  const note = d.text(s, [
+  // callout in the empty upper-left of the plot, on an opaque card so gridlines don't strike through it
+  const note = [];
+  note.push(d.card(s, { x: 1.55, y: 3.1, w: 3.05, h: 0.82 }, { color: '0D1016', line: HEX.line }));
+  note.push(d.text(s, [
     { text: 'NeurIPS 2026: ', options: { bold: true, color: d.S.red } },
     { text: '30,709 (3× 2022)', options: { color: d.S.txt, breakLine: true } },
     { text: 'ICLR 2026: ', options: { bold: true, color: d.S.amber } },
     { text: '19,525 (6× 2022)', options: { color: d.S.txt } },
-  ], { x: CX0 + 0.95, y: 2.65, w: 3.0, h: 0.7, fontSize: 14, valign: 'top' });
+  ], { x: 1.72, y: 3.17, w: 2.8, h: 0.68, fontSize: 14, valign: 'middle', paraSpaceAfter: 0 }));
 
   const rx = 7.1, rw = CX1 - rx;
-  const c1 = await frameW(d, s, R('acad-nature-iclr-ai-reviews.png'), rx, 1.8, rw, { rot: -1.2 });
-  const c2 = await frameW(d, s, R('acad-404-arxiv-ban.png'), rx + 0.05, 4.35, 2.95, { rot: 2 });
-  const st = stat(d, s, { x: rx + 3.35, y: 4.22, w: rw - 3.35, value: '18.4%', valueSize: 40, labelSize: 13, labelH: 0.85, label: 'of NeurIPS 2026 position papers desk-rejected as AI-generated' });
+  const c1 = await frameW(d, s, R('acad-nature-iclr-ai-reviews.png'), rx + 0.15, 1.8, rw - 0.5, { rot: -1.2 });
   const line = d.text(s, [
     { text: '21% ', options: { fontSize: 26, bold: true, color: d.S.red, fontFace: 'Arial' } },
-    { text: 'of ICLR 2026’s 75,800 peer reviews were fully AI-generated; over half showed signs of AI use.', options: { fontSize: 14, color: d.S.txt } },
-  ], { x: rx, y: 5.7, w: rw, h: 0.75, valign: 'top' });
+    { text: 'of ICLR 2026’s 75,800 peer reviews were flagged as fully AI-generated by the Pangram detector; over half showed signs of AI use.', options: { fontSize: 14, color: d.S.txt } },
+  ], { x: rx, y: 4.08, w: rw, h: 0.85, valign: 'top' });
+
+  // official NeurIPS post: headline + the desk-rejection line, composited into one clipping
+  const neu = await neuripsClip();
+  const c2 = await frameW(d, s, neu, rx + 0.05, 5.1, 3.3, { rot: 1.2 });
+  const st = stat(d, s, { x: rx + 3.65, y: 5.02, w: rw - 3.65, value: '18.4%', valueSize: 38, labelSize: 14, labelH: 0.9, label: 'of NeurIPS 2026 position papers desk-rejected as AI-generated' });
 
   anim(d, s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 1100 });
-  anim(d, s, [note], { auto: true, effect: 'fade', after: 100 });
+  anim(d, s, note, { auto: true, effect: 'fade', after: 100 });
   anim(d, s, c1, { effect: 'slam', dur: 350 });
   anim(d, s, [line], { auto: true, effect: 'fade', after: 200 });
   anim(d, s, c2, { effect: 'rise' });
   anim(d, s, st, { auto: true, effect: 'rise', after: 250 });
 
-  d.source(s, 'Sources: CS Conf Stats / OpenAccept; ICLR 2026 retrospective (Mar 31, 2026) · Nature, Naddaf (Nov 27, 2025) · 404 Media (May 15, 2026) · NeurIPS blog (Jun 2, 2026).');
+  d.source(s, 'Sources: CS Conf Stats / OpenAccept; ICLR 2026 retrospective (Mar 31, 2026) · Nature, Naddaf (Nov 27, 2025; Pangram analysis) · NeurIPS blog (Jun 2, 2026).');
   s.addNotes([
     'Submissions: NeurIPS 2026 received 30,709 main-track submissions (+42% YoY, ~3x 2022’s 10,411). ICLR 2026 received 19,525 valid submissions (~6x 2022’s 3,391), reviewed via 76,139 reviews by 18,054 reviewers; acceptance 27.4%. NeurIPS figures come from aggregator sites (CS Conf Stats and OpenAccept agree on every value); the ICLR 2026 figure is confirmed by the official retrospective.',
-    'Nature (Nov 2025): Pangram screened 19,490 ICLR 2026 submissions and 75,800 reviews — 21% of reviews were fully AI-generated and more than half showed signs of AI use. ICLR desk-rejected papers with hallucinated references.',
+    'Nature (Nov 2025): the AI-text detector company Pangram screened 19,490 ICLR 2026 submissions and 75,800 reviews — 21% of reviews were flagged as fully AI-generated and more than half showed signs of AI use. This is a detector estimate, not a confession count. ICLR desk-rejected papers with hallucinated references.',
     'NeurIPS 2026 position-paper track required papers to be substantially human-written; screening 969 submissions with Pangram, 178 (18.4%) were desk-rejected and 123 (12.7%) asked to prove human engagement. Caveat: these rely on an AI-text detector (Pangram), though NeurIPS says it ran independent analyses to rule out significant false positives.',
-    '404 Media: arXiv will ban researchers for a year when there is “incontrovertible evidence that the authors did not check the results of LLM generation.”',
-    'URLs: https://csconfstats.xoveexu.com/conferences/neurips/ · https://csconfstats.xoveexu.com/conferences/iclr/ · https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/ · https://www.nature.com/articles/d41586-025-03506-6 · https://www.404media.co/new-arxiv-rules-ai-generated-papers-ban/ · https://blog.neurips.cc/2026/06/02/ai-generated-papers-in-the-neurips-2026-position-paper-track/',
+    'The clipping bottom-right is the official NeurIPS blog post: its headline plus the line “178 submissions (18.4% of all submissions) will be desk rejected” (the body text in between is omitted; the bullet is re-wrapped onto two lines for legibility).',
+    'URLs: https://csconfstats.xoveexu.com/conferences/neurips/ · https://csconfstats.xoveexu.com/conferences/iclr/ · https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/ · https://www.nature.com/articles/d41586-025-03506-6 · https://blog.neurips.cc/2026/06/02/ai-generated-papers-in-the-neurips-2026-position-paper-track/',
   ].join('\n\n'));
   return s;
 }
@@ -298,39 +353,52 @@ async function tavusSlide(d) {
   const s = d.slide('Content', { transition: 'zoom' });
   head(s, 'THE ACCELERATION · VIDEO', '48% believed this AI was a real person');
 
+  // official Tavus upload (openweights manifest: video-tavus-griffin)
+  const vw = 6.45;
   const vid = await d.video(s, {
-    link: 'https://www.youtube.com/watch?v=VcQcRRHJTyc', embed: 'https://www.youtube.com/embed/VcQcRRHJTyc',
-    cover: R('video-yt-VcQcRRHJTyc.jpg'), box: { x: CX0, y: 1.8, w: 6.95, h: 3.91 },
-    label: 'Tavus introduces Griffin — release video (BusinessWire, Oct 1, 2026)',
+    link: 'https://www.youtube.com/watch?v=lHw6yoyPkpo', embed: 'https://www.youtube.com/embed/lHw6yoyPkpo',
+    cover: A('research', 'openweights', 'yt-lHw6yoyPkpo.jpg'), box: { x: CX0, y: 1.8, w: vw, h: vw * 9 / 16 },
+    label: 'Tavus — Introducing Griffin (official, Oct 1, 2026)',
   });
+  const capY = vid.geom.y + vid.geom.h + 0.45;
   const cap = d.text(s, [
-    { text: 'The woman in the inset is Griffin. ', options: { bold: true, color: d.S.txt } },
-    { text: 'Every pixel — face, hands, background — is generated live from one reference image.', options: { color: d.S.muted } },
-  ], { x: CX0, y: 6.08, w: 6.95, h: 0.45, fontSize: 13, valign: 'top' });
+    { text: 'The woman is Griffin; the man in the inset is Tavus’s CEO. ', options: { bold: true, color: d.S.txt } },
+    { text: 'Tavus says every pixel is generated live from one reference image — and that Griffin is ', options: { color: d.S.muted } },
+    { text: '“too powerful to release publicly until the safeguards are ready.”', options: { color: d.S.txt, italic: true } },
+  ], { x: CX0, y: capY, w: vw, h: 6.55 - capY, fontSize: 14, valign: 'top' });
 
-  const rx = 7.95, rw = CX1 - rx;
+  const rx = 7.75, rw = CX1 - rx;
   const page = await crop('video-tavus-griffin-page.jpg', 'video-tavus-page-hero.jpg', { l: 214, t: 365, w: 2092, h: 1395 });
-  const shot = await frameW(d, s, page, rx, 1.8, rw);
-  const ch = d.chart(s, 'bar', [{ name: 'Judged human', labels: ['Previous Tavus system', 'Griffin-Lite'], values: [0.024, 0.48] }],
-    { x: rx - 0.1, y: 5.05, w: rw + 0.1, h: 1.05 }, {
-      barDir: 'bar', chartColors: [HEX.steel, HEX.red], showValue: true, dataLabelFormatCode: '0.0%', dataLabelPosition: 'outEnd',
-      dataLabelFontSize: 12, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 0.75, valAxisMinVal: 0,
-      catAxisLabelFontSize: 11, barGapWidthPct: 40, catAxisLineShow: false,
-    });
+  const sw = rw - 0.3;
+  const shot = await frameW(d, s, page, rx + (rw - sw) / 2, 1.8, sw);
+  const shotBottom = 1.8 + await hFor(page, sw);
+  // two-bar comparison drawn with native shapes (exact label placement)
+  const bars = [];
+  const rowsT = [['Previous Tavus system', 2.4, HEX.steel], ['Griffin-Lite', 48.0, HEX.red]];
+  const bx = rx + 2.05, perPct = 2.0 / 48, by0 = shotBottom + 0.32;
+  rowsT.forEach(([name, v, col], i) => {
+    const yy = by0 + i * 0.42;
+    bars.push(d.text(s, name, { x: rx, y: yy, w: 1.95, h: 0.32, fontSize: 12, color: d.S.muted, align: 'right', valign: 'middle' }));
+    const b = d.name('bar');
+    s.addShape(d.pres.shapes.RECTANGLE, { x: bx, y: yy + 0.02, w: v * perPct, h: 0.28, fill: { color: col }, line: { color: col, width: 0 }, objectName: b });
+    bars.push(b);
+    bars.push(d.text(s, `${v.toFixed(1)}%`, { x: bx + v * perPct + 0.08, y: yy, w: 0.8, h: 0.32, fontSize: 14, bold: true, color: i ? d.S.red : d.S.txt, valign: 'middle' }));
+  });
+  const cavY = by0 + 0.42 + 0.32 + 0.16;
   const cav = d.text(s, 'Company-run study (26 of 54 vs 1 of 41, one-minute calls) — not independently verified.',
-    { x: rx, y: 6.1, w: rw, h: 0.42, fontSize: 11, color: d.S.amber, italic: true, valign: 'top' });
+    { x: rx, y: cavY, w: rw, h: 6.55 - cavY, fontSize: 13, color: d.S.amber, valign: 'top' });
 
-  anim(d, s, vid, { auto: true, effect: 'fade', dur: 700 });
-  anim(d, s, [cap], { auto: true, effect: 'fade', after: 100 });
+  anim(d, s, [cap], { auto: true, effect: 'fade', delay: 300 });
   anim(d, s, shot, { effect: 'rise' });
-  anim(d, s, [ch, cav], { effect: 'wipeLeft', dur: 800 });
+  anim(d, s, [...bars, cav], { effect: 'wipeLeft', dur: 800 });
 
-  d.source(s, 'Sources: Tavus, “The First Human Interaction Model” — tavus.io/griffin (Oct 1, 2026) · Tavus/BusinessWire release video on YouTube.');
+  d.source(s, 'Sources: Tavus, “The First Human Interaction Model” — tavus.io/griffin (Oct 1, 2026) · Tavus, “Introducing Griffin” (official YouTube video and description, Oct 1, 2026).');
   s.addNotes([
     'Tavus Griffin, released Oct 1 2026 as the “Griffin-Lite” research preview. Tavus claims it is “the first model to pass the real-time, video Turing test”: in a live study, participants had one-minute video calls with a partner they were told was another participant. 26 of 54 (48%) who talked to Griffin-Lite thought they had talked with a real human; Tavus’s previous system (Phoenix-4.5 + Sparrow-2 + Raven-1) fooled 1 of 41 (2.4%).',
-    'Griffin “generates every pixel in every frame in real time from one reference image” — face, hands, chair, shadows and background — as a single full-duplex video-to-video model rather than a cascade of transcription → LLM → voice → video.',
+    'The video still: the woman (“Vanessa”) in the main frame is the Griffin-generated persona; the man in the inset is Tavus CEO Hassaan Raza. Tavus says Griffin “generates every pixel in every frame in real time from one reference image” — face, hands, chair, shadows and background — as a single full-duplex video-to-video model rather than a cascade of transcription → LLM → voice → video. That is Tavus’s description, not an independent analysis.',
+    'From the official video description: “Because it can be mistaken for a real person, Griffin is too powerful to release publicly until the safeguards are ready.” (It is available only as a Griffin-Lite research preview to select testers.)',
     'CAVEAT (say it out loud): this is a company-run study with small samples and no independent replication; an X community note flagged it as not independently verified. The page also claims #1 on NVIDIA’s independent test of face-to-face AI.',
-    'Video: the release video was distributed via BusinessWire on YouTube (no Tavus-owned upload found): https://www.youtube.com/watch?v=VcQcRRHJTyc · Page: https://www.tavus.io/griffin · Coverage: Business Today (Oct 3 2026), Cybernews.',
+    'Video: official Tavus upload “48% of People Thought This AI Was a Real Human | Introducing Griffin” (1:49): https://www.youtube.com/watch?v=lHw6yoyPkpo · Alternate: BusinessWire-distributed release video https://www.youtube.com/watch?v=VcQcRRHJTyc · Page: https://www.tavus.io/griffin · Coverage: Business Today (Oct 3 2026), Cybernews.',
   ].join('\n\n'));
   return s;
 }
@@ -340,7 +408,7 @@ async function realSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
   head(s, 'THE ACCELERATION · VIDEO · 2', 'Which one is real?');
   const hint = d.text(s, [{ text: 'Each row: one real frame, two AI-generated', options: { breakLine: true } }, { text: '(Google Veo 3.1 · Kling 3.0). Vote now.' }],
-    { x: 7.3, y: 0.86, w: CX1 - 7.3, h: 0.5, fontSize: 13, color: d.S.muted, align: 'right', valign: 'middle' });
+    { x: 7.1, y: 0.84, w: CX1 - 7.1, h: 0.54, fontSize: 14, color: d.S.muted, align: 'right', valign: 'middle' });
 
   const rows = [
     [['video-df26-ex1-fake-veo31.jpg', 'AI · VEO 3.1'], ['video-df26-ex1-real.jpg', null], ['video-df26-ex1-fake-kling30.jpg', 'AI · KLING 3.0']],
@@ -383,11 +451,12 @@ async function realSlide(d) {
   ], { x: ox + 0.4, y: oy + 1.5, w: 3.4, h: 1.5, fontSize: 15, valign: 'top' }));
   ov.push(capLabel(d, s, 'HUMANS SPOTTING FAKES, % CORRECT', { x: ox + 4.15, y: oy + 0.28, w: ow - 4.45 }));
   ov.push(d.chart(s, 'bar', [{ name: 'Accuracy on fakes', labels: ['Celeb-DF v3', 'DSv2', 'DF26 (2026)'], values: [74.5, 69.8, 52.6] }],
-    { x: ox + 4.05, y: oy + 0.6, w: ow - 4.35, h: oh - 0.8 }, {
+    { x: ox + 4.05, y: oy + 0.6, w: ow - 4.35, h: oh - 1.28 }, {
       barDir: 'col', chartColors: [HEX.steel, HEX.steel, HEX.red], showValue: true, dataLabelFormatCode: '0.0', dataLabelPosition: 'outEnd',
       dataLabelFontSize: 12, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 90, valAxisMinVal: 0,
       catAxisLabelFontSize: 11, barGapWidthPct: 45,
     }));
+  ov.push(d.text(s, [{ text: 'Earlier deepfake test sets vs DF26 (2026 generators).', options: { breakLine: true } }, { text: '50% = chance.' }], { x: ox + 4.15, y: oy + oh - 0.64, w: ow - 4.45, h: 0.42, fontSize: 11, color: d.S.muted, italic: true, valign: 'top' }));
 
   anim(d, s, [hint], { auto: true, effect: 'fade' });
   anim(d, s, base, { auto: true, effect: 'fade', dur: 600, after: 100 });
@@ -429,12 +498,12 @@ async function vlaWallSlide(d) {
     ['2', 'related episodes to run an unfamiliar air fryer (π0.7)'],
   ];
   const facts = [];
-  const fx = 10.05;
-  facts.push(capLabel(d, s, 'GENERALIZATION', { x: fx, y: 3.95, w: CX1 - fx, color: d.S.red }));
+  const fx = 10.0, vw = 0.86;
+  facts.push(capLabel(d, s, 'GENERALIZATION', { x: fx, y: 3.9, w: CX1 - fx, color: d.S.red }));
   factRows.forEach(([v, t], i) => {
-    const y = 4.3 + i * 0.74;
-    facts.push(d.text(s, v, { x: fx, y, w: 0.95, h: 0.6, fontSize: 24, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'top' }));
-    facts.push(d.text(s, t, { x: fx + 0.98, y: y + 0.03, w: CX1 - fx - 0.98, h: 0.66, fontSize: 11, color: d.S.muted, valign: 'top' }));
+    const y = 4.26 + i * 0.76;
+    facts.push(d.text(s, v, { x: fx, y, w: vw, h: 0.6, fontSize: 24, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'top' }));
+    facts.push(d.text(s, t, { x: fx + vw + 0.06, y: y + 0.02, w: CX1 - fx - vw - 0.06, h: 0.7, fontSize: 13, color: d.S.muted, valign: 'top' }));
   });
 
   fr.forEach((f, i) => anim(d, s, f, { auto: true, effect: i % 3 === 0 ? 'slam' : 'rise', dur: i % 3 === 0 ? 330 : 420, after: i ? 90 : 0 }));
@@ -509,7 +578,11 @@ async function vlaArchSlide(d) {
     { x: fx + w1 + 0.5, y: fy + fh + 0.08, w: w2, h: 0.3, fontSize: 11 });
 
   anim(d, s, steps[0], { auto: true, effect: 'fade', dur: 400 });
-  for (let i = 1; i < 4; i++) anim(d, s, [arrows[i - 1], ...steps[i]], { auto: true, effect: 'wipeLeft', dur: 450, after: 120 });
+  // arrow draws first (its own short wipe), then the whole box appears as one unit so text never floats on bare background
+  for (let i = 1; i < 4; i++) {
+    anim(d, s, [arrows[i - 1]], { auto: true, effect: 'wipeLeft', dur: 300, after: 120 });
+    anim(d, s, steps[i], { auto: true, effect: 'fade', dur: 400, after: 0 });
+  }
   anim(d, s, [...f1, cp1], { effect: 'rise' });
   anim(d, s, [...f2, cp2], { auto: true, effect: 'rise', after: 200 });
 
@@ -536,29 +609,31 @@ async function vlaDemoSlide(d) {
   });
 
   const rx = 8.7, rw = CX1 - rx;
-  const st = stat(d, s, { x: rx, y: 1.72, w: rw, value: '9% → 56%', valueSize: 36, labelSize: 13, labelH: 0.5, label: 'zero-shot success once pre-trained on human video — no data collected in any of the 30 homes' });
-  st.push(d.text(s, 'Tidying living rooms · folding towels · making beds', { x: rx, y: 2.88, w: rw, h: 0.3, fontSize: 11, italic: true, color: d.S.steel }));
-  const lab = capLabel(d, s, 'MORE OFFICIAL DEMOS · CLICK TO WATCH', { x: rx, y: 3.3, w: rw });
+  const st = stat(d, s, { x: rx, y: 1.72, w: rw, value: '9% → 56%', valueSize: 36, labelSize: 14, labelH: 0.52, label: 'zero-shot success once pre-trained on human video — no data collected in any of the 30 homes' });
+  st.push(d.text(s, 'Figure’s own results and video — company-reported', { x: rx, y: 2.86, w: rw, h: 0.26, fontSize: 12, color: d.S.amber, valign: 'middle' }));
+  st.push(d.text(s, 'Tidying living rooms · folding towels · making beds', { x: rx, y: 3.13, w: rw, h: 0.26, fontSize: 11, italic: true, color: d.S.steel, valign: 'middle' }));
+  const lab = capLabel(d, s, 'MORE OFFICIAL DEMOS · CLICK TO WATCH', { x: rx, y: 3.5, w: rw });
   const demos = [
     ['video-yt-4lSQnrMC6nY.jpg', 'https://www.youtube.com/watch?v=4lSQnrMC6nY', 'Gemini Robotics 2'],
     ['video-yt-9MNLEAzA59o.jpg', 'https://www.youtube.com/watch?v=9MNLEAzA59o', 'GR2: whole-body control'],
     ['video-yt-Zn8yMaepzVk.jpg', 'https://www.youtube.com/watch?v=Zn8yMaepzVk', 'π0.5: an unseen home'],
     ['video-yt-ZpHapIlJnMo.jpg', 'https://www.youtube.com/watch?v=ZpHapIlJnMo', 'π*0.6: 2.5 h of laundry'],
   ];
-  const tw = (rw - 0.2) / 2, th = tw * 9 / 16;
+  // two rows of thumbnails + captions, ending by y = 6.5
+  const ty0 = 3.86, rowGap = 0.4, capH = 0.28;
+  const th = (6.5 - ty0 - rowGap - 0.04 - capH) / 2, tw = th * 16 / 9, tgx = 0.3;
   const thumbs = [];
   for (let i = 0; i < 4; i++) {
     const [f, url, cap] = demos[i];
-    const x = rx + (i % 2) * (tw + 0.2), y = 3.65 + Math.floor(i / 2) * (th + 0.48);
+    const x = rx + (i % 2) * (tw + tgx), y = ty0 + Math.floor(i / 2) * (th + rowGap);
     const im = d.name('thumb');
     s.addImage({ path: R(f), x, y, w: tw, h: th, hyperlink: { url }, objectName: im, shadow: { type: 'outer', color: '000000', blur: 10, offset: 3, angle: 90, opacity: 0.5 } });
     const t = d.text(s, [{ text: '► ', options: { color: d.S.red, bold: true } }, { text: cap, options: { color: d.S.muted, hyperlink: { url } } }],
-      { x, y: y + th + 0.05, w: tw, h: 0.3, fontSize: 10 });
+      { x, y: y + th + 0.04, w: tw + 0.1, h: capH, fontSize: 10 });
     thumbs.push(im, t);
   }
 
-  anim(d, s, vid, { auto: true, effect: 'fade', dur: 700 });
-  anim(d, s, st, { auto: true, effect: 'rise', after: 150 });
+  anim(d, s, st, { auto: true, effect: 'rise', delay: 300 });
   anim(d, s, [lab, ...thumbs], { auto: true, effect: 'fade', after: 150 });
 
   d.source(s, 'Sources: Figure AI, “Helix 2.5: Zero-Shot 30-Home Generalization” (Sep 17, 2026) · official YouTube uploads by Figure, Google DeepMind and Physical Intelligence.');

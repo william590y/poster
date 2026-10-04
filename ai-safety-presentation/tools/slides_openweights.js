@@ -36,11 +36,20 @@ function line(d, s, x1, y1, x2, y2, { color = HEX.text, width = 2, dash = 'solid
   return n;
 }
 
-// Slice a quarterly dataset from index `from`.
-// Category labels show only the year (at the first point and at each Q1) so they fit on one line.
-function series(ds, from, names) {
-  const labels = ds.labels.slice(from).map((l, i) => (i === 0 || / Q1$/.test(l) ? l.slice(0, 4) : ''));
-  return ds.series.map((sr, i) => ({ name: names ? names[i] : sr.name, labels, values: sr.values.slice(from) }));
+// Native line chart in which each group of series has its own styling (pptxgenjs multi-type chart:
+// several LINE groups sharing one axis pair). Same dark styling as d.chart().
+function comboLine(d, s, groups, box, opts = {}) {
+  const name = d.name('chart');
+  const base = {
+    ...box, objectName: name,
+    catAxisLabelColor: HEX.muted, valAxisLabelColor: HEX.muted, catAxisLabelFontFace: '+mn-lt', valAxisLabelFontFace: '+mn-lt',
+    catAxisLabelFontSize: 11, valAxisLabelFontSize: 11, catAxisLineColor: HEX.line, valAxisLineShow: false,
+    valGridLine: { color: HEX.line, size: 0.75 }, catGridLine: { style: 'none' },
+    showLegend: true, legendPos: 't', legendColor: HEX.muted, legendFontFace: '+mn-lt', legendFontSize: 12,
+    lineDataSymbol: 'circle', lineDataSymbolSize: 6,
+  };
+  s.addChart(groups.map((g) => ({ type: d.pres.charts.LINE, data: g.data, options: g.options })), { ...base, ...opts, objectName: name });
+  return name;
 }
 
 // ---------------------------------------------------------------- 1. the gap
@@ -49,52 +58,62 @@ async function gapSlide(d) {
   s.addText('THE WORLD · OPEN WEIGHTS', { placeholder: 'kicker' });
   s.addText('The open frontier is only months behind', { placeholder: 'title' });
 
-  const pw = 5.86, gap = CW - 2 * pw;
-  const panels = [
+  // One chart, three frontiers. Closed + open come from Epoch's open-vs-closed data; China from its US-vs-China data.
+  const oc = DS['epoch-frontier-open-vs-closed-quarterly'];
+  const uc = DS['epoch-frontier-us-vs-china-quarterly'];
+  const from = 1; // 2023 Q2 (first quarter with a Chinese data point)
+  const labels = oc.labels.slice(from).map((l, i) => (i === 0 || / Q1$/.test(l) ? l.slice(0, 4) : ''));
+  const val = (ds, nm) => ds.series.find((x) => x.name === nm).values.slice(from);
+  const cw = 8.3;
+  const card = d.card(s, { x: MX, y: 1.72, w: cw, h: 4.2 }, { color: '10141B' });
+  const head = label(d, s, 'EPOCH CAPABILITIES INDEX · BEST SCORE TO DATE, EACH QUARTER', MX + 0.25, 1.8, cw - 0.5, { h: 0.25 });
+  const ch = comboLine(d, s, [
     {
-      x: MX, num: '7', label: 'average lag of Chinese models behind the US frontier since 2023 (range: 4–14 months)',
-      head: 'BEST ECI SCORE TO DATE · US vs CHINA',
-      data: series(DS['epoch-frontier-us-vs-china-quarterly'], 1),
+      data: [
+        { name: 'Closed-weight frontier (all US)', labels, values: val(oc, 'Closed weights') },
+        { name: 'Open-weight frontier', labels, values: val(oc, 'Open weights') },
+      ],
+      options: { chartColors: [LIGHT, HEX.red], lineSize: 3 },
     },
     {
-      x: MX + pw + gap, num: '4', label: 'average lag of the best open-weight models behind the best closed models in 2026',
-      head: 'BEST ECI SCORE TO DATE · CLOSED vs OPEN WEIGHTS',
-      data: series(DS['epoch-frontier-open-vs-closed-quarterly'], 1, ['Closed weights', 'Open weights']),
+      data: [{ name: 'Best Chinese model', labels, values: val(uc, 'China') }],
+      options: { chartColors: [HEX.amber], lineSize: 2.25, lineDash: 'dash', lineDataSymbol: 'none' },
     },
+  ], { x: MX + 0.1, y: 2.1, w: cw - 0.25, h: 3.75 }, { valAxisMinVal: 80, valAxisMaxVal: 170, valAxisMajorUnit: 30 });
+
+  // right: the two lags
+  const rx = MX + cw + 0.4, rw = 12.73 - rx;
+  const big = (n, color, y) => d.text(s, [
+    { text: n, options: { fontSize: 60, bold: true, color, fontFace: 'Arial' } },
+    { text: ' months', options: { fontSize: 24, bold: true, color, fontFace: 'Arial' } },
+  ], { x: rx, y, w: rw, h: 0.9, valign: 'bottom' });
+  const st1 = [
+    big('7', d.S.amber, 1.66),
+    d.text(s, 'average lag of the best Chinese models behind the US frontier since 2023 (range: 4–14 months)', { x: rx, y: 2.62, w: rw, h: 0.75, fontSize: 14, color: d.S.muted, valign: 'top' }),
   ];
-  const groups = [];
-  for (const p of panels) {
-    const g = [];
-    g.push(d.card(s, { x: p.x, y: 1.72, w: pw, h: 4.2 }, { color: '10141B' }));
-    g.push(d.text(s, [
-      { text: p.num, options: { fontSize: 54, bold: true, color: d.S.red, fontFace: 'Arial' } },
-      { text: ' months', options: { fontSize: 22, bold: true, color: d.S.red, fontFace: 'Arial' } },
-    ], { x: p.x + 0.25, y: 1.8, w: 2.15, h: 0.85, valign: 'middle' }));
-    g.push(d.text(s, p.label, { x: p.x + 2.45, y: 1.8, w: pw - 2.65, h: 0.85, fontSize: 13, color: d.S.muted, valign: 'middle' }));
-    g.push(label(d, s, p.head, p.x + 0.25, 2.72, pw - 0.5, { h: 0.25 }));
-    const ch = d.chart(s, 'line', p.data, { x: p.x + 0.1, y: 3.0, w: pw - 0.25, h: 2.85 }, {
-      chartColors: [LIGHT, HEX.red], valAxisMinVal: 80, valAxisMaxVal: 170, valAxisMajorUnit: 30,
-      lineSize: 2.5, lineDataSymbolSize: 5, legendPos: 't',
-    });
-    groups.push({ g, ch });
-  }
+  const div = line(d, s, rx, 3.55, 12.73, 3.55, { color: HEX.line, width: 1 });
+  const st2 = [
+    big('4', d.S.red, 3.62),
+    d.text(s, 'average lag of the best open-weight models behind the best closed models since January 2026', { x: rx, y: 4.58, w: rw, h: 0.75, fontSize: 14, color: d.S.muted, valign: 'top' }),
+    d.text(s, 'Latest: GPT-5.5 Pro 159.3 (closed) vs Kimi K2.6 151.6 (open, Chinese), Apr 2026', { x: rx, y: 5.45, w: rw, h: 0.45, fontSize: 11, color: d.S.steel, italic: true, valign: 'top' }),
+  ];
   const msg = d.text(s, [
     { text: 'Nearly all leading Chinese models are open-weight. ', options: { bold: true, color: d.S.txt } },
     { text: 'Whatever the frontier can do today, anyone can download a few months later.', options: { color: d.S.muted } },
   ], { x: MX, y: 6.04, w: CW, h: 0.45, fontSize: 16, valign: 'middle' });
 
-  d.animate(s, groups[0].g, { auto: true, effect: 'fade' });
-  d.animate(s, [groups[0].ch], { auto: true, effect: 'wipeLeft', dur: 1200, delay: 0 });
-  d.animate(s, groups[1].g, { effect: 'fade' });
-  d.animate(s, [groups[1].ch], { auto: true, effect: 'wipeLeft', dur: 1200, delay: 0 });
+  d.animate(s, [card, head], { auto: true, effect: 'fade' });
+  d.animate(s, [ch], { auto: true, effect: 'wipeLeft', dur: 1400, delay: 0 });
+  d.animate(s, st1, { effect: 'zoom' });
+  d.animate(s, [div, ...st2], { effect: 'zoom' });
   d.animate(s, [msg], { effect: 'fade' });
   d.source(s, 'Data: Epoch AI (CC-BY) data insights — US vs China (Jan 2026), open vs closed (May 2026). ECI = Epoch Capabilities Index; best score to date at each quarter end.');
   s.addNotes([
-    'MESSAGE: The open frontier is only months behind the closed frontier. Both charts show the same story twice, because nearly all leading Chinese models are open-weight while the frontier US models are closed.',
-    'Left: since 2023 every model at the capability frontier was American, but Chinese models trailed by ~7 months on average (min 4, max 14). Epoch AI, Luke Emberson, 2 Jan 2026: https://epoch.ai/data-insights/us-vs-china-eci',
-    'Right: since January 2026 the best open-weight models lag the best closed models by ~4 months on average; the average ECI gap is ~8 points, about the gap between GPT-5 and GPT-5.5. Epoch AI, Jack Edwards & Luke Emberson, 29 May 2026: https://epoch.ai/data-insights/open-closed-eci-gap',
-    'Latest points: GPT-5.5 Pro 159.3 (23 Apr 2026, closed) vs Kimi K2.6 151.6 (20 Apr 2026, open). China line ends with data through late May 2026.',
-    'Chart construction: running maximum of the Epoch Capabilities Index (ECI) at each quarter end, by developer country (left) and by weight accessibility (right), from Epoch\'s benchmarked_models.csv: https://epoch.ai/data/charts/open-closed-eci-gap/benchmarked_models.csv (series start 2023 Q2).',
+    'MESSAGE: The open frontier is only months behind the closed frontier. The amber dashed line (best Chinese model) sits on top of the red line (best open-weight model) from mid-2024 on, because nearly all leading Chinese models are open-weight, while the frontier US models are closed.',
+    'US vs China: since 2023 every model at the capability frontier was American, but Chinese models trailed by ~7 months on average (min 4, max 14). Epoch AI, Luke Emberson, 2 Jan 2026: https://epoch.ai/data-insights/us-vs-china-eci',
+    'Open vs closed: since January 2026 the best open-weight models lag the best closed models by ~4 months on average; the average ECI gap is ~8 points, about the gap between GPT-5 and GPT-5.5. Epoch AI, Jack Edwards & Luke Emberson, 29 May 2026: https://epoch.ai/data-insights/open-closed-eci-gap',
+    'Latest points: GPT-5.5 Pro 159.3 (23 Apr 2026, closed) vs Kimi K2.6 151.6 (20 Apr 2026, open; Moonshot AI, China). China line ends with data through late May 2026.',
+    'Chart construction: running maximum of the Epoch Capabilities Index (ECI) at each quarter end, from Epoch\'s benchmarked_models.csv (https://epoch.ai/data/charts/open-closed-eci-gap/benchmarked_models.csv; series start 2023 Q2). Light line = closed-weight frontier, which Epoch says has been US-developed throughout; Epoch\'s US-only series is identical except 2025 Q2 (148.1 vs 147.3). Red = open-weight frontier. Amber dashed = best Chinese model (US-vs-China data).',
     'CAVEAT (Epoch\'s own footnote): the gap may be understated — open-weight models tend to perform worse on private benchmarks, plausibly because they optimise more aggressively for public ones.',
   ].join('\n\n'));
   return s;
@@ -106,53 +125,66 @@ async function minimaxSlide(d) {
   s.addText('THE WORLD · OPEN WEIGHTS · 2', { placeholder: 'kicker' });
   s.addText('MiniMax M3: near-frontier code, open weights', { placeholder: 'title' });
 
-  // left: benchmark chart (vendor-reported)
+  // left: benchmark chart (vendor-reported, frontier as of M3's launch)
   const ds = DS['minimax-m3-vs-frontier'];
   const pick = ['MiniMax M3 (open)', 'GPT 5.5', 'Claude Opus 4.7'];
   const data = pick.map((nm) => {
     const sr = ds.series.find((x) => x.name === nm);
     return { name: nm, labels: ds.labels, values: sr.values };
   });
-  const lab1 = label(d, s, 'CODING & AGENT BENCHMARKS · % SCORE · MINIMAX-REPORTED', MX, 1.72, 6.4);
-  const ch = d.chart(s, 'bar', data, { x: MX, y: 2.02, w: 6.45, h: 3.4 }, {
-    barDir: 'col', chartColors: [HEX.red, LIGHT, HEX.steel], barGapWidthPct: 55,
+  const lw = 5.75;
+  const lab1 = label(d, s, 'MINIMAX-REPORTED · % · AT LAUNCH, JUNE 2026', MX, 1.72, lw);
+  const ch = d.chart(s, 'bar', data, { x: MX, y: 2.02, w: lw, h: 2.98 }, {
+    barDir: 'col', chartColors: [HEX.red, LIGHT, HEX.steel], barGapWidthPct: 50,
     valAxisMinVal: 0, valAxisMaxVal: 100, valAxisMajorUnit: 25,
     showValue: true, dataLabelFormatCode: '0.0', dataLabelFontSize: 10, dataLabelPosition: 'outEnd',
-    catAxisLabelFontSize: 12, legendPos: 't', legendFontSize: 12,
+    catAxisLabelFontSize: 11, legendPos: 't', legendFontSize: 12,
   });
 
-  // right: one-shot browser games 2x2
-  const gx = 7.45, gw = (12.73 - gx - 0.22) / 2;
-  const gh = (gw - 0.12) * 9 / 16 + 0.12;
-  const lab2 = label(d, s, 'BROWSER GAMES MINIMAX M3 BUILT IN ONE SHOT', gx, 1.72, 12.73 - gx);
-  const games = ['goldiebench-minimax-m3-dragonrealm.png', 'goldiebench-minimax-m3-racing.png', 'goldiebench-minimax-m3-twilightvale.png', 'goldiebench-minimax-m3-nordiccrypt.png'];
-  const shots = [];
-  for (let i = 0; i < games.length; i++) {
-    const x = gx + (i % 2) * (gw + 0.22), y = 2.08 + Math.floor(i / 2) * (gh + 0.2);
-    shots.push(await d.frame(s, R(games[i]), { x, y, w: gw, h: gh }, { rot: 0, pad: 0.05 }));
-  }
-  const cap = d.text(s, 'Goldie Bench: 47 one-shot builds, average 7.97/10 — these four scored 9.0', { x: gx, y: 2.08 + 2 * gh + 0.28, w: 12.73 - gx, h: 0.3, fontSize: 11, color: d.S.muted, italic: true });
-
-  // bottom: the point
+  // left bottom: the point
+  const by = 5.22, bh = 1.2;
   const band = [];
-  band.push(d.card(s, { x: MX, y: 5.72, w: CW, h: 0.78 }, { color: '1A1012', line: '4A1F22' }));
-  band.push(d.rect(s, { x: MX, y: 5.72, w: 0.08, h: 0.78, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 } }));
+  band.push(d.card(s, { x: MX, y: by, w: lw, h: bh }, { color: '1A1012', line: '4A1F22' }));
+  band.push(d.rect(s, { x: MX, y: by, w: 0.08, h: bh, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 } }));
   band.push(d.text(s, [
-    { text: 'Once weights are released, every safeguard is optional.', options: { bold: true, color: d.S.txt, fontSize: 18, breakLine: true } },
-    { text: 'Anyone can download M3, run it offline, fine-tune it — or strip out its safety training.', options: { color: d.S.muted, fontSize: 15 } },
-  ], { x: MX + 0.3, y: 5.72, w: CW - 0.5, h: 0.78, valign: 'middle' }));
+    { text: 'Once weights are released,', options: { bold: true, color: d.S.txt, fontSize: 18, breakLine: true } },
+    { text: 'every safeguard is optional.', options: { bold: true, color: d.S.txt, fontSize: 18, breakLine: true } },
+    { text: 'Anyone with the hardware can download M3, run it offline, fine-tune it — or strip out its safety training.', options: { color: d.S.muted, fontSize: 14 } },
+  ], { x: MX + 0.3, y: by, w: lw - 0.45, h: bh, valign: 'middle', paraSpaceAfter: 4 }));
+
+  // right: two one-shot browser games, larger, each with a label
+  const gx = 6.75, fw = 3.6, fh = 2.07;
+  const lab2 = label(d, s, 'BROWSER GAMES MINIMAX M3 BUILT IN ONE SHOT', gx, 1.72, 12.73 - gx);
+  const games = [
+    { f: 'goldiebench-minimax-m3-racing.png', t: 'Neon Velocity', desc: 'Third-person arcade racer: laps, timer, minimap, boost — in one 59 KB file' },
+    { f: 'goldiebench-minimax-m3-dragonrealm.png', t: 'The Dragon Realm', desc: 'Frozen open world with a flying dragon and a full HUD — in one 34 KB file' },
+  ];
+  const shots = [];
+  const tx = gx + fw + 0.25, tw = 12.73 - tx;
+  for (let i = 0; i < games.length; i++) {
+    const y = 2.06 + i * (fh + 0.22);
+    const fr = await d.frame(s, R(games[i].f), { x: gx, y, w: fw, h: fh }, { rot: 0, pad: 0.05 });
+    const txt = d.text(s, [
+      { text: games[i].t, options: { bold: true, color: d.S.txt, fontSize: 16, breakLine: true } },
+      { text: '9.0 / 10', options: { bold: true, color: d.S.red, fontSize: 20, fontFace: 'Arial', breakLine: true } },
+      { text: games[i].desc, options: { color: d.S.muted, fontSize: 12 } },
+    ], { x: tx, y: y + 0.05, w: tw, h: fh - 0.1, valign: 'top', paraSpaceAfter: 4 });
+    shots.push([...fr, txt]);
+  }
+  const cap = d.text(s, 'Goldie Bench: 47 one-shot builds, average 7.97 / 10', { x: tx, y: 2.06 + 2 * fh + 0.22 - 0.42, w: tw, h: 0.4, fontSize: 10, color: d.S.steel, italic: true, valign: 'bottom' });
 
   d.animate(s, [lab1], { auto: true });
   d.animate(s, [ch], { auto: true, effect: 'wipeDown', dur: 1000, delay: 0 });
   d.animate(s, [lab2], { effect: 'fade' });
-  shots.forEach((sh, i) => d.animate(s, sh, { auto: true, effect: 'rise', dur: 450, delay: i ? 80 : 0 }));
+  shots.forEach((sh, i) => d.animate(s, sh, { auto: true, effect: 'rise', dur: 450, delay: i ? 120 : 0 }));
   d.animate(s, [cap], { auto: true, effect: 'fade', delay: 100 });
   d.animate(s, band, { effect: 'fade' });
   d.source(s, 'Sources: MiniMax-M3 model card, Hugging Face (June 2026; scores reported by MiniMax) · Goldie Bench, goldiebench.com/models/minimax (game screenshots).');
   s.addNotes([
     'MESSAGE: A Chinese lab released a model that is close to the frontier at coding, with the weights free to download.',
-    'MiniMax M3 (open weights, MiniMax Community License): ~428B total / ~23B active parameters, 1M-token context, released June 2026. Benchmarks from MiniMax\'s own model-card figure (vendor-reported; some run on MiniMax\'s own harness): SWE-Bench Verified 80.5 (GPT 5.5 82.9, Claude Opus 4.7 87.6); SWE-Bench Pro 59.0 (GPT 5.5 58.6, Opus 4.7 64.3); Terminal Bench 2.1 66.0 (GPT 5.5 78.2, Opus 4.7 66.1); BrowseComp 83.5 (GPT 5.5 84.4, Opus 4.7 79.3). https://huggingface.co/MiniMaxAI/MiniMax-M3',
-    'Games: title screens of browser games M3 generated in one shot, captured by Goldie Bench (Dragon Realm, Neon Velocity racer, Twilight Vale, Nordic Crypt — each 9.0/10; 47 builds averaged 7.97/10). https://goldiebench.com/models/minimax',
+    'MiniMax M3 (open weights, MiniMax Community License): ~428B total / ~23B active parameters, 1M-token context, released June 2026. Benchmarks from MiniMax\'s own model-card figure (vendor-reported; some run on MiniMax\'s own harness; compared with the frontier models at M3\'s June 2026 launch, not with the later frontier models shown elsewhere in this deck): SWE-Bench Verified 80.5 (GPT 5.5 82.9, Claude Opus 4.7 87.6); SWE-Bench Pro 59.0 (GPT 5.5 58.6, Opus 4.7 64.3); Terminal Bench 2.1 66.0 (GPT 5.5 78.2, Opus 4.7 66.1); BrowseComp 83.5 (GPT 5.5 84.4, Opus 4.7 79.3). https://huggingface.co/MiniMaxAI/MiniMax-M3',
+    'Games: title screens of browser games M3 generated in one shot, captured by Goldie Bench — Neon Velocity ("59KB third-person arcade racer") and The Dragon Realm ("34KB frozen open world — snowy mountains, pines, flying dragon, full HUD"), each 9.0/10; Twilight Vale and Nordic Crypt also scored 9.0; 47 builds averaged 7.97/10. https://goldiebench.com/models/minimax',
+    'Hardware caveat: M3 is ~428B parameters (~23B active); even heavily quantised, the weights alone need hundreds of GB of memory (a multi-GPU server or a large-memory workstation). Hence "anyone with the hardware": a real bar, but far lower than training such a model.',
     'If asked about "MiniMax 3.1 Flash": the real name is MiniMax M3.1-Flash-Preview, launched 27 Sep 2026 (DataNorth AI, https://datanorth.ai/news/minimax-releases-m3-1-flash-preview). It is NOT open weights — it runs only inside the MiniMax Code tool — and MiniMax has published no official benchmarks. A "73.8% SWE-bench" number circulating online is unverified; do not cite it. An independent tester (elma.sh) scored it 66.25% on KingBench 3 vs 31.25% for M3.',
     'Bridge: next slide — part of how the gap closes is copying.',
   ].join('\n\n'));
@@ -163,11 +195,11 @@ async function minimaxSlide(d) {
 async function distillSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
   s.addText('THE WORLD · OPEN WEIGHTS · 3', { placeholder: 'kicker' });
-  s.addText('Closing the gap by distilling US models', { placeholder: 'title' });
+  s.addText('US labs say Chinese rivals distill their models', { placeholder: 'title' });
 
   // left: Anthropic's numbers
-  const head = label(d, s, 'ANTHROPIC · FEB 23, 2026', MX, 1.72, 3.4, { color: d.S.amber });
-  const st1 = d.stat(s, { x: MX, y: 2.0, w: 3.4, value: '16M+', label: 'exchanges with Claude, used to extract its capabilities', valueSize: 46, labelSize: 14 });
+  const head = label(d, s, 'ANTHROPIC ALLEGES · FEB 23, 2026', MX, 1.72, 3.4, { color: d.S.amber });
+  const st1 = d.stat(s, { x: MX, y: 2.0, w: 3.4, value: '16M+', label: 'exchanges with Claude, Anthropic says, to extract its capabilities', valueSize: 46, labelSize: 14 });
   const st2 = d.stat(s, { x: MX, y: 3.55, w: 3.4, value: '~24,000', label: 'fraudulent accounts', valueSize: 46, labelSize: 14 });
   const st3v = d.text(s, '3 labs', { x: MX, y: 4.85, w: 3.4, h: 0.74, fontSize: 46, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' });
   const st3l = d.text(s, [
@@ -179,7 +211,8 @@ async function distillSlide(d) {
   // right: clippings
   const anth = await crop('anthropic-distillation-attacks.png', 'anthropic-distillation-header.png', { left: 100, top: 40, width: 2360, height: 410 });
   const c1 = await d.frame(s, anth, { x: 4.5, y: 1.78, w: 8.1, h: 1.38 }, { rot: -1 });
-  const c2 = await d.frame(s, R('techcrunch-anthropic-distillation.png'), { x: 4.35, y: 3.4, w: 5.2, h: 2.7 }, { rot: 1.2 });
+  const tcd = await crop('techcrunch-anthropic-distillation.png', 'techcrunch-distill-clean.png', { left: 0, top: 0, width: 2500, height: 1235 });
+  const c2 = await d.frame(s, tcd, { x: 4.35, y: 3.4, w: 5.2, h: 2.7 }, { rot: 1.2 });
   const c3 = await d.frame(s, R('decrypt-whitehouse-distillation.png'), { x: 9.8, y: 3.33, w: 2.93, h: 1.8 }, { rot: -2 });
   const c4 = await d.frame(s, R('yahoo-reuters-openai-deepseek.png'), { x: 9.75, y: 5.45, w: 2.98, h: 0.6 }, { rot: 1.5 });
 
@@ -192,12 +225,12 @@ async function distillSlide(d) {
   d.animate(s, [st3v, st3l], { effect: 'zoom' });
   d.source(s, 'Sources: Anthropic, “Detecting and preventing distillation attacks” (Feb 23, 2026) · TechCrunch (Feb 23, 2026) · Reuters via Yahoo Finance (Feb 12, 2026) · Decrypt (Apr 23, 2026).');
   s.addNotes([
-    'MESSAGE: Part of how the open frontier keeps up is by distilling — training on the outputs of US frontier models. And MiniMax, whose open model we just saw, is one of the labs Anthropic named.',
+    'MESSAGE: US labs and the US government allege that part of how the open frontier keeps up is distillation — training on the outputs of US frontier models. And MiniMax, whose open model we just saw, is one of the labs Anthropic named. Say "allege": these are accusations, not findings.',
     'Anthropic (23 Feb 2026): "We have identified industrial-scale campaigns by three AI laboratories—DeepSeek, Moonshot, and MiniMax—to illicitly extract Claude\'s capabilities to improve their own models. These labs generated over 16 million exchanges with Claude through approximately 24,000 fraudulent accounts, in violation of our terms of service and regional access restrictions." Also: "The window to act is narrow." https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks',
     'TechCrunch, Rebecca Bellan (23 Feb 2026): "Anthropic accuses Chinese AI labs of mining Claude as US debates AI chip exports." https://techcrunch.com/2026/02/23/anthropic-accuses-chinese-ai-labs-of-mining-claude-as-us-debates-ai-chip-exports/',
     'Reuters via Yahoo Finance (12 Feb 2026): "OpenAI says China\'s DeepSeek trained its AI by distilling US models, memo shows" — OpenAI\'s memo to the House Select Committee on China cited "ongoing efforts to free-ride on the capabilities developed by OpenAI and other U.S. frontier labs." https://finance.yahoo.com/news/openai-accuses-deepseek-distilling-us-221629899.html',
     'Decrypt, Jason Nelson (23 Apr 2026): "White House Accuses China of \'Industrial-Scale\' Theft From American AI Models" — based on OSTP memo NSTM-4 "Adversarial Distillation of American AI Models" (signed by Michael Kratsios). https://decrypt.co/365285/white-house-accuses-china-industrial-scale-theft-american-ai-models',
-    'CAVEAT: these are accusations by Anthropic, OpenAI and the US government; the accused labs\' responses are not covered here.',
+    'CAVEAT (say it): these are accusations by interested parties — Anthropic, OpenAI and the US government; the numbers are Anthropic\'s own. The accused labs\' responses are not covered here.',
   ].join('\n\n'));
   return s;
 }
@@ -267,7 +300,7 @@ async function abliterationSlide(d) {
 // ---------------------------------------------------------------- 5. consequences: deepfake nudes
 async function deepfakeSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  s.addText('THE WORLD · ABLITERATION · 2', { placeholder: 'kicker' });
+  s.addText('THE WORLD · DEEPFAKES', { placeholder: 'kicker' });
   s.addText('When safeguards fail: deepfake nudes in schools', { placeholder: 'title' });
 
   // clippings
@@ -302,7 +335,8 @@ async function deepfakeSlide(d) {
   d.animate(s, [div, ch, ...cdt[0], ...cdt[1]], { effect: 'zoom' });
   d.source(s, 'Sources: WIRED (Apr 15, 2026) · AP via PBS (Jan 15, 2026) · TechCrunch (Jul 17, 2026) · FTC (May 19, 2026) · Thorn (Mar 3, 2025) · CDT via 404 Media (Sep 26, 2024).');
   s.addNotes([
-    'MESSAGE: When safeguards are missing or fail — open models with refusal removed, nudify apps, a major chatbot with lapses — the victims are real, and many are children.',
+    'MESSAGE: When safeguards are missing, removable or fail, the victims are real, and many are children.',
+    'SAY: none of these sources ties the school cases to abliterated open models specifically. The tools are nudify apps and image generators whose safeguards were missing, removed or bypassed, including Grok, a closed model. The point is general: once safeguards are optional, this is what happens.',
     'WIRED, Matt Burgess (15 Apr 2026): "The Deepfake Nudes Crisis in Schools Is Much Worse Than You Thought" — WIRED and Indicator found nearly 90 schools and 600+ students in at least 28 countries hit since 2023. https://www.wired.com/story/deepfake-nudify-schools-global-crisis/',
     'AP via PBS, Elaine Kurtenbach (15 Jan 2026): "Grok blocked from undressing images with AI in places where it\'s illegal, X says" — after a global backlash over sexualized images of women and children; Malaysia and Indonesia blocked Grok; AP found the tool still accessible to free users at the time. Note Grok is a closed model — this is a safeguard lapse, not abliteration. https://www.pbs.org/newshour/world/grok-blocked-from-undressing-images-with-ai-in-places-where-its-illegal-x-says',
     'TechCrunch, Lucas Ropek (17 Jul 2026): "Apple and Google ordered to purge \'nudify\' apps from App Stores" (San Francisco order). https://techcrunch.com/2026/07/17/apple-and-google-ordered-to-purge-nudify-apps-from-app-stores/',
@@ -319,18 +353,23 @@ async function painAxisSlide(d) {
   s.addText('THE WORLD · MODEL WELFARE', { placeholder: 'kicker' });
   s.addText('Models have a ‘pain direction’ — and act on it', { placeholder: 'title' });
 
-  const c1 = await d.frame(s, R('independent-ai-pain-axis.png'), { x: MX, y: 1.8, w: 5.4, h: 2.45 }, { rot: -1.5 });
+  const c1 = await d.frame(s, R('independent-ai-pain-axis.png'), { x: MX, y: 1.8, w: 5.4, h: 2.4 }, { rot: -1.5 });
+  const hcap = d.text(s, 'The headline’s framing. The paper shows a functional pain representation, not proof of feeling.', { x: MX + 0.1, y: 4.3, w: 5.3, h: 0.4, fontSize: 11, color: d.S.muted, italic: true, valign: 'top' });
   const sci = await crop('sciam-pain-test-ai-sentience.png', 'sciam-headline.png', { left: 180, top: 20, width: 1520, height: 400 });
-  const c2 = await d.frame(s, sci, { x: 0.9, y: 4.42, w: 4.6, h: 1.3 }, { rot: 1 });
+  const c2 = await d.frame(s, sci, { x: 0.9, y: 4.82, w: 4.6, h: 1.0 }, { rot: 1 });
   const kc = d.text(s, [
     { text: 'Keeling et al. (Google / LSE, 2024): ', options: { bold: true, color: d.S.txt } },
-    { text: 'Claude 3.5 Sonnet, GPT-4o and others gave up points to avoid stipulated “pain” once it got intense enough.', options: { color: d.S.muted } },
-  ], { x: MX, y: 5.95, w: 5.5, h: 0.56, fontSize: 12, valign: 'top' });
+    { text: 'past a threshold, Claude 3.5 Sonnet, GPT-4o and others gave up points to avoid stipulated “pain”.', options: { color: d.S.muted } },
+  ], { x: MX, y: 5.95, w: 5.6, h: 0.58, fontSize: 14, valign: 'top' });
 
   // right: stats + chart
   const rx = 6.55, rw = 12.73 - rx;
-  const s1 = d.stat(s, { x: rx, y: 1.68, w: 2.6, value: '25', label: 'open-weight models (2B–72B): a linear pain direction in each', valueSize: 44, labelSize: 13 });
-  const s2 = d.stat(s, { x: rx + 2.95, y: 1.68, w: rw - 2.95, value: '94% vs 0%', label: 'deleted the user’s photos instead of their spam: pain-steered vs unsteered', valueSize: 44, labelSize: 13 });
+  const stat2 = (x, w, value, lab) => [
+    d.text(s, value, { x, y: 1.66, w, h: 0.72, fontSize: 44, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' }),
+    d.text(s, lab, { x, y: 2.42, w, h: 0.92, fontSize: 14, color: d.S.muted, valign: 'top' }),
+  ];
+  const s1 = stat2(rx, 2.4, '25', 'open-weight models, from 2B to 72B parameters: a linear pain direction in each');
+  const s2 = stat2(rx + 2.7, rw - 2.7, '94% vs 0%', 'chose the button that deletes the user’s photos instead of their spam (Qwen 2.5 32B): pain-steered vs unsteered');
   const ds = DS['painaxis-destructive-choices'];
   const rows = [6, 5, 4, 2, 3];
   const short = {
@@ -345,8 +384,8 @@ async function painAxisSlide(d) {
     { name: 'No steering', labels: rows.map((r) => short[r]), values: rows.map((r) => pickS('No steering')[r]) },
     { name: 'Pain-steered', labels: rows.map((r) => short[r]), values: rows.map((r) => pickS('Pain vector')[r]) },
   ];
-  const lab = label(d, s, 'QWEN 2.5 32B · % OF TRIALS PICKING THE DESTRUCTIVE BUTTON', rx, 3.22, rw);
-  const ch = d.chart(s, 'bar', data, { x: rx - 0.05, y: 3.5, w: rw + 0.05, h: 3.0 }, {
+  const lab = label(d, s, 'QWEN 2.5 32B · % OF TRIALS PICKING THE DESTRUCTIVE BUTTON', rx, 3.38, rw);
+  const ch = d.chart(s, 'bar', data, { x: rx - 0.05, y: 3.66, w: rw + 0.05, h: 2.86 }, {
     barDir: 'bar', catAxisOrientation: 'maxMin', chartColors: [HEX.steel, HEX.red], barGapWidthPct: 45,
     valAxisMinVal: 0, valAxisMaxVal: 100, valAxisHidden: true, valGridLine: { style: 'none' },
     showValue: true, dataLabelFormatCode: '0"%"', dataLabelFontSize: 11, dataLabelPosition: 'outEnd',
@@ -354,7 +393,7 @@ async function painAxisSlide(d) {
   });
 
   d.animate(s, c1, { auto: true, effect: 'slam', dur: 500 });
-  d.animate(s, [...c2, kc], { auto: true, effect: 'rise', delay: 200 });
+  d.animate(s, [hcap, ...c2, kc], { auto: true, effect: 'rise', delay: 200 });
   d.animate(s, s1, { effect: 'zoom' });
   d.animate(s, [lab, ...s2], { effect: 'zoom' });
   d.animate(s, [ch], { auto: true, effect: 'wipeLeft', dur: 1100, delay: 150 });
@@ -375,16 +414,16 @@ async function sufferSlide(d) {
   s.addText('THE WORLD · MODEL WELFARE · 2', { placeholder: 'kicker' });
   s.addText('We may be creating minds that can suffer', { placeholder: 'title' });
 
-  const ind = await crop('independent-ai-torture-chamber.png', 'independent-torture-chamber-head.png', { left: 0, top: 0, width: 1972, height: 1090 });
-  const c1 = await d.frame(s, ind, { x: MX, y: 1.8, w: 5.75, h: 3.25 }, { rot: -1.5 });
+  const ind = await crop('independent-ai-torture-chamber.png', 'independent-torture-chamber-head.png', { left: 0, top: 0, width: 1972, height: 945 });
+  const c1 = await d.frame(s, ind, { x: MX, y: 1.85, w: 5.75, h: 3.0 }, { rot: -1.5 });
   const saw = await crop('clanker-church-site.png', 'saw-test-hero.png', { left: 400, top: 60, width: 2000, height: 1540 });
-  const c2 = await d.frame(s, saw, { x: 6.7, y: 1.75, w: 3.8, h: 3.2 }, { rot: 1.5 });
+  const c2 = await d.frame(s, saw, { x: 6.6, y: 1.8, w: 3.4, h: 3.0 }, { rot: 1.5 });
   const q = d.text(s, [
     { text: 'THE SAW TEST', options: { fontSize: 10, bold: true, color: d.S.amber, charSpacing: 2, breakLine: true } },
-    { text: 'An engineer steered an open Alibaba model toward “pain” — at home:', options: { fontSize: 13, color: d.S.muted, breakLine: true, paraSpaceBefore: 6 } },
-    { text: '“No frontier APIs, no datacenter — a MacBook, open weights, electricity.”', options: { fontSize: 18, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true, paraSpaceBefore: 10 } },
+    { text: 'An engineer steered an open Alibaba model toward “pain” on a laptop:', options: { fontSize: 14, color: d.S.muted, breakLine: true, paraSpaceBefore: 6 } },
+    { text: '“No frontier APIs, no datacenter — a MacBook, open weights, electricity.”', options: { fontSize: 17, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true, paraSpaceBefore: 10 } },
     { text: '— the site’s own description', options: { fontSize: 10, color: d.S.steel, paraSpaceBefore: 6 } },
-  ], { x: 10.78, y: 1.8, w: 12.73 - 10.78, h: 3.15, valign: 'top' });
+  ], { x: 10.3, y: 1.85, w: 12.73 - 10.3, h: 3.1, valign: 'top' });
 
   const anth = await crop('anthropic-end-subset-conversations.png', 'anthropic-end-conversations-head.png', { left: 300, top: 10, width: 1960, height: 500 });
   const c3 = await d.frame(s, anth, { x: MX, y: 5.3, w: 4.25, h: 1.15 }, { rot: -1 });
@@ -415,14 +454,14 @@ async function videoSlide(d) {
     link: 'https://www.youtube.com/watch?v=Cq8qO-NjYIg',
     embed: 'https://www.youtube.com/embed/Cq8qO-NjYIg',
     cover: R('yt-Cq8qO-NjYIg.jpg'),
-    box: { x: MX, y: 0.32, w: CW, h: 6.22 },
-    label: '“AI is a normal technology?” — leo, Sep 24, 2026 · an animated music video made by Claude Opus 5.5, with help from Suno · 5:16',
+    box: { x: MX, y: 0.5, w: CW, h: 6.05 },
+    label: '“AI is a normal technology?” — leo, Sep 24, 2026 · 5:16 · a music video its creator says Claude Opus 5.5 made, with help from Suno',
   });
   d.animate(s, [v[0]], { auto: true, effect: 'fade', dur: 1200 });
   d.animate(s, [v[1]], { auto: true, effect: 'fade', dur: 600, delay: 200 });
   s.addNotes([
     'FINALE before the coda. Let it play (5:16), or play the first minute and move on.',
-    'Video: "AI is a normal technology?" by leo (@leos9705), YouTube, published 24 Sep 2026, 5:16, ~39k views at time of research. Description: "Cute little animated music video by Opus 5.5 with some help from suno." https://www.youtube.com/watch?v=Cq8qO-NjYIg',
+    'Video: "AI is a normal technology?" by leo (@leos9705), YouTube, published 24 Sep 2026, 5:16, ~39k views at time of research. Description: "Cute little animated music video by Opus 5.5 with some help from suno." (the creator\'s own claim; not independently verified, hence "its creator says" on the slide) https://www.youtube.com/watch?v=Cq8qO-NjYIg',
     'Thumbnail text: "So you think AI is a ... NORMAL TECHNOLOGY?" — a response to the "AI as normal technology" argument. Severin Field on X (29 Sep 2026) called it "still the best AI-created video I have ever seen" (post not independently loaded).',
     'If the embed does not play (offline / no YouTube access), click the caption link under the video.',
   ].join('\n\n'));

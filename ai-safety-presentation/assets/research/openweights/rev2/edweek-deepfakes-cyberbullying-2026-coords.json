@@ -1,0 +1,189 @@
+{
+ "url": "https://www.edweek.org/technology/deepfakes-are-supercharging-cyberbullying-how-should-schools-respond/2026/08",
+ "viewport_width": 1280,
+ "device_scale_factor": 2,
+ "captured": "2026-10-04T11:34:12.343Z",
+ "shots": [
+  {
+   "file": "edweek-deepfakes-cyberbullying-2026-header-photo.png",
+   "image_px": [
+    1816,
+    2067
+   ],
+   "page_clip_css": [
+    51,
+    672,
+    908,
+    1034
+   ],
+   "highlights": [
+    {
+     "text": "Deepfakes Are Supercharging Cyberbullying. How Should Schools Respond?",
+     "line_rects_px": [
+      [
+       48,
+       124,
+       1375,
+       142
+      ],
+      [
+       48,
+       234,
+       1660,
+       142
+      ],
+      [
+       48,
+       344,
+       449,
+       142
+      ]
+     ],
+     "bbox_px": [
+      48,
+      124,
+      1660,
+      362
+     ]
+    },
+    {
+     "text": "August 06, 2026",
+     "line_rects_px": [
+      [
+       478,
+       532,
+       253,
+       38
+      ]
+     ],
+     "bbox_px": [
+      478,
+      532,
+      253,
+      38
+     ]
+    },
+    {
+     "text": "Deepfake victim Francesca Mani speaks at a news conference promoting the passage of the DEFIANCE Act at the Capitol",
+     "line_rects_px": [
+      [
+       48,
+       1919,
+       1535,
+       30
+      ]
+     ],
+     "bbox_px": [
+      48,
+      1919,
+      1535,
+      30
+     ]
+    }
+   ]
+  },
+  {
+   "file": "edweek-deepfakes-cyberbullying-2026-headline.png",
+   "image_px": [
+    1816,
+    630
+   ],
+   "page_clip_css": [
+    51,
+    672,
+    908,
+    315
+   ],
+   "highlights": [
+    {
+     "text": "Deepfakes Are Supercharging Cyberbullying. How Should Schools Respond?",
+     "line_rects_px": [
+      [
+       48,
+       124,
+       1375,
+       142
+      ],
+      [
+       48,
+       234,
+       1660,
+       142
+      ],
+      [
+       48,
+       344,
+       449,
+       142
+      ]
+     ],
+     "bbox_px": [
+      48,
+      124,
+      1660,
+      362
+     ]
+    },
+    {
+     "text": "August 06, 2026",
+     "line_rects_px": [
+      [
+       478,
+       532,
+       253,
+       38
+      ]
+     ],
+     "bbox_px": [
+      478,
+      532,
+      253,
+      38
+     ]
+    }
+   ]
+  },
+  {
+   "file": "edweek-deepfakes-cyberbullying-2026-cdt-quote.png",
+   "image_px": [
+    1613,
+    606
+   ],
+   "page_clip_css": [
+    153,
+    2547,
+    806,
+    303
+   ],
+   "highlights": [
+    {
+     "text": "said Kristin Woelfel, a policy counsel for the Center for Democracy and Technology",
+     "line_rects_px": [
+      [
+       617,
+       218,
+       938,
+       40
+      ],
+      [
+       48,
+       278,
+       482,
+       40
+      ]
+     ],
+     "bbox_px": [
+      48,
+      218,
+      1506,
+      100
+     ]
+    }
+   ]
+  },
+  {
+   "file": "edweek-deepfakes-cyberbullying-2026-fullpage.png",
+   "note": "full page incl. nav and footer"
+  }
+ ]
+}

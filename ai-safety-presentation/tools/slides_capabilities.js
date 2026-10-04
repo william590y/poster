@@ -1378,7 +1378,7 @@ async function vibemathedSlide(d) {
   return s;
 }
 
-// ---------------------------------------------------------------- 11. OpenAI: 100+ results waiting to be released
+// ---------------------------------------------------------------- 11. OpenAI: 100+ results, unreleased (+ the "hundreds" hearsay)
 const MR = (f) => R(`rev2/mathrumors/${f}`);
 const MRU = {
   openai: 'https://openai.com/index/advisory-group-on-mathematics-and-ai/',
@@ -1406,26 +1406,51 @@ const MRU = {
   poly: 'https://polymarket.com/event/which-millennium-prize-problem-will-ai-solve-next',
   manifold: 'https://manifold.markets/HumanClanker/will-another-millennium-prize-probl',
   kalshi: 'https://kalshi.com/markets/kxhodge',
+  armstrong: 'https://x.com/scottnarmstrong/status/2099960311801696580',
+  armstrongAug: 'https://x.com/scottnarmstrong/status/2091897271130448159',
 };
 
 async function pipelineSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
   s.addText(`${KICK} · MATHEMATICS IN CRISIS · 5`, { placeholder: 'kicker' });
-  s.addText('100+ more results, waiting to be released', { placeholder: 'title' });
+  s.addText('OpenAI claims 100+ more results, unreleased', { placeholder: 'title' });
 
-  // left: the number, then the NYT's "waiting to release" framing (neutral citation card: NYT blocks screenshots)
-  const lw = 3.55;
-  const l1 = label(d, s, 'OPENAI · SEP 21, 2026', MX, 1.68, lw);
-  const big = d.text(s, '100+', { x: MX, y: 1.98, w: lw, h: 1.15, fontSize: 80, bold: true, fontFace: 'Arial', color: d.S.red, valign: 'middle' });
-  const bigT = d.text(s, 'long-standing open problems “resolved” by a new internal model besides Navier–Stokes, says OpenAI — results held back for now',
-    { x: MX, y: 3.15, w: lw, h: 0.95, fontSize: 13, color: d.S.txt, valign: 'top' });
+  // ---- left: the number (a vendor claim), who says "waiting to release", and where "hundreds" comes from (hearsay)
+  const lw = 4.9;
+  const big = d.text(s, '100+', { x: MX, y: 1.72, w: 2.15, h: 0.92, fontSize: 64, bold: true, fontFace: 'Arial', color: d.S.red, valign: 'middle' });
+  const bigT = d.text(s, 'long-standing open problems “resolved” by a new internal model, says OpenAI',
+    { x: MX + 2.2, y: 1.72, w: lw - 2.2, h: 0.92, fontSize: 14, color: d.S.txt, valign: 'middle' });
+  const vendor = label(d, s, 'VENDOR CLAIM · NO LIST OR PROOFS PUBLISHED', MX, 2.66, lw, { color: d.S.amber, h: 0.26 });
+  const nb = { x: MX + 0.05, y: 3.12, w: lw - 0.1, h: 1.17 };
   const nyt = d.headlineCard(s, {
     outlet: 'The New York Times', date: '2026-09-22', headline: 'Mathematics Isn’t Just a Game to Let A.I. Solve. History Shows Why.',
-    dek: 'Guest essay, Steven Strogatz & Alex Townsend: “…results that OpenAI was waiting to release until it had figured out ‘the best way to inform the community…’”',
-  }, { x: MX + 0.05, y: 4.3, w: lw - 0.1, h: 2.12 }, { rot: -1.2, size: 'm' });
+    dek: 'Guest essay, Steven Strogatz & Alex Townsend: “…results that OpenAI was waiting to release…”',
+  }, nb, { rot: -1.2, size: 's' });
+  const ntab = outletTab(d, s, { x: nb.x + 0.06, y: nb.y + 0.06, w: nb.w - 0.12, h: nb.h - 0.12 }, 'NYT ESSAY: “WAITING TO RELEASE”', 'br', -1.2);
+  // Scott Armstrong (NYU/Courant) on X, Sep 15: header + first two paragraphs of the real post (contiguous crop)
+  const acrop = await crop(MR('x-scottnarmstrong-sep15-hundreds-of-proofs-page.png'), 'math-armstrong-hundreds-head.png', { l: 572, t: 442, w: 1168, h: 362 });
+  const ay = 4.86, aw = lw - 0.05;
+  const af = await d.frame(s, acrop, { x: MX + 0.05, y: ay, w: aw, h: (aw - 0.12) * 362 / 1168 + 0.12 }, { rot: 0.8, align: 'left', link: MRU.armstrong });
+  const ag = af.geom;
+  const atab = outletTab(d, s, ag, 'X · @SCOTTNARMSTRONG (NYU) · SEP 15 · 58.9K VIEWS', 'tl', 0.8);
+  // native marker over '"hundreds" of proofs of results, I was told,' (rotated with the clipping about its centre)
+  const ahl = [[790, 272, 328, 44], [8, 312, 272, 44]].map(([x, y, w, h]) => {
+    const k = ag.w / 1168, th = 0.8 * Math.PI / 180;
+    const cx = ag.x + ag.w / 2, cy = ag.y + ag.h / 2;
+    const bx = ag.x + (x + w / 2) * k - cx, by = ag.y + (y + h / 2) * k - cy;
+    const px = cx + bx * Math.cos(th) - by * Math.sin(th), py = cy + bx * Math.sin(th) + by * Math.cos(th);
+    const n = d.name('hl');
+    s.addShape(d.pres.shapes.RECTANGLE, { x: px - w * k / 2, y: py - h * k / 2, w: w * k, h: h * k, rotate: 0.8, fill: { color: HEX.amber, transparency: 60 }, line: { color: HEX.amber, width: 0, transparency: 100 }, objectName: n });
+    return n;
+  });
+  // red "UNCONFIRMED HEARSAY" stamp in the empty right part of the post's header row (clear of the text)
+  const stW = 2.35, stH = 0.32, stX = ag.x + ag.w - stW - 0.38, stY = ag.y + 0.05;
+  const stamp = d.name('stamp');
+  s.addShape(d.pres.shapes.RECTANGLE, { x: stX, y: stY, w: stW, h: stH, rotate: -3, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 2 }, objectName: stamp });
+  const stampT = d.text(s, 'UNCONFIRMED HEARSAY', { x: stX, y: stY, w: stW, h: stH, rotate: -3, fontSize: 12, bold: true, color: d.S.red, charSpacing: 1, align: 'center', valign: 'middle', fontFace: 'Arial' });
 
-  // right: OpenAI's own paragraph (real screenshot) with the key sentence marked
-  const rx = MX + lw + 0.5, rw = 12.73 - rx;
+  // ---- right: OpenAI's own paragraph (real screenshot) with the key sentence marked
+  const rx = MX + lw + 0.45, rw = 12.73 - rx;
   const para = await crop(MR('openai-advisory-post-100-problems.png'), 'math-openai-100-para.png', { l: 60, t: 895, w: 1210, h: 400 });
   const pf = await d.frame(s, para, { x: rx, y: 1.8, w: rw, h: (rw - 0.12) * 400 / 1210 + 0.12 }, { link: MRU.openai });
   const pg = pf.geom;
@@ -1437,7 +1462,7 @@ async function pipelineSlide(d) {
   const tcrop = await crop(MR('tao-blog-agmai-announcement-current-task.png'), 'math-agmai-current-task.png', { l: 0, t: 112, w: 1040, h: 120 });
   const tf = await d.frame(s, tcrop, { x: rx, y: ty, w: rw, h: (rw - 0.12) * 120 / 1040 + 0.12 }, { link: MRU.tao });
   const tg = tf.geom;
-  const ttab = outletTab(d, s, tg, 'THE ADVISORY GROUP (GOWERS, HAIRER, WITTEN, VAKIL…) · TAO’S BLOG · SEP 21', 'tl');
+  const ttab = outletTab(d, s, tg, 'THE ADVISORY GROUP (GOWERS, HAIRER, WITTEN…) · TAO’S BLOG · SEP 21', 'tl');
   const thl = highlight(d, s, tg, 1040, [[181.6, 9.6, 787.4, 34], [20, 43.6, 954.2, 34], [20, 77.6, 597.4, 34]]);
   const qy = tg.y + tg.h + 0.2;
   const pace = d.text(s, [
@@ -1446,18 +1471,22 @@ async function pipelineSlide(d) {
     { text: ' on mathematics.”', options: { color: d.S.muted } },
   ], { x: rx, y: qy, w: rw, h: 6.52 - qy, fontSize: 14, valign: 'middle' });
 
-  d.animate(s, [l1, big], { auto: true, effect: 'zoom', dur: 500 });
-  d.animate(s, [bigT], { auto: true, effect: 'fade', dur: 400, after: 100 });
+  d.animate(s, [big, bigT], { auto: true, effect: 'zoom', dur: 500 });
+  d.animate(s, [vendor], { auto: true, effect: 'fade', dur: 400, after: 100 });
   d.animate(s, [...pf, ...ptab], { auto: true, effect: 'fade', dur: 600, after: 150 });
   d.animate(s, hl.map((n, i) => ({ name: n, effect: 'wipeLeft', dur: 350, delay: i * 300 })), { auto: true, after: 200 });
-  d.animate(s, [...nyt], { effect: 'slam', dur: 420 });
+  d.animate(s, [...nyt, ...ntab], { effect: 'slam', dur: 420 });
   d.animate(s, [...tf, ...ttab], { effect: 'fade', dur: 500 });
   d.animate(s, thl.map((n, i) => ({ name: n, effect: 'wipeLeft', dur: 350, delay: i * 300 })), { auto: true, after: 100 });
   d.animate(s, [pace], { effect: 'fade', dur: 500 });
-  d.source(s, 'OpenAI, “Advisory Group on Mathematics and Artificial Intelligence” (Sep 21, 2026) · the Advisory Group on Terence Tao’s blog (Sep 21) · S. Strogatz & A. Townsend, The New York Times (Sep 22, 2026).');
+  d.animate(s, [...af, ...atab], { effect: 'slam', dur: 420 });
+  d.animate(s, ahl.map((n, i) => ({ name: n, effect: 'wipeLeft', dur: 350, delay: i * 300 })), { auto: true, after: 100 });
+  d.animate(s, [stamp, stampT], { auto: true, effect: 'zoom', dur: 350, after: 150 });
+  d.source(s, 'OpenAI, “Advisory Group on Mathematics and AI” (Sep 21, 2026) · the Advisory Group on T. Tao’s blog (Sep 21) · S. Strogatz & A. Townsend, NYT (Sep 22) · Scott Armstrong on X (Sep 15; hearsay).');
   s.addNotes([
-    'MESSAGE: Navier–Stokes was not the end of it. OpenAI says the same internal model has since resolved more than a hundred long-standing open problems — and is holding the results back while it works out how to release them. The flood has not hit yet.',
-    'PRECISE WORDING (do not say "hundreds"): OpenAI, Sep 21, 2026: "On August 28, we began training a new internal model. In addition to resolving the Navier–Stokes Millennium Prize problem, this model has now resolved more than 100 long-standing open problems across most areas of mathematics. The pace of its progress in mathematics has surprised the mathematicians within OpenAI. This has led to internal discussions on the best way to inform the community of the rapid progress to prepare and adapt the field." ' + MRU.openai + ' (X announcement, 6.6M views: ' + MRU.openaiX + '). We found no OpenAI statement saying "hundreds"; the figure is "more than 100", and OpenAI has not published a list or the proofs (the amber marks on the screenshot are ours).',
+    'MESSAGE: Navier–Stokes was not the end of it. OpenAI says the same internal model has since resolved more than a hundred long-standing open problems. None of them has been published: OpenAI says only that it is discussing "the best way to inform the community"; it is the NYT essay, The Verge and OpenAI\'s own advisory group who describe the results as waiting to be released. The 100+ is a vendor claim (no list, no proofs). The flood, if real, has not hit yet.',
+    'PRECISE WORDING — OpenAI itself says only "more than 100" (do not say "hundreds" except as the hearsay below). OpenAI, Sep 21, 2026: "On August 28, we began training a new internal model. In addition to resolving the Navier–Stokes Millennium Prize problem, this model has now resolved more than 100 long-standing open problems across most areas of mathematics. The pace of its progress in mathematics has surprised the mathematicians within OpenAI. This has led to internal discussions on the best way to inform the community of the rapid progress to prepare and adapt the field." ' + MRU.openai + ' (X announcement, 6.6M views: ' + MRU.openaiX + '). We found no OpenAI statement saying "hundreds"; the figure is "more than 100", and OpenAI has not published a list or the proofs (the amber marks on the screenshots are ours).',
+    'WHERE "HUNDREDS" COMES FROM (bottom-left clipping; UNCONFIRMED HEARSAY, say so): NYU/Courant mathematician Scott Armstrong (@scottnarmstrong; bio: "CNRS DR at LJLL/Sorbonne and Math Prof at Courant/NYU") on X, Sep 15, 2026, 20:35 UTC (58.9K views): "I am worried about a situation in which rumors are constantly swirling about major results and your distance to the labs in the social graph distance determines how much you know. Since at least the ICM they (openAI) have been sitting on \"hundreds\" of proofs of results, I was told, and I suspect Levent has more than he has released. Some of them may not be released any time soon. I don\'t think it\'s a great situation if this persists." ' + MRU.armstrong + ' . Earlier, Aug 24, 2026 (reply to Daniel Litt): "I am asking because I heard rumors at the ICM that they [openAI] \"are sitting on hundreds of results\"" ' + MRU.armstrongAug + ' . (ICM = International Congress of Mathematicians, Philadelphia, Jul 23–30, 2026.) Both are second-hand ("I was told", "I heard rumors"), with no source named. OpenAI itself says only "more than 100". Armstrong\'s complaint is itself the safety point: who knows what depends on how close you are to the labs.',
     '"WAITING TO BE RELEASED" is how others describe it, consistently: NYT guest essay by Cornell mathematicians Steven Strogatz and Alex Townsend (Sep 22), "Mathematics Isn\'t Just a Game to Let A.I. Solve. History Shows Why.": "Just yesterday, the company announced that the same internal model had now \'resolved more than 100 longstanding problems across most areas of mathematics\' — results that OpenAI was waiting to release until it had figured out \'the best way to inform the community of the rapid progress to prepare and adapt the field.\'" ' + MRU.nyt + ' (card, not a screenshot: NYT blocks our browser). The Advisory Group itself (guest post on Tao\'s blog, Sep 21): "Current Task. We are currently facing the very specific challenge of advising OpenAI on how to coordinate the release of a large number of significant results in mathematics that they report have been produced by their internal model." ' + MRU.tao + ' . The Verge (Robert Hart, Sep 28, "OpenAI keeps bulldozing mathematicians"): OpenAI "is sitting on a tranche of results it is clearly eager to release as soon as possible". ' + MRU.verge,
     'THE GROUP: François Charles, Camillo De Lellis, Timothy Gowers, Martin Hairer, Nikhil Srivastava, Ulrike Tillmann, Ravi Vakil, Edward Witten, Melanie Matchett Wood (hosted at the Institute for Advanced Study; unpaid; independent). OpenAI\'s post: it will "advise on how to coordinate their dissemination" — but "Importantly, the group will not be responsible for advising us on how to pace our internal progress on mathematics." That last line is the safety point: outside experts manage the announcement, not the speed.',
     'Related rumor (Q&A): Scott Aaronson (Sep 15) heard that "the AI companies, having been burned by the hostile response to the Navier-Stokes proof, are now sitting on solutions to some very major problems until they figure out a better way to handle things" (theoretical CS; a rumor) ' + MRU.aaronson + ' ; Andrew Curran on Sep 21: "The rumors were true once again; they are sitting on multiple major announcements." ' + MRU.curran,
@@ -1477,9 +1506,9 @@ async function rumorsSlide(d) {
   const early = d.text(s, [
     { text: 'Sep 9 · @Dr_Singularity on X: ', options: { bold: true, color: d.S.steel } },
     { text: '“Rumors are emerging that OpenAI may have solved the Hodge conjecture”', options: { italic: true, color: d.S.txt } },
-  ], { x: MX, y: 1.95, w: lw, h: 0.5, fontSize: 12.5, valign: 'top' });
+  ], { x: MX, y: 1.95, w: lw, h: 0.54, fontSize: 14, valign: 'top' });
   const sw = 5.75;
-  const sf = await d.frame(s, MR('x-synthwavedd-hodge-bsd-rumor.png'), { x: MX + 0.05, y: 2.55, w: sw, h: (sw - 0.12) * 510 / 1200 + 0.12 }, { rot: -1, link: MRU.synth });
+  const sf = await d.frame(s, MR('x-synthwavedd-hodge-bsd-rumor.png'), { x: MX + 0.05, y: 2.58, w: sw, h: (sw - 0.12) * 510 / 1200 + 0.12 }, { rot: -1, link: MRU.synth });
   const stab = outletTab(d, s, sf.geom, 'X · @SYNTHWAVEDD · SEP 10 · 1.5M VIEWS', 'br', -1);
   // red "unconfirmed" stamp on the empty top-right of the post (clear of its text)
   const sg = sf.geom;
@@ -1488,30 +1517,33 @@ async function rumorsSlide(d) {
   s.addShape(d.pres.shapes.RECTANGLE, { x: stX, y: stY, w: stW, h: stH, rotate: -6, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 2.5 }, objectName: stamp });
   const stampT = d.text(s, 'UNCONFIRMED', { x: stX, y: stY, w: stW, h: stH, rotate: -6, fontSize: 15, bold: true, color: d.S.red, charSpacing: 1.5, align: 'center', valign: 'middle', fontFace: 'Arial' });
 
-  const gy = sg.y + sg.h + 0.5;
+  const gy = sg.y + sg.h + 0.44;
   const gcrop = await crop(MR('gizmodo-openai-reportedly-trying-hodge.png'), 'math-gizmodo-hodge-head.png', { l: 0, t: 98, w: 980, h: 492 });
   const gh = 6.5 - gy, gw = (gh - 0.12) * 980 / 492 + 0.12;
   const gf = await d.frame(s, gcrop, { x: MX + 0.05, y: gy, w: gw, h: gh }, { rot: 1.2, link: MRU.gizmodo });
   const gtab = outletTab(d, s, gf.geom, 'GIZMODO · SEP 17', 'tl', 1.2);
   const tx = MX + gw + 0.35, tw = MX + lw - tx;
   const info = d.text(s, [
-    { text: 'Its source: ', options: { bold: true, color: d.S.steel } },
-    { text: 'The Information, citing ', options: { color: d.S.txt } },
+    { text: 'Via The Information', options: { bold: true, color: d.S.steel } },
+    { text: ', citing ', options: { color: d.S.txt } },
     { text: 'one', options: { color: d.S.txt, bold: true } },
-    { text: ' OpenAI source: staff “expect to soon crack the Hodge Conjecture”', options: { color: d.S.txt, breakLine: true, paraSpaceAfter: 6 } },
-    { text: 'A skeptic: ', options: { bold: true, color: d.S.steel } },
+    { text: ' OpenAI source: staff “expect to soon crack the Hodge Conjecture”', options: { color: d.S.txt, breakLine: true, paraSpaceAfter: 5 } },
+    { text: 'Skeptic: ', options: { bold: true, color: d.S.steel } },
     { text: '“What would close even mean for BSD?” ', options: { italic: true, color: d.S.txt } },
-    { text: '— Elliot Glazer, Sep 10', options: { color: d.S.muted, fontSize: 11 } },
-  ], { x: tx, y: gy - 0.02, w: tw, h: 6.52 - gy, fontSize: 12.5, valign: 'top' });
+    { text: '— Elliot Glazer', options: { color: d.S.muted, fontSize: 12 } },
+  ], { x: tx, y: gy - 0.04, w: tw, h: 6.54 - gy, fontSize: 14, valign: 'top' });
 
   // ---- right: what is actually on the record, the status, and the betting
   const rx = MX + lw + 0.45, rw = 12.73 - rx;
   const r1 = label(d, s, 'ON THE RECORD · OPENAI TO THE NYT · SEP 10', rx, 1.62, rw, { color: d.S.blue });
   const rec = d.text(s, [
     { text: '“…we have made substantial progress on another Millennium Prize problem.”', options: { italic: true, fontFace: 'Cambria', fontSize: 15, color: d.S.txt, breakLine: true, paraSpaceAfter: 3 } },
-    { text: 'It has not said which one.', options: { fontSize: 12, bold: true, color: d.S.txt } },
+    { text: 'It has not said which one.', options: { fontSize: 14, bold: true, color: d.S.txt } },
   ], { x: rx, y: 1.95, w: rw, h: 0.95, valign: 'top' });
-  const r2 = label(d, s, 'STATUS · CLAY MATHEMATICS INSTITUTE · OCT 4', rx, 2.95, rw, { color: d.S.blue });
+  const r2 = d.text(s, [
+    { text: 'CLAY MATHEMATICS INSTITUTE · OCT 4 · BOTH ', options: { color: d.S.blue } },
+    { text: '“UNSOLVED”', options: { color: 'FF8A8C' } },
+  ], { x: rx, y: 2.95, w: rw, h: 0.28, fontSize: 10, bold: true, charSpacing: 2, valign: 'bottom' });
   const ch1 = await crop(MR('clay-hodge-conjecture-unsolved.png'), 'math-clay-hodge-head.png', { l: 0, t: 70, w: 1400, h: 315 });
   const ch2 = await crop(MR('clay-bsd-conjecture-unsolved.png'), 'math-clay-bsd-head.png', { l: 0, t: 70, w: 1400, h: 470 });
   const cH = 0.7, cy = 3.28;
@@ -1521,13 +1553,13 @@ async function rumorsSlide(d) {
   const r3 = label(d, s, 'POLYMARKET · WHICH ONE WILL AN AI LAB ANNOUNCE NEXT? (%)', rx, cy + cH + 0.2, rw, { color: d.S.blue });
   const ds = DS['polymarket-hodge-bsd-daily'];
   const mon = { '09': 'Sep', '10': 'Oct' };
-  const labs = ds.labels.map((l, i) => (i % 7 === 0 ? `${mon[l.slice(5, 7)]} ${+l.slice(8)}` : ''));
+  const labs = ds.labels.map((l) => `${mon[l.slice(5, 7)]} ${+l.slice(8)}`); // every point labelled; tickLblSkip 7 shows Sep 10/17/24, Oct 1
   const pick = ['Hodge Conjecture', 'Birch and Swinnerton-Dyer', 'No solution by Dec 31, 2027'];
   const series = pick.map((nm) => ({ name: nm === 'Hodge Conjecture' ? 'Hodge' : nm === 'Birch and Swinnerton-Dyer' ? 'BSD' : 'None by 2027', labels: labs, values: ds.series.find((x) => x.name === nm).values }));
   const chartY = cy + cH + 0.48;
   const pch = d.chart(s, 'line', series, { x: rx - 0.05, y: chartY, w: rw + 0.05, h: 6.12 - chartY }, {
     chartColors: [HEX.red, HEX.blue, '6B7383'], lineSize: 2.25, lineDataSymbol: 'none', legendPos: 'r', legendFontSize: 11,
-    valAxisMinVal: 0, valAxisMaxVal: 80, valAxisMajorUnit: 20, catAxisLabelFrequency: 6, catAxisLabelRotate: 0,
+    valAxisMinVal: 0, valAxisMaxVal: 80, valAxisMajorUnit: 20, catAxisLabelFrequency: 7, catAxisLabelRotate: 0,
     valAxisLabelFontSize: 10, catAxisLabelFontSize: 10,
   });
   const pfoot = d.text(s, 'Daily price ≈ implied probability · thin market ($214K traded): sentiment, not evidence',

@@ -3185,6 +3185,2685 @@
    "notes": "Title/channel verified via oEmbed only; content and date not reviewed.",
    "verified": true,
    "rev2_source": "robots.json"
+  },
+  {
+   "id": "robotwork-title-block",
+   "slide_topic": "work: robots vs jobs - source card",
+   "type": "screenshot",
+   "file": "rev2/robotwork-title-block.png",
+   "headline": "What work can robots do?",
+   "dek": "Economics · Sep 30, 2026 · Download the PDF",
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Title block of the Anthropic Research page: kicker \"Economics\", title, date Sep 30, 2026, \"Download the PDF\" button",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1520,
+    560
+   ],
+   "highlights": [
+    {
+     "label": "kicker \"Economics\"",
+     "text": "Economics",
+     "bbox": [
+      680,
+      44,
+      160,
+      38
+     ],
+     "lines": [
+      [
+       680,
+       44,
+       160,
+       38
+      ]
+     ]
+    },
+    {
+     "label": "title \"What work can robots do?\"",
+     "text": "What work can robots do?",
+     "bbox": [
+      87,
+      140,
+      1347,
+      130
+     ],
+     "lines": [
+      [
+       87,
+       140,
+       1347,
+       130
+      ]
+     ]
+    },
+    {
+     "label": "date \"Sep 30, 2026\"",
+     "text": "Sep 30, 2026",
+     "bbox": [
+      671,
+      328,
+      178,
+      38
+     ],
+     "lines": [
+      [
+       671,
+       328,
+       178,
+       38
+      ]
+     ]
+    },
+    {
+     "label": "\"Download the PDF\" button",
+     "text": "Download the PDF",
+     "bbox": [
+      630,
+      453,
+      260,
+      38
+     ],
+     "lines": [
+      [
+       630,
+       453,
+       260,
+       38
+      ]
+     ]
+    }
+   ],
+   "notes": "Real screenshot (Playwright via tools/shot.js, DPR 2, viewport 1280 wide; page loaded 2026-10-04) cropped to the clip rectangle. Highlight boxes are in this image's pixel coordinates [x,y,w,h] (line rectangles from DOM Range.getClientRects; add ~3-4px padding for an overlay). Note: the HTML <title>/og:title of the page is \"Can we predict the jobs robots will do?\" while the on-page heading is \"What work can robots do?\" (use the on-page heading; slug is what-work-can-robots-do).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-title-hero",
+   "slide_topic": "work: robots vs jobs - source card",
+   "type": "screenshot",
+   "file": "rev2/robotwork-title-hero.png",
+   "headline": "What work can robots do?",
+   "dek": "Economics · Sep 30, 2026",
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Title block plus the hero illustration (calculator, price tags, machine hall collage) from the top of the page",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1760,
+    1660
+   ],
+   "highlights": [
+    {
+     "label": "kicker \"Economics\"",
+     "text": "Economics",
+     "bbox": [
+      800,
+      44,
+      160,
+      38
+     ],
+     "lines": [
+      [
+       800,
+       44,
+       160,
+       38
+      ]
+     ]
+    },
+    {
+     "label": "title \"What work can robots do?\"",
+     "text": "What work can robots do?",
+     "bbox": [
+      207,
+      140,
+      1347,
+      130
+     ],
+     "lines": [
+      [
+       207,
+       140,
+       1347,
+       130
+      ]
+     ]
+    },
+    {
+     "label": "date \"Sep 30, 2026\"",
+     "text": "Sep 30, 2026",
+     "bbox": [
+      791,
+      328,
+      178,
+      38
+     ],
+     "lines": [
+      [
+       791,
+       328,
+       178,
+       38
+      ]
+     ]
+    },
+    {
+     "label": "hero illustration",
+     "text": "",
+     "bbox": [
+      0,
+      640,
+      1760,
+      990
+     ],
+     "lines": [
+      [
+       0,
+       640,
+       1760,
+       990
+      ]
+     ]
+    }
+   ],
+   "notes": "Real screenshot (Playwright via tools/shot.js, DPR 2, viewport 1280 wide; page loaded 2026-10-04) cropped to the clip rectangle. Highlight boxes are in this image's pixel coordinates [x,y,w,h] (line rectangles from DOM Range.getClientRects; add ~3-4px padding for an overlay). The hero art is decorative (no data); it is the page's own illustration.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-hero-image",
+   "slide_topic": "work: robots vs jobs - decorative",
+   "type": "image",
+   "file": "rev2/robotwork-hero-image.jpg",
+   "headline": null,
+   "dek": null,
+   "outlet": "Anthropic",
+   "author": null,
+   "date": "2026-09-30",
+   "url": "https://www-cdn.anthropic.com/images/4zrzovbb/website/c523800acb2cfb23b8c834b4268d5daef9eafce4-2000x1125.jpg",
+   "caption": "Hero collage for the article (retro calculator, price stickers, 19th-century machine hall); 2000x1125 JPG straight from Anthropic CDN",
+   "quality": 3,
+   "verified": true,
+   "image_size": [
+    2000,
+    1125
+   ],
+   "notes": "Decorative only. The article's og:image is a different 2400x1260 crop: https://www-cdn.anthropic.com/images/4zrzovbb/website/6d4a0d28992ade92d6fa63646fd9c9d318245c6c-2400x1260.jpg",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-key-findings",
+   "slide_topic": "work: key findings",
+   "type": "screenshot",
+   "file": "rev2/robotwork-key-findings.png",
+   "headline": "What work can robots do?",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Key findings (full section): 74%/34%, 80%, 0.3%/40 years, 50-year backtest, 2%/year",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1360,
+    1420
+   ],
+   "highlights": [
+    {
+     "label": "three-quarters of physical tasks / 34% of working hours",
+     "text": "Robots, which we define as autonomous physical machines that sense and act, can perform three-quarters of physical tasks in the US, making up 34% of working hours, but mostly in limited settings.",
+     "bbox": [
+      82,
+      315,
+      1230,
+      147
+     ],
+     "lines": [
+      [
+       82,
+       315,
+       1230,
+       42
+      ],
+      [
+       82,
+       367,
+       1156,
+       42
+      ],
+      [
+       82,
+       420,
+       716,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "workers exposed are male, less educated, lower paid",
+     "text": "Workers exposed to robots are more likely to be male, less educated, and lower paid.",
+     "bbox": [
+      82,
+      420,
+      1200,
+      95
+     ],
+     "lines": [
+      [
+       804,
+       420,
+       478,
+       42
+      ],
+      [
+       82,
+       473,
+       832,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "about 80% exposed to robots or LLMs",
+     "text": "Overall, about 80% of job tasks by working time are exposed to either robots or LLMs.",
+     "bbox": [
+      82,
+      707,
+      1237,
+      95
+     ],
+     "lines": [
+      [
+       82,
+       707,
+       1237,
+       42
+      ],
+      [
+       82,
+       760,
+       100,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "much more expensive than human labor",
+     "text": "While robots can do most physical work tasks today, they are much more expensive than human labor.",
+     "bbox": [
+      82,
+      889,
+      1144,
+      95
+     ],
+     "lines": [
+      [
+       82,
+       889,
+       1144,
+       42
+      ],
+      [
+       82,
+       942,
+       459,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "cost-competitive for just 0.3%",
+     "text": "Robots are cost-competitive for just 0.3% of job tasks.",
+     "bbox": [
+      82,
+      942,
+      1208,
+      95
+     ],
+     "lines": [
+      [
+       548,
+       942,
+       742,
+       42
+      ],
+      [
+       82,
+       995,
+       91,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "40 years to reach 10%",
+     "text": "If robot price declines follow past trends, it will take 40 years for that share to reach 10%.",
+     "bbox": [
+      82,
+      995,
+      1172,
+      95
+     ],
+     "lines": [
+      [
+       179,
+       995,
+       1075,
+       42
+      ],
+      [
+       82,
+       1048,
+       305,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "past 50 years: greater declines in wages and employment",
+     "text": "Over the past 50 years, jobs more exposed to robots experienced greater declines in wages and employment than others.",
+     "bbox": [
+      82,
+      1177,
+      1131,
+      95
+     ],
+     "lines": [
+      [
+       82,
+       1177,
+       1131,
+       42
+      ],
+      [
+       82,
+       1230,
+       751,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "2% of previously impossible physical work per year",
+     "text": "each year, robots have become able to do about 2% of the physical work they previously couldn’t.",
+     "bbox": [
+      82,
+      1282,
+      1226,
+      95
+     ],
+     "lines": [
+      [
+       415,
+       1282,
+       893,
+       42
+      ],
+      [
+       82,
+       1335,
+       619,
+       42
+      ]
+     ]
+    }
+   ],
+   "notes": "Real screenshot (Playwright via tools/shot.js, DPR 2, viewport 1280 wide; page loaded 2026-10-04) cropped to the clip rectangle. Highlight boxes are in this image's pixel coordinates [x,y,w,h] (line rectangles from DOM Range.getClientRects; add ~3-4px padding for an overlay). ",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-kf-bullet-74pct-34pct",
+   "slide_topic": "work: robots can do 3/4 of physical tasks",
+   "type": "screenshot",
+   "file": "rev2/robotwork-kf-bullet-74pct-34pct.png",
+   "headline": "What work can robots do?",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Key-findings bullet: robots can perform three-quarters of physical tasks = 34% of working hours; exposed workers male, less educated, lower paid",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1320,
+    410
+   ],
+   "highlights": [
+    {
+     "label": "three-quarters of physical tasks / 34% of working hours",
+     "text": "Robots, which we define as autonomous physical machines that sense and act, can perform three-quarters of physical tasks in the US, making up 34% of working hours, but mostly in limited settings.",
+     "bbox": [
+      42,
+      25,
+      1230,
+      147
+     ],
+     "lines": [
+      [
+       42,
+       25,
+       1230,
+       42
+      ],
+      [
+       42,
+       77,
+       1156,
+       42
+      ],
+      [
+       42,
+       130,
+       716,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "workers exposed are male, less educated, lower paid",
+     "text": "Workers exposed to robots are more likely to be male, less educated, and lower paid.",
+     "bbox": [
+      42,
+      130,
+      1200,
+      95
+     ],
+     "lines": [
+      [
+       764,
+       130,
+       478,
+       42
+      ],
+      [
+       42,
+       183,
+       832,
+       42
+      ]
+     ]
+    }
+   ],
+   "notes": "Real screenshot (Playwright via tools/shot.js, DPR 2, viewport 1280 wide; page loaded 2026-10-04) cropped to the clip rectangle. Highlight boxes are in this image's pixel coordinates [x,y,w,h] (line rectangles from DOM Range.getClientRects; add ~3-4px padding for an overlay). ",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-kf-bullet-80pct",
+   "slide_topic": "work: robots + LLMs expose ~80%",
+   "type": "screenshot",
+   "file": "rev2/robotwork-kf-bullet-80pct.png",
+   "headline": "What work can robots do?",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Key-findings bullet: about 80% of job tasks by working time exposed to robots or LLMs",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1320,
+    200
+   ],
+   "highlights": [
+    {
+     "label": "about 80% exposed to robots or LLMs",
+     "text": "Overall, about 80% of job tasks by working time are exposed to either robots or LLMs.",
+     "bbox": [
+      42,
+      27,
+      1237,
+      95
+     ],
+     "lines": [
+      [
+       42,
+       27,
+       1237,
+       42
+      ],
+      [
+       42,
+       80,
+       100,
+       42
+      ]
+     ]
+    }
+   ],
+   "notes": "Real screenshot (Playwright via tools/shot.js, DPR 2, viewport 1280 wide; page loaded 2026-10-04) cropped to the clip rectangle. Highlight boxes are in this image's pixel coordinates [x,y,w,h] (line rectangles from DOM Range.getClientRects; add ~3-4px padding for an overlay). ",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-kf-bullet-03pct-40yrs",
+   "slide_topic": "work: cost barrier",
+   "type": "screenshot",
+   "file": "rev2/robotwork-kf-bullet-03pct-40yrs.png",
+   "headline": "What work can robots do?",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Key-findings bullet: cost-competitive for just 0.3% of job tasks; 40 years to reach 10% at past price trends",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1320,
+    304
+   ],
+   "highlights": [
+    {
+     "label": "much more expensive than human labor",
+     "text": "While robots can do most physical work tasks today, they are much more expensive than human labor.",
+     "bbox": [
+      42,
+      25,
+      1144,
+      95
+     ],
+     "lines": [
+      [
+       42,
+       25,
+       1144,
+       42
+      ],
+      [
+       42,
+       78,
+       459,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "cost-competitive for just 0.3%",
+     "text": "Robots are cost-competitive for just 0.3% of job tasks.",
+     "bbox": [
+      42,
+      78,
+      1208,
+      95
+     ],
+     "lines": [
+      [
+       508,
+       78,
+       742,
+       42
+      ],
+      [
+       42,
+       131,
+       91,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "40 years to reach 10%",
+     "text": "If robot price declines follow past trends, it will take 40 years for that share to reach 10%.",
+     "bbox": [
+      42,
+      131,
+      1172,
+      95
+     ],
+     "lines": [
+      [
+       139,
+       131,
+       1075,
+       42
+      ],
+      [
+       42,
+       184,
+       305,
+       42
+      ]
+     ]
+    }
+   ],
+   "notes": "Real screenshot (Playwright via tools/shot.js, DPR 2, viewport 1280 wide; page loaded 2026-10-04) cropped to the clip rectangle. Highlight boxes are in this image's pixel coordinates [x,y,w,h] (line rectangles from DOM Range.getClientRects; add ~3-4px padding for an overlay). ",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-intro-74pct-all-but-one-fifth",
+   "slide_topic": "work: robots + LLMs expose all but one-fifth",
+   "type": "screenshot",
+   "file": "rev2/robotwork-intro-74pct-all-but-one-fifth.png",
+   "headline": "What work can robots do?",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Introduction paragraphs: 74% of physical tasks = 34% of working hours; robots and LLMs expose all but one-fifth of employment; cost-competitive for just 0.3%",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1360,
+    550
+   ],
+   "highlights": [
+    {
+     "label": "74% of physical tasks = 34% of working hours",
+     "text": "We find that robots can already perform 74% of physical tasks in the US, making up 34% of working hours.",
+     "bbox": [
+      40,
+      35,
+      1261,
+      94
+     ],
+     "lines": [
+      [
+       40,
+       35,
+       1261,
+       42
+      ],
+      [
+       40,
+       87,
+       405,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "robots + LLMs expose all but one-fifth",
+     "text": "Robots and LLMs together expose all but one-fifth of employment.",
+     "bbox": [
+      40,
+      87,
+      1244,
+      95
+     ],
+     "lines": [
+      [
+       452,
+       87,
+       832,
+       42
+      ],
+      [
+       40,
+       140,
+       211,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "cost-competitive for just 0.3% of work",
+     "text": "But we also find significant barriers to adoption: most robots require highly structured environments, and are cost-competitive with people for just 0.3% of work.",
+     "bbox": [
+      40,
+      225,
+      1240,
+      147
+     ],
+     "lines": [
+      [
+       40,
+       225,
+       1181,
+       42
+      ],
+      [
+       40,
+       277,
+       1240,
+       42
+      ],
+      [
+       40,
+       330,
+       89,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "40 years to reach just 10%",
+     "text": "If robot price declines follow past trends, it will take 40 years for that share to reach just 10%.",
+     "bbox": [
+      40,
+      330,
+      1266,
+      95
+     ],
+     "lines": [
+      [
+       136,
+       330,
+       1170,
+       42
+      ],
+      [
+       40,
+       383,
+       276,
+       42
+      ]
+     ]
+    }
+   ],
+   "notes": "Real screenshot (Playwright via tools/shot.js, DPR 2, viewport 1280 wide; page loaded 2026-10-04) cropped to the clip rectangle. Highlight boxes are in this image's pixel coordinates [x,y,w,h] (line rectangles from DOM Range.getClientRects; add ~3-4px padding for an overlay). ",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-scenarios-2085-2050-53yrs",
+   "slide_topic": "work: timelines",
+   "type": "screenshot",
+   "file": "rev2/robotwork-scenarios-2085-2050-53yrs.png",
+   "headline": "What work can robots do?",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Cost-adoption scenarios paragraph: 50% of physical work cost-competitive by 2085 (3%/yr) vs 2050 (fast); 90% still takes 53 years",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1360,
+    370
+   ],
+   "highlights": [
+    {
+     "label": "half of physical work cost-competitive only by 2085 (3%/yr)",
+     "text": "Adding in 3% cost declines per year, robots aren’t cost-competitive for half of physical work today until 2085.",
+     "bbox": [
+      40,
+      31,
+      1210,
+      94
+     ],
+     "lines": [
+      [
+       40,
+       31,
+       1210,
+       42
+      ],
+      [
+       40,
+       83,
+       490,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "fast scenario: half of physical work by 2050",
+     "text": "In a fast adoption scenario, where quality-adjusted costs fall up to four times faster and robots become able to do new tasks twice as fast, robots become cost-competitive for half of physical work by 2050.",
+     "bbox": [
+      40,
+      136,
+      1247,
+      148
+     ],
+     "lines": [
+      [
+       296,
+       136,
+       991,
+       42
+      ],
+      [
+       40,
+       189,
+       1247,
+       42
+      ],
+      [
+       40,
+       242,
+       927,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "90% of physical work still takes 53 years",
+     "text": "Automating 90% of physical work today still takes 53 years.",
+     "bbox": [
+      40,
+      242,
+      1244,
+      94
+     ],
+     "lines": [
+      [
+       974,
+       242,
+       310,
+       42
+      ],
+      [
+       40,
+       294,
+       619,
+       42
+      ]
+     ]
+    }
+   ],
+   "notes": "Real screenshot (Playwright via tools/shot.js, DPR 2, viewport 1280 wide; page loaded 2026-10-04) cropped to the clip rectangle. Highlight boxes are in this image's pixel coordinates [x,y,w,h] (line rectangles from DOM Range.getClientRects; add ~3-4px padding for an overlay). ",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-cost-competitive-03pct-70pct-40yrs",
+   "slide_topic": "work: cost barrier",
+   "type": "screenshot",
+   "file": "rev2/robotwork-cost-competitive-03pct-70pct-40yrs.png",
+   "headline": "What work can robots do?",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Robot-costs section: 34% of work time can be done but only 0.3% cost-competitive; costs must fall ~70% for 10%; ~40 years at 3%/yr",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1360,
+    660
+   ],
+   "highlights": [
+    {
+     "label": "34% can be done, cost-competitive for just 0.3%",
+     "text": "Though robots can theoretically do tasks that add up to 34% of all work time, they are cost-competitive for just 0.3% today.",
+     "bbox": [
+      40,
+      31,
+      1208,
+      95
+     ],
+     "lines": [
+      [
+       40,
+       31,
+       1208,
+       42
+      ],
+      [
+       40,
+       84,
+       710,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "10% of human work needs ~70% cost decline",
+     "text": "For robots to be cost-competitive for 10% of human work today, costs would need to decline about 70%.",
+     "bbox": [
+      40,
+      327,
+      1278,
+      94
+     ],
+     "lines": [
+      [
+       40,
+       327,
+       1278,
+       42
+      ],
+      [
+       40,
+       379,
+       338,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "at 3%/yr about 40 years",
+     "text": "At a 3% decline per year, that would take around 40 years.",
+     "bbox": [
+      385,
+      379,
+      910,
+      42
+     ],
+     "lines": [
+      [
+       385,
+       379,
+       910,
+       42
+      ]
+     ]
+    }
+   ],
+   "notes": "Real screenshot (Playwright via tools/shot.js, DPR 2, viewport 1280 wide; page loaded 2026-10-04) cropped to the clip rectangle. Highlight boxes are in this image's pixel coordinates [x,y,w,h] (line rectangles from DOM Range.getClientRects; add ~3-4px padding for an overlay). ",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-packers-cost-competitive",
+   "slide_topic": "work: packers are first",
+   "type": "screenshot",
+   "file": "rev2/robotwork-packers-cost-competitive.png",
+   "headline": "What work can robots do?",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Packers and packagers: largest occupation exposed to cost-competitive robots; >$2M robots replace ~14 workers; ~$45,000 vs ~$49,000 per year",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1360,
+    670
+   ],
+   "highlights": [
+    {
+     "label": "packers and packagers largest cost-competitive occupation",
+     "text": "Packers and packagers are the largest occupation exposed to cost-competitive robots.",
+     "bbox": [
+      40,
+      78,
+      1275,
+      94
+     ],
+     "lines": [
+      [
+       360,
+       78,
+       955,
+       42
+      ],
+      [
+       40,
+       130,
+       384,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "robots cost >$2 million to install, replace ~14 workers",
+     "text": "These robots are estimated to cost over $2 million to purchase and install, but replace the yearly work of around 14 workers.",
+     "bbox": [
+      40,
+      288,
+      1225,
+      95
+     ],
+     "lines": [
+      [
+       226,
+       288,
+       1039,
+       42
+      ],
+      [
+       40,
+       341,
+       889,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "robots cost about $2,500 less per year",
+     "text": "Since packers and packagers spend 97% of their time on tasks that robots can do and cost around $49,000, robots cost about $2,500 less per year to do that work.",
+     "bbox": [
+      40,
+      499,
+      1215,
+      147
+     ],
+     "lines": [
+      [
+       1036,
+       499,
+       219,
+       42
+      ],
+      [
+       40,
+       552,
+       1179,
+       42
+      ],
+      [
+       40,
+       604,
+       1109,
+       42
+      ]
+     ]
+    }
+   ],
+   "notes": "Real screenshot (Playwright via tools/shot.js, DPR 2, viewport 1280 wide; page loaded 2026-10-04) cropped to the clip rectangle. Highlight boxes are in this image's pixel coordinates [x,y,w,h] (line rectangles from DOM Range.getClientRects; add ~3-4px padding for an overlay). ",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-taxi-drivers-most-exposed",
+   "slide_topic": "work: driving jobs most exposed",
+   "type": "screenshot",
+   "file": "rev2/robotwork-taxi-drivers-most-exposed.png",
+   "headline": "What work can robots do?",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Most exposed occupations: 9 of top 10 are vehicle operators; taxi drivers lead with index 2.2",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1360,
+    510
+   ],
+   "highlights": [
+    {
+     "label": "9 of the 10 most exposed occupations are vehicle operators",
+     "text": "Of these 10 occupations, 9 are vehicle operators.",
+     "bbox": [
+      40,
+      27,
+      1275,
+      95
+     ],
+     "lines": [
+      [
+       1275,
+       27,
+       40,
+       42
+      ],
+      [
+       40,
+       80,
+       709,
+       42
+      ]
+     ]
+    },
+    {
+     "label": "taxi drivers lead exposure with an index of 2.2",
+     "text": "Taxi drivers lead exposure with an index of 2.2.",
+     "bbox": [
+      40,
+      133,
+      1266,
+      94
+     ],
+     "lines": [
+      [
+       890,
+       133,
+       416,
+       42
+      ],
+      [
+       40,
+       185,
+       313,
+       42
+      ]
+     ]
+    }
+   ],
+   "notes": "Real screenshot (Playwright via tools/shot.js, DPR 2, viewport 1280 wide; page loaded 2026-10-04) cropped to the clip rectangle. Highlight boxes are in this image's pixel coordinates [x,y,w,h] (line rectangles from DOM Range.getClientRects; add ~3-4px padding for an overlay). ",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-fig1-exposure-rubric-chart",
+   "slide_topic": "work: how exposure is scored",
+   "type": "chart",
+   "file": "rev2/robotwork-fig1-exposure-rubric-chart.png",
+   "headline": "Figure 1: Task robot exposure rubric",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Rubric E0-E3: cannot perform / purpose-built robotic work environment (factory assembly line) / structured human work facility (logistics warehouse) / unstructured environment (city road).",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    7680,
+    2792
+   ],
+   "highlights": [],
+   "notes": "Original figure image downloaded from Anthropic CDN at full resolution (no edits). Chart fill is warm grey/white - use an unframed white frame on the dark slide.",
+   "source_image_url": "https://cdn.sanity.io/images/4zrzovbb/website/fbed704c01c8149969125dcab143c9baf921ed76-7680x2792.png",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-fig1-exposure-rubric-page",
+   "slide_topic": "work: how exposure is scored",
+   "type": "screenshot",
+   "file": "rev2/robotwork-fig1-exposure-rubric-page.png",
+   "headline": "Figure 1: Task robot exposure rubric",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Rubric E0-E3: cannot perform / purpose-built robotic work environment (factory assembly line) / structured human work facility (logistics warehouse) / unstructured environment (city road). (page screenshot incl. figure caption)",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1280,
+    618
+   ],
+   "highlights": [],
+   "notes": "Real screenshot of the <figure> element on the live page (Playwright, DPR 2; waits for lazy-loaded image) incl. the official caption text below the figure.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-fig2-example-task-ratings-chart",
+   "slide_topic": "work: how exposure is scored",
+   "type": "chart",
+   "file": "rev2/robotwork-fig2-example-task-ratings-chart.png",
+   "headline": "Figure 2: Example task exposure ratings",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Share of physical tasks by tier E0 26.3%, E1 49.8%, E2 22.0%, E3 1.9%, with example occupations, tasks and cited robots (Chef Robotics, Fori Automation, Simbe, Relay Robotics, Waymo, John Deere).",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    8192,
+    7970
+   ],
+   "highlights": [
+    {
+     "label": "Share of physical tasks column (26.3 / 49.8 / 22.0 / 1.9)",
+     "bbox": [
+      2166,
+      1188,
+      763,
+      6646
+     ],
+     "norm": [
+      0.2644,
+      0.149,
+      0.0931,
+      0.8338
+     ]
+    },
+    {
+     "label": "E3 1.9%",
+     "bbox": [
+      2406,
+      6364,
+      486,
+      174
+     ],
+     "norm": [
+      0.2938,
+      0.7985,
+      0.0594,
+      0.0218
+     ]
+    }
+   ],
+   "notes": "Original figure image downloaded from Anthropic CDN at full resolution (no edits). Chart fill is warm grey/white - use an unframed white frame on the dark slide. Highlight boxes are approximate (positions read off the figure at 1600 px width and scaled; +-6 px at that scale).",
+   "source_image_url": "https://cdn.sanity.io/images/4zrzovbb/website/7e4a470ece0ef2f1ea39accbdc67bed943dcc198-9600x9340.png",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-fig2-example-task-ratings-page",
+   "slide_topic": "work: how exposure is scored",
+   "type": "screenshot",
+   "file": "rev2/robotwork-fig2-example-task-ratings-page.png",
+   "headline": "Figure 2: Example task exposure ratings",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Share of physical tasks by tier E0 26.3%, E1 49.8%, E2 22.0%, E3 1.9%, with example occupations, tasks and cited robots (Chef Robotics, Fori Automation, Simbe, Relay Robotics, Waymo, John Deere). (page screenshot incl. figure caption)",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1280,
+    1532
+   ],
+   "highlights": [
+    {
+     "label": "Share of physical tasks column (26.3 / 49.8 / 22.0 / 1.9)",
+     "bbox": [
+      338,
+      186,
+      119,
+      1038
+     ],
+     "norm": [
+      0.2644,
+      0.1211,
+      0.0931,
+      0.6778
+     ]
+    },
+    {
+     "label": "E3 1.9%",
+     "bbox": [
+      376,
+      994,
+      76,
+      27
+     ],
+     "norm": [
+      0.2938,
+      0.6491,
+      0.0594,
+      0.0178
+     ]
+    }
+   ],
+   "notes": "Real screenshot of the <figure> element on the live page (Playwright, DPR 2; waits for lazy-loaded image) incl. the official caption text below the figure. Highlight boxes are approximate (positions read off the figure at 1600 px width and scaled; +-6 px at that scale).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-fig3-job-tasks-by-robot-exposure-chart",
+   "slide_topic": "work: headline chart",
+   "type": "chart",
+   "file": "rev2/robotwork-fig3-job-tasks-by-robot-exposure-chart.png",
+   "headline": "Figure 3: Job tasks by robot exposure",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Bar chart: US job tasks by working time - cognitive & interpersonal 54%, E0 12%, E1 23%, E2 10%, E3 1% (74% of physical work = 34% of all work is robot-doable).",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    7680,
+    4480
+   ],
+   "highlights": [
+    {
+     "label": "E3 unstructured environment: 1%",
+     "bbox": [
+      6168,
+      3000,
+      888,
+      288
+     ],
+     "norm": [
+      0.8031,
+      0.6696,
+      0.1156,
+      0.0643
+     ]
+    },
+    {
+     "label": "E1 purpose-built environment: 23%",
+     "bbox": [
+      3696,
+      2184,
+      864,
+      1104
+     ],
+     "norm": [
+      0.4813,
+      0.4875,
+      0.1125,
+      0.2464
+     ]
+    },
+    {
+     "label": "E2 structured human work facility: 10%",
+     "bbox": [
+      4944,
+      2640,
+      840,
+      624
+     ],
+     "norm": [
+      0.6438,
+      0.5893,
+      0.1094,
+      0.1393
+     ]
+    },
+    {
+     "label": "E0 not doable by any robot: 12%",
+     "bbox": [
+      2472,
+      2592,
+      840,
+      672
+     ],
+     "norm": [
+      0.3219,
+      0.5786,
+      0.1094,
+      0.15
+     ]
+    },
+    {
+     "label": "Cognitive and interpersonal: 54%",
+     "bbox": [
+      1224,
+      1032,
+      840,
+      2256
+     ],
+     "norm": [
+      0.1594,
+      0.2304,
+      0.1094,
+      0.5036
+     ]
+    },
+    {
+     "label": "E1+E2+E3 bars (work robots can do = 34%)",
+     "bbox": [
+      3696,
+      2184,
+      3360,
+      1104
+     ],
+     "norm": [
+      0.4813,
+      0.4875,
+      0.4375,
+      0.2464
+     ]
+    }
+   ],
+   "notes": "Original figure image downloaded from Anthropic CDN at full resolution (no edits). Chart fill is warm grey/white - use an unframed white frame on the dark slide. Highlight boxes are approximate (positions read off the figure at 1600 px width and scaled; +-6 px at that scale).",
+   "source_image_url": "https://cdn.sanity.io/images/4zrzovbb/website/1dfbdcd3ec1d2f240502194d008e9cc66ec2f364-7680x4480.png",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-fig3-job-tasks-by-robot-exposure-page",
+   "slide_topic": "work: headline chart",
+   "type": "screenshot",
+   "file": "rev2/robotwork-fig3-job-tasks-by-robot-exposure-page.png",
+   "headline": "Figure 3: Job tasks by robot exposure",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Bar chart: US job tasks by working time - cognitive & interpersonal 54%, E0 12%, E1 23%, E2 10%, E3 1% (74% of physical work = 34% of all work is robot-doable). (page screenshot incl. figure caption)",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1280,
+    1100
+   ],
+   "highlights": [
+    {
+     "label": "E3 unstructured environment: 1%",
+     "bbox": [
+      1028,
+      500,
+      148,
+      48
+     ],
+     "norm": [
+      0.8031,
+      0.4545,
+      0.1156,
+      0.0436
+     ]
+    },
+    {
+     "label": "E1 purpose-built environment: 23%",
+     "bbox": [
+      616,
+      364,
+      144,
+      184
+     ],
+     "norm": [
+      0.4813,
+      0.3309,
+      0.1125,
+      0.1673
+     ]
+    },
+    {
+     "label": "E2 structured human work facility: 10%",
+     "bbox": [
+      824,
+      440,
+      140,
+      104
+     ],
+     "norm": [
+      0.6438,
+      0.4,
+      0.1094,
+      0.0945
+     ]
+    },
+    {
+     "label": "E0 not doable by any robot: 12%",
+     "bbox": [
+      412,
+      432,
+      140,
+      112
+     ],
+     "norm": [
+      0.3219,
+      0.3927,
+      0.1094,
+      0.1018
+     ]
+    },
+    {
+     "label": "Cognitive and interpersonal: 54%",
+     "bbox": [
+      204,
+      172,
+      140,
+      376
+     ],
+     "norm": [
+      0.1594,
+      0.1564,
+      0.1094,
+      0.3418
+     ]
+    },
+    {
+     "label": "E1+E2+E3 bars (work robots can do = 34%)",
+     "bbox": [
+      616,
+      364,
+      560,
+      184
+     ],
+     "norm": [
+      0.4813,
+      0.3309,
+      0.4375,
+      0.1673
+     ]
+    }
+   ],
+   "notes": "Real screenshot of the <figure> element on the live page (Playwright, DPR 2; waits for lazy-loaded image) incl. the official caption text below the figure. Highlight boxes are approximate (positions read off the figure at 1600 px width and scaled; +-6 px at that scale).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-fig4-most-exposed-occupations-chart",
+   "slide_topic": "work: driving jobs most exposed",
+   "type": "chart",
+   "file": "rev2/robotwork-fig4-most-exposed-occupations-chart.png",
+   "headline": "Figure 4: Most exposed occupations",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Table of the 10 most exposed occupations (>=20,000 jobs): taxi drivers 2.2 ... excavating/loading machine operators 1.6, with employment, example task, E-level and cited system (Waymo, John Deere, Gatik, Fox Robotics, XCMG, McNeilus, AMP, Sandvik).",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    7680,
+    7672
+   ],
+   "highlights": [
+    {
+     "label": "Taxi drivers row: exposure 2.2",
+     "bbox": [
+      144,
+      1176,
+      7392,
+      470
+     ],
+     "norm": [
+      0.0187,
+      0.1533,
+      0.9625,
+      0.0613
+     ]
+    },
+    {
+     "label": "Exposure column (0-3)",
+     "bbox": [
+      1421,
+      1176,
+      653,
+      6350
+     ],
+     "norm": [
+      0.185,
+      0.1533,
+      0.085,
+      0.8277
+     ]
+    },
+    {
+     "label": "Top-5 rows (taxi, agricultural, light truck, shuttle, industrial truck)",
+     "bbox": [
+      144,
+      1176,
+      7392,
+      3240
+     ],
+     "norm": [
+      0.0187,
+      0.1533,
+      0.9625,
+      0.4223
+     ]
+    }
+   ],
+   "notes": "Original figure image downloaded from Anthropic CDN at full resolution (no edits). Chart fill is warm grey/white - use an unframed white frame on the dark slide. Highlight boxes are approximate (positions read off the figure at 1600 px width and scaled; +-6 px at that scale).",
+   "source_image_url": "https://cdn.sanity.io/images/4zrzovbb/website/889fc5dfe3ba1248a3edd7529060d9d3c0b3683c-7680x7672.png",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-fig4-most-exposed-occupations-page",
+   "slide_topic": "work: driving jobs most exposed",
+   "type": "screenshot",
+   "file": "rev2/robotwork-fig4-most-exposed-occupations-page.png",
+   "headline": "Figure 4: Most exposed occupations",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Table of the 10 most exposed occupations (>=20,000 jobs): taxi drivers 2.2 ... excavating/loading machine operators 1.6, with employment, example task, E-level and cited system (Waymo, John Deere, Gatik, Fox Robotics, XCMG, McNeilus, AMP, Sandvik). (page screenshot incl. figure caption)",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1280,
+    1634
+   ],
+   "highlights": [
+    {
+     "label": "Taxi drivers row: exposure 2.2",
+     "bbox": [
+      24,
+      196,
+      1232,
+      78
+     ],
+     "norm": [
+      0.0187,
+      0.12,
+      0.9625,
+      0.048
+     ]
+    },
+    {
+     "label": "Exposure column (0-3)",
+     "bbox": [
+      237,
+      196,
+      109,
+      1058
+     ],
+     "norm": [
+      0.185,
+      0.12,
+      0.085,
+      0.6477
+     ]
+    },
+    {
+     "label": "Top-5 rows (taxi, agricultural, light truck, shuttle, industrial truck)",
+     "bbox": [
+      24,
+      196,
+      1232,
+      540
+     ],
+     "norm": [
+      0.0187,
+      0.12,
+      0.9625,
+      0.3305
+     ]
+    }
+   ],
+   "notes": "Real screenshot of the <figure> element on the live page (Playwright, DPR 2; waits for lazy-loaded image) incl. the official caption text below the figure. Highlight boxes are approximate (positions read off the figure at 1600 px width and scaled; +-6 px at that scale).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-fig5-occupation-characteristics-chart",
+   "slide_topic": "work: who is exposed",
+   "type": "chart",
+   "file": "rev2/robotwork-fig5-occupation-characteristics-chart.png",
+   "headline": "Figure 5: Occupation characteristics by robot exposure",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Table: unexposed vs most-exposed (top quintile) workers - female 51.2% vs 31.2%, bachelor's 63.2% vs 8.3%, unemployment 2.2% vs 5.2%, hourly wage $52.97 vs $22.88, etc.",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    6727,
+    8192
+   ],
+   "highlights": [
+    {
+     "label": "Female: 51.2% vs 31.2%",
+     "bbox": [
+      126,
+      1644,
+      6475,
+      299
+     ],
+     "norm": [
+      0.0187,
+      0.2007,
+      0.9625,
+      0.0364
+     ]
+    },
+    {
+     "label": "Bachelor's degree or higher: 63.2% vs 8.3%",
+     "bbox": [
+      126,
+      4057,
+      6475,
+      294
+     ],
+     "norm": [
+      0.0187,
+      0.4953,
+      0.9625,
+      0.0359
+     ]
+    },
+    {
+     "label": "Unemployment rate: 2.2% vs 5.2%",
+     "bbox": [
+      126,
+      4793,
+      6475,
+      294
+     ],
+     "norm": [
+      0.0187,
+      0.5851,
+      0.9625,
+      0.0359
+     ]
+    },
+    {
+     "label": "Hourly wage: $52.97 vs $22.88",
+     "bbox": [
+      126,
+      5394,
+      6475,
+      294
+     ],
+     "norm": [
+      0.0187,
+      0.6585,
+      0.9625,
+      0.0359
+     ]
+    }
+   ],
+   "notes": "Original figure image downloaded from Anthropic CDN at full resolution (no edits). Chart fill is warm grey/white - use an unframed white frame on the dark slide. Highlight boxes are approximate (positions read off the figure at 1600 px width and scaled; +-6 px at that scale).",
+   "source_image_url": "https://cdn.sanity.io/images/4zrzovbb/website/2a9afdd7a01a1828aa3e93c0c0678fa525e74b50-7680x9352.png",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-fig5-occupation-characteristics-page",
+   "slide_topic": "work: who is exposed",
+   "type": "screenshot",
+   "file": "rev2/robotwork-fig5-occupation-characteristics-page.png",
+   "headline": "Figure 5: Occupation characteristics by robot exposure",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Table: unexposed vs most-exposed (top quintile) workers - female 51.2% vs 31.2%, bachelor's 63.2% vs 8.3%, unemployment 2.2% vs 5.2%, hourly wage $52.97 vs $22.88, etc. (page screenshot incl. figure caption)",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1280,
+    1844
+   ],
+   "highlights": [
+    {
+     "label": "Female: 51.2% vs 31.2%",
+     "bbox": [
+      24,
+      313,
+      1232,
+      57
+     ],
+     "norm": [
+      0.0187,
+      0.1696,
+      0.9625,
+      0.0308
+     ]
+    },
+    {
+     "label": "Bachelor's degree or higher: 63.2% vs 8.3%",
+     "bbox": [
+      24,
+      772,
+      1232,
+      56
+     ],
+     "norm": [
+      0.0187,
+      0.4187,
+      0.9625,
+      0.0304
+     ]
+    },
+    {
+     "label": "Unemployment rate: 2.2% vs 5.2%",
+     "bbox": [
+      24,
+      912,
+      1232,
+      56
+     ],
+     "norm": [
+      0.0187,
+      0.4946,
+      0.9625,
+      0.0304
+     ]
+    },
+    {
+     "label": "Hourly wage: $52.97 vs $22.88",
+     "bbox": [
+      24,
+      1026,
+      1232,
+      56
+     ],
+     "norm": [
+      0.0187,
+      0.5566,
+      0.9625,
+      0.0304
+     ]
+    }
+   ],
+   "notes": "Real screenshot of the <figure> element on the live page (Playwright, DPR 2; waits for lazy-loaded image) incl. the official caption text below the figure. Highlight boxes are approximate (positions read off the figure at 1600 px width and scaled; +-6 px at that scale).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-fig6-llm-and-robot-exposure-radar-chart",
+   "slide_topic": "work: robots broaden exposure beyond LLMs",
+   "type": "chart",
+   "file": "rev2/robotwork-fig6-llm-and-robot-exposure-radar-chart.png",
+   "headline": "Figure 6: LLM and robot exposure by occupation group",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Radar chart over 22 occupation groups: blue = LLM exposure, orange = LLM and robot exposure (overall ~half of work to LLMs alone vs 81% with robots).",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    7680,
+    6100
+   ],
+   "highlights": [
+    {
+     "label": "Transportation & moving spoke (13% LLM-only vs 91% with robots, digitized)",
+     "bbox": [
+      3312,
+      1296,
+      720,
+      2064
+     ],
+     "norm": [
+      0.4313,
+      0.2125,
+      0.0938,
+      0.3384
+     ]
+    },
+    {
+     "label": "Protective service spoke (31% vs 61%, stated in caption)",
+     "bbox": [
+      3816,
+      3864,
+      384,
+      840
+     ],
+     "norm": [
+      0.4969,
+      0.6334,
+      0.05,
+      0.1377
+     ]
+    },
+    {
+     "label": "Office & admin support spoke",
+     "bbox": [
+      1824,
+      3480,
+      360,
+      288
+     ],
+     "norm": [
+      0.2375,
+      0.5705,
+      0.0469,
+      0.0472
+     ]
+    },
+    {
+     "label": "Legend",
+     "bbox": [
+      264,
+      802,
+      1824,
+      432
+     ],
+     "norm": [
+      0.0344,
+      0.1314,
+      0.2375,
+      0.0708
+     ]
+    }
+   ],
+   "notes": "Original figure image downloaded from Anthropic CDN at full resolution (no edits). Chart fill is warm grey/white - use an unframed white frame on the dark slide. Highlight boxes are approximate (positions read off the figure at 1600 px width and scaled; +-6 px at that scale).",
+   "source_image_url": "https://cdn.sanity.io/images/4zrzovbb/website/146ef52307f5d8526d5280a631fe8e1b6d605c47-7680x6100.png",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-fig6-llm-and-robot-exposure-radar-page",
+   "slide_topic": "work: robots broaden exposure beyond LLMs",
+   "type": "screenshot",
+   "file": "rev2/robotwork-fig6-llm-and-robot-exposure-page.png",
+   "headline": "Figure 6: LLM and robot exposure by occupation group",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Radar chart over 22 occupation groups: blue = LLM exposure, orange = LLM and robot exposure (overall ~half of work to LLMs alone vs 81% with robots). (page screenshot incl. figure caption)",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1280,
+    1270
+   ],
+   "highlights": [
+    {
+     "label": "Transportation & moving spoke (13% LLM-only vs 91% with robots, digitized)",
+     "bbox": [
+      552,
+      216,
+      120,
+      344
+     ],
+     "norm": [
+      0.4313,
+      0.1701,
+      0.0938,
+      0.2709
+     ]
+    },
+    {
+     "label": "Protective service spoke (31% vs 61%, stated in caption)",
+     "bbox": [
+      636,
+      644,
+      64,
+      140
+     ],
+     "norm": [
+      0.4969,
+      0.5071,
+      0.05,
+      0.1102
+     ]
+    },
+    {
+     "label": "Office & admin support spoke",
+     "bbox": [
+      304,
+      580,
+      60,
+      48
+     ],
+     "norm": [
+      0.2375,
+      0.4567,
+      0.0469,
+      0.0378
+     ]
+    },
+    {
+     "label": "Legend",
+     "bbox": [
+      44,
+      134,
+      304,
+      72
+     ],
+     "norm": [
+      0.0344,
+      0.1052,
+      0.2375,
+      0.0567
+     ]
+    }
+   ],
+   "notes": "Real screenshot of the <figure> element on the live page (Playwright, DPR 2; waits for lazy-loaded image) incl. the official caption text below the figure. Highlight boxes are approximate (positions read off the figure at 1600 px width and scaled; +-6 px at that scale).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-fig7-robot-costs-physical-occupations-chart",
+   "slide_topic": "work: cost barrier",
+   "type": "chart",
+   "file": "rev2/robotwork-fig7-robot-costs-physical-occupations-chart.png",
+   "headline": "Figure 7: Robot costs for physical occupations",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Table: robot annual cost vs median compensation for packers (cost-competitive), taxi drivers, dishwashers, janitors, welders.",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    7680,
+    5552
+   ],
+   "highlights": [
+    {
+     "label": "Packers and packagers row (cost-competitive)",
+     "bbox": [
+      144,
+      1478,
+      7392,
+      691
+     ],
+     "norm": [
+      0.0187,
+      0.2663,
+      0.9625,
+      0.1245
+     ]
+    },
+    {
+     "label": "Taxi drivers row (not cost-competitive)",
+     "bbox": [
+      960,
+      2179,
+      6576,
+      533
+     ],
+     "norm": [
+      0.125,
+      0.3925,
+      0.8562,
+      0.096
+     ]
+    },
+    {
+     "label": "Annual robot cost: total column",
+     "bbox": [
+      4464,
+      1090,
+      605,
+      4310
+     ],
+     "norm": [
+      0.5813,
+      0.1963,
+      0.0788,
+      0.7764
+     ]
+    }
+   ],
+   "notes": "Original figure image downloaded from Anthropic CDN at full resolution (no edits). Chart fill is warm grey/white - use an unframed white frame on the dark slide. Highlight boxes are approximate (positions read off the figure at 1600 px width and scaled; +-6 px at that scale).",
+   "source_image_url": "https://cdn.sanity.io/images/4zrzovbb/website/dbca7308b6610e35e49fb4ffdc6d948277e7c3a1-7680x5552.png",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-fig7-robot-costs-physical-occupations-page",
+   "slide_topic": "work: cost barrier",
+   "type": "screenshot",
+   "file": "rev2/robotwork-fig7-robot-costs-physical-occupations-page.png",
+   "headline": "Figure 7: Robot costs for physical occupations",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Table: robot annual cost vs median compensation for packers (cost-competitive), taxi drivers, dishwashers, janitors, welders. (page screenshot incl. figure caption)",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1280,
+    1144
+   ],
+   "highlights": [
+    {
+     "label": "Packers and packagers row (cost-competitive)",
+     "bbox": [
+      24,
+      246,
+      1232,
+      115
+     ],
+     "norm": [
+      0.0187,
+      0.2154,
+      0.9625,
+      0.1007
+     ]
+    },
+    {
+     "label": "Taxi drivers row (not cost-competitive)",
+     "bbox": [
+      160,
+      363,
+      1096,
+      89
+     ],
+     "norm": [
+      0.125,
+      0.3175,
+      0.8562,
+      0.0776
+     ]
+    },
+    {
+     "label": "Annual robot cost: total column",
+     "bbox": [
+      744,
+      182,
+      101,
+      718
+     ],
+     "norm": [
+      0.5813,
+      0.1587,
+      0.0788,
+      0.628
+     ]
+    }
+   ],
+   "notes": "Real screenshot of the <figure> element on the live page (Playwright, DPR 2; waits for lazy-loaded image) incl. the official caption text below the figure. Highlight boxes are approximate (positions read off the figure at 1600 px width and scaled; +-6 px at that scale).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-fig8-work-exposed-under-cost-declines-chart",
+   "slide_topic": "work: cost barrier / timelines",
+   "type": "chart",
+   "file": "rev2/robotwork-fig8-work-exposed-under-cost-declines-chart.png",
+   "headline": "Figure 8: Work exposed under hypothetical robot cost declines",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Curve: share of all US job tasks for which robots cost less than labor vs hypothetical robot cost decline (0-100%); dashed lines at 34% (work robots can do today) and ~46% (all physical work).",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    7680,
+    4320
+   ],
+   "highlights": [
+    {
+     "label": "Packers and packagers, hand: cost-competitive today (0.3% of all tasks)",
+     "bbox": [
+      1114,
+      2736,
+      1824,
+      768
+     ],
+     "norm": [
+      0.145,
+      0.6333,
+      0.2375,
+      0.1778
+     ]
+    },
+    {
+     "label": "Work robots can do today (34%) dashed line + label",
+     "bbox": [
+      1176,
+      1704,
+      5928,
+      240
+     ],
+     "norm": [
+      0.1531,
+      0.3944,
+      0.7719,
+      0.0556
+     ]
+    },
+    {
+     "label": "All physical work (46%) dashed line + label",
+     "bbox": [
+      1176,
+      1094,
+      5928,
+      230
+     ],
+     "norm": [
+      0.1531,
+      0.2533,
+      0.7719,
+      0.0533
+     ]
+    },
+    {
+     "label": "Janitors and cleaners marker (needs ~88% cost decline)",
+     "bbox": [
+      6216,
+      1968,
+      264,
+      264
+     ],
+     "norm": [
+      0.8094,
+      0.4556,
+      0.0344,
+      0.0611
+     ]
+    }
+   ],
+   "notes": "Original figure image downloaded from Anthropic CDN at full resolution (no edits). Chart fill is warm grey/white - use an unframed white frame on the dark slide. Highlight boxes are approximate (positions read off the figure at 1600 px width and scaled; +-6 px at that scale).",
+   "source_image_url": "https://cdn.sanity.io/images/4zrzovbb/website/a010c2b04ed72ac124d232ae06dbacfbd8fb24d8-7680x4320.png",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-fig8-work-exposed-under-cost-declines-page",
+   "slide_topic": "work: cost barrier / timelines",
+   "type": "screenshot",
+   "file": "rev2/robotwork-fig8-work-exposed-under-cost-declines-page.png",
+   "headline": "Figure 8: Work exposed under hypothetical robot cost declines",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Curve: share of all US job tasks for which robots cost less than labor vs hypothetical robot cost decline (0-100%); dashed lines at 34% (work robots can do today) and ~46% (all physical work). (page screenshot incl. figure caption)",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1280,
+    1108
+   ],
+   "highlights": [
+    {
+     "label": "Packers and packagers, hand: cost-competitive today (0.3% of all tasks)",
+     "bbox": [
+      186,
+      456,
+      304,
+      128
+     ],
+     "norm": [
+      0.145,
+      0.4116,
+      0.2375,
+      0.1155
+     ]
+    },
+    {
+     "label": "Work robots can do today (34%) dashed line + label",
+     "bbox": [
+      196,
+      284,
+      988,
+      40
+     ],
+     "norm": [
+      0.1531,
+      0.2563,
+      0.7719,
+      0.0361
+     ]
+    },
+    {
+     "label": "All physical work (46%) dashed line + label",
+     "bbox": [
+      196,
+      182,
+      988,
+      38
+     ],
+     "norm": [
+      0.1531,
+      0.1646,
+      0.7719,
+      0.0347
+     ]
+    },
+    {
+     "label": "Janitors and cleaners marker (needs ~88% cost decline)",
+     "bbox": [
+      1036,
+      328,
+      44,
+      44
+     ],
+     "norm": [
+      0.8094,
+      0.296,
+      0.0344,
+      0.0397
+     ]
+    }
+   ],
+   "notes": "Real screenshot of the <figure> element on the live page (Playwright, DPR 2; waits for lazy-loaded image) incl. the official caption text below the figure. Highlight boxes are approximate (positions read off the figure at 1600 px width and scaled; +-6 px at that scale).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-appendix-fig4-job-tasks-by-exposure-over-time",
+   "slide_topic": "work: robots improving 2%/yr",
+   "type": "chart",
+   "file": "rev2/robotwork-appendix-fig4-job-tasks-by-exposure-over-time.png",
+   "headline": "Appendix Figure 4: Job tasks by robot exposure over time",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics) - appendix PDF",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf",
+   "caption": "Stacked bars 1977/1991/2002/2008/2026: cognitive & interpersonal 47/51/56/57/60%, E0 33/25/20/19/12%, E1 19/22/21/19/18%, E2 1/-/-/5/9%, E3 0/-/-/-/1% - robots can do far more of physical work than in 1977 (page 11 of the appendix PDF)",
+   "quality": 4,
+   "verified": true,
+   "image_size": [
+    2111,
+    1233
+   ],
+   "highlights": [],
+   "notes": "Cropped (no edits) from a 300-dpi render of the appendix PDF page; the web page links the appendix as \"Available here\". Original figure card with beige border.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-appendix-fig5-labor-market-effects",
+   "slide_topic": "work: backtest - exposed jobs lost wages and jobs",
+   "type": "chart",
+   "file": "rev2/robotwork-appendix-fig5-labor-market-effects.png",
+   "headline": "Appendix Figure 5: Labor market effects of robot exposure over time",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics) - appendix PDF",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf",
+   "caption": "Scatter/regression: wage slope -0.071 (s.e. 0.009), employment slope -0.342 (s.e. 0.091) per 20 years vs robot-exposed time share (page 14)",
+   "quality": 4,
+   "verified": true,
+   "image_size": [
+    2111,
+    1293
+   ],
+   "highlights": [],
+   "notes": "Cropped (no edits) from a 300-dpi render of the appendix PDF page; the web page links the appendix as \"Available here\". Original figure card with beige border.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-appendix-fig10-barriers-to-automation",
+   "slide_topic": "work: barriers beyond cost",
+   "type": "chart",
+   "file": "rev2/robotwork-appendix-fig10-barriers-to-automation.png",
+   "headline": "Appendix Figure 10: Barriers to robot automation",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics) - appendix PDF",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf",
+   "caption": "Share of physical tasks blocked by cost 97%, capability 68% (manipulation 51%, planning & reasoning 8%), preferences 24%, regulation 14% (page 25)",
+   "quality": 4,
+   "verified": true,
+   "image_size": [
+    2111,
+    1195
+   ],
+   "highlights": [],
+   "notes": "Cropped (no edits) from a 300-dpi render of the appendix PDF page; the web page links the appendix as \"Available here\". Original figure card with beige border.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-appendix-fig12-scenarios-for-robot-adoption",
+   "slide_topic": "work: timelines",
+   "type": "chart",
+   "file": "rev2/robotwork-appendix-fig12-scenarios-for-robot-adoption.png",
+   "headline": "Appendix Figure 12: Scenarios for robot adoption",
+   "dek": null,
+   "outlet": "Anthropic (Research / Economics) - appendix PDF",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf",
+   "caption": "Cost-competitive share of US work 2026-2100 under \"business as usual\" (3%/yr cost decline) vs \"rapid advances\" (12%/yr hardware, 6%/yr other), solid = exposed today, dashed/dotted = exposure broadens; markers for taxi drivers, recycling workers, construction laborers, dental assistants, janitors (page 32)",
+   "quality": 4,
+   "verified": true,
+   "image_size": [
+    2111,
+    1492
+   ],
+   "highlights": [],
+   "notes": "Cropped (no edits) from a 300-dpi render of the appendix PDF page; the web page links the appendix as \"Available here\". Original figure card with beige border.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-hf-data-release-files",
+   "slide_topic": "work: open data release",
+   "type": "screenshot",
+   "file": "rev2/robotwork-hf-data-release-files.png",
+   "headline": "Anthropic/EconomicIndex - robot_exposure",
+   "dek": null,
+   "outlet": "Hugging Face",
+   "author": "Anthropic",
+   "date": "2026-09-30",
+   "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/tree/main/robot_exposure",
+   "caption": "Hugging Face file listing of the \"What work can robots do?\" data release: README.md, robot_exposure_occupations.csv (47.8 kB), robot_exposure_tasks.csv (99.5 MB)",
+   "quality": 4,
+   "verified": true,
+   "image_size": [
+    2560,
+    1000
+   ],
+   "highlights": [],
+   "notes": "Real screenshot of the page (cropped top 1000 px). The Anthropic article text mentions the \"accompanying data release\" without a visible link; this repo path was found by search (DuckDuckGo) and confirmed by loading it. The relative timestamps (\"4 days ago\") are as of capture on 2026-10-04.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-cnbctv18-machines-have-a-type",
+   "slide_topic": "work: press coverage",
+   "type": "headline",
+   "file": "rev2/robotwork-cnbctv18-machines-have-a-type.png",
+   "headline": "The machines have a type: male, blue-collar and lower-paid",
+   "dek": "A new Anthropic study finds the jobs most exposed to physical automation are held mostly by men, with fewer qualifications and smaller pay packets. But the price tag means no stampede is imminent.",
+   "outlet": "CNBC-TV18",
+   "author": "Asmi Saxena",
+   "date": "2026-10-02",
+   "url": "https://www.cnbctv18.com/technology/anthropic-study-ai-robots-blue-collar-jobs-physical-workers-automation-risk-20003393.htm",
+   "caption": "CNBC-TV18 headline + dek on the Anthropic robot-exposure study (published October 2, 2026, 12:12 AM IST)",
+   "quality": 3,
+   "verified": true,
+   "image_size": [
+    1236,
+    572
+   ],
+   "highlights": [],
+   "notes": "Real screenshot cropped to headline+dek (page ads/nav removed by cropping only). Byline \"By Asmi Saxena\", \"October 2, 2026, 12:12:46 AM IST (Published)\" read on the loaded page. Indian business broadcaster; the only mainstream-outlet coverage found - other hits were AI blogs.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-quote-three-quarters",
+   "slide_topic": "work: robots can do 3/4 of physical tasks",
+   "type": "quote",
+   "file": "rev2/robotwork-kf-bullet-74pct-34pct.png",
+   "headline": "What work can robots do?",
+   "dek": "Robots, which we define as autonomous physical machines that sense and act, can perform three-quarters of physical tasks in the US, making up 34% of working hours, but mostly in limited settings.",
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Verbatim from the article (Key findings)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Verbatim, copied from the loaded page text (curly apostrophes preserved).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-quote-80pct",
+   "slide_topic": "work: robots + LLMs expose ~80%",
+   "type": "quote",
+   "file": "rev2/robotwork-kf-bullet-80pct.png",
+   "headline": "What work can robots do?",
+   "dek": "Overall, about 80% of job tasks by working time are exposed to either robots or LLMs. Robots do work where LLMs cannot. The remaining unexposed work is highly interpersonal or requires physical skills that robots today don’t have.",
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Verbatim from the article (Key findings)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Verbatim, copied from the loaded page text (curly apostrophes preserved).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-quote-cost",
+   "slide_topic": "work: cost barrier",
+   "type": "quote",
+   "file": "rev2/robotwork-kf-bullet-03pct-40yrs.png",
+   "headline": "What work can robots do?",
+   "dek": "While robots can do most physical work tasks today, they are much more expensive than human labor. Robots are cost-competitive for just 0.3% of job tasks. If robot price declines follow past trends, it will take 40 years for that share to reach 10%.",
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Verbatim from the article (Key findings)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Verbatim, copied from the loaded page text (curly apostrophes preserved).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-quote-backtest",
+   "slide_topic": "work: backtest and 2%/yr",
+   "type": "quote",
+   "file": "rev2/robotwork-key-findings.png",
+   "headline": "What work can robots do?",
+   "dek": "Over the past 50 years, jobs more exposed to robots experienced greater declines in wages and employment than others. At the same time, job exposure has grown: each year, robots have become able to do about 2% of the physical work they previously couldn’t.",
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Verbatim from the article (Key findings)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Verbatim, copied from the loaded page text (curly apostrophes preserved).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-quote-scenarios",
+   "slide_topic": "work: timelines",
+   "type": "quote",
+   "file": "rev2/robotwork-scenarios-2085-2050-53yrs.png",
+   "headline": "What work can robots do?",
+   "dek": "Adding in 3% cost declines per year, robots aren’t cost-competitive for half of physical work today until 2085. But rapid advances in robotics may speed up these timelines. In a fast adoption scenario, where quality-adjusted costs fall up to four times faster and robots become able to do new tasks twice as fast, robots become cost-competitive for half of physical work by 2050. Automating 90% of physical work today still takes 53 years.",
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Verbatim from the article (Robot costs and adoption)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Verbatim, copied from the loaded page text (curly apostrophes preserved).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-quote-record-rates",
+   "slide_topic": "work: timelines caveat",
+   "type": "quote",
+   "file": null,
+   "headline": "What work can robots do?",
+   "dek": "Overall, robots would need to sustain record rates of price declines and quality improvements over the coming decades to enable rapid physical automation.",
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Verbatim from the article (Robot costs and adoption)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Verbatim, copied from the loaded page text (curly apostrophes preserved).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-quote-taxi-packers",
+   "slide_topic": "work: who sees change first",
+   "type": "quote",
+   "file": null,
+   "headline": "What work can robots do?",
+   "dek": "If the past is any guide, taxi drivers and warehouse packers will see changes sooner than nurses and mechanics.",
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Verbatim from the article (Introduction)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Verbatim, copied from the loaded page text (curly apostrophes preserved).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-quote-premise",
+   "slide_topic": "work: method",
+   "type": "quote",
+   "file": null,
+   "headline": "What work can robots do?",
+   "dek": "Our core premise is that jobs are more likely to be impacted when robots can already do their work today.",
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Verbatim from the article (Introduction)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Verbatim, copied from the loaded page text (curly apostrophes preserved).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-quote-packers",
+   "slide_topic": "work: packers are first",
+   "type": "quote",
+   "file": "rev2/robotwork-packers-cost-competitive.png",
+   "headline": "What work can robots do?",
+   "dek": "Packers and packagers are the largest occupation exposed to cost-competitive robots.",
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Verbatim from the article (Robot costs and adoption)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Verbatim, copied from the loaded page text (curly apostrophes preserved).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-quote-driving",
+   "slide_topic": "work: driving jobs most exposed",
+   "type": "quote",
+   "file": "rev2/robotwork-taxi-drivers-most-exposed.png",
+   "headline": "What work can robots do?",
+   "dek": "Autonomous vehicles have yet to upend driving jobs at scale, but their capabilities suggest that these jobs are at higher risk of automation than others.",
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Verbatim from the article (Most exposed occupations)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Verbatim, copied from the loaded page text (curly apostrophes preserved).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-quote-different-from-llms",
+   "slide_topic": "work: robots vs LLMs",
+   "type": "quote",
+   "file": null,
+   "headline": "What work can robots do?",
+   "dek": "Jobs exposed to robots are quite different from those exposed to LLMs. They pay less, and are more physically demanding.",
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Verbatim from the article (Discussion)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Verbatim, copied from the loaded page text (curly apostrophes preserved).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-quote-leapfrog",
+   "slide_topic": "work: caveat",
+   "type": "quote",
+   "file": null,
+   "headline": "What work can robots do?",
+   "dek": "But AI-powered robots could leapfrog our scale and do work they cannot today, for example by learning to climb ladders or use their arms and grippers more deftly.",
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Verbatim from the article (Discussion)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Verbatim, copied from the loaded page text (curly apostrophes preserved).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-quote-most-robots",
+   "slide_topic": "work: robots today",
+   "type": "quote",
+   "file": null,
+   "headline": "What work can robots do?",
+   "dek": "Most robots today aren’t like driverless cars, and only operate in controlled environments.",
+   "outlet": "Anthropic (Research / Economics)",
+   "author": "Russell Legate-Yang and Maxim Massenkoff",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "caption": "Verbatim from the article (Discussion)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Verbatim, copied from the loaded page text (curly apostrophes preserved).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-claude-rating-taxi-drivers",
+   "slide_topic": "work: how Claude rated each task (data release)",
+   "type": "quote",
+   "file": null,
+   "headline": "Task: Drive taxicabs or privately owned vehicles to transport passengers. (Taxi Drivers, O*NET task 23762) - rated E3",
+   "dek": "All instances occur on public roads and curbs, an unstructured setting, so the cap is E3 throughout. Waymo's commercial driverless service (≈3,500 vehicles, ~500k paid rides/week, 220M+ rider-only miles, freeway and airport curbside service, 24/7 availability), corroborated by Zoox in Las Vegas, supports E3 for instances 0 (urban core, 30), 1 (suburban, 20), 2 (airport/freeway, 15) and 3 (late night, 15) = 80 weight. Instances 4 (snow/ice/flood, 10) and 5 (wheelchair/assisted mobility, 10) are E0: winter and floodwater operations are explicitly paused, and WAV rides remain human-driven with no automated securement. Qualifying weight: E1 = 80, E2 = 80, E3 = 80 — all above 50, so the task tier is E3.",
+   "outlet": "Anthropic data release (Hugging Face), robot_exposure_tasks.csv",
+   "author": "Claude Opus 5 with web search (per data README)",
+   "date": "2026-09-30",
+   "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/tree/main/robot_exposure",
+   "caption": "Claude's own written reasoning for the taxi-driver task rating (E3), verbatim from the data release; cited sources include Waymo, electrek.co, waymo.com/safety/impact",
+   "quality": 4,
+   "verified": true,
+   "notes": "Verbatim `reasoning` field. These are Claude's rating justifications with figures Claude cited from web sources (Waymo ~3,500 vehicles, ~500k paid rides/week, 220M+ rider-only miles) - not independently verified by us. time_share=0.4118. Good for a d.terminal() card.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "robotwork-claude-rating-welding",
+   "slide_topic": "work: how Claude rated each task (data release)",
+   "type": "quote",
+   "file": null,
+   "headline": "Task: Weld components in flat, vertical, or overhead positions. (Welders, Cutters, Solderers, and Brazers, O*NET task 23582) - rated E1",
+   "dek": "E1 qualifying weight = 100 (every instance: Path Robotics scanning cells for shop and one-off fabrication, Novarc SWR for pipe spools, RAMLAB MaxQ cells for wear-part rebuild, plus the field instances, which arise unproblematically once the work is fixtured in a cell). E2 qualifying weight = 40 (instance 1, heavy/structural and ship-block welding, 25, on HD Hyundai's self-driving collaborative welding robots working inside blocks on the plant floor; plus instance 3, field standardized joints, 15) — short of a majority, because production bench welding (25), pipe spool welding (15), one-off field work (10) and wear-part repair (10) are substantiated only at a purpose-built station or cell. E3 qualifying weight = 15 (Shimizu Robo-Welder column splices on a live construction site). Decisive: instances 0, 2, 4 and 5 cap at E1, so the highest tier with >50 weight is E1.",
+   "outlet": "Anthropic data release (Hugging Face), robot_exposure_tasks.csv",
+   "author": "Claude Opus 5 with web search (per data README)",
+   "date": "2026-09-30",
+   "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/tree/main/robot_exposure",
+   "caption": "Claude's reasoning for the welding task rating (E1); cites Path Robotics AW-3 cells, Novarc SWR, HD Hyundai, Shimizu Robo-Welder",
+   "quality": 4,
+   "verified": true,
+   "notes": "Verbatim `reasoning` field from the data release. Article body quotes the Path Robotics sentence for this same task (footnote 21).",
+   "rev2_source": "robotwork.json"
   }
  ],
  "datasets": [
@@ -4731,6 +7410,843 @@
    "source": "Figure AI blog \"Ramping Figure 03 Production\" (vendor-reported; \"1 Figure 03 per day to 1 per hour\"; Jan start date from \"under 120 days\")",
    "url": "https://www.figure.ai/news/ramping-figure-03-production",
    "rev2_source": "robots.json"
+  },
+  {
+   "id": "work-robot-all-tasks-by-exposure",
+   "title": "US job tasks by robot exposure (share of working time, all tasks)",
+   "unit": "% of US job tasks (time- and employment-weighted)",
+   "labels": [
+    "Cognitive and interpersonal",
+    "E0: not doable by any robot",
+    "E1: purpose-built robotic work environment",
+    "E2: structured human work facility",
+    "E3: unstructured environment"
+   ],
+   "series": [
+    {
+     "name": "Share of tasks",
+     "values": [
+      54,
+      12,
+      23,
+      10,
+      1
+     ]
+    }
+   ],
+   "source": "Anthropic, \"What work can robots do?\", Figure 3 (BLS 2025 employment; time shares estimated by Claude)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "notes": "Printed on the bars; sums to 100. Robots can do E1+E2+E3 = 34% of all work (74% of the 46% that is physical). Appendix Fig 4 2026 bar (Census/ACS-weighted) differs: 60/12/18/9/1.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-physical-tasks-by-exposure",
+   "title": "US physical job tasks by robot exposure tier",
+   "unit": "% of physical tasks (by working time)",
+   "labels": [
+    "E0: no environment",
+    "E1: purpose-built robotic work environment",
+    "E2: structured human work facility",
+    "E3: unstructured environment"
+   ],
+   "series": [
+    {
+     "name": "Share of physical tasks",
+     "values": [
+      26.3,
+      49.8,
+      22.0,
+      1.9
+     ]
+    }
+   ],
+   "source": "Anthropic, \"What work can robots do?\", Figure 2 (column \"Share of physical tasks\")",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "notes": "E1+E2+E3 = 73.7% (reported as 74% / \"three-quarters\"). Text: E0 \"about a quarter\", E1 half, E2 22%, E3 2%.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-physical-task-counts",
+   "title": "Number of O*NET physical tasks by robot exposure tier",
+   "unit": "tasks (unweighted count)",
+   "labels": [
+    "E0",
+    "E1",
+    "E2",
+    "E3"
+   ],
+   "series": [
+    {
+     "name": "Tasks",
+     "values": [
+      2419,
+      3967,
+      1103,
+      105
+     ]
+    }
+   ],
+   "source": "Anthropic data release README (robot_exposure/README.md) and robot_exposure_tasks.csv counted by me (matches: E0 2,419; E1 3,967; E2 1,103; E3 105; total 7,594 physical of 18,796 tasks)",
+   "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/blob/main/robot_exposure/README.md",
+   "notes": "Unweighted counts - the article's shares weight tasks by employment and time. 432 further tasks were rated but found not physical.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-most-exposed-occupations",
+   "title": "10 most robot-exposed occupations (>=20,000 jobs)",
+   "unit": "robot exposure index 0-3; employment in thousands",
+   "labels": [
+    "Taxi drivers",
+    "Agricultural equipment operators",
+    "Light truck drivers",
+    "Shuttle drivers and chauffeurs",
+    "Industrial truck and tractor operators",
+    "Paving, surfacing, and tamping equipment operators",
+    "Refuse and recyclable material collectors",
+    "Driver/sales workers",
+    "Recycling and reclamation workers",
+    "Excavating and loading machine and dragline operators, surface mining"
+   ],
+   "series": [
+    {
+     "name": "Robot exposure index (0-3)",
+     "values": [
+      2.2,
+      2.1,
+      2.1,
+      2.0,
+      2.0,
+      1.8,
+      1.8,
+      1.7,
+      1.7,
+      1.6
+     ]
+    },
+    {
+     "name": "Employment (thousands, BLS 2025)",
+     "values": [
+      41,
+      29,
+      983,
+      249,
+      774,
+      42,
+      147,
+      409,
+      1475,
+      34
+     ]
+    }
+   ],
+   "extra": {
+    "example_task_exposure_level": [
+     "E3",
+     "E3",
+     "E3",
+     "E3",
+     "E2",
+     "E3",
+     "E3",
+     "E3",
+     "E2",
+     "E2"
+    ],
+    "example_cited_system": [
+     "Waymo robotaxi",
+     "John Deere autonomous tractor",
+     "Gatik autonomous box truck",
+     "Waymo robotaxi",
+     "Fox Robotics autonomous forklift",
+     "XCMG unmanned paver and roller fleet",
+     "McNeilus automated side-loader refuse truck",
+     "Gatik autonomous box truck",
+     "AMP Robotics sorting robot",
+     "Sandvik AutoMine autonomous loader"
+    ]
+   },
+   "source": "Anthropic, \"What work can robots do?\", Figure 4",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "notes": "Index rounded to 1 decimal in the figure; unrounded values in the data release: taxi 2.2235, agri 2.1277, light truck 2.0952, shuttle 1.9737, industrial truck 1.9615, paving 1.8488, refuse 1.7976, driver/sales 1.7463, recycling 1.6795, excavating 1.6136. 9 of the 10 are vehicle operators (recycling workers are the exception).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-exposure-index-top15-all-occupations",
+   "title": "Highest robot exposure index across all 923 O*NET occupations (any size)",
+   "unit": "robot exposure index (0-3)",
+   "labels": [
+    "Taxi Drivers",
+    "Agricultural Equipment Operators",
+    "Light Truck Drivers",
+    "Shuttle Drivers and Chauffeurs",
+    "Industrial Truck and Tractor Operators",
+    "Paving, Surfacing, and Tamping Equipment Operators",
+    "Shampooers",
+    "Refuse and Recyclable Material Collectors",
+    "Driver/Sales Workers",
+    "Dredge Operators",
+    "Recycling and Reclamation Workers",
+    "Meter Readers, Utilities",
+    "Excavating and Loading Machine and Dragline Operators, Surface Mining",
+    "Operating Engineers and Other Construction Equipment Operators",
+    "Tapers"
+   ],
+   "series": [
+    {
+     "name": "Robot exposure index (0-3)",
+     "values": [
+      2.2235,
+      2.1277,
+      2.0952,
+      1.9737,
+      1.9615,
+      1.8488,
+      1.8462,
+      1.7976,
+      1.7463,
+      1.6854,
+      1.6795,
+      1.6711,
+      1.6136,
+      1.6,
+      1.5946
+     ]
+    }
+   ],
+   "source": "Anthropic data release, robot_exposure_occupations.csv (CC BY 4.0)",
+   "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/tree/main/robot_exposure",
+   "notes": "Includes small occupations (e.g. Shampooers 1.8462, Dredge Operators 1.6854, Meter Readers 1.6711) that the paper's Figure 4 omits because of its 20,000-job minimum.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-exposure-index-selected-occupations",
+   "title": "Robot exposure index for selected occupations (cab/truck drivers to nurses and software developers)",
+   "unit": "robot exposure index (0-3)",
+   "labels": [
+    "Taxi Drivers",
+    "Light Truck Drivers",
+    "Heavy and Tractor-Trailer Truck Drivers",
+    "Dishwashers",
+    "Packers and Packagers, Hand",
+    "Janitors and Cleaners, Except Maids and Housekeeping Cleaners",
+    "Cashiers",
+    "Welders, Cutters, Solderers, and Brazers",
+    "Carpenters",
+    "Plumbers, Pipefitters, and Steamfitters",
+    "Hairdressers, Hairstylists, and Cosmetologists",
+    "Electricians",
+    "Nursing Assistants",
+    "Physical Therapists",
+    "Dental Assistants",
+    "Registered Nurses",
+    "Software Developers",
+    "Customer Service Representatives",
+    "Construction Managers"
+   ],
+   "series": [
+    {
+     "name": "Robot exposure index (0-3)",
+     "values": [
+      2.2235,
+      2.0952,
+      1.5098,
+      1.4915,
+      1.4167,
+      1.0758,
+      1.0,
+      0.963,
+      0.6951,
+      0.5122,
+      0.3636,
+      0.3289,
+      0.2083,
+      0.1067,
+      0.0972,
+      0.0137,
+      0.0,
+      0.0,
+      0.0
+     ]
+    }
+   ],
+   "source": "Anthropic data release, robot_exposure_occupations.csv (CC BY 4.0), values copied exactly",
+   "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/tree/main/robot_exposure",
+   "notes": "Unweighted by employment. 264 of 923 occupations have index 0.0 (computed by me from the CSV); unweighted mean 0.395, median 0.173. Constructionmetrics.com also quotes Operating engineers 1.60, Tapers 1.59, Brickmasons 1.42, Carpenters 0.70, Plumbers 0.51, Electricians 0.33, Construction managers 0.00 from this CSV (matches).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-fig7-robot-cost-vs-compensation",
+   "title": "Annual cost of robots vs median human compensation, five physical occupations",
+   "unit": "$ thousands per year (unless noted)",
+   "labels": [
+    "Packers and packagers, hand",
+    "Taxi drivers",
+    "Dishwashers",
+    "Janitors and cleaners",
+    "Welders, cutters, solderers, and brazers"
+   ],
+   "series": [
+    {
+     "name": "Annual robot cost, total ($K)",
+     "values": [
+      45.4,
+      57.8,
+      172.0,
+      280.0,
+      334.6
+     ]
+    },
+    {
+     "name": "  of which fixed ($K)",
+     "values": [
+      22.2,
+      27.4,
+      97.9,
+      143.7,
+      160.0
+     ]
+    },
+    {
+     "name": "  of which variable ($K)",
+     "values": [
+      23.2,
+      30.4,
+      74.1,
+      136.3,
+      174.6
+     ]
+    },
+    {
+     "name": "Median total compensation ($K per year)",
+     "values": [
+      49.0,
+      56.8,
+      45.0,
+      47.7,
+      73.4
+     ]
+    },
+    {
+     "name": "Exposed tasks (% of time)",
+     "values": [
+      97,
+      89,
+      100,
+      73,
+      90
+     ]
+    },
+    {
+     "name": "Employment (thousands)",
+     "values": [
+      560,
+      41,
+      477,
+      2210,
+      416
+     ]
+    },
+    {
+     "name": "Example robot upfront cost ($K)",
+     "values": [
+      160.0,
+      135.0,
+      165.0,
+      100.0,
+      2700.0
+     ]
+    }
+   ],
+   "extra": {
+    "example_robot": [
+     "Douglas top-load case packer",
+     "Waymo robotaxi",
+     "Armstrong Robotics dishwashing system",
+     "Somatic-class cleaning mobile manipulator",
+     "Zeman steel-beam assembler line"
+    ],
+    "classification": [
+     "Cost-competitive",
+     "Not cost-competitive",
+     "Not cost-competitive",
+     "Not cost-competitive",
+     "Not cost-competitive"
+    ]
+   },
+   "source": "Anthropic, \"What work can robots do?\", Figure 7 (BLS OEWS 2025, ECEC 2026; costs estimated by Claude)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "notes": "Robot cost is for performing the exposed tasks only (e.g. 97% of packers' time), so compare to compensation x exposed share: packers 47.5 vs 45.4 (robots cheaper), taxi 50.5 vs 57.8 (robots $7K dearer - text: \"around $7,000 more\"), welders ~5x human cost. Text rounds packers' robot cost to ~$45,000 vs ~$49,000 pay, \"about $2,500 less per year\".",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-breakeven-cost-decline",
+   "title": "How far robot costs must fall before robots undercut humans (selected occupations)",
+   "unit": "% decline in robot cost",
+   "labels": [
+    "Packers and packagers, hand",
+    "Taxi drivers",
+    "Postal Service mail carriers",
+    "Dishwashers",
+    "Welders, cutters, solderers, and brazers",
+    "Janitors and cleaners"
+   ],
+   "series": [
+    {
+     "name": "Break-even robot cost decline (%)",
+     "values": [
+      0.0,
+      12.5,
+      54.0,
+      73.8,
+      80.3,
+      87.6
+     ]
+    }
+   ],
+   "source": "DERIVED from Anthropic Fig. 7 numbers: 1 - (median comp x exposed share) / annual robot cost; Postal Service value (54%) is stated in the Figure 8 caption",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "notes": "My calculation (not printed in the article): packers 0 (already cost-competitive), taxi 1-(56.8*0.89)/57.8=12.5%, dishwashers 1-45/172=73.8%, welders 1-(73.4*0.9)/334.6=80.3%, janitors 1-(47.7*0.73)/280=87.6%. These match the marker positions on Figure 8 (taxi ~12%, dishwashers ~74%, welders ~80%, janitors ~88%) to within ~1 point. Label as \"derived\".",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-cost-decline-points",
+   "title": "Share of US work robots would undercut at hypothetical robot cost declines (points stated in text)",
+   "unit": "% of all US working time (tasks)",
+   "labels": [
+    "Today (0% decline)",
+    "20% cheaper",
+    "~70% cheaper",
+    "Ceiling: all work robots can do today"
+   ],
+   "series": [
+    {
+     "name": "Cost-competitive share of all work",
+     "values": [
+      0.3,
+      0.8,
+      10.0,
+      34.0
+     ]
+    }
+   ],
+   "source": "Anthropic, \"What work can robots do?\", Robot costs and adoption + Figure 8 (0.3% today; 20% decline -> 2.8M workers, 0.8% of all working time; ~70% decline -> 10%; 34% = work robots can do today)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "notes": "Only these four points are stated in text/figure labels; the full curve is not published numerically. At a 3%/year price decline a 20% decline takes ~7 years, 70% ~40 years.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-fig5-worker-characteristics-pct",
+   "title": "Who is exposed: unexposed workers vs most-exposed (top quintile) workers",
+   "unit": "%",
+   "labels": [
+    "Female",
+    "Hispanic",
+    "White, non-Hispanic",
+    "Black, non-Hispanic",
+    "Asian, non-Hispanic",
+    "Less than high school",
+    "High school",
+    "Some college",
+    "Bachelor's degree or higher",
+    "Requires license or certification",
+    "Unemployment rate",
+    "Union member",
+    "Share of workday standing",
+    "Works in low postures",
+    "Frequently lifts or carries some weight",
+    "Works outdoors",
+    "Exposed to extreme heat",
+    "Exposed to hazardous contaminants"
+   ],
+   "series": [
+    {
+     "name": "Not exposed",
+     "values": [
+      51.2,
+      13.1,
+      63.3,
+      10.0,
+      8.8,
+      1.8,
+      11.9,
+      23.2,
+      63.2,
+      19.0,
+      2.2,
+      5.2,
+      18.3,
+      11.9,
+      3.5,
+      13.5,
+      0.3,
+      0.6
+     ]
+    },
+    {
+     "name": "Most exposed (top quintile)",
+     "values": [
+      31.2,
+      29.6,
+      45.3,
+      16.0,
+      4.3,
+      16.6,
+      46.0,
+      29.0,
+      8.3,
+      13.3,
+      5.2,
+      10.2,
+      79.1,
+      85.5,
+      60.7,
+      54.6,
+      6.4,
+      6.5
+     ]
+    }
+   ],
+   "source": "Anthropic, \"What work can robots do?\", Figure 5 (ACS 2020-2024; BLS ORS; Hirsch et al. 2026 for union)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "notes": "Differences printed: female -20.0 pp, Hispanic +16.5 pp, bachelor's -54.9 pp, unemployment +3.0 pp. Employment-weighted. \"Unexposed\" = zero exposure (~20% of jobs).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-fig5-worker-characteristics-other",
+   "title": "Who is exposed: age, hours, hourly wage, exposure index",
+   "unit": "mixed (years / hours per week / $ per hour / index)",
+   "labels": [
+    "Robot exposure index (0-3)",
+    "Age (years)",
+    "Hours per week",
+    "Hourly wage ($)"
+   ],
+   "series": [
+    {
+     "name": "Not exposed",
+     "values": [
+      0.0,
+      41.7,
+      41.0,
+      52.97
+     ]
+    },
+    {
+     "name": "Most exposed (top quintile)",
+     "values": [
+      1.3,
+      38.0,
+      36.8,
+      22.88
+     ]
+    }
+   ],
+   "source": "Anthropic, \"What work can robots do?\", Figure 5",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "notes": "Wage difference -$30.09 per hour.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-fig6-exposure-by-occupation-group-digitized",
+   "title": "LLM exposure vs LLM-and-robot exposure by occupation group (DIGITIZED from the radar chart, +-1 pp)",
+   "unit": "% of job tasks exposed",
+   "labels": [
+    "Management",
+    "Business & financial",
+    "Computer & math",
+    "Architecture & engineering",
+    "Science",
+    "Community & social service",
+    "Legal",
+    "Education",
+    "Arts, design & media",
+    "Healthcare practitioners",
+    "Healthcare support",
+    "Protective service",
+    "Food preparation & serving",
+    "Cleaning & maintenance",
+    "Personal care & service",
+    "Sales",
+    "Office & admin support",
+    "Farming, fishing & forestry",
+    "Construction & extraction",
+    "Installation & repair",
+    "Production",
+    "Transportation & moving"
+   ],
+   "series": [
+    {
+     "name": "LLM exposure (digitized)",
+     "values": [
+      89.3,
+      95.2,
+      95.6,
+      85.1,
+      78.1,
+      53.4,
+      86.8,
+      59.6,
+      79.7,
+      60.6,
+      17.1,
+      31.0,
+      14.6,
+      3.1,
+      19.0,
+      67.4,
+      89.7,
+      10.5,
+      18.1,
+      19.7,
+      19.4,
+      13.1
+     ]
+    },
+    {
+     "name": "LLM and robot exposure (digitized)",
+     "values": [
+      91.1,
+      95.7,
+      98.6,
+      91.4,
+      90.1,
+      54.2,
+      86.8,
+      64.7,
+      84.0,
+      68.5,
+      45.8,
+      61.0,
+      87.6,
+      69.7,
+      41.8,
+      89.7,
+      98.2,
+      83.5,
+      76.1,
+      52.2,
+      88.8,
+      90.7
+     ]
+    }
+   ],
+   "source": "Anthropic, \"What work can robots do?\", Figure 6 - values measured by me from dot positions in the 7680 px original image; NOT published numerically by Anthropic",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "notes": "Method: located the 44 dots (blue/orange) by colour, fitted the radar centre from spoke geometry (rms 0.06 px at 1600 px scale) and scaled radius to 100%. Calibration is validated by the caption (Protective service 31% and 61% -> measured 31.0 and 61.0) and by text (Transportation & moving \"<15%\" -> \"about 90%\": measured 13.1 -> 90.7; Office & admin \"nearly 100%\": 98.2; Personal care & service \"around 40%\": 41.8; \"no occupation group is less than 40% exposed\": min 41.8). For Business & financial, Community & social service and Legal the orange dot is hidden behind the blue one (difference <1.5 pp; Legal set equal). Treat as approximate on slides (\"~\").",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-fig6-text-stated-values",
+   "title": "LLM-only vs LLM-and-robot exposure: values stated in the text/caption",
+   "unit": "% of job tasks exposed",
+   "labels": [
+    "All work (overall; \"around half\" vs 81%)",
+    "Protective service (caption)",
+    "Transportation & moving (text: \"<15%\" vs \"about 90%\")"
+   ],
+   "series": [
+    {
+     "name": "LLM exposure",
+     "values": [
+      50,
+      31,
+      15
+     ]
+    },
+    {
+     "name": "LLM and robot exposure",
+     "values": [
+      81,
+      61,
+      90
+     ]
+    }
+   ],
+   "source": "Anthropic, \"What work can robots do?\", Figure 6 caption and \"Robot and LLM exposure\" section",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "notes": "Approximate inputs: overall LLM-only is \"around half\"; transportation LLM-only is \"less than 15%\" (upper bound, digitized value 13); both robot values are exact (81, 61) or \"about 90\". Office & admin with robots: \"nearly 100%\". Personal care & service: \"around 40%\" of tasks exposed (to LLMs or robots).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-appendix-fig4-tasks-over-time",
+   "title": "US job tasks by robot exposure over time (robots as of each year)",
+   "unit": "% of US tasks (working-time weighted)",
+   "labels": [
+    "1977",
+    "1991",
+    "2002",
+    "2008",
+    "2026"
+   ],
+   "series": [
+    {
+     "name": "Cognitive and interpersonal",
+     "values": [
+      47,
+      51,
+      56,
+      57,
+      60
+     ]
+    },
+    {
+     "name": "E0 cannot perform",
+     "values": [
+      33,
+      25,
+      20,
+      19,
+      12
+     ]
+    },
+    {
+     "name": "E1 purpose-built environment",
+     "values": [
+      19,
+      22,
+      21,
+      19,
+      18
+     ]
+    },
+    {
+     "name": "E2 structured human facility",
+     "values": [
+      1,
+      null,
+      null,
+      5,
+      9
+     ]
+    },
+    {
+     "name": "E3 unstructured",
+     "values": [
+      0,
+      null,
+      null,
+      null,
+      1
+     ]
+    }
+   ],
+   "source": "Anthropic, \"What work can robots do?\" Appendix Figure 4 (p. 11 of appendix PDF); Census/ACS employment weights",
+   "url": "https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf",
+   "notes": "Only the labelled values are given; unlabeled slices are null (1991: E2+E3 = 2; 2002: E2+E3 = 3; 2008 E3 ~0 by sum). The 2026 bar is Census/ACS-weighted (physical = 40%), whereas main Figure 3 is OEWS-weighted (physical = 46%). Text: physical work fell from 53% of tasks to 40% (-13 pp, a 25% decline).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-appendix-fig10-barriers",
+   "title": "Barriers to robot automation of physical tasks (today)",
+   "unit": "% of physical tasks affected",
+   "labels": [
+    "Cost",
+    "Capability",
+    "Human preferences",
+    "Regulation"
+   ],
+   "series": [
+    {
+     "name": "Share of physical tasks",
+     "values": [
+      97,
+      68,
+      24,
+      14
+     ]
+    }
+   ],
+   "extra": {
+    "capability_breakdown": {
+     "manipulation": 51,
+     "planning_and_reasoning": 8,
+     "mobility_strength_and_perception_combined_approx": 9
+    }
+   },
+   "source": "Anthropic, \"What work can robots do?\" Appendix Figure 10 (p. 25) and Appendix C.2",
+   "url": "https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf",
+   "notes": "Tasks can have multiple barriers, so shares exceed 100%. Main text: capabilities \"around 70%\", manipulation \"half\", planning & reasoning 8%, regulation 14%, preferences \"a quarter\". Appendix: only 26% of physical tasks cannot be done by robots in any environment; \"only about 30% of tasks are limited by either preferences or regulation\".",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-appendix-fig5-backtest",
+   "title": "Backtest: effect of historical robot exposure on wages and employment over ~20 years",
+   "unit": "change vs unexposed occupation in same industry, per fully exposed occupation",
+   "labels": [
+    "Wages (log-point slope)",
+    "Employment (log-point slope)"
+   ],
+   "series": [
+    {
+     "name": "Slope",
+     "values": [
+      -0.071,
+      -0.342
+     ]
+    },
+    {
+     "name": "Standard error",
+     "values": [
+      0.009,
+      0.091
+     ]
+    }
+   ],
+   "source": "Anthropic, \"What work can robots do?\" Appendix Figure 5 and B.3",
+   "url": "https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf",
+   "notes": "Text: a fully robot-exposed occupation had wages 7.1% lower (95% CI 5.4% to 8.9%) and lost 34.2% of its jobs (95% CI 16.4% to 52.0%) over about 20 years relative to an unexposed occupation in the same industry. Pooled 3 periods 1977-2024; placebo: 1977 exposure has no effect on 1970-1980 wages.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-scenario-years",
+   "title": "Robot adoption scenarios: year robots become cost-competitive",
+   "unit": "calendar year",
+   "labels": [
+    "Half of today's physical work",
+    "Janitors and cleaners (robot janitors)"
+   ],
+   "series": [
+    {
+     "name": "Business as usual (3%/yr cost decline)",
+     "values": [
+      2085,
+      2095
+     ]
+    },
+    {
+     "name": "Rapid advances (fast adoption)",
+     "values": [
+      2050,
+      null
+     ]
+    }
+   ],
+   "source": "Anthropic, \"What work can robots do?\" main text (2085 / 2050) and Appendix E / Appendix Figure 12 (janitors 2095; rapid: \"2050s\")",
+   "url": "https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf",
+   "notes": "Other stated timeline points: business as usual - robots cost-competitive for 10% of human work \"until the 2060s\"; ~40 years at 3%/yr; by 2075 robots can do 90% of physical tasks in the \"broadening\" variant. Rapid advances (12%/yr hardware, 6%/yr other costs) - 10% of work time by \"around 2040\", robot janitors in the 2050s; automating 90% of today's physical work still takes 53 years. By 2040 business-as-usual projects robots cost-competitive for 2.5 million jobs in occupations where robots can do at least 85% of tasks (600,000 to 3 million across the 95% and 75% thresholds) - the authors call 2.5 million \"more of a ceiling on job loss than a central estimate\"; the China trade shock cost an estimated 2-2.4 million jobs over 1999-2011.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "id": "work-robot-1977-capability",
+   "title": "Robots' capability gain on 1977 physical tasks",
+   "unit": "% of 1977 physical tasks",
+   "labels": [
+    "Could not be done by robots in 1977",
+    "Still cannot be done by robots today"
+   ],
+   "series": [
+    {
+     "name": "Share of 1977 physical tasks",
+     "values": [
+      62,
+      24
+     ]
+    }
+   ],
+   "source": "Anthropic, \"What work can robots do?\" (Cost-and-adoption section; Appendix B.4)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "notes": "= robots became able to do about 2% of previously impossible physical work per year (1977-2026).",
+   "rev2_source": "robotwork.json"
   }
  ],
  "facts": [
@@ -5408,6 +8924,167 @@
    "url": "https://www.globaltimes.cn/page/202608/1368425.shtml",
    "date": "2026-08-17",
    "rev2_source": "robots.json"
+  },
+  {
+   "claim": "Anthropic economists: robots can already perform 74% of physical tasks in the US - 34% of all working hours - but mostly in controlled settings.",
+   "source": "Anthropic, \"What work can robots do?\" (Legate-Yang & Massenkoff)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "About 80% of job tasks by working time are exposed to robots or LLMs; LLMs alone expose about half of work, robots + LLMs 81%.",
+   "source": "Anthropic, \"What work can robots do?\" (Legate-Yang & Massenkoff)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "Robots are cost-competitive for just 0.3% of job tasks; at past price trends (about 3% a year) it takes 40 years to reach 10%.",
+   "source": "Anthropic, \"What work can robots do?\" (Legate-Yang & Massenkoff)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "Of all US work: 54% cognitive/interpersonal, 12% no robot can do (E0), 23% robots can do in purpose-built environments (E1), 10% in structured human workplaces (E2), 1% in unstructured environments (E3).",
+   "source": "Anthropic, \"What work can robots do?\" (Legate-Yang & Massenkoff)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "Of physical tasks: 26.3% E0, 49.8% E1, 22.0% E2, only 1.9% E3 (unstructured settings such as roads).",
+   "source": "Anthropic, \"What work can robots do?\" (Legate-Yang & Massenkoff)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "9 of the 10 most robot-exposed occupations are vehicle operators; taxi drivers lead with an index of 2.2 (scale 0-3), citing Waymo robotaxis.",
+   "source": "Anthropic, \"What work can robots do?\" (Legate-Yang & Massenkoff)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "Robots broaden AI exposure to the physical economy: transportation & moving tasks exposed to LLMs alone <15% but ~90% with robots; office & admin to nearly 100%; protective service 31% -> 61%; personal care ~40%; no occupation group is less than 40% exposed.",
+   "source": "Anthropic, \"What work can robots do?\" (Legate-Yang & Massenkoff)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "Most robot-exposed workers are male, less educated, lower paid: 20 pp less likely to be female, 55 pp less likely to have a bachelor's degree, ~$30/hour lower wages ($22.88 vs $52.97), unemployment 5.2% vs 2.2% (top quintile vs unexposed).",
+   "source": "Anthropic, \"What work can robots do?\" (Legate-Yang & Massenkoff)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "Barriers beyond cost: capabilities block ~70% of physical tasks (manipulation ~half), human preferences ~a quarter, regulation 14%; cost is a barrier for nearly every task (97%).",
+   "source": "Anthropic, \"What work can robots do?\" (Legate-Yang & Massenkoff)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "Packers and packagers (560,000 US jobs) are the largest occupation where robots are already cost-competitive: robots costing >$2 million replace ~14 workers; ~$45,000 a year vs ~$49,000 pay; employment already down 22% since 2015.",
+   "source": "Anthropic, \"What work can robots do?\" (Legate-Yang & Massenkoff)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "Robotaxis cost only around $7,000 a year more than taxi drivers but face regulatory hurdles; robot welders cost ~5x human welders, robot janitors $280,000 a year vs $47,700 pay.",
+   "source": "Anthropic, \"What work can robots do?\" (Legate-Yang & Massenkoff)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "If robots cost 20% less, they would be cost-competitive for the physical work of 2.8 million workers (0.8% of all working time); a 70% price drop is needed for 10% of human work.",
+   "source": "Anthropic, \"What work can robots do?\" (Legate-Yang & Massenkoff)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "Robots have gained about 2% a year on previously impossible physical work: in 1977 robots could not do 62% of physical tasks; today all but 24%.",
+   "source": "Anthropic, \"What work can robots do?\" (Legate-Yang & Massenkoff)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "Standard scenario (3%/yr robot cost declines): robots not cost-competitive for half of physical work until 2085; fast scenario (costs fall up to 4x faster, capabilities 2x faster): by 2050; automating 90% of physical work still takes 53 years.",
+   "source": "Anthropic, \"What work can robots do?\" (Legate-Yang & Massenkoff)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "50-year backtest: occupations with all tasks robot-exposed saw wages 7.1% lower (95% CI 5.4-8.9) and employment 34.2% lower (CI 16.4-52.0) over ~20 years than unexposed ones in the same industry.",
+   "source": "Anthropic, \"What work can robots do?\" Appendix B.3",
+   "url": "https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "Method: ~900 O*NET occupations / ~19,000 tasks; 7,594 physical tasks rated E0-E3 by Claude with web search, citing real robots; Claude made ~650,000 web searches and cited over 275,000 quotes from 90,000+ pages (incl. historical ratings).",
+   "source": "Anthropic, \"What work can robots do?\" Appendix A.3",
+   "url": "https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "The data release states the ratings were produced by Claude Opus 5 (with web search) on O*NET 29.3 tasks; data are CC BY 4.0 (923 occupations, 18,796 tasks).",
+   "source": "Anthropic data release README (Hugging Face)",
+   "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/blob/main/robot_exposure/README.md",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "Robustness caveat: excluding ratings that rely on robots doing only related tasks lowers the exposed share of physical work from about three-quarters to about a half; dropping demonstration-only evidence lowers it by 1 point.",
+   "source": "Anthropic, \"What work can robots do?\" Appendix A.4",
+   "url": "https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "Of 923 O*NET occupations in the data release, 264 have robot exposure index 0.0 (unweighted mean 0.395); e.g. Registered Nurses 0.014, Software Developers 0.0, Electricians 0.33, Plumbers 0.51, Taxi Drivers 2.22.",
+   "source": "Anthropic data release, robot_exposure_occupations.csv (counted/aggregated by me)",
+   "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/tree/main/robot_exposure",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "Spending on robots is about 1% of US equipment investment; surveys suggest US robot adoption could nearly double within three years (13% of firms use robotics now, 22% expect to).",
+   "source": "Anthropic, \"What work can robots do?\" (Legate-Yang & Massenkoff)",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "By 2040 under business-as-usual, robots become cost-competitive for 2.5 million jobs in occupations where robots can do at least 85% of tasks (0.6-3 million at 95%/75% thresholds); the authors call this \"more of a ceiling on job loss than a central estimate\" (China trade shock: 2-2.4 million jobs).",
+   "source": "Anthropic, \"What work can robots do?\" Appendix E",
+   "url": "https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "Physical tasks fell from 53% of US job tasks in 1977 to 40% today (Census-weighted; 46% in the OEWS-weighted Figure 3).",
+   "source": "Anthropic, \"What work can robots do?\" Appendix B.2",
+   "url": "https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf",
+   "date": "2026-09-30",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "claim": "Press: CNBC-TV18 (Oct 2, 2026): \"The machines have a type: male, blue-collar and lower-paid\" - \"...the price tag means no stampede is imminent.\"",
+   "source": "CNBC-TV18 (Asmi Saxena)",
+   "url": "https://www.cnbctv18.com/technology/anthropic-study-ai-robots-blue-collar-jobs-physical-workers-automation-risk-20003393.htm",
+   "date": "2026-10-02",
+   "rev2_source": "robotwork.json"
   }
  ],
  "not_found": [
@@ -5581,6 +9258,63 @@
    "outline_item": "Downloadable official TikTok/Bilibili version of Unitree gala video",
    "searched": "TikTok extractor failed; used Unitree's official X upload (same video as YouTube Ykiuz1ZdGBc) instead.",
    "rev2_source": "robots.json"
+  },
+  {
+   "outline_item": "Numeric data behind the Figure 6 radar (exposure by occupation group)",
+   "searched": "Article text, figure captions, appendix PDF, data release README/CSV (occupation CSV has only index 0-3 per occupation; no LLM-exposure columns). Only overall (~50% vs 81%), transportation (<15% vs ~90%), protective service (31% vs 61%), office & admin (~100%) and personal care (~40%) are stated. I digitized all 22 groups from the image (dataset work-robot-fig6-exposure-by-occupation-group-digitized, +-1 pp, validated against the stated values) - label as approximate.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "outline_item": "Numeric series for the Figure 8 cost-decline curve and Appendix Figure 12 scenario curves",
+   "searched": "Article, appendix, data release - only individual points are stated (0.3% today, 0.8% at -20%, 10% at ~-70%, 2085/2050/2095, 10% in the 2060s vs ~2040). Break-even declines for 6 occupations are derived (labelled).",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "outline_item": "Sector-by-sector robot timelines / projected job losses by sector",
+   "searched": "Paper gives timelines only for the whole physical economy (2085 vs 2050) and for selected occupations (markers on Appendix Fig 12: taxi drivers earliest, janitors 2095 under business as usual); explicitly says scenarios are not predictions of job loss.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "outline_item": "Mainstream-outlet (NYT/WSJ/Reuters/Bloomberg) coverage of this paper",
+   "searched": "DuckDuckGo queries on the title, 0.3%/74% numbers, authors. Found CNBC-TV18 (captured) plus AI blogs/aggregators (aichanging.work, clauding.de, fourweekmba, aicassindra, twokq, hottea.ai, constructionmetrics.com, Pebblous critique) - not captured as headline items.",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "outline_item": "Direct link to the data release on the Anthropic page",
+   "searched": "Page HTML has only two PDF links (PDF + appendix) and a GitHub link to OpenAI GPTs-are-GPTs; the article says \"accompanying data release\" without a URL. Found at Hugging Face Anthropic/EconomicIndex/robot_exposure via search, loaded and downloaded.",
+   "rev2_source": "robotwork.json"
+  }
+ ],
+ "downloads": [
+  {
+   "file": "rev2/robotwork-paper.pdf",
+   "what": "Full article as PDF (44 pages) from the \"Download the PDF\" button",
+   "url": "https://cdn.sanity.io/files/4zrzovbb/website/401a473469db99fd39bba1ca6d9a5653a70e2f12.pdf",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "file": "rev2/robotwork-appendix.pdf",
+   "what": "Appendix PDF (56 pages): taxonomy, historical backtest, barriers, cost method, scenarios, prompts",
+   "url": "https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "file": "rev2/robotwork-robot_exposure_occupations.csv",
+   "what": "Data release: robot exposure index for 923 O*NET occupations (CC BY 4.0)",
+   "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/resolve/main/robot_exposure/robot_exposure_occupations.csv",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "file": "rev2/robotwork-data-release-README.md",
+   "what": "Data release README (schema, tier definitions, counts, license)",
+   "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/blob/main/robot_exposure/README.md",
+   "rev2_source": "robotwork.json"
+  },
+  {
+   "file": null,
+   "what": "robot_exposure_tasks.csv (99.5 MB, 18,796 tasks with Claude reasoning and cited sources) - NOT copied into the project because of size; download URL below",
+   "url": "https://huggingface.co/datasets/Anthropic/EconomicIndex/resolve/main/robot_exposure/robot_exposure_tasks.csv",
+   "rev2_source": "robotwork.json"
   }
  ]
 }

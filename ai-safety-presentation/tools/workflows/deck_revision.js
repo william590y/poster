@@ -11,7 +11,10 @@ export const meta = {
 
 const ROOT = '/home/user/poster/ai-safety-presentation'
 // Non-editing agents (research, review) run on Sonnet; editing/fixing agents inherit the session model.
-const RESEARCH_MODEL = (args && args.researchModel) || 'sonnet'
+// Reviewers always run on Sonnet. Research runs on Sonnet only when args.researchModel is given (so a resumed run with
+// finished research keeps its cached research results, whose opts had no model key).
+const REVIEW_MODEL = 'sonnet'
+const RESEARCH_OPTS = (args && args.researchModel) ? { model: args.researchModel } : {}
 const COMMON = `Project: ${ROOT} builds a ~85-slide talk deck "AI Safety and Existential Risk" (pptxgenjs). Read ${ROOT}/tools/SLIDE_BRIEF.md (rules, API,
 and the Media section) and ${ROOT}/tools/RESEARCH_BRIEF.md (truthfulness rules). TODAY IS 2026-10-04 (after your training data — use the web).
 WebSearch may be exhausted for this session; if so use WebFetch on known URLs or DuckDuckGo through the headless browser:
@@ -48,7 +51,9 @@ ${m.edit}
 Research results (one block per research agent; their JSON files are in ${ROOT}/assets/research/${m.name}/rev2/):
 ${research.map((r, i) => `--- research ${i + 1} ---\n${r}`).join('\n')}
 
-Steps: (1) merge the rev2/*.json findings into ${ROOT}/assets/research/${m.name}/manifest.json (append items/facts/datasets/not_found; file paths
+NOTE: an earlier editor run for this module may have been interrupted partway (usage limit) — first check the current module file
+and manifest for changes already made, keep the good ones, and finish the rest rather than redoing everything.
+Steps: (1) merge the rev2/*.json findings (skip any already merged) into ${ROOT}/assets/research/${m.name}/manifest.json (append items/facts/datasets/not_found; file paths
 prefixed 'rev2/'; keep valid JSON). (2) Implement every requested change with strong visuals (real screenshots, GIFs/clips, native charts), honest
 labels (vendor-reported, rumor, estimates) and speaker notes with URLs. (3) Run \`node tools/render_module.js ${m.name}\` from ${ROOT} and view EVERY
 slide JPG; iterate until there is no overflow, overlap, illegible text or dead space. Final answer: the module's slide list (titles), what changed,
@@ -82,7 +87,7 @@ Final answer: what changed.`
 const results = await pipeline(
   args.modules,
   async (m) => {
-    const res = await parallel(m.items.map(it => () => agent(researchPrompt(m, it), { label: `research:${m.name}:${it.key}`, phase: 'Research', agentType: 'general-purpose', model: RESEARCH_MODEL })))
+    const res = await parallel(m.items.map(it => () => agent(researchPrompt(m, it), { label: `research:${m.name}:${it.key}`, phase: 'Research', agentType: 'general-purpose', ...RESEARCH_OPTS })))
     return res.map((r, i) => r || `(research "${m.items[i].key}" returned nothing)`)
   },
   async (research, m) => {
@@ -93,7 +98,7 @@ const results = await pipeline(
     const rounds = []
     let report = prev.edit
     for (let round = 1; round <= 2; round++) {
-      const review = await agent(reviewPrompt(m, report, round), { label: `review:${m.name}#${round}`, phase: 'Review', schema: ISSUES, agentType: 'general-purpose', model: RESEARCH_MODEL })
+      const review = await agent(reviewPrompt(m, report, round), { label: `review:${m.name}#${round}`, phase: 'Review', schema: ISSUES, agentType: 'general-purpose', model: REVIEW_MODEL })
       if (!review) break
       const major = review.issues.filter(i => i.severity === 'major').length
       const entry = { round, overall: review.overall, issues: review.issues.length, major }

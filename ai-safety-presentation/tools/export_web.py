@@ -318,8 +318,9 @@ def main():
         if clip_idx:
             first = clip_idx[0]
             boxes = [box_of(kids[i], cx, cy) for i in clip_idx]
+            # only shapes stacked ABOVE a clip they overlap (a tile background drawn under a later clip stays in the base)
             top = {i for i in range(first + 1, len(kids))
-                   if i not in clip_idx and any(overlaps(box_of(kids[i], cx, cy), b) for b in boxes if b)}
+                   if i not in clip_idx and any(c < i and b and overlaps(box_of(kids[i], cx, cy), b) for c, b in zip(clip_idx, boxes))}
             if top:
                 layered[part] = (set(range(len(kids))) - top, top, n)
         for m in media:

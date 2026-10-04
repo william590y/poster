@@ -28,18 +28,25 @@
   #stagewrap { position:relative; flex:1; display:flex; align-items:center; justify-content:center; min-width:0; padding:14px; }
   #stage { position:relative; aspect-ratio:16/9; width:min(100%, calc((100vh - 130px) * 16 / 9)); background:#000; box-shadow:0 10px 40px rgba(0,0,0,.6); overflow:hidden; }
   /* only the visible slide takes clicks: preloaded neighbours (opacity 0) sit later in the DOM and would swallow them */
-  #stage .slide { position:absolute; inset:0; opacity:0; transition:opacity .28s ease; pointer-events:none; }
-  #stage .slide.on { opacity:1; pointer-events:auto; }
+  /* inactive slides are hidden outright once they fade: some browsers (iOS Safari especially) still draw <video> players
+     inside an opacity:0 parent, so a neighbouring slide's clip could show on top of the current slide */
+  #stage .slide { position:absolute; inset:0; opacity:0; visibility:hidden; pointer-events:none; z-index:0;
+                  transition:opacity .28s ease, visibility 0s linear .28s; }
+  #stage .slide.on { opacity:1; visibility:visible; pointer-events:auto; z-index:1; transition:opacity .28s ease, visibility 0s; }
   #stage .slide > img.bg { position:absolute; inset:0; width:100%; height:100%; display:block; user-select:none; -webkit-user-drag:none; }
   #stage .slide > img.top { position:absolute; display:block; pointer-events:none; user-select:none; -webkit-user-drag:none; }
   .ov { position:absolute; overflow:hidden; transform-origin:center center; }
   .ov video, .ov iframe { position:absolute; border:0; display:block; }
   .ov.ctl { z-index:3; }   /* players the viewer clicks on stay above the prev/next click zones */
-  .yt { cursor:pointer; background:transparent; border:0; padding:0; }
-  .yt .play { position:absolute; left:50%; top:50%; width:74px; height:74px; margin:-37px 0 0 -37px; border-radius:50%; background:rgba(229,56,59,.92);
-              box-shadow:0 6px 30px rgba(0,0,0,.5); transition:transform .15s; }
-  .yt .play::after { content:""; position:absolute; left:29px; top:22px; border-style:solid; border-width:15px 0 15px 25px; border-color:transparent transparent transparent #fff; }
-  .yt:hover .play { transform:scale(1.08); }
+  .yt { cursor:pointer; background:transparent; border:0; padding:0; container-type:size; }
+  /* a corner pill rather than a centred button: many covers already have a play badge (or title art) drawn in the middle,
+     and the whole cover is clickable anyway; sized in container units so it scales with the slide */
+  .yt .play { position:absolute; left:3%; bottom:5%; display:flex; align-items:center; gap:.45em; padding:.4em .85em .4em .7em;
+              border-radius:999px; background:rgba(229,56,59,.94); color:#fff; font:600 max(9px, 3.6cqh)/1 system-ui, -apple-system, Segoe UI, sans-serif;
+              box-shadow:0 4px 18px rgba(0,0,0,.45); transition:transform .15s; transform-origin:left bottom; }
+  .yt .play::before { content:""; width:.75em; height:.85em; background:#fff; clip-path:polygon(0 0, 100% 50%, 0 100%); }
+  .yt .play::after { content:"Play"; }
+  .yt:hover .play { transform:scale(1.06); }
   .nav { position:absolute; top:0; bottom:0; width:12%; cursor:pointer; z-index:2; }
   .nav.prev { left:0; } .nav.next { right:0; }
   footer { display:flex; align-items:center; gap:10px; padding:8px 16px 12px; justify-content:center; }

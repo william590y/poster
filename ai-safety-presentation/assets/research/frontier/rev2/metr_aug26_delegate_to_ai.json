@@ -1,0 +1,26 @@
+{
+ "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#setup-and-timeline",
+ "title": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident - METR",
+ "crop_css": {
+  "x": 363,
+  "y": 23155.875,
+  "w": 787.328125,
+  "h": 132
+ },
+ "highlights_frac": {
+  "we had to heavily delegate our analysis to AI agents": [
+   {
+    "x": 0.8413,
+    "y": 0.1061,
+    "w": 0.1007,
+    "h": 0.1667
+   },
+   {
+    "x": 0.0152,
+    "y": 0.3106,
+    "w": 0.4261,
+    "h": 0.1667
+   }
+  ]
+ }
+}

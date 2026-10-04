@@ -1378,13 +1378,13 @@ async function robotWorkSlide(d) {
 
   // ---- bottom right: who is exposed (press clipping + two stats) ----
   const catBottom = box.y + box.h + 0.03 + 0.58;
-  const yb = catBottom + 0.3;
+  const yb = catBottom + 0.24; // value text is bottom-aligned in its box: the visible gap to the labels is ≥0.3in
   const cnbc = R2('robotwork-cnbctv18-machines-have-a-type.png');
   const cw = 2.4;
   const c1 = await frameW(d, s, cnbc, rx + 0.05, yb + 0.12, cw, { rot: 1.5 });
   const sx = rx + cw + 0.35, sw = CX1 - sx;
   const st1 = stat(d, s, { x: sx, y: yb, w: sw, value: '$22.88 vs $52.97', valueSize: 19, labelSize: 12, labelH: 0.42, color: d.S.amber, label: 'hourly pay: most robot-exposed fifth of workers vs unexposed' });
-  const st2 = stat(d, s, { x: sx, y: yb + 0.8, w: sw, value: '9 of 10', valueSize: 19, labelSize: 12, labelH: 0.42, color: d.S.amber, label: 'of the 10 most robot-exposed occupations (20K+ jobs) are vehicle operators' });
+  const st2 = stat(d, s, { x: sx, y: yb + 0.8, w: sw, value: '9 of 10', valueSize: 19, labelSize: 12, labelH: 0.42, color: d.S.amber, label: 'of the 10 most-exposed occupations (20K+ jobs) are vehicle operators' });
 
   d.animate(s, [...t1, meth, ...kfF, kfCap], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, kfHl.slice(0, 3), { auto: true, effect: 'wipeLeft', dur: 500, stagger: 350, after: 150 });
@@ -1401,7 +1401,7 @@ async function robotWorkSlide(d) {
     'Chart (Figure 3, all US work time): 54% cognitive and interpersonal; physical work is the other 46% — 12% that no robot can do (E0), 23% robots can do in purpose-built environments (E1), 10% in structured human facilities (E2), 1% in unstructured environments (E3). E1+E2+E3 = 34% of all work = 74% of physical work. Of physical tasks only 1.9% are E3 — robots mostly need controlled settings.',
     'Who is exposed (Figure 5, top-quintile exposed vs unexposed workers): 31.2% vs 51.2% female (−20 pp); 8.3% vs 63.2% with a bachelor’s degree (−55 pp); hourly wage $22.88 vs $52.97; unemployment 5.2% vs 2.2%. Most exposed occupations (Figure 4, ≥20,000 jobs): taxi drivers 2.2 on the 0–3 index (citing Waymo robotaxis), agricultural equipment operators 2.1, light truck drivers 2.1 — 9 of the top 10 are vehicle operators. Nursing and general repair jobs are barely exposed.',
     'Press: CNBC-TV18 (Asmi Saxena, Oct 2, 2026): “The machines have a type: male, blue-collar and lower-paid” — dek: “A new Anthropic study finds the jobs most exposed to physical automation are held mostly by men, with fewer qualifications and smaller pay packets. But the price tag means no stampede is imminent.” (That price tag is the next slide.)',
-    'Robustness caveat (Appendix A.4, also shown on the slide): “Excluding ratings that rely on related robots decreases the share of exposed physical work from about three-quarters to a half.” Dropping demonstration-only evidence lowers it by about 1 point. So the 74% is an upper-end reading of Claude’s ratings; say “between half and three-quarters”.',
+    'Robustness caveat (Appendix A.4, also shown on the slide): “Excluding ratings that rely on related robots decreases the share of exposed physical work from about three-quarters to a half.” Dropping demonstration-only evidence lowers it by about 1 point. So present the 74% as the report’s main estimate from Claude’s ratings, with about half on the stricter reading.',
     'URLs: ' + RW_URL + ' · PDF: https://cdn.sanity.io/files/4zrzovbb/website/401a473469db99fd39bba1ca6d9a5653a70e2f12.pdf · Appendix: https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf · Data release (CC BY 4.0): https://huggingface.co/datasets/Anthropic/EconomicIndex/tree/main/robot_exposure · CNBC-TV18: https://www.cnbctv18.com/technology/anthropic-study-ai-robots-blue-collar-jobs-physical-workers-automation-risk-20003393.htm',
   ].join('\n\n'));
   return s;
@@ -1426,7 +1426,7 @@ async function robotCostSlide(d) {
   ], box, {
     barDir: 'bar', barGrouping: 'clustered', layout: L, chartColors: [HEX.steel, HEX.red], catAxisOrientation: 'maxMin',
     valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 380,
-    showValue: true, dataLabelFormatCode: '$0"K"', dataLabelPosition: 'outEnd', dataLabelFontSize: 12, dataLabelFontBold: true,
+    showValue: true, dataLabelFormatCode: '$0.0"K"', dataLabelPosition: 'outEnd', dataLabelFontSize: 12, dataLabelFontBold: true,
     catAxisLabelFontSize: 12, barGapWidthPct: 50, barOverlapPct: 0, showLegend: false,
   });
   // own legend (renderers squeeze a built-in top legend into the first category label)
@@ -1438,11 +1438,11 @@ async function robotCostSlide(d) {
   });
   // tag the one occupation where robots already win
   const gy0 = box.y + box.h * L.y, gh = box.h * L.h / 5;
-  const tag = d.text(s, '◄ robots already ~$2.5K a year cheaper', { x: box.x + box.w * (L.x + L.w * 48 / 380) + 0.62, y: gy0 + gh * 0.5 - 0.15, w: 3.2, h: 0.3, fontSize: 12, bold: true, color: '5FD3C4', valign: 'middle' });
+  const tag = d.text(s, '◄ report: robots ~$2.5K a year cheaper', { x: box.x + box.w * (L.x + L.w * 48 / 380) + 0.78, y: gy0 + gh * 0.5 - 0.15, w: 3.2, h: 0.3, fontSize: 12, bold: true, color: '5FD3C4', valign: 'middle' });
   const note = d.text(s, [
     { text: 'Hand packers: robots costing over $2 million replace ~14 workers. ', options: { color: d.S.muted } },
-    { text: 'Robot costs are Claude’s estimates (purchase spread over ~10 years + upkeep); the human bar is median pay × share of the job robots can do (Fig. 7).', options: { color: d.S.steel, italic: true } },
-  ], { x: CX0, y: box.y + box.h + 0.1, w: lw, h: 0.9, fontSize: 13, valign: 'top' });
+    { text: 'Robot costs are Claude’s estimates (fixed costs annualized, plus running costs).', options: { color: d.S.steel, italic: true } },
+  ], { x: CX0, y: box.y + box.h + 0.1, w: lw, h: 0.62, fontSize: 14, valign: 'top' });
 
   // ---- right: the report’s own sentences (highlights added) + the 50-year backtest ----
   const rx = 7.35, rw = CX1 - rx;
@@ -1455,10 +1455,10 @@ async function robotCostSlide(d) {
   const h2a = await hlLines(d, s, sc, f2, [[40, 31, 1210, 42], [40, 83, 490, 42]]);
   const h2b = await hlLines(d, s, sc, f2, [[296, 136, 991, 42], [40, 189, 1247, 42], [40, 242, 927, 42]]);
   const yb = f2.geom.y + f2.geom.h + 0.06 + 0.2;
-  const bl = capLabel(d, s, 'BUT ONCE ROBOTS CAN DO A JOB: 50-YEAR BACKTEST', { x: rx, y: yb, w: rw, color: d.S.amber, charSpacing: 1 });
-  const sw = (rw - 0.3) / 2;
-  const st1 = stat(d, s, { x: rx, y: yb + 0.22, w: sw, value: '−34%', valueSize: 26, labelSize: 12, labelH: 0.45, label: 'employment over ~20 years: fully robot-exposed vs unexposed jobs' });
-  const st2 = stat(d, s, { x: rx + sw + 0.3, y: yb + 0.22, w: sw, value: '−7%', valueSize: 26, labelSize: 12, labelH: 0.45, label: 'wages, same comparison (within the same industry)' });
+  const bl = capLabel(d, s, '50-YEAR BACKTEST: HISTORICALLY ROBOT-EXPOSED JOBS', { x: rx, y: yb, w: rw, color: d.S.amber, charSpacing: 1 });
+  const sw = 3.0, sw2 = rw - sw - 0.25;
+  const st1 = stat(d, s, { x: rx, y: yb + 0.32, w: sw, value: '−34%', valueSize: 26, labelSize: 12, labelH: 0.42, label: 'employment after ~20 years, fully exposed vs unexposed (95% CI −16% to −52%)' });
+  const st2 = stat(d, s, { x: rx + sw + 0.25, y: yb + 0.32, w: sw2, value: '−7%', valueSize: 26, labelSize: 12, labelH: 0.42, label: 'wages, same comparison, same industry (95% CI −5% to −9%)' });
 
   d.animate(s, [lab, ...leg, ch], { auto: true, effect: 'wipeLeft', dur: 1100 });
   d.animate(s, [tag, note], { auto: true, effect: 'fade', after: 100 });
@@ -1469,13 +1469,13 @@ async function robotCostSlide(d) {
   d.animate(s, h2b, { effect: 'wipeLeft', dur: 450, stagger: 300 });
   d.animate(s, [bl, ...st1, ...st2], { effect: 'rise', dur: 450, stagger: 120 });
 
-  d.source(s, 'Source: Anthropic, “What work can robots do?” (Sep 30, 2026): Key findings, Fig. 7 (human bar derived: median pay × exposed share), robot costs and adoption, Appendix B.3 (backtest, 1977–2024).');
+  d.source(s, 'Source: Anthropic, “What work can robots do?” (Sep 30, 2026): Key findings, Fig. 7 (human bar derived: median pay × exposed share), robot costs, Appendix B.3 (backtest regressions, 1977–2024).');
   s.addNotes([
     'The catch: “While robots can do most physical work tasks today, they are much more expensive than human labor. Robots are cost-competitive for just 0.3% of job tasks. If robot price declines follow past trends, it will take 40 years for that share to reach 10%.” (Key findings, highlighted.) For 10% of human work today, robot costs would need to fall about 70% — around 40 years at 3% a year. At 20% cheaper, robots would undercut the physical work of 2.8 million workers (0.8% of all working time).',
-    'Chart (Figure 7; robot costs are Claude’s estimates of the annual cost of robots doing the tasks a robot can do in each job, fixed + variable): packers and packagers (560,000 jobs) — robots ~$45,400 a year vs ~$47,500 of human pay for the same 97% of the job; the report: “robots cost about $2,500 less per year to do that work.” These robots “cost over $2 million to purchase and install, but replace the yearly work of around 14 workers.” Packer employment is already down 22% since 2015. Taxi drivers: robotaxi ~$57,800 vs ~$50,600 — “around $7,000 more” (plus regulatory hurdles). Dishwashers $172K vs $45K; janitors $280K vs $34.8K (median pay $47.7K, 73% exposed); welders $334.6K vs $66.1K — about 5x. The grey “human” bar is my derivation from the figure’s own columns (median total compensation × exposed share), the same basis the report uses for the $2,500 and $7,000 comparisons.',
+    'Chart (Figure 7; robot costs are Claude’s estimates of the annual cost of robots doing the tasks a robot can do in each job, fixed + variable): packers and packagers (560,000 jobs) — robots ~$45,400 a year vs ~$47,500 of human pay for the same 97% of the job (Fig. 7 columns: $49,000 × 97%), a gap of about $2,100; the report’s own rounded sentence says “around $49,000, robots cost about $2,500 less per year to do that work”, so the slide tag attributes the $2.5K to the report. These robots “cost over $2 million to purchase and install, but replace the yearly work of around 14 workers.” Packer employment is already down 22% since 2015. Taxi drivers: robotaxi ~$57,800 vs ~$50,600 — “around $7,000 more” (plus regulatory hurdles). Dishwashers $172K vs $45K; janitors $280K vs $34.8K (median pay $47.7K, 73% exposed); welders $334.6K vs $66.1K — about 5x. The grey “human” bar is my derivation from the figure’s own columns (median total compensation × exposed share); the report’s $2,500 and $7,000 are its own rounded figures (the columns give about $2,100 and $7,200).',
     'Timelines (verbatim, highlighted): “Adding in 3% cost declines per year, robots aren’t cost-competitive for half of physical work today until 2085. … In a fast adoption scenario, where quality-adjusted costs fall up to four times faster and robots become able to do new tasks twice as fast, robots become cost-competitive for half of physical work by 2050. Automating 90% of physical work today still takes 53 years.” The authors stress these scenarios are not job-loss predictions; Appendix E: by 2040 under business as usual robots become cost-competitive for about 2.5 million jobs — “more of a ceiling on job loss than a central estimate.” Their summary: “robots would need to sustain record rates of price declines and quality improvements over the coming decades to enable rapid physical automation.”',
     'Barriers beyond cost (Appendix Figure 10): capability limits block about 70% of physical tasks (manipulation alone about half), human preferences about a quarter, regulation 14%.',
-    'Why it still matters (Appendix B.3 backtest, 1977–2024): over about 20 years, an occupation whose tasks were all robot-exposed saw wages 7.1% lower (95% CI 5.4–8.9%) and employment 34.2% lower (95% CI 16.4–52.0%) than an unexposed occupation in the same industry. And robots keep gaining: each year they become able to do about 2% of the physical work they previously couldn’t — in 1977 robots could not do 62% of physical tasks; today all but 24%. “If the past is any guide, taxi drivers and warehouse packers will see changes sooner than nurses and mechanics.” And the authors flag the upside risk: “AI-powered robots could leapfrog our scale and do work they cannot today, for example by learning to climb ladders or use their arms and grippers more deftly.”',
+    'Why it still matters (Appendix B.3 backtest, 1977–2024): over about 20 years, an occupation whose tasks were all robot-exposed saw wages 7.1% lower (95% CI 5.4–8.9%) and employment 34.2% lower (95% CI 16.4–52.0%) than an unexposed occupation in the same industry. These are regression estimates on HISTORICAL exposure (robots of each starting year), not a forecast for today’s robots; the employment estimate is imprecise (CI 16–52%), and the appendix notes steady declines could partly reflect secular trends (its 1977 placebo test on wages finds no pre-trend). And robots keep gaining: each year they become able to do about 2% of the physical work they previously couldn’t — in 1977 robots could not do 62% of physical tasks; today all but 24%. “If the past is any guide, taxi drivers and warehouse packers will see changes sooner than nurses and mechanics.” And the authors flag the upside risk: “AI-powered robots could leapfrog our scale and do work they cannot today, for example by learning to climb ladders or use their arms and grippers more deftly.”',
     'URLs: ' + RW_URL + ' · Appendix PDF: https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf · Data release: https://huggingface.co/datasets/Anthropic/EconomicIndex/tree/main/robot_exposure',
   ].join('\n\n'));
   return s;

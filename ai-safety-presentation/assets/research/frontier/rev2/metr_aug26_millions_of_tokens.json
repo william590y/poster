@@ -1,0 +1,20 @@
+{
+ "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/#a-set-of-~1300-agent-transcripts-with-raw-chains-of-thought",
+ "title": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident - METR",
+ "crop_css": {
+  "x": 323,
+  "y": 22646.796875,
+  "w": 847.328125,
+  "h": 80.15625
+ },
+ "highlights_frac": {
+  "Most transcripts were very long, often many millions of tokens.": [
+   {
+    "x": 0.194,
+    "y": 0.5374,
+    "w": 0.6033,
+    "h": 0.2745
+   }
+  ]
+ }
+}

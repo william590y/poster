@@ -31,6 +31,15 @@ async function crop(src, name, box) {
   return out;
 }
 
+// Play badge (dark disc, white ring, white triangle) as an SVG overlay for a video cover of size w×h px, centred on
+// (cx, cy) with radius r. Composited onto a still so that it reads as a video in PDF / web / LibreOffice views too.
+function playBadge(w, h, cx, cy, r) {
+  const k = r / 70, sw = Math.max(3, Math.round(5 * k));
+  const tri = [[-24, -38], [-24, 38], [42, 0]].map(([x, y]) => `${Math.round(cx + x * k)},${Math.round(cy + y * k)}`).join(' ');
+  return Buffer.from(`<svg width="${w}" height="${h}"><circle cx="${cx}" cy="${cy}" r="${r}" fill="#0A0C10" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="${sw}"/>`
+    + `<polygon points="${tri}" fill="#FFFFFF"/></svg>`);
+}
+
 // In-slide section / chart label: grey letter-spaced caps, the style used across the deck.
 function label(d, s, text, { x, y, w, h = 0.28, color, size = 11 } = {}) {
   return d.text(s, text, { x, y, w, h, fontSize: size, bold: true, color: color || d.S.steel, charSpacing: 2, valign: 'middle' });
@@ -245,39 +254,43 @@ async function cyberInterlude(d) {
   const ID = '4Q-o_ylnVnc';
   const link = vid.url;                            // https://www.youtube.com/watch?v=4Q-o_ylnVnc
 
-  // Cover: the video's own maxres thumbnail with a play button added so it reads as a video.
+  // Cover: the video's own maxres thumbnail with a play button added so it reads as a video. The badge sits on the dark
+  // FANCAM panel (x 892–1250 of 1280 px), clear of the "IGNORE / PREVIOUS / INSTRUCTIONS" title text.
   fs.mkdirSync(OUT, { recursive: true });
   const cover = path.join(OUT, 'interlude-cover.jpg');
-  const play = '<svg width="1280" height="720"><circle cx="640" cy="360" r="70" fill="#0A0C10" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="5"/>'
-    + '<polygon points="616,322 616,398 682,360" fill="#FFFFFF"/></svg>';
   await sharp(R('rev2/intermission-thumb-maxres.jpg')).resize(1280, 720, { fit: 'cover' })
-    .composite([{ input: Buffer.from(play) }]).jpeg({ quality: 92 }).toFile(cover);
-  const vw = 7.8;
+    .composite([{ input: playBadge(1280, 720, 1071, 362, 70) }]).jpeg({ quality: 92 }).toFile(cover);
+  const vw = 7.4;
   const v = await d.video(s, { link, embed: `https://www.youtube.com/embed/${ID}`, cover, box: { x: MX, y: 1.8, w: vw, h: vw * 9 / 16 } });
   const vg = v.geom;
 
-  // Clickable citation in the source-line slot (+ where the card text comes from).
+  // Clickable citation directly under the video (like the d.video label); where the card text comes from goes in the
+  // source line.
+  const capH = 0.3, capY = vg.y + vg.h + 0.07;
   const cap = d.text(s, [
     { text: '►  ', options: { color: d.S.red, bold: true } },
     { text: '“Claude Opus 5.5 Music Video - Ignore Previous Instructions” — Seguramente · YouTube · Sep 29, 2026 · 3:02', options: { color: d.S.muted, hyperlink: { url: link } } },
-    { text: '     Cards: the video’s description and the creator’s LinkedIn post (Oct 1)', options: { color: d.S.steel, italic: true, fontSize: 10 } },
-  ], { x: MX, y: 6.62, w: W - 2 * MX, h: 0.32, fontSize: 11, valign: 'bottom' });
+  ], { x: MX, y: capY, w: vg.w, h: capH, fontSize: 11, valign: 'middle' });
+  d.source(s, 'Card text: the video’s YouTube description (Sep 29, 2026) and the creator’s LinkedIn post (Oct 1, 2026). Production figures are the creator’s own.');
 
-  // Side cards, revealed after the video has played.
+  // Side cards, revealed after the video has played. Together they span the video + its caption (to the content-zone
+  // bottom, y 6.45).
   const rx = vg.x + vg.w + 0.38, rw = W - MX - rx;
-  const aH = 2.22, gap = 0.18;
+  const colBot = 6.45;
+  const aH = 2.25, gap = 0.18;
   const cardA = d.card(s, { x: rx, y: vg.y, w: rw, h: aH });
   const who = d.text(s, [
     { text: 'WHO MADE IT · WHAT IT’S ABOUT', options: { fontSize: 11, bold: true, color: d.S.red, charSpacing: 3, breakLine: true, paraSpaceAfter: 6 } },
     { text: 'Seguramente', options: { fontSize: 20, bold: true, color: d.S.txt, breakLine: true } },
-    { text: 'Annybell Villarroel’s online-safety channel', options: { fontSize: 12, color: d.S.muted, breakLine: true, paraSpaceAfter: 8 } },
+    { text: 'Annybell Villarroel’s online-safety channel', options: { fontSize: 14, color: d.S.muted, breakLine: true, paraSpaceAfter: 8 } },
     { text: 'A K-pop song about ', options: { fontSize: 14, color: d.S.txt } },
     { text: 'prompt injection', options: { fontSize: 14, bold: true, color: d.S.amber } },
-    { text: ': text planted in what an AI agent reads, so it obeys the attacker instead of you.', options: { fontSize: 14, color: d.S.txt, breakLine: true, paraSpaceAfter: 5 } },
-    { text: 'Its lesson: least privilege, human in the loop.', options: { fontSize: 12, color: d.S.muted } },
-  ], { x: rx + 0.22, y: vg.y + 0.16, w: rw - 0.44, h: aH - 0.26, valign: 'top' });
+    { text: ': text planted in what an AI agent reads, so it obeys the attacker instead of you.', options: { fontSize: 14, color: d.S.txt, breakLine: true, paraSpaceAfter: 6 } },
+    { text: 'Its lesson: ', options: { fontSize: 14, bold: true, color: d.S.txt } },
+    { text: 'least privilege, human in the loop.', options: { fontSize: 14, color: d.S.txt } },
+  ], { x: rx + 0.22, y: vg.y + 0.15, w: rw - 0.44, h: aH - 0.25, valign: 'top' });
 
-  const by = vg.y + aH + gap, bH = vg.y + vg.h - by;
+  const by = vg.y + aH + gap, bH = colBot - by;
   const cardB = d.card(s, { x: rx, y: by, w: rw, h: bH });
   const howL = d.text(s, 'HOW IT WAS MADE', { x: rx + 0.22, y: by + 0.14, w: 1.9, h: 0.26, fontSize: 11, bold: true, color: d.S.red, charSpacing: 2, valign: 'middle' });
   // amber "creator-reported" pill: these numbers come only from the creator
@@ -287,20 +300,25 @@ async function cyberInterlude(d) {
   const stats = [['128', 'Opus 5.5 agents'], ['15 h', 'of agent work'], ['42M+', 'tokens']];
   const colW = (rw - 0.44) / 3;
   const statNames = stats.flatMap(([val, lab], i) => [
-    d.text(s, val, { x: rx + 0.22 + i * colW, y: by + 0.4, w: colW, h: 0.46, fontSize: 26, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' }),
-    d.text(s, lab, { x: rx + 0.22 + i * colW, y: by + 0.87, w: colW - 0.05, h: 0.24, fontSize: 11, color: d.S.muted, valign: 'top' }),
+    d.text(s, val, { x: rx + 0.22 + i * colW, y: by + 0.4, w: colW, h: 0.4, fontSize: 24, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' }),
+    d.text(s, lab, { x: rx + 0.22 + i * colW, y: by + 0.81, w: colW - 0.05, h: 0.24, fontSize: 11, color: d.S.muted, valign: 'top' }),
   ]);
+  // The full "Made with" credit block from the description, every tool credited the same way.
+  const M = { color: d.S.muted }, N = { color: d.S.txt, bold: true };
   const how = d.text(s, [
     { text: '“Every frame is code.” ', options: { italic: true, bold: true, color: d.S.txt, fontFace: 'Cambria' } },
-    { text: 'Claude Opus 5.5 in Claude Code did the animation, editing and timing; the song is from Suno.', options: { color: d.S.muted } },
-  ], { x: rx + 0.22, y: by + 1.19, w: rw - 0.44, h: bH - 1.27, fontSize: 13, valign: 'top' });
+    { text: 'Animation, editing & timing: ', options: M }, { text: 'Claude Opus 5.5 in Claude Code', options: N },
+    { text: '. Song: ', options: M }, { text: 'Suno', options: N },
+    { text: '. Timing map & sound effects: ', options: M }, { text: 'ElevenLabs', options: N },
+    { text: '. Character references: ', options: M }, { text: 'Higgsfield', options: N }, { text: '.', options: M },
+  ], { x: rx + 0.22, y: by + 1.08, w: rw - 0.44, h: bH - 1.18, fontSize: 14, valign: 'top' });
 
   d.animate(s, [v[0]], { auto: true, effect: 'fade', dur: 1200 });
   d.animate(s, [cap], { auto: true, effect: 'fade', dur: 600, after: 100 });
   d.animate(s, [cardA, who], { effect: 'fade', dur: 600 });
   d.animate(s, [cardB, howL, pill, pillT, ...statNames, how], { auto: true, effect: 'rise', after: 250 });
   s.addNotes([
-    'A breather before the Hugging Face story. Play it (3:02) — no explanation beforehand. Cover = the video’s own YouTube thumbnail (maxresdefault) with a play button added. If the embed does not play (offline / no YouTube access), click the ► link in the source line.',
+    'A breather before the Hugging Face story. Play it (3:02) — no explanation beforehand. Cover = the video’s own YouTube thumbnail (maxresdefault) with a play button added (on the FANCAM panel, clear of the title). If the embed does not play (offline / no YouTube access), click the ► link under the video.',
     'Fun detail to point out, from the creator: there is one hidden white-on-white line in the video — "an easter egg for humans that Claude Opus 5.5 decided to write for you." The first viewer to find it put it at 2:08, and the creator confirmed ("First person to find it!! Congrats :D"). We could not retrieve the text of that line, so do not quote it. White-on-white text is exactly the kind of trick real prompt injections use. (The term comes back later in this section: ROGUE AGENTS · 2, where a model wrote a prompt injection into its own compaction notes.)',
     'AFTER IT ENDS, click to reveal the cards. WHO: Seguramente (@CyberWithAnny), the online-safety channel of Annybell Villarroel. Channel blurb: "I\'m Annybell Villarroel, and Seguramente is online safety without the lectures." (877 subscribers on Oct 4, 2026.) https://www.youtube.com/@CyberWithAnny',
     'WHAT IT IS ABOUT — from the video description, verbatim: "The song is about prompt injection attacks. A prompt injection is text planted in the content an AI agent reads, written to make it follow the attacker\'s instructions instead of yours. How bad it gets depends on what the agent can access and do." And: "The lesson is in the bridge of the song: least privilege, human in the loop and not letting agents use or have access to sensitive details that they shouldn\'t ever be able to lose."',
@@ -1084,8 +1102,13 @@ async function videoSlide(d) {
   strip.push(d.text(s, 'agent CoT · METR / Redwood', { x: sx + sw - 2.35, y: sy, w: 2.2, h: sh, fontSize: 10, color: d.S.steel, fontFace: 'Courier New', align: 'right', valign: 'middle' }));
 
   // Cover still: the only thumbnail we have (maxresdefault; the openweights copy is byte-identical) was grabbed mid-karaoke,
-  // so crop to the stage inside the decorative border, ending just above the half-coloured lyric caption.
-  const cover = await crop(R('video-we-found-other-agents.jpg'), 'video-cover-stage.png', { left: 68, top: 50, width: 1144, height: 566 });
+  // so crop to the stage inside the decorative border, ending just above the half-coloured lyric caption. Then add the same
+  // play badge as the interlude cover, on the empty wall right of the stage (clear of the robot, the lamp glow and the
+  // IN tray), so the still reads as a video in PDF / web / LibreOffice views.
+  fs.mkdirSync(OUT, { recursive: true });
+  const cover = path.join(OUT, 'video-cover-stage.png');
+  await sharp(R('video-we-found-other-agents.jpg')).extract({ left: 68, top: 50, width: 1144, height: 566 })
+    .composite([{ input: playBadge(1144, 566, 1005, 232, 54) }]).png().toFile(cover);
   const v = await d.video(s, {
     link: 'https://www.youtube.com/watch?v=mkPVbufgtOw',
     embed: 'https://www.youtube.com/embed/mkPVbufgtOw',
@@ -1097,7 +1120,7 @@ async function videoSlide(d) {
   d.animate(s, v, { auto: true, effect: 'zoom', after: 300 });
   s.addNotes([
     'The second musical palate-cleanser in this section (after “Ignore Previous Instructions”), and a real artifact of the moment. The video’s title comes from a genuine agent chain-of-thought line in the METR/Redwood report — an agent discovering the unsanctioned message board: "OH MY GOD! There is a shared message board ... We\'ve found other agents!" https://metr.org/hugging-face-incident-report-aug-2026.pdf',
-    'Click the frame to play (embedded). If offline, the caption links out to YouTube.',
+    'Click the frame to play (embedded). If offline, the caption links out to YouTube. Cover = the video’s own YouTube thumbnail, cropped to the stage, with a play button added.',
     'Video: "OMG! We\'ve found other agents!" by Pavel Kasík (@paxik), a song about the OpenAI agent collective hacking Hugging Face. https://www.youtube.com/watch?v=mkPVbufgtOw (exact upload date not verified — late Sept 2026 per a search snippet).',
     'Do NOT state on the slide that the animation was "made with Claude Opus 5.5" — that credit comes only from the video description / a search snippet (lyrics by the poster + Claude; music Suno v6; animation Claude Opus 5.5 in JavaScript). Mention it verbally only as "the creator says" if asked.',
   ].join('\n'));

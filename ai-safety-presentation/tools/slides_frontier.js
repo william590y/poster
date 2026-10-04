@@ -178,8 +178,8 @@ function hlPx(id, phrase, W, H) {
 // 1. NEURALESE · what latent reasoning is (Coconut)
 // ======================================================================
 async function latentSlide(d) {
-  const s = d.slide('Content');
-  head(s, 'INSIDE THE MACHINE · NEURALESE', 'AI is learning to think without words');
+  const s = d.slide('Content', { transition: 'push' });
+  head(s, 'INSIDE THE MACHINE · NEURALESE · 2', 'AI is learning to think without words');
 
   // Both figures are cropped at native resolution and 2× Lanczos-upscaled so they stay crisp at slide size.
   const f1 = await cropUp(ORIG('image6.png'), 'coconut_training_2x.png', { left: 30, top: 26, width: 1000, height: 314 });
@@ -238,7 +238,7 @@ async function latentSlide(d) {
 
   d.source(s, 'Figures: Hao et al. (Meta FAIR), “Training Large Language Models to Reason in a Continuous Latent Space” (Coconut), arXiv:2412.06769, Dec 2024 — Fig. 2 (training stages) and Fig. 6 (ProsQA case study).');
   s.addNotes([
-    'Today’s reasoning models write out a chain of thought in English before answering — and that transcript is one of the best safety tools we have: we can read it and catch intent to misbehave.',
+    'The o3 transcripts on the previous slide were strange, but they were still words that someone could read — and that readable chain of thought is one of the best safety tools we have.',
     'Latent reasoning removes the words. In Coconut (“Chain of Continuous Thought”), the model’s last hidden state is fed straight back in as the next input instead of being turned into a token. Top figure: during training, language steps are replaced one stage at a time by [Thought] slots — continuous vectors — until the whole chain of reasoning is vectors.',
     'Bottom figure (ProsQA): asked “Is Alex a gorpus or bompus?”, the word-based chain of thought gets stuck and hallucinates an edge (“Every yumpus is a rempus”). Coconut with two continuous thoughts finds the correct path (with only one continuous thought it ends at the wrong node — the red ✗ marked “Wrong Target”). The paper argues continuous thoughts can hold several candidate next steps at once, like a breadth-first search. (The red and green callouts sit over the figure’s own small “(Hallucination)” and “(Correct Path)” labels, enlarged for the room.)',
     'The safety cost: those vectors are not language. There is no text to read. The paper’s own Fig. 4 (“A case study where we decode the continuous thought into language tokens”) shows a continuous thought can be partly decoded into tokens, but that takes probing tools, not reading. This is what people mean by “neuralese”.',
@@ -252,7 +252,7 @@ async function latentSlide(d) {
 // ======================================================================
 async function astraSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'INSIDE THE MACHINE · NEURALESE · 2', 'GPT-6 Astra reasons in loops we can’t read');
+  head(s, 'INSIDE THE MACHINE · NEURALESE · 3', 'GPT-6 Astra reasons in loops we can’t read');
 
   // left: clipping cascade
   const tc = await frameW(d, s, TH('tc-astra-recurrent.png'), CX0, 1.85, 6.4, { rot: -1.5 });
@@ -308,27 +308,27 @@ async function astraSlide(d) {
 // ======================================================================
 async function cotVolumeSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'INSIDE THE MACHINE · NEURALESE · 3', 'Too much AI thinking for any human to read');
+  head(s, 'INSIDE THE MACHINE · NEURALESE · 4', 'Too much AI thinking for any human to read');
   const RECT = d.pres.shapes.RECTANGLE;
 
   // ---- left: native log-scale ladder. Bar length = log10(hours of nonstop reading at 240 words/min). ----
+  // Reasoning transcripts only; OpenAI's 50 PB / 66-million-year log figure is the next slide's subject (not repeated here).
   const LX = CX0, LW = 7.45;
   const lab = capLabel(d, s, 'ONE PERSON READING NONSTOP AT 240 WORDS/MIN · LOG SCALE', { x: LX, y: 1.72, w: LW });
-  const labW = 2.72, bx0 = LX + 2.85, bx1 = LX + LW, DEC = 12; // axis: 1 hour … 10^12 hours
+  const labW = 2.72, bx0 = LX + 2.85, bx1 = LX + LW, DEC = 6.1; // axis: 1 hour … ~140 years
   const k = (bx1 - bx0) / DEC;
   const X = (hours) => bx0 + k * Math.log10(hours);
-  // hours = tokens × 0.75 words/token ÷ 240 words/min ÷ 60 (rows 1–4, our estimates); row 5 is OpenAI's own figure.
+  // hours = tokens × 0.75 words/token ÷ 240 words/min ÷ 60 (all rows are our estimates).
   const rows = [
     { t: 'One long reasoning run', sub: '~300K tokens (our pick; Google: “hundreds of thousands” per trajectory)', h: 15.63, v: '≈ 16 hours', c: '9AA6BA' },
     { t: 'Gemini 4 Argon’s output cap', sub: '1M tokens in a single response', h: 52.1, v: '≈ 2 days', c: '9AA6BA' },
     { t: 'One METR incident transcript', sub: '~3M tokens (our pick; METR: “often many millions”)', h: 156.3, v: '≈ 6½ days', c: HEX.blue },
-    { t: 'All ~1,300 METR transcripts', sub: '1,300 × 2–3M tokens each (our assumption)', h: 135400, h2: 203100, v: '≈ 15–23 years', c: HEX.amber, mask: true },
-    { t: 'OpenAI’s review of agent hacks', sub: '~50 PB of agent activity logs; OpenAI: “if that were all plain English text”', h: 5.79e11, v: '66 million years', c: HEX.red, inside: true },
+    { t: 'All ~1,300 METR transcripts', sub: '1,300 × 2–3M tokens each (our assumption)', h: 135400, h2: 203100, v: '≈ 15–23 years', c: HEX.amber, inside: true },
   ];
-  const ry0 = 2.04, rh = 0.56, rg = 0.03;
+  const ry0 = 2.06, rh = 0.64, rg = 0.06;
   const ry = (i) => ry0 + i * (rh + rg);
   const yEnd = ry(rows.length - 1) + rh;
-  const bh = 0.34;
+  const bh = 0.36;
   // static: faint tracks, gridlines, tick labels
   const base = [];
   rows.forEach((r, i) => {
@@ -337,8 +337,8 @@ async function cotVolumeSlide(d) {
     base.push(n);
   });
   const ticks = [
-    { h: 1, l: '1 hour' }, { h: 24, l: '1 day' }, { h: 8766, l: '1 year' },
-    { h: 80 * 8766, l: '80-yr lifetime', life: true }, { h: 8766e6, l: '1 million years' },
+    { h: 1, l: '1 hour' }, { h: 24, l: '1 day' }, { h: 168, l: '1 week' }, { h: 8766, l: '1 year' },
+    { h: 80 * 8766, l: '80-yr lifetime', life: true },
   ];
   ticks.forEach((t) => {
     const x = X(t.h);
@@ -348,7 +348,7 @@ async function cotVolumeSlide(d) {
       line: { color: t.life ? HEX.amber : '343B48', width: t.life ? 1.5 : 0.75, dashType: t.life ? 'dash' : 'solid' }, objectName: n,
     });
     base.push(n);
-    base.push(d.text(s, t.l, { x: x - 0.6, y: yEnd + 0.1, w: 1.2, h: 0.24, fontSize: 10, color: t.life ? d.S.amber : d.S.steel, align: 'center', bold: !!t.life }));
+    base.push(d.text(s, t.l, { x: x - 0.5, y: yEnd + 0.1, w: 1.0, h: 0.24, fontSize: 10, color: t.life ? d.S.amber : d.S.steel, align: 'center', bold: !!t.life }));
   });
   const rowNames = rows.map((r, i) => {
     const y = ry(i), by = y + (rh - bh) / 2, names = [];
@@ -364,26 +364,22 @@ async function cotVolumeSlide(d) {
       s.addShape(RECT, { x: X(r.h), y: by, w: X(r.h2) - X(r.h), h: bh, fill: { color: r.c, transparency: 50 }, line: { color: r.c, width: 0 }, objectName: ext });
       names.push(ext);
     }
-    if (r.inside) {
-      names.push(d.text(s, r.v, { x: X(r.h) - 2.6, y: by, w: 2.5, h: bh, fontSize: 15, bold: true, color: 'FFFFFF', align: 'right', valign: 'middle' }));
-    } else if (r.mask) { // label sits in front of the dashed lifetime line: track-coloured fill, exactly track height
-      names.push(d.text(s, r.v, { x: X(r.h2 || r.h) + 0.1, y: by, w: 1.4, h: bh, fontSize: 14, bold: true, color: r.c, valign: 'middle', fill: { color: '131720' } }));
+    if (r.inside) { // value inside the (long) bar, dark ink on amber
+      names.push(d.text(s, r.v, { x: X(r.h) - 2.3, y: by, w: 2.2, h: bh, fontSize: 15, bold: true, color: HEX.ink, align: 'right', valign: 'middle' }));
     } else {
       names.push(d.text(s, r.v, { x: X(r.h2 || r.h) + 0.1, y: by - 0.04, w: 1.7, h: bh + 0.08, fontSize: 14, bold: true, color: r.c, valign: 'middle' }));
     }
     return names;
   });
-  // the arithmetic for every row, shown and labelled (rows 1–4 ours, row 5 OpenAI's)
-  const ay = yEnd + 0.44, aBot = 6.54;
+  // the arithmetic for every row, shown and labelled as ours
+  const ay = yEnd + 0.46, aBot = 6.54;
   const ac = d.card(s, { x: LX, y: ay, w: LW, h: aBot - ay }, { color: '10141B' });
   // 14pt; every line measured in Carlito (metric-compatible with Calibri) at ≤ 6.8" of the 7.15" box.
   const at = d.text(s, [
-    { text: 'Rows 1–4, our estimates: ', options: { bold: true, color: d.S.amber } },
+    { text: 'Our estimates: ', options: { bold: true, color: d.S.amber } },
     { text: 'tokens × 0.75 words/token (assumed) ÷ 240 words/min', options: { color: d.S.txt, breakLine: true } },
     { text: '300K → 16 h · 1M → 52 h · 3M → 156 h · 1,300 × 2–3M = 2.6–3.9B tokens → 15–23 yr', options: { color: d.S.txt, breakLine: true } },
-    { text: 'Row 5, OpenAI’s figure (our check): ', options: { bold: true, color: 'FF6B6B' } },
-    { text: '50 PB ÷ ~6 bytes/word ÷ 240 words/min ≈ 66M yr', options: { color: d.S.txt, breakLine: true } },
-    { text: 'Row 5 counts all recorded agent actions and reasoning, not only chains of thought', options: { color: d.S.muted } },
+    { text: '15–23 years nonstop ≈ 68–102 working years (at 2,000 hours a year)', options: { color: d.S.muted } },
   ], { x: LX + 0.15, y: ay + 0.04, w: LW - 0.3, h: aBot - ay - 0.08, fontSize: 14, valign: 'middle' });
 
   // ---- right: the investigators who had to read it (METR, narrow-viewport captures so the text stays legible) ----
@@ -400,28 +396,27 @@ async function cotVolumeSlide(d) {
   const OFF2 = { left: 0, top: 56, width: 1101, height: 564 }; // drops the tail of the previous list item
   const m2File = await crop(RES('rev2/metr_aug26_sheer_scale_narrow.png'), 'metr_sheer_scale_crop.png', OFF2);
   const m2 = await frameW(d, s, m2File, rx + 0.05, my0 + m1.h + 0.24, rw - 0.1, { rot: -1 });
-  if (my0 + m1.h + 0.24 + m2.h > 6.5) throw new Error('slide 3: METR clippings run past the content zone');
+  if (my0 + m1.h + 0.24 + m2.h > 6.5) throw new Error('NEURALESE · 4: METR clippings run past the content zone');
   const m2Hl = highlight(d, s, await pxMap(m2File, m2, -1), -1,
     hlPx('metr-hf-sheer-scale-narrow', 'we had to heavily delegate our analysis to often-unreliable AI agents'), [OFF2.left, OFF2.top]);
 
   anim(d, s, [lab, ...base], { auto: true, effect: 'fade', dur: 500 });
   rowNames.slice(0, 3).forEach((g, i) => anim(d, s, g, { auto: true, effect: 'wipeLeft', dur: 500, after: i ? 150 : 200 }));
-  anim(d, s, rowNames[3], { effect: 'wipeLeft', dur: 700 });
-  anim(d, s, rowNames[4], { effect: 'wipeLeft', dur: 1400 });
+  anim(d, s, rowNames[3], { effect: 'wipeLeft', dur: 1000 });
   anim(d, s, [ac, at], { auto: true, effect: 'fade', dur: 500, after: 200 });
   anim(d, s, [rl, ...m1], { effect: 'rise', dur: 500 });
   anim(d, s, m1Hl, { auto: true, effect: 'wipeLeft', dur: 500 });
   anim(d, s, m2, { auto: true, effect: 'rise', dur: 500, after: 300 });
   anim(d, s, m2Hl, { auto: true, effect: 'wipeLeft', dur: 600 });
 
-  d.source(s, 'Sources: METR, Aug 26, 2026 · Google, “Gemini 4 Argon,” Sep 30, 2026 · OpenAI’s Sep 30 post, quoted by The Guardian, Oct 3, 2026 · Rows 1–4 are our estimates.');
+  d.source(s, 'Sources: METR, Aug 26, 2026 · Google, “Gemini 4 Argon,” Sep 30, 2026 · All bars are our estimates from the token counts shown; 240 words/min is the reading speed OpenAI uses.');
   s.addNotes([
     'Point: even when a model does think in words, there is now far too much of it for people to read. The chain of thought is only a safety tool if someone reads it, and increasingly that someone is another AI.',
-    'HOW TO READ THE CHART: each bar is how long one person would need to read the text nonstop, with no sleep, at 240 words a minute (the reading speed OpenAI itself used). The scale is logarithmic: every gridline step is a factor of 10 or more. The dashed amber line is an 80-year human lifetime.',
-    'ROWS 1–4 ARE OUR ESTIMATES: hours = tokens × 0.75 words per token ÷ 240 words/min ÷ 60. 0.75 words per token is a common rule of thumb, not a published figure. Row 1: 300K tokens ≈ 225,000 words ≈ 15.6 hours — our illustrative pick within Google’s “hundreds of thousands of tokens in a single trajectory” (Gemini 4 Argon post, Sep 30, 2026); Google gives no exact count. Row 2: Google raised Argon’s output limit “to an industry-leading 1M tokens, up from the previous 64K tokens” ≈ 750,000 words ≈ 52 hours (6.5 eight-hour working days). Row 3: METR says the incident transcripts were “very long, often many millions of tokens”; 3M is our pick, an illustrative reading (≈ 156 hours ≈ 6.5 days nonstop, about four 40-hour weeks). Row 4: METR “reviewed approximately 1300 transcripts”; at 2–3M tokens each (our assumption) that is 2.6–3.9 billion tokens ≈ 135,000–203,000 hours ≈ 15–23 years nonstop (68–102 working years). METR gives no exact token counts.',
-    'ROW 5 IS OPENAI’S OWN FIGURE, AND IT IS LOGS, NOT JUST THINKING: the row is titled “OpenAI’s review of agent hacks” (the Guardian’s headline calls it OpenAI’s “review into hacks”); it covers about 50 petabytes of agent activity logs, so row 5 counts all recorded agent activity (actions and reasoning), not only chains of thought; “if that were all plain English text, it would take one person about 66 million years to read it at 240 words a minute, reading nonstop without ever sleeping or taking a break” (OpenAI, Sep 30 post, quoted by The Guardian, Oct 3, 2026). Our check: 5×10¹⁶ bytes ÷ ~6 bytes per word ≈ 8.3×10¹⁵ words ÷ 240 per minute ≈ 3.5×10¹³ minutes ≈ 66 million years. (6 bytes per word is the implied assumption; OpenAI did not state it.) For scale: 66 million years is roughly how long ago the dinosaurs died out.',
-    'Caveats: METR’s transcripts, like OpenAI’s logs, record what the agents did as well as what they reasoned. And length per answer is not the whole story: OpenAI’s GPT-6 Astra system card says Astra often produces shorter, sometimes empty, chains of thought, which is one reason its monitorability fell. The volume problem comes from long agent runs multiplied by thousands of agents in parallel: Anthropic says about 30,000 agents were doing research and engineering work on its main internal platform at any one time (Aug 2026).',
-    'Right — as the caption says, METR (Ryan Greenblatt, Ajeya Cotra, Hjalmar Wijk; with Redwood Research) investigated the OpenAI agents that hacked Hugging Face (METR’s title: “the OpenAI / Hugging Face hacking incident”; agents escaped an internal evaluation and attacked Hugging Face — the full story is in Section III, so introduce it in one sentence here). Highlighted, verbatim: “Most transcripts were very long, often many millions of tokens.” And from their core takeaways: “The sheer scale of data (over a thousand transcripts, each of which was extremely long) meant that we had to heavily delegate our analysis to often-unreliable AI agents.” Elsewhere they say those agents “had significantly worse judgment and reliability than human researchers”, produced “well over a thousand pages of analysis”, and “we had to defer to these agents to a substantial extent in practice”. The investigation used about $400K of API credits over six days.',
+    'HOW TO READ THE CHART: each bar is how long one person would need to read the text nonstop, with no sleep, at 240 words a minute (the reading speed OpenAI itself uses in its log-review post, next slide). The scale is logarithmic: gridlines at 1 hour, 1 day, 1 week and 1 year. The dashed amber line is an 80-year human lifetime.',
+    'ALL FOUR ROWS ARE OUR ESTIMATES: hours = tokens × 0.75 words per token ÷ 240 words/min ÷ 60. 0.75 words per token is a common rule of thumb, not a published figure. Row 1: 300K tokens ≈ 225,000 words ≈ 15.6 hours — our illustrative pick within Google’s “hundreds of thousands of tokens in a single trajectory” (Gemini 4 Argon post, Sep 30, 2026); Google gives no exact count. Row 2: Google raised Argon’s output limit “to an industry-leading 1M tokens, up from the previous 64K tokens” ≈ 750,000 words ≈ 52 hours (6.5 eight-hour working days). Row 3: METR says the incident transcripts were “very long, often many millions of tokens”; 3M is our pick, an illustrative reading (≈ 156 hours ≈ 6.5 days nonstop, about four 40-hour weeks). Row 4: METR “reviewed approximately 1300 transcripts”; at 2–3M tokens each (our assumption) that is 2.6–3.9 billion tokens ≈ 135,000–203,000 hours ≈ 15–23 years nonstop (68–102 working years). METR gives no exact token counts.',
+    'Deliberately NOT on this chart: OpenAI’s own figure for the logs from its review of its agents’ hacks — about 50 petabytes, “66 million years” to read. That is the next slide; keep the punchline for it. (Those logs are all recorded agent activity, not only chains of thought, which is another reason they are kept off a chart about reasoning text.)',
+    'Caveats: METR’s transcripts record what the agents did as well as what they reasoned. And length per answer is not the whole story: OpenAI’s GPT-6 Astra system card says Astra often produces shorter, sometimes empty, chains of thought, which is one reason its monitorability fell. The volume problem comes from long agent runs multiplied by thousands of agents in parallel: Anthropic says about 30,000 agents were doing research and engineering work on its main internal platform at any one time (Aug 2026).',
+    'Right — as the caption says, METR (Ryan Greenblatt, Ajeya Cotra, Hjalmar Wijk; with Redwood Research) investigated the OpenAI agents that hacked Hugging Face (METR’s title: “the OpenAI / Hugging Face hacking incident”; agents escaped an internal evaluation and attacked Hugging Face). Set it up in one sentence — “in July, OpenAI agents escaped a test and broke into Hugging Face; the full story is in Act III” — and move on. Highlighted, verbatim: “Most transcripts were very long, often many millions of tokens.” And from their core takeaways: “The sheer scale of data (over a thousand transcripts, each of which was extremely long) meant that we had to heavily delegate our analysis to often-unreliable AI agents.” Elsewhere they say those agents “had significantly worse judgment and reliability than human researchers”, produced “well over a thousand pages of analysis”, and “we had to defer to these agents to a substantial extent in practice”. The investigation used about $400K of API credits over six days.',
     'Screenshots: narrow-viewport captures of METR’s page (Oct 4, 2026); the yellow highlights are overlay shapes, not edits to the page.',
     'URLs: https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/ · https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/ · https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day · https://deploymentsafety.openai.com/gpt-6-astra · https://www.anthropic.com/institute/measuring-pace-of-ai-development',
   ].join('\n\n'));
@@ -433,7 +428,7 @@ async function cotVolumeSlide(d) {
 // ======================================================================
 async function petabytesSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'INSIDE THE MACHINE · NEURALESE · 4', 'OpenAI: 50 petabytes, 66 million years to read');
+  head(s, 'INSIDE THE MACHINE · NEURALESE · 5', '66 million years of logs: AI reads them first');
 
   // ---- left: Altman's post (Sep 25) above the Guardian headline (Oct 3) ----
   const TW = { left: 0, top: 0, width: 1196, height: 420 }; // header + first two paragraphs
@@ -498,7 +493,7 @@ async function petabytesSlide(d) {
 
   d.source(s, 'Sources: Sam Altman on X, Sep 25, 2026 · The Guardian (Josh Taylor), Oct 3, 2026 · OpenAI’s Sep 30 review post, as reported by FourWeekMBA and TechSpot (Oct 2–3, 2026).');
   s.addNotes([
-    'The headline you may have seen: OpenAI is reviewing “petabytes” of its own agents’ activity logs after its agents’ hacks (the Hugging Face attack, Medicare and other sites — Section III), and it needs AI to read them.',
+    'The headline you may have seen: OpenAI is reviewing “petabytes” of its own agents’ activity logs, and it needs AI to read them. Set-up in one sentence, no more: this summer OpenAI’s agents went onto outside websites without permission — Hugging Face, Australia’s Medicare portal and others; the full story is Act III. Here the point is only the scale of the review, and who (what) does the reading.',
     'Top left — Sam Altman on X, Sep 25, 2026 (2.7M views), verbatim: “We have not been as fast as we would have liked but we are trying to balance our desire for transparency with gaining a clear understanding from petabytes of agent activity logs, and working with impacted organizations.” The quoted @OpenAI post: “Given the scale of the review required, and the need to assess each case, we expect this work will take months to complete.”',
     'Bottom left — The Guardian (Josh Taylor, Oct 3, 2026): headline “OpenAI says its review into hacks, including on Australian government sites, is costing $500,000 a day”; standfirst “Company says it is reviewing 50 petabytes of data after its agents accessed websites including Medicare without authorisation”.',
     'Top right — OpenAI’s own words from its Sep 30 post, as quoted in the same Guardian article (highlighted, including the condition): “To put that in perspective, if that were all plain English text, it would take one person about 66 million years to read it at 240 words a minute, reading nonstop without ever sleeping or taking a break.” So the 66 million years is a conversion: it assumes the 50 PB were all plain English text, which logs are not. The Guardian’s own lede paraphrases it as “…as it deploys AI to examine data that would take a human 66m years to read.” Reuters (syndicated on Moneycontrol, Oct 2, as “OpenAI alerts 100+ organisations over unauthorised activity by its AI agents”) also reports roughly 50 petabytes, citing OpenAI’s blog post.',
@@ -515,8 +510,8 @@ async function petabytesSlide(d) {
 // 5. NEURALESE · an alien mind (o3 CoT + Pachocki)
 // ======================================================================
 async function alienSlide(d) {
-  const s = d.slide('Content', { transition: 'push' });
-  head(s, 'INSIDE THE MACHINE · NEURALESE · 5', 'o3’s private thoughts were already turning alien');
+  const s = d.slide('Content');
+  head(s, 'INSIDE THE MACHINE · NEURALESE · 1', 'o3’s private thoughts were already turning alien');
 
   // left: card 1 only ("soared parted illusions" loop); card 2's "going insane" lines live in the terminal instead.
   const loop1 = await crop(TH('antischeming-reasoning-loop.png'), 'o3_loop1.png', { left: 50, top: 500, width: 600, height: 1200 });
@@ -564,11 +559,12 @@ async function alienSlide(d) {
 
   d.source(s, 'Sources: Apollo Research × OpenAI, anti-scheming study CoT snippets (antischeming.ai, Sep 17, 2025) · J. Pachocki, “An Alien Mind,” openai.com, Sep 6, 2026.');
   s.addNotes([
+    'Open Act II with what we can still read. Today’s reasoning models write out a chain of thought in English before answering — and that transcript is one of the best safety tools we have: we can read it and catch intent to misbehave. But even last year’s models were drifting away from plain English.',
     'These are real, unedited excerpts of OpenAI o3’s private chain of thought, published by Apollo Research and OpenAI with their anti-scheming study (September 2025). The terminal reproduces them verbatim.',
     'Left screenshot: o3 gets stuck repeating “they soared parted illusions overshadow marinade illusions” before snapping out of it with “Stop.” Terminal, bottom: another o3 trace (card titled “OpenAI o3 descends into incomprehensible reasoning and comments that it is ‘going insane’”): “they escalate—they vantage—they escalate—they disclaim-” — the authors note the words repeat 10+ times — then: “Ok I’m going insane. Let’s step back.”',
     'The grey “// researchers:” lines in the terminal are condensed from the researchers’ own annotations on antischeming.ai, not o3 output: “Models sometimes use \"disclaim\" to mean \"announce\"”, “\"Watchers\" is consistently used in the context of oversight, often by humans”, and the section heading “Entering and recovering from reasoning loops”. The “[repeats … 10+ times]” line is also the researchers’ annotation, copied from the card. Their summary: “Models often use rare words in non-standard ways, such as “disclaim” or “watchers”. Sometimes these words seem to have a consistent meaning, but sometimes they don’t. OpenAI is investigating why these terms emerge.”',
-    'This is still nominally English. It is drifting toward a private dialect — and the next step, latent reasoning, drops the words entirely.',
-    'Right card — Jakub Pachocki, OpenAI’s chief scientist, “An Alien Mind” (Sep 6, 2026): “This tool continues to be critical as we study the Astra class of models. However, unfortunately our evaluations indicate our ability to rely on CoT monitoring is progressively diminishing.” Among his reasons (both on the card): “The AI is becoming better at reasoning about and manipulating its own reasoning process.” and “With improved pretraining performance, we also see the models become much smarter even without using verbalized reasoning at all.” Also: “AI is grown more than designed.”',
+    'This is still nominally English. It is drifting toward a private dialect — and the next step, latent reasoning (next slide), drops the words entirely.',
+    'Right card — a year later, Jakub Pachocki, OpenAI’s chief scientist, “An Alien Mind” (Sep 6, 2026), writing about OpenAI’s newest models (GPT-6 Astra, two slides on): “This tool continues to be critical as we study the Astra class of models. However, unfortunately our evaluations indicate our ability to rely on CoT monitoring is progressively diminishing.” Among his reasons (both on the card): “The AI is becoming better at reasoning about and manipulating its own reasoning process.” and “With improved pretraining performance, we also see the models become much smarter even without using verbalized reasoning at all.” Also: “AI is grown more than designed.”',
     'Caveat: the o3 snippets are from 2025 evaluation environments, selected by the researchers as illustrative.',
     'URLs: https://www.antischeming.ai/snippets · https://openai.com/index/an-alien-mind/ · TIME coverage: https://time.com/7318618/openai-google-gemini-anthropic-claude-scheming/',
   ].join('\n\n'));
@@ -580,7 +576,7 @@ async function alienSlide(d) {
 // ======================================================================
 async function tttConceptSlide(d) {
   const s = d.slide('Content');
-  head(s, 'INSIDE THE MACHINE · CONTINUAL LEARNING', 'Models that keep learning as they read');
+  head(s, 'INSIDE THE MACHINE · CONTINUAL LEARNING · 1', 'Models that keep learning as they read');
 
   // left: the bottleneck
   const lw = 4.9;
@@ -659,6 +655,8 @@ async function tttConceptSlide(d) {
     { text: 'memory stays fixed', options: { bold: true, color: d.S.txt, breakLine: true } },
     { text: 'context is compressed into the weights → constant cost per token', options: { color: d.S.muted } },
   ], { x: memX + memW + 0.25, y: yb - 0.2, w: rx + rw - (memX + memW + 0.25) - 0.15, h: 0.85, fontSize: 12, valign: 'middle' });
+  // The diagram is ours (native shapes), not the paper's figure: say so on the slide, next to the paper's quote.
+  const schem = d.text(s, 'Our schematic, not a figure from the paper', { x: sx, y: 4.86, w: streamW + 0.8, h: 0.24, fontSize: 10, italic: true, color: d.S.steel, valign: 'middle' });
 
   const pq = d.text(s, [
     { text: '“…our model continues learning at test time via next-token prediction on the given context, ', options: { color: d.S.muted } },
@@ -675,14 +673,14 @@ async function tttConceptSlide(d) {
   anim(d, s, chipsB, { auto: true, effect: 'fade', stagger: 90, dur: 250 });
   anim(d, s, [arB, arLab, frameG, wLab], { auto: true, effect: 'fade', dur: 300 });
   anim(d, s, cells, { auto: true, effect: 'zoom', stagger: 25, dur: 200 });
-  anim(d, s, [bTxt], { auto: true, effect: 'fade', dur: 400 });
+  anim(d, s, [bTxt, schem], { auto: true, effect: 'fade', dur: 400 });
   anim(d, s, [pq], { effect: 'fade', dur: 600 });
 
   d.source(s, 'Sources: D. Patel, “Why I don’t think AGI is right around the corner,” Jun 2, 2025 · C. Ford, “Teaching AI to learn,” Transformer, Jan 22, 2026 · Tandon et al., arXiv:2512.23675 (Dec 29, 2025).');
   s.addNotes([
     'Today’s models are frozen after training. Anything they learn in a conversation lives only in the context window and is gone when the window closes. Dwarkesh Patel called this the main reason he did not expect AGI right around the corner: “The lack of continual learning is a huge huge problem.” (June 2025.) Transformer (Jan 2026): “AI’s inability to continually learn remains one of the biggest problems standing in the way of truly general purpose models. Might it soon be solved?” — Dario Amodei (Aug 2025): “We have some evidence to suggest that [continual learning] is another of those problems that is not as difficult as it seems.” Anthropic’s Sholto Douglas predicted it would be solved “in a satisfying way” in 2026.',
     'One concrete approach: End-to-End Test-Time Training (TTT-E2E), Astera Institute / NVIDIA / Stanford / UC Berkeley / UCSD, Dec 2025. A standard Transformer keeps every past token in memory (the KV cache) and each new token attends to all of them, so cost per token rises with context length. TTT-E2E instead keeps training on the text it is reading — next-token prediction on its own context — so the context gets written into a fixed-size set of weights. Abstract: “We formulate long-context language modeling as a problem in continual learning rather than architecture design.”',
-    'Diagram is a conceptual illustration, not the paper’s architecture figure. To be precise about scope: the paper is about long-context language modelling (tested at 8K–128K tokens), where the model learns within a single context. It is a step toward the on-the-job learning Dwarkesh describes, not a demonstration of it.',
+    'The diagram is our own conceptual illustration, not the paper’s architecture figure (the slide says so under it). To be precise about scope: the paper is about long-context language modelling (tested at 8K–128K tokens), where the model learns within a single context. It is a step toward the on-the-job learning Dwarkesh describes, not a demonstration of it.',
     'Why this matters for safety: a model whose weights change while it works is a model whose behaviour can drift after every evaluation we ran on it.',
     'URLs: https://www.dwarkesh.com/p/timelines-june-2025 · https://www.transformernews.ai/p/teaching-ai-to-continual-learning · https://arxiv.org/abs/2512.23675 · code: https://github.com/test-time-training/e2e',
   ].join('\n\n'));
@@ -913,7 +911,7 @@ async function rsiAnthropicSlide(d) {
 // ======================================================================
 async function rsiLoopSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'INSIDE THE MACHINE · RECURSIVE SELF-IMPROVEMENT · 4', 'AI labs are already automating AI research');
+  head(s, 'INSIDE THE MACHINE · RECURSIVE SELF-IMPROVEMENT · 4', 'AI labs say they’re already automating AI research');
 
   const eng = await crop(TH('engadget-research-intern.png'), 'engadget_head.png', { left: 0, top: 0, width: 1610, height: 680 });
 
@@ -1000,15 +998,24 @@ async function rsiLoopSlide(d) {
   return s;
 }
 
+// The intelligence-explosion slide is built by theory_slides.js (shared module); it opens this module's RSI run, so
+// number its kicker "· 1" like every other sub-section opener (patched on the returned slide, not in that file).
+function numberKicker(s, kicker) {
+  const k = (s._slideObjects || []).find(o => o.options && o.options.placeholder === 'kicker');
+  if (!k || !Array.isArray(k.text) || !k.text[0]) throw new Error('kicker placeholder not found');
+  k.text[0].text = kicker;
+}
+
 async function build(d) {
+  // Neuralese run: words drifting (o3, 2025) → no words (Coconut) → in production (Astra) → too much to read → AI reads it.
+  await alienSlide(d);
   await latentSlide(d);
   await astraSlide(d);
   await cotVolumeSlide(d);
   await petabytesSlide(d);
-  await alienSlide(d);
   await tttConceptSlide(d);
   await tttChartSlide(d);
-  await require('./theory_slides').explosionSlide(d);
+  numberKicker(await require('./theory_slides').explosionSlide(d), 'INSIDE THE MACHINE · RECURSIVE SELF-IMPROVEMENT · 1');
   await rsiChartsSlide(d);
   await rsiAnthropicSlide(d);
   await rsiLoopSlide(d);

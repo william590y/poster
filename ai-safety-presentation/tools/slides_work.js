@@ -380,7 +380,7 @@ async function hwJobsSlide(d) {
 // ========== 1d. Labor: Agents' Last Exam ==========
 async function aleSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  head(s, 'THE ACCELERATION · LABOR · 1', 'Agents’ Last Exam: top score 0% → 16% since June');
+  head(s, 'THE ACCELERATION · LABOR · 1', 'Agents’ Last Exam: top score 0 → 16% since June');
 
   // left: official homepage (title + tagline) and the official video's wall of agents at work
   const lw = 6.15;

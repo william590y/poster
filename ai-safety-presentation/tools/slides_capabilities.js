@@ -793,80 +793,113 @@ async function videoSlide(d) {
   return s;
 }
 
-// ---------------------------------------------------------------- 7. Navier–Stokes: the result
+// ---------------------------------------------------------------- 7. Navier–Stokes: the result, how long it was open, how big it is
+// Circular PNG of an image (cover-cropped square), for timeline portraits.
+async function roundPng(src, name, px = 400, { l, t, size } = {}) {
+  fs.mkdirSync(OUT, { recursive: true });
+  const out = path.join(OUT, name);
+  const mask = Buffer.from(`<svg width="${px}" height="${px}"><circle cx="${px / 2}" cy="${px / 2}" r="${px / 2}" fill="#fff"/></svg>`);
+  let img = sharp(src);
+  if (size) img = img.extract({ left: l, top: t, width: size, height: size });
+  await img.resize(px, px, { fit: 'cover', position: 'top', kernel: 'lanczos3' }).composite([{ input: mask, blend: 'dest-in' }]).png().toFile(out);
+  return out;
+}
+
 async function navierSlide(d) {
   const s = d.slide('Content', { transition: 'fadeBlack' });
   s.addText(`${KICK} · MATHEMATICS IN CRISIS · 1`, { placeholder: 'kicker' });
   s.addText('A Millennium Prize Problem, apparently settled', { placeholder: 'title' });
+  const N = (f) => R(`rev2/${f}`);
 
-  // zoom on the title + author line ("OPENAI") sits ABOVE the page, so it covers nothing; the connector runs only
-  // through the page's blank top margin. Column width solves zoom + 0.3 gap + full page = 1.78 → 6.5.
+  // ---- row 1: the paper (title zoom + precise qualifier) · Figure 1 · OpenAI's own words
   const PAPER = R('openai-navier-stokes-paper-p1.png');
-  const zb = { l: 330, t: 140, w: 615, h: 125 };
-  const colW = (4.72 - 0.3 - 0.1 - 0.12 + 0.1 * zb.h / zb.w + 0.12 * 1650 / 1275) / (zb.h / zb.w + 1650 / 1275);
-  const zh = (colW - 0.1) * zb.h / zb.w + 0.1;
-  const zoom = await d.frame(s, await crop(PAPER, 'ns-paper-title.png', zb), { x: MX, y: 1.78, w: colW, h: zh }, { pad: 0.05, frameColor: HEX.red });
-  const paper = await d.frame(s, PAPER, { x: MX, y: 1.78 + zh + 0.3, w: colW, h: 6.5 - (1.78 + zh + 0.3) }, { align: 'left' });
-  const pg = paper.geom;
-  const sc = pg.w / 1275;
-  const hl = d.name('hl');
-  s.addShape(d.pres.shapes.RECTANGLE, { x: pg.x + zb.l * sc, y: pg.y + zb.t * sc, w: zb.w * sc, h: zb.h * sc, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 1.5 }, objectName: hl });
-  const zl = line(d, s, pg.x + (zb.l + zb.w / 2) * sc, pg.y + zb.t * sc, pg.x + (zb.l + zb.w / 2) * sc, zoom.geom.y + zoom.geom.h + 0.05, { color: HEX.red, width: 1.5 });
-  const rx = pg.x + pg.w + 0.45, rw = 12.73 - rx;
-  const fig = await d.frame(s, await crop(R('openai-navier-stokes-fig1-blowup.png'), 'ns-fig1.png', { l: 50, t: 8, w: 1580, h: 690 }), { x: rx, y: 1.78, w: 5.05, h: 1.95 }, { align: 'left' });
+  const aw = 3.45;
+  const pl = label(d, s, 'THE PROOF · 166 PAGES · SEP 8, 2026', MX, 1.7, aw);
+  const zoom = await d.frame(s, await crop(PAPER, 'ns-paper-title.png', { l: 330, t: 140, w: 615, h: 125 }), { x: MX, y: 2.03, w: aw, h: (aw - 0.1) * 125 / 615 + 0.1 }, { pad: 0.05, frameColor: HEX.red, align: 'left', link: 'https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf' });
+  const zg = zoom.geom;
+  const qual = chip(d, s, 'PRECISELY: FINITE-TIME BLOWUP, FORCED CASE', MX, zg.y + zg.h + 0.14, aw, { h: 0.3, fill: HEX.red, transparency: 0, fontSize: 10, charSpacing: 0.5 });
+  const fx = MX + aw + 0.35, fw = 3.45;
+  const fig = await d.frame(s, await crop(R('openai-navier-stokes-fig1-blowup.png'), 'ns-fig1.png', { l: 50, t: 8, w: 1580, h: 690 }), { x: fx, y: 1.72, w: fw, h: 1.5 }, { align: 'left' });
   const fg = fig.geom;
-  const figCap = d.text(s, 'Figure 1 of the proof: the swirling core shrinks while its speed grows without bound — a singularity in finite time', { x: fg.x, y: fg.y + fg.h + 0.06, w: fg.w, h: 0.42, fontSize: 10.5, italic: true, color: d.S.muted, valign: 'top' });
-  const qx = fg.x + fg.w + 0.3, qw = 12.73 - qx;
+  const figT = chip(d, s, 'FIG. 1: THE VORTEX SHRINKS, ITS SPEED BLOWS UP', fg.x, fg.y + fg.h - 0.27, fg.w, { h: 0.27, fontSize: 9, charSpacing: 0.5 });
+  const qx = fg.x + fg.w + 0.4, qw = 12.73 - qx;
   const quote = d.text(s, [
-    { text: 'OPENAI, SEP 8, 2026', options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 2, breakLine: true } },
-    { text: '“we used an internal model that is ', options: { fontSize: 17, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
-    // explicit break so "GPT-6 Astra" stays on one line (Caladea is metric-compatible with Cambria)
-    { text: 'significantly more capable than', options: { fontSize: 17, italic: true, bold: true, color: d.S.red, fontFace: 'Cambria', breakLine: true } },
-    { text: 'GPT-6 Astra', options: { fontSize: 17, italic: true, bold: true, color: d.S.red, fontFace: 'Cambria' } },
-    { text: '”', options: { fontSize: 17, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
-  ], { x: qx, y: 1.78, w: qw, h: fg.h, valign: 'middle' });
+    { text: 'OPENAI, SEP 8, 2026', options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 2, breakLine: true, paraSpaceAfter: 3 } },
+    { text: '“we used an internal model that is ', options: { fontSize: 16, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
+    { text: 'significantly more capable than GPT-6 Astra', options: { fontSize: 16, italic: true, bold: true, color: d.S.red, fontFace: 'Cambria' } },
+    { text: '”', options: { fontSize: 16, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true, paraSpaceAfter: 6 } },
+    { text: '10,000+ AI agents · 88 hours', options: { fontSize: 13, bold: true, color: d.S.txt } },
+    { text: '  (per OpenAI)', options: { fontSize: 11, color: d.S.muted } },
+  ], { x: qx, y: 1.7, w: qw, h: 1.5, valign: 'middle' });
 
-  // stats row — OpenAI's own figures labelled as such (the 166 pages are the PDF itself; the Lean version is OpenAI's claim).
-  // Local stat (value + 2-line label box) so the label box ends before the cards below.
-  const sy = Math.max(4.4, fg.y + fg.h + 0.06 + 0.42 + 0.25), sw = (rw - 0.3 * 3) / 4, vh = 28 / 72 * 1.15;
-  const stats = [
-    ['10,000+', 'AI agents, per OpenAI'], ['88 hrs', 'to crack it, per OpenAI'],
-    ['166', 'page proof (Lean version too, per OpenAI)'], ['~$15M', 'compute burned (Aaronson’s estimate)'],
-  ].map(([v, l], i) => {
-    const x = rx + i * (sw + 0.3);
-    return [
-      d.text(s, v, { x, y: sy, w: sw, h: vh, fontSize: 28, bold: true, color: i === 0 ? d.S.red : d.S.txt, fontFace: 'Arial', valign: 'bottom' }),
-      d.text(s, l, { x, y: sy + vh + 0.05, w: sw, h: 0.42, fontSize: 12, color: d.S.muted, valign: 'top' }),
-    ];
+  // ---- row 2: how long it had been open (proportional time axis, 1822 → 2026; labels alternate below / above)
+  const ay = 4.29, D = 0.6;
+  const big = d.text(s, [
+    { text: '204', options: { fontSize: 44, bold: true, color: d.S.red, fontFace: 'Arial', breakLine: true } },
+    { text: 'YEARS OPEN', options: { fontSize: 12, bold: true, color: d.S.txt, charSpacing: 2, breakLine: true, paraSpaceAfter: 3 } },
+    { text: '92 since Leray’s question · 26 as a $1M prize', options: { fontSize: 10, color: d.S.muted } },
+  ], { x: MX, y: ay - 0.86, w: 1.95, h: 1.72, valign: 'middle' });
+  const ax0 = MX + 2.25, ax1 = 12.73 - 0.33, T0 = 1822.21, T1 = 2026.69;
+  const tx = (yr) => ax0 + (yr - T0) / (T1 - T0) * (ax1 - ax0);
+  const axis = line(d, s, ax0, ay, ax1, ay, { color: HEX.steel, width: 2 });
+  const last = line(d, s, tx(2000.39), ay, ax1, ay, { color: HEX.red, width: 3.5 });
+  const nodes = [
+    { x: tx(1822.21), img: await roundPng(N('commons-navier-portrait.jpg'), 'ns-navier.png'), year: '1822', txt: 'Navier presents the equations of viscous flow (Paris)', pos: 'below', align: 'left' },
+    { x: tx(1845.28), img: await roundPng(N('commons-stokes-portrait.jpg'), 'ns-stokes.png'), year: '1845', txt: 'Stokes derives them again (Cambridge)', pos: 'above', align: 'left' },
+    { x: tx(1934.5), img: await roundPng(N('commons-leray-portrait.jpg'), 'ns-leray.png'), year: '1934', txt: 'Leray suspects flows can blow up, but can’t build an example', pos: 'below', align: 'center' },
+    { x: tx(2000.39), img: null, year: '2000', txt: 'Clay names it a $1M Millennium Prize Problem', pos: 'above', align: 'right' },
+    { x: tx(2026.69), img: await roundPng(N('openai-x-vortex-blowup-1254.jpg'), 'ns-vortex.png', 400, { l: 150, t: 150, size: 954 }), year: 'Sep 2026', txt: 'An AI system: finite-time blowup, forced case', pos: 'below', align: 'right', red: true },
+  ];
+  const nodeGroups = nodes.map((n) => {
+    const g = [];
+    const ring = d.name('node');
+    s.addShape(d.pres.shapes.OVAL, { x: n.x - D / 2 - 0.04, y: ay - D / 2 - 0.04, w: D + 0.08, h: D + 0.08, fill: { color: n.img ? '0A0C10' : 'F39200' }, line: { color: n.red ? HEX.red : HEX.steel, width: n.red ? 2.5 : 1.5 }, objectName: ring });
+    g.push(ring);
+    if (n.img) { const im = d.name('pt'); s.addImage({ path: n.img, x: n.x - D / 2, y: ay - D / 2, w: D, h: D, objectName: im }); g.push(im); }
+    else g.push(d.text(s, '$1M', { x: n.x - D / 2, y: ay - D / 2, w: D, h: D, fontSize: 14, bold: true, color: '0A0C10', align: 'center', valign: 'middle', fontFace: 'Arial' }));
+    const lw = 2.45, lh = 0.6;
+    const lx = n.align === 'left' ? n.x - D / 2 : n.align === 'right' ? n.x + D / 2 - lw : n.x - lw / 2;
+    const ly = n.pos === 'below' ? ay + D / 2 + 0.08 : ay - D / 2 - 0.08 - lh;
+    const yr = { text: n.year, options: { fontSize: 15, bold: true, color: n.red ? d.S.red : d.S.txt, fontFace: 'Arial', breakLine: true } };
+    const tt = { text: n.txt, options: { fontSize: 10.5, color: n.red ? 'FF8A8C' : d.S.muted } };
+    g.push(d.text(s, n.pos === 'below' ? [yr, tt] : [{ ...tt, options: { ...tt.options, breakLine: true } }, { ...yr, options: { ...yr.options, breakLine: false } }],
+      { x: lx, y: ly, w: lw, h: lh, align: n.align, valign: n.pos === 'below' ? 'top' : 'bottom' }));
+    return g;
   });
+  // ---- row 3: how important (verbatim)
+  const cy0 = 5.4, chh = 6.52 - cy0, cg = 0.2, cw = (CW - 3 * cg) / 4;
+  const Qc = (i, q, who, em) => {
+    const x = MX + i * (cw + cg);
+    const runs = [];
+    q.forEach(([t, e]) => runs.push({ text: t, options: { fontFace: 'Cambria', italic: true, fontSize: 12.5, bold: !!e, color: e ? d.S.red : d.S.txt } }));
+    runs[runs.length - 1].options.breakLine = true;
+    runs.push({ text: who, options: { fontSize: 10, color: d.S.muted } });
+    return [d.card(s, { x, y: cy0, w: cw, h: chh }), d.text(s, runs, { x: x + 0.14, y: cy0 + 0.06, w: cw - 0.28, h: chh - 0.12, valign: 'middle', paraSpaceAfter: 4 })];
+  };
+  const cards = [
+    Qc(0, [['“…by a significant margin, '], ['the most important mathematical proof', 1], [' to have been arrived at by an artificial-intelligence model to date”']], 'Quanta Magazine · Sep 8'),
+    Qc(1, [['“I was '], ['thrilled', 1], [' that the problem was solved.”']], 'Charles Fefferman, who wrote the official Clay problem statement · in Quanta'),
+    Qc(2, [['“…represents '], ['a milestone advance in human knowledge', 1], ['.”']], 'American Mathematical Society: President Ravi Vakil & CEO John Meier · Sep 8'),
+  ];
+  const nat = await d.frame(s, await crop(N('nature-millennium-claim.png'), 'ns-nature-head.png', { l: 20, t: 0, w: 1700, h: 600 }), { x: MX + 3 * (cw + cg), y: cy0, w: cw, h: chh }, { rot: 1.2 });
+  const natT = outletTab(d, s, nat.geom, 'NATURE · SEP 8', 'tr', 1.2);
 
-  // framing strip
-  const fy = sy + vh + 0.05 + 0.42 + 0.25, fh = 6.52 - fy, fw = (rw - 0.25) / 2;
-  const proved = [d.card(s, { x: rx, y: fy, w: fw, h: fh })];
-  proved.push(d.text(s, [
-    { text: 'THE RESULT  ', options: { bold: true, color: d.S.teal, fontSize: 11, charSpacing: 2 } },
-    { text: 'With a smooth external force, a 3-D flow starting at rest can blow up in finite time — Fefferman’s (C) and (D).', options: { color: d.S.txt, fontSize: 14 } },
-  ], { x: rx + 0.15, y: fy + 0.05, w: fw - 0.3, h: fh - 0.1, valign: 'middle' }));
-  const open = [d.card(s, { x: rx + fw + 0.25, y: fy, w: fw, h: fh })];
-  open.push(d.text(s, [
-    { text: 'STILL OPEN  ', options: { bold: true, color: d.S.amber, fontSize: 11, charSpacing: 2 } },
-    { text: 'The unforced case. Clay Institute: “apparently settled”; verification “deliberately unhurried”; no prize awarded.', options: { color: d.S.txt, fontSize: 14 } },
-  ], { x: rx + fw + 0.4, y: fy + 0.05, w: fw - 0.3, h: fh - 0.1, valign: 'middle' }));
-
-  d.animate(s, paper, { auto: true, effect: 'fade', dur: 700 });
-  d.animate(s, [hl, zl, ...zoom], { auto: true, effect: 'zoom', dur: 450, after: 100 });
-  d.animate(s, [...fig, figCap], { auto: true, effect: 'fade', dur: 700, after: 150 });
+  d.animate(s, [pl, ...zoom, ...qual], { auto: true, effect: 'fade', dur: 600 });
+  d.animate(s, [...fig, ...figT], { auto: true, effect: 'fade', dur: 600, after: 100 });
   d.animate(s, [quote], { effect: 'fade' });
-  stats.forEach((st, i) => d.animate(s, st, i === 0 ? { effect: 'zoom', dur: 400 } : { auto: true, effect: 'zoom', dur: 400, after: 150 }));
-  d.animate(s, proved, { effect: 'fade' });
-  d.animate(s, open, { effect: 'fade' });
-  d.source(s, 'Sources: OpenAI, “Finite Time Blowup for Navier–Stokes” (166 pp., Sep 8, 2026) and announcement · Clay Mathematics Institute, Sep 11, 2026 · Scott Aaronson, Shtetl-Optimized, Sep 15, 2026.');
+  d.animate(s, [big, { name: axis, effect: 'wipeLeft', dur: 900 }], { effect: 'fade' });
+  nodeGroups.forEach((g, i) => d.animate(s, i === 4 ? [...g, { name: last, effect: 'wipeLeft', dur: 500 }] : g, { auto: true, effect: i === 4 ? 'zoom' : 'fade', dur: 450, after: i === 0 ? 0 : 250 }));
+  cards.forEach((c, i) => d.animate(s, c, i === 0 ? { effect: 'rise', dur: 450 } : { auto: true, effect: 'rise', dur: 450, after: 150 }));
+  d.animate(s, [...nat, ...natT], { auto: true, effect: 'slam', dur: 420, after: 150 });
+  d.source(s, 'OpenAI, “Finite Time Blowup for Navier–Stokes” & announcement (Sep 8, 2026) · Gallica; Trans. Camb. Phil. Soc.; Acta Math. 63 · Clay Math. Inst. · Quanta; AMS; Nature (Sep 8) · Portraits: Wikimedia Commons (Leray: K. Jacobs, CC BY-SA 2.0 DE).');
   s.addNotes([
-    'MESSAGE: a Millennium Prize Problem — one of the seven hardest open problems in mathematics, with a $1M prize — has (apparently) been settled by an AI system. Be precise about what was proved.',
-    'OpenAI, Sep 8, 2026, "On the Navier–Stokes Millennium Prize Problem": "This proof, produced by an internal OpenAI system, shows that the dynamics of the Navier-Stokes equations for fluid motion can develop a singularity in finite time." Same page: "To solve the Navier–Stokes problem, we used an internal model that is significantly more capable than GPT‑6 Astra. We believe it is important to inform the world about the pace of AI progress and what to expect from upcoming models." https://openai.com/index/navier-stokes-solution/',
-    'The paper (author line: "OPENAI"), 166 pages: "For every positive viscosity, we construct a solution of the three-dimensional incompressible Navier–Stokes equations that starts from rest and develops unbounded velocity in finite time while maintaining uniformly bounded kinetic energy." It states this establishes alternative (C) of Fefferman\'s problem statement, and via compact support also alternative (D) on the torus. https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf',
-    'Scale — OPENAI\'S OWN FIGURES, say so: 10,000+ AI agents, 88 hours, ~2.7 million messages, a 166-page proof plus a Lean formalization (as reported by the Guardian — "Company behind ChatGPT says 10,000 of its AI systems cracked the Navier-Stokes problem in 88 hours" — and BBC "OpenAI says it cracked 90-year-old maths problem in 88 hours"; also Wikipedia "Navier–Stokes priority controversy"). The 166-page length is confirmed by the PDF itself. Compute: Scott Aaronson estimates OpenAI burned "at least ~$15 million", and notes the proof "probably hasn\'t yet been read and understood by any human." https://scottaaronson.blog/?p=10062',
-    'WHAT IS NOT SETTLED: this is the FORCED case — the construction uses a smooth external force chosen deliberately. The unforced problem (no external force; alternatives A/B or an unforced blowup) remains open. The Clay Mathematics Institute (Sep 11): "CMI shares in the excitement of the global mathematical community as we contemplate the announcement that the Navier-Stokes problem has apparently been settled" and "The process is deliberately unhurried, but we will provide updates." No prize has been awarded; OpenAI says it will not claim it. https://www.claymath.org/news/navier-stokes-announcement/',
+    'MESSAGE: one of the seven Millennium Prize Problems — a question about the equations of fluid flow that mathematicians have chased since the 19th century — has (apparently) been settled by an AI system. Say precisely what was proved: FINITE-TIME BLOWUP, IN THE FORCED CASE.',
+    'OpenAI, Sep 8, 2026 ("On the Navier–Stokes Millennium Prize Problem"): "This proof, produced by an internal OpenAI system, shows that the dynamics of the Navier-Stokes equations for fluid motion can develop a singularity in finite time." Same page: "To solve the Navier–Stokes problem, we used an internal model that is significantly more capable than GPT‑6 Astra. We believe it is important to inform the world about the pace of AI progress and what to expect from upcoming models." https://openai.com/index/navier-stokes-solution/ · X post (75M views): "one of the deepest problems at the frontier of mathematics… It has remained unresolved for roughly 90 years." https://x.com/OpenAI/status/2097374640582668336',
+    'The paper (author line "OPENAI"), 166 pages: "For every positive viscosity, we construct a solution of the three-dimensional incompressible Navier–Stokes equations that starts from rest and develops unbounded velocity in finite time while maintaining uniformly bounded kinetic energy." It claims alternative (C) of Fefferman\'s official problem statement, and via compact support also (D) on the torus. https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf . Scale (OPENAI\'S OWN FIGURES): ~10,000 agents, 88 hours, plus 17 hours for the Lean formalization; ~2.7M messages and ~130B output tokens on Navier–Stokes (Quanta; Live Science quoting OpenAI). Scott Aaronson estimates "at least ~$15 million" of compute (https://scottaaronson.blog/?p=10062).',
+    'TIMELINE (primary sources): 18 Mar 1822 — Navier\'s memoir "Mémoire sur les lois du mouvement des fluides" read to the Académie royale des Sciences (Gallica scan: "Lu à l\'Académie royale des Sciences, le 18 mars 1822", https://gallica.bnf.fr/ark:/12148/bpt6k3221x/f577.item.zoom ). 14 Apr 1845 — Stokes, "On the Theories of the Internal Friction of Fluids in Motion…" ("[Read April 14, 1845.]"; his footnote: "The same equations have also been obtained by Navier…", https://archive.org/details/transactionsofca08camb/page/n308 ). 1934 — Leray, Acta Mathematica 63 (printed 5 July 1934): he believed motions could become irregular in finite time — "je n\'ai malheureusement pas réussi à forger un exemple d\'une telle singularité" (our translation: "unfortunately I have not succeeded in constructing an example of such a singularity"). https://projecteuclid.org/journals/acta-mathematica/volume-63/issue-none/Sur-le-mouvement-dun-liquide-visqueux-emplissant-lespace/10.1007/BF02547354.full . 24 May 2000 — Clay Millennium Prizes announced in Paris at the Collège de France ($7M fund, $1M per problem); Timothy Gowers gave the launch lecture "The Importance of Mathematics". https://www.claymath.org/millennium-problems/ . 8 Sep 2026 — OpenAI. Years (computed): 204 since Navier, 92 since Leray, 26 as a prize. Outlets disagree on the "age" (BBC/OpenAI 90 years, AFP/CBC a century, CNN/Smithsonian/Science ~200) — they count from different starting points.',
+    'HOW IMPORTANT (verbatim): Quanta (Konstantin Kakaes, Sep 8): "If the result holds up to further scrutiny, it is, by a significant margin, the most important mathematical proof to have been arrived at by an artificial-intelligence model to date, possibly marking a fundamental turning point in how mathematicians tackle difficult problems." Charles Fefferman (Princeton), who wrote the Clay Institute\'s official problem description: "I was thrilled that the problem was solved" — the heroes, he said, are Córdoba and Martínez-Zoroa. https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/ . AMS leadership (Ravi Vakil, President; John Meier, CEO), Sep 8: "The news today of progress on resolving the Navier–Stokes problem, one of mathematics\' great longstanding challenges … represents a milestone advance in human knowledge. This story began with Navier, Stokes, Leray, and Ladyzhenskaya and has culminated in the recent breakthroughs of Córdoba and Martínez-Zoroa, then — assisted by new technologies — Alpöge and Buckmaster, with the final steps taken by OpenAI mathematicians." https://x.com/amermathsoc/status/2097380478349463939 . Nature (Davide Castelvecchi, Sep 8): "OpenAI claims huge maths breakthrough on a famed \'Millennium Problem\'" — lede: "For the first time, a truly major open problem in mathematics has been solved by a computer, according to OpenAI…" https://www.nature.com/articles/d41586-026-02842-5',
+    'More (Q&A): Scientific American: "For the second time ever, someone has solved one of the seven Millennium Prize Problems… But unlike the first time, that someone is an artificial intelligence start-up." MIT Technology Review: "this episode may mark a turning point in the history of mathematics." Gowers (via Smithsonian quoting the WSJ): "It\'s undeniable that symbolically, it\'s a big moment" (he had not yet read the paper). Science (Sep 15): "OpenAI breakthrough triggers \'existential crisis\' in math"; Gómez-Serrano: "a problem that has been open for 200-plus years—it\'s a genuine accomplishment"; Gukov: "It\'s an earthquake." WSJ headline: "OpenAI Says It Has Solved a Millennium Prize Problem—a Holy Grail of Math". Albritton (Science News): "It is a huge deal to know the answer."',
+    'CAVEATS (keep off the slide, say if asked): (1) It is the FORCED case — the construction uses a smooth external force; the unforced problem (Fefferman\'s A/B) remains open, and Constantin, Ignatova & Vicol (arXiv:2609.20803, Sep 17) show OpenAI-type constructions are regular when the force is real-analytic, so the method does not reach A/B. (2) Not yet fully verified by humans: Lean-checked, but Eyink (Science News): "I don\'t think anyone has completely verified the proof yet, certainly not on the human side." (3) The Clay Institute (Sep 11): "the Navier-Stokes problem has apparently been settled" … "The process is deliberately unhurried"; its site still lists Navier–Stokes under "Active problems"; no prize awarded; OpenAI says it will not claim it. https://www.claymath.org/news/navier-stokes-announcement/ (4) Credit is contested (next slide): the AMS and Fefferman credit Córdoba & Martínez-Zoroa and Alpöge & Buckmaster for the groundwork.',
   ].join('\n\n'));
   return s;
 }

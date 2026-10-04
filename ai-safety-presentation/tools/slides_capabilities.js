@@ -531,7 +531,9 @@ async function navierSlide(d) {
   const quote = d.text(s, [
     { text: 'OPENAI, SEP 8, 2026', options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 2, breakLine: true } },
     { text: '“we used an internal model that is ', options: { fontSize: 17, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
-    { text: 'significantly more capable than GPT\u20116\u00A0Astra', options: { fontSize: 17, italic: true, bold: true, color: d.S.red, fontFace: 'Cambria' } },
+    // explicit break so "GPT-6 Astra" stays on one line (Caladea is metric-compatible with Cambria)
+    { text: 'significantly more capable than', options: { fontSize: 17, italic: true, bold: true, color: d.S.red, fontFace: 'Cambria', breakLine: true } },
+    { text: 'GPT-6 Astra', options: { fontSize: 17, italic: true, bold: true, color: d.S.red, fontFace: 'Cambria' } },
     { text: '”', options: { fontSize: 17, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
   ], { x: qx, y: 1.78, w: qw, h: fg.h, valign: 'middle' });
 

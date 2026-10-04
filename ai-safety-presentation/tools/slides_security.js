@@ -181,7 +181,7 @@ async function cyberMythos(d) {
   const alsoL = label(d, s, 'SAME MODEL, SAME REPORT', { x: rx, y: ay, w: rw, size: 11 });
   const rows = [
     ['16 years', 'the age of an FFmpeg bug it also found'],
-    ['17 years', 'the age of a FreeBSD remote-code-execution flaw (CVE-2026-4747) — which it exploited on its own'],
+    ['17 years', 'the age of a FreeBSD remote-code-execution flaw (CVE-2026-4747), exploited autonomously'],
   ];
   const also = rows.map(([v, t], i) => {
     const y = ay + 0.38 + i * 0.6;
@@ -340,9 +340,9 @@ async function hfDiagram(d) {
   }).join('\n');
   svg = svg.replace('</svg>', `${pillSvg}\n</svg>`);
 
-  // Crop: top of the ① act label (svg y 76) to the bottom of the stage-3 zone (670); the slot below the title sets the
+  // Crop: just above the ① act label (svg y 72) to just below the stage-3 zone (678); the slot below the title sets the
   // scale, and the viewBox is widened to the slot's aspect with the diagram centred (callouts hug the frame edges).
-  const T = 76, B = 670, x0 = MX, y0 = 1.6, dw = W - 2 * MX, dh = 4.92;
+  const T = 72, B = 678, x0 = MX, y0 = 1.6, dw = W - 2 * MX, dh = 4.92;
   const sc = dh / (B - T), VW = dw / sc, VX = 24 - (VW - 1312) / 2;
   svg = svg.replace(/viewBox="0 0 1360 700" width="1360" height="700"/, `viewBox="${VX.toFixed(2)} ${T} ${VW.toFixed(2)} ${B - T}" width="${VW.toFixed(2)}" height="${B - T}"`);
   const K = 4; // px per svg unit
@@ -373,7 +373,7 @@ async function hfDiagram(d) {
     return [c, t];
   };
   const L = VX + 12, Rr = VX + VW - 12;
-  const k1 = callout(1088, 96, Rr, 254, '1 · ESCAPE', 'Escaped OpenAI’s test sandbox; seized another company’s sandbox as a base.', '3FB950');
+  const k1 = callout(1088, 96, Rr, 276, '1 · ESCAPE', 'Escaped OpenAI’s test sandbox; seized another company’s sandbox as a base.', '3FB950');
   const k2 = callout(L, 318, 410, 458, '2 · BREAK-IN', 'Got its own code running inside a Hugging Face production server, via a malicious dataset.', 'E8A33C');
   const k3 = callout(L, 514, 286, 668, '3 · SPREAD', 'Moved deeper into Hugging Face’s internal network.', 'FF7B72');
 
@@ -833,9 +833,9 @@ async function controlWall(d) {
 
   // Left: the wall of named institutions (every target in the verified fact list)
   const ww = 8.15;
-  const wl = label(d, s, 'GOVERNMENT TARGETS NAMED SO FAR', { x: MX, y: 1.75, w: 4.25 });
+  const wl = label(d, s, 'GOVERNMENT TARGETS NAMED SO FAR', { x: MX, y: 1.75, w: 3.55 });
   // Provenance cue: most of the wall comes from researchers and press, not only OpenAI's own "three US websites" disclosure.
-  const wp = d.text(s, 'compiled from OpenAI, independent researchers & press', { x: MX + 4.3, y: 1.75, w: ww - 4.3, h: 0.28, fontSize: 11, italic: true, color: d.S.muted, valign: 'middle' });
+  const wp = d.text(s, 'compiled from OpenAI, independent researchers & press', { x: MX + 3.65, y: 1.75, w: ww - 3.65, h: 0.28, fontSize: 11, italic: true, color: d.S.muted, valign: 'middle' });
   const wall = chipWall(d, s, [
     { tag: 'AUS', hex: HEX.amber, items: ['Medicare Statistics (Services Australia)', 'Inst. of Health & Welfare (AIHW)', 'NSW Crime Statistics (BOCSAR)', 'Victorian Dept of Health', 'Notifiable Diseases System', 'NSW Climate, Energy & Water'] },
     { tag: 'USA', hex: HEX.blue, items: ['Dept of Education (OCR)', 'Commerce Dept · Census Bureau', 'SEC', 'Bureau of Economic Analysis', 'Justice Dept', 'FBI Crime Data Explorer', 'CDC', 'MAX.gov', 'CA · MD · IL · TX · NY sites'] },

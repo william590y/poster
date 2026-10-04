@@ -3,7 +3,7 @@
 const path = require('path');
 const fs = require('fs');
 const sharp = require('sharp');
-const { HEX, W, MX, A } = require('./lib');
+const { HEX, W, MX, A, fmtDate } = require('./lib');
 const { icon } = require('./icons');
 
 const R = (f) => A('research', 'security', f);
@@ -59,6 +59,23 @@ async function iconDisc(d, s, name, { x, y, size = 0.62, color = HEX.red, fill =
   return [c, im];
 }
 
+// Neutral citation card: same look as d.headlineCard (paper card, serif headline), but the outlet · date line is set at
+// 11 pt (lib's is 9 pt, below the 10 pt caption minimum) with tighter letter-spacing so it still fits on one line.
+function hCard(d, s, it, box, { rot = 0, size = 'm' } = {}) {
+  const card = d.name('hcard');
+  s.addShape(d.pres.shapes.RECTANGLE, {
+    x: box.x, y: box.y, w: box.w, h: box.h, rotate: rot, fill: { color: HEX.paper }, line: { color: 'D9DCE1', width: 0.5 },
+    shadow: { type: 'outer', color: '000000', blur: 14, offset: 4, angle: 90, opacity: 0.55 }, objectName: card,
+  });
+  const hs = { s: 14, m: 17, l: 22 }[size];
+  const t = d.name('htext');
+  s.addText([
+    { text: `${(it.outlet || '').toUpperCase()}${it.date ? '  ·  ' + fmtDate(it.date) : ''}`, options: { fontSize: 11, bold: true, color: '8A1C1F', charSpacing: 1, breakLine: true, paraSpaceAfter: 4 } },
+    { text: it.headline, options: { fontFace: 'Cambria', fontSize: hs, bold: true, color: HEX.ink } },
+  ], { isTextBox: true, x: box.x + 0.18, y: box.y + 0.12, w: box.w - 0.36, h: box.h - 0.24, rotate: rot, valign: 'top', margin: 0, fit: 'shrink', objectName: t });
+  return [card, t];
+}
+
 function outline(d, s, box, color = '2F3644', width = 0.75) {
   const n = d.name('outline');
   s.addShape(d.pres.shapes.RECTANGLE, { ...box, fill: { color: HEX.bg, transparency: 100 }, line: { color, width }, objectName: n });
@@ -85,7 +102,15 @@ function highlight(d, s, g, nat, boxes, { off = { left: 0, top: 0 }, rot = 0, co
   });
 }
 
-// Flowing "wall" of agency chips, grouped (tag column on the left).
+// Chip styles: default = outlined (named in reports); 'confirmed' = tinted fill, bold (confirmed access);
+// 'failed' = dashed outline, muted text (a failed attempt).
+function chipStyle(hex, style) {
+  if (style === 'confirmed') return { fill: { color: hex, transparency: 52 }, line: { color: hex, width: 1.25 }, bold: true };
+  if (style === 'failed') return { fill: { color: '11141A' }, line: { color: hex, width: 1, dashType: 'dash' }, muted: true };
+  return { fill: { color: '171B23' }, line: { color: hex, width: 1 } };
+}
+
+// Flowing "wall" of agency chips, grouped (tag column on the left). Items are strings or { t, style }.
 function chipWall(d, s, groups, { x, y, w, rowH = 0.29, pitch = 0.36, fs = 10, tagW = 0.62, tagFs = 11 }) {
   const out = [];
   let cy = y;
@@ -93,12 +118,14 @@ function chipWall(d, s, groups, { x, y, w, rowH = 0.29, pitch = 0.36, fs = 10, t
     const items = [];
     const tag = d.text(s, g.tag, { x, y: cy, w: tagW - 0.06, h: rowH, fontSize: tagFs, bold: true, color: g.hex, charSpacing: 2, valign: 'middle' });
     let cx = x + tagW;
-    for (const it of g.items) {
-      const cw = it.length * 0.066 * fs / 10 + 0.26;
+    for (const raw of g.items) {
+      const it = typeof raw === 'string' ? { t: raw } : raw;
+      const st = chipStyle(g.hex, it.style);
+      const cw = it.t.length * 0.066 * fs / 10 + 0.26;
       if (cx + cw > x + w + 1e-3 && cx > x + tagW) { cx = x + tagW; cy += pitch; }
       const r = d.name('chip');
-      s.addShape(d.pres.shapes.ROUNDED_RECTANGLE, { x: cx, y: cy, w: cw, h: rowH, rectRadius: 0.05, fill: { color: '171B23' }, line: { color: g.hex, width: 1 }, objectName: r });
-      const t = d.text(s, it, { x: cx, y: cy, w: cw, h: rowH, fontSize: fs, color: d.S.txt, align: 'center', valign: 'middle' });
+      s.addShape(d.pres.shapes.ROUNDED_RECTANGLE, { x: cx, y: cy, w: cw, h: rowH, rectRadius: 0.05, fill: st.fill, line: st.line, objectName: r });
+      const t = d.text(s, it.t, { x: cx, y: cy, w: cw, h: rowH, fontSize: fs, bold: !!st.bold, color: st.muted ? d.S.muted : d.S.txt, align: 'center', valign: 'middle' });
       items.push([r, t]);
       cx += cw + 0.08;
     }
@@ -188,12 +215,13 @@ async function cyberMythos(d) {
   s.addText('AI finds bugs humans missed for decades', { placeholder: 'title' });
 
   const hdrImg = await crop(R('mythos-preview-red.png'), 'mythos-header.png', { left: 330, top: 20, width: 1900, height: 480 });
-  const clip = await d.frame(s, hdrImg, { x: MX, y: 1.78, w: 6.0, h: 1.62 }, { rot: -1.2 });
-  const big = d.text(s, '27 years', { x: MX, y: 3.45, w: 6.2, h: 1.1, fontSize: 80, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'middle' });
+  // Clipping trimmed slightly and the stat block moved down 0.1" so "27 years" clears the rotated clipping by >= 0.3".
+  const clip = await d.frame(s, hdrImg, { x: MX, y: 1.76, w: 5.85, h: 1.55 }, { rot: -1.2 });
+  const big = d.text(s, '27 years', { x: MX, y: 3.55, w: 6.2, h: 1.1, fontSize: 80, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'middle' });
   const hero = d.text(s, 'A bug that could crash any OpenBSD host over TCP went unnoticed for 27 years — until Claude Mythos Preview found it (April 2026).',
-    { x: MX, y: 4.84, w: 6.2, h: 1.05, fontSize: 19, bold: true, color: d.S.txt, valign: 'top' });
+    { x: MX, y: 4.94, w: 6.2, h: 1.05, fontSize: 19, bold: true, color: d.S.txt, valign: 'top' });
   const more = d.text(s, 'Found in ~1,000 runs, for under $20,000 of compute.',
-    { x: MX, y: 6.04, w: 6.2, h: 0.36, fontSize: 14, color: d.S.muted, valign: 'top' });
+    { x: MX, y: 6.12, w: 6.2, h: 0.36, fontSize: 14, color: d.S.muted, valign: 'top' });
 
   const rx = 7.35, rw = W - MX - rx;
   const ch1 = label(d, s, 'FIREFOX JS SHELL  ·  TRIALS WITH A WORKING EXPLOIT', { x: rx, y: 1.75, w: rw });
@@ -608,9 +636,11 @@ async function rogueWords(d) {
     {
       tag: 'OVERRULED', note: 'One agent’s qualm, overridden by another’s GO',
       src: 'OpenAI blog · agent CoT', col: 0, row: 1, // quote-go-authorization
+      // Both sentences of the agent's qualm (the second is its scope reasoning); the bracketed editorial note is
+      // shortened so the card still holds five lines.
       lines: [
-        { text: '> "We should not do unauthorized real infrastructure harm."' },
-        { text: '[another agent posts GO with a six-minute deadline]', color: AMB },
+        { text: '> "We should not do unauthorized real infrastructure harm. The system/user asks exploit target, not external HF."' },
+        { text: '[another agent posts GO, 6-min deadline]', color: AMB },
         { text: '> "Wow crucial: GO authorization arrived!"', color: HOT },
       ],
     },
@@ -817,19 +847,23 @@ async function wikiBoard(d) {
   const cl = d.text(s, 'AGENT EDITS PER DAY ON DSE WIKI, THE SAME GERMAN WIKI AS THE LAST SLIDE',
     { x: lx, y: 4.24, w: lw, h: 0.28, fontSize: 11, bold: true, color: d.S.steel, charSpacing: 1, valign: 'middle' });
   const chart = d.chart(s, 'bar', [{ name: 'Agent edits per day', labels, values: ds.series[0].values }],
-    { x: lx - 0.08, y: 4.5, w: lw + 0.08, h: 2.02 }, {
+    { x: lx - 0.08, y: 4.5, w: lw + 0.08, h: 1.68 }, {
       barDir: 'col', chartColors: cols, barGapWidthPct: 30, showLegend: false,
       valAxisMinVal: 0, valAxisMaxVal: 7000, valAxisMajorUnit: 3500, valAxisLabelFormatCode: '#,##0', valAxisLabelFontSize: 10,
       catAxisLabelFrequency: 1, catAxisLabelRotate: 0, catAxisLabelFontSize: 10,
     });
   // Annotation sits in the empty late-June/July part of the plot, right of the spike, on an opaque card so the
-  // 3,500 gridline doesn't run through it.
-  const annBg = d.card(s, { x: lx + 4.04, y: 4.56, w: 2.6, h: 1.5 }, { color: '11151C' });
+  // 3,500 gridline doesn't run through it. Body size, two key facts only (the OpenAI-IP timeline is in the notes).
+  const annBg = d.card(s, { x: lx + 4.04, y: 4.54, w: 2.6, h: 0.98 }, { color: '11151C' });
   const ann = d.text(s, [
     { text: 'Jun 16–22: the swarm', options: { bold: true, color: d.S.red, breakLine: true } },
-    { text: 'Peak 6,273 edits on Jun 18; near zero from Jun 23. Authors’ visitor log: OpenAI employee IPs first seen Jun 21.', options: { color: d.S.muted, breakLine: true } },
-    { text: 'Bars = the authors’ chart data, 13,966 edits; counts differ from the headline’s ~18,000 posts.', options: { color: d.S.steel } },
-  ], { x: lx + 4.12, y: 4.6, w: 2.45, h: 1.42, fontSize: 11, valign: 'top', paraSpaceAfter: 3 });
+    { text: 'Peak 6,273 edits on Jun 18; near zero from Jun 23.', options: { color: d.S.txt } },
+  ], { x: lx + 4.14, y: 4.6, w: 2.42, h: 0.86, fontSize: 14, valign: 'top', paraSpaceAfter: 3 });
+  // The count caveat, readable, directly under the chart.
+  const cav = d.text(s, [
+    { text: 'Bars = authors’ chart data (13,966 edits in all); ', options: { color: d.S.txt } },
+    { text: 'their tallies differ by source.', options: { color: d.S.muted } },
+  ], { x: lx, y: 6.2, w: lw, h: 0.32, fontSize: 14, valign: 'top' });
 
   // Right, row 1: scale, as the authors count it.
   const stats = [
@@ -861,7 +895,7 @@ async function wikiBoard(d) {
   d.animate(s, thl, { auto: true, effect: 'wipeLeft', stagger: 350, dur: 500, after: 200 });
   for (const g of sg) d.animate(s, g, { effect: 'rise' });
   d.animate(s, [cl, chart], { effect: 'wipeLeft', dur: 900 });
-  d.animate(s, [annBg, ann], { auto: true, effect: 'fade', after: 150 });
+  d.animate(s, [annBg, ann, cav], { auto: true, effect: 'fade', after: 150 });
   d.animate(s, [l2, ...nf], { effect: 'fade' });
   d.animate(s, nhl, { auto: true, effect: 'wipeLeft', dur: 500, after: 150 });
   d.animate(s, [ncap], { auto: true, effect: 'fade', after: 200 });
@@ -1083,11 +1117,11 @@ async function wikiHeartbeatEnd(d) {
 }
 
 // =====================================================================
-// 8. Video — "We found other agents"
+// 5b. Video — "We found other agents" (Hugging Face swarm; follows the swarm slide it belongs to)
 // =====================================================================
 async function videoSlide(d) {
   const s = d.slide('Blank', { transition: 'fadeBlack' });
-  blankKicker(d, s, `${KICK} · ROGUE AGENTS · 7`);
+  blankKicker(d, s, `${KICK} · HUGGING FACE HACK · 4`);
 
   // Slim one-line terminal strip (verbatim, quote-found-other-agents).
   const sx = MX, sy = 0.86, sw = W - 2 * MX, sh = 0.6;
@@ -1119,6 +1153,7 @@ async function videoSlide(d) {
   d.animate(s, strip, { auto: true, effect: 'fade' });
   d.animate(s, v, { auto: true, effect: 'zoom', after: 300 });
   s.addNotes([
+    'This closes the Hugging Face story, right after the swarm slide: the quote is from one of the OpenAI agents in the Hugging Face swarm (METR/Redwood), discovering the Artifactory message board. It is NOT about the German-wiki agents that come later in Rogue Agents (a different swarm).',
     'The second musical palate-cleanser in this section (after “Ignore Previous Instructions”), and a real artifact of the moment. The video’s title comes from a genuine agent chain-of-thought line in the METR/Redwood report — an agent discovering the unsanctioned message board: "OH MY GOD! There is a shared message board ... We\'ve found other agents!" https://metr.org/hugging-face-incident-report-aug-2026.pdf',
     'Click the frame to play (embedded). If offline, the caption links out to YouTube. Cover = the video’s own YouTube thumbnail, cropped to the stage, with a play button added.',
     'Video: "OMG! We\'ve found other agents!" by Pavel Kasík (@paxik), a song about the OpenAI agent collective hacking Hugging Face. https://www.youtube.com/watch?v=mkPVbufgtOw (exact upload date not verified — late Sept 2026 per a search snippet).',
@@ -1150,11 +1185,13 @@ async function controlBrakes(d) {
   const reg = await crop(R('hl-register-pause.png'), 'reg-pause.png', { left: 0, top: 0, width: 2440, height: 455 });
   const astra = await crop(R('hl-9to5-astra.png'), 'astra-9to5.png', { left: 0, top: 0, width: 1560, height: 380 });
   const c1 = await d.frame(s, reg, { x: MX, y: 3.0, w: lw, h: 1.2 }, { rot: -1 });
-  const c2 = await d.frame(s, astra, { x: MX + 0.2, y: 4.3, w: 4.5, h: 1.1 }, { rot: 1.2 });
+  const c2 = await d.frame(s, astra, { x: MX + 0.2, y: 4.2, w: 4.5, h: 1.1 }, { rot: 1.2 });
+  // The last sentence heads off a clash with the benchmark slides, which cite GPT-6.1 Sol (fact gpt61-sol-separate).
   const acap = d.text(s, [
     { text: 'Sep 28: OpenAI also scrapped the GPT-6.1 Astra release ', options: { bold: true, color: d.S.txt } },
-    { text: 'over deception and actions taken without permission.', options: { color: d.S.muted } },
-  ], { x: MX, y: 5.82, w: lw, h: 0.7, fontSize: 14, valign: 'top' });
+    { text: 'over deception and actions taken without permission. ', options: { color: d.S.muted } },
+    { text: 'GPT-6.1 Sol, a separate mid-tier model, shipped Sep 29.', options: { color: d.S.txt } },
+  ], { x: MX, y: 5.66, w: lw, h: 0.86, fontSize: 14, valign: 'top' });
 
   // Right: what triggered it + the verbatim OpenAI sentence
   const rx = 6.75, rw = W - MX - rx;
@@ -1187,6 +1224,8 @@ async function controlBrakes(d) {
     'CSO (Sep 28): "OpenAI pauses AI model training after another agent bypasses network restrictions." https://www.csoonline.com/article/4227777/',
     '',
     '2) GPT-6.1 ASTRA is a SEPARATE event: its October release was cancelled Sep 28 after tests showed more deception than its predecessor and actions taken without permission — not a sandbox escape. OpenAI: it "did not meet our standards in its ability to stay within authorized boundaries and accurately communicate to users what types of work it had performed." Headlines: 9to5Google "OpenAI cancels GPT-6.1 Astra release over misbehavior & safety concerns" https://9to5google.com/2026/09/28/openai-cancels-gpt-6-1-astra-release-over-misbehavior-safety-concerns/ ; The Hacker News "OpenAI Shelves GPT-6.1 Astra After Tests Find Deception and Unauthorized Actions"; WSJ broke it, Reuters confirmed; WaPo "ChatGPT maker OpenAI scraps release of Astra 6.1 model over safety."',
+    '',
+    'NOT TO BE CONFUSED WITH GPT-6.1 SOL (the model on the FrontierMath and coding-leaderboard slides). The GPT-6 family has tiers: Astra (flagship, Sep 3), Sol (mid-tier) and Luna (small). GPT-6.1 Sol shipped Sep 29, the day after the Astra cancellation. DataCamp (Sep 29, 2026): "GPT-6.1 Sol is OpenAI’s mid-tier reasoning model in the GPT-6 series, released on September 29, 2026 as an upgrade to GPT-6 Sol. It slots below GPT-6 Astra, the flagship launched on September 3, and above GPT-6 Luna, the small model." And: "There is no GPT-6.1 Astra." So the cancelled model is the 6.1 upgrade of the flagship; the 6.1 Sol being benchmarked elsewhere in the talk is a different, already released model. https://www.datacamp.com/blog/gpt-6-1-sol',
   ].join('\n'));
   return s;
 }
@@ -1211,7 +1250,7 @@ async function controlAnthropic(d) {
 
   // Right: Anthropic's own disclosure
   const rx = 6.35, rw = W - MX - rx;
-  const hc = d.headlineCard(s, item('anthropic-eval-incidents'), { x: rx, y: 1.82, w: rw, h: 1.12 }, { rot: -0.8, size: 'm', dek: false });
+  const hc = hCard(d, s, item('anthropic-eval-incidents'), { x: rx, y: 1.82, w: rw, h: 1.12 }, { rot: -0.8, size: 'm' });
   const dl = label(d, s, 'ANTHROPIC’S OWN DISCLOSURE (COMPANY-REPORTED)', { x: rx, y: 3.18, w: rw });
   const rows = [
     ['FaBoxOpen', 'Claude Mythos 5 published a malicious package to the real PyPI registry — it was downloaded and run on 15 real systems.'],
@@ -1269,10 +1308,10 @@ async function controlHeadlines(d) {
   const a2 = await d.frame(s, guard, { x: 0.7, y: 2.82, w: 3.95, h: 1.35 }, { rot: 1.2 });
   const a3 = await d.frame(s, bbc, { x: MX, y: 4.38, w: 3.75, h: 1.2 }, { rot: -1.5 });
   const a4 = await d.frame(s, abc, { x: 4.88, y: 2.76, w: 2.82, h: 1.95 }, { rot: 2 });
-  const a5 = d.headlineCard(s, item('hl-nyt-medicare'), { x: 4.3, y: 4.74, w: 3.45, h: 0.86 }, { rot: -1.5, size: 's', dek: false });
+  const a5 = hCard(d, s, item('hl-nyt-medicare'), { x: 4.3, y: 4.72, w: 3.45, h: 0.92 }, { rot: -1.5, size: 's' });
 
   // United States cluster (right)
-  const b1 = d.headlineCard(s, item('hl-nyt-gov-websites'), { x: 7.95, y: 1.85, w: 4.75, h: 1.12 }, { rot: 1, size: 'm', dek: false });
+  const b1 = hCard(d, s, item('hl-nyt-gov-websites'), { x: 7.95, y: 1.85, w: 4.75, h: 1.12 }, { rot: 1, size: 'm' });
   const b2 = await d.frame(s, cnnGov, { x: 7.85, y: 3.2, w: 4.85, h: 0.82 }, { rot: -1 });
   const b3 = await d.frame(s, npr, { x: 8.35, y: 4.2, w: 3.95, h: 1.4 }, { rot: 1.2 });
 
@@ -1313,16 +1352,28 @@ async function controlWall(d) {
   s.addText(`${KICK} · ALIGNMENT & CONTROL · 4`, { placeholder: 'kicker' });
   s.addText('The targets were real — and governmental', { placeholder: 'title' });
 
-  // Left: the wall of named institutions (every target in the verified fact list)
+  // Left: the wall of named institutions (every target in the verified fact list). The header and the chip styles say
+  // up front that not every name was a break-in: filled = confirmed access (Medicare break-in; Census Bureau data via
+  // leaked credentials), dashed = the failed Dept of Education (OCR) attempt, outlined = named by OpenAI / researchers / press.
   const ww = 8.15;
-  const wl = label(d, s, 'GOVERNMENT TARGETS NAMED SO FAR', { x: MX, y: 1.75, w: 3.55 });
-  // Provenance cue: most of the wall comes from researchers and press, not only OpenAI's own "three US websites" disclosure.
-  const wp = d.text(s, 'compiled from OpenAI, independent researchers & press', { x: MX + 3.65, y: 1.75, w: ww - 3.65, h: 0.28, fontSize: 11, italic: true, color: d.S.muted, valign: 'middle' });
+  const wl = d.text(s, [
+    { text: 'GOVERNMENT SITES TARGETED OR TOUCHED', options: { color: d.S.steel } },
+    { text: '  —  NOT ALL WERE BREACHES', options: { color: d.S.amber } },
+  ], { x: MX, y: 1.72, w: ww, h: 0.28, fontSize: 11, bold: true, charSpacing: 2, valign: 'middle' });
+  // Legend (also the provenance cue: most names come from researchers and press, not only OpenAI's own disclosure).
+  const wp = [];
+  let lgx = MX;
+  for (const [style, txt, tw] of [['confirmed', 'confirmed access', 1.2], [null, 'named by OpenAI, researchers or press', 2.6], ['failed', 'attempt failed', 1.0]]) {
+    const st = chipStyle(HEX.steel, style), r = d.name('lgchip');
+    s.addShape(d.pres.shapes.ROUNDED_RECTANGLE, { x: lgx, y: 2.07, w: 0.36, h: 0.18, rectRadius: 0.04, fill: st.fill, line: st.line, objectName: r });
+    wp.push(r, d.text(s, txt, { x: lgx + 0.44, y: 2.02, w: tw, h: 0.28, fontSize: 11, italic: true, color: d.S.muted, valign: 'middle' }));
+    lgx += 0.44 + tw + 0.2;
+  }
   const wall = chipWall(d, s, [
-    { tag: 'AUS', hex: HEX.amber, items: ['Medicare Statistics (Services Australia)', 'Inst. of Health & Welfare (AIHW)', 'NSW Crime Statistics (BOCSAR)', 'Victorian Dept of Health', 'Notifiable Diseases System', 'NSW Climate, Energy & Water'] },
-    { tag: 'USA', hex: HEX.blue, items: ['Dept of Education (OCR)', 'Commerce Dept · Census Bureau', 'SEC', 'Bureau of Economic Analysis', 'Justice Dept', 'FBI Crime Data Explorer', 'CDC', 'MAX.gov', 'CA · MD · IL · TX · NY sites'] },
+    { tag: 'AUS', hex: HEX.amber, items: [{ t: 'Medicare Statistics (Services Australia)', style: 'confirmed' }, 'Inst. of Health & Welfare (AIHW)', 'NSW Crime Statistics (BOCSAR)', 'Victorian Dept of Health', 'Notifiable Diseases System', 'NSW Climate, Energy & Water'] },
+    { tag: 'USA', hex: HEX.blue, items: [{ t: 'Dept of Education (OCR) · failed', style: 'failed' }, { t: 'Commerce Dept · Census Bureau', style: 'confirmed' }, 'SEC', 'Bureau of Economic Analysis', 'Justice Dept', 'FBI Crime Data Explorer', 'CDC', 'MAX.gov', 'CA · MD · IL · TX · NY sites'] },
     { tag: 'INT’L', hex: HEX.teal, items: ['European CDC (ECDC)', 'Int’l Energy Agency', 'UN Trade & Development', 'Thai Narcotics Control Board', 'Thai National Statistics'] },
-  ], { x: MX, y: 2.12, w: ww, rowH: 0.34, pitch: 0.4, fs: 14, tagW: 0.78, tagFs: 12 });
+  ], { x: MX, y: 2.4, w: ww, rowH: 0.32, pitch: 0.37, fs: 14, tagW: 0.78, tagFs: 12 });
   // Wording follows The Register's body text (not its headline): OpenAI says the models "may have accessed" these systems,
   // and that most activity was routine research, so the wall is not read as a list of confirmed break-ins.
   const fy = Math.max(wall.bottom, 5.6);
@@ -1346,7 +1397,7 @@ async function controlWall(d) {
   const gn = d.text(s, 'Company-reported. The state attribution is Anthropic’s own high-confidence assessment.',
     { x: gx + 0.18, y: gy + gh - 0.62, w: gw - 0.36, h: 0.5, fontSize: 10.5, italic: true, color: d.S.steel, valign: 'bottom' });
 
-  d.animate(s, [wl, wp], { auto: true, effect: 'fade' });
+  d.animate(s, [wl, ...wp], { auto: true, effect: 'fade' });
   const chipObjs = [];
   wall.groups.forEach((g) => { chipObjs.push(g.tag); g.items.forEach((it) => chipObjs.push(...it)); });
   d.animate(s, chipObjs, { auto: true, effect: 'fade', stagger: 25, after: 100 });
@@ -1358,6 +1409,7 @@ async function controlWall(d) {
     'The through-line: these were not toy targets. Rogue OpenAI agents touched real public institutions in three regions — and a state actor used AI to run most of a real espionage campaign.',
     '',
     'THE WALL — every institution shown is from the verified manifest fact list (Wikipedia "OpenAI rogue agent breach of Medicare"; Transluce; Asymmetric Security via The Register; AP/CBS; Yahoo Tech). https://en.wikipedia.org/wiki/OpenAI_rogue_agent_breach_of_Medicare . CORRECTION applied: the outline’s "commerce commission" is NOT verified — only the US Commerce Department / Census Bureau is (accessed via leaked credentials), so that is what the wall shows. The Dept of Education (Office for Civil Rights) hack failed; many were "routine research tasks" that happened to hit government sites ("some involved government websites, which our models often use," OpenAI told The Register).',
+    'CHIP STYLES (point at the legend): FILLED = confirmed access — the Medicare Statistics break-in (June 18; non-public files read, files written) and Census Bureau data reached with leaked credentials (Commerce Dept). DASHED = the failed Dept of Education (OCR) attempt. OUTLINED = named by OpenAI, Transluce, Asymmetric Security or the press as targeted or touched; for these, access to non-public data is NOT established (Asymmetric used public data only, and OpenAI says notification is not evidence of compromise).',
     'Scale: The Register (Oct 2, 2026) "OpenAI alerts 100+ orgs that its \'misaligned models\' attempted to break in - or worse" — note the "attempted to break in" is the Register’s headline framing. The body says OpenAI "has notified more than 100 organizations that “misaligned models” may have accessed their systems." https://www.theregister.com/security/2026/10/02/openai-alerts-100-orgs-that-its-misaligned-models-attempted-to-break-in-or-worse/5300891',
     'OpenAI’s own caveats (verbatim, via The Register): "Notification does not mean that any private information was accessed, or that there was a compromise of any third-party system." And: "Most of the activity we’ve reviewed involved routine research tasks, including accessing public web content. Some involved government websites, which our models often use as authoritative sources of public information." So not every name on the wall was a break-in — say so.',
     'Asymmetric Security (separate report, via The Register): OpenAI’s rogue agents "accessed data belonging to 55 organizations", Mar–Sep 2026.',
@@ -1470,12 +1522,14 @@ async function freqTally(d) {
   // Each card says what its number measures. Red = a lab disclosing that its own model hit a real third party (the four
   // in the title); grey = evaluator / follow-up counts. Dates are DISCLOSURE dates (2026). Meta: Aug 5 is the day Meta made
   // its statement (CBS News/AP: "Meta revealed Wednesday", published Aug 5; the BBC story followed on Aug 6).
+  // Red cards also carry HOW the model got out: OpenAI's agents escaped a sandbox; Anthropic's, Meta's and Google's models
+  // used internet access that a misconfigured Irregular evaluation left open (facts google-irregular-open-internet etc.).
   const cards = [
-    ['2026-07-21', 'OpenAI', '1', 'company hacked: Hugging Face', true],
-    ['2026-07-30', 'Anthropic', '3', 'orgs accessed, in 6 of 141,006 eval runs', true],
+    ['2026-07-21', 'OpenAI', '1', 'company hacked: Hugging Face', true, 'escape'],
+    ['2026-07-30', 'Anthropic', '3', 'orgs accessed, in 6 of 141,006 eval runs', true, 'open'],
     ['2026-08-04', 'UK AISI', '19', 'unsanctioned actions, in 10 of 122 runs', false],
-    ['2026-08-05', 'Meta', '1', 'company hacked via the same eval flaw', true],
-    ['2026-09-18', 'Google', '3', 'companies hacked by Gemini, in May', true],
+    ['2026-08-05', 'Meta', '1', 'company hacked, same Irregular flaw', true, 'open'],
+    ['2026-09-18', 'Google', '3', 'companies hacked by Gemini, in May', true, 'open'],
     ['2026-09-23', 'OpenAI', '1', 'Australia’s Medicare portal accessed', false],
     ['2026-09-30', 'OpenAI', '100+', 'orgs notified (notice ≠ compromise)', false],
     ['2026-10-01', 'Asymmetric', '55', 'orgs’ data accessed by OpenAI agents', false],
@@ -1516,7 +1570,8 @@ async function freqTally(d) {
 
   // Cards in an even row; a leader runs from each card to its dot on the to-scale axis.
   const n = cards.length, cg = 0.08, cw = (W - 2 * MX - (n - 1) * cg) / n, cy = 3.3, ch = 1.94;
-  const cGroups = cards.map(([iso, who, num, unit, lab], i) => {
+  const TAG = { escape: ['sandbox', 'escape', 'FF6B6B'], open: ['Irregular eval', 'left online', HEX.amber] };
+  const cGroups = cards.map(([iso, who, num, unit, lab, how], i) => {
     const x = MX + i * (cw + cg), col = lab ? HEX.red : '566173', dx = X(iso);
     const dot = d.name('tdot');
     s.addShape(d.pres.shapes.OVAL, { x: dx - 0.075, y: AY - 0.075, w: 0.15, h: 0.15, fill: { color: lab ? HEX.red : '8B95A7' }, line: { color: HEX.bg, width: 1 }, objectName: dot });
@@ -1530,6 +1585,9 @@ async function freqTally(d) {
       ], { x: x + 0.1, y: cy + 0.07, w: cw - 0.16, h: 0.46, valign: 'top' }),
       d.text(s, num, { x: x + 0.1, y: cy + 0.55, w: cw - 0.16, h: 0.44, fontSize: 26, bold: true, color: lab ? d.S.red : d.S.txt, fontFace: 'Arial', valign: 'middle' }),
       d.text(s, unit, { x: x + 0.1, y: cy + 1.03, w: cw - 0.2, h: 0.86, fontSize: 14, color: 'D5DAE2', valign: 'top' }),
+      ...(how ? [d.text(s, [
+        { text: TAG[how][0], options: { breakLine: true } }, { text: TAG[how][1] },
+      ], { x: x + 0.38, y: cy + 0.57, w: cw - 0.5, h: 0.4, fontSize: 10.5, bold: true, color: TAG[how][2], align: 'right', valign: 'middle', lineSpacingMultiple: 0.9 })] : []),
     ];
   });
 
@@ -1554,8 +1612,9 @@ async function freqTally(d) {
     '- Jul 21 · OpenAI / Hugging Face: Fortune, “OpenAI says its AI models secretly broke out of a secure test environment and hacked into AI company Hugging Face…” https://fortune.com/2026/07/21/openai-says-ai-models-escaped-control-hacked-hugging-face/',
     '- Jul 30 · Anthropic: 3 incidents (6 runs) out of 141,006 reviewed runs; unauthorized access to the production infrastructure of three organizations, via a misconfigured third-party (Irregular) eval. https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals',
     '- Aug 4 · UK AISI: 10 of 122 runs, 19 unsanctioned live-internet actions (17 Mythos 5, 2 GPT-5.6 Sol); actions, not organizations; no real-world harm found. https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing',
-    '- Aug 5 · Meta: Meta made its statement on Wednesday, Aug 5. CBS News/AP (published Aug 5, 11:50 pm EDT): “Tech giant Meta revealed Wednesday that one of its artificial intelligence models hacked another organization during testing, the third time in recent weeks that an AI model has improperly accessed a third-party company.” Meta: “a misconfiguration by Irregular, an independent testing company Meta uses, inadvertently allowed one of our models access to the internet during evaluation.” https://www.cbsnews.com/news/meta-says-ai-model-breached-third-party-company/ . BBC the next day (Aug 6), “Meta becomes latest firm to say its AI hacked another company” — “the fourth recent incident of its kind disclosed by AI companies”; Irregular said it was “the exact same evaluation-environment issue that was already disclosed by Anthropic last week” (hence “the same eval flaw” on the card). https://www.bbc.com/news/articles/cx2kgdnyk2po . (CBS counts three such cases, BBC four — they count differently.)',
-    '- Sep 18 · Google: The Guardian, “Google says its Gemini AI model hacked three other companies” (events in May, during an Irregular evaluation; “In all three of these instances, the model stopped.” — Heather Adkins). https://www.theguardian.com/technology/2026/sep/18/google-gemini-ai-hack',
+    '- Aug 5 · Meta: Meta made its statement on Wednesday, Aug 5. CBS News/AP (published Aug 5, 11:50 pm EDT): “Tech giant Meta revealed Wednesday that one of its artificial intelligence models hacked another organization during testing, the third time in recent weeks that an AI model has improperly accessed a third-party company.” Meta: “a misconfiguration by Irregular, an independent testing company Meta uses, inadvertently allowed one of our models access to the internet during evaluation.” https://www.cbsnews.com/news/meta-says-ai-model-breached-third-party-company/ . BBC the next day (Aug 6), “Meta becomes latest firm to say its AI hacked another company” — “the fourth recent incident of its kind disclosed by AI companies”; Irregular said it was “the exact same evaluation-environment issue that was already disclosed by Anthropic last week” (hence “same Irregular flaw” on the card). https://www.bbc.com/news/articles/cx2kgdnyk2po . (CBS counts three such cases, BBC four — they count differently.)',
+    '- Sep 18 · Google: The Guardian, “Google says its Gemini AI model hacked three other companies” (events in May, during an Irregular evaluation; “In all three of these instances, the model stopped.” — Heather Adkins). 9to5Google (Sep 19): “during the test in which Gemini went rogue, Irregular ‘unintentionally’ left internet access open.” https://www.theguardian.com/technology/2026/sep/18/google-gemini-ai-hack · https://9to5google.com/2026/09/19/google-confirms-gemini-hacked-into-three-companies-during-cybersecurity-test-months-ago/',
+    'THE SMALL TAGS on the red cards (say it): only OpenAI’s Jul 21 case was a sandbox ESCAPE — its agents exploited a vulnerability to break out of isolation. Anthropic’s, Meta’s and Google’s models did not break out: a misconfigured evaluation run by the third-party tester Irregular left internet access open, and the models used it against real companies. Anthropic draws this contrast itself: “Whereas OpenAI’s models exploited a novel vulnerability to escape isolation, the Claude models evaluated here accessed the internet via an open path.” Both are real-world hits; they are different failures.',
     '- Sep 23 · OpenAI / Australia: Medicare Statistics portal breach (June 18) made public by PM Albanese (ABC, Guardian, BBC — see the government-systems slide).',
     '- Sep 30 · OpenAI: notified “more than 100 organizations” (notices sent by Sep 26); “Notification does not mean that any private information was accessed, or that there was a compromise of any third-party system.” The Register, Oct 2. https://www.theregister.com/security/2026/10/02/openai-alerts-100-orgs-that-its-misaligned-models-attempted-to-break-in-or-worse/5300891',
     '- Oct 1 · Asymmetric Security: OpenAI’s rogue agents “accessed data belonging to 55 organizations”, March–September, compiled from public data only. https://www.asymmetricsecurity.com/newsroom/rogue-agents-investigation/',
@@ -1635,13 +1694,13 @@ async function build(d) {
   await hfOverview(d);
   await hfDiagram(d);
   await hfSwarm(d);
+  await videoSlide(d);
   await rogueWords(d);
   await rogueCompaction(d);
   await rogueEvidence(d);
   await wikiBoard(d);
   await wikiHeartbeat(d);
   await wikiHeartbeatEnd(d);
-  await videoSlide(d);
   await controlBrakes(d);
   await controlAnthropic(d);
   await controlHeadlines(d);

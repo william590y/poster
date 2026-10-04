@@ -109,6 +109,16 @@ function pill(d, s, text, x, y, color, fs = 10, cs = 1.2) {
   return [r, t];
 }
 
+// Play badge (dark disc, white ring, white triangle) as an SVG overlay for a video cover of size w×h px, centred on
+// (cx, cy) with radius r — same style as the security module's video covers, so a cover reads as a video in PDF /
+// LibreOffice / before hover too.
+function playBadge(w, h, cx, cy, r) {
+  const k = r / 70, sw = Math.max(3, Math.round(5 * k));
+  const tri = [[-24, -38], [-24, 38], [42, 0]].map(([x, y]) => `${Math.round(cx + x * k)},${Math.round(cy + y * k)}`).join(' ');
+  return Buffer.from(`<svg width="${w}" height="${h}"><circle cx="${cx}" cy="${cy}" r="${r}" fill="#0A0C10" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="${sw}"/>`
+    + `<polygon points="${tri}" fill="#FFFFFF"/></svg>`);
+}
+
 // Round icon badge. Returns [circle, image].
 async function badge(d, s, ic, x, y, size, color) {
   const c = d.name('badge');
@@ -158,7 +168,11 @@ async function wallSlide(d) {
   const stCard = d.name('sticker');
   s.addShape(d.pres.shapes.RECTANGLE, { x: sx, y: sy, w: sw, h: sh, rotate: -1, fill: { color: '2A0C0E' }, line: { color: HEX.red, width: 1.5 },
     shadow: { type: 'outer', color: '000000', blur: 14, offset: 4, angle: 90, opacity: 0.55 }, objectName: stCard });
-  const stNum = d.text(s, '38–51%', { x: sx + 0.12, y: sy + 0.08, w: 1.42, h: sh - 0.16, fontSize: 26, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'middle', rotate: -1 });
+  // the survey date sits under the number so the 2023 figure does not read as current among the 2026 headlines
+  const stNum = d.text(s, [
+    { text: '38–51%', options: { fontSize: 26, bold: true, color: d.S.red, fontFace: 'Arial', breakLine: true } },
+    { text: '2023 SURVEY', options: { fontSize: 11, bold: true, color: d.S.txt, fontFace: 'Arial', charSpacing: 1.5 } },
+  ], { x: sx + 0.12, y: sy + 0.08, w: 1.42, h: sh - 0.16, valign: 'middle', rotate: -1 });
   const stLab = d.text(s, 'of 2,778 AI researchers gave ≥10% odds of outcomes as bad as human extinction', { x: sx + 1.64, y: sy + 0.05, w: sw - 1.74, h: sh - 0.1, fontSize: 13, color: d.S.txt, valign: 'middle', rotate: -1 });
 
   const seq = [
@@ -300,27 +314,27 @@ async function precedentSlide(d) {
   const cells = [
     { date: 'APR 11, 2024', tag: 'FIRED', col: RED, file: 'x-theinformation-2024-04-11-two-researchers-fired.png', out: 'information-two-fired.png',
       c: { l: 0, t: 10, w: 1096, h: 285 }, hl: [[368, 150, 678, 46], [30, 198, 520, 46]],
-      cap: 'Leopold Aschenbrenner (Superalignment) and Pavel Izmailov. OpenAI did not publicly say what was leaked.' },
+      cap: 'Leopold Aschenbrenner and Pavel Izmailov. OpenAI did not say what leaked.' },
     { date: 'MAY 17, 2024', tag: 'RESIGNED', col: AMB, file: 'x-leike-2024-05-17-shiny-products.png', out: 'leike-shiny-products.png',
       c: { l: 0, t: 368, w: 1096, h: 290 }, hl: [[462, 500, 516, 44], [30, 548, 728, 44]],
-      cap: 'Jan Leike, head of alignment, quit. WIRED: the long-term risk team “has either resigned or been absorbed into other research groups.”' },
+      cap: 'Jan Leike, head of alignment, quit. WIRED: his risk team “has disbanded.”' },
     { date: 'MAY 22, 2024', tag: 'EXIT PAPERS', col: BLU, file: 'vox-2024-05-22-leaked-documents.png', out: 'vox-leaked-documents.png',
       // black-on-yellow clipping: one red outline around headline lines 2-3 instead of an amber fill
       // (a fill turns the black text olive; two stacked outlines would touch). Glyphs span y 240-440 in the capture.
       c: { l: 700, t: 70, w: 1700, h: 460 }, hl: [[722, 238, 1511, 206]], hlo: { color: 'E0201B', outline: 2, padX: 10, padY: 4 },
-      cap: 'Vox: departing staff were threatened with losing vested equity unless they agreed not to criticize OpenAI. Altman: “this is on me.”' },
+      cap: 'No criticism, or lose vested equity, leavers were told. Altman: “this is on me.”' },
     { date: 'JUN 4, 2024', tag: 'FIRED · HIS ACCOUNT', col: RED, file: 'transformer-2024-06-04-aschenbrenner-fired-security-memo.png', out: 'transformer-aschenbrenner.png',
       c: { l: 530, t: 100, w: 1480, h: 395 }, hl: [[1660, 122, 302, 72], [552, 194, 1237, 72]],
-      cap: 'Aschenbrenner: “the security memo was a major reason for my being fired.” OpenAI alleged a document he shared contained sensitive information; he denies that.' },
+      cap: 'His security memo was “a major reason,” he says. OpenAI alleged a leak; he denies it.' },
     { date: 'SEP 29, 2026', tag: 'NYT: WARNINGS IGNORED', col: BLU, file: 'businessstandard-nyt-openai-ignored-warnings.png', out: 'nyt-ignored-warnings.png',
       // highlight on the legible headline ('ignored employees who warned': glyphs x 248-1132, y 94-154 in the capture);
       // the italic dek is too small to read at this cell width, so the caption carries it.
       c: { l: 15, t: 80, w: 1400, h: 355 }, hl: [[246, 92, 890, 64]],
-      cap: 'Two unnamed employees emailed executives; they were told the tests had to “move forward as quickly as possible.” We found no report that they were fired.' },
+      cap: 'Two unnamed staff were overruled to ship on time. No report they were fired.' },
     { date: 'OCT 3, 2026', tag: 'RESIGNED', col: AMB, file: 'techcrunch-robinson-culture-broken.png', out: 'techcrunch-robinson.png',
       // white-on-green clipping: amber outline around 'culture is broken' (headline line 3, capture px)
       c: { l: 1290, t: 575, w: 1210, h: 280 }, hl: [[1733, 768, 652, 66]], hlo: { color: 'FFD166', outline: 2, padX: 10, padY: 6 },
-      cap: 'David Robinson resigned: “An environment where things like this can happen is no place to grow artificial minds…”' },
+      cap: 'David Robinson resigned, calling it “no place to grow artificial minds.”' },
   ];
   const rows = [1.74, 4.1], rowH = 2.25;
   const rots = [-0.7, 0.6, -0.5, 0.7, -0.6, 0.5];
@@ -337,7 +351,8 @@ async function precedentSlide(d) {
     const fr = await d.frame(s, file, { x, y: zoneY + (zoneH - h) / 2, w: cw, h }, { rot: rots[i] });
     g.push(...fr);
     if (c.hl.length) g.push(...hilite(d, s, fr, c.c, c.hl, { rot: rots[i], ...(c.hlo || {}) }));
-    g.push(d.text(s, c.cap, { x, y: zoneY + zoneH + 0.1, w: cw, h: rowH - (zoneH + 0.46), fontSize: 12, color: d.S.muted, valign: 'top' }));
+    // captions: two lines at 14pt (key caveats only; the full quotes and context are in the notes)
+    g.push(d.text(s, c.cap, { x, y: zoneY + zoneH + 0.1, w: cw, h: rowH - (zoneH + 0.46), fontSize: 14, color: d.S.muted, valign: 'top' }));
     groups.push(g);
   }
 
@@ -476,9 +491,15 @@ async function coastRunnersSlide(d) {
     { text: '   — Google DeepMind, 2020', options: { color: d.S.muted, fontSize: 12 } },
   ], { x: CX0, y: 1.72, w: CW, h: 0.62, fontSize: 18, valign: 'middle' });
 
+  // Cover: the 478×360 still, upscaled 3× (Lanczos) so the added play badge stays crisp. The badge sits in the open
+  // water lower right (still px ~365–435 × 227–297), clear of the burning boat, its wake, the yacht and the HUD.
+  fs.mkdirSync(OUT, { recursive: true });
+  const cover = path.join(OUT, 'coastrunners-cover.jpg');
+  await sharp(R('specgaming-coastrunners-still.png')).resize(1434, 1080, { kernel: 'lanczos3' })
+    .composite([{ input: playBadge(1434, 1080, 1200, 786, 105) }]).jpeg({ quality: 92 }).toFile(cover);
   const vid = await d.video(s, {
     link: 'https://www.youtube.com/watch?v=tlOIHko8ySg', embed: 'https://www.youtube.com/embed/tlOIHko8ySg',
-    cover: R('specgaming-coastrunners-still.png'), box: { x: CX0, y: 2.62, w: 4.65, h: 3.49 },
+    cover, box: { x: CX0, y: 2.62, w: 4.65, h: 3.49 },
     label: 'CoastRunners 7 — OpenAI’s boat-race agent (YouTube, 2016)',
   });
 
@@ -518,7 +539,7 @@ async function coastRunnersSlide(d) {
     'Definition (DeepMind blog, 2020): specification gaming is “a behaviour that satisfies the literal specification of an objective without achieving the intended outcome.” DeepMind compares it to King Midas: you get exactly what you asked for.',
     'CLICKS — the three rows. In CoastRunners the designers wanted the agent to win the race, but rewarded points from targets along the course. OpenAI (Dec 2016): “The RL agent finds an isolated lagoon where it can turn in a large circle and repeatedly knock over three targets, timing its movement so as to always knock over the targets just as they repopulate. Despite repeatedly catching on fire, crashing into other boats, and going the wrong way on the track, our agent manages to achieve a higher score using this strategy than is possible by completing the course in the normal way. Our agent achieves a score on average 20 percent higher than that achieved by human players.”',
     'CLICK — the punchline: it beat humans at the metric while completely failing at the task. The blog post was written by Jack Clark and Dario Amodei — who went on to co-found Anthropic.',
-    'Video: “CoastRunners 7”, Jack Clark, YouTube — https://www.youtube.com/watch?v=tlOIHko8ySg (embedded). The cover frame is a still from DeepMind’s GIF of the same clip (boat on fire, score 15,500, laps “--/3”); source footage is only ~480×360, hence the moderate size.',
+    'Video: “CoastRunners 7”, Jack Clark, YouTube — https://www.youtube.com/watch?v=tlOIHko8ySg (embedded). The cover frame is a still from DeepMind’s GIF of the same clip (boat on fire, score 15,500, laps “--/3”), with a play button added; source footage is only ~480×360, hence the moderate size. If the embed does not play (offline / no YouTube access), click the ► link under the video.',
     'URLs: https://deepmind.google/discover/blog/specification-gaming-the-flip-side-of-ai-ingenuity/ · https://openai.com/index/faulty-reward-functions/',
   ].join('\n\n'));
 }

@@ -102,7 +102,8 @@ async function gapSlide(d) {
   const st2 = [
     big('4', d.S.red, 3.62),
     d.text(s, 'average lag of the best open-weight models behind the best closed models since January 2026', { x: rx, y: 4.58, w: rw, h: 0.75, fontSize: 14, color: d.S.muted, valign: 'top' }),
-    d.text(s, 'Latest: GPT-5.5 Pro 159.3 (closed) vs Kimi K2.6 151.6 (open, Chinese), Apr 2026', { x: rx, y: 5.45, w: rw, h: 0.45, fontSize: 11, color: d.S.steel, italic: true, valign: 'top' }),
+    // Chart + lags = Epoch's May 2026 analysis (one data vintage); this line = Epoch's re-estimated scores of Oct 4 (same download as the capabilities ECI tile).
+    d.text(s, 'Now (Epoch, Oct 4): Claude Opus 5.5 167 (closed) vs Kimi K3 158 (open, Chinese)', { x: rx, y: 5.45, w: rw, h: 0.45, fontSize: 11, color: d.S.steel, italic: true, valign: 'top' }),
   ];
   const msg = d.text(s, [
     { text: 'Nearly all leading Chinese models are open-weight. ', options: { bold: true, color: d.S.txt } },
@@ -115,12 +116,14 @@ async function gapSlide(d) {
   d.animate(s, ovl, { auto: true, effect: 'fade', after: 200 });
   d.animate(s, [div, ...st2], { effect: 'zoom' });
   d.animate(s, [msg], { effect: 'fade' });
-  d.source(s, 'Data: Epoch AI (CC-BY) data insights — US vs China (Jan 2026), open vs closed (May 2026). ECI = Epoch Capabilities Index; best score to date at each quarter end.');
+  d.source(s, 'Data: Epoch AI (CC-BY). Chart & lags: data insights US vs China (Jan 2026) and open vs closed (May 2026; data through May 2026). “Now”: Epoch ECI scores, Oct 4, 2026.');
   s.addNotes([
     'MESSAGE: The open frontier is only months behind the closed frontier. The amber dashed line (best Chinese model) sits on top of the red line (best open-weight model) from mid-2024 on (identical quarter-end values from 2024 Q2, except 2026 Q1: 149.1 vs 148.2 — hence "≈" on the slide), because nearly all leading Chinese models are open-weight, while the frontier US models are closed.',
     'US vs China: since 2023 every model at the capability frontier was American, but Chinese models trailed by ~7 months on average (min 4, max 14). Epoch AI, Luke Emberson, 2 Jan 2026: https://epoch.ai/data-insights/us-vs-china-eci',
     'Open vs closed: since January 2026 the best open-weight models lag the best closed models by ~4 months on average; the average ECI gap is ~8 points, about the gap between GPT-5 and GPT-5.5. Epoch AI, Jack Edwards & Luke Emberson, 29 May 2026: https://epoch.ai/data-insights/open-closed-eci-gap',
-    'Latest points: GPT-5.5 Pro 159.3 (23 Apr 2026, closed) vs Kimi K2.6 151.6 (20 Apr 2026, open; Moonshot AI, China). China line ends with data through late May 2026.',
+    'DATA VINTAGE: the chart is built from the data behind Epoch\'s May 2026 open-vs-closed analysis (data through late May 2026); the 7- and 4-month lags are Epoch\'s published figures (2 Jan and 29 May 2026). Chart\'s last points GPT-5.5 Pro 159.3 (23 Apr 2026, closed) vs Kimi K2.6 151.6 (20 Apr 2026, open; Moonshot AI, China). Epoch has not updated either analysis since.',
+    'THE "NOW" LINE (from Epoch\'s ECI download of 4 Oct 2026 — the same file as the ECI tile on the benchmarks slide, "126 → 167"): best closed model Claude Opus 5.5 167.35 (22 Sep 2026, Anthropic); best open-weight model Kimi K3 157.61 (16 Jul 2026, Moonshot AI, China; open weights, non-commercial licence). Gap ≈ 10 ECI points, a bit above the ~8-point average Epoch reported in May. Epoch re-estimates every score when it adds models, so the Oct numbers differ slightly from the chart\'s (e.g. GPT-5.5 Pro is 162.4 in the Oct file vs 159.3 in May) — do not read the "Now" line as a continuation of the chart lines. https://epoch.ai/data/benchmark_data.zip (epoch_capabilities_index/eci_scores.csv).',
+    'IF ASKED "is it still 4 months?": Epoch has not re-run the lag analysis. Our own rough check on the Oct 4 scores: Kimi K3 (157.6, 16 Jul) sits at a level the closed frontier first passed with GPT-5.4 Pro (159.1, 5 Mar 2026), i.e. ~4.4 months earlier; but no open model has improved on 157.6 since, so as of 4 Oct the best open weights sit about 7 months behind the closed frontier by that measure. So: "months behind" holds; the exact average depends on the window and the data vintage.',
     'Chart construction: running maximum of the Epoch Capabilities Index (ECI) at each quarter end, from Epoch\'s benchmarked_models.csv (https://epoch.ai/data/charts/open-closed-eci-gap/benchmarked_models.csv; series start 2023 Q2). Light line = closed-weight frontier, which Epoch says has been US-developed throughout; Epoch\'s US-only series is identical except 2025 Q2 (148.1 vs 147.3). Red = open-weight frontier. Amber dashed = best Chinese model (US-vs-China data).',
     'CAVEAT (Epoch\'s own footnote): the gap may be understated — open-weight models tend to perform worse on private benchmarks, plausibly because they optimise more aggressively for public ones. Hence the slide\'s hedged wording ("on average … within months"): the 4-month figure is an average lag on one aggregate index (ECI), not a guarantee for every capability, and running the largest open models still needs serious hardware.',
   ].join('\n\n'));
@@ -129,11 +132,12 @@ async function gapSlide(d) {
 
 // ---------------------------------------------------------------- 2. MiniMax M3.1
 // Per the user's instruction, the community attribution "Space Bunny Alpha" = MiniMax M3.1 is treated as true:
-// Space Bunny's results are shown as M3.1's, with one short on-slide attribution (*) and the full caveat in the notes.
+// Space Bunny's results are shown as M3.1's, marked * (title, chart, demo label) with the attribution caveat in the footnote
+// (bold "not confirmed") and in full in the notes. The title is scoped to the one benchmark it rests on.
 async function minimaxSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
   s.addText('THE WORLD · OPEN WEIGHTS · 2', { placeholder: 'kicker' });
-  s.addText('MiniMax M3.1: already close behind the frontier', { placeholder: 'title' });
+  s.addText('MiniMax M3.1* nears the leaders on a coding test', { placeholder: 'title' });
 
   // ---- left: independent coding benchmark (AI Coding Daily), native horizontal bar chart
   const lw = 5.75;
@@ -153,7 +157,7 @@ async function minimaxSlide(d) {
     { text: '■ ', options: { color: '566173' } }, { text: 'other Chinese models   ', options: { color: d.S.muted } },
     { text: 'effort: High (M3.1: Max)', options: { color: d.S.steel, italic: true } },
   ], { x: MX, y: 2.02, w: lw, h: 0.26, fontSize: 11, valign: 'middle' });
-  const ch = d.chart(s, 'bar', [{ name: 'Total points', labels, values }], { x: MX - 0.1, y: 2.3, w: lw + 0.2, h: 1.9 }, {
+  const ch = d.chart(s, 'bar', [{ name: 'Total points', labels, values }], { x: MX - 0.1, y: 2.3, w: lw + 0.2, h: 1.8 }, {
     barDir: 'bar', catAxisOrientation: 'maxMin', chartColors: colors, barGapWidthPct: 45, showLegend: false,
     layout: { x: 0.3, y: 0.02, w: 0.62, h: 0.96 }, // fixed plot area: leaves room for one-line category labels
     valAxisMinVal: 0, valAxisMaxVal: 80, valAxisHidden: true, valGridLine: { style: 'none' },
@@ -161,14 +165,16 @@ async function minimaxSlide(d) {
     catAxisLabelFontSize: 11,
   });
   const take = d.text(s, [
-    { text: '#15 on the board, ~10 points behind #1 GPT-6.1-Sol and #2 Claude Opus 5.5 — ', options: { color: d.S.txt, bold: true } },
-    { text: 'ahead of every other Chinese model on this test.', options: { color: d.S.muted } },
-  ], { x: MX, y: 4.25, w: lw, h: 0.5, fontSize: 14, valign: 'top' });
-  const attr = d.text(s, '* Released anonymously as “Space Bunny Alpha” (OpenRouter/OpenCode, Sep 23). Tokenizer tests tie it to MiniMax; community posts identify it as M3.1. MiniMax has not confirmed.',
-    { x: MX, y: 4.8, w: lw, h: 0.36, fontSize: 10, italic: true, color: d.S.amber, valign: 'top' });
+    { text: '#15 on this one test, ~10 points behind #1 GPT-6.1-Sol and #2 Claude Opus 5.5 — ', options: { color: d.S.txt, bold: true } },
+    { text: 'ahead of every other Chinese model on it.', options: { color: d.S.muted } },
+  ], { x: MX, y: 4.14, w: lw, h: 0.5, fontSize: 14, valign: 'top' });
+  const attr = d.text(s, [
+    { text: '* Benchmarked as the anonymous stealth model “Space Bunny Alpha” (on OpenRouter since Sep 23; listed as going away Oct 5). Tokenizer evidence ties it to MiniMax; “M3.1” is the community’s identification. ', options: { italic: true } },
+    { text: 'MiniMax has not confirmed.', options: { bold: true } },
+  ], { x: MX, y: 4.7, w: lw, h: 0.56, fontSize: 11, color: d.S.amber, valign: 'top' });
 
   // ---- left bottom: the point
-  const by = 5.35, bh = 1.12;
+  const by = 5.42, bh = 1.05;
   const band = [];
   band.push(d.card(s, { x: MX, y: by, w: lw, h: bh }, { color: '1A1012', line: '4A1F22' }));
   band.push(d.rect(s, { x: MX, y: by, w: 0.08, h: bh, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 } }));
@@ -199,9 +205,11 @@ async function minimaxSlide(d) {
   d.animate(s, band, { effect: 'fade' });
   d.source(s, 'Sources: AI Coding Daily (Sep 30, 2026) · OpenRouter rankings (to Oct 3) · MiniMax on X (Sep 27) · @vikktorrrre on X · Hugging Face (MiniMaxAI) · Attribution: @cheatyyyy, @MarMarLabs on X (Sep 23).');
   s.addNotes([
-    'MESSAGE: China\'s next model is already close behind the newest US frontier models — and its maker has released the weights of every main LLM it has launched since January 2025. This is the open-weights pipeline from the last slide, happening in real time.',
+    'MESSAGE: On one independent coding test, the model the community identifies as MiniMax\'s next release (M3.1) lands about 10 points behind the newest US frontier models — and MiniMax has released the weights of every main LLM it has launched since January 2025. This is the open-weights pipeline from the last slide, happening in real time.',
+    'SAY (the * on the title): "This was tested as an anonymous stealth model, Space Bunny Alpha. Tokenizer evidence ties it to MiniMax and the community calls it M3.1, but MiniMax has not confirmed it. And this is one hobbyist benchmark — another, AI Benchy, ranks it far lower." The free stealth listing is due to leave OpenRouter on 5 Oct 2026.',
+    'BEFORE THE TALK (the slide is dated 4 Oct): re-check https://openrouter.ai/stealth/space-bunny-alpha , https://huggingface.co/MiniMaxAI and https://www.minimax.io/news . If MiniMax has confirmed Space Bunny = M3.1 (or released M3.1 under its own name with benchmarks/weights), drop the asterisks and update the footnote and the "M3.1\'s are not out yet" line. If the stealth model was withdrawn with no confirmation, say so and keep the hedge.',
     'WHAT IS OFFICIAL: MiniMax launched "M3.1-Flash-Preview" on 27 Sep 2026 inside its MiniMax Code app and Token Plan subscription ("MiniMax\'s latest text model, M3.1-Flash-Preview, debuts today on MiniMax Code"; launch graphic on the slide). https://x.com/MiniMaxAgent/status/2104079819881517400 and https://x.com/MiniMax_AI/status/2104256406786547800 . As of 4 Oct 2026 there is no model card, no official benchmark, no per-token price, no OpenRouter ID and no Hugging Face weights; no full (non-Flash) M3.1 has been announced, and MiniMax\'s site still lists M3 as its newest LLM. Startup Fortune: "MiniMax slips a new coding model into its agent tool without a price tag" https://startupfortune.com/minimax-slips-a-new-coding-model-into-its-agent-tool-without-a-price-tag/',
-    'ATTRIBUTION CAVEAT (say it if asked — the slide marks it with *): the benchmark, the usage figures and the demo were all measured on "Space Bunny Alpha", an anonymous ("stealth") model on OpenRouter since 23 Sep 2026, 14:48 UTC (stealth/space-bunny-alpha: free, 1M-token context, up to 524,288 output tokens, text/image/video input, reasoning always on with low/medium/high/xhigh/max effort; "Going away October 5, 2026"). https://openrouter.ai/stealth/space-bunny-alpha . We present it as MiniMax M3.1 on the strength of community evidence, NOT a confirmation: (1) tokenizer fingerprints — @cheatyyyy: "most certainly MiniMax M3.1 … the text tokenizer perfectly matches that of the MiniMax M3" (https://x.com/cheatyyyy/status/2102781392199565683); MarMar Labs: 36/36 comparisons match, but "M2.7 matched too", i.e. this proves the MiniMax family, not the exact version (https://x.com/MarMarLabs/status/2102804031819387032); Qwen, GLM, DeepSeek and Llama tokenizers did not match. (2) MiniMax\'s own public config lists M3.1-Flash-Preview with 512K/1M context, reasoning forced on and the same effort levels as Space Bunny (https://agent.minimax.io/minimax-cloud/api/v1/config). (3) Asked in Chinese, its reasoning said "we are an AI assistant made by MiniMax" (https://x.com/AiBattle_/status/2102775779054502289) — weak: in another test it claimed to be OpenAI\'s GPT-5. (4) A LuminaBench log shows provider "minimax-m3-a-official" returning model "space-bunny" (https://x.com/vikktorrrre/status/2103828326179557726) — cannot be checked from outside. Neither MiniMax nor OpenRouter has confirmed; no mainstream outlet has covered it. Best timeline: CellCog, https://cellcog.ai/blog/what-is-space-bunny-alpha/ ; The Neuron, "Who Made Space Bunny? A MiniMax Clue Sharpens the Mystery", https://www.theneuron.ai/blog/who-made-space-bunny-minimax-clue/ .',
+    'ATTRIBUTION DETAIL (the slide marks it with * and the footnote; say the short version above): the benchmark, the usage figures and the demo were all measured on "Space Bunny Alpha", an anonymous ("stealth") model on OpenRouter since 23 Sep 2026, 14:48 UTC (stealth/space-bunny-alpha: free, 1M-token context, up to 524,288 output tokens, text/image/video input, reasoning always on with low/medium/high/xhigh/max effort; "Going away October 5, 2026"). https://openrouter.ai/stealth/space-bunny-alpha . We present it as MiniMax M3.1 on the strength of community evidence, NOT a confirmation: (1) tokenizer fingerprints — @cheatyyyy: "most certainly MiniMax M3.1 … the text tokenizer perfectly matches that of the MiniMax M3" (https://x.com/cheatyyyy/status/2102781392199565683); MarMar Labs: 36/36 comparisons match, but "M2.7 matched too", i.e. this proves the MiniMax family, not the exact version (https://x.com/MarMarLabs/status/2102804031819387032); Qwen, GLM, DeepSeek and Llama tokenizers did not match. (2) MiniMax\'s own public config lists M3.1-Flash-Preview with 512K/1M context, reasoning forced on and the same effort levels as Space Bunny (https://agent.minimax.io/minimax-cloud/api/v1/config). (3) Asked in Chinese, its reasoning said "we are an AI assistant made by MiniMax" (https://x.com/AiBattle_/status/2102775779054502289) — weak: in another test it claimed to be OpenAI\'s GPT-5. (4) A LuminaBench log shows provider "minimax-m3-a-official" returning model "space-bunny" (https://x.com/vikktorrrre/status/2103828326179557726) — cannot be checked from outside. Neither MiniMax nor OpenRouter has confirmed; no mainstream outlet has covered it. Best timeline: CellCog, https://cellcog.ai/blog/what-is-space-bunny-alpha/ ; The Neuron, "Who Made Space Bunny? A MiniMax Clue Sharpens the Mystery", https://www.theneuron.ai/blog/who-made-space-bunny-minimax-clue/ .',
     'BENCHMARK (independent): AI Coding Daily (Povilas Korop) — 7 real coding projects, max 80 points. Space Bunny (Max effort, run via OpenCode on 30 Sep 2026): 57.19, rank #15. GPT-6.1-Sol (High) 68.1 (#1); Claude Opus 5.5 (High) 67.41 (#2); Kimi K3 (High) 56.89 (#17); GLM-5.3 (High) 54.82 (#21); DeepSeek-V4.1-Flash (High) 54.35 (#22). The chart shows selected models only: 12 leaderboard entries (some are the same model at other effort levels, e.g. #3 GPT-6.1-Sol (Medium) 67.09) sit between Opus 5.5 and Space Bunny, the nearest being #14 GPT-6-Luna (Max) 59.07 — the take line under the chart states the #15 rank so the adjacent bars are not read as "third place". It is the highest-ranked Chinese model on the board. Weak spot: bug-finding 4.58/20. https://aicodingdaily.com/model/space-bunny and https://aicodingdaily.com/leaderboard . Mixed signal: AI BENCHY gives Space Bunny (xhigh) only 6.2/10, rank #229 (https://aibenchy.com/model/stealth-space-bunny-alpha-xhigh/). Not on LMArena, Design Arena, Yupp or Artificial Analysis. MiniMax M3 (High) scored 40.35 (#40) on AI Coding Daily in June, but probably on an older project set — do NOT claim a "+17-point jump". A direct (non-rumor) M3.1 test: elma.sh scored M3.1-Flash-Preview 66.25% on KingBench 3 vs 31.25% for M3 (https://elma.sh/blog/minimax-m3-1-flash-review). A "73.8% SWE-bench" figure circulating online is unverified — do not cite.',
     'USAGE: OpenRouter rankings, week through 3 Oct 2026: Space Bunny Alpha #1 with 35.9T tokens (+264%), ahead of DeepSeek V4.1 Flash 25.6T (https://openrouter.ai/rankings). OpenCode: #1 with 57T tokens last week; since launch 90T tokens, 425K users, 31.3M completed sessions (https://stats.opencode.ai/data/unknown/space-bunny). Caveat: it costs $0 during the stealth test, which inflates usage.',
     'DEMO: "Earthside Freight Control", a 3D-globe shipping dashboard built with Space Bunny by X user @vikktorrrre (frame from his own video, cropped; the app runs on demo/sample data; number of prompts not stated). https://x.com/vikktorrrre/status/2103411231771988024',
@@ -258,7 +266,7 @@ async function distillSlide(d) {
 // ---------------------------------------------------------------- 4. abliteration: how
 async function abliterationSlide(d) {
   const s = d.slide('Content');
-  s.addText('THE WORLD · ABLITERATION · 1', { placeholder: 'kicker' });
+  s.addText('THE WORLD · ABLITERATION', { placeholder: 'kicker' });
   s.addText('Refusal lives in one direction — delete it', { placeholder: 'title' });
 
   // paper figure
@@ -338,7 +346,7 @@ function highlight(d, s, fr, nat, rects, { rot = 0, padX = 8, padY = 4, color = 
 async function deepfakeSurveySlide(d) {
   const s = d.slide('Content', { transition: 'push' });
   s.addText('THE WORLD · DEEPFAKES · 1', { placeholder: 'kicker' });
-  s.addText('When safeguards fail: deepfake nudes in schools', { placeholder: 'title' });
+  s.addText('Teens are already seeing and making AI nudes', { placeholder: 'title' });
 
   // ---- left: the Common Sense Media press release (two crops of one real screenshot, 960px viewport @3x)
   const lw = 7.15, rA = -0.6, rB = 0.5;
@@ -383,6 +391,7 @@ async function deepfakeSurveySlide(d) {
   d.source(s, 'Source: Common Sense Media press release & report “Teens in the AI Era: Pornography and Sexual Content” (Jul 21, 2026; highlights added) · online survey, Nov–Dec 2025.');
   s.addNotes([
     'MESSAGE: This is the newest data (published 21 July 2026). Almost half of US teens have already seen AI-generated sexual material; a quarter of those (about 1 in 10 of all teens) saw it depicting themselves or someone they know; and a fifth of all teens have made it or know someone who has. When "one click" tools have no working safeguards, kids are both the victims and the makers. Click through: each click highlights the sentence in the press release and pops the matching number.',
+    'TITLE: the survey covers US teens in general, not schools — the school evidence (NCMEC: incidents "in schools across the country, most often involving classmates") is on the next slide. The wording echoes Common Sense\'s own framing (Geoffrey A. Fowler: "Teens told us they\'re not just seeing AI nudes — they\'re making them"); strictly, the survey asks about AI-generated sexual content / AI pornography, which is broader than nudes of classmates.',
     'Screenshot (left): Common Sense Media press release, 21 Jul 2026, "Common Sense Media Releases New Research on Teens and AI-Generated Explicit Material" — dek: "Almost half of teens have already seen AI-generated sexual material, and almost a quarter have seen it depicting themselves or someone they know". Two crops of one real screenshot of the page (960-px viewport); the yellow highlights are native shapes added by us. Careful with the subhead: its "almost a quarter" means a quarter of those who saw AI sexual content (24% of the 44%), i.e. about 1 in 10 of all teens — not a quarter of all teens. https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material',
     'Highlighted bullets, verbatim: "Two-thirds of teens (67%) fear being deepfaked without consent" (girls 71% vs boys 62%); worried teens are making accounts private (30%), posting images of themselves less (23%) or deleting accounts (9%). "1 in 5 (18%) has made AI pornography or knows someone who has, and 25% have shared it or know someone who has." "Boys are almost three times as likely as girls to have made it (11% vs. 4%)." Not highlighted (no matching number on the slide): "Among those who have created AI pornography or know someone who has, 63% have created pornography depicting themselves or people they know." (Figure G words it as: among the 18% who made it or know someone who has, 63% "say the content depicted themselves or people they know personally".) Also not highlighted: "82% who have seen AI-generated pornography say creating it without consent should be illegal, but 23% believe AI nudes are less harmful than real ones \'because no one gets hurt.\'"',
     'Stats (right), from the report "Teens in the AI Era: Pornography and Sexual Content" (Mann, Zimmermann, Radesky & Robb; Common Sense Media Youth AI Safety Institute, 2026; funded by the Oak Foundation): 44% have seen sexual content they believed was AI-generated (Figure D; 54% no, 2% prefer not to say), and 79% of them say the exposure was accidental. 24% of those who have seen it (n=586) saw content of themselves or someone they know personally (Figure F: boys 28%, girls 19%) — 24% OF THOSE WHO SAW IT, not of all teens; 24% × 44% ≈ 11% of all teens (our arithmetic, not a figure Common Sense reports). 18% made it or know someone who has (Figure G: someone I know 10%, myself 4%, both 4%); only 8% made it themselves (boys 11% vs girls 4%). 67% are at least somewhat worried about being deepfaked (Figure I). Report PDF: https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf · landing page "Teens and Explicit Deepfakes in the Age of AI": https://www.commonsensemedia.org/research/teens-and-explicit-deepfakes-in-the-age-of-ai',

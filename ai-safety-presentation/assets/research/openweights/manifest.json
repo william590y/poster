@@ -9708,6 +9708,14 @@
    "url": "https://www.linkedin.com/posts/elisabettalicino_i-really-felt-the-agi-profoundly-this-time-activity-7511007160974323712-A153",
    "date": "2026-10-01",
    "verified": false
+  },
+  {
+   "claim": "Epoch Capabilities Index, scores downloaded 4 Oct 2026: best closed-weight model Claude Opus 5.5 167.35 (Anthropic, 2026-09-22); best open-weight model Kimi K3 157.61 (Moonshot, China, 2026-07-16; open weights, non-commercial). Same scores re-estimated: GPT-5.5 Pro 162.38 (vs 159.3 in Epoch's May 2026 open-vs-closed data), GPT-5.4 Pro 159.12 (2026-03-05), Kimi K2.6 151.05.",
+   "source": "Epoch AI Benchmarking Hub, benchmark_data.zip -> epoch_capabilities_index/eci_scores.csv (CC-BY), downloaded 2026-10-04; local copy epoch-eci-scores-2026-10-04.csv",
+   "url": "https://epoch.ai/data/benchmark_data.zip",
+   "date": "2026-10-04",
+   "file": "epoch-eci-scores-2026-10-04.csv",
+   "rumor": false
   }
  ],
  "not_found": [

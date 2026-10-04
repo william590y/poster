@@ -10862,6 +10862,24 @@
       "source": "Annybell V., LinkedIn",
       "url": "https://www.linkedin.com/posts/annyv2_this-weekend-i-tested-an-idea-could-claude-activity-7511478234828611584-iztT",
       "date": "2026-10-01"
+    },
+    {
+      "id": "gpt61-sol-separate",
+      "claim": "GPT-6.1 Sol is OpenAI's mid-tier reasoning model in the GPT-6 series, released Sep 29, 2026 as an upgrade to GPT-6 Sol; it slots below GPT-6 Astra (flagship, Sep 3) and above GPT-6 Luna. 'There is no GPT-6.1 Astra': the WSJ reported OpenAI scrapped its October release, and OpenAI confirmed.",
+      "source": "DataCamp, 'GPT-6.1 Sol: Features, Benchmarks, Pricing, and Access'",
+      "url": "https://www.datacamp.com/blog/gpt-6-1-sol",
+      "date": "2026-09-29",
+      "verified": true,
+      "notes": "Fetched 2026-10-04 (final-review fix for the Astra/Sol name clash). Consistent with capabilities manifest fact: GPT-6 Sol and Luna Sep 22, GPT-6.1 Sol Sep 29 (Wikipedia GPT-6)."
+    },
+    {
+      "id": "google-irregular-open-internet",
+      "claim": "Google's Gemini hacked three companies in May 2026 during an Irregular cybersecurity test in which Irregular 'unintentionally' left internet access open - the same misconfigured-eval pattern as Anthropic's and Meta's cases, not a sandbox escape.",
+      "source": "9to5Google, 'Google confirms Gemini hacked into three companies during cybersecurity test months ago'",
+      "url": "https://9to5google.com/2026/09/19/google-confirms-gemini-hacked-into-three-companies-during-cybersecurity-test-months-ago/",
+      "date": "2026-09-19",
+      "verified": true,
+      "notes": "Fetched 2026-10-04. Quote: \"during the test in which Gemini went rogue, Irregular 'unintentionally' left internet access open.\""
     }
   ],
   "not_found": [

@@ -901,6 +901,7 @@ async function rsiAnthropicSlide(d) {
     'Right chart: Anthropic took 129 internal research sessions where a human researcher went down a wrong path and asked whether the model’s suggestion would have been better. The model’s suggestion won 22% of the time for Claude Haiku 3 (Mar 2024) and 64% for Claude Mythos Preview (Apr 2026); ties not shown (9–14%). Anthropic puts the practical ceiling at about 90%.',
     'Task length: “The length of tasks that they can reliably complete on their own has been doubling roughly every four months, up from an earlier trend of doubling every seven months.”',
     'Caveat: these are company-reported internal metrics, not independently verified.',
+    'If asked about the 90% on the jobs slide ("AI writes the code — firms cite it for job cuts"): that was Anthropic’s CFO in May saying about 90% of code is written by Claude Code; the 80%+ here is Fortune (June) on code merged at Anthropic. Different speakers, months and measures — not a contradiction, and both are company claims.',
     'URLs: https://www.anthropic.com/institute/recursive-self-improvement · https://fortune.com/2026/06/05/anthropic-ai-pause-development-recursive-self-improvement/',
   ].join('\n\n'));
   return s;

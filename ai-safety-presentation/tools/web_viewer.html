@@ -27,12 +27,14 @@
   main { position:relative; flex:1; display:flex; min-height:0; }
   #stagewrap { position:relative; flex:1; display:flex; align-items:center; justify-content:center; min-width:0; padding:14px; }
   #stage { position:relative; aspect-ratio:16/9; width:min(100%, calc((100vh - 130px) * 16 / 9)); background:#000; box-shadow:0 10px 40px rgba(0,0,0,.6); overflow:hidden; }
-  #stage .slide { position:absolute; inset:0; opacity:0; transition:opacity .28s ease; }
-  #stage .slide.on { opacity:1; }
+  /* only the visible slide takes clicks: preloaded neighbours (opacity 0) sit later in the DOM and would swallow them */
+  #stage .slide { position:absolute; inset:0; opacity:0; transition:opacity .28s ease; pointer-events:none; }
+  #stage .slide.on { opacity:1; pointer-events:auto; }
   #stage .slide > img.bg { position:absolute; inset:0; width:100%; height:100%; display:block; user-select:none; -webkit-user-drag:none; }
   #stage .slide > img.top { position:absolute; display:block; pointer-events:none; user-select:none; -webkit-user-drag:none; }
   .ov { position:absolute; overflow:hidden; transform-origin:center center; }
   .ov video, .ov iframe { position:absolute; border:0; display:block; }
+  .ov.ctl { z-index:3; }   /* players the viewer clicks on stay above the prev/next click zones */
   .yt { cursor:pointer; background:transparent; border:0; padding:0; }
   .yt .play { position:absolute; left:50%; top:50%; width:74px; height:74px; margin:-37px 0 0 -37px; border-radius:50%; background:rgba(229,56,59,.92);
               box-shadow:0 6px 30px rgba(0,0,0,.5); transition:transform .15s; }
@@ -136,11 +138,12 @@ function build(i) {
       // stay transparent until frames arrive, so the slide image (which shows the clip's first frame) is never blacked out
       v.style.opacity = 0; v.style.transition = 'opacity .2s'; v.addEventListener('playing', () => { v.style.opacity = 1; });
     } else if (m.kind === 'video') {
+      box.classList.add('ctl');
       const v = document.createElement('video');
       Object.assign(v, { controls: true, playsInline: true, preload: 'none' }); v.poster = m.poster || ''; v.src = m.src;
       fillCrop(v, m); box.appendChild(v);
     } else if (m.kind === 'youtube') {
-      const b = document.createElement('button'); b.className = 'ov yt'; place(b, m); b.title = 'Play video';
+      const b = document.createElement('button'); b.className = 'ov yt ctl'; place(b, m); b.title = 'Play video';
       const pl = document.createElement('div'); pl.className = 'play'; b.appendChild(pl);
       b.onclick = (e) => {
         e.stopPropagation();
@@ -148,7 +151,7 @@ function build(i) {
         f.src = `https://www.youtube-nocookie.com/embed/${m.id}?autoplay=1&rel=0&playsinline=1`;
         f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true;
         Object.assign(f.style, { left: 0, top: 0, width: '100%', height: '100%', background: '#000' });
-        const holder = document.createElement('div'); holder.className = 'ov'; place(holder, m); holder.appendChild(f);
+        const holder = document.createElement('div'); holder.className = 'ov ctl'; place(holder, m); holder.appendChild(f);
         b.replaceWith(holder);
       };
       el.appendChild(b); continue;

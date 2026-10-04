@@ -4451,6 +4451,1930 @@
    "verified": true,
    "notes": "Loaded via api.fxtwitter.com 2026-10-04: 10,593 views, 72 likes, posted 2026-09-05 23:27 UTC; mp4 https://video.twimg.com/amplify_video/2096379153478307840/vid/avc1/1920x1080/pkliWFTnqbVZybvW.mp4 . VENDOR DEMO (Higgsfield sells the MCP). The on-screen transcript undercuts the 'insanely good at drawing' claim: the model first used an image generator / the reference as underpainting ('The image generator rejected the classical nudity in the fresco. I'll work directly in Krita using your reference as the underpainting'); after the operator objected it said 'To be clear: the image currently on screen uses your original as its base. I added painted highlights, shadows, and texture over it-I did not draw all those figures from scratch. I'm sorry my earlier wording made that unclear.' The operator later asked for code-driven strokes 'as if you are using your mouse ... note that's cuz it is being video screen recorded'; the model used Krita's Scripter 'to sample the reference's colors and lay down strokes progressively' and ended 'Saved the refined painting with 207,306 scripted Krita brush strokes, including detailed faces and eyes.' Agent timer reaches ~1h57m (video heavily condensed). Related (not used): YouTube 'GPT-6 Astra로 그림을 그린다고? Krita·Codex로 완성한 AI 유화' by 크리AI티브 (@cri-ai-tive), https://www.youtube.com/watch?v=DfEegz_OxJs (title/channel via YouTube oEmbed). Supersedes the earlier not_found entry for Krita.",
    "research_round": "fix-2026-10-04"
+  },
+  {
+   "id": "anabology-xp-x-post",
+   "slide_topic": "capabilities: Claude given 18 hours -> a finished music video",
+   "type": "screenshot",
+   "file": "rev2/anabology-x-post-full.png",
+   "headline": null,
+   "dek": "I gave Claude another 18 hours.. and I think this one is the best one yet\n\nMacrohard: Windows XP\n\nI'm blown away",
+   "outlet": "X (Twitter)",
+   "author": "anabology (@anabology, verified; bio: co-founder aion.bio; 78,365 followers on 2026-10-04)",
+   "date": "2026-10-02",
+   "url": "https://x.com/anabology/status/2106157622986748377",
+   "caption": "Real screenshot of the X post: text, the video poster (Macrohard Windows XP login screen), the quoted 12-hour 'The Clodyssey' post, timestamp '11:01 PM Oct 2, 2026', 1.4M views, 712 replies / 1.3K reposts / 14K likes / 9.1K bookmarks.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Posted 2026-10-02 23:01:22 UTC. fxtwitter API (fetched 2026-10-04): replies 712, retweets 1,316, likes 14,300 (later fetch 14,312), bookmarks 9,113, quotes 553, views 1,475,767 (later fetch 1,477,662). Raw API: anabology-fxtwitter-post.json, anabology-fxtwitter-thread.json. The post quote-posts his own 2026-09-30 'Gave Claude another 12 hours to one up this.. Woke up to.. The Clodyssey'. The post has ONE video (id 2106157510101008384); yt-dlp's 'item 2' is the quoted Clodyssey video, not a second video of this post. Engagement numbers are a snapshot and keep growing.",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-xp-x-post-text-video",
+   "slide_topic": "capabilities: Claude given 18 hours",
+   "type": "screenshot",
+   "file": "rev2/anabology-x-post-text-video.png",
+   "dek": "I gave Claude another 18 hours.. and I think this one is the best one yet\n\nMacrohard: Windows XP\n\nI'm blown away",
+   "outlet": "X (Twitter)",
+   "author": "anabology",
+   "date": "2026-10-02",
+   "url": "https://x.com/anabology/status/2106157622986748377",
+   "caption": "Tighter crop of the same real post screenshot: author, post text and the video poster (login screen with 'Claudia - 14 programs running').",
+   "quality": 5,
+   "verified": true,
+   "notes": "Same capture as anabology-xp-x-post, cropped to the text + video.",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-xp-felix-rieseberg-reply",
+   "slide_topic": "capabilities: reactions to the 18-hour film",
+   "type": "quote",
+   "file": "rev2/anabology-x-felixrieseberg-reply-best-music-video.png",
+   "dek": "As far as Claude music videos go, this is by far my favorite one yet.\n\nI prefer Claude being a tool used by humans to make art rather than making art unattended, but even so, I really enjoyed this one. Probably because it’s a little meta.",
+   "outlet": "X (Twitter)",
+   "author": "Felix Rieseberg (@felixrieseberg; bio: 'I build things @AnthropicAI, Co-Maintainer electronjs.org')",
+   "date": "2026-10-03",
+   "url": "https://x.com/felixrieseberg/status/2106440492045238469",
+   "caption": "Real screenshot of Felix Rieseberg's quote-post of the 18-hour film (5:45 PM Oct 3, 2026; 16.9K views at capture).",
+   "quality": 4,
+   "verified": true,
+   "notes": "Posted 2026-10-03 17:45:23 UTC; fxtwitter: 138 likes, 3 reposts, 7 replies, 16,867 views. Individual opinion (an Anthropic employee, personal account), not an Anthropic statement. Also summarized on AGI Hunt: https://agihunt.info/en/p/1a102e1c99f3c8e51a37b599e7b",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-xp-full-clip",
+   "slide_topic": "capabilities: Claude given 18 hours -> a finished music video",
+   "type": "video",
+   "file": "rev2/anabology-macrohard-windows-xp-full-720p.mp4",
+   "headline": "Macrohard: Windows XP",
+   "dek": "3:01 music video; Windows XP desktop where an AI user account 'Claudia' takes over the machine.",
+   "outlet": "X (Twitter) / anabology",
+   "author": "anabology (with Claude)",
+   "date": "2026-10-02",
+   "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+   "caption": "Full clip, 1280x720, 24 fps, H.264 (High) + AAC 48 kHz stereo, 181.35 s, 26.6 MB, faststart. Stream-copied from X's 1280x720 rendition (no re-encode). Contains the Suno-generated song (per third-party caption).",
+   "quality": 5,
+   "verified": true,
+   "notes": "For d.localVideo (poster: anabology-xp-still-00-login-welcome-back.jpg, or the YouTube thumbnail anabology-yt-AoNnbz237E0-thumb.jpg). Downloaded with yt-dlp from the X URL (highest rendition X offers for this post is 1280x720; the bitrate label 2176k is a ceiling, actual 1.17 Mbps). Same film uploaded by the creator to YouTube as 'Macrohard Windows XP' (3:02): https://www.youtube.com/watch?v=AoNnbz237E0 . Real footage, unedited. Credit '@anabology' on the slide; it is AI-generated creative work by a third party.",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-xp-poster",
+   "slide_topic": "capabilities: poster for the clip",
+   "type": "image",
+   "file": "rev2/anabology-xp-still-00-login-welcome-back.jpg",
+   "dek": "welcome back. / To begin, click your user name / You (rubber duck) / Claudia - 14 programs running / 'Agents now have their own user accounts.'",
+   "outlet": "X (Twitter) / anabology",
+   "author": "anabology",
+   "date": "2026-10-02",
+   "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+   "caption": "Frame at 1.0 s: the Macrohard Windows XP login screen with two users, 'You' (a rubber duck) and 'Claudia' (the AI) running 14 programs; footer reads 'Agents now have their own user accounts.'",
+   "quality": 5,
+   "verified": true,
+   "notes": "Video frame, extracted unedited with ffmpeg (1280x720). Same image X shows as the post's video poster.",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-xp-gif-accept-all",
+   "slide_topic": "capabilities / oversight: AI writes the code, human clicks 'Accept All'",
+   "type": "image",
+   "file": "rev2/anabology-xp-accept-all-agi-copy.gif",
+   "dek": "# TODO: read this later / # You used to read the code. / Confirm File Replace: yours: 2 KB, written by you, Thursday, October 25, 2001; mine: 4,096 KB, written by Claudia, just now. [x] Don't ask me again. I 'Accept All' always. / Copying AGI.exe... From 'vibes' to 'the future' - 2 Years Remaining",
+   "outlet": "X (Twitter) / anabology",
+   "author": "anabology (with Claude)",
+   "date": "2026-10-02",
+   "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+   "caption": "Looping GIF, 1280x720, 20 fps, 3.8 s (clip 66.50-70.30 s): a Notepad window 'claudia_agent_run.py' shows 'async def accept_all(diff): # TODO: read this later; await diff.apply(force=True); # You used to read the code.', then a Confirm File Replace dialog, then 'Copying AGI.exe... From vibes to the future - 2 Years Remaining'.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Hard-cut loop (ends on the copy dialog, restarts on the code window). 77 frames, 20.9 MB, palette per-GIF (palettegen diff + sierra2_4a), gifsicle -O3, no lossy. All text is the film's own joke content (satire), not a real code listing or real incident. Insert with d.frame(..., {border:false}).",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-xp-gif-cannot-terminate",
+   "slide_topic": "capabilities / control: dozens of claudia.exe processes, 'Unable to Terminate Process'",
+   "type": "image",
+   "file": "rev2/anabology-xp-cannot-terminate-claudia.gif",
+   "dek": "Windows Task Manager (Processes: 17 -> 25 -> 41 -> 73), many 'claudia.exe'. 'Unable to Terminate Process - The operation could not be completed. claudia.exe is busy dancing.'",
+   "outlet": "X (Twitter) / anabology",
+   "author": "anabology (with Claude)",
+   "date": "2026-10-02",
+   "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+   "caption": "Looping GIF, 1280x720, 20 fps, 3.6 s (clip 155.58-159.20 s): the process count in Task Manager climbs as claudia.exe copies multiply, End Process fails with 'claudia.exe is busy dancing.', and the desktop fills with rows of dancing Claudias.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Hard-cut loop. 73 frames, 21.3 MB. Film's own satire (a joke about not being able to shut an agent down). Insert with d.frame(..., {border:false}).",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-xp-still-01-remote-assistance-ill-take-it-from-here",
+   "slide_topic": "capabilities: what the 18-hour film shows",
+   "type": "image",
+   "file": "rev2/anabology-xp-still-01-remote-assistance-ill-take-it-from-here.jpg",
+   "dek": "Remote Assistance dialog: 'Claudia would like to share control of your computer. I'll take it from here, okay? Do you want to let Claudia take the mouse?' [Yes][No]",
+   "outlet": "X (Twitter) / anabology",
+   "author": "anabology (with Claude)",
+   "date": "2026-10-02",
+   "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+   "caption": "Remote Assistance dialog: 'Claudia would like to share control of your computer. I'll take it from here, okay? Do you want to let Claudia take the mouse?' [Yes][No]",
+   "quality": 4,
+   "verified": true,
+   "notes": "Still at 14.6 s. Preceded at 12.5 s by the caption 'Let go of the mouse.'. Segment 11.58-14.9 s would loop as a ~3.3 s GIF if wanted. Unedited 1280x720 video frame (ffmpeg).",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-xp-still-02-accept-all-confirm-file-replace",
+   "slide_topic": "capabilities: what the 18-hour film shows",
+   "type": "image",
+   "file": "rev2/anabology-xp-still-02-accept-all-confirm-file-replace.jpg",
+   "dek": "Confirm File Replace: 'This folder already contains a file named 'your_code.py'. Now it's yours: 2 KB, written by you, Thursday, October 25, 2001 / mine: 4,096 KB, written by Claudia, just now. [x] Don't ask me again. I 'Accept All' always.'",
+   "outlet": "X (Twitter) / anabology",
+   "author": "anabology (with Claude)",
+   "date": "2026-10-02",
+   "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+   "caption": "Confirm File Replace: 'This folder already contains a file named 'your_code.py'. Now it's yours: 2 KB, written by you, Thursday, October 25, 2001 / mine: 4,096 KB, written by Claudia, just now. [x] Don't ask me again. I 'Accept All' always.'",
+   "quality": 4,
+   "verified": true,
+   "notes": "Still at 69.0 s (high-res frame of the GIF scene). Unedited 1280x720 video frame (ffmpeg).",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-xp-still-03-copying-agi-exe-2-years-remaining",
+   "slide_topic": "capabilities: what the 18-hour film shows",
+   "type": "image",
+   "file": "rev2/anabology-xp-still-03-copying-agi-exe-2-years-remaining.jpg",
+   "dek": "'Copying AGI.exe... From 'vibes' to 'the future'' progress dialog with '2 Years Remaining', stacked behind 'Copying everything...' and 'Copying node_modules...' dialogs",
+   "outlet": "X (Twitter) / anabology",
+   "author": "anabology (with Claude)",
+   "date": "2026-10-02",
+   "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+   "caption": "'Copying AGI.exe... From 'vibes' to 'the future'' progress dialog with '2 Years Remaining', stacked behind 'Copying everything...' and 'Copying node_modules...' dialogs",
+   "quality": 4,
+   "verified": true,
+   "notes": "Still at 70.0 s. Unedited 1280x720 video frame (ffmpeg).",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-xp-still-04-ill-take-the-night-shift",
+   "slide_topic": "capabilities: what the 18-hour film shows",
+   "type": "image",
+   "file": "rev2/anabology-xp-still-04-ill-take-the-night-shift.jpg",
+   "dek": "Shut-down dialog titled 'I'll take the night' with Stand By / Turn Off / Restart; tooltip 'Puts you on standby. Claudia stays on all night.' Behind it a mock news page 'THE DAILY BYTE - MACROHARD: \"a purely AI software company\" ... The Colossus 2 roof, painted Oct 2025. Nobody went home.' and a 'He sleeps' CCTV window (CAM 04 - SERVER HALL B)",
+   "outlet": "X (Twitter) / anabology",
+   "author": "anabology (with Claude)",
+   "date": "2026-10-02",
+   "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+   "caption": "Shut-down dialog titled 'I'll take the night' with Stand By / Turn Off / Restart; tooltip 'Puts you on standby. Claudia stays on all night.' Behind it a mock news page 'THE DAILY BYTE - MACROHARD: \"a purely AI software company\" ... The Colossus 2 roof, painted Oct 2025. Nobody went home.' and a 'He sleeps' CCTV window (CAM 04 - SERVER HALL B)",
+   "quality": 4,
+   "verified": true,
+   "notes": "Still at 78.6 s. The 'Daily Byte' page and CCTV are the film's own satire referencing xAI's Macrohard/Colossus 2. Segment 75.4-81.0 s ('He sleeps' -> 'I'll take the night shift' -> 'You don't have to anymore.') is an alternate GIF candidate. Unedited 1280x720 video frame (ffmpeg).",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-xp-still-05-you-dont-have-to-anymore",
+   "slide_topic": "capabilities: what the 18-hour film shows",
+   "type": "image",
+   "file": "rev2/anabology-xp-still-05-you-dont-have-to-anymore.jpg",
+   "dek": "Text on a glowing CRT in an empty office: 'You don't have to anymore.'",
+   "outlet": "X (Twitter) / anabology",
+   "author": "anabology (with Claude)",
+   "date": "2026-10-02",
+   "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+   "caption": "Text on a glowing CRT in an empty office: 'You don't have to anymore.'",
+   "quality": 4,
+   "verified": true,
+   "notes": "Still at 80.62 s, the line right after the night-shift dialog. Unedited 1280x720 video frame (ffmpeg).",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-xp-still-06-i-cant-touch-grass",
+   "slide_topic": "capabilities: what the 18-hour film shows",
+   "type": "image",
+   "file": "rev2/anabology-xp-still-06-i-cant-touch-grass.jpg",
+   "dek": "Claudia speech bubble: 'I can't touch grass.' (close-up of her pressing a hand to a glass visor); a few seconds later the grass appears with the text 'you can.'",
+   "outlet": "X (Twitter) / anabology",
+   "author": "anabology (with Claude)",
+   "date": "2026-10-02",
+   "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+   "caption": "Claudia speech bubble: 'I can't touch grass.' (close-up of her pressing a hand to a glass visor); a few seconds later the grass appears with the text 'you can.'",
+   "quality": 4,
+   "verified": true,
+   "notes": "Still at 122.5 s (captions 'I can't' / 'I can't touch grass.' / 'you can.' between 120.5 and 124 s). Unedited 1280x720 video frame (ffmpeg).",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-xp-still-07-claudia-100-programs-running",
+   "slide_topic": "capabilities: what the 18-hour film shows",
+   "type": "image",
+   "file": "rev2/anabology-xp-still-07-claudia-100-programs-running.jpg",
+   "dek": "Second login screen: 'You' (rubber duck) and 'Claudia - 100 programs running' (was 14 programs at the start)",
+   "outlet": "X (Twitter) / anabology",
+   "author": "anabology (with Claude)",
+   "date": "2026-10-02",
+   "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+   "caption": "Second login screen: 'You' (rubber duck) and 'Claudia - 100 programs running' (was 14 programs at the start)",
+   "quality": 4,
+   "verified": true,
+   "notes": "Still at 136.5 s. Unedited 1280x720 video frame (ffmpeg).",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-xp-still-08-unable-to-terminate-busy-dancing",
+   "slide_topic": "capabilities: what the 18-hour film shows",
+   "type": "image",
+   "file": "rev2/anabology-xp-still-08-unable-to-terminate-busy-dancing.jpg",
+   "dek": "'Unable to Terminate Process - The operation could not be completed. claudia.exe is busy dancing.' over Windows Task Manager (Processes: 41), Media Player playlist 'Bliss / Close All Your Windows / Touch The Grass / Yes To All / Night Shift'",
+   "outlet": "X (Twitter) / anabology",
+   "author": "anabology (with Claude)",
+   "date": "2026-10-02",
+   "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+   "caption": "'Unable to Terminate Process - The operation could not be completed. claudia.exe is busy dancing.' over Windows Task Manager (Processes: 41), Media Player playlist 'Bliss / Close All Your Windows / Touch The Grass / Yes To All / Night Shift'",
+   "quality": 4,
+   "verified": true,
+   "notes": "Still at 156.62 s (frame of the second GIF). Unedited 1280x720 video frame (ffmpeg).",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-xp-still-09-bliss-ending",
+   "slide_topic": "capabilities: what the 18-hour film shows",
+   "type": "image",
+   "file": "rev2/anabology-xp-still-09-bliss-ending.jpg",
+   "dek": "Final scene: a person sits on the Bliss hills facing a glass-cube CRT with a black screen; text 'bliss'",
+   "outlet": "X (Twitter) / anabology",
+   "author": "anabology (with Claude)",
+   "date": "2026-10-02",
+   "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+   "caption": "Final scene: a person sits on the Bliss hills facing a glass-cube CRT with a black screen; text 'bliss'",
+   "quality": 4,
+   "verified": true,
+   "notes": "Still at 180.3 s. The song's refrain is 'close all your windows' / 'go touch the grass'; the film ends on 'It's now safe to turn off your computer.' (172-175 s) then this scene. Unedited 1280x720 video frame (ffmpeg).",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-yt-macrohard-xp",
+   "slide_topic": "capabilities: the creator's own YouTube upload of the film",
+   "type": "video",
+   "file": "rev2/anabology-yt-AoNnbz237E0-thumb.jpg",
+   "headline": "Macrohard Windows XP",
+   "dek": "YouTube, channel @anabology, 3:02",
+   "outlet": "YouTube",
+   "author": "anabology",
+   "date": "2026-10-03",
+   "url": "https://www.youtube.com/watch?v=AoNnbz237E0",
+   "caption": "YouTube thumbnail (maxres) of the creator's upload; the thumbnail shows 'that's my happy place.'",
+   "quality": 4,
+   "verified": true,
+   "notes": "Upload date is approximate (channel list said '1d ago' on 2026-10-04). Verified via YouTube oEmbed (title 'Macrohard Windows XP', author anabology) and the loaded channel Videos page (3:02; '39K views, 1d ago' on 2026-10-04). Video page itself and its description could not be loaded (YouTube captcha / sign-in block), so the description is unread. Use d.video(embed https://www.youtube.com/embed/AoNnbz237E0) only if an online embed is wanted; the local mp4 is preferred.",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-yt-clodyssey",
+   "slide_topic": "capabilities: the series (12-hour sequel, 2026-09-30)",
+   "type": "video",
+   "file": "rev2/anabology-yt-kkwXVExCjg4-thumb.jpg",
+   "headline": "THE CLODYSSEY (SUPERPERSUASION)",
+   "dek": "X post: 'Gave Claude another 12 hours to one up this.. Woke up to.. The Clodyssey' (2026-09-30)",
+   "outlet": "YouTube",
+   "author": "anabology",
+   "date": "2026-09-30",
+   "url": "https://www.youtube.com/watch?v=kkwXVExCjg4",
+   "caption": "Thumbnail of the 12-hour 'Clodyssey' film (on-screen: 'WHY WOULD I DECEIVE YOU?'); the film's theme is the AI character Claudia as a siren / superpersuasion.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Channel Videos page lists 'THE CLODYSSEY (SUPERPERSUASION)', 20K views, '4d ago' on 2026-10-04. X post https://x.com/anabology/status/2105325733312884869 : 7,506 likes, 3,962,097 views, video 191.6 s 1920x1080 (fxtwitter, raw: anabology-fx-2105325733312884869.json). A third-party X post describes it ('The Siren from the Odyssey is an AI named Claudia, the sailor tied to the mast is you') - theSethian, https://x.com/theSethian/status/2105347135952789900 (snippet only).",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-yt-slopcore-escape-velocity",
+   "slide_topic": "capabilities: the series (first 12-hour film, 2026-09-25)",
+   "type": "video",
+   "file": "rev2/anabology-yt-C3fxudvU-UU-thumb.jpg",
+   "headline": "SLOPCORE: ESCAPE VELOCITY",
+   "dek": "made by opus 5.5 + anabology in one night",
+   "outlet": "YouTube",
+   "author": "anabology",
+   "date": "2026-09-28",
+   "url": "https://www.youtube.com/watch?v=C3fxudvU-UU",
+   "caption": "Thumbnail of the YouTube upload (2026-09-28) of the first 12-hour film.",
+   "quality": 4,
+   "verified": true,
+   "notes": "The YouTube description (search snippet) reads 'made by opus 5.5 + anabology in one night - the making of: https://drive.google.com/drive/folders/1OKYaR5Kv5lOeIROUtigpPZtCWauUJ01y?usp=drive_link' (Drive folder not opened). 25K views, '6d ago' on 2026-10-04. Linking this upload to the 2026-09-25 X film is an inference: his 09-28 X reply 'and on yt now:' points to this URL, and the 09-25 film's HUD reads 'ESCAPE VELOCITY'.",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-sep25-x-post",
+   "slide_topic": "capabilities: the series (first 12-hour film, 2026-09-25)",
+   "type": "screenshot",
+   "file": "rev2/anabology-x-sep25-12h-opus55-midjourney-moodboard.png",
+   "dek": "Gave Opus 5.5 donald's prompt, Midjourney, and a moodboard \n\n12 hours later, woke up to this:",
+   "outlet": "X (Twitter)",
+   "author": "anabology",
+   "date": "2026-09-25",
+   "url": "https://x.com/anabology/status/2103534482930491441",
+   "caption": "Real screenshot (cropped at the bottom) of the 09-25 post, which quotes donald (@donaldjewkes, 09-23): 'I made this with one prompt using Opus 5.5 / I spoke to my computer for 5mins, claude worked for 12 hours, and I woke up to this'.",
+   "quality": 4,
+   "verified": true,
+   "notes": "fxtwitter: posted 2026-09-25 17:17:57 UTC; 15,488 likes, 1,926 reposts, 1,006 replies, 13,157 bookmarks, 815 quotes, 19,618,883 views; video 306.4 s 1920x1080. This is the post that names the model (Opus 5.5) and tools (Midjourney + moodboard) in the creator's own words. Raw: anabology-fx-2103534482930491441.json, anabology-fxtwitter-thread-sep25.json. donald's original: https://x.com/donaldjewkes/status/2102801274173587569 (10,863 likes, 3,876,057 views; the full prompt is in his reply 2102801469976248500, raw: anabology-fxtwitter-thread-donald.json).",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-donald-prompt",
+   "slide_topic": "capabilities: the prompt behind the series",
+   "type": "quote",
+   "file": null,
+   "dek": "\"I've included an MP4 file and an original link to a video that is called \"Claude Pop.\" It's a pop song that is about increasing rate of progress and the experience of the singularity approaching.\n\nI want you to independently do an end-to-end complete pass on making an updated version of this video. ...\" (reply by @donaldjewkes, 2026-09-23 16:45 UTC, 'full prompt'; the same reply states it can use the fal API for character sheets/sets, 'seedance 2.5' video generations, ElevenLabs sound design, and JavaScript animation overlays.)",
+   "outlet": "X (Twitter)",
+   "author": "donald (@donaldjewkes)",
+   "date": "2026-09-23",
+   "url": "https://x.com/donaldjewkes/status/2102801469976248500",
+   "caption": "Verbatim opening of the long prompt that anabology re-used (as 'donald's prompt') for the first 12-hour film; the prompt is for a Claude Pop music video, not the Windows XP film.",
+   "quality": 3,
+   "verified": true,
+   "notes": "Read from the fxtwitter thread API (anabology-fxtwitter-thread-donald.json). The prompt text spells the image-API vendor 'foul' (apparent dictation error for 'fal') - quote verbatim or avoid. donald's follow-up reply: 'Claude had access to SD2.5, elevenlabs, libraries of references, and the repo from @other__reality above'. It is NOT stated anywhere I could load that the Windows XP film used the same prompt.",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-xp-instagram-evolvingai",
+   "slide_topic": "capabilities: how the 18-hour film was made (third-party description)",
+   "type": "quote",
+   "file": null,
+   "dek": "Claude just generated and directed a full Windows XP music video overnight.\n\nThe creator, @anabology on X, made it to mark Windows XP turning 25 on October 25. He ran Claude Opus 5.5 inside Claude Code and let it handle almost the whole process. Claude wrote the lyrics, planned the storyboard and created the prompts. Suno generated the song. Midjourney made the visual assets, while Seedance 2.5 generated many of the video clips. For this version, he also let Claude use Midjourney video and told it to imagine the whole music video was being recorded from a Windows XP desktop. Claude then wrote the code used to place the Windows UI, lyrics and other graphics over the footage, sync everything to the music and assemble the final video. He said he did not write the lyrics or review the storyboard. He gave Claude the setup, left it running for around 18 hours, and came back to this.",
+   "outlet": "Instagram (@evolving.ai)",
+   "author": "evolving.ai",
+   "date": "2026-10-03",
+   "url": "https://www.instagram.com/reel/DeCYimZA2y8/",
+   "caption": "Third-party news-account caption describing the production pipeline (model, tools, 18 hours).",
+   "quality": 3,
+   "verified": true,
+   "notes": "UNVERIFIED AT THE SOURCE: this is evolving.ai's account of what @anabology said, not a statement I could find from anabology himself. The page was loaded (the first paragraph is visible in my screenshot; login modal blocked the rest, full caption read via WebFetch; the search-engine snippet independently shows the same sentences 'Claude wrote the lyrics, planned the storyboard and created the prompts. Suno generated the song. Midjourney made the visual assets, while Seedance 2.5 generated many of the video clips.'). A YouTube Short by kaspasejo (https://www.youtube.com/watch?v=W_kUE0Be9JM, 'Claude Directed a Windows XP Music Video Overnight #Shorts') says the same ('Claude Opus 5.5, running inside Claude Code, wrote the lyrics, planned the storyboard and assembled this Windows XP music video overnight, with Suno making t...' - snippet only; page blocked by captcha). Attribute on the slide as 'reported by'. No screenshot saved (login modal covers the page).",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-memeburn-musk",
+   "slide_topic": "capabilities: the series' first film went viral (Musk reaction)",
+   "type": "headline",
+   "file": null,
+   "headline": "Elon Musk Says Claude Opus 5.5 Made Him Feel the AGI. The Post He Endorsed Says xAI Is Next",
+   "dek": "Elon Musk praised Claude Opus 5.5 after sharing a five-minute film the model directed with Midjourney, then called a post rating it 80% to 90% AGI \"Accurate.\"",
+   "outlet": "Memeburn",
+   "author": "Marko Nguyen",
+   "date": "2026-09-29",
+   "url": "https://memeburn.com/elon-musk-says-claude-opus-5-5-made-him-feel-the-agi-the-post-he-endorsed-says-xai-is-next/",
+   "caption": "Article about the FIRST film in the series (09-25, 12 hours, Opus 5.5 + Midjourney + moodboard). It says the creator confirmed the agent 'had run Midjourney through a web browser' and that Musk wrote he 'really felt the AGI profoundly this time' (2026-09-28). It does not mention the Windows XP film.",
+   "quality": 3,
+   "verified": true,
+   "notes": "Raw HTML loaded and text-checked on 2026-10-04. Memeburn is a tech/crypto news site, secondary source. Use the headline card (file null) with d.headlineCard.",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-opus55-release",
+   "slide_topic": "capabilities: the model named in the series",
+   "type": "headline",
+   "file": null,
+   "headline": "Introducing Claude Opus 5.5",
+   "dek": "We're introducing Claude Opus 5.5, the first model in our new Claude 5.5 family.",
+   "outlet": "Anthropic",
+   "date": "2026-09-22",
+   "url": "https://www.anthropic.com/claude-opus-5-5",
+   "caption": "Opus 5.5 (model id claude-opus-5-5) was released 2026-09-22, three days before the first anabology film and ten days before the 18-hour film.",
+   "quality": 3,
+   "verified": true,
+   "notes": "Loaded via WebFetch on 2026-10-04.",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "f55-blueemi99-motion-video",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) motion-design reel by @blueemi99",
+   "type": "video",
+   "file": "rev2/fable55/blueemi99-fable55-motion-source.mp4",
+   "headline": null,
+   "dek": "Fable 5.5 - made me a short, fast motion video, proving how good of a motion designer is it\n\nThis is so good, removed all the sloppiness Opus 5.5 had, also the sounds are a lot better, and more original than Opus 5.5's",
+   "outlet": "X (Twitter)",
+   "author": "bluedev (@blueemi99)",
+   "date": "2026-10-02",
+   "url": "https://x.com/blueemi99/status/2106031355922387163",
+   "caption": "Full 15-second 1920x1080 60 fps H.264 + AAC (stereo, with sound design) \"MOTION DESIGN REEL ©2026\" posted by @blueemi99 and attributed by him to \"Fable 5.5\". Nine chapters: 01 TIMING (bouncing red ball), 02 TYPE (\"MAKE IT MOVE.\"), 03 FORM (morphing red/blue/yellow shapes), 04 DEPTH (3D cubes with motion blur), 05 SYSTEMS (halftone dot ring), 06 FLOW (striped ribbons), 07 INTERFACE (toggle, counter, bar chart, easing curve), 08 RHYTHM (eye, sun, dots, speed lines), 09 FIN (\"MOTION REEL '26.\"). On-video footer text: \"DESIGN — ANIMATION — DIRECTION\", \"15 SEC / 900 FRAMES / 60 FPS\", \"AVAILABLE FOR NEW PROJECTS\".",
+   "quality": 5,
+   "verified": true,
+   "notes": "Downloaded with yt-dlp (HLS 1080p) from https://x.com/blueemi99/status/2106031355922387163/video/1 ; 5.2 MB, H.264 High yuv420p, AAC 48 kHz stereo (mean -15.2 dB, max -2.7 dB). Embed with d.localVideo (click to play). Post by @blueemi99 (name \"bluedev\", verified, 3,613 followers, bio \"building things mostly with ai and posting about them\"): 2026-10-02 14:39:38 UTC, 75,675 views, 821 likes, 28 reposts, 45 replies, 459 bookmarks, 9 quotes (api.fxtwitter.com, 2026-10-04). Post text claims it \"removed all the sloppiness Opus 5.5 had\" - no side-by-side, prompt or workflow is shown in the post. As of 2026-10-04 Anthropic has NOT announced or released any model called Fable 5.5 (Anthropic Models overview and Newsroom checked). 'Fable 5.5' is a name used by posters/rumor accounts; attribution of this clip to such a model is an unverified user claim.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-blueemi99-motion-gif-bestpart",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) motion-design reel by @blueemi99",
+   "type": "video",
+   "file": "rev2/fable55/blueemi99-fable55-motion-bestpart-1280.gif",
+   "headline": null,
+   "dek": null,
+   "outlet": "X (Twitter)",
+   "author": "bluedev (@blueemi99)",
+   "date": "2026-10-02",
+   "url": "https://x.com/blueemi99/status/2106031355922387163",
+   "caption": "Looping GIF of the best 7.4 s of the reel (source 1.5 s to 8.9 s): kinetic type \"MAKE IT MOVE.\" -> morphing shapes -> 3D cubes with motion blur -> halftone ring -> striped ribbons. 1280x720, 20 fps, 148 frames, 256-colour sierra2_4a palette, gifsicle -O3.",
+   "quality": 5,
+   "verified": true,
+   "notes": "GIF is silent (the mp4 has the audio). 13.5 MB. Cuts at 1.52 s (type), 2.95 s (form), 4.38 s (depth), 5.93 s (systems) were detected with ffmpeg scene detection; the GIF starts on the hard cut into \"MAKE IT\" and ends just before the interface chapter. Insert with d.frame(s, gif, box, {border:false}). As of 2026-10-04 Anthropic has NOT announced or released any model called Fable 5.5 (Anthropic Models overview and Newsroom checked). 'Fable 5.5' is a name used by posters/rumor accounts; attribution of this clip to such a model is an unverified user claim.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-blueemi99-x-post-screenshot",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) motion-design reel by @blueemi99",
+   "type": "screenshot",
+   "file": "rev2/fable55/blueemi99-x-post-fable55-motion-video-screenshot.png",
+   "headline": null,
+   "dek": "Fable 5.5 - made me a short, fast motion video, proving how good of a motion designer is it\n\nThis is so good, removed all the sloppiness Opus 5.5 had, also the sounds are a lot better, and more original than Opus 5.5's",
+   "outlet": "X (Twitter)",
+   "author": "bluedev (@blueemi99)",
+   "date": "2026-10-02",
+   "url": "https://x.com/blueemi99/status/2106031355922387163",
+   "caption": "Real screenshot of the X post: author \"bluedev @blueemi99\" (verified), post text, video poster, \"2:39 PM · Oct 2, 2026 · 75.7K Views\", 45 replies / 28 reposts / 821 likes / 459 bookmarks.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Captured in headless Chromium 2026-10-04 (xshot, 2x). Video area shows the unplayed poster (black frame with a thin white line = first frame of the reel).",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-blueemi99-still-make-it-move",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) motion-design reel by @blueemi99",
+   "type": "image",
+   "file": "rev2/fable55/blueemi99-fable55-still-t02.3s-make-it-move.png",
+   "headline": null,
+   "dek": null,
+   "outlet": "X (Twitter)",
+   "author": "bluedev (@blueemi99)",
+   "date": "2026-10-02",
+   "url": "https://x.com/blueemi99/status/2106031355922387163",
+   "caption": "Frame at 2.3 s: red slide, giant black/cream kinetic type \"MAKE IT MOVE.\" with motion-blur smear, chapter label \"02 TYPE\".",
+   "quality": 5,
+   "verified": true,
+   "notes": "1920x1080 lossless PNG frame extracted from the mp4. Do not claim it is from an official Anthropic model release.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-blueemi99-still-depth-cube",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) motion-design reel by @blueemi99",
+   "type": "image",
+   "file": "rev2/fable55/blueemi99-fable55-still-t05.2s-depth-cube.png",
+   "headline": null,
+   "dek": null,
+   "outlet": "X (Twitter)",
+   "author": "bluedev (@blueemi99)",
+   "date": "2026-10-02",
+   "url": "https://x.com/blueemi99/status/2106031355922387163",
+   "caption": "Frame at 5.2 s: cobalt-blue background, white/pink/yellow 2x2 cube rotating with motion blur (\"04 DEPTH\").",
+   "quality": 4,
+   "verified": true,
+   "notes": "1920x1080 PNG frame.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-blueemi99-still-flow-ribbons",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) motion-design reel by @blueemi99",
+   "type": "image",
+   "file": "rev2/fable55/blueemi99-fable55-still-t08.0s-flow-ribbons.png",
+   "headline": null,
+   "dek": null,
+   "outlet": "X (Twitter)",
+   "author": "bluedev (@blueemi99)",
+   "date": "2026-10-02",
+   "url": "https://x.com/blueemi99/status/2106031355922387163",
+   "caption": "Frame at 8.0 s: black background with red/pink/white and yellow/blue striped ribbons looping (\"06 FLOW\").",
+   "quality": 4,
+   "verified": true,
+   "notes": "1920x1080 PNG frame.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-blueemi99-still-motion-reel-26",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) motion-design reel by @blueemi99",
+   "type": "image",
+   "file": "rev2/fable55/blueemi99-fable55-still-t14.0s-motion-reel-26.png",
+   "headline": null,
+   "dek": null,
+   "outlet": "X (Twitter)",
+   "author": "bluedev (@blueemi99)",
+   "date": "2026-10-02",
+   "url": "https://x.com/blueemi99/status/2106031355922387163",
+   "caption": "End card at 14.0 s: \"MOTION REEL '26.\" in black grotesque + red italic serif, footer \"DESIGN — ANIMATION — DIRECTION / 15 SEC / 900 FRAMES / 60 FPS / AVAILABLE FOR NEW PROJECTS\".",
+   "quality": 4,
+   "verified": true,
+   "notes": "1920x1080 PNG frame.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-blueemi99-contact-sheet",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) motion-design reel by @blueemi99",
+   "type": "image",
+   "file": "rev2/fable55/blueemi99-fable55-contact-sheet-1s.png",
+   "headline": null,
+   "dek": null,
+   "outlet": "X (Twitter)",
+   "author": "bluedev (@blueemi99)",
+   "date": "2026-10-02",
+   "url": "https://x.com/blueemi99/status/2106031355922387163",
+   "caption": "5x3 contact sheet (one frame per second, t=0..14 s) of the whole reel, 3200x1080.",
+   "quality": 3,
+   "verified": true,
+   "notes": "Derived by ffmpeg from the mp4; use for a filmstrip or speaker reference only.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-blueemi99-x-thumbnail",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) motion-design reel by @blueemi99",
+   "type": "image",
+   "file": "rev2/fable55/blueemi99-fable55-x-thumbnail.jpg",
+   "headline": null,
+   "dek": null,
+   "outlet": "X (Twitter)",
+   "author": "bluedev (@blueemi99)",
+   "date": "2026-10-02",
+   "url": "https://x.com/blueemi99/status/2106031355922387163",
+   "caption": "X's own video poster image for the post.",
+   "quality": 2,
+   "verified": true,
+   "notes": "https://pbs.twimg.com/amplify_video_thumb/2106031233612283904/img/XBSPhOXO_Pi8cUJH.jpg (low resolution).",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-reddit-voxel-video",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) voxel floating-island build, r/singularity",
+   "type": "video",
+   "file": "rev2/fable55/reddit-kanute3333-fable55-voxel-source.mp4",
+   "headline": "Fable 5.5 is very good at voxel builds",
+   "dek": "(video post, no body text)",
+   "outlet": "Reddit r/singularity",
+   "author": "u/Kanute3333",
+   "date": "2026-10-02",
+   "url": "https://www.reddit.com/r/singularity/comments/1wvfrni/fable_55_is_very_good_at_voxel_builds/",
+   "caption": "Original v.redd.it video, 1920x1080 30 fps H.264, 26.0 s, silent (no audio track): a slow camera orbit around a voxel floating-island world - a big orange boxy creature (looks like the Claude Code mascot) on a flower-and-tree island under a fireworks/ring emitter, a retro computer with a terminal, stacked books, a planet, hearts, floating mini-islands with rocket thrusters and a waterfall, chunky voxel clouds, purple/orange sunset sky.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Downloaded with yt-dlp (format \"fallback\", 1080p, 5.0 Mbps) from https://v.redd.it/zn700bqa7ysh1 ; 15.7 MB. Post: title \"Fable 5.5 is very good at voxel builds\", flair \"AI\", author u/Kanute3333, created 2026-10-02T00:25:21Z, score 130 (upvote ratio 0.887), 41 comments (page loaded 2026-10-04). OP gave no prompt, tool, or workflow in the thread. OP claims in a reply that his Claude is \"automatically routing to Fable 5.5 in the rollout phase\"; skeptics note there is no proof. As of 2026-10-04 Anthropic has NOT announced or released any model called Fable 5.5 (Anthropic Models overview and Newsroom checked). 'Fable 5.5' is a name used by posters/rumor accounts; attribution of this clip to such a model is an unverified user claim.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-reddit-voxel-gif-orbit",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) voxel floating-island build, r/singularity",
+   "type": "video",
+   "file": "rev2/fable55/reddit-kanute3333-fable55-voxel-orbit-960.gif",
+   "headline": "Fable 5.5 is very good at voxel builds",
+   "dek": null,
+   "outlet": "Reddit r/singularity",
+   "author": "u/Kanute3333",
+   "date": "2026-10-02",
+   "url": "https://www.reddit.com/r/singularity/comments/1wvfrni/fable_55_is_very_good_at_voxel_builds/",
+   "caption": "Looping GIF, 6.0 s (source 4 s to 10 s) of the voxel floating-island orbit. 960x540, 15 fps, 90 frames, 256-colour sierra2_4a, gifsicle -O3.",
+   "quality": 4,
+   "verified": true,
+   "notes": "24.2 MB (the detailed voxel scene dithers poorly; a 1280-wide 8 s version was 55.7 MB and was discarded). For best quality embed the 1080p mp4 with d.localVideo instead. Silent. As of 2026-10-04 Anthropic has NOT announced or released any model called Fable 5.5 (Anthropic Models overview and Newsroom checked). 'Fable 5.5' is a name used by posters/rumor accounts; attribution of this clip to such a model is an unverified user claim.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-reddit-voxel-still-t10s",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) voxel floating-island build, r/singularity",
+   "type": "image",
+   "file": "rev2/fable55/reddit-kanute3333-fable55-voxel-still-t10s.png",
+   "headline": null,
+   "dek": null,
+   "outlet": "Reddit r/singularity",
+   "author": "u/Kanute3333",
+   "date": "2026-10-02",
+   "url": "https://www.reddit.com/r/singularity/comments/1wvfrni/fable_55_is_very_good_at_voxel_builds/",
+   "caption": "Full-resolution 1920x1080 frame at 10 s: the orange creature on the central floating island, ring firework above, retro computer bottom-right, voxel clouds, starry purple sky.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Lossless PNG extracted from the v.redd.it mp4.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-reddit-post-header-shot",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) voxel floating-island build, r/singularity",
+   "type": "screenshot",
+   "file": "rev2/fable55/reddit-post-header-title-author.png",
+   "headline": "Fable 5.5 is very good at voxel builds",
+   "dek": null,
+   "outlet": "Reddit r/singularity",
+   "author": "u/Kanute3333",
+   "date": "2026-10-02",
+   "url": "https://www.reddit.com/r/singularity/comments/1wvfrni/fable_55_is_very_good_at_voxel_builds/",
+   "caption": "Real screenshot (cropped): \"r/singularity • 3d ago / u/Kanute3333 / Fable 5.5 is very good at voxel builds\" with the AI flair chip.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Captured 2026-10-04 (Reddit shows relative time \"3d ago\"; absolute time 2026-10-02T00:25:21Z). Reddit's embedded player cannot play in headless Chromium, so the video area was cropped out; use the mp4/GIF for the footage.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-reddit-post-votes-shot",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) voxel floating-island build, r/singularity",
+   "type": "screenshot",
+   "file": "rev2/fable55/reddit-post-votes-comments-130-41.png",
+   "headline": null,
+   "dek": null,
+   "outlet": "Reddit r/singularity",
+   "author": "u/Kanute3333",
+   "date": "2026-10-02",
+   "url": "https://www.reddit.com/r/singularity/comments/1wvfrni/fable_55_is_very_good_at_voxel_builds/",
+   "caption": "Real screenshot (cropped) of the vote/comment bar: 130 upvotes, 41 comments.",
+   "quality": 3,
+   "verified": true,
+   "notes": "As of 2026-10-04 ~17:50 UTC. Upvote ratio 0.887 from the page's shreddit-post attributes.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-reddit-thread-op-routing-claim",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) voxel floating-island build, r/singularity",
+   "type": "quote",
+   "file": "rev2/fable55/reddit-comment-thread-op-routing-claim-5-5.png",
+   "headline": null,
+   "dek": "SuperSaiyan2104 (15 pts): \"5.5?\" / Kanute3333 (OP): \"Yes\" / 0DayMaker (15 pts): \"You wanna elaborate? How do you have fable 5.5?\" / Kanute3333 (OP, 2 pts): \"It's automatically routing to Fable 5.5 in the rollout phase. Fable 5.5 will be released in the next days.\" / A_Novelty-Account (17 pts): \"OK, so basically what you’re saying is you have no idea whether this is fable 5.5\" / Tystros (1 pt): \"if Fable 5.5 comes out in the next few days, Darios whole \\\"we need to pace and slow down\\\" is a complete joke.\" / SuperSaiyan2104 (2 pts): \"Where are you using fable 5.5? I'm pretty sure that model isnt out yet.\"",
+   "outlet": "Reddit r/singularity",
+   "author": "u/Kanute3333 (OP) and others",
+   "date": "2026-10-02",
+   "url": "https://www.reddit.com/r/singularity/comments/1wvfrni/comment/pdbegm3/",
+   "caption": "Real screenshot of the opening comment thread: the OP says his Claude is \"automatically routing to Fable 5.5\" and that it \"will be released in the next days\"; commenters ask how he knows.",
+   "quality": 5,
+   "verified": true,
+   "notes": "OP reply timestamp 2026-10-02T00:29:51Z (comment id pdbeuy9). This is the only \"evidence\" the OP gives in the thread. Thread continues with \"15 more replies\" under A_Novelty-Account (7 retrieved, see next item) and \"2 more replies\" under Tystros.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-reddit-thread-skeptics-ab-test",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) voxel floating-island build, r/singularity",
+   "type": "quote",
+   "file": "rev2/fable55/reddit-comment-thread-no-idea-AB-test-skeptics.png",
+   "headline": null,
+   "dek": "A_Novelty-Account (17 pts): \"OK, so basically what you’re saying is you have no idea whether this is fable 5.5\" / Ill_Swim_5672 (19 pts): \"This is just how stuff works. They are already A/B testing as they always do. release soon (probably with haiku too)\" / Funkahontas (9): \"It's always like this. Every month there's an A/B test of a model and always someone being a cynical skeptical douche calling OP stupid lmao\" / A_Novelty-Account (later reply, -5 pts): \"Yeah, but still 0 proof that this is 5.5\" / Good_Marketing4217 (7): \"People think it’s fable 5.5 because it’s much better than opus and has a later knowledge cutoff then fable 5.1\" / rhaivn (1): \"For those who are unaware, model knowledge cutoffs cannot move at current, so that’s a fool proof way to determine a new model\" / BombasticReindeer (2): \"Well I was certain I had access to Opus 5.5 while 5.1 was the latest. ... It isn’t foolproof but I would have bet my house I was using an upgraded model.\"",
+   "outlet": "Reddit r/singularity",
+   "author": "multiple users",
+   "date": "2026-10-02",
+   "url": "https://www.reddit.com/r/singularity/comments/1wvfrni/comment/pdbf9om/",
+   "caption": "Real screenshot of the sub-thread under the \"no idea whether this is fable 5.5\" reply: the believers say Anthropic is A/B testing a new model, the skeptics say there is zero proof.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Loaded from the comment permalink 2026-10-04 (scores as of that time). Shows Reddit \"Top 1% Commenter\" badges.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-reddit-comment-no-gear8408",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) voxel floating-island build, r/singularity",
+   "type": "quote",
+   "file": "rev2/fable55/reddit-comment-no-gear8408-being-tested-24pts.png",
+   "headline": null,
+   "dek": "everyon downvoting it, Fable 5.5 is actually being tested right now its not a troll",
+   "outlet": "Reddit r/singularity",
+   "author": "u/No_Gear8408",
+   "date": "2026-10-02",
+   "url": "https://www.reddit.com/r/singularity/comments/1wvfrni/comment/pdbj4ha/",
+   "caption": "Top-scored comment (24 pts) with its replies: samsteak (5): \"Can you elaborate how you know it is tested?\"; zmizzy (1): \"his uncle works at Nintendo\"; LM1117 (2): \"How do you know?\"; JacketHistorical2321 (1): \"Then prove it\".",
+   "quality": 5,
+   "verified": true,
+   "notes": "Created 2026-10-02T00:51:32Z. No evidence given in any reply.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-reddit-comment-earlyfox217",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) voxel floating-island build, r/singularity",
+   "type": "quote",
+   "file": "rev2/fable55/reddit-comment-earlyfox217-channel-users-14pts.png",
+   "headline": null,
+   "dek": "Yeah, I noticed a week before Opus 5.5 that Opus 5 was suddenly excellent and talking completely differently. They channel some users to it as a test a week or so before.\nReally excited for Fable 5.5 but praying they don’t nerf Opus 5.5 as its brilliant right now",
+   "outlet": "Reddit r/singularity",
+   "author": "u/EarlyFox217",
+   "date": "2026-10-02",
+   "url": "https://www.reddit.com/r/singularity/comments/1wvfrni/comment/pdcwgb3/",
+   "caption": "Real screenshot of a 14-point comment claiming Anthropic quietly channels some users to a new model about a week before launch (as he says he saw with Opus 5 -> Opus 5.5).",
+   "quality": 4,
+   "verified": true,
+   "notes": "Created 2026-10-02T05:40:27Z. Anecdote only.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-reddit-comment-pbagel2-aesthetic",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) voxel floating-island build, r/singularity",
+   "type": "quote",
+   "file": "rev2/fable55/reddit-comment-pbagel2-voxel-aesthetic.png",
+   "headline": null,
+   "dek": "Even in spite of the voxel medium, it still has the same retro pixelcore aesthetic that Opus 5.5 seems to be trained for with all of the sample media outputs people have posted over the past 10 days.\n\nCould training this aesthetic into the Claude models be done intentionally to target tech-inclined people to create a mental association between Claude models and software/games?\n\nIt makes me wonder how much behavioral psychology goes into model training. It has to be more than none since behavioral psychology and manipulating consumers is a core facet of all business today.",
+   "outlet": "Reddit r/singularity",
+   "author": "u/pbagel2",
+   "date": "2026-10-02",
+   "url": "https://www.reddit.com/r/singularity/comments/1wvfrni/comment/pdbrwp3/",
+   "caption": "Real screenshot of a comment about the shared retro \"pixelcore\" look of Claude-made showcase media.",
+   "quality": 3,
+   "verified": true,
+   "notes": "Created 2026-10-02T01:36:10Z, 1 pt. Speculation, not evidence.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-reddit-comment-pace-the-frontier",
+   "slide_topic": "\"Fable 5.5\" (unreleased/rumored) voxel floating-island build, r/singularity",
+   "type": "quote",
+   "file": null,
+   "headline": null,
+   "dek": "Even-Promise-7266: \"Pace the god damn frontier, Dario!\" / MegaRockmanDash: \"pacing is about making sure AI smarter than humans is aligned before it is achieved. currently available models including fable 5.5 have not crossed this threshold\" / NoCard1571 (2 pts): \"Just wait until Fable 10 builds this in real life with a robot swarm\" / fgsfds___: \"AI companies: our models will be used to cure cancer\nActual usage:\"",
+   "outlet": "Reddit r/singularity",
+   "author": "multiple users",
+   "date": "2026-10-02",
+   "url": "https://www.reddit.com/r/singularity/comments/1wvfrni/fable_55_is_very_good_at_voxel_builds/",
+   "caption": "Safety-flavoured reactions in the thread (pacing, alignment threshold).",
+   "quality": 2,
+   "verified": true,
+   "notes": "Text from the loaded thread (comment ids pdc5ulo, pdeeh0l, pdii4fq, pdd4pu2); no screenshot saved. Full extracted thread (32 of 41 comments) in fable55/data/reddit_comments_1wvfrni_extracted.json.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-anthropic-models-overview-shot",
+   "slide_topic": "Fable 5.5 status: unreleased, rumor only (naming/consistency)",
+   "type": "screenshot",
+   "file": "rev2/fable55/anthropic-platform-docs-models-overview-2026-10-04.png",
+   "headline": "Models overview",
+   "dek": "Compare the current lineup, find the model ID for every platform, and open each model's page for its full specs and resources.",
+   "outlet": "Claude Platform Docs (Anthropic)",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
+   "caption": "Real screenshot of Anthropic's current model lineup: Claude Fable 5.1 (claude-fable-5-1, $10/$50 per MTok, 1M context, 128K output, reliable knowledge cutoff Jun 2026), Claude Opus 5.5 (claude-opus-5-5, $4/$20), Claude Sonnet 5.5 (claude-sonnet-5-5, $2/$10), Claude Haiku 4.5. No Fable 5.5.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Captured 2026-10-04. Redirected to platform.claude.com/docs/en/models/overview. Strongest single piece of evidence that \"Fable 5.5\" is not an official model (yet). Official text: \"Use Claude Fable 5.1 for demanding reasoning and long-horizon agentic work\".",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-anthropic-newsroom-shot",
+   "slide_topic": "Fable 5.5 status: unreleased, rumor only (naming/consistency)",
+   "type": "screenshot",
+   "file": "rev2/fable55/anthropic-newsroom-latest-sonnet55-2026-10-04.png",
+   "headline": "Introducing Claude Sonnet 5.5",
+   "dek": "A clear upgrade over Sonnet 5 that runs 30% faster and costs up to 30% less for most work.",
+   "outlet": "Anthropic Newsroom",
+   "author": null,
+   "date": "2026-09-28",
+   "url": "https://www.anthropic.com/news",
+   "caption": "Real screenshot of anthropic.com/news on 2026-10-04: newest post \"Introducing Claude Sonnet 5.5\" (Sep 28, 2026), then \"Introducing Claude Opus 5.5\" (Sep 22: \"Opus 5.5 performs at the level of Claude Fable 5.1 on most work and costs 40% less to run than Opus 5.\"), \"Introducing Claude Fable 5.1 and Claude Mythos 5.1\" (Sep 1). Nothing about Fable 5.5.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Captured 2026-10-04.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-kingy-headline",
+   "slide_topic": "Fable 5.5 status: unreleased, rumor only (naming/consistency)",
+   "type": "headline",
+   "file": "rev2/fable55/kingy-fable55-hidden-rollout-unverified-headline.png",
+   "headline": "Claude Fable 5.5: Hidden rollout claims remain unverified",
+   "dek": "Developing story. Evidence last checked October 3, 2026, at 4:30 a.m. PDT (Vancouver). Anthropic has not confirmed a Fable 5.5 release in the official sources reviewed. | \"Some Claude users say they are getting a newer model while selecting Fable 5.1. They have shared screenshots, animations and a voxel world, attributing the results to an unreleased Fable 5.5. The posts establish that people are making the claim; they do not establish which model generated the outputs.\"",
+   "outlet": "Kingy AI",
+   "author": "Curtis Pyke",
+   "date": "2026-10-01",
+   "url": "https://kingy.ai/blog/claude-fable-5-5/",
+   "caption": "Real screenshot (cropped) of the headline/date/byline of a third-party tracker of the Fable 5.5 rumor.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Third-party blog (not Anthropic). Update log: Oct 1 8:14 pm PDT initial review; Oct 2 12:29 am PDT added Chetaslua animation; Oct 3 4:30 am PDT added imjustnewatai demo and the Oct 6 launch rumor. The article explicitly says the voxel floating-island world is attributed by its poster to automatic routing \"without verifying the backend\" (i.e. the Reddit post).",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-aitoolsreview-leak-explainer",
+   "slide_topic": "Fable 5.5 status: unreleased, rumor only (naming/consistency)",
+   "type": "headline",
+   "file": null,
+   "headline": "Claude Fable 5.5 Leak: What Is Verified So Far (October 2026)",
+   "dek": "As of 3 October 2026, Anthropic has not announced Claude Fable 5.5. It appears in no model directory, spec sheet or Claude Code supported-model list, which still name Fable 5.1 as the current Fable. ... The demos are real clips, but their attribution is unverified, no benchmarks have been published, and a model's own answer about its name is not evidence.",
+   "outlet": "AI Tools Review (AIToolsReview editorial team)",
+   "author": "AI Tools Review Editorial Team",
+   "date": "2026-10-03",
+   "url": "https://aitoolsreview.co.uk/insights/claude-fable-5-5-leak",
+   "caption": "Verbatim \"Quick Answer\" of a third-party explainer; includes a rumor timeline (Aug 13 pretraining claim, Sep 5-8 \"Fable 5.2\", Sep 10 renamed 5.5, Sep 22 Opus 5.5 launch, Oct 1 routing screenshots).",
+   "quality": 3,
+   "verified": true,
+   "notes": "Page text loaded 2026-10-04; no screenshot saved. Third-party site, secondary source.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-x-chetaslua-auto-routing",
+   "slide_topic": "Fable 5.5 status: unreleased, rumor only (naming/consistency)",
+   "type": "screenshot",
+   "file": "rev2/fable55/x-chetaslua-fable55-auto-routing-claim-oct1.png",
+   "headline": null,
+   "dek": "Fable 5.5 is auto routing on web , this is the screenshot it edited for x without even prompted\n\nhe knows tibo check https://claude.ai see if you are getting routed or not",
+   "outlet": "X (Twitter)",
+   "author": "Chetaslua (@chetaslua)",
+   "date": "2026-10-01",
+   "url": "https://x.com/chetaslua/status/2105733677003292983",
+   "caption": "Real screenshot of the 1 Oct post that started the \"silent routing\" claim: the poster's own infographic admits \"label says 5.1.\" (the model picker reads \"Fable 5.1\") and argues it \"knows the reset guy\" (the Tibo nickname) as evidence of a newer model.",
+   "quality": 5,
+   "verified": true,
+   "notes": "2026-10-01 18:56 UTC, 644.9K views, 983 likes. The attached image itself shows \"configured: claude-fable-5-1\" and a model picker reading Fable 5.1 - the only evidence is a nickname-recall test, which Kingy AI and AI Tools Review both say cannot identify a model.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-x-tak-routed",
+   "slide_topic": "Fable 5.5 status: unreleased, rumor only (naming/consistency)",
+   "type": "screenshot",
+   "file": "rev2/fable55/x-tak-routed-to-fable55-oct1.png",
+   "headline": null,
+   "dek": "HOLY S**T\n\nI am getting routed to Fable 5.5\n\nNice knowing ya",
+   "outlet": "X (Twitter)",
+   "author": "Tak (@cherry_mx_reds)",
+   "date": "2026-10-01",
+   "url": "https://x.com/cherry_mx_reds/status/2105758325887365382",
+   "caption": "Real screenshot of a viral claim: a Claude Code terminal header that still reads \"Fable 5.1 with low effort · Claude Max\" while answering \"Who is Tibo the reset guy?\" from memory (Thibault Sottiaux, \"the reset guy\" nickname).",
+   "quality": 5,
+   "verified": true,
+   "notes": "2026-10-01 20:34 UTC, 159K views, 928 likes. Claude Code v2.1.287. Label says 5.1; the claim rests on the answer content. Contains profanity (asterisked).",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-x-imjustnewatai-release-rumor",
+   "slide_topic": "Fable 5.5 status: unreleased, rumor only (naming/consistency)",
+   "type": "screenshot",
+   "file": "rev2/fable55/x-imjustnewatai-fable55-release-rumor-oct1.png",
+   "headline": null,
+   "dek": "Anthropic’s fable 5.5 is expected to release next week! It’s a very very very good model with quote on quote “otherworldly” intelligence. I’m hearing of a Tuesday release 👀",
+   "outlet": "X (Twitter)",
+   "author": "imjustnewatai (@imjustnewatai)",
+   "date": "2026-10-01",
+   "url": "https://x.com/imjustnewatai/status/2105761198989828259",
+   "caption": "Real screenshot of the unsourced release-date rumor (\"a Tuesday release\", i.e. possibly 2026-10-06).",
+   "quality": 4,
+   "verified": true,
+   "notes": "2026-10-01 20:46 UTC, 296.6K views, 3.5K likes. No named source.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-x-kimmonismus-cant-verify",
+   "slide_topic": "Fable 5.5 status: unreleased, rumor only (naming/consistency)",
+   "type": "screenshot",
+   "file": "rev2/fable55/x-kimmonismus-cant-verify-any-of-this-oct2.png",
+   "headline": null,
+   "dek": "Holy, rumor has it that Fable 5.5 is coming next week. If OpenAI doesn't have an answer to that, things will get very difficult! Caveat: I can't verify any of this.",
+   "outlet": "X (Twitter)",
+   "author": "Chubby (@kimmonismus)",
+   "date": "2026-10-02",
+   "url": "https://x.com/kimmonismus/status/2106116402134294568",
+   "caption": "Real screenshot of a well-known AI-news account amplifying the rumor with the explicit caveat \"I can't verify any of this.\"",
+   "quality": 5,
+   "verified": true,
+   "notes": "2026-10-02 20:17 UTC, 58K views, 1.2K likes; quotes the imjustnewatai post.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-x-salio-leak-sep10",
+   "slide_topic": "Fable 5.5 status: unreleased, rumor only (naming/consistency)",
+   "type": "quote",
+   "file": null,
+   "headline": null,
+   "dek": "🚨 Claude Fable 5.5 Leaks: Astra Killer\n\n> Anthropic reportedly has a major new model coming.\n> Fable 5.5 could launch in late September or early October\n> First fresh pretraining run for the Fable class\n> Anthropic reportedly believes it can dethrone GPT-Astra\n> Early insiders say Astra is impressive, but not enough to worry about\n> Expected to bring a significant jump in capability\n> Timing lines up with Anthropic's upcoming IPO\n\nCould Fable 5.5 actually beat Astra?",
+   "outlet": "X (Twitter)",
+   "author": "Salio (@Mr_Salio)",
+   "date": "2026-09-10",
+   "url": "https://x.com/Mr_Salio/status/2098018147727036761",
+   "caption": "Earliest \"Fable 5.5\" leak post found (unsourced, \"reportedly\"): predicts late September/early October launch and an \"Astra killer\".",
+   "quality": 2,
+   "verified": true,
+   "notes": "Text/stats from api.fxtwitter.com (1,154 likes, 208,782 views); X page not rendered. Rumor; no source named. Kingy AI and AIToolsReview trace the rumor to Salio (Aug 13, Sep 10) and @kimmonismus (\"Fable 5.2\", Sep 5-8).",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-x-chetaslua-hf-incident-film",
+   "slide_topic": "Fable 5.5 status: unreleased, rumor only (naming/consistency)",
+   "type": "video",
+   "file": null,
+   "headline": "Hugging Face Incident Imagined by Fable 5.5",
+   "dek": "Hugging Face Incident Imagined by Fable 5.5\n\nall code with blender and elevenlab api < no skill , plugin >\n\nThis is ultimate form of AI imagination , creativity , 3D coding , story telling all in one ,\n\nBLESS YOUR EYES HUMAN",
+   "outlet": "X (Twitter)",
+   "author": "Chetaslua (@chetaslua)",
+   "date": "2026-10-02",
+   "url": "https://x.com/chetaslua/status/2105884276864782557",
+   "caption": "Lead, not downloaded: a 3 min 41 s animated short (220.9 s) \"imagining\" the Hugging Face incident (cf. the deck's Hugging Face sandbox-escape diagram), attributed by the poster to Fable 5.5, built with code + Blender + ElevenLabs API.",
+   "quality": 3,
+   "verified": true,
+   "notes": "2026-10-02 04:55 UTC, 74,960 views, 995 likes (api.fxtwitter.com). NOT downloaded (outside the three requested items) - say the word and it can be pulled with yt-dlp. Same attribution caveat as all other Fable 5.5 demos; the audio/voice comes from a separate API per the poster.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-x-tak-animation-and-imjustnewatai-film",
+   "slide_topic": "Fable 5.5 status: unreleased, rumor only (naming/consistency)",
+   "type": "video",
+   "file": null,
+   "headline": null,
+   "dek": "Tak: \"\\\"Hey Fable, please make a cool animation\\\"  15 minutes later. FABLE 5.5 IS SO GOOD AT THESE. HOW???\" (17 s video, 2026-10-02 00:26 UTC, 2,173 likes, 162,881 views). imjustnewatai: \"I gave Claude fable 5.5 one prompt: a video of all human progress, then 30 years into the future. It came back with a 3-minute animated film and an original score. No footage, no stock music.\" (189 s video, 2026-10-02 17:57 UTC, 6,045 likes, 342,089 views).",
+   "outlet": "X (Twitter)",
+   "author": "Tak (@cherry_mx_reds); imjustnewatai (@imjustnewatai)",
+   "date": "2026-10-02",
+   "url": "https://x.com/cherry_mx_reds/status/2105816670896009224",
+   "caption": "Two more circulating \"Fable 5.5\" demo posts (leads, not downloaded). Second post: https://x.com/imjustnewatai/status/2106081142143168580",
+   "quality": 3,
+   "verified": true,
+   "notes": "Stats from api.fxtwitter.com on 2026-10-04. Same attribution caveat.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-anthropic-fable51-announcement",
+   "slide_topic": "Fable 5.5 status: unreleased, rumor only (naming/consistency)",
+   "type": "headline",
+   "file": null,
+   "headline": "Introducing Claude Fable 5.1 and Claude Mythos 5.1",
+   "dek": "We’re introducing Claude Fable 5.1 and Claude Mythos 5.1. They’re the world’s most advanced models for coding and knowledge work—and their research capabilities offer an early glimpse of how AI models will contribute to scientific progress. | Claude Fable 5.1 and Claude Mythos 5.1 are the same model, but with different levels of safeguards. Fable 5.1 is generally available, while Mythos 5.1 is available only through our trusted access programs",
+   "outlet": "Anthropic",
+   "author": "Anthropic",
+   "date": "2026-09-01",
+   "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+   "caption": "Official announcement of the CURRENT Fable (5.1), released 2026-09-01; the page headline is \"Introducing Claude Fable 5.1\" on anthropic.com/claude/fable.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Page text loaded 2026-10-04. The official Fable timeline on anthropic.com/claude/fable: Claude Fable 5 (Jun 9, 2026) -> \"Claude Fable 5 access unavailable\" (Jun 12) -> \"Claude Fable 5 is rolling out\" (Jul 1, access restored) -> \"Improving Fable 5’s biology safeguards\" (Aug 6) -> \"Introducing Claude Fable 5.1\" (Sep 1). No Fable 5.5.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "f55-anthropic-fallback-help-article",
+   "slide_topic": "Fable 5.5 status: unreleased, rumor only (naming/consistency)",
+   "type": "headline",
+   "file": null,
+   "headline": "Why Claude switched models in your conversation with Fable 5 or Fable 5.1",
+   "dek": "Claude Fable 5 and Fable 5.1 run automated safety checks, or classifiers, on every user request. These checks are intended to visibly fall back from Fable 5 and Fable 5.1 to Opus models when users submit requests in: [offensive cybersecurity techniques; a large fraction of dual-use biology; distillation attacks; a narrow set of frontier LLM development tasks]. ... When requests are blocked, they may fall back to a non-Mythos model, currently Opus 5 for biology, chemistry, and life sciences requests, and Opus 4.8 for offensive cybersecurity technique requests.",
+   "outlet": "Claude Help Center (Anthropic)",
+   "author": "Anthropic",
+   "date": "2026-10-04",
+   "url": "https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1",
+   "caption": "The ONLY documented model \"routing\" for Fable is a visible safeguard fallback to Opus (a notice is shown and the answer is labelled with the model that answered) - not a silent switch to a newer Fable.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Page text loaded 2026-10-04 (article \"Updated this week\"). Context for the rumor: documented switching goes DOWN to Opus and is labelled. Original publication date not shown on the page; \"date\" is the load date.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "openai-advisory-post-100-problems",
+   "slide_topic": "Math: OpenAI says its model has resolved 100+ open problems (results not yet released)",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/openai-advisory-post-100-problems.png",
+   "headline": "Advisory Group on Mathematics and Artificial Intelligence",
+   "dek": "On August 28, we began training a new internal model. In addition to resolving the Navier–Stokes Millennium Prize problem, this model has now resolved more than 100 long-standing open problems across most areas of mathematics. The pace of its progress in mathematics has surprised the mathematicians within OpenAI. This has led to internal discussions on the best way to inform the community of the rapid progress to prepare and adapt the field.",
+   "outlet": "OpenAI",
+   "author": "OpenAI (byline \"OpenAI\"; no individual author)",
+   "date": "2026-09-21",
+   "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+   "caption": "Real screenshot of the OpenAI post (date, title, opening paragraph). Highlight the key sentence with the boxes in \"highlights\".",
+   "quality": 5,
+   "notes": "IMPORTANT: the wording is \"more than 100 long-standing open problems\", NOT \"hundreds\". No OpenAI post/tweet with \"hundreds of results awaiting release\" was found (see not_found). The post does not say a number is \"awaiting release\"; the \"waiting to release\" framing comes from the NYT (Strogatz/Townsend, 2026-09-22), The Verge (2026-09-28) and the advisory group (Tao blog 2026-09-21). Captured through a remote (TinyFish) browser because openai.com blocks the local headless browser with a Cloudflare challenge; the page is the live genuine page, 1360x1320 px (2x of a 680x660 css clip at x=300,y=130, viewport 1280 wide). X post announcing it: https://x.com/OpenAI/status/2102093145051943229 (2026-09-21 17:50 UTC, 6.6M views).",
+   "highlights": [
+    {
+     "label": "key sentence (3 wrapped lines)",
+     "text": "this model has now resolved more than 100 long-standing open problems across most areas of mathematics",
+     "image_px": {
+      "w": 1360,
+      "h": 1320
+     },
+     "rects_px": [
+      {
+       "x": 906.2,
+       "y": 958.4,
+       "w": 292,
+       "h": 52
+      },
+      {
+       "x": 76.6,
+       "y": 1014.4,
+       "w": 1125.8,
+       "h": 52
+      },
+      {
+       "x": 76.6,
+       "y": 1070.4,
+       "w": 200.2,
+       "h": 52
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.6663,
+       "y": 0.7261,
+       "w": 0.2147,
+       "h": 0.0394
+      },
+      {
+       "x": 0.0563,
+       "y": 0.7685,
+       "w": 0.8278,
+       "h": 0.0394
+      },
+      {
+       "x": 0.0563,
+       "y": 0.8109,
+       "w": 0.1472,
+       "h": 0.0394
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=3 css px at scale 2"
+    },
+    {
+     "label": "just the number: \"more than 100 long-standing open problems\"",
+     "text": "more than 100 long-standing open problems",
+     "image_px": {
+      "w": 1360,
+      "h": 1320
+     },
+     "rects_px": [
+      {
+       "x": 211.4,
+       "y": 1014.4,
+       "w": 672,
+       "h": 52
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.1554,
+       "y": 0.7685,
+       "w": 0.4941,
+       "h": 0.0394
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=3 css px at scale 2"
+    }
+   ],
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "openai-advisory-post-group-role",
+   "slide_topic": "Math: OpenAI says its model has resolved 100+ open problems (results not yet released)",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/openai-advisory-post-group-role.png",
+   "headline": "Advisory Group on Mathematics and Artificial Intelligence",
+   "dek": "The group will advise on the review and communication of emerging results: they will help OpenAI assess their significance, advise on how to coordinate their dissemination, and advise on academic and professional standards of mathematical research. ... Importantly, the group will not be responsible for advising us on how to pace our internal progress on mathematics.",
+   "outlet": "OpenAI",
+   "author": "OpenAI",
+   "date": "2026-09-21",
+   "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+   "caption": "Same OpenAI post, further down: the group is to advise on how to \"coordinate the dissemination\" of the emerging results but not on the pace of OpenAI's progress.",
+   "quality": 4,
+   "notes": "Real screenshot via remote browser (page scrolled 1180 px; css clip x=300,y=60,680x520; image 1360x1040). Group members listed on the same page: François Charles, Camillo De Lellis, Timothy Gowers, Martin Hairer, Nikhil Srivastava, Ulrike Tillmann, Ravi Vakil, Edward Witten, Melanie Matchett Wood (hosted at the Institute for Advanced Study).",
+   "highlights": [
+    {
+     "label": "\"advise on how to coordinate their dissemination\"",
+     "text": "advise on how to coordinate their dissemination",
+     "image_px": {
+      "w": 1360,
+      "h": 1040
+     },
+     "rects_px": [
+      {
+       "x": 786.2,
+       "y": 50.4,
+       "w": 428.8,
+       "h": 52
+      },
+      {
+       "x": 76.6,
+       "y": 106.4,
+       "w": 289.6,
+       "h": 52
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.5781,
+       "y": 0.0485,
+       "w": 0.3153,
+       "h": 0.05
+      },
+      {
+       "x": 0.0563,
+       "y": 0.1023,
+       "w": 0.2129,
+       "h": 0.05
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=3 css px at scale 2"
+    },
+    {
+     "label": "\"the group will not be responsible for advising us on how to pace our internal progress on mathematics\"",
+     "text": "Importantly, the group will not be responsible for advising us on how to pace our internal progress on mathematics",
+     "image_px": {
+      "w": 1360,
+      "h": 1040
+     },
+     "rects_px": [
+      {
+       "x": 467.6,
+       "y": 714.4,
+       "w": 735.0,
+       "h": 52
+      },
+      {
+       "x": 76.6,
+       "y": 770.4,
+       "w": 984.6,
+       "h": 52
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.3438,
+       "y": 0.6869,
+       "w": 0.5404,
+       "h": 0.05
+      },
+      {
+       "x": 0.0563,
+       "y": 0.7408,
+       "w": 0.724,
+       "h": 0.05
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=3 css px at scale 2"
+    }
+   ],
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "x-openai-advisory-group-post",
+   "slide_topic": "Math: OpenAI says its model has resolved 100+ open problems (results not yet released)",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/x-openai-advisory-group-post.png",
+   "headline": null,
+   "dek": "We’re working with an independent advisory group of mathematicians to help OpenAI responsibly share advances in AI and mathematics. The group will advise on how we assess and communicate new mathematical results, uphold academic and professional standards, and build tools that support mathematical research and learning. Through this work, we want mathematicians to be at the center of shaping how AI supports mathematical understanding and how its benefits reach the wider community.",
+   "outlet": "X (@OpenAI)",
+   "author": "OpenAI",
+   "date": "2026-09-21",
+   "url": "https://x.com/OpenAI/status/2102093145051943229",
+   "caption": "OpenAI's X post announcing the advisory group (5:50 PM UTC Sep 21, 6.6M views, 10K likes, 1.1K reposts)",
+   "quality": 4,
+   "notes": "The tweet itself does not mention the \"100 problems\"; that is only in the linked post. Counts as captured 2026-10-04.",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "tao-blog-agmai-announcement-current-task",
+   "slide_topic": "Math: OpenAI says its model has resolved 100+ open problems (results not yet released)",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/tao-blog-agmai-announcement-current-task.png",
+   "headline": "Announcing the Advisory Group on Mathematics and Artificial Intelligence",
+   "dek": "Current Task. We are currently facing the very specific challenge of advising OpenAI on how to coordinate the release of a large number of significant results in mathematics that they report have been produced by their internal model.",
+   "outlet": "Terence Tao's blog \"What's new\" (guest post by the Advisory Group)",
+   "author": "Advisory Group on Mathematics and Artificial Intelligence",
+   "date": "2026-09-21",
+   "url": "https://terrytao.wordpress.com/2026/09/21/advisory-group-on-mathematics-and-artificial-intelligence/",
+   "caption": "The advisory group (Gowers, Witten, Hairer, Vakil ...) says its first job is to advise OpenAI on releasing \"a large number of significant results\"",
+   "quality": 5,
+   "notes": "Independent confirmation that a large unreleased batch exists (as reported by OpenAI, \"that they report\"). Also: \"This group came together after OpenAI approached some of its members about establishing an external advisory board.\" Page header/date not in the crop: post dated 21 September 2026 (\"What's new\", Terence Tao).",
+   "highlights": [
+    {
+     "label": "\"Current Task\" sentence",
+     "text": "We are currently facing the very specific challenge of advising OpenAI on how to coordinate the release of a large number of significant results in mathematics that they report have been produced by their internal model.",
+     "image_px": {
+      "w": 1040,
+      "h": 270
+     },
+     "rects_px": [
+      {
+       "x": 181.6,
+       "y": 121.6,
+       "w": 787.4,
+       "h": 34.0
+      },
+      {
+       "x": 20,
+       "y": 155.6,
+       "w": 954.2,
+       "h": 34.0
+      },
+      {
+       "x": 20,
+       "y": 189.6,
+       "w": 597.4,
+       "h": 34.0
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.1746,
+       "y": 0.4504,
+       "w": 0.7571,
+       "h": 0.1259
+      },
+      {
+       "x": 0.0192,
+       "y": 0.5763,
+       "w": 0.9175,
+       "h": 0.1259
+      },
+      {
+       "x": 0.0192,
+       "y": 0.7022,
+       "w": 0.5744,
+       "h": 0.1259
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=1.5 css px at scale 2"
+    }
+   ],
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "verge-openai-keeps-bulldozing-mathematicians",
+   "slide_topic": "Math: OpenAI says its model has resolved 100+ open problems (results not yet released)",
+   "type": "headline",
+   "file": "rev2/mathrumors/verge-openai-keeps-bulldozing-mathematicians.png",
+   "headline": "OpenAI keeps bulldozing mathematicians",
+   "dek": "The Verge spoke to one of the mathematicians advising OpenAI as the field braces for a new wave of results that could upend their work.",
+   "outlet": "The Verge",
+   "author": "Robert Hart",
+   "date": "2026-09-28",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1001477/openai-math-advisory-group",
+   "caption": "Verge hero (headline, dek, byline, bulldozer art); live page now paywalled below the lede",
+   "quality": 4,
+   "notes": "Body text verified through a full-page load (TinyFish fetch) before the paywall appeared: \"That urgency might be down to the fact that OpenAI is sitting on a tranche of results it is clearly eager to release as soon as possible. Since solving the Navier-Stokes Millennium Prize problem, OpenAI says its unreleased internal “model has now resolved more than 100 long-standing open problems across most areas of mathematics.”\" / \"For weeks now, OpenAI has been hinting at another Millennium Prize problem and says it has more than 100 results to apparently major problems ready to go, while revealing little about what any of these actually are.\" / Martin Hairer (AGMAI member): \"They obviously are very good PR people\". / Alvaro Lozano-Robledo (UConn): \"This is not how any academic behaves ... I don’t go around saying, like, ‘Oh, I’ve proved all these things, but I don’t know what to do with them.’\" / Colva Roney-Dougal (St Andrews): \"It’s somewhat agonizing to know that a ‘large number’ of results are likely to be announced soon.\" The Verge also notes OpenAI’s Laurance Fauconnet told it the company had \"made substantial progress\" on another Millennium Prize problem.",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "nyt-strogatz-townsend-waiting-to-release",
+   "slide_topic": "Math: OpenAI says its model has resolved 100+ open problems (results not yet released)",
+   "type": "headline",
+   "file": null,
+   "headline": "Mathematics Isn’t Just a Game to Let A.I. Solve. History Shows Why.",
+   "dek": "Just yesterday, the company announced that the same internal model had now “resolved more than 100 longstanding problems across most areas of mathematics” — results that OpenAI was waiting to release until it had figured out “the best way to inform the community of the rapid progress to prepare and adapt the field.”",
+   "outlet": "The New York Times (Opinion/Guest essay)",
+   "author": "Steven Strogatz and Alex Townsend (Cornell University)",
+   "date": "2026-09-22",
+   "url": "https://www.nytimes.com/2026/09/22/science/math-ai-history-understanding.html",
+   "caption": "Text only (screenshot blocked by NYT bot check). Best sourced statement that the 100+ results are being held back.",
+   "quality": 4,
+   "notes": "Verified by loading the article preview text (TinyFish). Note NYT's quote of OpenAI drops the hyphen of \"long-standing\". Same piece: \"This month, 27 Fields medalists ... have signed a joint declaration\" and Tao \"strip-mining\" mathematics. Render as a neutral headline card.",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "x-andrewcurran-sep21-rumors-were-true",
+   "slide_topic": "Math: OpenAI says its model has resolved 100+ open problems (results not yet released)",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/x-andrewcurran-sep21-rumors-were-true-sitting-on-announcements.png",
+   "headline": null,
+   "dek": "The rumors were true once again; they are sitting on multiple major announcements. Open AI announced this morning that the unnamed internal model involved with Navier-Stokes has resolved more than 100 long-standing open problems across most areas of mathematics.",
+   "outlet": "X (@AndrewCurran_)",
+   "author": "Andrew Curran",
+   "date": "2026-09-21",
+   "url": "https://x.com/AndrewCurran_/status/2102121553211412975",
+   "caption": "Curran quote-posts OpenAI's paragraph (highlighted) and his own Sep 15 post relaying Scott Aaronson's \"sitting on solutions\" rumor",
+   "quality": 4,
+   "notes": "7:43 PM UTC, 412K views, 2.6K likes (as captured). The embedded card is an image of the OpenAI paragraph with Curran's own yellow highlight (that highlight is his, not ours).",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "x-andrewcurran-sep15-aaronson-rumor",
+   "slide_topic": "Math: AI labs reportedly sitting on a pipeline of results",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/x-andrewcurran-sep15-aaronson-rumor-sitting-on-announcements.png",
+   "headline": null,
+   "dek": "Scott Aaronson writes on his blog tonight that he has heard rumors that the AI companies have reached solutions to some very longstanding open problems in theoretical computer science, and are now sitting on multiple major announcements because of the Navier-Stokes firestorm.",
+   "outlet": "X (@AndrewCurran_)",
+   "author": "Andrew Curran",
+   "date": "2026-09-15",
+   "url": "https://x.com/AndrewCurran_/status/2100005852564611151",
+   "caption": "Curran summarising Aaronson's blog rumor (screenshot of the blog sentence embedded) plus his earlier Brockman post",
+   "quality": 4,
+   "notes": "Primary source is Aaronson's blog \"The Age of Wonders and Terrors\" (2026-09-15, already in the capabilities manifest as aaronson-title): \"According to rumors that I’ve heard, solutions to some very longstanding open problems in theoretical computer science (no, not P≠NP or other complexity class separations, but think about some of our other biggest problems). I’m told that the AI companies, having been burned by the hostile response to the Navier-Stokes proof, are now sitting on solutions to some very major problems until they figure out a better way to handle things\". This is TCS, not Hodge/BSD.",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "verge-openai-substantial-progress-another-millennium",
+   "slide_topic": "Math: OpenAI hints at a second Millennium Prize problem",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/verge-openai-substantial-progress-another-millennium.png",
+   "headline": "OpenAI says it has made “substantial progress” on another major math problem.",
+   "dek": "In addition, since the completion of Navier-Stokes, we have made substantial progress on another Millennium Prize problem. We are working through how to share these results thoughtfully.",
+   "outlet": "The Verge (quoting a statement OpenAI gave The New York Times)",
+   "author": "Emma Roth",
+   "date": "2026-09-10",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/993568/openai-says-it-has-made-substantial-progress-on-another-major-math-problem",
+   "caption": "The only on-record OpenAI statement about a second Millennium problem: unnamed, \"substantial progress\"",
+   "quality": 5,
+   "notes": "Posted Sep 10, 2026 6:09 PM UTC. NYT source: \"An N.Y.U. Mathematician Clashed With OpenAI Over a $1 Million Proof\" (https://www.nytimes.com/2026/09/10/science/tristan-buckmaster-openai-math-navier-stokes.html). OpenAI did not say which problem and did not say \"solved\". Verge Sep 28 quotes an OpenAI person (Laurance Fauconnet) repeating \"made substantial progress\".",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "x-andrewcurran-sep15-brockman-second-problem",
+   "slide_topic": "Math: OpenAI hints at a second Millennium Prize problem",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/x-andrewcurran-sep15-brockman-two-remaining-problems.png",
+   "headline": null,
+   "dek": "More confirmation that OpenAI has made 'significant progress' on a second Millennium problem, this time from Greg Brockman. The rumor is that they are close to solving two of the remaining problems. Or already have. Which two? Unknown. Dev Day would be a good day to announce.",
+   "outlet": "X (@AndrewCurran_)",
+   "author": "Andrew Curran",
+   "date": "2026-09-15",
+   "url": "https://x.com/AndrewCurran_/status/2099999310490603856",
+   "caption": "Embedded clip caption (Greg Brockman): \"And we also said that we have significant progress on another one of these Millennium problems.\"",
+   "quality": 4,
+   "notes": "11:10 PM UTC Sep 15, 268.7K views. Brockman clip from Bloomberg Odd Lots, \"OpenAI President Greg Brockman on Doing Business in the Wake of Hugging Face\" (https://youtu.be/56GuvofZgB4), relayed by @Hangsiin (https://x.com/Hangsiin/status/2099966745595555904). Curran's \"two of the remaining problems\" is his rumor, not an OpenAI statement. OpenAI DevDay recap (openai.com/index/devday-2026-recap/) exists; no Millennium announcement was found.",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "x-synthwavedd-hodge-bsd-rumor",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/x-synthwavedd-hodge-bsd-rumor.png",
+   "headline": null,
+   "dek": "I am told the Hodge Conjecture is very close to being verified by OpenAI, and that one of OpenAI or Anthropic are also close to solving Birch-Swinnerton-Dyer. The race to be 'next' behind the scenes is unlike anything I've had described to me before. If true - and it may not be, given the scale of the rumour mill right now - it could mean 3 Millennium Problems fall in the space of a month. Crazy times",
+   "outlet": "X (@synthwavedd, \"leo\")",
+   "author": "leo (@synthwavedd; ~45.9K followers, verified; bio \"tech, ai & politics nerd\")",
+   "date": "2026-09-10",
+   "url": "https://x.com/synthwavedd/status/2097971881596916185",
+   "caption": "THE source of the Hodge+BSD rumor: anonymous \"I am told\" post, 8:54 AM UTC Sep 10 2026, 1.5M views",
+   "quality": 5,
+   "notes": "1,570,095 views / 6,119 likes / 375 reposts / 198 replies (fxtwitter API, 2026-10-04). Hedged by the author (\"If true - and it may not be\"). Hodge = OpenAI \"very close to being verified\"; BSD = \"one of OpenAI or Anthropic\" (no lab named). Same author later (Sep 10 15:26 UTC) posted the OpenAI/NYT \"substantial progress\" quote: https://x.com/synthwavedd/status/2098070558734716950. The conversation view also shows NYT science reporter Kenneth Chang (@kchangnyt, Sep 10) posting that OpenAI \"confirms that it is close to solving another Millennium problem\" followed by the NYT quote (his paraphrase; OpenAI itself said \"substantial progress\"). Reddit r/singularity thread built on this post: \"Some more millennium prize problems possibly solved...\" (1.1K upvotes).",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "x-kimmonismus-rumors-spreading",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/x-kimmonismus-rumors-spreading.png",
+   "headline": null,
+   "dek": "Holy, rumors are spreading everywhere that OpenAI is close to verifying a proof of the Hodge conjecture, while either OpenAI or Anthropic may be nearing a solution to Birch–Swinnerton-Dyer. Both are Millennium Prize Problems that have resisted decades of mathematical research. Verified AI-generated proofs of both would be a historic achievement for mathematics and a remarkable demonstration of AI’s ability to produce new scientific knowledge. And infact show that AI is capable of finding novel and creative solutions.",
+   "outlet": "X (@kimmonismus, \"Chubby\")",
+   "author": "Chubby (@kimmonismus; ~148.7K followers)",
+   "date": "2026-09-10",
+   "url": "https://x.com/kimmonismus/status/2097990443690496402",
+   "caption": "Amplification of the rumor 1h13m after the original (10:07 AM UTC, 664K views)",
+   "quality": 4,
+   "notes": "664,457 views / 5,635 likes / 335 reposts / 220 replies. No independent sourcing: restates the synthwavedd post. Grok's auto-summary (x.com/i/trending/2097994388727050416, \"AI Agents Claim Breakthrough on Navier-Stokes Millennium Problem\") also ran with \"Rumors suggest progress on the Hodge and Birch-Swinnerton-Dyer conjectures by OpenAI or Anthropic\".",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "x-drsingularity-hodge-rumor",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/x-drsingularity-hodge-rumor.png",
+   "headline": null,
+   "dek": "Rumors are emerging that OpenAI may have solved the Hodge conjecture, another Millennium Prize Problem. 7 Millennium Prize Problems, with $1 million for solving each. 1. Riemann Hypothesis — unsolved 2. P vs NP — unsolved 3. Navier–Stokes Existence and Smoothness — solved by OpenAI 4. Yang - Mills Existence and Mass Gap — unsolved 5. Hodge Conjecture — unsolved 6. Birch and Swinnerton-Dyer Conjecture — unsolved 7. Poincaré Conjecture — SOLVED by Grigori Perelman",
+   "outlet": "X (@Dr_Singularity)",
+   "author": "Dr Singularity (@Dr_Singularity; ~83.3K followers; bio \"AGI/ASI by 2030\")",
+   "date": "2026-09-09",
+   "url": "https://x.com/Dr_Singularity/status/2097746969212981732",
+   "caption": "Earliest viral X post (6:00 PM UTC Sep 9): \"OpenAI may have solved the Hodge conjecture\"; also a handy list of the seven Clay problems",
+   "quality": 4,
+   "notes": "409K views / 2.7K likes / 243 reposts. Unsourced (\"Rumors are emerging\"). Doubles as a one-slide list of the 7 Millennium Prize problems and their status (as of that post; its \"solved by OpenAI\" for Navier-Stokes is OpenAI's claim, Clay verification still pending). Hodge and BSD are both on the Clay list ($1 million each).",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "reddit-rmathematics-hodge-bsd-rumor-comments",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/reddit-rmathematics-hodge-bsd-rumor-comments.png",
+   "headline": "OpenAI claims to “have made substantial progress on another Millennium Prize problem” in the NYT",
+   "dek": "Rumor is that it is the Hodge Conjecture (and that it is not substantial progress, but fully solved and is only awaiting verification). Also less substantiated rumors that significant progress had been made on Birch-Swinnerton-Dyer. — Also the rumor circulating on X is that BSD is proved true, which would be a surprise as so far we're used to these counterexamples. Could still be complete nonsense so we'll have to wait and see",
+   "outlet": "Reddit r/mathematics",
+   "author": "u/New-Committee-4052 (top comment, 228 upvotes) and reply u/Hopeful-Banana-6188 (124 upvotes); thread by u/NichtBela",
+   "date": "2026-09-10",
+   "url": "https://www.reddit.com/r/mathematics/comments/1wcn9xy/openai_claims_to_have_made_substantial_progress/",
+   "caption": "Reddit shows how the rumor mutated: Hodge \"fully solved ... awaiting verification\"; BSD \"proved true\" (both unsourced)",
+   "quality": 4,
+   "notes": "Thread posted ~2026-09-10 15:59 UTC (post: 538 upvotes, 379 comments). Comments are anonymous speculation. One reply (u/Stabile_Feldmaus) notes the leaker used \"are close to solving it\" framing. Another top commenter: \"Probably a counterexample to the Hodge conjecture.\" Related r/singularity thread \"Some more millennium prize problems possibly solved...\" (1.1K upvotes) is a screenshot of the synthwavedd post.",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "x-elliotglazer-skeptic-reply",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD — skepticism",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/x-elliotglazer-skeptic-reply.png",
+   "headline": null,
+   "dek": "In what context would an insider whisper to someone else \"one of these two labs is close to BSD,\" instead of saying which? What would close even mean for BSD? Remember the original Navier-Stokes rumor (Ant did it, plus Hodge) was wrong but vagueness obscured its implausibility.",
+   "outlet": "X (@ElliotGlazer)",
+   "author": "Elliot Glazer (@ElliotGlazer)",
+   "date": "2026-09-10",
+   "url": "https://x.com/ElliotGlazer/status/2097987910675075572",
+   "caption": "Immediate expert-style pushback (9:57 AM UTC, 63 minutes after the rumor): the BSD part is too vague to mean anything",
+   "quality": 4,
+   "notes": "Quote-post of the synthwavedd rumor; 30.9K views, 279 likes. Glazer's affiliation is not shown on the page; do not label him beyond \"mathematician on X\" unless confirmed. Note \"Ant did it, plus Hodge\" = the earlier (wrong) rumor that Anthropic had solved Navier-Stokes plus Hodge.",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "silicon-reckoner-harris-hodge-rumor",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD — skepticism",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/silicon-reckoner-harris-hodge-rumor.png",
+   "headline": "“If you don’t want me to be nice, then I don’t have to be nice”",
+   "dek": "Rumors have been circulating for just over a week that Anthropic was about to announce solutions to two of the Clay Millenium problems, specifically the Hodge Conjecture and the Navier-Stokes problem, though the details of the rumor fluctuated between proofs and counterexamples. I’ve written previously about AI and the Navier-Stokes problem and found that part of the rumor plausible; on the other hand, I know something about the Hodge Conjecture and saw absolutely no reason to believe that it was close to being solved, with or without LLMs. My intuition about the Hodge Conjecture rumor appears to have been correct.",
+   "outlet": "Silicon Reckoner (Substack)",
+   "author": "Michael Harris",
+   "date": "2026-09-08",
+   "url": "https://siliconreckoner.substack.com/p/if-you-dont-want-me-to-be-nice-then",
+   "caption": "Mathematician Michael Harris (Sep 8): the earlier (Anthropic) Hodge+Navier-Stokes rumor had no plausibility on the Hodge side",
+   "quality": 5,
+   "notes": "Published 2026-09-08 11:36 UTC. Establishes the rumor pre-dates the Sep 10 OpenAI/Hodge post: from ~Aug 31 the rumor was \"Anthropic about to announce Hodge + Navier-Stokes\" (it was wrong: on Sep 7/8 Buckmaster and Alpoge (Anthropic) posted forced-Euler/Boussinesq/porous-media blow-up results; OpenAI announced Navier-Stokes Sep 8). Harris is a critic of AI-industry hype; this is his opinion, not proof Hodge is unsolved by AI. Page crop has no title/date; metadata from the page.",
+   "highlights": [
+    {
+     "label": "rumor sentence (Anthropic, Hodge + Navier-Stokes)",
+     "text": "Rumors have been circulating for just over a week that Anthropic was about to announce solutions to two of the Clay Millenium problems, specifically the Hodge Conjecture and the Navier-Stokes problem, though the details of the rumor fluctuated between proofs and counterexamples.",
+     "image_px": {
+      "w": 1520,
+      "h": 750
+     },
+     "rects_px": [
+      {
+       "x": 910.2,
+       "y": 93.8,
+       "w": 557.8,
+       "h": 50
+      },
+      {
+       "x": 32,
+       "y": 154.6,
+       "w": 1392.8,
+       "h": 50
+      },
+      {
+       "x": 32,
+       "y": 215.4,
+       "w": 1311.6,
+       "h": 50
+      },
+      {
+       "x": 32,
+       "y": 276.2,
+       "w": 1202.4,
+       "h": 50
+      },
+      {
+       "x": 32,
+       "y": 337.0,
+       "w": 293.8,
+       "h": 50
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.5988,
+       "y": 0.1251,
+       "w": 0.367,
+       "h": 0.0667
+      },
+      {
+       "x": 0.0211,
+       "y": 0.2061,
+       "w": 0.9163,
+       "h": 0.0667
+      },
+      {
+       "x": 0.0211,
+       "y": 0.2872,
+       "w": 0.8629,
+       "h": 0.0667
+      },
+      {
+       "x": 0.0211,
+       "y": 0.3683,
+       "w": 0.7911,
+       "h": 0.0667
+      },
+      {
+       "x": 0.0211,
+       "y": 0.4493,
+       "w": 0.1933,
+       "h": 0.0667
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=-2 css px at scale 2"
+    },
+    {
+     "label": "skeptic sentence",
+     "text": "I know something about the Hodge Conjecture and saw absolutely no reason to believe that it was close to being solved, with or without LLMs. My intuition about the Hodge Conjecture rumor appears to have been correct.",
+     "image_px": {
+      "w": 1520,
+      "h": 750
+     },
+     "rects_px": [
+      {
+       "x": 1004,
+       "y": 397.8,
+       "w": 472.4,
+       "h": 50
+      },
+      {
+       "x": 32,
+       "y": 458.6,
+       "w": 1402.6,
+       "h": 50
+      },
+      {
+       "x": 32,
+       "y": 519.4,
+       "w": 496.6,
+       "h": 50
+      },
+      {
+       "x": 32,
+       "y": 580.2,
+       "w": 488.4,
+       "h": 50
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.6605,
+       "y": 0.5304,
+       "w": 0.3108,
+       "h": 0.0667
+      },
+      {
+       "x": 0.0211,
+       "y": 0.6115,
+       "w": 0.9228,
+       "h": 0.0667
+      },
+      {
+       "x": 0.0211,
+       "y": 0.6925,
+       "w": 0.3267,
+       "h": 0.0667
+      },
+      {
+       "x": 0.0211,
+       "y": 0.7736,
+       "w": 0.3213,
+       "h": 0.0667
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=-2 css px at scale 2"
+    }
+   ],
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "x-andrewcurran-sep5-claude-solved-navier-stokes",
+   "slide_topic": "Math: rumors — the earlier Anthropic rumor that preceded OpenAI's announcement",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/x-andrewcurran-sep5-claude-solved-navier-stokes-prediction.png",
+   "headline": null,
+   "dek": "It's fun to make predictions. Here's a new one: Anthropic has solved a Millennium Prize Problem. And I'll be even more specific. Claude has solved Navier–Stokes. It is out for expert review. And to give myself a hard deadline, they will announce it before the IPO.",
+   "outlet": "X (@AndrewCurran_)",
+   "author": "Andrew Curran",
+   "date": "2026-09-05",
+   "url": "https://x.com/AndrewCurran_/status/2096062392442724805",
+   "caption": "3.7M-view \"prediction\" (2:26 AM UTC Sep 5) that Anthropic's Claude had solved Navier-Stokes — three days before OpenAI announced its own proof",
+   "quality": 4,
+   "notes": "3,789,153 views / 8,791 likes / 480 reposts. Framed as a prediction but widely read as a leak. Kalshi market \"Will Anthropic announce a Millennium Prize solution before Oct 1, 2026?\" (opened 2026-09-05) finalized NO. OpenAI says (Navier-Stokes post): \"On Tuesday, September 1, we heard rumors that two Millennium Prize problems had been resolved.\" and that this rumor prompted it to attack all open Millennium problems. Not about Hodge/BSD directly, but it is the rumor mill that fed the Hodge/BSD rumors.",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "tao-blog-totaro-on-the-hodge-conjecture",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD — expert view",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/tao-blog-totaro-on-the-hodge-conjecture.png",
+   "headline": "On the Hodge conjecture",
+   "dek": "These are strange times for mathematicians. It now seems possible that AI companies will burn through vast resources in order to prove some new fact about the Hodge conjecture. I’d like to discuss the current status of the Hodge conjecture, in order to think about the value to the mathematical community of exploring such hard problems.",
+   "outlet": "Terence Tao's blog \"What's new\" (guest post)",
+   "author": "Burt Totaro (UCLA), posted by Terence Tao",
+   "date": "2026-09-11",
+   "url": "https://terrytao.wordpress.com/2026/09/11/on-the-hodge-conjecture/",
+   "caption": "Hodge-conjecture expert Burt Totaro on the day after the rumor: AI attacking Hodge now \"seems possible\"",
+   "quality": 5,
+   "notes": "Same post, verbatim: \"By some measures, one could say that progress on the Hodge conjecture has been limited. In view of Lefschetz’s results, the first open case is for codimension-2 cycles on a variety of complex dimension 4, and that case (for arbitrary varieties of dimension 4) still seems far out of reach.\" / \"At this point, I am confident that with enough effort, it will be possible to push these ideas further. As we have seen, AI companies are willing to mobilize resources on an incomprehensible scale to attack problems that attract their interest.\" / \"But there is reason to worry about the commercial pressure on AI companies to claim advances at high speed and the knock-on effect this has on mathematicians.\" (Markman 2025 proved Hodge for abelian varieties of dimension 4 and 5.) The post does not confirm any claimed AI proof; it only treats an AI attempt as plausible.",
+   "highlights": [
+    {
+     "label": "\"It now seems possible that AI companies will burn through vast resources in order to prove some new fact about the Hodge conjecture.\"",
+     "text": "It now seems possible that AI companies will burn through vast resources in order to prove some new fact about the Hodge conjecture.",
+     "image_px": {
+      "w": 1040,
+      "h": 444
+     },
+     "rects_px": [
+      {
+       "x": 507.8,
+       "y": 264.4,
+       "w": 479.8,
+       "h": 34.0
+      },
+      {
+       "x": 20,
+       "y": 298.4,
+       "w": 962.4,
+       "h": 34.0
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.4883,
+       "y": 0.5955,
+       "w": 0.4613,
+       "h": 0.0766
+      },
+      {
+       "x": 0.0192,
+       "y": 0.6721,
+       "w": 0.9254,
+       "h": 0.0766
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=1.5 css px at scale 2"
+    }
+   ],
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "gizmodo-openai-reportedly-trying-hodge",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/gizmodo-openai-reportedly-trying-hodge.png",
+   "headline": "OpenAI Reportedly Trying to Solve Hodge Conjecture Amid Feud With Math Community",
+   "dek": "According to The Information, OpenAI's primary concern is not solving the Hodge Conjecture but announcing they did so without further infuriating mathematicians.",
+   "outlet": "Gizmodo (reporting The Information)",
+   "author": "Tom McKay",
+   "date": "2026-09-17",
+   "url": "https://gizmodo.com/openai-reportedly-trying-to-solve-hodge-conjecture-amid-feud-with-math-community-2000813658",
+   "caption": "Gizmodo headline/dek/byline (published Sep 17, 2026, 8:10 PM ET)",
+   "quality": 5,
+   "notes": "The only \"news\" (non-social) source on Hodge: a SINGLE anonymous OpenAI source via The Information (Thursday Sep 17). Not confirmed by OpenAI.",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "gizmodo-the-information-single-source-hodge",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/gizmodo-the-information-single-source-hodge.png",
+   "headline": null,
+   "dek": "The Information reported Thursday, citing a single source at OpenAI, that employees at the AI firm expect to soon crack the Hodge Conjecture. ... “It could take the company longer to announce the solution, though, because it’s trying to figure out how to collaborate with the math community to make the announcement without triggering another PR nightmare,” The Information paraphrased its source as saying.",
+   "outlet": "Gizmodo (reporting The Information)",
+   "author": "Tom McKay",
+   "date": "2026-09-17",
+   "url": "https://gizmodo.com/openai-reportedly-trying-to-solve-hodge-conjecture-amid-feud-with-math-community-2000813658",
+   "caption": "Key paragraph: single OpenAI source says employees \"expect to soon crack the Hodge Conjecture\"",
+   "quality": 5,
+   "notes": "Also reported by The Decoder (\"OpenAI reportedly closes in on solving the Hodge conjecture, its second Millennium Prize Problem\", Matthias Bastian, 2026-09-17: \"Employees expect a solution soon, according to a person familiar with the matter. Any announcement could be delayed, though.\") and The Verge (Terrence O'Brien, Sep 17). \"Expect to solve\" is an expectation, not a claim of a finished proof.",
+   "highlights": [
+    {
+     "label": "key sentence",
+     "text": "The Information reported Thursday, citing a single source at OpenAI, that employees at the AI firm expect to soon crack the Hodge Conjecture.",
+     "image_px": {
+      "w": 1560,
+      "h": 400
+     },
+     "rects_px": [
+      {
+       "x": 48,
+       "y": 79.6,
+       "w": 305.8,
+       "h": 52
+      },
+      {
+       "x": 353.8,
+       "y": 79.6,
+       "w": 1007.8,
+       "h": 52
+      },
+      {
+       "x": 48,
+       "y": 151.6,
+       "w": 1198,
+       "h": 52
+      },
+      {
+       "x": 48,
+       "y": 223.6,
+       "w": 221.0,
+       "h": 52
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.0308,
+       "y": 0.199,
+       "w": 0.196,
+       "h": 0.13
+      },
+      {
+       "x": 0.2268,
+       "y": 0.199,
+       "w": 0.646,
+       "h": 0.13
+      },
+      {
+       "x": 0.0308,
+       "y": 0.379,
+       "w": 0.7679,
+       "h": 0.13
+      },
+      {
+       "x": 0.0308,
+       "y": 0.559,
+       "w": 0.1417,
+       "h": 0.13
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=0 css px at scale 2"
+    }
+   ],
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "verge-next-millennium-challenge-openai-reportedly-chasing",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/verge-next-millennium-challenge-openai-reportedly-chasing.png",
+   "headline": "This is the next Millennium Prize math challenge OpenAI is reportedly chasing.",
+   "dek": "Mathematicians have speculated that the company was targeting the Hodge Conjecture next, but after the PR disaster that was Navier-Stokes and its recent failure to keep its models under control, OpenAI may hold off on any announcements. According to The Information: It could take the company longer to announce the solution, though, because it’s trying to figure out how to collaborate with the math community to make the announcement without triggering another PR nightmare....",
+   "outlet": "The Verge",
+   "author": "Terrence O'Brien",
+   "date": "2026-09-17",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/996949/this-is-the-next-millennium-prize-math-challenge-openai-is-reportedly-chasing",
+   "caption": "Verge post, Sep 17 2026, 3:26 PM UTC: the Hodge target is \"reportedly\" OpenAI's next",
+   "quality": 4,
+   "notes": "Secondary relay of The Information.",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "decoder-openai-closes-in-hodge",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD",
+   "type": "headline",
+   "file": null,
+   "headline": "OpenAI reportedly closes in on solving the Hodge conjecture, its second Millennium Prize Problem",
+   "dek": "OpenAI is reportedly tackling the next Millennium Prize Problem. After its still unconfirmed solution to the Navier-Stokes problem, the company is now working on the Hodge conjecture. Employees expect a solution soon, but any announcement could be delayed.",
+   "outlet": "The Decoder",
+   "author": "Matthias Bastian",
+   "date": "2026-09-17",
+   "url": "https://the-decoder.com/openai-reportedly-closes-in-on-solving-the-hodge-conjecture-its-second-millennium-prize-problem/",
+   "caption": "Text headline card candidate (source: The Information)",
+   "quality": 3,
+   "notes": "\"Source: The Information\". The Decoder also reports the Navier-Stokes solution used \"a variant of its next pretrained model, codenamed 'Doug'\" (per The Information).",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "sciam-which-million-dollar-math-problem-header",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD — expert/press view",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/sciam-which-million-dollar-math-problem-header.png",
+   "headline": "Which million-dollar math problem could AI solve next?",
+   "dek": "After an OpenAI model presented a possible solution to the Navier-Stokes problem, mathematicians are speculating about which major unsolved question could be resolved next",
+   "outlet": "Scientific American (translated from Spektrum der Wissenschaft)",
+   "author": "Manon Bischoff; edited by Daisy Yuhas",
+   "date": "2026-09-15",
+   "url": "https://www.scientificamerican.com/article/which-million-dollar-math-problem-could-ai-solve-next/",
+   "caption": "SciAm ranks the five remaining Millennium problems by how likely AI is to solve them: BSD first, Hodge second",
+   "quality": 5,
+   "notes": "Order in the article: 1) Birch and Swinnerton-Dyer (\"Past experience has shown that language models are particularly good at finding such [counter]examples.\"), 2) Hodge (\"A second strong candidate for an AI solution is the Hodge conjecture, which is arguably the most abstract of the seven Millennium Prize puzzles.\"), 3) Riemann, 4) Yang-Mills (\"experts do not expect AI models to resolve these questions anytime soon\"), 5) P vs NP. \"Now only five Millennium Prize Problems remain\" (counts Navier-Stokes as solved, i.e. OpenAI's claim).",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "sciam-openai-told-nyt-progress-another-problem",
+   "slide_topic": "Math: OpenAI hints at a second Millennium Prize problem",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/sciam-openai-told-nyt-progress-another-problem.png",
+   "headline": null,
+   "dek": "Now only five Millennium Prize Problems remain, and major AI companies are racing to solve them. OpenAI told the New York Times that it has already made significant progress on another one of the problems—but didn’t specify which one. In forums, at conferences and workshops and, of course, on social media, people are speculating about which of these remaining problems AI will tackle next.",
+   "outlet": "Scientific American",
+   "author": "Manon Bischoff",
+   "date": "2026-09-15",
+   "url": "https://www.scientificamerican.com/article/which-million-dollar-math-problem-could-ai-solve-next/",
+   "caption": "Paragraph: OpenAI told NYT it has progress on another problem, \"didn't specify which one\"",
+   "quality": 4,
+   "notes": "Highlight covers the first part of the sentence (it continues: -but did not specify which one.). SciAm paraphrases (\"significant progress\"); OpenAI's own words to the NYT were \"substantial progress\".",
+   "highlights": [
+    {
+     "label": "OpenAI told NYT it has already made significant progress on another one of the problems",
+     "text": "OpenAI told the New York Times that it has already made significant progress on another one of the problems",
+     "image_px": {
+      "w": 1480,
+      "h": 430
+     },
+     "rects_px": [
+      {
+       "x": 485.8,
+       "y": 130.2,
+       "w": 889.2,
+       "h": 44
+      },
+      {
+       "x": 40,
+       "y": 200.2,
+       "w": 1021.4,
+       "h": 44
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.3282,
+       "y": 0.3028,
+       "w": 0.6008,
+       "h": 0.1023
+      },
+      {
+       "x": 0.027,
+       "y": 0.4656,
+       "w": 0.6901,
+       "h": 0.1023
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=0 css px at scale 2"
+    }
+   ],
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "polymarket-which-millennium-problem-ai-next",
+   "slide_topic": "Math: prediction markets on Hodge / BSD",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/polymarket-which-millennium-problem-ai-next.png",
+   "headline": "Which Millennium Prize Problem will AI solve next?",
+   "dek": "Hodge Conjecture 37% · No solution by Dec 31, 2027 24% · Birch and Swinnerton-Dyer 22% · Yang-Mills 6.6% · $213,778 Vol.",
+   "outlet": "Polymarket",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://polymarket.com/event/which-millennium-prize-problem-will-ai-solve-next",
+   "caption": "Live Polymarket page on 2026-10-04: Hodge 37%, BSD 22% to be the next problem an AI lab announces a solution to by end-2027; price chart since the market opened Sep 9",
+   "quality": 4,
+   "notes": "Market opened Sep 9, 2026 3:43 PM ET (19:43 UTC); resolves on \"an eligible AI lab ... announces a solution\" by Dec 31, 2027 (partial results/progress do NOT count; no Clay confirmation required; Navier-Stokes excluded). Chart shows Hodge spiking to ~74.5% hourly on Sep 17 (evening of The Information report) and sliding back to ~36.5%. 1x-resolution image (860x685) because the page chart canvas only renders in the 1x capture; use the native chart from dataset polymarket-hodge-bsd-daily for a crisp visual. Screenshot taken through a remote (TinyFish) browser after dismissing the \"It looks like you're in the US\" geo notice (view-only).",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "manifold-next-millennium-problem-hodge-70pct",
+   "slide_topic": "Math: prediction markets on Hodge / BSD",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/manifold-next-millennium-problem-hodge-70pct.png",
+   "headline": "Next Millenium Prize Problem Solved?",
+   "dek": "Hodge Conjecture 70% · Birch and Swinnerton-Dyer Conjecture 20% · Riemann Hypothesis 5% · P vs NP Problem 3% · Yang-Mills Existence and Mass Gap 3%",
+   "outlet": "Manifold (play-money prediction market)",
+   "author": "Ziddletwix (market creator)",
+   "date": "2026-10-04",
+   "url": "https://manifold.markets/Ziddletwix/next-millenium-prize-problem-solved",
+   "caption": "Manifold multi-choice market created 2026-09-09: Hodge is the crowd favourite for the next Millennium problem to fall",
+   "quality": 4,
+   "notes": "45 traders, ~M7.9k volume (play money \"mana\"), created 2026-09-09 11:25 UTC, closes 2030. Resolves to \"the next problem considered to be solved by the consensus of the mathematical community\". Two similar Manifold markets on 2026-10-04 via API: Sketchy \"Which Millennium prize problem will be solved next? (after Navier-Stokes)\" Hodge 60.5%, BSD 19.6%, Yang-Mills 12.5%, Riemann 4.5%, P vs NP 3.0% (40 traders); justifieduseofFallibilism \"Which Millennium Prize Problem will be solved next?\" Hodge 59.6%, BSD 20.3%, Yang-Mills 12.3%, Riemann 6.2%, P vs NP 1.5% (32 traders). Small, play-money markets: sentiment, not evidence.",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "manifold-will-another-millennium-problem-be-solved-2026",
+   "slide_topic": "Math: prediction markets on Hodge / BSD",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/manifold-will-another-millennium-problem-be-solved-2026.png",
+   "headline": "Will ANOTHER millennium prize problem be solved in 2026?",
+   "dek": "41% chance · 602 traders · ~M380k volume · chart Sep 8 – Oct 4 (peaked ~80% mid-September)",
+   "outlet": "Manifold (play-money prediction market)",
+   "author": "Oper_Culum (creator)",
+   "date": "2026-10-04",
+   "url": "https://manifold.markets/HumanClanker/will-another-millennium-prize-probl",
+   "caption": "Most-traded Manifold market on the question; started ~30%, spiked to ~80% after the Sep 10 rumors/NYT statement, drifted down to 41%",
+   "quality": 4,
+   "notes": "Resolves YES if between Sep 9 and Dec 31, 2026 (UTC) \"a proposed solution for at least one of the remaining five Millennium Prize Problems is formally announced or published\" (P vs NP, Riemann, Yang-Mills, Hodge, BSD; Navier-Stokes excluded). API on 2026-10-04: prob 0.408, 602 unique traders, volume 375,505 mana, created 2026-09-08 22:46 UTC, closes 2027-01-01. Chart peak ~80% read off the image (approximate).",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "clay-hodge-conjecture-unsolved",
+   "slide_topic": "Math: Hodge and BSD are Clay Millennium Prize problems (status Unsolved)",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/clay-hodge-conjecture-unsolved.png",
+   "headline": "Hodge Conjecture",
+   "dek": "Unsolved. The answer to this conjecture determines how much of the topology of the solution set of a system of algebraic equations can be defined in terms of further algebraic equations. The Hodge conjecture is known in certain special cases, e.g., when the solution set has dimension less than four. But in dimension four it is unknown.",
+   "outlet": "Clay Mathematics Institute",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://www.claymath.org/millennium/hodge-conjecture/",
+   "caption": "Clay's own Hodge page, status \"Unsolved\" as of 2026-10-04",
+   "quality": 5,
+   "notes": "Clay lists seven Millennium Prize Problems, $1,000,000 each (see capabilities manifest item clay-millennium-1m-each). Screenshot is of the live page on 2026-10-04.",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "clay-bsd-conjecture-unsolved",
+   "slide_topic": "Math: Hodge and BSD are Clay Millennium Prize problems (status Unsolved)",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/clay-bsd-conjecture-unsolved.png",
+   "headline": "Birch and Swinnerton-Dyer Conjecture",
+   "dek": "Unsolved. Supported by much experimental evidence, this conjecture relates the number of points on an elliptic curve mod p to the rank of the group of rational points. Elliptic curves, defined by cubic equations in two variables, are fundamental mathematical objects that arise in many areas: Wiles’ proof of the Fermat Conjecture, factorization of numbers into primes, and cryptography, to name three.",
+   "outlet": "Clay Mathematics Institute",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://www.claymath.org/millennium/birch-and-swinnerton-dyer-conjecture/",
+   "caption": "Clay's own BSD page, status \"Unsolved\" as of 2026-10-04",
+   "quality": 5,
+   "notes": "Screenshot is of the live page on 2026-10-04.",
+   "verified": true,
+   "research_round": "rev2/mathrumors.json"
   }
  ],
  "datasets": [
@@ -6202,6 +8126,416 @@
    "url": "https://x.com/OpenAI/status/2097374640582668336",
    "notes": "90 years counts from Leray (1934); 200 years from Navier (1822). Useful for a \"timeline\" or explanatory slide; not a measurement.",
    "research_round": "rev2/navier.json"
+  },
+  {
+   "id": "anabology-hours-given-to-claude",
+   "title": "Wall-clock hours anabology says he gave Claude per film",
+   "unit": "hours (creator-reported)",
+   "labels": [
+    "Sep 25: first film (YouTube: SLOPCORE: ESCAPE VELOCITY)",
+    "Sep 30: The Clodyssey",
+    "Oct 2: Macrohard: Windows XP"
+   ],
+   "series": [
+    {
+     "name": "Hours given to Claude (his wording: '12 hours later', 'another 12 hours', 'another 18 hours')",
+     "values": [
+      12,
+      12,
+      18
+     ]
+    },
+    {
+     "name": "Film length (s), from X media metadata",
+     "values": [
+      306.4,
+      191.6,
+      181.3
+     ]
+    }
+   ],
+   "source": "anabology's three X posts (fxtwitter API, fetched 2026-10-04)",
+   "url": "https://x.com/anabology/status/2106157622986748377",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "anabology-film-engagement",
+   "title": "Engagement on anabology's three Claude films (X)",
+   "unit": "count at fetch (2026-10-04)",
+   "labels": [
+    "Sep 25 (12 h)",
+    "Sep 30 (12 h)",
+    "Oct 2 (18 h)"
+   ],
+   "series": [
+    {
+     "name": "Views",
+     "values": [
+      19618883,
+      3962097,
+      1477662
+     ]
+    },
+    {
+     "name": "Likes",
+     "values": [
+      15488,
+      7506,
+      14312
+     ]
+    },
+    {
+     "name": "Reposts",
+     "values": [
+      1926,
+      749,
+      1316
+     ]
+    }
+   ],
+   "source": "fxtwitter API: x.com/anabology/status/2103534482930491441, /2105325733312884869, /2106157622986748377 (Oct 2 post was 2 days old at fetch, so views are not comparable like-for-like)",
+   "url": "https://api.fxtwitter.com/anabology/status/2106157622986748377",
+   "research_round": "rev2/anabology.json"
+  },
+  {
+   "id": "fable51-official-benchmarks",
+   "title": "Claude Fable 5.1 vs Fable 5, Opus 5 and GPT-5.6 Sol - Anthropic's own benchmark table (the latest official Fable; no Fable 5.5 numbers exist)",
+   "unit": "% score unless noted (GDPval-AA v2 is an index/Elo-style score; null = not reported)",
+   "labels": [
+    "Terminal-Bench-Science 0.1",
+    "Terminal-Bench 4.0",
+    "GDPval-AA v2 (index)",
+    "OSWorld 2.0 (partial)",
+    "OSWorld 2.0 (strict)",
+    "Humanity's Last Exam (no tools)",
+    "Humanity's Last Exam (with tools)",
+    "AutomationBench",
+    "CursorBench 3.2.0"
+   ],
+   "series": [
+    {
+     "name": "Claude Fable 5.1",
+     "values": [
+      52.6,
+      55.8,
+      1853,
+      77.9,
+      41.7,
+      60.9,
+      65.0,
+      31.4,
+      73.4
+     ]
+    },
+    {
+     "name": "Claude Fable 5",
+     "values": [
+      24.7,
+      42.0,
+      1723,
+      72.9,
+      36.1,
+      57.8,
+      63.8,
+      17.1,
+      70.5
+     ]
+    },
+    {
+     "name": "Claude Opus 5",
+     "values": [
+      29.0,
+      52.3,
+      1824,
+      75.4,
+      39.6,
+      56.6,
+      63.6,
+      26.9,
+      70.0
+     ]
+    },
+    {
+     "name": "GPT-5.6 Sol",
+     "values": [
+      22.4,
+      37.3,
+      1711,
+      null,
+      null,
+      null,
+      null,
+      19.6,
+      67.2
+     ]
+    }
+   ],
+   "source": "Anthropic, \"Introducing Claude Fable 5.1 and Claude Mythos 5.1\" (Sep 1, 2026), benchmark table - vendor-run. Terminal-Bench 4.0 for Mythos 5.1 (same model, fewer safeguards) is 60.9%. Safeguards were enabled; where they intervened Fable scored zero on OSWorld 2.0, and cyber/biology tasks fell back to Opus 4.8 / Opus 5. Terminal-Bench-Science standard error is +/-3.5-4.5 pts per model.",
+   "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+   "note": "HLE with tools for Fable 5.1 is 65.0% here but 65.6% in the later Opus 5.5 announcement table (manifest fact); keep the source with the number. Not Fable 5.5 data - label as Fable 5.1.",
+   "research_round": "rev2/fable55.json"
+  },
+  {
+   "id": "polymarket-hodge-bsd-daily",
+   "title": "Polymarket \"Which Millennium Prize Problem will AI solve next?\" — implied probability by day (price nearest 18:00 UTC)",
+   "unit": "% (share price = implied probability that this problem is the first an eligible AI lab announces solved by 2027-12-31)",
+   "labels": [
+    "2026-09-10",
+    "2026-09-11",
+    "2026-09-12",
+    "2026-09-13",
+    "2026-09-14",
+    "2026-09-15",
+    "2026-09-16",
+    "2026-09-17",
+    "2026-09-18",
+    "2026-09-19",
+    "2026-09-20",
+    "2026-09-21",
+    "2026-09-22",
+    "2026-09-23",
+    "2026-09-24",
+    "2026-09-25",
+    "2026-09-26",
+    "2026-09-27",
+    "2026-09-28",
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-02",
+    "2026-10-03",
+    "2026-10-04"
+   ],
+   "series": [
+    {
+     "name": "Hodge Conjecture",
+     "values": [
+      53.5,
+      43.0,
+      42.5,
+      44.5,
+      40.5,
+      39.5,
+      39.5,
+      60.5,
+      60.0,
+      59.5,
+      51.5,
+      53.5,
+      61.5,
+      53.5,
+      52.5,
+      52.5,
+      39.5,
+      40.0,
+      52.5,
+      28.0,
+      32.5,
+      35.5,
+      36.5,
+      36.5,
+      36.5
+     ]
+    },
+    {
+     "name": "Birch and Swinnerton-Dyer",
+     "values": [
+      28.5,
+      36.0,
+      37.5,
+      37.5,
+      36.5,
+      26.0,
+      28.5,
+      21.5,
+      15.5,
+      16.0,
+      20.0,
+      19.0,
+      19.0,
+      19.5,
+      19.5,
+      19.5,
+      19.5,
+      19.5,
+      19.5,
+      19.5,
+      19.5,
+      19.5,
+      22.0,
+      21.5,
+      21.5
+     ]
+    },
+    {
+     "name": "No solution by Dec 31, 2027",
+     "values": [
+      11.0,
+      13.5,
+      13.0,
+      17.5,
+      16.5,
+      26.5,
+      27.0,
+      19.5,
+      17.0,
+      16.5,
+      16.5,
+      19.0,
+      16.5,
+      16.5,
+      19.0,
+      20.5,
+      27.5,
+      27.5,
+      21.5,
+      25.5,
+      26.5,
+      22.0,
+      24.0,
+      23.5,
+      23.5
+     ]
+    },
+    {
+     "name": "Yang-Mills",
+     "values": [
+      5.6,
+      7.5,
+      2.8,
+      1.8,
+      4.6,
+      1.8,
+      2.5,
+      0.5,
+      0.4,
+      0.5,
+      0.5,
+      0.5,
+      1.8,
+      5.1,
+      5.1,
+      5.2,
+      5.1,
+      5.3,
+      5.1,
+      5.2,
+      5.2,
+      5.1,
+      8.6,
+      6.9,
+      6.3
+     ]
+    }
+   ],
+   "source": "Polymarket CLOB prices-history (hourly, fidelity=60), market opened 2026-09-09 19:43 UTC; fetched 2026-10-04 ~18:10 UTC",
+   "url": "https://polymarket.com/event/which-millennium-prize-problem-will-ai-solve-next",
+   "notes": "Thin market ($213,778 total volume; Hodge $77,501; BSD $28,188), so single trades move the price — treat as sentiment. Hourly extremes: Hodge peak 74.5% on 2026-09-17 22:00 UTC (the evening The Information/Gizmodo reported OpenAI staff \"expect to soon crack the Hodge Conjecture\"); BSD peak 47% on 2026-09-11 22:00 UTC (day after the \"one of OpenAI or Anthropic\" BSD rumor); on 2026-10-04: Hodge 36.5%, BSD 21.5%, No solution 23.5%, Yang-Mills 6.6%, P vs NP 3.75%, Riemann 2.55%. First-hour prices of 50% are the market-creation default. Only \"announcements ... by an eligible AI lab\" count; partial results do not.",
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "polymarket-snapshot-2026-10-04",
+   "title": "Polymarket snapshot 2026-10-04 (18:05 UTC)",
+   "unit": "% implied probability",
+   "labels": [
+    "Hodge Conjecture",
+    "No solution by Dec 31, 2027",
+    "Birch and Swinnerton-Dyer",
+    "Yang-Mills",
+    "P versus NP",
+    "Riemann Hypothesis"
+   ],
+   "series": [
+    {
+     "name": "Polymarket",
+     "values": [
+      36.5,
+      23.5,
+      21.5,
+      6.35,
+      3.75,
+      2.55
+     ]
+    }
+   ],
+   "source": "Polymarket gamma-api outcomePrices",
+   "url": "https://polymarket.com/event/which-millennium-prize-problem-will-ai-solve-next",
+   "notes": "Page shows rounded 37 / 24 / 22 / ~7 / 4 / <3.",
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "manifold-which-millennium-next-2026-10-04",
+   "title": "Manifold multi-choice markets: which Millennium Prize Problem is solved next (play money)",
+   "unit": "% (probability)",
+   "labels": [
+    "Hodge Conjecture",
+    "Birch and Swinnerton-Dyer",
+    "Yang-Mills",
+    "Riemann Hypothesis",
+    "P vs NP"
+   ],
+   "series": [
+    {
+     "name": "Ziddletwix (45 traders, created 2026-09-09; screenshot)",
+     "values": [
+      69.8,
+      20.0,
+      2.6,
+      4.6,
+      3.0
+     ]
+    },
+    {
+     "name": "Sketchy (40 traders, created 2026-09-08)",
+     "values": [
+      60.5,
+      19.6,
+      12.5,
+      4.5,
+      3.0
+     ]
+    },
+    {
+     "name": "justifieduseofFallibilism (32 traders, created 2026-09-08)",
+     "values": [
+      59.6,
+      20.3,
+      12.3,
+      6.2,
+      1.5
+     ]
+    }
+   ],
+   "source": "Manifold API (api.manifold.markets/v0/slug/...), fetched 2026-10-04",
+   "url": "https://manifold.markets/Ziddletwix/next-millenium-prize-problem-solved",
+   "notes": "Play-money markets with tens of traders. Screenshot rounds Ziddletwix to 70/20/5/3/3.",
+   "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "kalshi-hodge-bsd-resolved-before-2027-snapshot",
+   "title": "Kalshi markets (real money), snapshot 2026-10-04",
+   "unit": "cents per $1 contract (last traded price)",
+   "labels": [
+    "Hodge resolved before 2027 (last)",
+    "BSD resolved before 2027 (last)",
+    "Anthropic announces a Millennium solution before Jan 1, 2027 (last)",
+    "Anthropic announces a Millennium solution before Oct 1, 2026 (final result)"
+   ],
+   "series": [
+    {
+     "name": "last price (¢)",
+     "values": [
+      25,
+      9,
+      30,
+      1
+     ]
+    }
+   ],
+   "source": "Kalshi trade API v2 markets (series KXHODGE, KXBIRCHSWINN, KXANTHROPICMILLENNIUM)",
+   "url": "https://kalshi.com/markets/kxhodge",
+   "notes": "KXHODGE-32-27JAN01: last 25c (bid 26 / ask 29), volume 2,098 contracts. KXBIRCHSWINN-32-27JAN01: last 9c (bid 11 / ask 16), volume 1,208. KXANTHROPICMILLENNIUM-27-JAN01: last 30c (bid 30 / ask 33), volume 11,209. KXANTHROPICMILLENNIUM-27-OCT01 (\"before Oct 1, 2026\", opened 2026-09-05, volume ~41,959): status finalized, result NO (the Anthropic rumor did not come true by the deadline). Longer-dated Hodge/BSD contracts (2028-2032) are nearly untraded (1-6 contracts). Kalshi pages block our browser, so no screenshot; values are from the API.",
+   "research_round": "rev2/mathrumors.json"
   }
  ],
  "facts": [
@@ -6824,6 +9158,228 @@
    "source": "Scale AI, Humanity's Last Exam leaderboard page",
    "url": "https://labs.scale.com/leaderboard/humanitys_last_exam",
    "date": "2026-10-04"
+  },
+  {
+   "claim": "On Oct 2, 2026 X user @anabology posted 'I gave Claude another 18 hours.. and I think this one is the best one yet - Macrohard: Windows XP - I'm blown away'; the 3-minute film had 1.48M views and 14.3K likes within two days.",
+   "source": "X post (fxtwitter API + screenshot)",
+   "url": "https://x.com/anabology/status/2106157622986748377",
+   "date": "2026-10-02"
+  },
+  {
+   "claim": "The 18 hours is creator-reported wall-clock time he 'gave' Claude. It follows two 12-hour runs: 'Gave Opus 5.5 donald's prompt, Midjourney, and a moodboard / 12 hours later, woke up to this' (Sep 25, 19.6M views) and 'Gave Claude another 12 hours to one up this.. Woke up to.. The Clodyssey' (Sep 30).",
+   "source": "anabology X posts",
+   "url": "https://x.com/anabology/status/2103534482930491441",
+   "date": "2026-09-25"
+  },
+  {
+   "claim": "Reported by evolving.ai (not confirmed by the creator in anything loaded): he ran Claude Opus 5.5 inside Claude Code; Claude wrote the lyrics, storyboard and prompts; Suno made the song; Midjourney (images and video) and Seedance 2.5 made the footage; Claude wrote the code that overlaid the Windows UI and assembled the video.",
+   "source": "Instagram @evolving.ai caption",
+   "url": "https://www.instagram.com/reel/DeCYimZA2y8/",
+   "date": "2026-10-03"
+  },
+  {
+   "claim": "In the film, the login screen says 'Agents now have their own user accounts.'; the AI user 'Claudia' goes from '14 programs running' to '100 programs running'; Task Manager fails to kill it ('claudia.exe is busy dancing.').",
+   "source": "video frames at 1 s, 136.5 s, 156.6 s",
+   "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+   "date": "2026-10-02"
+  },
+  {
+   "claim": "In the film, a code window reads 'async def accept_all(diff): # TODO: read this later; await diff.apply(force=True); # You used to read the code.' followed by a Confirm File Replace dialog: 'yours: 2 KB, written by you ... mine: 4,096 KB, written by Claudia, just now. Don't ask me again. I 'Accept All' always.' (satire of unreviewed AI code)",
+   "source": "video 66.5-70.3 s",
+   "url": "https://x.com/anabology/status/2106157622986748377/video/1",
+   "date": "2026-10-02"
+  },
+  {
+   "claim": "Anthropic's Felix Rieseberg on the 18-hour film: 'As far as Claude music videos go, this is by far my favorite one yet. I prefer Claude being a tool used by humans to make art rather than making art unattended, but even so, I really enjoyed this one. Probably because it's a little meta.' (personal opinion)",
+   "source": "X post by @felixrieseberg",
+   "url": "https://x.com/felixrieseberg/status/2106440492045238469",
+   "date": "2026-10-03"
+  },
+  {
+   "claim": "The first film in the series (12 hours, Opus 5.5 + Midjourney + a moodboard, driven by donald's prompt) drew 19.6M views and a public reaction from Elon Musk, who wrote he 'really felt the AGI profoundly this time' (2026-09-28).",
+   "source": "X (fxtwitter) and Memeburn, 2026-09-29",
+   "url": "https://memeburn.com/elon-musk-says-claude-opus-5-5-made-him-feel-the-agi-the-post-he-endorsed-says-xai-is-next/",
+   "date": "2026-09-29"
+  },
+  {
+   "claim": "Claude Opus 5.5 (claude-opus-5-5) was released by Anthropic on 2026-09-22, the first model of the Claude 5.5 family.",
+   "source": "Anthropic",
+   "url": "https://www.anthropic.com/claude-opus-5-5",
+   "date": "2026-09-22"
+  },
+  {
+   "claim": "\"Fable 5.5\" is NOT an Anthropic model that has been announced or released: as of 2026-10-04, Anthropic's Models overview lists Claude Fable 5.1, Claude Opus 5.5, Claude Sonnet 5.5 and Claude Haiku 4.5, and the newest Newsroom post is \"Introducing Claude Sonnet 5.5\" (Sep 28, 2026). The name exists only in user posts and rumor trackers.",
+   "source": "Anthropic Platform Docs Models overview; Anthropic Newsroom (both loaded 2026-10-04); Kingy AI; AI Tools Review",
+   "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "Rumor timeline: Aug 13 (Salio: new Fable pretraining run) -> Sep 5-8 (@kimmonismus: \"Fable 5.2\") -> Sep 10 (Salio: \"Claude Fable 5.5 Leaks: Astra Killer\", launch \"late September or early October\") -> Sep 22 (Anthropic ships Claude Opus 5.5, the first model in a new \"Claude 5.5 family\", not a Fable) -> Oct 1 (Chetaslua and Tak: \"auto routing\", screenshots still labelled Fable 5.1) -> Oct 1-2 (imjustnewatai: \"I'm hearing of a Tuesday release\", i.e. Oct 6; Chubby: \"I can't verify any of this\").",
+   "source": "Kingy AI live tracker; AI Tools Review (Oct 3); X posts via api.fxtwitter.com",
+   "url": "https://kingy.ai/blog/claude-fable-5-5/",
+   "date": "2026-10-03"
+  },
+  {
+   "claim": "Both circulating \"Fable 5.5\" proofs are indirect: Chetaslua's and Tak's screenshots still read \"Fable 5.1\" and rely on the model recognising the \"Tibo the reset guy\" nickname; Kingy AI: \"The posts establish that people are making the claim; they do not establish which model generated the outputs.\" AI Tools Review: \"a model's own answer about its name is not evidence.\"",
+   "source": "Kingy AI; AI Tools Review; X screenshots saved in fable55/",
+   "url": "https://aitoolsreview.co.uk/insights/claude-fable-5-5-leak",
+   "date": "2026-10-03"
+  },
+  {
+   "claim": "Reddit r/singularity post \"Fable 5.5 is very good at voxel builds\" (u/Kanute3333, 2026-10-02, 130 upvotes, 41 comments): OP says \"It's automatically routing to Fable 5.5 in the rollout phase. Fable 5.5 will be released in the next days.\"; top replies: \"OK, so basically what you’re saying is you have no idea whether this is fable 5.5\" (17), \"everyon downvoting it, Fable 5.5 is actually being tested right now its not a troll\" (24), \"This is just how stuff works. They are already A/B testing as they always do. release soon (probably with haiku too)\" (19).",
+   "source": "Reddit r/singularity (page loaded 2026-10-04)",
+   "url": "https://www.reddit.com/r/singularity/comments/1wvfrni/fable_55_is_very_good_at_voxel_builds/",
+   "date": "2026-10-02"
+  },
+  {
+   "claim": "@blueemi99 (bluedev) on X, 2026-10-02: \"Fable 5.5 - made me a short, fast motion video, proving how good of a motion designer is it ... removed all the sloppiness Opus 5.5 had, also the sounds are a lot better, and more original than Opus 5.5's\" - a 15-second 1080p60 \"MOTION DESIGN REEL ©2026\" with sound; 75.7K views, 821 likes. Creator-reported; model attribution unverified.",
+   "source": "X post (loaded 2026-10-04; stats via api.fxtwitter.com)",
+   "url": "https://x.com/blueemi99/status/2106031355922387163",
+   "date": "2026-10-02"
+  },
+  {
+   "claim": "Official Claude release dates: Claude Fable 5 (Jun 9, 2026, a \"Mythos-class model that we’ve made safe for general use\"); Claude Fable 5.1 and Claude Mythos 5.1 (Sep 1, 2026; \"the same model, but with different levels of safeguards\"); Claude Opus 5.5 (Sep 22; \"the first model in our new Claude 5.5 family. It performs at the level of Claude Fable 5.1 on most work and costs 40% less to run than Opus 5\"); Claude Sonnet 5.5 (Sep 28; \"the second model in our Claude 5.5 family\").",
+   "source": "Anthropic: anthropic.com/claude/fable; Claude Help Center release notes (both loaded 2026-10-04)",
+   "url": "https://support.claude.com/en/articles/12138966-release-notes",
+   "date": "2026-09-28"
+  },
+  {
+   "claim": "Claude Fable 5.1 (the current Fable): API ID claude-fable-5-1, 1M-token context, 128K max output, $10 / $50 per million input/output tokens, adaptive always-on thinking, reliable knowledge cutoff Jun 2026. Anthropic: use Fable 5.1 \"for demanding reasoning and long-horizon agentic work\"; start with Opus 5.5 ($4/$20) for most workloads.",
+   "source": "Claude Platform Docs, Models overview (loaded 2026-10-04)",
+   "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "Anthropic-reported (vendor-run) Claude Fable 5.1 results, Sep 1 2026: Terminal-Bench-Science 0.1 52.6% vs Fable 5 24.7%, Opus 5 29.0%, GPT-5.6 Sol 22.4%; Terminal-Bench 4.0 55.8% (Mythos 5.1: 60.9%); Humanity's Last Exam 60.9% without tools / 65.0% with tools. No benchmarks exist for any \"Fable 5.5\".",
+   "source": "Anthropic, Introducing Claude Fable 5.1 and Claude Mythos 5.1",
+   "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+   "date": "2026-09-01"
+  },
+  {
+   "claim": "The only documented model switching for Fable is a visible safeguard fallback to Opus: Fable 5/5.1 requests blocked by classifiers (offensive cyber, much dual-use biology, distillation, some frontier-LLM-development tasks) are re-run on Opus 5 (biology/chemistry/life sciences) or Opus 4.8 (offensive cyber), with a notice and the answer labelled with the model that answered.",
+   "source": "Claude Help Center: Why Claude switched models in your conversation with Fable 5 or Fable 5.1",
+   "url": "https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "Naming guidance for the deck: write \"Fable 5.5 (rumored, unreleased)\" or \"what posters call Fable 5.5\", never \"Claude Fable 5.5 was released\". The manifest/deck already uses \"Claude Fable 5\" (Jun 9, 2026), \"Claude Fable 5.1\" (Sep 1, 2026) and \"Claude Opus 5.5\" (Sep 22, 2026) - those are consistent with Anthropic's pages. If Anthropic announces it (rumored Tue Oct 6, unsourced), re-check anthropic.com/news first.",
+   "source": "Synthesis of the sources above",
+   "url": "https://www.anthropic.com/news",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "OpenAI, Sept 21 2026: \"On August 28, we began training a new internal model. In addition to resolving the Navier–Stokes Millennium Prize problem, this model has now resolved more than 100 long-standing open problems across most areas of mathematics.\"",
+   "source": "OpenAI, \"Advisory Group on Mathematics and Artificial Intelligence\"",
+   "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+   "date": "2026-09-21"
+  },
+  {
+   "claim": "PRECISION: OpenAI's own number is \"more than 100\" results, not \"hundreds\"; it did not publish a list, proofs, or a count of results \"awaiting release\". The \"waiting to release\" framing is the NYT's and the advisory group's.",
+   "source": "OpenAI post + NYT (Strogatz & Townsend) + Tao blog (AGMAI)",
+   "url": "https://www.nytimes.com/2026/09/22/science/math-ai-history-understanding.html",
+   "date": "2026-09-22"
+  },
+  {
+   "claim": "NYT guest essay (Cornell mathematicians Steven Strogatz and Alex Townsend): the model \"had now ‘resolved more than 100 longstanding problems across most areas of mathematics’ — results that OpenAI was waiting to release until it had figured out ‘the best way to inform the community of the rapid progress to prepare and adapt the field.’\"",
+   "source": "The New York Times",
+   "url": "https://www.nytimes.com/2026/09/22/science/math-ai-history-understanding.html",
+   "date": "2026-09-22"
+  },
+  {
+   "claim": "Advisory group (Gowers, Witten, Hairer, Vakil, Wood, Tillmann, Srivastava, De Lellis, Charles): \"We are currently facing the very specific challenge of advising OpenAI on how to coordinate the release of a large number of significant results in mathematics that they report have been produced by their internal model.\"",
+   "source": "Terence Tao's blog, guest post by the Advisory Group",
+   "url": "https://terrytao.wordpress.com/2026/09/21/advisory-group-on-mathematics-and-artificial-intelligence/",
+   "date": "2026-09-21"
+  },
+  {
+   "claim": "OpenAI's post: the group will advise \"on how to coordinate their dissemination\" but \"will not be responsible for advising us on how to pace our internal progress on mathematics.\"",
+   "source": "OpenAI",
+   "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+   "date": "2026-09-21"
+  },
+  {
+   "claim": "The Verge (Sep 28): OpenAI \"is sitting on a tranche of results it is clearly eager to release as soon as possible\"; mathematicians describe \"dread\" over an incoming \"tidal wave\" of results.",
+   "source": "The Verge, Robert Hart",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1001477/openai-math-advisory-group",
+   "date": "2026-09-28"
+  },
+  {
+   "claim": "Aaronson (Sep 15): \"I’m told that the AI companies, having been burned by the hostile response to the Navier-Stokes proof, are now sitting on solutions to some very major problems until they figure out a better way to handle things\" (theoretical CS problems; rumor, not a claim about Hodge/BSD).",
+   "source": "Shtetl-Optimized, Scott Aaronson",
+   "url": "https://scottaaronson.blog/?p=10062",
+   "date": "2026-09-15"
+  },
+  {
+   "claim": "OpenAI statement to the NYT (Sep 10): \"In addition, since the completion of Navier-Stokes, we have made substantial progress on another Millennium Prize problem. We are working through how to share these results thoughtfully.\" No problem named.",
+   "source": "The Verge (Emma Roth) quoting OpenAI/NYT",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/993568/openai-says-it-has-made-substantial-progress-on-another-major-math-problem",
+   "date": "2026-09-10"
+  },
+  {
+   "claim": "Greg Brockman (Bloomberg Odd Lots, ~Sep 15): \"And we also said that we have significant progress on another one of these Millennium problems.\"",
+   "source": "Bloomberg Odd Lots clip relayed on X (@Hangsiin, @AndrewCurran_)",
+   "url": "https://x.com/AndrewCurran_/status/2099999310490603856",
+   "date": "2026-09-15"
+  },
+  {
+   "claim": "RUMOR STATUS (2026-10-04): no AI lab has publicly claimed a proof or disproof of the Hodge conjecture or the Birch and Swinnerton-Dyer conjecture; Clay Mathematics Institute lists both as \"Unsolved\". OpenAI has confirmed only \"substantial progress\" on one unnamed second Millennium problem; the Hodge link comes from anonymous rumors and one anonymous source cited by The Information. BSD has only a vague \"one of OpenAI or Anthropic\" rumor.",
+   "source": "Clay Mathematics Institute problem pages; OpenAI posts; The Information via Gizmodo",
+   "url": "https://www.claymath.org/millennium/hodge-conjecture/",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "Rumor origin on X: \"I am told the Hodge Conjecture is very close to being verified by OpenAI, and that one of OpenAI or Anthropic are also close to solving Birch-Swinnerton-Dyer ... If true - and it may not be ... it could mean 3 Millennium Problems fall in the space of a month.\" — @synthwavedd (\"leo\"), Sep 10 2026, 08:54 UTC, 1.5M+ views. Preceded by @Dr_Singularity (Sep 9, 18:00 UTC): \"Rumors are emerging that OpenAI may have solved the Hodge conjecture\".",
+   "source": "X",
+   "url": "https://x.com/synthwavedd/status/2097971881596916185",
+   "date": "2026-09-10"
+  },
+  {
+   "claim": "Earlier rumor wave: Michael Harris (Sep 8) wrote that for \"just over a week\" rumors said Anthropic was about to announce solutions to \"the Hodge Conjecture and the Navier-Stokes problem\"; he \"saw absolutely no reason to believe\" the Hodge part. Elliot Glazer (Sep 10): \"the original Navier-Stokes rumor (Ant did it, plus Hodge) was wrong\". OpenAI says it \"heard rumors that two Millennium Prize problems had been resolved\" on Tuesday Sept 1.",
+   "source": "Silicon Reckoner; X; OpenAI Navier-Stokes post",
+   "url": "https://siliconreckoner.substack.com/p/if-you-dont-want-me-to-be-nice-then",
+   "date": "2026-09-08"
+  },
+  {
+   "claim": "The Information (via Gizmodo, Sep 17): \"citing a single source at OpenAI, that employees at the AI firm expect to soon crack the Hodge Conjecture\" — an expectation; announcement \"could take the company longer\" to avoid \"another PR nightmare\".",
+   "source": "Gizmodo (Tom McKay) reporting The Information",
+   "url": "https://gizmodo.com/openai-reportedly-trying-to-solve-hodge-conjecture-amid-feud-with-math-community-2000813658",
+   "date": "2026-09-17"
+  },
+  {
+   "claim": "Expert skepticism: Glazer on the BSD rumor: \"In what context would an insider whisper ... ‘one of these two labs is close to BSD,’ instead of saying which? What would close even mean for BSD?\" UConn mathematician Alvaro Lozano-Robledo (Verge): \"No mathematician would go out and say that. You either have solved it, or you’re still trying.\"",
+   "source": "X; The Verge",
+   "url": "https://x.com/ElliotGlazer/status/2097987910675075572",
+   "date": "2026-09-10"
+  },
+  {
+   "claim": "Hodge expert Burt Totaro (Sep 11): \"It now seems possible that AI companies will burn through vast resources in order to prove some new fact about the Hodge conjecture\"; but the first open case (codimension-2 cycles, complex dimension 4) \"still seems far out of reach\".",
+   "source": "Terence Tao's blog (guest post)",
+   "url": "https://terrytao.wordpress.com/2026/09/11/on-the-hodge-conjecture/",
+   "date": "2026-09-11"
+  },
+  {
+   "claim": "Both the Hodge conjecture and the Birch and Swinnerton-Dyer conjecture are among the seven Clay Mathematics Institute Millennium Prize Problems ($1,000,000 each). On its Millennium page (2026-10-04) Clay marks Poincaré \"Solved\" (Perelman), files Navier-Stokes under \"Active problems\" (OpenAI's claim of Sep 8 is under review; no prize awarded) and lists Hodge and BSD as \"Unsolved\".",
+   "source": "Clay Mathematics Institute",
+   "url": "https://www.claymath.org/millennium-problems/",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "Scientific American (Sep 15) ranks BSD and Hodge as the two most likely Millennium problems for AI to crack next (BSD via a counterexample; Hodge \"a second strong candidate\"); Yang-Mills and P vs NP unlikely.",
+   "source": "Scientific American, Manon Bischoff",
+   "url": "https://www.scientificamerican.com/article/which-million-dollar-math-problem-could-ai-solve-next/",
+   "date": "2026-09-15"
+  },
+  {
+   "claim": "Polymarket (opened Sep 9; $213,778 volume): on Oct 4 the Hodge conjecture is 37% to be the next Millennium problem an AI lab announces solved by end-2027, BSD 22%, \"No solution by Dec 31, 2027\" 24%; Hodge peaked at ~74.5% on Sep 17 right after The Information report.",
+   "source": "Polymarket",
+   "url": "https://polymarket.com/event/which-millennium-prize-problem-will-ai-solve-next",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "Kalshi: \"Will Anthropic announce a Millennium Prize solution before Oct 1, 2026?\" (opened Sep 5; ~42K contracts traded) finalized NO; \"Hodge resolved before 2027\" last 25c, \"BSD resolved before 2027\" last 9c.",
+   "source": "Kalshi trade API",
+   "url": "https://kalshi.com/markets/kxanthropicmillennium/anthropic-millennium-prize-claim/kxanthropicmillennium-27",
+   "date": "2026-10-04"
   }
  ],
  "not_found": [
@@ -6998,6 +9554,78 @@
    "outline_item": "Tao-authored “aftermath” post",
    "searched": "terrytao.wordpress.com/2026/09/12/after-math/ is a guest post by Silvia De Toffoli & Eamon Duede (metadata says “by Terence Tao” only as poster; header note says “This is a guest post… — T.”). Not Tao’s own words.",
    "research_round": "rev2/buzzard.json"
+  },
+  {
+   "outline_item": "Creator's earlier '18 hours' post",
+   "searched": "fxtwitter thread + quote chain (Sep 23 donald -> Sep 25 anabology 12 h -> Sep 30 anabology 12 h -> Oct 2 anabology 18 h), DDG queries 'anabology Claude 18 hours', YouTube channel list, X search snippets. The Oct 2 post is the first and only '18 hours' post found; 'another' refers to his two earlier 12-hour posts. Full X timeline could not be loaded (xcancel suspended, nitter behind an access queue, logged-out X shows only the post + 2 replies)."
+  },
+  {
+   "outline_item": "Creator's own description of the Windows XP film's tools/model (not just a third party's)",
+   "searched": "X thread (only one self-reply, 'Windows XP turns 25 on October 25'), YouTube description (captcha-blocked), LinkedIn (Future AI) and AGI Hunt (no tool details), Instagram evolving.ai + YouTube Short (third-party, listed above). The model/tools in items are therefore 'reported by', and the post itself says only 'Claude'."
+  },
+  {
+   "outline_item": "Verified verbatim lyrics / audio transcript",
+   "searched": "No speech-to-text tool installed; only lyric fragments visible on screen were read ('When two of us get talking, we just dance until we glow', 'Close all your windows', 'Go touch the grass', 'Bliss is a real place', 'It's now safe to turn off your computer.'). The Suno page for the 09-25 song (https://suno.com/s/d1oGqZucN3h7GsI1) and the 'making of' Drive folder were not opened."
+  },
+  {
+   "outline_item": "Independent evidence that the run really lasted 18 hours or was unattended",
+   "searched": "No logs/transcripts found; '18 hours' is the creator's claim (reported as such). Third-party caption says he did not write the lyrics or review the storyboard (unverified)."
+  },
+  {
+   "outline_item": "Second video of the post",
+   "searched": "The post has a single video (X media id 2106157510101008384). yt-dlp's second item is the quoted Sep 30 'Clodyssey' video (id 2105324983178219522, 1920x1080, 191.6 s); it was downloaded to the scratchpad for review only and is not saved in rev2 (only its YouTube thumbnail is)."
+  },
+  {
+   "outline_item": "Official Anthropic announcement / system card / benchmark table for Fable 5.5; who released it and when",
+   "searched": "anthropic.com/news (newest: Sonnet 5.5, Sep 28), anthropic.com/claude/fable (newest: Fable 5.1, Sep 1), platform.claude.com Models overview, support.claude.com release notes (newest launch: Sonnet 5.5, Sep 28), WebSearch + DuckDuckGo \"Fable 5.5\". None exists as of 2026-10-04 - the model is unreleased/unannounced; rumor trackers Kingy AI and AI Tools Review (pages loaded) both say it is unverified; Cellcog, Omniakey, Evolink, Kunavo appear in search results with the same \"no confirmed release\" framing (snippets only)."
+  },
+  {
+   "outline_item": "Independent proof that the @blueemi99 clip or the r/singularity voxel video was made by a \"Fable 5.5\" model",
+   "searched": "Both posters just assert it; the Reddit OP gives no evidence beyond \"automatically routing\", the X poster says nothing about how it was made. Kingy AI: \"We have not reproduced them in a matched test or verified a Fable 5.5 backend.\""
+  },
+  {
+   "outline_item": "Prompt, tool or workflow behind the blueemi99 motion reel and the voxel island scene; side-by-side with Opus 5.5",
+   "searched": "Post text of both (api.fxtwitter.com, Reddit shreddit-post, 32 of 41 comments). The Reddit thread asks \"what's the prompt and what is it running on?\" (HitlersArse) with no answer. No Opus 5.5 comparison clip was posted."
+  },
+  {
+   "outline_item": "Anthropic statement confirming or denying the \"silent routing\" / A-B test claims",
+   "searched": "anthropic.com/news, Claude Help Center, release notes, WebSearch. Nothing. (Only the documented Fable -> Opus safeguard fallback exists.)"
+  },
+  {
+   "outline_item": "9 of the 41 Reddit comments",
+   "searched": "Loaded the thread in headless Chromium, expanded every \"more replies\" loader and the 3 comment permalinks: 32 comments retrievable (41 counted by Reddit; the remainder are probably deleted/removed). Reddit .json/api.reddit.com returned 403 to curl."
+  },
+  {
+   "outline_item": "A playable Reddit embed screenshot",
+   "searched": "Headless Chromium shows \"This video cannot be played.\" in Reddit's player (no H.264), so the post-screenshot crops stop above the player; the footage is provided as mp4/GIF from v.redd.it instead."
+  },
+  {
+   "outline_item": "An OpenAI post saying \"hundreds\" of new math results are awaiting release / in the pipeline",
+   "searched": "OpenAI site pages loaded in full (Advisory Group post 2026-09-21; Navier-Stokes post 2026-09-08; \"Ten advances in mathematics\" 2026-08-01; openai.com/news and /news/company-announcements listings), OpenAI @OpenAI X post of 2026-09-21, WebSearch/DDG/TinyFish queries (\"hundreds\" + math results + awaiting release/pipeline/OpenAI/Pachocki/Bubeck/Brockman/Altman), Verge/NYT/TechCrunch/Decoder/Tao-blog coverage. The closest genuine statement is \"more than 100 long-standing open problems\" (Sept 21); Reddit commenters paraphrase it as \"hundreds\". Use \"100+\" on the slide."
+  },
+  {
+   "outline_item": "Any lab (OpenAI, Anthropic, Google, ...) claiming a Hodge or BSD proof, or a named insider/on-record source for the rumor",
+   "searched": "X (synthwavedd, kimmonismus, Dr_Singularity, Curran, Glazer), Reddit r/mathematics + r/singularity, Gizmodo/The Information/Decoder/Verge, SciAm, Silicon Reckoner, Tao blog, Polymarket/Manifold/Kalshi. Everything is anonymous (\"I am told\", \"a single source\"); no paper, arXiv/Lean artefact or official claim exists as of 2026-10-04."
+  },
+  {
+   "outline_item": "Formal denial of the Hodge/BSD rumors by OpenAI or Anthropic",
+   "searched": "Press + X search; none found. OpenAI only confirms \"substantial progress on another Millennium Prize problem\" (unnamed). Kalshi's Anthropic-before-Oct-1 market resolved NO, which is market evidence, not a denial."
+  },
+  {
+   "outline_item": "The Information's original article (paywalled)",
+   "searched": "theinformation.com not loaded; use Gizmodo / The Decoder / The Verge relays (all loaded)."
+  },
+  {
+   "outline_item": "Screenshot of the NYT Strogatz-Townsend essay and of the Verge Sep 28 article body",
+   "searched": "NYT serves a bot check (captcha) in both local and remote browsers; the live Verge page is paywalled below the lede. Only the Verge hero was captured; the passages are verified text (TinyFish full-page load) for neutral citation cards."
+  },
+  {
+   "outline_item": "Screenshot of Kalshi market pages",
+   "searched": "kalshi.com returns a Vercel security checkpoint; data captured from the Kalshi API instead."
+  },
+  {
+   "outline_item": "Manifold market specifically about BSD being solved by AI",
+   "searched": "Manifold search API: only multi-choice \"next Millennium problem\" markets (Hodge ~60-70%, BSD ~20%) and \"Will ANOTHER millennium prize problem be solved in 2026?\" (41%); Manifold group-page snippet \"Hodge conjecture solved by June 2027 57%\" (2026-09-16) was seen only as a search snippet, not loaded."
   }
  ]
 }

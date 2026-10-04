@@ -26,6 +26,7 @@ ROOT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..')
 DECK = os.environ.get('DECK_PATH') or os.path.join(ROOT, 'AI_Safety_and_Existential_Risk.pptx')
 SOFFICE = '/root/.claude/skills/synced/ceb39289-bb87-46dd-a0b0-6166f033cec2_ce7dbb7b-a240-4473-b2d0-1ddff77530c0/pptx/scripts/office/soffice.py'
 CACHE = os.path.join(ROOT, 'build', 'webcache')
+MAX_WEB_FILE = 24_000_000  # bytes; Cloudflare Pages' per-file limit is 25 MiB
 DEFAULT_DOWNLOAD = 'https://github.com/william590y/poster/releases/download/ai-safety-deck/AI_Safety_and_Existential_Risk.pptx'
 
 NS = {
@@ -217,9 +218,27 @@ def web_video(src, dst):
                            capture_output=True, text=True, check=True).stdout.strip() or 0)
     if h <= 720:
         shutil.copy(src, dst)
-        return
-    subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', src, '-vf', 'scale=-2:720', '-c:v', 'libx264', '-crf', '23', '-preset', 'slow',
-                    '-pix_fmt', 'yuv420p', '-c:a', 'copy', '-movflags', '+faststart', dst], check=True)
+    else:
+        subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', src, '-vf', 'scale=-2:720', '-c:v', 'libx264', '-crf', '23', '-preset', 'slow',
+                        '-pix_fmt', 'yuv420p', '-c:a', 'copy', '-movflags', '+faststart', dst], check=True)
+    if os.path.getsize(dst) > MAX_WEB_FILE:
+        fit_size(src, dst)
+
+
+def fit_size(src, dst):
+    # Cloudflare Pages (williamliaw.com) rejects files over 25 MiB: two-pass encode to ~23 MB, at 540p if the bitrate gets low
+    dur = float(subprocess.run(['ffprobe', '-v', 'error', '-show_entries', 'format=duration', '-of', 'csv=p=0', src],
+                               capture_output=True, text=True, check=True).stdout.strip())
+    vk = int(23.0e6 * 8 / dur / 1000) - 96 - 20
+    height = 720 if vk >= 900 else 540
+    tmp = tempfile.mkdtemp()
+    common = ['-vf', f'scale=-2:{height}', '-c:v', 'libx264', '-b:v', f'{vk}k', '-preset', 'slow', '-pix_fmt', 'yuv420p',
+              '-passlogfile', os.path.join(tmp, 'pass')]
+    subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', src, *common, '-pass', '1', '-an', '-f', 'mp4', os.devnull], check=True)
+    subprocess.run(['ffmpeg', '-loglevel', 'error', '-y', '-i', src, *common, '-pass', '2', '-c:a', 'aac', '-b:a', '96k',
+                    '-movflags', '+faststart', dst], check=True)
+    shutil.rmtree(tmp)
+    assert os.path.getsize(dst) <= MAX_WEB_FILE, (dst, os.path.getsize(dst))
 
 
 def main():

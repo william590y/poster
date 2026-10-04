@@ -5966,7 +5966,7 @@
         }
       ],
       "origin": "Downloaded with yt-dlp from the X post (HLS 1080p variant, 3.42 Mbps video + 128 kbps AAC); the direct twimg 1080p mp4 listed by fxtwitter has the same resolution, bitrate (3.42 Mbps) and size (19.57 MB), so this is the best quality X serves. Container remuxed with -c copy -movflags +faststart (no re-encode, no generation loss).",
-      "notes": "Already H.264 High/yuv420p + AAC-LC and under 45 MB, so it was stream-copied rather than re-encoded (a re-encode could only lose quality). WHAT IT IS: a scripted, pre-rendered text-to-speech showcase (a fan-made 'spec ad'), NOT a real-time conversation, NOT a cloning demo and NOT an official product launch. Author's own bio says 'ex-ElevenLabs'; his self-reply says: 'This is a personal spec project. Not affiliated with or commissioned by ElevenLabs. Just a fan of what v4 can do, showing off something I've been waiting a long time for.' Voice = Eleven v4 per the author (post does not say whether standard v4 or v4 Turbo, nor which preset/cloned voice, nor which tags/prompts were used). Visuals appear to be AI-generated video (post labelled 'Made with AI'); the video model/tool is NOT named anywhere we could find. HOW NATURAL IT SOUNDS: I cannot listen to audio. What can be said from analysis: (1) speech-to-text recognised every scripted line cleanly, including the shouted line, the whispered lines and the Italian-accented word; (2) it contains non-verbal vocalisations (opening laugh, scream, a collapse/sob-like 'fall apart' line, a sung line) - the exact behaviours the script says AI voices 'can't do'; (3) delivery dynamic range is wide: RMS -18.2 dBFS (scream, peak -3.4) vs -28.8/-30.0 dBFS (whispers). Subjective realism is the author's claim ('INSANE') plus ~1.9M views; there is no blind test of this clip. For the talk: play it live with sound, then let the audience judge.",
+      "notes": "Already H.264 High/yuv420p + AAC-LC and under 45 MB, so it was stream-copied rather than re-encoded (a re-encode could only lose quality). WHAT IT IS: a scripted, pre-rendered text-to-speech showcase (a fan-made 'spec ad'), NOT a real-time conversation, not presented as a cloning demo (the voice used is not stated, so a cloned voice cannot be ruled out) and NOT an official product launch. Author's own bio says 'ex-ElevenLabs'; his self-reply says: 'This is a personal spec project. Not affiliated with or commissioned by ElevenLabs. Just a fan of what v4 can do, showing off something I've been waiting a long time for.' Voice = Eleven v4 per the author (post does not say whether standard v4 or v4 Turbo, nor which preset/cloned voice, nor which tags/prompts were used). Visuals appear to be AI-generated video (post labelled 'Made with AI'); the video model/tool is NOT named anywhere we could find. HOW NATURAL IT SOUNDS: I cannot listen to audio. What can be said from analysis: (1) speech-to-text recognised every scripted line cleanly, including the shouted line, the whispered lines and the Italian-accented word; (2) it contains non-verbal vocalisations (opening laugh, scream, a collapse/sob-like 'fall apart' line, a sung line) - the exact behaviours the script says AI voices 'can't do'; (3) delivery dynamic range is wide: RMS -18.2 dBFS (scream, peak -3.4) vs -28.8/-30.0 dBFS (whispers). Subjective realism is the author's claim ('INSANE') plus ~1.9M views; no blind test of this clip was found. For the talk: play it live with sound, then let the audience judge.",
       "rev2_source": "voicedemo.json"
     },
     {
@@ -9788,7 +9788,7 @@
       "rev2_source": "voicedemo.json"
     },
     {
-      "claim": "Framing caveat for the slide: the demo is scripted, pre-rendered text-to-speech by a (former-ElevenLabs) fan - not real-time conversation, not a cloning demo and not an official launch video; there is no blind test of this clip.",
+      "claim": "Framing caveat for the slide: the demo is scripted, pre-rendered text-to-speech by a (former-ElevenLabs) fan - not real-time conversation, not presented as a cloning demo (the voice used is not stated) and not an official launch video; no blind test of this clip found.",
       "source": "Our reading of the post, the author's disclosure and the launch materials",
       "url": "https://x.com/buraktuyan/status/2106018840383717513",
       "date": "2026-10-04",
@@ -10004,7 +10004,7 @@
     },
     {
       "outline_item": "A subjective listening verdict of how natural the audio sounds",
-      "searched": "I cannot listen to audio. Provided instead: speech-to-text of every line (all recognised cleanly), measured dynamic range, and the independent audio-Turing studies. No blind listening test of this specific clip exists.",
+      "searched": "I cannot listen to audio. Provided instead: speech-to-text of every line (all recognised cleanly), measured dynamic range, and the independent audio-Turing studies. No blind listening test of this specific clip was found.",
       "rev2_source": "voicedemo.json"
     },
     {

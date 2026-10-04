@@ -416,7 +416,7 @@ async function proteinSlide(d) {
   const stats = [
     miniStat(d, s, { x: MX, y: sy, w: sw, value: '14 of 15', color: d.S.red, label: 'targets got a binder confirmed in the wet lab' }),
     miniStat(d, s, { x: MX + sw + 0.25, y: sy, w: sw, value: '0', color: d.S.amber, label: 'human inputs into any design decision' }),
-    miniStat(d, s, { x: MX + 2 * (sw + 0.25), y: sy, w: sw, value: '24–48 h', color: d.S.txt, label: 'per campaign (up to 15 targets); a specialist: weeks or months per target' }),
+    miniStat(d, s, { x: MX + 2 * (sw + 0.25), y: sy, w: sw, value: '24–48 h', color: d.S.txt, label: 'per campaign; a specialist: weeks–months/target' }),
   ];
 
   // right: the sources (real screenshots), then the hit-rate comparison

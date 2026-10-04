@@ -2005,6 +2005,22 @@
       "verified": true,
       "rev2_task": "gigawatt",
       "notes": "LICENCE: CC BY-SA 4.0 (verified on the Commons file page; EXIF Artist 'Mario Roberto Duran Ortiz'). Credit: 'Photo: Mariordo / Wikimedia Commons, CC BY-SA 4.0'. 1920px thumbnail from upload.wikimedia.org (original 3798x2532 rate-limited). USBR Hoover Dam FAQ (verified 2026-10-04): 'nameplate capacity of about 2,080 megawatts'; 1947-2008 average annual net generation 'about 4.2 billion kilowatt-hours'."
+    },
+    {
+      "id": "beincrypto-ai-swallows-wall-street",
+      "slide_topic": "AI is swallowing the stock market (headline clipping on the S&P 500 share chart)",
+      "type": "headline",
+      "file": null,
+      "headline": "AI Swallows Wall Street: Stocks Hit Record 45% of S&P 500 Market Cap",
+      "dek": "AI-linked stocks now account for a record 45% of the S&P 500's total market cap, according to data from The Kobeissi Letter.",
+      "outlet": "BeInCrypto (syndicated on Yahoo Finance)",
+      "author": "Kamina Bashir",
+      "date": "2026-04-24",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ai-swallows-wall-street-stocks-094052523.html",
+      "caption": "Headline text only; the slide uses the user-supplied clipping assets/original/image3.png.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Outlet/date verified 2026-10-04 on the Yahoo Finance syndication page (original: https://beincrypto.com/ai-stocks-sp500-record-market-cap/, 403 to fetch). Crypto-news outlet relaying The Kobeissi Letter's data ('up 20 percentage points since ChatGPT launched in Nov 2022'); not primary reporting. Same 45% as the Kobeissi series on the S&P share chart."
     }
   ],
   "datasets": [

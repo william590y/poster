@@ -1,0 +1,719 @@
+{
+ "group": "work",
+ "module": "work",
+ "topic": "voicedemo - Burak Tuyan's 44-second 'what an AI voice can't do' spec ad for ElevenLabs Eleven v4 (X post 2106018840383717513)",
+ "captured": "2026-10-04",
+ "source_page": "https://x.com/buraktuyan/status/2106018840383717513",
+ "authors": "Burak Tuyan (X: @buraktuyan)",
+ "published": "2026-10-02",
+ "items": [
+  {
+   "id": "voicedemo-eleven-v4-spec-ad",
+   "slide_topic": "work: voice demo (shown during the video Turing test discussion) - the 44-second Eleven v4 'what an AI voice can't do' spec ad",
+   "type": "video",
+   "file": "voicedemo-eleven-v4-spec-ad.mp4",
+   "headline": "Eleven v4 is INSANE!",
+   "dek": "Here's my 44-sec spec ad for it. I wrote a script of everything an AI voice \"can't do.\" Then made Eleven v4 read it out loud. Sound on",
+   "outlet": "X (Burak Tuyan, @buraktuyan)",
+   "author": "Burak Tuyan",
+   "date": "2026-10-02",
+   "url": "https://x.com/buraktuyan/status/2106018840383717513",
+   "caption": "44.05 s, 1920x1080 30 fps H.264 High + AAC-LC 44.1 kHz stereo, 19.6 MB, with audio. A stylised Louis-XIV-like caricature in a Versailles-style palace asks 'AI voices? Tell me something. Can they scream like THIS? And then fall apart like this? And sing when the moment demands... Fine, some of them whisper. But can they flirt in a whisper? Can they talk while eating? Or do an Italian accent? [Italian] Impossibile!' then 'Wait... Am I?' and an Eleven V4 / ElevenLabs end card. Burned-in subtitles; the X post carries a 'Made with AI' label.",
+   "quality": 5,
+   "verified": true,
+   "duration_s": 44.05,
+   "width": 1920,
+   "height": 1080,
+   "has_audio": true,
+   "size_mb": 19.6,
+   "mp4": "voicedemo-eleven-v4-spec-ad.mp4",
+   "posters": [
+    "voicedemo-poster-tell-me-something.png",
+    "voicedemo-poster-scream.png",
+    "voicedemo-poster-sing-balcony.png"
+   ],
+   "poster": "voicedemo-poster-tell-me-something.png",
+   "transcript": [
+    {
+     "t": "0.0-3.5",
+     "speech_asr": "Hahaha, a-hi, voices!",
+     "burned_in_subtitle": "A— / AI voices?",
+     "note": "starts with a laugh; character laughing in a gilded armchair"
+    },
+    {
+     "t": "4.0-5.5",
+     "speech_asr": "Tell me something...",
+     "burned_in_subtitle": "Tell me something.",
+     "note": "wide-eyed close-up"
+    },
+    {
+     "t": "5.8-8.0",
+     "speech_asr": "CAN THEY SCREAM LIKE THIS?!",
+     "burned_in_subtitle": "Can they scream like THIS?",
+     "note": "scream; loudest section (peak -3.4 dBFS)"
+    },
+    {
+     "t": "8.8-11.1",
+     "speech_asr": "And then fall apart like this?!",
+     "burned_in_subtitle": "And then fall apart like this?",
+     "note": "character collapses on the floor"
+    },
+    {
+     "t": "12.8-17.8",
+     "speech_asr": "And sing when the moment demands...",
+     "burned_in_subtitle": "♪ And sing when the moment demands ♪",
+     "note": "sung line (music-note subtitle marks), character on a balcony at sunset"
+    },
+    {
+     "t": "18.4-20.3",
+     "speech_asr": "Fine, some of them whisper.",
+     "burned_in_subtitle": "Fine, some of them whisper.",
+     "note": "quiet delivery"
+    },
+    {
+     "t": "20.5-22.9",
+     "speech_asr": "But can they flirt in a whisper?",
+     "burned_in_subtitle": "But can they flirt in a whisper?",
+     "note": "whispered (RMS -28.8 dBFS vs -18.2 for the scream)"
+    },
+    {
+     "t": "24.4-26.1",
+     "speech_asr": "Can they talk while eating?",
+     "burned_in_subtitle": "Can they talk while eating?",
+     "note": "character bites an apple while talking"
+    },
+    {
+     "t": "26.6-28.3",
+     "speech_asr": "Or do an Italian accent?",
+     "burned_in_subtitle": "Or do an Italian accent?",
+     "note": ""
+    },
+    {
+     "t": "28.3-30.3",
+     "speech_asr": "Impossibile, impo...",
+     "burned_in_subtitle": "[Italian] Impossibile! / [Italian] Impo—",
+     "note": "Italian-accented line, cut off mid-word"
+    },
+    {
+     "t": "35.3-37.8",
+     "speech_asr": "Wait... am I?",
+     "burned_in_subtitle": "Wait... / Am I?",
+     "note": "turn: the 'AI voice' realises it is the thing being discussed"
+    },
+    {
+     "t": "38.3-43.3",
+     "speech_asr": "11v4, the next frontier of human-level communication.",
+     "burned_in_subtitle": "(none - end card shows 'Eleven V4' then the ElevenLabs wordmark)",
+     "note": "spoken tagline over the end card. Not subtitled. ASR (faster-whisper small.en) heard it as '11v4'; LinkedIn's auto-transcript of the same post renders it 'Eleven V4 the next frontier of human level communication?'. Treat the wording as machine-transcribed, not verbatim from a script."
+    }
+   ],
+   "origin": "Downloaded with yt-dlp from the X post (HLS 1080p variant, 3.42 Mbps video + 128 kbps AAC); the direct twimg 1080p mp4 listed by fxtwitter has the same resolution, bitrate (3.42 Mbps) and size (19.57 MB), so this is the best quality X serves. Container remuxed with -c copy -movflags +faststart (no re-encode, no generation loss).",
+   "notes": "Already H.264 High/yuv420p + AAC-LC and under 45 MB, so it was stream-copied rather than re-encoded (a re-encode could only lose quality). WHAT IT IS: a scripted, pre-rendered text-to-speech showcase (a fan-made 'spec ad'), NOT a real-time conversation, not presented as a cloning demo (the voice used is not stated, so a cloned voice cannot be ruled out) and NOT an official product launch. Author's own bio says 'ex-ElevenLabs'; his self-reply says: 'This is a personal spec project. Not affiliated with or commissioned by ElevenLabs. Just a fan of what v4 can do, showing off something I've been waiting a long time for.' Voice = Eleven v4 per the author (post does not say whether standard v4 or v4 Turbo, nor which preset/cloned voice, nor which tags/prompts were used). Visuals appear to be AI-generated video (post labelled 'Made with AI'); the video model/tool is NOT named anywhere we could find. HOW NATURAL IT SOUNDS: I cannot listen to audio. What can be said from analysis: (1) speech-to-text recognised every scripted line cleanly, including the shouted line, the whispered lines and the Italian-accented word; (2) it contains non-verbal vocalisations (opening laugh, scream, a collapse/sob-like 'fall apart' line, a sung line) - the exact behaviours the script says AI voices 'can't do'; (3) delivery dynamic range is wide: RMS -18.2 dBFS (scream, peak -3.4) vs -28.8/-30.0 dBFS (whispers). Subjective realism is the author's claim ('INSANE') plus ~1.9M views; no blind test of this clip was found. For the talk: play it live with sound, then let the audience judge."
+  },
+  {
+   "id": "voicedemo-poster-tell-me-something",
+   "slide_topic": "work: voice demo - poster frame 1 (recommended)",
+   "type": "image",
+   "file": "voicedemo-poster-tell-me-something.png",
+   "headline": null,
+   "dek": null,
+   "outlet": "X (Burak Tuyan)",
+   "author": "Burak Tuyan",
+   "date": "2026-10-02",
+   "url": "https://x.com/buraktuyan/status/2106018840383717513",
+   "caption": "Frame at t=4.6 s (1920x1080 PNG): extreme close-up of the wide-eyed caricature with subtitle 'Tell me something.'",
+   "quality": 5,
+   "verified": true,
+   "notes": "Uncropped video frame (subtitle burned in by the author). Strong thumbnail: clearly a stylised character, so it reads as 'voice demo' rather than a deepfake of a real person."
+  },
+  {
+   "id": "voicedemo-poster-scream",
+   "slide_topic": "work: voice demo - poster frame 2",
+   "type": "image",
+   "file": "voicedemo-poster-scream.png",
+   "headline": null,
+   "dek": null,
+   "outlet": "X (Burak Tuyan)",
+   "author": "Burak Tuyan",
+   "date": "2026-10-02",
+   "url": "https://x.com/buraktuyan/status/2106018840383717513",
+   "caption": "Frame at t=7.2 s (1920x1080 PNG): the character screaming, subtitle 'Can they scream like THIS?'",
+   "quality": 5,
+   "verified": true,
+   "notes": "Most dramatic frame; pairs with the loudest audio section."
+  },
+  {
+   "id": "voicedemo-poster-sing-balcony",
+   "slide_topic": "work: voice demo - poster frame 3",
+   "type": "image",
+   "file": "voicedemo-poster-sing-balcony.png",
+   "headline": null,
+   "dek": null,
+   "outlet": "X (Burak Tuyan)",
+   "author": "Burak Tuyan",
+   "date": "2026-10-02",
+   "url": "https://x.com/buraktuyan/status/2106018840383717513",
+   "caption": "Frame at t=14.6 s (1920x1080 PNG): the character from behind with arms spread on a sunset balcony, subtitle '♪ And sing when the moment demands ♪'",
+   "quality": 5,
+   "verified": true,
+   "notes": "Most cinematic frame; best if the slide should look polished rather than weird."
+  },
+  {
+   "id": "voicedemo-x-post",
+   "slide_topic": "work: voice demo - source post",
+   "type": "screenshot",
+   "file": "voicedemo-x-post.png",
+   "headline": "Eleven v4 is INSANE! 🤯",
+   "dek": "Here's my 44-sec spec ad for it. I wrote a script of everything an AI voice \"can't do.\" Then made Eleven v4 read it out loud. Sound on 🔊",
+   "outlet": "X",
+   "author": "Burak Tuyan (@buraktuyan)",
+   "date": "2026-10-02",
+   "url": "https://x.com/buraktuyan/status/2106018840383717513",
+   "caption": "X post page cropped to the post column (login panel cropped out): text, video thumbnail with ElevenLabs tag and 'Made with AI' label, 1:49 PM Oct 2 2026, 1.9M views, 444 replies / 633 reposts / 10K likes / 6.2K bookmarks, and Burak's self-reply disclosing it is a personal spec project not affiliated with ElevenLabs",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    1196,
+    1800
+   ],
+   "notes": "Real screenshot (shot.js clip 276,0,598,900 @2x). Counters are as rendered on 2026-10-04 and keep rising."
+  },
+  {
+   "id": "voicedemo-elevenlabs-blog-header",
+   "slide_topic": "work: voice demo - official launch post",
+   "type": "screenshot",
+   "file": "voicedemo-elevenlabs-blog-header.png",
+   "headline": "Introducing Eleven v4, our most emotive model",
+   "dek": "A line of text can change significantly depending on how it’s spoken. “I need you to stay calm\" should sound different depending on who's saying it, whether that's a doctor delivering it gently to a frightened patient, or a character in a game shouting to his squad before dropping into battle.",
+   "outlet": "ElevenLabs (blog / Research)",
+   "author": "Mati Staniszewski, Piotr Dabkowski",
+   "date": "2026-09-28",
+   "url": "https://elevenlabs.io/blog/eleven-v4",
+   "caption": "Official launch post header: page H1, authors, Published Sep 28 2026, Last updated Oct 1 2026, first paragraph",
+   "quality": 5,
+   "verified": true,
+   "notes": "Page H1 is 'Introducing Eleven v4, our most emotive model'; the HTML <title>/og:title is 'Eleven v4: Our most expressive text-to-speech AI model yet'. Company marketing = vendor claims."
+  },
+  {
+   "id": "voicedemo-elevenlabs-v4-turbo-latency-chart",
+   "slide_topic": "work: voice demo - latency claim (vendor chart)",
+   "type": "chart",
+   "file": "voicedemo-elevenlabs-v4-turbo-latency-chart.png",
+   "headline": "Median time to first speech",
+   "dek": "Median time from request to audible speech. Measured September 2026 with identical scripts and default settings against Cartesia Sonic 3.6, xAI TTS, Google Gemini 3.8 Flash-Lite TTS, and OpenAI GPT-4o mini TTS. Eleven v4 Turbo over WebSocket streaming.",
+   "outlet": "ElevenLabs (blog chart, 2480x1394)",
+   "author": null,
+   "date": "2026-09-28",
+   "url": "https://elevenlabs.io/blog/eleven-v4",
+   "caption": "Bar chart: Eleven v4 Turbo 150 ms; Cartesia Sonic 3.6 262 ms; xAI TTS 362 ms; Google Gemini 3.8 Flash-Lite TTS 685 ms; OpenAI GPT-4o mini TTS 814 ms",
+   "quality": 4,
+   "verified": true,
+   "notes": "VENDOR-REPORTED and vendor-run benchmark (footnote 3: network latency measured and removed for all systems). Light-background chart. Alt text on the page: 'Median time to first speech: Eleven v4 Turbo 150ms, fastest; others 262–814ms.' Downloaded from https://eleven-public-cdn.elevenlabs.io/payloadcms/1d5ten23khi-Latency-with-silence--2-.webp and converted to PNG."
+  },
+  {
+   "id": "voicedemo-elevenlabs-v4-preference-chart",
+   "slide_topic": "work: voice demo - blind preference claim (vendor chart)",
+   "type": "chart",
+   "file": "voicedemo-elevenlabs-v4-preference-chart.png",
+   "headline": "Share of blind head-to-head pairs won by Eleven v4",
+   "dek": "Based on blind head-to-head user preference testing against Cartesia Sonic 3.6, Inworld TTS-2, Google Gemini 3.8 Flash-Lite TTS, and Google Gemini 3.8 Flash TTS, September 2026. For each pair, graders heard the same line from Eleven v4 and one competitor, presented blind, and judged which was more expressive; ties counted as half.",
+   "outlet": "ElevenLabs (blog chart, 2480x1394)",
+   "author": null,
+   "date": "2026-09-28",
+   "url": "https://elevenlabs.io/blog/eleven-v4",
+   "caption": "Bar chart: v4 wins 81% vs Cartesia Sonic 3.6, 81% vs Inworld TTS-2, 72% vs Gemini 3.8 Flash-Lite TTS, 65% vs Gemini 3.8 Flash TTS",
+   "quality": 4,
+   "verified": true,
+   "notes": "VENDOR-REPORTED. Compares v4 against OTHER TTS MODELS, not against real humans - do not present it as a human-vs-AI Turing result. The chart text says 'more expressive'; the blog footnote 2 says graders judged both 'more expressive and which sounded more natural'. Source image https://eleven-public-cdn.elevenlabs.io/payloadcms/9hcvihiw58b-Expressiveness-chart--1-.webp"
+  },
+  {
+   "id": "voicedemo-elevenlabs-v4-og-hero",
+   "slide_topic": "work: voice demo - product title card",
+   "type": "image",
+   "file": "voicedemo-elevenlabs-v4-og-hero.png",
+   "headline": null,
+   "dek": null,
+   "outlet": "ElevenLabs (blog hero / og:image, 3840x2160)",
+   "author": null,
+   "date": "2026-09-28",
+   "url": "https://elevenlabs.io/blog/eleven-v4",
+   "caption": "Official 'Eleven V4' hero art: white wordmark with a V4 pill over a blurred orange-green gradient",
+   "quality": 4,
+   "verified": true,
+   "notes": "Company brand art (og:image https://eleven-public-cdn.elevenlabs.io/payloadcms/3o2hqbr4pb7-1920x1080.webp). Use only as a product title card with attribution."
+  },
+  {
+   "id": "voicedemo-techcrunch",
+   "slide_topic": "work: voice demo - independent launch coverage",
+   "type": "screenshot",
+   "file": "voicedemo-techcrunch.png",
+   "headline": "ElevenLabs’ new v4 speech model supports more expression control and 90 languages",
+   "dek": "ElevenLabs v4 can clone voices with a 10 second clip",
+   "outlet": "TechCrunch",
+   "author": "Ivan Mehta",
+   "date": "2026-09-28",
+   "url": "https://techcrunch.com/2026/09/28/elevenlabs-new-v4-speech-model-supports-more-expression-control-and-90-languages/",
+   "caption": "TechCrunch hero: headline, byline Ivan Mehta, 7:00 AM PDT September 28 2026 and the lede 'ElevenLabs launched two new speech models on Monday, called ElevenLabs v4 and v4 Turbo, offering more expression control, lower latency for voice agents, and support for more than 90 languages.'",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    2560,
+    1720
+   ],
+   "notes": "Subhead 'ElevenLabs v4 can clone voices with a 10 second clip' is the og:description (not visible in the hero crop). TechCrunch body also reports ElevenLabs raised $500 million from Sequoia earlier in 2026 at an $11 billion valuation, ARR up from ~$330M to >$600M, >800 staff (company-stated figures)."
+  },
+  {
+   "id": "voicedemo-aa-eleven-v4",
+   "slide_topic": "work: voice demo - independent ranking",
+   "type": "screenshot",
+   "file": "voicedemo-aa-eleven-v4.png",
+   "headline": "Eleven v4 Quality Elo, Speed & Price Analysis",
+   "dek": "Provider Voice Arena Preference Elo (Arena Elo: average Elo rating of the model · Higher is better); 27 of 96 models shown",
+   "outlet": "Artificial Analysis",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://artificialanalysis.ai/text-to-speech/models/eleven-v4",
+   "caption": "Artificial Analysis model page for Eleven v4 (Elo 1321.44) with the Provider Voice Arena bar chart: Eleven v4 1321, Qwen-Audio-3.1-TTS-Plus 1292, Sonic 3.6 1278, Gemini 3.8 Flash TTS 1275 ... Eleven v3 1174",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    2800,
+    2000
+   ],
+   "notes": "Third-party, crowd-voted arena (the leaderboard ElevenLabs cites for '#1'). Live page: values drift (launch-day coverage quoted Elo 1,319 from 1,674 samples, Sonic 3.6 at 1,276); this capture is 2026-10-04."
+  },
+  {
+   "id": "voicedemo-elevenlabs-launch-tweet",
+   "slide_topic": "work: voice demo - official launch post on X",
+   "type": "screenshot",
+   "file": "voicedemo-elevenlabs-launch-tweet.png",
+   "headline": "Introducing Eleven v4 and Eleven v4 Turbo, our fastest and most emotive voice models yet.",
+   "dek": "Ranked #1 by Artificial Analysis.",
+   "outlet": "X (@ElevenLabs)",
+   "author": "ElevenLabs",
+   "date": "2026-09-28",
+   "url": "https://x.com/ElevenLabs/status/2104572127617994917",
+   "caption": "Official launch tweet, 2:01 PM Sep 28 2026, 4.8M views, 494 replies, 1.5K reposts, 19K likes; thread continues with 'Eleven v4 Turbo is the low latency version of Eleven v4 with a median inference latency of ~100 ms, built for realtime use cases.'",
+   "quality": 2,
+   "verified": true,
+   "notes": "Quality 2: the embedded video preview had not loaded (blurred grey placeholder), the text and counters are fine. fxtwitter: 4,883,874 views, 19,211 likes, 1,533 reposts, 1,144 quotes; attached 156 s launch video."
+  },
+  {
+   "id": "voicedemo-cnn-voice-cloning",
+   "slide_topic": "work: voice demo - why the voice side is a safety issue (scams)",
+   "type": "screenshot",
+   "file": "voicedemo-cnn-voice-cloning.png",
+   "headline": "AI ‘voice cloning’ scams are on the rise. Here’s how to protect yourself",
+   "dek": "Americans lost $893 million to AI-related scams last year, including voice cloning attacks and also AI-generated phishing emails, romance scams and other hoaxes, according to the FBI.",
+   "outlet": "CNN Business",
+   "author": "Clare Duffy",
+   "date": "2026-05-29",
+   "url": "https://www.cnn.com/2026/05/29/tech/ai-voice-cloning-scams-protect-yourself",
+   "caption": "CNN headline crop with date May 29 2026 and byline Clare Duffy",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    2560,
+    580
+   ],
+   "notes": "Headline from the page; the dek is the first body sentence (page text), not shown in the crop. The $893M figure is AI-related scams in general (FBI, 2025 losses), not voice cloning alone."
+  },
+  {
+   "id": "voicedemo-jec-hassan",
+   "slide_topic": "work: voice demo - regulators pressing ElevenLabs on voice-clone scams",
+   "type": "screenshot",
+   "file": "voicedemo-jec-hassan.png",
+   "headline": "Senator Hassan Presses Leading AI Voice Cloning Companies to Prevent Exploitation by Scammers",
+   "dek": "Requests Come as FBI Newly Reports Victims Lost $893 Million to AI-Related Scams in 2025",
+   "outlet": "U.S. Joint Economic Committee (Democrats) - press release",
+   "author": "Sen. Maggie Hassan",
+   "date": "2026-04-16",
+   "url": "https://www.jec.senate.gov/public/index.cfm/democrats/2026/4/senator-hassan-presses-leading-ai-voice-cloning-companies-to-prevent-exploitation-by-scammers",
+   "caption": "Official Senate JEC press release header (April 16 2026): Hassan asked ElevenLabs, LOVO, Speechify and VEED what they do to deter scammers",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    2560,
+    1800
+   ],
+   "notes": "This predates v4 (April 2026). The release also cites a March 2025 Consumer Reports finding that most leading voice-cloning products had no 'technical mechanism' to prevent replicating voices without permission."
+  },
+  {
+   "id": "voicedemo-register-humans-flunk-voice-turing",
+   "slide_topic": "work: voice demo - audio Turing test evidence (independent)",
+   "type": "screenshot",
+   "file": "voicedemo-register-humans-flunk-voice-turing.png",
+   "headline": "Humans flunk the Turing test for voices as bots get chattier",
+   "dek": "Coin toss odds for spotting a deepfake, study finds. And that's before the machines learn to sing",
+   "outlet": "The Register",
+   "author": "Owen Hughes",
+   "date": "2025-10-09",
+   "url": "https://www.theregister.com/software/2025/10/09/humans-flunk-the-turing-test-for-voices-as-bots-get-chattier/318345",
+   "caption": "Headline crop: Queen Mary University of London / UCL study in PLOS One, people can no longer reliably distinguish genuine speech from cloned AI voices",
+   "quality": 5,
+   "verified": true,
+   "image_size": [
+    2560,
+    730
+   ],
+   "notes": "Study used off-the-shelf ElevenLabs software and under five minutes of sample speech per clone (an older ElevenLabs model, 2025). The dek's 'before the machines learn to sing' lands neatly on the demo's sung line."
+  },
+  {
+   "id": "voicedemo-livescience-voices-indistinguishable",
+   "slide_topic": "work: voice demo - audio Turing test evidence (headline card)",
+   "type": "headline",
+   "file": null,
+   "headline": "AI voices are now indistinguishable from real human voices",
+   "dek": "Do you think you'd be able to tell the difference between a real human voice and a deepfake? Most people can't.",
+   "outlet": "Live Science",
+   "author": null,
+   "date": "2025-10-04",
+   "url": "https://www.livescience.com/technology/artificial-intelligence/ai-voices-are-now-indistinguishable-from-real-human-voices",
+   "caption": "Headline-only (screenshot timed out). Body: 80 voices (40 AI, 40 human); 41% of from-scratch AI voices misclassified as human; 58% of AI voices cloned from humans misclassified as human vs 62% of real human voices classified correctly - 'no statistical difference'.",
+   "quality": 3,
+   "verified": true,
+   "notes": "Headline/dek from the page's <title> and og:description, stats from the page body (loaded via curl). Render as a neutral citation card."
+  },
+  {
+   "id": "voicedemo-radioink-listeners-cant-detect-ai-voice",
+   "slide_topic": "work: voice demo - audio Turing test evidence (headline card)",
+   "type": "headline",
+   "file": null,
+   "headline": "Study: Majority of Radio Listeners Unbothered By AI Voices On-Air",
+   "dek": "A blind study of 1,326 weekly radio listeners finds AI and human voiceover score nearly identically, but reactions diverge once listeners learn the source.",
+   "outlet": "Radio Ink",
+   "author": null,
+   "date": "2026-07-07",
+   "url": "https://radioink.com/2026/07/07/radio-listeners-cant-detect-ai-voice-but-dont-trust-it-either/",
+   "caption": "Headline-only. Body lede: 'Radio listeners can’t reliably tell an AI-generated voice from a professional human read, and more than half are okay with a station using AI' - 1,326 weekly listeners, May-June 2026, human read by voice actor Neil Wilson.",
+   "quality": 3,
+   "verified": true,
+   "notes": "Study conducted by Harker Bos Group per the article (industry-commissioned, two short radio promo scripts). Dek is the page's meta description."
+  },
+  {
+   "id": "voicedemo-techtimes-v4-reading-to-acting",
+   "slide_topic": "work: voice demo - independent launch coverage (headline card)",
+   "type": "headline",
+   "file": null,
+   "headline": "ElevenLabs Eleven v4 Shifts Voice AI from Reading to Acting, Turbo Hits Sub-150ms Latency",
+   "dek": "Artificial Analysis ranks Eleven v4 first among voice models; Turbo cuts agent response time in half",
+   "outlet": "Tech Times",
+   "author": null,
+   "date": "2026-09-30",
+   "url": "https://www.techtimes.com/articles/328298/20260930/elevenlabs-eleven-v4-shifts-voice-ai-reading-acting-turbo-hits-sub-150ms-latency.htm",
+   "caption": "Headline-only (no screenshot taken)",
+   "quality": 3,
+   "verified": true,
+   "notes": "Page loaded via curl; headline/dek from the page. Tech Times describes the 150 ms figure as 'in ElevenLabs' own testing'."
+  },
+  {
+   "id": "voicedemo-uniteai-launch",
+   "slide_topic": "work: voice demo - independent launch coverage (headline card)",
+   "type": "headline",
+   "file": null,
+   "headline": "ElevenLabs Launches Eleven V4 With Low-Latency Turbo Variant",
+   "dek": "ElevenLabs on September 28, 2026 launched Eleven v4, a text-to-speech model the company describes as its most emotive yet, and Eleven v4 Turbo, a low-latency variant designed for voice agents and real-time use.",
+   "outlet": "Unite.AI",
+   "author": null,
+   "date": "2026-09-28",
+   "url": "https://www.unite.ai/elevenlabs-launches-eleven-v4-with-low-latency-turbo-variant/",
+   "caption": "Headline-only (no screenshot taken)",
+   "quality": 3,
+   "verified": true,
+   "notes": "Page loaded via curl; dek is the article lede."
+  },
+  {
+   "id": "voicedemo-agihunt-spec-ad",
+   "slide_topic": "work: voice demo - reaction to the demo",
+   "type": "headline",
+   "file": null,
+   "headline": "44-second spec ad makes Eleven v4 read a list of things AI voices 'can't do'",
+   "dek": "Developer Burak Tuyan's 44-second spec ad for ElevenLabs' Eleven v4 lists everything an AI voice 'can't do' — then has the model read it aloud, showcasing its expressiveness. Several creators shared it calling the result 'insane.'",
+   "outlet": "AGI Hunt (aggregator)",
+   "author": "aloncarmel (via X)",
+   "date": "2026-10-03",
+   "url": "https://agihunt.info/en/p/1a0fe1ca933583dae74f453392a",
+   "caption": "Aggregator blurb on the demo; the only third-party write-up of the clip itself that we found",
+   "quality": 2,
+   "verified": true,
+   "notes": "Low-authority aggregator; its description ('developer') is loose - Burak's own bio says 'I tell stories. Sometimes for brands. | ex-ElevenLabs'. Use only as colour. The author's LinkedIn copy of the post (2,037 reactions, 152 comments when fetched) is at https://www.linkedin.com/posts/buraktuyan_eleven-v4-is-insane-heres-my-44-sec-spec-activity-7511788695436308481-bjOt"
+  }
+ ],
+ "datasets": [
+  {
+   "id": "voicedemo-aa-provider-voice-arena-elo",
+   "title": "Artificial Analysis Provider Voice Arena preference Elo (top 14 of 96, as shown 2026-10-04)",
+   "unit": "Elo",
+   "labels": [
+    "Eleven v4",
+    "Qwen-Audio-3.1-TTS-Plus",
+    "Sonic 3.6",
+    "Gemini 3.8 Flash TTS",
+    "Qwen-Audio-3.0-TTS-Plus",
+    "Realtime TTS-2",
+    "Simba 3.2",
+    "Gemini 3.8 Flash-Lite TTS",
+    "Luna TTS",
+    "Breeze TTS 2",
+    "Gemini 3.1 Flash TTS",
+    "v3 Conversational",
+    "Sonic 3.5",
+    "Eleven v3"
+   ],
+   "series": [
+    {
+     "name": "Arena Elo",
+     "values": [
+      1321,
+      1292,
+      1278,
+      1275,
+      1261,
+      1251,
+      1242,
+      1242,
+      1227,
+      1216,
+      1209,
+      1203,
+      1190,
+      1174
+     ]
+    }
+   ],
+   "source": "Artificial Analysis, Eleven v4 page, Provider Voice Arena Preference Elo (read from the live page/screenshot on 2026-10-04; page header gives Eleven v4 Elo 1321.44)",
+   "url": "https://artificialanalysis.ai/text-to-speech/models/eleven-v4",
+   "notes": "Values are the rounded numbers printed on the bars; the leaderboard moves (launch-day coverage: Eleven v4 1,319 from 1,674 samples, Cartesia Sonic 3.6 1,276). Eleven v4 is +147 Elo over Eleven v3 (1174)."
+  },
+  {
+   "id": "voicedemo-v4-turbo-time-to-first-speech",
+   "title": "Median time to first speech, ElevenLabs-run benchmark (Sept 2026)",
+   "unit": "ms (lower is better)",
+   "labels": [
+    "Eleven v4 Turbo",
+    "Cartesia Sonic 3.6",
+    "xAI TTS",
+    "Google Gemini 3.8 Flash-Lite TTS",
+    "OpenAI GPT-4o mini TTS"
+   ],
+   "series": [
+    {
+     "name": "Median time to first speech (ms)",
+     "values": [
+      150,
+      262,
+      362,
+      685,
+      814
+     ]
+    }
+   ],
+   "source": "ElevenLabs, 'Introducing Eleven v4, our most emotive model', footnote 3 and chart (vendor-reported; network latency removed; v4 Turbo over WebSocket streaming; identical scripts, default settings)",
+   "url": "https://elevenlabs.io/blog/eleven-v4",
+   "notes": "VENDOR-REPORTED, not independently replicated. The blog also gives median inference latency of ~100 ms for Turbo and says this is faster than the average pause between two people talking."
+  },
+  {
+   "id": "voicedemo-v4-blind-preference-winrate",
+   "title": "Share of blind head-to-head pairs won by Eleven v4 (ElevenLabs-run, Sept 2026)",
+   "unit": "% (ties counted as half)",
+   "labels": [
+    "vs Cartesia Sonic 3.6",
+    "vs Inworld TTS-2",
+    "vs Google Gemini 3.8 Flash-Lite TTS",
+    "vs Google Gemini 3.8 Flash TTS"
+   ],
+   "series": [
+    {
+     "name": "Eleven v4 win rate (%)",
+     "values": [
+      81,
+      81,
+      72,
+      65
+     ]
+    }
+   ],
+   "source": "ElevenLabs launch post chart (vendor-reported); text says ~75% of listeners prefer v4 over competing models",
+   "url": "https://elevenlabs.io/blog/eleven-v4",
+   "notes": "VENDOR-REPORTED. Model-vs-model, not model-vs-human. The four values average 74.75%, consistent with the '~75%' headline claim."
+  },
+  {
+   "id": "voicedemo-qmul-voice-detection",
+   "title": "Can people tell AI voices from human ones? (QMUL/UCL, PLOS One 2025, 80 voices: 40 human + 40 AI)",
+   "unit": "% of voices of that type judged 'human'",
+   "labels": [
+    "Real human voices judged human",
+    "AI voices cloned from real people judged human",
+    "AI voices generated from scratch judged human"
+   ],
+   "series": [
+    {
+     "name": "Judged to be human (%)",
+     "values": [
+      62,
+      58,
+      41
+     ]
+    }
+   ],
+   "source": "Live Science (2025-10-04) and The Register (2025-10-09) reporting on the PLOS One study led by Nadine Lavan (Queen Mary University of London)",
+   "url": "https://www.livescience.com/technology/artificial-intelligence/ai-voices-are-now-indistinguishable-from-real-human-voices",
+   "notes": "Live Science: 62% of human voices were classified correctly as human and 58% of cloned voices were misclassified as human -> 'no statistical difference'; 41% of from-scratch AI voices were misclassified as human. Clones built with off-the-shelf ElevenLabs software and under five minutes of speech (The Register) - i.e. an older model than v4."
+  },
+  {
+   "id": "voicedemo-ad-audio-rms-by-line",
+   "title": "Our own loudness measurement of the spec-ad audio, by line (mono 16 kHz downmix)",
+   "unit": "dBFS RMS",
+   "labels": [
+    "Hahaha / AI voices (0-3.5s)",
+    "Tell me something (4-5.5s)",
+    "Can they scream like THIS (5.8-8s)",
+    "And then fall apart (8.8-11.1s)",
+    "And sing... (12.8-17.8s)",
+    "Fine, some whisper (18.4-20.3s)",
+    "Flirt in a whisper (20.5-22.9s)",
+    "Talk while eating (24.4-26.1s)",
+    "Italian accent (26.6-28.3s)",
+    "Impossibile (28.3-30.3s)",
+    "Wait... am I? (35.3-37.8s)",
+    "Tagline (38.3-43.3s)"
+   ],
+   "series": [
+    {
+     "name": "RMS dBFS",
+     "values": [
+      -23.7,
+      -25.7,
+      -18.2,
+      -20.4,
+      -24.4,
+      -30.0,
+      -28.8,
+      -19.8,
+      -19.2,
+      -21.0,
+      -27.1,
+      -18.6
+     ]
+    }
+   ],
+   "source": "Computed by us with ffmpeg + Python from voicedemo-eleven-v4-spec-ad.mp4 (not a published figure)",
+   "url": "https://x.com/buraktuyan/status/2106018840383717513",
+   "notes": "Derived measurement, only evidence of dynamic range (scream -18.2 vs whisper -30.0 dBFS = ~12 dB swing). Not a quality score; do not put on a slide as a benchmark."
+  }
+ ],
+ "facts": [
+  {
+   "claim": "Burak Tuyan (bio: 'I tell stories. Sometimes for brands. | ex-ElevenLabs') posted a 44-second spec ad on Oct 2, 2026: 'I wrote a script of everything an AI voice \"can't do.\" Then made Eleven v4 read it out loud.' It reached 1.9M views, 10,035 likes, 632 reposts, 444 replies, 6,211 bookmarks and 205 quotes within ~2 days.",
+   "source": "X via fxtwitter API + screenshot (retrieved 2026-10-04)",
+   "url": "https://x.com/buraktuyan/status/2106018840383717513",
+   "date": "2026-10-02"
+  },
+  {
+   "claim": "The author's own disclosure: 'This is a personal spec project. Not affiliated with or commissioned by ElevenLabs. Just a fan of what v4 can do, showing off something I've been waiting a long time for.' (reply tweet; 265 likes, ~43.7K views)",
+   "source": "Burak Tuyan self-reply",
+   "url": "https://x.com/buraktuyan/status/2106018843315601532",
+   "date": "2026-10-02"
+  },
+  {
+   "claim": "The clip's script has the voice laugh, scream ('Can they scream like THIS?'), 'fall apart', sing ('And sing when the moment demands'), whisper ('Fine, some of them whisper. But can they flirt in a whisper?'), talk while eating, do an Italian accent ('Impossibile!'), then turn on itself: 'Wait... Am I?'",
+   "source": "Burned-in subtitles + speech-to-text of the video (our analysis)",
+   "url": "https://x.com/buraktuyan/status/2106018840383717513",
+   "date": "2026-10-02"
+  },
+  {
+   "claim": "ElevenLabs launched Eleven v4 and Eleven v4 Turbo on September 28, 2026: 'our most emotive text-to-speech model yet' plus a low-latency variant; available in ElevenAgents, ElevenCreative and the API.",
+   "source": "ElevenLabs launch post (Mati Staniszewski, Piotr Dabkowski); TechCrunch, Ivan Mehta",
+   "url": "https://elevenlabs.io/blog/eleven-v4",
+   "date": "2026-09-28"
+  },
+  {
+   "claim": "ElevenLabs claims Eleven v4 is 'Ranked #1 by Artificial Analysis' and 'preferred by ~75% of listeners in blind head-to-head tests over competing models' (vendor-run: wins 81%, 81%, 72%, 65% vs four rivals).",
+   "source": "ElevenLabs launch post (vendor-reported)",
+   "url": "https://elevenlabs.io/blog/eleven-v4",
+   "date": "2026-09-28"
+  },
+  {
+   "claim": "Artificial Analysis's Provider Voice Arena lists Eleven v4 first at Elo ~1321 (next: Qwen-Audio-3.1-TTS-Plus 1292, Cartesia Sonic 3.6 1278, Gemini 3.8 Flash TTS 1275); Eleven v3 sits at 1174.",
+   "source": "Artificial Analysis (independent, crowd-voted arena), page read 2026-10-04",
+   "url": "https://artificialanalysis.ai/text-to-speech/models/eleven-v4",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "Eleven v4 Turbo: ~100 ms median inference latency and ~150 ms median time to first speech (ElevenLabs-measured; rivals 262-814 ms) - 'it can respond faster than the average pause between two people talking.'",
+   "source": "ElevenLabs launch post, footnote 3 (vendor-reported)",
+   "url": "https://elevenlabs.io/blog/eleven-v4",
+   "date": "2026-09-28"
+  },
+  {
+   "claim": "Eleven v4 supports 90+ languages, and Instant Voice Clones 'can now capture voices with high fidelity using just 10 seconds of audio'; a voice recorded in one language speaks any other fluently.",
+   "source": "ElevenLabs launch post; TechCrunch subhead 'ElevenLabs v4 can clone voices with a 10 second clip'",
+   "url": "https://elevenlabs.io/blog/eleven-v4",
+   "date": "2026-09-28"
+  },
+  {
+   "claim": "v4 is controlled with inline tags like [laughs], [said angrily in French accent], [light rain], [phone buzzing]; the company says it 'interprets tone, pacing, emotion, character, and context'.",
+   "source": "ElevenLabs launch post",
+   "url": "https://elevenlabs.io/blog/eleven-v4",
+   "date": "2026-09-28"
+  },
+  {
+   "claim": "Independent Turing-style evidence for voices: in a QMUL/UCL PLOS One study, 58% of AI voices cloned from real people were judged human vs 62% of real human voices judged human (no statistical difference); clones used off-the-shelf ElevenLabs software and under five minutes of speech (2025, older model).",
+   "source": "Live Science (2025-10-04); The Register, 'Humans flunk the Turing test for voices as bots get chattier' (2025-10-09)",
+   "url": "https://www.theregister.com/software/2025/10/09/humans-flunk-the-turing-test-for-voices-as-bots-get-chattier/318345",
+   "date": "2025-10-09"
+  },
+  {
+   "claim": "A July 2026 blind study of 1,326 weekly radio listeners found AI and human voiceover scored nearly identically; reactions diverged once listeners learned the source.",
+   "source": "Radio Ink (study by Harker Bos Group)",
+   "url": "https://radioink.com/2026/07/07/radio-listeners-cant-detect-ai-voice-but-dont-trust-it-either/",
+   "date": "2026-07-07"
+  },
+  {
+   "claim": "Voice-clone risk is already a political issue: on April 16, 2026 Sen. Maggie Hassan pressed ElevenLabs, LOVO, Speechify and VEED to prevent scammers abusing voice cloning, as the FBI reported $893 million in AI-related scam losses in 2025.",
+   "source": "U.S. Joint Economic Committee press release; CNN Business (2026-05-29)",
+   "url": "https://www.jec.senate.gov/public/index.cfm/democrats/2026/4/senator-hassan-presses-leading-ai-voice-cloning-companies-to-prevent-exploitation-by-scammers",
+   "date": "2026-04-16"
+  },
+  {
+   "claim": "Framing caveat for the slide: the demo is scripted, pre-rendered text-to-speech by a (former-ElevenLabs) fan - not real-time conversation, not presented as a cloning demo (the voice used is not stated) and not an official launch video; no blind test of this clip found.",
+   "source": "Our reading of the post, the author's disclosure and the launch materials",
+   "url": "https://x.com/buraktuyan/status/2106018840383717513",
+   "date": "2026-10-04"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "Which video-generation model/tool made the visuals (character, Versailles sets)",
+   "searched": "Post text, self-reply, LinkedIn copy (post + comments), AGI Hunt blurb, DDG. Only the X 'Made with AI' label is shown; no tool is named."
+  },
+  {
+   "outline_item": "Whether the voiceover used Eleven v4 or v4 Turbo, and the exact voice/prompt/tags used",
+   "searched": "Post, self-reply, LinkedIn post and comments - not stated (author says only 'Eleven v4')."
+  },
+  {
+   "outline_item": "A subjective listening verdict of how natural the audio sounds",
+   "searched": "I cannot listen to audio. Provided instead: speech-to-text of every line (all recognised cleanly), measured dynamic range, and the independent audio-Turing studies. No blind listening test of this specific clip was found."
+  },
+  {
+   "outline_item": "Mainstream press coverage of the Burak Tuyan demo itself",
+   "searched": "DDG for the post title, 'spec ad', author name. Found only the aggregator AGI Hunt (2026-10-03) and LinkedIn reposts (e.g. Niraj Kaushal); no outlet article."
+  },
+  {
+   "outline_item": "Independent replication of ElevenLabs's 150 ms / 100 ms latency and 75% preference claims",
+   "searched": "Artificial Analysis page (Elo + quality only was read), Tech Times, Unite.AI, TestingCatalog, search snippets. Latency and win-rate numbers are all traced back to ElevenLabs's own post."
+  },
+  {
+   "outline_item": "Eleven v4-specific safety/misuse coverage or safeguards announcement",
+   "searched": "DDG 'Eleven v4 voice cloning risks deepfake scams'. Results were general voice-clone coverage (CNN May 2026, Senate letters April 2026, pre-v4); nothing specific to v4's 10-second cloning. Docs page loaded; it does not describe consent/verification safeguards."
+  },
+  {
+   "outline_item": "Live Science article screenshot",
+   "searched": "shot.js timed out (30 s) twice; headline/dek/stats recorded from the page text with file=null (headline card)."
+  }
+ ],
+ "downloads": {
+  "voicedemo-fxtwitter-raw.json": "raw api.fxtwitter.com response for the post (engagement counters, media variants)",
+  "video_source": "yt-dlp of the X post; direct twimg 1080p mp4: https://video.twimg.com/amplify_video/2106018106569015296/vid/avc1/1920x1080/R_PiOqUxv7Sogn8Y.mp4?tag=29"
+ }
+}

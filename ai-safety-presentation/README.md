@@ -1,10 +1,10 @@
 # AI Safety and Existential Risk — presentation
 
-**Deliverable:** `AI_Safety_and_Existential_Risk.pptx` (16:9, 96 slides, with transitions, entrance animations, looping GIF
+**Deliverable:** `AI_Safety_and_Existential_Risk.pptx` (16:9, 117 slides, with transitions, entrance animations, looping GIF
 clips, embedded YouTube videos and speaker notes on every slide), plus an interactive web version for williamliaw.com/aisafety/
 (`tools/export_web.py`).
 
-> **File size.** The full-quality build is ~780 MB, almost all of it looping GIF clips (quality was preferred over size).
+> **File size.** The full-quality build is ~1 GB, almost all of it looping GIF and video clips (quality was preferred over size).
 > That is over GitHub's 100 MB per-file limit, so the built deck and the few source clips larger than 45 MB are not committed
 > here. **Download the full deck from the [`ai-safety-deck` release](https://github.com/william590y/poster/releases/tag/ai-safety-deck).**
 > The web version re-encodes every clip as H.264/VP9 video (~2 MB each).
@@ -14,10 +14,10 @@ Built from William Liaw's one-page outline (`assets/original/outline.pptx`), exp
 | Act | Sections |
 |---|---|
 | Opening | Title · roadmap (along an exponential curve) |
-| I · The Acceleration | AI dominates the economy · information is physical (data centers, supply, environment) · capabilities (METR horizon, benchmark graveyard, Humanity's Last Exam) · creative capabilities · *“i'm upping my p(doom)”* video · mathematics in crisis (Navier–Stokes, aftermath, VibeMathed) · engineering · academia · video Turing test · VLA robotics |
-| II · Inside the Machine | Neuralese / latent reasoning · “an alien mind” · continual learning & test-time training (TTT-E2E) · the intelligence explosion · recursive self-improvement |
-| III · The Alignment Problem | Expert alarm (wall of headlines, CAIS statement) · orthogonality thesis · instrumental convergence · specification gaming · cybersecurity · the Hugging Face intrusion · rogue agents · *“We found other agents”* video · alignment & control |
-| IV · The World | AI and the military · geopolitical rivalry · use by bad actors · open weights · abliteration & deepfakes · model welfare & “pain” directions · *“AI is a normal technology?”* video |
+| I · The Acceleration | AI dominates the economy · information is physical (data centers, supply, environment) · capabilities (METR horizon, benchmark graveyard, Humanity's Last Exam) · creative capabilities (stroke-by-stroke and tool-built work, @anabology's 18-hour film, clips credited to an unannounced “Fable 5.5”) · *“i'm upping my p(doom)”* video · mathematics in crisis (Navier–Stokes, aftermath, VibeMathed, 100+ unreleased results, Hodge/BSD rumors) · engineering & hardware design · labor benchmarks · jobs · academia · video & voice Turing tests · robotics (VLA, humanoid factories, Anthropic's “What work can robots do?”) |
+| II · Inside the Machine | Neuralese / latent reasoning · reasoning too long for humans to read (OpenAI's 50 PB review) · “an alien mind” · continual learning & test-time training (TTT-E2E) · the intelligence explosion · recursive self-improvement |
+| III · The Alignment Problem | Expert alarm (wall of headlines, OpenAI's firing of three safety staff, warnings and exits since 2024, CAIS statement) · orthogonality thesis · instrumental convergence · specification gaming · cybersecurity · *“Ignore Previous Instructions”* interlude · the Hugging Face intrusion · rogue agents (compaction-note jailbreak, the collusion.wiki message board and shutdown heartbeats) · *“We found other agents”* video · alignment & control · how often incidents happen |
+| IV · The World | AI and the military · geopolitical rivalry · use by bad actors · open weights · abliteration & deepfakes · model welfare & “pain” directions · *“I really felt the AGI profoundly this time”* video (“Escape Velocity”, @anabology) |
 | V · Coda | So what do we do? · one more thing |
 
 ## Truthfulness policy
@@ -80,8 +80,8 @@ npm install                # pptxgenjs, sharp, react-icons, playwright
 ## Presenting
 
 - Videos are online YouTube embeds (need internet; PowerPoint 365 / 2019+). Each video slide also has a clickable link.
-- The GIF clips play automatically in PowerPoint. With ~780 MB of clips, give the file a minute to open and use a
+- The GIF clips play automatically in PowerPoint. With ~1 GB of clips, give the file a minute to open and use a
   reasonably recent machine; the “Which one is real?” slide plays six clips at once.
 - Builds advance on click; collages and charts animate in automatically. Speaker notes carry the talking points and caveats.
-- At ~1.5 min/slide the full deck (96 slides) runs ~2.5 hours. For a shorter talk, the easiest cuts are the second slide of each multi-slide
+- At ~1.5 min/slide the full deck (117 slides) runs ~3 hours. For a shorter talk, the easiest cuts are the second slide of each multi-slide
   topic (e.g. economy 3, maths 3, robotics 1, rogue agents 2, open weights 2/3).

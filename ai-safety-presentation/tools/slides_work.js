@@ -1,5 +1,5 @@
 // THE ACCELERATION · work: engineering (CAD, PCB, chips), economically valuable labor (ALE, AutomationBench, RLI, GDPval),
-// software jobs, academia, video, robotics (VLA, humanoid factories, Unitree).
+// software jobs, academia, video and voice (Tavus Griffin, an Eleven v4 voice demo, RA-Bench quiz), robotics (VLA, humanoid factories, Unitree, Anthropic's "What work can robots do?").
 const path = require('path');
 const fs = require('fs');
 const sharp = require('sharp');
@@ -185,7 +185,7 @@ async function pi0Crop() {
 // ========== 1. Engineering: CAD Bench ==========
 async function cadSlide(d) {
   const s = d.slide('Content');
-  head(s, 'THE ACCELERATION · ENGINEERING', 'AI agents are learning real engineering design');
+  head(s, 'THE ACCELERATION · ENGINEERING · 1', 'AI agents are learning real engineering design');
 
   const lb = await crop('cadbench-v3-leaderboard.png', 'cad-leaderboard-top5.png', { l: 0, t: 0, w: 1820, h: 562 });
   const shot = await frameW(d, s, lb, CX0, 1.8, 7.35);
@@ -243,22 +243,24 @@ async function hwDesignSlide(d) {
 
   // left: 2×2 wall of real demo media (GIFs play in slideshow)
   const gw = 7.55, gap = 0.2, tw = (gw - gap) / 2, th = tw * 9 / 16, gy = 1.8;
-  // Autodesk's official demo, re-cut so each clip opens on the agent's chat (the typed request, zoomed in on the chat box)
-  // and then shows the result in Fusion. Each loop starts on the finished request, so a static preview shows it too.
+  // Autodesk's official demo, re-cut so each clip shows the agent's chat (the typed request, zoomed in on the chat box)
+  // and the result in Fusion. The CAD loop starts on the finished request (a populated chat panel); the CAM loop is
+  // rotated to start on the toolpaths (its chat crop is mostly empty panel), so a static preview/PDF shows real content.
   const FUS = 'cad-autodesk-mcp-enclosure-mold-cam.mp4';
   const chat1 = [1200, 675, 256, 260], cad = [1440, 810, 240, 120];       // request 1 · Fusion design view
   const chat3 = [960, 540, 40, 530], cam = [1280, 720, 430, 200], sim = [1020, 574, 480, 196]; // request 3 · CAM viewer · simulation
   const fusionCad = mp4Montage(FUS, 'cad-fusion-prompt-enclosure.gif', [
     { ss: 8.4, to: 8.95, crop: chat1 }, { ss: 40.65, to: 43.4, crop: cad }, { ss: 4.5, to: 8.4, crop: chat1 },
   ], { width: 960, fps: 15 });
-  const fusionCam = mp4Montage(FUS, 'cad-fusion-prompt-toolpaths.gif', [
-    { ss: 63.6, to: 64.2, crop: chat3 }, { ss: 74.4, to: 76.7, crop: cam }, { ss: 80.4, to: 85.1, crop: sim }, { ss: 61.6, to: 63.6, crop: chat3 },
+  const fusionCam = mp4Montage(FUS, 'cad-fusion-prompt-toolpaths-camfirst.gif', [
+    { ss: 74.4, to: 76.7, crop: cam }, { ss: 80.4, to: 85.1, crop: sim }, { ss: 61.6, to: 64.2, crop: chat3 },
   ], { width: 960, fps: 15 });
   const cells = [
     [fusionCad, 'CAD · AUTODESK FUSION + CLAUDE OPUS 4.8', 'One chat request → a molded Raspberry Pi case'],
     [fusionCam, 'CAM · SAME AGENT, LATER REQUEST', '…then CNC toolpaths to machine the mold plates'],
     [R2('pcb-astra-kicad-hackaday.jpg'), 'PCB · GPT-6 ASTRA IN KICAD · STILL', 'OpenAI demo: layout mid-placement, plus 3D render', { clear: true }],
-    [R2('pcb-quilter-speedrun-board-360.gif'), 'PCB · QUILTER “PROJECT SPEEDRUN”', '843-part Linux computer — booted on first power-up'],
+    // Quilter is a physics-driven layout AI, not an LLM agent, and the boot claim is Quilter's own: say both on the tile
+    [R2('pcb-quilter-speedrun-board-360.gif'), 'PCB · QUILTER · NON-LLM LAYOUT AI', 'Vendor claim: 843-part PC booted on first power-up'],
   ];
   const tiles = [];
   for (let i = 0; i < 4; i++) {
@@ -295,9 +297,9 @@ async function hwDesignSlide(d) {
   d.source(s, 'Sources: Autodesk Fusion blog & demos (Sep 15, 2026) · OpenAI demo still via Hackaday (Sep 5, 2026) · Quilter (Dec 2025) · EEBench (atopile, Sep 29, 2026) · HWE-Bench (arXiv 2604.14709).');
   s.addNotes([
     'Four real demos of AI doing hardware design. Top row (Autodesk’s official demo of its new Fusion Compute MCP, Sep 15, 2026): an agent — the model selector in the video reads “Opus 4.8 High” (Claude) — is asked to design a two-part injection-molded enclosure for a Raspberry Pi 4; it builds the parametric case, then a family mold with core and cavity, then programs the CNC toolpaths. Autodesk: “That is a design-to-manufacturing chain that normally requires several people over several days, now driven end to end from a chat window.” (Autodesk’s own demo.)',
-    'How the two GIFs were cut (trim, crop and scale only; nothing else changed): top-left = the request being typed in the chat, zoomed in on the chat box (video 0:04.5–0:08.95; it reads verbatim “Start Fusion and design a two-part injection molded enclousore for a Raspberry Pi4.” — typo in the original), then the finished case with the Raspberry Pi board in Fusion (0:40.6–0:43.4). Top-right = a later request typed in the same chat, “Create a setup and toolpaths to machine both parts” (1:01.6–1:04.2), then the CAM toolpaths on the mold plates (1:14.4–1:16.7) and Fusion’s machining simulation of the cavity plate (1:20.4–1:25.1). The mold itself came from an earlier request in the video: “Create a core and a cavity to mold both parts at the same time. I’ll want a center injection to inject both parts at once.” Autodesk’s caption overlays (“Co-Design with your AI Agent” etc.) are part of the original video.',
+    'How the two GIFs were cut (trim, crop and scale only; nothing else changed): top-left = the request being typed in the chat, zoomed in on the chat box (video 0:04.5–0:08.95; it reads verbatim “Start Fusion and design a two-part injection molded enclousore for a Raspberry Pi4.” — typo in the original), then the finished case with the Raspberry Pi board in Fusion (0:40.6–0:43.4). Top-right = the CAM toolpaths on the mold plates (1:14.4–1:16.7) and Fusion’s machining simulation of the cavity plate (1:20.4–1:25.1), then the request that produced them, typed later in the same chat: “Create a setup and toolpaths to machine both parts” (1:01.6–1:04.2); the loop starts on the toolpaths so the still/PDF view is not an empty chat panel. The mold itself came from an earlier request in the video: “Create a core and a cavity to mold both parts at the same time. I’ll want a center injection to inject both parts at once.” Autodesk’s caption overlays (“Co-Design with your AI Agent” etc.) are part of the original video.',
     'Bottom left (a still, not a clip): image from OpenAI’s GPT-6 Astra launch demo (via Hackaday) — on the left the KiCad board mid-placement, footprints still outside the outline and connections shown as unrouted ratsnest lines; on the right a 3D render of the board. OpenAI’s caption for the video: “a 15-second condensed playback of GPT-6 Astra performing printed circuit board (PCB) layout in KiCad, turning an electronic schematic into a manufacturable PCB by placing components and routing copper connections” (a 2 min 54 s run). The clip itself could not be downloaded (Cloudflare/Vimeo), so this is the still. JLCPCB independently had Astra design a 44 × 34 mm amplifier board from a four-line brief: 0 ERC / 0 DRC violations under the configured rules (caveat: some rule categories were ignored, and a clean DRC is not a manufacturability check). Hackaday’s verdict was skeptical: “there is still a long way to go before hardware engineers can receive their pink slips.”',
-    'Bottom right: Quilter “Project Speedrun” — an 843-component, 8-layer, dual-board Linux computer laid out with Quilter’s physics-driven AI (not an LLM); it booted on first power-up. 38.5 hours of human work vs 428 hours quoted for manual layout (Quilter’s own figures; the clip is a marketing render of the real design).',
+    'Bottom right: Quilter “Project Speedrun” — an 843-component, 8-layer, dual-board Linux computer laid out with Quilter’s physics-driven AI (not an LLM, and not an agent in the chat sense — the tile says so); per Quilter, it booted on first power-up. 38.5 hours of human work vs 428 hours quoted for manual layout (Quilter’s own figures; the clip is a marketing render of the real design).',
     'Right: EEBench — 13 original, held-out electrical-engineering design tasks; each design is built and simulated (SPICE at worst-case tolerance corners): “No human graders. No LLM-as-judge.” Score = 0.65 × technical + 0.35 × cost-efficiency. Leaderboard Sep 29, 2026 — the chart shows the top 8 models, best configuration per model: Claude Opus 5.5 [xhigh] 75.0 ±8.3, GPT-6 Astra 69.3 ±10.7, Claude Sonnet 5.5 67.2, Grok 4.7 64.0, GPT-6.1 Sol 63.6, Claude Opus 5 61.6, Grok 4.6 57.1, Claude Fable 5.1 56.4 (next: GPT-6 Sol 56.3, Gemini 3.8 Flash 55.4, Claude Fable 5 54.3, Claude Opus 4.8 51.4). The top score on Sep 1 was 61.6 (Claude Opus 5). CAVEATS: built and funded by atopile, a company that sells PCB design tools; wide error bars; PCB layout is out of scope in V1. xAI now reports EEBench in its model cards (Grok 4.6) and launch posts (Grok 4.7: 64.0%).',
     'Chips: HWE-Bench (arXiv, Apr 2026) — 417 real bug fixes from open-source chip repositories (OpenTitan, CVA6, XiangShan…): the best agent (GPT-5.4) resolves 70.7%, >90% on small cores, <65% on SoC-level projects (spring-2026 models). Analog Design Bench (arXiv, Sep 27, 2026): full-spec pass rates from 8% to 78% on 50 transistor-level tasks in two-hour attempts (best: Claude Fable 5).',
     'Safety angle (say it): xAI’s Grok 4.6 model card, section “Engineering acceleration”: “agents that accelerate rocket design, IC layout, and datacenter power-and-cooling optimization compress the timelines of progress across the physical systems that enable further advances in AI capabilities and utility.” AI is starting to design the hardware that makes better AI.',
@@ -378,7 +380,7 @@ async function hwJobsSlide(d) {
 // ========== 1d. Labor: Agents' Last Exam ==========
 async function aleSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  head(s, 'THE ACCELERATION · LABOR', 'Agents’ Last Exam: 0% to 16% in four months');
+  head(s, 'THE ACCELERATION · LABOR · 1', 'Agents’ Last Exam: top score 0 → 16% since June');
 
   // left: official homepage (title + tagline) and the official video's wall of agents at work
   const lw = 6.15;
@@ -400,8 +402,9 @@ async function aleSlide(d) {
   // and the same Fable 5 at XHigh effort now passes 7.9% — so part of the jump is effort/harness, not only newer models
   const rows = [
     ['Claude Opus 5.5 (Max)', 15.8, HEX.red], ['Claude Opus 5 (Max)', 13.2, HEX.red], ['GPT-6 Sol (Medium)', 13.2, HEX.red], ['GPT-6 Astra (High)', 10.5, HEX.red],
-    ['Claude Fable 5 (XHigh effort)', 7.9, HEX.amber],
-    ['GPT-5.5 (default) · June launch', 0, HEX.steel], ['Claude Fable 5 (default) · June launch', 0, HEX.steel], ['Composer 2.5 (Cursor) · June launch', 0, HEX.steel],
+    // amber row sits directly above its own June-launch row so "same model, more effort" reads on the slide itself
+    ['Same Fable 5, at XHigh effort', 7.9, HEX.amber],
+    ['Claude Fable 5 (default) · June launch', 0, HEX.steel], ['GPT-5.5 (default) · June launch', 0, HEX.steel], ['Composer 2.5 (Cursor) · June launch', 0, HEX.steel],
   ];
   const ch = d.chart(s, 'bar', [{ name: 'Pass rate', labels: rows.map(r => r[0]).reverse(), values: rows.map(r => r[1]).reverse() }],
     { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 2.38 }, {
@@ -429,7 +432,7 @@ async function aleSlide(d) {
   s.addNotes([
     'Agents’ Last Exam (UC Berkeley RDI, Dawn Song’s group; arXiv 2606.05405, June 2026) is built to test whether agents are “job-ready”: 1,500+ expert-sourced tasks (target 5,000) across 55 occupations in 13 industry clusters — architecture, neuroscience, animation, engineering CAD, finance, law… — done in real professional software, with verifiable outcomes. Homepage tagline: “Challenge and measure AI agents on economically valuable and real-world tasks.”',
     'At launch (June 2026): “On ALE’s hardest tier, every frontier agent we tested, including Fable 5, achieved a 0% success rate.” And: “The age of useful agents is here. The age of truly job-ready agents is not.”',
-    'Today (live leaderboard, accessed Oct 4, 2026): on that same hardest “Last-Exam” split (38 tasks), Claude Opus 5.5 in Claude Code (max effort) passes 15.8% (6 of 38); Claude Opus 5 and GPT-6 Sol 13.2%; GPT-6 Astra (High) 10.5%. The June launch configurations (Claude Code + Fable 5 at default effort, Codex + GPT-5.5 default, Cursor + Composer 2.5) still show 0.0% on the same split — so the jump from 0% is on the same task set. But say it: the same Claude Fable 5 run at XHigh effort now passes 7.9% (amber bar), so part of the jump comes from effort settings and harness, not only from newer models. Leaderboard entries are not dated, so “four months” is launch-to-today (best published result then vs now). The benchmark is “Led by Berkeley RDI and 300+ industry experts” (homepage); the arXiv abstract says 250+ at submission.',
+    'Today (live leaderboard, accessed Oct 4, 2026): on that same hardest “Last-Exam” split (38 tasks), Claude Opus 5.5 in Claude Code (max effort) passes 15.8% (6 of 38); Claude Opus 5 and GPT-6 Sol 13.2%; GPT-6 Astra (High) 10.5%. The June launch configurations (Claude Code + Fable 5 at default effort, Codex + GPT-5.5 default, Cursor + Composer 2.5) still show 0.0% on the same split — so the jump from 0% is on the same task set. But say it: the same Claude Fable 5 run at XHigh effort now passes 7.9% (amber bar, labelled “Same Fable 5” on the slide, directly above its 0% June run), so part of the jump comes from effort settings and harness, not only from newer models — which is why the title says “top score”, not “models”. Leaderboard entries are not dated, so “since June” (about four months) is launch-to-today (best published result then vs now). The benchmark is “Led by Berkeley RDI and 300+ industry experts” (homepage); the arXiv abstract says 250+ at submission.',
     'Overall (152 public tasks): Claude Opus 5.5 38.2% pass rate (63.2% partial credit), GPT-6 Astra 34.2%; in June the best overall was 24.0% (GPT-5.5). Taking the best run per task across all agents gives 56.6%. “Pass rate” = share of runs with a perfect score.',
     'Caveat from the launch post: the most common failure is agents declaring success before verifying their work — “Done. All checks pass.” when files are missing or counts are wrong.',
     'Left: official homepage (crop) and a 4.7-second excerpt (0:70.5–0:75.2, trimmed/scaled only) of the official 80-second intro video: four agent sessions in real desktop software (CAD, an audio workstation, spreadsheets…), then the camera pulls back to a wall of dozens of sessions. The GIF plays in slideshow mode.',
@@ -522,22 +525,25 @@ async function gdpvalSlide(d) {
   const lab = capLabel(d, s, 'GDPVAL · DELIVERABLE JUDGED AS GOOD AS OR BETTER THAN AN EXPERT’S', { x: CX0, y: 1.72, w: lw, charSpacing: 1 });
   const box = { x: CX0 - 0.1, y: 1.98, w: lw + 0.1, h: 3.55 };
   const L = { x: 0.07, y: 0.12, w: 0.92, h: 0.72 };
-  const labels = ['GPT-4o (2024)', 'o3 (Apr ’25)', 'GPT-5 (Aug ’25)', 'Opus 4.1 (Sep ’25)', 'GPT-5.2 (Dec ’25)', 'GPT-5.4 (Mar ’26)', 'GPT-5.5 (Apr ’26)'].map(l => l.replace(/ (’\d\d\))/, '\u00A0$1'));
-  const vals = [12.4, 34.1, 38.8, 47.6, 70.9, 83.0, 84.9];
+  // bars in model-release order, labelled by release month (Claude Opus 4.1: Aug 5, 2025; GPT-5: Aug 7, 2025 —
+  // the GDPval paper that scored both is Sep 2025)
+  const labels = ['GPT-4o (2024)', 'o3 (Apr ’25)', 'Opus 4.1 (Aug ’25)', 'GPT-5 (Aug ’25)', 'GPT-5.2 (Dec ’25)', 'GPT-5.4 (Mar ’26)', 'GPT-5.5 (Apr ’26)'].map(l => l.replace(/ (’\d\d\))/, '\u00A0$1'));
+  const vals = [12.4, 34.1, 47.6, 38.8, 70.9, 83.0, 84.9];
   const ch = d.chart(s, 'bar', [{ name: 'Wins + ties', labels, values: vals }], box, {
     barDir: 'col', layout: L, chartColors: vals.map(v => (v >= 50 ? HEX.red : HEX.steel)), showValue: true, dataLabelFormatCode: '0.0"%"',
     dataLabelPosition: 'outEnd', dataLabelFontSize: 12, dataLabelFontBold: true, valAxisMinVal: 0, valAxisMaxVal: 100, valAxisMajorUnit: 25,
     valAxisLabelFormatCode: '0"%"', catAxisLabelFontSize: 11, barGapWidthPct: 45,
   });
   const py = box.y + box.h * (L.y + L.h * 0.5), px0 = box.x + box.w * L.x, px1 = box.x + box.w * (L.x + L.w);
-  // parity line drawn as two segments with a gap around the Opus 4.1 data label (47.6%), which sits right on 50%
-  const gc = box.x + box.w * (L.x + L.w * 3.5 / 7), gh = 0.36;
+  // parity line drawn as two segments with a gap around the Opus 4.1 data label (47.6%, bar 3 of 7), which sits right on 50%
+  const gc = box.x + box.w * (L.x + L.w * 2.5 / 7), gh = 0.36;
   const par = [[px0, gc - gh], [gc + gh, px1]].map(([a, b]) => {
     const n = d.name('parity');
     s.addShape(d.pres.shapes.LINE, { x: a, y: py, w: b - a, h: 0, line: { color: HEX.amber, width: 1.5, dashType: 'dash' }, objectName: n });
     return n;
   });
-  const parT = d.text(s, '50% = parity with industry experts', { x: px0 + 0.08, y: py - 0.3, w: 3.0, h: 0.26, fontSize: 11, bold: true, color: d.S.amber, valign: 'bottom' });
+  // two short lines over the first two (low) bars, clear of the Opus 4.1 label at bar 3
+  const parT = d.text(s, '50% = parity with\nindustry experts', { x: px0 + 0.08, y: py - 0.5, w: gc - gh - px0 - 0.12, h: 0.46, fontSize: 11, bold: true, color: d.S.amber, valign: 'bottom' });
   // the red bars are OpenAI's own reported numbers: say so on the chart itself (bracket over the three bars)
   const pa = box.x + box.w * (L.x + L.w * 4 / 7) + 0.1, pb = box.x + box.w * (L.x + L.w) - 0.1, pyb = box.y + 0.03;
   const brk = d.name('brk');
@@ -572,7 +578,7 @@ async function gdpvalSlide(d) {
   d.source(s, 'Sources: OpenAI, GDPval (arXiv 2510.04374, Sep 2025) · The Next Web (Mar 5, 2026) · MarkTechPost (Apr 23, 2026) · evals.openai.com (Oct 4, 2026) · VentureBeat (Sep 3, 2026) · Artificial Analysis GDPval-AA v2.1.');
   s.addNotes([
     'GDPval is OpenAI’s own benchmark of economically valuable work: 44 occupations across the 9 sectors contributing most to US GDP; tasks (with reference files) written by professionals averaging 14 years of experience; other experts compare the AI’s deliverable with the expert’s, blind. The metric is the share of tasks where the AI’s deliverable is judged as good as or better than the expert’s (wins + ties); 50% = parity.',
-    'Paper (Sep 2025): GPT-4o 12.4%, o3 high 34.1%, GPT-5 high 38.8%, Claude Opus 4.1 47.6% (best at the time — an Anthropic model on OpenAI’s benchmark). Later OpenAI-reported results (we could not load openai.com, so these are as reported by the press): GPT-5.2 70.9% and GPT-5.4 “matched or exceeded industry professionals in 83% of comparisons” (The Next Web, Mar 5, 2026); GPT-5.5 84.9% (MarkTechPost, Apr 23, 2026).',
+    'Paper (Sep 2025): GPT-4o 12.4%, o3 high 34.1%, GPT-5 high 38.8%, Claude Opus 4.1 47.6% (best at the time — an Anthropic model on OpenAI’s benchmark). Bars are in release order and labelled by release month: Claude Opus 4.1 came out Aug 5, 2025, two days before GPT-5 (Aug 7); “Sep 2025” is the paper’s date, not either model’s. Later OpenAI-reported results (we could not load openai.com, so these are as reported by the press): GPT-5.2 70.9% and GPT-5.4 “matched or exceeded industry professionals in 83% of comparisons” (The Next Web, Mar 5, 2026); GPT-5.5 84.9% (MarkTechPost, Apr 23, 2026).',
     'Then: “One notable omission from OpenAI’s Astra launch materials is GDPval, the company’s own benchmark for measuring performance on economically valuable, real-world work.” (VentureBeat, Sep 3, 2026 — the same article quotes Greg Brockman: “Welcome to the AGI era.”) OpenAI’s GDPval leaderboard page now reads: “The OpenAI-hosted GDPval leaderboard is no longer active.” We do not know why; do not speculate beyond the facts.',
     'Independent: Artificial Analysis re-runs the 220 public GDPval tasks agentically and scores them by blind pairwise Elo (a different metric): Claude Opus 5.5 leads at 1867, Claude Sonnet 5.5 1840; GPT-6 Astra (max) 1542. Best Elo rose from 920 (GPT-5, Aug 2025) to 1867 (Sep 2026).',
     'Caveat: “as good as an expert on a well-specified one-off task” is not “can do the expert’s job” — but the trend line crossed parity within a year.',
@@ -584,7 +590,7 @@ async function gdpvalSlide(d) {
 // ========== 2. Software jobs: the junior engineer is disappearing ==========
 async function juniorSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'THE ACCELERATION · JOBS', 'The junior engineer is disappearing');
+  head(s, 'THE ACCELERATION · JOBS · 1', 'The junior engineer is disappearing');
 
   const lx = CX0, lw = 5.85, rx = 6.95, rw = CX1 - rx;
   const vy = 2.1, vh = 2.9;
@@ -656,9 +662,13 @@ async function codeSlide(d) {
 
   // left: Google code-share chart + AI layoffs stat
   const lw = 3.4;
-  const lab = capLabel(d, s, 'NEW GOOGLE CODE WRITTEN BY AI', { x: CX0, y: 1.72, w: lw });
+  // the three bars are Google's own figures (Pichai): say so on the chart label
+  const lab = capLabel(d, s, [
+    { text: 'NEW GOOGLE CODE WRITTEN BY AI', options: { breakLine: true } },
+    { text: 'GOOGLE-REPORTED', options: { color: d.S.amber } },
+  ], { x: CX0, y: 1.72, w: lw, h: 0.44 });
   const ch = d.chart(s, 'bar', [{ name: 'Google', labels: ['2024', 'Fall 2025', 'Apr 2026'], values: [0.25, 0.5, 0.75] }],
-    { x: CX0 - 0.1, y: 2.0, w: lw + 0.1, h: 4.45 }, {
+    { x: CX0 - 0.1, y: 2.2, w: lw + 0.1, h: 4.25 }, {
       barDir: 'col', chartColors: [HEX.steel, HEX.amber, HEX.red], showValue: true, dataLabelFormatCode: '0%', dataLabelPosition: 'outEnd',
       dataLabelFontSize: 14, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 0.9, valAxisMinVal: 0,
       catAxisLabelFontSize: 11, barGapWidthPct: 35,
@@ -677,9 +687,11 @@ async function codeSlide(d) {
   const c2 = await frameW(d, s, fortune, 8.87, 2.15, 3.83, { rot: 1.5 });
   const c3 = await frameW(d, s, cnn, 4.5, 3.6, 4.05, { rot: 1.2 });
   const c4 = await frameW(d, s, cbs, 7.42, 5.08, 4.85, { rot: -1.5 });
+  // the 90% / 100% code shares are the labs' own (executive / engineer) statements: tag them on the slide
+  const selfRep = capLabel(d, s, 'SELF-REPORTED BY THE LABS', { x: 8.95, y: 1.72, w: 3.7, color: d.S.amber, charSpacing: 1 });
 
   d.animate(s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 800 });
-  d.animate(s, [...c1, ...c2], { auto: true, effect: 'rise', dur: 450, after: 200 });
+  d.animate(s, [...c1, ...c2, selfRep], { auto: true, effect: 'rise', dur: 450, after: 200 });
   d.anim[s._num].groups[1].effects.forEach((e, i) => { e.delay = Math.floor(i / 2) * 220; });
   d.animate(s, c3, { effect: 'slam', dur: 350 });
   d.animate(s, c4, { auto: true, effect: 'slam', dur: 350, after: 250 });
@@ -688,8 +700,9 @@ async function codeSlide(d) {
   d.source(s, 'Sources: Google blog / Semafor (Apr 2026) · Business Insider (May 2026) · Fortune (Jan 2026) · CNN (Feb 2026) · CBS News (May 2026) · HR Dive / Challenger, Gray & Christmas (Jul 2026).');
   s.addNotes([
     'Google: “75% of all new code at Google is now AI-generated and approved by engineers, up from 50% last fall” (Sundar Pichai, Cloud Next ’26, Apr 22 2026); 25% in 2024. Semafor also reports Snap reached 65% AI-generated code and immediately cut planned headcount.',
-    'Anthropic CFO Krishna Rao: “90 plus percent of our code is actually written by Claude Code.” Fortune: Boris Cherny (Anthropic) — “100% for two+ months now”; roon (OpenAI) — “100%, I don’t write code anymore.” These are self-reported figures by the companies and individuals.',
-    'Layoffs: Block cut more than 4,000 jobs (~40% of staff) citing AI; Jack Dorsey said most companies will do the same. Challenger: AI was the top cited reason for layoffs in April 2026 (21,490 of 88,387 cuts, 26%). H1 2026: 101,743 announced cuts cited AI (~23% of all) vs 54,836 in all of 2025; tech-sector cuts up 83% YoY.',
+    'Anthropic CFO Krishna Rao: “90 plus percent of our code is actually written by Claude Code.” Fortune: Boris Cherny (Anthropic) — “100% for two+ months now”; roon (OpenAI) — “100%, I don’t write code anymore.” These are self-reported figures by the companies and individuals (the slide tags them “self-reported by the labs”; the Google bars are tagged “Google-reported”).',
+    'If asked “which is it — 80, 90 or 100%?”: they are different measures. 90%+ = Anthropic’s CFO on a podcast (May 2026), share of code “written by Claude Code”. 100% = two engineers talking about their own personal code (Fortune, Jan 2026), not a company-wide figure. 80%+ (the later “Claude is building Claude” slide) = Anthropic’s own measure of code MERGED into its codebase (Fortune, Jun 5, 2026). All are self-reported; none is independently measured.',
+    'Layoffs: Block cut more than 4,000 jobs (~40% of staff) citing AI; Jack Dorsey said most companies will do the same. (CNN’s headline on the slide says “nearly half its staff”; the cut was 4,000+ jobs, roughly 40% — say “about 40%” if you quote a number.) Challenger: AI was the top cited reason for layoffs in April 2026 (21,490 of 88,387 cuts, 26%). H1 2026: 101,743 announced cuts cited AI (~23% of all) vs 54,836 in all of 2025; tech-sector cuts up 83% YoY.',
     'Caveat: “cited AI” is what companies say in announcements — some firms may use AI as a convenient framing for cuts driven by other factors. We found no 2026 figure from Microsoft; the latest public number is Nadella’s “20–30%” (April 2025).',
     'URLs: https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/ · https://www.semafor.com/article/04/24/2026/google-ceo-says-75-of-companys-new-code-is-ai-generated · https://www.aol.com/articles/anthropic-cfo-says-ai-now-224949000.html · https://fortune.com/2026/01/29/100-percent-of-code-at-anthropic-and-openai-is-now-ai-written-boris-cherny-roon/ · https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey · https://www.cbsnews.com/news/ai-layoffs-job-cuts-challenger-report-april-2026/ · https://www.hrdive.com/news/tech-layoffs-surge-83percent-h1-2026-challenger-ai-disruption/824320/',
   ].join('\n\n'));
@@ -699,7 +712,7 @@ async function codeSlide(d) {
 // ========== 4. Academia: arXiv rate limit ==========
 async function arxivSlide(d) {
   const s = d.slide('Content');
-  head(s, 'THE ACCELERATION · ACADEMIA', 'arXiv now caps submitters at two papers a month');
+  head(s, 'THE ACCELERATION · ACADEMIA · 1', 'arXiv now caps submitters at two papers a month');
 
   const chartImg = R('acad-arxiv-monthly-submissions-sep2026.png');
   const cw = 6.95;
@@ -723,11 +736,12 @@ async function arxivSlide(d) {
   co.push(capLabel(d, s, 'CS.AI ALONE · MONTHLY', { x: csx, y: ky + 0.06, w: csw, charSpacing: 1 }));
   // Native dark sparkline of arXiv's own “cs.AI submissions per month, 2024 - 2026” chart (same post).
   // Monthly values were traced from the official chart image (acad-arxiv-csai-growth.png: red-line pixels sampled at
-  // each month tick, ±~30) — used only for the line's shape. The two labelled values are the post's figures
-  // (~300 at the start, ~3,300 at the end; “over 6X” in two years).
+  // each month tick, ±~30). The two labelled values are readings of that chart (~300 in Jan 2024, ~3,300 in Sep 2026),
+  // i.e. ~10× over the 2 yr 8 mo the chart spans; the post's own text says “over 6X” for “the past two years”. The caption
+  // states both, each with its own window, so the labels and the multiple agree.
   const csaiTrace = [330, 550, 510, 420, 530, 540, 620, 570, 520, 770, 570, 780, 560, 790, 730, 750, 1220, 1030, 1020, 1250,
     1390, 1560, 1230, 1180, 1590, 1510, 1680, 2020, 2770, 2340, 2140, 2870, 3280];
-  const spY = ky + 0.36, spH = 1.06, vMax = 4400;
+  const spY = ky + 0.36, spH = 0.9, vMax = 4400;
   const L = { x: 0.03, y: 0.02, w: 0.94, h: 0.96 }; // manual plot-area layout (fractions of the chart box)
   const px = { x: csx + L.x * csw, y: spY + L.y * spH, w: L.w * csw, h: L.h * spH }; // plot area, inches
   const ptX = (i) => px.x + (i + 0.5) / csaiTrace.length * px.w; // 'between' category placement
@@ -750,9 +764,10 @@ async function arxivSlide(d) {
   co.push(d.text(s, '2024', { x: px.x, y: axY, w: 0.6, h: 0.18, fontSize: 10, color: d.S.steel, valign: 'top' }));
   co.push(d.text(s, '2026', { x: px.x + px.w - 0.6, y: axY, w: 0.6, h: 0.18, fontSize: 10, color: d.S.steel, align: 'right', valign: 'top' }));
   co.push(d.text(s, [
-    { text: '>6× ', options: { bold: true, color: d.S.red } },
-    { text: 'in two years', options: { color: d.S.txt } },
-  ], { x: csx, y: ky + kh - 0.38, w: csw, h: 0.26, fontSize: 13, valign: 'middle' }));
+    { text: '~10× ', options: { bold: true, color: d.S.red } },
+    { text: 'since Jan 2024', options: { color: d.S.txt, breakLine: true } },
+    { text: 'arXiv: “over 6×” in two years', options: { fontSize: 10, color: d.S.muted } },
+  ], { x: csx, y: ky + kh - 0.5, w: csw, h: 0.44, fontSize: 13, valign: 'bottom' }));
 
   // right column: official post + headline + quote
   const rx = 7.95, rw = CX1 - rx;
@@ -775,7 +790,7 @@ async function arxivSlide(d) {
   s.addNotes([
     'From October 1, 2026 arXiv limits every submitter (the cap applies to the submitter, i.e. the account that uploads the paper) to two submissions per calendar month and three active submissions at any time — across ALL categories; rejected submissions count. arXiv calls it a stopgap while it works out best practice for authors using advanced AI tools.',
     'Numbers from the official post: September 2016: 9,869 submissions · September 2024: 20,569 · September 2026: 40,363 — doubled in two years, generating almost 9,000 support tickets. Total submissions as of Oct 1 2026: 3,192,873.',
-    'The small sparkline redraws arXiv’s own chart from the same post, “cs.AI submissions per month, 2024 - 2026”: from roughly 300 a month (Jan 2024) to roughly 3,300 in the latest month shown (the final point sits on the 2026-09 tick of arXiv’s chart; our research note read it as Aug 2026). The line’s monthly values were traced from the official chart image (approximate, shape only); the two labelled values are the post’s own figures. The post says cs.AI submissions grew more than 6x in two years. Compare arXiv as a whole: 2x in two years. The AI category itself is where the flood is fastest.',
+    'The small sparkline redraws arXiv’s own chart from the same post, “cs.AI submissions per month, 2024 - 2026”: from roughly 300 a month (Jan 2024) to roughly 3,300 in the latest month shown (the final point sits on the 2026-09 tick of arXiv’s chart; our research note read it as Aug 2026). The line’s monthly values were traced from the official chart image (approximate); the two labelled values (~300, ~3,300) are our readings of that chart, not numbers printed in the post — so “~10× since Jan 2024” is our reading too. The post’s own text: “Increases over the past two years in cs.AI (over 6X increase)”. Both are right for their windows: the chart spans 2 years 8 months; over the last two years alone (Sep 2024 ≈ 500 → Sep 2026 ≈ 3,300) the rise is just over 6×. If asked, quote arXiv’s “over 6×”. Compare arXiv as a whole: 2x in two years. The AI category itself is where the flood is fastest.',
     'Rationale quote (verbatim): “There is also a marked increase in dense, AI-written papers. AI tools are making it easy for authors to flood arXiv and other repositories with these low-value papers.” They also cite “thin papers of narrow scope” and “salami” papers.',
     'Context: in Oct 2025 arXiv CS already stopped accepting un-reviewed review articles and position papers because of an “unmanageable influx”; in May 2026 it announced one-year bans for authors who submit unchecked LLM output (hallucinated references, leftover prompts) — 404 Media.',
     'Cybernews headline date is approximate (~Oct 1–2, 2026).',
@@ -842,7 +857,7 @@ async function reviewSlide(d) {
 // ========== 6. Video Turing test: Tavus Griffin ==========
 async function tavusSlide(d) {
   const s = d.slide('Content', { transition: 'zoom' });
-  head(s, 'THE ACCELERATION · VIDEO', 'Tavus: 48% thought its AI was a real person');
+  head(s, 'THE ACCELERATION · VIDEO · 1', 'Tavus: 48% thought its AI was a real person');
 
   // official Tavus upload (openweights manifest: video-tavus-griffin)
   const vw = 6.45;
@@ -900,6 +915,124 @@ async function tavusSlide(d) {
   return s;
 }
 
+// ========== 6b. Voice: Burak Tuyan's Eleven v4 spec ad (played with sound) ==========
+const VOICE = {
+  post: 'https://x.com/buraktuyan/status/2106018840383717513',
+  reply: 'https://x.com/buraktuyan/status/2106018843315601532',
+  mp4: 'https://video.twimg.com/amplify_video/2106018106569015296/vid/avc1/1920x1080/R_PiOqUxv7Sogn8Y.mp4?tag=29',
+  linkedin: 'https://www.linkedin.com/posts/buraktuyan_eleven-v4-is-insane-heres-my-44-sec-spec-activity-7511788695436308481-bjOt',
+  blog: 'https://elevenlabs.io/blog/eleven-v4',
+  docs: 'https://elevenlabs.io/docs/overview/capabilities/text-to-speech/eleven-v4',
+  launch: 'https://x.com/ElevenLabs/status/2104572127617994917',
+  aa: 'https://artificialanalysis.ai/text-to-speech/models/eleven-v4',
+  tc: 'https://techcrunch.com/2026/09/28/elevenlabs-new-v4-speech-model-supports-more-expression-control-and-90-languages/',
+  techtimes: 'https://www.techtimes.com/articles/328298/20260930/elevenlabs-eleven-v4-shifts-voice-ai-reading-acting-turbo-hits-sub-150ms-latency.htm',
+  livesci: 'https://www.livescience.com/technology/artificial-intelligence/ai-voices-are-now-indistinguishable-from-real-human-voices',
+  register: 'https://www.theregister.com/software/2025/10/09/humans-flunk-the-turing-test-for-voices-as-bots-get-chattier/318345',
+  radioink: 'https://radioink.com/2026/07/07/radio-listeners-cant-detect-ai-voice-but-dont-trust-it-either/',
+  cnn: 'https://www.cnn.com/2026/05/29/tech/ai-voice-cloning-scams-protect-yourself',
+  hassan: 'https://www.jec.senate.gov/public/index.cfm/democrats/2026/4/senator-hassan-presses-leading-ai-voice-cloning-companies-to-prevent-exploitation-by-scammers',
+};
+
+// Label + body rows in one text box (label = small caps line, body = 14pt).
+function voiceFacts(d, s, rows, box, { size = 14, labelColor = 'FF8A8C' } = {}) {
+  const runs = [];
+  rows.forEach(([lab, body, col], i) => {
+    runs.push({ text: lab, options: { fontSize: 10, bold: true, color: col || labelColor, charSpacing: 1, breakLine: true, paraSpaceAfter: 1 } });
+    runs.push({ text: body, options: { fontSize: size, color: d.S.txt, breakLine: i < rows.length - 1, paraSpaceAfter: 8 } });
+  });
+  return d.text(s, runs, { ...box, valign: 'top' });
+}
+
+// Cover for the embedded clip: its own frame at t = 4.6 s ("Tell me something.") with a play button composited on top.
+async function voiceCover() {
+  fs.mkdirSync(OUT, { recursive: true });
+  const out = path.join(OUT, 'voicedemo-cover-tell-me-something.jpg');
+  if (fs.existsSync(out)) return out;
+  const play = '<svg width="1920" height="1080"><circle cx="960" cy="540" r="92" fill="#0A0C10" fill-opacity="0.72" stroke="#FFFFFF" stroke-width="7"/>'
+    + '<polygon points="928,488 928,592 1018,540" fill="#FFFFFF"/></svg>';
+  await sharp(R2('voicedemo-poster-tell-me-something.png')).composite([{ input: Buffer.from(play) }]).jpeg({ quality: 92, mozjpeg: true }).toFile(out);
+  return out;
+}
+
+// The X post as one clipping: its text (source rows 124–556) stacked on its metadata lines — X's "Made with AI" label and
+// "1:49 PM · Oct 2, 2026 · 1.9M Views" (rows 1282–1382). Omitted between them: the video thumbnail (the clip itself, at
+// left) and the "ElevenLabs" tag line; a thin rule marks the cut. Both parts 1:1 from the same screenshot, crop/stack only.
+async function voicePostClip() {
+  fs.mkdirSync(OUT, { recursive: true });
+  const out = path.join(OUT, 'voicedemo-x-post-clip.png');
+  const src = R2('voicedemo-x-post.png');
+  const Wd = 1196, th = 432, mh = 100, gap = 20;
+  const text = await sharp(src).extract({ left: 0, top: 124, width: Wd, height: th }).png().toBuffer();
+  const meta = await sharp(src).extract({ left: 0, top: 1282, width: Wd, height: mh }).png().toBuffer();
+  const rule = await sharp({ create: { width: Wd - 64, height: 2, channels: 3, background: '#D5DADF' } }).png().toBuffer();
+  await sharp({ create: { width: Wd, height: th + gap + mh, channels: 3, background: '#FFFFFF' } })
+    .composite([
+      { input: text, left: 0, top: 0 },
+      { input: rule, left: 32, top: th + gap / 2 - 1 },
+      { input: meta, left: 0, top: th + gap },
+    ]).png().toFile(out);
+  return out;
+}
+
+async function voiceSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  head(s, 'THE ACCELERATION · VIDEO · 2', 'AI voices now scream, whisper and sing');
+
+  // left: the 44-s spec ad, embedded with its audio (X's 1080p H.264 + AAC rendition, stream-copied — no re-encode)
+  const vw = 6.3;
+  const v = await d.localVideo(s, {
+    file: R2('voicedemo-eleven-v4-spec-ad.mp4'), cover: await voiceCover(), box: { x: CX0, y: 1.78, w: vw, h: vw * 9 / 16 },
+    label: 'Burak Tuyan’s spec ad for Eleven v4 · X · Oct 2, 2026 · 0:44 · click to play (sound on)', link: VOICE.post,
+  });
+  const capY = v.geom.y + v.geom.h + 0.46;
+  const cap = d.text(s, [
+    { text: 'Scripted text-to-speech — not a live conversation. ', options: { bold: true, color: d.S.amber } },
+    { text: 'The picture also appears to be AI-generated (X’s “Made with AI” label; no tool named). The post doesn’t say which voice was used, and we found no blind test of this clip.', options: { color: d.S.txt } },
+  ], { x: CX0, y: capY, w: vw, h: 6.55 - capY, fontSize: 14, valign: 'top' });
+
+  // right: the post and the author's own disclosure (real screenshot, two crops), then what is claimed about the model
+  const rx = CX0 + vw + 0.42, rw = CX1 - rx;
+  const lab = capLabel(d, s, 'THE POST · 1.9M VIEWS · HIS X BIO: “EX-ELEVENLABS”', { x: rx, y: 1.7, w: rw, charSpacing: 1 });
+  const postClip = await voicePostClip();
+  const replyCrop = await crop('rev2/voicedemo-x-post.png', 'voicedemo-x-post-reply.png', { l: 0, t: 1530, w: 1196, h: 176 });
+  const pw = rw - 0.85, py = 2.0;
+  const post = await frameW(d, s, postClip, rx + 0.02, py, pw, { rot: -1, link: VOICE.post });
+  const postBottom = py + await hFor(postClip, pw);
+  const rpw = rw - 1.3;
+  const reply = await frameW(d, s, replyCrop, rx + 0.98, postBottom + 0.1, rpw, { rot: 1.2, link: VOICE.reply });
+  const replyBottom = postBottom + 0.1 + await hFor(replyCrop, rpw);
+  const fy = replyBottom + 0.14;
+  if (fy > 5.13) throw new Error(`voiceSlide: facts block starts at y=${fy.toFixed(2)} and would overflow 6.55`);
+  const facts = voiceFacts(d, s, [
+    ['THE MODEL · INDEPENDENT RANKING', 'Eleven v4 (Sep 28) ranks #1 in Artificial Analysis’s voice arena'],
+    ['VENDOR-REPORTED · NOT INDEPENDENTLY TESTED', 'ElevenLabs says its separate low-latency Eleven v4 Turbo has a ~150\u00A0ms median time to first speech (its own test; network time excluded), and that v4 can clone a voice from 10\u00A0s of audio', d.S.amber],
+  ], { x: rx, y: fy, w: rw, h: 6.55 - fy });
+
+  d.animate(s, [v[0]], { auto: true, effect: 'fade', dur: 800 });
+  d.animate(s, [v[1], cap], { auto: true, effect: 'fade', dur: 500, after: 100 });
+  d.animate(s, [lab, ...post], { auto: true, effect: 'slam', dur: 420, after: 200 });
+  d.animate(s, reply, { auto: true, effect: 'rise', dur: 500, after: 150 });
+  d.animate(s, [facts], { auto: true, effect: 'fade', dur: 600, after: 150 });
+
+  d.source(s, 'Sources: X, @buraktuyan, post and self-reply (Oct 2, 2026; views Oct 4) · ElevenLabs, “Introducing Eleven v4, our most emotive model” (Sep 28, 2026) · Artificial Analysis, Eleven v4 page (Oct 4, 2026).');
+  s.addNotes([
+    'MESSAGE: after the face, the voice. Click the video and play all 44 seconds with SOUND ON. Set it up with the post\'s own line: "I wrote a script of everything an AI voice \'can\'t do.\' Then made Eleven v4 read it out loud." Then let the room react.',
+    'WHAT YOU WILL HEAR (burned-in subtitles; tagline by speech-to-text): a laugh, "AI voices? / Tell me something. / Can they scream like THIS? / And then fall apart like this? / ♪ And sing when the moment demands ♪ / Fine, some of them whisper. / But can they flirt in a whisper? / Can they talk while eating? / Or do an Italian accent? / [Italian] Impossibile!" … "Wait… Am I?" — then an Eleven V4 / ElevenLabs end card and a spoken tagline that machine transcription renders as "Eleven v4, the next frontier of human-level communication." The character (a Louis-XIV-like caricature in a Versailles-style palace) appears to be AI-generated video too — the post carries X\'s "Made with AI" label (visible in the clipping and said in the caption) — but the tool used for the picture is not named anywhere.',
+    'WHO / WHEN: Burak Tuyan (@buraktuyan; X bio: "I tell stories. Sometimes for brands. | ex-ElevenLabs"), posted Oct 2, 2026, 13:49 UTC: "Eleven v4 is INSANE! / Here\'s my 44-sec spec ad for it. / I wrote a script of everything an AI voice "can\'t do." Then made Eleven v4 read it out loud. / Sound on". By Oct 4 (fxtwitter): 1,919,174 views, 10,035 likes, 632 reposts, 444 replies, 6,211 bookmarks, 205 quotes. ' + VOICE.post,
+    'THE CLIPPINGS (real screenshot of the post page, Oct 4): the upper clipping stacks the post text on its metadata lines — X\'s "Made with AI" label and "1:49 PM · Oct 2, 2026 · 1.9M Views" — with the video thumbnail (the clip at left) and an "ElevenLabs" tag line between them omitted; the thin grey rule marks that cut. The lower clipping is his self-reply.',
+    'HIS DISCLOSURE (self-reply, shown on the slide): "This is a personal spec project. Not affiliated with or commissioned by ElevenLabs. Just a fan of what v4 can do, showing off something I\'ve been waiting a long time for." ' + VOICE.reply + ' — so: a fan-made ad by a FORMER ElevenLabs employee, not an official ElevenLabs video.',
+    'WHAT IT IS — AND ISN\'T: scripted, pre-rendered text-to-speech over what appears to be AI-generated video (X "Made with AI" label; no video tool named) — NOT a live, real-time conversation. It is not presented as a voice-cloning demo, but the post doesn\'t say which voice was used, so a cloned voice can\'t be ruled out. We found no blind listening test of this clip — the only realism claim is the author\'s "INSANE". Not stated anywhere: whether he used Eleven v4 or v4 Turbo, or which voice, tags or prompts. So the Turbo latency figure on the slide describes the separate Turbo model, not necessarily this clip, and the 10-second cloning figure describes v4\'s capability, not how this clip was made. (Our own measurement of the audio, for the curious: the scream is ~12 dB louder than the whispers, −18 vs −30 dBFS RMS — a sign of dynamic range, not a quality score.)',
+    'THE MODEL: ElevenLabs launched Eleven v4 ("our most emotive text-to-speech model yet") and the low-latency Eleven v4 Turbo on Sep 28, 2026 — blog by Mati Staniszewski and Piotr Dabkowski ' + VOICE.blog + ' · docs ' + VOICE.docs + ' · launch post on X (4.9M views) ' + VOICE.launch + ' . Independent coverage: TechCrunch, Ivan Mehta, "ElevenLabs\' new v4 speech model supports more expression control and 90 languages" — subhead "ElevenLabs v4 can clone voices with a 10 second clip" ' + VOICE.tc + ' ; Tech Times (Sep 30) ' + VOICE.techtimes,
+    'INDEPENDENT RANKING: Artificial Analysis\'s crowd-voted Provider Voice Arena (read Oct 4, 2026) puts Eleven v4 first at Elo ~1321, ahead of Qwen-Audio-3.1-TTS-Plus 1292, Cartesia Sonic 3.6 1278 and Gemini 3.8 Flash TTS 1275; ElevenLabs\' previous model, Eleven v3, sits at 1174. Live leaderboard — numbers drift. ' + VOICE.aa,
+    'VENDOR-REPORTED (ElevenLabs\' own tests, not replicated): Eleven v4 Turbo has ~100 ms median inference latency and ~150 ms median time to first speech ("faster than the average pause between two people talking"; ElevenLabs-run, identical scripts and default settings, Turbo over WebSocket streaming, network latency measured and removed for all systems — footnote 3), vs 262–814 ms for Cartesia Sonic 3.6, xAI TTS, Gemini 3.8 Flash-Lite TTS and OpenAI GPT-4o mini TTS in their chart. "Preferred by ~75% of listeners in blind head-to-head tests over competing models" (81% / 81% / 72% / 65% vs four rivals) — that is model-vs-model, NOT a human-vs-AI Turing test. 90+ languages; Instant Voice Clones "using just 10 seconds of audio"; inline tags like [laughs] or [said angrily in French accent].',
+    'THE TURING ANGLE (independent, older model): in a Queen Mary University of London / UCL study (PLOS One, 2025), listeners judged 58% of AI voices cloned from real people to be human — vs 62% of the real human voices: "no statistical difference". Clones were made with off-the-shelf ElevenLabs software from under five minutes of speech. Live Science, "AI voices are now indistinguishable from real human voices" (Oct 4, 2025) ' + VOICE.livesci + ' · The Register, "Humans flunk the Turing test for voices as bots get chattier" — dek: "Coin toss odds for spotting a deepfake, study finds. And that\'s before the machines learn to sing" (Oct 9, 2025) ' + VOICE.register + ' . Radio Ink (Jul 7, 2026): an industry-commissioned blind study (Harker Bos Group; 1,326 weekly radio listeners; two short promo scripts) found AI and human voiceover scored nearly identically — though reactions diverged once listeners learned the source. ' + VOICE.radioink,
+    'WHY IT MATTERS FOR SAFETY: the same expressiveness plus 10-second cloning is the scammer\'s toolkit. CNN (May 29, 2026): "Americans lost $893 million to AI-related scams last year … according to the FBI" — AI-related scams in general, not only voice cloning ' + VOICE.cnn + ' . On Apr 16, 2026 Sen. Maggie Hassan pressed ElevenLabs, LOVO, Speechify and VEED on what they do to stop voice-clone scams ' + VOICE.hassan + ' . We found no coverage of safeguards specific to v4\'s 10-second cloning.',
+    'FILE: X\'s best rendition (1920×1080, 30 fps, H.264 High + AAC-LC stereo, 44.05 s, 19.6 MB), stream-copied with faststart — no re-encode. Direct mp4: ' + VOICE.mp4 + ' · Author\'s LinkedIn copy: ' + VOICE.linkedin + ' . Cover = the clip\'s own frame at 4.6 s ("Tell me something.") with a play button added.',
+  ].join('\n\n'));
+  return s;
+}
+
 // ========== 7. Which one is real? (RA-Bench clip pairs) — question slide, then reveal slide ==========
 // Three columns = three pairs (A/B, C/D, E/F). In each pair one clip is real U.S. military/National Guard footage (DVIDS,
 // public domain) and the other is Seedance 2.0 image-to-video generated from that real clip's FIRST frame (RA-Bench).
@@ -953,7 +1086,7 @@ function quizGrid(d, s, { x0, y0, gw, colGap, rowGap, badge, width, fps, tagSize
 
 async function realQuestionSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  head(s, 'THE ACCELERATION · VIDEO · 2', 'Which one is real?');
+  head(s, 'THE ACCELERATION · VIDEO · 3', 'Which one is real?');
   const hint = d.text(s, [
     { text: 'Each column: one real clip and one AI clip generated', options: { breakLine: true } },
     { text: 'from its first frame (Seedance 2.0). ' },
@@ -976,7 +1109,7 @@ async function realQuestionSlide(d) {
 
 async function realRevealSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  head(s, 'THE ACCELERATION · VIDEO · 3', 'Each of these fakes fooled all five reviewers');
+  head(s, 'THE ACCELERATION · VIDEO · 4', 'Each of these fakes fooled all five reviewers');
 
   // left: the same six clips, smaller; the answers are click-revealed pair by pair
   const gw = 7.95, y0 = 2.06;
@@ -988,7 +1121,7 @@ async function realRevealSlide(d) {
   ], { x: CX0, y: gridBottom + 0.3, w: gw, h: 6.5 - gridBottom - 0.3, fontSize: 14, valign: 'top' });
 
   // right: result card, beside the clips (never on top of them)
-  const ox = CX0 + gw + 0.3, oy = 1.85, ow = CX1 - ox, oh = 4.62, ip = 0.26;
+  const ox = CX0 + gw + 0.3, oy = 1.85, ow = CX1 - ox, oh = 4.65, ip = 0.26;
   const ov = [];
   ov.push(d.card(s, { x: ox, y: oy, w: ow, h: oh }, { color: '0D1016', line: HEX.red }));
   ov.push(d.text(s, '51.9%', { x: ox + ip, y: oy + 0.14, w: ow - 2 * ip, h: 0.92, fontSize: 54, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' }));
@@ -999,13 +1132,19 @@ async function realRevealSlide(d) {
   ov.push(capLabel(d, s, 'JUDGED “REAL” · % OF 53,550 JUDGMENTS', { x: ox + ip, y: oy + 1.9, w: ow - 2 * ip, charSpacing: 1 }));
   const jr = [['Real footage', 71.9, HEX.teal], ['Seedance 2.0', 51.9, HEX.red], ['Kling', 47.7, HEX.red], ['Runway', 34.8, HEX.steel], ['Open-source avg.', 26.3, HEX.steel]];
   ov.push(d.chart(s, 'bar', [{ name: 'Judged real', labels: jr.map(r => r[0]).reverse(), values: jr.map(r => r[1]).reverse() }],
-    { x: ox + ip - 0.1, y: oy + 2.16, w: ow - 2 * ip + 0.2, h: 1.72 }, {
+    { x: ox + ip - 0.1, y: oy + 2.16, w: ow - 2 * ip + 0.2, h: 1.35 }, {
       barDir: 'bar', chartColors: jr.map(r => r[2]).reverse(), showValue: true, dataLabelFormatCode: '0.0"%"', dataLabelPosition: 'outEnd',
       dataLabelFontSize: 11, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 92, valAxisMinVal: 0,
       catAxisLabelFontSize: 11, catAxisLineShow: false, barGapWidthPct: 35,
     }));
-  ov.push(d.text(s, 'AI detectors caught 46.0% of fakes — and 1.4% after a simulated social-media re-share.',
-    { x: ox + ip, y: oy + 3.92, w: ow - 2 * ip, h: 0.6, fontSize: 11, color: d.S.muted, italic: true, valign: 'top' }));
+  // RA-Bench Sec. 4.3.3: mean FakeR of its five fine-tuned MLLM detector configurations (4 Skyra + BusterX++), 46.0% -> 1.4%
+  ov.push(d.text(s, [
+    { text: 'Fine-tuned AI detectors caught ' },
+    { text: '46.0%', options: { bold: true } },
+    { text: ' of fakes on average (RA-Bench, 5 detector set-ups) — and ' },
+    { text: '1.4%', options: { bold: true, color: 'FF8A8C' } },
+    { text: ' after a simulated social-media re-share.' },
+  ], { x: ox + ip, y: oy + 3.6, w: ow - 2 * ip, h: 0.98, fontSize: 14, color: d.S.txt, valign: 'top' }));
 
   d.animate(s, [...g.base, cap], { auto: true, effect: 'fade', dur: 400 });
   g.reveals.forEach(r => d.animate(s, r, { effect: 'zoom', dur: 350 }));
@@ -1016,7 +1155,7 @@ async function realRevealSlide(d) {
     'Clicks 1–3 reveal the pairs (B is real; C is real; F is real); click 4 shows the human-study result.',
     'Answers: A = AI (Seedance 2.0), B = REAL (wildfire cockpit) · C = REAL (vaccination), D = AI · E = AI, F = REAL (trench). These match RA-Bench’s own Figure 1 answer key for the two scenarios taken from it (III: Real/Generated; IV: Generated/Real).',
     QUIZ_NOTE,
-    'Human study (RA-Bench, 20 reviewers, 53,550 judgments): Seedance 2.0 fakes were judged “Real” in 51.9% of judgments vs 71.9% for genuine footage; Kling 47.7%; open-source generators 26.3% on average. “Reviewers identify 68.6% of open-source videos as generated, but only 52.9% of closed-source videos, with Seedance2.0 and Kling falling to 40.7% and 45.1%.” Real crisis footage was labelled “Generated” 22.8% of the time — real videos get mistaken for fakes too. 633 AI clips were labelled Real by all five reviewers (RA-Bench-HumanProof); on those, Gemini reaches only ~55% balanced accuracy and seven traditional detectors average 47.5% AUC. After a simulated social-media re-share (re-encode, half resolution, 8 fps, a news badge) fine-tuned detectors’ mean fake-detection rate fell “from 46.0% to 1.4%”.',
+    'Human study (RA-Bench, 20 reviewers, 53,550 judgments): Seedance 2.0 fakes were judged “Real” in 51.9% of judgments vs 71.9% for genuine footage; Kling 47.7%; open-source generators 26.3% on average. “Reviewers identify 68.6% of open-source videos as generated, but only 52.9% of closed-source videos, with Seedance2.0 and Kling falling to 40.7% and 45.1%.” Real crisis footage was labelled “Generated” 22.8% of the time — real videos get mistaken for fakes too. 633 AI clips were labelled Real by all five reviewers (RA-Bench-HumanProof); on those, Gemini reaches only ~55% balanced accuracy and seven traditional detectors average 47.5% AUC. After a simulated social-media re-share (re-encode, half resolution, 8 fps, a news badge) fine-tuned detectors’ mean fake-detection rate fell “from 46.0% to 1.4%” (Sec. 4.3.3: the mean over “the five fine-tuned configurations” — four Skyra set-ups and BusterX++ — in the authors’ own RA-Bench-LastMile test, not all AI detectors).',
     'Independent confirmation (DF26, arXiv 2609.07369, Sep 2026): people spotted DF26 deepfakes 52.6% of the time — near the 50% of a coin flip — vs 74.5% and 69.8% on two older deepfake datasets (232 labeling sessions). DF26’s own clips are license-restricted, so they are not shown.',
     'Caveat: the AI clips carry no explicit license in the RA-Bench repository; they are credited to RA-Bench (Liang et al.). Real clips are U.S. government public domain (DVIDS).',
     'URLs: https://arxiv.org/abs/2608.14391 · https://huggingface.co/datasets/liangshuo0111/RA-Bench · https://arxiv.org/abs/2609.07369',
@@ -1027,7 +1166,7 @@ async function realRevealSlide(d) {
 // ========== 8. VLA: wall of headlines ==========
 async function vlaWallSlide(d) {
   const s = d.slide('Content');
-  head(s, 'THE ACCELERATION · ROBOTICS', 'Robots are getting foundation-model brains');
+  head(s, 'THE ACCELERATION · ROBOTICS · 1', 'Robots are getting foundation-model brains');
 
   const nvidia = await crop('vla-nvidia-gtc2026-physical-ai.png', 'vla-nvidia-head.png', { l: 0, t: 0, w: 1640, h: 715 });
   // three columns with clear gaps: π0.7 + NVIDIA (left), Gemini Robotics 2 / Spirit AI / Robot Report (middle),
@@ -1295,6 +1434,203 @@ async function unitreeSlide(d) {
   return s;
 }
 
+// ========== 13–14. Robotics: Anthropic, “What work can robots do?” (Sep 30, 2026) ==========
+const RW_URL = 'https://www.anthropic.com/research/what-work-can-robots-do';
+
+// Native highlighter strokes over a framed (unrotated) screenshot — never painted on the pixels.
+// lines: [x, y, w, h] boxes in the ORIGINAL screenshot's pixels (from the research JSON); off: the crop's {l, t}.
+async function hlLines(d, s, file, fr, lines, off = { l: 0, t: 0 }) {
+  const nat = await imgSize(file);
+  const g = fr.geom, k = g.w / nat.w;
+  return lines.map(([x, y, w, h]) => {
+    const x0 = Math.max(0, x - off.l - 3), y0 = Math.max(0, y - off.t - 2);
+    const x1 = Math.min(nat.w, x - off.l + w + 3), y1 = Math.min(nat.h, y - off.t + h + 2);
+    const n = d.name('hl');
+    s.addShape(d.pres.shapes.RECTANGLE, {
+      x: g.x + x0 * k, y: g.y + y0 * k, w: (x1 - x0) * k, h: (y1 - y0) * k,
+      fill: { color: 'FFD166', transparency: 58 }, line: { color: 'FFD166', width: 0, transparency: 100 }, objectName: n,
+    });
+    return n;
+  });
+}
+
+async function robotWorkSlide(d) {
+  const s = d.slide('Content', { transition: 'fade' });
+  head(s, 'THE ACCELERATION · ROBOTICS · 6', 'Anthropic: robots can do 74% of physical tasks');
+
+  // ---- left: the report itself (title block + key findings, highlights added) ----
+  const lw = 6.3;
+  const title = await crop('rev2/robotwork-title-block.png', 'robotwork-title.png', { l: 60, t: 30, w: 1400, h: 352 });
+  const t1 = await frameW(d, s, title, CX0 + 0.05, 1.8, 2.45, { rot: -1.5 });
+  const meth = d.text(s, [
+    { text: 'ANTHROPIC RESEARCH · ECONOMICS', options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 1, breakLine: true, paraSpaceAfter: 2 } },
+    { text: 'Claude rated all 7,594 physical tasks in O*NET, the US job database: could a robot that exists today do it, and where?', options: { fontSize: 14, color: d.S.muted } },
+  ], { x: CX0 + 2.75, y: 1.74, w: lw - 2.75, h: 0.94, valign: 'top' });
+  const kfOff = { l: 30, t: 298 };
+  const kf = await crop('rev2/robotwork-key-findings.png', 'robotwork-kf-b23.png', { ...kfOff, w: 1305, h: 566 });
+  const kfF = await frameW(d, s, kf, CX0, 2.98, lw);
+  const kfHl = await hlLines(d, s, kf, kfF, [
+    [82, 315, 1230, 42], [82, 367, 1156, 42], [82, 420, 716, 42], // three-quarters of physical tasks … 34% of working hours
+    [804, 420, 478, 42], [82, 473, 832, 42], // male, less educated, lower paid
+    [82, 707, 1237, 42], [82, 760, 100, 42], // about 80% … robots or LLMs
+  ], kfOff);
+  const kfBottom = kfF.geom.y + kfF.geom.h + 0.06;
+  // the headline number's robustness caveat (Appendix A.4) belongs on the slide, not only in the notes
+  const kfCap = d.text(s, [
+    { text: 'Caveat: ', options: { fontSize: 14, bold: true, color: d.S.amber } },
+    { text: 'Claude’s ratings; a stricter check gives about half, not ¾', options: { fontSize: 14, color: d.S.txt, breakLine: true } },
+    { text: 'Key findings, anthropic.com, Sep 30, 2026 (highlights added) · stricter check: Appendix A.4', options: { fontSize: 10, italic: true, color: d.S.steel } },
+  ], { x: CX0, y: kfBottom + 0.06, w: lw, h: 0.56, valign: 'top' });
+
+  // ---- right: Figure 3 as a native chart ----
+  const rx = 7.2, rw = CX1 - rx;
+  const lab = capLabel(d, s, 'SHARE OF ALL US WORK TIME, BY WHERE A ROBOT CAN DO THE TASK', { x: rx, y: 1.72, w: rw, charSpacing: 1 });
+  const box = { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 1.9 };
+  const L = { x: 0.08, y: 0.06, w: 0.9, h: 0.88 };
+  const labels = ['Cognitive & interpersonal', 'E0: no robot can do it', 'E1: purpose-built site', 'E2: structured site', 'E3: open world'];
+  const vals = [54, 12, 23, 10, 1];
+  const ch = d.chart(s, 'bar', [{ name: 'Share of work time', labels, values: vals }], box, {
+    barDir: 'col', layout: L, chartColors: ['4A5263', HEX.steel, HEX.red, HEX.red, HEX.red], showValue: true, dataLabelFormatCode: '0"%"',
+    dataLabelPosition: 'outEnd', dataLabelFontSize: 13, dataLabelFontBold: true, valAxisMinVal: 0, valAxisMaxVal: 70, valAxisMajorUnit: 35,
+    valAxisLabelFormatCode: '0"%"', catAxisHidden: true, barGapWidthPct: 40,
+  });
+  // category labels drawn as text (two short lines each) so the renderer never rotates or truncates them
+  const cx = (i) => box.x + box.w * (L.x + L.w * (i + 0.5) / 5);
+  const vy = (v) => box.y + box.h * (L.y + L.h * (1 - v / 70)); // 70 = valAxisMaxVal (top gridline clear of the 54% label)
+  const cwid = box.w * L.w / 5;
+  const cats = [['Cognitive &', 'interpersonal'], ['E0', 'no robot', 'can do it'], ['E1', 'purpose-built', '(factory line)'], ['E2', 'structured', '(warehouse)'], ['E3', 'unstructured', '(city road)']];
+  const catT = cats.map((ln, i) => d.text(s, ln.map((txt, j) => ({ text: txt, options: { breakLine: j < ln.length - 1, bold: ln.length === 3 && j === 0 } })),
+    { x: cx(i) - cwid / 2 - 0.08, y: box.y + box.h + 0.03, w: cwid + 0.16, h: 0.58, fontSize: 11, color: i >= 2 ? 'FF8A8C' : d.S.muted, align: 'center', valign: 'top' }));
+  // bracket over the three robot-doable bars (E1–E3)
+  const ba = cx(2) - 0.4, bb = cx(4) + 0.4, by = vy(40); // ticks end at the 35% gridline; label spans ~42–62%: clear of the 35% and 70% gridlines
+  const brk = [];
+  [[ba, by, bb - ba, 0], [ba, by, 0, 0.12], [bb, by, 0, 0.12]].forEach(([x, y, w, h]) => {
+    const n = d.name('brk');
+    s.addShape(d.pres.shapes.LINE, { x, y, w, h, line: { color: HEX.red, width: 1.5 }, objectName: n });
+    brk.push(n);
+  });
+  brk.push(d.text(s, [
+    { text: 'ROBOTS CAN DO: 34% OF ALL WORK', options: { bold: true, color: 'FF8A8C', breakLine: true } },
+    { text: '= 74% of physical work, mostly controlled settings', options: { color: d.S.muted } },
+  ], { x: ba - 0.3, y: by - 0.52, w: CX1 - 0.12 - (ba - 0.3), h: 0.46, fontSize: 11, align: 'center', valign: 'bottom' }));
+
+  // ---- bottom right: who is exposed (press clipping + two stats) ----
+  const catBottom = box.y + box.h + 0.03 + 0.58;
+  const yb = catBottom + 0.24; // value text is bottom-aligned in its box: the visible gap to the labels is ≥0.3in
+  // CNBC-TV18 clipping cropped to its headline only (its dek is quoted in the notes) and framed wide enough for the
+  // headline to read at ~10.5pt effective; outlet + date as a label above it; the block is centred on the two stats
+  const cnbc = await crop('rev2/robotwork-cnbctv18-machines-have-a-type.png', 'robotwork-cnbctv18-headline.png', { l: 26, t: 30, w: 1088, h: 172 });
+  const cw = 2.9, cxp = rx + 0.05;
+  const statsH = 0.95 + 19 / 72 * 1.12 + 0.04 + 0.5; // second stat's offset + its value and label heights
+  const cy0 = yb + (statsH - (0.36 + await hFor(cnbc, cw))) / 2;
+  const c1 = [capLabel(d, s, 'CNBC-TV18 · OCT 2, 2026', { x: cxp, y: cy0, w: cw, charSpacing: 1 }),
+    ...await frameW(d, s, cnbc, cxp, cy0 + 0.36, cw, { rot: 1.5 })];
+  const sx = cxp + cw + 0.32, sw = CX1 - sx;
+  const st1 = stat(d, s, { x: sx, y: yb, w: sw, value: '$22.88 vs $52.97', valueSize: 19, labelSize: 14, labelH: 0.5, color: d.S.amber, label: 'hourly pay, most-exposed fifth vs unexposed workers' });
+  const st2 = stat(d, s, { x: sx, y: yb + 0.95, w: sw, value: '9 of 10', valueSize: 19, labelSize: 14, labelH: 0.5, color: d.S.amber, label: 'most-exposed occupations are vehicle operators' }); // Fig. 4: occupations with 20K+ jobs
+
+  d.animate(s, [...t1, meth, ...kfF, kfCap], { auto: true, effect: 'fade', dur: 600 });
+  d.animate(s, kfHl.slice(0, 3), { auto: true, effect: 'wipeLeft', dur: 500, stagger: 350, after: 150 });
+  d.animate(s, [lab, ch, ...catT], { effect: 'wipeLeft', dur: 1000 });
+  d.animate(s, brk, { auto: true, effect: 'fade', after: 100 });
+  d.animate(s, kfHl.slice(3, 5), { effect: 'wipeLeft', dur: 450, stagger: 300 });
+  d.animate(s, [...c1, ...st1, ...st2], { auto: true, effect: 'rise', dur: 450, stagger: 120, after: 100 });
+  d.animate(s, kfHl.slice(5), { effect: 'wipeLeft', dur: 450, stagger: 300 });
+
+  d.source(s, 'Source: Anthropic, “What work can robots do?” (R. Legate-Yang & M. Massenkoff, Sep 30, 2026): Key findings, Figs. 3–5; ratings, time shares by Claude · CNBC-TV18 (Oct 2, 2026).');
+  s.addNotes([
+    'Anthropic’s economists (Russell Legate-Yang and Maxim Massenkoff, “What work can robots do?”, Anthropic Research · Economics, Sep 30, 2026) asked a narrow question: which work tasks can robots that EXIST TODAY already do? Claude (the data release names Claude Opus 5, with web search) rated the 7,594 physical tasks among the ~19,000 O*NET tasks (~900 occupations) on a rubric — E0: no robot can do it; E1: only in a purpose-built robotic work environment like a factory line; E2: in a structured human workplace like a logistics warehouse; E3: in an unstructured environment like a city road — citing real robots (about 650,000 web searches). Caveat: this is Anthropic’s own study and the ratings, task time shares and robot costs are Claude’s estimates.',
+    'Key findings (verbatim, highlighted on the slide): “Robots, which we define as autonomous physical machines that sense and act, can perform three-quarters of physical tasks in the US, making up 34% of working hours, but mostly in limited settings. Workers exposed to robots are more likely to be male, less educated, and lower paid.” … “Overall, about 80% of job tasks by working time are exposed to either robots or LLMs. Robots do work where LLMs cannot.” LLMs alone expose about half of work; adding robots takes it to 81% (Figure 6). Transportation and moving: under 15% exposed to LLMs alone, about 90% with robots; office and admin: nearly 100%.',
+    'Chart (Figure 3, all US work time): 54% cognitive and interpersonal; physical work is the other 46% — 12% that no robot can do (E0), 23% robots can do in purpose-built environments (E1), 10% in structured human facilities (E2), 1% in unstructured environments (E3). E1+E2+E3 = 34% of all work = 74% of physical work. Of physical tasks only 1.9% are E3 — robots mostly need controlled settings.',
+    'Who is exposed (Figure 5, top-quintile exposed vs unexposed workers): 31.2% vs 51.2% female (−20 pp); 8.3% vs 63.2% with a bachelor’s degree (−55 pp); hourly wage $22.88 vs $52.97; unemployment 5.2% vs 2.2%. Most exposed occupations (Figure 4, ≥20,000 jobs): taxi drivers 2.2 on the 0–3 index (citing Waymo robotaxis), agricultural equipment operators 2.1, light truck drivers 2.1 — 9 of the top 10 are vehicle operators. Nursing and general repair jobs are barely exposed.',
+    'Press: CNBC-TV18 (Asmi Saxena, Oct 2, 2026): “The machines have a type: male, blue-collar and lower-paid” — dek: “A new Anthropic study finds the jobs most exposed to physical automation are held mostly by men, with fewer qualifications and smaller pay packets. But the price tag means no stampede is imminent.” (The clipping on the slide is cropped to the headline; that price tag is the next slide.)',
+    'Robustness caveat (Appendix A.4, also shown on the slide): “Excluding ratings that rely on related robots decreases the share of exposed physical work from about three-quarters to a half.” Dropping demonstration-only evidence lowers it by about 1 point. So present the 74% as the report’s main estimate from Claude’s ratings, with about half on the stricter reading.',
+    'URLs: ' + RW_URL + ' · PDF: https://cdn.sanity.io/files/4zrzovbb/website/401a473469db99fd39bba1ca6d9a5653a70e2f12.pdf · Appendix: https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf · Data release (CC BY 4.0): https://huggingface.co/datasets/Anthropic/EconomicIndex/tree/main/robot_exposure · CNBC-TV18: https://www.cnbctv18.com/technology/anthropic-study-ai-robots-blue-collar-jobs-physical-workers-automation-risk-20003393.htm',
+  ].join('\n\n'));
+  return s;
+}
+
+async function robotCostSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  head(s, 'THE ACCELERATION · ROBOTICS · 7', 'But robots are cheaper for just 0.3% of tasks');
+
+  // ---- left: Figure 7 as a native chart — yearly cost of the robot vs the human, same tasks ----
+  const lw = 6.35;
+  const lab = capLabel(d, s, 'COST PER YEAR TO DO ONE WORKER’S ROBOT-DOABLE TASKS ($ THOUSANDS)', { x: CX0, y: 1.72, w: lw, charSpacing: 1 });
+  const box = { x: CX0 - 0.1, y: 2.3, w: lw + 0.1, h: 3.35 };
+  const occ = ['Hand packers (560K jobs)', 'Taxi drivers (41K)', 'Dishwashers (477K)', 'Janitors & cleaners (2.2M)', 'Welders (416K)'];
+  const robot = [45.4, 57.8, 172.0, 280.0, 334.6];
+  const comp = [49.0, 56.8, 45.0, 47.7, 73.4], share = [0.97, 0.89, 1.0, 0.73, 0.9]; // Fig. 7 columns
+  const human = comp.map((c, i) => Math.round(c * share[i] * 10) / 10);
+  const L = { x: 0.35, y: 0.02, w: 0.58, h: 0.96 };
+  const ch = d.chart(s, 'bar', [
+    { name: 'Human worker (median total compensation × exposed share)', labels: occ, values: human },
+    { name: 'Robot (Claude’s estimate)', labels: occ, values: robot },
+  ], box, {
+    barDir: 'bar', barGrouping: 'clustered', layout: L, chartColors: [HEX.steel, HEX.red], catAxisOrientation: 'maxMin',
+    valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 380,
+    showValue: true, dataLabelFormatCode: '$0.0"K"', dataLabelPosition: 'outEnd', dataLabelFontSize: 12, dataLabelFontBold: true,
+    catAxisLabelFontSize: 12, barGapWidthPct: 50, barOverlapPct: 0, showLegend: false,
+  });
+  // own legend (renderers squeeze a built-in top legend into the first category label)
+  const leg = [];
+  [[HEX.steel, 'Human (median total compensation × exposed share)'], [HEX.red, 'Robot (Claude’s cost estimate)']].forEach(([c, txt], i) => {
+    const lx = CX0 + (i ? 3.85 : 0), n = d.name('leg');
+    s.addShape(d.pres.shapes.RECTANGLE, { x: lx, y: 2.06, w: 0.14, h: 0.14, fill: { color: c }, line: { color: c, width: 0 }, objectName: n });
+    leg.push(n, d.text(s, txt, { x: lx + 0.22, y: 1.98, w: i ? 2.38 : 3.4, h: 0.3, fontSize: 11, color: d.S.muted, valign: 'middle' }));
+  });
+  // tag the one occupation where robots already win
+  const gy0 = box.y + box.h * L.y, gh = box.h * L.h / 5;
+  // gap matches the bars ($47.5K − $45.4K); the report's own text rounds it to "about $2,500"
+  const tag = d.text(s, [
+    { text: '◄ robots ≈$2.1K a year cheaper', options: { fontSize: 12, bold: true, color: '5FD3C4', breakLine: true } },
+    { text: '(report’s rounded text: “about $2,500”)', options: { fontSize: 11, color: d.S.muted } },
+  ], { x: box.x + box.w * (L.x + L.w * 48 / 380) + 0.78, y: gy0 + gh * 0.5 - 0.25, w: 3.0, h: 0.5, valign: 'middle' });
+  const note = d.text(s, [
+    { text: 'Hand packers: robots costing over $2 million replace ~14 workers. ', options: { color: d.S.muted } },
+    { text: 'Robot costs are Claude’s estimates (fixed costs annualized, plus running costs).', options: { color: d.S.steel, italic: true } },
+  ], { x: CX0, y: box.y + box.h + 0.1, w: lw, h: 0.62, fontSize: 14, valign: 'top' });
+
+  // ---- right: the report’s own sentences (highlights added) + the 50-year backtest ----
+  const rx = 7.35, rw = CX1 - rx;
+  const kf = R2('robotwork-kf-bullet-03pct-40yrs.png');
+  const sw0 = rw - 0.3; // screenshots slightly narrower than the column, leaving room for 14pt stat labels below
+  const f1 = await frameW(d, s, kf, rx, 1.8, sw0);
+  const h1 = await hlLines(d, s, kf, f1, [[508, 78, 742, 42], [42, 131, 91, 42], [139, 131, 1075, 42], [42, 184, 305, 42]]);
+  const sc = R2('robotwork-scenarios-2085-2050-53yrs.png');
+  const y2 = f1.geom.y + f1.geom.h + 0.06 + 0.3;
+  const f2 = await frameW(d, s, sc, rx, y2, sw0);
+  const h2a = await hlLines(d, s, sc, f2, [[40, 31, 1210, 42], [40, 83, 490, 42]]);
+  const h2b = await hlLines(d, s, sc, f2, [[296, 136, 991, 42], [40, 189, 1247, 42], [40, 242, 927, 42]]);
+  const yb = f2.geom.y + f2.geom.h + 0.06 + 0.2;
+  const bl = capLabel(d, s, '50-YEAR BACKTEST: HISTORICALLY ROBOT-EXPOSED JOBS', { x: rx, y: yb, w: rw, color: d.S.amber, charSpacing: 1 });
+  const sw = 2.8, sw2 = rw - sw - 0.2; // sw2 ≥ 2.35 keeps “−7%  95% CI −5% to −9%” on one line
+  // big number + its 95% CI as a small caption run on the same line; 14pt label below
+  const ci = (v, c) => [{ text: v, options: { fontSize: 26, bold: true, color: d.S.red, fontFace: 'Arial' } }, { text: `  95% CI ${c}`, options: { fontSize: 11, color: d.S.muted } }];
+  const st1 = stat(d, s, { x: rx, y: yb + 0.32, w: sw, value: ci('−34%', '−16% to −52%'), valueSize: 26, labelSize: 14, labelH: 0.5, label: 'employment after ~20 years, fully exposed vs unexposed' });
+  const st2 = stat(d, s, { x: rx + sw + 0.2, y: yb + 0.32, w: sw2, value: ci('−7%', '−5% to −9%'), valueSize: 26, labelSize: 14, labelH: 0.5, label: 'wages, same comparison' });
+
+  d.animate(s, [lab, ...leg, ch], { auto: true, effect: 'wipeLeft', dur: 1100 });
+  d.animate(s, [tag, note], { auto: true, effect: 'fade', after: 100 });
+  d.animate(s, f1, { effect: 'rise', dur: 450 });
+  d.animate(s, h1, { auto: true, effect: 'wipeLeft', dur: 450, stagger: 300, after: 100 });
+  d.animate(s, f2, { effect: 'rise', dur: 450 });
+  d.animate(s, h2a, { auto: true, effect: 'wipeLeft', dur: 450, stagger: 300, after: 100 });
+  d.animate(s, h2b, { effect: 'wipeLeft', dur: 450, stagger: 300 });
+  d.animate(s, [bl, ...st1, ...st2], { effect: 'rise', dur: 450, stagger: 120 });
+
+  d.source(s, 'Source: Anthropic, “What work can robots do?” (Sep 30, 2026): Fig. 7 (human bar derived: median total compensation × exposed share), App. B.3 backtest; screenshots of anthropic.com, highlights added.');
+  s.addNotes([
+    'The catch: “While robots can do most physical work tasks today, they are much more expensive than human labor. Robots are cost-competitive for just 0.3% of job tasks. If robot price declines follow past trends, it will take 40 years for that share to reach 10%.” (Key findings, highlighted.) For 10% of human work today, robot costs would need to fall about 70% — around 40 years at 3% a year. At 20% cheaper, robots would undercut the physical work of 2.8 million workers (0.8% of all working time).',
+    'Chart (Figure 7; robot costs are Claude’s estimates of the annual cost of robots doing the tasks a robot can do in each job, fixed + variable): packers and packagers (560,000 jobs) — robots ~$45,400 a year vs ~$47,500 of human total compensation for the same 97% of the job (Fig. 7 columns: $49,000 × 97%), a gap of about $2,100; the report’s own rounded sentence says “around $49,000, robots cost about $2,500 less per year to do that work”, so the slide tag gives the gap between the bars (≈$2.1K) and quotes the report’s rounded “about $2,500” beneath it. These robots “cost over $2 million to purchase and install, but replace the yearly work of around 14 workers.” Packer employment is already down 22% since 2015. Taxi drivers: robotaxi ~$57,800 vs ~$50,600 — “around $7,000 more” (plus regulatory hurdles). Dishwashers $172K vs $45K; janitors $280K vs $34.8K (median total compensation $47.7K, 73% exposed); welders $334.6K vs $66.1K — about 5x. The grey “human” bar is my derivation from the figure’s own columns (median total compensation × exposed share); the report’s $2,500 and $7,000 are its own rounded figures (the columns give about $2,100 and $7,200).',
+    'Timelines (verbatim, highlighted; screenshot of the “Robot costs and adoption” section on anthropic.com — the highlights are slide overlays): “Adding in 3% cost declines per year, robots aren’t cost-competitive for half of physical work today until 2085. … In a fast adoption scenario, where quality-adjusted costs fall up to four times faster and robots become able to do new tasks twice as fast, robots become cost-competitive for half of physical work by 2050. Automating 90% of physical work today still takes 53 years.” The authors stress these scenarios are not job-loss predictions; Appendix E: by 2040 under business as usual robots become cost-competitive for about 2.5 million jobs — “more of a ceiling on job loss than a central estimate.” Their summary: “robots would need to sustain record rates of price declines and quality improvements over the coming decades to enable rapid physical automation.”',
+    'Barriers beyond cost (Appendix Figure 10): capability limits block about 70% of physical tasks (manipulation alone about half), human preferences about a quarter, regulation 14%.',
+    'Why it still matters (Appendix B.3 backtest, 1977–2024): over about 20 years, an occupation whose tasks were all robot-exposed saw wages 7.1% lower (95% CI 5.4–8.9%) and employment 34.2% lower (95% CI 16.4–52.0%) than an unexposed occupation in the same industry. These are regression estimates on HISTORICAL exposure (robots of each starting year), not a forecast for today’s robots; the employment estimate is imprecise (CI 16–52%), and the appendix notes steady declines could partly reflect secular trends (its 1977 placebo test on wages finds no pre-trend). And robots keep gaining: each year they become able to do about 2% of the physical work they previously couldn’t — in 1977 robots could not do 62% of physical tasks; today all but 24%. “If the past is any guide, taxi drivers and warehouse packers will see changes sooner than nurses and mechanics.” And the authors flag the upside risk: “AI-powered robots could leapfrog our scale and do work they cannot today, for example by learning to climb ladders or use their arms and grippers more deftly.”',
+    'URLs: ' + RW_URL + ' · Appendix PDF: https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf · Data release: https://huggingface.co/datasets/Anthropic/EconomicIndex/tree/main/robot_exposure',
+  ].join('\n\n'));
+  return s;
+}
+
 async function build(d) {
   await cadSlide(d);
   await hwDesignSlide(d);
@@ -1307,6 +1643,7 @@ async function build(d) {
   await arxivSlide(d);
   await reviewSlide(d);
   await tavusSlide(d);
+  await voiceSlide(d);
   await realQuestionSlide(d);
   await realRevealSlide(d);
   await vlaWallSlide(d);
@@ -1314,6 +1651,8 @@ async function build(d) {
   await vlaDemoSlide(d);
   await factorySlide(d);
   await unitreeSlide(d);
+  await robotWorkSlide(d);
+  await robotCostSlide(d);
 }
 
 module.exports = { build };

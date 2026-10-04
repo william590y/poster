@@ -22,7 +22,7 @@ async function mod(d, name) {
   T.agendaSlide(d);
 
   d.sectionStart('I · The Acceleration');
-  T.sectionSlide(d, { num: 'I', title: 'The Acceleration', body: 'Money, compute, and capabilities — all on exponentials at once.' });
+  T.sectionSlide(d, { num: 'I', title: 'The Acceleration', body: 'Money, compute, capabilities and work — all on exponentials at once.' });
   await mod(d, 'economy');
   await mod(d, 'capabilities');
   await mod(d, 'work');
@@ -37,14 +37,14 @@ async function mod(d, name) {
   await mod(d, 'security');
 
   d.sectionStart('IV · The World');
-  T.sectionSlide(d, { num: 'IV', title: 'The World', body: 'War, rivalry, misuse — and the minds we may be creating.' });
+  T.sectionSlide(d, { num: 'IV', title: 'The World', body: 'War, rivalry, misuse, open weights — and the minds we may be creating.' });
   await mod(d, 'geopolitics');
   await mod(d, 'openweights');
 
   d.sectionStart('V · Coda');
   T.sectionSlide(d, { num: 'V', title: 'Coda', body: 'What now?' });
   await T.whatNowSlide(d);
-  T.closingSlide(d, { agents: process.env.AGENT_COUNT || 'more than 130' });
+  T.closingSlide(d, { agents: process.env.AGENT_COUNT || 'more than 200' });
 
   fs.mkdirSync(path.dirname(out), { recursive: true });
   await d.write(out);

@@ -1,0 +1,17 @@
+{
+ "source": "YouTube InnerTube /youtubei/v1/next (WEB client) response for videoId 4Q-o_ylnVnc, fetched 2026-10-04 via curl from the project network (same data the watch page shows)",
+ "video_id": "4Q-o_ylnVnc",
+ "url": "https://www.youtube.com/watch?v=4Q-o_ylnVnc",
+ "title": "Claude Opus 5.5 Music Video - Ignore Previous Instructions",
+ "channel_name": "Seguramente",
+ "channel_handle": "@CyberWithAnny",
+ "channel_id": "UCJKwPLmVJM9fANZ5KEZiJAA",
+ "channel_subscribers": "877 subscribers",
+ "publish_date": "Sep 29, 2026",
+ "relative_date": "5 days ago",
+ "views": "21,625",
+ "likes": "450",
+ "comments": "86",
+ "duration": "3:02 (from channel video-list badge)",
+ "description": "Every frame is code. \n\nThe song is about prompt injection attacks. A prompt injection is text planted in the content an AI agent reads, written to make it follow the attacker's instructions instead of yours. How bad it gets depends on what the agent can access and do. The injection can be in any media (a website, an email, a file, and even a video). \n\nThe lesson is in the bridge of the song: least privilege, human in the loop and not letting agents use or have access to sensitive details that they shouldn't ever be able to lose.\n\nThere's one hidden white-on-white line in the music video. An easter egg for humans that Claude Opus 5.5 decided to write for you. If you found it, drop the timestamp in the comments!\n\nMade with\n\nSong: suno\nAnimation, editing & timing: Claude Opus 5.5 in Claude Code\nTiming map & sound effects: ElevenLabs\nCharacter references: Higgsfield\n\nMetrics of interest\n\n15h of active agent work, 128 agents with up to 8 working in parallel. \n38 hours of human time due to usage limit hits.\n42M+ tokens. \n23,500 lines of code\nHiggsfield: 27 credits\nElevenlabs; 3,023 credits. 167 sound effects."
+}

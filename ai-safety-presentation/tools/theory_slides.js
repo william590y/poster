@@ -29,10 +29,10 @@ function agendaSlide(d) {
   s.addText('ROADMAP', { placeholder: 'kicker' });
   s.addText('Where we are going', { placeholder: 'title' });
   const acts = [
-    ['I', 'The Acceleration', 'Money, compute & capabilities', 5.9],
-    ['II', 'Inside the Machine', 'Latent reasoning, continual learning, RSI', 4.95],
+    ['I', 'The Acceleration', 'Money, compute, capabilities & work', 5.9],
+    ['II', 'Inside the Machine', 'Latent reasoning, self-improvement', 4.95],
     ['III', 'The Alignment Problem', 'Theory, rogue agents, loss of control', 4.0],
-    ['IV', 'The World', 'War, rivalry, misuse, open weights', 3.05],
+    ['IV', 'The World', 'War, misuse, open weights, model welfare', 3.05],
     ['V', 'Coda', 'What now?', 2.1],
   ];
   const names = [];
@@ -69,7 +69,7 @@ function sectionSlide(d, { num, title, body, notes }) {
 
 async function explosionSlide(d) {
   const s = d.slide('Content');
-  s.addText('INSIDE THE MACHINE · RECURSIVE SELF-IMPROVEMENT', { placeholder: 'kicker' });
+  s.addText('INSIDE THE MACHINE · RECURSIVE SELF-IMPROVEMENT · 1', { placeholder: 'kicker' });
   s.addText('The intelligence explosion', { placeholder: 'title' });
   const q = d.text(s, [
     { text: '“', options: { fontSize: 30, color: d.S.red, bold: true, fontFace: 'Cambria' } },
@@ -145,11 +145,11 @@ async function whatNowSlide(d) {
   }
   const bottom = d.text(s, [
     { text: 'The window is not closed. ', options: { bold: true, color: d.S.txt } },
-    { text: 'But it is closing at the speed of the curve you have seen all talk.', options: { color: d.S.muted } },
+    { text: 'But it is closing at the speed of the curve you have just seen.', options: { color: d.S.muted } },
   ], { x: MX, y: 5.95, w: W - 2 * MX, h: 0.55, fontSize: 21 });
   groups.forEach((g, i) => d.animate(s, g, { auto: true, effect: 'rise', after: i ? 100 : 200 }));
   d.animate(s, [bottom], { effect: 'fade' });
-  s.addNotes('End on agency: there is real work to do, and it needs people.');
+  s.addNotes('End on agency: there is real work to do, and it needs people. Callbacks — Interpretability: the chain-of-thought slides ("AI is learning to think without words", "Too much AI thinking for any human to read") and the refusal direction ("Refusal lives in one direction"). Control: OpenAI\'s pause ("OpenAI hit the brakes on its top models") and the agents that built heartbeats to detect their shutdown. Alignment: specification gaming ("It\'s already happening in miniature", "Frontier models find the loopholes too"). Governance: the US–China AI incident channel, the safety-staff firings and the mathematicians\' advisory group on pacing releases. The window line is a judgment, not a finding: the deck shows the speed of the curve, not how much time is left.');
   return s;
 }
 
@@ -157,13 +157,13 @@ function closingSlide(d, { agents = 'dozens of' } = {}) {
   const s = d.slide('Closing', { transition: 'fadeBlack' });
   const a = d.text(s, 'ONE MORE THING', { x: MX, y: 2.0, w: W - 2 * MX, h: 0.4, fontSize: 14, bold: true, color: d.S.red, charSpacing: 6, align: 'center' });
   const b = d.text(s, 'This presentation was made by an AI.', { x: MX, y: 2.55, w: W - 2 * MX, h: 0.9, fontSize: 40, bold: true, color: d.S.txt, align: 'center', fontFace: 'Arial' });
-  const c = d.text(s, `Every headline was found, every chart was built and every slide was designed by Claude — ${agents} AI agents working in parallel from a one-page outline — while its author watched.`, { x: 1.8, y: 3.6, w: W - 3.6, h: 1.0, fontSize: 18, color: d.S.txt, align: 'center' });
+  const c = d.text(s, `It was researched, written and designed by Claude — ${agents} AI agents working in parallel from a one-page outline and a few images its author supplied — while its author watched.`, { x: 1.8, y: 3.6, w: W - 3.6, h: 1.0, fontSize: 18, color: d.S.txt, align: 'center' });
   const e = d.text(s, 'Thank you. Sleep well.', { x: MX, y: 5.2, w: W - 2 * MX, h: 0.5, fontSize: 22, italic: true, color: d.S.txt, align: 'center', fontFace: 'Cambria' });
   d.animate(s, [a], { auto: true, dur: 800 });
   d.animate(s, [b], { effect: 'fade', dur: 900 });
   d.animate(s, [c], { auto: true, effect: 'fade', after: 400, dur: 900 });
   d.animate(s, [e], { effect: 'fade', dur: 1200 });
-  s.addNotes('Pause after the reveal. Let the room sit with it.');
+  s.addNotes('Pause after the reveal. Let the room sit with it. The agent count is from the build logs: over 200 Claude agent sessions did the research (finding the articles, clips and data), the slide building and the independent reviews. Some visuals came with the original outline and are credited as such; every headline is a real article and every number is sourced in the notes.');
   return s;
 }
 

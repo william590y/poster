@@ -246,7 +246,10 @@ async function marketSlide(d) {
   const st1 = stat(d, s, { x: rx, y: 4.82, w: sw, value: '$96.2B', label: 'Nvidia’s revenue in one quarter, up 106% in a year (Aug 2026)', color: d.S.txt, labelH: 0.8 });
   const st2 = stat(d, s, { x: rx + sw + 0.3, y: 4.82, w: sw, value: '$65B', label: 'Anthropic’s annualized revenue, Jul 2026 — up from $9B at end of 2025', color: d.S.txt, labelH: 0.8 });
 
-  d.source(s, 'Sources: S&P 500 share chart — Mag 7 via historyofmarket.com, Kobeissi Letter, JPMorgan (definitions differ) · Nvidia: CompaniesMarketCap (2026 = Oct 3) · Guardian, Aug 26, 2026 · TechCrunch, Aug 17, 2026');
+  d.source(s, [  // two deliberate lines (the clipping sits above; the box is bottom-anchored)
+    { text: 'Sources: S&P 500 share chart — Mag 7 via historyofmarket.com, Kobeissi Letter, JPMorgan (definitions differ) · Headline: BeInCrypto via Yahoo Finance, Apr 24, 2026 (citing Kobeissi Letter)', options: { breakLine: true } },
+    { text: 'Nvidia: CompaniesMarketCap (2026 = Oct 3) · Guardian, Aug 26, 2026 · TechCrunch, Aug 17, 2026' },
+  ]);
 
   d.animate(s, [spLab, ...chart, cJ, cK, cM, c0, cC], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, head, { effect: 'slam', dur: 450 });
@@ -255,11 +258,11 @@ async function marketSlide(d) {
 
   s.addNotes([
     'The AI trade is now the stock market. The Magnificent 7 alone are about a third of the S&P 500; broader AI-linked baskets put it at 45% (Kobeissi, Apr 2026) or 50% (JPMorgan’s 28 “direct AI” stocks). The three series use different definitions, so they are not directly comparable — the point is the direction.',
-    'Click 1 — the headline: “AI Swallows Wall Street: Stocks Hit Record 45% of S&P 500 Market Cap” (user-supplied headline image; outlet not recorded in our research manifest — matches the Kobeissi 45% figure in the chart).',
+    'Click 1 — the headline: “AI Swallows Wall Street: Stocks Hit Record 45% of S&P 500 Market Cap” — BeInCrypto (Kamina Bashir), Apr 24, 2026, syndicated on Yahoo Finance. If asked: BeInCrypto is a crypto-news outlet, and this is not primary reporting — it relays The Kobeissi Letter’s data (“AI-linked stocks now account for a record 45% of the S&P 500’s total market cap, according to data from The Kobeissi Letter”; the article adds that the share is up 20 points since ChatGPT launched in Nov 2022), i.e. the same 45% as the orange series in the chart.',
     'Click 2 — Nvidia: from about $18B at the end of 2015 to $5.65T on Oct 3, 2026 (CompaniesMarketCap). It became the first public company worth $5T on Oct 29, 2025; the Guardian noted that was more than the GDP of India, Japan or the UK (IMF). It has NOT reached $6T — don’t say it has. The chart shows year-end values, so the 2025 bar ($4.64T) sits below $5T: it crossed $5T in late October, then ended the year lower (dashed line = the $5T level).',
     'Click 3 — the money behind it: The Guardian, Aug 26, 2026 — “Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’”: $96.2B in the quarter, 106% more than a year earlier, with guidance of $108B for the next quarter. Anthropic’s annualized revenue run rate went from $9B at end-2025 to over $65B by end of July 2026 (TechCrunch citing Bloomberg, Aug 17, 2026); it also raised $65B at a $965B valuation in May 2026. (OpenAI’s $852B valuation and ~$1.4T talks are saved for the section closer.)',
     'Chart footnote (cropped from the image; summarized on the source line): Mag 7 series from historyofmarket.com (semiannual, through Jul 24, 2026); broad AI-linked from The Kobeissi Letter via Yahoo Finance (Apr 2026, “+20 pts since ChatGPT”, i.e. from ~25%); JPMorgan Eye on the Market, Outlook 2026. The end-value labels, “~25%” and “ChatGPT launch” were re-set in larger type on the slide (values unchanged); the chart’s small legend and y-axis title (“% of S&P 500 market value”) were cropped — the coloured callouts name the series and the label above the chart gives the measure.',
-    'URLs: https://companiesmarketcap.com/nvidia/marketcap/ · https://techcrunch.com/2025/10/29/nvidia-becomes-first-public-company-worth-5-trillion/ · https://www.theguardian.com/technology/2025/oct/29/nvidia-first-company-5-trillion · https://www.theguardian.com/technology/2026/aug/26/nvidia-quarterly-revenue · https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/ · https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/',
+    'URLs: https://finance.yahoo.com/markets/stocks/articles/ai-swallows-wall-street-stocks-094052523.html (headline; original: https://beincrypto.com/ai-stocks-sp500-record-market-cap/) · https://companiesmarketcap.com/nvidia/marketcap/ · https://techcrunch.com/2025/10/29/nvidia-becomes-first-public-company-worth-5-trillion/ · https://www.theguardian.com/technology/2025/oct/29/nvidia-first-company-5-trillion · https://www.theguardian.com/technology/2026/aug/26/nvidia-quarterly-revenue · https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/ · https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/',
   ].join('\n\n'));
   return s;
 }
@@ -842,7 +845,7 @@ async function envSlide(d) {
 // 11. THE STAKES — Altman quote (section closer)
 async function stakesSlide(d) {
   const s = d.slide('Content', { transition: 'fadeBlack' });
-  kicker(s, 'THE ACCELERATION · ECONOMY · 4');
+  kicker(s, 'THE ACCELERATION · THE STAKES');
   title(s, 'The stakes, in Sam Altman’s own words');
 
   // left: the original report (Business Insider, June 2015) — header with the stage photo, and the passage itself
@@ -880,7 +883,7 @@ async function stakesSlide(d) {
     d.text(s, 'OpenAI’s valuation: its March 2026 round, then reported talks in September 2026', { x: sx, y: 6.0, w: sw, h: 0.48, fontSize: 12, color: d.S.muted, valign: 'top' }),
   ];
 
-  d.source(s, 'Sources: Business Insider (Matt Weinberger), Jun 4, 2015 · video: Open Air 2015 fireside chat (re-upload of Airbnb’s recording) · TechCrunch, Mar 31 & Sep 29, 2026 (valuation talks per Bloomberg)');
+  d.source(s, 'Sources: Business Insider (Matt Weinberger), Jun 5, 2015 00:09 UTC (Jun 4, US time) · video: Open Air 2015 fireside chat (re-upload of Airbnb’s recording) · TechCrunch, Mar 31 & Sep 29, 2026 (talks per Bloomberg)');
 
   d.animate(s, head, { auto: true, effect: 'fade', dur: 700 });
   d.animate(s, [...pas], { auto: true, effect: 'rise', after: 150 });

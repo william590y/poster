@@ -396,15 +396,15 @@ async function bioSlide(d) {
     'Anthropic, Aug 2025: “vibe hacking” — an actor used Claude Code for a large-scale data-extortion operation that targeted at least 17 organizations (healthcare, emergency services, government, religious institutions), ransom demands sometimes exceeding $500,000. Say “targeted”, not “extorted”. North Korea: operatives used Claude to get and keep remote jobs at US Fortune 500 tech companies — “Operators who cannot otherwise write basic code or communicate professionally in English are now able to pass technical interviews.”',
     'Also (covered earlier in the deck, Act III security slide “The targets were real — and governmental”): GTG-1002, Nov 2025 — a Chinese state-sponsored group used Claude Code to run 80–90% of a cyber-espionage campaign against ~30 targets.',
     'All misuse cases are Anthropic’s own reporting about its own platform.',
-    'SEGUE: the VCT result is from April 2025 — an eternity in this field. The next two slides show where AI biology stood by mid-2026: Claude designing working proteins autonomously, and labs gating their bio models behind vetted access.',
+    'SEGUE: the VCT result is from April 2025 — an eternity in this field. The next two slides show where AI biology stood by mid-2026: Claude designing lab-confirmed protein binders autonomously (binding, not yet function), and labs gating their bio models behind vetted access.',
     'URLs: https://securebio.org/virologytest/ · https://arxiv.org/abs/2504.16137 · https://www.anthropic.com/threat-intelligence-report-september-2026 · https://www.anthropic.com/news/detecting-countering-misuse-aug-2025 · https://www.anthropic.com/news/disrupting-AI-espionage',
   ].join('\n\n'));
 }
 
-// ---------------------------------------------------------------- 8. 2026: Claude designs proteins autonomously
+// ---------------------------------------------------------------- 8. 2026: Claude designs protein binders autonomously
 async function proteinSlide(d) {
   const s = d.slide('Content', { transition: 'pushLeft' });
-  heading(s, 'THE WORLD · USE BY BAD ACTORS · 3', 'Claude designs working proteins on its own');
+  heading(s, 'THE WORLD · USE BY BAD ACTORS · 3', 'Claude designs protein binders on its own');
 
   // left: Anthropic's own hero clip (looping GIF) + the autonomy numbers
   const lw = 6.0;

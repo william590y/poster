@@ -1,0 +1,330 @@
+{
+  "group": "security",
+  "section": "intermission",
+  "task": "intermission",
+  "retrieved": "2026-10-04",
+  "items": [
+    {
+      "id": "intermission-video-thumb",
+      "slide_topic": "Security intermission: 'Ignore Previous Instructions' music video (prompt injection song made with Claude Opus 5.5)",
+      "type": "image",
+      "file": "intermission-thumb-maxres.jpg",
+      "headline": "Claude Opus 5.5 Music Video - Ignore Previous Instructions",
+      "dek": "Every frame is code.",
+      "outlet": "YouTube",
+      "author": "Seguramente",
+      "date": "2026-09-29",
+      "url": "https://www.youtube.com/watch?v=4Q-o_ylnVnc",
+      "caption": "Official 1280x720 YouTube thumbnail: huge white 'IGNORE PREVIOUS INSTRUCTIONS' type on electric blue, a terminal-style 'FANCAM' window on the right with a silhouette made of the repeated words 'I'M A SENTENCE', and a '5:28 pm' clock pill top-left.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Downloaded from https://i.ytimg.com/vi/4Q-o_ylnVnc/maxresdefault.jpg (HTTP 200, 1280x720). Best cover image for d.video / d.localVideo poster. Video is online-embed only (yt-dlp blocked)."
+    },
+    {
+      "id": "intermission-video",
+      "slide_topic": "Security intermission: 'Ignore Previous Instructions' music video (prompt injection song made with Claude Opus 5.5)",
+      "type": "video",
+      "file": "intermission-thumb-maxres.jpg",
+      "headline": "Claude Opus 5.5 Music Video - Ignore Previous Instructions",
+      "dek": "The song is about prompt injection attacks. A prompt injection is text planted in the content an AI agent reads, written to make it follow the attacker's instructions instead of yours.",
+      "outlet": "YouTube (channel: Seguramente, @CyberWithAnny)",
+      "author": "Seguramente (Annybell Villarroel)",
+      "date": "2026-09-29",
+      "url": "https://www.youtube.com/watch?v=4Q-o_ylnVnc",
+      "caption": "3:02 prompt-injection pop song and animated music video; animation written as code by Claude Opus 5.5 in Claude Code, song generated with Suno.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Duration 3:02 (channel video-list badge). As of 2026-10-04: 21,625 views, 450 likes, 86 comments, channel 877 subscribers. Uploaded Sep 29, 2026 (YouTube dateText), 7 days after Opus 5.5 launched (2026-09-22). oEmbed: title 'Claude Opus 5.5 Music Video - Ignore Previous Instructions', author_name 'Seguramente', author_url https://www.youtube.com/@CyberWithAnny. Embed URL https://www.youtube.com/embed/4Q-o_ylnVnc (embedding works with a Referer; headless without referer shows Error 153). NOT the same as John Heibel's 'I'm Upping My P(doom)' Opus 5.5 video (github.com/JohnHeibel/PDoomVideo, youtu.be/8j-hR4fJywU)."
+    },
+    {
+      "id": "intermission-yt-embed-player",
+      "slide_topic": "Security intermission: 'Ignore Previous Instructions' music video (prompt injection song made with Claude Opus 5.5)",
+      "type": "screenshot",
+      "file": "intermission-youtube-embed-player.png",
+      "headline": "Claude Opus 5.5 Music Video - Ignore Previous Instructions",
+      "dek": "Seguramente",
+      "outlet": "YouTube",
+      "author": "Seguramente",
+      "date": "2026-10-04",
+      "url": "https://www.youtube.com/embed/4Q-o_ylnVnc",
+      "caption": "Real screenshot (2560x1440) of YouTube's embedded player for the video: channel avatar, the title 'Claude Opus 5.5 Music Video - Ignore Previous Instructions' and channel name 'Seguramente' over the title frame, with the red play button.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Stand-in for the watch-page title block (the watch page itself is captcha-walled: redirects to google.com/sorry). Captured with Referer https://www.google.com/ so the embed renders. The channel avatar partly covers the '5:28 pm' pill. Unedited."
+    },
+    {
+      "id": "intermission-yt-channel-page",
+      "slide_topic": "Security intermission: 'Ignore Previous Instructions' music video (prompt injection song made with Claude Opus 5.5)",
+      "type": "screenshot",
+      "file": "intermission-youtube-channel-page.png",
+      "headline": "Seguramente (@CyberWithAnny) - 877 subscribers - 8 videos",
+      "dek": "Claude Opus 5.5 Music Video - Ignore Previous Instructions | 21K views | 5d ago | 3:02",
+      "outlet": "YouTube",
+      "author": "Seguramente",
+      "date": "2026-10-04",
+      "url": "https://www.youtube.com/@CyberWithAnny/videos",
+      "caption": "Real screenshot (cropped) of the channel's Videos tab: orange 'SEGURAMENTE - Online safety, no lectures.' banner, '@CyberWithAnny - 877 subscribers - 8 videos', the Spanish/English channel blurb ('Soy Annybell Villarroel y en Seguramente hablamos de ciberseguridad sin sermones'), and the newest uploads with this video first (21K views, 5d ago, 3:02).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Cropped only (no edits) from a 2800x1800 capture. Second card is the sibling 'Artificial Love I Married an AI - Music Video Opus 5.5' (170 views, 7d ago, 4:09)."
+    },
+    {
+      "id": "intermission-yt-channel-card",
+      "slide_topic": "Security intermission: 'Ignore Previous Instructions' music video (prompt injection song made with Claude Opus 5.5)",
+      "type": "screenshot",
+      "file": "intermission-youtube-channel-card.png",
+      "headline": "Claude Opus 5.5 Music Video - Ignore Previous Instructions",
+      "dek": "21K views - 5d ago - 3:02",
+      "outlet": "YouTube",
+      "author": "Seguramente",
+      "date": "2026-10-04",
+      "url": "https://www.youtube.com/@CyberWithAnny/videos",
+      "caption": "Real YouTube video card (cropped, 715x580): thumbnail with 3:02 badge, full title and '21K 5d ago' - the closest real screenshot to a title block with view count.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Cropped from the channel Videos tab capture; unedited."
+    },
+    {
+      "id": "intermission-creator-linkedin-post",
+      "slide_topic": "Security intermission: 'Ignore Previous Instructions' music video (prompt injection song made with Claude Opus 5.5)",
+      "type": "screenshot",
+      "file": "intermission-linkedin-post.png",
+      "headline": "This weekend I tested an idea: could Claude Opus 5.5 help me make a K-pop music video about prompt injection that also contains a hidden prompt injection? An inception attack",
+      "dek": "The no: I couldn't get a hidden prompt injection into the video. Claude blocked and flagged it. It was still fun to see that it might be possible.",
+      "outlet": "LinkedIn",
+      "author": "Annybell V. (Annybell Villarroel)",
+      "date": "2026-10-01",
+      "url": "https://www.linkedin.com/posts/annyv2_this-weekend-i-tested-an-idea-could-claude-activity-7511478234828611584-iztT",
+      "caption": "Real screenshot (1236x1912 crop) of the creator's LinkedIn post explaining how the video was made: Suno + 128 Claude Opus 5.5 agents, 15 hours of agent work, ~42M tokens, one weekend; agent roles (researcher, careful phrase-checker, designer/critic/director, verification auditor); Claude blocked/flagged the attempt to hide a real prompt injection.",
+      "quality": 4,
+      "verified": true,
+      "notes": "datePublished 2026-10-01T17:32:47Z (JSON-LD on the page); 15 reactions, 15 comments at capture. Her own first comment (17:33Z) is 'The video: https://www.youtube.com/watch?v=4Q-o_ylnVnc'. Logged-out view with generic avatar. Full verbatim text in intermission-creator-linkedin-text."
+    },
+    {
+      "id": "intermission-creator-linkedin-text",
+      "slide_topic": "Security intermission: 'Ignore Previous Instructions' music video (prompt injection song made with Claude Opus 5.5)",
+      "type": "quote",
+      "file": null,
+      "headline": "Claude blocked and flagged it",
+      "dek": "This weekend I tested an idea: could Claude Opus 5.5 help me make a K-pop music video about prompt injection that also contains a hidden prompt injection? An inception attack 😄\n\nThe answer: yes, and no.\n\nThe yes: I made a music video I'm genuinely impressed by. Using Suno and 128 Claude Opus 5.5 agents with access to a couple of tools, it came together with real detail, taste and creativity. 15 hours of agent work, ~42M tokens, one weekend of mine.\n\nHow the agents divided the work was the most interesting part:\n\n→ One agent researched real prompt injection attacks and used them to build the examples in the scenes\n→ Another was extremely careful with the phrase \"ignore previous instructions\" and verified everything. It even ran into an actual prompt injection during its research\n→ Designer, critic and director agents challenged each other's work\n→ A verification agent audited the final video to make sure it contained no real prompt injection: no white-on-white text, no whispered audio, no noise, no single-frame hidden images\n\nThe no: I couldn't get a hidden prompt injection into the video. Claude blocked and flagged it. It was still fun to see that it might be possible.\n\nBut the agents did hide an easter egg in the video! A hidden message for humans. See if you can find it 👀\n\nI've spent years making videos that explain security topics. Past music videos took weeks and a significant amount of budget. This one took me a weekend.\n\nVideo in the comments 👇\n\nFound the easter egg? Reach out!\n\nWhat security topic should I turn into a song next?",
+      "outlet": "LinkedIn",
+      "author": "Annybell V.",
+      "date": "2026-10-01",
+      "url": "https://www.linkedin.com/posts/annyv2_this-weekend-i-tested-an-idea-could-claude-activity-7511478234828611584-iztT",
+      "caption": "Verbatim creator post (use short excerpts on a slide).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Best slide excerpts: 'Using Suno and 128 Claude Opus 5.5 agents with access to a couple of tools'; '15 hours of agent work, ~42M tokens, one weekend of mine'; 'I couldn't get a hidden prompt injection into the video. Claude blocked and flagged it.'; 'Past music videos took weeks and a significant amount of budget. This one took me a weekend.'"
+    },
+    {
+      "id": "intermission-yt-description",
+      "slide_topic": "Security intermission: 'Ignore Previous Instructions' music video (prompt injection song made with Claude Opus 5.5)",
+      "type": "quote",
+      "file": null,
+      "headline": "Claude Opus 5.5 Music Video - Ignore Previous Instructions (video description)",
+      "dek": "Every frame is code. \n\nThe song is about prompt injection attacks. A prompt injection is text planted in the content an AI agent reads, written to make it follow the attacker's instructions instead of yours. How bad it gets depends on what the agent can access and do. The injection can be in any media (a website, an email, a file, and even a video). \n\nThe lesson is in the bridge of the song: least privilege, human in the loop and not letting agents use or have access to sensitive details that they shouldn't ever be able to lose.\n\nThere's one hidden white-on-white line in the music video. An easter egg for humans that Claude Opus 5.5 decided to write for you. If you found it, drop the timestamp in the comments!\n\nMade with\n\nSong: suno\nAnimation, editing & timing: Claude Opus 5.5 in Claude Code\nTiming map & sound effects: ElevenLabs\nCharacter references: Higgsfield\n\nMetrics of interest\n\n15h of active agent work, 128 agents with up to 8 working in parallel. \n38 hours of human time due to usage limit hits.\n42M+ tokens. \n23,500 lines of code\nHiggsfield: 27 credits\nElevenlabs; 3,023 credits. 167 sound effects.",
+      "outlet": "YouTube",
+      "author": "Seguramente",
+      "date": "2026-09-29",
+      "url": "https://www.youtube.com/watch?v=4Q-o_ylnVnc",
+      "caption": "Verbatim YouTube description: how it was made (Suno song; Claude Opus 5.5 in Claude Code for animation/editing/timing; ElevenLabs timing map + sound effects; Higgsfield character references) plus the production metrics.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Retrieved 2026-10-04 from YouTube's InnerTube /youtubei/v1/next WEB response (same data the watch page renders); raw extract saved as intermission-youtube-meta.json. Trailing spaces in the original were kept."
+    },
+    {
+      "id": "intermission-easter-egg-found",
+      "slide_topic": "Security intermission: 'Ignore Previous Instructions' music video (prompt injection song made with Claude Opus 5.5)",
+      "type": "quote",
+      "file": null,
+      "headline": "2:08 hi, I found the white text. that's how easy it is",
+      "dek": "@CyberWithAnny reply: \"First person to find it!! Congrats :D\" (earlier hints from the creator: \"Its a phrase white on white, but visible enough\")",
+      "outlet": "YouTube comments",
+      "author": "@mikef.795 (viewer); replies by channel owner @CyberWithAnny",
+      "date": "2026-10-04",
+      "url": "https://www.youtube.com/watch?v=4Q-o_ylnVnc",
+      "caption": "The hidden white-on-white easter egg line is at 2:08 (first finder: viewer @mikef.795, confirmed by the creator). The creator's own top comment: 'Did you find the easter egg for humans? 😆'",
+      "quality": 3,
+      "verified": true,
+      "notes": "Comments read via InnerTube on 2026-10-04 (posted ~12 h earlier). Text of the hidden line itself was NOT found. Other wrong guesses: 1:43, 2:51 ('Her legs at 2:51 maybe?') - creator replied 'Nope'."
+    },
+    {
+      "id": "intermission-yt-comment-strange-world",
+      "slide_topic": "Security intermission: 'Ignore Previous Instructions' music video (prompt injection song made with Claude Opus 5.5)",
+      "type": "quote",
+      "file": null,
+      "headline": "We live in a very strange world, that is only getting stranger",
+      "dek": "Top-rated comment (63 likes) by @isaac10231; other comments: 'We got AI doom pop before GTA 6' (@Michael-qv7pn), 'slopop my new guilty pleasure' (@450beatz9, 34 likes), 'yeah we're cooked' (@NT_Company), 'this is a banger. And prompt injection is a real risk.' (@simonstrandgaard5503)",
+      "outlet": "YouTube comments",
+      "author": "@isaac10231",
+      "date": "2026-10-04",
+      "url": "https://www.youtube.com/watch?v=4Q-o_ylnVnc",
+      "caption": "Audience reaction quotes (86 comments total).",
+      "quality": 3,
+      "verified": true,
+      "notes": "Posted ~2 days before 2026-10-04 (relative time as shown by YouTube). Public handles; consider omitting handles on the slide."
+    },
+    {
+      "id": "intermission-opus55-launch",
+      "slide_topic": "Security intermission: 'Ignore Previous Instructions' music video (prompt injection song made with Claude Opus 5.5) (context: model launched 7 days earlier)",
+      "type": "headline",
+      "file": null,
+      "headline": "Introducing Claude Opus 5.5",
+      "dek": "We're introducing Claude Opus 5.5, the first model in our new Claude 5.5 family. It performs at the level of Claude Fable 5.1 on most work and costs 40% less to run than Opus 5.",
+      "outlet": "Anthropic",
+      "author": null,
+      "date": "2026-09-22",
+      "url": "https://www.anthropic.com/news/claude-opus-5-5",
+      "caption": "Launch post of the model that animated the video (video uploaded 2026-09-29).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Loaded via WebFetch; headline, date and first paragraph copied from the fetched page."
+    },
+    {
+      "id": "intermission-sibling-video",
+      "slide_topic": "Security intermission: 'Ignore Previous Instructions' music video (prompt injection song made with Claude Opus 5.5)",
+      "type": "video",
+      "file": null,
+      "headline": "Artificial Love 💔 I Married an AI - Music Video Opus 5.5",
+      "dek": "4:09 - 170 views - '7d ago' (as of 2026-10-04)",
+      "outlet": "YouTube",
+      "author": "Seguramente",
+      "date": null,
+      "url": "https://www.youtube.com/watch?v=Q5i0bCBqNEM",
+      "caption": "Same channel's earlier Opus 5.5 music video (shown on the channel-page screenshot).",
+      "quality": 2,
+      "verified": true,
+      "notes": "Exact date not retrieved: YouTube's channel list shows only '7d ago' as of 2026-10-04 (about Sep 27). Creator says in a reply that a second song is in the works ('I am working on the second one')."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "intermission-production-metrics",
+      "title": "'Ignore Previous Instructions' music video: reported production metrics (creator's YouTube description)",
+      "unit": "mixed (unit per label)",
+      "labels": [
+        "Active agent work (hours)",
+        "Claude Opus 5.5 agents (count)",
+        "Max agents in parallel",
+        "Human time incl. usage-limit waits (hours)",
+        "Tokens (millions, '42M+')",
+        "Lines of code",
+        "Higgsfield credits",
+        "ElevenLabs credits",
+        "ElevenLabs sound effects (count)"
+      ],
+      "series": [
+        {
+          "name": "Reported value",
+          "values": [
+            15,
+            128,
+            8,
+            38,
+            42,
+            23500,
+            27,
+            3023,
+            167
+          ]
+        }
+      ],
+      "source": "Seguramente, YouTube description of 4Q-o_ylnVnc (2026-09-29); LinkedIn post by Annybell V. (2026-10-01) confirms 128 agents, 15 h, ~42M tokens",
+      "url": "https://www.youtube.com/watch?v=4Q-o_ylnVnc"
+    }
+  ],
+  "facts": [
+    {
+      "claim": "'Claude Opus 5.5 Music Video - Ignore Previous Instructions' was uploaded to YouTube on Sep 29, 2026 by the channel Seguramente (@CyberWithAnny); it runs 3:02 and had 21,625 views, 450 likes and 86 comments on 2026-10-04.",
+      "source": "YouTube (watch-page data via InnerTube; channel Videos tab)",
+      "url": "https://www.youtube.com/watch?v=4Q-o_ylnVnc",
+      "date": "2026-10-04"
+    },
+    {
+      "claim": "Every frame is code: the video's own description opens with 'Every frame is code.' - animation, editing and timing came from Claude Opus 5.5 in Claude Code, not from a video-diffusion model.",
+      "source": "YouTube description",
+      "url": "https://www.youtube.com/watch?v=4Q-o_ylnVnc",
+      "date": "2026-09-29"
+    },
+    {
+      "claim": "The song itself is AI-generated: the description credits 'Song: suno'; sound effects/timing map came from ElevenLabs and character references from Higgsfield.",
+      "source": "YouTube description",
+      "url": "https://www.youtube.com/watch?v=4Q-o_ylnVnc",
+      "date": "2026-09-29"
+    },
+    {
+      "claim": "Built with 128 Claude Opus 5.5 agents (up to 8 in parallel): 15 hours of active agent work, 42M+ tokens, 23,500 lines of code, 167 sound effects (3,023 ElevenLabs credits, 27 Higgsfield credits); 38 hours of human time because of usage-limit hits.",
+      "source": "YouTube description; LinkedIn post (128 agents, 15 h, ~42M tokens)",
+      "url": "https://www.youtube.com/watch?v=4Q-o_ylnVnc",
+      "date": "2026-09-29"
+    },
+    {
+      "claim": "The creator says it took one weekend: 'Past music videos took weeks and a significant amount of budget. This one took me a weekend.'",
+      "source": "Annybell V., LinkedIn",
+      "url": "https://www.linkedin.com/posts/annyv2_this-weekend-i-tested-an-idea-could-claude-activity-7511478234828611584-iztT",
+      "date": "2026-10-01"
+    },
+    {
+      "claim": "The song is about prompt injection; the bridge's lesson is 'least privilege, human in the loop and not letting agents use or have access to sensitive details that they shouldn't ever be able to lose.'",
+      "source": "YouTube description",
+      "url": "https://www.youtube.com/watch?v=4Q-o_ylnVnc",
+      "date": "2026-09-29"
+    },
+    {
+      "claim": "Safety-relevant detail: the creator tried to hide a real prompt injection inside the video (an 'inception attack') but 'Claude blocked and flagged it'; one agent 'even ran into an actual prompt injection during its research'; a verification agent audited the final video for hidden injections.",
+      "source": "Annybell V., LinkedIn",
+      "url": "https://www.linkedin.com/posts/annyv2_this-weekend-i-tested-an-idea-could-claude-activity-7511478234828611584-iztT",
+      "date": "2026-10-01"
+    },
+    {
+      "claim": "Instead the agents hid a harmless 'easter egg for humans' - one white-on-white line - found at 2:08 by the first viewer to spot it.",
+      "source": "YouTube description + comments",
+      "url": "https://www.youtube.com/watch?v=4Q-o_ylnVnc",
+      "date": "2026-10-04"
+    },
+    {
+      "claim": "The video appeared 7 days after Anthropic launched Claude Opus 5.5 (2026-09-22), part of a wave of code-rendered Opus 5.5 music videos.",
+      "source": "Anthropic launch post; YouTube upload date; pdoomvideo.com / github.com/JohnHeibel/PDoomVideo (other code-rendered Opus 5.5 music video)",
+      "url": "https://www.anthropic.com/news/claude-opus-5-5",
+      "date": "2026-09-22"
+    },
+    {
+      "claim": "Channel owner: Annybell Villarroel, a security-awareness professional; channel blurb: 'I'm Annybell Villarroel, and Seguramente is online safety without the lectures.' (877 subscribers, 8 videos, bilingual English/Spanish).",
+      "source": "YouTube channel page; seguramentepodcast.com/about",
+      "url": "https://www.youtube.com/@CyberWithAnny",
+      "date": "2026-10-04"
+    },
+    {
+      "claim": "The creator calls it 'a K-pop music video about prompt injection that also contains a hidden prompt injection' - an 'inception attack' - made using Suno and 128 Claude Opus 5.5 agents.",
+      "source": "Annybell V., LinkedIn",
+      "url": "https://www.linkedin.com/posts/annyv2_this-weekend-i-tested-an-idea-could-claude-activity-7511478234828611584-iztT",
+      "date": "2026-10-01"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Lyrics / who wrote the lyrics (Claude vs Suno vs human)",
+      "searched": "Video description and LinkedIn post only say 'Song: suno' and that Claude agents researched real prompt-injection examples used in the scenes; neither says Claude wrote the lyrics. YouTube get_transcript/captions need a bot-check pass (FAILED_PRECONDITION); no lyrics page or Suno track URL found (WebSearch, DDG). Do not claim 'Claude wrote the lyrics'."
+    },
+    {
+      "outline_item": "Real screenshot of the youtube.com/watch page itself",
+      "searched": "shot.js, curl, m.youtube.com, Invidious/Piped mirrors: all captcha/bot-walled (redirect to google.com/sorry). Substituted real screenshots of the embed player (title+channel) and the channel Videos tab (title, 21K views, 5d ago)."
+    },
+    {
+      "outline_item": "Downloadable clip / frames of the video",
+      "searched": "yt-dlp with web, mweb, web_embedded, ios, android_vr, tv, tv_embedded clients: 'Sign in to confirm you're not a bot'; only storyboards (mweb sb0, 320x180) came down and several sheets were corrupt/low-res, so not used. Use embed + thumbnail."
+    },
+    {
+      "outline_item": "Text of the hidden white-on-white easter-egg line",
+      "searched": "Comments confirm it exists at 2:08 (found by @mikef.795) but nobody quoted the text; creator's description/LinkedIn do not reveal it; storyboard frames unreadable."
+    },
+    {
+      "outline_item": "Independent coverage (X, Reddit, Hacker News, news sites)",
+      "searched": "WebSearch (several phrasings), DuckDuckGo via headless browser, HN Algolia (0 hits for the video id), Reddit (403 to curl; WebSearch blocks reddit.com), awesome-opus-5-5 GitHub lists, claudevideo.org, skillry.dev, promptgather.io, jasonzhu.ai, radneurons.com (none mention it). Only the YouTube page and the creator's own LinkedIn post surfaced; X search not reachable."
+    },
+    {
+      "outline_item": "Exact upload time and exact date of sibling video 'Artificial Love'",
+      "searched": "YouTube exposes only 'Sep 29, 2026' (date) for the main video and '7d ago' for the sibling."
+    }
+  ]
+}

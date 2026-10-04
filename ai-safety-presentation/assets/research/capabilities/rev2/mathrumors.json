@@ -823,11 +823,11 @@
    "url": "https://www.scientificamerican.com/article/which-million-dollar-math-problem-could-ai-solve-next/",
    "caption": "Paragraph: OpenAI told NYT it has progress on another problem, \"didn't specify which one\"",
    "quality": 4,
-   "notes": "Highlight the second sentence. SciAm paraphrases (\"significant progress\"); OpenAI's own words to the NYT were \"substantial progress\".",
+   "notes": "Highlight covers the first part of the sentence (it continues: -but did not specify which one.). SciAm paraphrases (\"significant progress\"); OpenAI's own words to the NYT were \"substantial progress\".",
    "highlights": [
     {
-     "label": "OpenAI told NYT ... didn't specify which one",
-     "text": "OpenAI told the New York Times that it has already made significant progress on another one of the problems—but didn’t specify which one.",
+     "label": "OpenAI told NYT it has already made significant progress on another one of the problems",
+     "text": "OpenAI told the New York Times that it has already made significant progress on another one of the problems",
      "image_px": {
       "w": 1480,
       "h": 430

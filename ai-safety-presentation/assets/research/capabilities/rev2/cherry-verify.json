@@ -1,0 +1,98 @@
+{
+ "group": "capabilities-rev2-cherry-verify",
+ "round": "rev2",
+ "generated": "2026-10-04",
+ "items": [
+  {
+   "slide_topic": "Fable 5.5 clips (credited by the poster, unverified): Tak's 'cool animation' style montage",
+   "outlet": "X (Twitter)",
+   "author": "Tak (@cherry_mx_reds)",
+   "date": "2026-10-02",
+   "url": "https://x.com/cherry_mx_reds/status/2105816670896009224",
+   "verified": true,
+   "headline": null,
+   "dek": null,
+   "file": "fable55/tak-fable55-style-montage-riso-first-960.gif",
+   "id": "f55-tak-gif-montage-riso-first-v2",
+   "type": "video",
+   "quality": 5,
+   "caption": "RE-CUT looping GIF (960x540, 20 fps, 139 frames, 6.95 s, 39.2 MB, per-frame 256-colour palettes, loops forever): the accelerating art-style montage, source 6.40-13.35 s of Tak's clip. Frame 0 is now the vivid risograph style ('STILL POINT PRESS - 3 COLOUR RISOGRAPH - ED. 55', yellow/red sun, halftone); it then cycles ~30 styles (low-poly vaporwave, Bauhaus, thermal camera, 8-bit, newspaper, Delft tile, X-ray, woodcut, blueprint, Starry-Night impasto, neon sign, ...) and settles on the line-art frame for ~0.55 s before looping back to the risograph.",
+   "notes": "SUPERSEDES fable55/tak-fable55-still-point-style-montage-960.gif (38.4 MB, 134 frames, 6.7 s, 6.35-13.05 s), whose frame 0 was a single near-black ASCII-terminal frame (mean RGB 6,19,9; mostly black with thin green text) and which showed only 0.25 s of the line-art end frame. Same real footage, trimmed only (source: fable55/tak-fable55-cool-animation-1080p60-with-audio.mp4, ffmpeg fps=20, lanczos scale 960, palettegen stats_mode=single + paletteuse new=1 dither=sierra2_4a, gifsicle -O3, NO --colors so palettes stay per-frame). Checked: frame 0 fully opaque (no transparent pixels in any frame), 139 frames decode cleanly, loop count infinite, last-to-first seam difference (mean abs RGB 75.7) is smaller than the montage's own hard cuts (up to ~187), so the loop reads as one more cut. Silent GIF (the mp4 has the soundtrack). LibreOffice preview shows only frame 0, which is now the risograph still. Generated artwork text in the clip is not evidence of the model. Attribution is the poster's claim only: Anthropic has announced no 'Fable 5.5' (newest official: Claude Fable 5.1, Sep 1 2026; Opus 5.5, Sep 22; Sonnet 5.5, Sep 28). The post gives no tool, code, workflow or access details. Text inside the clip (e.g. 'Fable 5.5 画', 'ED. 55', 'Nº 5.5') is generated artwork, not evidence of which model made it."
+  },
+  {
+   "slide_topic": "Fable 5.5 clips (credited by the poster, unverified): Tak's 'cool animation' style montage",
+   "outlet": "X (Twitter)",
+   "author": "Tak (@cherry_mx_reds)",
+   "date": "2026-10-02",
+   "url": "https://x.com/cherry_mx_reds/status/2105816670896009224",
+   "verified": true,
+   "headline": null,
+   "dek": null,
+   "file": "fable55/tak-fable55-still-t06.4s-risograph-gif-first-frame-1080p.png",
+   "id": "f55-tak-still-risograph-gif-frame0",
+   "type": "image",
+   "quality": 5,
+   "caption": "Frame at 6.4 s (1920x1080, 4.4 MB PNG): the risograph-print version of the character (pink beanie, blue sweater, coffee mug on a stool, red-yellow sun, halftone mountains and cacti, caption 'STILL POINT PRESS - 3 COLOUR RISOGRAPH - ED. 55'). Same frame as frame 0 of the re-cut GIF.",
+   "notes": "Real video frame, unedited; use as the static cover/poster for the GIF. Generated content inside the clip."
+  },
+  {
+   "slide_topic": "Fable 5.5 clips (credited by the poster, unverified): Tak's 'cool animation' style montage",
+   "outlet": "X (Twitter)",
+   "author": "Tak (@cherry_mx_reds)",
+   "date": "2026-10-02",
+   "url": "https://x.com/cherry_mx_reds/status/2105816670896009224",
+   "verified": true,
+   "headline": null,
+   "dek": "\"Hey Fable, please make a cool animation\"  \n\n15 minutes later.\n\nFABLE 5.5 IS SO GOOD AT THESE.\n\nHOW???",
+   "file": "fable55/tak-x-post-fable55-cool-animation-screenshot.png",
+   "id": "f55-tak-x-post-counts-2026-10-04-v2",
+   "type": "quote",
+   "quality": 5,
+   "caption": "Re-verified 2026-10-04 (api.fxtwitter.com, evening re-check): post text identical (verbatim in dek, includes two trailing spaces after the first line), posted Fri Oct 02 00:26:33 +0000 2026 (screenshot shows '12:26 AM · Oct 2, 2026'), 73 replies, 81 reposts, 34 quotes, 2,174 likes, 886 bookmarks, 163,125 views. Existing screenshot (1400x1380) is sharp and fully legible (author line, the four-line text, ukiyo-e first frame with 'Fable 5.5 画', timestamp, counts 73 / 81 / 2.1K / 886).",
+   "notes": "Counts moved slightly since the earlier capture (likes 2,173 -> 2,174; views 163,081 -> 163,125); the screenshot's rounded '2.1K' and '163.1K' still match. Video: 17.066 s, 1920x1080, media id 2105815801198501888 unchanged. Author: Tak, @cherry_mx_reds, verified account, 6,356 followers, joined 2011-08-05. Follow-ups re-checked: Akim reply (2105832628750553512) 24 likes, 2,389 views, 1 reply, text 'A generic design agency would charge like 5k to make this 2 or 3 years ago💀💀'; Tak's 'art history' follow-up (2106089331420983592) 21 likes, 20,177 views; Tak's 'dot / Pixar side quest' post (2105825930799432073) now 6,178 likes, 177 reposts, 215 replies, 67 quotes, 2,487 bookmarks, 824,637 views. Attribution is the poster's claim only: Anthropic has announced no 'Fable 5.5' (newest official: Claude Fable 5.1, Sep 1 2026; Opus 5.5, Sep 22; Sonnet 5.5, Sep 28). The post gives no tool, code, workflow or access details. Text inside the clip (e.g. 'Fable 5.5 画', 'ED. 55', 'Nº 5.5') is generated artwork, not evidence of which model made it."
+  },
+  {
+   "slide_topic": "Fable 5.5 clips (credited by the poster, unverified): Tak's 'cool animation' style montage",
+   "outlet": "X (Twitter)",
+   "author": "Tak (@cherry_mx_reds)",
+   "date": "2026-10-02",
+   "url": "https://x.com/cherry_mx_reds/status/2105816670896009224",
+   "verified": true,
+   "headline": null,
+   "dek": "Akim: \"A generic design agency would charge like 5k to make this 2 or 3 years ago💀💀\"",
+   "file": "fable55/tak-x-thread-followup-art-history-and-akim-reply-screenshot.png",
+   "id": "f55-tak-thread-screenshot-legibility-check",
+   "type": "screenshot",
+   "quality": 4,
+   "caption": "Legibility check passed (1400x2620): post, Tak's 'ART HISTORY SPEEDRUN' follow-up quote ('FABLE 5.5 MUST BE PACED IMMEDIATELY') and Akim's reply are all readable at full size; tall and narrow, so for a slide crop to the top post + Akim reply or use the single-post screenshot.",
+   "notes": "Unchanged file; no correction needed. Contains emoji."
+  }
+ ],
+ "datasets": [],
+ "facts": [
+  {
+   "claim": "On 2026-10-02 (00:26 UTC) Tak (@cherry_mx_reds) posted a 17-second video captioned: \"Hey Fable, please make a cool animation\" / \"15 minutes later.\" / \"FABLE 5.5 IS SO GOOD AT THESE.\" / \"HOW???\" - 163,125 views, 2,174 likes, 886 bookmarks, 81 reposts, 73 replies, 34 quotes as of 2026-10-04 (evening).",
+   "source": "X post via api.fxtwitter.com (re-checked) + screenshot",
+   "url": "https://x.com/cherry_mx_reds/status/2105816670896009224",
+   "date": "2026-10-02"
+  },
+  {
+   "claim": "The clip shows one cartoon character with a coffee mug re-rendered in about 30 art styles in 17 seconds; the style changes accelerate from ~1 s each to ~0.03 s flashes, then settle on a line-art frame.",
+   "source": "frame-by-frame scene-cut analysis of the downloaded 1080p60 mp4 (cuts at 1.07 s x4, 0.53 s x4, 0.27 s x8, 0.13 s from 8.53 s, 0.03-0.07 s from ~10.7 s, line-art hold 12.8-16.0 s, flash back to the opening ukiyo-e frame 16.0-17.07 s)",
+   "url": "https://x.com/cherry_mx_reds/status/2105816670896009224",
+   "date": "2026-10-02"
+  },
+  {
+   "claim": "Attribution to 'Fable 5.5' is the poster's own claim; Anthropic has announced no Fable 5.5 (newest official: Claude Fable 5.1, Sep 1 2026) and the post gives no tool, code or workflow beyond the one-line prompt.",
+   "source": "carried over from rev2/cherry.json (Anthropic sources, coolbat list, Kingy AI) - not re-researched",
+   "url": "https://x.com/cherry_mx_reds/status/2105816670896009224",
+   "date": "2026-10-04"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "Anything contradicting the earlier cherry.json findings",
+   "searched": "Re-pulled api.fxtwitter.com for the post, Akim's reply, Tak's art-history follow-up and the dot post on 2026-10-04: text, date, author and media id unchanged; only counts moved slightly. No new prompt/tool/workflow disclosure or confirming/disputing replies were found (replies beyond the two shown remain behind X's login wall). Prior not_found entries in cherry.json still stand."
+  }
+ ]
+}

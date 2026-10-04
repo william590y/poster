@@ -941,6 +941,26 @@ async function voiceCover() {
   return out;
 }
 
+// The X post as one clipping: its text (source rows 124–556) stacked on its metadata lines — X's "Made with AI" label and
+// "1:49 PM · Oct 2, 2026 · 1.9M Views" (rows 1282–1382). Omitted between them: the video thumbnail (the clip itself, at
+// left) and the "ElevenLabs" tag line; a thin rule marks the cut. Both parts 1:1 from the same screenshot, crop/stack only.
+async function voicePostClip() {
+  fs.mkdirSync(OUT, { recursive: true });
+  const out = path.join(OUT, 'voicedemo-x-post-clip.png');
+  const src = R2('voicedemo-x-post.png');
+  const Wd = 1196, th = 432, mh = 100, gap = 20;
+  const text = await sharp(src).extract({ left: 0, top: 124, width: Wd, height: th }).png().toBuffer();
+  const meta = await sharp(src).extract({ left: 0, top: 1282, width: Wd, height: mh }).png().toBuffer();
+  const rule = await sharp({ create: { width: Wd - 64, height: 2, channels: 3, background: '#D5DADF' } }).png().toBuffer();
+  await sharp({ create: { width: Wd, height: th + gap + mh, channels: 3, background: '#FFFFFF' } })
+    .composite([
+      { input: text, left: 0, top: 0 },
+      { input: rule, left: 32, top: th + gap / 2 - 1 },
+      { input: meta, left: 0, top: th + gap },
+    ]).png().toFile(out);
+  return out;
+}
+
 async function voiceSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
   head(s, 'THE ACCELERATION · VIDEO · 2', 'AI voices now scream, whisper and sing');
@@ -960,15 +980,16 @@ async function voiceSlide(d) {
   // right: the post and the author's own disclosure (real screenshot, two crops), then what is claimed about the model
   const rx = CX0 + vw + 0.42, rw = CX1 - rx;
   const lab = capLabel(d, s, 'THE POST · 1.9M VIEWS · HIS X BIO: “EX-ELEVENLABS”', { x: rx, y: 1.7, w: rw, charSpacing: 1 });
-  const headCrop = await crop('rev2/voicedemo-x-post.png', 'voicedemo-x-post-head.png', { l: 0, t: 118, w: 1196, h: 450 });
-  const replyCrop = await crop('rev2/voicedemo-x-post.png', 'voicedemo-x-post-reply.png', { l: 0, t: 1522, w: 1196, h: 192 });
-  const pw = rw - 0.55;
-  const post = await frameW(d, s, headCrop, rx + 0.02, 2.02, pw, { rot: -1, link: VOICE.post });
-  const postBottom = 2.02 + await hFor(headCrop, pw);
-  const rpw = rw - 0.85;
-  const reply = await frameW(d, s, replyCrop, rx + 0.6, postBottom + 0.12, rpw, { rot: 1.2, link: VOICE.reply });
-  const replyBottom = postBottom + 0.12 + await hFor(replyCrop, rpw);
-  const fy = replyBottom + 0.18;
+  const postClip = await voicePostClip();
+  const replyCrop = await crop('rev2/voicedemo-x-post.png', 'voicedemo-x-post-reply.png', { l: 0, t: 1530, w: 1196, h: 176 });
+  const pw = rw - 0.85, py = 2.0;
+  const post = await frameW(d, s, postClip, rx + 0.02, py, pw, { rot: -1, link: VOICE.post });
+  const postBottom = py + await hFor(postClip, pw);
+  const rpw = rw - 1.3;
+  const reply = await frameW(d, s, replyCrop, rx + 0.98, postBottom + 0.1, rpw, { rot: 1.2, link: VOICE.reply });
+  const replyBottom = postBottom + 0.1 + await hFor(replyCrop, rpw);
+  const fy = replyBottom + 0.14;
+  if (fy > 5.13) throw new Error(`voiceSlide: facts block starts at y=${fy.toFixed(2)} and would overflow 6.55`);
   const facts = voiceFacts(d, s, [
     ['THE MODEL · INDEPENDENT RANKING', 'Eleven v4 (Sep 28) ranks #1 in Artificial Analysis’s voice arena'],
     ['VENDOR-REPORTED · NOT INDEPENDENTLY TESTED', 'ElevenLabs says its separate low-latency Eleven v4 Turbo has a ~150\u00A0ms median time to first speech (its own test; network time excluded), and that v4 can clone a voice from 10\u00A0s of audio', d.S.amber],
@@ -983,14 +1004,15 @@ async function voiceSlide(d) {
   d.source(s, 'Sources: X, @buraktuyan, post and self-reply (Oct 2, 2026; views Oct 4) · ElevenLabs, “Introducing Eleven v4, our most emotive model” (Sep 28, 2026) · Artificial Analysis, Eleven v4 page (Oct 4, 2026).');
   s.addNotes([
     'MESSAGE: after the face, the voice. Click the video and play all 44 seconds with SOUND ON. Set it up with the post\'s own line: "I wrote a script of everything an AI voice \'can\'t do.\' Then made Eleven v4 read it out loud." Then let the room react.',
-    'WHAT YOU WILL HEAR (burned-in subtitles; tagline by speech-to-text): a laugh, "AI voices? / Tell me something. / Can they scream like THIS? / And then fall apart like this? / ♪ And sing when the moment demands ♪ / Fine, some of them whisper. / But can they flirt in a whisper? / Can they talk while eating? / Or do an Italian accent? / [Italian] Impossibile!" … "Wait… Am I?" — then an Eleven V4 / ElevenLabs end card and a spoken tagline that machine transcription renders as "Eleven v4, the next frontier of human-level communication." The character (a Louis-XIV-like caricature in a Versailles-style palace) appears to be AI-generated video too — the post carries X\'s "Made with AI" label (said on the slide) — but the tool used for the picture is not named anywhere.',
+    'WHAT YOU WILL HEAR (burned-in subtitles; tagline by speech-to-text): a laugh, "AI voices? / Tell me something. / Can they scream like THIS? / And then fall apart like this? / ♪ And sing when the moment demands ♪ / Fine, some of them whisper. / But can they flirt in a whisper? / Can they talk while eating? / Or do an Italian accent? / [Italian] Impossibile!" … "Wait… Am I?" — then an Eleven V4 / ElevenLabs end card and a spoken tagline that machine transcription renders as "Eleven v4, the next frontier of human-level communication." The character (a Louis-XIV-like caricature in a Versailles-style palace) appears to be AI-generated video too — the post carries X\'s "Made with AI" label (visible in the clipping and said in the caption) — but the tool used for the picture is not named anywhere.',
     'WHO / WHEN: Burak Tuyan (@buraktuyan; X bio: "I tell stories. Sometimes for brands. | ex-ElevenLabs"), posted Oct 2, 2026, 13:49 UTC: "Eleven v4 is INSANE! / Here\'s my 44-sec spec ad for it. / I wrote a script of everything an AI voice "can\'t do." Then made Eleven v4 read it out loud. / Sound on". By Oct 4 (fxtwitter): 1,919,174 views, 10,035 likes, 632 reposts, 444 replies, 6,211 bookmarks, 205 quotes. ' + VOICE.post,
+    'THE CLIPPINGS (real screenshot of the post page, Oct 4): the upper clipping stacks the post text on its metadata lines — X\'s "Made with AI" label and "1:49 PM · Oct 2, 2026 · 1.9M Views" — with the video thumbnail (the clip at left) and an "ElevenLabs" tag line between them omitted; the thin grey rule marks that cut. The lower clipping is his self-reply.',
     'HIS DISCLOSURE (self-reply, shown on the slide): "This is a personal spec project. Not affiliated with or commissioned by ElevenLabs. Just a fan of what v4 can do, showing off something I\'ve been waiting a long time for." ' + VOICE.reply + ' — so: a fan-made ad by a FORMER ElevenLabs employee, not an official ElevenLabs video.',
     'WHAT IT IS — AND ISN\'T: scripted, pre-rendered text-to-speech over what appears to be AI-generated video (X "Made with AI" label; no video tool named) — NOT a live, real-time conversation. It is not presented as a voice-cloning demo, but the post doesn\'t say which voice was used, so a cloned voice can\'t be ruled out. We found no blind listening test of this clip — the only realism claim is the author\'s "INSANE". Not stated anywhere: whether he used Eleven v4 or v4 Turbo, or which voice, tags or prompts. So the Turbo latency figure on the slide describes the separate Turbo model, not necessarily this clip, and the 10-second cloning figure describes v4\'s capability, not how this clip was made. (Our own measurement of the audio, for the curious: the scream is ~12 dB louder than the whispers, −18 vs −30 dBFS RMS — a sign of dynamic range, not a quality score.)',
     'THE MODEL: ElevenLabs launched Eleven v4 ("our most emotive text-to-speech model yet") and the low-latency Eleven v4 Turbo on Sep 28, 2026 — blog by Mati Staniszewski and Piotr Dabkowski ' + VOICE.blog + ' · docs ' + VOICE.docs + ' · launch post on X (4.9M views) ' + VOICE.launch + ' . Independent coverage: TechCrunch, Ivan Mehta, "ElevenLabs\' new v4 speech model supports more expression control and 90 languages" — subhead "ElevenLabs v4 can clone voices with a 10 second clip" ' + VOICE.tc + ' ; Tech Times (Sep 30) ' + VOICE.techtimes,
     'INDEPENDENT RANKING: Artificial Analysis\'s crowd-voted Provider Voice Arena (read Oct 4, 2026) puts Eleven v4 first at Elo ~1321, ahead of Qwen-Audio-3.1-TTS-Plus 1292, Cartesia Sonic 3.6 1278 and Gemini 3.8 Flash TTS 1275; ElevenLabs\' previous model, Eleven v3, sits at 1174. Live leaderboard — numbers drift. ' + VOICE.aa,
     'VENDOR-REPORTED (ElevenLabs\' own tests, not replicated): Eleven v4 Turbo has ~100 ms median inference latency and ~150 ms median time to first speech ("faster than the average pause between two people talking"; ElevenLabs-run, identical scripts and default settings, Turbo over WebSocket streaming, network latency measured and removed for all systems — footnote 3), vs 262–814 ms for Cartesia Sonic 3.6, xAI TTS, Gemini 3.8 Flash-Lite TTS and OpenAI GPT-4o mini TTS in their chart. "Preferred by ~75% of listeners in blind head-to-head tests over competing models" (81% / 81% / 72% / 65% vs four rivals) — that is model-vs-model, NOT a human-vs-AI Turing test. 90+ languages; Instant Voice Clones "using just 10 seconds of audio"; inline tags like [laughs] or [said angrily in French accent].',
-    'THE TURING ANGLE (independent, older model): in a Queen Mary University of London / UCL study (PLOS One, 2025), listeners judged 58% of AI voices cloned from real people to be human — vs 62% of the real human voices: "no statistical difference". Clones were made with off-the-shelf ElevenLabs software from under five minutes of speech. Live Science, "AI voices are now indistinguishable from real human voices" (Oct 4, 2025) ' + VOICE.livesci + ' · The Register, "Humans flunk the Turing test for voices as bots get chattier" — dek: "Coin toss odds for spotting a deepfake, study finds. And that\'s before the machines learn to sing" (Oct 9, 2025) ' + VOICE.register + ' . Radio Ink (Jul 7, 2026): a blind study of 1,326 radio listeners found AI and human voiceover scored nearly identically ' + VOICE.radioink,
+    'THE TURING ANGLE (independent, older model): in a Queen Mary University of London / UCL study (PLOS One, 2025), listeners judged 58% of AI voices cloned from real people to be human — vs 62% of the real human voices: "no statistical difference". Clones were made with off-the-shelf ElevenLabs software from under five minutes of speech. Live Science, "AI voices are now indistinguishable from real human voices" (Oct 4, 2025) ' + VOICE.livesci + ' · The Register, "Humans flunk the Turing test for voices as bots get chattier" — dek: "Coin toss odds for spotting a deepfake, study finds. And that\'s before the machines learn to sing" (Oct 9, 2025) ' + VOICE.register + ' . Radio Ink (Jul 7, 2026): an industry-commissioned blind study (Harker Bos Group; 1,326 weekly radio listeners; two short promo scripts) found AI and human voiceover scored nearly identically — though reactions diverged once listeners learned the source. ' + VOICE.radioink,
     'WHY IT MATTERS FOR SAFETY: the same expressiveness plus 10-second cloning is the scammer\'s toolkit. CNN (May 29, 2026): "Americans lost $893 million to AI-related scams last year … according to the FBI" — AI-related scams in general, not only voice cloning ' + VOICE.cnn + ' . On Apr 16, 2026 Sen. Maggie Hassan pressed ElevenLabs, LOVO, Speechify and VEED on what they do to stop voice-clone scams ' + VOICE.hassan + ' . We found no coverage of safeguards specific to v4\'s 10-second cloning.',
     'FILE: X\'s best rendition (1920×1080, 30 fps, H.264 High + AAC-LC stereo, 44.05 s, 19.6 MB), stream-copied with faststart — no re-encode. Direct mp4: ' + VOICE.mp4 + ' · Author\'s LinkedIn copy: ' + VOICE.linkedin + ' . Cover = the clip\'s own frame at 4.6 s ("Tell me something.") with a play button added.',
   ].join('\n\n'));
@@ -1482,9 +1504,9 @@ async function robotWorkSlide(d) {
   const catBottom = box.y + box.h + 0.03 + 0.58;
   const yb = catBottom + 0.24; // value text is bottom-aligned in its box: the visible gap to the labels is ≥0.3in
   // CNBC-TV18 clipping cropped to its headline only (its dek is quoted in the notes) and framed wide enough for the
-  // headline to read at ~10pt effective; outlet + date as a label above it; the block is centred on the two stats
+  // headline to read at ~10.5pt effective; outlet + date as a label above it; the block is centred on the two stats
   const cnbc = await crop('rev2/robotwork-cnbctv18-machines-have-a-type.png', 'robotwork-cnbctv18-headline.png', { l: 26, t: 30, w: 1088, h: 172 });
-  const cw = 2.78, cxp = rx + 0.05;
+  const cw = 2.9, cxp = rx + 0.05;
   const statsH = 0.95 + 19 / 72 * 1.12 + 0.04 + 0.5; // second stat's offset + its value and label heights
   const cy0 = yb + (statsH - (0.36 + await hFor(cnbc, cw))) / 2;
   const c1 = [capLabel(d, s, 'CNBC-TV18 · OCT 2, 2026', { x: cxp, y: cy0, w: cw, charSpacing: 1 }),

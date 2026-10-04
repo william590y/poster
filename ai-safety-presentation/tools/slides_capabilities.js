@@ -251,7 +251,7 @@ async function metrSlide(d) {
   const quotes = d.text(s, [
     { text: 'METR, in its own words:', options: { fontSize: 11, bold: true, color: 'FF8A8C', charSpacing: 1, breakLine: true, paraSpaceAfter: 8 } },
     ...Q('“…at the upper end of what we can measure without new tasks.”', 'on Claude Mythos Preview · X, May 8, 2026'),
-    ...Q('“…it is infeasible to precisely measure time horizons in this range.”', 'on tasks above 16 hours · Frontier Risk Report, May 19, 2026'),
+    ...Q('“…it is infeasible to precisely measure time horizons in this range.”', 'on tasks above 16 h · Frontier Risk Report, May 19'),
     ...Q('“The most capable agents we evaluated essentially saturated our Time Horizon 1.1 benchmark…”', 'Frontier Risk Report, May 19, 2026'),
   ], { x: rx + 0.22, y: ry + 0.56, w: rw - 0.42, h: rh - 1.3, valign: 'top' });
   const foot = d.text(s, 'METR’s chart has not been updated since May 8, 2026.', { x: rx + 0.22, y: ry + rh - 0.66, w: rw - 0.42, h: 0.52, fontSize: 12.5, bold: true, color: d.S.red, valign: 'middle' });
@@ -692,10 +692,10 @@ async function paintSlide(d) {
   const hg = hero.geom;
   const hc = chip(d, s, 'CLAUDE OPUS 5.5 · SIMULATED OIL PAINT', hg.x + 0.1, hg.y + 0.1, 3.55, { h: 0.3, fontSize: 10 });
   const hcap = d.text(s, [
-    { text: 'Every brushstroke is written as code and laid down by a simulation of wet oil paint — ', options: { color: d.S.txt } },
+    { text: 'Every brushstroke is code, laid down by a simulated wet-oil-paint engine — ', options: { color: d.S.txt } },
     { text: '“No image generator,”', options: { color: d.S.txt, bold: true, italic: true } },
     { text: ' per the site', options: { color: d.S.txt, breakLine: true } },
-    { text: 'stillwet.art (a one-person project) · 69-minute session, replayed from its log · Sep 27, 2026', options: { color: d.S.muted, fontSize: 11 } },
+    { text: 'stillwet.art (one-person project) · 69-min session, replayed · Sep 27', options: { color: d.S.muted, fontSize: 11 } },
   ], { x: MX, y: hg.y + hg.h + 0.1, w: hw, h: bottom - (hg.y + hg.h + 0.1), fontSize: 14, valign: 'top' });
 
   // column A: the user's heron drawings (a model refining its own pencil drawing, rounds 1-4), then Apple Notes
@@ -716,7 +716,7 @@ async function paintSlide(d) {
   // column B: the robot arm, then Krita
   const robotT = await capTile(d, s, robot, { x: bx, y: top, w: wb, h: wb * 0.5625 }, 'GPT-6 ASTRA · ROBOT ARM, REAL PAINT', 'Teaches itself to paint the Golden Gate');
   const by2 = top + wb * 0.5625 + CAP_H + RG;
-  const kritaT = await capTile(d, s, krita, { x: bx, y: by2, w: wb, h: wb * 0.5625 }, 'KRITA · GPT-6 ASTRA VIA HIGGSFIELD MCP', 'Vendor demo · stroke colours sampled from a reference');
+  const kritaT = await capTile(d, s, krita, { x: bx, y: by2, w: wb, h: wb * 0.5625 }, 'KRITA · GPT-6 ASTRA VIA HIGGSFIELD MCP', 'Vendor demo · scripted copy of a reference');
 
   d.animate(s, [...hero, ...hc], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, [hcap], { auto: true, effect: 'fade', dur: 500, after: 200 });
@@ -724,7 +724,7 @@ async function paintSlide(d) {
   d.animate(s, noteT, { auto: true, effect: 'fade', after: 150 });
   d.animate(s, robotT, { effect: 'fade' });
   d.animate(s, kritaT, { auto: true, effect: 'fade', after: 150 });
-  d.source(s, 'stillwet.art (Sep 27) · user original (heron) · X: Federico Viticci (Sep 4), thijs @cdngdev (Sep 8), Higgsfield AI (Sep 5, 2026). Creator showcases — the robot clip by an OpenAI-affiliated roboticist, the Krita clip a vendor demo. Clips sped up.');
+  d.source(s, 'stillwet.art (Sep 27) · user original (heron) · X: Federico Viticci (Sep 4), thijs @cdngdev (Sep 8; OpenAI-affiliated), Higgsfield AI (Sep 5; vendor demo), 2026. Creator showcases; clips sped up.');
   s.addNotes([
     'MESSAGE: these are not image generators spitting out pixels — everyone has seen those. These are models using TOOLS the way a human artist does: picking a brush, laying down a stroke, looking, correcting. (In slideshow mode the clips animate; each opens on its own finished frame.) And one honest counter-example (Krita, bottom right): the most "impressive" result is the least creative.',
     'HERO — Claude Opus 5.5 on stillwet.art: "Stoneware Jug with Two Lemons and a Knife", Round 16, "painted at a virtual easel, one passage at a time · 69-minute session". Site: "The model wrote every brushstroke as code and a simulation of oil paint carried them out, replayed here sped up. No image generator." and "Each one paints by writing a program against a simulation of oil paint on linen: bristle brushes, wet paint, drying, layered glazes. No image model is involved." These are THE SITE\'S OWN CLAIMS (a one-developer hobby project, not a lab; not independently checked). Painters "never see a picture of his work" (they paint "after Caspar David Friedrich" from written research). Built by alice (@aliceisplaying), who posted it on X on Sep 28 ("canvas, brushes, paint, no undo, simulated drying etc.") and on Hacker News Oct 2 (Show HN, 378 points). https://stillwet.art/p/r16-c1.html · https://stillwet.art/ · https://x.com/aliceisplaying/status/2104672235093119196 . GIF = the site\'s replay (it opens on the finished painting), sped up 1.35×.',
@@ -752,7 +752,7 @@ async function worldsSlide(d) {
 
   const G = 0.24, cw = (CW - 2 * G) / 3, ch = cw * 9 / 16, y1 = 1.78, y2 = y1 + ch + 0.22;
   const X = (i) => MX + i * (cw + G);
-  const t1 = await tile(d, s, city, { x: X(0), y: y1, w: cw, h: ch }, 'UNREAL ENGINE · GPT-6 ASTRA', 'Manhattan “over the course of a week” (creator-reported)');
+  const t1 = await tile(d, s, city, { x: X(0), y: y1, w: cw, h: ch }, 'UNREAL ENGINE · GPT-6 ASTRA · MANHATTAN', '“over the course of a week” (creator-reported)');
   const t2 = await tile(d, s, train, { x: X(1), y: y1, w: cw, h: ch }, 'BLENDER · GPT-6 ASTRA', 'An old drawing → “3,295 fully editable” objects');
   const t3 = await tile(d, s, cad, { x: X(2), y: y1, w: cw, h: ch }, 'SOLIDWORKS CAD · GPT-6 ASTRA', 'A turbofan, sketched and assembled (vendor demo)');
   const t4 = await tile(d, s, game, { x: X(0), y: y2, w: cw, h: ch }, 'GPT-6 ASTRA · A “FINISHED” 3-D GAME', '“Not a demo. A FINISHED, playable game.” — its creator');
@@ -769,7 +769,7 @@ async function worldsSlide(d) {
   [t1, t2, t3, t4].forEach((g, i) => d.animate(s, g, { auto: true, effect: 'fade', dur: 500, after: i === 0 ? 100 : 120 }));
   d.animate(s, [...bat1, ...b1], { effect: 'fade' });
   d.animate(s, [...bat2, ...b2, dot, dotT], { effect: 'fade' });
-  d.source(s, 'X posts: Matt Shumer (Sep 3; Astra “used existing assets, including MetaHuman characters”), Tom Krcha (Sep 4), MecAgent (Sep 9), Emm Tee (Sep 12), Alix Ollivier (Jul 11 & Sep 5), 2026. Creator-reported claims; clips sped up.');
+  d.source(s, 'X posts: Matt Shumer (Sep 3; Astra “used existing assets, including MetaHuman characters”), Tom Krcha (Sep 4), MecAgent (Sep 9), Emm Tee (Sep 12), Alix Ollivier (Jul 11, Sep 5), 2026 · creator-reported.');
   s.addNotes([
     'MESSAGE: since GPT-6 Astra launched (Sep 3, 2026) the internet has filled with models operating professional 3-D tools end to end — game engines, Blender, CAD — producing editable scenes, parts and whole games, not just pictures. Epic even built an MCP server into Unreal Engine 5.8 (June 2026) so agents "can drive the editor" (VP Land, Jun 24: "Unreal Engine 5.8 Embeds an MCP Server So AI Agents Can Drive the Editor").',
     'UNREAL — Matt Shumer, Sep 3: "GPT-6 Astra built this Manhattan world in Unreal Engine over the course of a week. It was literally able to go street by street to make each one perfect." 4.62M views. CAVEAT from his own review: "Astra used existing assets, including MetaHuman characters, so it didn\'t create every object or person from scratch", and "Claude is still better at creating the visual pieces themselves." Shumer had early access. https://x.com/mattshumer_/status/2095609734845927525',
@@ -903,7 +903,7 @@ async function navierSlide(d) {
   });
   // ---- row 3: how important (verbatim; quote text ≥ 14 pt). Card widths follow the length of each quote.
   const cy0 = 5.12, chh = 6.52 - cy0, cg = 0.2;
-  const cws = [3.62, 2.42, 2.62];
+  const cws = [3.9, 2.4, 2.55];
   const cxs = [MX, MX + cws[0] + cg, MX + cws[0] + cws[1] + 2 * cg];
   const Qc = (i, q, who) => {
     const x = cxs[i], cw = cws[i];

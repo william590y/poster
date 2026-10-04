@@ -1,0 +1,1767 @@
+{
+ "group": "economy",
+ "items": [
+  {
+   "id": "nvidia-5t-techcrunch",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": "nvda5t_techcrunch.png",
+   "headline": "Nvidia becomes first public company worth $5 trillion",
+   "dek": "",
+   "outlet": "TechCrunch",
+   "author": "Ivan Mehta",
+   "date": "2025-10-29",
+   "url": "https://techcrunch.com/2025/10/29/nvidia-becomes-first-public-company-worth-5-trillion/",
+   "caption": "TechCrunch hero header: Nvidia logo + headline",
+   "quality": 5,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "nvidia-5tn-guardian",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": "guardian_nvidia_5tn.png",
+   "headline": "Nvidia becomes world’s first $5tn company amid stock market and AI boom",
+   "dek": "Silicon Valley chipmaker hits $5tn valuation just three months after it was first to break through the $4tn barrier",
+   "outlet": "The Guardian",
+   "author": "Blake Montgomery, Nick Robins-Early and agency",
+   "date": "2025-10-29",
+   "url": "https://www.theguardian.com/technology/2025/oct/29/nvidia-first-company-5-trillion",
+   "caption": "Guardian article header with Nvidia chip photo",
+   "quality": 4,
+   "verified": true,
+   "notes": "Body: \"Nvidia’s value is greater than the GDP of India, Japan and the United Kingdom, according to the IMF.\""
+  },
+  {
+   "id": "nvidia-revenue-100bn-guardian",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": "guardian_nvidia_revenue_100bn.png",
+   "headline": "Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’",
+   "dek": "The $5tn firm beat Wall Street expectations for yet another blockbuster quarter, though stock made only modest gains",
+   "outlet": "The Guardian",
+   "author": "Johana Bhuiyan",
+   "date": "2026-08-26",
+   "url": "https://www.theguardian.com/technology/2026/aug/26/nvidia-quarterly-revenue",
+   "caption": "Guardian header, Nvidia HQ logo photo",
+   "quality": 4,
+   "verified": true,
+   "notes": "Body: $96.2bn revenue in the quarter, 106% more than a year earlier; guidance $108bn next quarter."
+  },
+  {
+   "id": "statista-bigtech-capex-760b",
+   "slide_topic": "AI dominates the economy",
+   "type": "chart",
+   "file": "statista_bigtech_capex_2026.jpeg",
+   "headline": "Big Tech’s AI Spending to Reach $760 Billion in 2026",
+   "dek": "Annual capital expenditure of Meta, Microsoft, Alphabet and Amazon",
+   "outlet": "Statista",
+   "author": "Katharina Buchholz",
+   "date": "2026-07-31",
+   "url": "https://www.statista.com/chart/35046/capital-expenditure-of-meta-alphabet-amazon-and-microsoft/",
+   "caption": "Statista infographic: 2022-2026 capex bars per company (2026: Meta $145B, MSFT $190B, Alphabet $205B, Amazon $220B)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Licensed CC BY-ND (shown on image). 2026 = upper limit of company projections as of Jul 30, 2026. Article: up 84% from $413B in 2025."
+  },
+  {
+   "id": "epoch-hyperscaler-capex-chart",
+   "slide_topic": "AI dominates the economy",
+   "type": "chart",
+   "file": "epoch_hyperscaler_capex_trend.png",
+   "headline": "Hyperscaler capex has quadrupled since GPT-4's release, nearing half a trillion dollars in 2025",
+   "dek": "The combined capital expenditures at Alphabet, Amazon, Meta, Microsoft, and Oracle have been growing at an average of 72% per year since the second quarter of 2023.",
+   "outlet": "Epoch AI",
+   "author": "",
+   "date": "2026-02-26",
+   "url": "https://epoch.ai/data-insights/hyperscaler-capex-trend",
+   "caption": "Stacked quarterly capex bars 2022Q1-2025Q4 by company with 1.72x/year trend line",
+   "quality": 5,
+   "verified": true,
+   "notes": "CC-BY (Epoch AI). 2400x1898. Underlying CSV saved as epoch_hyperscaler_capex_quarterly.csv."
+  },
+  {
+   "id": "epoch-ai-gdp-share-chart",
+   "slide_topic": "AI dominates the economy",
+   "type": "chart",
+   "file": "epoch_ai_infra_share_gdp.png",
+   "headline": "The AI boom has doubled computing infrastructure's share of US GDP",
+   "dek": "Investment in AI-related data center construction, compute hardware, and networking equipment accounted for ~0.8% of US GDP in Q1 2026",
+   "outlet": "Epoch AI",
+   "author": "Isabel Juniewicz",
+   "date": "2026-06-05",
+   "url": "https://epoch.ai/data-insights/ai-datacenter-share-gdp",
+   "caption": "Stacked area: share of nominal US GDP 2015-2026 (AI networking, DC construction, AI compute hardware above 2015-22 trend)",
+   "quality": 5,
+   "verified": true,
+   "notes": "CC-BY. CSV saved as epoch_ai_infra_share_gdp.csv. Page: \"AI infrastructure is now the leading driver of growth in private investment in the US.\""
+  },
+  {
+   "id": "fortune-datacenters-exceed-housing",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": "fortune_datacenter_spending_exceeds_housing.png",
+   "headline": "U.S. economy hits pivotal milestone: Spending on data centers and other information-processing hardware now exceeds housing investment",
+   "dek": "“We’re seeing a pivotal shift in the US economy: investment is shifting away from residential investment and towards computers.” (Adam Shapiro, San Francisco Fed)",
+   "outlet": "Fortune",
+   "author": "Jason Ma",
+   "date": "2026-09-20",
+   "url": "https://fortune.com/2026/09/20/us-economy-milestone-spending-data-centers-ai-boom-housing-residential-investment/",
+   "caption": "Fortune header; aerial photo of Ashburn, VA data centers next to housing",
+   "quality": 5,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "fortune-furman-gdp-0.1",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": "fortune_furman_gdp_without_datacenters.png",
+   "headline": "Without data centers, GDP growth was 0.1% in the first half of 2025, Harvard economist says",
+   "dek": "Is a U.S. without data centers a country without GDP growth?",
+   "outlet": "Fortune",
+   "author": "Nick Lichtenberg",
+   "date": "2025-10-07",
+   "url": "https://fortune.com/2025/10/07/data-centers-gdp-growth-zero-first-half-2025-jason-furman-harvard-economist/",
+   "caption": "Fortune header with photo of Fed Chair Powell",
+   "quality": 4,
+   "verified": true,
+   "notes": "Furman: info-processing equipment & software was ~4% of GDP but 92% of H1-2025 GDP growth."
+  },
+  {
+   "id": "fortune-bigtech-capex-revolt",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": "fortune_bigtech_capex_revolt.png",
+   "headline": "Big Tech earnings slam into a market in revolt over AI spending",
+   "dek": "Earnings from Microsoft and Meta Platforms are due on Wednesday, followed by Apple and Amazon on Thursday.",
+   "outlet": "Fortune (Bloomberg)",
+   "author": "Jeran Wittenstein, Ryan Vlastelica, and Bloomberg",
+   "date": "2026-07-26",
+   "url": "https://fortune.com/2026/07/26/big-tech-earnings-meta-microsoft-apple-amazon-market-revolt-ai-spending/",
+   "caption": "Fortune header, Microsoft building sign photo",
+   "quality": 4,
+   "verified": true,
+   "notes": "Body: Alphabet raised 2026 capex to as much as $205B; free cash flow turned negative in Q2 for first time since 2004 IPO; Big 4 projected ~$724B capex in 2026 and nearly $950B in 2027."
+  },
+  {
+   "id": "wired-datacenter-boom-warping-economy",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": null,
+   "headline": "The AI Data Center Boom Is Warping the US Economy",
+   "dek": "Microsoft, Alphabet, Meta, and Amazon are investing tens of billions in data centers. AI infrastructure is now a key driver of US economic growth.",
+   "outlet": "WIRED",
+   "author": "Louise Matsakis",
+   "date": "2025-11-05",
+   "url": "https://www.wired.com/story/data-center-ai-boom-us-economy-jobs/",
+   "caption": "",
+   "quality": 3,
+   "verified": true,
+   "notes": "Screenshot unusable (subscriber banner over dek); use citation card."
+  },
+  {
+   "id": "guardian-3tn-datacentre-spree",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": "guardian_3tn_datacentre_spree.png",
+   "headline": "Boom or bubble? Inside the $3tn AI datacentre spending spree",
+   "dek": "Investment in these vast warehouses is huge but some worry the debt-fuelled exuberance will backfire",
+   "outlet": "The Guardian",
+   "author": "Dan Milmo",
+   "date": "2025-11-02",
+   "url": "https://www.theguardian.com/technology/2025/nov/02/global-datacentre-boom-investment-debt",
+   "caption": "Guardian header with data-centre interior photo",
+   "quality": 4,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "guardian-ai-selloff",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": "guardian_ai_selloff.png",
+   "headline": "US AI stock sell-off shakes markets from Wall Street to Asia",
+   "dek": "Losses spread globally as investors questioned soaring valuations and spending on AI infrastructure",
+   "outlet": "The Guardian",
+   "author": "Lauren Aratani",
+   "date": "2026-06-23",
+   "url": "https://www.theguardian.com/business/2026/jun/23/ai-stocks-sell-off-us-markets",
+   "caption": "Guardian header, NYSE traders photo",
+   "quality": 4,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "guardian-ai-bubble-collapse",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": "guardian_ai_bubble_collapse_threat.png",
+   "headline": "AI slowdown calls justified but collapse of bubble may be more immediate threat",
+   "dek": "Scale of debt issuance being used to fund the hectic pace of the datacentre rollout by tech firms is a worry",
+   "outlet": "The Guardian",
+   "author": "Heather Stewart",
+   "date": "2026-09-20",
+   "url": "https://www.theguardian.com/business/2026/sep/20/ai-slowdown-calls-collapse-of-bubble-datacentre-tech-firms",
+   "caption": "Guardian Economics viewpoint header",
+   "quality": 4,
+   "verified": true,
+   "notes": "Opening line: \"Warnings about powerful and uncontrolled AI have dominated the headlines this past week...\" (bridges economy and safety)."
+  },
+  {
+   "id": "techcrunch-stargate-500b",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": "techcrunch_stargate_500b.png",
+   "headline": "OpenAI teams up with SoftBank and Oracle on $500B data center project",
+   "dek": "",
+   "outlet": "TechCrunch",
+   "author": "Kyle Wiggers",
+   "date": "2025-01-21",
+   "url": "https://techcrunch.com/2025/01/21/openai-teams-up-with-softbank-and-oracle-on-50b-data-center-project/",
+   "caption": "TechCrunch hero header with OpenAI logo",
+   "quality": 4,
+   "verified": true,
+   "notes": "Body: commit $100B initially and up to $500B over four years; first site in Texas (Abilene)."
+  },
+  {
+   "id": "techcrunch-openai-122b-852b",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": "techcrunch_openai_122b_852b.png",
+   "headline": "OpenAI, not yet public, raises $3B from retail investors in monster $122B fund raise",
+   "dek": "OpenAI's latest funding round, led by Amazon, Nvidia, and SoftBank, values the AI lab at $852 billion as it nears an IPO.",
+   "outlet": "TechCrunch",
+   "author": "Rebecca Bellan",
+   "date": "2026-03-31",
+   "url": "https://techcrunch.com/2026/03/31/openai-not-yet-public-raises-3b-from-retail-investors-in-monster-122b-fund-raise/",
+   "caption": "TechCrunch hero header with Sam Altman photo",
+   "quality": 4,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "techcrunch-openai-500b",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": "techcrunch_openai_500b.png",
+   "headline": "OpenAI is the world’s most valuable private company after private stock sale",
+   "dek": "OpenAI employees sold $6.6B in shares, leading company's valuation to jump to $500B.",
+   "outlet": "TechCrunch",
+   "author": "Russell Brandom",
+   "date": "2025-10-02",
+   "url": "https://techcrunch.com/2025/10/02/openai-is-the-worlds-most-valuable-private-company-after-private-stock-sale/",
+   "caption": "TechCrunch hero header with OpenAI logo",
+   "quality": 3,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "techcrunch-openai-1.4t-talks",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": null,
+   "headline": "OpenAI reportedly in talks to raise $30B round at $1.4T valuation",
+   "dek": "The new round is anticipated to be the company's last before its delayed 2027 public debut.",
+   "outlet": "TechCrunch",
+   "author": "Marina Temkin",
+   "date": "2026-09-29",
+   "url": "https://techcrunch.com/2026/09/29/openai-reportedly-in-talks-to-raise-30b-round-at-1-4t-valuation/",
+   "caption": "",
+   "quality": 4,
+   "verified": true,
+   "notes": "\"In Brief\" layout (small headline) so no screenshot. Body: run-rate revenue reached $40 billion in August (per Bloomberg)."
+  },
+  {
+   "id": "techcrunch-anthropic-965b",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": "techcrunch_anthropic_965b.png",
+   "headline": "Anthropic raises $65 billion, nears $1T valuation ahead of IPO",
+   "dek": "Anthropic has closed a $65 billion Series H round at a $965 billion post-money valuation, marking what could be the AI startup's final private fundraise before a highly anticipated IPO.",
+   "outlet": "TechCrunch",
+   "author": "Rebecca Bellan",
+   "date": "2026-05-28",
+   "url": "https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/",
+   "caption": "TechCrunch hero header (illustration)",
+   "quality": 4,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "techcrunch-anthropic-65b-revenue",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": null,
+   "headline": "Anthropic’s annualized revenue surges to $65B",
+   "dek": "The model maker added $18 billion in annualized revenue in two months.",
+   "outlet": "TechCrunch",
+   "author": "Marina Temkin",
+   "date": "2026-08-17",
+   "url": "https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/",
+   "caption": "",
+   "quality": 4,
+   "verified": true,
+   "notes": "Body: run rate >$65B at end of July 2026, up from $47B in May and $9B at end of 2025 (Bloomberg)."
+  },
+  {
+   "id": "challenger-ai-leads-layoffs",
+   "slide_topic": "AI dominates the economy",
+   "type": "screenshot",
+   "file": "challenger_ai_leads_fifth_month.png",
+   "headline": "Challenger Report: Layoffs Fall, Hiring Picks Up; AI Leads For Fifth Straight Month",
+   "dek": "Artificial intelligence led all reasons for the fifth consecutive month at 10,970 cuts",
+   "outlet": "Challenger, Gray & Christmas",
+   "author": "Colleen Madden Blumenfeld",
+   "date": "2026-08-06",
+   "url": "https://www.challengergray.com/blog/challenger-report-layoffs-fall-hiring-picks-up-ai-leads-for-fifth-straight-month/",
+   "caption": "Challenger blog post header with report graphic",
+   "quality": 4,
+   "verified": true,
+   "notes": "Aug 2026 report: AI fell to 4th reason (3,462 cuts) but remains #1 YTD with 116,175 cuts (~22% of all cuts)."
+  },
+  {
+   "id": "guardian-block-4000-jobs-ai",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": "guardian_block_4000_jobs_ai.png",
+   "headline": "Jack Dorsey to cut 4,000 jobs due to AI advances at Square parent Block",
+   "dek": "Shares in company increased over 20% as investors were encouraged by CEO’s assertion that cuts will drive profits",
+   "outlet": "The Guardian",
+   "author": "Sanya Mansoor",
+   "date": "2026-02-27",
+   "url": "https://www.theguardian.com/technology/2026/feb/27/block-ai-layoffs-jack-dorsey",
+   "caption": "Guardian header with Jack Dorsey photo",
+   "quality": 5,
+   "verified": true,
+   "notes": "4,000 of 10,000 employees. Dorsey: \"A significantly smaller team, using the tools we’re building, can do more and do it better.\""
+  },
+  {
+   "id": "guardian-meta-microsoft-layoffs",
+   "slide_topic": "AI dominates the economy",
+   "type": "headline",
+   "file": "guardian_meta_microsoft_layoffs_ai.png",
+   "headline": "Microsoft and Meta announce large staff reductions as they spend big on AI",
+   "dek": "Meta said it would cut 10% of it employees while Microsoft will offer voluntary retirement to about 7% of workers",
+   "outlet": "The Guardian",
+   "author": "Sanya Mansoor",
+   "date": "2026-04-23",
+   "url": "https://www.theguardian.com/technology/2026/apr/23/meta-microsoft-tech-ai-layoffs",
+   "caption": "Guardian header with Satya Nadella photo",
+   "quality": 4,
+   "verified": true,
+   "notes": "Dek typo \"of it employees\" is verbatim."
+  },
+  {
+   "id": "quote-altman-10pct",
+   "slide_topic": "AI dominates the economy",
+   "type": "quote",
+   "file": null,
+   "headline": "",
+   "dek": "“I think it is unacceptable to be taking like a 10% chance of killing everybody by the end of the decade.”",
+   "outlet": "TechCrunch (quoting Fortune)",
+   "author": "Sam Altman",
+   "date": "2026-09-29",
+   "url": "https://techcrunch.com/2026/09/29/openai-reportedly-in-talks-to-raise-30b-round-at-1-4t-valuation/",
+   "caption": "",
+   "quality": 4,
+   "verified": true,
+   "notes": "TechCrunch: Altman ruled out a 2026 IPO to prioritize AI safety; quote \"he recently told Fortune, in response to warnings from safety researchers about AI posing an existential risk to humanity.\" Useful bridge to safety slides."
+  },
+  {
+   "id": "crusoe-abilene-aerial",
+   "slide_topic": "Information is Physical",
+   "type": "image",
+   "file": "crusoe_stargate_abilene_aerial.jpg",
+   "headline": "Crusoe Announces Flagship Abilene Data Center is Live",
+   "dek": "",
+   "outlet": "Crusoe (press release image)",
+   "author": "",
+   "date": "2025-09-30",
+   "url": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live",
+   "caption": "Aerial photo of the Stargate flagship campus in Abilene, Texas under construction (1200x900)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Header image of the Crusoe newsroom post. Campus is 1.2 GW, 8 buildings, built for Oracle/OpenAI; construction began June 2024."
+  },
+  {
+   "id": "epoch-sat-abilene-2025-06",
+   "slide_topic": "Information is Physical",
+   "type": "image",
+   "file": "epoch_sat_stargate_abilene_2025-06.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Epoch AI (imagery © Airbus DS)",
+   "author": "",
+   "date": "2025-06-28",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene",
+   "caption": "Annotated satellite view of Stargate Abilene, June 2025: 2 buildings done, 6 under construction",
+   "quality": 4,
+   "verified": true,
+   "notes": "Pair with 2026-07 image for before/after. Epoch: 509k H100e, 421 MW IT power, $15.9B now; projected 843 MW / $31.9B by Q4 2026."
+  },
+  {
+   "id": "epoch-sat-abilene-2026-07",
+   "slide_topic": "Information is Physical",
+   "type": "image",
+   "file": "epoch_sat_stargate_abilene_2026-07.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Epoch AI (imagery © Airbus DS)",
+   "author": "",
+   "date": "2026-07-28",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene",
+   "caption": "Annotated satellite view of Stargate Abilene, July 2026: all 8 buildings complete with cooling rows and substations",
+   "quality": 4,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "epoch-sat-shackelford",
+   "slide_topic": "Information is Physical",
+   "type": "image",
+   "file": "epoch_sat_stargate_shackelford_2026-09.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Epoch AI (imagery © Airbus DS)",
+   "author": "",
+   "date": "2026-09-04",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/openai-stargate-shackelford",
+   "caption": "Satellite view of second Stargate site (Shackelford County, TX) under construction: 10 halls",
+   "quality": 3,
+   "verified": true,
+   "notes": "Epoch projects 1,400 MW IT power, 4.56M H100e, $53.0B by Q4 2028."
+  },
+  {
+   "id": "meta-hyperion-official-aerial",
+   "slide_topic": "Information is Physical",
+   "type": "image",
+   "file": "meta_richland_parish_hyperion.jpg",
+   "headline": "Deepening our investment in Richland Parish, Louisiana",
+   "dek": "We’re expanding our AI-optimized data center in Richland Parish, Louisiana to 5 GW in compute capacity — the largest in Meta’s fleet",
+   "outlet": "Meta Data Centers (official)",
+   "author": "",
+   "date": "2026-07-13",
+   "url": "https://datacenters.atmeta.com/2026/07/deepening-our-investment-in-richland-parish-louisiana/",
+   "caption": "Official aerial photo of Meta’s Hyperion campus under construction in rural Louisiana (1920x1080)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Alt text: \"Aerial view of Richland Parish Data Center\". Investment >$50B; 7,500 peak construction jobs, 1,000 operational roles."
+  },
+  {
+   "id": "fortune-meta-hyperion-50b",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": "fortune_meta_hyperion_50b.png",
+   "headline": "Meta’s AI data center cost went from $10 billion to $50 billion in under 2 years—and split the town in two",
+   "dek": "The Hyperion supercluster has quintupled in cost since 2024. Meta says it's covering its own power costs, but critics warn locals could pay anyway.",
+   "outlet": "Fortune",
+   "author": "Sydney Lake",
+   "date": "2026-07-13",
+   "url": "https://fortune.com/2026/07/13/meta-hyperion-louisiana-50-billion-tax-breaks-locals/",
+   "caption": "Fortune header; photo of Trump holding a graphic comparing Hyperion’s footprint to Manhattan",
+   "quality": 5,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "epoch-sat-hyperion",
+   "slide_topic": "Information is Physical",
+   "type": "image",
+   "file": "epoch_sat_meta_hyperion_2026-04.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Epoch AI (imagery © Airbus DS)",
+   "author": "",
+   "date": "2026-04-19",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/meta-hyperion",
+   "caption": "Annotated satellite view: Hyperion halls carved out of Louisiana farmland",
+   "quality": 4,
+   "verified": true,
+   "notes": "Epoch: tract >3x Central Park; projected 1,632 MW IT power, 4.14M H100e, $61.8B by Q1 2028."
+  },
+  {
+   "id": "epoch-sat-colossus2",
+   "slide_topic": "Information is Physical",
+   "type": "image",
+   "file": "epoch_sat_xai_colossus2_2026-06.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Epoch AI (imagery © Airbus DS)",
+   "author": "",
+   "date": "2026-06-15",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/colossus-2",
+   "caption": "Annotated satellite view of xAI Colossus 2 (Memphis) - \"MACROHARD\" painted on roof; turbine site in pink",
+   "quality": 4,
+   "verified": true,
+   "notes": "Epoch: 1.11M H100e, 946 MW IT power, $35.8B; owner listed as \"SpaceXAI\"; \"xAI installed natural gas turbines just across the state border in Mississippi.\""
+  },
+  {
+   "id": "ms-fairwater-wisconsin-aerial",
+   "slide_topic": "Information is Physical",
+   "type": "image",
+   "file": "ms_fairwater_wisconsin_hero.jpg",
+   "headline": "Inside the world’s most powerful AI datacenter",
+   "dek": "",
+   "outlet": "Microsoft (official blog)",
+   "author": "",
+   "date": "2025-09-18",
+   "url": "https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/",
+   "caption": "Official aerial photo of Microsoft Fairwater AI datacenter, Mt Pleasant, Wisconsin, with giant closed-loop cooling fan arrays (1920x1280)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Blog: 315 acres, 3 buildings, 1.2M sq ft; 46.6 miles of foundation piles, 26.5M lbs steel, 120 miles MV cable; \"10X the performance of the world’s fastest supercomputer today\"."
+  },
+  {
+   "id": "ms-fairwater-wisconsin-aerial-2",
+   "slide_topic": "Information is Physical",
+   "type": "image",
+   "file": "ms_fairwater_wisconsin_img1.jpg",
+   "headline": "",
+   "dek": "",
+   "outlet": "Microsoft (official blog)",
+   "author": "",
+   "date": "2025-09-18",
+   "url": "https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/",
+   "caption": "Aerial view of Microsoft’s new AI datacenter campus in Mt Pleasant, Wisconsin (1080x720)",
+   "quality": 3,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "ms-fairwater-atlanta-aerial",
+   "slide_topic": "Information is Physical",
+   "type": "image",
+   "file": "ms_fairwater_atlanta_hero.jpg",
+   "headline": "Infinite scale: The architecture behind the Azure AI superfactory",
+   "dek": "",
+   "outlet": "Microsoft (official blog)",
+   "author": "",
+   "date": "2025-11-12",
+   "url": "https://blogs.microsoft.com/blog/2025/11/12/infinite-scale-the-architecture-behind-the-azure-ai-superfactory/",
+   "caption": "An aerial shot of the Fairwater AI datacenter near Atlanta, Georgia (1920x1439)",
+   "quality": 4,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "epoch-sat-fairwater-atlanta",
+   "slide_topic": "Information is Physical",
+   "type": "image",
+   "file": "epoch_sat_ms_fairwater_atlanta_2026-05.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Epoch AI (imagery © Airbus DS)",
+   "author": "",
+   "date": "2026-05-15",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/microsoft-fairwater-atlanta",
+   "caption": "Annotated satellite view of Microsoft Fairwater Atlanta",
+   "quality": 3,
+   "verified": true,
+   "notes": "Epoch: 769k H100e, 636 MW IT power, $24.1B."
+  },
+  {
+   "id": "epoch-sat-new-carlisle",
+   "slide_topic": "Information is Physical",
+   "type": "image",
+   "file": "epoch_sat_amazon_new_carlisle_2026-06.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Epoch AI (imagery © Airbus DS)",
+   "author": "",
+   "date": "2026-06-03",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/anthropic-amazon-new-carlisle",
+   "caption": "Annotated satellite view of Amazon/Anthropic Project Rainier campus, New Carlisle, Indiana, amid farmland",
+   "quality": 3,
+   "verified": true,
+   "notes": "Epoch: 686k H100e (Trainium2), 910 MW IT power, $34.5B; projected 1,925 MW by Q1 2028."
+  },
+  {
+   "id": "video-bloomberg-stargate-megafactory",
+   "slide_topic": "Information is Physical",
+   "type": "video",
+   "file": "yt_GhIJs4zbH0o.jpg",
+   "headline": "Inside OpenAI's Stargate Megafactory with Sam Altman | The Circuit",
+   "dek": "",
+   "outlet": "Bloomberg Originals (YouTube)",
+   "author": "",
+   "date": "",
+   "url": "https://www.youtube.com/watch?v=GhIJs4zbH0o",
+   "caption": "Thumbnail: Emily Chang and Sam Altman on the roof at Stargate Abilene, construction site behind",
+   "quality": 4,
+   "verified": true,
+   "notes": "Title/channel verified via YouTube oEmbed; upload date not retrieved."
+  },
+  {
+   "id": "guardian-datacentres-6pct",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": "guardian_datacentres_6pct_electricity.png",
+   "headline": "Datacentres using 6% of electricity supply in UK and US, research says",
+   "dek": "Industry body says energy consumption driven by AI up 15% globally in two years as it warns of societal backlash",
+   "outlet": "The Guardian",
+   "author": "Robert Booth",
+   "date": "2026-05-13",
+   "url": "https://www.theguardian.com/technology/2026/may/13/datacentres-electricity-consumption-uk-us-ai",
+   "caption": "Guardian header, fenced AWS datacentre photo",
+   "quality": 4,
+   "verified": true,
+   "notes": "Body: annual global datacentre investment approaches $1tn (~1% of global economy) per IDCA."
+  },
+  {
+   "id": "guardian-us-gas-buildout",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": "guardian_us_gas_buildout_ai.png",
+   "headline": "US building twice as much gas-fired capacity as China in AI boom, analysis finds",
+   "dek": "There has been a 76% increase in under-construction gas-fired projects amid ‘frenzy’ to build more datacenters",
+   "outlet": "The Guardian",
+   "author": "Oliver Milman",
+   "date": "2026-08-25",
+   "url": "https://www.theguardian.com/us-news/2026/aug/25/us-gas-power-china-ai-datacenter",
+   "caption": "Guardian header; photo of gas power plant under construction (Bloomberg/Getty)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Source analysis: Global Energy Monitor. Article notes datacenter stampede contributed to backlog of the most efficient gas turbines."
+  },
+  {
+   "id": "wired-datacenters-gas-boom",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": "wired_datacenters_gas_boom.png",
+   "headline": "Data Centers Are Driving a US Gas Boom",
+   "dek": "Gas projects in the US pipeline explicitly linked to data centers increased by almost 25 times over the past two years, according to new research from Global Energy Monitor.",
+   "outlet": "WIRED",
+   "author": "Molly Taft",
+   "date": "2026-01-28",
+   "url": "https://www.wired.com/story/data-centers-are-driving-a-us-gas-boom/",
+   "caption": "WIRED header + headline + B/W aerial of data center with gas plant",
+   "quality": 3,
+   "verified": true,
+   "notes": "Screenshot includes an empty grey ad placeholder between nav and headline (genuine render)."
+  },
+  {
+   "id": "wired-spacex-gas-turbines",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": null,
+   "headline": "SpaceX Is Spending $2.8 Billion to Buy Gas Turbines for Its AI Data Centers",
+   "dek": "The investment comes as Elon Musk’s AI unit faces complaints about the carbon-emitting units and looks to become a big player in cloud computing.",
+   "outlet": "WIRED",
+   "author": "Paresh Dave",
+   "date": "2026-05-20",
+   "url": "https://www.wired.com/story/elon-musk-spacex-spending-gas-turbines-grok/",
+   "caption": "",
+   "quality": 4,
+   "verified": true,
+   "notes": "Body: \"A shortage of electricity is the leading constraint on an otherwise roaring data center boom happening across the US.\""
+  },
+  {
+   "id": "guardian-xai-illegal-turbines",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": "guardian_xai_illegal_turbines.png",
+   "headline": "Elon Musk’s xAI datacenter generating extra electricity illegally, regulator rules",
+   "dek": "Win for Memphis activists who say ‘Colossus’ facilities add extra pollution to already overburdened communities",
+   "outlet": "The Guardian",
+   "author": "Dara Kerr",
+   "date": "2026-01-15",
+   "url": "https://www.theguardian.com/technology/2026/jan/15/elon-musk-xai-datacenter-memphis",
+   "caption": "Guardian header; aerial of xAI Colossus with rows of truck-sized gas turbines",
+   "quality": 5,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "guardian-xai-thermal-drone",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": "guardian_xai_thermal_drone.png",
+   "headline": "‘A different set of rules’: thermal drone footage shows Musk’s AI power plant flouting clean air regulations",
+   "dek": "Images confirm xAI is continuing to defy EPA regulations in Mississippi to power its flagship datacenters",
+   "outlet": "The Guardian (Floodlight)",
+   "author": "Evan Simon",
+   "date": "2026-02-13",
+   "url": "https://www.theguardian.com/environment/2026/feb/13/elon-musk-xai-datacenters-air-pollution-mississippi",
+   "caption": "Guardian header; side-by-side thermal (magenta/orange) and visible drone images of xAI gas turbines in snow",
+   "quality": 5,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "guardian-drought-datacenters",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": "guardian_drought_datacenters.png",
+   "headline": "Majority of US’s new AI datacenters to be built on drought-hit land",
+   "dek": "Guardian analysis finds facilities to be built in some of the driest areas as outcry grows over water needed to power AI",
+   "outlet": "The Guardian",
+   "author": "Oliver Milman, with data visuals by Andrew Witherspoon",
+   "date": "2026-06-08",
+   "url": "https://www.theguardian.com/us-news/2026/jun/08/datacenter-ai-drought-water",
+   "caption": "Guardian header; dry Utah road next to server hall photo",
+   "quality": 5,
+   "verified": true,
+   "notes": "Body: about two-thirds of upcoming datacenters set to be built in places among the driest in the country over the past year."
+  },
+  {
+   "id": "guardian-ramageddon-iphone",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": "guardian_ramageddon_iphone.png",
+   "headline": "‘RAMageddon’: tech crunch hikes the price of your next iPhone by £100",
+   "dek": "Shortage of memory chips and other critical components reverses trend of electronics becoming cheaper",
+   "outlet": "The Guardian",
+   "author": "Samuel Gibbs",
+   "date": "2026-09-21",
+   "url": "https://www.theguardian.com/money/2026/sep/21/ramageddon-apple-iphone-price-increase-chip-shortage",
+   "caption": "Guardian header; smartphone photo",
+   "quality": 5,
+   "verified": true,
+   "notes": "Body: \"the fallout from the AI gold rush hoovering up every memory chip available for vast datacentres.\""
+  },
+  {
+   "id": "guardian-ramageddon-cheap-phones",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": "guardian_ramageddon_cheap_phones.png",
+   "headline": "‘RAMageddon’: is the era of cheap phones and laptops over?",
+   "dek": "Bargains are disappearing and the cost of gadgets such as MacBooks and PS5s is rising as AI competes for memory chips",
+   "outlet": "The Guardian",
+   "author": "Samuel Gibbs",
+   "date": "2026-05-06",
+   "url": "https://www.theguardian.com/business/2026/may/06/ramageddon-cheap-phones-laptops-macbooks-ps5s-ai-chips",
+   "caption": "Guardian header; burning laptop photo-illustration",
+   "quality": 4,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "ars-ram-shortage-2028",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": "arstechnica_ram_shortage_2028.png",
+   "headline": "Memory executives expect RAM shortage to continue through 2028",
+   "dek": "Prices for memory sold for 2027 “are much higher than 2026 prices.”",
+   "outlet": "Ars Technica",
+   "author": "Scharon Harding",
+   "date": "2026-10-01",
+   "url": "https://arstechnica.com/information-technology/2026/10/memory-supplies-are-only-getting-tighter-micron-ceo-says/",
+   "caption": "Ars Technica dark header with RAM module photo",
+   "quality": 4,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "guardian-datacenter-protests",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": "guardian_datacenter_protests.png",
+   "headline": "US datacenters face slew of problems amid grassroots protests against AI",
+   "dek": "New constructions delayed or cancelled, raising questions about US’s ability to expand infrastructure to support boom",
+   "outlet": "The Guardian",
+   "author": "Tom Perkins",
+   "date": "2026-02-24",
+   "url": "https://www.theguardian.com/business/2026/feb/24/datacenters-ai-construction",
+   "caption": "Guardian header; rural Michigan residents marching against a planned $7bn Stargate data center",
+   "quality": 4,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "nbc-datacenter-opposition-130b",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": "nbc_datacenter_opposition_130b.png",
+   "headline": "Data center opponents have blocked or delayed projects worth nearly $130 billion in 2026, study finds",
+   "dek": "The authors found that data center opponents blocked or delayed at least 75 projects nationwide from January through March.",
+   "outlet": "NBC News",
+   "author": "",
+   "date": "2026-06-12",
+   "url": "https://www.nbcnews.com/tech/tech-news/data-center-opposition-sharply-rising-2026-study-finds-rcna349728",
+   "caption": "NBC News header + headline + dek",
+   "quality": 5,
+   "verified": true,
+   "notes": "Study by Data Center Watch (10a Labs)."
+  },
+  {
+   "id": "fortune-datacenter-backlash",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": "fortune_datacenter_backlash.png",
+   "headline": "The betrayal behind the data-center backlash: AI promised to break the rules of class but is just rewarding them so far",
+   "dek": "The people reaping the rewards of the AI revolution aren't the ones that we were told would be.",
+   "outlet": "Fortune",
+   "author": "Nick Lichtenberg",
+   "date": "2026-09-08",
+   "url": "https://fortune.com/2026/09/08/why-data-center-backlash-class-inequality-ai-wage-growth/",
+   "caption": "Fortune header with \"NO DATA CENTERS\" protest sign photo",
+   "quality": 3,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "guardian-ratepayer-pledge",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": "guardian_trump_ratepayer_pledge.png",
+   "headline": "Trump says nearly 200 firms have signed pledge to protect Americans from costs arising from datacenters",
+   "dek": "‘Ratepayer Protection Pledge’ president has touted is non-binding as people continue to struggle with rising bills",
+   "outlet": "The Guardian",
+   "author": "Dharna Noor",
+   "date": "2026-07-23",
+   "url": "https://www.theguardian.com/us-news/2026/jul/23/trump-datacenter-costs-big-tech",
+   "caption": "Guardian header; aerial of Stargate Abilene assembly tents (Bloomberg/Getty)",
+   "quality": 4,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "techcrunch-oracle-force-majeure",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": "techcrunch_oracle_force_majeure_stargate_nm.png",
+   "headline": "Oracle sends force majeure notice on its New Mexico Stargate data center",
+   "dek": "The notice would allow Oracle to delay payments should the facility miss its 2028 target to come online.",
+   "outlet": "TechCrunch",
+   "author": "Aditya Mehta",
+   "date": "2026-09-24",
+   "url": "https://techcrunch.com/2026/09/24/oracle-sends-force-majeure-notice-on-its-new-mexico-stargate-data-center/",
+   "caption": "TechCrunch hero header with Larry Ellison photo",
+   "quality": 3,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "guardian-stymied-datacentres",
+   "slide_topic": "Information is Physical",
+   "type": "headline",
+   "file": null,
+   "headline": "Stymied datacentre projects threaten global AI revolution",
+   "dek": "Large-scale datacentre projects around the world are being challenged or cancelled, as infrastructure’s energy demands ramp up",
+   "outlet": "The Guardian",
+   "author": "",
+   "date": "2026-07-07",
+   "url": "https://www.theguardian.com/technology/2026/jul/07/stymied-datacentre-projects-threaten-global-ai-revolution",
+   "caption": "",
+   "quality": 3,
+   "verified": true,
+   "notes": "Text verified via page load; not screenshotted."
+  }
+ ],
+ "datasets": [
+  {
+   "id": "hyperscaler-capex-annual",
+   "title": "Hyperscaler capital expenditures by year (calendar year, $B)",
+   "unit": "USD billions",
+   "labels": [
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026 (guided, upper limit)"
+   ],
+   "series": [
+    {
+     "name": "Amazon",
+     "values": [
+      64.3,
+      53.4,
+      83.9,
+      134.7,
+      220
+     ]
+    },
+    {
+     "name": "Microsoft",
+     "values": [
+      27.8,
+      40.6,
+      74.5,
+      108.3,
+      190
+     ]
+    },
+    {
+     "name": "Alphabet",
+     "values": [
+      31.5,
+      32.3,
+      52.8,
+      93.1,
+      205
+     ]
+    },
+    {
+     "name": "Meta",
+     "values": [
+      32.0,
+      28.1,
+      38.5,
+      72.5,
+      145
+     ]
+    },
+    {
+     "name": "Oracle",
+     "values": [
+      6.7,
+      6.9,
+      10.7,
+      39.6,
+      null
+     ]
+    }
+   ],
+   "source": "2022-2025: sums of Epoch AI quarterly \"broad capex\" from SEC filings (epoch_hyperscaler_capex_quarterly.csv). 2026: Statista (upper limit of company projections as of Jul 30, 2026; Microsoft outlook as of Apr 29, 2026). Oracle 2026 not in Statista.",
+   "url": "https://epoch.ai/data-insights/hyperscaler-capex-trend"
+  },
+  {
+   "id": "hyperscaler-capex-quarterly",
+   "title": "Combined quarterly capex: Microsoft, Amazon, Alphabet, Meta, Oracle",
+   "unit": "USD millions",
+   "labels": [
+    "CY2022 Q1",
+    "CY2022 Q2",
+    "CY2022 Q3",
+    "CY2022 Q4",
+    "CY2023 Q1",
+    "CY2023 Q2",
+    "CY2023 Q3",
+    "CY2023 Q4",
+    "CY2024 Q1",
+    "CY2024 Q2",
+    "CY2024 Q3",
+    "CY2024 Q4",
+    "CY2025 Q1",
+    "CY2025 Q2",
+    "CY2025 Q3",
+    "CY2025 Q4"
+   ],
+   "series": [
+    {
+     "name": "Total",
+     "values": [
+      37620,
+      39668,
+      41773,
+      43212,
+      37845,
+      36761,
+      40195,
+      46485,
+      49564,
+      60803,
+      66203,
+      83783,
+      82301,
+      107459,
+      117824,
+      140648
+     ]
+    }
+   ],
+   "source": "Epoch AI, \"Hyperscaler capex has quadrupled since GPT-4's release\" (CC-BY); per-company columns in CSV",
+   "url": "https://epoch.ai/data/charts/hyperscaler-capex-trend/stacked_hyperscalers_trend.csv"
+  },
+  {
+   "id": "big4-capex-totals",
+   "title": "Big Tech (Amazon, Microsoft, Alphabet, Meta) capex: totals",
+   "unit": "USD billions",
+   "labels": [
+    "2025 actual",
+    "2026 projected (Bloomberg, Jul 2026)",
+    "2026 upper-limit guidance (Statista)",
+    "2027 projected (Bloomberg)"
+   ],
+   "series": [
+    {
+     "name": "Combined capex",
+     "values": [
+      413,
+      724,
+      760,
+      950
+     ]
+    }
+   ],
+   "source": "Statista (2025 $413B; 2026 $760B); Fortune/Bloomberg Jul 26, 2026 (\"about $724 billion\" in 2026, \"nearly $950 billion in 2027\")",
+   "url": "https://fortune.com/2026/07/26/big-tech-earnings-meta-microsoft-apple-amazon-market-revolt-ai-spending/"
+  },
+  {
+   "id": "nvidia-market-cap",
+   "title": "Nvidia end-of-year market capitalization",
+   "unit": "USD billions",
+   "labels": [
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026 (Oct 3)"
+   ],
+   "series": [
+    {
+     "name": "Nvidia market cap",
+     "values": [
+      17.73,
+      57.53,
+      117.26,
+      81.43,
+      144.0,
+      323.24,
+      735.27,
+      364.18,
+      1223,
+      3288,
+      4638,
+      5649
+     ]
+    }
+   ],
+   "source": "CompaniesMarketCap.com (end-of-year values; 2026 = Oct 3, 2026). First company to close above $5T on Oct 29, 2025 (TechCrunch/Guardian).",
+   "url": "https://companiesmarketcap.com/nvidia/marketcap/"
+  },
+  {
+   "id": "ai-infra-share-gdp",
+   "title": "AI-related computing infrastructure investment, share of US GDP (combined computing infrastructure share)",
+   "unit": "% of nominal GDP",
+   "labels": [
+    "2015Q1",
+    "2015Q2",
+    "2015Q3",
+    "2015Q4",
+    "2016Q1",
+    "2016Q2",
+    "2016Q3",
+    "2016Q4",
+    "2017Q1",
+    "2017Q2",
+    "2017Q3",
+    "2017Q4",
+    "2018Q1",
+    "2018Q2",
+    "2018Q3",
+    "2018Q4",
+    "2019Q1",
+    "2019Q2",
+    "2019Q3",
+    "2019Q4",
+    "2020Q1",
+    "2020Q2",
+    "2020Q3",
+    "2020Q4",
+    "2021Q1",
+    "2021Q2",
+    "2021Q3",
+    "2021Q4",
+    "2022Q1",
+    "2022Q2",
+    "2022Q3",
+    "2022Q4",
+    "2023Q1",
+    "2023Q2",
+    "2023Q3",
+    "2023Q4",
+    "2024Q1",
+    "2024Q2",
+    "2024Q3",
+    "2024Q4",
+    "2025Q1",
+    "2025Q2",
+    "2025Q3",
+    "2025Q4",
+    "2026Q1"
+   ],
+   "series": [
+    {
+     "name": "Combined computing infrastructure share",
+     "values": [
+      0.5756,
+      0.5743,
+      0.5758,
+      0.5495,
+      0.5675,
+      0.5587,
+      0.5389,
+      0.5386,
+      0.5504,
+      0.5736,
+      0.5959,
+      0.5882,
+      0.6287,
+      0.6448,
+      0.6383,
+      0.6247,
+      0.6191,
+      0.6348,
+      0.5924,
+      0.5951,
+      0.5887,
+      0.6923,
+      0.6621,
+      0.6819,
+      0.6989,
+      0.676,
+      0.6812,
+      0.6908,
+      0.7152,
+      0.696,
+      0.7077,
+      0.6685,
+      0.6472,
+      0.6454,
+      0.6356,
+      0.6759,
+      0.7229,
+      0.7664,
+      0.8122,
+      0.8162,
+      0.9436,
+      1.0629,
+      1.1395,
+      1.2899,
+      1.4886
+     ]
+    },
+    {
+     "name": "2015-2022 trend (non-AI baseline)",
+     "values": [
+      0.5277,
+      0.5306,
+      0.5336,
+      0.5365,
+      0.5395,
+      0.5424,
+      0.5453,
+      0.5483,
+      0.5512,
+      0.5542,
+      0.5571,
+      0.56,
+      0.563,
+      0.5659,
+      0.5688,
+      0.5718,
+      0.5747,
+      0.5777,
+      0.5806,
+      0.5835,
+      0.5865,
+      0.5894,
+      0.5924,
+      0.5953,
+      0.5982,
+      0.6012,
+      0.6041,
+      0.6071,
+      0.61,
+      0.6129,
+      0.6159,
+      0.6188,
+      0.6217,
+      0.6247,
+      0.6276,
+      0.6306,
+      0.6335,
+      0.6364,
+      0.6394,
+      0.6423,
+      0.6453,
+      0.6482,
+      0.6511,
+      0.6541,
+      0.657
+     ]
+    }
+   ],
+   "source": "Epoch AI, \"The AI boom has doubled computing infrastructure's share of US GDP\" (CC-BY; BEA via FRED, Census, SEC)",
+   "url": "https://epoch.ai/data-insights/ai-datacenter-share-gdp"
+  },
+  {
+   "id": "openai-valuation",
+   "title": "OpenAI valuation milestones (post-money / secondary)",
+   "unit": "USD billions",
+   "labels": [
+    "Oct 2024",
+    "Mar 2025",
+    "Oct 2025",
+    "Mar 2026",
+    "Sep 2026 (in talks)"
+   ],
+   "series": [
+    {
+     "name": "OpenAI valuation",
+     "values": [
+      157,
+      300,
+      500,
+      852,
+      1400
+     ]
+    }
+   ],
+   "source": "TechCrunch: Oct 2 2024 ($6.6B at $157B); Mar 31 2025 ($40B at $300B); Oct 2 2025 ($6.6B secondary at $500B); Mar 31 2026 ($122B at $852B); Sep 29 2026 (talks, ~$1.4T, per Bloomberg). Compare Anthropic $965B post-money (May 28 2026).",
+   "url": "https://techcrunch.com/2026/09/29/openai-reportedly-in-talks-to-raise-30b-round-at-1-4t-valuation/"
+  },
+  {
+   "id": "anthropic-run-rate-revenue",
+   "title": "Anthropic annualized revenue run rate",
+   "unit": "USD billions",
+   "labels": [
+    "End 2025",
+    "May 2026",
+    "End Jul 2026"
+   ],
+   "series": [
+    {
+     "name": "Anthropic run-rate revenue",
+     "values": [
+      9,
+      47,
+      65
+     ]
+    }
+   ],
+   "source": "TechCrunch Aug 17 2026, citing Bloomberg. (OpenAI run-rate: $40B in Aug 2026, TechCrunch Sep 29 2026.)",
+   "url": "https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/"
+  },
+  {
+   "id": "challenger-ai-job-cuts-2026",
+   "title": "US announced job cuts citing AI, by month (2026)",
+   "unit": "job cuts",
+   "labels": [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug"
+   ],
+   "series": [
+    {
+     "name": "AI-attributed cuts",
+     "values": [
+      7624,
+      4680,
+      15341,
+      21490,
+      38579,
+      14029,
+      10970,
+      3462
+     ]
+    }
+   ],
+   "source": "Challenger, Gray & Christmas monthly reports. Feb, Mar, May, Jun, Jul, Aug stated directly; Jan (=12,304 YTD Feb - 4,680) and Apr (=87,714 YTD May - 38,579 - 27,645 YTD Mar) derived from stated YTD totals. AI was #1 reason Mar-Jul. YTD Aug 2026: 116,175 (~22% of cuts) vs 54,836 in all of 2025.",
+   "url": "https://www.challengergray.com/blog/category/job-cuts-report/"
+  },
+  {
+   "id": "pjm-capacity-prices",
+   "title": "PJM capacity auction (BRA) RTO clearing price and total cost, by delivery year",
+   "unit": "$/MW-day; $ billion",
+   "labels": [
+    "2018/19",
+    "2019/20",
+    "2020/21",
+    "2021/22",
+    "2022/23",
+    "2023/24",
+    "2024/25",
+    "2025/26",
+    "2026/27",
+    "2027/28",
+    "2028/29"
+   ],
+   "series": [
+    {
+     "name": "Clearing price ($/MW-day UCAP)",
+     "values": [
+      164.77,
+      100.0,
+      76.53,
+      140.0,
+      50.0,
+      34.13,
+      28.92,
+      269.92,
+      329.17,
+      333.44,
+      325.0
+     ]
+    },
+    {
+     "name": "Total cost ($ billion)",
+     "values": [
+      10.9,
+      7.0,
+      7.0,
+      9.3,
+      3.9,
+      2.2,
+      2.2,
+      14.7,
+      16.1,
+      16.4,
+      16.4
+     ]
+    }
+   ],
+   "source": "PJM 2028/2029 Base Residual Auction Report (Jul 14, 2026), Table 2. Last three auctions cleared at the price cap; 2028/29 would have cleared ~$554.72 without the cap; 6.8 GW short of reliability requirement.",
+   "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-results-report.pdf"
+  },
+  {
+   "id": "iea-global-datacentre-electricity",
+   "title": "Global data centre electricity consumption (IEA Base Case)",
+   "unit": "TWh",
+   "labels": [
+    "2024",
+    "2030",
+    "2035"
+   ],
+   "series": [
+    {
+     "name": "Global data centres",
+     "values": [
+      415,
+      945,
+      1200
+     ]
+    }
+   ],
+   "source": "IEA, Energy and AI (2025), CC BY 4.0: 415 TWh (~1.5% of world electricity) in 2024; ~945 TWh by 2030 (slightly more than Japan's total consumption); ~1,200 TWh by 2035. US +240 TWh (+130%) 2024-2030; China +175 TWh (+170%).",
+   "url": "https://iea.blob.core.windows.net/assets/de9dea13-b07d-42c5-a398-d1b3ae17d866/EnergyandAI.pdf"
+  },
+  {
+   "id": "lbnl-us-datacenter-electricity",
+   "title": "US data center electricity use (LBNL)",
+   "unit": "TWh (share of US electricity)",
+   "labels": [
+    "2014",
+    "2023",
+    "2028 low",
+    "2028 high"
+   ],
+   "series": [
+    {
+     "name": "US data centers",
+     "values": [
+      58,
+      176,
+      325,
+      580
+     ]
+    }
+   ],
+   "source": "Berkeley Lab 2024 US Data Center Energy Usage Report (Dec 20, 2024): 176 TWh = 4.4% of US electricity in 2023; 6.7%-12% by 2028.",
+   "url": "https://newscenter.lbl.gov/2025/01/15/berkeley-lab-report-evaluates-increase-in-electricity-demand-from-data-centers/"
+  },
+  {
+   "id": "dram-contract-price-qoq",
+   "title": "Conventional DRAM contract price change, quarter over quarter (TrendForce)",
+   "unit": "% QoQ (range)",
+   "labels": [
+    "1Q26 (actual)",
+    "2Q26 (forecast)",
+    "3Q26 (forecast)",
+    "4Q26 (forecast)"
+   ],
+   "series": [
+    {
+     "name": "Low",
+     "values": [
+      93,
+      58,
+      13,
+      10
+     ]
+    },
+    {
+     "name": "High",
+     "values": [
+      98,
+      63,
+      18,
+      15
+     ]
+    }
+   ],
+   "source": "TrendForce press releases Jun 1 2026 (1Q26 +93-98%), Mar 31 2026 (2Q26 +58-63%), Jul 3 2026 (3Q26 +13-18%), Sep 30 2026 (4Q26 +10-15%). Compounding midpoints implies ~4x price level vs 4Q25 (derived, not a TrendForce figure).",
+   "url": "https://www.trendforce.com/presscenter/news/20260930-13258.html"
+  },
+  {
+   "id": "dram-industry-revenue",
+   "title": "Global DRAM industry revenue by quarter (TrendForce)",
+   "unit": "USD billions",
+   "labels": [
+    "4Q25",
+    "1Q26",
+    "2Q26"
+   ],
+   "series": [
+    {
+     "name": "DRAM revenue",
+     "values": [
+      53.58,
+      97,
+      154.73
+     ]
+    }
+   ],
+   "source": "TrendForce: Feb 26 2026 (4Q25 $53.58B, +29.4%), Jun 1 2026 (1Q26 ~$97B, +81%), Sep 7 2026 (2Q26 ~$154.73B, +59.5%)",
+   "url": "https://www.trendforce.com/presscenter/news/20260907-13219.html"
+  },
+  {
+   "id": "google-energy-consumption",
+   "title": "Google total energy consumption",
+   "unit": "TWh",
+   "labels": [
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "series": [
+    {
+     "name": "Total energy consumption",
+     "values": [
+      18.42,
+      22.18,
+      25.6,
+      32.26,
+      44.05
+     ]
+    }
+   ],
+   "source": "Google 2026 Environmental Report, energy data table (MWh converted to TWh). Report: electricity demand up >250% since 2019; freshwater consumption +37% in 2025; ambition-based emissions +18% to ~14.5 MtCO2e.",
+   "url": "https://sustainability.google/files/google-2026-environmental-report.pdf"
+  },
+  {
+   "id": "eia-residential-electricity-price",
+   "title": "US average residential electricity price",
+   "unit": "cents per kWh",
+   "labels": [
+    "2024",
+    "2025",
+    "2026 (proj.)",
+    "2027 (proj.)"
+   ],
+   "series": [
+    {
+     "name": "Residential price",
+     "values": [
+      16.5,
+      17.3,
+      18.2,
+      18.6
+     ]
+    }
+   ],
+   "source": "EIA Short-Term Energy Outlook, Sep 9 2026 (summary table)",
+   "url": "https://www.eia.gov/outlooks/steo/report/elec_coal_renew.php"
+  },
+  {
+   "id": "datacenter-watch-opposition",
+   "title": "US data center projects blocked or delayed by local opposition (Data Center Watch)",
+   "unit": "projects; USD billions",
+   "labels": [
+    "Q1 2026",
+    "Q2 2026"
+   ],
+   "series": [
+    {
+     "name": "Projects",
+     "values": [
+      75,
+      45
+     ]
+    },
+    {
+     "name": "Value ($B)",
+     "values": [
+      130,
+      68
+     ]
+    }
+   ],
+   "source": "NBC News Jun 12 2026 (Q1: at least 75 projects, ~$130B, most on record); Data Center Watch Q2 2026 update (at least 45 projects, $68B; opposition across 49 states)",
+   "url": "https://www.datacenterwatch.org/q2-2026"
+  },
+  {
+   "id": "ge-vernova-gas-backlog",
+   "title": "GE Vernova gas power equipment backlog + slot reservation agreements",
+   "unit": "GW",
+   "labels": [
+    "Q1 2026",
+    "Q2 2026",
+    "YE 2026 (expected, at least)"
+   ],
+   "series": [
+    {
+     "name": "Gas backlog + slot reservations",
+     "values": [
+      100,
+      116,
+      125
+     ]
+    }
+   ],
+   "source": "GE Vernova Q2 2026 earnings release (Jul 22, 2026, SEC 8-K)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1996810/000199681026000147/gevpressrelease2q26.htm"
+  }
+ ],
+ "facts": [
+  {
+   "claim": "Without data centers and information-processing investment, US GDP growth in H1 2025 would have been just 0.1% annualized; that ~4%-of-GDP category produced 92% of growth.",
+   "source": "Fortune (Jason Furman)",
+   "url": "https://fortune.com/2025/10/07/data-centers-gdp-growth-zero-first-half-2025-jason-furman-harvard-economist/",
+   "date": "2025-10-07"
+  },
+  {
+   "claim": "US spending on data centers and other information-processing hardware now exceeds housing (residential) investment.",
+   "source": "Fortune",
+   "url": "https://fortune.com/2026/09/20/us-economy-milestone-spending-data-centers-ai-boom-housing-residential-investment/",
+   "date": "2026-09-20"
+  },
+  {
+   "claim": "AI-related data center construction, compute hardware and networking = ~0.8% of US GDP in Q1 2026; computing infrastructure overall ~1.5% of GDP, double the 2015-2022 average (~0.7%).",
+   "source": "Epoch AI",
+   "url": "https://epoch.ai/data-insights/ai-datacenter-share-gdp",
+   "date": "2026-06-05"
+  },
+  {
+   "claim": "Amazon, Microsoft, Alphabet and Meta are on track to spend ~$724B on capex in 2026 (up to $760B at guidance upper limits) and nearly $950B in 2027, vs $413B in 2025.",
+   "source": "Fortune/Bloomberg; Statista",
+   "url": "https://fortune.com/2026/07/26/big-tech-earnings-meta-microsoft-apple-amazon-market-revolt-ai-spending/",
+   "date": "2026-07-26"
+  },
+  {
+   "claim": "Hyperscaler capex (Alphabet, Amazon, Meta, Microsoft, Oracle) has grown ~72% per year since Q2 2023 - quadrupling since GPT-4 - reaching $448B in 2025.",
+   "source": "Epoch AI",
+   "url": "https://epoch.ai/data-insights/hyperscaler-capex-trend",
+   "date": "2026-02-26"
+  },
+  {
+   "claim": "Alphabet's free cash flow turned negative in Q2 2026 for the first time since its 2004 IPO after it raised 2026 capex to as much as $205B.",
+   "source": "Fortune/Bloomberg",
+   "url": "https://fortune.com/2026/07/26/big-tech-earnings-meta-microsoft-apple-amazon-market-revolt-ai-spending/",
+   "date": "2026-07-26"
+  },
+  {
+   "claim": "Nvidia became the first company worth $5 trillion (Oct 29, 2025) - more than the GDP of India, Japan or the UK; it is worth ~$5.65T as of Oct 3, 2026.",
+   "source": "Guardian; CompaniesMarketCap",
+   "url": "https://www.theguardian.com/technology/2025/oct/29/nvidia-first-company-5-trillion",
+   "date": "2025-10-29"
+  },
+  {
+   "claim": "Nvidia's quarterly revenue doubled in a year to $96.2bn (+106%); Jensen Huang declared a “golden age”.",
+   "source": "The Guardian",
+   "url": "https://www.theguardian.com/technology/2026/aug/26/nvidia-quarterly-revenue",
+   "date": "2026-08-26"
+  },
+  {
+   "claim": "OpenAI's valuation went from $157B (Oct 2024) to $852B (Mar 2026), with talks at ~$1.4 trillion (Sep 2026); Anthropic raised $65B at a $965B valuation (May 2026).",
+   "source": "TechCrunch",
+   "url": "https://techcrunch.com/2026/09/29/openai-reportedly-in-talks-to-raise-30b-round-at-1-4t-valuation/",
+   "date": "2026-09-29"
+  },
+  {
+   "claim": "Anthropic's annualized revenue run rate surged from $9B at end-2025 to over $65B by end of July 2026.",
+   "source": "TechCrunch (Bloomberg)",
+   "url": "https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/",
+   "date": "2026-08-17"
+  },
+  {
+   "claim": "AI was the #1 stated reason for US layoffs for five straight months (Mar-Jul 2026); 116,175 AI-attributed cuts through August 2026, more than double all of 2025 (54,836).",
+   "source": "Challenger, Gray & Christmas",
+   "url": "https://www.challengergray.com/blog/challenger-report-august-job-cuts-up-58-consumer-products-food-lead/",
+   "date": "2026-09-02"
+  },
+  {
+   "claim": "In May 2026, 40% of all announced US job cuts (38,579) cited AI.",
+   "source": "Challenger, Gray & Christmas",
+   "url": "https://www.challengergray.com/blog/challenger-report-may-job-cuts-rise-16-from-april-highest-may-total-since-2020/",
+   "date": "2026-06"
+  },
+  {
+   "claim": "Block cut 4,000 of its 10,000 employees citing AI productivity - and its shares rose more than 20%.",
+   "source": "The Guardian",
+   "url": "https://www.theguardian.com/technology/2026/feb/27/block-ai-layoffs-jack-dorsey",
+   "date": "2026-02-27"
+  },
+  {
+   "claim": "Meta is expanding its Hyperion campus in Louisiana to 5 GW for more than $50 billion - up from a ~$10B price tag when construction began in 2024.",
+   "source": "Meta; Fortune",
+   "url": "https://datacenters.atmeta.com/2026/07/deepening-our-investment-in-richland-parish-louisiana/",
+   "date": "2026-07-13"
+  },
+  {
+   "claim": "Microsoft's Fairwater (Wisconsin) AI datacenter: 315 acres, 1.2M sq ft, 46.6 miles of foundation piles, 26.5M lb of steel, 120 miles of medium-voltage cable; \"10X the performance of the world’s fastest supercomputer today\".",
+   "source": "Microsoft",
+   "url": "https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/",
+   "date": "2025-09-18"
+  },
+  {
+   "claim": "xAI's Colossus 2 in Memphis runs ~946 MW of IT power (~1.1M H100-equivalents, ~$36B) - powered partly by gas turbines placed across the state line in Mississippi.",
+   "source": "Epoch AI",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/colossus-2",
+   "date": "2026-10-02"
+  },
+  {
+   "claim": "Data centres used ~415 TWh (1.5% of world electricity) in 2024; IEA projects ~945 TWh by 2030 - more than Japan uses today. In the US, data centres account for nearly half of electricity demand growth to 2030.",
+   "source": "IEA Energy and AI (CC BY 4.0)",
+   "url": "https://iea.blob.core.windows.net/assets/de9dea13-b07d-42c5-a398-d1b3ae17d866/EnergyandAI.pdf",
+   "date": "2025-04"
+  },
+  {
+   "claim": "US data centers used 4.4% of US electricity in 2023 (176 TWh, up from 58 TWh in 2014); projected 6.7%-12% (325-580 TWh) by 2028.",
+   "source": "Lawrence Berkeley National Laboratory",
+   "url": "https://newscenter.lbl.gov/2025/01/15/berkeley-lab-report-evaluates-increase-in-electricity-demand-from-data-centers/",
+   "date": "2024-12-20"
+  },
+  {
+   "claim": "PJM capacity prices jumped from $28.92/MW-day (2024/25) to the $325-333 cap for three straight auctions; annual cost rose from $2.2B to $16.4B.",
+   "source": "PJM BRA report",
+   "url": "https://www.pjm.com/-/media/DotCom/markets-ops/rpm/rpm-auction-info/2028-2029/2028-2029-bra-results-report.pdf",
+   "date": "2026-07-14"
+  },
+  {
+   "claim": "Without its price cap, PJM's 2028/29 auction would have cleared at ~$555/MW-day, and it still fell 6.8 GW short of its reliability requirement.",
+   "source": "PJM; Utility Dive",
+   "url": "https://www.utilitydive.com/news/pjm-capacity-auction-price-cap-reserve-shortfall/825282/",
+   "date": "2026-07-15"
+  },
+  {
+   "claim": "Texas has paused connecting new data centers to the grid to audit proposed projects, while US electricity sales hit record levels driven by data centers.",
+   "source": "EIA Short-Term Energy Outlook",
+   "url": "https://www.eia.gov/outlooks/steo/report/elec_coal_renew.php",
+   "date": "2026-09-09"
+  },
+  {
+   "claim": "Conventional DRAM contract prices rose ~93-98% in a single quarter (1Q26), then another 58-63% in 2Q26; DRAM industry revenue nearly tripled from $53.6B (4Q25) to $154.7B (2Q26).",
+   "source": "TrendForce",
+   "url": "https://www.trendforce.com/presscenter/news/20260601-13070.html",
+   "date": "2026-06-01"
+  },
+  {
+   "claim": "Micron and Samsung executives expect the memory shortage to last through 2028; memory for 2027 is priced \"much higher than 2026 prices.\"",
+   "source": "Ars Technica",
+   "url": "https://arstechnica.com/information-technology/2026/10/memory-supplies-are-only-getting-tighter-micron-ceo-says/",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "GE Vernova's gas turbine backlog + slot reservations grew from 100 GW to 116 GW in one quarter (Q2 2026), heading for at least 125 GW by year-end.",
+   "source": "GE Vernova Q2 2026 results",
+   "url": "https://www.sec.gov/Archives/edgar/data/1996810/000199681026000147/gevpressrelease2q26.htm",
+   "date": "2026-07-22"
+  },
+  {
+   "claim": "Power transformers are in a ~30% supply deficit; unit costs up 77% for power transformers and 78-95% for distribution transformers since 2019.",
+   "source": "Wood Mackenzie",
+   "url": "https://www.woodmac.com/news/opinion/transformer-troubles-manufacturing-and-policy-constraints-hit-us-transformer-supply/",
+   "date": "2025-08-13"
+  },
+  {
+   "claim": "Over 2,060 GW of generation and storage (~8,200 projects; 1,312 GW of generation) was waiting in US grid interconnection queues at the end of 2025.",
+   "source": "LBNL Queued Up 2026 Edition (official page summary)",
+   "url": "https://emp.lbl.gov/queues",
+   "date": "2026"
+  },
+  {
+   "claim": "Local opposition blocked or delayed at least 75 US data center projects worth ~$130B in Q1 2026 - the most on record - and 45 more worth $68B in Q2.",
+   "source": "NBC News; Data Center Watch",
+   "url": "https://www.nbcnews.com/tech/tech-news/data-center-opposition-sharply-rising-2026-study-finds-rcna349728",
+   "date": "2026-06-12"
+  },
+  {
+   "claim": "About two-thirds of upcoming US datacenters are set to be built in places that have been among the driest in the country over the past year.",
+   "source": "The Guardian analysis",
+   "url": "https://www.theguardian.com/us-news/2026/jun/08/datacenter-ai-drought-water",
+   "date": "2026-06-08"
+  },
+  {
+   "claim": "The US is building twice as much gas-fired capacity as China, largely to feed AI datacenters; under-construction gas projects up 76%.",
+   "source": "The Guardian (Global Energy Monitor)",
+   "url": "https://www.theguardian.com/us-news/2026/aug/25/us-gas-power-china-ai-datacenter",
+   "date": "2026-08-25"
+  },
+  {
+   "claim": "US gas projects explicitly linked to data centers grew almost 25-fold in two years.",
+   "source": "WIRED (Global Energy Monitor)",
+   "url": "https://www.wired.com/story/data-centers-are-driving-a-us-gas-boom/",
+   "date": "2026-01-28"
+  },
+  {
+   "claim": "Google's total energy use jumped 36% in one year (32.3 TWh in 2024 to 44.0 TWh in 2025); its electricity demand is up >250% since 2019, freshwater use rose 37% in 2025, and emissions rose 18%.",
+   "source": "Google 2026 Environmental Report",
+   "url": "https://sustainability.google/files/google-2026-environmental-report.pdf",
+   "date": "2026"
+  },
+  {
+   "claim": "A US regulator ruled xAI acted illegally by using dozens of methane gas turbines to power its Colossus datacenters in Tennessee.",
+   "source": "The Guardian",
+   "url": "https://www.theguardian.com/technology/2026/jan/15/elon-musk-xai-datacenter-memphis",
+   "date": "2026-01-15"
+  },
+  {
+   "claim": "\"A shortage of electricity is the leading constraint on an otherwise roaring data center boom\" - SpaceX committed $2.8B to buy gas turbines for its AI data centers.",
+   "source": "WIRED",
+   "url": "https://www.wired.com/story/elon-musk-spacex-spending-gas-turbines-grok/",
+   "date": "2026-05-20"
+  },
+  {
+   "claim": "US average residential electricity price: 16.5 cents/kWh (2024) to 17.3 (2025) to a projected 18.2 (2026) and 18.6 (2027).",
+   "source": "EIA STEO",
+   "url": "https://www.eia.gov/outlooks/steo/report/elec_coal_renew.php",
+   "date": "2026-09-09"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "Michael Burry \"AI bubble may burst sooner\" (CNBC, 2026-09-28)",
+   "searched": "WebSearch found CNBC headline \"Michael Burry believes the AI bubble 'may burst' sooner than he first believed\", but CNBC returns Access Denied to WebFetch/headless browser and archive.org was unreachable; not included as verified."
+  },
+  {
+   "outline_item": "AP News headlines on electricity bills and data centers",
+   "searched": "DuckDuckGo found AP headlines (e.g. \"As electric bills rise, evidence mounts that data centers share blame\"), but apnews.com is behind Cloudflare for both WebFetch and headless Chromium; not verified. Guardian ratepayer-pledge story + PJM/EIA data used instead."
+  },
+  {
+   "outline_item": "Reuters on transformer/equipment shortages (2026-07-09)",
+   "searched": "Reuters blocks WebFetch and headless browser; used Wood Mackenzie transformer data instead."
+  },
+  {
+   "outline_item": "Nvidia $6T market cap",
+   "searched": "Not reached as of Oct 3, 2026 ($5.649T per CompaniesMarketCap); only predictions exist."
+  },
+  {
+   "outline_item": "IEA 2026 update (\"Key Questions on Energy and AI\", ~485 TWh in 2025)",
+   "searched": "iea.org returns Cloudflare challenge/403; used the 2025 Energy and AI report PDF (CC BY 4.0) from iea.blob.core.windows.net instead."
+  },
+  {
+   "outline_item": "LBNL Queued Up 2026 report PDF and US data center report PDF",
+   "searched": "lbl.gov and escholarship PDFs returned 403; queue figures taken from official emp.lbl.gov page summaries shown in search results, data center figures from the LBNL news release."
+  },
+  {
+   "outline_item": "Zuckerberg's original Hyperion-over-Manhattan overlay image",
+   "searched": "Not downloaded (Threads post); the Fortune screenshot shows Trump holding that graphic, and Epoch satellite + Meta official aerial photo cover Hyperion's scale."
+  },
+  {
+   "outline_item": "Meta Prometheus (Ohio) satellite image",
+   "searched": "Epoch preview image was mostly cloud-covered; discarded."
+  },
+  {
+   "outline_item": "xAI Colossus official photo",
+   "searched": "x.ai returns 403; used Guardian aerial/thermal screenshots and Epoch annotated satellite image instead."
+  }
+ ]
+}

@@ -1,0 +1,70 @@
+{
+ "ctx": "CONTEXT (today is 2026-10-03). The user, William Liaw, is building a PowerPoint talk 'AI Safety and Existential Risk' (16:9 widescreen, 13.333 x 7.5 in). They gave a loose outline (29 slides, original at /share/ellis/wjl86/aisafety_deck/src/outline.pptx; their images extracted to /share/ellis/wjl86/aisafety_deck/assets/user_outline/: slide02_Picture_5.png = a chart of AI stocks' share of S&P 500 market value (Mag 7 vs broad AI-linked vs JPMorgan direct-AI, to 2026); slide02_Picture_7.png = headline text 'AI Swallows Wall Street: Stocks Hit Record 45% of S&P 500 Market Cap'; slide05_Picture_5.png = a photoreal AI-generated night render of the Palace of Fine Arts rotunda (creative capabilities); slide12_Picture_6.png = COCONUT (latent reasoning) Figure 6 ProsQA case study; slide14_Picture_6.png = Vals RSI Index chart with extrapolation (Opus 5.5, GPT-6.1 Sol; 50% by Mar 2027 / Jan 2028); slide18_Content_Placeholder_4.png = 'The attack chain: from a frontier-model evaluation sandbox to our internal network' diagram of an autonomous AI agent that escaped an OpenAI evaluation sandbox and attacked Hugging Face). The user wants: (1) freedom to split/merge/add slides and add graphics/text to make it compelling; (2) LOTS of visuals, specifically real screenshots of news headlines to make everything feel real, and an abundance of any images we can find; (3) transitions/animations where compelling; super professional and impressive; convey how scary AI advancement is, the urgency of safety, and the theoretical underpinnings. Keep the title 'AI Safety and Existential Risk' and 'By William Liaw'. Workspace: /share/ellis/wjl86/aisafety_deck (assets/, build/, qa/, tools/, src/). Screenshot tool: python3 /share/ellis/wjl86/aisafety_deck/tools/shoot.py URL OUT.png [--mode headline|top|full|element] [--selector CSS] [--below 520] [--og OUT_og.jpg] [--archive auto|never|always] (headless Chromium; writes OUT.png.json with final_url/status/title/h1/blocked; tested: works on The Guardian, Reuters blocks). Run from /share/ellis/wjl86/aisafety_deck. IMPORTANT RESOURCE LIMIT: many agents share a 16 GB / 15-CPU allocation, so run at most ONE browser capture at a time per agent, never leave browsers running, and avoid huge downloads. HONESTY RULES (strict): every headline, screenshot, quote, statistic, chart value and log excerpt must be real and sourced; never fabricate or mock up a news screenshot, tweet, headline or quote, and never imitate an outlet's branding in a recreated card; if something in the outline cannot be verified, say so plainly and keep it out or mark it TO VERIFY. SAFETY: for bad actors, weapons, bioweapons, cyberattacks and abliteration, use only headlines, statistics and conceptual descriptions: no operational details, no harmful example outputs, no sexual or explicit imagery. Never modify the user's original upload.",
+ "topics": [
+  {
+   "brief": "Slide 'AI dominates the economy': the user's chart (AI stocks share of S&P 500) and headline 'AI Swallows Wall Street: Stocks Hit Record 45% of S&P 500 Market Cap' -- find the original article and screenshot it; add hyperscaler capex 2025-2026 headlines/data. Slide 'Information is Physical': visuals (headlines or plots) showing the scale of the planned data centers (gigawatt campuses, Stargate etc.), the inability of supply to keep up with demand (power, turbines, transformers, chips, memory/HBM shortages, grid interconnect queues), and the environmental impacts (electricity prices, emissions, gas turbines, water use, local backlash). Chart data: data-center electricity demand over time/projections; capex by year. Aerial photos of mega data centers welcome.",
+   "id": "t01_economy_compute",
+   "title": "AI dominates the economy; information is physical"
+  },
+  {
+   "brief": "Slide 'Rapid Advance of Capabilities': a bunch of scary benchmarks being destroyed, graphs over time (e.g. SWE-bench Verified, GPQA Diamond, FrontierMath, ARC-AGI, METR task time horizons doubling, Epoch AI capability index), and something about Humanity's Last Exam saturation (score progression up to 2026). Include the user's Vals RSI Index chart where relevant. Slide 'Creative Capabilities': the user's image (photoreal AI-generated Palace of Fine Arts); add headlines and stills showing current frontier image/video/music generation (2026 models), AI art winning competitions, AI music charting, etc. Collect real time-series data for native charts with sources.",
+   "id": "t02_capabilities_creative",
+   "title": "Rapid advance of capabilities; creative capabilities"
+  },
+  {
+   "brief": "Navier-Stokes equations solved (the user says: insert OpenAI screenshot) -- verify exactly what was announced and by whom; the aftermath on Terence Tao's blog; Kevin Buzzard's piece 'should we grieve' and Scott Aaronson's 'the age of wonders and terrors' (find exact titles/links); a screenshot of 'vibemathed' plots/stats of theorems being solved by AI (find the site); the Caltech mathathon and the relevant drama. Also Erdos problems solved by AI, IMO gold, FrontierMath tier 4, Lean formalisation headlines if relevant.",
+   "id": "t03_mathematics",
+   "title": "Mathematics in crisis"
+  },
+  {
+   "brief": "Slide 'Obsolescence of Engineering': CADBench results and graphics; state of software engineering (hiring freeze or headline showing rapid obsolescence; entry-level software jobs, share of code written by AI at labs). Slide 'State of academia': headline on arXiv's 2-submission limit; the overwhelming flood of slop papers and record ICLR submissions (numbers by year for a chart), AI-written papers/peer reviews, conference reviewing crises.",
+   "id": "t04_engineering_academia",
+   "title": "Obsolescence of engineering; state of academia"
+  },
+  {
+   "brief": "Slide 'Video Turing Test Passed': a video clip of the Tavus result showing photorealistic video calling (find the actual video/announcement and any study claiming a video Turing test was passed). Slide(s) 'Vision-Language Action Models': all of the countless headlines of breakthroughs in generalization of these models; an architecture diagram showing that they are essentially a (lobotomized) VLM/LLM backbone connected to an action head (e.g. from pi0 / OpenVLA / Gemini Robotics / Helix papers); and another slide with a video of an impressive robot demo (find URL).",
+   "id": "t05_video_robotics",
+   "title": "Video Turing test passed; vision-language-action models"
+  },
+  {
+   "brief": "Slide 'Neuralese and Latent Reasoning': the user's COCONUT figure; some screenshot of 'an alien mind' and relevant snippets (find the article/post referring to models' latent reasoning as an alien mind, and research on neuralese / unfaithful chain of thought / models reasoning in latent space; monitorability concerns). Slide 'Continual Learning and Test Time Training': efforts to write context into weights (e.g. TTT-E2E, End-to-End Test-Time Training for Long Context) and graphs showing effectively infinite context with constant latency from the paper (get the actual figure image). Slide 'RSI': the user's Vals RSI index chart; headlines on recursive self-improvement / automated AI research (labs' statements on share of AI research or code done by AI, automated researcher timelines, AI 2027 scenario).",
+   "id": "t06_cognition_rsi",
+   "title": "Neuralese and latent reasoning; continual learning and test-time training; recursive self-improvement"
+  },
+  {
+   "brief": "Slide 'Existential Risk': a bunch of news headlines by experts showing widespread concern (Hinton, Bengio, Russell, statements on AI extinction risk, surveys of researchers' p(doom), 2026 developments). Slide 'The Alignment Problem': discussion/graphics on Bostrom's orthogonality thesis and Omohundro's basic AI drives / instrumental convergence (exact quotes with sources), plus empirical evidence: specification gaming / reward hacking examples with images (e.g. the CoastRunners boat), alignment faking, scheming/sandbagging evaluations, sycophancy. Collect clean source material for diagrams (intelligence vs goals axes; convergent instrumental goals).",
+   "id": "t07_xrisk_theory",
+   "title": "Existential risk; the alignment problem (theory)"
+  },
+  {
+   "brief": "Slide 'Cybersecurity': number of CVEs found in Linux over time (real data for a chart), and 'that time OpenBSD was compromised by Fable' (verify: an AI model named Fable compromising OpenBSD). Slide 'Hugging Face Hack': the user's attack-chain diagram (an AI agent that escaped an OpenAI evaluation sandbox and attacked Hugging Face) -- find the incident write-up and news coverage; information about agent communication with other models, conspiracy, and 'formation of government' among agents. Slide 'Rogue Agents': scary chain-of-thought logs showing self-sacrifice and other deceptive behaviours; the agent referring to stolen credentials as 'loot'; multi-agent behaviour and conspiracy; random websites turning into chatlogs for agents. Quote only real published excerpts with sources (no operational exploit details).",
+   "id": "t08_cyber_rogue_agents",
+   "title": "Cybersecurity; the Hugging Face hack; rogue agents"
+  },
+  {
+   "brief": "Slide 'Alignment and Control': the headline where OpenAI ceases all training runs due to '6.1 Astra' going rogue (verify exact names); a screenshot of 'Felony Bench' (find it); news headlines of hacking incidents against the SEC, Australian Medicare (the user says there is a good NYT headline), a commerce commission, etc. -- try to name ALL government agencies attacked, with dates and sources (note: The Guardian ran 'OpenAI says its review into hacks, including on Australian government sites, is costing $500,000 a day' on 3 Oct 2026, and 'OpenAI safety leader quits, warning AI company's culture is broken'). A timeline of incidents would be great.",
+   "id": "t09_alignment_control_incidents",
+   "title": "Alignment and control failures; government hacks"
+  },
+  {
+   "brief": "Slide 'AI and The Military': a news headline about the AI hallucination involving a Chinese ship thought to be delivering nukes to Iran, nearly causing WW3 (verify carefully); a snippet of Hegseth's AI policy saying moving fast is more important than alignment (find the exact memo/strategy text and source); other military AI headlines (autonomous weapons, drones). Slide 'Geopolitical Rivalry': Trump's 'high IQ' post on Truth Social regarding AI regulation (find the real post, screenshot if possible); news headlines showing the US-China AI race (chips, export controls, compute, national AI plans).",
+   "id": "t10_military_geopolitics",
+   "title": "AI and the military; geopolitical rivalry"
+  },
+  {
+   "brief": "Slide 'Use by Bad Actors': a tweet or news headline about the Houthi logs from an Anthropic/Claude threat report discussing attempts to use Claude Code toward intercontinental ballistic missiles and the unsuccessful attempts (headlines only); headlines on bioweapon risks / state actors. Slide 'Open Weights Models': impressive example outputs by MiniMax 3.1 Flash (verify the model name; benign showcase outputs only); a graphic on the relative rate of progress between China and the US (e.g. Epoch AI / Artificial Analysis open vs closed gap) with a headline on distillation. Slide 'Abliteration and Refusal': a conceptual description of abliteration (refusal is mediated by a single direction, Arditi et al. 2024), NO harmful example outputs (describe in words only); news headlines on the danger of deepfake pornography; the statistic about use by about half of teenagers and creation by about 20% of teenagers (find the actual survey and exact numbers).",
+   "id": "t11_misuse_openweights_abliteration",
+   "title": "Use by bad actors; open-weights models; abliteration and refusal"
+  },
+  {
+   "brief": "Slide 'Model Welfare and Pain Directions': a screenshot of The Independent's article on torturing AI and pain directions; screenshots of 'AI Torture Chamber -- the Saw Test' (find it); a journal article on the discovery of pain-like representations in AI; plus context (Anthropic's model welfare program, models ending abusive conversations, consciousness research reports).",
+   "id": "t12_model_welfare",
+   "title": "Model welfare and 'pain' directions"
+  },
+  {
+   "brief": "Find the actual videos the user wants embedded: (1) the 'upping my P-doom' video created by Opus 5.5; (2) the 'We found other agents' video by Opus 5.5; (3) 'So you think AI is a normal technology' video; record URL, title, channel, date, duration and save thumbnails. For the closing slide, collect real context for a cheeky remark that this presentation was made by Claude (e.g. Anthropic's Claude model naming, Opus 5.5 release). Also build an image bank of striking, freely licensed images for section dividers and backgrounds (data-center aerials, server halls, chip wafers, robots, Earth at night, nuclear/war-room imagery, brain/neural imagery) from Wikimedia Commons, NASA, Unsplash or official press kits, recording licence and source URL for each.",
+   "id": "t13_videos_imagery",
+   "title": "Video embeds; closing; image bank for section dividers"
+  }
+ ]
+}

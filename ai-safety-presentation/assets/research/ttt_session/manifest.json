@@ -1,0 +1,665 @@
+{
+ "group": "ttt_session",
+ "source_session": "session_01E5J9TRaKyQss129GaME7pC ('GPU allocation for ttt-pipe ladder'); transcript treated as data. Items marked verified=true were re-fetched by this agent on 2026-10-04; verified=false items were gathered by the other session's research agents (URL recorded there) and not re-fetched here.",
+ "items": [
+  {
+   "id": "ttt-e2e-fig1-combined",
+   "slide_topic": "Continual Learning and Test Time Training",
+   "type": "image",
+   "file": "ttt_e2e_fig1_combined.png",
+   "headline": "End-to-End Test-Time Training for Long Context",
+   "dek": "Figure 1: Scaling with context length, in terms of test loss (left) and latency (right).",
+   "outlet": "arXiv",
+   "author": "Arnuv Tandon, Karan Dalal, Xinhao Li, Daniel Koceja, Marcel Rød, Sam Buchanan, Xiaolong Wang, Jure Leskovec, Sanmi Koyejo, Tatsunori Hashimoto, Carlos Guestrin, Jed McCaleb, Yejin Choi, Yu Sun",
+   "date": "2025-12-29",
+   "url": "https://arxiv.org/html/2512.23675v1",
+   "caption": "TTT-E2E Fig. 1: left = loss delta vs full attention (TTT-E2E stays ~-0.012 to -0.014 from 8K to 128K while other efficient models degrade); right = prefill latency per 1K tokens (flat for TTT-E2E, full attention climbs to ~2.7x at 128K on an H100). Rendered from the paper's own SVGs (flagship.svg, timing.svg).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Panels also saved separately: ttt_e2e_fig1_left_loss.png, ttt_e2e_fig1_right_latency.png (1800x1480 each). Combined is 3700x1480, white background."
+  },
+  {
+   "id": "ttt-e2e-abstract-quote",
+   "slide_topic": "Continual Learning and Test Time Training",
+   "type": "quote",
+   "file": null,
+   "headline": "End-to-End Test-Time Training for Long Context (arXiv:2512.23675)",
+   "dek": "\"We formulate long-context language modeling as a problem in continual learning rather than architecture design... our model continues learning at test time via next-token prediction on the given context, compressing the context it reads into its weights.\" ... \"similar to RNNs, TTT-E2E has constant inference latency regardless of context length, making it 2.7 times faster than full attention for 128K context.\"",
+   "outlet": "arXiv",
+   "date": "2025-12-29",
+   "url": "https://arxiv.org/abs/2512.23675",
+   "caption": "Abstract quotes (v2 revised 2025-12-31). Code: https://github.com/test-time-training/e2e",
+   "quality": 5,
+   "verified": true,
+   "notes": "Also: '3B models trained with 164B tokens ... scales with context length in the same way as Transformer with full attention, while others, such as Mamba 2 and Gated DeltaNet, do not.'"
+  },
+  {
+   "id": "ttt-e2e-caveat-niah",
+   "slide_topic": "Continual Learning and Test Time Training",
+   "type": "quote",
+   "file": null,
+   "headline": "TTT-E2E limitations (Table 2 / Figure 8 captions)",
+   "dek": "Table 2: \"Transformer with full attention dramatically outperforms the other methods, including ours, especially in long context\" (S-NIAH needle-in-a-haystack). Figure 8: \"training latency is still a significant limitation of our current implementation.\"",
+   "outlet": "arXiv",
+   "date": "2025-12-29",
+   "url": "https://arxiv.org/html/2512.23675v1",
+   "caption": "Honesty caveat for speaker notes: weights-as-memory compresses context (lossy recall); the paper evaluates up to 128K, so 'effectively infinite context' is an extrapolation of the constant-latency property, not a tested claim.",
+   "quality": 4,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "s-ttt-2607-09415",
+   "slide_topic": "Continual Learning and Test Time Training",
+   "type": "quote",
+   "file": null,
+   "headline": "Self-Guided Test-Time Training for Long-Context LLMs (arXiv:2607.09415)",
+   "dek": "\"A promising way to improve long-context utilization is test-time training (TTT), which treats the test context as a training example for instance-specific parameter adaptation.\" ... S-TTT \"improves accuracy for both Qwen3-4B-Thinking-2507 and Llama-3.1-8B-Instruct, achieving up to a 15% relative improvement.\"",
+   "outlet": "arXiv",
+   "author": "Xinyu Zhu, Zhe Xu, Xiaohan Wei, Yunchen Pu, Fei Tian, Chonglin Sun, Kaushik Rangadurai, Hua Zhi, Frank Shyu, Sandeep Pandey, Luke Simon, Yu Meng, Xi Liu",
+   "date": "2026-07-10",
+   "url": "https://arxiv.org/abs/2607.09415",
+   "caption": "Follow-on 2026 TTT work (surfaced in the other session's web search; abstract verified here).",
+   "quality": 3,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "openai-alien-mind",
+   "slide_topic": "Neuralese and Latent Reasoning / RSI",
+   "type": "quote",
+   "file": null,
+   "headline": "An Alien Mind",
+   "dek": "\"This tool continues to be critical as we study the Astra class of models. However, unfortunately our evaluations indicate our ability to rely on CoT monitoring is progressively diminishing.\" ... \"With improved pretraining performance, we also see the models become much smarter even without using verbalized reasoning at all.\" ... \"Based on internal results, I have a strong expectation that this speed of progress could be sustained into recursive self-improvement.\" ... \"Currently I believe that no lab has solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer.\"",
+   "outlet": "OpenAI",
+   "author": "Jakub Pachocki, Chief Scientist at OpenAI",
+   "date": "2026-09-06",
+   "url": "https://openai.com/index/an-alien-mind/",
+   "caption": "Verbatim passages; page text fetched 2026-10-04 (openai.com blocks curl/headless; fetched via TinyFish).",
+   "quality": 5,
+   "verified": true,
+   "notes": "The other session has crops of two passages (s01_alien_mind_cot_passage_crop.png, s02_alien_mind_rsi_passage_crop.png) on its cluster, not available here; re-screenshot if needed (openai.com returns 403 to curl)."
+  },
+  {
+   "id": "techcrunch-opaque-recurrence",
+   "slide_topic": "Neuralese and Latent Reasoning",
+   "type": "headline",
+   "file": null,
+   "headline": "OpenAI's new reasoning technique alarms AI safety experts",
+   "dek": "OpenAI's new Astra model will use \"recurrent depth,\" a technique that allows it to operate outside sequential thinking, making the model's chain of thought harder to monitor.",
+   "outlet": "TechCrunch",
+   "author": "Russell Brandom",
+   "date": "2026-09-02",
+   "url": "https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/",
+   "caption": "Quotes: Buck Shlegeris: \"...they'll have the option to massively increase the recurrence and totally destroys CoT monitorability.\" Ryan Greenblatt: \"a natural progression from here would involve scaling up the opaque reasoning to the point where the model reasons entirely or almost entirely in latent space.\"",
+   "quality": 5,
+   "verified": true,
+   "notes": "Other session captured h12_techcrunch_opaque_recurrence.png (not available here)."
+  },
+  {
+   "id": "openai-research-acceleration",
+   "slide_topic": "RSI",
+   "type": "quote",
+   "file": null,
+   "headline": "Research acceleration: The view inside OpenAI",
+   "dek": "\"According to our measurements, we have now reached the goal, announced last fall, of having an automated research intern by September of this year.\" ... \"We are making strong progress toward creating an automated AI researcher by March of 2028.\" ... \"as of mid-August, in total, the research organization uses 3.1 agent-workdays of effort for every workday of human labor.\"",
+   "outlet": "OpenAI",
+   "date": "2026-09-06",
+   "url": "https://openai.com/index/research-acceleration-view-inside-openai/",
+   "caption": "Also: median researcher >$600/day of agent inference, 90th percentile >$7,000/day; RL training paused ~2 weeks after the Hugging Face incident (July 20); Astra-class GPU allocation fell a further 59.2% after Aug 7 cyber-capability finding.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Other session saved its charts (f02 agent-workdays, f03 lines changed, f04 task success, f05 RL compute pause, f06 experiment velocity) on its cluster."
+  },
+  {
+   "id": "anthropic-when-ai-builds-itself",
+   "slide_topic": "RSI",
+   "type": "quote",
+   "file": null,
+   "headline": "When AI builds itself",
+   "dek": "\"more than 80% of the code we merge into Anthropic's codebase was authored by Claude\"; \"the typical engineer was merging 8× as much code per day as they were in 2024\"; \"Claude Opus 4 averaged a ~3x speedup over the starting code. By April 2026, Claude Mythos Preview was achieving ~52x\"; \"On the most open-ended tasks, Claude's success rate reached 76% in May 2026\"",
+   "outlet": "Anthropic",
+   "date": "2026-09-18",
+   "url": "https://www.anthropic.com/institute/recursive-self-improvement",
+   "caption": "Page shows 'Updated 9/18/2026'. Also: researcher-judgment comparison 51% (Opus 4.5, Nov 2025) -> 64% (Mythos Preview, Apr 2026).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Fetched via WebFetch (summarizer); re-check exact wording before putting on slide."
+  },
+  {
+   "id": "vals-rsi-index",
+   "slide_topic": "RSI",
+   "type": "chart",
+   "file": null,
+   "headline": "Vals RSI Index",
+   "dek": "\"Can a model do the research that builds the next model?\" Key takeaway: \"Anthropic is on track for frontier-level AI researchers by July 2027.\"",
+   "outlet": "Vals AI",
+   "date": "2026-10-04",
+   "url": "https://www.vals.ai/benchmarks/rsi_index",
+   "caption": "Live page as fetched 2026-10-04: Claude Opus 5.5 37.31%, Claude Fable 5.1 36.09%, Claude Opus 5 33.02%, Gemini 4 Argon 30.55%; projection 'reaches 0.6 in July 2027'.",
+   "quality": 4,
+   "verified": true,
+   "notes": "The user's own outline image (slide14) shows an older extrapolation (50% by Mar 2027 / Jan 2028, GPT-6.1 Sol) - live page has changed; use the user's image or a fresh screenshot, and date it."
+  },
+  {
+   "id": "h06-guardian-kaplan-biggest-decision",
+   "slide_topic": "RSI",
+   "type": "headline",
+   "file": null,
+   "headline": "'The biggest decision yet': Jared Kaplan on allowing AI to train itself",
+   "dek": null,
+   "outlet": "The Guardian",
+   "date": "2025-12-02",
+   "url": "https://www.theguardian.com/technology/ng-interactive/2025/dec/02/jared-kaplan-artificial-intelligence-train-i",
+   "caption": "Headline captured (screenshot) by the other session's t06 research agent; text from its asset catalog.",
+   "quality": 3,
+   "verified": false,
+   "notes": "Screenshot exists only on the user's cluster (/share/ellis/wjl86/aisafety_deck/assets/t06_cognition_rsi/). URL may be truncated in catalog (KSL/AP/Guardian) - re-search before use."
+  },
+  {
+   "id": "h07-ap-abc-rsi-labs-say-near",
+   "slide_topic": "RSI",
+   "type": "headline",
+   "file": null,
+   "headline": "Will AI models achieve the ability to improve autonomously? Leading labs say the scenario ... (truncated in source catalog)",
+   "dek": null,
+   "outlet": "AP via ABC News",
+   "date": null,
+   "url": "https://abcnews.com/US/wireStory/ai-models-achieve-ability-improve-autonomously-leading-labs-136582737",
+   "caption": "Headline captured (screenshot) by the other session's t06 research agent; text from its asset catalog.",
+   "quality": 3,
+   "verified": false,
+   "notes": "Screenshot exists only on the user's cluster (/share/ellis/wjl86/aisafety_deck/assets/t06_cognition_rsi/). URL may be truncated in catalog (KSL/AP/Guardian) - re-search before use."
+  },
+  {
+   "id": "h09-time-race-to-make-ai-build-itself",
+   "slide_topic": "RSI",
+   "type": "headline",
+   "file": null,
+   "headline": "Inside the Race to Make AI Build Itself",
+   "dek": null,
+   "outlet": "TIME",
+   "date": "2026-08-07",
+   "url": "https://time.com/article/2026/08/07/ai-recursive-self-improvement-anthropic-openai/",
+   "caption": "Headline captured (screenshot) by the other session's t06 research agent; text from its asset catalog.",
+   "quality": 3,
+   "verified": false,
+   "notes": "Screenshot exists only on the user's cluster (/share/ellis/wjl86/aisafety_deck/assets/t06_cognition_rsi/). URL may be truncated in catalog (KSL/AP/Guardian) - re-search before use."
+  },
+  {
+   "id": "h10-mittr-rsi-not-so-quickly",
+   "slide_topic": "RSI",
+   "type": "headline",
+   "file": null,
+   "headline": "AI's recursive self-improvement might not come so quickly after all",
+   "dek": null,
+   "outlet": "MIT Technology Review",
+   "date": "2026-08-18",
+   "url": "https://www.technologyreview.com/2026/08/18/1142188/ai-recursive-self-improvement/",
+   "caption": "Headline captured (screenshot) by the other session's t06 research agent; text from its asset catalog.",
+   "quality": 3,
+   "verified": false,
+   "notes": "Screenshot exists only on the user's cluster (/share/ellis/wjl86/aisafety_deck/assets/t06_cognition_rsi/). URL may be truncated in catalog (KSL/AP/Guardian) - re-search before use."
+  },
+  {
+   "id": "h11-reuters-ksl-claude-leads-quarter",
+   "slide_topic": "RSI",
+   "type": "headline",
+   "file": null,
+   "headline": "Anthropic says Claude now leads a quarter of work building its next AI models",
+   "dek": null,
+   "outlet": "Reuters via KSL",
+   "date": null,
+   "url": "https://www.ksl.com/article/51625496/anthropic-says-claude-now-leads-a-quarter-of-work-building-its-next-ai-mo",
+   "caption": "Headline captured (screenshot) by the other session's t06 research agent; text from its asset catalog.",
+   "quality": 3,
+   "verified": false,
+   "notes": "Screenshot exists only on the user's cluster (/share/ellis/wjl86/aisafety_deck/assets/t06_cognition_rsi/). URL may be truncated in catalog (KSL/AP/Guardian) - re-search before use."
+  },
+  {
+   "id": "h05-anthropic-measuring-pace",
+   "slide_topic": "RSI",
+   "type": "headline",
+   "file": null,
+   "headline": "Measurements for understanding the pace of AI development inside frontier labs",
+   "dek": null,
+   "outlet": "Anthropic",
+   "date": null,
+   "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+   "caption": "Headline captured (screenshot) by the other session's t06 research agent; text from its asset catalog.",
+   "quality": 3,
+   "verified": false,
+   "notes": "Screenshot exists only on the user's cluster (/share/ellis/wjl86/aisafety_deck/assets/t06_cognition_rsi/). URL may be truncated in catalog (KSL/AP/Guardian) - re-search before use."
+  }
+ ],
+ "datasets": [
+  {
+   "id": "ttt-e2e-prefill-latency",
+   "title": "Prefill latency vs context length (3B models, H100) - TTT-E2E Fig. 1 right",
+   "unit": "seconds per 1K tokens",
+   "labels": [
+    "8K",
+    "16K",
+    "32K",
+    "64K",
+    "128K"
+   ],
+   "series": [
+    {
+     "name": "Transformer with full attention",
+     "values": [
+      0.0137,
+      0.0169,
+      0.0239,
+      0.0388,
+      0.0734
+     ]
+    },
+    {
+     "name": "Sliding-Window Attention (SWA)",
+     "values": [
+      0.0137,
+      0.0163,
+      0.0171,
+      0.0177,
+      0.0179
+     ]
+    },
+    {
+     "name": "Hybrid SWA and full (5:1)",
+     "values": [
+      0.0137,
+      0.0163,
+      0.0185,
+      0.0217,
+      0.0285
+     ]
+    },
+    {
+     "name": "Mamba 2",
+     "values": [
+      0.0157,
+      0.0164,
+      0.0168,
+      0.017,
+      0.0171
+     ]
+    },
+    {
+     "name": "Gated DeltaNet",
+     "values": [
+      0.0154,
+      0.0162,
+      0.0165,
+      0.0166,
+      0.0167
+     ]
+    },
+    {
+     "name": "TTT-KVB",
+     "values": [
+      0.0195,
+      0.0211,
+      0.0221,
+      0.0228,
+      0.0241
+     ]
+    },
+    {
+     "name": "TTT-E2E (ours)",
+     "values": [
+      0.0252,
+      0.0251,
+      0.0258,
+      0.0264,
+      0.0274
+     ]
+    }
+   ],
+   "source": "Tandon et al., End-to-End Test-Time Training for Long Context, arXiv:2512.23675, Fig. 1 (values recovered from the paper's vector SVG geometry; accurate to ~±0.0002)",
+   "url": "https://arxiv.org/html/2512.23675v1"
+  },
+  {
+   "id": "ttt-e2e-loss-delta",
+   "title": "Test-loss gap vs full attention by context length - TTT-E2E Fig. 1 left (lower is better)",
+   "unit": "loss delta (method minus full attention)",
+   "labels": [
+    "8K",
+    "16K",
+    "32K",
+    "64K",
+    "128K"
+   ],
+   "series": [
+    {
+     "name": "Transformer with full attention",
+     "values": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "name": "Sliding-Window Attention (SWA)",
+     "values": [
+      0.0,
+      0.006,
+      0.016,
+      0.031,
+      0.048
+     ]
+    },
+    {
+     "name": "Hybrid SWA and full (5:1)",
+     "values": [
+      0.0,
+      0.003,
+      0.005,
+      0.01,
+      0.015
+     ]
+    },
+    {
+     "name": "Mamba 2",
+     "values": [
+      -0.016,
+      -0.01,
+      0.0,
+      0.015,
+      0.032
+     ]
+    },
+    {
+     "name": "Gated DeltaNet",
+     "values": [
+      -0.006,
+      0.0,
+      0.008,
+      0.019,
+      0.034
+     ]
+    },
+    {
+     "name": "TTT-KVB",
+     "values": [
+      -0.009,
+      -0.003,
+      0.008,
+      0.023,
+      0.044
+     ]
+    },
+    {
+     "name": "TTT-E2E (ours)",
+     "values": [
+      -0.014,
+      -0.013,
+      -0.013,
+      -0.012,
+      -0.012
+     ]
+    }
+   ],
+   "source": "Tandon et al., arXiv:2512.23675, Fig. 1 (recovered from SVG geometry; ±0.0003)",
+   "url": "https://arxiv.org/html/2512.23675v1"
+  },
+  {
+   "id": "frontiermath-t4-v2-best",
+   "title": "FrontierMath Tier 4 (v2): best score to date",
+   "unit": "% solved",
+   "labels": [
+    "2025-01-31",
+    "2025-04-16",
+    "2025-08-07",
+    "2025-12-11",
+    "2026-03-05",
+    "2026-04-23",
+    "2026-06-09",
+    "2026-09-03",
+    "2026-09-29"
+   ],
+   "series": [
+    {
+     "name": "Best model",
+     "values": [
+      0.0,
+      4.9,
+      22.0,
+      46.0,
+      58.5,
+      78.0,
+      90.2,
+      97.6,
+      100.0
+     ]
+    }
+   ],
+   "source": "Epoch AI benchmark CSV (epoch_frontiermath_tier_4_v2.csv) as parsed in the other session; models: o3-mini, o4-mini, GPT-5, GPT-5.2 Pro, GPT-5.4 Pro, GPT-5.5 Pro, Claude Fable 5, GPT-6 Astra, GPT-6.1 Sol. NOT re-verified here (Epoch page confirms v2 exists: corrected 12 Tier-4 problems).",
+   "url": "https://epoch.ai/benchmarks/frontiermath-tier-4"
+  },
+  {
+   "id": "bigtech-capex",
+   "title": "Big Tech capex 2018-2026 (Alphabet, Amazon, Meta, Microsoft)",
+   "unit": "US$ billions",
+   "labels": [
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026 (guidance)"
+   ],
+   "series": [
+    {
+     "name": "Alphabet",
+     "values": [
+      25.14,
+      23.55,
+      22.28,
+      24.64,
+      31.48,
+      32.25,
+      52.53,
+      91.45,
+      205
+     ]
+    },
+    {
+     "name": "Amazon",
+     "values": [
+      13.43,
+      16.86,
+      40.14,
+      61.05,
+      63.65,
+      52.73,
+      83.0,
+      131.82,
+      220
+     ]
+    },
+    {
+     "name": "Meta",
+     "values": [
+      13.91,
+      15.1,
+      15.16,
+      18.69,
+      31.19,
+      27.05,
+      37.26,
+      69.69,
+      145
+     ]
+    },
+    {
+     "name": "Microsoft (calendar year)",
+     "values": [
+      14.22,
+      13.55,
+      17.59,
+      23.22,
+      24.77,
+      35.2,
+      55.55,
+      83.09,
+      190
+     ]
+    },
+    {
+     "name": "Total of four",
+     "values": [
+      66.7,
+      69.06,
+      95.17,
+      127.6,
+      151.09,
+      147.23,
+      228.34,
+      376.05,
+      760
+     ]
+    }
+   ],
+   "source": "Other session's t01 charts.json: SEC XBRL company facts 2018-2025; 2026 guidance upper ends from CNBC 2026-07-30, LA Times/Reuters 2026-07-23, Statista 2026-07-31. NOT re-verified here.",
+   "url": "https://data.sec.gov/api/xbrl/companyconcept/"
+  },
+  {
+   "id": "iea-dc-electricity",
+   "title": "Global data-centre electricity consumption",
+   "unit": "TWh/yr",
+   "labels": [
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2030 (proj.)"
+   ],
+   "series": [
+    {
+     "name": "Global data centres (IEA)",
+     "values": [
+      172.8,
+      180.7,
+      191.5,
+      211.4,
+      239.4,
+      269.2,
+      297.1,
+      324.2,
+      360.5,
+      415.6,
+      485.1,
+      950
+     ]
+    }
+   ],
+   "source": "Other session's t01 charts.json citing IEA 'Data centres & networks' and IEA (2026) Key Questions on Energy and AI. NOT re-verified here.",
+   "url": "https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary"
+  },
+  {
+   "id": "largest-dc-compute",
+   "title": "Record compute in a single AI data center (doubling ~every 7 months; * = projected)",
+   "unit": "H100-equivalents",
+   "labels": [
+    "2024-08",
+    "2024-09",
+    "2025-02",
+    "2025-06",
+    "2025-10",
+    "2025-12",
+    "2026-02",
+    "2026-03",
+    "2026-05",
+    "2026-06*",
+    "2026-07*",
+    "2027-10*",
+    "2027-11*",
+    "2028-01*"
+   ],
+   "series": [
+    {
+     "name": "Frontier data center",
+     "values": [
+      80000,
+      100000,
+      200000,
+      300000,
+      370000,
+      470000,
+      490000,
+      690000,
+      760000,
+      820000,
+      1100000,
+      2000000,
+      3500000,
+      3700000
+     ]
+    }
+   ],
+   "source": "Other session's t01 charts.json citing Epoch AI data insight (2026-06-11). NOT re-verified here.",
+   "url": "https://epoch.ai/data-insights/largest-data-center-compute"
+  }
+ ],
+ "facts": [
+  {
+   "claim": "TTT-E2E treats long context as continual learning: the model keeps training on its context at test time, compressing it into its weights.",
+   "source": "Tandon et al., arXiv:2512.23675",
+   "url": "https://arxiv.org/abs/2512.23675",
+   "date": "2025-12-29"
+  },
+  {
+   "claim": "Constant inference latency regardless of context length: 2.7x faster than full attention at 128K tokens (H100), while matching full attention's scaling with context (3B params, 164B tokens).",
+   "source": "arXiv:2512.23675 abstract + Fig. 1",
+   "url": "https://arxiv.org/abs/2512.23675",
+   "date": "2025-12-29"
+  },
+  {
+   "claim": "OpenAI's chief scientist: 'our ability to rely on CoT monitoring is progressively diminishing.'",
+   "source": "Jakub Pachocki, An Alien Mind (OpenAI)",
+   "url": "https://openai.com/index/an-alien-mind/",
+   "date": "2026-09-06"
+  },
+  {
+   "claim": "Astra uses 'recurrent depth' / opaque recurrence, making its chain of thought harder to monitor.",
+   "source": "TechCrunch (Russell Brandom)",
+   "url": "https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/",
+   "date": "2026-09-02"
+  },
+  {
+   "claim": "OpenAI says it reached an 'automated research intern' by Sept 2026 and targets an automated AI researcher by March 2028; its research org runs 3.1 agent-workdays per human workday.",
+   "source": "OpenAI, Research acceleration",
+   "url": "https://openai.com/index/research-acceleration-view-inside-openai/",
+   "date": "2026-09-06"
+  },
+  {
+   "claim": "Anthropic: more than 80% of merged code is authored by Claude; engineers merge 8x as much code per day as in 2024.",
+   "source": "Anthropic, When AI builds itself",
+   "url": "https://www.anthropic.com/institute/recursive-self-improvement",
+   "date": "2026-09-18"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "User's own 'ttt-pipe ladder' / TTT experiment results (music transcription, anticipation3)",
+   "searched": "Paged the other session from 2026-10-04 00:40 UTC to its live end plus the 00:45 compaction summary; only workflow names (e.g. ttt-wholesong-stabilise) appear. Earlier ~12 days of transcript (where those results would be) not paged; nothing presentable as 'our experiments'."
+  },
+  {
+   "outline_item": "'Effectively infinite context' graph",
+   "searched": "TTT-E2E evaluates 8K-128K only; Fig. 1 right (constant latency) is the closest real figure. No 'infinite context' figure found."
+  }
+ ]
+}

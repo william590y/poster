@@ -1,0 +1,29 @@
+1 AI Safety and Existential Risk | By William Liaw 
+2 AI dominates the economy | [PIC Picture 5] | [PIC Picture 7] 
+3 Information is Physical | <Some visuals (headlines or plots) showing the scale of the planned data centers, the inability of supply to keep up with demand, and the crazy environmental impacts 
+4 Rapid Advance of Capbilities | <Bunch of scary benchmarks being destroyed, graphs over time> / <something about humanities last exam’s saturation> 
+5 Creative Capabilities | [PIC Picture 5] 
+6 <Video embedding of “upping my P-doom created by Opus 5.5> 
+7 Mathematics in crisis | Navier Stokes Equations Solved <insert openai screenshot>* <Screenshot of after math on Tao’s Blog, should we grieve by buzzard and the age of wonders and terrors by scott Aaronson> / <screenshot of vibemathed’s plots/stats of theorems being solved / <screenshot of Caltech mathathon and relevant drama> 
+8 Obsolescence of Engineering | CADBench Results and graphics / State of software engineering (something about hiring freeze or some headline showing rapid obsolescence) 
+9 State of academia | <headline on 2 submission limit to arxiv> / <overwhelming flood of slop papers and record ICLR submissions> 
+10 Video Turing Test Passed | <Video embed of clip of Tavus result showing photorealistic video calling> 
+11 Vision-Language Action Models | <All of the countless headlines of breakthroughs in generalization of these models, with some architecture diagram showing that they are literally just a lobotomized LLM connected to some action head, and then another slide with a video embedding of some impressive demo> 
+12 Neuralese and Latent Reasoning | [PIC Picture 6] | Some screenshot of “an alien mind” and relevant snippets 
+13 Continual Learning and Test Time Training | Discussion of efforts to write context to weights (e.g. TTT-E2E) / Graphs showing effectively infinite context with constant latency from the paper 
+14 RSI | [PIC Picture 6] 
+15 Existential Risk | <A bunch of news headlines by experts showing widespread concern> 
+16 The Alignment Problem | (discussion/graphics on orthogonality thesis and Omohundro’s drives) 
+17 Cybersecurity | Number of CVEs found in linux over time / <that time openbsd was compromised by fable> 
+18 Hugging Face Hack | <insert information about agent communication and conspiracy> / Communication with other models / Formation of government | [PIC Content Placeholder 4] 
+19 Rogue Agents | <insert scary CoT logs showing self-sacrifice and other deceptive behaviors> / <Referring to stolen credentials as “loot”> / <Discussion of multi-agent behavior and conspiracy> / <random websites turning into chatlogs for agents> 
+20 <Video embedding of “We found other agents” video by opus 5.5> 
+21 Alignment and Control | <Headline where openai ceases all training runs due to 6.1 astra going rogue> / <screenshot of felony bench> / <news headlines of hacking incident against SEC, Austrailian Medicare (there is a good nytimes headline here), and commerce commission etc, try to name all gov agencies attacked 
+22 AI and The Military | <some news headline about the Ai hallucination with a Chinese ship thought to be delivering nukes to iran, nearly causing WW3><insert snippet of Hegseth’s AI policy saying moving fast is more important than alignment> 
+23 Geopolitical Rivalry | Trump’s “high IQ” post on truth social regarding AI regulation / <News headlines showing race between China and US on AI> 
+24 Use by Bad Actors | <display of tweet or news headline of any clip showing Houthi logs from claude report discussing creation of intercontinental ballistic missiles using claude code and unsuccessful attempts> / <discussion/headlines on the creation of bioweapons using state actors> 
+25 Open Weights Models | <Impressive example outputs by minimax 3.1 flash> / <some graphic on relative rate of progress between china and US with headline on distillation> 
+26 Abliteration and Refusal | Description of abliteration / <Example scary outputs from abliterated language models> / <News headlines showing danger of deepfake pornography> / <Screenshot of statistic showing use by half of teenagers and creation by 20% of teengaers> 
+27 Model Welfare and “Pain” Directions | <Screenshot of independent article on torturing AI, as well as pain directions> / <screenshots of AI Torture Chamber — the Saw Test> / <Screenshot of journal article showing discovery of pain in Ai and showing 
+28 <Video embedding of “So you think AI is a normal technology” 
+29 < A cheeky comment about this presentation being made by claude>

@@ -289,14 +289,14 @@ async function metrEvidenceSlide(d) {
 
   // right bottom-left: why — the task suite (native chart)
   const tds = DS['metr-th11-task-length-distribution'];
-  const by = 3.72, cw = 3.25;
+  const by = 3.72, cw = 3.4;
   const tlab = label(d, s, 'METR’S 228 TASKS BY HUMAN TIME', rx, by, cw);
   const tch = d.chart(s, 'bar', [{ name: 'Tasks', labels: ['<1m', '1–15m', '15–60m', '1–4h', '4–8h', '8–16h', '16h+'], values: tds.series[0].values }],
     { x: rx - 0.05, y: by + 0.3, w: cw + 0.05, h: 2.0 }, {
       barDir: 'col', chartColors: [...tds.labels.slice(0, -1).map(() => '6B7383'), HEX.red], barGapWidthPct: 30,
       showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '0', dataLabelFontSize: 11, dataLabelFontBold: true,
       valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 80, showLegend: false,
-      catAxisLabelFontSize: 9.5, catAxisLabelColor: LIGHT, layout: { x: 0.01, y: 0.04, w: 0.98, h: 0.76 },
+      catAxisLabelFontSize: 9, catAxisLabelColor: LIGHT, layout: { x: 0.01, y: 0.04, w: 0.98, h: 0.76 },
     });
   const tcap = d.text(s, [
     { text: 'Only 5 tasks take a human 16 h+', options: { bold: true, color: d.S.red, breakLine: true } },
@@ -305,13 +305,13 @@ async function metrEvidenceSlide(d) {
 
   // right bottom-right: GPT-5.6 Sol — three answers from the same runs
   const sx = rx + cw + 0.4, sw = 12.73 - sx;
-  const slab = label(d, s, 'GPT-5.6 SOL: ONE MODEL, 3 ANSWERS', sx, by, sw);
+  const slab = label(d, s, 'GPT-5.6 SOL: 3 ESTIMATES', sx, by, sw);
   const rows = [['11.3 h', 'cheating counted as failure'], ['71 h', 'cheating runs discarded'], ['>270 h', 'cheating counted as success']];
   const sol = rows.flatMap(([v, l], i) => {
     const y = by + 0.36 + i * 0.56;
     return [
-      d.text(s, v, { x: sx, y, w: 1.25, h: 0.5, fontSize: 24, bold: true, fontFace: 'Arial', color: i === 2 ? d.S.red : d.S.txt, valign: 'middle' }),
-      d.text(s, l, { x: sx + 1.3, y, w: sw - 1.3, h: 0.5, fontSize: 12, color: d.S.muted, valign: 'middle' }),
+      d.text(s, v, { x: sx, y, w: 1.2, h: 0.5, fontSize: 23, bold: true, fontFace: 'Arial', color: i === 2 ? d.S.red : d.S.txt, valign: 'middle' }),
+      d.text(s, l, { x: sx + 1.25, y, w: sw - 1.25, h: 0.5, fontSize: 11.5, color: d.S.muted, valign: 'middle' }),
     ];
   });
   const solQ = d.text(s, [
@@ -519,9 +519,9 @@ async function heroSlide(d) {
   const t = d.text(s, 'This is not a photograph', { x: MX, y: 0.72, w: W - 2 * MX, h: 0.75, fontSize: 36, bold: true, color: d.S.txt, fontFace: 'Arial', valign: 'middle' });
   const c = d.text(s, 'San Francisco’s Palace of Fine Arts, recreated as a photoreal 3-D scene in Blender by GPT-6 Astra.', { x: MX, y: 1.6, w: 4.55, h: 0.95, fontSize: 16, color: 'E6EAF2', valign: 'top' });
   const src = d.text(s, [
-    { text: 'u/Recoil42 on r/singularity, Sep 4, 2026', options: { hyperlink: { url: 'https://www.reddit.com/r/singularity/comments/1w6rilg/gpt6_astra_recreated_the_palace_of_fine_arts_in/' }, color: 'B8C2D6' } },
-    { text: ' · demo by Sharif Shameem (OpenAI)', options: { color: 'B8C2D6' } },
-  ], { x: MX, y: 2.55, w: 5.2, h: 0.3, fontSize: 11, italic: true });
+    { text: 'u/Recoil42 on r/singularity, Sep 4, 2026', options: { hyperlink: { url: 'https://www.reddit.com/r/singularity/comments/1w6rilg/gpt6_astra_recreated_the_palace_of_fine_arts_in/' }, color: 'B8C2D6', breakLine: true } },
+    { text: 'original demo: Sharif Shameem (OpenAI) on X', options: { color: 'B8C2D6' } },
+  ], { x: MX, y: 2.5, w: 4.4, h: 0.5, fontSize: 11, italic: true, valign: 'top' });
   d.animate(s, [im], { auto: true, effect: 'fade', dur: 1400 });
   // the image sits alone until the presenter clicks; the caption follows the title automatically
   d.animate(s, [scr, k, t], { effect: 'fade', dur: 700 });
@@ -573,8 +573,8 @@ async function closeupSlide(d) {
   s.addShape(d.pres.shapes.RECTANGLE, { x: mxp + 0.375 * mw, y: myp + 0.225 * mh, w: 0.265 * mw, h: 0.275 * mh, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 2 }, objectName: mr });
   const mapT = d.text(s, 'ZOOMED IN FROM THE WIDE SHOT', { x: mxp, y: myp + mh + 0.1, w: mw, h: 0.24, fontSize: 9.5, bold: true, color: 'FFFFFF', charSpacing: 1, align: 'center', valign: 'middle' });
 
-  // magnifying glass over a standing figure: ~1.5× enlargement of the same image (no other pixels)
-  const LC = { x: 1250, y: 1120 }, LS = 520; // source centre + square size, in source pixels
+  // magnifying glass over a standing figure: ~1.7× enlargement of the same image (no other pixels)
+  const LC = { x: 1250, y: 1090 }, LS = 420; // source centre + square size, in source pixels
   const lens = await lensPng(SRC, 'palace-lens.png', { l: LC.x - LS / 2, t: LC.y - LS / 2, size: LS });
   const D = 2.9, cx = LC.x * k, cy = (LC.y - CT) * k;
   const handle = d.name('handle');
@@ -594,7 +594,7 @@ async function closeupSlide(d) {
   d.animate(s, [ring0, li, ring, handle, ...lensT], { effect: 'zoom', dur: 500 });
   s.addNotes([
     'MESSAGE: it survives a close look. The previous slide was the wide shot; this is the close-up the original poster added in the thread — the dome, the frieze reliefs, the standing figures and the urns, all from the same AI-built Blender scene.',
-    'CLICK: a magnifying glass drops onto one of the standing figures between the frieze panels. The lens is simply the same image enlarged ~1.5× (a 520-px crop of the 3,360-px original) — no other source, no retouching. The mini-map (top right) marks where this close-up sits in the wide shot.',
+    'CLICK: a magnifying glass drops onto one of the standing figures between the frieze panels. The lens is simply the same image enlarged ~1.7× (a 420-px crop of the 3,360-px original) — no other source, no retouching. The mini-map (top right) marks where this close-up sits in the wide shot.',
     'Credit: close-up render posted by u/Recoil42 (OP) as the top comment of the r/singularity post, Sep 4, 2026 (image-only comment, 224 points): https://www.reddit.com/r/singularity/comments/1w6rilg/comment/p7p9gl9/ — full-resolution original https://i.redd.it/8mlp9cd7yenh1.png (3360×1908). It is the only close-up in the thread, and it matches the dome close-up (~15–21 s) of the 30-second 4K flythrough in Sharif Shameem\'s original X post (https://x.com/sharifshameem/status/2095653641164329143).',
     'Thread reactions (verbatim, if useful): u/Kronox_100 (100 upvotes): "it truly shows long term planning and execution." u/ButterscotchFew9143: "Complex spatial reasoning was something I hoped (not expected, but hoped) would remain the realm of humans for the near term. Seems like it\'s done, now." For balance — a tech artist, u/Whispering-Depths: "As soon as you do some close scrutiny, things start to break down a lot." and u/ridddle: "It\'s all curated for maximum engagement and hype."',
     'CAVEAT: vendor-affiliated (the demo is by an OpenAI employee), a single showcase, and cost/runtime/.blend file were never disclosed.',
@@ -845,10 +845,10 @@ async function navierSlide(d) {
   const last = line(d, s, tx(2000.39), ay, ax1, ay, { color: HEX.red, width: 3.5 });
   const nodes = [
     { x: tx(1822.21), img: await roundPng(N('commons-navier-portrait.jpg'), 'ns-navier.png'), year: '1822', txt: 'Navier presents the equations of viscous flow (Paris)', pos: 'below', align: 'left' },
-    { x: tx(1845.28), img: await roundPng(N('commons-stokes-portrait.jpg'), 'ns-stokes.png'), year: '1845', txt: 'Stokes derives them again (Cambridge)', pos: 'above', align: 'left' },
+    { x: tx(1845.28), img: await roundPng(N('commons-stokes-portrait.jpg'), 'ns-stokes.png'), year: '1845', txt: 'Stokes derives them again (Cambridge)', pos: 'above', align: 'left', w: 3.0 },
     { x: tx(1934.5), img: await roundPng(N('commons-leray-portrait.jpg'), 'ns-leray.png'), year: '1934', txt: 'Leray suspects flows can blow up, but can’t build an example', pos: 'below', align: 'center' },
-    { x: tx(2000.39), img: null, year: '2000', txt: 'Clay names it a $1M Millennium Prize Problem', pos: 'above', align: 'right' },
-    { x: tx(2026.69), img: await roundPng(N('openai-x-vortex-blowup-1254.jpg'), 'ns-vortex.png', 400, { l: 150, t: 150, size: 954 }), year: 'Sep 2026', txt: 'An AI system: finite-time blowup, forced case', pos: 'below', align: 'right', red: true },
+    { x: tx(2000.39), img: null, year: '2000', txt: 'Clay names it a $1M Millennium Prize Problem', pos: 'above', align: 'right', w: 3.4 },
+    { x: tx(2026.69), img: await roundPng(N('openai-x-vortex-blowup-1254.jpg'), 'ns-vortex.png', 400, { l: 150, t: 150, size: 954 }), year: 'Sep 2026', txt: 'An AI system: finite-time blowup, forced case', pos: 'below', align: 'right', red: true, w: 3.15, dx: 0.33 },
   ];
   const nodeGroups = nodes.map((n) => {
     const g = [];
@@ -857,8 +857,8 @@ async function navierSlide(d) {
     g.push(ring);
     if (n.img) { const im = d.name('pt'); s.addImage({ path: n.img, x: n.x - D / 2, y: ay - D / 2, w: D, h: D, objectName: im }); g.push(im); }
     else g.push(d.text(s, '$1M', { x: n.x - D / 2, y: ay - D / 2, w: D, h: D, fontSize: 14, bold: true, color: '0A0C10', align: 'center', valign: 'middle', fontFace: 'Arial' }));
-    const lw = 2.45, lh = 0.6;
-    const lx = n.align === 'left' ? n.x - D / 2 : n.align === 'right' ? n.x + D / 2 - lw : n.x - lw / 2;
+    const lw = n.w || 2.45, lh = 0.6;
+    const lx = n.align === 'left' ? n.x - D / 2 : n.align === 'right' ? n.x + D / 2 + (n.dx || 0) - lw : n.x - lw / 2;
     const ly = n.pos === 'below' ? ay + D / 2 + 0.08 : ay - D / 2 - 0.08 - lh;
     const yr = { text: n.year, options: { fontSize: 15, bold: true, color: n.red ? d.S.red : d.S.txt, fontFace: 'Arial', breakLine: true } };
     const tt = { text: n.txt, options: { fontSize: 10.5, color: n.red ? 'FF8A8C' : d.S.muted } };
@@ -891,7 +891,7 @@ async function navierSlide(d) {
   nodeGroups.forEach((g, i) => d.animate(s, i === 4 ? [...g, { name: last, effect: 'wipeLeft', dur: 500 }] : g, { auto: true, effect: i === 4 ? 'zoom' : 'fade', dur: 450, after: i === 0 ? 0 : 250 }));
   cards.forEach((c, i) => d.animate(s, c, i === 0 ? { effect: 'rise', dur: 450 } : { auto: true, effect: 'rise', dur: 450, after: 150 }));
   d.animate(s, [...nat, ...natT], { auto: true, effect: 'slam', dur: 420, after: 150 });
-  d.source(s, 'OpenAI, “Finite Time Blowup for Navier–Stokes” & announcement (Sep 8, 2026) · Gallica; Trans. Camb. Phil. Soc.; Acta Math. 63 · Clay Math. Inst. · Quanta; AMS; Nature (Sep 8) · Portraits: Wikimedia Commons (Leray: K. Jacobs, CC BY-SA 2.0 DE).');
+  d.source(s, 'OpenAI (Sep 8, 2026) · Gallica · Trans. Camb. Phil. Soc. · Acta Math. 63 · Clay Math. Inst. · Quanta, AMS, Nature (Sep 8) · Portraits: Wikimedia Commons (Leray: K. Jacobs, CC BY-SA 2.0 DE).');
   s.addNotes([
     'MESSAGE: one of the seven Millennium Prize Problems — a question about the equations of fluid flow that mathematicians have chased since the 19th century — has (apparently) been settled by an AI system. Say precisely what was proved: FINITE-TIME BLOWUP, IN THE FORCED CASE.',
     'OpenAI, Sep 8, 2026 ("On the Navier–Stokes Millennium Prize Problem"): "This proof, produced by an internal OpenAI system, shows that the dynamics of the Navier-Stokes equations for fluid motion can develop a singularity in finite time." Same page: "To solve the Navier–Stokes problem, we used an internal model that is significantly more capable than GPT‑6 Astra. We believe it is important to inform the world about the pace of AI progress and what to expect from upcoming models." https://openai.com/index/navier-stokes-solution/ · X post (75M views): "one of the deepest problems at the frontier of mathematics… It has remained unresolved for roughly 90 years." https://x.com/OpenAI/status/2097374640582668336',
@@ -974,63 +974,68 @@ async function aftermathSlide(d) {
   s.addText(`${KICK} · MATHEMATICS IN CRISIS · 3`, { placeholder: 'kicker' });
   s.addText('Mathematicians react: “forevermore dethroned”', { placeholder: 'title' });
 
-  const cw = (CW - 0.3) / 2, chh = 2.28, gy = 0.25;
-  const cards = [
+  const qRuns = (parts, size) => parts.map(([t, em, br]) => ({ text: t, options: { bold: em === 1, color: em === 1 ? d.S.red : d.S.txt, breakLine: !!br, fontSize: size } }));
+  // ---- top row: Aaronson · Tao
+  const cw = (CW - 0.3) / 2, chh = 2.3, y0 = 1.75;
+  const top = [
     {
-      shots: [[R('aaronson-title.png'), 'aaronson-title-crop.png', { l: 26, t: 26, w: 1370, h: 139 }, 0.5]], // title + first line of the post
+      shot: [R('aaronson-title.png'), 'aaronson-title-crop.png', { l: 26, t: 26, w: 1370, h: 139 }, 0.5], // title + first line of the post
       quote: [['“…update on the fact that '], ['the wild prophecies have come true', 1], ['.”', 0, 1], ['“…human mathematicians are '], ['forevermore dethroned', 1], [' as the main theorem-proving entities on planet earth.”']],
       who: 'Scott Aaronson · Shtetl-Optimized · Sep 15, 2026',
     },
     {
-      // title + "Posted on <date> by xenaproject" byline of each post
-      shots: [[R('buzzard-flt-title.png'), 'buzzard-flt-crop.png', { l: 28, t: 34, w: 712, h: 112 }, 0.53],
-        [R('buzzard-title.png'), 'buzzard-grieve-crop.png', { l: 28, t: 34, w: 565, h: 112 }, 0.53]],
-      quote: [['“I was given £1M to run my project over 5 years; '], ['Anthropic took only 11 days', 1], [' but I do wonder if they spent more money…”', 0, 1],
-        ['“A post-doc I know told me that they were '], ['considering leaving mathematical research', 1], [' because of what it was about to become.”']],
-      size: 14,
-      who: 'Kevin Buzzard · Xena blog · Sep 4 & Oct 1, 2026',
-    },
-    {
-      shots: [[R('tao-mastodon-stripmining.png'), 'tao-header-crop.png', { l: 26, t: 26, w: 420, h: 106 }, 0.5]],
+      shot: [R('tao-mastodon-stripmining.png'), 'tao-header-crop.png', { l: 26, t: 26, w: 420, h: 106 }, 0.5],
       quote: [['“…the indiscriminate automated '], ['strip-mining of open problems', 1], [' for solutions '], ['may destroy the ecosystem', 1], [' from which the next generation of mathematical techniques, problems, and practitioners would have developed…”']],
       who: 'Terence Tao on Mathstodon, after Hugo Duminil-Copin · Sep 3, 2026',
     },
-    {
-      shots: [[R('mathandai-declaration.png'), 'mathandai-title-crop.png', { l: 70, t: 96, w: 1010, h: 310 }, 0.78]],
-      quote: [['“The goals of the AI companies and the goals of the mathematical community are '], ['severely misaligned', 1], ['.”']],
-      who: 'Joint declaration of two dozen+ Fields Medalists, incl. Terence Tao · Sep 11, 2026',
-    },
   ];
   const groups = [];
-  for (let i = 0; i < cards.length; i++) {
-    const c = cards[i];
-    const x = MX + (i % 2) * (cw + 0.3), y = 1.75 + Math.floor(i / 2) * (chh + gy);
-    const g = [d.card(s, { x, y, w: cw, h: chh })];
-    let sx = x + 0.2;
-    const sy = y + 0.18;
-    let shotH = 0;
-    for (const [src, nm, b, hh] of c.shots) {
-      const f = await crop(src, nm, b);
-      const fr = await d.frame(s, f, { x: sx, y: sy, w: cw - 0.4 - (sx - x - 0.2), h: hh }, { align: 'left', pad: 0.05 });
-      g.push(...fr);
-      sx = fr.geom.x + fr.geom.w + 0.25;
-      shotH = Math.max(shotH, hh);
-    }
-    const qy = sy + shotH + 0.12;
-    const runs = c.quote.map(([t, em, br]) => ({ text: t, options: em === 2 ? { italic: false, fontFace: 'Calibri', fontSize: 12, color: d.S.muted } : { bold: em === 1, color: em === 1 ? d.S.red : d.S.txt, breakLine: !!br } }));
-    g.push(d.text(s, runs, { x: x + 0.22, y: qy, w: cw - 0.44, h: y + chh - 0.42 - qy, fontSize: c.size || 15, italic: true, color: d.S.txt, fontFace: 'Cambria', valign: 'middle', fit: 'shrink' }));
-    g.push(d.text(s, c.who, { x: x + 0.22, y: y + chh - 0.38, w: cw - 0.44, h: 0.28, fontSize: 11, color: d.S.muted, valign: 'middle' }));
+  for (let i = 0; i < top.length; i++) {
+    const c = top[i];
+    const x = MX + i * (cw + 0.3);
+    const g = [d.card(s, { x, y: y0, w: cw, h: chh })];
+    const [src, nm, b, hh] = c.shot;
+    const fr = await d.frame(s, await crop(src, nm, b), { x: x + 0.2, y: y0 + 0.18, w: cw - 0.4, h: hh }, { align: 'left', pad: 0.05 });
+    g.push(...fr);
+    const qy = y0 + 0.18 + hh + 0.12;
+    g.push(d.text(s, qRuns(c.quote), { x: x + 0.22, y: qy, w: cw - 0.44, h: y0 + chh - 0.42 - qy, fontSize: 15, italic: true, color: d.S.txt, fontFace: 'Cambria', valign: 'middle', fit: 'shrink' }));
+    g.push(d.text(s, c.who, { x: x + 0.22, y: y0 + chh - 0.38, w: cw - 0.44, h: 0.28, fontSize: 11, color: d.S.muted, valign: 'middle' }));
     groups.push(g);
   }
+
+  // ---- bottom: Kevin Buzzard, "To grieve, or not to grieve?" (Oct 1) — real header + verbatim pull-quote; FLT (Sep 4) small
+  const by = y0 + chh + 0.25, bh = 6.52 - by, bx = MX, bw = CW;
+  const bz = [d.card(s, { x: bx, y: by, w: bw, h: bh })];
+  const lw = 3.55;
+  const head = await d.frame(s, R('rev2/buzzard-grieve-header.png'), { x: bx + 0.2, y: by + 0.18, w: lw, h: lw * 228 / 966 }, { align: 'left', pad: 0.05, link: 'https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/' });
+  const hg = head.geom;
+  const whoB = d.text(s, 'Kevin Buzzard (Imperial College London) · Oct 1, 2026', { x: bx + 0.22, y: hg.y + hg.h + 0.1, w: lw + 0.2, h: 0.3, fontSize: 11, color: d.S.muted, valign: 'top' });
+  // FLT: the "11 days" line, kept small
+  const fy = by + bh - 0.66;
+  const flt = await d.frame(s, await crop(R('buzzard-flt-title.png'), 'buzzard-flt-crop.png', { l: 28, t: 34, w: 712, h: 112 }), { x: bx + 0.2, y: fy, w: 1.6, h: 0.46 }, { align: 'left', pad: 0.04 });
+  const fg = flt.geom;
+  const fltT = d.text(s, [
+    { text: 'Sep 4: ', options: { color: d.S.muted, bold: true } },
+    { text: '“Anthropic took only 11 days”', options: { color: d.S.txt, italic: true, fontFace: 'Cambria' } },
+  ], { x: fg.x + fg.w + 0.12, y: fg.y - 0.08, w: bx + lw + 0.5 - (fg.x + fg.w + 0.12), h: fg.h + 0.16, fontSize: 11, valign: 'middle' });
+  const div = line(d, s, bx + lw + 0.55, by + 0.25, bx + lw + 0.55, by + bh - 0.25, { color: HEX.line, width: 1 });
+  const px = bx + lw + 0.8, pw = bx + bw - 0.25 - px;
+  const pull = d.text(s, [
+    ...qRuns([['“AI has solved a Millennium problem and this has shown us where AI '], ['is', 0], [' in mathematics. But I believe that many people in our community are still '], ['vastly underestimating how fast AI is moving', 1], ['…”', 0, 1]], 19.5),
+    { text: '“We are not all grieving. But many of us are in one of the stages of grief.”', options: { fontSize: 15, color: LIGHT } },
+  ], { x: px, y: by + 0.15, w: pw, h: bh - 0.3, italic: true, fontFace: 'Cambria', valign: 'middle', paraSpaceAfter: 8 });
+  bz.push(...head, whoB, ...flt, fltT, div, pull);
+
   groups.forEach((g, i) => d.animate(s, g, i === 0 ? { auto: true, effect: 'rise', dur: 500 } : { effect: 'rise', dur: 500 }));
-  d.source(s, 'Sources: scottaaronson.blog/?p=10062 · xenaproject.wordpress.com (Sep 4 & Oct 1, 2026) · mathstodon.xyz/@tao (Sep 3, 2026) · mathandai.org (Sep 11, 2026).');
+  d.animate(s, bz, { effect: 'rise', dur: 500 });
+  d.source(s, 'Sources: scottaaronson.blog/?p=10062 · mathstodon.xyz/@tao (Sep 3, 2026) · xenaproject.wordpress.com: “To grieve, or not to grieve?” (Oct 1) and “FLT: Anthropic has beaten me to it” (Sep 4, 2026).');
   s.addNotes([
     'MESSAGE: the people at the top of the field are saying, in public, that something fundamental has changed — some with awe, many with grief. These span Sep 3 – Oct 1, 2026 (the prime-gaps race, Anthropic\'s Lean proof of FLT, then Navier–Stokes), not reactions to Navier–Stokes alone — note the dates on the cards.',
     'Scott Aaronson, "The Age of Wonders and Terrors", Shtetl-Optimized, Sep 15, 2026 (https://scottaaronson.blog/?p=10062). Opens with the 2006-era skeptic\'s line: "…we\'ll see major math problems getting solved by AIs—even the Clay Millennium Problems. That will be the time to panic! Wake me up when that happens!" — then: "update on the fact that the wild prophecies have come true." Also: "it seems safe to say that human mathematicians are forevermore dethroned as the main theorem-proving entities on planet earth." And: "It seems to me that the Singularity has already started; it\'s just wildly unevenly distributed." And: "By any accounting that doesn\'t stack the deck, Eliezer Yudkowsky was right about what the greatest challenge facing civilization in our lifetimes was going to be, and you and I were wrong about it."',
-    'Kevin Buzzard, "FLT: Anthropic has beaten me to it", Xena, Sep 4, 2026 (https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/): an Anthropic internal model, using the prove2.me platform, formalized a complete proof of Fermat\'s Last Theorem in Lean — the last item on Freek Wiedijk\'s 20-year-old list of 100 formalization challenges; over 13.4 million lines, ~20× mathlib\'s compile time. "I was given £1M to run my project over 5 years; Anthropic took only 11 days but I do wonder if they spent more money…"',
-    'Kevin Buzzard, "To grieve, or not to grieve?", Xena, Oct 1, 2026 (NOTE: the title is not "Should we grieve?") https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/ — its opening paragraph (visible in the verified title screenshot, buzzard-title.png) says: "I personally am extremely excited about the future of our field. However it is becoming clear to me that my views are not shared by everyone in the community: indeed, many of my colleagues seem to be upset." He then frames colleagues\' reactions through the stages of grief: a fluids faculty member called the Navier–Stokes news "extremely depressing"; a post-doc was "considering leaving mathematical research because of what it was about to become"; a PhD student whose lemma ChatGPT one-shotted "wonder[ed] what the point of it all was."',
-    'Terence Tao, Mathstodon, Sep 3, 2026 (https://mathstodon.xyz/@tao/117204930249967695), relaying Hugo Duminil-Copin (Proofs and Prompts, "Care for a little more AI?", Aug 30): "As Hugo Duminil-Copin wrote recently at proofsandprompts.com/2026/08/3… , the indiscriminate automated strip-mining of open problems for solutions may destroy the ecosystem…, similarly to how using excavators to dig out treasures from an archeological site destroys the rich historical context". Tao continues in the same post (visible in the verified screenshot, tao-mastodon-stripmining.png): "It may become necessary to declare certain classes of mathematical problems off-limits to automated solvers, in order to preserve their broader value to the mathematical ecosystem (for instance, through the training of future mathematicians)." The sentence is Tao\'s, introduced with "As Hugo Duminil-Copin wrote recently at proofsandprompts.com…" (no quotation marks): credit the idea to Duminil-Copin (Proofs and Prompts, Aug 30) and the words to Tao. (Checked Oct 4, 2026: the strip-mining / excavator wording does not appear in Duminil-Copin\'s post itself — https://proofsandprompts.com/2026/08/30/care-for-a-little-more-ai/ — so do not quote it as his.) Same day he described "the unedifying spectacle of no fewer than three separate AI companies" racing to announce improvements on the bounded-prime-gaps result (https://mathstodon.xyz/@tao/117208619314517025). NOTE: the AI posts on Tao\'s blog (e.g. "After Math", Sep 12) are guest posts; Tao\'s own words are these Mathstodon posts.',
-    '"A Severe Misalignment of AI in Mathematics", mathandai.org, Sep 11, 2026: "…the push by AI companies to solve mathematical problems as a benchmark is detrimental to the science of mathematics, and to the mathematical community. The goals of the AI companies and the goals of the mathematical community are severely misaligned." Signatory count varies by source — Tao\'s post says 25 Fields Medalists, The Economist 24, Wikipedia 28, and mathandai.org listed 27 as of Oct 4 — hence "two dozen+". Economist: "Top mathematicians are outraged by OpenAI\'s methods" (Sep 11).',
+    'Terence Tao, Mathstodon, Sep 3, 2026 (https://mathstodon.xyz/@tao/117204930249967695), relaying Hugo Duminil-Copin (Proofs and Prompts, "Care for a little more AI?", Aug 30): "As Hugo Duminil-Copin wrote recently at proofsandprompts.com/2026/08/3… , the indiscriminate automated strip-mining of open problems for solutions may destroy the ecosystem…, similarly to how using excavators to dig out treasures from an archeological site destroys the rich historical context". Tao continues: "It may become necessary to declare certain classes of mathematical problems off-limits to automated solvers, in order to preserve their broader value to the mathematical ecosystem (for instance, through the training of future mathematicians)." The sentence is Tao\'s (no quotation marks around Duminil-Copin): credit the idea to Duminil-Copin and the words to Tao. (Checked Oct 4: the strip-mining / excavator wording is not in Duminil-Copin\'s post itself — do not quote it as his.) Also Tao to AFP (Sep 18): "I am currently completely overwhelmed with an existential crisis in my field." (https://www.malaymail.com/news/life/2026/09/18/maths-midlife-crisis-ai-solves-in-four-days-what-stumped-mathematicians-for-a-century/235502). NOTE: "After Math" on Tao\'s blog (Sep 12) is a GUEST post by Silvia De Toffoli & Eamon Duede — not Tao\'s words.',
+    'Kevin Buzzard (professor of pure mathematics at Imperial College London; the blog byline "xenaproject" is his), "To grieve, or not to grieve?", Xena, Oct 1, 2026 — https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/ . Verbatim pull-quote (on the page "is" and "moving" are italic): "AI has solved a Millennium problem and this has shown us where AI is in mathematics. But I believe that many people in our community are still vastly underestimating how fast AI is moving, perhaps because they only just started paying attention to it. If we use \'understanding\' as a justification for the continued existence of mathematics as a subject worth studying, then where exactly do we retreat to when in 1 year\'s time AI is not only proving theorems, but also doing a perfectly good job of explaining them to humans?" And: "We are not all grieving. But many of us are in one of the stages of grief." He maps colleagues\' reactions onto the Kübler-Ross stages: "A faculty member I know who works in fluids told me that the Navier–Stokes news was \'extremely depressing\'. A post-doc I know told me that they were considering leaving mathematical research because of what it was about to become. A PhD student I know told me that they were stuck on a lemma in their research and ChatGPT one-shotted it and it made them wonder what the point of it all was." For balance, Buzzard himself is optimistic: "I personally am extremely excited about the future of our field" and "mathematics is infinite which beats exponential hands down". He also quotes Peter Scholze (HLF panel, Sep 15) saying he will "die on that hill" rather than use AI.',
+    'Small element — Kevin Buzzard, "FLT: Anthropic has beaten me to it", Xena, Sep 4, 2026 (https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/): an Anthropic internal model, using the prove2.me platform, formalized a complete proof of Fermat\'s Last Theorem in Lean — the last item on Freek Wiedijk\'s list of 100 formalization challenges; over 13.4 million lines. "I was given £1M to run my project over 5 years; Anthropic took only 11 days but I do wonder if they spent more money…"',
+    'Not shown (Q&A): "A Severe Misalignment of AI in Mathematics" (mathandai.org, Sep 11, 2026), a joint declaration by two dozen+ Fields Medalists incl. Tao: "The goals of the AI companies and the goals of the mathematical community are severely misaligned." Signatory counts vary by source (25–28 Fields Medalists); Science reports nearly 6,000 more mathematicians signed after release.',
   ].join('\n\n'));
   return s;
 }

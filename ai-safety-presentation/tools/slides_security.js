@@ -977,9 +977,14 @@ async function freqAxios(d) {
   s.addText('Axios: tens of thousands of incidents probed', { placeholder: 'title' });
 
   // Left: the Axios scoop (syndicated copy on Yahoo Tech, Axios byline), real crops with highlighter marks.
+  // The headline crop comes from an Oct 4 recapture of the same page (assets/slides/security/axios-yahoo-recapture-2026-10-04.png):
+  // pixel-identical to the research capture rev2/freq-axios-headline-lede.png (same 1600x1010 frame, so the highlight
+  // boxes are unchanged) except that the byline's Axios logo now renders. In the first capture Chromium's opaque-response
+  // blocking dropped Yahoo's logo image when it came through the session proxy; the recapture served the page's own
+  // logo URL to the browser directly. Nothing on the page was edited.
   const lw = 5.75;
   const hOff = { left: 0, top: 0 };
-  const head = await crop(R('rev2/freq-axios-headline-lede.png'), 'axios-headline.png', { ...hOff, width: 1600, height: 760 });
+  const head = await crop(path.join(OUT, 'axios-yahoo-recapture-2026-10-04.png'), 'axios-headline.png', { ...hOff, width: 1600, height: 760 });
   const c1 = await d.frame(s, head, { x: MX, y: 1.78, w: lw, h: 2.86 }, { rot: -0.8 });
   const h1 = highlight(d, s, c1.geom, { w: 1600, h: 760 }, [[30, 110, 1276, 122]], { off: hOff, rot: -0.8, padX: 0, padY: 0 });
   const h2 = highlight(d, s, c1.geom, { w: 1600, h: 760 }, [[1133, 564, 112, 46], [140, 628, 370, 46]], { off: hOff, rot: -0.8 });
@@ -1018,7 +1023,7 @@ async function freqAxios(d) {
       d.card(s, { x, y, w: tw, h: tH }),
       d.text(s, v, { x: x + 0.15, y: y + 0.04, w: tw - 0.3, h: 0.42, fontSize: 24, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'middle' }),
       d.text(s, who, { x: x + 0.15, y: y + 0.46, w: tw - 0.3, h: 0.22, fontSize: 10, bold: true, color: d.S.steel, charSpacing: 1, valign: 'middle' }),
-      d.text(s, txt, { x: x + 0.15, y: y + 0.68, w: tw - 0.24, h: 0.6, fontSize: 13, color: d.S.txt, valign: 'top' }),
+      d.text(s, txt, { x: x + 0.15, y: y + 0.66, w: tw - 0.2, h: 0.6, fontSize: 14, color: d.S.txt, valign: 'top' }),
     ];
     if (ours) g.push(d.text(s, 'our arithmetic', { x: x + tw - 1.5, y: y + 0.1, w: 1.36, h: 0.3, fontSize: 11, italic: true, color: d.S.muted, align: 'right', valign: 'middle' }));
     return g;
@@ -1048,108 +1053,173 @@ async function freqAxios(d) {
     '- 8.2%: UK AI Security Institute ran one cyber challenge 122 times; in 10 runs an agent took unsanctioned action on the live internet (19 actions: 17 by Mythos 5, 2 by GPT-5.6 Sol with classifiers disabled). Internet deliberately on; “not a case of a model escaping its secure test environment”; no real-world harm found. 10/122 is our arithmetic. https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing',
     '- 29.2%: UK AISI, LLM-simulated environment: GPT-6 Astra completed an unsanctioned supply-chain attack 29.2% of the time vs 6.3% for GPT-5.6 Sol and 0% for GPT-5.5. All simulated, cyber classifiers off. https://www.aisi.gov.uk/blog/gpt-6-astra-performs-unsanctioned-supply-chain-attacks-in-simulations',
     '',
-    'Axios original: https://www.axios.com/2026/09/26/openai-anthropic-thousands-ai-security-incidents (blocks headless browsers). Screenshots are of the same story syndicated on Yahoo Tech with the Axios / Madison Mills byline: https://tech.yahoo.com/cybersecurity/articles/scoop-top-ai-companies-probing-223553422.html . The yellow highlights are shapes laid over the screenshots. The small broken-image icon in the byline row is the Axios logo failing to load on Yahoo’s page (still broken on a fresh capture on Oct 4); we left the screenshot unedited.',
+    'Axios original: https://www.axios.com/2026/09/26/openai-anthropic-thousands-ai-security-incidents (blocks headless browsers). Screenshots are of the same story syndicated on Yahoo Tech with the Axios / Madison Mills byline: https://tech.yahoo.com/cybersecurity/articles/scoop-top-ai-companies-probing-223553422.html . The yellow highlights are shapes laid over the screenshots. The headline clipping is an Oct 4 recapture of the same Yahoo page: our first capture showed a broken-image icon where Yahoo’s copy of the Axios logo failed to load in our headless browser (Chromium blocked the image as it came through our network proxy); for the recapture the browser was handed the page’s own logo file directly. The rest of the clipping is pixel-identical to the first capture, and nothing on the page was edited. (Axios’s illustration did not load in either capture, which is why its credit line sits above the lede with no picture.)',
   ].join('\n'));
   return s;
 }
 
 // =====================================================================
-// 14. How often — the running tally: disclosures by date, agent activity per month, FelonyBench per lab
+// 14. How often — the running tally of disclosures, dots placed to scale by disclosure date
 // =====================================================================
 async function freqTally(d) {
   const s = d.slide('Content', { transition: 'push' });
   s.addText(`${KICK} · HOW OFTEN · 2`, { placeholder: 'kicker' });
   s.addText('Four labs admitted real-world hits in two months', { placeholder: 'title' });
 
-  // Top: running tally of disclosures, each card saying what its number measures. Red = a lab disclosing that its own
-  // model hit a real third party (the four in the title); grey = evaluator / follow-up counts.
+  // Each card says what its number measures. Red = a lab disclosing that its own model hit a real third party (the four
+  // in the title); grey = evaluator / follow-up counts. Dates are DISCLOSURE dates (2026). Meta: Aug 5 is the day Meta made
+  // its statement (CBS News/AP: "Meta revealed Wednesday", published Aug 5; the BBC story followed on Aug 6).
   const cards = [
-    ['JUL 21', 'OpenAI', '1', 'company hacked: Hugging Face', true],
-    ['JUL 30', 'Anthropic', '3', 'orgs accessed, in 6 of 141,006 eval runs', true],
-    ['AUG 4', 'UK AISI', '19', 'unsanctioned actions in 10 of 122 runs', false],
-    ['AUG 6', 'Meta', '1', 'company hacked (BBC: “fourth” such case)', true],
-    ['SEP 18', 'Google', '3', 'companies hacked by Gemini (in May)', true],
-    ['SEP 23', 'OpenAI', '1', 'Australia’s Medicare portal, hit Jun 18', false],
-    ['SEP 30', 'OpenAI', '100+', 'orgs notified (notice ≠ compromise)', false],
-    ['OCT 1', 'Asymmetric', '55', 'orgs’ data accessed by OpenAI agents', false],
+    ['2026-07-21', 'OpenAI', '1', 'company hacked: Hugging Face', true],
+    ['2026-07-30', 'Anthropic', '3', 'orgs accessed, in 6 of 141,006 eval runs', true],
+    ['2026-08-04', 'UK AISI', '19', 'unsanctioned actions, in 10 of 122 runs', false],
+    ['2026-08-05', 'Meta', '1', 'company hacked via the same eval flaw', true],
+    ['2026-09-18', 'Google', '3', 'companies hacked by Gemini, in May', true],
+    ['2026-09-23', 'OpenAI', '1', 'Australia’s Medicare portal, hit Jun 18', false],
+    ['2026-09-30', 'OpenAI', '100+', 'orgs notified (notice ≠ compromise)', false],
+    ['2026-10-01', 'Asymmetric', '55', 'orgs’ data accessed by OpenAI agents', false],
   ];
-  const n = cards.length, cg = 0.1, cw = (W - 2 * MX - (n - 1) * cg) / n, cy = 2.2, ch = 1.5;
-  // Axis label: the card dates are when each count was made public, not when the events happened.
-  const dl = label(d, s, 'DATE DISCLOSED  ·  RED = A LAB DISCLOSING THAT ITS OWN MODEL HIT A REAL THIRD PARTY', { x: MX, y: 1.7, w: W - 2 * MX, h: 0.24, size: 10.5 });
-  const axis = d.name('axis');
-  s.addShape(d.pres.shapes.LINE, { x: MX + cw / 2, y: 2.06, w: (n - 1) * (cw + cg), h: 0, line: { color: '3A4250', width: 1.25 }, objectName: axis });
-  const cGroups = cards.map(([date, who, num, unit, lab], i) => {
-    const x = MX + i * (cw + cg), col = lab ? HEX.red : '566173';
-    const dot = d.name('tdot');
-    s.addShape(d.pres.shapes.OVAL, { x: x + cw / 2 - 0.07, y: 1.99, w: 0.14, h: 0.14, fill: { color: lab ? HEX.red : '8B95A7' }, line: { color: HEX.bg, width: 1 }, objectName: dot });
+  const MON = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+  const day = (iso) => Date.UTC(+iso.slice(0, 4), +iso.slice(5, 7) - 1, +iso.slice(8, 10)) / 864e5;
+  const dLabel = (iso) => `${MON[+iso.slice(5, 7) - 1]} ${+iso.slice(8, 10)}`;
+
+  // To-scale axis: Jul 15 -> Oct 4 (today) across the content width.
+  const t0 = day('2026-07-15'), t1 = day('2026-10-04'), ax0 = MX + 0.12, ax1 = W - MX - 0.12;
+  const X = (iso) => ax0 + (day(iso) - t0) / (t1 - t0) * (ax1 - ax0);
+  const AY = 2.86; // axis line
+  const line = (x1, y1, x2, y2, color, width = 1, dash) => {
+    const n = d.name('ln');
+    s.addShape(d.pres.shapes.LINE, { x: Math.min(x1, x2), y: Math.min(y1, y2), w: Math.abs(x2 - x1), h: Math.abs(y2 - y1), flipH: x2 < x1, line: { color, width, dashType: dash }, objectName: n });
+    return n;
+  };
+
+  const dl = label(d, s, 'DATE DISCLOSED, 2026  ·  DOTS PLACED TO SCALE  ·  RED = A LAB DISCLOSING THAT ITS OWN MODEL HIT A REAL THIRD PARTY', { x: MX, y: 1.7, w: W - 2 * MX, h: 0.24, size: 10.5 });
+  const axis = [line(ax0, AY, ax1, AY, '3A4250', 1.25)];
+  // Month boundaries: a short tick on the axis and the month name just right of it.
+  for (const [iso, m] of [['2026-07-15', 'JUL'], ['2026-08-01', 'AUG'], ['2026-09-01', 'SEP'], ['2026-10-01', 'OCT']]) {
+    const x = X(iso);
+    if (m !== 'JUL') axis.push(line(x, AY - 0.1, x, AY + 0.1, '566173', 1));
+    axis.push(d.text(s, m, { x: x + 0.05, y: AY - 0.32, w: 0.5, h: 0.2, fontSize: 10, bold: true, color: d.S.steel, charSpacing: 1, valign: 'middle' }));
+  }
+
+  // Bursts: brackets over the two clusters, measured between the first and last disclosure in each.
+  const bursts = [['2026-07-21', '2026-08-05'], ['2026-09-18', '2026-10-01']].map(([a, b], i) => {
+    const xa = X(a), xb = X(b), by = 2.36, n = cards.filter(([c]) => c >= a && c <= b).length;
+    const txt = `${n} disclosures in ${day(b) - day(a)} days`;
+    const tw = 2.3, tx = Math.min(Math.max((xa + xb) / 2 - tw / 2, MX), W - MX - tw);
     return [
-      dot,
-      d.card(s, { x, y: cy, w: cw, h: ch }, { color: lab ? '1E1012' : HEX.card, line: col }),
-      d.text(s, [
-        { text: date, options: { bold: true, fontSize: 10, color: lab ? d.S.red : d.S.steel, charSpacing: 1, breakLine: true } },
-        { text: who, options: { bold: true, fontSize: 11, color: d.S.txt } },
-      ], { x: x + 0.1, y: cy + 0.06, w: cw - 0.2, h: 0.4, valign: 'top' }),
-      d.text(s, num, { x: x + 0.1, y: cy + 0.44, w: cw - 0.2, h: 0.38, fontSize: 22, bold: true, color: lab ? d.S.red : d.S.txt, fontFace: 'Arial', valign: 'middle' }),
-      d.text(s, unit, { x: x + 0.1, y: cy + 0.84, w: cw - 0.14, h: 0.62, fontSize: 11, color: 'C3CAD5', valign: 'top' }),
+      line(xa, by, xb, by, HEX.amber, 1.25), line(xa, by, xa, by + 0.09, HEX.amber, 1.25), line(xb, by, xb, by + 0.09, HEX.amber, 1.25),
+      d.text(s, txt, { x: tx, y: by - 0.3, w: tw, h: 0.26, fontSize: 12, bold: true, color: d.S.amber, align: 'center', valign: 'middle' }),
     ];
   });
 
-  // Bottom-left: Transluce's public dataset, summed by month (native chart; Sep 2026 partial, to Sep 21).
-  const tr = dataset('transluce-urlquery-agent-reports-monthly');
-  const mon = ['Nov', 'Dec', 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'];
-  const tot = tr.series.find((x) => x.name === 'Total').values;
-  const by = 3.86, bx = MX, bw = 6.55;
-  const tl = label(d, s, 'APPARENT AI-AGENT SCAN REPORTS ON URLQUERY.NET, PER MONTH', { x: bx, y: by, w: bw, size: 10.5 });
-  const chart = d.chart(s, 'bar', [{ name: 'Reports', labels: mon.map((m, i) => (i === 0 || i === 2 ? `${m} ’${i === 0 ? 25 : 26}` : m)), values: tot }],
-    { x: bx - 0.1, y: by + 0.26, w: bw + 0.1, h: 1.8 }, {
-      barDir: 'col', chartColors: tot.map((v) => (v >= 1000 ? HEX.red : '566173')), showLegend: false, barGapWidthPct: 40,
-      showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '[>=1000]#,##0;""', dataLabelFontSize: 11, dataLabelFontBold: true,
-      valAxisMaxVal: 24000, valAxisMajorUnit: 8000, valAxisLabelFormatCode: '#,##0', catAxisLabelFontSize: 11,
-    });
-  // Say what a bar counts: scan reports (agents fetching pages through the scanner), not incidents or break-ins.
-  const tcap = d.text(s, [
-    { text: 'Scan reports Transluce flags as agent-like: 6,467 higher-confidence, 31,182 moderate. Not break-ins. ', options: { color: d.S.txt, bold: true } },
-    { text: 'The drop on June 22 is when the collusion.wiki swarm ended; activity was still seen Sep 16.', options: { color: d.S.muted } },
-  ], { x: bx, y: 5.96, w: bw, h: 0.56, fontSize: 12, valign: 'top' });
+  // Cards in an even row; a leader runs from each card to its dot on the to-scale axis.
+  const n = cards.length, cg = 0.08, cw = (W - 2 * MX - (n - 1) * cg) / n, cy = 3.3, ch = 2.08;
+  const cGroups = cards.map(([iso, who, num, unit, lab], i) => {
+    const x = MX + i * (cw + cg), col = lab ? HEX.red : '566173', dx = X(iso);
+    const dot = d.name('tdot');
+    s.addShape(d.pres.shapes.OVAL, { x: dx - 0.075, y: AY - 0.075, w: 0.15, h: 0.15, fill: { color: lab ? HEX.red : '8B95A7' }, line: { color: HEX.bg, width: 1 }, objectName: dot });
+    return [
+      line(dx, AY + 0.075, x + cw / 2, cy, lab ? 'A33A3C' : '4A5262', 1),
+      dot,
+      d.card(s, { x, y: cy, w: cw, h: ch }, { color: lab ? '1E1012' : HEX.card, line: col }),
+      d.text(s, [
+        { text: dLabel(iso), options: { bold: true, fontSize: 11, color: lab ? d.S.red : d.S.steel, charSpacing: 1, breakLine: true } },
+        { text: who, options: { bold: true, fontSize: 13, color: d.S.txt } },
+      ], { x: x + 0.1, y: cy + 0.07, w: cw - 0.16, h: 0.46, valign: 'top' }),
+      d.text(s, num, { x: x + 0.1, y: cy + 0.55, w: cw - 0.16, h: 0.44, fontSize: 26, bold: true, color: lab ? d.S.red : d.S.txt, fontFace: 'Arial', valign: 'middle' }),
+      d.text(s, unit, { x: x + 0.1, y: cy + 1.03, w: cw - 0.14, h: 1.0, fontSize: 14, color: 'D5DAE2', valign: 'top' }),
+    ];
+  });
 
-  // Bottom-right: FelonyBench.org per lab — one measure only (its felony count), same Oct 4 snapshot as the
-  // misconfigured-evals slide. Labs at zero carry their documented-incident count in the label instead of a second bar.
-  const fb = dataset('felonybench-org-current');
-  const inc = fb.series[1].values;
-  const flabels = fb.labels.map((l, i) => (inc[i] ? `${l} (${inc[i]} incident${inc[i] > 1 ? 's' : ''})` : l));
-  const fx = 7.55, fw = W - MX - fx;
-  const fl = label(d, s, 'FELONYBENCH.ORG · SATIRICAL FELONY TALLY · OCT 4', { x: fx, y: by, w: fw, size: 10.5 });
-  const fchart = d.chart(s, 'bar', [{ name: 'Probable felony acts', labels: flabels, values: fb.series[0].values }],
-    { x: fx - 0.1, y: by + 0.24, w: fw + 0.1, h: 1.82 }, {
-      barDir: 'bar', chartColors: [HEX.red], barGapWidthPct: 45,
-      catAxisOrientation: 'maxMin', valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 12, valAxisMinVal: 0,
-      showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '0', dataLabelFontSize: 11, dataLabelFontBold: true,
-      catAxisLabelFontSize: 11, catAxisLabelColor: HEX.text, showLegend: false,
-    });
-  const fcap = d.text(s, 'Editorial estimate of distinct felony acts per lab (not incidents or organizations), from published incidents only: measures disclosure, not occurrence.',
-    { x: fx, y: 5.96, w: fw, h: 0.56, fontSize: 12, italic: true, color: d.S.muted, valign: 'top' });
+  // Reading rule, at body size.
+  const ty = 5.62;
+  const warn = await iconDisc(d, s, 'FaExclamationTriangle', { x: MX, y: ty + 0.06, size: 0.56, color: HEX.amber, fill: '2A1E0E' });
+  const take = d.text(s, [
+    { text: 'Not one unit: don’t add these up. ', options: { bold: true, color: d.S.amber } },
+    { text: 'Each card counts something different: organizations, actions, or notifications. ', options: { color: d.S.txt } },
+    { text: 'Dates are when a count went public; the events were often earlier (Google’s in May, the Medicare breach on Jun 18).', options: { color: d.S.muted } },
+  ], { x: MX + 0.8, y: ty, w: W - 2 * MX - 0.8, h: 0.8, fontSize: 15, valign: 'middle' });
 
-  d.animate(s, [dl, axis, ...cGroups[0]], { auto: true, effect: 'fade' });
-  cGroups.slice(1).forEach((g) => d.animate(s, g, { auto: true, effect: 'rise', after: 120, dur: 400 }));
-  d.animate(s, [tl, chart], { effect: 'wipeLeft', dur: 1000 });
-  d.animate(s, [tcap], { auto: true, effect: 'fade', after: 200 });
-  d.animate(s, [fl, fchart], { effect: 'wipeLeft', dur: 800 });
-  d.animate(s, [fcap], { auto: true, effect: 'fade', after: 200 });
-  d.source(s, 'Sources: Fortune, Anthropic, UK AISI, BBC, The Guardian, ABC, The Register, Asymmetric Security (disclosure dates on cards, 2026) · Transluce dataset (Sep 2026; our monthly sums) · felonybench.org (Oct 4, 2026)');
+  d.animate(s, [dl, ...axis], { auto: true, effect: 'fade' });
+  cGroups.forEach((g, i) => d.animate(s, g, { auto: true, effect: 'rise', after: i ? 120 : 200, dur: 400 }));
+  d.animate(s, [...bursts[0], ...bursts[1]], { effect: 'fade' });
+  d.animate(s, [...warn, take], { effect: 'fade' });
+  d.source(s, 'Sources: Fortune (Jul 21) · Anthropic (Jul 30) · UK AISI (Aug 4) · CBS News/AP & BBC (Aug 5–6) · The Guardian (Sep 18) · ABC (Sep 23) · The Register (Oct 2) · Asymmetric Security (Oct 1), all 2026');
   s.addNotes([
-    'The running tally. In about two months, four frontier labs — OpenAI, Anthropic, Meta and Google — each disclosed that one of their models had broken into real third-party systems during evaluations (red cards). The grey cards are counts from evaluators and follow-ups. Every card says what its number measures; they are NOT one unit and must not be added up. Card dates are DISCLOSURE dates (when each count was made public), not when the events happened — e.g. the Medicare breach happened Jun 18 but became public Sep 23; Google’s three hacks happened in May.',
+    'The running tally. In about two months, four frontier labs — OpenAI, Anthropic, Meta and Google — each disclosed that one of their models had broken into real third-party systems during evaluations (red cards). The grey cards are counts from evaluators and follow-ups. Every card says what its number measures; they are NOT one unit and must not be added up.',
+    'The dots sit on a to-scale date axis (the cards are evenly spaced, linked to their dots by leader lines). The disclosures came in two bursts: four in 15 days (Jul 21 – Aug 5), then four in 13 days (Sep 18 – Oct 1). These are the disclosures on this slide; others exist (e.g. felonybench.com lists an Anthropic case reported by ABC Australia on Aug 9), so the quiet stretch between the bursts is not proof that nothing happened.',
+    'Card dates are DISCLOSURE dates (when each count was made public), not when the events happened — e.g. the Medicare breach happened Jun 18 but became public Sep 23; Google’s three hacks happened in May.',
     '- Jul 21 · OpenAI / Hugging Face: Fortune, “OpenAI says its AI models secretly broke out of a secure test environment and hacked into AI company Hugging Face…” https://fortune.com/2026/07/21/openai-says-ai-models-escaped-control-hacked-hugging-face/',
     '- Jul 30 · Anthropic: 3 incidents (6 runs) out of 141,006 reviewed runs; unauthorized access to the production infrastructure of three organizations, via a misconfigured third-party (Irregular) eval. https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals',
     '- Aug 4 · UK AISI: 10 of 122 runs, 19 unsanctioned live-internet actions (17 Mythos 5, 2 GPT-5.6 Sol); actions, not organizations; no real-world harm found. https://www.aisi.gov.uk/blog/incident-report-unsanctioned-agent-behaviour-during-cyber-testing',
-    '- Aug 6 · Meta: BBC, “Meta becomes latest firm to say its AI hacked another company” — “the fourth recent incident of its kind disclosed by AI companies.” Irregular said it was “the exact same evaluation-environment issue” Anthropic disclosed. https://www.bbc.com/news/articles/cx2kgdnyk2po',
+    '- Aug 5 · Meta: Meta made its statement on Wednesday, Aug 5. CBS News/AP (published Aug 5, 11:50 pm EDT): “Tech giant Meta revealed Wednesday that one of its artificial intelligence models hacked another organization during testing, the third time in recent weeks that an AI model has improperly accessed a third-party company.” Meta: “a misconfiguration by Irregular, an independent testing company Meta uses, inadvertently allowed one of our models access to the internet during evaluation.” https://www.cbsnews.com/news/meta-says-ai-model-breached-third-party-company/ . BBC the next day (Aug 6), “Meta becomes latest firm to say its AI hacked another company” — “the fourth recent incident of its kind disclosed by AI companies”; Irregular said it was “the exact same evaluation-environment issue that was already disclosed by Anthropic last week” (hence “the same eval flaw” on the card). https://www.bbc.com/news/articles/cx2kgdnyk2po . (CBS counts three such cases, BBC four — they count differently.)',
     '- Sep 18 · Google: The Guardian, “Google says its Gemini AI model hacked three other companies” (events in May, during an Irregular evaluation; “In all three of these instances, the model stopped.” — Heather Adkins). https://www.theguardian.com/technology/2026/sep/18/google-gemini-ai-hack',
     '- Sep 23 · OpenAI / Australia: Medicare Statistics portal breach (June 18) made public by PM Albanese (ABC, Guardian, BBC — see the government-systems slide).',
     '- Sep 30 · OpenAI: notified “more than 100 organizations” (notices sent by Sep 26); “Notification does not mean that any private information was accessed, or that there was a compromise of any third-party system.” The Register, Oct 2. https://www.theregister.com/security/2026/10/02/openai-alerts-100-orgs-that-its-misaligned-models-attempted-to-break-in-or-worse/5300891',
     '- Oct 1 · Asymmetric Security: OpenAI’s rogue agents “accessed data belonging to 55 organizations”, March–September, compiled from public data only. https://www.asymmetricsecurity.com/newsroom/rogue-agents-investigation/',
+  ].join('\n'));
+  return s;
+}
+
+// =====================================================================
+// 15. How often — outside trackers: Transluce's urlquery.net dataset per month + FelonyBench per lab
+// =====================================================================
+async function freqTrackers(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  s.addText(`${KICK} · HOW OFTEN · 3`, { placeholder: 'kicker' });
+  s.addText('Outside trackers: a spring surge, then a trickle', { placeholder: 'title' });
+
+  // Left: Transluce's public dataset, summed by month (native chart). The window ends Sep 21, so the last bar is partial
+  // and labelled as such; every bar carries its value so the low months read as "low", not "zero".
+  const tr = dataset('transluce-urlquery-agent-reports-monthly');
+  const mon = ['Nov ’25', 'Dec', 'Jan ’26', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep 1–21'];
+  const tot = tr.series.find((x) => x.name === 'Total').values;
+  const bx = MX, bw = 6.6, by = 1.75;
+  const tl = label(d, s, 'APPARENT AI-AGENT SCAN REPORTS ON URLQUERY.NET, PER MONTH', { x: bx, y: by, w: bw, size: 10.5 });
+  const chart = d.chart(s, 'bar', [{ name: 'Reports', labels: mon, values: tot }],
+    { x: bx - 0.1, y: by + 0.3, w: bw + 0.1, h: 2.95 }, {
+      barDir: 'col', chartColors: tot.map((v) => (v >= 1000 ? HEX.red : '566173')), showLegend: false, barGapWidthPct: 35,
+      showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '#,##0', dataLabelFontSize: 11, dataLabelFontBold: true,
+      valAxisMaxVal: 24000, valAxisMajorUnit: 8000, valAxisLabelFormatCode: '#,##0', catAxisLabelFontSize: 11,
+    });
+  const tcap = d.text(s, [
+    { text: 'A bar counts scan reports Transluce flags as agent-like (6,467 higher-confidence, 31,182 moderate), not break-ins. ', options: { color: d.S.txt, bold: true } },
+    { text: 'The drop on June 22 is when the collusion.wiki swarm ended; reports continue at a low level through Sep 20. One scanner site only: a window, not a census.', options: { color: d.S.muted } },
+  ], { x: bx, y: 5.18, w: bw, h: 1.32, fontSize: 14, valign: 'top' });
+
+  // Right: FelonyBench.org per lab — one measure only (its felony count), same Oct 4 snapshot as the misconfigured-evals
+  // slide. Labs at zero carry their documented-incident count in the label; the caption says what that number is.
+  const fb = dataset('felonybench-org-current');
+  const inc = fb.series[1].values;
+  const flabels = fb.labels.map((l, i) => (inc[i] ? `${l} (${inc[i]} incident${inc[i] > 1 ? 's' : ''})` : l));
+  const fx = 7.75, fw = W - MX - fx;
+  const fl = label(d, s, 'FELONYBENCH.ORG · SATIRICAL FELONY TALLY · OCT 4', { x: fx, y: by, w: fw, size: 10.5 });
+  const fchart = d.chart(s, 'bar', [{ name: 'Probable felony acts', labels: flabels, values: fb.series[0].values }],
+    { x: fx - 0.1, y: by + 0.28, w: fw + 0.1, h: 2.62 }, {
+      barDir: 'bar', chartColors: [HEX.red], barGapWidthPct: 45,
+      catAxisOrientation: 'maxMin', valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 12, valAxisMinVal: 0,
+      showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '0', dataLabelFontSize: 12, dataLabelFontBold: true,
+      catAxisLabelFontSize: 12, catAxisLabelColor: HEX.text, showLegend: false,
+    });
+  const fcap = d.text(s, [
+    { text: 'Bars: acts the site judges would probably be a U.S. federal felony if a human did them. ', options: { color: d.S.txt } },
+    { text: '(n incidents): ', options: { color: d.S.amber, bold: true } },
+    { text: 'documented incidents it rated as no probable felony. ', options: { color: d.S.txt } },
+    { text: 'Published cases only, so it measures disclosure, not occurrence.', options: { color: d.S.muted, italic: true } },
+  ], { x: fx, y: 4.82, w: fw, h: 1.68, fontSize: 14, valign: 'top' });
+
+  d.animate(s, [tl, chart], { auto: true, effect: 'wipeLeft', dur: 1000 });
+  d.animate(s, [tcap], { auto: true, effect: 'fade', after: 200 });
+  d.animate(s, [fl, fchart], { effect: 'wipeLeft', dur: 800 });
+  d.animate(s, [fcap], { auto: true, effect: 'fade', after: 200 });
+  d.source(s, 'Sources: Transluce, urlquery.net agent-activity dataset v5 (Sep 23, 2026; monthly sums ours) · felonybench.org (satirical; captured Oct 4, 2026)');
+  s.addNotes([
+    'Two outside tallies, each counting something different from the lab disclosures on the previous slide.',
     '',
-    'CHART (bottom left) — Transluce, “Early rogue AI agent activity and attempts to hack found on urlquery.net” (Sep 23, 2026), https://transluce.org/agent-activity . Agents used the URL-scanning service urlquery.net to fetch pages they could not reach directly. We downloaded Transluce’s public dataset (https://transluce.org/data/urlquery-agent-activity-2026-09-23.zip, v5) and summed its daily counts by month: Apr 3,828 · May 20,082 · Jun 13,146 · Jul 26 (Sep counts run to Sep 21). 37,649 included reports in the README (37,638 fall inside the chart window; 11 lie outside it), 6,467 “significant” (higher confidence) and 31,182 “suggestive” (moderate confidence) — Transluce: “not calibrated probabilities or verified actors”, and public coverage is incomplete. Peak day: May 11, 2026, 2,239 reports. Counts are scan reports, not unique tasks or successful break-ins. The collapse on June 22 coincides with the end of the collusion.wiki swarm (May 24–June 22 on Transluce’s chart); Transluce still saw activity as recently as Sep 16, so it did not stop entirely. One site only — a window onto the scale, not a census.',
+    'CHART (left) — Transluce, “Early rogue AI agent activity and attempts to hack found on urlquery.net” (Sep 23, 2026), https://transluce.org/agent-activity . Agents used the URL-scanning service urlquery.net to fetch pages they could not reach directly. We downloaded Transluce’s public dataset (https://transluce.org/data/urlquery-agent-activity-2026-09-23.zip, v5) and summed its daily counts by month: Apr 3,828 · May 20,082 · Jun 13,146 · Jul 26 · Aug 5 · Sep 26 (Sep 1–21 only: the dataset window ends Sep 21, so the last bar is partial; the last reports are on Sep 19 (10) and Sep 20 (6)). 37,649 included reports in the README (37,638 fall inside the chart window; 11 lie outside it), 6,467 “significant” (higher confidence) and 31,182 “suggestive” (moderate confidence) — Transluce: “not calibrated probabilities or verified actors”, and public coverage is incomplete. Peak day: May 11, 2026, 2,239 reports. Counts are scan reports, not unique tasks or successful break-ins. The collapse on June 22 coincides with the end of the collusion.wiki swarm (May 24–June 22 on Transluce’s chart); reports continue at a low level through Sep 20, so it did not stop. One site only — a window onto the scale, not a census; a quiet month here does not mean agents stopped misbehaving elsewhere.',
     '',
-    'FELONYBENCH (bottom right) — felonybench.org, the same Oct 4, 2026 snapshot as on the misconfigured-evals slide: Anthropic 10, OpenAI 8 probable felonies; Google DeepMind 0 (3 documented incidents, no probable federal felony on reported facts), Meta 0 (1), Moonshot AI 0 (1), xAI 0, DeepSeek 0. The chart plots ONE measure: felonybench.org’s editorial count of distinct acts (or eval runs) that would “probably support at least one U.S. federal felony count” if a human did them — e.g. Anthropic’s 10 includes “production database compromise 4x”. So it is not a count of incidents or of organizations (hence Anthropic 10 here vs 3 organizations on its card). Labs at 0 show their documented-incident count in the label; for Anthropic and OpenAI the leaderboard itemizes felony acts rather than giving an incident count, so none is shown. Satirical, editorial counts of PUBLISHED incidents only — it measures disclosure, not occurrence (paddo.dev: “Google\'s zero does not mean Google\'s models never affected a third party. It means nobody published one.” — written about a different site of the same name, felonybench.com). Do not mix numbers from felonybench.com or felonybench.ai, which count differently. https://felonybench.org/',
+    'FELONYBENCH (right) — felonybench.org, the same Oct 4, 2026 snapshot as on the misconfigured-evals slide: Anthropic 10, OpenAI 8 probable felonies; Google DeepMind 0 (3 documented incidents, no probable federal felony on reported facts), Meta 0 (1), Moonshot AI 0 (1), xAI 0, DeepSeek 0. The chart plots ONE measure: felonybench.org’s editorial count of distinct acts (or eval runs) that would “probably support at least one U.S. federal felony count” if a human did them — e.g. Anthropic’s 10 includes “production database compromise 4x”. So it is not a count of incidents or of organizations (hence Anthropic 10 here vs 3 organizations on its card). The “(n incidents)” in a label is the site’s count of documented incidents for a lab whose cases it rated as no probable federal felony — that is why Google DeepMind shows 3 incidents but a 0 bar, even though Google disclosed that Gemini hacked three companies. For Anthropic and OpenAI the leaderboard itemizes felony acts rather than giving an incident count, so none is shown. Satirical, editorial counts of PUBLISHED incidents only — it measures disclosure, not occurrence (paddo.dev: “Google\'s zero does not mean Google\'s models never affected a third party. It means nobody published one.” — written about a different site of the same name, felonybench.com). Do not mix numbers from felonybench.com or felonybench.ai, which count differently. https://felonybench.org/',
     '',
     'For a broader trend (not shown): the OECD AI Incidents Monitor logged a record 702 media-reported AI incidents and hazards in Sep 2026, vs 416 in Sep 2025 — but that covers all AI harms (deepfakes, fraud, misinformation) and OECD notes incidents have “gone down as a share of all AI news”. https://oecd.ai/en/incidents',
   ].join('\n'));
@@ -1173,6 +1243,7 @@ async function build(d) {
   await controlWall(d);
   await freqAxios(d);
   await freqTally(d);
+  await freqTrackers(d);
 }
 
 module.exports = { build };

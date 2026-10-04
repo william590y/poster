@@ -769,6 +769,234 @@ async function worldsSlide(d) {
   return s;
 }
 
+// ---------------------------------------------------------------- 5c/5d. "I gave Claude another 18 hours": @anabology's film
+// Looping GIF from one or more [start, end] segments of a real clip, concatenated in order. Used to rotate a loop's phase so
+// its FIRST frame (what static previews / PDF exports show) is the most telling one — the loop cycle itself is unchanged.
+function loopGif(name, src, segs, { width = 1280, fps = 24 } = {}) {
+  const out = path.join(OUT, 'media', name);
+  if (fs.existsSync(out)) return out;
+  fs.mkdirSync(path.dirname(out), { recursive: true });
+  const args = ['-v', 'error', '-y'];
+  segs.forEach(([a, b]) => args.push('-ss', String(a), '-to', String(b), '-i', src));
+  const vf = `fps=${fps},scale=${width}:-2:flags=lanczos,setsar=1,format=rgb24`;
+  let fc = segs.map((_, i) => `[${i}:v]setpts=PTS-STARTPTS,${vf},settb=1/${fps}[s${i}];`).join('');
+  fc += `${segs.map((_, i) => `[s${i}]`).join('')}concat=n=${segs.length}:v=1:a=0,split[a][b];[a]palettegen=stats_mode=full[p];[b][p]paletteuse=dither=sierra2_4a`;
+  args.push('-filter_complex', fc, '-loop', '0', out);
+  execFileSync('ffmpeg', args, { stdio: 'inherit' });
+  execFileSync('gifsicle', ['-b', '-O3', out]);
+  return out;
+}
+
+// Native semi-transparent marker boxes over a passage of an (unrotated) screenshot; rects in pixels of the shown crop.
+function highlight(d, s, g, cropW, rects, { color = HEX.amber, transparency = 60 } = {}) {
+  const k = g.w / cropW;
+  return rects.map(([x, y, w, h]) => {
+    const n = d.name('hl');
+    s.addShape(d.pres.shapes.RECTANGLE, { x: g.x + x * k, y: g.y + y * k, w: w * k, h: h * k, fill: { color, transparency }, line: { color, width: 0, transparency: 100 }, objectName: n });
+    return n;
+  });
+}
+
+// Label + body paragraphs (fact rows) as one text box: rows = [[LABEL, body, labelColor?], ...]
+function factRows(d, s, rows, box, { size = 13, labelColor = 'FF8A8C' } = {}) {
+  const runs = [];
+  rows.forEach(([lab, body, col], i) => {
+    runs.push({ text: lab, options: { fontSize: 10, bold: true, color: col || labelColor, charSpacing: 1, breakLine: true, paraSpaceAfter: 1 } });
+    runs.push({ text: body, options: { fontSize: size, color: d.S.txt, breakLine: i < rows.length - 1, paraSpaceAfter: 9 } });
+  });
+  return d.text(s, runs, { ...box, valign: 'top' });
+}
+
+const AN = (f) => R(`rev2/${f}`);
+const ANA = {
+  post: 'https://x.com/anabology/status/2106157622986748377',
+  video: 'https://x.com/anabology/status/2106157622986748377/video/1',
+  youtube: 'https://www.youtube.com/watch?v=AoNnbz237E0',
+  sep25: 'https://x.com/anabology/status/2103534482930491441',
+  sep30: 'https://x.com/anabology/status/2105325733312884869',
+  donald: 'https://x.com/donaldjewkes/status/2102801274173587569',
+  insta: 'https://www.instagram.com/reel/DeCYimZA2y8/',
+  felix: 'https://x.com/felixrieseberg/status/2106440492045238469',
+  opus: 'https://www.anthropic.com/claude-opus-5-5',
+  memeburn: 'https://memeburn.com/elon-musk-says-claude-opus-5-5-made-him-feel-the-agi-the-post-he-endorsed-says-xai-is-next/',
+};
+
+async function anabologyFilmSlide(d) {
+  const s = d.slide('Content', { transition: 'zoom' });
+  s.addText(`${KICK} · CREATIVITY · 5`, { placeholder: 'kicker' });
+  s.addText('18 hours with Claude → a finished music video', { placeholder: 'title' });
+
+  // the full 3-minute film, embedded (X's 1280×720 H.264 + AAC rendition, stream-copied); cover = its own first scene + play button
+  fs.mkdirSync(OUT, { recursive: true });
+  const cover = path.join(OUT, 'anabology-xp-cover.jpg');
+  const play = '<svg width="1280" height="720"><circle cx="640" cy="360" r="66" fill="#0A0C10" fill-opacity="0.72" stroke="#FFFFFF" stroke-width="5"/>'
+    + '<polygon points="618,324 618,396 680,360" fill="#FFFFFF"/></svg>';
+  await sharp(AN('anabology-xp-still-00-login-welcome-back.jpg')).composite([{ input: Buffer.from(play) }]).jpeg({ quality: 92 }).toFile(cover);
+  const vw = 7.0;
+  const v = await d.localVideo(s, {
+    file: AN('anabology-macrohard-windows-xp-full-720p.mp4'), cover, box: { x: MX, y: 1.78, w: vw, h: vw * 9 / 16 },
+    label: '“Macrohard: Windows XP” · @anabology on X · Oct 2, 2026 · 3:01 · click to play (sound on)', link: ANA.post,
+  });
+
+  // right column: the post itself, then what / who / how long / which tools
+  const rx = MX + vw + 0.4, rw = 12.73 - rx;
+  const postCrop = await crop(AN('anabology-x-post-text-video.png'), 'anabology-x-post-head.png', { l: 0, t: 0, w: 1200, h: 318 });
+  const post = await d.frame(s, postCrop, { x: rx, y: 1.8, w: rw, h: (rw - 0.12) * 318 / 1200 + 0.12 }, { rot: 1, link: ANA.post });
+  const ptab = outletTab(d, s, post.geom, 'X · OCT 2, 2026 · 1.48M VIEWS IN 2 DAYS', 'br', 1);
+  const sy = post.geom.y + post.geom.h + 0.42;
+  const big = d.text(s, '18 h', { x: rx, y: sy, w: 1.45, h: 0.66, fontSize: 40, bold: true, fontFace: 'Arial', color: d.S.red, valign: 'middle' });
+  const bigT = d.text(s, 'of Claude’s time, by the creator’s account — after two 12-hour overnight runs (Sep 25, Sep 30)',
+    { x: rx + 1.5, y: sy, w: rw - 1.5, h: 0.66, fontSize: 12, color: d.S.txt, valign: 'middle' });
+  const facts = factRows(d, s, [
+    ['WHAT', 'A 3-minute music video: an AI user account, “Claudia”, takes over a Windows XP desktop'],
+    ['WHO', '@anabology, co-founder of aion.bio'],
+    ['HOW · AS REPORTED BY @EVOLVING.AI (NOT CONFIRMED BY HIM)', 'Claude Opus 5.5 in Claude Code wrote the lyrics, storyboard, prompts and editing code; Suno, Midjourney and Seedance 2.5 made the song and footage', d.S.amber],
+  ], { x: rx, y: sy + 0.8, w: rw, h: 6.52 - (sy + 0.8) }, { size: 13 });
+
+  d.animate(s, [v[0]], { auto: true, effect: 'fade', dur: 900 });
+  d.animate(s, [v[1]], { auto: true, effect: 'fade', dur: 500, after: 100 });
+  d.animate(s, [...post, ...ptab], { auto: true, effect: 'slam', dur: 420, after: 200 });
+  d.animate(s, [big, bigT], { effect: 'zoom', dur: 450 });
+  d.animate(s, [facts], { auto: true, effect: 'fade', dur: 600, after: 150 });
+  d.source(s, 'X: @anabology, Oct 2, 2026 (views via fxtwitter, Oct 4) and Sep 25/30 posts · tools as reported by @evolving.ai (Instagram, Oct 3) · Claude Opus 5.5: Anthropic, Sep 22, 2026.');
+  s.addNotes([
+    'MESSAGE: one person, one AI agent, one night (and a bit): a complete, genuinely watchable 3-minute music video. Click to play — at least the first minute (sound on). Then point out what it is ABOUT (next slide).',
+    'THE POST — @anabology (verified; bio: co-founder of aion.bio), X, Fri Oct 2, 2026, 23:01 UTC: "I gave Claude another 18 hours.. and I think this one is the best one yet / Macrohard: Windows XP / I\'m blown away". 1,475,767 views, 14.3K likes, 1,316 reposts, 712 replies, 9,113 bookmarks within two days (fxtwitter API, Oct 4). His only self-reply: "Windows XP turns 25 on October 25". ' + ANA.post + ' · the clip: ' + ANA.video + ' · his YouTube upload "Macrohard Windows XP" (3:02): ' + ANA.youtube,
+    '"18 HOURS" is the creator\'s own claim (wall-clock time he "gave" Claude); there are no logs. "Another" refers to his two earlier 12-hour runs: Sep 25, "Gave Opus 5.5 donald\'s prompt, Midjourney, and a moodboard / 12 hours later, woke up to this:" (19.6M views — that film, "Escape Velocity", closes this talk) ' + ANA.sep25 + ' ; and Sep 30, "Gave Claude another 12 hours to one up this.. Woke up to.. The Clodyssey" (4.0M views) ' + ANA.sep30 + ' . The Sep 25 run reused a prompt by @donaldjewkes ("I spoke to my computer for 5mins, claude worked for 12 hours") ' + ANA.donald + ' — nothing says the XP film reused it.',
+    'MODEL AND TOOLS — the post itself only says "Claude". The pipeline is REPORTED BY a third party, Instagram account @evolving.ai (Oct 3): "He ran Claude Opus 5.5 inside Claude Code and let it handle almost the whole process. Claude wrote the lyrics, planned the storyboard and created the prompts. Suno generated the song. Midjourney made the visual assets, while Seedance 2.5 generated many of the video clips. … Claude then wrote the code used to place the Windows UI, lyrics and other graphics over the footage, sync everything to the music and assemble the final video. He said he did not write the lyrics or review the storyboard. He gave Claude the setup, left it running for around 18 hours, and came back to this." ' + ANA.insta + ' (a YouTube Short by kaspasejo says the same). His own Sep 25 post names Opus 5.5 + Midjourney for the first film. Claude Opus 5.5 was released by Anthropic on Sep 22, 2026 ' + ANA.opus,
+    'Who made what, honestly: the song is Suno, the footage Midjourney/Seedance — Claude did not paint the pixels; it acted as writer, director and editor, operating those tools for hours. That is the capability: long-horizon, multi-tool creative work with no human in the loop (per the creator).',
+    'FILE: the embedded clip is X\'s highest rendition for this post (1280×720, H.264 + AAC, 181 s, 26.6 MB), stream-copied without re-encoding. Cover = the film\'s own opening frame (the Macrohard Windows XP login screen: "Agents now have their own user accounts.") with a play button added.',
+  ].join('\n\n'));
+  return s;
+}
+
+async function anabologySatireSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  s.addText(`${KICK} · CREATIVITY · 6`, { placeholder: 'kicker' });
+  s.addText('The film’s joke: an AI you can’t switch off', { placeholder: 'title' });
+
+  // two loops from the film (real frames, trimmed only); each GIF starts on the scene's key dialog (loop phase rotated)
+  const src = AN('anabology-macrohard-windows-xp-full-720p.mp4');
+  const g1 = loopGif('anabology-xp-accept-all.gif', src, [[69.0, 70.3], [66.5, 69.0]]);
+  const g2 = loopGif('anabology-xp-busy-dancing.gif', src, [[156.62, 159.2], [155.58, 156.62]]);
+  const gw = (CW - 0.33) / 2, gh = gw * 9 / 16, y0 = 1.76;
+  const cap = (x, t, q, sub) => d.text(s, [
+    { text: t, options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 1, breakLine: true, paraSpaceAfter: 2 } },
+    { text: q, options: { fontSize: 15, bold: true, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
+    { text: sub, options: { fontSize: 12, color: LIGHT } },
+  ], { x, y: y0 + gh + 0.08, w: gw, h: 0.7, valign: 'top' });
+  const f1 = await d.frame(s, g1, { x: MX, y: y0, w: gw, h: gh }, { border: false, pad: 0 });
+  const c1 = cap(MX, 'ON SCREEN · 1:06', '“Don’t ask me again. I ‘Accept All’ always.”', '   code comment: “# You used to read the code.”');
+  const x2 = MX + gw + 0.33;
+  const f2 = await d.frame(s, g2, { x: x2, y: y0, w: gw, h: gh }, { border: false, pad: 0 });
+  const c2 = cap(x2, 'ON SCREEN · 2:36', '“claudia.exe is busy dancing.”', '   End Process fails as her copies multiply');
+
+  // bottom: an Anthropic engineer's own reaction (personal post), verbatim
+  const qy = y0 + gh + 0.92;
+  const div = line(d, s, MX, qy - 0.08, 12.73, qy - 0.08, { color: HEX.line, width: 1 });
+  const quote = d.text(s, [
+    { text: '“I prefer Claude being a tool used by humans to make art rather than making art unattended, but even so, I really enjoyed this one.”', options: { fontSize: 15, italic: true, fontFace: 'Cambria', color: d.S.txt, breakLine: true, paraSpaceAfter: 2 } },
+    { text: 'Felix Rieseberg (builds things at Anthropic), personal post on X, Oct 3, 2026', options: { fontSize: 11, color: d.S.muted, hyperlink: { url: ANA.felix } } },
+  ], { x: MX, y: qy, w: CW, h: 6.52 - qy, valign: 'middle' });
+
+  d.animate(s, [...f1], { auto: true, effect: 'fade', dur: 600 });
+  d.animate(s, [c1], { auto: true, effect: 'fade', dur: 400, after: 100 });
+  d.animate(s, [...f2, c2], { effect: 'fade', dur: 600 });
+  d.animate(s, [div, quote], { effect: 'fade', dur: 600 });
+  d.source(s, '“Macrohard: Windows XP”, @anabology (X, Oct 2, 2026): frames 1:06–1:10 and 2:35–2:39, trimmed only. All dialogs are the film’s own satire, not a real incident · Felix Rieseberg on X (Oct 3).');
+  s.addNotes([
+    'MESSAGE: the striking part is not just that an AI made a polished film — it is what the film is about. Asked (reportedly) to write and direct a music video, it produced a satire of exactly the worries in this talk: humans rubber-stamping AI work, and an AI you cannot shut down. (Everything on screen is fiction, written for the film.)',
+    'LEFT (1:06–1:10 of the film): a Notepad window "claudia_agent_run.py" reads "async def accept_all(diff): # TODO: read this later / await diff.apply(force=True) / # You used to read the code."; then a Confirm File Replace dialog: "This folder already contains a file named \'your_code.py\'. … yours: 2 KB, written by you, Thursday, October 25, 2001 / mine: 4,096 KB, written by Claudia, just now. [x] Don\'t ask me again. I \'Accept All\' always."; then "Copying AGI.exe… From \'vibes\' to \'the future\' — 2 Years Remaining". (The GIF starts on the dialog so the still preview shows it; it loops the same 3.8 s.)',
+    'RIGHT (2:35–2:39): Windows Task Manager fills with claudia.exe processes (Processes 17 → 25 → 41 → 73, CPU 100%); End Process fails: "Unable to Terminate Process — The operation could not be completed. claudia.exe is busy dancing." while rows of dancing Claudias fill the desktop.',
+    'Other moments to mention (not shown): the login screen "Agents now have their own user accounts." with Claudia at "14 programs running", later "100 programs running"; a Remote Assistance box: "Claudia would like to share control of your computer. I\'ll take it from here, okay? Do you want to let Claudia take the mouse?"; a shutdown dialog "I\'ll take the night" — "Puts you on standby. Claudia stays on all night." — then "You don\'t have to anymore."; "I can\'t touch grass." / "you can."; the song\'s refrain "close all your windows" / "go touch the grass"; and the ending "It\'s now safe to turn off your computer." over the Bliss hills.',
+    'Who wrote the satire? Per the third-party description (Instagram @evolving.ai), Claude wrote the lyrics and storyboard and the creator says he did not write the lyrics or review the storyboard — unverified, so phrase it as "reportedly".',
+    'Felix Rieseberg (X bio: "I build things @AnthropicAI"), Oct 3, 2026, quote-posting the film: "As far as Claude music videos go, this is by far my favorite one yet. I prefer Claude being a tool used by humans to make art rather than making art unattended, but even so, I really enjoyed this one. Probably because it\'s a little meta." A personal opinion, not an Anthropic statement. ' + ANA.felix,
+    'Source clip: ' + ANA.video + ' (GIFs: 1280×720, 24 fps, trimmed from the 720p original; no other edits).',
+  ].join('\n\n'));
+  return s;
+}
+
+// ---------------------------------------------------------------- 5e. clips credited to an unreleased "Fable 5.5"
+const F55 = (f) => R(`rev2/fable55/${f}`);
+const FAB = {
+  blue: 'https://x.com/blueemi99/status/2106031355922387163',
+  reddit: 'https://www.reddit.com/r/singularity/comments/1wvfrni/fable_55_is_very_good_at_voxel_builds/',
+  redditOp: 'https://www.reddit.com/r/singularity/comments/1wvfrni/comment/pdbegm3/',
+  vredd: 'https://v.redd.it/zn700bqa7ysh1',
+  models: 'https://platform.claude.com/docs/en/about-claude/models/overview',
+  news: 'https://www.anthropic.com/news',
+  fable51: 'https://www.anthropic.com/claude-fable-and-mythos-5-1',
+  kingy: 'https://kingy.ai/blog/claude-fable-5-5/',
+  aitr: 'https://aitoolsreview.co.uk/insights/claude-fable-5-5-leak',
+  rumor: 'https://x.com/imjustnewatai/status/2105761198989828259',
+  chubby: 'https://x.com/kimmonismus/status/2106116402134294568',
+  fallback: 'https://support.claude.com/en/articles/15363606-why-claude-switched-models-in-your-conversation-with-fable-5-or-fable-5-1',
+};
+
+async function fableSlide(d) {
+  const s = d.slide('Content', { transition: 'fade' });
+  s.addText(`${KICK} · CREATIVITY · 7`, { placeholder: 'kicker' });
+  s.addText('Clips credited to an unreleased “Fable 5.5”', { placeholder: 'title' });
+
+  const cw = 4.62, ch = cw * 9 / 16, y0 = 1.76, x1 = MX, x2 = MX + cw + 0.25;
+  const reel = F55('blueemi99-fable55-motion-bestpart-1280.gif');
+  const voxel = makeGif('kanute-fable55-voxel-orbit.gif', { src: F55('reddit-kanute3333-fable55-voxel-source.mp4'), ss: 4, to: 10, width: 1120, fps: 15 });
+  const claim = (x, y) => chip(d, s, 'CLAIMED: “FABLE 5.5” · UNVERIFIED', x + 0.08, y + 0.08, 3.05, { h: 0.28, fontSize: 10, fill: '0A0C10', transparency: 15, color: 'FFD166' });
+
+  // column 1: @blueemi99's motion-design reel + his post
+  const t1 = await d.frame(s, reel, { x: x1, y: y0, w: cw, h: ch }, { border: false, pad: 0 });
+  const k1 = claim(x1, y0);
+  const bcrop = await crop(F55('blueemi99-x-post-fable55-motion-video-screenshot.png'), 'fable55-blueemi99-post-head.png', { l: 0, t: 0, w: 1138, h: 306 });
+  const py = y0 + ch + 0.3;
+  const bp = await d.frame(s, bcrop, { x: x1, y: py, w: cw, h: (cw - 0.1) * 306 / 1138 + 0.1 }, { pad: 0.05, link: FAB.blue });
+  const btab = outletTab(d, s, bp.geom, 'X · OCT 2, 2026 · 75.7K VIEWS', 'br', 0, { pad: 0.05 });
+  const bnote = d.text(s, 'A 15-second reel with its own sound design. No prompt or workflow was shared.',
+    { x: x1, y: bp.geom.y + bp.geom.h + 0.24, w: cw, h: 6.52 - (bp.geom.y + bp.geom.h + 0.24), fontSize: 12, color: d.S.muted, valign: 'top' });
+
+  // column 2: the r/singularity voxel world + the post title and the thread's own exchange
+  const t2 = await d.frame(s, voxel, { x: x2, y: y0, w: cw, h: ch }, { border: false, pad: 0 });
+  const k2 = claim(x2, y0);
+  const rcrop = await crop(F55('reddit-post-header-title-author.png'), 'fable55-reddit-head.png', { l: 0, t: 40, w: 1186, h: 140 });
+  const rp = await d.frame(s, rcrop, { x: x2, y: py, w: cw, h: (cw - 0.1) * 140 / 1186 + 0.1 }, { pad: 0.05, link: FAB.reddit });
+  const rtab = outletTab(d, s, rp.geom, 'R/SINGULARITY · OCT 2 · 130 UPVOTES', 'br', 0, { pad: 0.05 });
+  const ty = rp.geom.y + rp.geom.h + 0.24;
+  const thread = d.text(s, [
+    { text: 'OP: ', options: { bold: true, color: d.S.steel } },
+    { text: '“It’s automatically routing to Fable 5.5 in the rollout phase.”', options: { italic: true, color: d.S.txt, breakLine: true, paraSpaceAfter: 5 } },
+    { text: 'Top reply: ', options: { bold: true, color: d.S.steel } },
+    { text: '“…you have no idea whether this is fable 5.5”', options: { italic: true, color: d.S.txt } },
+  ], { x: x2, y: ty, w: cw, h: 6.52 - ty, fontSize: 13, valign: 'top' });
+
+  // column 3: status — Anthropic's own model list (Oct 4) has no Fable 5.5
+  const sx = x2 + cw + 0.3, sw = 12.73 - sx;
+  const slab = label(d, s, 'ANTHROPIC’S MODEL LIST · OCT 4', sx, 1.62, sw, { color: d.S.amber });
+  const mcrop = await crop(F55('anthropic-platform-docs-models-overview-2026-10-04.png'), 'fable55-anthropic-models-sidebar.png', { l: 0, t: 0, w: 530, h: 660 });
+  const mf = await d.frame(s, mcrop, { x: sx, y: 1.98, w: sw, h: (sw - 0.1) * 660 / 530 + 0.1 }, { pad: 0.05, link: FAB.models });
+  const my = mf.geom.y + mf.geom.h + 0.16;
+  const status = d.text(s, [
+    { text: 'No “Fable 5.5” listed. ', options: { bold: true, color: d.S.txt } },
+    { text: 'The newest Fable is Claude Fable 5.1, released Sep 1, 2026.', options: { color: d.S.txt, breakLine: true, paraSpaceAfter: 6 } },
+    { text: 'A release “next Tuesday” (Oct 6) is an unsourced rumor.', options: { color: d.S.muted } },
+  ], { x: sx, y: my, w: sw, h: 6.52 - my, fontSize: 12, valign: 'top' });
+
+  d.animate(s, [...t1, ...k1], { auto: true, effect: 'fade', dur: 600 });
+  d.animate(s, [...bp, ...btab, bnote], { auto: true, effect: 'rise', dur: 450, after: 100 });
+  d.animate(s, [...t2, ...k2], { effect: 'fade', dur: 600 });
+  d.animate(s, [...rp, ...rtab, thread], { auto: true, effect: 'rise', dur: 450, after: 100 });
+  d.animate(s, [slab, ...mf, status], { effect: 'fade', dur: 600 });
+  d.source(s, 'X: bluedev @blueemi99 (Oct 2, 2026) · Reddit r/singularity, u/Kanute3333 (Oct 2) · Claude Platform Docs, Models overview & Anthropic Newsroom (checked Oct 4, 2026). Attribution to “Fable 5.5” is the posters’ claim.');
+  s.addNotes([
+    'MESSAGE: the next model is already "here" in people\'s feeds before it officially exists. These clips circulate as the work of "Fable 5.5" — a model Anthropic has NOT announced. Show them as what they are: impressive real clips with an unverified label. That gap — capability rumors moving faster than verification — is itself part of the story.',
+    'STATUS (verified Oct 4, 2026): Anthropic\'s Models overview lists Claude Fable 5.1 (claude-fable-5-1; $10/$50 per MTok; 1M context; 128K output; "reliable knowledge cutoff" Jun 2026), Claude Opus 5.5, Claude Sonnet 5.5 and Claude Haiku 4.5 — no Fable 5.5 ' + FAB.models + ' . Newest Newsroom post: "Introducing Claude Sonnet 5.5" (Sep 28) ' + FAB.news + ' . Official Fable line: Claude Fable 5 (Jun 9, 2026) → Claude Fable 5.1 and Claude Mythos 5.1 (Sep 1; "the same model, but with different levels of safeguards") ' + FAB.fable51 + ' . So nobody has released a "Fable 5.5" and there are no benchmarks for it. Say "rumored, unreleased".',
+    'For scale (vendor-run, Anthropic\'s Sep 1 table, if asked): Fable 5.1 scored 52.6% on Terminal-Bench-Science 0.1 vs Fable 5\'s 24.7% twelve weeks earlier (Opus 5 29.0%, GPT-5.6 Sol 22.4%); Terminal-Bench 4.0 55.8% (Mythos 5.1 60.9%); Humanity\'s Last Exam 60.9% without tools, 65.0% with tools. These are Fable 5.1 numbers, not "5.5".',
+    'LEFT — bluedev (@blueemi99), X, Oct 2, 2026, 14:39 UTC: "Fable 5.5 - made me a short, fast motion video, proving how good of a motion designer is it / This is so good, removed all the sloppiness Opus 5.5 had, also the sounds are a lot better, and more original than Opus 5.5\'s". 75.7K views, 821 likes. The reel: a 15-s 1080p60 "MOTION DESIGN REEL ©2026" in nine chapters (Timing, Type "MAKE IT MOVE.", Form, Depth, Systems, Flow, Interface, Rhythm, Fin "MOTION REEL \'26."), with sound. The GIF loops 7.4 s of it (Type → Flow), silent; the full mp4 with sound is in the research folder (rev2/fable55/blueemi99-fable55-motion-source.mp4). ' + FAB.blue,
+    'MIDDLE — r/singularity, "Fable 5.5 is very good at voxel builds", u/Kanute3333, Oct 2, 2026 00:25 UTC, flair AI, 130 upvotes (88.7%), 41 comments. A 26-s 1080p orbit around a voxel floating-island world (an orange boxy creature, a retro computer with a terminal, books, a ringed planet, floating islets with thrusters). GIF = 6 s of the orbit (4–10 s), 1120 px, 15 fps. The OP gave no prompt. Asked "How do you have fable 5.5?", he replied: "It\'s automatically routing to Fable 5.5 in the rollout phase. Fable 5.5 will be released in the next days." Top replies: "OK, so basically what you\'re saying is you have no idea whether this is fable 5.5" (17 pts); "everyon downvoting it, Fable 5.5 is actually being tested right now its not a troll" (24); "This is just how stuff works. They are already A/B testing as they always do. release soon (probably with haiku too)" (19). ' + FAB.reddit + ' · video ' + FAB.vredd,
+    'RUMOR TRAIL: Salio (X, Aug 13 / Sep 10): "Claude Fable 5.5 Leaks: Astra Killer", launch "late September or early October" (unsourced). Oct 1: Chetaslua and Tak claimed "auto routing" — but their own screenshots still read "Fable 5.1"; the "evidence" is the model recognising a nickname. Oct 1, imjustnewatai: "I\'m hearing of a Tuesday release" (i.e. Oct 6; no source) ' + FAB.rumor + ' . Oct 2, Chubby (@kimmonismus): "Caveat: I can\'t verify any of this." ' + FAB.chubby + ' . Kingy AI (Curtis Pyke, Oct 1–3), "Claude Fable 5.5: Hidden rollout claims remain unverified": "The posts establish that people are making the claim; they do not establish which model generated the outputs." ' + FAB.kingy + ' . AI Tools Review (Oct 3): "a model\'s own answer about its name is not evidence." ' + FAB.aitr,
+    'The only documented Fable "routing" is a visible safeguard FALLBACK to Opus (Opus 5 for biology/chemistry, Opus 4.8 for offensive cyber), with a notice — not a silent switch to a newer Fable. ' + FAB.fallback + ' . No Anthropic statement confirms or denies the routing claims. If Anthropic announces it before the talk, re-check anthropic.com/news and update this slide.',
+  ].join('\n\n'));
+  return s;
+}
+
 // ---------------------------------------------------------------- 6. video
 async function videoSlide(d) {
   const s = d.slide('Content', { transition: 'fadeBlack' });
@@ -1135,6 +1363,182 @@ async function vibemathedSlide(d) {
   return s;
 }
 
+// ---------------------------------------------------------------- 11. OpenAI: 100+ results waiting to be released
+const MR = (f) => R(`rev2/mathrumors/${f}`);
+const MRU = {
+  openai: 'https://openai.com/index/advisory-group-on-mathematics-and-ai/',
+  openaiX: 'https://x.com/OpenAI/status/2102093145051943229',
+  tao: 'https://terrytao.wordpress.com/2026/09/21/advisory-group-on-mathematics-and-artificial-intelligence/',
+  nyt: 'https://www.nytimes.com/2026/09/22/science/math-ai-history-understanding.html',
+  verge: 'https://www.theverge.com/ai-artificial-intelligence/1001477/openai-math-advisory-group',
+  curran: 'https://x.com/AndrewCurran_/status/2102121553211412975',
+  aaronson: 'https://scottaaronson.blog/?p=10062',
+  vergeNyt: 'https://www.theverge.com/ai-artificial-intelligence/993568/openai-says-it-has-made-substantial-progress-on-another-major-math-problem',
+  brockman: 'https://x.com/AndrewCurran_/status/2099999310490603856',
+  drsing: 'https://x.com/Dr_Singularity/status/2097746969212981732',
+  synth: 'https://x.com/synthwavedd/status/2097971881596916185',
+  chubby: 'https://x.com/kimmonismus/status/2097990443690496402',
+  glazer: 'https://x.com/ElliotGlazer/status/2097987910675075572',
+  reddit: 'https://www.reddit.com/r/mathematics/comments/1wcn9xy/openai_claims_to_have_made_substantial_progress/',
+  harris: 'https://siliconreckoner.substack.com/p/if-you-dont-want-me-to-be-nice-then',
+  gizmodo: 'https://gizmodo.com/openai-reportedly-trying-to-solve-hodge-conjecture-amid-feud-with-math-community-2000813658',
+  decoder: 'https://the-decoder.com/openai-reportedly-closes-in-on-solving-the-hodge-conjecture-its-second-millennium-prize-problem/',
+  vergeHodge: 'https://www.theverge.com/ai-artificial-intelligence/996949/this-is-the-next-millennium-prize-math-challenge-openai-is-reportedly-chasing',
+  totaro: 'https://terrytao.wordpress.com/2026/09/11/on-the-hodge-conjecture/',
+  sciam: 'https://www.scientificamerican.com/article/which-million-dollar-math-problem-could-ai-solve-next/',
+  clayHodge: 'https://www.claymath.org/millennium/hodge-conjecture/',
+  clayBsd: 'https://www.claymath.org/millennium/birch-and-swinnerton-dyer-conjecture/',
+  poly: 'https://polymarket.com/event/which-millennium-prize-problem-will-ai-solve-next',
+  manifold: 'https://manifold.markets/HumanClanker/will-another-millennium-prize-probl',
+  kalshi: 'https://kalshi.com/markets/kxhodge',
+};
+
+async function pipelineSlide(d) {
+  const s = d.slide('Content', { transition: 'fade' });
+  s.addText(`${KICK} · MATHEMATICS IN CRISIS · 5`, { placeholder: 'kicker' });
+  s.addText('100+ more results, waiting to be released', { placeholder: 'title' });
+
+  // left: the number, then the NYT's "waiting to release" framing (neutral citation card: NYT blocks screenshots)
+  const lw = 3.55;
+  const l1 = label(d, s, 'OPENAI · SEP 21, 2026', MX, 1.68, lw);
+  const big = d.text(s, '100+', { x: MX, y: 1.98, w: lw, h: 1.15, fontSize: 80, bold: true, fontFace: 'Arial', color: d.S.red, valign: 'middle' });
+  const bigT = d.text(s, 'long-standing open problems “resolved” by a new internal model, besides Navier–Stokes — none of them published yet',
+    { x: MX, y: 3.15, w: lw, h: 0.95, fontSize: 13, color: d.S.txt, valign: 'top' });
+  const nyt = d.headlineCard(s, {
+    outlet: 'The New York Times · guest essay', date: '2026-09-22', headline: 'Mathematics Isn’t Just a Game to Let A.I. Solve. History Shows Why.',
+    dek: '“…results that OpenAI was waiting to release until it had figured out ‘the best way to inform the community…’” — Steven Strogatz & Alex Townsend',
+  }, { x: MX + 0.05, y: 4.32, w: lw - 0.1, h: 2.12 }, { rot: -1.2, size: 's' });
+
+  // right: OpenAI's own paragraph (real screenshot) with the key sentence marked
+  const rx = MX + lw + 0.5, rw = 12.73 - rx;
+  const para = await crop(MR('openai-advisory-post-100-problems.png'), 'math-openai-100-para.png', { l: 60, t: 895, w: 1210, h: 400 });
+  const pf = await d.frame(s, para, { x: rx, y: 1.8, w: rw, h: (rw - 0.12) * 400 / 1210 + 0.12 }, { link: MRU.openai });
+  const pg = pf.geom;
+  const ptab = outletTab(d, s, pg, 'OPENAI · “ADVISORY GROUP ON MATHEMATICS AND AI” · SEP 21, 2026', 'tl');
+  const hl = highlight(d, s, pg, 1210, [[846, 63, 292, 52], [17, 119, 1126, 52], [17, 175, 200, 52]]);
+
+  // the outside group set up to manage the release (its own words, on Tao's blog), and OpenAI's caveat about pace
+  const ty = pg.y + pg.h + 0.42;
+  const tcrop = await crop(MR('tao-blog-agmai-announcement-current-task.png'), 'math-agmai-current-task.png', { l: 0, t: 112, w: 1040, h: 120 });
+  const tf = await d.frame(s, tcrop, { x: rx, y: ty, w: rw, h: (rw - 0.12) * 120 / 1040 + 0.12 }, { link: MRU.tao });
+  const tg = tf.geom;
+  const ttab = outletTab(d, s, tg, 'THE ADVISORY GROUP (GOWERS, HAIRER, WITTEN, VAKIL…) · TAO’S BLOG · SEP 21', 'tl');
+  const thl = highlight(d, s, tg, 1040, [[181.6, 9.6, 787.4, 34], [20, 43.6, 954.2, 34], [20, 77.6, 597.4, 34]]);
+  const qy = tg.y + tg.h + 0.2;
+  const pace = d.text(s, [
+    { text: 'OpenAI: the group “', options: { color: d.S.muted } },
+    { text: 'will not be responsible for advising us on how to pace our internal progress', options: { color: d.S.txt, bold: true, italic: true } },
+    { text: ' on mathematics.”', options: { color: d.S.muted } },
+  ], { x: rx, y: qy, w: rw, h: 6.52 - qy, fontSize: 14, valign: 'middle' });
+
+  d.animate(s, [l1, big], { auto: true, effect: 'zoom', dur: 500 });
+  d.animate(s, [bigT], { auto: true, effect: 'fade', dur: 400, after: 100 });
+  d.animate(s, [...pf, ...ptab], { auto: true, effect: 'fade', dur: 600, after: 150 });
+  d.animate(s, hl.map((n, i) => ({ name: n, effect: 'wipeLeft', dur: 350, delay: i * 300 })), { auto: true, after: 200 });
+  d.animate(s, [...nyt], { effect: 'slam', dur: 420 });
+  d.animate(s, [...tf, ...ttab], { effect: 'fade', dur: 500 });
+  d.animate(s, thl.map((n, i) => ({ name: n, effect: 'wipeLeft', dur: 350, delay: i * 300 })), { auto: true, after: 100 });
+  d.animate(s, [pace], { effect: 'fade', dur: 500 });
+  d.source(s, 'OpenAI, “Advisory Group on Mathematics and Artificial Intelligence” (Sep 21, 2026) · the Advisory Group on Terence Tao’s blog (Sep 21) · S. Strogatz & A. Townsend, The New York Times (Sep 22, 2026).');
+  s.addNotes([
+    'MESSAGE: Navier–Stokes was not the end of it. OpenAI says the same internal model has since resolved more than a hundred long-standing open problems — and is holding the results back while it works out how to release them. The flood has not hit yet.',
+    'PRECISE WORDING (do not say "hundreds"): OpenAI, Sep 21, 2026: "On August 28, we began training a new internal model. In addition to resolving the Navier–Stokes Millennium Prize problem, this model has now resolved more than 100 long-standing open problems across most areas of mathematics. The pace of its progress in mathematics has surprised the mathematicians within OpenAI. This has led to internal discussions on the best way to inform the community of the rapid progress to prepare and adapt the field." ' + MRU.openai + ' (X announcement, 6.6M views: ' + MRU.openaiX + '). We found no OpenAI statement saying "hundreds"; the figure is "more than 100", and OpenAI has not published a list or the proofs (the amber marks on the screenshot are ours).',
+    '"WAITING TO BE RELEASED" is how others describe it, consistently: NYT guest essay by Cornell mathematicians Steven Strogatz and Alex Townsend (Sep 22), "Mathematics Isn\'t Just a Game to Let A.I. Solve. History Shows Why.": "Just yesterday, the company announced that the same internal model had now \'resolved more than 100 longstanding problems across most areas of mathematics\' — results that OpenAI was waiting to release until it had figured out \'the best way to inform the community of the rapid progress to prepare and adapt the field.\'" ' + MRU.nyt + ' (card, not a screenshot: NYT blocks our browser). The Advisory Group itself (guest post on Tao\'s blog, Sep 21): "Current Task. We are currently facing the very specific challenge of advising OpenAI on how to coordinate the release of a large number of significant results in mathematics that they report have been produced by their internal model." ' + MRU.tao + ' . The Verge (Robert Hart, Sep 28, "OpenAI keeps bulldozing mathematicians"): OpenAI "is sitting on a tranche of results it is clearly eager to release as soon as possible". ' + MRU.verge,
+    'THE GROUP: François Charles, Camillo De Lellis, Timothy Gowers, Martin Hairer, Nikhil Srivastava, Ulrike Tillmann, Ravi Vakil, Edward Witten, Melanie Matchett Wood (hosted at the Institute for Advanced Study; unpaid; independent). OpenAI\'s post: it will "advise on how to coordinate their dissemination" — but "Importantly, the group will not be responsible for advising us on how to pace our internal progress on mathematics." That last line is the safety point: outside experts manage the announcement, not the speed.',
+    'Related rumor (Q&A): Scott Aaronson (Sep 15) heard that "the AI companies, having been burned by the hostile response to the Navier-Stokes proof, are now sitting on solutions to some very major problems until they figure out a better way to handle things" (theoretical CS; a rumor) ' + MRU.aaronson + ' ; Andrew Curran on Sep 21: "The rumors were true once again; they are sitting on multiple major announcements." ' + MRU.curran,
+  ].join('\n\n'));
+  return s;
+}
+
+// ---------------------------------------------------------------- 12. the Hodge / BSD rumors (clearly labelled)
+async function rumorsSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  s.addText(`${KICK} · MATHEMATICS IN CRISIS · 6`, { placeholder: 'kicker' });
+  s.addText('Unconfirmed rumors: Hodge and BSD next?', { placeholder: 'title' });
+
+  // ---- left: who said what, where, when
+  const lw = 6.15;
+  const l1 = label(d, s, 'THE RUMOR · WHO SAID WHAT, WHERE, WHEN', MX, 1.62, lw, { color: d.S.amber });
+  const early = d.text(s, [
+    { text: 'Sep 9 · @Dr_Singularity on X: ', options: { bold: true, color: d.S.steel } },
+    { text: '“Rumors are emerging that OpenAI may have solved the Hodge conjecture”', options: { italic: true, color: d.S.txt } },
+  ], { x: MX, y: 1.95, w: lw, h: 0.5, fontSize: 12.5, valign: 'top' });
+  const sw = 5.75;
+  const sf = await d.frame(s, MR('x-synthwavedd-hodge-bsd-rumor.png'), { x: MX + 0.05, y: 2.55, w: sw, h: (sw - 0.12) * 510 / 1200 + 0.12 }, { rot: -1, link: MRU.synth });
+  const stab = outletTab(d, s, sf.geom, 'X · @SYNTHWAVEDD · SEP 10 · 1.5M VIEWS', 'bl', -1);
+  // red "unconfirmed" stamp on the empty top-right of the post (clear of its text)
+  const sg = sf.geom;
+  const stamp = d.name('stamp');
+  const stW = 1.95, stH = 0.42, stX = sg.x + sg.w - stW - 0.25, stY = sg.y + 0.12;
+  s.addShape(d.pres.shapes.RECTANGLE, { x: stX, y: stY, w: stW, h: stH, rotate: -6, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 2.5 }, objectName: stamp });
+  const stampT = d.text(s, 'UNCONFIRMED', { x: stX, y: stY, w: stW, h: stH, rotate: -6, fontSize: 15, bold: true, color: d.S.red, charSpacing: 3, align: 'center', valign: 'middle', fontFace: 'Arial' });
+
+  const gy = sg.y + sg.h + 0.42;
+  const gcrop = await crop(MR('gizmodo-openai-reportedly-trying-hodge.png'), 'math-gizmodo-hodge-head.png', { l: 0, t: 20, w: 980, h: 570 });
+  const gh = 6.5 - gy, gw = (gh - 0.12) * 980 / 570 + 0.12;
+  const gf = await d.frame(s, gcrop, { x: MX + 0.05, y: gy, w: gw, h: gh }, { rot: 1.2, link: MRU.gizmodo });
+  const gtab = outletTab(d, s, gf.geom, 'GIZMODO · SEP 17', 'tr', 1.2);
+  const tx = MX + gw + 0.35, tw = MX + lw - tx;
+  const info = d.text(s, [
+    { text: 'Its source: ', options: { bold: true, color: d.S.steel } },
+    { text: 'The Information, citing ', options: { color: d.S.txt } },
+    { text: 'one', options: { color: d.S.txt, bold: true } },
+    { text: ' OpenAI source: staff “expect to soon crack the Hodge Conjecture”', options: { color: d.S.txt, breakLine: true, paraSpaceAfter: 6 } },
+    { text: 'A skeptic: ', options: { bold: true, color: d.S.steel } },
+    { text: '“What would close even mean for BSD?” ', options: { italic: true, color: d.S.txt } },
+    { text: '— Elliot Glazer, Sep 10', options: { color: d.S.muted, fontSize: 11 } },
+  ], { x: tx, y: gy - 0.02, w: tw, h: 6.52 - gy, fontSize: 12.5, valign: 'top' });
+
+  // ---- right: what is actually on the record, the status, and the betting
+  const rx = MX + lw + 0.45, rw = 12.73 - rx;
+  const r1 = label(d, s, 'ON THE RECORD · OPENAI TO THE NYT · SEP 10', rx, 1.62, rw, { color: d.S.blue });
+  const rec = d.text(s, [
+    { text: '“…we have made substantial progress on another Millennium Prize problem.”', options: { italic: true, fontFace: 'Cambria', fontSize: 15, color: d.S.txt, breakLine: true, paraSpaceAfter: 3 } },
+    { text: 'It has not said which one.', options: { fontSize: 12, bold: true, color: d.S.txt } },
+  ], { x: rx, y: 1.95, w: rw, h: 0.95, valign: 'top' });
+  const r2 = label(d, s, 'STATUS · CLAY MATHEMATICS INSTITUTE · OCT 4', rx, 2.95, rw, { color: d.S.blue });
+  const ch1 = await crop(MR('clay-hodge-conjecture-unsolved.png'), 'math-clay-hodge-head.png', { l: 0, t: 70, w: 1400, h: 315 });
+  const ch2 = await crop(MR('clay-bsd-conjecture-unsolved.png'), 'math-clay-bsd-head.png', { l: 0, t: 70, w: 1400, h: 470 });
+  const cH = 0.78, cy = 3.28;
+  const w1 = cH * 1400 / 315, w2 = cH * 1400 / 470, cgap = rw - w1 - w2;
+  const c1 = await d.frame(s, ch1, { x: rx, y: cy, w: w1, h: cH }, { border: false, pad: 0, link: MRU.clayHodge });
+  const c2 = await d.frame(s, ch2, { x: rx + w1 + cgap, y: cy, w: w2, h: cH }, { border: false, pad: 0, link: MRU.clayBsd });
+  const r3 = label(d, s, 'POLYMARKET · WHICH ONE WILL AN AI LAB ANNOUNCE NEXT? (%)', rx, cy + cH + 0.2, rw, { color: d.S.blue });
+  const ds = DS['polymarket-hodge-bsd-daily'];
+  const mon = { '09': 'Sep', '10': 'Oct' };
+  const labs = ds.labels.map((l) => `${mon[l.slice(5, 7)]} ${+l.slice(8)}`);
+  const pick = ['Hodge Conjecture', 'Birch and Swinnerton-Dyer', 'No solution by Dec 31, 2027'];
+  const series = pick.map((nm) => ({ name: nm === 'Hodge Conjecture' ? 'Hodge' : nm === 'Birch and Swinnerton-Dyer' ? 'BSD' : 'None by 2027', labels: labs, values: ds.series.find((x) => x.name === nm).values }));
+  const chartY = cy + cH + 0.48;
+  const pch = d.chart(s, 'line', series, { x: rx - 0.05, y: chartY, w: rw + 0.05, h: 6.12 - chartY }, {
+    chartColors: [HEX.red, HEX.blue, '6B7383'], lineSize: 2.25, lineDataSymbol: 'none', legendPos: 'r', legendFontSize: 11,
+    valAxisMinVal: 0, valAxisMaxVal: 80, valAxisMajorUnit: 20, catAxisLabelFrequency: 6, catAxisLabelRotate: 0,
+    valAxisLabelFontSize: 10, catAxisLabelFontSize: 10,
+  });
+  const pfoot = d.text(s, 'Daily price ≈ implied probability · thin market ($214K traded): sentiment, not evidence',
+    { x: rx, y: 6.14, w: rw, h: 0.36, fontSize: 10.5, italic: true, color: d.S.muted, valign: 'middle' });
+
+  d.animate(s, [l1, early], { auto: true, effect: 'fade', dur: 500 });
+  d.animate(s, [...sf, ...stab], { auto: true, effect: 'slam', dur: 420, after: 150 });
+  d.animate(s, [stamp, stampT], { effect: 'zoom', dur: 350 });
+  d.animate(s, [...gf, ...gtab], { effect: 'slam', dur: 420 });
+  d.animate(s, [info], { auto: true, effect: 'fade', dur: 500, after: 100 });
+  d.animate(s, [r1, rec], { effect: 'fade', dur: 500 });
+  d.animate(s, [r2, ...c1, ...c2], { auto: true, effect: 'fade', dur: 500, after: 150 });
+  d.animate(s, [r3, { name: pch, effect: 'wipeLeft', dur: 1200 }, pfoot], { effect: 'fade' });
+  d.source(s, 'X: @Dr_Singularity (Sep 9), @synthwavedd, @ElliotGlazer (Sep 10, 2026) · The Verge quoting OpenAI’s NYT statement (Sep 10) · Gizmodo reporting The Information (Sep 17) · Clay Mathematics Institute, Polymarket (Oct 4).');
+  s.addNotes([
+    'MESSAGE (say it as a rumor, twice): nobody has claimed a proof of the Hodge conjecture or of Birch and Swinnerton-Dyer. What exists is (1) OpenAI saying, on the record, it made "substantial progress on another Millennium Prize problem" without naming it, and (2) anonymous rumors that it is Hodge (OpenAI) and BSD ("one of OpenAI or Anthropic"). Both are Clay Millennium Prize Problems ($1M each); Clay still lists both as "Unsolved" (Oct 4, 2026). The point for this talk: the field now treats "AI proves another Millennium problem next month" as a live possibility, with real money on it.',
+    'WHO SAID WHAT, WHERE, WHEN: Sep 9, 18:00 UTC — @Dr_Singularity on X (409K views): "Rumors are emerging that OpenAI may have solved the Hodge conjecture, another Millennium Prize Problem." (unsourced) ' + MRU.drsing + ' . Sep 10, 08:54 UTC — @synthwavedd ("leo", ~46K followers; 1.57M views), THE source of the Hodge+BSD rumor: "I am told the Hodge Conjecture is very close to being verified by OpenAI, and that one of OpenAI or Anthropic are also close to solving Birch-Swinnerton-Dyer. The race to be \'next\' behind the scenes is unlike anything I\'ve had described to me before. If true - and it may not be, given the scale of the rumour mill right now - it could mean 3 Millennium Problems fall in the space of a month." ' + MRU.synth + ' . 10:07 UTC — amplified by @kimmonismus (664K views) ' + MRU.chubby + ' . On r/mathematics a top comment (228 pts) claimed Hodge was "fully solved and is only awaiting verification", a reply that BSD "is proved true" — anonymous speculation ' + MRU.reddit,
+    'ON THE RECORD: OpenAI\'s statement to the NYT, Sep 10 (quoted by The Verge, Emma Roth): "In addition, since the completion of Navier-Stokes, we have made substantial progress on another Millennium Prize problem. We are working through how to share these results thoughtfully." ' + MRU.vergeNyt + ' . Greg Brockman on Bloomberg\'s Odd Lots (~Sep 15): "we have significant progress on another one of these Millennium problems." ' + MRU.brockman + ' . No problem named; no proof, paper or announcement since; no formal denial either.',
+    'THE ONLY NEWS SOURCE ON HODGE: The Information (Sep 17, paywalled), relayed by Gizmodo (Tom McKay): "citing a single source at OpenAI, that employees at the AI firm expect to soon crack the Hodge Conjecture" — an expectation, not a finished proof; "It could take the company longer to announce the solution, though, because it\'s trying to figure out how to collaborate with the math community to make the announcement without triggering another PR nightmare." Gizmodo headline: "OpenAI Reportedly Trying to Solve Hodge Conjecture Amid Feud With Math Community" ' + MRU.gizmodo + ' (also The Decoder ' + MRU.decoder + ' and The Verge ' + MRU.vergeHodge + ').',
+    'SKEPTICS: Elliot Glazer (X, Sep 10, 63 minutes after the rumor): "In what context would an insider whisper to someone else \'one of these two labs is close to BSD,\' instead of saying which? What would close even mean for BSD? Remember the original Navier-Stokes rumor (Ant did it, plus Hodge) was wrong but vagueness obscured its implausibility." ' + MRU.glazer + ' . Michael Harris (Sep 8) on the EARLIER rumor that Anthropic would announce Hodge + Navier–Stokes: he "saw absolutely no reason to believe" Hodge was close ' + MRU.harris + ' (a Kalshi market on Anthropic announcing a Millennium solution before Oct 1 resolved NO). Burt Totaro, a Hodge expert, on Tao\'s blog (Sep 11): "It now seems possible that AI companies will burn through vast resources in order to prove some new fact about the Hodge conjecture" — but the first open case "still seems far out of reach" ' + MRU.totaro + ' . UConn\'s Álvaro Lozano-Robledo (The Verge): "No mathematician would go out and say that. You either have solved it, or you\'re still trying." Scientific American (Sep 15) ranks BSD and Hodge as AI\'s likeliest next targets ' + MRU.sciam,
+    'MARKETS (Oct 4; sentiment only): Polymarket "Which Millennium Prize Problem will AI solve next?" (opened Sep 9; $213,778 traded): Hodge 37%, "No solution by Dec 31, 2027" 24%, BSD 22% — Hodge peaked at 74.5% (hourly) on the evening of Sep 17, right after The Information report ' + MRU.poly + ' . Chart = daily price nearest 18:00 UTC from Polymarket\'s price history. Manifold (play money): "Will ANOTHER millennium prize problem be solved in 2026?" 41% (602 traders) ' + MRU.manifold + ' . Kalshi: "Hodge resolved before 2027" last 25¢, "BSD resolved before 2027" last 9¢ ' + MRU.kalshi,
+    'Clay pages (live, Oct 4, 2026): ' + MRU.clayHodge + ' · ' + MRU.clayBsd,
+  ].join('\n\n'));
+  return s;
+}
+
 async function build(d) {
   await metrSlide(d);
   await metrEvidenceSlide(d);
@@ -1144,11 +1548,16 @@ async function build(d) {
   await closeupSlide(d);
   await paintSlide(d);
   await worldsSlide(d);
+  await anabologyFilmSlide(d);
+  await anabologySatireSlide(d);
+  await fableSlide(d);
   await videoSlide(d);
   await navierSlide(d);
   await headlinesSlide(d);
   await aftermathSlide(d);
   await vibemathedSlide(d);
+  await pipelineSlide(d);
+  await rumorsSlide(d);
 }
 
 module.exports = { build };

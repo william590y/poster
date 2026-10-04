@@ -1,0 +1,26 @@
+{
+ "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+ "title": "Measurements for understanding the pace of AI development inside frontier labs \\ Anthropic",
+ "crop_css": {
+  "x": 308,
+  "y": 8485.0625,
+  "w": 664,
+  "h": 155.71875
+ },
+ "highlights_frac": {
+  "approximately 30,000 agents doing research and engineering work at Anthropic at any one time": [
+   {
+    "x": 0.5753,
+    "y": 0.0899,
+    "w": 0.3481,
+    "h": 0.1349
+   },
+   {
+    "x": 0.0181,
+    "y": 0.2591,
+    "w": 0.7868,
+    "h": 0.1349
+   }
+  ]
+ }
+}

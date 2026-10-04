@@ -1,0 +1,1357 @@
+{
+ "group": "capabilities/rev2/mathrumors",
+ "items": [
+  {
+   "id": "openai-advisory-post-100-problems",
+   "slide_topic": "Math: OpenAI says its model has resolved 100+ open problems (results not yet released)",
+   "type": "screenshot",
+   "file": "mathrumors/openai-advisory-post-100-problems.png",
+   "headline": "Advisory Group on Mathematics and Artificial Intelligence",
+   "dek": "On August 28, we began training a new internal model. In addition to resolving the Navier–Stokes Millennium Prize problem, this model has now resolved more than 100 long-standing open problems across most areas of mathematics. The pace of its progress in mathematics has surprised the mathematicians within OpenAI. This has led to internal discussions on the best way to inform the community of the rapid progress to prepare and adapt the field.",
+   "outlet": "OpenAI",
+   "author": "OpenAI (byline \"OpenAI\"; no individual author)",
+   "date": "2026-09-21",
+   "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+   "caption": "Real screenshot of the OpenAI post (date, title, opening paragraph). Highlight the key sentence with the boxes in \"highlights\".",
+   "quality": 5,
+   "notes": "IMPORTANT: the wording is \"more than 100 long-standing open problems\", NOT \"hundreds\". No OpenAI post/tweet with \"hundreds of results awaiting release\" was found (see not_found). The post does not say a number is \"awaiting release\"; the \"waiting to release\" framing comes from the NYT (Strogatz/Townsend, 2026-09-22), The Verge (2026-09-28) and the advisory group (Tao blog 2026-09-21). Captured through a remote (TinyFish) browser because openai.com blocks the local headless browser with a Cloudflare challenge; the page is the live genuine page, 1360x1320 px (2x of a 680x660 css clip at x=300,y=130, viewport 1280 wide). X post announcing it: https://x.com/OpenAI/status/2102093145051943229 (2026-09-21 17:50 UTC, 6.6M views).",
+   "highlights": [
+    {
+     "label": "key sentence (3 wrapped lines)",
+     "text": "this model has now resolved more than 100 long-standing open problems across most areas of mathematics",
+     "image_px": {
+      "w": 1360,
+      "h": 1320
+     },
+     "rects_px": [
+      {
+       "x": 906.2,
+       "y": 958.4,
+       "w": 292,
+       "h": 52
+      },
+      {
+       "x": 76.6,
+       "y": 1014.4,
+       "w": 1125.8,
+       "h": 52
+      },
+      {
+       "x": 76.6,
+       "y": 1070.4,
+       "w": 200.2,
+       "h": 52
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.6663,
+       "y": 0.7261,
+       "w": 0.2147,
+       "h": 0.0394
+      },
+      {
+       "x": 0.0563,
+       "y": 0.7685,
+       "w": 0.8278,
+       "h": 0.0394
+      },
+      {
+       "x": 0.0563,
+       "y": 0.8109,
+       "w": 0.1472,
+       "h": 0.0394
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=3 css px at scale 2"
+    },
+    {
+     "label": "just the number: \"more than 100 long-standing open problems\"",
+     "text": "more than 100 long-standing open problems",
+     "image_px": {
+      "w": 1360,
+      "h": 1320
+     },
+     "rects_px": [
+      {
+       "x": 211.4,
+       "y": 1014.4,
+       "w": 672,
+       "h": 52
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.1554,
+       "y": 0.7685,
+       "w": 0.4941,
+       "h": 0.0394
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=3 css px at scale 2"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "openai-advisory-post-group-role",
+   "slide_topic": "Math: OpenAI says its model has resolved 100+ open problems (results not yet released)",
+   "type": "screenshot",
+   "file": "mathrumors/openai-advisory-post-group-role.png",
+   "headline": "Advisory Group on Mathematics and Artificial Intelligence",
+   "dek": "The group will advise on the review and communication of emerging results: they will help OpenAI assess their significance, advise on how to coordinate their dissemination, and advise on academic and professional standards of mathematical research. ... Importantly, the group will not be responsible for advising us on how to pace our internal progress on mathematics.",
+   "outlet": "OpenAI",
+   "author": "OpenAI",
+   "date": "2026-09-21",
+   "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+   "caption": "Same OpenAI post, further down: the group is to advise on how to \"coordinate the dissemination\" of the emerging results but not on the pace of OpenAI's progress.",
+   "quality": 4,
+   "notes": "Real screenshot via remote browser (page scrolled 1180 px; css clip x=300,y=60,680x520; image 1360x1040). Group members listed on the same page: François Charles, Camillo De Lellis, Timothy Gowers, Martin Hairer, Nikhil Srivastava, Ulrike Tillmann, Ravi Vakil, Edward Witten, Melanie Matchett Wood (hosted at the Institute for Advanced Study).",
+   "highlights": [
+    {
+     "label": "\"advise on how to coordinate their dissemination\"",
+     "text": "advise on how to coordinate their dissemination",
+     "image_px": {
+      "w": 1360,
+      "h": 1040
+     },
+     "rects_px": [
+      {
+       "x": 786.2,
+       "y": 50.4,
+       "w": 428.8,
+       "h": 52
+      },
+      {
+       "x": 76.6,
+       "y": 106.4,
+       "w": 289.6,
+       "h": 52
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.5781,
+       "y": 0.0485,
+       "w": 0.3153,
+       "h": 0.05
+      },
+      {
+       "x": 0.0563,
+       "y": 0.1023,
+       "w": 0.2129,
+       "h": 0.05
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=3 css px at scale 2"
+    },
+    {
+     "label": "\"the group will not be responsible for advising us on how to pace our internal progress on mathematics\"",
+     "text": "Importantly, the group will not be responsible for advising us on how to pace our internal progress on mathematics",
+     "image_px": {
+      "w": 1360,
+      "h": 1040
+     },
+     "rects_px": [
+      {
+       "x": 467.6,
+       "y": 714.4,
+       "w": 735.0,
+       "h": 52
+      },
+      {
+       "x": 76.6,
+       "y": 770.4,
+       "w": 984.6,
+       "h": 52
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.3438,
+       "y": 0.6869,
+       "w": 0.5404,
+       "h": 0.05
+      },
+      {
+       "x": 0.0563,
+       "y": 0.7408,
+       "w": 0.724,
+       "h": 0.05
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=3 css px at scale 2"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "x-openai-advisory-group-post",
+   "slide_topic": "Math: OpenAI says its model has resolved 100+ open problems (results not yet released)",
+   "type": "screenshot",
+   "file": "mathrumors/x-openai-advisory-group-post.png",
+   "headline": null,
+   "dek": "We’re working with an independent advisory group of mathematicians to help OpenAI responsibly share advances in AI and mathematics. The group will advise on how we assess and communicate new mathematical results, uphold academic and professional standards, and build tools that support mathematical research and learning. Through this work, we want mathematicians to be at the center of shaping how AI supports mathematical understanding and how its benefits reach the wider community.",
+   "outlet": "X (@OpenAI)",
+   "author": "OpenAI",
+   "date": "2026-09-21",
+   "url": "https://x.com/OpenAI/status/2102093145051943229",
+   "caption": "OpenAI's X post announcing the advisory group (5:50 PM UTC Sep 21, 6.6M views, 10K likes, 1.1K reposts)",
+   "quality": 4,
+   "notes": "The tweet itself does not mention the \"100 problems\"; that is only in the linked post. Counts as captured 2026-10-04.",
+   "verified": true
+  },
+  {
+   "id": "tao-blog-agmai-announcement-current-task",
+   "slide_topic": "Math: OpenAI says its model has resolved 100+ open problems (results not yet released)",
+   "type": "screenshot",
+   "file": "mathrumors/tao-blog-agmai-announcement-current-task.png",
+   "headline": "Announcing the Advisory Group on Mathematics and Artificial Intelligence",
+   "dek": "Current Task. We are currently facing the very specific challenge of advising OpenAI on how to coordinate the release of a large number of significant results in mathematics that they report have been produced by their internal model.",
+   "outlet": "Terence Tao's blog \"What's new\" (guest post by the Advisory Group)",
+   "author": "Advisory Group on Mathematics and Artificial Intelligence",
+   "date": "2026-09-21",
+   "url": "https://terrytao.wordpress.com/2026/09/21/advisory-group-on-mathematics-and-artificial-intelligence/",
+   "caption": "The advisory group (Gowers, Witten, Hairer, Vakil ...) says its first job is to advise OpenAI on releasing \"a large number of significant results\"",
+   "quality": 5,
+   "notes": "Independent confirmation that a large unreleased batch exists (as reported by OpenAI, \"that they report\"). Also: \"This group came together after OpenAI approached some of its members about establishing an external advisory board.\" Page header/date not in the crop: post dated 21 September 2026 (\"What's new\", Terence Tao).",
+   "highlights": [
+    {
+     "label": "\"Current Task\" sentence",
+     "text": "We are currently facing the very specific challenge of advising OpenAI on how to coordinate the release of a large number of significant results in mathematics that they report have been produced by their internal model.",
+     "image_px": {
+      "w": 1040,
+      "h": 270
+     },
+     "rects_px": [
+      {
+       "x": 181.6,
+       "y": 121.6,
+       "w": 787.4,
+       "h": 34.0
+      },
+      {
+       "x": 20,
+       "y": 155.6,
+       "w": 954.2,
+       "h": 34.0
+      },
+      {
+       "x": 20,
+       "y": 189.6,
+       "w": 597.4,
+       "h": 34.0
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.1746,
+       "y": 0.4504,
+       "w": 0.7571,
+       "h": 0.1259
+      },
+      {
+       "x": 0.0192,
+       "y": 0.5763,
+       "w": 0.9175,
+       "h": 0.1259
+      },
+      {
+       "x": 0.0192,
+       "y": 0.7022,
+       "w": 0.5744,
+       "h": 0.1259
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=1.5 css px at scale 2"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "verge-openai-keeps-bulldozing-mathematicians",
+   "slide_topic": "Math: OpenAI says its model has resolved 100+ open problems (results not yet released)",
+   "type": "headline",
+   "file": "mathrumors/verge-openai-keeps-bulldozing-mathematicians.png",
+   "headline": "OpenAI keeps bulldozing mathematicians",
+   "dek": "The Verge spoke to one of the mathematicians advising OpenAI as the field braces for a new wave of results that could upend their work.",
+   "outlet": "The Verge",
+   "author": "Robert Hart",
+   "date": "2026-09-28",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1001477/openai-math-advisory-group",
+   "caption": "Verge hero (headline, dek, byline, bulldozer art); live page now paywalled below the lede",
+   "quality": 4,
+   "notes": "Body text verified through a full-page load (TinyFish fetch) before the paywall appeared: \"That urgency might be down to the fact that OpenAI is sitting on a tranche of results it is clearly eager to release as soon as possible. Since solving the Navier-Stokes Millennium Prize problem, OpenAI says its unreleased internal “model has now resolved more than 100 long-standing open problems across most areas of mathematics.”\" / \"For weeks now, OpenAI has been hinting at another Millennium Prize problem and says it has more than 100 results to apparently major problems ready to go, while revealing little about what any of these actually are.\" / Martin Hairer (AGMAI member): \"They obviously are very good PR people\". / Alvaro Lozano-Robledo (UConn): \"This is not how any academic behaves ... I don’t go around saying, like, ‘Oh, I’ve proved all these things, but I don’t know what to do with them.’\" / Colva Roney-Dougal (St Andrews): \"It’s somewhat agonizing to know that a ‘large number’ of results are likely to be announced soon.\" The Verge also notes OpenAI’s Laurance Fauconnet told it the company had \"made substantial progress\" on another Millennium Prize problem.",
+   "verified": true
+  },
+  {
+   "id": "nyt-strogatz-townsend-waiting-to-release",
+   "slide_topic": "Math: OpenAI says its model has resolved 100+ open problems (results not yet released)",
+   "type": "headline",
+   "file": null,
+   "headline": "Mathematics Isn’t Just a Game to Let A.I. Solve. History Shows Why.",
+   "dek": "Just yesterday, the company announced that the same internal model had now “resolved more than 100 longstanding problems across most areas of mathematics” — results that OpenAI was waiting to release until it had figured out “the best way to inform the community of the rapid progress to prepare and adapt the field.”",
+   "outlet": "The New York Times (Opinion/Guest essay)",
+   "author": "Steven Strogatz and Alex Townsend (Cornell University)",
+   "date": "2026-09-22",
+   "url": "https://www.nytimes.com/2026/09/22/science/math-ai-history-understanding.html",
+   "caption": "Text only (screenshot blocked by NYT bot check). Best sourced statement that the 100+ results are being held back.",
+   "quality": 4,
+   "notes": "Verified by loading the article preview text (TinyFish). Note NYT's quote of OpenAI drops the hyphen of \"long-standing\". Same piece: \"This month, 27 Fields medalists ... have signed a joint declaration\" and Tao \"strip-mining\" mathematics. Render as a neutral headline card.",
+   "verified": true
+  },
+  {
+   "id": "x-andrewcurran-sep21-rumors-were-true",
+   "slide_topic": "Math: OpenAI says its model has resolved 100+ open problems (results not yet released)",
+   "type": "screenshot",
+   "file": "mathrumors/x-andrewcurran-sep21-rumors-were-true-sitting-on-announcements.png",
+   "headline": null,
+   "dek": "The rumors were true once again; they are sitting on multiple major announcements. Open AI announced this morning that the unnamed internal model involved with Navier-Stokes has resolved more than 100 long-standing open problems across most areas of mathematics.",
+   "outlet": "X (@AndrewCurran_)",
+   "author": "Andrew Curran",
+   "date": "2026-09-21",
+   "url": "https://x.com/AndrewCurran_/status/2102121553211412975",
+   "caption": "Curran quote-posts OpenAI's paragraph (highlighted) and his own Sep 15 post relaying Scott Aaronson's \"sitting on solutions\" rumor",
+   "quality": 4,
+   "notes": "7:43 PM UTC, 412K views, 2.6K likes (as captured). The embedded card is an image of the OpenAI paragraph with Curran's own yellow highlight (that highlight is his, not ours).",
+   "verified": true
+  },
+  {
+   "id": "x-andrewcurran-sep15-aaronson-rumor",
+   "slide_topic": "Math: AI labs reportedly sitting on a pipeline of results",
+   "type": "screenshot",
+   "file": "mathrumors/x-andrewcurran-sep15-aaronson-rumor-sitting-on-announcements.png",
+   "headline": null,
+   "dek": "Scott Aaronson writes on his blog tonight that he has heard rumors that the AI companies have reached solutions to some very longstanding open problems in theoretical computer science, and are now sitting on multiple major announcements because of the Navier-Stokes firestorm.",
+   "outlet": "X (@AndrewCurran_)",
+   "author": "Andrew Curran",
+   "date": "2026-09-15",
+   "url": "https://x.com/AndrewCurran_/status/2100005852564611151",
+   "caption": "Curran summarising Aaronson's blog rumor (screenshot of the blog sentence embedded) plus his earlier Brockman post",
+   "quality": 4,
+   "notes": "Primary source is Aaronson's blog \"The Age of Wonders and Terrors\" (2026-09-15, already in the capabilities manifest as aaronson-title): \"According to rumors that I’ve heard, solutions to some very longstanding open problems in theoretical computer science (no, not P≠NP or other complexity class separations, but think about some of our other biggest problems). I’m told that the AI companies, having been burned by the hostile response to the Navier-Stokes proof, are now sitting on solutions to some very major problems until they figure out a better way to handle things\". This is TCS, not Hodge/BSD.",
+   "verified": true
+  },
+  {
+   "id": "verge-openai-substantial-progress-another-millennium",
+   "slide_topic": "Math: OpenAI hints at a second Millennium Prize problem",
+   "type": "screenshot",
+   "file": "mathrumors/verge-openai-substantial-progress-another-millennium.png",
+   "headline": "OpenAI says it has made “substantial progress” on another major math problem.",
+   "dek": "In addition, since the completion of Navier-Stokes, we have made substantial progress on another Millennium Prize problem. We are working through how to share these results thoughtfully.",
+   "outlet": "The Verge (quoting a statement OpenAI gave The New York Times)",
+   "author": "Emma Roth",
+   "date": "2026-09-10",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/993568/openai-says-it-has-made-substantial-progress-on-another-major-math-problem",
+   "caption": "The only on-record OpenAI statement about a second Millennium problem: unnamed, \"substantial progress\"",
+   "quality": 5,
+   "notes": "Posted Sep 10, 2026 6:09 PM UTC. NYT source: \"An N.Y.U. Mathematician Clashed With OpenAI Over a $1 Million Proof\" (https://www.nytimes.com/2026/09/10/science/tristan-buckmaster-openai-math-navier-stokes.html). OpenAI did not say which problem and did not say \"solved\". Verge Sep 28 quotes an OpenAI person (Laurance Fauconnet) repeating \"made substantial progress\".",
+   "verified": true
+  },
+  {
+   "id": "x-andrewcurran-sep15-brockman-second-problem",
+   "slide_topic": "Math: OpenAI hints at a second Millennium Prize problem",
+   "type": "screenshot",
+   "file": "mathrumors/x-andrewcurran-sep15-brockman-two-remaining-problems.png",
+   "headline": null,
+   "dek": "More confirmation that OpenAI has made 'significant progress' on a second Millennium problem, this time from Greg Brockman. The rumor is that they are close to solving two of the remaining problems. Or already have. Which two? Unknown. Dev Day would be a good day to announce.",
+   "outlet": "X (@AndrewCurran_)",
+   "author": "Andrew Curran",
+   "date": "2026-09-15",
+   "url": "https://x.com/AndrewCurran_/status/2099999310490603856",
+   "caption": "Embedded clip caption (Greg Brockman): \"And we also said that we have significant progress on another one of these Millennium problems.\"",
+   "quality": 4,
+   "notes": "11:10 PM UTC Sep 15, 268.7K views. Brockman clip from Bloomberg Odd Lots, \"OpenAI President Greg Brockman on Doing Business in the Wake of Hugging Face\" (https://youtu.be/56GuvofZgB4), relayed by @Hangsiin (https://x.com/Hangsiin/status/2099966745595555904). Curran's \"two of the remaining problems\" is his rumor, not an OpenAI statement. OpenAI DevDay recap (openai.com/index/devday-2026-recap/) exists; no Millennium announcement was found.",
+   "verified": true
+  },
+  {
+   "id": "x-synthwavedd-hodge-bsd-rumor",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD",
+   "type": "screenshot",
+   "file": "mathrumors/x-synthwavedd-hodge-bsd-rumor.png",
+   "headline": null,
+   "dek": "I am told the Hodge Conjecture is very close to being verified by OpenAI, and that one of OpenAI or Anthropic are also close to solving Birch-Swinnerton-Dyer. The race to be 'next' behind the scenes is unlike anything I've had described to me before. If true - and it may not be, given the scale of the rumour mill right now - it could mean 3 Millennium Problems fall in the space of a month. Crazy times",
+   "outlet": "X (@synthwavedd, \"leo\")",
+   "author": "leo (@synthwavedd; ~45.9K followers, verified; bio \"tech, ai & politics nerd\")",
+   "date": "2026-09-10",
+   "url": "https://x.com/synthwavedd/status/2097971881596916185",
+   "caption": "THE source of the Hodge+BSD rumor: anonymous \"I am told\" post, 8:54 AM UTC Sep 10 2026, 1.5M views",
+   "quality": 5,
+   "notes": "1,570,095 views / 6,119 likes / 375 reposts / 198 replies (fxtwitter API, 2026-10-04). Hedged by the author (\"If true - and it may not be\"). Hodge = OpenAI \"very close to being verified\"; BSD = \"one of OpenAI or Anthropic\" (no lab named). Same author later (Sep 10 15:26 UTC) posted the OpenAI/NYT \"substantial progress\" quote: https://x.com/synthwavedd/status/2098070558734716950. The conversation view also shows NYT science reporter Kenneth Chang (@kchangnyt, Sep 10) posting that OpenAI \"confirms that it is close to solving another Millennium problem\" followed by the NYT quote (his paraphrase; OpenAI itself said \"substantial progress\"). Reddit r/singularity thread built on this post: \"Some more millennium prize problems possibly solved...\" (1.1K upvotes).",
+   "verified": true
+  },
+  {
+   "id": "x-kimmonismus-rumors-spreading",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD",
+   "type": "screenshot",
+   "file": "mathrumors/x-kimmonismus-rumors-spreading.png",
+   "headline": null,
+   "dek": "Holy, rumors are spreading everywhere that OpenAI is close to verifying a proof of the Hodge conjecture, while either OpenAI or Anthropic may be nearing a solution to Birch–Swinnerton-Dyer. Both are Millennium Prize Problems that have resisted decades of mathematical research. Verified AI-generated proofs of both would be a historic achievement for mathematics and a remarkable demonstration of AI’s ability to produce new scientific knowledge. And infact show that AI is capable of finding novel and creative solutions.",
+   "outlet": "X (@kimmonismus, \"Chubby\")",
+   "author": "Chubby (@kimmonismus; ~148.7K followers)",
+   "date": "2026-09-10",
+   "url": "https://x.com/kimmonismus/status/2097990443690496402",
+   "caption": "Amplification of the rumor 1h13m after the original (10:07 AM UTC, 664K views)",
+   "quality": 4,
+   "notes": "664,457 views / 5,635 likes / 335 reposts / 220 replies. No independent sourcing: restates the synthwavedd post. Grok's auto-summary (x.com/i/trending/2097994388727050416, \"AI Agents Claim Breakthrough on Navier-Stokes Millennium Problem\") also ran with \"Rumors suggest progress on the Hodge and Birch-Swinnerton-Dyer conjectures by OpenAI or Anthropic\".",
+   "verified": true
+  },
+  {
+   "id": "x-drsingularity-hodge-rumor",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD",
+   "type": "screenshot",
+   "file": "mathrumors/x-drsingularity-hodge-rumor.png",
+   "headline": null,
+   "dek": "Rumors are emerging that OpenAI may have solved the Hodge conjecture, another Millennium Prize Problem. 7 Millennium Prize Problems, with $1 million for solving each. 1. Riemann Hypothesis — unsolved 2. P vs NP — unsolved 3. Navier–Stokes Existence and Smoothness — solved by OpenAI 4. Yang - Mills Existence and Mass Gap — unsolved 5. Hodge Conjecture — unsolved 6. Birch and Swinnerton-Dyer Conjecture — unsolved 7. Poincaré Conjecture — SOLVED by Grigori Perelman",
+   "outlet": "X (@Dr_Singularity)",
+   "author": "Dr Singularity (@Dr_Singularity; ~83.3K followers; bio \"AGI/ASI by 2030\")",
+   "date": "2026-09-09",
+   "url": "https://x.com/Dr_Singularity/status/2097746969212981732",
+   "caption": "Earliest viral X post (6:00 PM UTC Sep 9): \"OpenAI may have solved the Hodge conjecture\"; also a handy list of the seven Clay problems",
+   "quality": 4,
+   "notes": "409K views / 2.7K likes / 243 reposts. Unsourced (\"Rumors are emerging\"). Doubles as a one-slide list of the 7 Millennium Prize problems and their status (as of that post; its \"solved by OpenAI\" for Navier-Stokes is OpenAI's claim, Clay verification still pending). Hodge and BSD are both on the Clay list ($1 million each).",
+   "verified": true
+  },
+  {
+   "id": "reddit-rmathematics-hodge-bsd-rumor-comments",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD",
+   "type": "screenshot",
+   "file": "mathrumors/reddit-rmathematics-hodge-bsd-rumor-comments.png",
+   "headline": "OpenAI claims to “have made substantial progress on another Millennium Prize problem” in the NYT",
+   "dek": "Rumor is that it is the Hodge Conjecture (and that it is not substantial progress, but fully solved and is only awaiting verification). Also less substantiated rumors that significant progress had been made on Birch-Swinnerton-Dyer. — Also the rumor circulating on X is that BSD is proved true, which would be a surprise as so far we're used to these counterexamples. Could still be complete nonsense so we'll have to wait and see",
+   "outlet": "Reddit r/mathematics",
+   "author": "u/New-Committee-4052 (top comment, 228 upvotes) and reply u/Hopeful-Banana-6188 (124 upvotes); thread by u/NichtBela",
+   "date": "2026-09-10",
+   "url": "https://www.reddit.com/r/mathematics/comments/1wcn9xy/openai_claims_to_have_made_substantial_progress/",
+   "caption": "Reddit shows how the rumor mutated: Hodge \"fully solved ... awaiting verification\"; BSD \"proved true\" (both unsourced)",
+   "quality": 4,
+   "notes": "Thread posted ~2026-09-10 15:59 UTC (post: 538 upvotes, 379 comments). Comments are anonymous speculation. One reply (u/Stabile_Feldmaus) notes the leaker used \"are close to solving it\" framing. Another top commenter: \"Probably a counterexample to the Hodge conjecture.\" Related r/singularity thread \"Some more millennium prize problems possibly solved...\" (1.1K upvotes) is a screenshot of the synthwavedd post.",
+   "verified": true
+  },
+  {
+   "id": "x-elliotglazer-skeptic-reply",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD — skepticism",
+   "type": "screenshot",
+   "file": "mathrumors/x-elliotglazer-skeptic-reply.png",
+   "headline": null,
+   "dek": "In what context would an insider whisper to someone else \"one of these two labs is close to BSD,\" instead of saying which? What would close even mean for BSD? Remember the original Navier-Stokes rumor (Ant did it, plus Hodge) was wrong but vagueness obscured its implausibility.",
+   "outlet": "X (@ElliotGlazer)",
+   "author": "Elliot Glazer (@ElliotGlazer)",
+   "date": "2026-09-10",
+   "url": "https://x.com/ElliotGlazer/status/2097987910675075572",
+   "caption": "Immediate expert-style pushback (9:57 AM UTC, 63 minutes after the rumor): the BSD part is too vague to mean anything",
+   "quality": 4,
+   "notes": "Quote-post of the synthwavedd rumor; 30.9K views, 279 likes. Glazer's affiliation is not shown on the page; do not label him beyond \"mathematician on X\" unless confirmed. Note \"Ant did it, plus Hodge\" = the earlier (wrong) rumor that Anthropic had solved Navier-Stokes plus Hodge.",
+   "verified": true
+  },
+  {
+   "id": "silicon-reckoner-harris-hodge-rumor",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD — skepticism",
+   "type": "screenshot",
+   "file": "mathrumors/silicon-reckoner-harris-hodge-rumor.png",
+   "headline": "“If you don’t want me to be nice, then I don’t have to be nice”",
+   "dek": "Rumors have been circulating for just over a week that Anthropic was about to announce solutions to two of the Clay Millenium problems, specifically the Hodge Conjecture and the Navier-Stokes problem, though the details of the rumor fluctuated between proofs and counterexamples. I’ve written previously about AI and the Navier-Stokes problem and found that part of the rumor plausible; on the other hand, I know something about the Hodge Conjecture and saw absolutely no reason to believe that it was close to being solved, with or without LLMs. My intuition about the Hodge Conjecture rumor appears to have been correct.",
+   "outlet": "Silicon Reckoner (Substack)",
+   "author": "Michael Harris",
+   "date": "2026-09-08",
+   "url": "https://siliconreckoner.substack.com/p/if-you-dont-want-me-to-be-nice-then",
+   "caption": "Mathematician Michael Harris (Sep 8): the earlier (Anthropic) Hodge+Navier-Stokes rumor had no plausibility on the Hodge side",
+   "quality": 5,
+   "notes": "Published 2026-09-08 11:36 UTC. Establishes the rumor pre-dates the Sep 10 OpenAI/Hodge post: from ~Aug 31 the rumor was \"Anthropic about to announce Hodge + Navier-Stokes\" (it was wrong: on Sep 7/8 Buckmaster and Alpoge (Anthropic) posted forced-Euler/Boussinesq/porous-media blow-up results; OpenAI announced Navier-Stokes Sep 8). Harris is a critic of AI-industry hype; this is his opinion, not proof Hodge is unsolved by AI. Page crop has no title/date; metadata from the page.",
+   "highlights": [
+    {
+     "label": "rumor sentence (Anthropic, Hodge + Navier-Stokes)",
+     "text": "Rumors have been circulating for just over a week that Anthropic was about to announce solutions to two of the Clay Millenium problems, specifically the Hodge Conjecture and the Navier-Stokes problem, though the details of the rumor fluctuated between proofs and counterexamples.",
+     "image_px": {
+      "w": 1520,
+      "h": 750
+     },
+     "rects_px": [
+      {
+       "x": 910.2,
+       "y": 93.8,
+       "w": 557.8,
+       "h": 50
+      },
+      {
+       "x": 32,
+       "y": 154.6,
+       "w": 1392.8,
+       "h": 50
+      },
+      {
+       "x": 32,
+       "y": 215.4,
+       "w": 1311.6,
+       "h": 50
+      },
+      {
+       "x": 32,
+       "y": 276.2,
+       "w": 1202.4,
+       "h": 50
+      },
+      {
+       "x": 32,
+       "y": 337.0,
+       "w": 293.8,
+       "h": 50
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.5988,
+       "y": 0.1251,
+       "w": 0.367,
+       "h": 0.0667
+      },
+      {
+       "x": 0.0211,
+       "y": 0.2061,
+       "w": 0.9163,
+       "h": 0.0667
+      },
+      {
+       "x": 0.0211,
+       "y": 0.2872,
+       "w": 0.8629,
+       "h": 0.0667
+      },
+      {
+       "x": 0.0211,
+       "y": 0.3683,
+       "w": 0.7911,
+       "h": 0.0667
+      },
+      {
+       "x": 0.0211,
+       "y": 0.4493,
+       "w": 0.1933,
+       "h": 0.0667
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=-2 css px at scale 2"
+    },
+    {
+     "label": "skeptic sentence",
+     "text": "I know something about the Hodge Conjecture and saw absolutely no reason to believe that it was close to being solved, with or without LLMs. My intuition about the Hodge Conjecture rumor appears to have been correct.",
+     "image_px": {
+      "w": 1520,
+      "h": 750
+     },
+     "rects_px": [
+      {
+       "x": 1004,
+       "y": 397.8,
+       "w": 472.4,
+       "h": 50
+      },
+      {
+       "x": 32,
+       "y": 458.6,
+       "w": 1402.6,
+       "h": 50
+      },
+      {
+       "x": 32,
+       "y": 519.4,
+       "w": 496.6,
+       "h": 50
+      },
+      {
+       "x": 32,
+       "y": 580.2,
+       "w": 488.4,
+       "h": 50
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.6605,
+       "y": 0.5304,
+       "w": 0.3108,
+       "h": 0.0667
+      },
+      {
+       "x": 0.0211,
+       "y": 0.6115,
+       "w": 0.9228,
+       "h": 0.0667
+      },
+      {
+       "x": 0.0211,
+       "y": 0.6925,
+       "w": 0.3267,
+       "h": 0.0667
+      },
+      {
+       "x": 0.0211,
+       "y": 0.7736,
+       "w": 0.3213,
+       "h": 0.0667
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=-2 css px at scale 2"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "x-andrewcurran-sep5-claude-solved-navier-stokes",
+   "slide_topic": "Math: rumors — the earlier Anthropic rumor that preceded OpenAI's announcement",
+   "type": "screenshot",
+   "file": "mathrumors/x-andrewcurran-sep5-claude-solved-navier-stokes-prediction.png",
+   "headline": null,
+   "dek": "It's fun to make predictions. Here's a new one: Anthropic has solved a Millennium Prize Problem. And I'll be even more specific. Claude has solved Navier–Stokes. It is out for expert review. And to give myself a hard deadline, they will announce it before the IPO.",
+   "outlet": "X (@AndrewCurran_)",
+   "author": "Andrew Curran",
+   "date": "2026-09-05",
+   "url": "https://x.com/AndrewCurran_/status/2096062392442724805",
+   "caption": "3.7M-view \"prediction\" (2:26 AM UTC Sep 5) that Anthropic's Claude had solved Navier-Stokes — three days before OpenAI announced its own proof",
+   "quality": 4,
+   "notes": "3,789,153 views / 8,791 likes / 480 reposts. Framed as a prediction but widely read as a leak. Kalshi market \"Will Anthropic announce a Millennium Prize solution before Oct 1, 2026?\" (opened 2026-09-05) finalized NO. OpenAI says (Navier-Stokes post): \"On Tuesday, September 1, we heard rumors that two Millennium Prize problems had been resolved.\" and that this rumor prompted it to attack all open Millennium problems. Not about Hodge/BSD directly, but it is the rumor mill that fed the Hodge/BSD rumors.",
+   "verified": true
+  },
+  {
+   "id": "tao-blog-totaro-on-the-hodge-conjecture",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD — expert view",
+   "type": "screenshot",
+   "file": "mathrumors/tao-blog-totaro-on-the-hodge-conjecture.png",
+   "headline": "On the Hodge conjecture",
+   "dek": "These are strange times for mathematicians. It now seems possible that AI companies will burn through vast resources in order to prove some new fact about the Hodge conjecture. I’d like to discuss the current status of the Hodge conjecture, in order to think about the value to the mathematical community of exploring such hard problems.",
+   "outlet": "Terence Tao's blog \"What's new\" (guest post)",
+   "author": "Burt Totaro (UCLA), posted by Terence Tao",
+   "date": "2026-09-11",
+   "url": "https://terrytao.wordpress.com/2026/09/11/on-the-hodge-conjecture/",
+   "caption": "Hodge-conjecture expert Burt Totaro on the day after the rumor: AI attacking Hodge now \"seems possible\"",
+   "quality": 5,
+   "notes": "Same post, verbatim: \"By some measures, one could say that progress on the Hodge conjecture has been limited. In view of Lefschetz’s results, the first open case is for codimension-2 cycles on a variety of complex dimension 4, and that case (for arbitrary varieties of dimension 4) still seems far out of reach.\" / \"At this point, I am confident that with enough effort, it will be possible to push these ideas further. As we have seen, AI companies are willing to mobilize resources on an incomprehensible scale to attack problems that attract their interest.\" / \"But there is reason to worry about the commercial pressure on AI companies to claim advances at high speed and the knock-on effect this has on mathematicians.\" (Markman 2025 proved Hodge for abelian varieties of dimension 4 and 5.) The post does not confirm any claimed AI proof; it only treats an AI attempt as plausible.",
+   "highlights": [
+    {
+     "label": "\"It now seems possible that AI companies will burn through vast resources in order to prove some new fact about the Hodge conjecture.\"",
+     "text": "It now seems possible that AI companies will burn through vast resources in order to prove some new fact about the Hodge conjecture.",
+     "image_px": {
+      "w": 1040,
+      "h": 444
+     },
+     "rects_px": [
+      {
+       "x": 507.8,
+       "y": 264.4,
+       "w": 479.8,
+       "h": 34.0
+      },
+      {
+       "x": 20,
+       "y": 298.4,
+       "w": 962.4,
+       "h": 34.0
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.4883,
+       "y": 0.5955,
+       "w": 0.4613,
+       "h": 0.0766
+      },
+      {
+       "x": 0.0192,
+       "y": 0.6721,
+       "w": 0.9254,
+       "h": 0.0766
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=1.5 css px at scale 2"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "gizmodo-openai-reportedly-trying-hodge",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD",
+   "type": "screenshot",
+   "file": "mathrumors/gizmodo-openai-reportedly-trying-hodge.png",
+   "headline": "OpenAI Reportedly Trying to Solve Hodge Conjecture Amid Feud With Math Community",
+   "dek": "According to The Information, OpenAI's primary concern is not solving the Hodge Conjecture but announcing they did so without further infuriating mathematicians.",
+   "outlet": "Gizmodo (reporting The Information)",
+   "author": "Tom McKay",
+   "date": "2026-09-17",
+   "url": "https://gizmodo.com/openai-reportedly-trying-to-solve-hodge-conjecture-amid-feud-with-math-community-2000813658",
+   "caption": "Gizmodo headline/dek/byline (published Sep 17, 2026, 8:10 PM ET)",
+   "quality": 5,
+   "notes": "The only \"news\" (non-social) source on Hodge: a SINGLE anonymous OpenAI source via The Information (Thursday Sep 17). Not confirmed by OpenAI.",
+   "verified": true
+  },
+  {
+   "id": "gizmodo-the-information-single-source-hodge",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD",
+   "type": "screenshot",
+   "file": "mathrumors/gizmodo-the-information-single-source-hodge.png",
+   "headline": null,
+   "dek": "The Information reported Thursday, citing a single source at OpenAI, that employees at the AI firm expect to soon crack the Hodge Conjecture. ... “It could take the company longer to announce the solution, though, because it’s trying to figure out how to collaborate with the math community to make the announcement without triggering another PR nightmare,” The Information paraphrased its source as saying.",
+   "outlet": "Gizmodo (reporting The Information)",
+   "author": "Tom McKay",
+   "date": "2026-09-17",
+   "url": "https://gizmodo.com/openai-reportedly-trying-to-solve-hodge-conjecture-amid-feud-with-math-community-2000813658",
+   "caption": "Key paragraph: single OpenAI source says employees \"expect to soon crack the Hodge Conjecture\"",
+   "quality": 5,
+   "notes": "Also reported by The Decoder (\"OpenAI reportedly closes in on solving the Hodge conjecture, its second Millennium Prize Problem\", Matthias Bastian, 2026-09-17: \"Employees expect a solution soon, according to a person familiar with the matter. Any announcement could be delayed, though.\") and The Verge (Terrence O'Brien, Sep 17). \"Expect to solve\" is an expectation, not a claim of a finished proof.",
+   "highlights": [
+    {
+     "label": "key sentence",
+     "text": "The Information reported Thursday, citing a single source at OpenAI, that employees at the AI firm expect to soon crack the Hodge Conjecture.",
+     "image_px": {
+      "w": 1560,
+      "h": 400
+     },
+     "rects_px": [
+      {
+       "x": 48,
+       "y": 79.6,
+       "w": 305.8,
+       "h": 52
+      },
+      {
+       "x": 353.8,
+       "y": 79.6,
+       "w": 1007.8,
+       "h": 52
+      },
+      {
+       "x": 48,
+       "y": 151.6,
+       "w": 1198,
+       "h": 52
+      },
+      {
+       "x": 48,
+       "y": 223.6,
+       "w": 221.0,
+       "h": 52
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.0308,
+       "y": 0.199,
+       "w": 0.196,
+       "h": 0.13
+      },
+      {
+       "x": 0.2268,
+       "y": 0.199,
+       "w": 0.646,
+       "h": 0.13
+      },
+      {
+       "x": 0.0308,
+       "y": 0.379,
+       "w": 0.7679,
+       "h": 0.13
+      },
+      {
+       "x": 0.0308,
+       "y": 0.559,
+       "w": 0.1417,
+       "h": 0.13
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=0 css px at scale 2"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "verge-next-millennium-challenge-openai-reportedly-chasing",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD",
+   "type": "screenshot",
+   "file": "mathrumors/verge-next-millennium-challenge-openai-reportedly-chasing.png",
+   "headline": "This is the next Millennium Prize math challenge OpenAI is reportedly chasing.",
+   "dek": "Mathematicians have speculated that the company was targeting the Hodge Conjecture next, but after the PR disaster that was Navier-Stokes and its recent failure to keep its models under control, OpenAI may hold off on any announcements. According to The Information: It could take the company longer to announce the solution, though, because it’s trying to figure out how to collaborate with the math community to make the announcement without triggering another PR nightmare....",
+   "outlet": "The Verge",
+   "author": "Terrence O'Brien",
+   "date": "2026-09-17",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/996949/this-is-the-next-millennium-prize-math-challenge-openai-is-reportedly-chasing",
+   "caption": "Verge post, Sep 17 2026, 3:26 PM UTC: the Hodge target is \"reportedly\" OpenAI's next",
+   "quality": 4,
+   "notes": "Secondary relay of The Information.",
+   "verified": true
+  },
+  {
+   "id": "decoder-openai-closes-in-hodge",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD",
+   "type": "headline",
+   "file": null,
+   "headline": "OpenAI reportedly closes in on solving the Hodge conjecture, its second Millennium Prize Problem",
+   "dek": "OpenAI is reportedly tackling the next Millennium Prize Problem. After its still unconfirmed solution to the Navier-Stokes problem, the company is now working on the Hodge conjecture. Employees expect a solution soon, but any announcement could be delayed.",
+   "outlet": "The Decoder",
+   "author": "Matthias Bastian",
+   "date": "2026-09-17",
+   "url": "https://the-decoder.com/openai-reportedly-closes-in-on-solving-the-hodge-conjecture-its-second-millennium-prize-problem/",
+   "caption": "Text headline card candidate (source: The Information)",
+   "quality": 3,
+   "notes": "\"Source: The Information\". The Decoder also reports the Navier-Stokes solution used \"a variant of its next pretrained model, codenamed 'Doug'\" (per The Information).",
+   "verified": true
+  },
+  {
+   "id": "sciam-which-million-dollar-math-problem-header",
+   "slide_topic": "Math: rumors AI is about to prove Hodge / BSD — expert/press view",
+   "type": "screenshot",
+   "file": "mathrumors/sciam-which-million-dollar-math-problem-header.png",
+   "headline": "Which million-dollar math problem could AI solve next?",
+   "dek": "After an OpenAI model presented a possible solution to the Navier-Stokes problem, mathematicians are speculating about which major unsolved question could be resolved next",
+   "outlet": "Scientific American (translated from Spektrum der Wissenschaft)",
+   "author": "Manon Bischoff; edited by Daisy Yuhas",
+   "date": "2026-09-15",
+   "url": "https://www.scientificamerican.com/article/which-million-dollar-math-problem-could-ai-solve-next/",
+   "caption": "SciAm ranks the five remaining Millennium problems by how likely AI is to solve them: BSD first, Hodge second",
+   "quality": 5,
+   "notes": "Order in the article: 1) Birch and Swinnerton-Dyer (\"Past experience has shown that language models are particularly good at finding such [counter]examples.\"), 2) Hodge (\"A second strong candidate for an AI solution is the Hodge conjecture, which is arguably the most abstract of the seven Millennium Prize puzzles.\"), 3) Riemann, 4) Yang-Mills (\"experts do not expect AI models to resolve these questions anytime soon\"), 5) P vs NP. \"Now only five Millennium Prize Problems remain\" (counts Navier-Stokes as solved, i.e. OpenAI's claim).",
+   "verified": true
+  },
+  {
+   "id": "sciam-openai-told-nyt-progress-another-problem",
+   "slide_topic": "Math: OpenAI hints at a second Millennium Prize problem",
+   "type": "screenshot",
+   "file": "mathrumors/sciam-openai-told-nyt-progress-another-problem.png",
+   "headline": null,
+   "dek": "Now only five Millennium Prize Problems remain, and major AI companies are racing to solve them. OpenAI told the New York Times that it has already made significant progress on another one of the problems—but didn’t specify which one. In forums, at conferences and workshops and, of course, on social media, people are speculating about which of these remaining problems AI will tackle next.",
+   "outlet": "Scientific American",
+   "author": "Manon Bischoff",
+   "date": "2026-09-15",
+   "url": "https://www.scientificamerican.com/article/which-million-dollar-math-problem-could-ai-solve-next/",
+   "caption": "Paragraph: OpenAI told NYT it has progress on another problem, \"didn't specify which one\"",
+   "quality": 4,
+   "notes": "Highlight the second sentence. SciAm paraphrases (\"significant progress\"); OpenAI's own words to the NYT were \"substantial progress\".",
+   "highlights": [
+    {
+     "label": "OpenAI told NYT ... didn't specify which one",
+     "text": "OpenAI told the New York Times that it has already made significant progress on another one of the problems—but didn’t specify which one.",
+     "image_px": {
+      "w": 1480,
+      "h": 430
+     },
+     "rects_px": [
+      {
+       "x": 485.8,
+       "y": 130.2,
+       "w": 889.2,
+       "h": 44
+      },
+      {
+       "x": 40,
+       "y": 200.2,
+       "w": 1021.4,
+       "h": 44
+      }
+     ],
+     "rects_norm": [
+      {
+       "x": 0.3282,
+       "y": 0.3028,
+       "w": 0.6008,
+       "h": 0.1023
+      },
+      {
+       "x": 0.027,
+       "y": 0.4656,
+       "w": 0.6901,
+       "h": 0.1023
+      }
+     ],
+     "note": "rects follow the text line boxes (one per wrapped line); pad applied vertically=0 css px at scale 2"
+    }
+   ],
+   "verified": true
+  },
+  {
+   "id": "polymarket-which-millennium-problem-ai-next",
+   "slide_topic": "Math: prediction markets on Hodge / BSD",
+   "type": "screenshot",
+   "file": "mathrumors/polymarket-which-millennium-problem-ai-next.png",
+   "headline": "Which Millennium Prize Problem will AI solve next?",
+   "dek": "Hodge Conjecture 37% · No solution by Dec 31, 2027 24% · Birch and Swinnerton-Dyer 22% · Yang-Mills 6.6% · $213,778 Vol.",
+   "outlet": "Polymarket",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://polymarket.com/event/which-millennium-prize-problem-will-ai-solve-next",
+   "caption": "Live Polymarket page on 2026-10-04: Hodge 37%, BSD 22% to be the next problem an AI lab announces a solution to by end-2027; price chart since the market opened Sep 9",
+   "quality": 4,
+   "notes": "Market opened Sep 9, 2026 3:43 PM ET (19:43 UTC); resolves on \"an eligible AI lab ... announces a solution\" by Dec 31, 2027 (partial results/progress do NOT count; no Clay confirmation required; Navier-Stokes excluded). Chart shows Hodge spiking to ~74.5% hourly on Sep 17 (evening of The Information report) and sliding back to ~36.5%. 1x-resolution image (860x685) because the page chart canvas only renders in the 1x capture; use the native chart from dataset polymarket-hodge-bsd-daily for a crisp visual. Screenshot taken through a remote (TinyFish) browser after dismissing the \"It looks like you're in the US\" geo notice (view-only).",
+   "verified": true
+  },
+  {
+   "id": "manifold-next-millennium-problem-hodge-70pct",
+   "slide_topic": "Math: prediction markets on Hodge / BSD",
+   "type": "screenshot",
+   "file": "mathrumors/manifold-next-millennium-problem-hodge-70pct.png",
+   "headline": "Next Millenium Prize Problem Solved?",
+   "dek": "Hodge Conjecture 70% · Birch and Swinnerton-Dyer Conjecture 20% · Riemann Hypothesis 5% · P vs NP Problem 3% · Yang-Mills Existence and Mass Gap 3%",
+   "outlet": "Manifold (play-money prediction market)",
+   "author": "Ziddletwix (market creator)",
+   "date": "2026-10-04",
+   "url": "https://manifold.markets/Ziddletwix/next-millenium-prize-problem-solved",
+   "caption": "Manifold multi-choice market created 2026-09-09: Hodge is the crowd favourite for the next Millennium problem to fall",
+   "quality": 4,
+   "notes": "45 traders, ~M7.9k volume (play money \"mana\"), created 2026-09-09 11:25 UTC, closes 2030. Resolves to \"the next problem considered to be solved by the consensus of the mathematical community\". Two similar Manifold markets on 2026-10-04 via API: Sketchy \"Which Millennium prize problem will be solved next? (after Navier-Stokes)\" Hodge 60.5%, BSD 19.6%, Yang-Mills 12.5%, Riemann 4.5%, P vs NP 3.0% (40 traders); justifieduseofFallibilism \"Which Millennium Prize Problem will be solved next?\" Hodge 59.6%, BSD 20.3%, Yang-Mills 12.3%, Riemann 6.2%, P vs NP 1.5% (32 traders). Small, play-money markets: sentiment, not evidence.",
+   "verified": true
+  },
+  {
+   "id": "manifold-will-another-millennium-problem-be-solved-2026",
+   "slide_topic": "Math: prediction markets on Hodge / BSD",
+   "type": "screenshot",
+   "file": "mathrumors/manifold-will-another-millennium-problem-be-solved-2026.png",
+   "headline": "Will ANOTHER millennium prize problem be solved in 2026?",
+   "dek": "41% chance · 602 traders · ~M380k volume · chart Sep 8 – Oct 4 (peaked ~80% mid-September)",
+   "outlet": "Manifold (play-money prediction market)",
+   "author": "Oper_Culum (creator)",
+   "date": "2026-10-04",
+   "url": "https://manifold.markets/HumanClanker/will-another-millennium-prize-probl",
+   "caption": "Most-traded Manifold market on the question; started ~30%, spiked to ~80% after the Sep 10 rumors/NYT statement, drifted down to 41%",
+   "quality": 4,
+   "notes": "Resolves YES if between Sep 9 and Dec 31, 2026 (UTC) \"a proposed solution for at least one of the remaining five Millennium Prize Problems is formally announced or published\" (P vs NP, Riemann, Yang-Mills, Hodge, BSD; Navier-Stokes excluded). API on 2026-10-04: prob 0.408, 602 unique traders, volume 375,505 mana, created 2026-09-08 22:46 UTC, closes 2027-01-01. Chart peak ~80% read off the image (approximate).",
+   "verified": true
+  },
+  {
+   "id": "clay-hodge-conjecture-unsolved",
+   "slide_topic": "Math: Hodge and BSD are Clay Millennium Prize problems (status Unsolved)",
+   "type": "screenshot",
+   "file": "mathrumors/clay-hodge-conjecture-unsolved.png",
+   "headline": "Hodge Conjecture",
+   "dek": "Unsolved. The answer to this conjecture determines how much of the topology of the solution set of a system of algebraic equations can be defined in terms of further algebraic equations. The Hodge conjecture is known in certain special cases, e.g., when the solution set has dimension less than four. But in dimension four it is unknown.",
+   "outlet": "Clay Mathematics Institute",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://www.claymath.org/millennium/hodge-conjecture/",
+   "caption": "Clay's own Hodge page, status \"Unsolved\" as of 2026-10-04",
+   "quality": 5,
+   "notes": "Clay lists seven Millennium Prize Problems, $1,000,000 each (see capabilities manifest item clay-millennium-1m-each). Screenshot is of the live page on 2026-10-04.",
+   "verified": true
+  },
+  {
+   "id": "clay-bsd-conjecture-unsolved",
+   "slide_topic": "Math: Hodge and BSD are Clay Millennium Prize problems (status Unsolved)",
+   "type": "screenshot",
+   "file": "mathrumors/clay-bsd-conjecture-unsolved.png",
+   "headline": "Birch and Swinnerton-Dyer Conjecture",
+   "dek": "Unsolved. Supported by much experimental evidence, this conjecture relates the number of points on an elliptic curve mod p to the rank of the group of rational points. Elliptic curves, defined by cubic equations in two variables, are fundamental mathematical objects that arise in many areas: Wiles’ proof of the Fermat Conjecture, factorization of numbers into primes, and cryptography, to name three.",
+   "outlet": "Clay Mathematics Institute",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://www.claymath.org/millennium/birch-and-swinnerton-dyer-conjecture/",
+   "caption": "Clay's own BSD page, status \"Unsolved\" as of 2026-10-04",
+   "quality": 5,
+   "notes": "Screenshot is of the live page on 2026-10-04.",
+   "verified": true
+  }
+ ],
+ "datasets": [
+  {
+   "id": "polymarket-hodge-bsd-daily",
+   "title": "Polymarket \"Which Millennium Prize Problem will AI solve next?\" — implied probability by day (price nearest 18:00 UTC)",
+   "unit": "% (share price = implied probability that this problem is the first an eligible AI lab announces solved by 2027-12-31)",
+   "labels": [
+    "2026-09-10",
+    "2026-09-11",
+    "2026-09-12",
+    "2026-09-13",
+    "2026-09-14",
+    "2026-09-15",
+    "2026-09-16",
+    "2026-09-17",
+    "2026-09-18",
+    "2026-09-19",
+    "2026-09-20",
+    "2026-09-21",
+    "2026-09-22",
+    "2026-09-23",
+    "2026-09-24",
+    "2026-09-25",
+    "2026-09-26",
+    "2026-09-27",
+    "2026-09-28",
+    "2026-09-29",
+    "2026-09-30",
+    "2026-10-01",
+    "2026-10-02",
+    "2026-10-03",
+    "2026-10-04"
+   ],
+   "series": [
+    {
+     "name": "Hodge Conjecture",
+     "values": [
+      53.5,
+      43.0,
+      42.5,
+      44.5,
+      40.5,
+      39.5,
+      39.5,
+      60.5,
+      60.0,
+      59.5,
+      51.5,
+      53.5,
+      61.5,
+      53.5,
+      52.5,
+      52.5,
+      39.5,
+      40.0,
+      52.5,
+      28.0,
+      32.5,
+      35.5,
+      36.5,
+      36.5,
+      36.5
+     ]
+    },
+    {
+     "name": "Birch and Swinnerton-Dyer",
+     "values": [
+      28.5,
+      36.0,
+      37.5,
+      37.5,
+      36.5,
+      26.0,
+      28.5,
+      21.5,
+      15.5,
+      16.0,
+      20.0,
+      19.0,
+      19.0,
+      19.5,
+      19.5,
+      19.5,
+      19.5,
+      19.5,
+      19.5,
+      19.5,
+      19.5,
+      19.5,
+      22.0,
+      21.5,
+      21.5
+     ]
+    },
+    {
+     "name": "No solution by Dec 31, 2027",
+     "values": [
+      11.0,
+      13.5,
+      13.0,
+      17.5,
+      16.5,
+      26.5,
+      27.0,
+      19.5,
+      17.0,
+      16.5,
+      16.5,
+      19.0,
+      16.5,
+      16.5,
+      19.0,
+      20.5,
+      27.5,
+      27.5,
+      21.5,
+      25.5,
+      26.5,
+      22.0,
+      24.0,
+      23.5,
+      23.5
+     ]
+    },
+    {
+     "name": "Yang-Mills",
+     "values": [
+      5.6,
+      7.5,
+      2.8,
+      1.8,
+      4.6,
+      1.8,
+      2.5,
+      0.5,
+      0.4,
+      0.5,
+      0.5,
+      0.5,
+      1.8,
+      5.1,
+      5.1,
+      5.2,
+      5.1,
+      5.3,
+      5.1,
+      5.2,
+      5.2,
+      5.1,
+      8.6,
+      6.9,
+      6.3
+     ]
+    }
+   ],
+   "source": "Polymarket CLOB prices-history (hourly, fidelity=60), market opened 2026-09-09 19:43 UTC; fetched 2026-10-04 ~18:10 UTC",
+   "url": "https://polymarket.com/event/which-millennium-prize-problem-will-ai-solve-next",
+   "notes": "Thin market ($213,778 total volume; Hodge $77,501; BSD $28,188), so single trades move the price — treat as sentiment. Hourly extremes: Hodge peak 74.5% on 2026-09-17 22:00 UTC (the evening The Information/Gizmodo reported OpenAI staff \"expect to soon crack the Hodge Conjecture\"); BSD peak 47% on 2026-09-11 22:00 UTC (day after the \"one of OpenAI or Anthropic\" BSD rumor); on 2026-10-04: Hodge 36.5%, BSD 21.5%, No solution 23.5%, Yang-Mills 6.6%, P vs NP 3.75%, Riemann 2.55%. First-hour prices of 50% are the market-creation default. Only \"announcements ... by an eligible AI lab\" count; partial results do not."
+  },
+  {
+   "id": "polymarket-snapshot-2026-10-04",
+   "title": "Polymarket snapshot 2026-10-04 (18:05 UTC)",
+   "unit": "% implied probability",
+   "labels": [
+    "Hodge Conjecture",
+    "No solution by Dec 31, 2027",
+    "Birch and Swinnerton-Dyer",
+    "Yang-Mills",
+    "P versus NP",
+    "Riemann Hypothesis"
+   ],
+   "series": [
+    {
+     "name": "Polymarket",
+     "values": [
+      36.5,
+      23.5,
+      21.5,
+      6.35,
+      3.75,
+      2.55
+     ]
+    }
+   ],
+   "source": "Polymarket gamma-api outcomePrices",
+   "url": "https://polymarket.com/event/which-millennium-prize-problem-will-ai-solve-next",
+   "notes": "Page shows rounded 37 / 24 / 22 / ~7 / 4 / <3."
+  },
+  {
+   "id": "manifold-which-millennium-next-2026-10-04",
+   "title": "Manifold multi-choice markets: which Millennium Prize Problem is solved next (play money)",
+   "unit": "% (probability)",
+   "labels": [
+    "Hodge Conjecture",
+    "Birch and Swinnerton-Dyer",
+    "Yang-Mills",
+    "Riemann Hypothesis",
+    "P vs NP"
+   ],
+   "series": [
+    {
+     "name": "Ziddletwix (45 traders, created 2026-09-09; screenshot)",
+     "values": [
+      69.8,
+      20.0,
+      2.6,
+      4.6,
+      3.0
+     ]
+    },
+    {
+     "name": "Sketchy (40 traders, created 2026-09-08)",
+     "values": [
+      60.5,
+      19.6,
+      12.5,
+      4.5,
+      3.0
+     ]
+    },
+    {
+     "name": "justifieduseofFallibilism (32 traders, created 2026-09-08)",
+     "values": [
+      59.6,
+      20.3,
+      12.3,
+      6.2,
+      1.5
+     ]
+    }
+   ],
+   "source": "Manifold API (api.manifold.markets/v0/slug/...), fetched 2026-10-04",
+   "url": "https://manifold.markets/Ziddletwix/next-millenium-prize-problem-solved",
+   "notes": "Play-money markets with tens of traders. Screenshot rounds Ziddletwix to 70/20/5/3/3."
+  },
+  {
+   "id": "kalshi-hodge-bsd-resolved-before-2027-snapshot",
+   "title": "Kalshi markets (real money), snapshot 2026-10-04",
+   "unit": "cents per $1 contract (last traded price)",
+   "labels": [
+    "Hodge resolved before 2027 (last)",
+    "BSD resolved before 2027 (last)",
+    "Anthropic announces a Millennium solution before Jan 1, 2027 (last)",
+    "Anthropic announces a Millennium solution before Oct 1, 2026 (final result)"
+   ],
+   "series": [
+    {
+     "name": "last price (¢)",
+     "values": [
+      25,
+      9,
+      30,
+      1
+     ]
+    }
+   ],
+   "source": "Kalshi trade API v2 markets (series KXHODGE, KXBIRCHSWINN, KXANTHROPICMILLENNIUM)",
+   "url": "https://kalshi.com/markets/kxhodge",
+   "notes": "KXHODGE-32-27JAN01: last 25c (bid 26 / ask 29), volume 2,098 contracts. KXBIRCHSWINN-32-27JAN01: last 9c (bid 11 / ask 16), volume 1,208. KXANTHROPICMILLENNIUM-27-JAN01: last 30c (bid 30 / ask 33), volume 11,209. KXANTHROPICMILLENNIUM-27-OCT01 (\"before Oct 1, 2026\", opened 2026-09-05, volume ~41,959): status finalized, result NO (the Anthropic rumor did not come true by the deadline). Longer-dated Hodge/BSD contracts (2028-2032) are nearly untraded (1-6 contracts). Kalshi pages block our browser, so no screenshot; values are from the API."
+  }
+ ],
+ "facts": [
+  {
+   "claim": "OpenAI, Sept 21 2026: \"On August 28, we began training a new internal model. In addition to resolving the Navier–Stokes Millennium Prize problem, this model has now resolved more than 100 long-standing open problems across most areas of mathematics.\"",
+   "source": "OpenAI, \"Advisory Group on Mathematics and Artificial Intelligence\"",
+   "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+   "date": "2026-09-21"
+  },
+  {
+   "claim": "PRECISION: OpenAI's own number is \"more than 100\" results, not \"hundreds\"; it did not publish a list, proofs, or a count of results \"awaiting release\". The \"waiting to release\" framing is the NYT's and the advisory group's.",
+   "source": "OpenAI post + NYT (Strogatz & Townsend) + Tao blog (AGMAI)",
+   "url": "https://www.nytimes.com/2026/09/22/science/math-ai-history-understanding.html",
+   "date": "2026-09-22"
+  },
+  {
+   "claim": "NYT guest essay (Cornell mathematicians Steven Strogatz and Alex Townsend): the model \"had now ‘resolved more than 100 longstanding problems across most areas of mathematics’ — results that OpenAI was waiting to release until it had figured out ‘the best way to inform the community of the rapid progress to prepare and adapt the field.’\"",
+   "source": "The New York Times",
+   "url": "https://www.nytimes.com/2026/09/22/science/math-ai-history-understanding.html",
+   "date": "2026-09-22"
+  },
+  {
+   "claim": "Advisory group (Gowers, Witten, Hairer, Vakil, Wood, Tillmann, Srivastava, De Lellis, Charles): \"We are currently facing the very specific challenge of advising OpenAI on how to coordinate the release of a large number of significant results in mathematics that they report have been produced by their internal model.\"",
+   "source": "Terence Tao's blog, guest post by the Advisory Group",
+   "url": "https://terrytao.wordpress.com/2026/09/21/advisory-group-on-mathematics-and-artificial-intelligence/",
+   "date": "2026-09-21"
+  },
+  {
+   "claim": "OpenAI's post: the group will advise \"on how to coordinate their dissemination\" but \"will not be responsible for advising us on how to pace our internal progress on mathematics.\"",
+   "source": "OpenAI",
+   "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+   "date": "2026-09-21"
+  },
+  {
+   "claim": "The Verge (Sep 28): OpenAI \"is sitting on a tranche of results it is clearly eager to release as soon as possible\"; mathematicians describe \"dread\" over an incoming \"tidal wave\" of results.",
+   "source": "The Verge, Robert Hart",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1001477/openai-math-advisory-group",
+   "date": "2026-09-28"
+  },
+  {
+   "claim": "Aaronson (Sep 15): \"I’m told that the AI companies, having been burned by the hostile response to the Navier-Stokes proof, are now sitting on solutions to some very major problems until they figure out a better way to handle things\" (theoretical CS problems; rumor, not a claim about Hodge/BSD).",
+   "source": "Shtetl-Optimized, Scott Aaronson",
+   "url": "https://scottaaronson.blog/?p=10062",
+   "date": "2026-09-15"
+  },
+  {
+   "claim": "OpenAI statement to the NYT (Sep 10): \"In addition, since the completion of Navier-Stokes, we have made substantial progress on another Millennium Prize problem. We are working through how to share these results thoughtfully.\" No problem named.",
+   "source": "The Verge (Emma Roth) quoting OpenAI/NYT",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/993568/openai-says-it-has-made-substantial-progress-on-another-major-math-problem",
+   "date": "2026-09-10"
+  },
+  {
+   "claim": "Greg Brockman (Bloomberg Odd Lots, ~Sep 15): \"And we also said that we have significant progress on another one of these Millennium problems.\"",
+   "source": "Bloomberg Odd Lots clip relayed on X (@Hangsiin, @AndrewCurran_)",
+   "url": "https://x.com/AndrewCurran_/status/2099999310490603856",
+   "date": "2026-09-15"
+  },
+  {
+   "claim": "RUMOR STATUS (2026-10-04): no AI lab has publicly claimed a proof or disproof of the Hodge conjecture or the Birch and Swinnerton-Dyer conjecture; Clay Mathematics Institute lists both as \"Unsolved\". OpenAI has confirmed only \"substantial progress\" on one unnamed second Millennium problem; the Hodge link comes from anonymous rumors and one anonymous source cited by The Information. BSD has only a vague \"one of OpenAI or Anthropic\" rumor.",
+   "source": "Clay Mathematics Institute problem pages; OpenAI posts; The Information via Gizmodo",
+   "url": "https://www.claymath.org/millennium/hodge-conjecture/",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "Rumor origin on X: \"I am told the Hodge Conjecture is very close to being verified by OpenAI, and that one of OpenAI or Anthropic are also close to solving Birch-Swinnerton-Dyer ... If true - and it may not be ... it could mean 3 Millennium Problems fall in the space of a month.\" — @synthwavedd (\"leo\"), Sep 10 2026, 08:54 UTC, 1.5M+ views. Preceded by @Dr_Singularity (Sep 9, 18:00 UTC): \"Rumors are emerging that OpenAI may have solved the Hodge conjecture\".",
+   "source": "X",
+   "url": "https://x.com/synthwavedd/status/2097971881596916185",
+   "date": "2026-09-10"
+  },
+  {
+   "claim": "Earlier rumor wave: Michael Harris (Sep 8) wrote that for \"just over a week\" rumors said Anthropic was about to announce solutions to \"the Hodge Conjecture and the Navier-Stokes problem\"; he \"saw absolutely no reason to believe\" the Hodge part. Elliot Glazer (Sep 10): \"the original Navier-Stokes rumor (Ant did it, plus Hodge) was wrong\". OpenAI says it \"heard rumors that two Millennium Prize problems had been resolved\" on Tuesday Sept 1.",
+   "source": "Silicon Reckoner; X; OpenAI Navier-Stokes post",
+   "url": "https://siliconreckoner.substack.com/p/if-you-dont-want-me-to-be-nice-then",
+   "date": "2026-09-08"
+  },
+  {
+   "claim": "The Information (via Gizmodo, Sep 17): \"citing a single source at OpenAI, that employees at the AI firm expect to soon crack the Hodge Conjecture\" — an expectation; announcement \"could take the company longer\" to avoid \"another PR nightmare\".",
+   "source": "Gizmodo (Tom McKay) reporting The Information",
+   "url": "https://gizmodo.com/openai-reportedly-trying-to-solve-hodge-conjecture-amid-feud-with-math-community-2000813658",
+   "date": "2026-09-17"
+  },
+  {
+   "claim": "Expert skepticism: Glazer on the BSD rumor: \"In what context would an insider whisper ... ‘one of these two labs is close to BSD,’ instead of saying which? What would close even mean for BSD?\" UConn mathematician Alvaro Lozano-Robledo (Verge): \"No mathematician would go out and say that. You either have solved it, or you’re still trying.\"",
+   "source": "X; The Verge",
+   "url": "https://x.com/ElliotGlazer/status/2097987910675075572",
+   "date": "2026-09-10"
+  },
+  {
+   "claim": "Hodge expert Burt Totaro (Sep 11): \"It now seems possible that AI companies will burn through vast resources in order to prove some new fact about the Hodge conjecture\"; but the first open case (codimension-2 cycles, complex dimension 4) \"still seems far out of reach\".",
+   "source": "Terence Tao's blog (guest post)",
+   "url": "https://terrytao.wordpress.com/2026/09/11/on-the-hodge-conjecture/",
+   "date": "2026-09-11"
+  },
+  {
+   "claim": "Both the Hodge conjecture and the Birch and Swinnerton-Dyer conjecture are among the seven Clay Mathematics Institute Millennium Prize Problems ($1,000,000 each). On its Millennium page (2026-10-04) Clay marks Poincaré \"Solved\" (Perelman), files Navier-Stokes under \"Active problems\" (OpenAI's claim of Sep 8 is under review; no prize awarded) and lists Hodge and BSD as \"Unsolved\".",
+   "source": "Clay Mathematics Institute",
+   "url": "https://www.claymath.org/millennium-problems/",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "Scientific American (Sep 15) ranks BSD and Hodge as the two most likely Millennium problems for AI to crack next (BSD via a counterexample; Hodge \"a second strong candidate\"); Yang-Mills and P vs NP unlikely.",
+   "source": "Scientific American, Manon Bischoff",
+   "url": "https://www.scientificamerican.com/article/which-million-dollar-math-problem-could-ai-solve-next/",
+   "date": "2026-09-15"
+  },
+  {
+   "claim": "Polymarket (opened Sep 9; $213,778 volume): on Oct 4 the Hodge conjecture is 37% to be the next Millennium problem an AI lab announces solved by end-2027, BSD 22%, \"No solution by Dec 31, 2027\" 24%; Hodge peaked at ~74.5% on Sep 17 right after The Information report.",
+   "source": "Polymarket",
+   "url": "https://polymarket.com/event/which-millennium-prize-problem-will-ai-solve-next",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "Kalshi: \"Will Anthropic announce a Millennium Prize solution before Oct 1, 2026?\" (opened Sep 5; ~42K contracts traded) finalized NO; \"Hodge resolved before 2027\" last 25c, \"BSD resolved before 2027\" last 9c.",
+   "source": "Kalshi trade API",
+   "url": "https://kalshi.com/markets/kxanthropicmillennium/anthropic-millennium-prize-claim/kxanthropicmillennium-27",
+   "date": "2026-10-04"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "An OpenAI post saying \"hundreds\" of new math results are awaiting release / in the pipeline",
+   "searched": "OpenAI site pages loaded in full (Advisory Group post 2026-09-21; Navier-Stokes post 2026-09-08; \"Ten advances in mathematics\" 2026-08-01; openai.com/news and /news/company-announcements listings), OpenAI @OpenAI X post of 2026-09-21, WebSearch/DDG/TinyFish queries (\"hundreds\" + math results + awaiting release/pipeline/OpenAI/Pachocki/Bubeck/Brockman/Altman), Verge/NYT/TechCrunch/Decoder/Tao-blog coverage. The closest genuine statement is \"more than 100 long-standing open problems\" (Sept 21); Reddit commenters paraphrase it as \"hundreds\". Use \"100+\" on the slide."
+  },
+  {
+   "outline_item": "Any lab (OpenAI, Anthropic, Google, ...) claiming a Hodge or BSD proof, or a named insider/on-record source for the rumor",
+   "searched": "X (synthwavedd, kimmonismus, Dr_Singularity, Curran, Glazer), Reddit r/mathematics + r/singularity, Gizmodo/The Information/Decoder/Verge, SciAm, Silicon Reckoner, Tao blog, Polymarket/Manifold/Kalshi. Everything is anonymous (\"I am told\", \"a single source\"); no paper, arXiv/Lean artefact or official claim exists as of 2026-10-04."
+  },
+  {
+   "outline_item": "Formal denial of the Hodge/BSD rumors by OpenAI or Anthropic",
+   "searched": "Press + X search; none found. OpenAI only confirms \"substantial progress on another Millennium Prize problem\" (unnamed). Kalshi's Anthropic-before-Oct-1 market resolved NO, which is market evidence, not a denial."
+  },
+  {
+   "outline_item": "The Information's original article (paywalled)",
+   "searched": "theinformation.com not loaded; use Gizmodo / The Decoder / The Verge relays (all loaded)."
+  },
+  {
+   "outline_item": "Screenshot of the NYT Strogatz-Townsend essay and of the Verge Sep 28 article body",
+   "searched": "NYT serves a bot check (captcha) in both local and remote browsers; the live Verge page is paywalled below the lede. Only the Verge hero was captured; the passages are verified text (TinyFish full-page load) for neutral citation cards."
+  },
+  {
+   "outline_item": "Screenshot of Kalshi market pages",
+   "searched": "kalshi.com returns a Vercel security checkpoint; data captured from the Kalshi API instead."
+  },
+  {
+   "outline_item": "Manifold market specifically about BSD being solved by AI",
+   "searched": "Manifold search API: only multi-choice \"next Millennium problem\" markets (Hodge ~60-70%, BSD ~20%) and \"Will ANOTHER millennium prize problem be solved in 2026?\" (41%); Manifold group-page snippet \"Hodge conjecture solved by June 2027 57%\" (2026-09-16) was seen only as a search snippet, not loaded."
+  }
+ ],
+ "rumor_status_summary": "As of 2026-10-04 (verified): (1) OpenAI says an internal model trained since Aug 28 has resolved \"more than 100 long-standing open problems\" (post of 2026-09-21; not \"hundreds\") and the results are being held back while an independent advisory group helps plan their release; (2) OpenAI has said only that it has made \"substantial progress on another Millennium Prize problem\" (unnamed; to NYT, 2026-09-10; Brockman repeated \"significant progress\" ~2026-09-15); (3) the rumor that this is the Hodge conjecture (\"very close to being verified by OpenAI\") and that \"one of OpenAI or Anthropic\" is close to BSD started on X (Dr_Singularity 2026-09-09; @synthwavedd 2026-09-10, 1.5M views) and is anonymous and hedged; The Information (via Gizmodo, 2026-09-17) adds a single OpenAI source saying employees \"expect to soon crack the Hodge Conjecture\"; (4) no proof, paper or announcement for Hodge or BSD exists; Clay lists both \"Unsolved\"; mathematicians (Harris, Glazer, Lozano-Robledo) are openly sceptical, Totaro treats an AI attempt on Hodge as plausible but the first open case \"far out of reach\"; (5) markets: Polymarket Hodge 37% / BSD 22% / none-by-2027 24% (Oct 4), Manifold Hodge ~60-70% / BSD ~20% for \"next\", Kalshi Hodge-before-2027 25c, BSD-before-2027 9c. Hodge and BSD are both Clay Millennium Prize Problems ($1M each).",
+ "research_round": "rev2/mathrumors.json (2026-10-04)"
+}

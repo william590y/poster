@@ -1458,7 +1458,7 @@ async function robotCostSlide(d) {
   const bl = capLabel(d, s, '50-YEAR BACKTEST: HISTORICALLY ROBOT-EXPOSED JOBS', { x: rx, y: yb, w: rw, color: d.S.amber, charSpacing: 1 });
   const sw = 3.0, sw2 = rw - sw - 0.25;
   const st1 = stat(d, s, { x: rx, y: yb + 0.32, w: sw, value: '−34%', valueSize: 26, labelSize: 12, labelH: 0.42, label: 'employment after ~20 years, fully exposed vs unexposed (95% CI −16% to −52%)' });
-  const st2 = stat(d, s, { x: rx + sw + 0.25, y: yb + 0.32, w: sw2, value: '−7%', valueSize: 26, labelSize: 12, labelH: 0.42, label: 'wages, same comparison, same industry (95% CI −5% to −9%)' });
+  const st2 = stat(d, s, { x: rx + sw + 0.25, y: yb + 0.32, w: sw2, value: '−7%', valueSize: 26, labelSize: 12, labelH: 0.42, label: 'wages, same comparison (95% CI −5% to −9%)' });
 
   d.animate(s, [lab, ...leg, ch], { auto: true, effect: 'wipeLeft', dur: 1100 });
   d.animate(s, [tag, note], { auto: true, effect: 'fade', after: 100 });
@@ -1469,7 +1469,7 @@ async function robotCostSlide(d) {
   d.animate(s, h2b, { effect: 'wipeLeft', dur: 450, stagger: 300 });
   d.animate(s, [bl, ...st1, ...st2], { effect: 'rise', dur: 450, stagger: 120 });
 
-  d.source(s, 'Source: Anthropic, “What work can robots do?” (Sep 30, 2026): Key findings, Fig. 7 (human bar derived: median pay × exposed share), robot costs, Appendix B.3 (backtest regressions, 1977–2024).');
+  d.source(s, 'Source: Anthropic, “What work can robots do?” (Sep 30, 2026): Key findings, Fig. 7 (human bar derived: median pay × exposed share), robot costs, Appendix B.3 (same-industry backtest regressions, 1977–2024).');
   s.addNotes([
     'The catch: “While robots can do most physical work tasks today, they are much more expensive than human labor. Robots are cost-competitive for just 0.3% of job tasks. If robot price declines follow past trends, it will take 40 years for that share to reach 10%.” (Key findings, highlighted.) For 10% of human work today, robot costs would need to fall about 70% — around 40 years at 3% a year. At 20% cheaper, robots would undercut the physical work of 2.8 million workers (0.8% of all working time).',
     'Chart (Figure 7; robot costs are Claude’s estimates of the annual cost of robots doing the tasks a robot can do in each job, fixed + variable): packers and packagers (560,000 jobs) — robots ~$45,400 a year vs ~$47,500 of human pay for the same 97% of the job (Fig. 7 columns: $49,000 × 97%), a gap of about $2,100; the report’s own rounded sentence says “around $49,000, robots cost about $2,500 less per year to do that work”, so the slide tag attributes the $2.5K to the report. These robots “cost over $2 million to purchase and install, but replace the yearly work of around 14 workers.” Packer employment is already down 22% since 2015. Taxi drivers: robotaxi ~$57,800 vs ~$50,600 — “around $7,000 more” (plus regulatory hurdles). Dishwashers $172K vs $45K; janitors $280K vs $34.8K (median pay $47.7K, 73% exposed); welders $334.6K vs $66.1K — about 5x. The grey “human” bar is my derivation from the figure’s own columns (median total compensation × exposed share); the report’s $2,500 and $7,000 are its own rounded figures (the columns give about $2,100 and $7,200).',

@@ -1,0 +1,32 @@
+{
+ "url": "https://deploymentsafety.openai.com/gpt-6-astra",
+ "title": "GPT-6 Astra System Card - OpenAI Deployment Safety Hub",
+ "crop_css": {
+  "x": 52,
+  "y": 2240.46875,
+  "w": 764.65625,
+  "h": 224
+ },
+ "highlights_frac": {
+  "we have additionally added misalignment monitoring to all tool-using inference involved in our external deployment of Astra, with significant compute cost.": [
+   {
+    "x": 0.5736,
+    "y": 0.5804,
+    "w": 0.2701,
+    "h": 0.0893
+   },
+   {
+    "x": 0.0183,
+    "y": 0.7054,
+    "w": 0.9511,
+    "h": 0.0893
+   },
+   {
+    "x": 0.0183,
+    "y": 0.8304,
+    "w": 0.2999,
+    "h": 0.0893
+   }
+  ]
+ }
+}

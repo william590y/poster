@@ -1,0 +1,26 @@
+{
+ "url": "https://deploymentsafety.openai.com/gpt-6-astra",
+ "title": "GPT-6 Astra System Card - OpenAI Deployment Safety Hub",
+ "crop_css": {
+  "x": 18,
+  "y": 43633.828125,
+  "w": 798.65625,
+  "h": 196
+ },
+ "highlights_frac": {
+  "GPT-6 Astra shows a substantial decrease in chain-of-thought monitorability compared to previous models.": [
+   {
+    "x": 0.5692,
+    "y": 0.3776,
+    "w": 0.3994,
+    "h": 0.102
+   },
+   {
+    "x": 0.0175,
+    "y": 0.5204,
+    "w": 0.6113,
+    "h": 0.102
+   }
+  ]
+ }
+}

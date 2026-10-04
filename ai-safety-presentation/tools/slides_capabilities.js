@@ -1031,15 +1031,23 @@ async function takSlide(d) {
   s.addText(`${KICK} · CREATIVITY · 8`, { placeholder: 'kicker' });
   s.addText('He says: one prompt, 15 minutes → ~30 styles', { placeholder: 'title' });
 
-  // ---- left: the accelerating montage as a looping GIF (real footage, trimmed only; frame 0 = the risograph style)
+  // ---- left: the full 17-s clip WITH SOUND (click to play), embedded unmodified; cover = 25 of its frames
   const gw = 6.3, gh = gw * 9 / 16, y0 = 1.76;
-  const gif = await d.frame(s, F55('tak-fable55-style-montage-riso-first-960.gif'), { x: MX, y: y0, w: gw, h: gh }, { border: false, pad: 0 });
-  const claim = d.text(s, 'CREDITED TO “FABLE 5.5” BY THE POSTER · UNVERIFIED · LOOP: 7 S OF THE 17-S CLIP', { x: MX, y: y0 + gh + 0.04, w: gw, h: 0.26, fontSize: 10, bold: true, color: 'FFD166', charSpacing: 1, valign: 'middle' });
+  const mp4 = F55('tak-fable55-cool-animation-1080p60-with-audio.mp4');
+  const cover = path.join(OUT, 'fable55-tak-contact-sheet-cover.jpg');
+  if (!fs.existsSync(cover)) {
+    fs.mkdirSync(OUT, { recursive: true });
+    const play = '<svg width="1920" height="1080"><circle cx="960" cy="540" r="99" fill="#0A0C10" fill-opacity="0.72" stroke="#FFFFFF" stroke-width="7"/>'
+      + '<polygon points="927,486 927,594 1020,540" fill="#FFFFFF"/></svg>';
+    await sharp(F55('tak-fable55-contact-sheet-25-styles-1920x1080.png')).composite([{ input: Buffer.from(play) }]).jpeg({ quality: 93 }).toFile(cover);
+  }
+  const vid = await d.localVideo(s, { file: mp4, cover, box: { x: MX, y: y0, w: gw, h: gh } });
+  const claim = d.text(s, 'CREDITED TO “FABLE 5.5” BY THE POSTER · UNVERIFIED · FULL 17-S CLIP, SOUND ON', { x: MX, y: y0 + gh + 0.04, w: gw, h: 0.26, fontSize: 10, bold: true, color: 'FFD166', charSpacing: 1, valign: 'middle' });
   const cy = y0 + gh + 0.42;
   const caveat = d.text(s, [
     { text: 'Why “5.5”? ', options: { bold: true, color: 'FFD166' } },
     { text: 'About four hours earlier he posted “I am getting routed to Fable\u00A05.5” — under a Claude Code header reading “Fable\u00A05.1”. ', options: { color: d.S.txt } },
-    { text: 'The “Fable 5.5” signature and “ED. 55” painted into the clip are generated art, not evidence.', options: { color: d.S.muted } },
+    { text: 'The “Fable 5.5” signature and “ED. 55” painted into the clip are generated art, not evidence.', options: { color: d.S.muted } },
   ], { x: MX, y: cy, w: gw, h: 6.52 - cy, fontSize: 14, valign: 'top' });
 
   // ---- right, top: the post itself (real screenshot, cropped to author + text; the counts go in the tab)
@@ -1049,20 +1057,12 @@ async function takSlide(d) {
   const pmark = highlight(d, s, pp.geom, 1160, [[12, 276, 480, 40]]); // "FABLE 5.5 IS SO GOOD AT THESE."
   const ptab = outletTab(d, s, pp.geom, 'X · OCT 2, 2026 · 163K VIEWS · 2.1K LIKES', 'br', 0, { pad: 0.05 });
 
-  // ---- right, bottom: the full 17-s clip WITH SOUND (click to play), embedded unmodified; cover = 25 of its frames
-  const mp4 = F55('tak-fable55-cool-animation-1080p60-with-audio.mp4');
-  const cover = path.join(OUT, 'fable55-tak-contact-sheet-cover.jpg');
-  if (!fs.existsSync(cover)) {
-    fs.mkdirSync(OUT, { recursive: true });
-    const play = '<svg width="1920" height="1080"><circle cx="960" cy="540" r="99" fill="#0A0C10" fill-opacity="0.72" stroke="#FFFFFF" stroke-width="7"/>'
-      + '<polygon points="927,486 927,594 1020,540" fill="#FFFFFF"/></svg>';
-    await sharp(F55('tak-fable55-contact-sheet-25-styles-1920x1080.png')).composite([{ input: Buffer.from(play) }]).jpeg({ quality: 93 }).toFile(cover);
-  }
+  // ---- right, bottom: the accelerating montage as a looping GIF (real footage, trimmed only; frame 0 = the risograph style)
   const ly = pp.geom.y + pp.geom.h + 0.4; // tab hangs 0.24" below the post; keep a clear gap under it
-  const vlab = label(d, s, '► CLICK: FULL CLIP WITH SOUND · COVER = 25 OF ITS FRAMES', rx, ly, rw, { color: 'FF8A8C' });
+  const vlab = label(d, s, 'LOOP · THE ACCELERATING 7 S OF THE CLIP (SILENT)', rx, ly, rw, { color: 'FF8A8C' });
   const vy = ly + 0.34, vh = 6.52 - vy, vw = vh * 16 / 9;
-  const vid = await d.localVideo(s, { file: mp4, cover, box: { x: rx, y: vy, w: vw, h: vh } });
-  // three facts beside the clip
+  const gif = await d.frame(s, F55('tak-fable55-style-montage-riso-first-960.gif'), { x: rx, y: vy, w: vw, h: vh }, { border: false, pad: 0 });
+  // three facts beside the loop
   const fx = rx + vw + 0.25, fw = 12.73 - fx, fh = vh / 3;
   const facts = [['17 s', '1080p60, with sound'], ['~30', 'styles, one character'], ['1 s → 0.03 s', 'per style, speeding up']];
   const fnames = facts.flatMap(([v, l], i) => [
@@ -1070,15 +1070,15 @@ async function takSlide(d) {
     d.text(s, l, { x: fx, y: vy + i * fh + 0.44, w: fw, h: 0.26, fontSize: 10, color: d.S.muted, valign: 'top' }),
   ]);
 
-  d.animate(s, [...gif, claim], { auto: true, effect: 'fade', dur: 600 });
+  d.animate(s, [...vid, claim], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, [...pp, ...pmark, ...ptab], { auto: true, effect: 'rise', dur: 450, after: 200 });
   d.animate(s, [caveat], { effect: 'fade', dur: 500 });
-  d.animate(s, [vlab, ...vid, ...fnames], { effect: 'fade', dur: 600 });
+  d.animate(s, [vlab, ...gif, ...fnames], { effect: 'fade', dur: 600 });
   d.source(s, 'X: Tak @cherry_mx_reds, “Hey Fable, please make a cool animation” (Oct 2, 2026) and “routed” post (Oct 1); counts as of Oct 4. Contact sheet = frames from the clip. Attribution to “Fable 5.5” is the poster’s claim.');
   s.addNotes([
     'MESSAGE: same unverified label, a different kind of skill — art direction. One person types one line, and (by his account) gets back, 15 minutes later, a polished 17-second animation in which one coffee-drinking character is redrawn in about 30 art styles, the cuts speeding up from ~1 s per style to near-subliminal flashes. If his account is accurate — and we cannot verify the prompt, the tooling or the 15 minutes — this is what a "make me something cool" prompt now returns, whatever model made it. The reply under it says it plainly (Akim, 24 likes): "A generic design agency would charge like 5k to make this 2 or 3 years ago💀💀" ' + TAK.akim,
     'THE POST (verbatim, verified via api.fxtwitter.com, re-checked Oct 4, 2026): Tak (@cherry_mx_reds; verified account, ~6.4K followers, bio "I build with AI • Art • Games • Model Tester • Community OpenClaw maintainer"), Oct 2, 2026, 00:26 UTC: "“Hey Fable, please make a cool animation” / 15 minutes later. / FABLE 5.5 IS SO GOOD AT THESE. / HOW???" — 163,125 views, 2,174 likes, 886 bookmarks, 81 reposts, 73 replies, 34 quotes (Oct 4, evening). ' + TAK.post,
-    'ON THE SLIDE: LEFT = looping GIF of the accelerating part of the montage (6.40–13.35 s of the clip; 960×540, 20 fps, silent; trimmed only — starts on the risograph style, runs ~30 styles: Starry-Night impasto, X-ray, thermal camera, vaporwave, Bauhaus, 8-bit, newspaper, Delft tile… and ends on line art). RIGHT = real screenshot of the post (author + text; the yellow marker is a native overlay, not on the pixels), and the full 17.07-s clip, 1920×1080 60 fps H.264 + AAC with its soundtrack, embedded unmodified (downloaded from ' + TAK.video + '). Its cover is a 5×5 contact sheet of 25 unedited frames from the clip (one per style, in order) with a play button added. Pacing from a frame-by-frame cut analysis: ~1.07 s per style for the first four, ~0.53 s, ~0.27 s, ~0.13 s from 8.5 s, 0.03–0.07 s flashes from ~10.7 s, a line-art hold 12.8–16.0 s, then a flash back to the opening ukiyo-e frame.',
+    'ON THE SLIDE: LEFT = the full 17.07-s clip, 1920×1080 60 fps H.264 + AAC with its soundtrack, embedded unmodified — click to play, sound on (downloaded from ' + TAK.video + '). Its cover is a 5×5 contact sheet of 25 unedited frames from the clip (one per style, in order) with a play button added. RIGHT, top = real screenshot of the post (author + text; the yellow marker is a native overlay, not on the pixels). RIGHT, bottom = looping GIF of the accelerating part of the montage (6.40–13.35 s of the clip; 960×540, 20 fps, silent; trimmed only — starts on the risograph style, runs ~30 styles: Starry-Night impasto, X-ray, thermal camera, vaporwave, Bauhaus, 8-bit, newspaper, Delft tile… and ends on line art). Pacing from a frame-by-frame cut analysis: ~1.07 s per style for the first four, ~0.53 s, ~0.27 s, ~0.13 s from 8.5 s, 0.03–0.07 s flashes from ~10.7 s, a line-art hold 12.8–16.0 s, then a flash back to the opening ukiyo-e frame.',
     'CAVEATS (say them): (1) "Fable 5.5" is the poster\'s own label. Anthropic has announced no Fable 5.5 — the newest official Fable is Claude Fable 5.1 (Sep 1, 2026); see the previous slide. (2) Why he says 5.5: about four hours earlier (Oct 1, 20:34 UTC; 159K views) he posted "HOLY S**T / I am getting routed to Fable 5.5 / Nice knowing ya" with a Claude Code screenshot whose header reads "Fable 5.1 with low effort · Claude Max" — the "evidence" was the model\'s answer to a trivia question, not a model name. ' + TAK.routed + ' (3) Text painted INSIDE the animation — the ukiyo-e signature "Fable 5.5 画", "ED. 55" on the risograph print, "Nº 5.5 — 1924" on the Soviet poster, the joke newspaper headline "LOCAL MAN SIPS COFFEE" — is generated artwork, not evidence of which model made it (and not a real headline). (4) Beyond the one-line prompt and "15 minutes later", he gave no tool, code, workflow or access details; we cannot reproduce or time it. (5) The two replies visible logged-out neither confirm nor dispute the attribution; the rest are behind X\'s login wall.',
     'Context, if asked: the community list "awesome-fable-5.5-usecase" carries this post with its own caveat — "These posts are community claims. They are not an official model card." ' + TAK.list + ' . Tak\'s follow-ups with the same label: "I asked for a dot. Fable 5.5 gave me a Pixar side quest. Yeah, it’s over." (Oct 2; 6,178 likes, 824K views; stated prompt "make me an animation about a dot") ' + TAK.dot + ' and an "ART HISTORY SPEEDRUN" ("40,000 years of it in 15 seconds with a cat subplot") ' + TAK.artHistory + ' . Chetaslua posted a similar Superman-in-many-art-styles clip credited to "Fable 5.5" about four hours earlier (Oct 1; 671K views) ' + TAK.chetaslua + ' . Kingy AI\'s write-up: "We have not reproduced them in a matched test or verified a Fable 5.5 backend." ' + FAB.kingy,
   ].join('\n\n'));

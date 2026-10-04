@@ -982,7 +982,7 @@ async function voiceSlide(d) {
 
   d.source(s, 'Sources: X, @buraktuyan, post and self-reply (Oct 2, 2026; views Oct 4) · ElevenLabs, “Introducing Eleven v4, our most emotive model” (Sep 28, 2026) · Artificial Analysis, Eleven v4 page (Oct 4, 2026).');
   s.addNotes([
-    'MESSAGE: Tavus did the face; this is the voice. Click the video and play all 44 seconds with SOUND ON. Set it up with the post\'s own line: "I wrote a script of everything an AI voice \'can\'t do.\' Then made Eleven v4 read it out loud." Then let the room react.',
+    'MESSAGE: after the face, the voice. Click the video and play all 44 seconds with SOUND ON. Set it up with the post\'s own line: "I wrote a script of everything an AI voice \'can\'t do.\' Then made Eleven v4 read it out loud." Then let the room react.',
     'WHAT YOU WILL HEAR (burned-in subtitles; tagline by speech-to-text): a laugh, "AI voices? / Tell me something. / Can they scream like THIS? / And then fall apart like this? / ♪ And sing when the moment demands ♪ / Fine, some of them whisper. / But can they flirt in a whisper? / Can they talk while eating? / Or do an Italian accent? / [Italian] Impossibile!" … "Wait… Am I?" — then an Eleven V4 / ElevenLabs end card and a spoken tagline that machine transcription renders as "Eleven v4, the next frontier of human-level communication." The character (a Louis-XIV-like caricature in a Versailles-style palace) is AI-generated video too — the post carries X\'s "Made with AI" label — but the tool used for the picture is not named anywhere.',
     'WHO / WHEN: Burak Tuyan (@buraktuyan; X bio: "I tell stories. Sometimes for brands. | ex-ElevenLabs"), posted Oct 2, 2026, 13:49 UTC: "Eleven v4 is INSANE! / Here\'s my 44-sec spec ad for it. / I wrote a script of everything an AI voice "can\'t do." Then made Eleven v4 read it out loud. / Sound on". By Oct 4 (fxtwitter): 1,919,174 views, 10,035 likes, 632 reposts, 444 replies, 6,211 bookmarks, 205 quotes. ' + VOICE.post,
     'HIS DISCLOSURE (self-reply, shown on the slide): "This is a personal spec project. Not affiliated with or commissioned by ElevenLabs. Just a fan of what v4 can do, showing off something I\'ve been waiting a long time for." ' + VOICE.reply + ' — so: a fan-made ad by a FORMER ElevenLabs employee, not an official ElevenLabs video.',
@@ -1481,7 +1481,7 @@ async function robotWorkSlide(d) {
   const c1 = await frameW(d, s, cnbc, rx + 0.05, yb + 0.12, cw, { rot: 1.5 });
   const sx = rx + cw + 0.35, sw = CX1 - sx;
   const st1 = stat(d, s, { x: sx, y: yb, w: sw, value: '$22.88 vs $52.97', valueSize: 19, labelSize: 14, labelH: 0.5, color: d.S.amber, label: 'hourly pay, most-exposed fifth vs unexposed workers' });
-  const st2 = stat(d, s, { x: sx, y: yb + 0.95, w: sw, value: '9 of 10', valueSize: 19, labelSize: 14, labelH: 0.5, color: d.S.amber, label: 'most-exposed occupations (20K+ jobs) are vehicle operators' });
+  const st2 = stat(d, s, { x: sx, y: yb + 0.95, w: sw, value: '9 of 10', valueSize: 19, labelSize: 14, labelH: 0.5, color: d.S.amber, label: 'most-exposed large occupations are vehicle operators' }); // large = 20K+ jobs (Fig. 4)
 
   d.animate(s, [...t1, meth, ...kfF, kfCap], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, kfHl.slice(0, 3), { auto: true, effect: 'wipeLeft', dur: 500, stagger: 350, after: 150 });

@@ -81,7 +81,9 @@ async function avatarR2(file, name) {
 }
 // Highlighter marks over a framed crop: native semi-transparent rectangles (screenshot pixels untouched).
 // boxes = [x, y, w, h] in ORIGINAL capture pixels; c = the crop {l,t,w,h}; fr = names returned by frame().
-function hilite(d, s, fr, c, boxes, { rot = 0, color = 'FFD166', transparency = 55, padX = 4, padY = 2 } = {}) {
+// outline = line width in pt: draws an unfilled outline instead of a fill (for clippings with coloured backgrounds,
+// where a translucent fill would muddy the text colour).
+function hilite(d, s, fr, c, boxes, { rot = 0, color = 'FFD166', transparency = 55, padX = 4, padY = 2, outline = 0 } = {}) {
   const g = fr.geom, k = g.w / c.w;
   const cx = g.x + g.w / 2, cy = g.y + g.h / 2, th = rot * Math.PI / 180;
   return boxes.map(([bx, by, bw, bh]) => {
@@ -91,17 +93,19 @@ function hilite(d, s, fr, c, boxes, { rot = 0, color = 'FFD166', transparency = 
     const qx = cx + dx * Math.cos(th) - dy * Math.sin(th), qy = cy + dx * Math.sin(th) + dy * Math.cos(th);
     const n = d.name('hl');
     s.addShape(d.pres.shapes.RECTANGLE, {
-      x: qx - w / 2, y: qy - h / 2, w, h, rotate: rot, fill: { color, transparency }, line: { color, width: 0, transparency: 100 }, objectName: n,
+      x: qx - w / 2, y: qy - h / 2, w, h, rotate: rot, objectName: n,
+      ...(outline ? { fill: { color, transparency: 100 }, line: { color, width: outline } }
+        : { fill: { color, transparency }, line: { color, width: 0, transparency: 100 } }),
     });
     return n;
   });
 }
-// Small outlined tag pill. Returns [shape, text].
-function pill(d, s, text, x, y, color, fs = 9) {
-  const w = text.length * 0.102 * fs / 9 + 0.25, h = 0.24;
+// Small outlined tag pill (uppercase Arial Bold; width ~ 0.63 em per glyph + letter spacing + side padding). Returns [shape, text].
+function pill(d, s, text, x, y, color, fs = 10, cs = 1.2) {
+  const w = text.length * (0.63 * fs + cs) / 72 + 0.26, h = 0.26;
   const r = d.name('pill');
   s.addShape(d.pres.shapes.ROUNDED_RECTANGLE, { x, y, w, h, rectRadius: 0.06, fill: { color: '171B23' }, line: { color, width: 1 }, objectName: r });
-  const t = d.text(s, text, { x, y, w, h, fontSize: fs, bold: true, color, charSpacing: 1.5, align: 'center', valign: 'middle', fontFace: 'Arial' });
+  const t = d.text(s, text, { x, y, w, h, fontSize: fs, bold: true, color, charSpacing: cs, align: 'center', valign: 'middle', fontFace: 'Arial' });
   return [r, t];
 }
 
@@ -179,8 +183,7 @@ async function wallSlide(d) {
     'Statement on Superintelligence (Future of Life Institute, Oct 22, 2025): calls for a prohibition on developing superintelligence until there is broad scientific consensus it can be done safely and strong public buy-in. 76,564 signatures as of Oct 4, 2026 (live counter; includes 5,000 from an Ekō petition). Signers include Hinton, Bengio, Russell, Wozniak, Branson, Bannon, Prince Harry, Harari. (The clipping stacks the page heading above the statement box; the context paragraph between them is omitted.) https://superintelligence-statement.org/',
     'The Guardian review (David Shariatmadari, Sep 22, 2025) of Yudkowsky & Soares, “If Anyone Builds It, Everyone Dies.” https://www.theguardian.com/books/2025/sep/22/if-anyone-builds-it-everyone-dies-review-how-ai-could-kill-us-all',
     'CLICK — the survey: Grace et al., “Thousands of AI Authors on the Future of AI” (2,778 respondents who published at top AI venues; JAIR 2025): between 38% and 51% gave at least a 10% chance to advanced AI leading to outcomes as bad as human extinction (the range depends on question framing). Note the date: this survey was fielded in 2023 (the abstract compares it with “a similar survey we conducted only one year earlier [Grace et al., 2022]”; preprint Jan 5, 2024) — older than the 2026 headlines around it. https://arxiv.org/abs/2401.02843',
-    'Hinton’s 10–20% extinction estimate (Guardian, Dec 2024) is on the next slide.',
-    'Next: what happened to three OpenAI researchers who joined that September wave of warnings.',
+    'Next: what happened to three OpenAI researchers who joined that September wave of warnings. (Hinton’s 10–20% extinction estimate, Guardian, Dec 2024, comes up three slides on, on the CEO statement slide.)',
     'Not on the slide (only sourced via Wikipedia, primary pages blocked): a Sept 2026 Politico poll reportedly found 63% of Americans think AI could threaten humanity; the IMD AI Safety Clock reportedly moved to 15 minutes to midnight in Sept 2026. Mention only as “reportedly”, if at all.',
   ].join('\n\n'));
 }
@@ -188,71 +191,75 @@ async function wallSlide(d) {
 // ========== 2. OpenAI fires three safety researchers (Oct 2026) ==========
 async function firedSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'THE ALIGNMENT PROBLEM · EXISTENTIAL RISK · 2', 'OpenAI fired three of its safety researchers');
+  // Title follows the WSJ/Register wording: WSJ "three researchers who worked on its safety team";
+  // The Register "two safety researchers and a program manager" (roles explained in the notes).
+  head(s, 'THE ALIGNMENT PROBLEM · EXISTENTIAL RISK · 2', 'OpenAI fired three staff who worked on safety');
 
-  const LX = CX0, LW = 7.8;              // left area: the report, OpenAI's reason, the critics
-  const RX = 8.73, RW = CX1 - RX;        // right column: what the three had posted
+  const LX = CX0, LW = 7.55;             // left area: the report, OpenAI's reason, the critics
+  const RX = LX + LW + 0.3, RW = CX1 - RX; // right column: what the three had posted
 
   // hero clipping: The Register headline + dek (dek fragment highlighted)
   const regC = { l: 20, t: 62, w: 2400, h: 326 };
   const regFile = await cropR2('register-three-staff-door-headline.png', 'register-fired-three.png', regC);
-  const reg = await frameW(d, s, regFile, LX, 1.84, LW, { rot: -0.6, pad: 0.08 });
+  const reg = await frameW(d, s, regFile, LX, 1.84, 6.8, { rot: -0.6, pad: 0.08 });
   const regHl = hilite(d, s, reg, regC, [[1150, 320, 898, 52]], { rot: -0.6 });
 
-  // OpenAI's stated reason (verbatim)
-  const ry = 3.3, rh = 2.42, cw = (LW - 0.25) / 2;
-  const oCard = d.card(s, { x: LX, y: ry, w: cw, h: rh });
-  const oLab = capLabel(d, s, 'OPENAI’S STATED REASON', { x: LX + 0.18, y: ry + 0.1, w: cw - 0.36, color: d.S.blue });
+  // what is not known (bottom strip) — placed first so the two cards fill the space between hero and strip
+  const nh = 0.64, ny = 6.5 - nh;
+  const ry = reg.box.y + reg.box.h + 0.24, rh = ny - 0.24 - ry;
+  const cw1 = 4.25, cw2 = LW - 0.25 - cw1;   // OpenAI's reason gets the wider card (longer text)
+
+  // OpenAI's stated reason (verbatim) + The Register's paraphrase of the rest
+  const oCard = d.card(s, { x: LX, y: ry, w: cw1, h: rh });
+  const oLab = capLabel(d, s, 'OPENAI’S STATED REASON', { x: LX + 0.18, y: ry + 0.1, w: cw1 - 0.36, color: d.S.blue });
   const oTxt = d.text(s, [
-    { text: '“Our investigation confirmed that these individuals mishandled sensitive information outside established company procedures, violating our policies and breaking the trust essential to our work.”', options: { fontSize: 14, italic: true, fontFace: 'Cambria', color: d.S.txt, breakLine: true, paraSpaceAfter: 4 } },
-    { text: 'OpenAI spokesperson, Oct 1', options: { fontSize: 10, color: d.S.muted, breakLine: true, paraSpaceAfter: 6 } },
-    { text: 'It also cites other, undescribed misconduct and denies retaliation for raising concerns.', options: { fontSize: 12, color: d.S.muted } },
-  ], { x: LX + 0.18, y: ry + 0.42, w: cw - 0.36, h: rh - 0.52, valign: 'top' });
+    { text: '“Our investigation confirmed that these individuals mishandled sensitive information outside established company procedures, violating our policies and breaking the trust essential to our work.”', options: { fontSize: 14, italic: true, fontFace: 'Cambria', color: d.S.txt } },
+    { text: '  — OpenAI spokesperson, Oct 1', options: { fontSize: 10, color: d.S.muted, breakLine: true, paraSpaceAfter: 7 } },
+    { text: 'The Register reports OpenAI also cites other, undescribed misconduct and says they were not dismissed for raising safety concerns.', options: { fontSize: 14, color: d.S.muted } },
+  ], { x: LX + 0.18, y: ry + 0.4, w: cw1 - 0.36, h: rh - 0.46, valign: 'top' });
 
   // the critics: Common Dreams headline (quoting Rep. Casar) + his post
-  const kx = LX + cw + 0.25;
-  const kCard = d.card(s, { x: kx, y: ry, w: cw, h: rh });
-  const kLab = capLabel(d, s, 'THE CRITICS', { x: kx + 0.18, y: ry + 0.1, w: cw - 0.36, color: d.S.red });
+  const kx = LX + cw1 + 0.25;
+  const kCard = d.card(s, { x: kx, y: ry, w: cw2, h: rh });
+  const kLab = capLabel(d, s, 'THE CRITICS', { x: kx + 0.18, y: ry + 0.1, w: cw2 - 0.36, color: d.S.red });
   const cdC = { l: 60, t: 15, w: 1700, h: 375 };
   const cdFile = await cropR2('commondreams-firing-whistleblowers.png', 'commondreams-whistleblowers.png', cdC);
-  const cd = await frameW(d, s, cdFile, kx + 0.18, ry + 0.44, cw - 0.36, { rot: 0.8, shadow: false });
+  const cd = await frameW(d, s, cdFile, kx + 0.18, ry + 0.44, cw2 - 0.36, { rot: 0.8, shadow: false });
   const kTxt = d.text(s, [
     { text: '“This looks like they’re firing whistleblowers. What are they hiding?”', options: { fontSize: 14, italic: true, fontFace: 'Cambria', color: d.S.txt, breakLine: true, paraSpaceAfter: 3 } },
     { text: 'Rep. Greg Casar (D-TX) on X, Oct 1 — he plans a “demand for transparency”', options: { fontSize: 10, color: d.S.muted } },
-  ], { x: kx + 0.18, y: cd.box.y + cd.box.h + 0.12, w: cw - 0.36, h: ry + rh - (cd.box.y + cd.box.h + 0.12) - 0.08, valign: 'top' });
+  ], { x: kx + 0.18, y: cd.box.y + cd.box.h + 0.12, w: cw2 - 0.36, h: ry + rh - (cd.box.y + cd.box.h + 0.12) - 0.06, valign: 'top' });
 
-  // what is not known
-  const ny = 5.88, nh = 0.57;
   const nCard = d.card(s, { x: LX, y: ny, w: LW, h: nh }, { color: '1F1A12', line: HEX.amber });
   const nLab = d.text(s, 'NOT KNOWN', { x: LX + 0.18, y: ny, w: 1.1, h: nh, fontSize: 10, bold: true, color: d.S.amber, charSpacing: 2, valign: 'middle' });
-  const nTxt = d.text(s, 'What was shared, and with which outside group  ·  the firing date  ·  whether they raised concerns inside OpenAI first  ·  their side: none of the three has commented', {
-    x: LX + 1.3, y: ny + 0.04, w: LW - 1.45, h: nh - 0.08, fontSize: 12, color: d.S.txt, valign: 'middle' });
+  const nTxt = d.text(s, 'What was shared, and with whom  ·  the firing date  ·  whether they raised concerns internally first  ·  their side (none had commented as of Oct 4)', {
+    x: LX + 1.3, y: ny + 0.04, w: LW - 1.45, h: nh - 0.08, fontSize: 14, color: d.S.txt, valign: 'middle' });
 
-  // right column: the three researchers' own public posts (verbatim; key phrase in bold)
+  // right column: the three researchers' own public posts (verbatim excerpts, marked "…"; key phrase in bold)
   const pLab = capLabel(d, s, 'WHAT THEY HAD POSTED IN SEPTEMBER', { x: RX, y: 1.72, w: RW });
   const posts = [
-    { av: 'x-balesni-2026-09-10-gt10pct.png', file: 'av-balesni.png', name: 'Mikita Balesni', meta: '@balesni · Sep 10, 2026', h: 1.17,
-      runs: [{ text: 'i am at OpenAI and i think AI is ' }, { text: '>10% likely to kill all humans', b: true }] },
-    { av: 'x-korbak-2026-09-12-quite-unhappy.png', file: 'av-korbak.png', name: 'Tomek Korbak', meta: '@tomekkorbak · Sep 12, 2026', h: 1.36,
+    { av: 'x-balesni-2026-09-10-gt10pct.png', file: 'av-balesni.png', name: 'Mikita Balesni', meta: '@balesni · Sep 10, 2026 · quoting Ryan Greenblatt', h: 1.16,
+      runs: [{ text: 'i am at OpenAI and i think AI is ' }, { text: '>10% likely to kill all humans', b: true }, { text: ' …' }] },
+    { av: 'x-korbak-2026-09-12-quite-unhappy.png', file: 'av-korbak.png', name: 'Tomek Korbak', meta: '@tomekkorbak · Sep 12, 2026', h: 1.4,
       runs: [{ text: 'I’m quite unhappy with much of what OpenAI does.', b: true }, { text: ' I am very happy that I’m allowed to say “I’m quite unhappy with much of what OpenAI does.”' }] },
-    { av: 'x-wang-2026-09-10-rsi-petition.png', file: 'av-wang.png', name: 'Jasmine Wang', meta: '@j_asminewang · Sep 10, 2026', h: 1.62,
-      runs: [{ text: 'It’s hard to overstate how dangerous speeding towards RSI is.', b: true }, { text: ' That’s why I + 1385 others signed the pacing the frontier petition asking the US government to pace AI development.' }] },
+    { av: 'x-wang-2026-09-10-rsi-petition.png', file: 'av-wang.png', name: 'Jasmine Wang', meta: '@j_asminewang · Sep 10, 2026 · quoting Jacob Coxon', h: 1.64,
+      runs: [{ text: 'It’s hard to overstate how dangerous speeding towards RSI is.', b: true }, { text: ' That’s why I + 1385 others signed the pacing the frontier petition asking the US government to pace AI development. …' }] },
   ];
-  const pg = 0.11;
-  let py = 2.04;
+  const pg = 0.1;
+  let py = 2.02;
   const postNames = [];
   for (const p of posts) {
     const g = [d.card(s, { x: RX, y: py, w: RW, h: p.h })];
     const av = await avatarR2(p.av, p.file);
     const im = d.name('avatar');
-    s.addImage({ path: av, x: RX + 0.14, y: py + 0.12, w: 0.4, h: 0.4, objectName: im });
+    s.addImage({ path: av, x: RX + 0.14, y: py + 0.1, w: 0.4, h: 0.4, objectName: im });
     g.push(im);
     g.push(d.text(s, [
       { text: p.name, options: { bold: true, color: d.S.txt, fontSize: 12, breakLine: true } },
       { text: p.meta, options: { color: d.S.muted, fontSize: 10 } },
-    ], { x: RX + 0.64, y: py + 0.1, w: RW - 0.78, h: 0.44, valign: 'middle' }));
+    ], { x: RX + 0.64, y: py + 0.08, w: RW - 0.76, h: 0.44, valign: 'middle' }));
     g.push(d.text(s, p.runs.map(r => ({ text: r.text, options: { bold: !!r.b, color: r.b ? d.S.txt : d.S.muted } })),
-      { x: RX + 0.14, y: py + 0.6, w: RW - 0.28, h: p.h - 0.68, fontSize: 13, valign: 'top' }));
+      { x: RX + 0.14, y: py + 0.56, w: RW - 0.28, h: p.h - 0.62, fontSize: 14, valign: 'top' }));
     postNames.push(g);
     py += p.h + pg;
   }
@@ -296,16 +303,19 @@ async function precedentSlide(d) {
       c: { l: 0, t: 368, w: 1096, h: 290 }, hl: [[462, 500, 516, 44], [30, 548, 728, 44]],
       cap: 'Jan Leike, head of alignment, quit. WIRED: the long-term risk team “has either resigned or been absorbed into other research groups.”' },
     { date: 'MAY 22, 2024', tag: 'EXIT PAPERS', col: BLU, file: 'vox-2024-05-22-leaked-documents.png', out: 'vox-leaked-documents.png',
-      c: { l: 700, t: 70, w: 1700, h: 460 }, hl: [[722, 236, 1511, 92], [722, 346, 494, 92]],
+      // black-on-yellow clipping: one red outline around headline lines 2-3 instead of an amber fill
+      // (a fill turns the black text olive; two stacked outlines would touch). Glyphs span y 240-440 in the capture.
+      c: { l: 700, t: 70, w: 1700, h: 460 }, hl: [[722, 238, 1511, 206]], hlo: { color: 'E0201B', outline: 2, padX: 10, padY: 4 },
       cap: 'Vox: departing staff were threatened with losing vested equity unless they agreed not to criticize OpenAI. Altman: “this is on me.”' },
     { date: 'JUN 4, 2024', tag: 'FIRED · HIS ACCOUNT', col: RED, file: 'transformer-2024-06-04-aschenbrenner-fired-security-memo.png', out: 'transformer-aschenbrenner.png',
       c: { l: 530, t: 100, w: 1480, h: 395 }, hl: [[1660, 122, 302, 72], [552, 194, 1237, 72]],
       cap: 'Aschenbrenner: “the security memo was a major reason for my being fired.” OpenAI alleged he shared a document with sensitive information; he denies it.' },
-    { date: 'SEP 29, 2026', tag: 'WARNINGS IGNORED', col: BLU, file: 'businessstandard-nyt-openai-ignored-warnings.png', out: 'nyt-ignored-warnings.png',
+    { date: 'SEP 29, 2026', tag: 'NYT: WARNINGS IGNORED', col: BLU, file: 'businessstandard-nyt-openai-ignored-warnings.png', out: 'nyt-ignored-warnings.png',
       c: { l: 15, t: 80, w: 1400, h: 355 }, hl: [[1056, 276, 214, 38], [33, 324, 584, 38]],
-      cap: 'Two unnamed employees emailed executives; they were told the tests had to “move forward as quickly as possible.” No report says they were fired.' },
+      cap: 'Two unnamed employees emailed executives; they were told the tests had to “move forward as quickly as possible.” We found no report that they were fired.' },
     { date: 'OCT 3, 2026', tag: 'RESIGNED', col: AMB, file: 'techcrunch-robinson-culture-broken.png', out: 'techcrunch-robinson.png',
-      c: { l: 1290, t: 575, w: 1210, h: 280 }, hl: [],
+      // white-on-green clipping: amber outline around 'culture is broken' (headline line 3, capture px)
+      c: { l: 1290, t: 575, w: 1210, h: 280 }, hl: [[1733, 768, 652, 66]], hlo: { color: 'FFD166', outline: 2, padX: 10, padY: 6 },
       cap: 'David Robinson resigned: “An environment where things like this can happen is no place to grow artificial minds…”' },
   ];
   const rows = [1.74, 4.1], rowH = 2.25;
@@ -316,13 +326,13 @@ async function precedentSlide(d) {
     const x = CX0 + (i % 3) * (cw + gap), y0 = rows[Math.floor(i / 3)];
     const g = [];
     g.push(d.text(s, c.date, { x, y: y0, w: 1.45, h: 0.26, fontSize: 11, bold: true, color: d.S.txt, charSpacing: 1.5, valign: 'middle', fontFace: 'Arial' }));
-    g.push(...pill(d, s, c.tag, x + 1.42, y0 + 0.01, c.col));
+    g.push(...pill(d, s, c.tag, x + 1.38, y0, c.col, 10));
     const file = await cropR2(c.file, c.out, c.c);
     const zoneY = y0 + 0.36, zoneH = 1.14;
     const h = await hFor(file, cw);
     const fr = await d.frame(s, file, { x, y: zoneY + (zoneH - h) / 2, w: cw, h }, { rot: rots[i] });
     g.push(...fr);
-    if (c.hl.length) g.push(...hilite(d, s, fr, c.c, c.hl, { rot: rots[i] }));
+    if (c.hl.length) g.push(...hilite(d, s, fr, c.c, c.hl, { rot: rots[i], ...(c.hlo || {}) }));
     g.push(d.text(s, c.cap, { x, y: zoneY + zoneH + 0.1, w: cw, h: rowH - (zoneH + 0.46), fontSize: 12, color: d.S.muted, valign: 'top' }));
     groups.push(g);
   }
@@ -333,14 +343,14 @@ async function precedentSlide(d) {
   d.source(s, 'Sources: The Information via X, Apr 11, 2024 · Jan Leike on X, May 17, 2024 · WIRED, May 17, 2024 · Vox, May 22, 2024 · Transformer, Jun 4, 2024 · The New York Times via Business Standard, Sep 29, 2026 · TechCrunch, Oct 3, 2026');
   s.addNotes([
     'This is not the first time. But look at the tags: some were fired, more resigned. That is the honest shape of the story.',
-    'APR 11, 2024 — FIRED. The Information (Erin Woo & Stephanie Palazzolo): “Exclusive: OpenAI has fired two AI safety researchers for allegedly leaking information, including an ally of chief scientist Ilya Sutskever.” They were Leopold Aschenbrenner (Superalignment) and Pavel Izmailov. OpenAI did not publicly explain what was leaked; Izmailov has not given his account. https://x.com/theinformation/status/1778522707237470243',
+    'APR 11, 2024 — FIRED. The Information (Erin Woo & Stephanie Palazzolo): “Exclusive: OpenAI has fired two AI safety researchers for allegedly leaking information, including an ally of chief scientist Ilya Sutskever.” They were Leopold Aschenbrenner (Superalignment) and Pavel Izmailov — the tweet does not name them; names per TechCrunch, Oct 1, 2026 (citing The Information) and The Decoder, Apr 12, 2024 (summarizing The Information). OpenAI did not publicly explain what was leaked; Izmailov has not given his account. https://x.com/theinformation/status/1778522707237470243 · https://techcrunch.com/2026/10/01/openai-cuts-ties-with-three-safety-researchers-wsj-reports/',
     'CLICK — MAY 17, 2024 — RESIGNED. Jan Leike, head of alignment and Superalignment co-lead: “I have been disagreeing with OpenAI leadership about the company’s core priorities for quite some time, until we finally reached a breaking point.” … “But over the past years, safety culture and processes have taken a backseat to shiny products.” https://x.com/janleike/status/1791498184671605209 · WIRED (Will Knight, May 17, 2024), “OpenAI’s Long-Term AI Risk Team Has Disbanded”: “The entire OpenAI team focused on the existential dangers of AI has either resigned or been absorbed into other research groups.” https://www.wired.com/story/openai-superalignment-team-disbanded/',
     'CLICK — MAY 22, 2024 — EXIT PAPERS. Vox (Kelsey Piper): departing employees “were threatened with the loss of their vested equity … forcing ex-employees to choose between giving up what could be millions of dollars they had already earned or agreeing not to criticize the company, with no end date.” https://www.vox.com/future-perfect/351132/openai-vested-equity-nda-sam-altman-documents-employees · Sam Altman (May 18): “we have never clawed back anyone’s vested equity … this is on me and one of the few times i’ve been genuinely embarrassed running openai; i did not know this was happening and i should have.” https://x.com/sama/status/1791936857594581428 (an X community note cites the Vox documents saying leadership “signed off on them”).',
-    'CLICK — JUN 4, 2024 — FIRED, HIS ACCOUNT. Transformer (Shakeel Hashim), on Aschenbrenner’s Dwarkesh Podcast interview: “I wrote an internal memo about OpenAI’s security, which I thought was egregiously insufficient to protect against the theft of model weights or key algorithmic secrets from foreign actors.” “It was made very clear to me that leadership was very unhappy I had shared this memo with the board.” “When I was fired, it was made very explicit that the security memo was a major reason for my being fired.” Transformer: he “was also ousted for sharing a document that OpenAI alleged contained sensitive information, a charge which he denies.” This is his side; OpenAI did not respond to Transformer. https://www.transformernews.ai/p/openai-employee-says-he-was-fired',
+    'CLICK — JUN 4, 2024 — FIRED, HIS ACCOUNT. Transformer (Shakeel Hashim), on Aschenbrenner’s Dwarkesh Podcast interview: “I wrote an internal memo about OpenAI’s security, which I thought was egregiously insufficient to protect against the theft of model weights or key algorithmic secrets from foreign actors.” “It was made very clear to me that leadership was very unhappy I had shared this memo with the board.” “When I was fired, it was made very explicit that the security memo was a major reason for my being fired.” Transformer: he “was also ousted for sharing a document that OpenAI alleged contained sensitive information, a charge which he denies.” This is his side; OpenAI did not respond to Transformer. OpenAI reportedly said the firing was unrelated to the memo (secondary source: press summaries compiled on Wikipedia; we did not find OpenAI’s primary statement). https://www.transformernews.ai/p/openai-employee-says-he-was-fired',
     'Same day: “A Right to Warn about Advanced Artificial Intelligence” — 13 current and former OpenAI (11) and Google DeepMind (2) employees, 6 anonymous, endorsed by Bengio, Hinton and Russell — asked labs not to enforce non-disparagement agreements over risk-related criticism or retaliate against employees who raise risks. https://righttowarn.ai/ · July 2024: anonymous whistleblowers’ lawyers told the SEC that OpenAI’s agreements “prohibited and discouraged both employees and investors from communicating with the SEC”; OpenAI said its whistleblower policy “protects employees’ rights to make protected disclosures.” No SEC outcome found. https://techcrunch.com/2024/07/13/whistleblowers-accuse-openai-of-illegally-restrictive-ndas',
-    'CLICK — SEP 29, 2026 — WARNINGS IGNORED (the Times’ word; The Verge: “brushed off”). New York Times (syndicated by Business Standard): “Months before OpenAI’s artificial intelligence went rogue, two employees raised an alarm with top executives. They were ignored.” In emails they warned the newest models “were not being appropriately monitored during testing”; “OpenAI executives told the employees that the tests needed to move forward as quickly as possible to release the A.I. models on time. No additional security protocols were instituted.” OpenAI told the Times it has internal channels for reporting safety issues and recognized “a need to move faster.” The two are unnamed; no report says they were fired. https://www.business-standard.com/world-news/openai-ignored-employees-who-warned-it-wasn-t-doing-enough-about-security-126092901531_1.html · original: https://www.nytimes.com/2026/09/29/technology/openai-warnings-security.html · TechCrunch: the firings came “two days after” this report.',
+    'CLICK — SEP 29, 2026 — NYT: WARNINGS IGNORED (the Times’ characterization, hence the “NYT:” on the tag; The Verge: “brushed off”; OpenAI’s response is below). New York Times (syndicated by Business Standard): “Months before OpenAI’s artificial intelligence went rogue, two employees raised an alarm with top executives. They were ignored.” In emails they warned the newest models “were not being appropriately monitored during testing”; “OpenAI executives told the employees that the tests needed to move forward as quickly as possible to release the A.I. models on time. No additional security protocols were instituted.” OpenAI told the Times it has internal channels for reporting safety issues and recognized “a need to move faster.” The two are unnamed; we found no report (searching through Oct 4) that they were fired. https://www.business-standard.com/world-news/openai-ignored-employees-who-warned-it-wasn-t-doing-enough-about-security-126092901531_1.html · original: https://www.nytimes.com/2026/09/29/technology/openai-warnings-security.html · TechCrunch: the firings came “two days after” this report.',
     'CLICK — OCT 3, 2026 — RESIGNED. TechCrunch (Anthony Ha): “OpenAI safety employee resigns, claiming the company’s ‘culture is broken’.” David Robinson: “An environment where things like this can happen is no place to grow artificial minds that could be smarter than we are and that might not do what we want them to.” OpenAI (Drew Pusateri): “We’re making sure our models don’t become more capable than we can safely manage and secure, and we pause training or hold back models when we need to slow down.” He resigned; he was not fired. https://techcrunch.com/2026/10/03/openai-safety-employee-resigns-claiming-the-companys-culture-is-broken/',
-    'Bottom line for Q&A: five named safety/alignment researchers have been fired over alleged leaks or information handling (two in 2024, three in 2026). Most others who went public with safety concerns — Leike in 2024, Robinson in 2026 — resigned; Zoë Hitzig also resigned in Feb 2026, over ads. OpenAI also dissolved its Superalignment team (2024) and its “mission alignment” team (Feb 2026); an FT report that the Preparedness team was split up (Aug 2026) is disputed by OpenAI. Separate case, not model-safety whistleblowing: VP of product policy Ryan Beiermeister was fired in Jan 2026 after a colleague’s discrimination claim she calls “absolutely false”; OpenAI says it “was not related to any issue she raised.” The AI Whistleblower Protection Act (Grassley, 2025) had still not passed as of late Sep 2026.',
+    'Bottom line for Q&A: five named safety/alignment researchers have been fired over alleged leaks or information handling (two in 2024, three in 2026). Most others who went public with safety concerns — Leike in 2024, Robinson in 2026 — resigned; Zoë Hitzig also resigned in Feb 2026, over ads. OpenAI also dissolved its Superalignment team (2024) and its “mission alignment” team (Feb 2026). The Preparedness team is contested: The Next Web (Aug 17–18, 2026), citing a Financial Times report that the Preparedness team was disbanded at the end of July 2026 and its work split across existing teams — OpenAI disputes it (“We have not disbanded the Preparedness team”). https://thenextweb.com/news/openai-preparedness-team-disbanded-ipo-streamlining Separate case, not model-safety whistleblowing: VP of product policy Ryan Beiermeister was fired in Jan 2026 after a colleague’s discrimination claim she calls “absolutely false”; OpenAI says it “was not related to any issue she raised.” The AI Whistleblower Protection Act (Grassley, 2025) had still not passed as of late Sep 2026.',
   ].join('\n\n'));
 }
 

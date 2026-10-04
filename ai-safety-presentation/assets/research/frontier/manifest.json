@@ -1616,9 +1616,29 @@
       744,
       251
      ]
+    ],
+    "if that were all plain English text, it would take one person about 66 million years to read it at 240 words a minute": [
+     [
+      712,
+      44,
+      1390,
+      107
+     ],
+     [
+      42,
+      116,
+      1369,
+      179
+     ],
+     [
+      42,
+      188,
+      744,
+      251
+     ]
     ]
    },
-   "notes": ""
+   "notes": "Editor fix 2026-10-04: added the longer phrase key (starting at the condition \"if that were all plain English text,\") with boxes measured on this capture's pixels; the shorter key is kept for reference."
   }
  ],
  "datasets": [
@@ -1628,9 +1648,10 @@
    "unit": "hours of nonstop reading",
    "labels": [
     "10K-token CoT (illustrative short trace)",
-    "100K tokens (low end of \"hundreds of thousands\" per trajectory)",
+    "100K tokens (illustrative; below Google's \"hundreds of thousands\" per trajectory)",
+    "300K tokens (our illustrative pick within Google's \"hundreds of thousands\" per trajectory)",
     "1M tokens (Gemini 4 Argon output limit)",
-    "3M tokens (one METR transcript; \"many millions\")"
+    "3M tokens (one METR transcript; our illustrative reading of \"often many millions\")"
    ],
    "series": [
     {
@@ -1638,16 +1659,17 @@
      "values": [
       0.52,
       5.21,
+      15.63,
       52.08,
       156.25
      ]
     }
    ],
    "estimate": true,
-   "basis": "ESTIMATE. hours = tokens x 0.75 words/token / 240 words/min / 60. 240 wpm is OpenAI's own figure in its 66-million-years statement (the brief's ~250 wpm gives ~4% less). 0.75 words per token is a common rule of thumb, not a source number. 10K and 3M are illustrative choices; Google says \"hundreds of thousands of tokens in a single trajectory\" and METR says \"often many millions of tokens\" without exact counts. Equivalent 8-hour working days: 0.07, 0.7, 6.5, 19.5.",
+   "basis": "ESTIMATE. hours = tokens x 0.75 words/token / 240 words/min / 60. 240 wpm is OpenAI's own figure in its 66-million-years statement (the brief's ~250 wpm gives ~4% less). 0.75 words per token is a common rule of thumb, not a source number. 10K, 100K, 300K and 3M are illustrative choices: Google says \"hundreds of thousands of tokens in a single trajectory\" (so 100K is below that range, kept only as a yardstick, and 300K is our pick within it) and METR says \"often many millions of tokens\"; neither gives exact counts. 300K tokens = 225,000 words = 15.63 h (used on the frontier CoT-volume slide as \"~16 hours\"). Equivalent 8-hour working days: 0.07, 0.7, 1.95, 6.5, 19.5.",
    "source": "Google (Gemini 4 Argon blog, 2026-09-30), METR (2026-08-26); arithmetic by us",
    "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
-   "rev": "rev2"
+   "rev": "rev2-editor-fix"
   },
   {
    "id": "metr-hf-investigation-scale",
@@ -1988,7 +2010,7 @@
    "rev": "rev2"
   },
   {
-   "claim": "Human-reading yardsticks (ESTIMATES): at 240 words/min and 0.75 words/token, 100K tokens = 5.2 hours, 1M tokens = 52 hours (6.5 eight-hour days), 3M tokens = 156 hours (about 4 forty-hour weeks).",
+   "claim": "Human-reading yardsticks (ESTIMATES): at 240 words/min and 0.75 words/token, 100K tokens = 5.2 hours, 300K tokens = 15.6 hours, 1M tokens = 52 hours (6.5 eight-hour days), 3M tokens = 156 hours (about 4 forty-hour weeks).",
    "source": "Our arithmetic (240 wpm from OpenAI's statement)",
    "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
    "date": "2026-10-04",

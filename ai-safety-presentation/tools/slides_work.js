@@ -26,6 +26,16 @@ function gifScaled(file, width) {
   return out;
 }
 
+// GIF trimmed (and scaled) from a research MP4: input range [ss, to) at fps/width, per-frame palettes. Trim/scale only.
+function mp4Gif(file, name, { ss, to, width, fps }) {
+  const out = path.join(MEDIA, name);
+  if (fs.existsSync(out)) return out;
+  fs.mkdirSync(MEDIA, { recursive: true });
+  execFileSync('ffmpeg', ['-v', 'error', '-y', '-ss', String(ss), '-to', String(to), '-i', R2(file), '-filter_complex', `fps=${fps},scale=${width}:-2:flags=lanczos,${PAL}`, '-loop', '0', out]);
+  execFileSync('gifsicle', ['-b', '-O3', out], { stdio: 'ignore' });
+  return out;
+}
+
 // Quiz clip: the RA-Bench research MP4 as a looping GIF whose loop STARTS at frame k (frames k…end, then 0…k−1).
 // Nothing else changes: same frames, same 24 fps, same hard cut at the clip end. Both clips of a pair use the same k,
 // so they stay in sync, and a static preview shows a mid-clip frame instead of the first frame both clips share.
@@ -201,7 +211,7 @@ async function hwDesignSlide(d) {
   // left: 2×2 wall of real demo media (GIFs play in slideshow)
   const gw = 7.55, gap = 0.2, tw = (gw - gap) / 2, th = tw * 9 / 16, gy = 1.8;
   const cells = [
-    [R2('cad-autodesk-mcp-enclosure.gif'), 'CAD · AUTODESK FUSION + CLAUDE OPUS 4.8', 'One chat request → a two-part molded Raspberry Pi case'],
+    [R2('cad-autodesk-mcp-enclosure.gif'), 'CAD · AUTODESK FUSION + CLAUDE OPUS 4.8', 'One chat request → a molded Raspberry Pi case'],
     [R2('cad-autodesk-mcp-mold-toolpaths.gif'), 'CAM · SAME AGENT, NEXT REQUEST', '…then the mold and the CNC toolpaths to cut it'],
     [R2('pcb-astra-kicad-hackaday.jpg'), 'PCB · GPT-6 ASTRA IN KICAD (OPENAI DEMO)', 'Schematic → placed, routed, manufacturable board'],
     [R2('pcb-quilter-speedrun-board-360.gif'), 'PCB · QUILTER “PROJECT SPEEDRUN”', '843-part Linux computer — booted on first power-up'],
@@ -237,7 +247,7 @@ async function hwDesignSlide(d) {
   d.animate(s, [...st], { effect: 'rise', dur: 450 });
   d.animate(s, [chips], { auto: true, effect: 'fade', after: 300 });
 
-  d.source(s, 'Sources: Autodesk Fusion blog & demo videos (Sep 15, 2026) · OpenAI GPT-6 Astra demo still via Hackaday (Sep 5, 2026) · Quilter (Dec 2025) · EEBench leaderboard (atopile, Sep 29, 2026) · HWE-Bench, arXiv 2604.14709.');
+  d.source(s, 'Sources: Autodesk Fusion blog & demos (Sep 15, 2026) · OpenAI demo still via Hackaday (Sep 5, 2026) · Quilter (Dec 2025) · EEBench (atopile, Sep 29, 2026) · HWE-Bench (arXiv 2604.14709).');
   s.addNotes([
     'Four real demos of AI doing hardware design. Top row (Autodesk’s official demo of its new Fusion Compute MCP, Sep 15, 2026): an agent — the model selector in the video reads “Opus 4.8 High” (Claude) — is asked to design a two-part injection-molded enclosure for a Raspberry Pi 4; it builds the parametric case, then a family mold with core and cavity, then programs the CNC toolpaths. Autodesk: “That is a design-to-manufacturing chain that normally requires several people over several days, now driven end to end from a chat window.” (Autodesk’s own demo.)',
     'Bottom left: still from OpenAI’s GPT-6 Astra launch demo (image via Hackaday). OpenAI’s caption: “a 15-second condensed playback of GPT-6 Astra performing printed circuit board (PCB) layout in KiCad, turning an electronic schematic into a manufacturable PCB by placing components and routing copper connections” (a 2 min 54 s run). The clip itself could not be downloaded (Cloudflare/Vimeo), so this is the still. JLCPCB independently had Astra design a 44 × 34 mm amplifier board from a four-line brief: 0 ERC / 0 DRC violations under the configured rules (caveat: some rule categories were ignored, and a clean DRC is not a manufacturability check). Hackaday’s verdict was skeptical: “there is still a long way to go before hardware engineers can receive their pink slips.”',
@@ -330,10 +340,11 @@ async function aleSlide(d) {
   const c1 = await frameW(d, s, hero, CX0, 1.82, lw);
   const gy = 1.82 + await hFor(hero, lw) + 0.24;
   const gh = 6.5 - gy - 0.32, gwid = gh * 16 / 9;
-  const gif = await tile(d, s, R2('labor-ale-intro-agent-wall.gif'), { x: CX0, y: gy, w: gwid, h: gh }, null);
+  const aleGif = mp4Gif('labor-ale-intro.mp4', 'labor-ale-agents-70s.gif', { ss: 70.5, to: 75.2, width: 960, fps: 15 });
+  const gif = await tile(d, s, aleGif, { x: CX0, y: gy, w: gwid, h: gh }, null);
   const gcap = d.text(s, [
     { text: '►  ', options: { color: d.S.red, bold: true } },
-    { text: 'Official ALE video: agents operating real professional software — CAD, audio, X-ray viewers, spreadsheets, ERP', options: { color: d.S.muted } },
+    { text: 'Official ALE video: agents at work in real professional software', options: { color: d.S.muted } },
   ], { x: CX0, y: gy + gh + 0.05, w: lw, h: 0.26, fontSize: 10, valign: 'top' });
 
   // right: hardest tier — launch agents still at 0%, today's at up to 15.8% (same 38 tasks)
@@ -372,7 +383,7 @@ async function aleSlide(d) {
     'Today (live leaderboard, accessed Oct 4, 2026): on that same hardest “Last-Exam” split (38 tasks), Claude Opus 5.5 in Claude Code (max effort) passes 15.8% (6 of 38); Claude Opus 5 and GPT-6 Sol 13.2%; GPT-6 Astra (High) 10.5%. The June launch configurations (Claude Code + Fable 5 at default effort, Codex + GPT-5.5 default, Cursor + Composer 2.5) still show 0.0% on the same split — so the jump from 0% is on the same task set. (Fable 5 at XHigh effort now shows 7.9%.) Leaderboard entries are not dated, so “four months” is launch-to-today.',
     'Overall (152 public tasks): Claude Opus 5.5 38.2% pass rate (63.2% partial credit), GPT-6 Astra 34.2%; in June the best overall was 24.0% (GPT-5.5). Taking the best run per task across all agents gives 56.6%. “Pass rate” = share of runs with a perfect score.',
     'Caveat from the launch post: the most common failure is agents declaring success before verifying their work — “Done. All checks pass.” when files are missing or counts are wrong.',
-    'Left: official homepage (crop) and a 6-second excerpt (trimmed/scaled only) of the official intro video showing a wall of agent sessions in real desktop software. The GIF plays in slideshow mode.',
+    'Left: official homepage (crop) and a 4.7-second excerpt (0:70.5–0:75.2, trimmed/scaled only) of the official 80-second intro video: four agent sessions in real desktop software (CAD, an audio workstation, spreadsheets…), then the camera pulls back to a wall of dozens of sessions. The GIF plays in slideshow mode.',
     'URLs: https://agents-last-exam.org/ · https://agents-last-exam.org/leaderboard · https://rdi.berkeley.edu/blog/agents-last-exam/ · https://arxiv.org/abs/2606.05405 · video: https://agents-last-exam.org/videos/ale-intro.mp4',
   ].join('\n\n'));
   return s;
@@ -384,7 +395,7 @@ async function paidWorkSlide(d) {
   head(s, 'THE ACCELERATION · LABOR · 2', 'Real paid work: AI’s success rate is soaring');
 
   const colW = (CW - 0.45) / 2, ax = CX0, bx = CX0 + colW + 0.45;
-  const zap = await crop('rev2/labor-automationbench-leaderboard-top10.png', 'labor-zapier-head.png', { l: 190, t: 10, w: 1960, h: 228 });
+  const zap = await crop('rev2/labor-automationbench-leaderboard-top10.png', 'labor-zapier-head.png', { l: 180, t: 10, w: 2020, h: 228 });
   const cais = await crop('rev2/labor-rli-cais-blog-header.png', 'labor-cais-rli-head.png', { l: 70, t: 40, w: 1820, h: 360 });
   const cw = colW - 0.3;
   const hz = await hFor(zap, cw), hc = await hFor(cais, cw), hb = Math.max(hz, hc);
@@ -399,10 +410,10 @@ async function paidWorkSlide(d) {
       chartColors: [HEX.red], lineSize: 3, lineDataSymbolSize: 7, showValue: true, dataLabelFormatCode: '0"%"', dataLabelPosition: 't',
       dataLabelFontSize: 11, valAxisMinVal: 0, valAxisMaxVal: 60, valAxisMajorUnit: 20, valAxisLabelFormatCode: '0"%"', catAxisLabelFontSize: 11,
     });
-  const sa = d.text(s, [
-    { text: '~4×  ', options: { fontSize: 30, bold: true, color: d.S.red, fontFace: 'Arial' } },
-    { text: 'in five months on identical tasks: April’s leader Opus 4.7 scores 13.4%, Gemini 4 Argon 51.3%. Business workflows in 47 real apps, strict pass/fail.', options: { fontSize: 13, color: d.S.muted } },
-  ], { x: ax, y: cy + chH + 0.1, w: colW, h: 0.85, valign: 'top' });
+  const sy = cy + chH + 0.14;
+  const big = (x, v) => d.text(s, v, { x, y: sy, w: 1.05, h: 0.56, fontSize: 32, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'top' });
+  const lbl = (x, t) => d.text(s, t, { x: x + 1.1, y: sy + 0.04, w: colW - 1.1, h: 0.82, fontSize: 13, color: d.S.muted, valign: 'top' });
+  const sa = [big(ax, '~4×'), lbl(ax, 'in five months on identical tasks: April’s leader Opus 4.7 scores 13.4%, Gemini 4 Argon 51.3%. Business workflows in 47 real apps; strict pass/fail.')];
 
   // B: Remote Labor Index — best automation rate over time (240 real freelance projects, human-judged)
   const lb = capLabel(d, s, 'REMOTE LABOR INDEX (CAIS + SCALE) · BEST AUTOMATION RATE', { x: bx, y: ly, w: colW, charSpacing: 1 });
@@ -412,19 +423,16 @@ async function paidWorkSlide(d) {
       dataLabelFontSize: 12, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 25,
       catAxisLabelFontSize: 11, barGapWidthPct: 55,
     });
-  const sb = d.text(s, [
-    { text: '8×  ', options: { fontSize: 30, bold: true, color: d.S.red, fontFace: 'Arial' } },
-    { text: 'in under a year. 240 real freelance jobs (3D, design, video, data…) worth $144K, each judged by humans against a paid professional’s work.', options: { fontSize: 13, color: d.S.muted } },
-  ], { x: bx, y: cy + chH + 0.1, w: colW, h: 0.85, valign: 'top' });
+  const sb = [big(bx, '8×'), lbl(bx, 'in under a year. 240 real freelance jobs (3D, design, video, data…) worth $144K, each judged by humans against a paid professional’s work.')];
 
   d.animate(s, c1, { auto: true, effect: 'rise', dur: 450 });
   d.animate(s, [la, ca], { auto: true, effect: 'wipeLeft', dur: 1100, after: 100 });
-  d.animate(s, [sa], { auto: true, effect: 'fade', after: 100 });
+  d.animate(s, sa, { auto: true, effect: 'fade', after: 100 });
   d.animate(s, c2, { effect: 'rise', dur: 450 });
   d.animate(s, [lb, cb], { auto: true, effect: 'wipeLeft', dur: 1000, after: 100 });
-  d.animate(s, [sb], { auto: true, effect: 'fade', after: 100 });
+  d.animate(s, sb, { auto: true, effect: 'fade', after: 100 });
 
-  d.source(s, 'Sources: Zapier AutomationBench leaderboard v1.0.6 (accessed Oct 4, 2026), arXiv 2604.18934 · CAIS, “A Significant Increase in Digital Labor Automation” (Jul 1, 2026), Scale Labs RLI leaderboard (Oct 4, 2026), arXiv 2510.26787.');
+  d.source(s, 'Sources: Zapier AutomationBench v1.0.6 (accessed Oct 4, 2026) & arXiv 2604.18934 · CAIS blog (Jul 1, 2026) & Scale Labs RLI leaderboard (Oct 4, 2026) · arXiv 2510.26787.');
   s.addNotes([
     'Two benchmarks built from real, paid work. Left — AutomationBench (Zapier, Apr 21, 2026): 600+ held-out business workflows across Sales, Marketing, Operations, Support, Finance and HR in 47 simulated apps (CRM, inbox, calendars…), built on patterns from Zapier’s 2B+ monthly tasks across 3.7M companies; strict scoring — every end-state assertion must hold (“mostly-right is still wrong”); “No LLM-as-judge.”',
     'At launch: “Even the best frontier models currently score below 10%” (Opus 4.7 9.9%). Today (leaderboard v1.0.6): Gemini 4 Argon (High) 51.29%, Claude Sonnet 5.5 44.75%, Claude Opus 5.5 42.47%, GPT 6 Astra (Max) 41.4%. Zapier re-runs every model when the version changes, so compare within v1.0.6: April’s leader Opus 4.7 scores 13.39% on v1.0.6 vs 51.29% for Gemini 4 Argon (Sep 2026) — ~4x in five months. The chart is the best v1.0.6 score among models released up to each month (our compilation; release months from Artificial Analysis / Wikipedia).',
@@ -460,7 +468,7 @@ async function gdpvalSlide(d) {
   const lab = capLabel(d, s, 'GDPVAL · DELIVERABLE JUDGED AS GOOD AS OR BETTER THAN AN EXPERT’S', { x: CX0, y: 1.72, w: lw, charSpacing: 1 });
   const box = { x: CX0 - 0.1, y: 1.98, w: lw + 0.1, h: 3.55 };
   const L = { x: 0.07, y: 0.07, w: 0.92, h: 0.72 };
-  const labels = ['GPT-4o (2024)', 'o3 (Apr ’25)', 'GPT-5 (Aug ’25)', 'Opus 4.1 (Sep ’25)', 'GPT-5.2 (Dec ’25)', 'GPT-5.4 (Mar ’26)', 'GPT-5.5 (Apr ’26)'];
+  const labels = ['GPT-4o (2024)', 'o3 (Apr ’25)', 'GPT-5 (Aug ’25)', 'Opus 4.1 (Sep ’25)', 'GPT-5.2 (Dec ’25)', 'GPT-5.4 (Mar ’26)', 'GPT-5.5 (Apr ’26)'].map(l => l.replace(/ (’\d\d\))/, '\u00A0$1'));
   const vals = [12.4, 34.1, 38.8, 47.6, 70.9, 83.0, 84.9];
   const ch = d.chart(s, 'bar', [{ name: 'Wins + ties', labels, values: vals }], box, {
     barDir: 'col', layout: L, chartColors: vals.map(v => (v >= 50 ? HEX.red : HEX.steel)), showValue: true, dataLabelFormatCode: '0.0"%"',
@@ -882,7 +890,7 @@ async function realQuestionSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
   head(s, 'THE ACCELERATION · VIDEO · 2', 'Which one is real?');
   const hint = d.text(s, [
-    { text: 'Each column: one real news clip, one AI clip generated', options: { breakLine: true } },
+    { text: 'Each column: one real clip and one AI clip generated', options: { breakLine: true } },
     { text: 'from its first frame (Seedance 2.0). ' },
     { text: 'Vote now.', options: { bold: true, color: d.S.txt } },
   ], { x: 6.6, y: 0.84, w: CX1 - 6.6, h: 0.54, fontSize: 14, color: d.S.muted, align: 'right', valign: 'middle' });
@@ -924,11 +932,12 @@ async function realRevealSlide(d) {
     { text: 'Genuine footage: 71.9%.', options: { color: d.S.muted } },
   ], { x: ox + ip, y: oy + 1.1, w: ow - 2 * ip, h: 0.78, fontSize: 14, valign: 'top' }));
   ov.push(capLabel(d, s, 'JUDGED “REAL” · % OF 53,550 JUDGMENTS', { x: ox + ip, y: oy + 1.9, w: ow - 2 * ip, charSpacing: 1 }));
-  ov.push(d.chart(s, 'bar', [{ name: 'Judged real', labels: ['Real footage', 'Seedance 2.0', 'Kling', 'Runway', 'Open-source'], values: [71.9, 51.9, 47.7, 34.8, 26.3] }],
+  const jr = [['Real footage', 71.9, HEX.teal], ['Seedance 2.0', 51.9, HEX.red], ['Kling', 47.7, HEX.red], ['Runway', 34.8, HEX.steel], ['Open-source avg.', 26.3, HEX.steel]];
+  ov.push(d.chart(s, 'bar', [{ name: 'Judged real', labels: jr.map(r => r[0]).reverse(), values: jr.map(r => r[1]).reverse() }],
     { x: ox + ip - 0.1, y: oy + 2.16, w: ow - 2 * ip + 0.2, h: 1.72 }, {
-      barDir: 'col', chartColors: [HEX.teal, HEX.red, HEX.red, HEX.steel, HEX.steel], showValue: true, dataLabelFormatCode: '0.0', dataLabelPosition: 'outEnd',
-      dataLabelFontSize: 11, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 88, valAxisMinVal: 0,
-      catAxisLabelFontSize: 10, barGapWidthPct: 40,
+      barDir: 'bar', chartColors: jr.map(r => r[2]).reverse(), showValue: true, dataLabelFormatCode: '0.0"%"', dataLabelPosition: 'outEnd',
+      dataLabelFontSize: 11, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 92, valAxisMinVal: 0,
+      catAxisLabelFontSize: 11, catAxisLineShow: false, barGapWidthPct: 35,
     }));
   ov.push(d.text(s, 'AI detectors caught 46.0% of fakes — and 1.4% after a simulated social-media re-share.',
     { x: ox + ip, y: oy + 3.92, w: ow - 2 * ip, h: 0.6, fontSize: 11, color: d.S.muted, italic: true, valign: 'top' }));

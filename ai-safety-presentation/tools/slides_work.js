@@ -1295,6 +1295,173 @@ async function unitreeSlide(d) {
   return s;
 }
 
+// ========== 13–14. Robotics: Anthropic, “What work can robots do?” (Sep 30, 2026) ==========
+const RW_URL = 'https://www.anthropic.com/research/what-work-can-robots-do';
+
+// Native highlighter strokes over a framed (unrotated) screenshot — never painted on the pixels.
+// lines: [x, y, w, h] boxes in the ORIGINAL screenshot's pixels (from the research JSON); off: the crop's {l, t}.
+async function hlLines(d, s, file, fr, lines, off = { l: 0, t: 0 }) {
+  const nat = await imgSize(file);
+  const g = fr.geom, k = g.w / nat.w;
+  return lines.map(([x, y, w, h]) => {
+    const x0 = Math.max(0, x - off.l - 3), y0 = Math.max(0, y - off.t - 2);
+    const x1 = Math.min(nat.w, x - off.l + w + 3), y1 = Math.min(nat.h, y - off.t + h + 2);
+    const n = d.name('hl');
+    s.addShape(d.pres.shapes.RECTANGLE, {
+      x: g.x + x0 * k, y: g.y + y0 * k, w: (x1 - x0) * k, h: (y1 - y0) * k,
+      fill: { color: 'FFD166', transparency: 58 }, line: { color: 'FFD166', width: 0, transparency: 100 }, objectName: n,
+    });
+    return n;
+  });
+}
+
+async function robotWorkSlide(d) {
+  const s = d.slide('Content', { transition: 'fade' });
+  head(s, 'THE ACCELERATION · ROBOTICS · 6', 'Anthropic: robots can do 74% of physical tasks');
+
+  // ---- left: the report itself (title block + key findings, highlights added) ----
+  const lw = 6.15;
+  const title = await crop('rev2/robotwork-title-block.png', 'robotwork-title.png', { l: 60, t: 30, w: 1400, h: 352 });
+  const t1 = await frameW(d, s, title, CX0 + 0.05, 1.8, 2.75, { rot: -1.5 });
+  const meth = d.text(s, [
+    { text: 'ANTHROPIC RESEARCH · ECONOMICS', options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 1, breakLine: true } },
+    { text: 'Claude rated all 7,594 physical tasks in the US O*NET job database: can a robot that exists today do it — and where? Every rating cites a real robot.', options: { fontSize: 13, color: d.S.muted } },
+  ], { x: CX0 + 3.1, y: 1.74, w: lw - 3.1, h: 1.0, valign: 'top' });
+  const kfOff = { l: 30, t: 298 };
+  const kf = await crop('rev2/robotwork-key-findings.png', 'robotwork-kf-b23.png', { ...kfOff, w: 1305, h: 566 });
+  const kfF = await frameW(d, s, kf, CX0, 2.92, lw);
+  const kfHl = await hlLines(d, s, kf, kfF, [
+    [82, 315, 1230, 42], [82, 367, 1156, 42], [82, 420, 716, 42], // three-quarters of physical tasks … 34% of working hours
+    [804, 420, 478, 42], [82, 473, 832, 42], // male, less educated, lower paid
+    [82, 707, 1237, 42], [82, 760, 100, 42], // about 80% … robots or LLMs
+  ], kfOff);
+  const kfBottom = kfF.geom.y + kfF.geom.h + 0.06;
+  const kfCap = d.text(s, 'Key findings, anthropic.com, Sep 30, 2026 (highlights added)', { x: CX0, y: kfBottom + 0.06, w: lw, h: 0.26, fontSize: 10, italic: true, color: d.S.steel });
+
+  // ---- right: Figure 3 as a native chart ----
+  const rx = 7.2, rw = CX1 - rx;
+  const lab = capLabel(d, s, 'SHARE OF ALL US WORK TIME, BY WHERE A ROBOT CAN DO THE TASK', { x: rx, y: 1.72, w: rw, charSpacing: 1 });
+  const box = { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 2.95 };
+  const L = { x: 0.08, y: 0.17, w: 0.9, h: 0.55 };
+  const labels = ['Cognitive & interpersonal', 'E0: no robot can do it', 'E1: purpose-built site (factory line)', 'E2: structured site (warehouse)', 'E3: open world (city road)'];
+  const vals = [54, 12, 23, 10, 1];
+  const ch = d.chart(s, 'bar', [{ name: 'Share of work time', labels, values: vals }], box, {
+    barDir: 'col', layout: L, chartColors: ['4A5263', HEX.steel, HEX.red, HEX.red, HEX.red], showValue: true, dataLabelFormatCode: '0"%"',
+    dataLabelPosition: 'outEnd', dataLabelFontSize: 13, dataLabelFontBold: true, valAxisMinVal: 0, valAxisMaxVal: 60, valAxisMajorUnit: 20,
+    valAxisLabelFormatCode: '0"%"', catAxisLabelFontSize: 11, barGapWidthPct: 40,
+  });
+  // bracket over the three robot-doable bars (E1–E3)
+  const cx = (i) => box.x + box.w * (L.x + L.w * (i + 0.5) / 5);
+  const vy = (v) => box.y + box.h * (L.y + L.h * (1 - v / 60));
+  const ba = cx(2) - 0.42, bb = cx(4) + 0.42, by = vy(36);
+  const brk = [];
+  [[ba, by, bb - ba, 0], [ba, by, 0, 0.12], [bb, by, 0, 0.12]].forEach(([x, y, w, h]) => {
+    const n = d.name('brk');
+    s.addShape(d.pres.shapes.LINE, { x, y, w, h, line: { color: HEX.red, width: 1.5 }, objectName: n });
+    brk.push(n);
+  });
+  brk.push(d.text(s, [
+    { text: 'ROBOTS CAN DO: 34% OF ALL WORK', options: { bold: true, color: 'FF8A8C', breakLine: true } },
+    { text: '= 74% of physical work, mostly in controlled settings', options: { color: d.S.muted } },
+  ], { x: ba - 0.3, y: by - 0.56, w: bb - ba + 0.6, h: 0.5, fontSize: 11, align: 'center', valign: 'bottom' }));
+
+  // ---- bottom right: who is exposed (press clipping + two stats) ----
+  const yb = box.y + box.h + 0.2;
+  const cnbc = R2('robotwork-cnbctv18-machines-have-a-type.png');
+  const cw = 2.55;
+  const c1 = await frameW(d, s, cnbc, rx + 0.05, yb + 0.05, cw, { rot: 1.5 });
+  const sx = rx + cw + 0.4, sw = CX1 - sx;
+  const st1 = stat(d, s, { x: sx, y: yb - 0.08, w: sw, value: '$22.88 vs $52.97', valueSize: 22, labelSize: 12, labelH: 0.42, color: d.S.amber, label: 'hourly pay: most robot-exposed fifth of workers vs unexposed' });
+  const st2 = stat(d, s, { x: sx, y: yb + 0.82, w: sw, value: '9 of 10', valueSize: 22, labelSize: 12, labelH: 0.42, color: d.S.amber, label: 'most-exposed jobs are vehicle operators; taxi drivers top (2.2 of 3)' });
+
+  d.animate(s, [...t1, meth, ...kfF, kfCap], { auto: true, effect: 'fade', dur: 600 });
+  d.animate(s, kfHl.slice(0, 3), { auto: true, effect: 'wipeLeft', dur: 500, stagger: 350, after: 150 });
+  d.animate(s, [lab, ch], { effect: 'wipeLeft', dur: 1000 });
+  d.animate(s, brk, { auto: true, effect: 'fade', after: 100 });
+  d.animate(s, kfHl.slice(3, 5), { effect: 'wipeLeft', dur: 450, stagger: 300 });
+  d.animate(s, [...c1, ...st1, ...st2], { auto: true, effect: 'rise', dur: 450, stagger: 120, after: 100 });
+  d.animate(s, kfHl.slice(5), { effect: 'wipeLeft', dur: 450, stagger: 300 });
+
+  d.source(s, 'Source: Anthropic, “What work can robots do?” (R. Legate-Yang & M. Massenkoff, Sep 30, 2026): Key findings, Figs. 3–5; ratings, time shares by Claude · CNBC-TV18 (Oct 2, 2026).');
+  s.addNotes([
+    'Anthropic’s economists (Russell Legate-Yang and Maxim Massenkoff, “What work can robots do?”, Anthropic Research · Economics, Sep 30, 2026) asked a narrow question: which work tasks can robots that EXIST TODAY already do? Claude (the data release names Claude Opus 5, with web search) rated the 7,594 physical tasks among the ~19,000 O*NET tasks (~900 occupations) on a rubric — E0: no robot can do it; E1: only in a purpose-built robotic work environment like a factory line; E2: in a structured human workplace like a logistics warehouse; E3: in an unstructured environment like a city road — citing real robots (about 650,000 web searches). Caveat: this is Anthropic’s own study and the ratings, task time shares and robot costs are Claude’s estimates.',
+    'Key findings (verbatim, highlighted on the slide): “Robots, which we define as autonomous physical machines that sense and act, can perform three-quarters of physical tasks in the US, making up 34% of working hours, but mostly in limited settings. Workers exposed to robots are more likely to be male, less educated, and lower paid.” … “Overall, about 80% of job tasks by working time are exposed to either robots or LLMs. Robots do work where LLMs cannot.” LLMs alone expose about half of work; adding robots takes it to 81% (Figure 6). Transportation and moving: under 15% exposed to LLMs alone, about 90% with robots; office and admin: nearly 100%.',
+    'Chart (Figure 3, all US work time): 54% cognitive and interpersonal; physical work is the other 46% — 12% that no robot can do (E0), 23% robots can do in purpose-built environments (E1), 10% in structured human facilities (E2), 1% in unstructured environments (E3). E1+E2+E3 = 34% of all work = 74% of physical work. Of physical tasks only 1.9% are E3 — robots mostly need controlled settings.',
+    'Who is exposed (Figure 5, top-quintile exposed vs unexposed workers): 31.2% vs 51.2% female (−20 pp); 8.3% vs 63.2% with a bachelor’s degree (−55 pp); hourly wage $22.88 vs $52.97; unemployment 5.2% vs 2.2%. Most exposed occupations (Figure 4, ≥20,000 jobs): taxi drivers 2.2 on the 0–3 index (citing Waymo robotaxis), agricultural equipment operators 2.1, light truck drivers 2.1 — 9 of the top 10 are vehicle operators. Nursing and general repair jobs are barely exposed.',
+    'Press: CNBC-TV18 (Asmi Saxena, Oct 2, 2026): “The machines have a type: male, blue-collar and lower-paid” — dek: “A new Anthropic study finds the jobs most exposed to physical automation are held mostly by men, with fewer qualifications and smaller pay packets. But the price tag means no stampede is imminent.” (That price tag is the next slide.)',
+    'Robustness caveat (Appendix A.4): excluding ratings that rely on robots doing only related tasks lowers the exposed share of physical work from about three-quarters to about a half.',
+    'URLs: ' + RW_URL + ' · PDF: https://cdn.sanity.io/files/4zrzovbb/website/401a473469db99fd39bba1ca6d9a5653a70e2f12.pdf · Appendix: https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf · Data release (CC BY 4.0): https://huggingface.co/datasets/Anthropic/EconomicIndex/tree/main/robot_exposure · CNBC-TV18: https://www.cnbctv18.com/ (Oct 2, 2026, “The machines have a type: male, blue-collar and lower-paid”)',
+  ].join('\n\n'));
+  return s;
+}
+
+async function robotCostSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  head(s, 'THE ACCELERATION · ROBOTICS · 7', 'But robots are cheaper for just 0.3% of tasks');
+
+  // ---- left: Figure 7 as a native chart — yearly cost of the robot vs the human, same tasks ----
+  const lw = 6.35;
+  const lab = capLabel(d, s, 'COST PER YEAR TO DO ONE WORKER’S ROBOT-DOABLE TASKS ($ THOUSANDS)', { x: CX0, y: 1.72, w: lw, charSpacing: 1 });
+  const box = { x: CX0 - 0.1, y: 2.0, w: lw + 0.1, h: 3.3 };
+  const occ = ['Packers & packagers (560K jobs)', 'Taxi drivers (41K)', 'Dishwashers (477K)', 'Janitors & cleaners (2.2M)', 'Welders (416K)'];
+  const robot = [45.4, 57.8, 172.0, 280.0, 334.6];
+  const comp = [49.0, 56.8, 45.0, 47.7, 73.4], share = [0.97, 0.89, 1.0, 0.73, 0.9]; // Fig. 7 columns
+  const human = comp.map((c, i) => Math.round(c * share[i] * 10) / 10);
+  const L = { x: 0.33, y: 0.1, w: 0.6, h: 0.8 };
+  const ch = d.chart(s, 'bar', [
+    { name: 'Human worker (pay × share of job robots can do)', labels: occ, values: human },
+    { name: 'Robot (Claude’s estimate)', labels: occ, values: robot },
+  ], box, {
+    barDir: 'bar', barGrouping: 'clustered', layout: L, chartColors: [HEX.steel, HEX.red], catAxisOrientation: 'maxMin',
+    valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 380,
+    showValue: true, dataLabelFormatCode: '$0"K"', dataLabelPosition: 'outEnd', dataLabelFontSize: 12, dataLabelFontBold: true,
+    catAxisLabelFontSize: 12, barGapWidthPct: 55, barOverlapPct: 0, showLegend: true, legendPos: 't', legendFontSize: 11,
+  });
+  // tag the one occupation where robots already win
+  const gy0 = box.y + box.h * L.y, gh = box.h * L.h / 5;
+  const tag = d.text(s, '◄ robots already ~$2.5K a year cheaper', { x: box.x + box.w * (L.x + L.w * 0.2) + 0.15, y: gy0 + gh * 0.5 - 0.15, w: 3.2, h: 0.3, fontSize: 12, bold: true, color: '5FD3C4', valign: 'middle' });
+  const note = d.text(s, [
+    { text: 'Packers: robots costing over $2 million replace ~14 workers. ', options: { color: d.S.muted } },
+    { text: 'Robot costs are Claude’s estimates (purchase spread over ~10 years + upkeep); the human bar is median pay × share of the job robots can do (Fig. 7).', options: { color: d.S.steel, italic: true } },
+  ], { x: CX0, y: box.y + box.h + 0.1, w: lw, h: 0.9, fontSize: 13, valign: 'top' });
+
+  // ---- right: the report’s own sentences (highlights added) + the 50-year backtest ----
+  const rx = 7.35, rw = CX1 - rx;
+  const kf = R2('robotwork-kf-bullet-03pct-40yrs.png');
+  const f1 = await frameW(d, s, kf, rx, 1.8, rw);
+  const h1 = await hlLines(d, s, kf, f1, [[508, 78, 742, 42], [42, 131, 91, 42], [139, 131, 1075, 42], [42, 184, 305, 42]]);
+  const sc = R2('robotwork-scenarios-2085-2050-53yrs.png');
+  const y2 = f1.geom.y + f1.geom.h + 0.06 + 0.3;
+  const f2 = await frameW(d, s, sc, rx, y2, rw);
+  const h2a = await hlLines(d, s, sc, f2, [[40, 31, 1210, 42], [40, 83, 490, 42]]);
+  const h2b = await hlLines(d, s, sc, f2, [[296, 136, 991, 42], [40, 189, 1247, 42], [40, 242, 927, 42]]);
+  const yb = f2.geom.y + f2.geom.h + 0.06 + 0.2;
+  const bl = capLabel(d, s, 'BUT ONCE ROBOTS CAN DO A JOB: 50-YEAR BACKTEST', { x: rx, y: yb, w: rw, color: d.S.amber, charSpacing: 1 });
+  const sw = (rw - 0.3) / 2;
+  const st1 = stat(d, s, { x: rx, y: yb + 0.22, w: sw, value: '−34%', valueSize: 26, labelSize: 12, labelH: 0.45, label: 'jobs in fully robot-exposed occupations over ~20 years' });
+  const st2 = stat(d, s, { x: rx + sw + 0.3, y: yb + 0.22, w: sw, value: '−7%', valueSize: 26, labelSize: 12, labelH: 0.45, label: 'wages, vs unexposed jobs in the same industry' });
+
+  d.animate(s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 1100 });
+  d.animate(s, [tag, note], { auto: true, effect: 'fade', after: 100 });
+  d.animate(s, f1, { effect: 'rise', dur: 450 });
+  d.animate(s, h1, { auto: true, effect: 'wipeLeft', dur: 450, stagger: 300, after: 100 });
+  d.animate(s, f2, { effect: 'rise', dur: 450 });
+  d.animate(s, h2a, { auto: true, effect: 'wipeLeft', dur: 450, stagger: 300, after: 100 });
+  d.animate(s, h2b, { effect: 'wipeLeft', dur: 450, stagger: 300 });
+  d.animate(s, [bl, ...st1, ...st2], { effect: 'rise', dur: 450, stagger: 120 });
+
+  d.source(s, 'Source: Anthropic, “What work can robots do?” (Sep 30, 2026): Key findings, Fig. 7 (human bar derived: median pay × exposed share), robot costs and adoption, Appendix B.3 (backtest, 1977–2024).');
+  s.addNotes([
+    'The catch: “While robots can do most physical work tasks today, they are much more expensive than human labor. Robots are cost-competitive for just 0.3% of job tasks. If robot price declines follow past trends, it will take 40 years for that share to reach 10%.” (Key findings, highlighted.) For 10% of human work today, robot costs would need to fall about 70% — around 40 years at 3% a year. At 20% cheaper, robots would undercut the physical work of 2.8 million workers (0.8% of all working time).',
+    'Chart (Figure 7; robot costs are Claude’s estimates of the annual cost of robots doing the tasks a robot can do in each job, fixed + variable): packers and packagers (560,000 jobs) — robots ~$45,400 a year vs ~$47,500 of human pay for the same 97% of the job; the report: “robots cost about $2,500 less per year to do that work.” These robots “cost over $2 million to purchase and install, but replace the yearly work of around 14 workers.” Packer employment is already down 22% since 2015. Taxi drivers: robotaxi ~$57,800 vs ~$50,600 — “around $7,000 more” (plus regulatory hurdles). Dishwashers $172K vs $45K; janitors $280K vs $34.8K (median pay $47.7K, 73% exposed); welders $334.6K vs $66.1K — about 5x. The grey “human” bar is my derivation from the figure’s own columns (median total compensation × exposed share), the same basis the report uses for the $2,500 and $7,000 comparisons.',
+    'Timelines (verbatim, highlighted): “Adding in 3% cost declines per year, robots aren’t cost-competitive for half of physical work today until 2085. … In a fast adoption scenario, where quality-adjusted costs fall up to four times faster and robots become able to do new tasks twice as fast, robots become cost-competitive for half of physical work by 2050. Automating 90% of physical work today still takes 53 years.” The authors stress these scenarios are not job-loss predictions; Appendix E: by 2040 under business as usual robots become cost-competitive for about 2.5 million jobs — “more of a ceiling on job loss than a central estimate.” Their summary: “robots would need to sustain record rates of price declines and quality improvements over the coming decades to enable rapid physical automation.”',
+    'Barriers beyond cost (Appendix Figure 10): capability limits block about 70% of physical tasks (manipulation alone about half), human preferences about a quarter, regulation 14%.',
+    'Why it still matters (Appendix B.3 backtest, 1977–2024): over about 20 years, an occupation whose tasks were all robot-exposed saw wages 7.1% lower (95% CI 5.4–8.9%) and employment 34.2% lower (95% CI 16.4–52.0%) than an unexposed occupation in the same industry. And robots keep gaining: each year they become able to do about 2% of the physical work they previously couldn’t — in 1977 robots could not do 62% of physical tasks; today all but 24%. “If the past is any guide, taxi drivers and warehouse packers will see changes sooner than nurses and mechanics.” Note the report predates any effect of the foundation-model “robot brains” from earlier slides: “AI-powered robots could leapfrog our scale and do work they cannot today.”',
+    'URLs: ' + RW_URL + ' · Appendix PDF: https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf · Data release: https://huggingface.co/datasets/Anthropic/EconomicIndex/tree/main/robot_exposure',
+  ].join('\n\n'));
+  return s;
+}
+
 async function build(d) {
   await cadSlide(d);
   await hwDesignSlide(d);

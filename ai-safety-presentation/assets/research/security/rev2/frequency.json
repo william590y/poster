@@ -1968,5 +1968,17 @@
    "outline_item": "Transluce's numeric daily urlquery series",
    "searched": "Page publishes a chart image only (log axis) and a downloadable zip (transluce.org/data/urlquery-agent-activity-2026-09-23.zip, not downloaded); a WebSearch summary claiming '6,000+ actions' appears nowhere on the page or in Fortune and was discarded."
   }
+ ],
+ "data_files": [
+  {
+   "file": "freq-felonybench-org-felonies-2026-08-06.json",
+   "what": "Raw https://felonybench.org/felonies.json download (schema 1.0.0, updated_at 2026-08-06; 15 dated events; stale vs the live page: sums Anthropic 9, OpenAI 5, Meta 1)",
+   "url": "https://felonybench.org/felonies.json"
+  },
+  {
+   "file": "freq-oecd-aim-api-extract-2026-10-04.json",
+   "what": "OECD AIM monthly series Jan 2020-Sep 2026 (total, AI incident, AI hazard, 'Robustness & digital security' tag) + stats, extracted from the page API response captured 2026-10-04",
+   "url": "https://oecd.ai/en/incidents"
+  }
  ]
 }

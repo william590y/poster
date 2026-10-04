@@ -1324,9 +1324,9 @@ async function robotWorkSlide(d) {
   const title = await crop('rev2/robotwork-title-block.png', 'robotwork-title.png', { l: 60, t: 30, w: 1400, h: 352 });
   const t1 = await frameW(d, s, title, CX0 + 0.05, 1.8, 2.75, { rot: -1.5 });
   const meth = d.text(s, [
-    { text: 'ANTHROPIC RESEARCH · ECONOMICS', options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 1, breakLine: true } },
-    { text: 'Claude rated all 7,594 physical tasks in the US O*NET job database: can a robot that exists today do it — and where? Claude cited real robots (~650,000 web searches).', options: { fontSize: 13, color: d.S.muted } },
-  ], { x: CX0 + 3.1, y: 1.74, w: lw - 3.1, h: 1.0, valign: 'top' });
+    { text: 'ANTHROPIC RESEARCH · ECONOMICS', options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 1, breakLine: true, paraSpaceAfter: 2 } },
+    { text: 'Claude rated all 7,594 physical tasks in O*NET, the US job database: could a robot that exists today do it, and where?', options: { fontSize: 12, color: d.S.muted } },
+  ], { x: CX0 + 3.05, y: 1.74, w: lw - 3.05, h: 1.0, valign: 'top' });
   const kfOff = { l: 30, t: 298 };
   const kf = await crop('rev2/robotwork-key-findings.png', 'robotwork-kf-b23.png', { ...kfOff, w: 1305, h: 566 });
   const kfF = await frameW(d, s, kf, CX0, 2.92, lw);
@@ -1341,19 +1341,25 @@ async function robotWorkSlide(d) {
   // ---- right: Figure 3 as a native chart ----
   const rx = 7.2, rw = CX1 - rx;
   const lab = capLabel(d, s, 'SHARE OF ALL US WORK TIME, BY WHERE A ROBOT CAN DO THE TASK', { x: rx, y: 1.72, w: rw, charSpacing: 1 });
-  const box = { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 2.95 };
-  const L = { x: 0.08, y: 0.17, w: 0.9, h: 0.55 };
-  const labels = ['Cognitive & interpersonal', 'E0: no robot can do it', 'E1: purpose-built site (factory line)', 'E2: structured site (warehouse)', 'E3: open world (city road)'];
+  const box = { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 2.3 };
+  const L = { x: 0.08, y: 0.06, w: 0.9, h: 0.88 };
+  const labels = ['Cognitive & interpersonal', 'E0: no robot can do it', 'E1: purpose-built site', 'E2: structured site', 'E3: open world'];
   const vals = [54, 12, 23, 10, 1];
   const ch = d.chart(s, 'bar', [{ name: 'Share of work time', labels, values: vals }], box, {
     barDir: 'col', layout: L, chartColors: ['4A5263', HEX.steel, HEX.red, HEX.red, HEX.red], showValue: true, dataLabelFormatCode: '0"%"',
     dataLabelPosition: 'outEnd', dataLabelFontSize: 13, dataLabelFontBold: true, valAxisMinVal: 0, valAxisMaxVal: 60, valAxisMajorUnit: 20,
-    valAxisLabelFormatCode: '0"%"', catAxisLabelFontSize: 11, barGapWidthPct: 40,
+    valAxisLabelFormatCode: '0"%"', catAxisHidden: true, barGapWidthPct: 40,
   });
-  // bracket over the three robot-doable bars (E1–E3)
+  // category labels drawn as text (two short lines each) so the renderer never rotates or truncates them
   const cx = (i) => box.x + box.w * (L.x + L.w * (i + 0.5) / 5);
   const vy = (v) => box.y + box.h * (L.y + L.h * (1 - v / 60));
-  const ba = cx(2) - 0.42, bb = cx(4) + 0.42, by = vy(36);
+  const cwid = box.w * L.w / 5;
+  const cats = [['Cognitive &', 'interpersonal'], ['E0: no robot', 'can do it'], ['E1: factory-', 'style cell'], ['E2: warehouse-', 'style site'], ['E3: open world', '(e.g. roads)']];
+  const catT = cats.map(([a, b], i) => d.text(s, [
+    { text: a, options: { breakLine: true } }, { text: b },
+  ], { x: cx(i) - cwid / 2 - 0.05, y: box.y + box.h + 0.03, w: cwid + 0.1, h: 0.4, fontSize: 11, color: i >= 2 ? 'FF8A8C' : d.S.muted, align: 'center', valign: 'top' }));
+  // bracket over the three robot-doable bars (E1–E3)
+  const ba = cx(2) - 0.4, bb = cx(4) + 0.4, by = vy(37);
   const brk = [];
   [[ba, by, bb - ba, 0], [ba, by, 0, 0.12], [bb, by, 0, 0.12]].forEach(([x, y, w, h]) => {
     const n = d.name('brk');
@@ -1363,20 +1369,20 @@ async function robotWorkSlide(d) {
   brk.push(d.text(s, [
     { text: 'ROBOTS CAN DO: 34% OF ALL WORK', options: { bold: true, color: 'FF8A8C', breakLine: true } },
     { text: '= 74% of physical work, mostly in controlled settings', options: { color: d.S.muted } },
-  ], { x: ba - 0.3, y: by - 0.56, w: bb - ba + 0.6, h: 0.5, fontSize: 11, align: 'center', valign: 'bottom' }));
+  ], { x: ba - 0.3, y: by - 0.52, w: bb - ba + 0.6, h: 0.46, fontSize: 11, align: 'center', valign: 'bottom' }));
 
   // ---- bottom right: who is exposed (press clipping + two stats) ----
-  const yb = box.y + box.h + 0.2;
+  const yb = box.y + box.h + 0.62;
   const cnbc = R2('robotwork-cnbctv18-machines-have-a-type.png');
-  const cw = 2.55;
-  const c1 = await frameW(d, s, cnbc, rx + 0.05, yb + 0.05, cw, { rot: 1.5 });
+  const cw = 2.75;
+  const c1 = await frameW(d, s, cnbc, rx + 0.05, yb + 0.1, cw, { rot: 1.5 });
   const sx = rx + cw + 0.4, sw = CX1 - sx;
-  const st1 = stat(d, s, { x: sx, y: yb - 0.08, w: sw, value: '$22.88 vs $52.97', valueSize: 22, labelSize: 12, labelH: 0.42, color: d.S.amber, label: 'hourly pay: most robot-exposed fifth of workers vs unexposed' });
-  const st2 = stat(d, s, { x: sx, y: yb + 0.82, w: sw, value: '9 of 10', valueSize: 22, labelSize: 12, labelH: 0.42, color: d.S.amber, label: 'most-exposed jobs are vehicle operators; taxi drivers top (2.2 of 3)' });
+  const st1 = stat(d, s, { x: sx, y: yb - 0.04, w: sw, value: '$22.88 vs $52.97', valueSize: 19, labelSize: 12, labelH: 0.4, color: d.S.amber, label: 'hourly pay: most robot-exposed fifth of workers vs unexposed' });
+  const st2 = stat(d, s, { x: sx, y: yb + 0.78, w: sw, value: '9 of 10', valueSize: 19, labelSize: 12, labelH: 0.4, color: d.S.amber, label: 'most-exposed jobs are vehicle operators; taxi drivers top (2.2 of 3)' });
 
   d.animate(s, [...t1, meth, ...kfF, kfCap], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, kfHl.slice(0, 3), { auto: true, effect: 'wipeLeft', dur: 500, stagger: 350, after: 150 });
-  d.animate(s, [lab, ch], { effect: 'wipeLeft', dur: 1000 });
+  d.animate(s, [lab, ch, ...catT], { effect: 'wipeLeft', dur: 1000 });
   d.animate(s, brk, { auto: true, effect: 'fade', after: 100 });
   d.animate(s, kfHl.slice(3, 5), { effect: 'wipeLeft', dur: 450, stagger: 300 });
   d.animate(s, [...c1, ...st1, ...st2], { auto: true, effect: 'rise', dur: 450, stagger: 120, after: 100 });
@@ -1402,12 +1408,12 @@ async function robotCostSlide(d) {
   // ---- left: Figure 7 as a native chart — yearly cost of the robot vs the human, same tasks ----
   const lw = 6.35;
   const lab = capLabel(d, s, 'COST PER YEAR TO DO ONE WORKER’S ROBOT-DOABLE TASKS ($ THOUSANDS)', { x: CX0, y: 1.72, w: lw, charSpacing: 1 });
-  const box = { x: CX0 - 0.1, y: 2.0, w: lw + 0.1, h: 3.3 };
-  const occ = ['Packers & packagers (560K jobs)', 'Taxi drivers (41K)', 'Dishwashers (477K)', 'Janitors & cleaners (2.2M)', 'Welders (416K)'];
+  const box = { x: CX0 - 0.1, y: 2.3, w: lw + 0.1, h: 3.35 };
+  const occ = ['Packers (560K jobs)', 'Taxi drivers (41K)', 'Dishwashers (477K)', 'Janitors & cleaners (2.2M)', 'Welders (416K)'];
   const robot = [45.4, 57.8, 172.0, 280.0, 334.6];
   const comp = [49.0, 56.8, 45.0, 47.7, 73.4], share = [0.97, 0.89, 1.0, 0.73, 0.9]; // Fig. 7 columns
   const human = comp.map((c, i) => Math.round(c * share[i] * 10) / 10);
-  const L = { x: 0.33, y: 0.1, w: 0.6, h: 0.8 };
+  const L = { x: 0.35, y: 0.02, w: 0.58, h: 0.96 };
   const ch = d.chart(s, 'bar', [
     { name: 'Human worker (pay × share of job robots can do)', labels: occ, values: human },
     { name: 'Robot (Claude’s estimate)', labels: occ, values: robot },
@@ -1415,11 +1421,18 @@ async function robotCostSlide(d) {
     barDir: 'bar', barGrouping: 'clustered', layout: L, chartColors: [HEX.steel, HEX.red], catAxisOrientation: 'maxMin',
     valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 380,
     showValue: true, dataLabelFormatCode: '$0"K"', dataLabelPosition: 'outEnd', dataLabelFontSize: 12, dataLabelFontBold: true,
-    catAxisLabelFontSize: 12, barGapWidthPct: 55, barOverlapPct: 0, showLegend: true, legendPos: 't', legendFontSize: 11,
+    catAxisLabelFontSize: 12, barGapWidthPct: 50, barOverlapPct: 0, showLegend: false,
+  });
+  // own legend (renderers squeeze a built-in top legend into the first category label)
+  const leg = [];
+  [[HEX.steel, 'Human worker (median pay × share of job robots can do)'], [HEX.red, 'Robot (Claude’s cost estimate)']].forEach(([c, txt], i) => {
+    const lx = CX0 + (i ? 4.25 : 0), n = d.name('leg');
+    s.addShape(d.pres.shapes.RECTANGLE, { x: lx, y: 2.06, w: 0.14, h: 0.14, fill: { color: c }, line: { color: c, width: 0 }, objectName: n });
+    leg.push(n, d.text(s, txt, { x: lx + 0.22, y: 1.98, w: i ? 2.6 : 4.0, h: 0.3, fontSize: 11, color: d.S.muted, valign: 'middle' }));
   });
   // tag the one occupation where robots already win
   const gy0 = box.y + box.h * L.y, gh = box.h * L.h / 5;
-  const tag = d.text(s, '◄ robots already ~$2.5K a year cheaper', { x: box.x + box.w * (L.x + L.w * 0.2) + 0.15, y: gy0 + gh * 0.5 - 0.15, w: 3.2, h: 0.3, fontSize: 12, bold: true, color: '5FD3C4', valign: 'middle' });
+  const tag = d.text(s, '◄ robots already ~$2.5K a year cheaper', { x: box.x + box.w * (L.x + L.w * 48 / 380) + 0.62, y: gy0 + gh * 0.5 - 0.15, w: 3.2, h: 0.3, fontSize: 12, bold: true, color: '5FD3C4', valign: 'middle' });
   const note = d.text(s, [
     { text: 'Packers: robots costing over $2 million replace ~14 workers. ', options: { color: d.S.muted } },
     { text: 'Robot costs are Claude’s estimates (purchase spread over ~10 years + upkeep); the human bar is median pay × share of the job robots can do (Fig. 7).', options: { color: d.S.steel, italic: true } },
@@ -1441,7 +1454,7 @@ async function robotCostSlide(d) {
   const st1 = stat(d, s, { x: rx, y: yb + 0.22, w: sw, value: '−34%', valueSize: 26, labelSize: 12, labelH: 0.45, label: 'jobs in fully robot-exposed occupations over ~20 years' });
   const st2 = stat(d, s, { x: rx + sw + 0.3, y: yb + 0.22, w: sw, value: '−7%', valueSize: 26, labelSize: 12, labelH: 0.45, label: 'wages, vs unexposed jobs in the same industry' });
 
-  d.animate(s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 1100 });
+  d.animate(s, [lab, ...leg, ch], { auto: true, effect: 'wipeLeft', dur: 1100 });
   d.animate(s, [tag, note], { auto: true, effect: 'fade', after: 100 });
   d.animate(s, f1, { effect: 'rise', dur: 450 });
   d.animate(s, h1, { auto: true, effect: 'wipeLeft', dur: 450, stagger: 300, after: 100 });

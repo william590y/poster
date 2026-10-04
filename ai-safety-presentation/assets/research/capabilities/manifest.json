@@ -720,7 +720,7 @@
    "caption": "HLE organizers already preparing a replacement as models approach the noise ceiling",
    "quality": 5,
    "verified": true,
-   "notes": "HLE launched Jan 2025, \"designed to be the last academic exam of its kind for AI\"; frontier models then scored <10%. Wikipedia (citing Artificial Analysis, 2026-09-22): Claude Opus 5.5 61.4% text-only."
+   "notes": "HLE launched Jan 2025; frontier models then scored <10%. The phrase \"designed to be the last academic exam of its kind for AI\" is Scale AI's own current description on https://labs.scale.com/leaderboard/humanitys_last_exam (\"2,500 of the toughest, subject-diverse, multi-modal questions designed to be the last academic exam of its kind for AI\"; \"developed in partnership with the Center for AI Safety\"; checked 2026-10-04). The launch paper (arXiv:2501.14249, 2025-01-24) says \"designed to be the final closed-ended academic benchmark of its kind with broad subject coverage\". Wikipedia (citing Artificial Analysis, 2026-09-22): Claude Opus 5.5 61.4% text-only."
   },
   {
    "id": "arcprize-arcagi3-leaderboard",
@@ -4433,6 +4433,24 @@
    "notes": "Title/channel verified via YouTube oEmbed; thumbnail downloaded from img.youtube.com. Buzzard links t=4570s for Scholze’s “die on that hill” remark (also t=1602s for the elliptic-curve “We didn’t learn anything really” point). Audio not checked by me. YouTube downloads blocked — use d.video embed + this thumbnail.",
    "verified": true,
    "research_round": "rev2/buzzard.json"
+  },
+  {
+   "id": "higgsfield-krita-gif",
+   "slide_topic": "Creative capabilities: AI making images/worlds with TOOLS (not diffusion)",
+   "type": "image",
+   "file": null,
+   "video_file": "rev2/creative/video/higgsfield-astra-krita-creation-of-adam-1080p.mp4",
+   "headline": "GPT-6 Astra painted the Creation of Adam in Krita using the Higgsfield MCP.",
+   "dek": "\"GPT-6 Astra painted the Creation of Adam in Krita using the Higgsfield MCP. The model is insanely good at drawing.\"",
+   "outlet": "X (@higgsfield_ai)",
+   "author": "Higgsfield AI (vendor of the Higgsfield MCP)",
+   "date": "2026-09-05",
+   "url": "https://x.com/higgsfield_ai/status/2096379627912704049",
+   "caption": "55 s 1920x1080 screen recording: GPT-6 Astra (Ultra) driving Krita (canvas, layers, brush presets, Scripter) beside its agent transcript, recreating a reference image of Michelangelo's Creation of Adam. Slide GIF: assets/slides/capabilities/media/higgsfield-astra-krita.gif (crop 1364x767 at 556,208 = canvas + layers, 4x speed, opens on final frame).",
+   "quality": 4,
+   "verified": true,
+   "notes": "Loaded via api.fxtwitter.com 2026-10-04: 10,593 views, 72 likes, posted 2026-09-05 23:27 UTC; mp4 https://video.twimg.com/amplify_video/2096379153478307840/vid/avc1/1920x1080/pkliWFTnqbVZybvW.mp4 . VENDOR DEMO (Higgsfield sells the MCP). The on-screen transcript undercuts the 'insanely good at drawing' claim: the model first used an image generator / the reference as underpainting ('The image generator rejected the classical nudity in the fresco. I'll work directly in Krita using your reference as the underpainting'); after the operator objected it said 'To be clear: the image currently on screen uses your original as its base. I added painted highlights, shadows, and texture over it-I did not draw all those figures from scratch. I'm sorry my earlier wording made that unclear.' The operator later asked for code-driven strokes 'as if you are using your mouse ... note that's cuz it is being video screen recorded'; the model used Krita's Scripter 'to sample the reference's colors and lay down strokes progressively' and ended 'Saved the refined painting with 207,306 scripted Krita brush strokes, including detailed faces and eyes.' Agent timer reaches ~1h57m (video heavily condensed). Related (not used): YouTube 'GPT-6 Astra로 그림을 그린다고? Krita·Codex로 완성한 AI 유화' by 크리AI티브 (@cri-ai-tive), https://www.youtube.com/watch?v=DfEegz_OxJs (title/channel via YouTube oEmbed). Supersedes the earlier not_found entry for Krita.",
+   "research_round": "fix-2026-10-04"
   }
  ],
  "datasets": [
@@ -6800,6 +6818,12 @@
    "url": "https://terrytao.wordpress.com/2026/09/12/after-math/",
    "date": "2026-10-04",
    "research_round": "rev2/buzzard.json"
+  },
+  {
+   "claim": "Scale AI describes HLE as \"2,500 of the toughest, subject-diverse, multi-modal questions designed to be the last academic exam of its kind for AI\", \"developed in partnership with the Center for AI Safety\".",
+   "source": "Scale AI, Humanity's Last Exam leaderboard page",
+   "url": "https://labs.scale.com/leaderboard/humanitys_last_exam",
+   "date": "2026-10-04"
   }
  ],
  "not_found": [
@@ -6879,8 +6903,8 @@
    "research_round": "rev2/reddit.json"
   },
   {
-   "outline_item": "A verified 2026 video of an AI agent painting in Krita or GIMP",
-   "searched": "WebSearch \"AI agent paints in Krita stroke by stroke 2026\", \"Claude paints in Krita MCP video\"; found only krita-mcp GitHub repos (nanayax3/krita-mcp etc.) with no dated viral demo. Substituted real app recordings in Photoshop 2026 (Kashtanova), CLIP STUDIO PAINT (taiyakisun), Apple Notes (Viticci), MS Paint (The_Alex, Fateev) and the stillwet oil-paint simulation.",
+   "outline_item": "A verified 2026 video of an AI agent painting in GIMP",
+   "searched": "WebSearch \"AI agent paints in Krita stroke by stroke 2026\", \"Claude paints in Krita MCP video\"; found only krita-mcp GitHub repos (nanayax3/krita-mcp etc.) with no dated viral demo. Substituted real app recordings in Photoshop 2026 (Kashtanova), CLIP STUDIO PAINT (taiyakisun), Apple Notes (Viticci), MS Paint (The_Alex, Fateev) and the stillwet oil-paint simulation. CORRECTION 2026-10-04: a verified Krita video does exist (Higgsfield AI on X, Sep 5, 2026 - item higgsfield-krita-gif); only GIMP remains not found (not searched further).",
    "research_round": "rev2/creative.json"
   },
   {

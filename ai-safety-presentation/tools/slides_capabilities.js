@@ -160,8 +160,13 @@ async function metrSlide(d) {
   // custom gridlines + y labels
   const ticks = [[1 / 60, '1 sec'], [1 / 6, '10 sec'], [1, '1 min'], [10, '10 min'], [60, '1 hour'], [240, '4 hours'], [960, '16 hours'], [3840, '64 hours']];
   const axis = [head];
+  // the 10-sec gridline is broken where the big "THE DATA STOPS HERE" annotation sits (text ends 0.15" left of the wall)
+  const gapL = px(yWall) - 0.15 - 4.4, gapR = px(yWall);
   for (const [v, t] of ticks) {
-    if (v < 960) axis.push(line(d, s, P.x, py(v), P.x + P.w, py(v), { color: HEX.line, width: 0.75 }));
+    if (v === 1 / 6) {
+      axis.push(line(d, s, P.x, py(v), gapL, py(v), { color: HEX.line, width: 0.75 }));
+      axis.push(line(d, s, gapR, py(v), P.x + P.w, py(v), { color: HEX.line, width: 0.75 }));
+    } else if (v < 960) axis.push(line(d, s, P.x, py(v), P.x + P.w, py(v), { color: HEX.line, width: 0.75 }));
     axis.push(d.text(s, t, { x: box.x, y: py(v) - 0.13, w: P.x - box.x - 0.08, h: 0.26, fontSize: 10, color: v >= 960 ? 'FF8A8C' : d.S.muted, bold: v === 960, align: 'right', valign: 'middle' }));
   }
   axis.push(d.text(s, [
@@ -223,9 +228,9 @@ async function metrSlide(d) {
   s.addShape(d.pres.shapes.RECTANGLE, { x: px(yWall), y: top, w: px(yToday) - px(yWall), h: bot - top, fill: { color: HEX.red, transparency: 72 }, line: { color: HEX.red, width: 0, transparency: 100 }, objectName: voidN });
   const wall = line(d, s, px(yWall), top - 0.12, px(yWall), bot, { color: HEX.red, width: 3.5 });
   const wallT = d.text(s, 'LAST DATA: MAY 8, 2026 ▼', { x: px(yWall) - 3.0 + 0.12, y: 1.7, w: 3.0, h: 0.3, fontSize: 11, bold: true, color: d.S.red, charSpacing: 1, align: 'right', valign: 'bottom' });
-  const vL = 3.0, vcx = (px(yWall) + px(yToday)) / 2, vcy = (py(960) + bot) / 2 + 0.25;
-  const voidT = d.text(s, 'NO RELIABLE MEASUREMENT SINCE', { x: vcx - vL / 2, y: vcy - 0.14, w: vL, h: 0.28, rotate: 270, fontSize: 10.5, bold: true, color: 'FFFFFF', charSpacing: 1, align: 'center', valign: 'middle' });
-  const todayT = d.text(s, 'today', { x: px(yToday) - 0.4, y: bot + 0.02, w: 0.8, h: 0.22, fontSize: 9.5, italic: true, color: 'FF8A8C', align: 'center', valign: 'top' });
+  const vL = 3.4, vcx = (px(yWall) + px(yToday)) / 2, vcy = bot - 0.08 - vL / 2;
+  const voidT = d.text(s, 'NO RELIABLE MEASUREMENT SINCE MAY 8', { x: vcx - vL / 2, y: vcy - 0.14, w: vL, h: 0.28, rotate: 270, fontSize: 10, bold: true, color: 'FFFFFF', charSpacing: 0.5, align: 'center', valign: 'middle' });
+  const todayT = d.text(s, 'today', { x: px(yToday) - 0.4, y: bot + 0.02, w: 0.8, h: 0.22, fontSize: 10, italic: true, color: 'FF8A8C', align: 'center', valign: 'top' });
   const todayL = line(d, s, px(yToday), bot - 0.06, px(yToday), bot + 0.04, { color: HEX.red, width: 1.5 });
   const big = d.text(s, [
     { text: 'THE DATA STOPS HERE', options: { fontSize: 26, bold: true, color: d.S.red, fontFace: 'Arial', breakLine: true } },
@@ -247,7 +252,7 @@ async function metrSlide(d) {
     { text: 'METR, in its own words:', options: { fontSize: 11, bold: true, color: 'FF8A8C', charSpacing: 1, breakLine: true, paraSpaceAfter: 8 } },
     ...Q('“…at the upper end of what we can measure without new tasks.”', 'on Claude Mythos Preview · X, May 8, 2026'),
     ...Q('“…it is infeasible to precisely measure time horizons in this range.”', 'on tasks above 16 hours · Frontier Risk Report, May 19, 2026'),
-    ...Q('“The most capable agents we evaluated essentially saturated our Time Horizon 1.1 benchmark”', 'Frontier Risk Report, May 19, 2026'),
+    ...Q('“The most capable agents we evaluated essentially saturated our Time Horizon 1.1 benchmark…”', 'Frontier Risk Report, May 19, 2026'),
   ], { x: rx + 0.22, y: ry + 0.56, w: rw - 0.42, h: rh - 1.3, valign: 'top' });
   const foot = d.text(s, 'METR’s chart has not been updated since May 8, 2026.', { x: rx + 0.22, y: ry + rh - 0.66, w: rw - 0.42, h: 0.52, fontSize: 12.5, bold: true, color: d.S.red, valign: 'middle' });
 
@@ -296,7 +301,7 @@ async function metrEvidenceSlide(d) {
       barDir: 'col', chartColors: [...tds.labels.slice(0, -1).map(() => '6B7383'), HEX.red], barGapWidthPct: 30,
       showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '0', dataLabelFontSize: 11, dataLabelFontBold: true,
       valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 80, showLegend: false,
-      catAxisLabelFontSize: 9, catAxisLabelColor: LIGHT, layout: { x: 0.01, y: 0.04, w: 0.98, h: 0.76 },
+      catAxisLabelFontSize: 10, catAxisLabelColor: LIGHT, layout: { x: 0.01, y: 0.04, w: 0.98, h: 0.76 },
     });
   const tcap = d.text(s, [
     { text: 'Only 5 tasks take a human 16 h+', options: { bold: true, color: d.S.red, breakLine: true } },
@@ -308,16 +313,16 @@ async function metrEvidenceSlide(d) {
   const slab = label(d, s, 'GPT-5.6 SOL: 3 ESTIMATES', sx, by, sw);
   const rows = [['11.3 h', 'cheating counted as failure'], ['71 h', 'cheating runs discarded'], ['>270 h', 'cheating counted as success']];
   const sol = rows.flatMap(([v, l], i) => {
-    const y = by + 0.36 + i * 0.56;
+    const y = by + 0.34 + i * 0.5;
     return [
-      d.text(s, v, { x: sx, y, w: 1.2, h: 0.5, fontSize: 23, bold: true, fontFace: 'Arial', color: i === 2 ? d.S.red : d.S.txt, valign: 'middle' }),
-      d.text(s, l, { x: sx + 1.25, y, w: sw - 1.25, h: 0.5, fontSize: 11.5, color: d.S.muted, valign: 'middle' }),
+      d.text(s, v, { x: sx, y, w: 1.2, h: 0.46, fontSize: 23, bold: true, fontFace: 'Arial', color: i === 2 ? d.S.red : d.S.txt, valign: 'middle' }),
+      d.text(s, l, { x: sx + 1.25, y, w: sw - 1.25, h: 0.46, fontSize: 12, color: d.S.muted, valign: 'middle' }),
     ];
   });
   const solQ = d.text(s, [
-    { text: '“we do not consider any of these numbers to represent a robust measurement”', options: { italic: true, fontFace: 'Cambria', fontSize: 13, color: d.S.txt, breakLine: true } },
+    { text: '“we do not consider any of these numbers to represent a robust measurement”', options: { italic: true, fontFace: 'Cambria', fontSize: 14, color: d.S.txt, breakLine: true } },
     { text: 'METR, Jun 26, 2026', options: { fontSize: 10.5, color: d.S.muted } },
-  ], { x: sx, y: by + 2.08, w: sw, h: 0.75, valign: 'top' });
+  ], { x: sx, y: by + 1.86, w: sw, h: 0.92, valign: 'top' });
 
   d.animate(s, [...tw, ...tab], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, [...dec, ...dtab], { effect: 'slam', dur: 420 });
@@ -442,12 +447,12 @@ async function hleSlide(d) {
     { text: `Claude Opus 5.5 · ${vals[n - 1].toFixed(1)}%`, options: { bold: true, color: d.S.red, breakLine: true } },
     { text: 'released Sep 22, 2026', options: { color: d.S.muted } },
   ], { x: annR - 2.3, y: 2.3, w: 2.3, h: 0.42, fontSize: 11.5, align: 'right', valign: 'bottom' });
-  // the launch billing, in the empty upper-left of the chart (the bars there are the launch-era models)
+  // how the organizers describe it (verbatim, Scale AI's leaderboard page), in the empty upper-left of the chart
   const bill = d.text(s, [
-    { text: 'Billed at launch, Jan 2025:', options: { fontSize: 11, bold: true, color: d.S.steel, breakLine: true } },
+    { text: 'Scale AI’s own description:', options: { fontSize: 11, bold: true, color: d.S.steel, breakLine: true } },
     { text: '“designed to be the last academic exam of its kind for AI”', options: { fontSize: 16, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true } },
-    { text: 'Center for AI Safety & Scale AI', options: { fontSize: 11, color: d.S.muted } },
-  ], { x: MX + 0.1, y: 2.32, w: 2.5, h: 1.2, valign: 'top' });
+    { text: 'Scale AI, with the Center for AI Safety', options: { fontSize: 11, color: d.S.muted } },
+  ], { x: MX + 0.1, y: 2.32, w: 2.6, h: 1.2, valign: 'top' });
 
   // right column: the same independent leaderboard as a native chart (best setting per model, top 8 models), Opus 5.5 on top
   const rx = 7.5, rw = 12.73 - rx;
@@ -491,7 +496,7 @@ async function hleSlide(d) {
   d.source(s, 'Data: Artificial Analysis, artificialanalysis.ai/evaluations/humanitys-last-exam (text-only, no tools; accessed Oct 4, 2026) · Scale AI / CAIS, labs.scale.com (update of Sep 17, 2026).');
   s.addNotes([
     'MESSAGE: even the test designed to be the last one is falling fast — and its organizers are already preparing a replacement.',
-    'Humanity\'s Last Exam (HLE) launched in January 2025 from the Center for AI Safety and Scale AI, "designed to be the last academic exam of its kind for AI": ~2,500 expert-written questions across many fields. Frontier models then scored under 10%.',
+    'Humanity\'s Last Exam (HLE) launched in January 2025 from the Center for AI Safety and Scale AI: ~2,500 expert-written questions across many fields. Frontier models then scored under 10%. The quote on the slide is Scale AI\'s own current description on its leaderboard page — "2,500 of the toughest, subject-diverse, multi-modal questions designed to be the last academic exam of its kind for AI" … "developed in partnership with the Center for AI Safety" (https://labs.scale.com/leaderboard/humanitys_last_exam, checked Oct 4, 2026). The launch paper (arXiv:2501.14249, Jan 24, 2025) put it as "designed to be the final closed-ended academic benchmark of its kind with broad subject coverage" (https://arxiv.org/abs/2501.14249).',
     'Chart: ONE source throughout — Artificial Analysis (AA), independent runs on HLE\'s 2,158 text-only questions (multimodal questions excluded), pass@1, LLM-graded, no tools. Best AA score to date by model release quarter (OpenAI/Anthropic/Google models): Q4 \'24 7.0% (o1, Dec 2024) · Q1 \'25 18.0% (Gemini 2.5 Pro Preview) · Q2 \'25 22.5% (Gemini 2.5 Pro) · Q3 \'25 28.5% (GPT-5 high) · Q4 \'25 39.7% (Gemini 3 Pro Preview) · Q1 \'26 47.0% (Gemini 3.1 Pro Preview) · Q2 \'26 55.5% (Claude Fable 5) · Q3 \'26 61.4% (Claude Opus 5.5, max with fallback, released Sep 22, 2026). https://artificialanalysis.ai/evaluations/humanitys-last-exam',
     'The chart stops at Q3 \'26 (Q4 has only just begun; no model released Oct 1–4 has beaten 61.4% — the only one AA has scored is InclusionAI\'s open-weights Ling 3.1 Flash, 39.4%). https://artificialanalysis.ai/models/ling-3-1-flash',
     'Right chart = the same AA leaderboard, best setting per model, top 8 models (Oct 4): Claude Opus 5.5 61.4% (max with fallback) · Claude Fable 5.1 59.1% (max with fallback) · Gemini 4 Argon 57.1% (high; AA marks it "not publicly available") · Claude Fable 5 55.5% (max, Opus 4.8 fallback) · Claude Sonnet 5.5 55.0% (max with fallback) · Claude Opus 5 54.9% (max) · GPT-6 Astra 54.7% (max) · GPT-6.1 Sol 52.9% (max). Next: GPT-5.6 Sol 49.5%. AA\'s Sep 22 article: "Humanity\'s Last Exam 61.4% (previous best 59.1%, Claude Fable 5.1)". https://artificialanalysis.ai/articles/claude-opus-5-5',
@@ -571,7 +576,7 @@ async function closeupSlide(d) {
   const map = await d.frame(s, hero, { x: mxp - 0.04, y: myp - 0.04, w: mw + 0.08, h: mh + 0.08 }, { pad: 0.04 });
   const mr = d.name('mapr');
   s.addShape(d.pres.shapes.RECTANGLE, { x: mxp + 0.375 * mw, y: myp + 0.225 * mh, w: 0.265 * mw, h: 0.275 * mh, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 2 }, objectName: mr });
-  const mapT = d.text(s, 'ZOOMED IN FROM THE WIDE SHOT', { x: mxp, y: myp + mh + 0.1, w: mw, h: 0.24, fontSize: 9.5, bold: true, color: 'FFFFFF', charSpacing: 1, align: 'center', valign: 'middle' });
+  const mapT = d.text(s, 'ZOOMED IN FROM THE WIDE SHOT', { x: mxp - 0.2, y: myp + mh + 0.1, w: mw + 0.4, h: 0.24, fontSize: 10, bold: true, color: 'FFFFFF', charSpacing: 1, align: 'center', valign: 'middle' });
 
   // magnifying glass over a standing figure: ~1.7× enlargement of the same image (no other pixels)
   const LC = { x: 1250, y: 1090 }, LS = 420; // source centre + square size, in source pixels
@@ -586,7 +591,7 @@ async function closeupSlide(d) {
   s.addImage({ path: lens, x: cx - D / 2, y: cy - D / 2, w: D, h: D, objectName: li });
   const ring = d.name('ring');
   s.addShape(d.pres.shapes.OVAL, { x: cx - D / 2, y: cy - D / 2, w: D, h: D, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: 'D9DCE1', width: 3 }, objectName: ring });
-  const lensT = chip(d, s, `LENS: ≈ ${(D / (LS * k)).toFixed(1)}× ENLARGEMENT OF THE SAME RENDER`, cx - 3.1, cy + D / 2 + 0.14, 3.6, { h: 0.28, fontSize: 9.5 });
+  const lensT = chip(d, s, `LENS: ≈ ${(D / (LS * k)).toFixed(1)}× ENLARGEMENT OF THE SAME RENDER`, cx - 3.25, cy + D / 2 + 0.14, 3.9, { h: 0.3, fontSize: 10 });
 
   d.animate(s, [bg], { auto: true, effect: 'fade', dur: 900 });
   d.animate(s, [scr, kk, tt, cap], { auto: true, effect: 'fade', dur: 600, after: 300 });
@@ -637,7 +642,7 @@ function band(d, s, g, tool, fact, { h = 0.52, toolColor = 'FF8A8C', transparenc
   const b = d.name('band');
   s.addShape(d.pres.shapes.RECTANGLE, { x: g.x, y: g.y + g.h - h, w: g.w, h, fill: { color: '0A0C10', transparency }, line: { color: '0A0C10', width: 0, transparency: 100 }, objectName: b });
   const t = d.text(s, [
-    { text: tool, options: { fontSize: 9.5, bold: true, color: toolColor, charSpacing: 1, breakLine: true } },
+    { text: tool, options: { fontSize: 10, bold: true, color: toolColor, charSpacing: 1, breakLine: true } },
     { text: fact, options: { fontSize: 11.5, color: 'FFFFFF' } },
   ], { x: g.x + 0.12, y: g.y + g.h - h + 0.03, w: g.w - 0.24, h: h - 0.06, valign: 'middle' });
   return [b, t];
@@ -646,6 +651,19 @@ function band(d, s, g, tool, fact, { h = 0.52, toolColor = 'FF8A8C', transparenc
 async function tile(d, s, file, box, tool, fact, opts = {}) {
   const fr = await d.frame(s, file, box, { border: false, pad: 0 });
   return [...fr, ...band(d, s, fr.geom, tool, fact, opts)];
+}
+
+// Caption strip UNDER a media tile (outside the picture, so no artwork is covered): tool line (caps, coloured) + one-line fact.
+const CAP_H = 0.42;
+function capBelow(d, s, g, tool, fact, { toolColor = 'FF8A8C' } = {}) {
+  return d.text(s, [
+    { text: tool, options: { fontSize: 10, bold: true, color: toolColor, charSpacing: 1, breakLine: true } },
+    { text: fact, options: { fontSize: 11, color: d.S.txt } },
+  ], { x: g.x, y: g.y + g.h + 0.05, w: g.w, h: CAP_H - 0.05, valign: 'top' });
+}
+async function capTile(d, s, file, box, tool, fact, opts = {}) {
+  const fr = await d.frame(s, file, box, { border: false, pad: 0 });
+  return [...fr, capBelow(d, s, fr.geom, tool, fact, opts)];
 }
 
 // ---- 5a. drawing & painting, stroke by stroke
@@ -657,53 +675,66 @@ async function paintSlide(d) {
   const jug = makeGif('stillwet-opus55-jug.gif', { src: CR('video/stillwet-opus55-jug-replay-1920.mp4'), ss: 0, to: 20.08, speed: 1.35, width: 1100, holdStart: 1.0, holdEnd: 2.5 });
   const notes = makeGif('viticci-astra-apple-notes.gif', { src: CR('video/viticci-astra-draws-portrait-apple-notes.mp4'), ss: 0, to: 179.8, speed: 15, crop: '1107:830:500:100', width: 960, poster: 179.6, holdStart: 1.5, holdEnd: 2.0 });
   const robot = makeGif('thijs-astra-robot-paints.gif', { src: CR('video/thijs-astra-robot-paints-golden-gate-1080p.mp4'), ss: 19.5, to: 68.1, speed: 4, width: 960, poster: 67.9, holdStart: 1.5, holdEnd: 1.5 });
-  const duel = makeGif('fateev-astra-vs-fable-paint.gif', { src: CR('video/fateev-astra-vs-fable51-ms-paint-1080p.mp4'), ss: 0, to: 43.1, speed: 3, width: 960, poster: 43.0, holdStart: 1.2, holdEnd: 2.0 });
+  // Higgsfield AI's Krita screen recording (55 s, 1920x1080), cropped to the Krita canvas + layers panel (agent transcript pane dropped)
+  const krita = makeGif('higgsfield-astra-krita.gif', { src: CR('video/higgsfield-astra-krita-creation-of-adam-1080p.mp4'), ss: 0, to: 55.2, speed: 4, crop: '1364:767:556:208', width: 960, poster: 55.1, holdStart: 1.5, holdEnd: 2.0 });
+
+  // geometry: hero (left) · column A = two 4:3 tiles · column B = two 16:9 tiles; every caption sits below its picture
+  const top = 1.76, bottom = 6.52, RG = 0.14;
+  const colImgH = bottom - top - 2 * CAP_H - RG;          // picture height available per column
+  const wa = colImgH / (788 / 1047 + 720 / 960);          // heron grid + Apple Notes (both ~4:3)
+  const wb = colImgH / (2 * 540 / 960);                   // robot + Krita (both 16:9)
+  const hcapH = 0.72, hh = bottom - top - 0.1 - hcapH, hw = hh / 0.8;
+  const gap = (CW - hw - wa - wb) / 2;
+  const ax = MX + hw + gap, bx = ax + wa + gap;
 
   // hero: Claude Opus 5.5 painting in a simulated oil-paint engine (stillwet.art)
-  const hw = 4.6, hh = hw * 0.8, top = 1.78;
   const hero = await d.frame(s, jug, { x: MX, y: top, w: hw, h: hh }, { border: false, pad: 0 });
   const hg = hero.geom;
   const hc = chip(d, s, 'CLAUDE OPUS 5.5 · SIMULATED OIL PAINT', hg.x + 0.1, hg.y + 0.1, 3.55, { h: 0.3, fontSize: 10 });
   const hcap = d.text(s, [
     { text: 'Every brushstroke is written as code and laid down by a simulation of wet oil paint — ', options: { color: d.S.txt } },
-    { text: '“No image generator.”', options: { color: d.S.txt, bold: true, italic: true, breakLine: true } },
-    { text: 'stillwet.art · a 69-minute session, replayed from its log · Sep 27, 2026', options: { color: d.S.muted, fontSize: 11 } },
-  ], { x: MX, y: hg.y + hg.h + 0.1, w: hw, h: 6.5 - (hg.y + hg.h + 0.1), fontSize: 13.5, valign: 'top' });
+    { text: '“No image generator,”', options: { color: d.S.txt, bold: true, italic: true } },
+    { text: ' per the site', options: { color: d.S.txt, breakLine: true } },
+    { text: 'stillwet.art (a one-person project) · 69-minute session, replayed from its log · Sep 27, 2026', options: { color: d.S.muted, fontSize: 11 } },
+  ], { x: MX, y: hg.y + hg.h + 0.1, w: hw, h: bottom - (hg.y + hg.h + 0.1), fontSize: 14, valign: 'top' });
 
-  // right: 2 × 2 grid
-  const gx = MX + hw + 0.35, G = 0.18, cw = (12.73 - gx - G) / 2;
-  const r1h = cw * 0.75, r2y = top + r1h + 0.16, r2h = cw * 9 / 16;
-  // the user's heron drawings (a model refining its own pencil drawing, rounds 1-4)
+  // column A: the user's heron drawings (a model refining its own pencil drawing, rounds 1-4), then Apple Notes
   const hfile = await heronGrid();
-  const heron = await d.frame(s, hfile, { x: gx, y: top, w: cw, h: r1h }, { border: false, pad: 0 });
-  const hgg = heron.geom, hnat = await imgSize(hfile), hs = hgg.w / hnat.w;
+  const hnat = await imgSize(hfile);
+  const heron = await d.frame(s, hfile, { x: ax, y: top, w: wa, h: wa * hnat.h / hnat.w }, { border: false, pad: 0 });
+  const hgg = heron.geom, hs = hgg.w / hnat.w;
   const badges = HERON_TILES.flatMap(([, , , , bx0, by0], i) => {
     const b = d.name('badge');
-    const bx = hgg.x + bx0 * hs + 0.06, by = hgg.y + by0 * hs + 0.06;
-    s.addShape(d.pres.shapes.RECTANGLE, { x: bx, y: by, w: 0.24, h: 0.24, fill: { color: '161A22' }, line: { color: '161A22', width: 0 }, objectName: b });
-    return [b, d.text(s, String(i + 1), { x: bx, y: by, w: 0.24, h: 0.24, fontSize: 10, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle' })];
+    const x = hgg.x + bx0 * hs + 0.05, y = hgg.y + by0 * hs + 0.05;
+    s.addShape(d.pres.shapes.RECTANGLE, { x, y, w: 0.24, h: 0.24, fill: { color: '161A22' }, line: { color: '161A22', width: 0 }, objectName: b });
+    return [b, d.text(s, String(i + 1), { x, y, w: 0.24, h: 0.24, fontSize: 10, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle' })];
   });
-  const heronB = band(d, s, hgg, 'PENCIL · ROUNDS 1 → 4', 'A model redraws a heron, refining its own strokes', { h: 0.46, transparency: 30 });
-  const noteT = await tile(d, s, notes, { x: gx + cw + G, y: top, w: cw, h: r1h }, 'GPT-6 ASTRA · APPLE NOTES ON A MAC', 'Draws a portrait with the mouse, then colours it');
-  const robotT = await tile(d, s, robot, { x: gx, y: r2y, w: cw, h: r2h }, 'GPT-6 ASTRA · ROBOT ARM, REAL PAINT', 'Teaches itself to paint the Golden Gate');
-  const duelT = await tile(d, s, duel, { x: gx + cw + G, y: r2y, w: cw, h: r2h }, 'COMPUTER USE · MS PAINT', 'GPT-6 Astra vs Claude Fable 5.1, same photo');
+  const heronC = capBelow(d, s, hgg, 'PENCIL · ROUNDS 1 → 4', 'A model redraws a heron, refining it');
+  const ay2 = hgg.y + hgg.h + CAP_H + RG;
+  const noteT = await capTile(d, s, notes, { x: ax, y: ay2, w: wa, h: wa * 0.75 }, 'GPT-6 ASTRA · APPLE NOTES', 'Draws a portrait, then colours it');
+
+  // column B: the robot arm, then Krita
+  const robotT = await capTile(d, s, robot, { x: bx, y: top, w: wb, h: wb * 0.5625 }, 'GPT-6 ASTRA · ROBOT ARM, REAL PAINT', 'Teaches itself to paint the Golden Gate');
+  const by2 = top + wb * 0.5625 + CAP_H + RG;
+  const kritaT = await capTile(d, s, krita, { x: bx, y: by2, w: wb, h: wb * 0.5625 }, 'KRITA · GPT-6 ASTRA VIA HIGGSFIELD MCP', 'Vendor demo · stroke colours sampled from a reference');
 
   d.animate(s, [...hero, ...hc], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, [hcap], { auto: true, effect: 'fade', dur: 500, after: 200 });
-  d.animate(s, [...heron, ...badges, ...heronB], { effect: 'fade' });
+  d.animate(s, [...heron, ...badges, heronC], { effect: 'fade' });
   d.animate(s, noteT, { auto: true, effect: 'fade', after: 150 });
   d.animate(s, robotT, { effect: 'fade' });
-  d.animate(s, duelT, { auto: true, effect: 'fade', after: 150 });
-  d.source(s, 'stillwet.art (Sep 27, 2026) · user original (heron) · X: Federico Viticci (Sep 4), thijs @cdngdev (Sep 8), Alexey Fateev (Sep 5, 2026). Clips trimmed and sped up.');
+  d.animate(s, kritaT, { auto: true, effect: 'fade', after: 150 });
+  d.source(s, 'stillwet.art (Sep 27) · user original (heron) · X: Federico Viticci (Sep 4), thijs @cdngdev (Sep 8), Higgsfield AI (Sep 5, 2026). Creator showcases — the robot clip by an OpenAI-affiliated roboticist, the Krita clip a vendor demo. Clips sped up.');
   s.addNotes([
-    'MESSAGE: these are not image generators spitting out pixels — everyone has seen those. These are models using TOOLS the way a human artist does: picking a brush, laying down a stroke, looking, correcting. (In slideshow mode the clips animate; each opens on its own finished frame.)',
-    'HERO — Claude Opus 5.5 on stillwet.art: "Stoneware Jug with Two Lemons and a Knife", Round 16, "painted at a virtual easel, one passage at a time · 69-minute session". Site: "The model wrote every brushstroke as code and a simulation of oil paint carried them out, replayed here sped up. No image generator." and "Each one paints by writing a program against a simulation of oil paint on linen: bristle brushes, wet paint, drying, layered glazes. No image model is involved." Painters "never see a picture of his work" (they paint "after Caspar David Friedrich" from written research). Built by alice (@aliceisplaying), who posted it on X on Sep 28 ("canvas, brushes, paint, no undo, simulated drying etc.") and on Hacker News Oct 2 (Show HN, 378 points). https://stillwet.art/p/r16-c1.html · https://stillwet.art/ · https://x.com/aliceisplaying/status/2104672235093119196 . GIF = the site\'s replay (it opens on the finished painting), sped up 1.35×.',
+    'MESSAGE: these are not image generators spitting out pixels — everyone has seen those. These are models using TOOLS the way a human artist does: picking a brush, laying down a stroke, looking, correcting. (In slideshow mode the clips animate; each opens on its own finished frame.) And one honest counter-example (Krita, bottom right): the most "impressive" result is the least creative.',
+    'HERO — Claude Opus 5.5 on stillwet.art: "Stoneware Jug with Two Lemons and a Knife", Round 16, "painted at a virtual easel, one passage at a time · 69-minute session". Site: "The model wrote every brushstroke as code and a simulation of oil paint carried them out, replayed here sped up. No image generator." and "Each one paints by writing a program against a simulation of oil paint on linen: bristle brushes, wet paint, drying, layered glazes. No image model is involved." These are THE SITE\'S OWN CLAIMS (a one-developer hobby project, not a lab; not independently checked). Painters "never see a picture of his work" (they paint "after Caspar David Friedrich" from written research). Built by alice (@aliceisplaying), who posted it on X on Sep 28 ("canvas, brushes, paint, no undo, simulated drying etc.") and on Hacker News Oct 2 (Show HN, 378 points). https://stillwet.art/p/r16-c1.html · https://stillwet.art/ · https://x.com/aliceisplaying/status/2104672235093119196 . GIF = the site\'s replay (it opens on the finished painting), sped up 1.35×.',
     'HERON (user original): four successive pencil drawings by a model iteratively refining its own technique ("Final 1" → "Final 4"; the labelled error falls from 6.34 to 3.37 as it adds close-up passes and tone-following pressure).',
-    'APPLE NOTES — Federico Viticci (MacStories), Sep 4, 2026: "I gave Astra a portrait of me. And I watched as it used Apple Notes on my Mac to draw me. This model feels incredible." The note\'s on-screen timestamps run from 12:39 AM to 1:38 AM (about an hour; our reading of the recording). Clip sped up 15×, cropped to the note. https://x.com/viticci/status/2096025249582039180',
-    'ROBOT ARM — thijs (@cdngdev), Sep 8, 2026: "i gave astra a robot, a paint brush, and a camera then asked it to paint the golden gate bridge in real life!" … "it figured out how to control the robot, and progressively got better throughout its attempts." Real acrylic on paper; attempts 01→04, ending on the line-up of all attempts. 4.97M views — the most-viewed post in our research; Sam Altman quote-posted it: "i want one!". Clip from 0:19, sped up 4×. https://x.com/cdngdev/status/2097339677128982873',
-    'MS PAINT — Alexey Fateev, Sep 5, 2026: he gave GPT-6 Astra and Claude Fable 5.1 the same photo and asked each to draw him in Paint via computer use (labels burned into the video; Astra left, Fable 5.1 right). A single creator test, not a benchmark (and the post itself contains profanity — don\'t read it out). 1.27M views. Sped up 3×. https://x.com/superalesha/status/2096323876623954108',
-    'Not found: no verified 2026 video of an agent painting in Krita or GIMP (only GitHub plugins exist), so these real recordings in Apple Notes, Paint and a physical robot stand in. Others we have (Q&A): Adobe\'s Kris Kashtanova, "Told GPT-6 Astra to draw me in @Photoshop" (Sep 5); taiyakisun: Astra colours his line art in Clip Studio Paint (3.15M views); Anthropic\'s Jake Eaton: Opus 5.5 paintings that are "a python program generated pixel by pixel. there is no image model" (Sep 22; company employee).',
-    'Why it matters for safety (one line): the same skill — operating real software and real machines from a goal — is what makes autonomous agents powerful. And "a screen recording of the drawing process used to be the strongest evidence an artist could offer" (explainx.ai, Sep 6) — that evidence no longer proves a human made it.',
+    'APPLE NOTES — Federico Viticci (MacStories), Sep 4, 2026: "I gave Astra a portrait of me. And I watched as it used Apple Notes on my Mac to draw me. This model feels incredible." It draws with the Notes/Mac drawing tools — outline, line art, hatching — then picks colours from the palette and fills them in. The note\'s on-screen timestamps run from 12:39 AM to 1:38 AM (about an hour; our reading of the recording). Clip sped up 15×, cropped to the note. https://x.com/viticci/status/2096025249582039180',
+    'ROBOT ARM — thijs (@cdngdev), Sep 8, 2026: "i gave astra a robot, a paint brush, and a camera then asked it to paint the golden gate bridge in real life!" … "it figured out how to control the robot, and progressively got better throughout its attempts." Real paint on paper; attempts 01→04, ending on the line-up of all attempts. 4.97M views — the most-viewed post in our research; Sam Altman quote-posted it: "i want one!". DISCLOSE: this is an OpenAI-affiliated showcase — Understanding Robots (Kai Williams, Oct 1) calls him an "OpenAI robotics employee", and his X bio says "prev. robotics @openai". Clip from 0:19, sped up 4×. https://x.com/cdngdev/status/2097339677128982873',
+    'KRITA — Higgsfield AI (@higgsfield_ai), Sep 5, 2026: "GPT-6 Astra painted the Creation of Adam in Krita using the Higgsfield MCP. The model is insanely good at drawing." A 55-second screen recording (Krita beside the agent\'s transcript; the agent\'s timer runs to ~1 h 57 min, so it is heavily condensed), 10.6K views. VENDOR DEMO — Higgsfield sells the MCP. https://x.com/higgsfield_ai/status/2096379627912704049',
+    'What the recording itself shows (read the transcript pane before calling this "drawing skill"): the task was to recreate a reference image of Michelangelo\'s fresco in Krita. The model first reached for an image generator ("The image generator rejected the classical nudity in the fresco. I\'ll work directly in Krita using your reference as the underpainting…"). When the operator pushed back ("i mean paint it from scratch, we are already right? I just can\'t believe my eyes lol"), it admitted: "To be clear: the image currently on screen uses your original as its base. I added painted highlights, shadows, and texture over it—I did not draw all those figures from scratch. I\'m sorry my earlier wording made that unclear." The operator then asked for code-driven strokes "as if you are using your mouse … note that\'s cuz it is being video screen recorded"; the model wrote a Krita Scripter program "to sample the reference\'s colors and lay down strokes progressively", ending: "Saved the refined painting with 207,306 scripted Krita brush strokes, including detailed faces and eyes." So: real tool use (Krita\'s canvas, layers, brushes and Scripter), but the detail comes from the reference image, and the model\'s first account of what it had done was misleading until challenged — a small, real example of why AI self-reports need checking. Clip sped up 4×, cropped to the canvas and layers panel; it opens on its own final frame. (Also exists, not used: a Korean YouTube video, "GPT-6 Astra로 그림을 그린다고? Krita·Codex로 완성한 AI 유화" by 크리AI티브, https://www.youtube.com/watch?v=DfEegz_OxJs .)',
+    'Others we have (Q&A): MS Paint — Alexey Fateev (Sep 5): GPT-6 Astra vs Claude Fable 5.1 drawing him from the same photo via computer use (single creator test; the post contains profanity), https://x.com/superalesha/status/2096323876623954108 . Adobe\'s Kris Kashtanova, "Told GPT-6 Astra to draw me in @Photoshop" (Sep 5); taiyakisun: Astra colours his line art in Clip Studio Paint (3.15M views); Anthropic\'s Jake Eaton: Opus 5.5 paintings that are "a python program generated pixel by pixel. there is no image model" (Sep 22; company employee).',
+    'Why it matters for safety (one line): the same skill — operating real software and real machines from a goal — is what makes autonomous agents powerful. And "a screen recording of the drawing process used to be the strongest evidence an artist could offer" (explainx.ai, Sep 6) — the Krita clip shows such a recording can now be produced by a script.',
   ].join('\n\n'));
   return s;
 }
@@ -721,10 +752,10 @@ async function worldsSlide(d) {
 
   const G = 0.24, cw = (CW - 2 * G) / 3, ch = cw * 9 / 16, y1 = 1.78, y2 = y1 + ch + 0.22;
   const X = (i) => MX + i * (cw + G);
-  const t1 = await tile(d, s, city, { x: X(0), y: y1, w: cw, h: ch }, 'UNREAL ENGINE · GPT-6 ASTRA', 'Manhattan, built street by street “over a week”');
+  const t1 = await tile(d, s, city, { x: X(0), y: y1, w: cw, h: ch }, 'UNREAL ENGINE · GPT-6 ASTRA', 'Manhattan “over the course of a week” (creator-reported)');
   const t2 = await tile(d, s, train, { x: X(1), y: y1, w: cw, h: ch }, 'BLENDER · GPT-6 ASTRA', 'An old drawing → “3,295 fully editable” objects');
   const t3 = await tile(d, s, cad, { x: X(2), y: y1, w: cw, h: ch }, 'SOLIDWORKS CAD · GPT-6 ASTRA', 'A turbofan, sketched and assembled (vendor demo)');
-  const t4 = await tile(d, s, game, { x: X(0), y: y2, w: cw, h: ch }, 'A COMPLETE 3-D GAME · GPT-6 ASTRA', '“Not a demo. A FINISHED, playable game.”');
+  const t4 = await tile(d, s, game, { x: X(0), y: y2, w: cw, h: ch }, 'GPT-6 ASTRA · A “FINISHED” 3-D GAME', '“Not a demo. A FINISHED, playable game.” — its creator');
   // same person, same request, 56 days apart
   const bat1 = await d.frame(s, CR('stills/ollivier-sol-bat-jul11-t101-fur-render.jpg'), { x: X(1), y: y2, w: cw, h: ch }, { border: false, pad: 0 });
   const b1 = band(d, s, bat1.geom, 'BLENDER · JUL 11, 2026 · “SOL”', '“make me a realistic bat”', { toolColor: LIGHT });
@@ -732,13 +763,13 @@ async function worldsSlide(d) {
   const b2 = band(d, s, bat2.geom, 'BLENDER · SEP 5, 2026 · GPT-6 ASTRA', 'Same person, same request, 56 days later');
   const cx = X(2) - G / 2, cy = y2 + ch / 2 - 0.2;
   const dot = d.name('dot');
-  s.addShape(d.pres.shapes.OVAL, { x: cx - 0.42, y: cy - 0.42, w: 0.84, h: 0.84, fill: { color: HEX.red }, line: { color: '0A0C10', width: 2.5 }, shadow: { type: 'outer', color: '000000', blur: 10, offset: 3, angle: 90, opacity: 0.6 }, objectName: dot });
-  const dotT = d.text(s, [{ text: '56', options: { fontSize: 20, bold: true, breakLine: true } }, { text: 'DAYS', options: { fontSize: 8.5, bold: true, charSpacing: 1 } }], { x: cx - 0.42, y: cy - 0.36, w: 0.84, h: 0.72, color: 'FFFFFF', align: 'center', valign: 'middle', fontFace: 'Arial' });
+  s.addShape(d.pres.shapes.OVAL, { x: cx - 0.48, y: cy - 0.48, w: 0.96, h: 0.96, fill: { color: HEX.red }, line: { color: '0A0C10', width: 2.5 }, shadow: { type: 'outer', color: '000000', blur: 10, offset: 3, angle: 90, opacity: 0.6 }, objectName: dot });
+  const dotT = d.text(s, [{ text: '56', options: { fontSize: 21, bold: true, breakLine: true } }, { text: 'DAYS', options: { fontSize: 10, bold: true, charSpacing: 0.5 } }], { x: cx - 0.48, y: cy - 0.4, w: 0.96, h: 0.8, color: 'FFFFFF', align: 'center', valign: 'middle', fontFace: 'Arial' });
 
   [t1, t2, t3, t4].forEach((g, i) => d.animate(s, g, { auto: true, effect: 'fade', dur: 500, after: i === 0 ? 100 : 120 }));
   d.animate(s, [...bat1, ...b1], { effect: 'fade' });
   d.animate(s, [...bat2, ...b2, dot, dotT], { effect: 'fade' });
-  d.source(s, 'X posts: Matt Shumer (Sep 3), Tom Krcha (Sep 4), MecAgent (Sep 9), Emm Tee (Sep 12), Alix Ollivier (Jul 11 & Sep 5), 2026. Creator-reported claims; clips trimmed and sped up.');
+  d.source(s, 'X posts: Matt Shumer (Sep 3; Astra “used existing assets, including MetaHuman characters”), Tom Krcha (Sep 4), MecAgent (Sep 9), Emm Tee (Sep 12), Alix Ollivier (Jul 11 & Sep 5), 2026. Creator-reported claims; clips sped up.');
   s.addNotes([
     'MESSAGE: since GPT-6 Astra launched (Sep 3, 2026) the internet has filled with models operating professional 3-D tools end to end — game engines, Blender, CAD — producing editable scenes, parts and whole games, not just pictures. Epic even built an MCP server into Unreal Engine 5.8 (June 2026) so agents "can drive the editor" (VP Land, Jun 24: "Unreal Engine 5.8 Embeds an MCP Server So AI Agents Can Drive the Editor").',
     'UNREAL — Matt Shumer, Sep 3: "GPT-6 Astra built this Manhattan world in Unreal Engine over the course of a week. It was literally able to go street by street to make each one perfect." 4.62M views. CAVEAT from his own review: "Astra used existing assets, including MetaHuman characters, so it didn\'t create every object or person from scratch", and "Claude is still better at creating the visual pieces themselves." Shumer had early access. https://x.com/mattshumer_/status/2095609734845927525',
@@ -811,36 +842,39 @@ async function navierSlide(d) {
   s.addText('A Millennium Prize Problem, apparently settled', { placeholder: 'title' });
   const N = (f) => R(`rev2/${f}`);
 
-  // ---- row 1: the paper (title zoom + precise qualifier) · Figure 1 · OpenAI's own words
+  // ---- row 1: the paper (title zoom + precise qualifier) · Figure 1 · OpenAI's own words  (y 1.70 → ~3.09)
   const PAPER = R('openai-navier-stokes-paper-p1.png');
-  const aw = 3.45;
-  const pl = label(d, s, 'THE PROOF · 166 PAGES · SEP 8, 2026', MX, 1.7, aw);
+  const aw = 3.2;
+  const pl = label(d, s, 'THE PROOF · 166 PAGES · SEP 8, 2026', MX, 1.7, aw + 0.3);
   const zoom = await d.frame(s, await crop(PAPER, 'ns-paper-title.png', { l: 330, t: 140, w: 615, h: 125 }), { x: MX, y: 2.03, w: aw, h: (aw - 0.1) * 125 / 615 + 0.1 }, { pad: 0.05, frameColor: HEX.red, align: 'left', link: 'https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf' });
   const zg = zoom.geom;
-  const qual = chip(d, s, 'PRECISELY: FINITE-TIME BLOWUP, FORCED CASE', MX, zg.y + zg.h + 0.14, aw, { h: 0.3, fill: HEX.red, transparency: 0, fontSize: 10, charSpacing: 0.5 });
-  const fx = MX + aw + 0.35, fw = 3.45;
-  const fig = await d.frame(s, await crop(R('openai-navier-stokes-fig1-blowup.png'), 'ns-fig1.png', { l: 50, t: 8, w: 1580, h: 690 }), { x: fx, y: 1.72, w: fw, h: 1.5 }, { align: 'left' });
+  const qual = chip(d, s, 'PRECISELY: FINITE-TIME BLOWUP, FORCED CASE', MX, zg.y + zg.h + 0.1, aw + 0.25, { h: 0.3, fill: HEX.red, transparency: 0, fontSize: 10, charSpacing: 0.5 });
+  const fx = MX + aw + 0.6, fw = 3.45;
+  const fig = await d.frame(s, await crop(R('openai-navier-stokes-fig1-blowup.png'), 'ns-fig1.png', { l: 50, t: 8, w: 1580, h: 690 }), { x: fx, y: 1.72, w: fw, h: 1.36 }, { align: 'left' });
   const fg = fig.geom;
-  const figT = chip(d, s, 'FIG. 1: THE VORTEX SHRINKS, ITS SPEED BLOWS UP', fg.x, fg.y + fg.h - 0.27, fg.w, { h: 0.27, fontSize: 9, charSpacing: 0.5 });
+  const figT = chip(d, s, 'FIG. 1: VORTEX SHRINKS, SPEED BLOWS UP', fg.x, fg.y + fg.h - 0.28, fg.w, { h: 0.28, fontSize: 10, charSpacing: 0.3 });
   const qx = fg.x + fg.w + 0.4, qw = 12.73 - qx;
   const quote = d.text(s, [
     { text: 'OPENAI, SEP 8, 2026', options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 2, breakLine: true, paraSpaceAfter: 3 } },
     { text: '“we used an internal model that is ', options: { fontSize: 16, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
     { text: 'significantly more capable than GPT-6 Astra', options: { fontSize: 16, italic: true, bold: true, color: d.S.red, fontFace: 'Cambria' } },
     { text: '”', options: { fontSize: 16, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true, paraSpaceAfter: 6 } },
-    { text: '10,000+ AI agents · 88 hours', options: { fontSize: 13, bold: true, color: d.S.txt } },
+    { text: '10,000+ AI agents · 88 hours', options: { fontSize: 14, bold: true, color: d.S.txt } },
     { text: '  (per OpenAI)', options: { fontSize: 11, color: d.S.muted } },
-  ], { x: qx, y: 1.7, w: qw, h: 1.5, valign: 'middle' });
+  ], { x: qx, y: 1.7, w: qw, h: 1.4, valign: 'middle' });
 
   // ---- row 2: how long it had been open (proportional time axis, 1822 → 2026; labels alternate below / above)
-  const ay = 4.29, D = 0.6;
-  const big = d.text(s, [
-    { text: '204', options: { fontSize: 44, bold: true, color: d.S.red, fontFace: 'Arial', breakLine: true } },
-    { text: 'YEARS OPEN', options: { fontSize: 12, bold: true, color: d.S.txt, charSpacing: 2, breakLine: true, paraSpaceAfter: 3 } },
-    { text: '92 since Leray’s question', options: { fontSize: 10.5, color: d.S.muted, breakLine: true } },
-    { text: '26 as a $1M prize', options: { fontSize: 10.5, color: d.S.muted } },
-  ], { x: MX, y: ay - 0.86, w: 1.8, h: 1.72, valign: 'middle' });
-  const ax0 = MX + 2.25, ax1 = 12.73 - 0.33, T0 = 1822.21, T1 = 2026.69;
+  const ay = 4.05, D = 0.56;
+  // three ages at equal weight: the equations, Leray's blow-up question, the prize
+  const ages = [['204', 'years since the equations (1822)'], ['92', 'years since Leray’s blow-up question (1934)'], ['26', 'years as a $1M prize (2000)']];
+  const big = ages.flatMap(([v, t], i) => {
+    const y = ay - 0.81 + i * 0.55;
+    return [
+      d.text(s, v, { x: MX, y, w: 0.78, h: 0.5, fontSize: 26, bold: true, color: d.S.red, fontFace: 'Arial', align: 'right', valign: 'middle' }),
+      d.text(s, t, { x: MX + 0.86, y, w: 1.32, h: 0.5, fontSize: 10.5, color: LIGHT, valign: 'middle' }),
+    ];
+  });
+  const ax0 = MX + 2.8, ax1 = 12.73 - 0.33, T0 = 1822.21, T1 = 2026.69;
   const tx = (yr) => ax0 + (yr - T0) / (T1 - T0) * (ax1 - ax0);
   const axis = line(d, s, ax0, ay, ax1, ay, { color: HEX.steel, width: 2 });
   const last = line(d, s, tx(2000.39), ay, ax1, ay, { color: HEX.red, width: 3.5 });
@@ -857,38 +891,41 @@ async function navierSlide(d) {
     s.addShape(d.pres.shapes.OVAL, { x: n.x - D / 2 - 0.04, y: ay - D / 2 - 0.04, w: D + 0.08, h: D + 0.08, fill: { color: n.img ? '0A0C10' : 'F39200' }, line: { color: n.red ? HEX.red : HEX.steel, width: n.red ? 2.5 : 1.5 }, objectName: ring });
     g.push(ring);
     if (n.img) { const im = d.name('pt'); s.addImage({ path: n.img, x: n.x - D / 2, y: ay - D / 2, w: D, h: D, objectName: im }); g.push(im); }
-    else g.push(d.text(s, '$1M', { x: n.x - D / 2, y: ay - D / 2, w: D, h: D, fontSize: 14, bold: true, color: '0A0C10', align: 'center', valign: 'middle', fontFace: 'Arial' }));
-    const lw = n.w || 2.45, lh = 0.6;
+    else g.push(d.text(s, '$1M', { x: n.x - D / 2, y: ay - D / 2, w: D, h: D, fontSize: 13, bold: true, color: '0A0C10', align: 'center', valign: 'middle', fontFace: 'Arial' }));
+    const lw = n.w || 2.45, lh = n.pos === 'below' ? 0.62 : 0.46;
     const lx = n.align === 'left' ? n.x - D / 2 : n.align === 'right' ? n.x + D / 2 + (n.dx || 0) - lw : n.x - lw / 2;
-    const ly = n.pos === 'below' ? ay + D / 2 + 0.08 : ay - D / 2 - 0.08 - lh;
+    const ly = n.pos === 'below' ? ay + D / 2 + 0.07 : ay - D / 2 - 0.07 - lh;
     const yr = { text: n.year, options: { fontSize: 15, bold: true, color: n.red ? d.S.red : d.S.txt, fontFace: 'Arial', breakLine: true } };
     const tt = { text: n.txt, options: { fontSize: 10.5, color: n.red ? 'FF8A8C' : d.S.muted } };
     g.push(d.text(s, n.pos === 'below' ? [yr, tt] : [{ ...tt, options: { ...tt.options, breakLine: true } }, { ...yr, options: { ...yr.options, breakLine: false } }],
       { x: lx, y: ly, w: lw, h: lh, align: n.align, valign: n.pos === 'below' ? 'top' : 'bottom' }));
     return g;
   });
-  // ---- row 3: how important (verbatim)
-  const cy0 = 5.4, chh = 6.52 - cy0, cg = 0.2, cw = (CW - 3 * cg) / 4;
-  const Qc = (i, q, who, em) => {
-    const x = MX + i * (cw + cg);
+  // ---- row 3: how important (verbatim; quote text ≥ 14 pt). Card widths follow the length of each quote.
+  const cy0 = 5.12, chh = 6.52 - cy0, cg = 0.2;
+  const cws = [3.62, 2.42, 2.62];
+  const cxs = [MX, MX + cws[0] + cg, MX + cws[0] + cws[1] + 2 * cg];
+  const Qc = (i, q, who) => {
+    const x = cxs[i], cw = cws[i];
     const runs = [];
-    q.forEach(([t, e]) => runs.push({ text: t, options: { fontFace: 'Cambria', italic: true, fontSize: 12.5, bold: !!e, color: e ? d.S.red : d.S.txt } }));
+    q.forEach(([t, e]) => runs.push({ text: t, options: { fontFace: 'Cambria', italic: true, fontSize: 14, bold: !!e, color: e ? d.S.red : d.S.txt } }));
     runs[runs.length - 1].options.breakLine = true;
     runs.push({ text: who, options: { fontSize: 10, color: d.S.muted } });
     return [d.card(s, { x, y: cy0, w: cw, h: chh }), d.text(s, runs, { x: x + 0.14, y: cy0 + 0.06, w: cw - 0.28, h: chh - 0.12, valign: 'middle', paraSpaceAfter: 4 })];
   };
   const cards = [
-    Qc(0, [['“…by a significant margin, '], ['the most important mathematical proof', 1], [' to have been arrived at by an artificial-intelligence model to date”']], 'Quanta Magazine · Sep 8'),
-    Qc(1, [['“I was '], ['thrilled', 1], [' that the problem was solved.”']], 'Charles Fefferman, who wrote the official Clay problem statement · in Quanta'),
-    Qc(2, [['“…represents '], ['a milestone advance in human knowledge', 1], ['.”']], 'American Mathematical Society: President Ravi Vakil & CEO John Meier · Sep 8'),
+    Qc(0, [['“If the result holds up to further scrutiny, it is… '], ['the most important mathematical proof', 1], [' to have been arrived at by an artificial-intelligence model to date”']], 'Quanta Magazine · Sep 8'),
+    Qc(1, [['“I was '], ['thrilled', 1], [' that the problem was solved.”']], 'Charles Fefferman, author of the Clay problem statement · in Quanta'),
+    Qc(2, [['“…represents '], ['a milestone advance in human knowledge', 1], ['.”']], 'American Mathematical Society: President & CEO · Sep 8'),
   ];
-  const nat = await d.frame(s, await crop(N('nature-millennium-claim.png'), 'ns-nature-head.png', { l: 20, t: 0, w: 1700, h: 600 }), { x: MX + 3 * (cw + cg), y: cy0, w: cw, h: chh }, { rot: 1.2 });
+  const nx = cxs[2] + cws[2] + cg;
+  const nat = await d.frame(s, await crop(N('nature-millennium-claim.png'), 'ns-nature-head.png', { l: 20, t: 0, w: 1700, h: 600 }), { x: nx, y: cy0 + 0.08, w: 12.73 - nx, h: chh - 0.08 }, { rot: 1.2 });
   const natT = outletTab(d, s, nat.geom, 'NATURE · SEP 8', 'tr', 1.2);
 
   d.animate(s, [pl, ...zoom, ...qual], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, [...fig, ...figT], { auto: true, effect: 'fade', dur: 600, after: 100 });
   d.animate(s, [quote], { effect: 'fade' });
-  d.animate(s, [big, { name: axis, effect: 'wipeLeft', dur: 900 }], { effect: 'fade' });
+  d.animate(s, [...big, { name: axis, effect: 'wipeLeft', dur: 900 }], { effect: 'fade' });
   nodeGroups.forEach((g, i) => d.animate(s, i === 4 ? [...g, { name: last, effect: 'wipeLeft', dur: 500 }] : g, { auto: true, effect: i === 4 ? 'zoom' : 'fade', dur: 450, after: i === 0 ? 0 : 250 }));
   cards.forEach((c, i) => d.animate(s, c, i === 0 ? { effect: 'rise', dur: 450 } : { auto: true, effect: 'rise', dur: 450, after: 150 }));
   d.animate(s, [...nat, ...natT], { auto: true, effect: 'slam', dur: 420, after: 150 });
@@ -982,7 +1019,7 @@ async function aftermathSlide(d) {
     {
       shot: [R('aaronson-title.png'), 'aaronson-title-crop.png', { l: 26, t: 26, w: 1370, h: 139 }, 0.5], // title + first line of the post
       quote: [['“…update on the fact that '], ['the wild prophecies have come true', 1], ['.”', 0, 1], ['“…human mathematicians are '], ['forevermore dethroned', 1], [' as the main theorem-proving entities on planet earth.”']],
-      who: 'Scott Aaronson · Shtetl-Optimized · Sep 15, 2026',
+      who: 'Scott Aaronson (computer scientist) · Shtetl-Optimized · Sep 15, 2026',
     },
     {
       shot: [R('tao-mastodon-stripmining.png'), 'tao-header-crop.png', { l: 26, t: 26, w: 420, h: 106 }, 0.5],
@@ -1010,15 +1047,15 @@ async function aftermathSlide(d) {
   const lw = 3.55;
   const head = await d.frame(s, R('rev2/buzzard-grieve-header.png'), { x: bx + 0.2, y: by + 0.16, w: 3.3, h: 3.3 * 228 / 966 }, { align: 'left', pad: 0.05, link: 'https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/' });
   const hg = head.geom;
-  const whoB = d.text(s, 'Kevin Buzzard (Imperial College London) · Oct 1, 2026', { x: bx + 0.22, y: hg.y + hg.h + 0.1, w: lw + 0.2, h: 0.3, fontSize: 11, color: d.S.muted, valign: 'top' });
-  // FLT: the "11 days" line, kept small — the post's real title line (legible size) + a verbatim fragment
-  const fy = by + bh - 0.74;
-  const flt = await d.frame(s, await crop(R('buzzard-flt-title.png'), 'buzzard-flt-crop.png', { l: 28, t: 36, w: 712, h: 62 }), { x: bx + 0.2, y: fy, w: 2.75, h: 2.65 * 62 / 712 + 0.1 }, { align: 'left', pad: 0.05, link: 'https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/' });
+  const whoB = d.text(s, 'Kevin Buzzard (Imperial College London) · Oct 1, 2026', { x: bx + 0.22, y: hg.y + hg.h + 0.08, w: lw + 0.2, h: 0.24, fontSize: 11, color: d.S.muted, valign: 'top' });
+  // FLT: the "11 days" line, kept small — the post's real title line (legible size) + what took 11 days, verbatim
+  const fy = hg.y + hg.h + 0.44;
+  const flt = await d.frame(s, await crop(R('buzzard-flt-title.png'), 'buzzard-flt-crop.png', { l: 28, t: 36, w: 712, h: 62 }), { x: bx + 0.2, y: fy, w: 2.5, h: 2.4 * 62 / 712 + 0.1 }, { align: 'left', pad: 0.05, link: 'https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/' });
   const fg = flt.geom;
   const fltT = d.text(s, [
-    { text: 'Sep 4: ', options: { color: d.S.muted, bold: true } },
-    { text: '“…Anthropic took only 11 days…”', options: { color: d.S.txt, italic: true, fontFace: 'Cambria' } },
-  ], { x: bx + 0.22, y: fg.y + fg.h + 0.1, w: lw + 0.2, h: 0.26, fontSize: 11, valign: 'middle' });
+    { text: 'Sep 4, on Anthropic’s Lean proof of Fermat’s Last Theorem: ', options: { color: d.S.muted } },
+    { text: '“I was given £1M to run my project over 5 years; Anthropic took only 11 days…”', options: { color: d.S.txt, italic: true, fontFace: 'Cambria' } },
+  ], { x: bx + 0.22, y: fg.y + fg.h + 0.08, w: lw + 0.2, h: by + bh - 0.08 - (fg.y + fg.h + 0.08), fontSize: 10.5, valign: 'top' });
   const div = line(d, s, bx + lw + 0.55, by + 0.25, bx + lw + 0.55, by + bh - 0.25, { color: HEX.line, width: 1 });
   const px = bx + lw + 0.8, pw = bx + bw - 0.25 - px;
   const pull = d.text(s, [
@@ -1032,7 +1069,7 @@ async function aftermathSlide(d) {
   d.source(s, 'Sources: scottaaronson.blog/?p=10062 · mathstodon.xyz/@tao (Sep 3, 2026) · xenaproject.wordpress.com: “To grieve, or not to grieve?” (Oct 1) and “FLT: Anthropic has beaten me to it” (Sep 4, 2026).');
   s.addNotes([
     'MESSAGE: the people at the top of the field are saying, in public, that something fundamental has changed — some with awe, many with grief. These span Sep 3 – Oct 1, 2026 (the prime-gaps race, Anthropic\'s Lean proof of FLT, then Navier–Stokes), not reactions to Navier–Stokes alone — note the dates on the cards.',
-    'Scott Aaronson, "The Age of Wonders and Terrors", Shtetl-Optimized, Sep 15, 2026 (https://scottaaronson.blog/?p=10062). Opens with the 2006-era skeptic\'s line: "…we\'ll see major math problems getting solved by AIs—even the Clay Millennium Problems. That will be the time to panic! Wake me up when that happens!" — then: "update on the fact that the wild prophecies have come true." Also: "it seems safe to say that human mathematicians are forevermore dethroned as the main theorem-proving entities on planet earth." And: "It seems to me that the Singularity has already started; it\'s just wildly unevenly distributed." And: "By any accounting that doesn\'t stack the deck, Eliezer Yudkowsky was right about what the greatest challenge facing civilization in our lifetimes was going to be, and you and I were wrong about it."',
+    'Scott Aaronson (a theoretical computer scientist, not a mathematician — hence the credit on the card), "The Age of Wonders and Terrors", Shtetl-Optimized, Sep 15, 2026 (https://scottaaronson.blog/?p=10062). Opens with the 2006-era skeptic\'s line: "…we\'ll see major math problems getting solved by AIs—even the Clay Millennium Problems. That will be the time to panic! Wake me up when that happens!" — then: "update on the fact that the wild prophecies have come true." Also: "it seems safe to say that human mathematicians are forevermore dethroned as the main theorem-proving entities on planet earth." And: "It seems to me that the Singularity has already started; it\'s just wildly unevenly distributed." And: "By any accounting that doesn\'t stack the deck, Eliezer Yudkowsky was right about what the greatest challenge facing civilization in our lifetimes was going to be, and you and I were wrong about it."',
     'Terence Tao, Mathstodon, Sep 3, 2026 (https://mathstodon.xyz/@tao/117204930249967695), relaying Hugo Duminil-Copin (Proofs and Prompts, "Care for a little more AI?", Aug 30): "As Hugo Duminil-Copin wrote recently at proofsandprompts.com/2026/08/3… , the indiscriminate automated strip-mining of open problems for solutions may destroy the ecosystem…, similarly to how using excavators to dig out treasures from an archeological site destroys the rich historical context". Tao continues: "It may become necessary to declare certain classes of mathematical problems off-limits to automated solvers, in order to preserve their broader value to the mathematical ecosystem (for instance, through the training of future mathematicians)." The sentence is Tao\'s (no quotation marks around Duminil-Copin): credit the idea to Duminil-Copin and the words to Tao. (Checked Oct 4: the strip-mining / excavator wording is not in Duminil-Copin\'s post itself — do not quote it as his.) Also Tao to AFP (Sep 18): "I am currently completely overwhelmed with an existential crisis in my field." (https://www.malaymail.com/news/life/2026/09/18/maths-midlife-crisis-ai-solves-in-four-days-what-stumped-mathematicians-for-a-century/235502). NOTE: "After Math" on Tao\'s blog (Sep 12) is a GUEST post by Silvia De Toffoli & Eamon Duede — not Tao\'s words.',
     'Kevin Buzzard (professor of pure mathematics at Imperial College London; the blog byline "xenaproject" is his), "To grieve, or not to grieve?", Xena, Oct 1, 2026 — https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/ . Verbatim pull-quote (on the page "is" and "moving" are italic): "AI has solved a Millennium problem and this has shown us where AI is in mathematics. But I believe that many people in our community are still vastly underestimating how fast AI is moving, perhaps because they only just started paying attention to it. If we use \'understanding\' as a justification for the continued existence of mathematics as a subject worth studying, then where exactly do we retreat to when in 1 year\'s time AI is not only proving theorems, but also doing a perfectly good job of explaining them to humans?" And: "We are not all grieving. But many of us are in one of the stages of grief." He maps colleagues\' reactions onto the Kübler-Ross stages: "A faculty member I know who works in fluids told me that the Navier–Stokes news was \'extremely depressing\'. A post-doc I know told me that they were considering leaving mathematical research because of what it was about to become. A PhD student I know told me that they were stuck on a lemma in their research and ChatGPT one-shotted it and it made them wonder what the point of it all was." For balance, Buzzard himself is optimistic: "I personally am extremely excited about the future of our field" and "mathematics is infinite which beats exponential hands down". He also quotes Peter Scholze (HLF panel, Sep 15) saying he will "die on that hill" rather than use AI.',
     'Small element — Kevin Buzzard, "FLT: Anthropic has beaten me to it", Xena, Sep 4, 2026 (https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/): an Anthropic internal model, using the prove2.me platform, formalized a complete proof of Fermat\'s Last Theorem in Lean — the last item on Freek Wiedijk\'s list of 100 formalization challenges; over 13.4 million lines. "I was given £1M to run my project over 5 years; Anthropic took only 11 days but I do wonder if they spent more money…"',

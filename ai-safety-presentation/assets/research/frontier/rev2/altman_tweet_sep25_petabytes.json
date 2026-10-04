@@ -1,0 +1,28 @@
+{
+ "url": "https://x.com/sama/status/2103567198690349362",
+ "title": "Sam Altman on X: \"There is an extensive and ongoing review related to our agents’ use of internet access during training and evaluation. We’ve been publishing summaries at the link below and will continue to. We have not been as fast as we would have liked but we are trying to balance our desire f… / X",
+ "crop_css": {
+  "x": 276,
+  "y": 54,
+  "w": 598,
+  "h": 506
+ },
+ "highlights_frac": {
+  "petabytes of": [
+   {
+    "x": 3.7904,
+    "y": -0.1067,
+    "w": 0.1449,
+    "h": 0.0356
+   }
+  ],
+  "agent activity logs": [
+   {
+    "x": 3.941,
+    "y": -0.1067,
+    "w": 0.2081,
+    "h": 0.0356
+   }
+  ]
+ }
+}

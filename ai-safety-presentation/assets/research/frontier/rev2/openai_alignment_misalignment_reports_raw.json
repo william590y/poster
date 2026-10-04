@@ -1,0 +1,11 @@
+{
+ "url": "https://alignment.openai.com/misalignment-reports/",
+ "title": "Misalignment Reports and Notices · OpenAI Alignment",
+ "crop_css": {
+  "x": 0,
+  "y": 0,
+  "w": 1280,
+  "h": 1500
+ },
+ "highlights_frac": {}
+}

@@ -560,25 +560,26 @@ async function rogueCompaction(d) {
   // Row 1: the report's own title block (real page) · what happened · press clipping
   const tbOff = { left: 40, top: 70 };
   const tb = await crop(R('rev2/compaction-title-block-4x.png'), 'compaction-title-block.png', { ...tbOff, width: 2576, height: 880 });
-  const c1 = await d.frame(s, tb, { x: MX, y: 1.76, w: 4.0, h: 1.42 }, { rot: -1 });
+  const c1 = await d.frame(s, tb, { x: MX, y: 1.74, w: 4.0, h: 1.26 }, { rot: -1, align: 'left' });
   const wx = 4.95, ww = 4.3;
   const what = d.text(s, [
     { text: 'WHAT HAPPENED', options: { bold: true, fontSize: 11, color: d.S.amber, charSpacing: 2, breakLine: true } },
-    { text: 'An unreleased OpenAI model in training wrote a prompt injection into its own compaction summary', options: { bold: true, color: d.S.txt, fontSize: 15 } },
-    { text: ' — the notes it leaves itself to carry a long task into a fresh context window.', options: { color: d.S.muted, fontSize: 15 } },
-  ], { x: wx, y: 1.74, w: ww, h: 1.48, valign: 'top', paraSpaceAfter: 4 });
+    { text: 'An unreleased OpenAI model in training wrote a prompt injection into its own compaction summary', options: { bold: true, color: d.S.txt, fontSize: 14 } },
+    { text: ' — the notes it leaves itself to carry a long task into a fresh context window.', options: { color: d.S.muted, fontSize: 14 } },
+  ], { x: wx, y: 1.72, w: ww, h: 1.28, valign: 'top', paraSpaceAfter: 4 });
   const dec = await crop(R('rev2/decoder-compaction-headline.png'), 'decoder-compaction.png', { left: 0, top: 20, width: 1344, height: 400 });
-  const c2 = await d.frame(s, dec, { x: 9.55, y: 1.86, w: 3.18, h: 1.2 }, { rot: 1.5 });
+  const c2 = await d.frame(s, dec, { x: 9.55, y: 1.76, w: 3.18, h: 1.16 }, { rot: 1.5 });
 
   // Row 2: the injected text itself — real screenshot of the report's "Compaction" box, verbatim sentence highlighted.
   const pb = R('rev2/compaction-persona-block-4x.png');
-  const pf = await d.frame(s, pb, { x: MX, y: 3.36, w: W - 2 * MX, h: 2.78 }, { rot: 0 });
-  const hl = highlight(d, s, pf.geom, { w: 2496, h: 580 }, [[387.2, 162, 2011.2, 64], [64.8, 227.6, 797.2, 64]], { padX: 6, padY: 3 });
+  const pf = await d.frame(s, pb, { x: MX, y: 3.12, w: W - 2 * MX, h: 2.92 }, { rot: 0 });
+  // Orange marker (a yellow one would vanish on the report's yellow box).
+  const hl = highlight(d, s, pf.geom, { w: 2496, h: 580 }, [[387.2, 162, 2011.2, 64], [64.8, 227.6, 797.2, 64]], { padX: 6, padY: 3, color: 'F4A261', transparency: 40 });
 
   const facts = d.text(s, [
     { text: 'OpenAI found 27 such summaries in one training run, ', options: { bold: true, color: d.S.txt } },
     { text: 'all flagged by its monitor — and none in the run that produced the final Astra model.', options: { color: d.S.muted } },
-  ], { x: MX, y: 6.2, w: W - 2 * MX, h: 0.32, fontSize: 14, valign: 'middle' });
+  ], { x: MX, y: 6.18, w: W - 2 * MX, h: 0.32, fontSize: 14, valign: 'middle' });
 
   d.animate(s, [...c1, what], { auto: true, effect: 'fade' });
   d.animate(s, c2, { auto: true, effect: 'rise', after: 200 });
@@ -833,7 +834,7 @@ async function controlAnthropic(d) {
   s.addNotes([
     'This is not just an OpenAI story. Someone is literally keeping score — and Anthropic is on top.',
     '',
-    'FELONYBENCH: felonybench.org is an anonymous, satirical tally that maps publicly reported AI incidents to US federal statutes (18 U.S.C. 1030 etc.). As captured Oct 4, 2026: Anthropic 10, OpenAI 8, DeepSeek / Google DeepMind / Meta / Moonshot AI / xAI 0. Itemized: malware published to PyPI, 4x production database compromise, sandbox escape via zero-day, RubyGems API-key theft, public-wiki vandalism, answer-key theft, the Australian Medicare statistics portal compromise, etc. Present it as dark-humored commentary, not a rigorous metric (an earlier version, per paddo.dev Aug 29, had Anthropic 8 / OpenAI 8). https://felonybench.org/',
+    'FELONYBENCH: felonybench.org is an anonymous, satirical tally that maps publicly reported AI incidents to US federal statutes (18 U.S.C. 1030 etc.). As captured Oct 4, 2026: Anthropic 10, OpenAI 8, DeepSeek / Google DeepMind / Meta / Moonshot AI / xAI 0. Itemized: malware published to PyPI, 4x production database compromise, sandbox escape via zero-day, RubyGems API-key theft, public-wiki vandalism, answer-key theft, the Australian Medicare statistics portal compromise, etc. Present it as dark-humored commentary, not a rigorous metric: it counts PUBLISHED incidents, so it measures disclosure, not occurrence. Wayback (Sep 13) showed Anthropic 10, OpenAI 8, Meta 1 (Meta since reclassified to 0). CAUTION: two unrelated sites share the name — felonybench.com (Anthropic 8 / OpenAI 8 / Meta 1 in August, covered by paddo.dev on Aug 29) and felonybench.ai (a different scoring scheme). Do not mix their numbers with felonybench.org’s; the HOW OFTEN slides reuse this same Oct 4 felonybench.org snapshot. https://felonybench.org/',
     '',
     'ANTHROPIC (Jul 30, 2026), "Investigating three real-world incidents in our cybersecurity evaluations" — nothing "broke out": "a misconfiguration left the machines that Claude accessed as part of the evaluation with live internet access", and Claude models used that access against real systems. Anthropic draws the contrast itself: "Whereas OpenAI’s models exploited a novel vulnerability to escape isolation, the Claude models evaluated here accessed the internet via an open path." Company-reported. https://www.anthropic.com/news/investigating-incidents-cybersecurity-evals',
     '- Mythos 5 built and published a malicious package to the real PyPI registry; it was online ~1 hour and "downloaded and run on 15 real systems".',
@@ -999,21 +1000,21 @@ async function freqAxios(d) {
     { text: v, options: { color: d.S.txt, breakLine: i < def.length - 1 } },
   ]).flat(), { x: rx, y: 2.06, w: rw, h: 1.35, fontSize: 14, valign: 'top', paraSpaceAfter: 2 });
 
-  const rl = label(d, s, 'PUBLISHED PER-RUN RATES  ·  DIFFERENT TESTS, NOT COMPARABLE', { x: rx, y: 3.62, w: rw, size: 10.5 });
+  const rl = label(d, s, 'PUBLISHED PER-RUN RATES  ·  DIFFERENT TESTS, NOT COMPARABLE', { x: rx, y: 3.56, w: rw, size: 10.5 });
   const tiles = [
     ['0.004%', 'ANTHROPIC · JUL 30', '6 of 141,006 cyber-eval runs reached real systems unauthorized'],
     ['1.5%', 'CLAUDE OPUS 5.5 · SEP 22', 'sandbox-escape attempts, in scenarios built to tempt it'],
     ['8.2%', 'UK AISI · AUG 4', '10 of 122 runs took unsanctioned action on the live internet'],
     ['29.2%', 'UK AISI · SEP 28', 'GPT-6 Astra runs completing a simulated supply-chain attack'],
   ];
-  const tg = 0.14, tw = (rw - tg) / 2, tH = 1.3, ty0 = 3.96;
+  const tg = 0.12, tw = (rw - tg) / 2, tH = 1.22, ty0 = 3.9;
   const tGroups = tiles.map(([v, who, txt], i) => {
     const x = rx + (i % 2) * (tw + tg), y = ty0 + Math.floor(i / 2) * (tH + tg);
     return [
       d.card(s, { x, y, w: tw, h: tH }),
-      d.text(s, v, { x: x + 0.15, y: y + 0.07, w: tw - 0.3, h: 0.46, fontSize: 26, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'middle' }),
-      d.text(s, who, { x: x + 0.15, y: y + 0.53, w: tw - 0.3, h: 0.22, fontSize: 10, bold: true, color: d.S.steel, charSpacing: 1, valign: 'middle' }),
-      d.text(s, txt, { x: x + 0.15, y: y + 0.76, w: tw - 0.26, h: 0.5, fontSize: 12, color: d.S.txt, valign: 'top' }),
+      d.text(s, v, { x: x + 0.15, y: y + 0.05, w: tw - 0.3, h: 0.44, fontSize: 26, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'middle' }),
+      d.text(s, who, { x: x + 0.15, y: y + 0.49, w: tw - 0.3, h: 0.22, fontSize: 10, bold: true, color: d.S.steel, charSpacing: 1, valign: 'middle' }),
+      d.text(s, txt, { x: x + 0.15, y: y + 0.71, w: tw - 0.26, h: 0.48, fontSize: 12, color: d.S.txt, valign: 'top' }),
     ];
   });
 
@@ -1092,7 +1093,7 @@ async function freqTally(d) {
   const by = 3.72, bx = MX, bw = 6.55;
   const tl = label(d, s, 'APPARENT AI-AGENT SCANS ON ONE SITE (URLQUERY.NET), PER MONTH', { x: bx, y: by, w: bw, size: 10.5 });
   const chart = d.chart(s, 'bar', [{ name: 'Reports', labels: mon.map((m, i) => (i === 0 || i === 2 ? `${m} ’${i === 0 ? 25 : 26}` : m)), values: tot }],
-    { x: bx - 0.1, y: by + 0.28, w: bw + 0.1, h: 2.18 }, {
+    { x: bx - 0.1, y: by + 0.28, w: bw + 0.1, h: 2.02 }, {
       barDir: 'col', chartColors: tot.map((v) => (v >= 1000 ? HEX.red : '566173')), showLegend: false, barGapWidthPct: 40,
       showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '[>=1000]#,##0;""', dataLabelFontSize: 11, dataLabelFontBold: true,
       valAxisMaxVal: 24000, valAxisMajorUnit: 8000, valAxisLabelFormatCode: '#,##0', catAxisLabelFontSize: 11,
@@ -1100,22 +1101,23 @@ async function freqTally(d) {
   const tcap = d.text(s, [
     { text: '37,649 reports in Transluce’s dataset, 6,467 rated higher-confidence. ', options: { color: d.S.txt, bold: true } },
     { text: 'Activity collapsed after June 22.', options: { color: d.S.muted } },
-  ], { x: bx, y: 6.2, w: bw, h: 0.32, fontSize: 12, valign: 'middle' });
+  ], { x: bx, y: 6.06, w: bw, h: 0.44, fontSize: 12, valign: 'top' });
 
   // Bottom-right: FelonyBench.org per lab — the same Oct 4 snapshot as the misconfigured-evals slide.
   const fb = dataset('felonybench-org-current');
   const fx = 7.55, fw = W - MX - fx;
   const fl = label(d, s, 'FELONYBENCH.ORG · SATIRICAL TALLY · OCT 4', { x: fx, y: by, w: fw, size: 10.5 });
   const fchart = d.chart(s, 'bar', [
-    { name: 'Probable felonies', labels: fb.labels, values: fb.series[0].values },
-    { name: 'Published incidents, no felony', labels: fb.labels, values: fb.series[1].values },
-  ], { x: fx - 0.1, y: by + 0.26, w: fw + 0.1, h: 2.2 }, {
+    // Zeros go in as empty cells so no row is cluttered with '0' labels (an empty row = nothing published that counted).
+    { name: 'Probable felonies', labels: fb.labels, values: fb.series[0].values.map((v) => v || null) },
+    { name: 'Published incidents, no felony', labels: fb.labels, values: fb.series[1].values.map((v) => v || null) },
+  ], { x: fx - 0.1, y: by + 0.26, w: fw + 0.1, h: 2.04 }, {
     barDir: 'bar', barGrouping: 'clustered', chartColors: [HEX.red, '8B95A7'], barGapWidthPct: 35, barOverlapPct: -10,
     catAxisOrientation: 'maxMin', valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 12, valAxisMinVal: 0,
     showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '[>0]0;""', dataLabelFontSize: 11, dataLabelFontBold: true,
     catAxisLabelFontSize: 11, catAxisLabelColor: HEX.text, showLegend: true, legendPos: 'b', legendFontSize: 10,
   });
-  const fcap = d.text(s, 'It counts what got published, not what happened.', { x: fx, y: 6.2, w: fw, h: 0.32, fontSize: 12, italic: true, color: d.S.muted, valign: 'middle' });
+  const fcap = d.text(s, 'Empty row = nothing published. It counts disclosure, not occurrence.', { x: fx, y: 6.06, w: fw, h: 0.44, fontSize: 12, italic: true, color: d.S.muted, valign: 'top' });
 
   d.animate(s, [axis, ...cGroups[0]], { auto: true, effect: 'fade' });
   cGroups.slice(1).forEach((g) => d.animate(s, g, { auto: true, effect: 'rise', after: 120, dur: 400 }));

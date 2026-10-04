@@ -1,0 +1,26 @@
+{
+ "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
+ "title": "OpenAI says its review into hacks, including on Australian government sites, is costing $500,000 a day | OpenAI | The Guardian",
+ "crop_css": {
+  "x": 240,
+  "y": 1712.03125,
+  "w": 640,
+  "h": 91.390625
+ },
+ "highlights_frac": {
+  "it would take one person about 66 million years to read it at 240 words a minute": [
+   {
+    "x": 0.7869,
+    "y": 0.1204,
+    "w": 0.1637,
+    "h": 0.2298
+   },
+   {
+    "x": 0.0156,
+    "y": 0.3807,
+    "w": 0.829,
+    "h": 0.2298
+   }
+  ]
+ }
+}

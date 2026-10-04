@@ -1,4 +1,6 @@
-// THE ACCELERATION · capabilities: METR horizon, benchmark graveyard, HLE, creative work, video, mathematics in crisis.
+// THE ACCELERATION · capabilities: METR horizon, benchmark graveyard, HLE, creative work (incl. @anabology's 18-hour Claude film
+// and clips credited to an unreleased "Fable 5.5"), video, mathematics in crisis (incl. OpenAI's 100+ held-back results and the
+// unconfirmed Hodge/BSD rumors).
 // Sources: assets/research/capabilities/manifest.json (verified items, datasets, facts),
 //          assets/research/openweights/manifest.json (video item), user originals image4.png / image5.png.
 const path = require('path');
@@ -862,7 +864,7 @@ async function anabologyFilmSlide(d) {
   s.addNotes([
     'MESSAGE: one person, one AI agent, one night (and a bit): a complete, genuinely watchable 3-minute music video. Click to play — at least the first minute (sound on). Then point out what it is ABOUT (next slide).',
     'THE POST — @anabology (verified; bio: co-founder of aion.bio), X, Fri Oct 2, 2026, 23:01 UTC: "I gave Claude another 18 hours.. and I think this one is the best one yet / Macrohard: Windows XP / I\'m blown away". 1,475,767 views, 14.3K likes, 1,316 reposts, 712 replies, 9,113 bookmarks within two days (fxtwitter API, Oct 4). His only self-reply: "Windows XP turns 25 on October 25". ' + ANA.post + ' · the clip: ' + ANA.video + ' · his YouTube upload "Macrohard Windows XP" (3:02): ' + ANA.youtube,
-    '"18 HOURS" is the creator\'s own claim (wall-clock time he "gave" Claude); there are no logs. "Another" refers to his two earlier 12-hour runs: Sep 25, "Gave Opus 5.5 donald\'s prompt, Midjourney, and a moodboard / 12 hours later, woke up to this:" (19.6M views — that film, "Escape Velocity", closes this talk) ' + ANA.sep25 + ' ; and Sep 30, "Gave Claude another 12 hours to one up this.. Woke up to.. The Clodyssey" (4.0M views) ' + ANA.sep30 + ' . The Sep 25 run reused a prompt by @donaldjewkes ("I spoke to my computer for 5mins, claude worked for 12 hours") ' + ANA.donald + ' — nothing says the XP film reused it.',
+    '"18 HOURS" is the creator\'s own claim (wall-clock time he "gave" Claude); there are no logs. "Another" refers to his two earlier 12-hour runs: Sep 25, "Gave Opus 5.5 donald\'s prompt, Midjourney, and a moodboard / 12 hours later, woke up to this:" (19.6M views — that film, "Escape Velocity", returns as the finale of this talk) ' + ANA.sep25 + ' ; and Sep 30, "Gave Claude another 12 hours to one up this.. Woke up to.. The Clodyssey" (4.0M views) ' + ANA.sep30 + ' . The Sep 25 run reused a prompt by @donaldjewkes ("I spoke to my computer for 5mins, claude worked for 12 hours") ' + ANA.donald + ' — nothing says the XP film reused it.',
     'MODEL AND TOOLS — the post itself only says "Claude". The pipeline is REPORTED BY a third party, Instagram account @evolving.ai (Oct 3): "He ran Claude Opus 5.5 inside Claude Code and let it handle almost the whole process. Claude wrote the lyrics, planned the storyboard and created the prompts. Suno generated the song. Midjourney made the visual assets, while Seedance 2.5 generated many of the video clips. … Claude then wrote the code used to place the Windows UI, lyrics and other graphics over the footage, sync everything to the music and assemble the final video. He said he did not write the lyrics or review the storyboard. He gave Claude the setup, left it running for around 18 hours, and came back to this." ' + ANA.insta + ' (a YouTube Short by kaspasejo says the same). His own Sep 25 post names Opus 5.5 + Midjourney for the first film. Claude Opus 5.5 was released by Anthropic on Sep 22, 2026 ' + ANA.opus,
     'Who made what, honestly: the song is Suno, the footage Midjourney/Seedance — Claude did not paint the pixels; it acted as writer, director and editor, operating those tools for hours. That is the capability: long-horizon, multi-tool creative work with no human in the loop (per the creator).',
     'FILE: the embedded clip is X\'s highest rendition for this post (1280×720, H.264 + AAC, 181 s, 26.6 MB), stream-copied without re-encoding. Cover = the film\'s own opening frame (the Macrohard Windows XP login screen: "Agents now have their own user accounts.") with a play button added.',
@@ -965,7 +967,7 @@ async function fableSlide(d) {
   const thread = d.text(s, [
     { text: 'OP: ', options: { bold: true, color: d.S.steel } },
     { text: '“It’s automatically routing to Fable 5.5 in the rollout phase.”', options: { italic: true, color: d.S.txt, breakLine: true, paraSpaceAfter: 5 } },
-    { text: 'Top reply: ', options: { bold: true, color: d.S.steel } },
+    { text: 'Reply (17 pts): ', options: { bold: true, color: d.S.steel } },
     { text: '“…you have no idea whether this is fable 5.5”', options: { italic: true, color: d.S.txt } },
   ], { x: x2, y: ty, w: cw, h: 6.52 - ty, fontSize: 13, valign: 'top' });
 
@@ -978,7 +980,7 @@ async function fableSlide(d) {
   const status = d.text(s, [
     { text: 'No “Fable 5.5” listed. ', options: { bold: true, color: d.S.txt } },
     { text: 'The newest Fable is Claude Fable 5.1, released Sep 1, 2026.', options: { color: d.S.txt, breakLine: true, paraSpaceAfter: 6 } },
-    { text: 'A release “next Tuesday” (Oct 6) is an unsourced rumor.', options: { color: d.S.muted } },
+    { text: 'Release date? One X account is “hearing of a Tuesday release” (Oct 6) — unsourced.', options: { color: d.S.muted } },
   ], { x: sx, y: my, w: sw, h: 6.52 - my, fontSize: 12, valign: 'top' });
 
   d.animate(s, [...t1, ...k1], { auto: true, effect: 'fade', dur: 600 });

@@ -1,0 +1,4 @@
+scenario,gpus,kW_per_gpu_all_in,basis,cluster_MW,training_days,energy_GWh,NYC_week_GWh_2025,fraction_of_NYC_week,NYC_days_equiv
+low,100000,2.06,"Crusoe: 206 MW phase-1 capacity / 100,000 GB200",206.0,60,296.6,960.9,0.309,2.16
+central,100000,2.327,"Epoch AI models DB training power draw 232.67 MW / 100,000 (=1,200 W x 1.82 server overhead x PUE~1.065)",232.7,90,502.6,960.9,0.523,3.66
+high,100000,2.927,"Epoch hub: 295 MW peak facility power / 100,800 GB200 (bldg 1-2)",292.7,120,842.9,960.9,0.877,6.14

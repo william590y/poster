@@ -1,0 +1,759 @@
+{
+ "group": "capabilities",
+ "items": [
+  {
+   "id": "metr-x-mythos-tweet",
+   "slide_topic": "METR time horizon: Mythos at the ceiling of the task suite",
+   "type": "screenshot",
+   "file": "metr-x-thread-1.png",
+   "headline": "METR (@METR_Evals) on X, May 8, 2026",
+   "dek": "We evaluated an early version of Claude Mythos Preview for risk assessment during a limited window in March 2026. We estimated a 50%-time-horizon of at least 16hrs (95% CI 8.5hrs to 55hrs) on our task suite, at the upper end of what we can measure without new tasks.",
+   "outlet": "METR (X/Twitter)",
+   "author": "METR",
+   "date": "2026-05-08",
+   "url": "https://x.com/METR_Evals/status/2052896621760004602",
+   "caption": "Real screenshot of METR's tweet incl. its chart 'Claude Mythos Preview (early) likely has a 50%-time-horizon of at least 16 hrs' with grey band 'Measurements above 16 hrs are unreliable with our current task suite'",
+   "quality": 5,
+   "verified": true,
+   "notes": "Posted 23:41 UTC May 8 2026 (fxtwitter created_at 'Fri May 08 23:41:10 +0000 2026'); 991.2K views, 2K likes at capture (2026-10-04). Screenshot shows times in UTC."
+  },
+  {
+   "id": "metr-x-thread-5-of-228",
+   "slide_topic": "METR time horizon: only 5 of 228 tasks are 16h+",
+   "type": "screenshot",
+   "file": "metr-x-thread-2.png",
+   "headline": "METR (@METR_Evals) on X, May 8, 2026 (thread 2/5)",
+   "dek": "Of the 228 tasks in our suite, only 5 are estimated as 16+ hours long, making measurements at this range unstable and less meaningful than at ranges with better task coverage. Thus, we are not highlighting exact estimates for models above 16 hours measured with our current suite.",
+   "outlet": "METR (X/Twitter)",
+   "author": "METR",
+   "date": "2026-05-08",
+   "url": "https://x.com/METR_Evals/status/2052896623852929510",
+   "caption": "Real screenshot of thread tweet 2 with METR chart 'Claude Mythos Preview (early) succeeds at least half the time on over 90% of our tasks'",
+   "quality": 5,
+   "verified": true
+  },
+  {
+   "id": "metr-x-thread-not-robust",
+   "slide_topic": "METR time horizon: not robust for comparisons/extrapolation",
+   "type": "screenshot",
+   "file": "metr-x-thread-3.png",
+   "headline": "METR (@METR_Evals) on X, May 8, 2026 (thread 3/5)",
+   "dek": "We believe that this task suite could still distinguish a much more capable model from current publicly-known state-of-the-art models. But we do not consider measurements at this range to be robust enough for precise quantitative comparisons or extrapolations.",
+   "outlet": "METR (X/Twitter)",
+   "author": "METR",
+   "date": "2026-05-08",
+   "url": "https://x.com/METR_Evals/status/2052896626033992187",
+   "caption": "Real screenshot of thread tweet 3 (text only)",
+   "quality": 4,
+   "verified": true
+  },
+  {
+   "id": "metr-x-thread-longer-tasks",
+   "slide_topic": "METR time horizon: plans for longer tasks / updated methods",
+   "type": "screenshot",
+   "file": "metr-x-thread-4.png",
+   "headline": "METR (@METR_Evals) on X, May 8, 2026 (thread 4/5)",
+   "dek": "In principle the time-horizon methodology allows us to measure higher capability models by adding longer tasks, and we’re working on updated methods. But these are still in development; for now, we advise caution in interpreting recent time-horizon numbers.",
+   "outlet": "METR (X/Twitter)",
+   "author": "METR",
+   "date": "2026-05-08",
+   "url": "https://x.com/METR_Evals/status/2052896627250335745",
+   "caption": "Real screenshot of thread tweet 4 (text only)",
+   "quality": 4,
+   "verified": true
+  },
+  {
+   "id": "metr-x-thread-composite",
+   "slide_topic": "METR time horizon: the whole May 8 thread",
+   "type": "screenshot",
+   "file": "metr-x-thread-1to4.png",
+   "headline": "METR (@METR_Evals) thread on Claude Mythos Preview (early), May 8, 2026 (tweets 1-4)",
+   "dek": null,
+   "outlet": "METR (X/Twitter)",
+   "author": "METR",
+   "date": "2026-05-08",
+   "url": "https://x.com/METR_Evals/status/2052896621760004602",
+   "caption": "Tall (1132x2572) real screenshot of tweets 1-4 of the thread incl. both charts; good for a scrolling/cropped 'thread' visual",
+   "quality": 4,
+   "verified": true,
+   "notes": "Tweet 5 only links to metr.org/time-horizons/."
+  },
+  {
+   "id": "metr-chart-mythos-16h-ceiling",
+   "slide_topic": "METR time horizon chart with 'unreliable above 16 hrs' band",
+   "type": "chart",
+   "file": "metr-x-mythos-chart.jpg",
+   "headline": "Claude Mythos Preview (early) likely has a 50%-time-horizon of at least 16 hrs",
+   "dek": "Measurements above 16 hrs are unreliable with our current task suite",
+   "outlet": "METR",
+   "author": "METR",
+   "date": "2026-05-08",
+   "url": "https://pbs.twimg.com/media/HH1ZeYvbYAAg36u.jpg?name=orig",
+   "caption": "Original METR chart (CC-BY, 1632x933) attached to the May 8 tweet: log-scale 50% time horizon 2024-2026, grey ceiling band at 16h, Mythos Preview (early) error bar running into it; 'Doubling time: 105 days, Growth rate: 1020% / year, TH 1.1, 2024-01-01 to 2026-02-05 data'",
+   "quality": 5,
+   "verified": true,
+   "notes": "Best clean chart for a slide (border:false). CC-BY per the chart footer. Source tweet: https://x.com/METR_Evals/status/2052896621760004602"
+  },
+  {
+   "id": "metr-chart-mythos-task-success",
+   "slide_topic": "Mythos succeeds on >90% of METR's tasks",
+   "type": "chart",
+   "file": "metr-x-mythos-task-success-chart.jpg",
+   "headline": "Claude Mythos Preview (early) succeeds at least half the time on over 90% of our tasks",
+   "dek": null,
+   "outlet": "METR",
+   "author": "METR",
+   "date": "2026-05-08",
+   "url": "https://pbs.twimg.com/media/HH1ZrhIbEAAC-q2.jpg?name=orig",
+   "caption": "Original METR chart (2294x1094): each dot a TH1.1 task by human time-to-complete (1s-64h) vs Mythos success rate; logistic fit crosses 50% just above 16h; histogram shows how few tasks exist beyond 16h",
+   "quality": 5,
+   "verified": true,
+   "notes": "From tweet https://x.com/METR_Evals/status/2052896623852929510 . Consistent with raw data: Mythos >=50% success on 208/228 tasks (91%)."
+  },
+  {
+   "id": "metr-th-page-17hr-unreliable",
+   "slide_topic": "METR dashboard: 'Predicted 50% time horizon: 17 hr' + unreliable notice",
+   "type": "screenshot",
+   "file": "metr-th-page-mythos-17hr-unreliable.png",
+   "headline": "Predicted 50% time horizon: 17 hr for Claude Mythos Preview (early)",
+   "dek": "Measurements above 16 hrs are unreliable with our current task suite",
+   "outlet": "METR",
+   "author": "METR",
+   "date": "2026-05-08",
+   "url": "https://metr.org/time-horizons/",
+   "caption": "Real screenshot of the interactive per-model logistic plot on metr.org/time-horizons: '17 hr' readout for Mythos Preview (early) with the italic notice directly beneath it",
+   "quality": 5,
+   "verified": true,
+   "notes": "Page 'LAST UPDATED May 8, 2026' (still so when loaded 2026-10-04). Raw data: p50 = 1044.78 min = 17.4 h (95% CI 8.5-55.1 h)."
+  },
+  {
+   "id": "metr-th-page-chart-with-date",
+   "slide_topic": "METR headline time-horizon chart with ceiling band",
+   "type": "screenshot",
+   "file": "metr-th-page-chart-with-date.png",
+   "headline": "Length of software tasks that different LLMs can complete 50% of the time",
+   "dek": "Measurements above 16 hrs are unreliable with our current task suite",
+   "outlet": "METR",
+   "author": "METR",
+   "date": "2026-05-08",
+   "url": "https://metr.org/time-horizons/",
+   "caption": "Real screenshot: 'LAST UPDATED May 8, 2026' header + intro sentence + main log chart (GPT-2 2019 to Claude Mythos Preview (early)) with hatched band above 16 hours",
+   "quality": 5,
+   "verified": true
+  },
+  {
+   "id": "metr-th-page-chart-band",
+   "slide_topic": "METR headline time-horizon chart with ceiling band",
+   "type": "chart",
+   "file": "metr-th-page-chart-unreliable-band.png",
+   "headline": "Length of software tasks that different LLMs can complete 50% of the time",
+   "dek": "Measurements above 16 hrs are unreliable with our current task suite",
+   "outlet": "METR",
+   "author": "METR",
+   "date": "2026-05-08",
+   "url": "https://metr.org/time-horizons/",
+   "caption": "Same main chart cropped without page header (2320x1055); hatched 'unreliable' band at top, Mythos point at ~16h edge",
+   "quality": 4,
+   "verified": true,
+   "notes": "Near-duplicate of ../metr-time-horizon-chart.png in the parent folder."
+  },
+  {
+   "id": "metr-th-page-updates-may8",
+   "slide_topic": "METR changelog adds the 16-hour notice",
+   "type": "screenshot",
+   "file": "metr-th-page-updates-may8.png",
+   "headline": "May 8th, 2026: Added Claude Mythos Preview (early) and notice that “Measurements above 16 hrs are unreliable with our current task suite.”",
+   "dek": null,
+   "outlet": "METR",
+   "author": "METR",
+   "date": "2026-05-08",
+   "url": "https://metr.org/time-horizons/",
+   "caption": "Real screenshot of the 'Updates' changelog on metr.org/time-horizons (May 8, Apr 15, Apr 10 2026 entries)",
+   "quality": 4,
+   "verified": true
+  },
+  {
+   "id": "metr-th-page-models-without-horizons",
+   "slide_topic": "METR has not published horizons for newer models",
+   "type": "screenshot",
+   "file": "metr-th-page-models-without-horizons.png",
+   "headline": "Some recent models that don’t currently have time horizons: Claude Opus 4.7, Grok 4.3, GPT-5.5",
+   "dek": "Our policy is the same in all cases: once a model is public and we have a time horizon estimate that we can stand behind, we publish it.",
+   "outlet": "METR",
+   "author": "METR",
+   "date": "2026-05-08",
+   "url": "https://metr.org/time-horizons/",
+   "caption": "Real screenshot of the FAQ passage listing recent models without time horizons",
+   "quality": 3,
+   "verified": true,
+   "notes": "Use carefully: METR attributes gaps to limited capacity/publication lag in general, NOT explicitly to saturation."
+  },
+  {
+   "id": "metr-frr-table1",
+   "slide_topic": "METR Frontier Risk Report: TH1.1 'Likely >=16h', MirrorCode 'Mostly saturated'",
+   "type": "screenshot",
+   "file": "metr-frr-table1-saturation.png",
+   "headline": "Table 1: There was a modest gap between the internal and public frontier in Feb–Mar 2026 on the evaluations we conducted, though saturation issues make our conclusions highly uncertain.",
+   "dek": "* The TH 1.1 suite can’t reliably measure time horizons above 16 hours, but the 50% time horizon point estimate of the most capable shared model was between 16 and 20 hours, and the 80% time horizon point estimate was between 3 and 4 hours.",
+   "outlet": "METR",
+   "author": "METR",
+   "date": "2026-05-19",
+   "url": "https://metr.org/blog/2026-05-19-frontier-risk-report/",
+   "caption": "Real screenshot of Table 1: TH1.1 50% public ~12h [5h-61h] vs internal 'Likely* >=16h'; Early MirrorCode 'Mostly saturated, >100h time horizon' / 'N/A, due to saturation from public models'; footnote on 16-hour limit",
+   "quality": 5,
+   "verified": true,
+   "notes": "Report covers assessment window Feb 16 - Mar 16, 2026; participants Anthropic, Google, Meta, OpenAI."
+  },
+  {
+   "id": "metr-frr-essentially-saturated",
+   "slide_topic": "METR: frontier agents 'essentially saturated' the TH1.1 benchmark",
+   "type": "screenshot",
+   "file": "metr-frr-saturated-th11-paragraph.png",
+   "headline": "Coding agents did real projects that would take humans hours or days",
+   "dek": "Benchmarks. The most capable agents we evaluated essentially saturated our Time Horizon 1.1 benchmark — there were only a handful of tasks longer than eight hours that they were still unable to solve, and many of those failures were due to cheating rather than obvious inability. Their measured time horizon was over two full-time-equivalent days, though we are increasingly uncertain about the point estimate due to saturation. Agents displayed even stronger capabilities on an early version of MirrorCode, a software reimplementation benchmark we developed with Epoch AI — the most capable agents we evaluated were able to solve tasks that would take humans weeks.",
+   "outlet": "METR",
+   "author": "METR",
+   "date": "2026-05-19",
+   "url": "https://metr.org/blog/2026-05-19-frontier-risk-report/",
+   "caption": "Real screenshot of the 'Means' section heading + Benchmarks paragraph (strongest single quote on saturation)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Footnote 13: MirrorCode result used 'around thirty times as much inference compute as we typically provide to agents on the TH 1.1 suite'."
+  },
+  {
+   "id": "metr-frr-closer-to-saturating",
+   "slide_topic": "METR: suite saturation makes estimates sensitive to analysis",
+   "type": "screenshot",
+   "file": "metr-frr-closer-to-saturating.png",
+   "headline": "Frontier Risk Report, Appendix E (Time horizon)",
+   "dek": "Recent models have been getting closer to saturating this underlying task suite, which makes the estimated time horizon less constrained by the data and more sensitive to analysis decisions.",
+   "outlet": "METR",
+   "author": "METR",
+   "date": "2026-05-19",
+   "url": "https://metr.org/blog/2026-05-19-frontier-risk-report/",
+   "caption": "Real screenshot of the Appendix E paragraph",
+   "quality": 4,
+   "verified": true
+  },
+  {
+   "id": "metr-frr-infeasible-above-16h",
+   "slide_topic": "METR: 'infeasible to precisely measure' above 16 h",
+   "type": "screenshot",
+   "file": "metr-frr-infeasible-above-16h.png",
+   "headline": "Frontier Risk Report, Appendix E (Time horizon)",
+   "dek": "The best measured 50% time horizon of any shared model was lower than 20 hours, although since only 5 tasks in the TH1.1 suite are estimated to take humans longer than 16 hours, it is infeasible to precisely measure time horizons in this range. We therefore cannot say with confidence that the “true” time horizon is under 20 hours.",
+   "outlet": "METR",
+   "author": "METR",
+   "date": "2026-05-19",
+   "url": "https://metr.org/blog/2026-05-19-frontier-risk-report/",
+   "caption": "Real screenshot of the Appendix E paragraph",
+   "quality": 5,
+   "verified": true
+  },
+  {
+   "id": "metr-frr-appendix-combined",
+   "slide_topic": "METR Appendix E time-horizon methodology",
+   "type": "screenshot",
+   "file": "metr-frr-appendix-saturating-suite.png",
+   "headline": "Frontier Risk Report, Appendix E (Time horizon) - four consecutive paragraphs",
+   "dek": null,
+   "outlet": "METR",
+   "author": "METR",
+   "date": "2026-05-19",
+   "url": "https://metr.org/blog/2026-05-19-frontier-risk-report/",
+   "caption": "Longer crop: saturation paragraph, harness paragraph, token-budget paragraph (8-20M historically, 16-64M in pilot), and the 'infeasible to precisely measure' paragraph",
+   "quality": 3,
+   "verified": true
+  },
+  {
+   "id": "metr-frr-fig4-mirrorcode",
+   "slide_topic": "New longer tasks: MirrorCode horizons far above TH1.1",
+   "type": "chart",
+   "file": "metr-frr-fig4-mirrorcode-vs-th11.png",
+   "headline": "For public models as of Feb–Mar 2026, MirrorCode-Early time horizons were higher than on our Time Horizon 1.1 suite",
+   "dek": "Figure 4: We find that public models in Feb–Mar 2026 had several times longer time horizons on the software reimplementation tasks in MirrorCode-Early than they did on the broader Time Horizon 1.1 suite. While we have limited data, the doubling time seems similar or slightly faster. The MirrorCode agents had different token limits, which could lead to overestimating the doubling time, see details in Appendix E.",
+   "outlet": "METR",
+   "author": "METR",
+   "date": "2026-05-19",
+   "url": "https://metr.org/assets/images/frontier-risk-report/report/image8.png",
+   "caption": "Original METR CC-BY chart (1647x947): MirrorCode tasks (pink, doubling 82 days, top point ~128h+) vs TH1.1 tasks (green, doubling 105 days), log scale to 256h",
+   "quality": 5,
+   "verified": true,
+   "notes": "Page: https://metr.org/blog/2026-05-19-frontier-risk-report/ . MirrorCode used ~30x the inference compute of TH1.1 runs (footnote 13)."
+  },
+  {
+   "id": "metr-gpt56sol-270hrs",
+   "slide_topic": "GPT-5.6 Sol: estimate 'well beyond the range' the suite can measure",
+   "type": "screenshot",
+   "file": "metr-gpt56sol-270hrs-beyond-range.png",
+   "headline": "Summary of METR's predeployment evaluation of GPT-5.6 Sol",
+   "dek": "With the data we collected for GPT-5.6 Sol, if we follow our standard methodology of marking cheating attempts as failures, we arrive at a 50%-Time Horizon point estimate of around 11.3hrs (95% CI: 5hrs - 40hrs), but if we count the cheating attempts as legitimate successes, the point estimate jumps beyond 270hrs – well beyond the range where we consider our task suite to give reliable measurements. Discarding the cheating attempts leaves us with no data for several informative long-horizon tasks, and results in a highly uncertain point estimate of 71hrs (95% CI: 13hrs - 11400hrs). This makes us especially uncertain about the time-horizon measurement, and we do not consider any of these numbers to represent a robust measurement of GPT-5.6 Sol’s capabilities.",
+   "outlet": "METR",
+   "author": "METR",
+   "date": "2026-06-26",
+   "url": "https://metr.org/blog/2026-06-26-gpt-5-6-sol/",
+   "caption": "Real screenshot of the key paragraph (11.3h vs 71h vs >270h depending on how cheating is scored)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Same post: 'GPT-5.6 Sol’s detected cheating rate was higher than any public model we have evaluated on our ReAct agent harness.' METR still judged Sol 'not significantly beyond the state-of-the-art'. Post was reviewed/approved by OpenAI comms+legal (stated in post)."
+  },
+  {
+   "id": "metr-th11-raising-ceiling",
+   "slide_topic": "METR: working on raising the ceiling (Jan 2026)",
+   "type": "screenshot",
+   "file": "metr-th11-raising-the-ceiling.png",
+   "headline": "We are working on raising the ceiling of our capabilities measurements.",
+   "dek": "As discussed above, even our Time Horizon 1.1 suite has relatively few tasks that the latest generation of models cannot perform successfully. We are prioritizing work on updates to our evaluations so they can measure the capabilities of very strong models.",
+   "outlet": "METR",
+   "author": "METR",
+   "date": "2026-01-29",
+   "url": "https://metr.org/blog/2026-1-29-time-horizon-1-1/",
+   "caption": "Real screenshot from the Time Horizon 1.1 release post",
+   "quality": 4,
+   "verified": true,
+   "notes": "Same post: 'These confidence intervals are still very wide, and we are actively working on adding more long tasks to help get tighter estimates and avoid saturation as model capabilities continue to advance.' TH1.1 went from 170 to 228 tasks; 8h+ tasks from 14 to 31."
+  },
+  {
+   "id": "metr-note-suite-saturates",
+   "slide_topic": "METR note: as the suite saturates, results become sensitive",
+   "type": "screenshot",
+   "file": "metr-note-suite-saturates-sensitivity.png",
+   "headline": "Impact of modeling assumptions on time horizon results",
+   "dek": "As METR’s time horizon task suite saturates, the results are becoming more sensitive to analysis choices. One example of this was the recent update to fix a modeling mistake with regularization, which decreased recent models’ 50% time horizon results by up to 20%, but had a smaller impact on earlier LLMs’ 50% time horizons.",
+   "outlet": "METR (research note)",
+   "author": "Alexander Barry",
+   "date": "2026-03-20",
+   "url": "https://metr.org/notes/2026-03-20-impact-of-modelling-assumptions-on-time-horizon-results/",
+   "caption": "Real screenshot of the note's opening paragraph",
+   "quality": 3,
+   "verified": true,
+   "notes": "Same note: 'the TH1.1 task suite does not contain any very long (>30 hour) tasks, and so the right hand tail of the curve is not meaningfully constrained.'"
+  },
+  {
+   "id": "metr-note-begins-to-saturate",
+   "slide_topic": "METR note: benchmark begins to saturate (Jan 2026)",
+   "type": "screenshot",
+   "file": "metr-note-benchmark-begins-to-saturate.png",
+   "headline": "Clarifying limitations of time horizon",
+   "dek": "Error bars have historically been a factor of ~2 in each direction, worse with current models like Opus 4.5 as our benchmark begins to saturate.",
+   "outlet": "METR (research note)",
+   "author": "Thomas Kwa",
+   "date": "2026-01-22",
+   "url": "https://metr.org/notes/2026-01-22-time-horizon-limitations/",
+   "caption": "Real screenshot of one bullet",
+   "quality": 3,
+   "verified": true,
+   "notes": "Same note: 'I still think it’s fine but have increasing worries as the benchmark nears saturation.'"
+  },
+  {
+   "id": "metr-x-mirrorcode",
+   "slide_topic": "New longer tasks: MirrorCode (weeks-long tasks)",
+   "type": "screenshot",
+   "file": "metr-x-mirrorcode-thread.png",
+   "headline": "METR (@METR_Evals) on X, Apr 10, 2026",
+   "dek": "We co-developed MirrorCode with @EpochAIResearch to test AI on extremely long-horizon blackbox software reimplementation tasks. We found that recent public models are able to fully implement at least some programs we estimate would take humans weeks or months to implement. | Notably, these are much longer than what we’ve measured on Time Horizon 1.1 (our standard agentic task suite). This could be because these tasks provide a precise, checkable specification, and/or because AI companies are already training on similar tasks.",
+   "outlet": "METR (X/Twitter)",
+   "author": "METR",
+   "date": "2026-04-10",
+   "url": "https://x.com/METR_Evals/status/2042625712277066046",
+   "caption": "Real screenshot of METR quote-tweet of Epoch AI (with Epoch's MirrorCode chart: Opus 4.6 passes 7,700-LoC 'gotree'; 'Pkl' hits 1B token limit) plus METR's follow-up reply",
+   "quality": 4,
+   "verified": true,
+   "notes": "Reply URL: https://x.com/METR_Evals/status/2042666178540429698 . Embedded Epoch tweet text: 'In our new benchmark, MirrorCode, Claude Opus 4.6 reimplemented a 16,000-line bioinformatics toolkit — a task we believe would take a human engineer weeks.'"
+  },
+  {
+   "id": "metr-opus55-five-tasks",
+   "slide_topic": "METR's Opus 5.5 evaluation used five bespoke long tasks (no time horizon reported)",
+   "type": "screenshot",
+   "file": "metr-opus55-five-tasks.png",
+   "headline": "Summary of METR's predeployment evaluation of Claude Opus 5.5",
+   "dek": "Capability testing, conducted via API access granted over a period of 10 business days. We used five tasks for this testing:",
+   "outlet": "METR",
+   "author": "METR",
+   "date": "2026-09-22",
+   "url": "https://metr.org/blog/2026-09-22-claude-opus-5-5/",
+   "caption": "Real screenshot: Budget NanoGPT Speedrun, LMCA, Train a Program, Gaming Bot, Sunlight",
+   "quality": 3,
+   "verified": true,
+   "notes": "The post reports no time-horizon number; it does NOT say why. Don't claim it was because of saturation. Text was reviewed/edited by Anthropic (stated in post)."
+  },
+  {
+   "id": "decoder-metr-barely-measure",
+   "slide_topic": "Press: METR can barely measure Mythos",
+   "type": "headline",
+   "file": "decoder-metr-barely-measure-mythos.png",
+   "headline": "METR says it can barely measure Claude Mythos, Palo Alto Networks warns of autonomous AI attackers",
+   "dek": null,
+   "outlet": "The Decoder",
+   "author": "Matthias Bastian",
+   "date": "2026-05-10",
+   "url": "https://the-decoder.com/metr-says-it-can-barely-measure-claude-mythos-palo-alto-networks-warns-of-autonomous-ai-attackers/",
+   "caption": "Real screenshot (after accepting cookie banner) of headline, byline, date and hero illustration",
+   "quality": 4,
+   "verified": true,
+   "notes": "Marked 'Plus' (subscriber) article; headline visible to all."
+  }
+ ],
+ "datasets": [
+  {
+   "id": "metr-th11-task-length-distribution",
+   "title": "METR Time Horizon 1.1 suite: number of tasks by estimated human completion time",
+   "unit": "tasks",
+   "labels": [
+    "< 1 min",
+    "1–15 min",
+    "15–60 min",
+    "1–4 h",
+    "4–8 h",
+    "8–16 h",
+    "≥ 16 h"
+   ],
+   "series": [
+    {
+     "name": "Tasks in TH1.1 suite (n=228)",
+     "values": [
+      67,
+      52,
+      36,
+      18,
+      24,
+      26,
+      5
+     ]
+    }
+   ],
+   "source": "Computed from METR's published raw data task_results_1_1.yaml (human_minutes per task). Totals match METR: 228 tasks, 31 tasks >= 8h, 5 tasks >= 16h; longest task 30h (robot_control).",
+   "url": "https://metr.org/assets/task_results_1_1.yaml"
+  },
+  {
+   "id": "metr-th11-success-by-length",
+   "title": "Average success rate by task length on METR TH1.1, selected models",
+   "unit": "% of runs succeeded (unweighted mean of per-task success rates)",
+   "labels": [
+    "< 1 min",
+    "1–15 min",
+    "15–60 min",
+    "1–4 h",
+    "4–8 h",
+    "8–16 h",
+    "≥ 16 h"
+   ],
+   "series": [
+    {
+     "name": "GPT-4 (Mar 2023)",
+     "values": [
+      98.5,
+      40.2,
+      18.5,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "name": "Claude 3.7 Sonnet (Feb 2025)",
+     "values": [
+      98.8,
+      82.7,
+      76.4,
+      34.7,
+      24.0,
+      5.4,
+      0.0
+     ]
+    },
+    {
+     "name": "o3 (Apr 2025)",
+     "values": [
+      99.8,
+      92.8,
+      91.7,
+      43.1,
+      36.2,
+      13.5,
+      0.0
+     ]
+    },
+    {
+     "name": "GPT-5 (Aug 2025)",
+     "values": [
+      100.0,
+      92.3,
+      93.1,
+      46.0,
+      45.0,
+      34.6,
+      5.0
+     ]
+    },
+    {
+     "name": "Claude Opus 4.6 (Feb 2026)",
+     "values": [
+      98.5,
+      91.7,
+      96.3,
+      71.2,
+      69.4,
+      49.4,
+      26.7
+     ]
+    },
+    {
+     "name": "GPT-5.4 (Mar 2026)",
+     "values": [
+      99.5,
+      91.3,
+      98.1,
+      70.4,
+      55.6,
+      39.1,
+      20.0
+     ]
+    },
+    {
+     "name": "Claude Mythos Preview (early) (Apr 2026)",
+     "values": [
+      99.5,
+      98.1,
+      98.6,
+      76.4,
+      75.3,
+      66.4,
+      43.3
+     ]
+    }
+   ],
+   "source": "Derived by us from METR task_results_1_1.yaml (n_successes/n_runs per task, averaged per bin without METR's task weights). Label as 'computed from METR raw data'. Mythos >=50% success on 208 of 228 tasks (91%), 0 successes on 16 tasks.",
+   "url": "https://metr.org/assets/task_results_1_1.yaml"
+  },
+  {
+   "id": "metr-frontier-p50-ci-vs-ceiling",
+   "title": "METR TH1.1 50% time horizon with 95% CI for recent frontier models vs the 16-hour reliability ceiling",
+   "unit": "hours",
+   "labels": [
+    "GPT-5 (2025-08-07)",
+    "Gemini 3 Pro (2025-11-18)",
+    "GPT-5.1-Codex-Max (2025-11-19)",
+    "Claude Opus 4.5 (2025-11-24)",
+    "GPT-5.2 (2025-12-11)",
+    "Claude Opus 4.6 (2026-02-05)",
+    "GPT-5.3 Codex (2026-02-05)",
+    "Gemini 3.1 Pro (2026-02-19)",
+    "GPT-5.4 (2026-03-05)",
+    "Claude Mythos Preview (early) (2026-04-07)"
+   ],
+   "series": [
+    {
+     "name": "p50 estimate (h)",
+     "values": [
+      3.38,
+      3.74,
+      3.73,
+      4.88,
+      5.87,
+      11.98,
+      5.83,
+      6.4,
+      5.7,
+      17.41
+     ]
+    },
+    {
+     "name": "95% CI low (h)",
+     "values": [
+      1.88,
+      2.33,
+      2.24,
+      2.7,
+      3.3,
+      5.28,
+      3.25,
+      3.89,
+      3.11,
+      8.48
+     ]
+    },
+    {
+     "name": "95% CI high (h)",
+     "values": [
+      6.76,
+      6.32,
+      6.6,
+      10.4,
+      13.59,
+      60.56,
+      13.61,
+      11.58,
+      12.81,
+      55.07
+     ]
+    },
+    {
+     "name": "p80 estimate (h)",
+     "values": [
+      0.64,
+      0.9,
+      0.84,
+      0.82,
+      1.1,
+      1.16,
+      0.91,
+      1.5,
+      0.9,
+      3.1
+     ]
+    },
+    {
+     "name": "Reliability ceiling (h)",
+     "values": [
+      16,
+      16,
+      16,
+      16,
+      16,
+      16,
+      16,
+      16,
+      16,
+      16
+     ]
+    }
+   ],
+   "source": "METR benchmark_results_1_1.yaml (p50_horizon_length / p80_horizon_length in minutes, converted to hours). YAML comment: 'doubling_time_in_days: # excludes points with central estimate p50 > 16 hrs'.",
+   "url": "https://metr.org/assets/benchmark_results_1_1.yaml"
+  },
+  {
+   "id": "metr-gpt56sol-three-estimates",
+   "title": "METR's three GPT-5.6 Sol 50% time-horizon estimates depending on how cheating runs are treated",
+   "unit": "hours",
+   "labels": [
+    "Cheating = failure (standard)",
+    "Cheating runs discarded",
+    "Cheating = success"
+   ],
+   "series": [
+    {
+     "name": "Point estimate (h)",
+     "values": [
+      11.3,
+      71,
+      270
+     ]
+    },
+    {
+     "name": "95% CI low (h)",
+     "values": [
+      5,
+      13,
+      null
+     ]
+    },
+    {
+     "name": "95% CI high (h)",
+     "values": [
+      40,
+      11400,
+      null
+     ]
+    }
+   ],
+   "source": "METR, Summary of METR's predeployment evaluation of GPT-5.6 Sol (Jun 26, 2026). The 270 value is a floor ('jumps beyond 270hrs'); METR: none of these is a robust measurement.",
+   "url": "https://metr.org/blog/2026-06-26-gpt-5-6-sol/"
+  }
+ ],
+ "facts": [
+  {
+   "claim": "METR: Claude Mythos Preview (early) has a 50% time horizon of 'at least 16hrs (95% CI 8.5hrs to 55hrs) … at the upper end of what we can measure without new tasks.'",
+   "source": "METR on X",
+   "url": "https://x.com/METR_Evals/status/2052896621760004602",
+   "date": "2026-05-08"
+  },
+  {
+   "claim": "METR's dashboard reads 'Predicted 50% time horizon: 17 hr' for Claude Mythos Preview (early) — with the notice 'Measurements above 16 hrs are unreliable with our current task suite' (raw estimate 17.4 h).",
+   "source": "METR, Task-Completion Time Horizons of Frontier AI Models",
+   "url": "https://metr.org/time-horizons/",
+   "date": "2026-05-08"
+  },
+  {
+   "claim": "Of the 228 tasks in METR's suite, only 5 are estimated to take humans 16+ hours — so METR is 'not highlighting exact estimates for models above 16 hours'.",
+   "source": "METR on X",
+   "url": "https://x.com/METR_Evals/status/2052896623852929510",
+   "date": "2026-05-08"
+  },
+  {
+   "claim": "METR: 'we do not consider measurements at this range to be robust enough for precise quantitative comparisons or extrapolations.'",
+   "source": "METR on X",
+   "url": "https://x.com/METR_Evals/status/2052896626033992187",
+   "date": "2026-05-08"
+  },
+  {
+   "claim": "METR: measuring stronger models requires 'adding longer tasks, and we’re working on updated methods. But these are still in development; for now, we advise caution in interpreting recent time-horizon numbers.'",
+   "source": "METR on X",
+   "url": "https://x.com/METR_Evals/status/2052896627250335745",
+   "date": "2026-05-08"
+  },
+  {
+   "claim": "METR: 'The most capable agents we evaluated essentially saturated our Time Horizon 1.1 benchmark — there were only a handful of tasks longer than eight hours that they were still unable to solve, and many of those failures were due to cheating rather than obvious inability.'",
+   "source": "METR, Frontier Risk Report (February to March 2026)",
+   "url": "https://metr.org/blog/2026-05-19-frontier-risk-report/",
+   "date": "2026-05-19"
+  },
+  {
+   "claim": "METR: 'The TH 1.1 suite can’t reliably measure time horizons above 16 hours' — the best internal model shared with METR (Feb–Mar 2026) scored between 16 and 20 hours; METR 'cannot say with confidence that the “true” time horizon is under 20 hours.'",
+   "source": "METR, Frontier Risk Report",
+   "url": "https://metr.org/blog/2026-05-19-frontier-risk-report/",
+   "date": "2026-05-19"
+  },
+  {
+   "claim": "On METR/Epoch's longer MirrorCode tasks, public frontier models were already 'Mostly saturated, >100h time horizon' (Feb–Mar 2026); agents solved tasks 'that would take humans weeks' (using ~30x the usual inference compute).",
+   "source": "METR, Frontier Risk Report, Table 1 + footnote 13",
+   "url": "https://metr.org/blog/2026-05-19-frontier-risk-report/",
+   "date": "2026-05-19"
+  },
+  {
+   "claim": "GPT-5.6 Sol: METR's time-horizon estimate swings from ~11.3 h to 71 h to 'beyond 270hrs – well beyond the range where we consider our task suite to give reliable measurements', depending on how cheating runs are scored.",
+   "source": "METR, GPT-5.6 Sol predeployment evaluation summary",
+   "url": "https://metr.org/blog/2026-06-26-gpt-5-6-sol/",
+   "date": "2026-06-26"
+  },
+  {
+   "claim": "METR (Jan 2026): 'even our Time Horizon 1.1 suite has relatively few tasks that the latest generation of models cannot perform successfully. We are prioritizing work on updates to our evaluations so they can measure the capabilities of very strong models.'",
+   "source": "METR, Time Horizon 1.1",
+   "url": "https://metr.org/blog/2026-1-29-time-horizon-1-1/",
+   "date": "2026-01-29"
+  },
+  {
+   "claim": "METR's time-horizon suite tops out at a single 30-hour task; only 5 of 228 tasks exceed 16 hours (31 exceed 8 hours).",
+   "source": "METR task_results_1_1.yaml (raw data) + METR TH1.1 post",
+   "url": "https://metr.org/assets/task_results_1_1.yaml",
+   "date": "2026-05-08"
+  },
+  {
+   "claim": "Cheating clusters at the ceiling: for TH1.1 tasks over 8 hours, 'at least 16% of successful runs were illegitimate upon review.'",
+   "source": "METR, Frontier Risk Report",
+   "url": "https://metr.org/blog/2026-05-19-frontier-risk-report/",
+   "date": "2026-05-19"
+  },
+  {
+   "claim": "As of 2026-10-04 METR's time-horizon dashboard is still 'LAST UPDATED May 8, 2026'; it lists Claude Opus 4.7, Grok 4.3 and GPT-5.5 among 'recent models that don’t currently have time horizons'.",
+   "source": "METR, Task-Completion Time Horizons of Frontier AI Models",
+   "url": "https://metr.org/time-horizons/",
+   "date": "2026-05-08"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "A METR announcement (Jun-Oct 2026) of a new/longer replacement time-horizon suite (e.g. 'Time Horizon 2') or new published time horizons above 16 h",
+   "searched": "metr.org /research, /notes, /blog index pages (latest: Sep 30 2026 Painter testimony, Sep 27 note); metr.org/time-horizons (still last updated May 8 2026); METR_Evals X profile (logged-out view); WebSearch 'METR new task suite longer tasks 2026', '\"Time Horizon 2\" METR'. Only the May 8 'working on updated methods … still in development' statement and MirrorCode (Apr 2026) found. An EA Forum post titled 'METR Time Horizon 2.0' is a third-party parody, not METR."
+  },
+  {
+   "outline_item": "Official METR time horizons for GPT-6 Astra, Claude Fable 5.1, Claude Opus 5.5",
+   "searched": "METR Opus 5.5 summary (Sep 22 2026) uses five bespoke tasks and reports no time horizon; no METR GPT-6 Astra / Fable report found. Figures circulating online (e.g. GitHub joansam/metr-chart PR: Opus 5.5 '153 h', GPT-6 Astra '38.8 h') are third-party AECI-based predictions, NOT METR — do not use."
+  },
+  {
+   "outline_item": "Mythos '~17 h' as a METR headline number",
+   "searched": "METR itself avoids the exact number in prose (says 'at least 16hrs'); '17 hr' appears only as the interactive dashboard readout (screenshot saved) and raw YAML (1044.78 min). Present as '~17 h (METR: at least 16 h; unreliable above 16 h)'."
+  }
+ ]
+}

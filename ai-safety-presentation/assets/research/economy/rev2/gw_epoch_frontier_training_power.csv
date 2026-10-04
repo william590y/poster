@@ -1,0 +1,7 @@
+model,publication_date,training_power_MW_epoch,training_hardware,hardware_quantity,training_time_hours_epoch,training_compute_FLOP_epoch,derived_energy_GWh(power x time),derived_NYC_hours_equiv(2025 Zone J avg),note
+GPT-3 175B (davinci),2020-05-28,5.1,NVIDIA Tesla V100 DGXS 32 GB,10000.0,355.2,3.14e+23,1.8,0.3,
+GPT-4 (Mar 2023),2023-03-15,19.94,NVIDIA A100 SXM4 40 GB,25000.0,2280.0,2.1e+25,45.5,8.0,
+Gemini 1.0 Ultra,2023-12-06,38.42,Google TPU v4,57000.0,2400.0,5.0000000001e+25,92.2,16.1,
+Llama 3.1-405B,2024-07-23,22.62,NVIDIA H100 SXM5 80GB,16384.0,2142.0,3.8e+25,48.5,8.5,
+Grok 3,2025-02-17,109.95,NVIDIA H100 SXM5 80GB,80000.0,2160.0,3.5e+26,237.5,41.5,
+GPT-6 Astra,2026-09-03,232.67,NVIDIA GB200,100000.0,2160.0,1.0001e+27,502.6,87.9,training time not in Epoch DB; 90 days (2160 h) assumed per Epoch compute note

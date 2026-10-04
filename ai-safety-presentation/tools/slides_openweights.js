@@ -318,60 +318,175 @@ async function abliterationSlide(d) {
   return s;
 }
 
-// ---------------------------------------------------------------- 5. consequences: deepfake nudes
-async function deepfakeSlide(d) {
+// ---------------------------------------------------------------- 5. consequences: deepfake nudes (Common Sense 2026)
+// Highlighter strokes as native semi-transparent shapes laid over a framed screenshot (the pixels are never painted).
+// fr: names returned by d.frame() (uses .geom); nat: the image's pixel size; rects: [x, y, w, h] in image pixels
+// (one per text line, from the research agent's coordinate files, checked by overlay); rot: the frame's rotation.
+function highlight(d, s, fr, nat, rects, { rot = 0, padX = 8, padY = 4, color = 'FFD166', transparency = 55 } = {}) {
+  const g = fr.geom, k = g.w / nat.w, t = rot * Math.PI / 180;
+  const cx = g.x + g.w / 2, cy = g.y + g.h / 2;
+  return rects.map(([x, y, w, h]) => {
+    const x0 = Math.max(0, x - padX), y0 = Math.max(0, y - padY);
+    const x1 = Math.min(nat.w, x + w + padX), y1 = Math.min(nat.h, y + h + padY);
+    const rw = (x1 - x0) * k, rh = (y1 - y0) * k;
+    const dx = g.x + (x0 + x1) / 2 * k - cx, dy = g.y + (y0 + y1) / 2 * k - cy; // offset from the image centre
+    const px = cx + dx * Math.cos(t) - dy * Math.sin(t), py = cy + dx * Math.sin(t) + dy * Math.cos(t);
+    return d.rect(s, { x: px - rw / 2, y: py - rh / 2, w: rw, h: rh, rotate: rot, fill: { color, transparency } });
+  });
+}
+
+async function deepfakeSurveySlide(d) {
   const s = d.slide('Content', { transition: 'push' });
   s.addText('THE WORLD · DEEPFAKES · 1', { placeholder: 'kicker' });
   s.addText('When safeguards fail: deepfake nudes in schools', { placeholder: 'title' });
 
-  // clippings
-  const c1 = await d.frame(s, R('wired-deepfake-nudify-schools.png'), { x: MX, y: 1.8, w: 4.5, h: 2.95 }, { rot: -1.5 });
-  // AP via PBS: photo + headline + dateline only (byline sidebar, feedback box and share icons cropped off)
-  const ap = await crop('pbs-grok-blocked-undressing.png', 'pbs-grok-photo-headline.png', { left: 222, top: 0, width: 1017, height: 1490 });
-  const c2 = await d.frame(s, ap, { x: 5.35, y: 1.72, w: 2.3, h: 3.15 }, { rot: 2 });
-  const tc = await crop('techcrunch-nudify-apps-purge.png', 'techcrunch-nudify-green.png', { left: 1290, top: 270, width: 1270, height: 900 });
-  const c3 = await d.frame(s, tc, { x: 0.75, y: 4.88, w: 2.25, h: 1.6 }, { rot: 1.5 });
-  const c4 = await d.frame(s, R('ftc-take-it-down-enforcement.png'), { x: 3.25, y: 4.98, w: 4.35, h: 1.02 }, { rot: -1.2, align: 'left' });
-  const tools = d.text(s, 'Tools in these cases: nudify apps and image generators whose safeguards were missing or failed — including Grok, a closed model.', { x: 3.3, y: 6.1, w: 4.4, h: 0.44, fontSize: 11, color: d.S.muted, italic: true, valign: 'top' });
+  // ---- left: the Common Sense Media press release (two crops of one real screenshot, 960px viewport @3x)
+  const lw = 7.15, rA = -0.6, rB = 0.5;
+  const prA = await crop('rev2/csm-pr-fullpage-w960.png', 'csm-pr-masthead-headline-date.png', { left: 0, top: 0, width: 2880, height: 930 });
+  const natA = { w: 2880, h: 930 };
+  const cA = await d.frame(s, prA, { x: MX, y: 1.72, w: lw, h: 2.42 }, { rot: rA, pad: 0.06 });
+  const prB = R('rev2/csm-pr-key-findings-w960.png');
+  const natB = { w: 2880, h: 837 };
+  const cB = await d.frame(s, prB, { x: MX, y: 4.3, w: lw, h: 2.2 }, { rot: rB, pad: 0.06 });
+  // highlight rects (image px). Dek split at the comma: "...sexual material," | "almost a quarter ... someone they know".
+  const hDate = highlight(d, s, cA, natA, [[72, 852, 381, 48]], { rot: rA, transparency: 70 });
+  const hHalf = highlight(d, s, cA, natA, [[72, 594, 1420, 57]], { rot: rA });
+  const hQuarter = highlight(d, s, cA, natA, [[1591, 594, 1103, 57], [72, 666, 418, 57]], { rot: rA });
+  // 18% made-or-know + boys 11% vs girls 4% (the 63% "people they know" sentence is left unhighlighted: no callout shows it)
+  const hMade = highlight(d, s, cB, natB, [[192, 459, 1368, 57], [192, 630, 1515, 57]], { rot: rB });
+  const hFear = highlight(d, s, cB, natB, [[192, 288, 1336, 57]], { rot: rB });
 
-  // stats
-  const sx = 8.0, sw = 12.73 - sx, cw = (sw - 0.25) / 2;
-  const th = label(d, s, 'THORN SURVEY · 1,200 AGED 13–20 · MAR 2025', sx, 1.72, sw, { color: d.S.amber });
-  const thorn = [
-    ['31%', 'of teens are already familiar with deepfake nudes'],
-    ['1 in 8', 'personally knows someone who has been targeted'],
-    ['1 in 17', 'have had deepfake nudes made of them'],
-    ['2%', 'admit to creating them'],
-  ].map(([v, l], i) => d.stat(s, { x: sx + (i % 2) * (cw + 0.25), y: 2.05 + Math.floor(i / 2) * 1.4, w: cw, value: v, label: l, valueSize: 40, labelSize: 13 }));
-  const div = line(d, s, sx, 4.92, 12.73, 4.92, { color: HEX.line, width: 1 });
-  const ch = label(d, s, 'CDT SURVEY · US HIGH SCHOOLS · SEP 2024', sx, 4.98, sw, { color: d.S.amber });
-  const cdt = [
-    ['40%', 'of students knew of an explicit deepfake tied to their school'],
-    ['29%', 'of teachers knew of one'],
-  ].map(([v, l], i) => d.stat(s, { x: sx + i * (cw + 0.25), y: 5.26, w: cw, value: v, label: l, valueSize: 36, labelSize: 13 }));
+  // ---- right: big stat callouts, one per highlighted claim
+  const sx = 8.1, sw = 12.73 - sx, vw = 1.68, lx = sx + vw + 0.08, lwid = 12.73 - lx;
+  const head = label(d, s, 'COMMON SENSE MEDIA · 1,314 US TEENS AGED 13–17', sx, 1.72, sw, { color: d.S.amber, cs: 1.5 });
+  const rowY = [2.08, 3.18, 4.28, 5.38], rowH = 1.02;
+  const rows = [
+    ['44%', d.S.red, 'of US teens have seen sexual content they believe AI made', '79% of them came across it by accident'],
+    ['24%', d.S.red, 'of those who saw it saw themselves or someone they know', '≈11% of all teens (our calc: 24%\u00A0×\u00A044%) · boys\u00A028%, girls\u00A019%'],
+    ['18%', d.S.red, 'have made AI porn — or know someone who has', '8% made it themselves · boys 11%, girls 4%'],
+    ['67%', d.S.amber, 'fear being deepfaked without their consent', 'girls 71%, boys 62%'],
+  ].map(([v, col, main, sub], i) => [
+    d.text(s, v, { x: sx, y: rowY[i], w: vw, h: rowH, fontSize: 44, bold: true, color: col, fontFace: 'Arial', valign: 'middle' }),
+    d.text(s, [
+      { text: main, options: { fontSize: 14, color: d.S.txt, breakLine: true } },
+      { text: sub, options: { fontSize: 11, color: d.S.steel, paraSpaceBefore: 3 } },
+    ], { x: lx, y: rowY[i], w: lwid, h: rowH, valign: 'middle' }),
+  ]);
+  const divs = [1, 2, 3].map((i) => line(d, s, sx, rowY[i] - 0.04, 12.73, rowY[i] - 0.04, { color: HEX.line, width: 1 }));
 
-  d.animate(s, c1, { auto: true, effect: 'slam', dur: 500 });
-  d.animate(s, c2, { auto: true, effect: 'rise', delay: 150 });
-  d.animate(s, c3, { auto: true, effect: 'rise', delay: 150 });
-  d.animate(s, [...c4, tools], { auto: true, effect: 'rise', delay: 150 });
-  d.animate(s, [th, ...thorn[0], ...thorn[1]], { effect: 'zoom', stagger: 0 });
-  d.animate(s, [...thorn[2], ...thorn[3]], { effect: 'zoom' });
-  d.animate(s, [div, ch, ...cdt[0], ...cdt[1]], { effect: 'zoom' });
-  d.source(s, 'Sources: WIRED (Apr 15, 2026) · AP via PBS (Jan 15, 2026) · TechCrunch (Jul 17, 2026) · FTC (May 19, 2026) · Thorn (Mar 3, 2025) · CDT via 404 Media (Sep 26, 2024).');
+  d.animate(s, cA, { auto: true, effect: 'slam', dur: 500 });
+  d.animate(s, [...cB, head, ...divs], { auto: true, effect: 'rise', delay: 100 });
+  d.animate(s, hDate, { auto: true, effect: 'fade', after: 150 });
+  // one click per claim: the highlighter stroke fades in on the screenshot as its number zooms in
+  const fade = (ns) => ns.map((name) => ({ name, effect: 'fade', dur: 400 }));
+  [hHalf, hQuarter, hMade, hFear].forEach((h, i) => d.animate(s, [...fade(h), ...rows[i]], { effect: 'zoom' }));
+  d.source(s, 'Source: Common Sense Media press release & report “Teens in the AI Era: Pornography and Sexual Content” (Jul 21, 2026; highlights added) · online survey, Nov–Dec 2025.');
   s.addNotes([
-    'MESSAGE: When safeguards are missing, removable or fail, the victims are real, and many are children.',
-    'SAY: none of these sources ties the school cases to abliterated open models specifically. The tools are nudify apps and image generators whose safeguards were missing, removed or bypassed, including Grok, a closed model. The point is general: once safeguards are optional, this is what happens.',
-    'WIRED, Matt Burgess (15 Apr 2026): "The Deepfake Nudes Crisis in Schools Is Much Worse Than You Thought" — WIRED and Indicator found nearly 90 schools and 600+ students in at least 28 countries hit since 2023. https://www.wired.com/story/deepfake-nudify-schools-global-crisis/',
-    'AP via PBS, Elaine Kurtenbach (15 Jan 2026): "Grok blocked from undressing images with AI in places where it\'s illegal, X says" — after a global backlash over sexualized images of women and children; Malaysia and Indonesia blocked Grok; AP found the tool still accessible to free users at the time. Note Grok is a closed model — this is a safeguard lapse, not abliteration. https://www.pbs.org/newshour/world/grok-blocked-from-undressing-images-with-ai-in-places-where-its-illegal-x-says',
-    'TechCrunch, Lucas Ropek (17 Jul 2026): "Apple and Google ordered to purge \'nudify\' apps from App Stores" (San Francisco order). https://techcrunch.com/2026/07/17/apple-and-google-ordered-to-purge-nudify-apps-from-app-stores/',
-    'FTC (19 May 2026): Take It Down Act enforcement began; platforms must remove nonconsensual intimate images within 48 hours of a valid request; penalties up to $53,088 per violation. https://www.ftc.gov/business-guidance/blog/2026/05/take-it-down-act-enforcement-starts-now-what-know-about-ftc-tida',
-    'Thorn, "Deepfake Nudes & Young People" (3 Mar 2025), survey of 1,200 people aged 13–20: 31% familiar with deepfake nudes; 1 in 8 personally know someone targeted; 1 in 17 had deepfake nudes made of them; 2% admitted creating them (most learned of the tools via app stores, search engines and social media). https://www.thorn.org/blog/deepfake-nudes-are-a-harmful-reality-for-youth-new-research-from-thorn/',
-    'CDT (Center for Democracy & Technology), reported by 404 Media (26 Sep 2024): 40% of US high-school students and 29% of teachers said they knew of an explicit deepfake depicting people associated with their school being shared in the past school year. https://www.404media.co/schools-are-failing-to-protect-students-from-non-consensual-deepfakes-report-shows/',
+    'MESSAGE: This is the newest data (published 21 July 2026). Almost half of US teens have already seen AI-generated sexual material; a quarter of those (about 1 in 10 of all teens) saw it depicting themselves or someone they know; and a fifth of all teens have made it or know someone who has. When "one click" tools have no working safeguards, kids are both the victims and the makers. Click through: each click highlights the sentence in the press release and pops the matching number.',
+    'Screenshot (left): Common Sense Media press release, 21 Jul 2026, "Common Sense Media Releases New Research on Teens and AI-Generated Explicit Material" — dek: "Almost half of teens have already seen AI-generated sexual material, and almost a quarter have seen it depicting themselves or someone they know". Two crops of one real screenshot of the page (960-px viewport); the yellow highlights are native shapes added by us. Careful with the subhead: its "almost a quarter" means a quarter of those who saw AI sexual content (24% of the 44%), i.e. about 1 in 10 of all teens — not a quarter of all teens. https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material',
+    'Highlighted bullets, verbatim: "Two-thirds of teens (67%) fear being deepfaked without consent" (girls 71% vs boys 62%); worried teens are making accounts private (30%), posting images of themselves less (23%) or deleting accounts (9%). "1 in 5 (18%) has made AI pornography or knows someone who has, and 25% have shared it or know someone who has." "Boys are almost three times as likely as girls to have made it (11% vs. 4%)." Not highlighted (no matching number on the slide): "Among those who have created AI pornography or know someone who has, 63% have created pornography depicting themselves or people they know." (Figure G words it as: among the 18% who made it or know someone who has, 63% "say the content depicted themselves or people they know personally".) Also not highlighted: "82% who have seen AI-generated pornography say creating it without consent should be illegal, but 23% believe AI nudes are less harmful than real ones \'because no one gets hurt.\'"',
+    'Stats (right), from the report "Teens in the AI Era: Pornography and Sexual Content" (Mann, Zimmermann, Radesky & Robb; Common Sense Media Youth AI Safety Institute, 2026; funded by the Oak Foundation): 44% have seen sexual content they believed was AI-generated (Figure D; 54% no, 2% prefer not to say), and 79% of them say the exposure was accidental. 24% of those who have seen it (n=586) saw content of themselves or someone they know personally (Figure F: boys 28%, girls 19%) — 24% OF THOSE WHO SAW IT, not of all teens; 24% × 44% ≈ 11% of all teens (our arithmetic, not a figure Common Sense reports). 18% made it or know someone who has (Figure G: someone I know 10%, myself 4%, both 4%); only 8% made it themselves (boys 11% vs girls 4%). 67% are at least somewhat worried about being deepfaked (Figure I). Report PDF: https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf · landing page "Teens and Explicit Deepfakes in the Age of AI": https://www.commonsensemedia.org/research/teens-and-explicit-deepfakes-in-the-age-of-ai',
+    'If asked "where do they see it?": 82% of those who saw it saw it on social media (TikTok 33%, Instagram 27%, X/Twitter 25%), 41% on porn sites — and 16% on "AI chatbot platforms (ChatGPT, Grok, Claude, etc.)", 15% via AI apps that make or modify photos (Figure 3, report p. 24). Only 20% have discussed it with a trusted adult.',
+    'CEO quote (press release): "AI has made it possible for anyone, at any time, to create nude images and videos with one click," said Common Sense Media founder and CEO James P. Steyer. A 17-year-old boy in the report\'s focus group: "With no hurdles or anything you have to jump over, you can just do it right there."',
+    'METHOD & CAVEATS: Common Sense Media and Burson; nationally representative 12-minute online survey of 1,314 US teens aged 13–17, fielded 21 Nov – 9 Dec 2025, weighted to Census benchmarks, margin of error ±2.7 points (larger for the n=586 subgroup); plus 20 interviews and 2 focus groups (data collection 22 Sep 2025 – 26 Feb 2026). Self-reported: "believe was AI-generated" is the teen\'s own judgement. Common Sense\'s Youth AI Safety Institute says it is funded by philanthropy and industry, "including the makers of some of the technologies it evaluates". AI-generated sexual content of anyone under 18 is treated as child sexual abuse material (CSAM). None of these sources ties the cases to abliterated open models specifically — the tools are nudify apps, image generators and chatbots whose safeguards were missing, removed or bypassed.',
+    'Coverage: The National News Desk (Sinclair), 21 Jul 2026, "Most teens fear deepfakes amid widespread exposure to AI sexual content: survey"; Common Sense\'s own article by Geoffrey A. Fowler, "Teens told us they\'re not just seeing AI nudes — they\'re making them". No national outlet (NYT, WaPo, AP, CNN) covered the report.',
+    'REPLACED older figures (no longer on the slide): Thorn, "Deepfake Nudes & Young People" (3 Mar 2025; 1,200 people aged 13–20): 31% familiar with deepfake nudes, 1 in 8 know someone targeted, 1 in 17 (6%) targeted themselves, 2% created them. CDT via 404 Media (26 Sep 2024): 40% of high-school students and 29% of teachers knew of an explicit deepfake tied to their school (2023–24). Their 2026 successors are on the next slide (Thorn) or in its notes (CDT has not published a 2026 survey).',
   ].join('\n\n'));
   return s;
 }
 
-// ---------------------------------------------------------------- 6. the pain axis
+// ---------------------------------------------------------------- 6. consequences: the scale (NCMEC, Thorn, schools)
+async function deepfakeScaleSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  s.addText('THE WORLD · DEEPFAKES · 2', { placeholder: 'kicker' });
+  s.addText('AI-linked child-exploitation reports: up 85×', { placeholder: 'title' });
+
+  // ---- left: NCMEC CyberTipline reports with a generative-AI nexus (native chart)
+  const lw = 5.3;
+  const ds = DS['ncmec-gai-reports-by-year'];
+  const card = d.card(s, { x: MX, y: 1.72, w: lw, h: 3.33 }, { color: '10141B' });
+  const lab = label(d, s, 'NCMEC CYBERTIPLINE · REPORTS INVOLVING GENERATIVE AI', MX + 0.22, 1.8, lw - 0.4, { h: 0.25, cs: 1 });
+  const ch = d.chart(s, 'bar', [{ name: 'Reports', labels: ds.labels, values: ds.series[0].values }], { x: MX + 0.1, y: 2.12, w: lw - 0.2, h: 2.86 }, {
+    barDir: 'col', chartColors: ['566173', LIGHT, HEX.red], barGapWidthPct: 38, showLegend: false,
+    valAxisMinVal: 0, valAxisMaxVal: 470000, valAxisHidden: true, valGridLine: { style: 'none' },
+    showValue: true, dataLabelPosition: 'outEnd', dataLabelFontSize: 15, dataLabelFontBold: true,
+    dataLabelFormatCode: '[>=400000]#,##0"+";#,##0', catAxisLabelFontSize: 14,
+  });
+  // 85× is our arithmetic, so the calculation is shown under it
+  const big = [
+    d.text(s, '85×', { x: MX + 0.3, y: 2.12, w: 2.4, h: 0.92, fontSize: 60, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' }),
+    d.text(s, '400,000+ ÷ 4,700: more reports in 2025 than in 2023, when NCMEC began tracking', { x: MX + 0.3, y: 3.06, w: 2.45, h: 0.85, fontSize: 12, color: d.S.muted, valign: 'top' }),
+  ];
+  // the quote's "these incidents" = AI "nudify"-app images (context label above it)
+  const qb = [
+    label(d, s, 'NCMEC ON AI “NUDIFY” APPS · AUG 11, 2026', MX + 0.25, 5.27, lw - 0.25, { color: d.S.steel, cs: 1, h: 0.25 }),
+    d.rect(s, { x: MX, y: 5.6, w: 0.07, h: 0.9, fill: { color: HEX.red } }),
+    d.text(s, [
+      { text: '“NCMEC is seeing a growing number of these incidents in schools across the country, most often involving classmates ages 14 to 17.”', options: { fontSize: 15, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true } },
+      { text: 'NCMEC blog', options: { fontSize: 11, color: d.S.steel, paraSpaceBefore: 4 } },
+    ], { x: MX + 0.25, y: 5.56, w: lw - 0.25, h: 0.98, valign: 'middle' }),
+  ];
+
+  // ---- right, top: Thorn 2026 (US teens)
+  const rx = 6.35, rw = 12.73 - rx;
+  const tl = label(d, s, 'THORN · US TEENS 13–17 (OF 1,003 MINORS SURVEYED) · JUL 28, 2026', rx, 1.72, rw, { color: d.S.amber, cs: 1 });
+  const thorn = R('rev2/thorn-pr-2026-deepfake-bullet.png');
+  const tf = await d.frame(s, thorn, { x: rx, y: 2.02, w: rw, h: 1.7 }, { rot: 0, pad: 0.06, align: 'left' });
+  const th = highlight(d, s, tf, { w: 1516, h: 372 }, [[48, 82, 1413, 44], [48, 136, 97, 44], [226, 136, 1072, 44]]);
+
+  // ---- right, bottom: UNICEF/ECPAT/INTERPOL (international) — two crops of one real screenshot of the statement page
+  // (the hero graphic sits between headline and paragraph); highlight rects from rev3/unicef-deepfake-coords-w600.json.
+  const UC = JSON.parse(fs.readFileSync(R('rev3/unicef-deepfake-coords-w600.json'), 'utf8'));
+  const [shA, shB] = UC.shots;
+  const uw = 3.85, rUA = -1, rUB = 0.6;
+  const uA = await d.frame(s, R('rev3/' + shA.file), { x: rx, y: 3.98, w: uw, h: 1.4 }, { rot: rUA, pad: 0.06 });
+  const uB = await d.frame(s, R('rev3/' + shB.file), { x: rx + 0.07, y: 5.36, w: uw, h: 1.12 }, { rot: rUB, pad: 0.06 });
+  const natUA = { w: shA.image_px[0], h: shA.image_px[1] }, natUB = { w: shB.image_px[0], h: shB.image_px[1] };
+  const strokes = (rs) => rs.map(([x, y, w, h]) => [x, y + 3, w, h - 6]); // line box → highlighter stroke (no overlap between lines)
+  const hUDate = highlight(d, s, uA, natUA, shA.highlights.find((h) => h.text === '04 February 2026').line_rects_px, { rot: rUA, transparency: 70 });
+  const hU = highlight(d, s, uB, natUB, strokes(shB.highlights.find((h) => h.text.startsWith('(both')).line_rects_px), { rot: rUB, padX: 6, padY: 0 });
+  const sx = rx + uw + 0.37, sw = 12.73 - sx;
+  const uStat = [
+    d.text(s, [
+      { text: 'UNICEF · ECPAT · INTERPOL', options: { breakLine: true } },
+      { text: '11 COUNTRIES · PAST YEAR' },
+    ], { x: sx, y: 3.98, w: sw, h: 0.42, fontSize: 10, bold: true, color: d.S.amber, charSpacing: 0.5, valign: 'top' }),
+    d.text(s, '1.2M+', { x: sx, y: 4.4, w: sw, h: 0.68, fontSize: 44, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'middle' }),
+    d.text(s, [
+      { text: 'children had their images made into sexual deepfakes', options: { fontSize: 14, color: d.S.txt, breakLine: true } },
+      { text: '1 in 25 in some countries — “one child in a typical classroom”', options: { fontSize: 11, color: d.S.steel, paraSpaceBefore: 5 } },
+    ], { x: sx, y: 5.1, w: sw, h: 1.4, valign: 'top' }),
+  ];
+
+  d.animate(s, [card, lab], { auto: true, effect: 'fade' });
+  d.animate(s, [ch], { auto: true, effect: 'wipeLeft', dur: 1200 });
+  d.animate(s, big, { auto: true, effect: 'zoom', after: 100 });
+  d.animate(s, qb, { effect: 'fade' });
+  d.animate(s, [tl, ...tf], { effect: 'rise' });
+  d.animate(s, th, { auto: true, effect: 'fade', after: 250 });
+  d.animate(s, [...uA, ...uB, ...hUDate], { effect: 'rise' });
+  const fade = (ns) => ns.map((name) => ({ name, effect: 'fade', dur: 400 }));
+  d.animate(s, [...fade(hU), ...uStat], { auto: true, effect: 'zoom', after: 250 });
+  d.source(s, 'Sources: NCMEC Generative AI page & 2025 CyberTipline Report (Jul 2026) · NCMEC blog (Aug 11, 2026) · Thorn press release (Jul 28, 2026) · UNICEF/ECPAT/INTERPOL (Feb 4, 2026) · highlights added.');
+  s.addNotes([
+    'MESSAGE: It is not just a survey finding. Reports to the US child-exploitation tipline that involve generative AI went from 4,700 in 2023 to more than 400,000 in 2025 — about 85 times more in two years (our division: 400,000+ ÷ 4,700). In schools the perpetrators are mostly classmates. And it is global: across 11 countries, UNICEF, ECPAT and INTERPOL estimate at least 1.2 million children had their images turned into sexual deepfakes in a single year. Clicks: NCMEC quote → Thorn (US teens, 4% had a deepfake nude made of them = 1 in 25) → UNICEF (international; "1 in 25 children" in some countries).',
+    'CAVEAT on the chart — reports are not victims or incidents. Of the 2025 total, "more than 200,000 reports indicated a GAI nexus but without enough information to know how the GAI was being used in the exploitation of a child" (NCMEC By the Numbers) — about half. Part of the rise may also reflect better detection and tracking rather than more abuse alone: NCMEC only began tracking in January 2023 and added an "AI-generated" flag to the report form in October 2023 (that inference is ours; NCMEC itself stresses the opposite gap — companies flagged just over 11,000 files as AI-generated in 2023–2025 while NCMEC staff categorized 158,000+). NCMEC has identified more than 275 victims of GAI CSAM since 2023 (2025 CyberTipline Report, p. 14).',
+    'NCMEC (National Center for Missing & Exploited Children), "Generative AI" page, "By the Numbers": "NCMEC began tracking GAI-related reports submitted to the CyberTipline in January 2023 and has seen a steady rise." 2023: 4,700; 2024: 67,000; 2025: "More than 400,000 CyberTipline reports of GAI from the public and ESPs". 400,000 / 4,700 ≈ 85 (and the 2025 figure is a lower bound). https://www.missingkids.org/theissues/generative-ai . 2025 breakdown (each "more than"): 145,000 users using GAI to engage or alter a CSAM file without text prompts; 30,000 users attempting to generate GAI CSAM by uploading a file and using text prompts; 12,000 reports of CSAM that companies indicated were identified in training data; 7,000 generating or possessing GAI CSAM; 3,000 other GAI exploitation (e.g. chat-based); plus 200,000+ with a GAI nexus but too little information. For scale: the CyberTipline received 21.3 million reports in total in 2025.',
+    'NCMEC 2025 CyberTipline Report (PDF dated 22 Jul 2026), p. 14: "Reports to the CyberTipline in 2025 included more than 400,000 reports of exploitation with a GAI nexus. Within those submissions, more than 182,000 reports involved offenders possessing, generating or attempting to generate GAI CSAM ... Since 2023, when we started tracking the use of GAI, more than 275 victims of GAI CSAM have been identified, and more than 158,000 images and videos have been categorized as GAI CSAM. Across the country, NCMEC is also tracking cases in which individuals – oftentimes classmates or peers – are leveraging "nudify" apps to create and spread harmful content." https://www.missingkids.org/content/dam/missingkids/pdfs/2025-cybertipline-report.pdf . CAVEAT: a "1.5 million GAI reports (1.1 million from Amazon)" figure circulating online came from an NCMEC blog post that now returns 404 — do not use it.',
+    'Quote (the label above it gives the context: "these incidents" in the post are AI "nudify"-app images of classmates): NCMEC blog, Emma Henderson Vaughan, "Back-to-School Checklist: Talk About AI \'Nudify\' Apps" (11 Aug 2026): "NCMEC is seeing a growing number of these incidents in schools across the country, most often involving classmates ages 14 to 17." Same post: "These images can also be created using free AI image generators and chatbots." https://www.missingkids.org/blog/2026/back-to-school-checklist-talk-about-ai-nudify-apps.html',
+    'Thorn press release (28 Jul 2026), "As AI becomes part of kids\' response to online harm, new Thorn research finds children turning to chatbots for guidance after online sexual interactions" — highlighted: "Among teens surveyed, 4% reported having had a personal experience with deepfake nudes being created of them, and 7% reported having seen a deepfake nude of another kid or teen." Another 13% weren\'t sure; 2% said they had made one. 4% = "1 in 25 teens" (report key metrics). Also: 67% of minors have used an AI chatbot or companion, and after an online sexual interaction 15% sought guidance from a chatbot. Report: "Youth Perspectives on Online Safety, 2025" (Thorn with Burson; 18-minute online survey of 1,003 US minors aged 9–17, 12 Nov – 1 Dec 2025; deepfake questions asked of 13–17-year-olds only — hence the slide label "US teens 13–17 (of 1,003 minors surveyed)"). https://www.thorn.org/press-releases/as-ai-becomes-part-of-kids-response-to-online-harm-new-thorn-research-finds-children-turning-to-chatbots-for-guidance-after-online-sexual-interactions/ · https://info.thorn.org/hubfs/Research/Thorn_2025YouthPerspectives_Report.pdf . Do not present 6% (Thorn, Mar 2025, ages 13–20) → 4% as a decline: different samples and age ranges.',
+    'UNICEF statement, 4 Feb 2026, "\u2018Deepfake abuse is abuse\u2019 — Statement by UNICEF on AI-generated sexualised images of children" (two crops of one real screenshot of the page; the hero graphic between them is omitted; yellow highlights added by us). Highlighted, verbatim: "In a UNICEF, ECPAT and INTERPOL study across 11 countries, at least 1.2 million children* disclosed having had their images manipulated into sexually explicit deepfakes in the past year. In some countries, this represents 1 in 25 children – the equivalent of one child in a typical classroom." Same statement: "In some of the study countries, up to two thirds of children said they worry that AI could be used to create fake sexual images or videos." and "Deepfake abuse is abuse, and there is nothing fake about the harm it causes." https://www.unicef.org/press-releases/deepfake-abuse-is-abuse · UN News, 4 Feb 2026, "\u2018Deepfake abuse is abuse,\u2019 UNICEF warns": https://news.un.org/en/story/2026/02/1166886',
+    'UNICEF METHOD & CAVEATS (statement footnote): Disrupting Harm Phase 2 (UNICEF Innocenti, ECPAT International, INTERPOL; funded by Safe Online). "Nationally representative household surveys implemented by UNICEF and IPSOS across 11 countries. Approximately 1000 internet-using children aged 12-17 and 1000 of their parents or caregivers were surveyed per country ... National prevalence estimates were used to model the 1.2 million estimate, weighting them by UN 2024 population-level data and estimated child internet-use rates." So 1.2 million is a modelled lower bound ("at least"), self-disclosed, among internet-using 12–17-year-olds; "1 in 25" holds only "in some countries" (they are not named in the statement). Methods: https://safeonline.global/dh2-research-methods_final-2/ . UNICEF\'s broader 3 Sep 2026 report (Through Children\'s Eyes, 21 countries) estimates 20 million children aged 12–17 — almost 1 in 5 — experienced technology-facilitated sexual exploitation and abuse in a year, but does not update the deepfake figure.',
+    'NOT ON THE SLIDE — an outlier, if asked: George Mason University, Chad M. S. Steel, PLOS One (18 Mar 2026), "Prevalence of generative artificial intelligence sexualized image usage by adolescents in the United States": 36.3% of 557 US teens aged 13–17 said "at least one sexualized GenAI image of themselves had been created by someone else without their consent", and 55.3% said they had used nudification tools "to create at least one image of themselves or others". The author calls it "an exploratory study"; it is an online Qualtrics panel survey (January 11–24, 2025) using a "non-probability quota-based methodology", so although the abstract says "nationally representative", it is not a probability sample. Its numbers are far above Common Sense (8% made it themselves; n=1,314, weighted) and Thorn (2% made one; 4% had one made of them) — do not put them side by side as equivalent. https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0342824 · press release: https://www.eurekalert.org/news-releases/1119600',
+    'Moved off the slide (was a clipping here): WIRED, Matt Burgess (15 Apr 2026): "The Deepfake Nudes Crisis in Schools Is Much Worse Than You Thought" — WIRED and Indicator found nearly 90 schools and 600+ students in at least 28 countries hit since 2023. https://www.wired.com/story/deepfake-nudify-schools-global-crisis/',
+    'Moved off the slide (was a clipping here): Education Week, Olina Banerji (6 Aug 2026): "Deepfakes Are Supercharging Cyberbullying. How Should Schools Respond?" — photo: deepfake victim Francesca Mani at a news conference for the DEFIANCE Act at the Capitol, 22 Jan 2026 (Allison Robbert / AP). Quotes CDT policy counsel Kristin Woelfel. https://www.edweek.org/technology/deepfakes-are-supercharging-cyberbullying-how-should-schools-respond/2026/08',
+    'Other school data, if asked (clearly dated): RAND (24 Sep 2025): 13% of US principals reported bullying involving AI deepfakes in 2023–24 / 2024–25 — 22% of high schools, 20% of middle schools (https://www.rand.org/pubs/research_reports/RRA3930-5.html). CDT "Hand in Hand" (Oct 2025), as cited by Common Sense: 12% of high-school students heard of deepfake NCII depicting someone at their school in 2024–25; only 40% of students got any guidance on it and 11% were told where to report it (Benton summary: https://www.benton.org/blog/ai-use-and-risk-rise-students). CDT has published no 2026 survey as of Oct 2026.',
+    'Tools & responses (from the earlier version of this slide): AP via PBS (15 Jan 2026), "Grok blocked from undressing images with AI in places where it\'s illegal, X says" — Grok is a closed model, so this is a safeguard lapse, not abliteration (https://www.pbs.org/newshour/world/grok-blocked-from-undressing-images-with-ai-in-places-where-its-illegal-x-says). TechCrunch (17 Jul 2026): "Apple and Google ordered to purge \'nudify\' apps from App Stores" (https://techcrunch.com/2026/07/17/apple-and-google-ordered-to-purge-nudify-apps-from-app-stores/). FTC (19 May 2026): Take It Down Act enforcement began — platforms must remove nonconsensual intimate images within 48 hours (https://www.ftc.gov/business-guidance/blog/2026/05/take-it-down-act-enforcement-starts-now-what-know-about-ftc-tida).',
+  ].join('\n\n'));
+  return s;
+}
+
+// ---------------------------------------------------------------- 7. the pain axis
 async function painAxisSlide(d) {
   const s = d.slide('Content');
   s.addText('THE WORLD · MODEL WELFARE · 1', { placeholder: 'kicker' });
@@ -443,7 +558,7 @@ async function painAxisSlide(d) {
   return s;
 }
 
-// ---------------------------------------------------------------- 7. torture chamber + welfare
+// ---------------------------------------------------------------- 8. torture chamber + welfare
 async function sufferSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
   s.addText('THE WORLD · MODEL WELFARE · 2', { placeholder: 'kicker' });
@@ -482,7 +597,7 @@ async function sufferSlide(d) {
   return s;
 }
 
-// ---------------------------------------------------------------- 8. finale video
+// ---------------------------------------------------------------- 9. finale video
 async function videoSlide(d) {
   const s = d.slide('Content', { transition: 'fadeBlack' });
   s.addText('THE WORLD · FINALE', { placeholder: 'kicker' });
@@ -511,7 +626,8 @@ async function build(d) {
   await minimaxSlide(d);
   await distillSlide(d);
   await abliterationSlide(d);
-  await deepfakeSlide(d);
+  await deepfakeSurveySlide(d);
+  await deepfakeScaleSlide(d);
   await painAxisSlide(d);
   await sufferSlide(d);
   await videoSlide(d);

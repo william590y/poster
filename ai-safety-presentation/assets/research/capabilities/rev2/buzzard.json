@@ -1,0 +1,717 @@
+{
+ "group": "capabilities",
+ "task": "buzzard",
+ "items": [
+  {
+   "id": "buzzard-grieve-header",
+   "slide_topic": "Mathematics in crisis — Buzzard “To grieve, or not to grieve?”",
+   "type": "screenshot",
+   "file": "buzzard-grieve-header.png",
+   "headline": "To grieve, or not to grieve?",
+   "dek": null,
+   "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+   "author": "Kevin Buzzard (byline: xenaproject)",
+   "date": "2026-10-01",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "caption": "Clean tight crop of the post title + byline: “Posted on October 1, 2026 by xenaproject”",
+   "quality": 5,
+   "notes": "966x228px (3x DPR). Byline handle is “xenaproject”; the blog’s About page says “My name’s Kevin Buzzard and I’m a professor of pure mathematics at Imperial College in London” — caption as Kevin Buzzard. Published 2026-10-01T08:11:45Z (article:published_time).",
+   "verified": true
+  },
+  {
+   "id": "buzzard-grieve-header-wide",
+   "slide_topic": "Mathematics in crisis — Buzzard",
+   "type": "screenshot",
+   "file": "buzzard-grieve-header-wide.png",
+   "headline": "To grieve, or not to grieve?",
+   "dek": null,
+   "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+   "author": "Kevin Buzzard",
+   "date": "2026-10-01",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "caption": "Same title + byline at full content-column width (more white space on the right)",
+   "quality": 4,
+   "notes": "2100x228px",
+   "verified": true
+  },
+  {
+   "id": "buzzard-grieve-header-lede",
+   "slide_topic": "Mathematics in crisis — Buzzard",
+   "type": "screenshot",
+   "file": "buzzard-grieve-header-lede.png",
+   "headline": "To grieve, or not to grieve?",
+   "dek": "Recent events in the field of AI for mathematics have shown us beyond all reasonable doubt that the field is currently undergoing a rapid transformation, unlike anything that we have ever seen before. Language models are solving hard problems which humans could not, and mathematicians are reacting very differently to this news. I personally am extremely excited about the future of our field. However it is becoming clear to me that my views are not shared by everyone in the community: indeed, many of my colleagues seem to be upset. So let me start by outlining my understanding of their positions.",
+   "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+   "author": "Kevin Buzzard",
+   "date": "2026-10-01",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "caption": "Title + byline + full opening paragraph (“…the field is currently undergoing a rapid transformation, unlike anything that we have ever seen before. Language models are solving hard problems which humans could not…”)",
+   "quality": 5,
+   "highlights": [
+    {
+     "text": "Language models are solving hard problems which humans could not",
+     "lines_frac_xywh": [
+      [
+       0.1127,
+       0.4771,
+       0.6354,
+       0.0627
+      ]
+     ]
+    }
+   ],
+   "notes": "2100x813px. Replaces the older rev1 buzzard-title.png (sharper, 3x DPR, no stray nav text). Highlight boxes (fractions of image width/height, x,y,w,h per text line) are in \"highlights\" — overlay native semi-transparent amber rectangles; do not paint the pixels.",
+   "verified": true
+  },
+  {
+   "id": "buzzard-grieve-page-top",
+   "slide_topic": "Mathematics in crisis — Buzzard",
+   "type": "screenshot",
+   "file": "buzzard-grieve-page-top.png",
+   "headline": "To grieve, or not to grieve?",
+   "dek": null,
+   "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+   "author": "Kevin Buzzard",
+   "date": "2026-10-01",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "caption": "Authentic full-page look: Xena masthead (Lean code banner, nav bar), title, byline, opening paragraph, sidebar categories",
+   "quality": 4,
+   "notes": "2940x1971px. Good as a large “real web page” background/inset.",
+   "verified": true
+  },
+  {
+   "id": "buzzard-xena-masthead",
+   "slide_topic": "Mathematics in crisis — Buzzard",
+   "type": "screenshot",
+   "file": "buzzard-xena-masthead.png",
+   "headline": null,
+   "dek": "Xena — Mathematicians learning Lean by doing.",
+   "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+   "author": "Kevin Buzzard",
+   "date": "2026-10-04",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "caption": "Blog name strip (“Xena” + tagline) to stack above the header crop",
+   "quality": 3,
+   "notes": "2880x228px",
+   "verified": true
+  },
+  {
+   "id": "buzzard-grieve-passage-underestimating",
+   "slide_topic": "Mathematics in crisis — Buzzard",
+   "type": "quote",
+   "file": "buzzard-grieve-passage-underestimating.png",
+   "headline": "To grieve, or not to grieve?",
+   "dek": "Let me next discuss why promoting Thurston’s view of mathematics (which is what many of us are doing right now) may ultimately backfire on our community. AI has solved a Millennium problem and this has shown us where AI is in mathematics. But I believe that many people in our community are still vastly underestimating how fast AI is moving, perhaps because they only just started paying attention to it. If we use “understanding” as a justification for the continued existence of mathematics as a subject worth studying, then where exactly do we retreat to when in 1 year’s time AI is not only proving theorems, but also doing a perfectly good job of explaining them to humans?",
+   "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+   "author": "Kevin Buzzard",
+   "date": "2026-10-01",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "caption": "STRONGEST for the deck: “AI has solved a Millennium problem… many people in our community are still vastly underestimating how fast AI is moving… where exactly do we retreat to when in 1 year’s time AI is not only proving theorems, but also doing a perfectly good job of explaining them to humans?”",
+   "quality": 5,
+   "highlights": [
+    {
+     "text": "AI has solved a Millennium problem and this has shown us where AI is in mathematics.",
+     "lines_frac_xywh": [
+      [
+       0.6056,
+       0.2129,
+       0.343,
+       0.0705
+      ],
+      [
+       0.0349,
+       0.3124,
+       0.4689,
+       0.0705
+      ]
+     ]
+    },
+    {
+     "text": "But I believe that many people in our community are still vastly underestimating how fast AI is moving",
+     "lines_frac_xywh": [
+      [
+       0.5096,
+       0.3124,
+       0.3468,
+       0.0705
+      ],
+      [
+       0.0349,
+       0.412,
+       0.6078,
+       0.0705
+      ]
+     ]
+    },
+    {
+     "text": "where exactly do we retreat to when in 1 year’s time AI is not only proving theorems, but also doing a perfectly good job of explaining them to humans?",
+     "lines_frac_xywh": [
+      [
+       0.5864,
+       0.6112,
+       0.3784,
+       0.0705
+      ],
+      [
+       0.0349,
+       0.7108,
+       0.9232,
+       0.0705
+      ],
+      [
+       0.0349,
+       0.8104,
+       0.1066,
+       0.0705
+      ]
+     ]
+    }
+   ],
+   "notes": "2064x723px. On the page, “is” (in “where AI is in mathematics”) and “moving” are italicised. Highlight boxes (fractions of image width/height, x,y,w,h per text line) are in \"highlights\" — overlay native semi-transparent amber rectangles; do not paint the pixels.",
+   "verified": true
+  },
+  {
+   "id": "buzzard-grieve-passage-depression",
+   "slide_topic": "Mathematics in crisis — Buzzard",
+   "type": "quote",
+   "file": "buzzard-grieve-passage-depression.png",
+   "headline": "To grieve, or not to grieve?",
+   "dek": "If you are a mathematician then you almost certainly already know at least one person who feels like this. A faculty member I know who works in fluids told me that the Navier–Stokes news was “extremely depressing”. A post-doc I know told me that they were considering leaving mathematical research because of what it was about to become. A PhD student I know told me that they were stuck on a lemma in their research and ChatGPT one-shotted it and it made them wonder what the point of it all was.",
+   "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+   "author": "Kevin Buzzard",
+   "date": "2026-10-01",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "caption": "“Depression” heading + paragraph: fluids professor calls Navier–Stokes news “extremely depressing”; post-doc considering leaving research; PhD student’s lemma one-shotted by ChatGPT",
+   "quality": 5,
+   "highlights": [
+    {
+     "text": "the Navier–Stokes news was “extremely depressing”",
+     "lines_frac_xywh": [
+      [
+       0.6724,
+       0.4216,
+       0.2667,
+       0.0694
+      ],
+      [
+       0.0349,
+       0.5196,
+       0.2189,
+       0.0694
+      ]
+     ]
+    },
+    {
+     "text": "they were considering leaving mathematical research because of what it was about to become",
+     "lines_frac_xywh": [
+      [
+       0.5593,
+       0.5196,
+       0.2796,
+       0.0694
+      ],
+      [
+       0.0349,
+       0.6175,
+       0.5844,
+       0.0694
+      ]
+     ]
+    },
+    {
+     "text": "ChatGPT one-shotted it and it made them wonder what the point of it all was",
+     "lines_frac_xywh": [
+      [
+       0.4959,
+       0.7155,
+       0.4627,
+       0.0694
+      ],
+      [
+       0.0349,
+       0.8135,
+       0.248,
+       0.0694
+      ]
+     ]
+    }
+   ],
+   "notes": "2064x735px. Crop includes the “Depression” section heading. Highlight boxes (fractions of image width/height, x,y,w,h per text line) are in \"highlights\" — overlay native semi-transparent amber rectangles; do not paint the pixels.",
+   "verified": true
+  },
+  {
+   "id": "buzzard-grieve-passage-stages-of-grief",
+   "slide_topic": "Mathematics in crisis — Buzzard",
+   "type": "quote",
+   "file": "buzzard-grieve-passage-stages-of-grief.png",
+   "headline": "To grieve, or not to grieve?",
+   "dek": "Elisabeth Kübler-Ross’ model of the process of grief is now well-known: the five stages are denial, anger, bargaining, depression and acceptance. The first four of these are currently very well-represented within the mathematical community, and perhaps give some weight to the claim that many mathematicians are currently grieving what they perceive as a loss of something much beloved to them. However there will also be some mathematicians whose viewpoints will fall into the following categories and who will probably strongly argue that what they are feeling is not grief at all. We are not all grieving. But many of us are in one of the stages of grief.",
+   "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+   "author": "Kevin Buzzard",
+   "date": "2026-10-01",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "caption": "“The AI pessimists.” heading + Kübler-Ross paragraph ending “We are not all grieving. But many of us are in one of the stages of grief.”",
+   "quality": 4,
+   "highlights": [
+    {
+     "text": "We are not all grieving. But many of us are in one of the stages of grief.",
+     "lines_frac_xywh": [
+      [
+       0.0919,
+       0.835,
+       0.6672,
+       0.0614
+      ]
+     ]
+    }
+   ],
+   "notes": "2064x831px. Explains the post’s structure (Denial / Anger / Bargaining / Depression sections). Highlight boxes (fractions of image width/height, x,y,w,h per text line) are in \"highlights\" — overlay native semi-transparent amber rectangles; do not paint the pixels.",
+   "verified": true
+  },
+  {
+   "id": "buzzard-grieve-passage-machines-faster",
+   "slide_topic": "Mathematics in crisis — Buzzard",
+   "type": "quote",
+   "file": "buzzard-grieve-passage-machines-faster.png",
+   "headline": "To grieve, or not to grieve?",
+   "dek": "In a 2020 piece in the Notices of the AMS, I asked the following question: “If one human had an understanding of all of modern pure mathematics simultaneously, how much further would they immediately be able to see?” Six years later we are beginning to understand the answer to this question. Machines have ingested the mathematics on the internet and are able to manipulate this data in a coherent way. The Erdős unit distance disproof came about because a machine happened to be an expert both in discrete geometry and class field theory; one rarely finds humans who are simultaneously experts in both. Machines are answering questions now which one could easily believe that humans, were they to be left alone for a few more years in the right groups, could also have answered. It’s just happening a whole lot more quickly.",
+   "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+   "author": "Kevin Buzzard",
+   "date": "2026-10-01",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "caption": "2020 Notices question answered six years later; Erdős unit-distance disproof; “It’s just happening a whole lot more quickly.”",
+   "quality": 4,
+   "highlights": [
+    {
+     "text": "Machines are answering questions now which one could easily believe that humans, were they to be left alone for a few more years in the right groups, could also have answered.",
+     "lines_frac_xywh": [
+      [
+       0.3313,
+       0.6464,
+       0.5851,
+       0.0642
+      ],
+      [
+       0.0349,
+       0.737,
+       0.9151,
+       0.0642
+      ],
+      [
+       0.0349,
+       0.8275,
+       0.1434,
+       0.0642
+      ]
+     ]
+    },
+    {
+     "text": "It’s just happening a whole lot more quickly.",
+     "lines_frac_xywh": [
+      [
+       0.184,
+       0.8275,
+       0.4144,
+       0.0642
+      ]
+     ]
+    }
+   ],
+   "notes": "2064x795px.  Highlight boxes (fractions of image width/height, x,y,w,h per text line) are in \"highlights\" — overlay native semi-transparent amber rectangles; do not paint the pixels.",
+   "verified": true
+  },
+  {
+   "id": "buzzard-grieve-passage-tech-company",
+   "slide_topic": "Mathematics in crisis — Buzzard",
+   "type": "quote",
+   "file": "buzzard-grieve-passage-tech-company.png",
+   "headline": "To grieve, or not to grieve?",
+   "dek": "I personally call for OpenAI to simply dump their collection of theorems upon the world so that we can see exactly what they claim to have done. The tidying up can come later, and it will come later (although it will certainly come sooner if it is funded by OpenAI); in every case other than Navier-Stokes we have seen humans reverse-engineering AI-generated mathematics, and both Navier-Stokes and the new currently-secret theorems in OpenAI’s possession will be no different: if humans want to understand, we will understand. Right now humans may well be spending their time trying to prove theorems which are already proved by a tech company. Where is the logic in that? These humans have a right to know what is known. I signed this open letter urging OpenAI to simply go public with their data, because I think it is the optimal approach, given the situation we find ourselves in. If you agree then please sign it too. Sure the tech companies could make our life easier. But what is happening now is akin to censorship.",
+   "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+   "author": "Kevin Buzzard",
+   "date": "2026-10-01",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "caption": "“Right now humans may well be spending their time trying to prove theorems which are already proved by a tech company… what is happening now is akin to censorship.”",
+   "quality": 4,
+   "highlights": [
+    {
+     "text": "Right now humans may well be spending their time trying to prove theorems which are already proved by a tech company.",
+     "lines_frac_xywh": [
+      [
+       0.4902,
+       0.4706,
+       0.4334,
+       0.0543
+      ],
+      [
+       0.0349,
+       0.5473,
+       0.703,
+       0.0543
+      ]
+     ]
+    },
+    {
+     "text": "But what is happening now is akin to censorship.",
+     "lines_frac_xywh": [
+      [
+       0.0995,
+       0.854,
+       0.4567,
+       0.0543
+      ]
+     ]
+    }
+   ],
+   "notes": "2064x939px. Links in paragraph: “this open letter” = https://sites.google.com/view/release-the-proofs/home (not loaded). Highlight boxes (fractions of image width/height, x,y,w,h per text line) are in \"highlights\" — overlay native semi-transparent amber rectangles; do not paint the pixels.",
+   "verified": true
+  },
+  {
+   "id": "buzzard-grieve-passage-exponential",
+   "slide_topic": "Mathematics in crisis — Buzzard",
+   "type": "quote",
+   "file": "buzzard-grieve-passage-exponential.png",
+   "headline": "To grieve, or not to grieve?",
+   "dek": "To those who dismiss the observation that machines can’t do X today with the reply that “humans just don’t understand what exponential growth looks like”, I invite you to consider the following facts. Current progress is indeed exponential, and may well continue to be exponential for a while, however we cannot expect exponential progress to continue indefinitely (exactly because of what exponential growth looks like), and furthermore mathematics is infinite which beats exponential hands down; those that don’t believe this just don’t understand what infinity looks like.",
+   "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+   "author": "Kevin Buzzard",
+   "date": "2026-10-01",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "caption": "Counterpoint (Buzzard’s optimism): “Current progress is indeed exponential… we cannot expect exponential progress to continue indefinitely… mathematics is infinite which beats exponential hands down”",
+   "quality": 4,
+   "highlights": [
+    {
+     "text": "Current progress is indeed exponential, and may well continue to be exponential for a while",
+     "lines_frac_xywh": [
+      [
+       0.0904,
+       0.3901,
+       0.8544,
+       0.0881
+      ]
+     ]
+    }
+   ],
+   "notes": "2064x579px. “mathematics is infinite” is bold on the page. Useful for balance. Highlight boxes (fractions of image width/height, x,y,w,h per text line) are in \"highlights\" — overlay native semi-transparent amber rectangles; do not paint the pixels.",
+   "verified": true
+  },
+  {
+   "id": "buzzard-grieve-passage-denial-scholze",
+   "slide_topic": "Mathematics in crisis — Buzzard",
+   "type": "quote",
+   "file": "buzzard-grieve-passage-denial-scholze.png",
+   "headline": "To grieve, or not to grieve?",
+   "dek": "The Association for Human Mathematics prominently states that its goal is to protect mathematics as a human endeavor against what it calls the “threat of artificial intelligence”. Members commit to not publishing AI-generated outputs, and there is an “AI-free” option to completely renounce the use of AI in a research capacity and commit to finding proofs and exploring examples without using these tools at all. From talking to its members, my understanding is that there are multiple motivations for joining this association, ranging from serious concerns about what AI is doing to mathematics, to serious concerns about what AI is doing to the planet or what it might do to humanity. A prominent member of the association is Fields Medallist Peter Scholze, who in the recent Heidelberg Laureate Forum panel on AI and mathematics said that he will not use AI and furthermore he will “die on that hill, and be some public figure that dies on that hill”. You can listen to his reasons here.",
+   "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+   "author": "Kevin Buzzard",
+   "date": "2026-10-01",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "caption": "“Denial” heading + paragraph: Association for Human Mathematics; Fields Medallist Peter Scholze will “die on that hill, and be some public figure that dies on that hill”",
+   "quality": 4,
+   "highlights": [
+    {
+     "text": "die on that hill, and be some public figure that dies on that hill",
+     "lines_frac_xywh": [
+      [
+       0.2318,
+       0.809,
+       0.5787,
+       0.0466
+      ]
+     ]
+    }
+   ],
+   "notes": "2064x1095px. Scholze link goes to the HLF panel video (YouTube H7_d_sgui6o, t=4570s); see item hlf-2026-ai-math-panel. Highlight boxes (fractions of image width/height, x,y,w,h per text line) are in \"highlights\" — overlay native semi-transparent amber rectangles; do not paint the pixels.",
+   "verified": true
+  },
+  {
+   "id": "buzzard-grieve-passage-understanding-tally",
+   "slide_topic": "Mathematics in crisis — Buzzard",
+   "type": "quote",
+   "file": "buzzard-grieve-passage-understanding-tally.png",
+   "headline": "To grieve, or not to grieve?",
+   "dek": "But do I “understand” the proof of Fermat’s Last Theorem, given that earlier this year I gave 22 hours worth of lectures on the topic? I know that Langlands–Tunnell is crucial for Wiles but I know very little about the details of what goes into it. What if there had been a mistake discovered in the process of its formalization? Can one “understand” mathematics which is wrong? Mathematics which is incomplete? I personally can not, and I personally am happy to not understand some things. I’m in it for the theorem tally. In stark contrast to Thurston, I believe that understanding is a slightly nebulous concept, whereas total number of theorems correctly proved is something which we can measure. I am well aware that I seem to be in a minority here. But I wanted to share these views anyway.",
+   "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+   "author": "Kevin Buzzard",
+   "date": "2026-10-01",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "caption": "“I’m in it for the theorem tally.” (Buzzard vs Thurston on “understanding”)",
+   "quality": 3,
+   "highlights": [
+    {
+     "text": "I’m in it for the theorem tally.",
+     "lines_frac_xywh": [
+      [
+       0.1034,
+       0.5558,
+       0.2768,
+       0.0642
+      ]
+     ]
+    }
+   ],
+   "notes": "2064x795px. “wrong” and the first “personally” are italicised on the page. Highlight boxes (fractions of image width/height, x,y,w,h per text line) are in \"highlights\" — overlay native semi-transparent amber rectangles; do not paint the pixels.",
+   "verified": true
+  },
+  {
+   "id": "tao-aftermath-header",
+   "slide_topic": "Mathematics in crisis — fallback: “After Math” (Tao’s blog)",
+   "type": "screenshot",
+   "file": "tao-aftermath-header.png",
+   "headline": "After Math",
+   "dek": null,
+   "outlet": "What’s new (Terence Tao’s blog), guest post",
+   "author": "Silvia De Toffoli and Eamon Duede (posted by Terence Tao)",
+   "date": "2026-09-12",
+   "url": "https://terrytao.wordpress.com/2026/09/12/after-math/",
+   "caption": "Title + metadata line: “12 September, 2026 in guest blog, math.GM, opinion | Tags: Eamon Duede, philosophy, Silvia De Toffoli | by Terence Tao”",
+   "quality": 4,
+   "notes": "1596x273px. CAUTION: this is a GUEST POST; do not present its words as Tao’s own. Prefer tao-aftermath-header-guestnote, which shows the guest-post note.",
+   "verified": true
+  },
+  {
+   "id": "tao-aftermath-header-guestnote",
+   "slide_topic": "Mathematics in crisis — “After Math”",
+   "type": "screenshot",
+   "file": "tao-aftermath-header-guestnote.png",
+   "headline": "After Math",
+   "dek": "[This is a guest post by Silvia De Toffoli and Eamon Duede. This blog post was initially written in a different file format and converted using AI. — T.]",
+   "outlet": "What’s new (Terence Tao’s blog), guest post",
+   "author": "Silvia De Toffoli and Eamon Duede",
+   "date": "2026-09-12",
+   "url": "https://terrytao.wordpress.com/2026/09/12/after-math/",
+   "caption": "Title + metadata + italic note “[This is a guest post by Silvia De Toffoli and Eamon Duede. This blog post was initially written in a different file format and converted using AI. — T.]” + author affiliations (IUSS Pavia; Princeton & Purdue)",
+   "quality": 5,
+   "highlights": [
+    {
+     "text": "This is a guest post by Silvia De Toffoli and Eamon Duede.",
+     "lines_frac_xywh": [
+      [
+       0.0364,
+       0.495,
+       0.5937,
+       0.0806
+      ]
+     ]
+    }
+   ],
+   "notes": "1596x558px. Published 2026-09-12T21:30:58Z. Highlight boxes (fractions of image width/height, x,y,w,h per text line) are in \"highlights\" — overlay native semi-transparent amber rectangles; do not paint the pixels.",
+   "verified": true
+  },
+  {
+   "id": "tao-blog-masthead-thurston",
+   "slide_topic": "Mathematics in crisis — aftermath on Tao’s blog",
+   "type": "screenshot",
+   "file": "tao-blog-masthead-thurston.png",
+   "headline": null,
+   "dek": "We are not trying to meet some abstract production quota of definitions, theorems and proofs. The measure of our success is whether what we do enables people to understand and think more clearly and effectively about mathematics. — William Thurston, “On proof and progress in mathematics”, 1994",
+   "outlet": "What’s new (Terence Tao’s blog)",
+   "author": "Terence Tao",
+   "date": "2026-10-04",
+   "url": "https://terrytao.wordpress.com/2026/09/12/after-math/",
+   "caption": "Tao’s blog masthead now carries a Thurston quote banner above “What’s new … By Terence Tao”",
+   "quality": 4,
+   "notes": "2340x831px. Banner file is /wp-content/uploads/2026/09/cropped-thurston-1.png (native 720x180, so slightly soft when enlarged). Buzzard’s post: “Tao’s blog now carries a quote from this essay as the splash at the top.”",
+   "verified": true
+  },
+  {
+   "id": "tao-aftermath-passage-deep-blue",
+   "slide_topic": "Mathematics in crisis — “After Math”",
+   "type": "quote",
+   "file": "tao-aftermath-passage-deep-blue.png",
+   "headline": "After Math",
+   "dek": "On September 8th, 2026, OpenAI announced that it had produced an AI-generated solution to the Navier–Stokes existence and smoothness problem, one of the seven Millennium Prize Problems. The announcement kicked off debate over credit allocation and the respective contributions of humans and machines to the result. Moreover, the announcement intensified already circulating comparisons with earlier AI conquests in domains believed to otherwise exemplify human intellectual prowess. In a recent statement, Tristan Buckmaster, one of the mathematicians involved in the Navier–Stokes saga, wrote: “This is a Deep Blue–Kasparov moment.”",
+   "outlet": "What’s new (Terence Tao’s blog), guest post",
+   "author": "Silvia De Toffoli and Eamon Duede",
+   "date": "2026-09-12",
+   "url": "https://terrytao.wordpress.com/2026/09/12/after-math/",
+   "caption": "Opening paragraph: OpenAI’s Sep 8, 2026 Navier–Stokes announcement; Buckmaster: “This is a Deep Blue–Kasparov moment.”",
+   "quality": 5,
+   "highlights": [
+    {
+     "text": "“This is a Deep Blue–Kasparov moment.”",
+     "lines_frac_xywh": [
+      [
+       0.6346,
+       0.732,
+       0.315,
+       0.0927
+      ],
+      [
+       0.0301,
+       0.8447,
+       0.0965,
+       0.0927
+      ]
+     ]
+    }
+   ],
+   "notes": "1596x453px. Guest post — attribute to De Toffoli & Duede, not Tao. Highlight boxes (fractions of image width/height, x,y,w,h per text line) are in \"highlights\" — overlay native semi-transparent amber rectangles; do not paint the pixels.",
+   "verified": true
+  },
+  {
+   "id": "tao-aftermath-passage-existential",
+   "slide_topic": "Mathematics in crisis — “After Math”",
+   "type": "quote",
+   "file": "tao-aftermath-passage-existential.png",
+   "headline": "After Math",
+   "dek": "Existential questions for mathematics follow naturally: if AI can now provide answers to questions at the very frontier of mathematics, is the discipline on the verge of being “solved” as many have said of chess and Go? Like chess and Go players, should mathematicians just “keep playing” and rearrange their practices?",
+   "outlet": "What’s new (Terence Tao’s blog), guest post",
+   "author": "Silvia De Toffoli and Eamon Duede",
+   "date": "2026-09-12",
+   "url": "https://terrytao.wordpress.com/2026/09/12/after-math/",
+   "caption": "“Existential questions for mathematics follow naturally… is the discipline on the verge of being “solved” as many have said of chess and Go?”",
+   "quality": 4,
+   "highlights": [],
+   "notes": "1596x249px. Guest post — attribute to De Toffoli & Duede, not Tao.",
+   "verified": true
+  },
+  {
+   "id": "tao-aftermath-passage-choice",
+   "slide_topic": "Mathematics in crisis — “After Math”",
+   "type": "quote",
+   "file": "tao-aftermath-passage-choice.png",
+   "headline": "After Math",
+   "dek": "AI presents mathematics not with an ending but with a choice about what mathematical practice should become. If mathematical success comes to be identified too closely with the production of certified answers, mathematics risks adapting itself to precisely those features that are easiest to benchmark and automate away.",
+   "outlet": "What’s new (Terence Tao’s blog), guest post",
+   "author": "Silvia De Toffoli and Eamon Duede",
+   "date": "2026-09-12",
+   "url": "https://terrytao.wordpress.com/2026/09/12/after-math/",
+   "caption": "“AI presents mathematics not with an ending but with a choice about what mathematical practice should become.”",
+   "quality": 4,
+   "highlights": [
+    {
+     "text": "AI presents mathematics not with an ending but with a choice about what mathematical practice should become.",
+     "lines_frac_xywh": [
+      [
+       0.0301,
+       0.102,
+       0.8802,
+       0.1687
+      ],
+      [
+       0.0301,
+       0.307,
+       0.2477,
+       0.1687
+      ]
+     ]
+    }
+   ],
+   "notes": "1596x249px. Guest post — attribute to De Toffoli & Duede, not Tao. Highlight boxes (fractions of image width/height, x,y,w,h per text line) are in \"highlights\" — overlay native semi-transparent amber rectangles; do not paint the pixels.",
+   "verified": true
+  },
+  {
+   "id": "tao-aftermath-passage-not-all-answers",
+   "slide_topic": "Mathematics in crisis — “After Math”",
+   "type": "quote",
+   "file": "tao-aftermath-passage-not-all-answers.png",
+   "headline": "After Math",
+   "dek": "Not All Answers Are Solutions / OpenAI produced an answer to the question of whether Navier–Stokes can develop a singularity: yes. In The Hitchhiker’s Guide to the Galaxy, Deep Thought produced an answer to life, the universe, and everything: 42. Neither is exactly what we wanted.",
+   "outlet": "What’s new (Terence Tao’s blog), guest post",
+   "author": "Silvia De Toffoli and Eamon Duede",
+   "date": "2026-09-12",
+   "url": "https://terrytao.wordpress.com/2026/09/12/after-math/",
+   "caption": "Section “Not All Answers Are Solutions”: Navier–Stokes answer “yes” compared to Deep Thought’s “42”",
+   "quality": 4,
+   "highlights": [],
+   "notes": "1596x285px. Guest post — attribute to De Toffoli & Duede, not Tao.",
+   "verified": true
+  },
+  {
+   "id": "hlf-2026-ai-math-panel",
+   "slide_topic": "Mathematics in crisis — Scholze “die on that hill”",
+   "type": "video",
+   "file": "hlf-2026-ai-math-panel-H7_d_sgui6o-thumb.jpg",
+   "headline": "Panel Discussion: AI in Mathematical Research | September 15",
+   "dek": null,
+   "outlet": "Heidelberg Laureate Forum (YouTube)",
+   "author": "Michael Harris, Peter Scholze, Jacob Tsimerman, Geordie Williamson; moderator Tony Feng",
+   "date": "2026-09-15",
+   "url": "https://www.youtube.com/watch?v=H7_d_sgui6o&t=4570s",
+   "caption": "Official 1280x720 thumbnail: 13th Heidelberg Laureate Forum (Sep 13–18, 2026) panel “AI in Mathematical Research”, Sep 15, 2026",
+   "quality": 4,
+   "notes": "Title/channel verified via YouTube oEmbed; thumbnail downloaded from img.youtube.com. Buzzard links t=4570s for Scholze’s “die on that hill” remark (also t=1602s for the elliptic-curve “We didn’t learn anything really” point). Audio not checked by me. YouTube downloads blocked — use d.video embed + this thumbnail.",
+   "verified": true
+  }
+ ],
+ "datasets": [],
+ "facts": [
+  {
+   "claim": "“AI has solved a Millennium problem and this has shown us where AI is in mathematics. But I believe that many people in our community are still vastly underestimating how fast AI is moving.” — Kevin Buzzard",
+   "source": "Kevin Buzzard, “To grieve, or not to grieve?”, Xena",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "“…where exactly do we retreat to when in 1 year’s time AI is not only proving theorems, but also doing a perfectly good job of explaining them to humans?” — Kevin Buzzard",
+   "source": "Xena",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "“Language models are solving hard problems which humans could not, and mathematicians are reacting very differently to this news.” — Kevin Buzzard",
+   "source": "Xena",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "Buzzard maps mathematicians’ reactions onto Kübler-Ross’s stages of grief: “The first four of these are currently very well-represented within the mathematical community… We are not all grieving. But many of us are in one of the stages of grief.”",
+   "source": "Xena",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "A fluids professor called the Navier–Stokes news “extremely depressing”; a post-doc considered leaving research; a PhD student’s stuck lemma was “one-shotted” by ChatGPT (as reported by Buzzard).",
+   "source": "Xena",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "Fields Medallist Peter Scholze, at the Heidelberg Laureate Forum AI panel (Sep 15, 2026), said he will not use AI and will “die on that hill, and be some public figure that dies on that hill” (as quoted by Buzzard).",
+   "source": "Xena; HLF panel video",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "Per Buzzard, the Advisory Group on Mathematics and Artificial Intelligence (incl. three Fields Medallists) asked frontier labs “to stop testing advanced mathematical problems on proprietary models”, responding to news OpenAI holds “a large number of significant results in mathematics” from its internal model.",
+   "source": "Xena (quoting agmai.org/general-sep29/, not loaded by me)",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "“Right now humans may well be spending their time trying to prove theorems which are already proved by a tech company.” — Buzzard, who signed an open letter urging OpenAI to release its proofs",
+   "source": "Xena",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "Buckmaster on OpenAI’s Navier–Stokes result: “This is a Deep Blue–Kasparov moment.” (quoted in the “After Math” guest post by De Toffoli & Duede on Tao’s blog)",
+   "source": "What’s new (Tao’s blog), guest post",
+   "url": "https://terrytao.wordpress.com/2026/09/12/after-math/",
+   "date": "2026-09-12"
+  },
+  {
+   "claim": "“AI presents mathematics not with an ending but with a choice about what mathematical practice should become.” — Silvia De Toffoli & Eamon Duede",
+   "source": "“After Math”, Tao’s blog (guest post)",
+   "url": "https://terrytao.wordpress.com/2026/09/12/after-math/",
+   "date": "2026-09-12"
+  },
+  {
+   "claim": "Tao’s blog masthead now displays Thurston’s 1994 line: “We are not trying to meet some abstract production quota of definitions, theorems and proofs.”",
+   "source": "terrytao.wordpress.com (loaded 2026-10-04)",
+   "url": "https://terrytao.wordpress.com/2026/09/12/after-math/",
+   "date": "2026-10-04"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "Verbatim audio check of Scholze “die on that hill” at HLF panel t=4570s",
+   "searched": "Only the YouTube title/thumbnail (oEmbed) was verified; video playback/download is blocked from this network. Quote is as given by Buzzard."
+  },
+  {
+   "outline_item": "Tao-authored “aftermath” post",
+   "searched": "terrytao.wordpress.com/2026/09/12/after-math/ is a guest post by Silvia De Toffoli & Eamon Duede (metadata says “by Terence Tao” only as poster; header note says “This is a guest post… — T.”). Not Tao’s own words."
+  }
+ ]
+}

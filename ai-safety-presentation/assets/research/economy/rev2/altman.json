@@ -1,0 +1,355 @@
+{
+ "group": "economy",
+ "task": "altman",
+ "items": [
+  {
+   "id": "altman-bi-2015-quote-passage",
+   "slide_topic": "Altman 2015: 'AI will most likely lead to the end of the world, but in the meantime there'll be great companies'",
+   "type": "quote",
+   "file": "altman_bi_2015_quote_passage.png",
+   "headline": "Head of Silicon Valley's most important startup farm says we're in a 'mega bubble' that won't last",
+   "dek": "On the growing artificial-intelligence market: \"AI will probably most likely lead to the end of the world, but in the meantime, there'll be great companies.\"",
+   "outlet": "Business Insider",
+   "author": "Matt Weinberger",
+   "date": "2015-06-05",
+   "url": "https://www.businessinsider.com/sam-altman-y-combinator-talks-mega-bubble-nuclear-power-and-more-2015-6",
+   "caption": "Screenshot of the original Business Insider article passage: bold lead-in 'On the growing artificial-intelligence market:' followed by the Altman quote (1180x295 px, @2x).",
+   "quality": 5,
+   "verified": true,
+   "notes": "THE canonical contemporaneous source. Exact BI wording (note the word 'probably' and 'there'll'): \"AI will probably most likely lead to the end of the world, but in the meantime, there'll be great companies.\" Most short versions in circulation (incl. the outline's 'AI will most likely lead to the end of the world, but in the meantime there will be great companies') DROP 'probably'. BI timestamp: 2015-06-05T00:09Z = Thu June 4, 2015, 5:09pm PDT, same day as the talk ('speaking Thursday'). Page renders fully for headless browser (no paywall overlay at capture time 2026-10-04)."
+  },
+  {
+   "id": "altman-bi-2015-header-photo",
+   "slide_topic": "Altman 2015: 'AI will most likely lead to the end of the world, but in the meantime there'll be great companies'",
+   "type": "headline",
+   "file": "altman_bi_2015_header_photo.png",
+   "headline": "Head of Silicon Valley's most important startup farm says we're in a 'mega bubble' that won't last",
+   "dek": "Airbnb CTO Mike Curtis and Y Combinator president Sam Altman onstage at Open Air 2015.",
+   "outlet": "Business Insider",
+   "author": "Matt Weinberger",
+   "date": "2015-06-05",
+   "url": "https://www.businessinsider.com/sam-altman-y-combinator-talks-mega-bubble-nuclear-power-and-more-2015-6",
+   "caption": "BI article header: 'TECH' kicker, headline, byline Matt Weinberger, timestamp 'Jun 5, 2015, 12:09 AM UTC', and Weinberger's stage photo of the 'OPENAIR Fireside Chat: Sam Altman & Mike Curtis' screen with both men seated, plus caption (1500x1360).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Pair with altman_bi_2015_quote_passage.png (the headline is about the 'mega bubble'; the AI quote is lower in the same article). Dek field = verbatim photo caption."
+  },
+  {
+   "id": "altman-bi-2015-header-lede",
+   "slide_topic": "Altman 2015: 'AI will most likely lead to the end of the world, but in the meantime there'll be great companies'",
+   "type": "screenshot",
+   "file": "altman_bi_2015_header_lede.png",
+   "headline": "Head of Silicon Valley's most important startup farm says we're in a 'mega bubble' that won't last",
+   "dek": "According to Altman, speaking Thursday at Airbnb's Open Air 2015 conference, so much risk-free, low-interest capital is being lent by the US government that vast overinflation is present across the board, all over the country, and in every market — so we should stop worrying about the relatively small tech sector.",
+   "outlet": "Business Insider",
+   "author": "Matt Weinberger",
+   "date": "2015-06-05",
+   "url": "https://www.businessinsider.com/sam-altman-y-combinator-talks-mega-bubble-nuclear-power-and-more-2015-6",
+   "caption": "Taller crop: BI header + stage photo + first three paragraphs (incl. 'speaking Thursday at Airbnb's Open Air 2015 conference') (1500x2120).",
+   "quality": 4,
+   "verified": true,
+   "notes": "Use when you need the event/date sourcing visible in the clipping."
+  },
+  {
+   "id": "altman-bi-2015-obama-100b",
+   "slide_topic": "Altman 2015: 'AI will most likely lead to the end of the world, but in the meantime there'll be great companies' / safety funding",
+   "type": "quote",
+   "file": "altman_bi_2015_obama_100b_passage.png",
+   "headline": "Head of Silicon Valley's most important startup farm says we're in a 'mega bubble' that won't last",
+   "dek": "On what Altman would do if he were President Obama: \"If I were Barack Obama, I would commit maybe $100 billion to R&D of AI safety initiatives.\" Altman shared that he recently invested in a company doing \"AI safety research\" to investigate the potential risks of artificial intelligence.",
+   "outlet": "Business Insider",
+   "author": "Matt Weinberger",
+   "date": "2015-06-05",
+   "url": "https://www.businessinsider.com/sam-altman-y-combinator-talks-mega-bubble-nuclear-power-and-more-2015-6",
+   "caption": "BI passage: Altman would commit 'maybe $100 billion to R&D of AI safety initiatives' if he were Obama (1180x285).",
+   "quality": 4,
+   "verified": true,
+   "notes": "Same talk. In the video this comes at the very end (~38:40 of the re-upload); auto-captions: 'if I were Barack Obama I would be spending like I would I would sort of commit a hundred billion dollar to R&D for machine intelligence safety because right now the answer is we have no idea'."
+  },
+  {
+   "id": "altman-bi-2015-world-end-context",
+   "slide_topic": "Altman 2015: 'AI will most likely lead to the end of the world, but in the meantime there'll be great companies'",
+   "type": "screenshot",
+   "file": "altman_bi_2015_world_end_context.png",
+   "headline": "Head of Silicon Valley's most important startup farm says we're in a 'mega bubble' that won't last",
+   "dek": "Altman, with the prompting of Mike Curtis, Airbnb's vice president of engineering, in an onstage interview was on fire. He had thoughts on everything from how the world is going to end to why people would rather live next to a coal plant than a nuclear power plant.",
+   "outlet": "Business Insider",
+   "author": "Matt Weinberger",
+   "date": "2015-06-05",
+   "url": "https://www.businessinsider.com/sam-altman-y-combinator-talks-mega-bubble-nuclear-power-and-more-2015-6",
+   "caption": "BI passage: 'He had thoughts on everything from how the world is going to end to...' (1180x285).",
+   "quality": 3,
+   "verified": true,
+   "notes": "Note BI calls Curtis 'Airbnb's vice president of engineering' in the text but 'Airbnb CTO' in the photo caption; the stage screen says 'VP of Engineering, Airbnb'."
+  },
+  {
+   "id": "altman-openair2015-video",
+   "slide_topic": "Altman 2015: 'AI will most likely lead to the end of the world, but in the meantime there'll be great companies'",
+   "type": "video",
+   "file": "altman_yt_d6lDZpvHAoo_thumb.jpg",
+   "headline": "Fireside Chat - Sam Altman President, YCombinator and Mike Curtis, VP of Engineering, Airbnb - 2015",
+   "dek": "you know I think AI will probably like most likely sort of lead to the end of the world but in the meantime uh there will be great companies created with serious machine learning um and I think think uh actually just agreed to fund a company that is not even really a company sort of a semi company semi- nonprofit uh doing AI Safety Research",
+   "outlet": "YouTube (re-upload by 'nova clave' of Airbnb's original)",
+   "author": "Airbnb (original); re-uploaded by nova clave",
+   "date": "2015-07-31",
+   "url": "https://www.youtube.com/watch?v=d6lDZpvHAoo",
+   "caption": "Thumbnail (480x360 hqdefault, letterbox removed -> 480x270): Mike Curtis (left, OPENAIR T-shirt) and Sam Altman (right, holding mic) on stage.",
+   "quality": 3,
+   "verified": true,
+   "notes": "Full talk (39:59). The quote is at ~8:45-8:59 of this upload -> embed: https://www.youtube.com/embed/d6lDZpvHAoo?start=525 ; link: https://www.youtube.com/watch?v=d6lDZpvHAoo&t=525s. Video description (verbatim): 'This video was originally available on Airbnb's YouTube channel. Originally published July 31 2015'. Dek = YouTube AUTO-GENERATED captions (machine transcription; fillers included) retrieved via Invidious mirror; excerpt saved in altman_openair2015_autocaptions_excerpt.txt. Thumbnail is low-res (YouTube maxres/sd not available for this upload). Re-upload channel is not official; the original Airbnb upload appears to be gone. No local mp4: YouTube blocked, Invidious download companion failed, and only 360p streams exist anyway."
+  },
+  {
+   "id": "altman-siepr-2024-long-quote",
+   "slide_topic": "Altman 2015: 'AI will most likely lead to the end of the world, but in the meantime there'll be great companies' (fuller spoken wording)",
+   "type": "quote",
+   "file": "altman_siepr_2024_long_quote.png",
+   "headline": "At what point do we decide AI’s risks outweigh its promise?",
+   "dek": "In June 2015, Sam Altman told a tech conference, “I think that AI will probably, most likely, sort of lead to the end of the world. But in the meantime, there will be great companies created with serious machine learning.”",
+   "outlet": "Stanford Institute for Economic Policy Research (SIEPR)",
+   "author": "Dave Gilson",
+   "date": "2024-05-31",
+   "url": "https://siepr.stanford.edu/news/what-point-do-we-decide-ais-risks-outweigh-its-promise",
+   "caption": "SIEPR article opening: the fuller spoken version of the quote, followed by 'did not appear to be joking. In the next breath, he announced that he’d just funded a new venture focused on “AI safety research.” That company was OpenAI' (1320x970).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Matches the video auto-captions almost word-for-word (captions have 'probably like most likely' where SIEPR has 'probably, most likely,'). 'That company was OpenAI' is SIEPR's interpretation, not Altman's words in the talk. Article 'originally published May 29, 2024 by Stanford GSB Insights'. Ties the quote to economist Charles (Chad) Jones's paper 'The AI Dilemma: Growth versus Existential Risk' (AER: Insights 2024, 6(4): 575-590, doi 10.1257/aeri.20230570) -- great bridge for the economy module."
+  },
+  {
+   "id": "altman-siepr-2024-header",
+   "slide_topic": "Growth vs existential risk (Chad Jones)",
+   "type": "headline",
+   "file": "altman_siepr_2024_header.png",
+   "headline": "At what point do we decide AI’s risks outweigh its promise?",
+   "dek": "SIEPR Senior Fellow Chad Jones takes a closer look at the two sides of advanced artificial intelligence: unprecedented growth and existential risk.",
+   "outlet": "Stanford Institute for Economic Policy Research (SIEPR)",
+   "author": "Dave Gilson",
+   "date": "2024-05-31",
+   "url": "https://siepr.stanford.edu/news/what-point-do-we-decide-ais-risks-outweigh-its-promise",
+   "caption": "SIEPR article header: kicker, headline, dek, 'May 31, 2024 | Dave Gilson' (1640x770).",
+   "quality": 4,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "altman-techradar-2026-qotd",
+   "slide_topic": "Altman 2015: 'AI will most likely lead to the end of the world, but in the meantime there'll be great companies' (resurfacing in 2026)",
+   "type": "headline",
+   "file": "altman_techradar_2026_qotd_header.png",
+   "headline": "'AI will probably most likely lead to the end of the world, but in the meantime, there’ll be great companies' - quote of the day by OpenAI CEO Sam Altman",
+   "dek": "Sam Altman has purported publicly for years that AI safety is critical",
+   "outlet": "TechRadar Pro",
+   "author": "Keumars Afifi-Sabet",
+   "date": "2026-06-15",
+   "url": "https://www.techradar.com/pro/quote-of-the-day-by-sam-altman-ai-will-probably-most-likely-lead-to-the-end-of-the-world-but-in-the-meantime-therell-be-great-companies-the-dichotomy-between-grave-existential-risks-and-economic-nirvana",
+   "caption": "TechRadar Pro header: the quote as the headline, 'Opinion' tag, byline, 'Published June 15, 2026', standfirst, and photo of Altman (Image credit: Getty Images/Bloomberg) (1270x1420).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Strong 'real headline' clipping -- the quote IS the headline. Body: 'Sam Altman's decade-old comment, which he made during an interview with then-Airbnb CTO Mike Curtis at the firm's Open Air 2015 conference.' Also says the Financial Times 'recently published a chart perfectly encapsulating' the comment (chart not retrieved). Opinion piece."
+  },
+  {
+   "id": "altman-techradar-2026-pullquote",
+   "slide_topic": "Altman 2015: 'AI will most likely lead to the end of the world, but in the meantime there'll be great companies'",
+   "type": "quote",
+   "file": "altman_techradar_2026_pullquote.png",
+   "headline": "'AI will probably most likely lead to the end of the world, but in the meantime, there’ll be great companies' - quote of the day by OpenAI CEO Sam Altman",
+   "dek": "\"I think that AI will probably, most likely, sort of lead to the end of the world. But in the meantime, there will be great companies created with serious machine learning.\" — Sam Altman, June 2015",
+   "outlet": "TechRadar Pro",
+   "author": "Keumars Afifi-Sabet",
+   "date": "2026-06-15",
+   "url": "https://www.techradar.com/pro/quote-of-the-day-by-sam-altman-ai-will-probably-most-likely-lead-to-the-end-of-the-world-but-in-the-meantime-therell-be-great-companies-the-dichotomy-between-grave-existential-risks-and-economic-nirvana",
+   "caption": "TechRadar pull-quote box with the long version, attributed '— Sam Altman, June 2015' (1270x260).",
+   "quality": 4,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "altman-tomsguide-2026",
+   "slide_topic": "Altman 2015: 'AI will most likely lead to the end of the world, but in the meantime there'll be great companies' (viral in 2026)",
+   "type": "headline",
+   "file": "altman_tomsguide_2026_header.png",
+   "headline": "“I think AI will probably lead to the end of the world” — Sam Altman’s viral quote is missing key context",
+   "dek": "Sam Altman’s viral quote has a hidden history that reveals a familiar pattern in tech panic",
+   "outlet": "Tom's Guide",
+   "author": "Amanda Caswell",
+   "date": "2026-01-08",
+   "url": "https://www.tomsguide.com/ai/i-think-ai-will-probably-most-likely-lead-to-the-end-of-the-world-everyone-is-sharing-sam-altmans-doomsday-quote-but-almost-no-one-notices-the-date",
+   "caption": "Tom's Guide header: headline, 'Features' tag, byline, 'Published January 8, 2026', standfirst (1240x530). altman_tomsguide_2026_header_photo.png adds the Shutterstock photo of Altman next to a phone showing ChatGPT (1240x1440).",
+   "quality": 4,
+   "verified": true,
+   "notes": "Headline (outlet's own truncation) omits 'most likely, sort of'. Body: 'Sam Altman made that remark in 2015, long before ChatGPT...' and 'The quote is usually shared without its crucial second half: “But in the meantime, there will be great companies created with serious machine learning.”' Article argues the quote lacks context (skeptical framing) -- use as evidence of virality, not endorsement. Alternate file: altman_tomsguide_2026_header_photo.png."
+  },
+  {
+   "id": "altman-fli-2015-repost",
+   "slide_topic": "Altman 2015: 'AI will most likely lead to the end of the world, but in the meantime there'll be great companies'",
+   "type": "headline",
+   "file": "altman_fli_2015_header.png",
+   "headline": "Sam Altman Investing in ‘AI Safety Research’",
+   "dek": "Sam Altman, head of Y Combinator, gave an interview with Mike Curtis at Airbnb’s Open Air 2015 conference and brought up (among other issues) his concerns about AI value alignment. He didn’t pull any punches:",
+   "outlet": "Future of Life Institute",
+   "author": "Jesse Galef",
+   "date": "2015-06-06",
+   "url": "https://futureoflife.org/ai/sam-altman-investing-in-ai-safety-research/",
+   "caption": "FLI post header: title, 'Published: June 6, 2015  Author: Jesse Galef', and a (low-res, upscaled) copy of BI's stage photo (1700x1200).",
+   "quality": 2,
+   "verified": true,
+   "notes": "Quotes the BI article verbatim two days later and adds: '$100 billion would be four orders of magnitude larger than FLI’s research grant program.' Photo is blurry; prefer the BI header."
+  },
+  {
+   "id": "altman-yahoo-2015-syndication",
+   "slide_topic": "Altman 2015: 'AI will most likely lead to the end of the world, but in the meantime there'll be great companies'",
+   "type": "headline",
+   "file": null,
+   "headline": "Head of Silicon Valley's most important startup farm says we're in a 'mega bubble' that won't last",
+   "dek": "Sam Altman, president of Y Combinator ... (Business Insider syndication; same text as BI incl. the quote)",
+   "outlet": "Yahoo Finance (Business Insider syndication)",
+   "author": "Matt Weinberger",
+   "date": "2015-06-04",
+   "url": "https://finance.yahoo.com/news/head-silicon-valleys-most-important-000927584.html",
+   "caption": "",
+   "quality": 2,
+   "verified": true,
+   "notes": "Free-to-read mirror of the BI article; displays the date 'June 4, 2015' and the photo caption '(Matt Weinberger) Airbnb CTO Mike Curtis and Y Combinator president Sam Altman onstage at Open Air 2015.' Full article text includes the identical quote."
+  },
+  {
+   "id": "altman-blog-2015-smi",
+   "slide_topic": "Altman 2015: superhuman machine intelligence 'probably the greatest threat'",
+   "type": "screenshot",
+   "file": "altman_blog_2015_machine_intelligence_part1.png",
+   "headline": "Machine intelligence, part 1",
+   "dek": "Development of superhuman machine intelligence (SMI) [1] is probably the greatest threat to the continued existence of humanity.",
+   "outlet": "Sam Altman's blog (blog.samaltman.com)",
+   "author": "Sam Altman",
+   "date": "2015-02-25",
+   "url": "https://blog.samaltman.com/machine-intelligence-part-1",
+   "caption": "Altman's own blog post, 'Posted ... February 25, 2015', section 'WHY YOU SHOULD FEAR MACHINE INTELLIGENCE' with the 'greatest threat to the continued existence of humanity' sentence (1590x1060).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Same year, three months before the Open Air remark; first-party source. Later in the post: 'SMI does not have to be the inherently evil sci-fi version to kill us all.'"
+  },
+  {
+   "id": "altman-photo-commons-2014-closeup",
+   "slide_topic": "Altman 2015: 'AI will most likely lead to the end of the world, but in the meantime there'll be great companies' (portrait, period-appropriate)",
+   "type": "image",
+   "file": "altman_commons_techcrunch_disrupt_2014_closeup.jpg",
+   "headline": null,
+   "dek": "President of Y Combinator, Sam Altman speaks at TechCrunch Disrupt NY 2014 - Day 1 on May 5, 2014 in New York City.",
+   "outlet": "Wikimedia Commons / TechCrunch Flickr",
+   "author": "Brian Ach (Getty Images for TechCrunch)",
+   "date": "2014-05-05",
+   "url": "https://commons.wikimedia.org/wiki/File:TechCrunch_Disrupt_NY_2014_-_Day_1_-_002_(14092193106).jpg",
+   "caption": "Sam Altman (then YC president, light-blue sweater) speaking on stage in front of purple 'TechCrunch Disrupt' backdrop, mid-shot (1920x1280).",
+   "quality": 5,
+   "verified": true,
+   "notes": "LICENCE: CC BY 2.0 (Flickr licence review passed 2023-08-22). Required attribution: 'Photo: Brian Ach/Getty Images for TechCrunch, CC BY 2.0, via Wikimedia Commons'. Flickr source: https://www.flickr.com/photos/techcrunch/14092193106/ . Downloaded 1920px rendition from upload.wikimedia.org. Taken ~13 months before the Open Air 2015 quote -- shows how he looked at the time."
+  },
+  {
+   "id": "altman-photo-commons-2014-seated",
+   "slide_topic": "Altman 2015: 'AI will most likely lead to the end of the world, but in the meantime there'll be great companies' (portrait, period-appropriate)",
+   "type": "image",
+   "file": "altman_commons_techcrunch_disrupt_2014_seated.jpg",
+   "headline": null,
+   "dek": "President of Y Combinator, Sam Altman speaks at TechCrunch Disrupt NY 2014 - Day 1 on May 5, 2014 in New York City.",
+   "outlet": "Wikimedia Commons / TechCrunch Flickr",
+   "author": "Brian Ach (Getty Images for TechCrunch)",
+   "date": "2014-05-05",
+   "url": "https://commons.wikimedia.org/wiki/File:TechCrunch_Disrupt_NY_2014_-_Day_1_-_001_(13928729690).jpg",
+   "caption": "Sam Altman seated in black armchair, speaking, holding water bottle; purple TechCrunch Disrupt backdrop (1920x1280).",
+   "quality": 4,
+   "verified": true,
+   "notes": "LICENCE: CC BY 2.0. Attribution: 'Photo: Brian Ach/Getty Images for TechCrunch, CC BY 2.0, via Wikimedia Commons'. Flickr: https://www.flickr.com/photos/techcrunch/13928729690/"
+  }
+ ],
+ "datasets": [],
+ "facts": [
+  {
+   "claim": "Exact contemporaneous wording (Business Insider): \"AI will probably most likely lead to the end of the world, but in the meantime, there'll be great companies.\"",
+   "source": "Business Insider, Matt Weinberger, published 2015-06-05 00:09 UTC (June 4, 2015 US time)",
+   "url": "https://www.businessinsider.com/sam-altman-y-combinator-talks-mega-bubble-nuclear-power-and-more-2015-6",
+   "date": "2015-06-04"
+  },
+  {
+   "claim": "Said by Sam Altman, then president of Y Combinator, on Thursday June 4, 2015, during an onstage fireside chat with Airbnb's Mike Curtis (VP of engineering / CTO) at Airbnb's Open Air 2015 conference -- about six months before OpenAI was announced (December 2015).",
+   "source": "Business Insider ('speaking Thursday at Airbnb's Open Air 2015 conference'); TechRadar 2026; New Yorker 2026 ('In December, 2015, hours before OpenAI was publicly announced')",
+   "url": "https://www.businessinsider.com/sam-altman-y-combinator-talks-mega-bubble-nuclear-power-and-more-2015-6",
+   "date": "2015-06-04"
+  },
+  {
+   "claim": "Fuller spoken version: “I think that AI will probably, most likely, sort of lead to the end of the world. But in the meantime, there will be great companies created with serious machine learning.”",
+   "source": "Stanford SIEPR (Dave Gilson, 2024-05-31); matches YouTube auto-captions of the talk at ~8:46",
+   "url": "https://siepr.stanford.edu/news/what-point-do-we-decide-ais-risks-outweigh-its-promise",
+   "date": "2024-05-31"
+  },
+  {
+   "claim": "In the next breath he said he had 'actually just agreed to fund a company that is not even really a company sort of a semi company semi- nonprofit uh doing AI Safety Research' (auto-captions); BI: 'Altman shared that he recently invested in a company doing \"AI safety research\"'. SIEPR: 'That company was OpenAI'.",
+   "source": "YouTube auto-captions ~9:00 of d6lDZpvHAoo; Business Insider; SIEPR",
+   "url": "https://www.youtube.com/watch?v=d6lDZpvHAoo",
+   "date": "2015-06-04"
+  },
+  {
+   "claim": "Same talk: \"If I were Barack Obama, I would commit maybe $100 billion to R&D of AI safety initiatives.\"",
+   "source": "Business Insider",
+   "url": "https://www.businessinsider.com/sam-altman-y-combinator-talks-mega-bubble-nuclear-power-and-more-2015-6",
+   "date": "2015-06-04"
+  },
+  {
+   "claim": "Same talk (auto-captions, ~38:20): on brain-scale compute, 'maybe it takes us till 2030 to get there um it's not it's not 100 years away and we'll figure out the algorithm' ... 'right now the answer is we have no idea' how to make AI safe.",
+   "source": "YouTube auto-generated captions (machine transcription) of the Open Air 2015 fireside chat re-upload",
+   "url": "https://www.youtube.com/watch?v=d6lDZpvHAoo",
+   "date": "2015-06-04"
+  },
+  {
+   "claim": "Feb 25, 2015, Altman's blog: \"Development of superhuman machine intelligence (SMI) [1] is probably the greatest threat to the continued existence of humanity.\"",
+   "source": "Sam Altman, 'Machine intelligence, part 1'",
+   "url": "https://blog.samaltman.com/machine-intelligence-part-1",
+   "date": "2015-02-25"
+  },
+  {
+   "claim": "Economist Chad Jones: with log utility, people 'are willing to take a one-in-three chance of killing everyone to get a 50-fold increase in consumption'.",
+   "source": "Stanford SIEPR summary of Jones, 'The AI Dilemma: Growth versus Existential Risk', AER: Insights 2024, 6(4): 575-590",
+   "url": "https://siepr.stanford.edu/news/what-point-do-we-decide-ais-risks-outweigh-its-promise",
+   "date": "2024-05-31"
+  },
+  {
+   "claim": "Jones: if AI spurs 10% annual growth, global incomes rise more than 50-fold over 40 years (vs. US real per-capita GDP doubling in the past 40 years).",
+   "source": "Stanford SIEPR / Jones (AER: Insights 2024)",
+   "url": "https://siepr.stanford.edu/news/what-point-do-we-decide-ais-risks-outweigh-its-promise",
+   "date": "2024-05-31"
+  },
+  {
+   "claim": "Jones: 'cutting mortality in half suddenly turns your willingness to accept existential risk from 4 percent to 25 percent or even more.'",
+   "source": "Stanford SIEPR / Jones (AER: Insights 2024)",
+   "url": "https://siepr.stanford.edu/news/what-point-do-we-decide-ais-risks-outweigh-its-promise",
+   "date": "2024-05-31"
+  },
+  {
+   "claim": "The quote went viral again in 2026: Tom's Guide (Jan 8, 2026) and TechRadar Pro 'Quote of the day' (June 15, 2026) both ran it in headlines.",
+   "source": "Tom's Guide; TechRadar Pro",
+   "url": "https://www.techradar.com/pro/quote-of-the-day-by-sam-altman-ai-will-probably-most-likely-lead-to-the-end-of-the-world-but-in-the-meantime-therell-be-great-companies-the-dichotomy-between-grave-existential-risks-and-economic-nirvana",
+   "date": "2026-06-15"
+  },
+  {
+   "claim": "(Tangential) New Yorker, 2016: Altman said 'I have guns, gold, potassium iodide, antibiotics, batteries, water, gas masks from the Israeli Defense Force, and a big patch of land in Big Sur I can fly to' -- citing scenarios incl. 'A.I. that attacks us'.",
+   "source": "Tad Friend, 'Sam Altman’s Manifest Destiny', The New Yorker (2016-10-03 online)",
+   "url": "https://www.newyorker.com/magazine/2016/10/10/sam-altmans-manifest-destiny",
+   "date": "2016-10-03"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "Wording as given in the outline ('AI will most likely lead to the end of the world, but in the meantime there will be great companies')",
+   "searched": "BI original, Yahoo syndication, FLI repost, SIEPR, TechRadar, Tom's Guide, video auto-captions. No source has this exact form: every version includes 'probably' (BI: 'probably most likely'; spoken: 'probably, most likely, sort of'). Use the BI wording or the SIEPR/spoken wording verbatim."
+  },
+  {
+   "outline_item": "Quote in Mashable / The Guardian / The New Yorker",
+   "searched": "WebSearch for the quote with Guardian/Mashable/New Yorker; loaded New Yorker 'Sam Altman's Manifest Destiny' (2016) and 'Sam Altman May Control Our Future—Can He Be Trusted?' (2026-04-06): neither contains the quote. Original report is Business Insider (Matt Weinberger)."
+  },
+  {
+   "outline_item": "Original Airbnb YouTube upload / HD video / local video clip of the moment",
+   "searched": "Invidious search (only the 'nova clave' re-upload d6lDZpvHAoo exists, max 360p); YouTube and yt-dlp blocked ('confirm you're not a bot'); Invidious download companion failed (po-token). Use d.video with embed start=525."
+  },
+  {
+   "outline_item": "Financial Times chart 'encapsulating' the comment (mentioned by TechRadar)",
+   "searched": "Not pursued beyond TechRadar's mention; link not resolved."
+  }
+ ]
+}

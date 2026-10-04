@@ -1,0 +1,154 @@
+{
+ "url": "https://www.unicef.org/press-releases/deepfake-abuse-is-abuse",
+ "viewport_width": 600,
+ "viewport_height": 800,
+ "device_scale_factor": 3,
+ "captured": "2026-10-04T12:00:55.929Z",
+ "capture": "headless Chromium (Playwright), only the Klaro cookie notice removed; crops of one full-page screenshot",
+ "fullpage": "unicef-deepfake-abuse-is-abuse-fullpage-w600.png",
+ "shots": [
+  {
+   "file": "unicef-deepfake-abuse-is-abuse-headline-w600.png",
+   "image_px": [
+    1740,
+    552
+   ],
+   "fullpage_clip_px": [
+    30,
+    330,
+    1740,
+    552
+   ],
+   "highlights": [
+    {
+     "text": "‘Deepfake abuse is abuse’",
+     "line_rects_px": [
+      [
+       30,
+       147,
+       1680,
+       114
+      ]
+     ]
+    },
+    {
+     "text": "Statement by UNICEF on AI-generated sexualised images of children",
+     "bbox_px": [
+      30,
+      279,
+      1680,
+      168
+     ]
+    },
+    {
+     "text": "04 February 2026",
+     "line_rects_px": [
+      [
+       30,
+       459,
+       293.9,
+       51
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "file": "unicef-deepfake-abuse-is-abuse-1p2m-paragraph-w600.png",
+   "image_px": [
+    1740,
+    396
+   ],
+   "fullpage_clip_px": [
+    30,
+    2928,
+    1740,
+    396
+   ],
+   "paragraph_text": "“New evidence confirms the scale of this fast-growing threat: In a UNICEF, ECPAT and INTERPOL study across 11 countries, at least 1.2 million children* disclosed having had their images manipulated into sexually explicit deepfakes in the past year. In some countries, this represents 1 in 25 children – the equivalent of one child in a typical classroom.",
+   "highlights": [
+    {
+     "text": "In a UNICEF, ECPAT and INTERPOL study across 11 countries, at least 1.2 million children* disclosed having had their images manipulated into sexually explicit deepfakes in the past year.",
+     "line_rects_px": [
+      [
+       1406.8,
+       33,
+       277.7,
+       66
+      ],
+      [
+       30,
+       99,
+       1494.8,
+       66
+      ],
+      [
+       30,
+       165,
+       1581.6,
+       66
+      ],
+      [
+       30,
+       231,
+       769.7,
+       66
+      ]
+     ]
+    },
+    {
+     "text": "In some countries, this represents 1 in 25 children – the equivalent of one child in a typical classroom.",
+     "line_rects_px": [
+      [
+       812.1,
+       231.2,
+       862.0,
+       66
+      ],
+      [
+       30,
+       297.2,
+       1405.7,
+       66
+      ]
+     ]
+    },
+    {
+     "text": "(both sentences, merged per text line)",
+     "line_rects_px": [
+      [
+       1406.8,
+       33,
+       277.7,
+       66
+      ],
+      [
+       30,
+       99,
+       1494.8,
+       66
+      ],
+      [
+       30,
+       165,
+       1581.6,
+       66
+      ],
+      [
+       30,
+       231,
+       1644.1,
+       66
+      ],
+      [
+       30,
+       297,
+       1405.7,
+       66
+      ]
+     ]
+    }
+   ]
+  }
+ ]
+}

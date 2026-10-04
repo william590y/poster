@@ -7474,6 +7474,203 @@
    "verified": true,
    "notes": "https://www.commonsensemedia.org/sites/default/files/research/2026_csm_teensaipornography_site_thumbnail.png ; the 300-dpi PDF render csm-report-p01-cover.png is sharper.",
    "rev": "rev2"
+  },
+  {
+   "id": "unicef-deepfake-abuse-is-abuse-headline",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "headline",
+   "file": "rev3/unicef-deepfake-abuse-is-abuse-headline-w600.png",
+   "headline": "‘Deepfake abuse is abuse’",
+   "dek": "Statement by UNICEF on AI-generated sexualised images of children",
+   "outlet": "UNICEF",
+   "date": "2026-02-04",
+   "url": "https://www.unicef.org/press-releases/deepfake-abuse-is-abuse",
+   "caption": "UNICEF statement page: 'Statement' kicker, headline, subhead and date (04 February 2026)",
+   "quality": 4,
+   "verified": true,
+   "notes": "Crop A of rev3/unicef-deepfake-abuse-is-abuse-fullpage-w600.png (the hero 'Statement' graphic and language links sit between this and the 1.2-million paragraph, so the page is shown as two crops). Also covered by UN News, 4 Feb 2026, \"'Deepfake abuse is abuse,' UNICEF warns\" https://news.un.org/en/story/2026/02/1166886",
+   "image_px": [
+    1740,
+    552
+   ],
+   "capture": "headless Chromium (Playwright), viewport 600x800 CSS px, deviceScaleFactor 3; only the Klaro cookie notice removed; crops of one full-page screenshot",
+   "highlights": [
+    {
+     "text": "‘Deepfake abuse is abuse’",
+     "line_rects_px": [
+      [
+       30,
+       147,
+       1680,
+       114
+      ]
+     ]
+    },
+    {
+     "text": "Statement by UNICEF on AI-generated sexualised images of children",
+     "bbox_px": [
+      30,
+      279,
+      1680,
+      168
+     ]
+    },
+    {
+     "text": "04 February 2026",
+     "line_rects_px": [
+      [
+       30,
+       459,
+       293.9,
+       51
+      ]
+     ]
+    }
+   ],
+   "rev": "rev3"
+  },
+  {
+   "id": "unicef-deepfake-abuse-is-abuse-1p2m",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "rev3/unicef-deepfake-abuse-is-abuse-1p2m-paragraph-w600.png",
+   "headline": "",
+   "dek": "“New evidence confirms the scale of this fast-growing threat: In a UNICEF, ECPAT and INTERPOL study across 11 countries, at least 1.2 million children* disclosed having had their images manipulated into sexually explicit deepfakes in the past year. In some countries, this represents 1 in 25 children – the equivalent of one child in a typical classroom.",
+   "outlet": "UNICEF",
+   "date": "2026-02-04",
+   "url": "https://www.unicef.org/press-releases/deepfake-abuse-is-abuse",
+   "caption": "UNICEF statement paragraph: 'at least 1.2 million children ... in the past year. In some countries, this represents 1 in 25 children'",
+   "quality": 4,
+   "verified": true,
+   "notes": "Footnote (*) verbatim: 'This new data forms part of Disrupting Harm Phase 2 ... led by UNICEF's Office of Strategy and Evidence – Innocenti, ECPAT International and INTERPOL, with funding from Safe Online. ... The estimates presented here are based on nationally representative household surveys implemented by UNICEF and IPSOS across 11 countries. Approximately 1000 internet-using children aged 12-17 and 1000 of their parents or caregivers were surveyed per country, using a sampling design aimed at achieving full or near full national coverage (91–100%). National prevalence estimates were used to model the 1.2 million estimate, weighting them by UN 2024 population-level data and estimated child internet-use rates.' The 11 countries are not named in the statement. Highlight rects: 'line_rects_px' per sentence (checked by overlay); the third entry merges both sentences per text line.",
+   "image_px": [
+    1740,
+    396
+   ],
+   "capture": "headless Chromium (Playwright), viewport 600x800 CSS px, deviceScaleFactor 3; only the Klaro cookie notice removed; crops of one full-page screenshot",
+   "highlights": [
+    {
+     "text": "In a UNICEF, ECPAT and INTERPOL study across 11 countries, at least 1.2 million children* disclosed having had their images manipulated into sexually explicit deepfakes in the past year.",
+     "line_rects_px": [
+      [
+       1406.8,
+       33,
+       277.7,
+       66
+      ],
+      [
+       30,
+       99,
+       1494.8,
+       66
+      ],
+      [
+       30,
+       165,
+       1581.6,
+       66
+      ],
+      [
+       30,
+       231,
+       769.7,
+       66
+      ]
+     ]
+    },
+    {
+     "text": "In some countries, this represents 1 in 25 children – the equivalent of one child in a typical classroom.",
+     "line_rects_px": [
+      [
+       812.1,
+       231.2,
+       862.0,
+       66
+      ],
+      [
+       30,
+       297.2,
+       1405.7,
+       66
+      ]
+     ]
+    },
+    {
+     "text": "(both sentences, merged per text line)",
+     "line_rects_px": [
+      [
+       1406.8,
+       33,
+       277.7,
+       66
+      ],
+      [
+       30,
+       99,
+       1494.8,
+       66
+      ],
+      [
+       30,
+       165,
+       1581.6,
+       66
+      ],
+      [
+       30,
+       231,
+       1644.1,
+       66
+      ],
+      [
+       30,
+       297,
+       1405.7,
+       66
+      ]
+     ]
+    }
+   ],
+   "rev": "rev3"
+  },
+  {
+   "id": "evidence-unicef-deepfake-abuse-is-abuse-fullpage",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "rev3/unicef-deepfake-abuse-is-abuse-fullpage-w600.png",
+   "headline": "‘Deepfake abuse is abuse’",
+   "dek": "",
+   "outlet": "UNICEF",
+   "date": "2026-02-04",
+   "url": "https://www.unicef.org/press-releases/deepfake-abuse-is-abuse",
+   "caption": "Full UNICEF statement page (source of both crops); coordinates in rev3/unicef-deepfake-coords-w600.json",
+   "quality": 2,
+   "verified": true,
+   "notes": "Evidence/reference capture.",
+   "image_px": [
+    1800,
+    22032
+   ],
+   "capture": "headless Chromium (Playwright), viewport 600x800 CSS px, deviceScaleFactor 3; only the Klaro cookie notice removed; crops of one full-page screenshot",
+   "highlights": [],
+   "rev": "rev3"
+  },
+  {
+   "id": "gmu-plos-one-teens-nudification-2026",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "headline",
+   "file": null,
+   "headline": "Half of surveyed U.S. teens have used AI to create sexualized images",
+   "dek": "1/3 teens also reported being victims of these nudification tools, having had their image created and shared non-consensually",
+   "outlet": "EurekAlert! (PLOS press release)",
+   "author": "Chad M. S. Steel (George Mason University)",
+   "date": "2026-03-18",
+   "url": "https://www.eurekalert.org/news-releases/1119600",
+   "caption": "Press release for Steel CMS (2026), 'Prevalence of generative artificial intelligence sexualized image usage by adolescents in the United States', PLOS One, doi:10.1371/journal.pone.0342824",
+   "quality": 3,
+   "verified": true,
+   "notes": "NOTES ONLY — outlier. Paper: https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0342824 . Anonymous online survey hosted by Qualtrics, 557 English-speaking US residents aged 13–17, fielded January 11–24, 2025, with parental consent; panel members recruited via their parents, 'non-probability quota-based methodology' (the abstract calls it 'nationally representative', but it is not a probability sample). Abstract: 'In this exploratory study ...'. Verbatim (release): '55.3 percent reported that they had used nudification tools to create at least one image of themselves or others, and 54.4 percent reported that they had received such an image. In addition, 36.3 percent reported that at least one sexualized GenAI image of themselves had been created by someone else without their consent, and 33.2 percent reported that at least one sexualized GenAI image of themselves had been non-consensually distributed.' Far above Common Sense (8% made it themselves, n=1,314, weighted to the US teen population, ±2.7 pts) and Thorn (2% made one; 4% had one made of them).",
+   "rev": "rev3"
   }
  ],
  "datasets": [
@@ -8903,6 +9100,38 @@
    "date": "2025-09-24",
    "verbatim": "we found that 13 percent of principals reported incidents of bullying that involved AI-generated deepfakes during the 2023–2024 and 2024–2025 school years",
    "rev": "rev2"
+  },
+  {
+   "claim": "UNICEF/ECPAT/INTERPOL (Feb 2026): at least 1.2 million children in 11 countries disclosed having had their images manipulated into sexually explicit deepfakes in the past year; in some countries that is 1 in 25 children — 'one child in a typical classroom'.",
+   "source": "UNICEF statement 'Deepfake abuse is abuse' (Disrupting Harm Phase 2; Ipsos household surveys of ~1,000 internet-using children aged 12–17 per country)",
+   "url": "https://www.unicef.org/press-releases/deepfake-abuse-is-abuse",
+   "date": "2026-02-04",
+   "verbatim": "In a UNICEF, ECPAT and INTERPOL study across 11 countries, at least 1.2 million children* disclosed having had their images manipulated into sexually explicit deepfakes in the past year. In some countries, this represents 1 in 25 children – the equivalent of one child in a typical classroom.",
+   "rev": "rev3"
+  },
+  {
+   "claim": "UNICEF (Feb 2026): in some study countries, up to two thirds of children worry AI could be used to create fake sexual images or videos of them.",
+   "source": "UNICEF statement 'Deepfake abuse is abuse'",
+   "url": "https://www.unicef.org/press-releases/deepfake-abuse-is-abuse",
+   "date": "2026-02-04",
+   "verbatim": "In some of the study countries, up to two thirds of children said they worry that AI could be used to create fake sexual images or videos.",
+   "rev": "rev3"
+  },
+  {
+   "claim": "Exploratory PLOS One survey (557 US teens 13–17, Jan 2025, non-probability Qualtrics panel): 36.3% said someone created a sexualized GenAI image of them without consent; 55.3% said they had used nudification tools to create at least one image.",
+   "source": "Steel CMS, PLOS One (Mar 18, 2026), George Mason University",
+   "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0342824",
+   "date": "2026-03-18",
+   "verbatim": "Use of nudification tools was widespread, with 55.3% (n = 308) of participants reporting having created and 54.4% (n = 303) having received at least one image. Reported victimization levels of participants was substantial, with 36.3% (n = 202) of individuals reporting having a non-consensual image created and 33.2% (n = 185) of individuals having had at least one image non-consensually shared.",
+   "rev": "rev3"
+  },
+  {
+   "claim": "NCMEC: of the 400,000+ GAI-nexus CyberTipline reports in 2025, more than 200,000 'indicated a GAI nexus but without enough information to know how the GAI was being used in the exploitation of a child'.",
+   "source": "NCMEC Generative AI page, By the Numbers",
+   "url": "https://www.missingkids.org/theissues/generative-ai",
+   "date": "2026",
+   "verbatim": "Additionally, more than 200,000 reports indicated a GAI nexus but without enough information to know how the GAI was being used in the exploitation of a child.",
+   "rev": "rev3"
   }
  ],
  "not_found": [
@@ -9007,6 +9236,16 @@
    "rev": "rev2",
    "subtask": "deepfake",
    "caveat": "Highlight coordinates: every highlights[].bbox_px / line_rects_px is [x, y, w, h] in pixels of THAT image file (top-left origin). Use line_rects_px for multi-line passages. Overlay native semi-transparent shapes; do not paint on the screenshot."
+  },
+  {
+   "rev": "rev3",
+   "subtask": "deepfake",
+   "caveat": "UNICEF's 1.2 million is a modelled estimate (national prevalence from ~1,000 internet-using children aged 12–17 per country, weighted by UN 2024 population data and estimated child internet-use rates), and '1 in 25' holds only 'in some countries'. The 11 countries are not named in the statement. UNICEF's later 3 Sep 2026 report (21 countries, tech-facilitated sexual exploitation overall) does not update the deepfake figure."
+  },
+  {
+   "rev": "rev3",
+   "subtask": "deepfake",
+   "caveat": "George Mason / PLOS One (Mar 2026) numbers (36.3% victims, 55.3% creators) come from an exploratory non-probability Qualtrics quota sample and are far above Common Sense (8% made it themselves) and Thorn (2% made one, 4% victims); notes only."
   }
  ]
 }

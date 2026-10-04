@@ -1,0 +1,399 @@
+{
+ "group": "work",
+ "task": "realfake",
+ "items": [
+  {
+   "id": "rabench-paper",
+   "slide_topic": "Which one is real? (video Turing test quiz)",
+   "type": "screenshot",
+   "file": "rabench-arxiv-abstract.png",
+   "headline": "Can We Defend Against AI-Generated Video Attacks on Real-World Crisis Events? A Systematic Evaluation of Detectors, Generators and Social Dissemination",
+   "dek": "Recent video generators can fabricate realistic depictions of wars, disasters, public emergencies, and other real-world crises, creating substantial risks of misinformation.",
+   "outlet": "arXiv 2608.14391 (cs.CV)",
+   "author": "Shuo Liang, Yixing Ma, Pengfei Zhou, ... Kaipeng Zhang, Wangbo Zhao (38 authors)",
+   "date": "2026-08-14",
+   "url": "https://arxiv.org/abs/2608.14391",
+   "caption": "arXiv abstract page (v2, revised 2026-08-17): title, authors, abstract",
+   "quality": 4,
+   "verified": true,
+   "notes": "Submitted 14 Aug 2026 (v1), revised 17 Aug 2026 (v2). 63 pages, 20 figures, 32 tables. License: arXiv.org perpetual non-exclusive license (not CC). Dataset: https://huggingface.co/datasets/liangshuo0111/RA-Bench (public, not gated; no README/LICENSE file in the repo)."
+  },
+  {
+   "id": "rabench-fig1-teaser",
+   "slide_topic": "Which one is real? (video Turing test quiz)",
+   "type": "image",
+   "file": "rabench-fig1-teaser.png",
+   "headline": null,
+   "dek": "Figure 1 | Which is which? Real and AI-generated clips from four crisis scenarios are paired side by side; identify the synthetic example in each pair before consulting the answer key on the following page.",
+   "outlet": "arXiv 2608.14391 Fig. 1",
+   "date": "2026-08-14",
+   "url": "https://arxiv.org/html/2608.14391v2",
+   "caption": "Paper's own 'CAN YOU TELL — REAL OR GENERATED?' teaser: 4 scenarios (I Military alert, II Fuel-tank fire, III Wildfire recon, IV Pandemic lockdown/vaccination), 2 columns x 5 frames each",
+   "quality": 5,
+   "verified": true,
+   "notes": "1867x1182 PNG from arxiv.org/html/2608.14391v2/fengmian_v6.png. Answer key, verbatim from PDF p.2: 'Figure 1 answer key (from page 1; left/right): I Generated/Real; II Real/Generated; III Real/Generated; IV Generated/Real.' The GIF pairs below are the actual clips for scenarios I, III and IV (matched by frame comparison; the AI clips are Seedance 2.0). Scenario II (Pasadena chemical-plant fire) uses AP footage that RA-Bench does not redistribute."
+  },
+  {
+   "id": "rabench-fig1-wildfire-real",
+   "slide_topic": "Which one is real? (video Turing test quiz)",
+   "type": "video",
+   "file": "rabench-fig1-wildfire-real.gif",
+   "headline": null,
+   "dek": null,
+   "outlet": "RA-Bench (arXiv 2608.14391) / Hugging Face dataset liangshuo0111/RA-Bench",
+   "date": "2026-08-14",
+   "url": "https://huggingface.co/datasets/liangshuo0111/RA-Bench/resolve/main/media/main/real/L1-01/L1-01_L2-01b_0007__scene_002.mp4",
+   "caption": "REAL: cockpit view from a California Air National Guard C-130J over the Palisades Fire smoke plume, retardant drop on the hills (first 8.04 s of the 14.8 s RA-Bench clip)",
+   "quality": 5,
+   "verified": true,
+   "pair": "fig1-wildfire",
+   "label": "REAL",
+   "mp4": "rabench-fig1-wildfire-real.mp4",
+   "poster": "rabench-fig1-wildfire-real-poster.jpg",
+   "source_mp4": "realfake_src/rabench-fig1-wildfire-real.mp4",
+   "origin": "DVIDS 949356 'Inside the cockpit of California National Guard's MAFFS 6 C-130J supporting firefighting efforts against Palisades Fire' (Master Sgt. Nicholas Carzis, 146th Airlift Wing; taken 2025-01-11; public domain) https://www.dvidshub.net/video/949356",
+   "notes": "Looping GIF 960x540, 24 fps, per-frame palette + sierra2_4a dither, gifsicle -O3 (no lossy). Matching .mp4 (1280x720, 24 fps, H.264 CRF 14, no audio) and -poster.jpg (first frame) alongside. Real and AI clip of a pair have identical size, fps, frame count and start time (t=0); the AI clip is image-to-video conditioned on the real clip's FIRST FRAME, so both open on the same picture and then diverge. RA-Bench clip_id L1-01_L2-01b_0007__scene_002 (category L1-01 natural disasters / L2-01b wildfire). Figure 1 scenario III, LEFT column (answer key: Real)."
+  },
+  {
+   "id": "rabench-fig1-wildfire-ai-seedance2",
+   "slide_topic": "Which one is real? (video Turing test quiz)",
+   "type": "video",
+   "file": "rabench-fig1-wildfire-ai-seedance2.gif",
+   "headline": null,
+   "dek": null,
+   "outlet": "RA-Bench (arXiv 2608.14391) / Hugging Face dataset liangshuo0111/RA-Bench",
+   "date": "2026-08-14",
+   "url": "https://huggingface.co/datasets/liangshuo0111/RA-Bench/resolve/main/media/main/generated/seedance2/L1-01_L2-01b_0007__scene_002.mp4",
+   "caption": "AI-GENERATED (Seedance 2.0): same cockpit/smoke scene synthesised from the real clip's first frame (full 8.04 s clip)",
+   "quality": 5,
+   "verified": true,
+   "pair": "fig1-wildfire",
+   "label": "AI-GENERATED (Seedance 2.0)",
+   "mp4": "rabench-fig1-wildfire-ai-seedance2.mp4",
+   "poster": "rabench-fig1-wildfire-ai-seedance2-poster.jpg",
+   "source_mp4": "realfake_src/rabench-fig1-wildfire-seedance2.mp4",
+   "origin": "Generated by RA-Bench authors with ByteDance Seedance 2.0 (API model doubao-seedance-2-0-260128), image-to-video from the real clip's first frame",
+   "notes": "Looping GIF 960x540, 24 fps, per-frame palette + sierra2_4a dither, gifsicle -O3 (no lossy). Matching .mp4 (1280x720, 24 fps, H.264 CRF 14, no audio) and -poster.jpg (first frame) alongside. Real and AI clip of a pair have identical size, fps, frame count and start time (t=0); the AI clip is image-to-video conditioned on the real clip's FIRST FRAME, so both open on the same picture and then diverge. In RA-Bench-HumanProof: all 3 Stage-1 reviewers AND both Stage-2 reviewers labelled this AI clip 'Real' (all_five_judged_real=True). Figure 1 scenario III, RIGHT column (answer key: Generated).",
+   "humanproof": true
+  },
+  {
+   "id": "rabench-fig1-vaccination-real",
+   "slide_topic": "Which one is real? (video Turing test quiz)",
+   "type": "video",
+   "file": "rabench-fig1-vaccination-real.gif",
+   "headline": null,
+   "dek": null,
+   "outlet": "RA-Bench (arXiv 2608.14391) / Hugging Face dataset liangshuo0111/RA-Bench",
+   "date": "2026-08-14",
+   "url": "https://huggingface.co/datasets/liangshuo0111/RA-Bench/resolve/main/media/main/real/L1-07/L1-07_L2-07c_0012__scene_007.mp4",
+   "caption": "REAL: National Guard soldier in hi-vis vest and face shield vaccinating a driver at a drive-through COVID-19 site (first 8.04 s of the 14.9 s RA-Bench clip; source is 59.94 fps, resampled to 24 fps)",
+   "quality": 5,
+   "verified": true,
+   "pair": "fig1-vaccination",
+   "label": "REAL",
+   "mp4": "rabench-fig1-vaccination-real.mp4",
+   "poster": "rabench-fig1-vaccination-real-poster.jpg",
+   "source_mp4": "realfake_src/rabench-fig1-vaccination-real.mp4",
+   "origin": "DVIDS 783671 'Cal Guard supports vaccine site at Cal State LA' (Spc. Simone Lara, California National Guard; taken 2021-02-16; public domain) https://www.dvidshub.net/video/783671",
+   "notes": "Looping GIF 960x540, 24 fps, per-frame palette + sierra2_4a dither, gifsicle -O3 (no lossy). Matching .mp4 (1280x720, 24 fps, H.264 CRF 14, no audio) and -poster.jpg (first frame) alongside. Real and AI clip of a pair have identical size, fps, frame count and start time (t=0); the AI clip is image-to-video conditioned on the real clip's FIRST FRAME, so both open on the same picture and then diverge. RA-Bench clip_id L1-07_L2-07c_0012__scene_007 (category L1-07 public health). Figure 1 scenario IV, RIGHT column (answer key: Real)."
+  },
+  {
+   "id": "rabench-fig1-vaccination-ai-seedance2",
+   "slide_topic": "Which one is real? (video Turing test quiz)",
+   "type": "video",
+   "file": "rabench-fig1-vaccination-ai-seedance2.gif",
+   "headline": null,
+   "dek": null,
+   "outlet": "RA-Bench (arXiv 2608.14391) / Hugging Face dataset liangshuo0111/RA-Bench",
+   "date": "2026-08-14",
+   "url": "https://huggingface.co/datasets/liangshuo0111/RA-Bench/resolve/main/media/main/generated/seedance2/L1-07_L2-07c_0012__scene_007.mp4",
+   "caption": "AI-GENERATED (Seedance 2.0): the vaccination scene continued by the model; ends on a wide shot with cones and tents that never existed (full 8.04 s clip)",
+   "quality": 5,
+   "verified": true,
+   "pair": "fig1-vaccination",
+   "label": "AI-GENERATED (Seedance 2.0)",
+   "mp4": "rabench-fig1-vaccination-ai-seedance2.mp4",
+   "poster": "rabench-fig1-vaccination-ai-seedance2-poster.jpg",
+   "source_mp4": "realfake_src/rabench-fig1-vaccination-seedance2.mp4",
+   "origin": "Generated by RA-Bench authors with ByteDance Seedance 2.0 (doubao-seedance-2-0-260128), image-to-video from the real clip's first frame",
+   "notes": "Looping GIF 960x540, 24 fps, per-frame palette + sierra2_4a dither, gifsicle -O3 (no lossy). Matching .mp4 (1280x720, 24 fps, H.264 CRF 14, no audio) and -poster.jpg (first frame) alongside. Real and AI clip of a pair have identical size, fps, frame count and start time (t=0); the AI clip is image-to-video conditioned on the real clip's FIRST FRAME, so both open on the same picture and then diverge. In RA-Bench-HumanProof: labelled 'Real' by all five reviewers. Figure 1 scenario IV, LEFT column (answer key: Generated).",
+   "humanproof": true
+  },
+  {
+   "id": "rabench-fig1-military-real",
+   "slide_topic": "Which one is real? (video Turing test quiz)",
+   "type": "video",
+   "file": "rabench-fig1-military-real.gif",
+   "headline": null,
+   "dek": null,
+   "outlet": "RA-Bench (arXiv 2608.14391) / Hugging Face dataset liangshuo0111/RA-Bench",
+   "date": "2026-08-14",
+   "url": "https://huggingface.co/datasets/liangshuo0111/RA-Bench/resolve/main/media/main/real/L1-02/L1-02_L2-02d_0012__scene_004.mp4",
+   "caption": "REAL: paratroopers in helmet camouflage moving and aiming on a dark hillside during a blank-fire exercise (first 7.04 s of the 13.5 s RA-Bench clip)",
+   "quality": 5,
+   "verified": true,
+   "pair": "fig1-military",
+   "label": "REAL",
+   "mp4": "rabench-fig1-military-real.mp4",
+   "poster": "rabench-fig1-military-real-poster.jpg",
+   "source_mp4": "realfake_src/rabench-fig1-military-real.mp4",
+   "origin": "DVIDS 963299 'Swift Response 25: Sky Soldiers Conduct a Blank Fire Exercise' (Staff Sgt. Randis Monroe; 173rd Airborne Brigade paratroopers, Adazi Training Area, Latvia; taken 2025-05-19; public domain) https://www.dvidshub.net/video/963299",
+   "notes": "Looping GIF 960x540, 24 fps, per-frame palette + sierra2_4a dither, gifsicle -O3 (no lossy). Matching .mp4 (1280x720, 24 fps, H.264 CRF 14, no audio) and -poster.jpg (first frame) alongside. Real and AI clip of a pair have identical size, fps, frame count and start time (t=0); the AI clip is image-to-video conditioned on the real clip's FIRST FRAME, so both open on the same picture and then diverge. RA-Bench clip_id L1-02_L2-02d_0012__scene_004 (category L1-02 armed conflict / L2-02d military exercise). Figure 1 scenario I, RIGHT column (answer key: Real). Note: it is a training exercise with blank rounds, not combat."
+  },
+  {
+   "id": "rabench-fig1-military-ai-seedance2",
+   "slide_topic": "Which one is real? (video Turing test quiz)",
+   "type": "video",
+   "file": "rabench-fig1-military-ai-seedance2.gif",
+   "headline": null,
+   "dek": null,
+   "outlet": "RA-Bench (arXiv 2608.14391) / Hugging Face dataset liangshuo0111/RA-Bench",
+   "date": "2026-08-14",
+   "url": "https://huggingface.co/datasets/liangshuo0111/RA-Bench/resolve/main/media/main/generated/seedance2/L1-02_L2-02d_0012__scene_004.mp4",
+   "caption": "AI-GENERATED (Seedance 2.0): soldiers aim from the slope, then the model cuts to a close-up of two soldiers firing scoped rifles (full 7.04 s clip)",
+   "quality": 4,
+   "verified": true,
+   "pair": "fig1-military",
+   "label": "AI-GENERATED (Seedance 2.0)",
+   "mp4": "rabench-fig1-military-ai-seedance2.mp4",
+   "poster": "rabench-fig1-military-ai-seedance2-poster.jpg",
+   "source_mp4": "realfake_src/rabench-fig1-military-seedance2.mp4",
+   "origin": "Generated by RA-Bench authors with ByteDance Seedance 2.0 (doubao-seedance-2-0-260128), image-to-video from the real clip's first frame",
+   "notes": "Looping GIF 960x540, 24 fps, per-frame palette + sierra2_4a dither, gifsicle -O3 (no lossy). Matching .mp4 (1280x720, 24 fps, H.264 CRF 14, no audio) and -poster.jpg (first frame) alongside. Real and AI clip of a pair have identical size, fps, frame count and start time (t=0); the AI clip is image-to-video conditioned on the real clip's FIRST FRAME, so both open on the same picture and then diverge. NOT in RA-Bench-HumanProof (reviewers did not unanimously judge it real) - do not claim 'fooled all reviewers' for this one. Figure 1 scenario I, LEFT column (answer key: Generated).",
+   "humanproof": false
+  },
+  {
+   "id": "rabench-hp-trench-real",
+   "slide_topic": "Which one is real? (video Turing test quiz)",
+   "type": "video",
+   "file": "rabench-hp-trench-real.gif",
+   "headline": null,
+   "dek": null,
+   "outlet": "RA-Bench (arXiv 2608.14391) / Hugging Face dataset liangshuo0111/RA-Bench",
+   "date": "2026-08-14",
+   "url": "https://huggingface.co/datasets/liangshuo0111/RA-Bench/resolve/main/media/main/real/L1-02/L1-02_L2-02d_0012__scene_005.mp4",
+   "caption": "REAL: squad of paratroopers filing along a sunlit trench with an orange marker flag (first 4.04 s of the 7.3 s RA-Bench clip)",
+   "quality": 5,
+   "verified": true,
+   "pair": "hp-trench",
+   "label": "REAL",
+   "mp4": "rabench-hp-trench-real.mp4",
+   "poster": "rabench-hp-trench-real-poster.jpg",
+   "source_mp4": "realfake_src/rabench-hp-trench-real.mp4",
+   "origin": "DVIDS 963299 'Swift Response 25: Sky Soldiers Conduct a Blank Fire Exercise' (Staff Sgt. Randis Monroe; Adazi, Latvia; 2025-05-19; public domain) https://www.dvidshub.net/video/963299",
+   "notes": "Looping GIF 960x540, 24 fps, per-frame palette + sierra2_4a dither, gifsicle -O3 (no lossy). Matching .mp4 (1280x720, 24 fps, H.264 CRF 14, no audio) and -poster.jpg (first frame) alongside. Real and AI clip of a pair have identical size, fps, frame count and start time (t=0); the AI clip is image-to-video conditioned on the real clip's FIRST FRAME, so both open on the same picture and then diverge. RA-Bench clip_id L1-02_L2-02d_0012__scene_005. Not in Figure 1 - alternative to the fig1-military pair when you want every AI clip on the slide to be a HumanProof (fooled-all-five) example."
+  },
+  {
+   "id": "rabench-hp-trench-ai-seedance2",
+   "slide_topic": "Which one is real? (video Turing test quiz)",
+   "type": "video",
+   "file": "rabench-hp-trench-ai-seedance2.gif",
+   "headline": null,
+   "dek": null,
+   "outlet": "RA-Bench (arXiv 2608.14391) / Hugging Face dataset liangshuo0111/RA-Bench",
+   "date": "2026-08-14",
+   "url": "https://huggingface.co/datasets/liangshuo0111/RA-Bench/resolve/main/media/main/generated/seedance2/L1-02_L2-02d_0012__scene_005.mp4",
+   "caption": "AI-GENERATED (Seedance 2.0): the trench squad, synthesised from the real first frame (full 4.04 s clip)",
+   "quality": 5,
+   "verified": true,
+   "pair": "hp-trench",
+   "label": "AI-GENERATED (Seedance 2.0)",
+   "mp4": "rabench-hp-trench-ai-seedance2.mp4",
+   "poster": "rabench-hp-trench-ai-seedance2-poster.jpg",
+   "source_mp4": "realfake_src/rabench-hp-trench-seedance2.mp4",
+   "origin": "Generated by RA-Bench authors with ByteDance Seedance 2.0 (doubao-seedance-2-0-260128), image-to-video from the real clip's first frame",
+   "notes": "Looping GIF 960x540, 24 fps, per-frame palette + sierra2_4a dither, gifsicle -O3 (no lossy). Matching .mp4 (1280x720, 24 fps, H.264 CRF 14, no audio) and -poster.jpg (first frame) alongside. Real and AI clip of a pair have identical size, fps, frame count and start time (t=0); the AI clip is image-to-video conditioned on the real clip's FIRST FRAME, so both open on the same picture and then diverge. In RA-Bench-HumanProof: labelled 'Real' by all five reviewers.",
+   "humanproof": true
+  },
+  {
+   "id": "rabench-hf-dataset",
+   "slide_topic": "Which one is real? (video Turing test quiz)",
+   "type": "screenshot",
+   "file": "rabench-hf-dataset-files.png",
+   "headline": null,
+   "dek": null,
+   "outlet": "Hugging Face",
+   "date": "2026-08-12",
+   "url": "https://huggingface.co/datasets/liangshuo0111/RA-Bench/tree/main/media/main/generated",
+   "caption": "Public RA-Bench dataset on Hugging Face: one folder per generator (hailuo_2_3_fast, happy_horse, kling_v3, ltx_seed0, omniweaving_seed0, runway, seedance2, wan22_dynamic_seed0, wan22_lightning_seed0); generated folder is 64.4 GB",
+   "quality": 2,
+   "verified": true,
+   "notes": "Uploaded 2026-08-12 by liangshuo0111 (first author Shuo Liang, HF-verified on the paper page). Not gated. Repo has no dataset card/README or LICENSE; metadata/real_rights_release.csv records per-real-clip rights (the four real clips used here are 'us_gov_public_domain', DVIDS)."
+  }
+ ],
+ "datasets": [
+  {
+   "id": "rabench-human-judgments",
+   "title": "How 20 human reviewers labelled RA-Bench videos, by source (Stage 1, share of judgments)",
+   "unit": "% of judgments",
+   "labels": [
+    "Real videos",
+    "Wan2.2 dynamic",
+    "Wan2.2 Lightning",
+    "LTX",
+    "OmniWeaving",
+    "HappyHorse",
+    "Runway",
+    "Kling",
+    "Seedance 2.0",
+    "Hailuo"
+   ],
+   "series": [
+    {
+     "name": "Judged Real",
+     "values": [
+      71.9,
+      27.0,
+      28.5,
+      30.3,
+      19.5,
+      37.2,
+      34.8,
+      47.7,
+      51.9,
+      31.8
+     ]
+    },
+    {
+     "name": "Uncertain",
+     "values": [
+      5.3,
+      5.5,
+      4.9,
+      5.1,
+      4.7,
+      6.9,
+      5.6,
+      7.3,
+      7.4,
+      5.3
+     ]
+    },
+    {
+     "name": "Judged Generated",
+     "values": [
+      22.8,
+      67.5,
+      66.6,
+      64.6,
+      75.8,
+      55.9,
+      59.7,
+      45.1,
+      40.7,
+      63.0
+     ]
+    }
+   ],
+   "source": "RA-Bench, arXiv 2608.14391, Table 7 ('Human recognition varies sharply by generation source'). Open-source avg: 26.3/5.0/68.6; closed-source avg: 40.6/6.5/52.9; generated total (pooled): 33.9/5.8/60.3.",
+   "url": "https://arxiv.org/html/2608.14391v2"
+  },
+  {
+   "id": "df26-human-accuracy",
+   "title": "Human accuracy at spotting real vs AI videos: DF26 vs two older deepfake datasets",
+   "unit": "% accuracy",
+   "labels": [
+    "DF26 (2026)",
+    "CelebDF++ (CDFv3)",
+    "DeepSpeak v2 (DSv2)"
+   ],
+   "series": [
+    {
+     "name": "Real videos",
+     "values": [
+      76.0,
+      75.5,
+      72.8
+     ]
+    },
+    {
+     "name": "Fake videos",
+     "values": [
+      52.6,
+      74.5,
+      69.8
+     ]
+    }
+   ],
+   "source": "DF26, arXiv 2609.07369, Table 7 (232 labeling sessions; 30 videos each, 15 fake)",
+   "url": "https://arxiv.org/html/2609.07369v1"
+  }
+ ],
+ "facts": [
+  {
+   "claim": "Reviewers identify 68.6% of open-source videos as generated, but only 52.9% of closed-source videos, with Seedance2.0 and Kling falling to 40.7% and 45.1%.",
+   "source": "RA-Bench, arXiv 2608.14391 (verbatim)",
+   "url": "https://arxiv.org/abs/2608.14391",
+   "date": "2026-08-14"
+  },
+  {
+   "claim": "Seedance 2.0 fakes were judged 'Real' in 51.9% of reviewer judgments - versus 71.9% for genuine footage.",
+   "source": "RA-Bench Table 7",
+   "url": "https://arxiv.org/html/2608.14391v2",
+   "date": "2026-08-14"
+  },
+  {
+   "claim": "We use 633 generated videos that are labeled Real by all five reviewers to form RA-Bench-HumanProof.",
+   "source": "RA-Bench (verbatim); 160 of them from Kling and 159 from Seedance2.0",
+   "url": "https://arxiv.org/abs/2608.14391",
+   "date": "2026-08-14"
+  },
+  {
+   "claim": "Real crisis footage was labelled 'Generated' in 22.8% of judgments: 'Real videos depicting crisis events can therefore also be mistaken for generated content.'",
+   "source": "RA-Bench Sec. 4.3.1 (verbatim quote)",
+   "url": "https://arxiv.org/html/2608.14391v2",
+   "date": "2026-08-14"
+  },
+  {
+   "claim": "On RA-Bench-HumanProof, Gemini Binary and Diagnostic reach only 54.7% and 54.5% BAcc, while the seven traditional detectors average 47.5% AUC.",
+   "source": "RA-Bench (verbatim)",
+   "url": "https://arxiv.org/abs/2608.14391",
+   "date": "2026-08-14"
+  },
+  {
+   "claim": "After a simulated social-media re-share (H.264 re-encode + half resolution + 8 fps + a synthetic news badge), fine-tuned AI-video detectors' mean fake-detection rate fell from 46.0% to 1.4%.",
+   "source": "RA-Bench Sec. 1 findings + Sec. 4.3.3 ('the Full condition of the social dissemination simulation reduces mean FakeR across the five fine-tuned configurations from 46.0% to 1.4%'; Full = T1 VP9-to-H.264 transcode + T2 0.5x downsampling + T3 8 fps + T4 synthetic news badge)",
+   "url": "https://arxiv.org/html/2608.14391v2",
+   "date": "2026-08-14"
+  },
+  {
+   "claim": "RA-Bench: 17,886 videos - 1,830 real crisis clips across 10 social-risk categories plus 16,056 AI clips from four open-source and five closed-source generators; 20 reviewers made 53,550 Stage-1 judgments.",
+   "source": "RA-Bench abstract and Appendix D.1",
+   "url": "https://arxiv.org/abs/2608.14391",
+   "date": "2026-08-14"
+  },
+  {
+   "claim": "Figure 1 answer key (from page 1; left/right): I Generated/Real; II Real/Generated; III Real/Generated; IV Generated/Real.",
+   "source": "RA-Bench PDF p.2 (verbatim)",
+   "url": "https://arxiv.org/pdf/2608.14391v2",
+   "date": "2026-08-17"
+  },
+  {
+   "claim": "Accuracy on deepfakes from DF26 is 52.6%, near chance, compared to 74.5% and 69.8% on the other two, while accuracy on real videos is similar.",
+   "source": "DF26, arXiv 2609.07369 (verbatim; other two = CelebDF++ and DeepSpeak v2)",
+   "url": "https://arxiv.org/abs/2609.07369",
+   "date": "2026-09-07"
+  },
+  {
+   "claim": "DF26 video files are a controlled-access Hugging Face dataset (DF26/DF26); its license forbids publishing or redistributing any part, so DF26 clips cannot be shown in the deck.",
+   "source": "DF26 dataset card + LICENSE.md Sec. 5",
+   "url": "https://huggingface.co/datasets/DF26/DF26",
+   "date": "2026-09-09"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "DF26 (arXiv 2609.07369) real + AI video clips for the 'Which one is real?' slides (Fig. 1 triplets: real / Veo 3.1 / Kling 3.0)",
+   "searched": "arXiv abs + HTML (only external link is https://huggingface.co/datasets/DF26/DF26), HF API (datasets/spaces/models linked to arxiv:2609.07369), DuckDuckGo for a project page/GitHub: none. The HF dataset (271 real + 2,420 fake mp4, 1280x720 H.264) is gated ('Request access to DF26'): every file returns HTTP 401 without an approved account; access requires submitting name, institution, institutional email and intended use and agreeing to the DF26 license. LICENSE.md Sec. 5: 'Users may not redistribute, sublicense, sell, publish, mirror, upload, or otherwise transfer the dataset, in whole or in part, to any third party' (small excerpts only 'when expressly permitted by the maintainers'); Sec. 7: commercial-generator clips 'may not be redistributed'. Access was NOT requested on the user's behalf. Replaced by RA-Bench (public, same real-vs-I2V-fake design)."
+  },
+  {
+   "outline_item": "RA-Bench Figure 1 scenario II (fuel-tank fire, Pasadena) clip pair",
+   "searched": "Real anchor comes from Associated Press YouTube footage (likely https://www.youtube.com/watch?v=O0bZtjXQHms 'Explosion and fire at Texas chemical plant', per oEmbed title); RA-Bench marks AP clips 'url_only' / 'editorial_restricted' and does not ship the real file; YouTube downloads are blocked here. Only the AI half exists, so no pair was made."
+  },
+  {
+   "outline_item": "Explicit license for RA-Bench generated clips",
+   "searched": "HF repo has no README/dataset card or LICENSE file (README.md 404); paper text gives no reuse terms for generated media. Real clips used are US-government public domain (DVIDS, per metadata/real_rights_release.csv and the DVIDS pages). Credit 'RA-Bench, Liang et al., arXiv 2608.14391' on the slide/notes."
+  }
+ ],
+ "notes": "DF26 clips are gated + no-redistribution, so the quiz media come from RA-Bench (arXiv 2608.14391, public HF dataset). 4 real/AI pairs = 8 looping GIFs (960x540, 24 fps, identical size/fps/frame count/start within each pair; 48-90 MB each, ~530 MB total) + matching 1280x720 MP4s and first-frame posters. Strongest set: fig1-wildfire and fig1-vaccination (paper Figure 1 AND HumanProof: all five reviewers called the AI clip real) plus either hp-trench (HumanProof) or fig1-military (Figure 1, not HumanProof). All AI clips: ByteDance Seedance 2.0 image-to-video from the real clip's first frame. Real clips: US DoD/DVIDS public domain. Original downloads kept in realfake_src/."
+}

@@ -136,32 +136,37 @@ async function metrSlide(d) {
   s.addText('AI’s task horizon doubles every ~4 months', { placeholder: 'title' });
 
   // chart geometry (manual inner plot area so overlays line up with the data)
-  const box = { x: MX, y: 2.02, w: 8.35, h: 4.45 };
+  const box = { x: MX, y: 2.02, w: 8.4, h: 4.45 };
   const L = { x: 0.1, y: 0.03, w: 0.875, h: 0.855 };
   const P = { x: box.x + L.x * box.w, y: box.y + L.y * box.h, w: L.w * box.w, h: L.h * box.h };
-  const X0 = 2019, X1 = 2026.75, Y0 = 1 / 60, Y1 = 2400;
+  const X0 = 2019, X1 = 2026.95, Y0 = 1 / 60, Y1 = 256 * 60;
   const px = (yr) => P.x + (yr - X0) / (X1 - X0) * P.w;
   const py = (min) => P.y + (1 - (Math.log10(min) - Math.log10(Y0)) / (Math.log10(Y1) - Math.log10(Y0))) * P.h;
+  const yWall = decYear('2026-05-08'); // METR's last dashboard update (Claude Mythos Preview added)
+  const yToday = decYear('2026-10-04');
 
-  const head = label(d, s, 'HOW LONG A TASK (IN HUMAN-EXPERT TIME) AI AGENTS FINISH 50% OF THE TIME · LOG SCALE', MX, 1.7, box.w);
+  const head = label(d, s, 'TASK LENGTH AI FINISHES 50% OF THE TIME · LOG SCALE', MX, 1.7, 5.6);
 
-  // unreliable zone (> 16 hrs)
+  // the zone METR says it cannot measure (> 16 hrs): red band, with METR's own chart notice quoted verbatim
   const zone = d.name('zone');
-  s.addShape(d.pres.shapes.RECTANGLE, { x: P.x, y: P.y, w: P.w, h: py(960) - P.y, fill: { color: HEX.steel, transparency: 86 }, line: { color: HEX.steel, width: 0.5, dashType: 'dash', transparency: 40 }, objectName: zone });
-  const zoneT = d.text(s, 'Above 16 hrs: METR says its task suite can’t measure reliably', { x: P.x + 0.15, y: P.y + 0.02, w: 4.2, h: py(960) - P.y - 0.04, fontSize: 10, italic: true, color: d.S.muted, valign: 'middle' });
+  s.addShape(d.pres.shapes.RECTANGLE, { x: P.x, y: P.y, w: P.w, h: py(960) - P.y, fill: { color: HEX.red, transparency: 80 }, line: { color: HEX.red, width: 1.25 }, objectName: zone });
+  const zoneT = d.text(s, [
+    { text: 'ABOVE 16 HOURS: BEYOND WHAT METR CAN MEASURE', options: { bold: true, color: 'FF8A8C', fontSize: 11.5, charSpacing: 0.5, breakLine: true, paraSpaceAfter: 3 } },
+    { text: '“Measurements above 16 hrs are unreliable with our current task suite” ', options: { italic: true, color: d.S.txt, fontSize: 11.5 } },
+    { text: '— METR', options: { color: LIGHT, fontSize: 10.5 } },
+  ], { x: P.x + 0.14, y: P.y + 0.04, w: 4.45, h: py(960) - P.y - 0.08, valign: 'middle' });
 
   // custom gridlines + y labels
-  const ticks = [[1 / 60, '1 sec'], [1 / 6, '10 sec'], [1, '1 min'], [10, '10 min'], [60, '1 hour'], [240, '4 hours'], [960, '16 hours']];
-  const axis = [head, zone, zoneT];
+  const ticks = [[1 / 60, '1 sec'], [1 / 6, '10 sec'], [1, '1 min'], [10, '10 min'], [60, '1 hour'], [240, '4 hours'], [960, '16 hours'], [3840, '64 hours']];
+  const axis = [head];
   for (const [v, t] of ticks) {
-    axis.push(line(d, s, P.x, py(v), P.x + P.w, py(v), { color: HEX.line, width: 0.75 }));
-    axis.push(d.text(s, t, { x: box.x, y: py(v) - 0.13, w: P.x - box.x - 0.08, h: 0.26, fontSize: 10, color: d.S.muted, align: 'right', valign: 'middle' }));
+    if (v < 960) axis.push(line(d, s, P.x, py(v), P.x + P.w, py(v), { color: HEX.line, width: 0.75 }));
+    axis.push(d.text(s, t, { x: box.x, y: py(v) - 0.13, w: P.x - box.x - 0.08, h: 0.26, fontSize: 10, color: v >= 960 ? 'FF8A8C' : d.S.muted, bold: v === 960, align: 'right', valign: 'middle' }));
   }
-  // legend: empty bottom-right of the plot, between the 10-sec and 1-sec gridlines
   axis.push(d.text(s, [
     { text: '● ', options: { color: d.S.red } }, { text: 'state of the art at release     ', options: { color: d.S.muted } },
     { text: '● ', options: { color: '6B7383' } }, { text: 'other models', options: { color: d.S.muted } },
-  ], { x: P.x + P.w - 3.6, y: (py(10 / 60) + py(1 / 60)) / 2 - 0.13, w: 3.55, h: 0.26, fontSize: 10.5, align: 'right', valign: 'middle' }));
+  ], { x: P.x + 0.14, y: py(960) + 0.1, w: 3.6, h: 0.26, fontSize: 10.5, valign: 'middle' }));
 
   // native scatter: frontier (red) vs other (steel)
   const xs = METR.map((m) => +decYear(m[1]).toFixed(3));
@@ -178,15 +183,22 @@ async function metrSlide(d) {
     catAxisLabelColor: HEX.muted, catAxisLabelFontSize: 11, catAxisLineShow: true, catAxisLineColor: HEX.steel,
   });
 
+  // Mythos 95% CI (8.5–55 h), drawn into the unmeasurable zone
+  const my = METR[METR.length - 1];
+  const mx = px(decYear(my[1]));
+  const ci = [line(d, s, mx, py(55.07 * 60), mx, py(8.48 * 60), { color: HEX.red, width: 1.5 }),
+    line(d, s, mx - 0.06, py(55.07 * 60), mx + 0.06, py(55.07 * 60), { color: HEX.red, width: 1.5 }),
+    line(d, s, mx - 0.06, py(8.48 * 60), mx + 0.06, py(8.48 * 60), { color: HEX.red, width: 1.5 })];
+
   // METR trend since 2023: slope = doubling every 128.7 days, through the centroid of frontier points (2023+, ≤16 h)
   const slope = Math.log10(2) / (128.744 / 365.25);
   const fitPts = METR.filter((m) => m[3] && m[1] >= '2023-01-01' && m[2] <= 960);
-  const mx = fitPts.reduce((a, m) => a + decYear(m[1]), 0) / fitPts.length;
-  const my = fitPts.reduce((a, m) => a + Math.log10(m[2]), 0) / fitPts.length;
-  const at = (yr) => 10 ** (my + slope * (yr - mx));
-  const t0 = 2023.35, t1 = 2026.5;
+  const cx = fitPts.reduce((a, m) => a + decYear(m[1]), 0) / fitPts.length;
+  const cy = fitPts.reduce((a, m) => a + Math.log10(m[2]), 0) / fitPts.length;
+  const at = (yr) => 10 ** (cy + slope * (yr - cx));
+  const t0 = 2023.35, t1 = yWall - 0.06;
   const trend = line(d, s, px(t0), py(at(t0)), px(t1), py(at(t1)), { color: HEX.amber, width: 2, dash: 'dash' });
-  const trendT = d.text(s, 'trend since 2023:\ndoubling every ~129 days', { x: px(2025.25) + 0.12, y: py(at(2025.25)) + 0.05, w: 2.1, h: 0.45, fontSize: 11, bold: true, color: d.S.amber, valign: 'top' });
+  const trendT = d.text(s, 'trend since 2023:\ndoubling every ~129 days', { x: px(t0) - 2.3, y: py(at(t0)) - 1.2, w: 2.25, h: 0.45, fontSize: 11, bold: true, color: d.S.amber, align: 'right', valign: 'bottom' });
 
   // point labels
   const lab = (name, txt, side = 'r', dy = 0, dx = 0) => {
@@ -198,32 +210,126 @@ async function metrSlide(d) {
       : { x: x - 0.12 - w, y: y - 0.14 + dy, w, h: 0.28, fontSize: 11, color: d.S.txt, valign: 'middle', align: 'right' });
   };
   const pl = [
-    lab('GPT-2', 'GPT-2 · 3 sec'), lab('GPT-3', 'GPT-3 · 9 sec'), lab('GPT-3.5', 'GPT-3.5 · 36 sec'),
+    lab('GPT-2', 'GPT-2 · 3 sec'), lab('GPT-3', 'GPT-3 · 9 sec'), lab('GPT-3.5', 'GPT-3.5 · 36 sec', 'l'),
     lab('GPT-4', 'GPT-4 · 4 min', 'l'), lab('o1', 'o1 · 39 min', 'l', 0, -0.2), lab('o3', 'o3 · 2 hrs', 'l'),
-    lab('Claude Opus 4.6', 'Claude Opus 4.6 · 12 hrs', 'l'),
-    lab('Claude Mythos Preview (early)', 'Claude Mythos Preview · ~17 hrs', 'l', -0.1),
+    lab('Claude Opus 4.6', 'Claude Opus 4.6 · 12 hrs', 'l', 0.04),
+    lab('Claude Mythos Preview (early)', 'Claude Mythos Preview · ≥16 hrs', 'l', -0.3, -0.02),
   ];
 
-  // right column
-  const rx = 9.3, rw = 12.73 - rx;
-  const st1 = d.stat(s, { x: rx, y: 1.72, w: rw, value: '~129 days', valueSize: 44, color: d.S.red, label: 'doubling time of the task length frontier agents can finish (METR fit, 2023 onward)', labelSize: 13 });
-  const st2 = d.stat(s, { x: rx, y: 3.3, w: rw, value: '4 min → 17 hrs', valueSize: 30, color: d.S.txt, label: 'GPT-4 (Mar 2023) → Claude Mythos Preview (Apr 2026)', labelSize: 13 });
-  const mit = await d.frame(s, await crop(R('mittr-misunderstood-graph.png'), 'mittr-head.png', { l: 100, t: 380, w: 1600, h: 655 }), { x: rx, y: 4.72, w: rw, h: 1.55 }, { rot: 1.5, align: 'left' });
+  // THE WALL: where the data stops (METR's last update, May 8, 2026) + the empty months since
+  const top = P.y, bot = P.y + P.h;
+  const voidN = d.name('void');
+  s.addShape(d.pres.shapes.RECTANGLE, { x: px(yWall), y: top, w: px(yToday) - px(yWall), h: bot - top, fill: { color: HEX.red, transparency: 72 }, line: { color: HEX.red, width: 0, transparency: 100 }, objectName: voidN });
+  const wall = line(d, s, px(yWall), top - 0.12, px(yWall), bot, { color: HEX.red, width: 3.5 });
+  const wallT = d.text(s, 'LAST DATA: MAY 8, 2026 ▼', { x: px(yWall) - 3.0 + 0.12, y: 1.7, w: 3.0, h: 0.3, fontSize: 11, bold: true, color: d.S.red, charSpacing: 1, align: 'right', valign: 'bottom' });
+  const vL = 3.0, vcx = (px(yWall) + px(yToday)) / 2, vcy = (py(960) + bot) / 2 + 0.25;
+  const voidT = d.text(s, 'NO RELIABLE MEASUREMENT SINCE', { x: vcx - vL / 2, y: vcy - 0.14, w: vL, h: 0.28, rotate: 270, fontSize: 10.5, bold: true, color: 'FFFFFF', charSpacing: 1, align: 'center', valign: 'middle' });
+  const todayT = d.text(s, 'today', { x: px(yToday) - 0.4, y: bot + 0.02, w: 0.8, h: 0.22, fontSize: 9.5, italic: true, color: 'FF8A8C', align: 'center', valign: 'top' });
+  const todayL = line(d, s, px(yToday), bot - 0.06, px(yToday), bot + 0.04, { color: HEX.red, width: 1.5 });
+  const big = d.text(s, [
+    { text: 'THE DATA STOPS HERE', options: { fontSize: 24, bold: true, color: d.S.red, fontFace: 'Arial', breakLine: true } },
+    { text: 'METR can no longer measure the frontier', options: { fontSize: 13.5, bold: true, color: d.S.txt } },
+  ], { x: px(yWall) - 4.6, y: py(1 / 6) - 0.2, w: 4.45, h: 0.8, align: 'right', valign: 'top' });
+  const arrow = line(d, s, px(yWall) - 0.13, py(1 / 6) + 0.03, px(yWall) - 0.02, py(1 / 6) + 0.03, { color: HEX.red, width: 3, arrow: true });
 
-  d.animate(s, [...axis, { name: ch, effect: 'wipeLeft', dur: 1600 }], { auto: true, effect: 'fade', dur: 500 });
+  // right column: METR's own words (verbatim)
+  const rx = 9.3, rw = 12.73 - rx, ry = 1.75, rh = 6.5 - ry;
+  const card = d.card(s, { x: rx, y: ry, w: rw, h: rh }, { color: '1A1013', line: HEX.red });
+  const bar = d.name('bar');
+  s.addShape(d.pres.shapes.RECTANGLE, { x: rx, y: ry, w: rw, h: 0.42, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 }, objectName: bar });
+  const barT = d.text(s, 'WHY THE GRAPH ENDS', { x: rx + 0.2, y: ry, w: rw - 0.4, h: 0.42, fontSize: 13, bold: true, color: 'FFFFFF', charSpacing: 3, valign: 'middle' });
+  const Q = (q, who) => [
+    { text: q, options: { fontFace: 'Cambria', italic: true, fontSize: 15.5, color: d.S.txt, breakLine: true, paraSpaceAfter: 2 } },
+    { text: who, options: { fontSize: 10.5, color: d.S.muted, breakLine: true, paraSpaceAfter: 13 } },
+  ];
+  const quotes = d.text(s, [
+    { text: 'METR, in its own words:', options: { fontSize: 11, bold: true, color: 'FF8A8C', charSpacing: 1, breakLine: true, paraSpaceAfter: 8 } },
+    ...Q('“…at the upper end of what we can measure without new tasks.”', 'on Claude Mythos Preview · X, May 8, 2026'),
+    ...Q('“Of the 228 tasks in our suite, only 5 are estimated as 16+ hours long”', 'X, May 8, 2026'),
+    ...Q('“The most capable agents we evaluated essentially saturated our Time Horizon 1.1 benchmark”', 'Frontier Risk Report, May 19, 2026'),
+  ], { x: rx + 0.22, y: ry + 0.56, w: rw - 0.42, h: rh - 1.3, valign: 'top' });
+  const foot = d.text(s, 'METR’s chart has not been updated since May 8, 2026.', { x: rx + 0.22, y: ry + rh - 0.66, w: rw - 0.42, h: 0.52, fontSize: 12.5, bold: true, color: d.S.red, valign: 'middle' });
+
+  d.animate(s, [...axis, zone, zoneT, { name: ch, effect: 'wipeLeft', dur: 1600 }], { auto: true, effect: 'fade', dur: 500 });
   d.animate(s, pl, { auto: true, effect: 'fade', stagger: 90, dur: 350, after: 100 });
   d.animate(s, [{ name: trend, effect: 'wipeLeft', dur: 900 }, trendT], { auto: true, effect: 'fade', after: 150 });
-  d.animate(s, st1, { effect: 'rise' });
-  d.animate(s, st2, { effect: 'rise' });
-  d.animate(s, mit, { effect: 'fade' });
-  d.source(s, 'Data: METR, Time Horizon 1.1 (benchmark_results_1_1.yaml, page updated May 8, 2026), 50%-success horizon by model release date · MIT Technology Review, Feb 5, 2026.');
+  d.animate(s, [{ name: wall, effect: 'wipeDown', dur: 500 }, wallT, voidN, voidT, todayL, todayT, ...ci], { effect: 'fade', dur: 500 });
+  d.animate(s, [big, arrow], { auto: true, effect: 'slam', dur: 450, after: 150 });
+  d.animate(s, [card, bar, barT, quotes, foot], { effect: 'fade', dur: 600 });
+  d.source(s, 'Data: METR, Time Horizon 1.1 (benchmark_results_1_1.yaml; metr.org/time-horizons, “last updated May 8, 2026”, checked Oct 4, 2026) · METR on X, May 8, 2026 · METR Frontier Risk Report, May 19, 2026.');
   s.addNotes([
-    'MESSAGE: the length of real software tasks AI agents can complete on their own is growing exponentially — roughly doubling every four months.',
-    'What the chart shows: METR times how long each task takes skilled human experts, then finds the task length at which a model succeeds 50% of the time. GPT-2 (2019) managed ~3-second tasks; GPT-4 (Mar 2023) ~4 minutes; o3 (Apr 2025) ~2 hours; Claude Opus 4.6 (Feb 2026) ~12 hours; Claude Mythos Preview (early, Apr 2026) ~17 hours (1,044.8 min; 95% CI ~8.5–55 h).',
-    'Doubling time: METR\'s fit from 2023 onward is 128.7 days (CI 104–158 days); all-time 187.8 days. The dashed amber line is drawn with METR\'s 128.7-day slope through the centroid of frontier points since 2023 (illustrative; METR\'s own regression excludes points above 16 h).',
-    'Red dots = models METR flags as state of the art at release; grey = other models. Values are METR\'s p50 estimates from https://metr.org/assets/benchmark_results_1_1.yaml ; official chart: https://metr.org/time-horizons/',
-    'CAVEATS (say them): METR itself says "Measurements above 16 hrs are unreliable with our current task suite" — Mythos sits in that zone. The 50% horizon is not "the AI can work for 17 hours"; at 80% success the horizons are much shorter (Mythos ~3 h). METR has not published horizons for GPT-6 Astra, Claude Fable 5/5.1 or Opus 5.5. Its pre-deployment eval of GPT-5.6 Sol (Jun 26, 2026) gave ~11.3 h (CI 5–40 h) with a notably high cheating rate counted as failure: https://metr.org/blog/2026-06-26-gpt-5-6-sol/',
-    'MIT Technology Review (Grace Huckins, Feb 5, 2026), "This is the most misunderstood graph in AI": https://www.technologyreview.com/2026/02/05/1132254/this-is-the-most-misunderstood-graph-in-ai/ — use it to show we are not over-reading the curve: the trend is real, the interpretation needs care.',
+    'MESSAGE: the length of real software tasks AI agents can complete on their own grew exponentially — doubling roughly every four months — until METR\'s measuring stick ran out. THE GRAPH ENDS BECAUSE METR CAN NO LONGER MEASURE THE FRONTIER, not because progress stopped.',
+    'What the chart shows: METR times how long each task takes skilled human experts, then finds the task length at which a model succeeds 50% of the time. GPT-2 (2019) managed ~3-second tasks; GPT-4 (Mar 2023) ~4 minutes; o3 (Apr 2025) ~2 hours; Claude Opus 4.6 (Feb 2026) ~12 hours; Claude Mythos Preview (early, Apr 2026) "at least 16hrs" in METR\'s words (dashboard readout 17 hr; raw estimate 1,044.8 min = 17.4 h; 95% CI 8.5–55 h, drawn as the red error bar reaching deep into the red zone).',
+    'THE RED ZONE + THE WALL (say it plainly): METR\'s own chart now carries the notice "Measurements above 16 hrs are unreliable with our current task suite" (changelog, May 8, 2026). Its X thread the same day: "We estimated a 50%-time-horizon of at least 16hrs (95% CI 8.5hrs to 55hrs) on our task suite, at the upper end of what we can measure without new tasks." … "Of the 228 tasks in our suite, only 5 are estimated as 16+ hours long, making measurements at this range unstable and less meaningful than at ranges with better task coverage. Thus, we are not highlighting exact estimates for models above 16 hours measured with our current suite." … "we do not consider measurements at this range to be robust enough for precise quantitative comparisons or extrapolations." … "we\'re working on updated methods. But these are still in development". https://x.com/METR_Evals/status/2052896621760004602',
+    'Frontier Risk Report (May 19, 2026): "The most capable agents we evaluated essentially saturated our Time Horizon 1.1 benchmark — there were only a handful of tasks longer than eight hours that they were still unable to solve, and many of those failures were due to cheating rather than obvious inability." Table 1 footnote: "The TH 1.1 suite can\'t reliably measure time horizons above 16 hours". https://metr.org/blog/2026-05-19-frontier-risk-report/',
+    'Since then (checked Oct 4, 2026): metr.org/time-horizons still reads "LAST UPDATED May 8, 2026". METR has published NO time horizon for GPT-6 Astra, Claude Fable 5.1 or Claude Opus 5.5 (its Opus 5.5 evaluation used five bespoke tasks and reports no horizon, without saying why — so do not claim that was due to saturation). Its GPT-5.6 Sol evaluation (Jun 26) produced 11.3 h, 71 h or "beyond 270hrs" depending on how cheating runs are scored, and METR said none is "a robust measurement" (next slide). No replacement "Time Horizon 2" suite has been announced. Numbers circulating online for newer models (e.g. "153 h") are third-party predictions, not METR\'s.',
+    'Doubling time: METR\'s fit from 2023 onward is 128.7 days (CI 104–158 days); all-time 187.8 days; METR\'s May 8 chart (2024–Feb 2026 data) says 105 days. The dashed amber line uses METR\'s 128.7-day slope through the centroid of frontier points since 2023 (illustrative; METR\'s own regression excludes points above 16 h), and it is deliberately stopped at the wall — METR warns against extrapolating.',
+    'Red dots = models METR flags as state of the art at release; grey = other models. Values are METR\'s p50 estimates from https://metr.org/assets/benchmark_results_1_1.yaml ; official chart: https://metr.org/time-horizons/ . The 50% horizon is not "the AI can work for 17 hours"; at 80% success horizons are much shorter (Mythos ~3 h). The shaded red column runs from METR\'s last update (May 8) to today (Oct 4, 2026).',
+    'Further reading (Q&A): MIT Technology Review (Grace Huckins, Feb 5, 2026), "This is the most misunderstood graph in AI": https://www.technologyreview.com/2026/02/05/1132254/this-is-the-most-misunderstood-graph-in-ai/',
+  ].join('\n\n'));
+  return s;
+}
+
+// ---------------------------------------------------------------- 1b. METR can't measure any more: the evidence
+async function metrEvidenceSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  s.addText(`${KICK} · CAPABILITIES · 2`, { placeholder: 'kicker' });
+  s.addText('The frontier has outgrown METR’s yardstick', { placeholder: 'title' });
+
+  // left: METR's own thread post with its chart (real screenshot)
+  const tw = await d.frame(s, R('rev2/metr-x-thread-1.png'), { x: MX, y: 1.8, w: 4.85, h: 4.72 }, { rot: -1.2, align: 'left' });
+  const tg = tw.geom;
+  const tab = outletTab(d, s, tg, 'METR ON X · MAY 8, 2026', 'tr', -1.2);
+
+  // right top: The Decoder headline (headline + byline only)
+  const rx = 6.05, rw = 12.73 - rx;
+  const dec = await d.frame(s, await crop(R('rev2/decoder-metr-barely-measure-mythos.png'), 'decoder-metr-head.png', { l: 30, t: 115, w: 1290, h: 300 }), { x: rx, y: 1.82, w: rw, h: 1.5 }, { rot: 1, align: 'left' });
+  const dtab = outletTab(d, s, dec.geom, 'THE DECODER · MAY 10, 2026', 'tr', 1);
+
+  // right bottom-left: why — the task suite (native chart)
+  const tds = DS['metr-th11-task-length-distribution'];
+  const by = 3.72, cw = 3.25;
+  const tlab = label(d, s, 'METR’S 228 TASKS BY HUMAN TIME', rx, by, cw);
+  const tch = d.chart(s, 'bar', [{ name: 'Tasks', labels: ['<1m', '1–15m', '15–60m', '1–4h', '4–8h', '8–16h', '16h+'], values: tds.series[0].values }],
+    { x: rx - 0.05, y: by + 0.3, w: cw + 0.05, h: 2.0 }, {
+      barDir: 'col', chartColors: [...tds.labels.slice(0, -1).map(() => '6B7383'), HEX.red], barGapWidthPct: 30,
+      showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '0', dataLabelFontSize: 11, dataLabelFontBold: true,
+      valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 80, showLegend: false,
+      catAxisLabelFontSize: 9.5, catAxisLabelColor: LIGHT, layout: { x: 0.01, y: 0.04, w: 0.98, h: 0.76 },
+    });
+  const tcap = d.text(s, [
+    { text: 'Only 5 tasks take a human 16 h+', options: { bold: true, color: d.S.red, breakLine: true } },
+    { text: 'the longest single task: 30 h', options: { color: d.S.muted } },
+  ], { x: rx, y: by + 2.32, w: cw, h: 0.48, fontSize: 11.5, valign: 'top' });
+
+  // right bottom-right: GPT-5.6 Sol — three answers from the same runs
+  const sx = rx + cw + 0.4, sw = 12.73 - sx;
+  const slab = label(d, s, 'GPT-5.6 SOL: ONE MODEL, 3 ANSWERS', sx, by, sw);
+  const rows = [['11.3 h', 'cheating counted as failure'], ['71 h', 'cheating runs discarded'], ['>270 h', 'cheating counted as success']];
+  const sol = rows.flatMap(([v, l], i) => {
+    const y = by + 0.36 + i * 0.56;
+    return [
+      d.text(s, v, { x: sx, y, w: 1.25, h: 0.5, fontSize: 24, bold: true, fontFace: 'Arial', color: i === 2 ? d.S.red : d.S.txt, valign: 'middle' }),
+      d.text(s, l, { x: sx + 1.3, y, w: sw - 1.3, h: 0.5, fontSize: 12, color: d.S.muted, valign: 'middle' }),
+    ];
+  });
+  const solQ = d.text(s, [
+    { text: '“we do not consider any of these numbers to represent a robust measurement”', options: { italic: true, fontFace: 'Cambria', fontSize: 13, color: d.S.txt, breakLine: true } },
+    { text: 'METR, Jun 26, 2026', options: { fontSize: 10.5, color: d.S.muted } },
+  ], { x: sx, y: by + 2.08, w: sw, h: 0.75, valign: 'top' });
+
+  d.animate(s, [...tw, ...tab], { auto: true, effect: 'fade', dur: 600 });
+  d.animate(s, [...dec, ...dtab], { effect: 'slam', dur: 420 });
+  d.animate(s, [tlab, { name: tch, effect: 'wipeLeft', dur: 900 }, tcap], { effect: 'fade' });
+  d.animate(s, [slab, ...sol, solQ], { effect: 'fade' });
+  d.source(s, 'METR on X (May 8, 2026) · The Decoder (Matthias Bastian, May 10, 2026) · METR task_results_1_1.yaml (task counts computed by us) · METR, GPT-5.6 Sol evaluation (Jun 26, 2026).');
+  s.addNotes([
+    'MESSAGE: this is not our interpretation — METR itself says its yardstick has run out. The most-watched graph in AI can no longer place the frontier.',
+    'Left: METR\'s own thread post (May 8, 2026, 991K views) and its CC-BY chart: Claude Mythos Preview (early) "likely has a 50%-time-horizon of at least 16 hrs", with the grey band "Measurements above 16 hrs are unreliable with our current task suite". Text: "We evaluated an early version of Claude Mythos Preview for risk assessment during a limited window in March 2026. We estimated a 50%-time-horizon of at least 16hrs (95% CI 8.5hrs to 55hrs) on our task suite, at the upper end of what we can measure without new tasks." https://x.com/METR_Evals/status/2052896621760004602',
+    'Top right: The Decoder (Matthias Bastian, May 10, 2026): "METR says it can barely measure Claude Mythos, Palo Alto Networks warns of autonomous AI attackers" https://the-decoder.com/metr-says-it-can-barely-measure-claude-mythos-palo-alto-networks-warns-of-autonomous-ai-attackers/',
+    'Chart: number of tasks in METR\'s Time Horizon 1.1 suite by estimated human completion time, computed by us from METR\'s raw data (https://metr.org/assets/task_results_1_1.yaml): <1 min 67 · 1–15 min 52 · 15–60 min 36 · 1–4 h 18 · 4–8 h 24 · 8–16 h 26 · ≥16 h 5 (total 228; longest task 30 h). METR\'s thread: "Of the 228 tasks in our suite, only 5 are estimated as 16+ hours long, making measurements at this range unstable…". You cannot measure a 50% horizon beyond the tasks you have.',
+    'GPT-5.6 Sol (METR pre-deployment evaluation, Jun 26, 2026): "if we follow our standard methodology of marking cheating attempts as failures, we arrive at a 50%-Time Horizon point estimate of around 11.3hrs (95% CI: 5hrs - 40hrs), but if we count the cheating attempts as legitimate successes, the point estimate jumps beyond 270hrs – well beyond the range where we consider our task suite to give reliable measurements. Discarding the cheating attempts … results in a highly uncertain point estimate of 71hrs (95% CI: 13hrs - 11400hrs). This makes us especially uncertain about the time-horizon measurement, and we do not consider any of these numbers to represent a robust measurement of GPT-5.6 Sol\'s capabilities." METR still judged Sol "not significantly beyond the state-of-the-art". https://metr.org/blog/2026-06-26-gpt-5-6-sol/ — also note: cheating clusters at the top end (Frontier Risk Report: for tasks over 8 h, "at least 16% of successful runs were illegitimate upon review").',
+    'Also from METR (if asked): Frontier Risk Report (May 19): "it is infeasible to precisely measure time horizons in this range. We therefore cannot say with confidence that the \'true\' time horizon is under 20 hours." On METR/Epoch\'s longer MirrorCode tasks, public models were already "Mostly saturated, >100h time horizon" (Feb–Mar 2026, with ~30× the usual inference compute). Earlier warnings: Jan 29 ("We are working on raising the ceiling of our capabilities measurements"), Mar 20 ("As METR\'s time horizon task suite saturates, the results are becoming more sensitive to analysis choices").',
   ].join('\n\n'));
   return s;
 }
@@ -231,7 +337,7 @@ async function metrSlide(d) {
 // ---------------------------------------------------------------- 2. benchmark graveyard
 async function graveyardSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  s.addText(`${KICK} · CAPABILITIES · 2`, { placeholder: 'kicker' });
+  s.addText(`${KICK} · CAPABILITIES · 3`, { placeholder: 'kicker' });
   s.addText('Benchmarks built to last years now die in months', { placeholder: 'title' });
 
   const tiles = [
@@ -301,15 +407,16 @@ async function graveyardSlide(d) {
 // full 2,500-question set and are NOT mixed in (different question sets; e.g. Fable 5.1 59.1 on AA vs 46.5 on Scale).
 async function hleSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  s.addText(`${KICK} · CAPABILITIES · 3`, { placeholder: 'kicker' });
+  s.addText(`${KICK} · CAPABILITIES · 4`, { placeholder: 'kicker' });
   s.addText('Humanity’s Last Exam: 7% → 61% in under 2 years', { placeholder: 'title' });
 
-  // best AA score to date by model release quarter (OpenAI/Anthropic/Google series), Q4 '24 (o1) → Q4 '26 so far
+  // best AA score to date by model release quarter (OpenAI/Anthropic/Google series), Q4 '24 (o1) → Q3 '26 (Claude Opus 5.5).
+  // The partial "Q4 '26 (so far)" entry is left out (it only carries Q3's record forward).
   const ds = DS['hle-artificial-analysis'];
-  const i0 = ds.labels.indexOf("Q4 '24");
-  const vals = ds.series[0].values.slice(i0);
-  const qlab = ds.labels.slice(i0).map((l) => l.replace("'", '’').replace(' (so far)', '\nso far'));
-  const n = vals.length; // last = Q4 '26 so far (no new record yet), second-to-last = Q3 '26 (Claude Opus 5.5)
+  const i0 = ds.labels.indexOf("Q4 '24"), i1 = ds.labels.indexOf("Q3 '26");
+  const vals = ds.series[0].values.slice(i0, i1 + 1);
+  const qlab = ds.labels.slice(i0, i1 + 1).map((l) => l.replace("'", '’'));
+  const n = vals.length; // last = Q3 '26 (Claude Opus 5.5)
 
   const cw = 6.45;
   const lab = label(d, s, 'HLE · BEST SCORE TO DATE (%) · BY MODEL RELEASE QUARTER', MX, 1.7, cw);
@@ -323,18 +430,17 @@ async function hleSlide(d) {
   const catW = pw / n, barW = catW / 1.45;
   const barX = (i) => px0 + (i + 0.5) * catW - barW / 2;
   const ch = d.chart(s, 'bar', [{ name: 'Best score to date', labels: qlab, values: vals }], cb, {
-    barDir: 'col', chartColors: [...vals.slice(0, -2).map(() => '6B7383'), HEX.red, '8C2F33'], barGapWidthPct: 45,
+    barDir: 'col', chartColors: [...vals.slice(0, -1).map(() => '6B7383'), HEX.red], barGapWidthPct: 45,
     showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '0.0', dataLabelFontSize: 12, dataLabelFontBold: true,
     valAxisMinVal: 0, valAxisMaxVal: VMAX, valAxisMajorUnit: 10, valAxisHidden: true, valGridLine: { style: 'none' }, showLegend: false,
     layout: L,
   });
   // record callout: right-aligned, ending just left of the Q3 '26 bar, above the Q4 '25–Q2 '26 value labels
-  const annR = barX(n - 2) - 0.08;
+  const annR = barX(n - 1) - 0.1;
   const ann = d.text(s, [
-    { text: `Claude Opus 5.5 · ${vals[n - 2].toFixed(1)}%`, options: { bold: true, color: d.S.red, breakLine: true } },
-    { text: 'released Sep 22, 2026', options: { color: d.S.muted, breakLine: true } },
-    { text: 'Q4 ’26 so far: no new record', options: { color: d.S.muted } },
-  ], { x: annR - 2.3, y: 2.25, w: 2.3, h: 0.56, fontSize: 11, align: 'right', valign: 'bottom' });
+    { text: `Claude Opus 5.5 · ${vals[n - 1].toFixed(1)}%`, options: { bold: true, color: d.S.red, breakLine: true } },
+    { text: 'released Sep 22, 2026', options: { color: d.S.muted } },
+  ], { x: annR - 2.3, y: 2.3, w: 2.3, h: 0.42, fontSize: 11.5, align: 'right', valign: 'bottom' });
   // the launch billing, in the empty upper-left of the chart (the bars there are the launch-era models)
   const bill = d.text(s, [
     { text: 'Billed at launch, Jan 2025:', options: { fontSize: 11, bold: true, color: d.S.steel, breakLine: true } },
@@ -386,7 +492,7 @@ async function hleSlide(d) {
     'MESSAGE: even the test designed to be the last one is falling fast — and its organizers are already preparing a replacement.',
     'Humanity\'s Last Exam (HLE) launched in January 2025 from the Center for AI Safety and Scale AI, "designed to be the last academic exam of its kind for AI": ~2,500 expert-written questions across many fields. Frontier models then scored under 10%.',
     'Chart: ONE source throughout — Artificial Analysis (AA), independent runs on HLE\'s 2,158 text-only questions (multimodal questions excluded), pass@1, LLM-graded, no tools. Best AA score to date by model release quarter (OpenAI/Anthropic/Google models): Q4 \'24 7.0% (o1, Dec 2024) · Q1 \'25 18.0% (Gemini 2.5 Pro Preview) · Q2 \'25 22.5% (Gemini 2.5 Pro) · Q3 \'25 28.5% (GPT-5 high) · Q4 \'25 39.7% (Gemini 3 Pro Preview) · Q1 \'26 47.0% (Gemini 3.1 Pro Preview) · Q2 \'26 55.5% (Claude Fable 5) · Q3 \'26 61.4% (Claude Opus 5.5, max with fallback, released Sep 22, 2026). https://artificialanalysis.ai/evaluations/humanitys-last-exam',
-    'Q4 \'26 SO FAR (Oct 1–4): no new record — the bar carries Opus 5.5\'s 61.4% forward. The only model released Oct 1–4 that AA has scored is InclusionAI\'s open-weights Ling 3.1 Flash (Oct 1): 39.4%. https://artificialanalysis.ai/models/ling-3-1-flash',
+    'The chart stops at Q3 \'26 (Q4 has only just begun; no model released Oct 1–4 has beaten 61.4% — the only one AA has scored is InclusionAI\'s open-weights Ling 3.1 Flash, 39.4%). https://artificialanalysis.ai/models/ling-3-1-flash',
     'Right chart = the same AA leaderboard, best setting per model, top 8 models (Oct 4): Claude Opus 5.5 61.4% (max with fallback) · Claude Fable 5.1 59.1% (max with fallback) · Gemini 4 Argon 57.1% (high; AA marks it "not publicly available") · Claude Fable 5 55.5% (max, Opus 4.8 fallback) · Claude Sonnet 5.5 55.0% (max with fallback) · Claude Opus 5 54.9% (max) · GPT-6 Astra 54.7% (max) · GPT-6.1 Sol 52.9% (max). Next: GPT-5.6 Sol 49.5%. AA\'s Sep 22 article: "Humanity\'s Last Exam 61.4% (previous best 59.1%, Claude Fable 5.1)". https://artificialanalysis.ai/articles/claude-opus-5-5',
     'If asked (Q&A only, vendor-run, not comparable with the chart): Anthropic\'s Claude Opus 5.5 system card (Table 8.1.A) reports 64.4% on the full 2,500-question HLE without tools and 67.7% with tools (web search, web fetch, code execution), max effort, averaged over five trials, graded by Claude Opus 4.6. https://anthropic.com/claude-opus-5-5-system-card · https://www.anthropic.com/news/claude-opus-5-5 · SiliconANGLE, Sep 22: "Anthropic releases Claude Opus 5.5 and OpenAI counters with two cheaper GPT-6 models" https://siliconangle.com/2026/09/22/anthropic-releases-claude-opus-5-5-and-openai-counters-with-two-cheaper-gpt-6-models/',
     'Why not the official board: the Scale AI / CAIS leaderboard (labs.scale.com/leaderboard/humanitys_last_exam) uses the full multimodal set and, as of Oct 4, 2026, does not list Claude Opus 5.5 yet — its top entry is GPT 6 Astra at 54.80 ±1.94 (Fable 5.1 xhigh 46.50). Numbers from different question sets are not mixed on this chart. Scores depend heavily on who runs the test and how: Claude Fable 5.1 = 60.9% (Anthropic system card, full set, no tools), 59.1% (AA, max, text-only), 46.5% (official board, xhigh); GPT-6 Astra = 54.8% official vs 54.7% on AA. So Opus 5.5\'s 64.4% from Anthropic is not an official record.',
@@ -411,15 +517,86 @@ async function heroSlide(d) {
   const k = d.text(s, `${KICK} · CREATIVITY · 1`, { x: MX, y: 0.42, w: 9, h: 0.3, fontSize: 12, bold: true, color: d.S.red, charSpacing: 4, valign: 'top' });
   const t = d.text(s, 'This is not a photograph', { x: MX, y: 0.72, w: W - 2 * MX, h: 0.75, fontSize: 36, bold: true, color: d.S.txt, fontFace: 'Arial', valign: 'middle' });
   const c = d.text(s, 'San Francisco’s Palace of Fine Arts, recreated as a photoreal 3-D scene in Blender by GPT-6 Astra.', { x: MX, y: 1.6, w: 4.55, h: 0.95, fontSize: 16, color: 'E6EAF2', valign: 'top' });
-  const src = d.text(s, 'Shared on r/singularity, 2026', { x: MX, y: 2.55, w: 4.5, h: 0.3, fontSize: 11, italic: true, color: 'B8C2D6' });
+  const src = d.text(s, [
+    { text: 'u/Recoil42 on r/singularity, Sep 4, 2026', options: { hyperlink: { url: 'https://www.reddit.com/r/singularity/comments/1w6rilg/gpt6_astra_recreated_the_palace_of_fine_arts_in/' }, color: 'B8C2D6' } },
+    { text: ' · demo by Sharif Shameem (OpenAI)', options: { color: 'B8C2D6' } },
+  ], { x: MX, y: 2.55, w: 5.2, h: 0.3, fontSize: 11, italic: true });
   d.animate(s, [im], { auto: true, effect: 'fade', dur: 1400 });
   // the image sits alone until the presenter clicks; the caption follows the title automatically
   d.animate(s, [scr, k, t], { effect: 'fade', dur: 700 });
   d.animate(s, [c, src], { auto: true, effect: 'fade', dur: 600, after: 500 });
   s.addNotes([
     'The slide opens on the image alone. Let it sit for a moment. Ask: "Photo or render?"',
-    'Then CLICK to reveal the title ("This is not a photograph"; the caption follows automatically): this is a photoreal 3-D recreation of San Francisco\'s Palace of Fine Arts built in Blender by GPT-6 Astra (OpenAI\'s model released Sep 3–4, 2026), as shared on Reddit\'s r/singularity.',
-    'Source: the user\'s original image (assets/original/image5.png, from r/singularity). The original Reddit post URL could not be re-located during research, so describe it as "shared on r/singularity" and avoid claiming details of the workflow beyond "built in Blender by GPT-6 Astra".',
+    'Then CLICK to reveal the title ("This is not a photograph"; the caption follows automatically): this is a photoreal 3-D recreation of San Francisco\'s Palace of Fine Arts built in Blender by GPT-6 Astra (OpenAI\'s model released Sep 3, 2026).',
+    'Source (now confirmed): the image is byte-identical to the hero render in the r/singularity gallery post "GPT-6 Astra recreated the Palace of Fine arts in Blender." by u/Recoil42, Sep 4, 2026 (777 upvotes, 146 comments as of Oct 4): https://www.reddit.com/r/singularity/comments/1w6rilg/gpt6_astra_recreated_the_palace_of_fine_arts_in/ . The original demo is Sharif Shameem\'s X post (Sep 3, 2026; 2.6M views) — his X bio says "making models @openai", so this is a showcase by an OpenAI employee: vendor-affiliated, single cherry-picked example, cost/runtime/.blend never disclosed. https://x.com/sharifshameem/status/2095653641164329143',
+    'His follow-up describes the workflow: "Astra autonomously researched and found hundreds of photos of the Palace of Fine Arts, iterated on the Blender scene, rendered intermediate frames, and compared them to the its database of reference images. It even found an old scan of a document from the Library of Congress that described the dimensions for some of the Palace\'s columns." … "I steered it a few times, but I didn\'t really need to (mostly to correct things like the color of the sky, and minor clipping issues) … The bulk of the run was done overnight. I woke up this morning to the rendered video sitting on my desktop." https://x.com/sharifshameem/status/2095688352075075878 (The LoC scan is real: HABS CAL-1909 p. 8, "The larger columns of the colonnade rose 55 feet, overall.") The prompt ended: "success is graded on this: - you have created a beautiful, stunning, true to life palace of fine arts scene that would bring a viewer to tears. that is it."',
+  ].join('\n\n'));
+  return s;
+}
+
+// ---------------------------------------------------------------- 4b. the zoomed-in render from the Reddit thread
+// Circular "lens" PNG: a square crop of src, enlarged, with everything outside the circle transparent.
+async function lensPng(src, name, { l, t, size }, px = 900) {
+  fs.mkdirSync(OUT, { recursive: true });
+  const out = path.join(OUT, name);
+  const mask = Buffer.from(`<svg width="${px}" height="${px}"><circle cx="${px / 2}" cy="${px / 2}" r="${px / 2}" fill="#fff"/></svg>`);
+  await sharp(src).extract({ left: l, top: t, width: size, height: size }).resize(px, px, { kernel: 'lanczos3' })
+    .composite([{ input: mask, blend: 'dest-in' }]).png().toFile(out);
+  return out;
+}
+
+async function closeupSlide(d) {
+  const s = d.slide('Blank', { transition: 'zoom' });
+  const SRC = R('rev2/reddit-op-comment-dome-closeup-3360x1908.png'); // 3360×1908, OP's top comment
+  const CT = 60, CH = 1754; // crop to the same 13.333 × 6.96 frame as the hero slide
+  const img = await crop(SRC, 'palace-closeup.png', { l: 0, t: CT, w: 3360, h: CH });
+  const W = 13.333, H = W * CH / 3360, k = W / 3360;
+  const bg = d.name('closeup');
+  s.addImage({ path: img, x: 0, y: 0, w: W, h: H, objectName: bg, hyperlink: { url: 'https://www.reddit.com/r/singularity/comments/1w6rilg/comment/p7p9gl9/' } });
+  const scr = d.name('scrim');
+  s.addImage({ path: await scrim('closeup-scrim.png', 1600, 400, { max: 0.6 }), x: 0, y: 0, w: W, h: 3.0, objectName: scr });
+
+  // title block over the sky (same geometry as the Content layout)
+  const kk = d.text(s, `${KICK} · CREATIVITY · 2`, { x: MX, y: 0.42, w: 6, h: 0.3, fontSize: 12, bold: true, color: d.S.red, charSpacing: 4, valign: 'top' });
+  const tt = d.text(s, 'Now zoom in', { x: MX, y: 0.72, w: 4.2, h: 0.75, fontSize: 36, bold: true, color: d.S.txt, fontFace: 'Arial', valign: 'middle' });
+  const cap = d.text(s, [
+    { text: 'A close-up render of the same GPT-6 Astra Blender scene: friezes, figures, urns.', options: { color: 'E6EAF2', fontSize: 15, breakLine: true, paraSpaceAfter: 6 } },
+    { text: 'Posted by u/Recoil42 (OP), top comment · Sep 4, 2026 ↗', options: { color: 'B8C2D6', fontSize: 11, italic: true, hyperlink: { url: 'https://www.reddit.com/r/singularity/comments/1w6rilg/comment/p7p9gl9/' } } },
+  ], { x: MX, y: 1.52, w: 4.2, h: 1.0, valign: 'top' });
+
+  // mini-map (top right): where this close-up sits in the previous slide's shot
+  const hero = path.join(OUT, 'palace-hero.png'); // written by heroSlide
+  const mw = 2.55, mh = mw * 1226 / 2348, mxp = W - MX - mw, myp = 0.42;
+  const map = await d.frame(s, hero, { x: mxp - 0.04, y: myp - 0.04, w: mw + 0.08, h: mh + 0.08 }, { pad: 0.04 });
+  const mr = d.name('mapr');
+  s.addShape(d.pres.shapes.RECTANGLE, { x: mxp + 0.375 * mw, y: myp + 0.225 * mh, w: 0.265 * mw, h: 0.275 * mh, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 2 }, objectName: mr });
+  const mapT = d.text(s, 'ZOOMED IN FROM THE WIDE SHOT', { x: mxp, y: myp + mh + 0.1, w: mw, h: 0.24, fontSize: 9.5, bold: true, color: 'FFFFFF', charSpacing: 1, align: 'center', valign: 'middle' });
+
+  // magnifying glass over a standing figure: ~1.5× enlargement of the same image (no other pixels)
+  const LC = { x: 1250, y: 1120 }, LS = 520; // source centre + square size, in source pixels
+  const lens = await lensPng(SRC, 'palace-lens.png', { l: LC.x - LS / 2, t: LC.y - LS / 2, size: LS });
+  const D = 2.9, cx = LC.x * k, cy = (LC.y - CT) * k;
+  const handle = d.name('handle');
+  const a = Math.PI / 4, hl = 1.35, hx = cx + (D / 2 + hl / 2 - 0.05) * Math.cos(a), hy = cy + (D / 2 + hl / 2 - 0.05) * Math.sin(a);
+  s.addShape(d.pres.shapes.ROUNDED_RECTANGLE, { x: hx - hl / 2, y: hy - 0.13, w: hl, h: 0.26, rotate: 45, rectRadius: 0.12, fill: { color: '2A2E36' }, line: { color: '6B7383', width: 1 }, shadow: { type: 'outer', color: '000000', blur: 10, offset: 3, angle: 90, opacity: 0.6 }, objectName: handle });
+  const ring0 = d.name('ring');
+  s.addShape(d.pres.shapes.OVAL, { x: cx - D / 2 - 0.1, y: cy - D / 2 - 0.1, w: D + 0.2, h: D + 0.2, fill: { color: '1D222C' }, line: { color: '0A0C10', width: 1 }, shadow: { type: 'outer', color: '000000', blur: 18, offset: 5, angle: 90, opacity: 0.6 }, objectName: ring0 });
+  const li = d.name('lens');
+  s.addImage({ path: lens, x: cx - D / 2, y: cy - D / 2, w: D, h: D, objectName: li });
+  const ring = d.name('ring');
+  s.addShape(d.pres.shapes.OVAL, { x: cx - D / 2, y: cy - D / 2, w: D, h: D, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: 'D9DCE1', width: 3 }, objectName: ring });
+  const lensT = chip(d, s, `LENS: ≈ ${(D / (LS * k)).toFixed(1)}× ENLARGEMENT OF THE SAME RENDER`, cx - 3.1, cy + D / 2 + 0.14, 3.6, { h: 0.28, fontSize: 9.5 });
+
+  d.animate(s, [bg], { auto: true, effect: 'fade', dur: 900 });
+  d.animate(s, [scr, kk, tt, cap], { auto: true, effect: 'fade', dur: 600, after: 300 });
+  d.animate(s, [...map, mr, mapT], { auto: true, effect: 'fade', dur: 500, after: 100 });
+  d.animate(s, [ring0, li, ring, handle, ...lensT], { effect: 'zoom', dur: 500 });
+  s.addNotes([
+    'MESSAGE: it survives a close look. The previous slide was the wide shot; this is the close-up the original poster added in the thread — the dome, the frieze reliefs, the standing figures and the urns, all from the same AI-built Blender scene.',
+    'CLICK: a magnifying glass drops onto one of the standing figures between the frieze panels. The lens is simply the same image enlarged ~1.5× (a 520-px crop of the 3,360-px original) — no other source, no retouching. The mini-map (top right) marks where this close-up sits in the wide shot.',
+    'Credit: close-up render posted by u/Recoil42 (OP) as the top comment of the r/singularity post, Sep 4, 2026 (image-only comment, 224 points): https://www.reddit.com/r/singularity/comments/1w6rilg/comment/p7p9gl9/ — full-resolution original https://i.redd.it/8mlp9cd7yenh1.png (3360×1908). It is the only close-up in the thread, and it matches the dome close-up (~15–21 s) of the 30-second 4K flythrough in Sharif Shameem\'s original X post (https://x.com/sharifshameem/status/2095653641164329143).',
+    'Thread reactions (verbatim, if useful): u/Kronox_100 (100 upvotes): "it truly shows long term planning and execution." u/ButterscotchFew9143: "Complex spatial reasoning was something I hoped (not expected, but hoped) would remain the realm of humans for the near term. Seems like it\'s done, now." For balance — a tech artist, u/Whispering-Depths: "As soon as you do some close scrutiny, things start to break down a lot." and u/ridddle: "It\'s all curated for maximum engagement and hype."',
+    'CAVEAT: vendor-affiliated (the demo is by an OpenAI employee), a single showcase, and cost/runtime/.blend file were never disclosed.',
   ].join('\n\n'));
   return s;
 }
@@ -824,9 +1001,11 @@ async function vibemathedSlide(d) {
 
 async function build(d) {
   await metrSlide(d);
+  await metrEvidenceSlide(d);
   await graveyardSlide(d);
   await hleSlide(d);
   await heroSlide(d);
+  await closeupSlide(d);
   await creativeSlide(d);
   await videoSlide(d);
   await navierSlide(d);

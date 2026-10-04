@@ -106,14 +106,26 @@ def overlaps(a, b):
     return a is None or (a[0] < b[0] + b[2] and b[0] < a[0] + a[2] and a[1] < b[1] + b[3] and b[1] < a[1] + a[3])
 
 
-def layer_slide(xml, keep, overlay):
-    """Copy of a slide keeping only the top-level shapes whose index is in `keep`. For the overlay layer the background
-    and the layout/master shapes are dropped so it renders on a transparent page."""
+def layer_slide(xml, keep, num, bg=None):
+    """Copy of a slide keeping only the top-level shapes whose index is in `keep`. With `bg` (hex colour) the layout/master
+    shapes are hidden and the background is that solid colour (LibreOffice ignores a no-fill background), so the layer
+    can be matted out of a black and a white render."""
     import io
     for _, (pfx, uri) in ET.iterparse(io.BytesIO(xml), events=('start-ns',)):
         if pfx and not re.match(r'ns\d+$', pfx):
             ET.register_namespace(pfx, uri)
     root = ET.fromstring(xml)
+    for par in root.iter('{%s}p' % NS['a']):  # slide-number fields would renumber inside the variant deck: freeze them
+        for fld in par.findall('a:fld', NS):
+            if fld.get('type') == 'slidenum':
+                fld.tag = '{%s}r' % NS['a']
+                fld.attrib.clear()
+                for pp in fld.findall('a:pPr', NS):
+                    fld.remove(pp)
+                t = fld.find('a:t', NS)
+                if t is None:
+                    t = ET.SubElement(fld, '{%s}t' % NS['a'])
+                t.text = str(num)
     tree = root.find('p:cSld/p:spTree', NS)
     for i, el in enumerate(list(tree)[2:]):
         if i not in keep:
@@ -122,16 +134,17 @@ def layer_slide(xml, keep, overlay):
         if el.tag.split('}')[1] in ('timing', 'transition', 'AlternateContent', 'extLst'):
             root.remove(el)
     root.attrib.pop('{%s}Ignorable' % MC, None)
-    if overlay:
+    if bg:
         root.set('showMasterSp', '0')
         csld = root.find('p:cSld', NS)
         if csld.find('p:bg', NS) is not None:
             csld.remove(csld.find('p:bg', NS))
-        bg = ET.Element('{%s}bg' % NS['p'])
-        bgpr = ET.SubElement(bg, '{%s}bgPr' % NS['p'])
-        ET.SubElement(bgpr, '{%s}noFill' % NS['a'])
+        bgel = ET.Element('{%s}bg' % NS['p'])
+        bgpr = ET.SubElement(bgel, '{%s}bgPr' % NS['p'])
+        fill = ET.SubElement(bgpr, '{%s}solidFill' % NS['a'])
+        ET.SubElement(fill, '{%s}srgbClr' % NS['a']).set('val', bg)
         ET.SubElement(bgpr, '{%s}effectLst' % NS['a'])
-        csld.insert(0, bg)
+        csld.insert(0, bgel)
     return ET.tostring(root, encoding='UTF-8', xml_declaration=True)
 
 
@@ -143,26 +156,37 @@ def write_variant(z, out_path, parts, xml_by_part):
     pres = re.sub(r'<p:sldId [^>]*?r:id="([^"]+)"[^>]*/>', lambda m: m.group(0) if m.group(1) in keep_ids else '', pres)
     with zipfile.ZipFile(out_path, 'w', zipfile.ZIP_DEFLATED) as zo:
         for info in z.infolist():
+            # fresh ZipInfo: writestr() rewrites offsets on the one it is given, which would corrupt reads from `z`
+            ni = zipfile.ZipInfo(info.filename, info.date_time)
+            ni.compress_type = info.compress_type
             if info.filename == 'ppt/presentation.xml':
-                zo.writestr(info, pres)
+                zo.writestr(ni, pres)
             elif info.filename in xml_by_part:
-                zo.writestr(info, xml_by_part[info.filename])
+                zo.writestr(ni, xml_by_part[info.filename])
             else:
-                zo.writestr(info, z.read(info.filename))
+                zo.writestr(ni, z.read(info.filename))
 
 
-def render(pptx, transparent=False):
+def matte(on_black, on_white):
+    """RGBA layer from the same shapes rendered on black and on white: alpha = 1 - (white - black), colour = black / alpha."""
+    import numpy as np
+    from PIL import Image
+    b = np.asarray(on_black.convert('RGB'), dtype=np.float32) / 255
+    w = np.asarray(on_white.convert('RGB'), dtype=np.float32) / 255
+    a = np.clip(1 - (w - b).mean(axis=2), 0, 1)
+    rgb = np.clip(b / np.maximum(a, 1e-4)[..., None], 0, 1)
+    rgb[a < 1 / 255] = 0
+    return Image.fromarray(np.dstack([rgb, a[..., None]]).__mul__(255).round().astype(np.uint8), 'RGBA')
+
+
+def render(pptx):
     """pptx -> list of 1920px PNG paths (one per listed slide), in a temp dir the caller removes."""
     tmp = tempfile.mkdtemp()
     shutil.copy(pptx, os.path.join(tmp, 'deck.pptx'))
     subprocess.run(['python3', SOFFICE, '--headless', '--convert-to', 'pdf', '--outdir', tmp, os.path.join(tmp, 'deck.pptx')],
                    check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL, timeout=1800)
-    if transparent:
-        subprocess.run(['pdftocairo', '-png', '-transp', '-scale-to-x', '1920', '-scale-to-y', '-1', os.path.join(tmp, 'deck.pdf'),
-                        os.path.join(tmp, 's')], check=True)
-    else:
-        subprocess.run(['pdftoppm', '-png', '-scale-to-x', '1920', '-scale-to-y', '-1', os.path.join(tmp, 'deck.pdf'),
-                        os.path.join(tmp, 's')], check=True)
+    subprocess.run(['pdftoppm', '-png', '-scale-to-x', '1920', '-scale-to-y', '-1', os.path.join(tmp, 'deck.pdf'),
+                    os.path.join(tmp, 's')], check=True)
     return tmp, sorted(glob.glob(os.path.join(tmp, 's-*.png')))
 
 
@@ -248,7 +272,7 @@ def main():
                         mp4cache[tgt] = f'media/{base}'
                     media.append({'kind': 'loop', 'webm': mp4cache[tgt] + '.webm', 'src': mp4cache[tgt] + '.mp4', '_pic': pic, **g})
         # Shapes drawn above a clip (labels, letter badges, loop nodes) would be hidden under the web <video>. For such slides
-        # the base image is rendered from the shapes up to the first clip, and everything after it goes in a transparent layer.
+        # the shapes stacked above a clip and overlapping it go in a transparent layer, the base image is rendered without them.
         kids = list(root.find('p:cSld/p:spTree', NS))[2:]
         clip_ids = {id(pic) for pic in root.iter('{%s}pic' % NS['p'])
                     if any(m.get('_pic') is pic for m in media if m['kind'] in ('loop', 'video'))}
@@ -256,9 +280,10 @@ def main():
         if clip_idx:
             first = clip_idx[0]
             boxes = [box_of(kids[i], cx, cy) for i in clip_idx]
-            above = [i for i in range(first + 1, len(kids)) if i not in clip_idx]
-            if any(overlaps(box_of(kids[i], cx, cy), b) for i in above for b in boxes if b):
-                layered[part] = (set(range(first)) | set(clip_idx), set(above))
+            top = {i for i in range(first + 1, len(kids))
+                   if i not in clip_idx and any(overlaps(box_of(kids[i], cx, cy), b) for b in boxes if b)}
+            if top:
+                layered[part] = (set(range(len(kids))) - top, top, n)
         for m in media:
             m.pop('_pic', None)
         slides.append({'n': n, 'part': part, 'img': f'slides/slide-{n:02d}.jpg', 'thumb': f'thumbs/thumb-{n:02d}.jpg',
@@ -273,19 +298,22 @@ def main():
     if lay:
         vdir = tempfile.mkdtemp(); tmps.append(vdir)
         parts = [s['part'] for s in lay]
-        for kind in ('base', 'top'):
-            xml = {p: layer_slide(z.read(p), layered[p][0 if kind == 'base' else 1], kind == 'top') for p in parts}
+        layers = {}
+        for kind, keep, bg in (('base', 0, None), ('black', 1, '000000'), ('white', 1, 'FFFFFF')):
+            xml = {p: layer_slide(z.read(p), layered[p][keep], layered[p][2], bg) for p in parts}
             write_variant(z, os.path.join(vdir, kind + '.pptx'), set(parts), xml)
-            t, pg = render(os.path.join(vdir, kind + '.pptx'), transparent=(kind == 'top'))
+            t, pg = render(os.path.join(vdir, kind + '.pptx'))
             tmps.append(t)
             assert len(pg) == len(parts), (kind, len(pg), len(parts))
-            (base_pages if kind == 'base' else top_pages).update(zip(parts, pg))
+            layers[kind] = dict(zip(parts, pg))
+        base_pages = layers['base']
+        top_pages = {p: (layers['black'][p], layers['white'][p]) for p in parts}
     for s, p in zip(slides, pages):
         full = Image.open(p).convert('RGB')
         base = Image.open(base_pages[s['part']]).convert('RGB') if s['part'] in base_pages else full
         base.save(os.path.join(out, s['img']), 'JPEG', quality=90, optimize=True, progressive=True, subsampling=0)
         if s['part'] in top_pages:
-            top = Image.open(top_pages[s['part']]).convert('RGBA')
+            top = matte(*(Image.open(f) for f in top_pages[s['part']]))
             bb = top.getchannel('A').getbbox()
             if bb:
                 W, H = top.size

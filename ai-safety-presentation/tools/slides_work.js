@@ -216,12 +216,13 @@ async function codeSlide(d) {
   const lw = 3.4;
   const lab = capLabel(d, s, 'NEW GOOGLE CODE WRITTEN BY AI', { x: CX0, y: 1.72, w: lw });
   const ch = d.chart(s, 'bar', [{ name: 'Google', labels: ['2024', 'Fall 2025', 'Apr 2026'], values: [0.25, 0.5, 0.75] }],
-    { x: CX0 - 0.1, y: 2.0, w: lw + 0.1, h: 2.75 }, {
+    { x: CX0 - 0.1, y: 2.0, w: lw + 0.1, h: 4.45 }, {
       barDir: 'col', chartColors: [HEX.steel, HEX.amber, HEX.red], showValue: true, dataLabelFormatCode: '0%', dataLabelPosition: 'outEnd',
       dataLabelFontSize: 14, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 0.9, valAxisMinVal: 0,
       catAxisLabelFontSize: 11, barGapWidthPct: 35,
     });
-  const st = stat(d, s, { x: CX0, y: 4.95, w: lw, value: '101,743', valueSize: 36, labelSize: 14, labelH: 0.85, label: 'announced US job cuts citing AI in H1 2026 — nearly double all of 2025 (Challenger)' });
+  // layoffs stat sits with the layoff clippings (bottom of the collage, under the CNN clipping)
+  const st = stat(d, s, { x: 4.5, y: 5.05, w: 2.55, value: '101,743', valueSize: 36, labelSize: 14, labelH: 0.75, label: 'announced US job cuts citing AI in H1 2026 — nearly double all of 2025 (Challenger)' });
 
   // right: four clippings in two pairs — code (top) and layoffs (bottom) — staggered, with clear gaps between frames.
   // (The Semafor “75%” clipping was dropped: the chart on the left already shows that figure.)
@@ -233,7 +234,7 @@ async function codeSlide(d) {
   const c1 = await frameW(d, s, bi, 4.45, 1.88, 4.1, { rot: -1.5 });
   const c2 = await frameW(d, s, fortune, 8.87, 2.15, 3.83, { rot: 1.5 });
   const c3 = await frameW(d, s, cnn, 4.5, 3.6, 4.05, { rot: 1.2 });
-  const c4 = await frameW(d, s, cbs, 7.25, 5.08, 4.85, { rot: -1.5 });
+  const c4 = await frameW(d, s, cbs, 7.42, 5.08, 4.85, { rot: -1.5 });
 
   d.animate(s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 800 });
   d.animate(s, [...c1, ...c2], { auto: true, effect: 'rise', dur: 450, after: 200 });

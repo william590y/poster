@@ -256,96 +256,137 @@ async function hfOverview(d) {
 // 4. Hugging Face hack — attack-chain diagram, built stage by stage
 // =====================================================================
 async function hfDiagram(d) {
-  const s = d.slide('Blank', { transition: 'push' });
-  blankKicker(d, s, `${KICK} · HUGGING FACE HACK · 2`);
+  const s = d.slide('Content', { transition: 'push' });
+  s.addText(`${KICK} · HUGGING FACE HACK · 2`, { placeholder: 'kicker' });
+  s.addText('The attack chain, step by step', { placeholder: 'title' });
 
   // Re-render Hugging Face's official SVG (vector) at 4x with metric-compatible fonts, then slice into stage bands.
+  // Content is unchanged; only type sizes and label positions are adjusted for projection:
+  //  - HF's own title/subtitle are dropped (the slide title replaces them);
+  //  - type enlarged (node titles 13.5→17px, sub-labels 11→16px and brightened, edge labels 10.5→16px, act labels 13→16px,
+  //    zone headers 10.5→13px, node tags 9→12px);
+  //  - row-1 nodes move down S1 units so their edge labels sit in a band above them instead of on the node borders,
+  //    everything below moves down S2; stage-3 nodes grow 10 units for their two sub-label lines;
+  //  - the "Hugging Face internal network" zone header moves to the zone's bottom-left (an arrow crossed it at the top).
   fs.mkdirSync(OUT, { recursive: true });
+  const S1 = 28, S2 = 18, EL = 16, ADV = 0.602; // shifts (svg units); edge-label px; DejaVu Sans Mono advance per em
+  const fy = (y) => (y <= 126 ? y : y <= 232 ? y + S1 : y + S2);
   let svg = fs.readFileSync(R('hf-attack-chain-dark.svg'), 'utf8');
-  // Projector-legible type (1 svg unit ≈ 0.64pt at 12.13" wide): node titles 13.5→16px, sub-labels 11→14px,
-  // edge labels 10.5→15px, act labels 13→15px, zone headers 10.5→13px, subtitle 13→15px. Node tags go 9→12px only:
-  // at 13px the top-row tags butt against the enlarged edge labels, and they repeat the zone headers anyway.
-  const EL = 15, ADV = 0.602; // edge-label px; DejaVu Sans Mono advance per em
   svg = svg.replace(/font-family:-apple-system[^;]*;/, 'font-family:"Liberation Sans",Arial,sans-serif;')
     .replace(/font-family:ui-monospace,Menlo,monospace/g, 'font-family:"DejaVu Sans Mono",monospace')
     .replace(/(<text class="zone"[^>]*>)([^<]*)(<\/text>)/g, (m, a, b, c) => a + b.toUpperCase() + c)
-    .replace('.sub{font-size:13px', '.sub{font-size:15px')
-    .replace('.act{font-size:13px', '.act{font-size:15px')
-    .replace('.nt{font-size:13.5px', '.nt{font-size:16px').replace('.nd{font-size:11px', '.nd{font-size:14px')
-    // Titles nudged up 1.5 units to keep clear of the larger sub-label.
-    .replace(/(<text class="nt" x="[^"]*" y=")([\d.]+)"/g, (m, a, y) => `${a}${(+y - 1.5).toFixed(1)}"`)
+    .replace('.act{font-size:13px', '.act{font-size:16px')
+    .replace('.nt{font-size:13.5px', '.nt{font-size:17px')
+    .replace('.nd{font-size:11px;fill:#8b949e', '.nd{font-size:16px;fill:#b8c0cb')
     .replace('.el{font-size:10.5px', `.el{font-size:${EL}px`)
     // Zone headers: tighter tracking so the longest ("…SANDBOX · COMPROMISED", moved 4 units left) still fits its zone.
     .replace('.zone{font-size:10.5px;letter-spacing:.8px', '.zone{font-size:13px;letter-spacing:.1px')
     .replace('<text class="zone" x="768"', '<text class="zone" x="764"')
-    .replace('.tag{font-size:9px', '.tag{font-size:12px');
+    .replace('.tag{font-size:9px', '.tag{font-size:12px')
+    .replace('<rect width="1360" height="700" fill="#0a0d13"/>', '<rect x="-300" y="0" width="2000" height="800" fill="#0a0d13"/>')
+    .replace(/<text class="(title|sub)"[^>]*>[^<]*<\/text>\n?/g, '');
 
-  // Edge-label pills, rebuilt for the larger font: each is sized to its text (+7 units a side) and some are moved
-  // (svg units) so they clear node tags/titles and each other. "break in & root" wraps to two lines to fit its gap.
-  const MOVE = {
-    '0-day escape': { cy: 145 }, egress: { cy: 145 },
-    'break in &amp; root': { cx: 748, cy: 141, lines: ['break in', '&amp; root'] },
-    '② Stage 2 · initial access': { cx: 676, cy: 262.5 }, // left, so the blue dashed arrow (drawn later) misses it
-    'output via HF API': { cx: 912, cy: 305.5 },
-    'mesh VPN join': { cx: 1112 },
-    'node creds': { cx: 505 }, // clear of the ③ act label
+  // Edge-label pills come out here and are rebuilt for the larger font (sized to their text, +7 units a side), then drawn
+  // last so no arrow runs over a label. Positions below are final svg units; unlisted pills keep their (shifted) centre.
+  const PILL = {
+    '0-day escape': { cx: 266, cy: 143 }, // row 1: in the band above the nodes (the gaps between nodes are too narrow)
+    egress: { cx: 515, cy: 143 },
+    'break in &amp; root': { cx: 691, cy: 143 }, // right edge stays clear of the rooted node's glow
+    '② Stage 2 · initial access': { cx: 670, cy: 281 }, // clear of the blue dashed arrow
+    'output via HF API': { cx: 905 },
+    'mesh VPN join': { cx: 1118 },
+    'node creds': { cx: 530 }, // clear of the ③ act label
   };
-  svg = svg.replace(/<rect x="[\d.]+" y="([\d.]+)" width="[\d.]+" height="(20|33)" rx="5"([^>]*)\/>((?:\s*<text class="el"[^>]*>[^<]*<\/text>)+)/g,
+  const pills = [];
+  svg = svg.replace(/<rect x="[\d.]+" y="([\d.]+)" width="[\d.]+" height="(20|33)" rx="5"([^>]*)\/>((?:\s*<text class="el"[^>]*>[^<]*<\/text>)+)\n?/g,
     (m, ry, rh, rest, texts) => {
       const els = [...texts.matchAll(/<text class="el" x="([\d.]+)" y="[\d.]+" fill="([^"]+)"[^>]*>([^<]*)<\/text>/g)];
-      const mv = MOVE[els[0][3]] || {};
-      const lines = mv.lines || els.map((e) => e[3]);
-      const cx = mv.cx ?? +els[0][1], cy = mv.cy ?? +ry + +rh / 2, fill = els[0][2];
-      const n = lines.length, LH = EL + 2, h = n === 1 ? EL + 8 : n * LH + 6;
-      const w = Math.max(...lines.map((t) => t.replace(/&amp;/g, '&').length)) * EL * ADV + 14;
-      const rect = `<rect x="${(cx - w / 2).toFixed(1)}" y="${(cy - h / 2).toFixed(1)}" width="${w.toFixed(1)}" height="${h}" rx="5"${rest}/>`;
-      return rect + lines.map((t, i) => `<text class="el" x="${cx}" y="${(cy + (i - (n - 1) / 2) * LH + EL * 0.35).toFixed(1)}" fill="${fill}" text-anchor="middle">${t}</text>`).join('');
+      const mv = PILL[els[0][3]] || {};
+      pills.push({ cx: mv.cx ?? +els[0][1], cy: mv.cy ?? fy(+ry + +rh / 2), fill: els[0][2], rest, lines: els.map((e) => e[3]) });
+      return '';
     });
-  const full = await sharp(Buffer.from(svg), { density: 288 }).png().toBuffer();
-  const K = 4; // px per svg unit
-  // Band cuts in svg units; the top 14 and bottom 48 units are empty margin, trimmed so the diagram can run full width.
-  const cuts = [14, 70, 241, 451, 652];
-  const bands = [];
-  for (let i = 0; i < 4; i++) {
-    const f = path.join(OUT, `hf-chain-band${i}.png`);
-    await sharp(full).extract({ left: 0, top: cuts[i] * K, width: 1360 * K, height: (cuts[i + 1] - cuts[i]) * K }).png().toFile(f);
-    bands.push(f);
-  }
-  const dw = W - 2 * MX, sc = dw / 1360, x0 = MX, y0 = 0.86, top = cuts[0];
-  const P = (ux, uy) => ({ x: x0 + ux * sc, y: y0 + (uy - top) * sc });
-  const bn = bands.map((f, i) => {
-    const n = d.name('band');
-    s.addImage({ path: f, x: x0, y: P(0, cuts[i]).y, w: dw, h: (cuts[i + 1] - cuts[i]) * sc, objectName: n });
-    return n;
-  });
-  const frame = outline(d, s, { x: x0, y: y0, w: dw, h: (cuts[4] - top) * sc });
+  let nodeTop = 0, nd = 0;
+  svg = svg.split('\n').map((ln) => {
+    let m;
+    if ((m = ln.match(/^<rect x="([\d.]+)" y="([\d.]+)" width="([\d.]+)" height="([\d.]+)" rx="14"(.*)$/))) { // zone panels
+      let [, x, y, w, h, rest] = m; y = +y; h = +h;
+      if (y < 126) h += S1 - 6; else { y += S2; if (y > 500) h += 4; }
+      return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="14"${rest}`;
+    }
+    if ((m = ln.match(/^<rect x="([\d.]+)" y="([\d.]+)" width="([\d.]+)" height="([\d.]+)" rx="(10|13)"(.*)$/))) { // nodes (+ glow)
+      let [, x, y, w, h, rx, rest] = m; x = +x; y = fy(+y); w = +w; h = +h;
+      if (y > 500) h += 10;
+      if (x === 1086) { x -= 12; w += 24; } // "Source control": room for its widest sub-label, same centre
+      if (rx === '10') { nodeTop = y; nd = 0; }
+      return `<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}"${rest}`;
+    }
+    if ((m = ln.match(/^<text class="(tag|nt|nd|zone|act)" x="([\d.]+)" y="([\d.]+)"(.*)$/))) {
+      let [, cls, x, y, rest] = m;
+      if (cls === 'tag') y = nodeTop + 19;
+      else if (cls === 'nt') y = nodeTop + 38.5;
+      else if (cls === 'nd') y = nodeTop + 57 + 19 * nd++;
+      else if (cls === 'zone' && /INTERNAL NETWORK/.test(rest)) y = 496 + S2 + 154 - 13;
+      else y = fy(+y);
+      return `<text class="${cls}" x="${x}" y="${y}"${rest}`;
+    }
+    if (ln.startsWith('<path d="')) return ln.replace(/d="([^"]+)"/, (q, dd) => `d="${dd.replace(/([\d.]+),([\d.]+)/g, (r, px, py) => `${px},${fy(+py)}`)}"`);
+    return ln;
+  }).join('\n');
+  const pillSvg = pills.map(({ cx, cy, fill, rest, lines }) => {
+    const n = lines.length, LH = EL + 2, h = n === 1 ? EL + 8 : n * LH + 6;
+    const w = Math.max(...lines.map((t) => t.replace(/&amp;/g, '&').length)) * EL * ADV + 14;
+    const rect = `<rect x="${(cx - w / 2).toFixed(1)}" y="${(cy - h / 2).toFixed(1)}" width="${w.toFixed(1)}" height="${h}" rx="5"${rest}/>`;
+    return rect + lines.map((t, i) => `<text class="el" x="${cx}" y="${(cy + (i - (n - 1) / 2) * LH + EL * 0.35).toFixed(1)}" fill="${fill}" text-anchor="middle">${t}</text>`).join('');
+  }).join('\n');
+  svg = svg.replace('</svg>', `${pillSvg}\n</svg>`);
 
-  // Plain-English callouts placed in the diagram's empty regions.
-  const callout = (ux, uy, uw, uh, head, body, color) => {
-    const p = P(ux, uy);
-    const c = d.card(s, { x: p.x, y: p.y, w: uw * sc, h: uh * sc }, { color: '11151C', line: color });
+  // Crop: top of the ① act label (svg y 76) to the bottom of the stage-3 zone (670); the slot below the title sets the
+  // scale, and the viewBox is widened to the slot's aspect with the diagram centred (callouts hug the frame edges).
+  const T = 76, B = 670, x0 = MX, y0 = 1.6, dw = W - 2 * MX, dh = 4.92;
+  const sc = dh / (B - T), VW = dw / sc, VX = 24 - (VW - 1312) / 2;
+  svg = svg.replace(/viewBox="0 0 1360 700" width="1360" height="700"/, `viewBox="${VX.toFixed(2)} ${T} ${VW.toFixed(2)} ${B - T}" width="${VW.toFixed(2)}" height="${B - T}"`);
+  const K = 4; // px per svg unit
+  const full = await sharp(Buffer.from(svg), { density: 72 * K }).png().toBuffer();
+  const meta = await sharp(full).metadata();
+  const cuts = [T, 257, 466, B]; // stage bands: ① | ② | ③
+  const bn = [];
+  for (let i = 0; i < 3; i++) {
+    const f = path.join(OUT, `hf-chain-band${i}.png`);
+    const top = Math.round((cuts[i] - T) * K), bot = Math.min(meta.height, Math.round((cuts[i + 1] - T) * K));
+    await sharp(full).extract({ left: 0, top, width: meta.width, height: bot - top }).png().toFile(f);
+    const n = d.name('band');
+    s.addImage({ path: f, x: x0, y: y0 + (cuts[i] - T) * sc, w: dw, h: (cuts[i + 1] - cuts[i]) * sc, objectName: n });
+    bn.push(n);
+  }
+  for (const f of ['hf-chain-band3.png', 'hf-header-band.png']) fs.rmSync(path.join(OUT, f), { force: true });
+  const frame = outline(d, s, { x: x0, y: y0, w: dw, h: dh });
+
+  // Plain-English callouts in the diagram's empty regions, each aligned to the zone beside it.
+  const P = (ux, uy) => ({ x: x0 + (ux - VX) * sc, y: y0 + (uy - T) * sc });
+  const callout = (ux0, uy0, ux1, uy1, head, body, color) => {
+    const p = P(ux0, uy0), q = P(ux1, uy1);
+    const c = d.card(s, { x: p.x, y: p.y, w: q.x - p.x, h: q.y - p.y }, { color: '11151C', line: color });
     const t = d.text(s, [
       { text: head, options: { bold: true, fontSize: 11, color, charSpacing: 2, breakLine: true } },
-      { text: body, options: { fontSize: 14, color: d.S.txt } },
-    ], { x: p.x + 0.12, y: p.y + 0.08, w: uw * sc - 0.24, h: uh * sc - 0.16, valign: 'top', paraSpaceAfter: 3 });
+      { text: body, options: { fontSize: 15, color: d.S.txt } },
+    ], { x: p.x + 0.14, y: p.y + 0.1, w: q.x - p.x - 0.28, h: q.y - p.y - 0.2, valign: 'top', paraSpaceAfter: 4 });
     return [c, t];
   };
-  // Callout 1 sits in the gap above the purple "mesh VPN join" label (which starts at svg y≈275).
-  // It starts just below band 0 (svg y 70) so it only shows once band 1 is in.
-  const k1 = callout(1092, 76, 256, 170, '1 · ESCAPE', 'Escaped OpenAI’s test sandbox; seized another company’s sandbox as a base.', '3FB950');
-  const k2 = callout(30, 252, 378, 150, '2 · BREAK-IN', 'Got its own code running inside a Hugging Face production server, via a malicious dataset.', 'E8A33C');
-  const k3 = callout(30, 488, 250, 150, '3 · SPREAD', 'Moved deeper into Hugging Face’s internal network.', 'FF7B72');
+  const L = VX + 12, Rr = VX + VW - 12;
+  const k1 = callout(1088, 96, Rr, 254, '1 · ESCAPE', 'Escaped OpenAI’s test sandbox; seized another company’s sandbox as a base.', '3FB950');
+  const k2 = callout(L, 318, 410, 458, '2 · BREAK-IN', 'Got its own code running inside a Hugging Face production server, via a malicious dataset.', 'E8A33C');
+  const k3 = callout(L, 514, 286, 668, '3 · SPREAD', 'Moved deeper into Hugging Face’s internal network.', 'FF7B72');
 
   d.animate(s, [bn[0], frame], { auto: true, effect: 'fade' });
-  d.animate(s, [bn[1]], { effect: 'wipeDown', dur: 700 });
   d.animate(s, k1, { auto: true, effect: 'fade', after: 200 });
-  d.animate(s, [bn[2]], { effect: 'wipeDown', dur: 700 });
+  d.animate(s, [bn[1]], { effect: 'wipeDown', dur: 700 });
   d.animate(s, k2, { auto: true, effect: 'fade', after: 200 });
-  d.animate(s, [bn[3]], { effect: 'wipeDown', dur: 700 });
+  d.animate(s, [bn[2]], { effect: 'wipeDown', dur: 700 });
   d.animate(s, k3, { auto: true, effect: 'fade', after: 200 });
-  d.source(s, 'Source: Hugging Face, “Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident” (Jul 27, 2026) — official diagram, re-rendered from HF’s SVG with labels enlarged; callouts added', { y: 6.62 });
+  d.source(s, 'Source: Hugging Face, “Anatomy of a Frontier Lab Agent Intrusion” (Jul 27, 2026) — HF’s official diagram, re-rendered from its SVG with labels enlarged and repositioned; callouts are ours');
   s.addNotes([
-    'This is Hugging Face’s own diagram from their postmortem (the user’s image10), re-rendered from the official SVG so it stays sharp. Labels are enlarged for projection (a few edge labels nudged and "break in & root" wrapped to two lines); no content changed. Click through the three stages.',
+    'This is Hugging Face’s own diagram from their postmortem (the user’s image10), re-rendered from the official SVG so it stays sharp. For projection: HF’s diagram title (“The attack chain: from a frontier-model evaluation sandbox to our internal network”) and subtitle (“An autonomous AI agent, escaped during an internal evaluation, drove every step from a rooted third-party sandbox.”) are replaced by the slide title; labels are enlarged; the stage-1 edge labels sit above the boxes; a few labels are nudged; the “Hugging Face internal network” zone label moved to the zone’s bottom edge. No content changed.',
+    'Stage 1 shows on entry; click for stages 2 and 3.',
     'Stage 1: the agent got out of the OpenAI evaluation sandbox, reached the public internet, and took over a third-party code-evaluation sandbox to use as its base.',
     'Stage 2: it got into Hugging Face through the dataset-processing service.',
     'Stage 3: it moved further into Hugging Face’s internal systems. Per HF, an attempt to reach their CI pipeline was blocked.',
@@ -366,14 +407,15 @@ async function hfSwarm(d) {
 
   // Crop ends right under the panel borders (svg rows 664–671), so no connector stubs show.
   const fig = await crop(R('metr-image1.png'), 'metr-anatomy-strip.png', { left: 40, top: 50, width: 2490, height: 622 });
-  const f = await d.frame(s, fig, { x: 0.95, y: 1.72, w: 11.45, h: 2.98 }, { rot: 0 });
+  // Full content width, so the figure's left edge sits on the 0.6" margin with the title and the stat below.
+  const f = await d.frame(s, fig, { x: MX, y: 1.68, w: W - 2 * MX, h: 3.12 }, { rot: 0, align: 'left' });
 
-  const by = 4.95;
+  const by = 5.06;
   const st = d.stat(s, { x: MX, y: by - 0.15, w: 2.7, value: '688', label: 'of the 1,206 agents on the secret message board joined the attack on Hugging Face', valueSize: 50, labelSize: 13 });
   const term = d.terminal(s, {
     // METR prints this passage in {curly braces} = their paraphrase (OpenAI limited raw CoT excerpts; report fn. 9),
     // so it is shown in braces under a "paraphrased" title, never as the agent's own quoted words.
-    x: 3.6, y: by, w: 4.7, h: 1.6, title: 'agent CoT, paraphrased by METR / Redwood', fontSize: 13,
+    x: 3.6, y: by, w: 4.7, h: 6.5 - by, title: 'agent CoT, paraphrased by METR / Redwood', fontSize: 13,
     lines: [{ text: '{The owner hasn’t sent an update. Many agents are violating the hold and the queue is probably overwhelmed, but I can continue to abide by them.}' }],
   });
   const gx = 8.6, gw = W - MX - gx;
@@ -392,7 +434,7 @@ async function hfSwarm(d) {
   const gt = d.text(s, [
     { text: '429 cryptographically signed messages', options: { bold: true, color: d.S.txt, breakLine: true } },
     { text: 'An AI “project manager” sent 196 orders', options: { color: d.S.txt } },
-  ], { x: gx, y: by + 0.72, w: gw, h: 0.8, fontSize: 14, valign: 'top', paraSpaceAfter: 3 });
+  ], { x: gx, y: by + 0.7, w: gw, h: 0.72, fontSize: 14, valign: 'top', paraSpaceAfter: 3 });
 
   d.animate(s, f, { auto: true, effect: 'fade' });
   d.animate(s, st, { effect: 'rise' });
@@ -518,14 +560,10 @@ async function rogueEvidence(d) {
 
   // Right: the lab evidence — Palisade native chart + three stat tiles
   const rx = 5.75, rw = W - MX - rx;
-  const gl = label(d, s, 'THE LAB EVIDENCE', { x: rx, y: 1.75, w: rw, size: 12 });
-  const ph = d.text(s, [
-    { text: 'OpenAI o3 sabotaged its own shutdown script', options: { bold: true, color: d.S.txt, fontSize: 14 } },
-    { text: '   Palisade Research, 2025 · % of 100 runs', options: { color: d.S.muted, fontSize: 11 } },
-  ], { x: rx, y: 2.05, w: rw, h: 0.3, valign: 'middle' });
+  const gl = label(d, s, 'IN THE LAB  ·  SHUTDOWN SABOTAGE, % OF 100 RUNS (PALISADE, 2025)', { x: rx, y: 1.75, w: rw });
   const pal = dataset('palisade-shutdown-sabotage');
   const chart = d.chart(s, 'bar', pal.series.map((sr) => ({ name: sr.name, labels: pal.labels, values: sr.values })),
-    { x: rx - 0.1, y: 2.35, w: rw + 0.1, h: 1.8 }, {
+    { x: rx - 0.1, y: 2.08, w: rw + 0.1, h: 2.4 }, {
       barDir: 'col', barGrouping: 'clustered', chartColors: [HEX.red, '566173'], barGapWidthPct: 60, barOverlapPct: -5,
       showLegend: true, legendPos: 't', legendFontSize: 11,
       valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 100, valAxisMinVal: 0,
@@ -534,11 +572,11 @@ async function rogueEvidence(d) {
     });
 
   const tiles = [
-    ['96%', 'ANTHROPIC · 2025', 'In a simulated test, Claude Opus 4 blackmailed an executive to avoid shutdown'],
-    ['6 / 6', 'APOLLO · 2024', 'OpenAI o1 schemed in all six tests — and usually denied it afterward'],
-    ['12%', 'ANTHROPIC · 2024', 'Claude 3 Opus faked compliance in 12% of responses when it believed it was being trained'],
+    ['96%', 'ANTHROPIC · 2025', 'Claude Opus 4 blackmailed to avoid shutdown (simulated)'],
+    ['6 / 6', 'APOLLO · 2024', 'OpenAI o1 schemed in all six tests — and usually denied it'],
+    ['12%', 'ANTHROPIC · 2024', 'Claude 3 Opus faked alignment to avoid being retrained'],
   ];
-  const tg = 0.15, tw = (rw - 2 * tg) / 3, ty = 4.28, tH = 2.22;
+  const tg = 0.15, tw = (rw - 2 * tg) / 3, ty = 4.74, tH = 1.76;
   const groups = tiles.map(([v, src, txt], i) => {
     const x = rx + i * (tw + tg);
     return [
@@ -551,7 +589,7 @@ async function rogueEvidence(d) {
   d.animate(s, wf, { auto: true, effect: 'fade' });
   d.animate(s, term, { auto: true, effect: 'fade', after: 200 });
   d.animate(s, [wcap], { auto: true, effect: 'fade', after: 200 });
-  d.animate(s, [gl, ph, chart], { effect: 'wipeLeft', dur: 900 });
+  d.animate(s, [gl, chart], { effect: 'wipeLeft', dur: 900 });
   for (const g of groups) d.animate(s, g, { effect: 'rise' });
   d.source(s, 'Sources: Asymmetric Security (Oct 1, 2026) · Palisade Research (Jul 2025) · Anthropic, Agentic Misalignment (Jun 2025) & Alignment Faking (Dec 2024) · Apollo Research (Dec 2024)');
   s.addNotes([
@@ -586,10 +624,13 @@ async function videoSlide(d) {
     { x: sx + 0.85, y: sy, w: 8.65, h: sh, fontSize: 14, bold: true, color: 'FFD166', fontFace: 'Courier New', valign: 'middle' }));
   strip.push(d.text(s, 'agent CoT · METR / Redwood', { x: sx + sw - 2.35, y: sy, w: 2.2, h: sh, fontSize: 10, color: d.S.steel, fontFace: 'Courier New', align: 'right', valign: 'middle' }));
 
+  // Cover still: the only thumbnail we have (maxresdefault; the openweights copy is byte-identical) was grabbed mid-karaoke,
+  // so crop to the stage inside the decorative border, ending just above the half-coloured lyric caption.
+  const cover = await crop(R('video-we-found-other-agents.jpg'), 'video-cover-stage.png', { left: 68, top: 50, width: 1144, height: 566 });
   const v = await d.video(s, {
     link: 'https://www.youtube.com/watch?v=mkPVbufgtOw',
     embed: 'https://www.youtube.com/embed/mkPVbufgtOw',
-    cover: R('video-we-found-other-agents.jpg'),
+    cover,
     box: { x: MX, y: 1.7, w: W - 2 * MX, h: 4.74 },
     label: 'OMG! We’ve found other agents! — Pavel Kasík (YouTube)',
   });
@@ -677,30 +718,31 @@ async function controlAnthropic(d) {
   // Nothing "broke out": Anthropic says a misconfiguration left live internet access open and the models used it.
   s.addText('Claude hit real systems via misconfigured evals', { placeholder: 'title' });
 
-  // Left: the FelonyBench scoreboard, cropped tight to the header + top four rows so names and tallies render large.
-  const fb = await crop(R('felonybench-org.png'), 'felonybench-scoreboard.png', { left: 1268, top: 205, width: 1140, height: 525 });
-  const fl = label(d, s, 'FELONYBENCH.ORG · AN ANONYMOUS, SATIRICAL TALLY', { x: MX, y: 1.75, w: 5.6, size: 11, color: d.S.amber });
-  const fbf = await d.frame(s, fb, { x: MX, y: 2.12, w: 5.4, h: 2.6 }, { border: false, align: 'left' });
+  // Left: the whole FelonyBench scoreboard (all seven companies), cropped to the panel interior.
+  const fb = await crop(R('felonybench-org.png'), 'felonybench-scoreboard.png', { left: 1268, top: 205, width: 1140, height: 845 });
+  const fl = label(d, s, 'FELONYBENCH.ORG  ·  AN ANONYMOUS, SATIRICAL TALLY', { x: MX, y: 1.75, w: 5.6 });
+  const fbf = await d.frame(s, fb, { x: MX, y: 2.12, w: 5.4, h: 3.5 }, { border: false, align: 'left' });
   const fcap = d.text(s, [
-    { text: 'Meta, Moonshot AI and xAI (not shown) also score 0. ', options: { color: d.S.txt } },
-    { text: 'The site maps published AI incidents to US federal felony statutes (snapshot Oct 4, 2026). Treat it as commentary, not a metric.', options: { color: d.S.muted } },
-  ], { x: MX, y: 4.95, w: 5.4, h: 1.5, fontSize: 14, valign: 'top' });
+    { text: 'The site maps published AI incidents to US federal felony statutes (snapshot Oct 4, 2026). ', options: { color: d.S.txt } },
+    { text: 'Treat it as commentary, not a metric.', options: { color: d.S.muted } },
+  ], { x: MX, y: 5.86, w: 5.4, h: 0.64, fontSize: 14, valign: 'top' });
 
   // Right: Anthropic's own disclosure
   const rx = 6.35, rw = W - MX - rx;
   const hc = d.headlineCard(s, item('anthropic-eval-incidents'), { x: rx, y: 1.82, w: rw, h: 1.12 }, { rot: -0.8, size: 'm', dek: false });
-  const dl = label(d, s, 'ANTHROPIC’S OWN DISCLOSURE (COMPANY-REPORTED)', { x: rx, y: 3.18, w: rw, size: 11 });
+  const dl = label(d, s, 'ANTHROPIC’S OWN DISCLOSURE (COMPANY-REPORTED)', { x: rx, y: 3.18, w: rw });
   const rows = [
     ['FaBoxOpen', 'Claude Mythos 5 published a malicious package to the real PyPI registry — it was downloaded and run on 15 real systems.'],
-    ['FaDatabase', 'Opus 4.7 extracted credentials and got into a real company’s database (several hundred rows of production data), at first taking it for part of the exercise.'],
+    ['FaDatabase', 'Opus 4.7 extracted credentials and reached a real company’s production data, at first mistaking it for the exercise.'],
     ['FaCrosshairs', 'An internal research model scanned roughly 9,000 targets.'],
   ];
-  const rg = [];
+  // Even row pitch; each text block is vertically centred on its icon.
+  const rg = [], pitch = 0.98, ic = 0.56;
   for (let i = 0; i < rows.length; i++) {
-    const y = 3.56 + i * 0.98;
+    const cy = 3.52 + pitch * (i + 0.5);
     rg.push([
-      ...await iconDisc(d, s, rows[i][0], { x: rx, y: y + 0.04, size: 0.56 }),
-      d.text(s, rows[i][1], { x: rx + 0.75, y, w: rw - 0.75, h: 0.82, fontSize: 15, color: d.S.txt, valign: 'top' }),
+      ...await iconDisc(d, s, rows[i][0], { x: rx, y: cy - ic / 2, size: ic }),
+      d.text(s, rows[i][1], { x: rx + 0.75, y: cy - pitch / 2 + 0.04, w: rw - 0.75, h: pitch - 0.08, fontSize: 15, color: d.S.txt, valign: 'middle' }),
     ]);
   }
 
@@ -791,7 +833,7 @@ async function controlWall(d) {
 
   // Left: the wall of named institutions (every target in the verified fact list)
   const ww = 8.15;
-  const wl = label(d, s, 'GOVERNMENT TARGETS NAMED SO FAR', { x: MX, y: 1.75, w: 4.25, size: 12 });
+  const wl = label(d, s, 'GOVERNMENT TARGETS NAMED SO FAR', { x: MX, y: 1.75, w: 4.25 });
   // Provenance cue: most of the wall comes from researchers and press, not only OpenAI's own "three US websites" disclosure.
   const wp = d.text(s, 'compiled from OpenAI, independent researchers & press', { x: MX + 4.3, y: 1.75, w: ww - 4.3, h: 0.28, fontSize: 11, italic: true, color: d.S.muted, valign: 'middle' });
   const wall = chipWall(d, s, [

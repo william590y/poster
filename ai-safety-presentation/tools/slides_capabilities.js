@@ -189,9 +189,9 @@ async function metrSlide(d) {
   const trendT = d.text(s, 'trend since 2023:\ndoubling every ~129 days', { x: px(2025.25) + 0.12, y: py(at(2025.25)) + 0.05, w: 2.1, h: 0.45, fontSize: 11, bold: true, color: d.S.amber, valign: 'top' });
 
   // point labels
-  const lab = (name, txt, side = 'r', dy = 0) => {
+  const lab = (name, txt, side = 'r', dy = 0, dx = 0) => {
     const m = METR.find((r) => r[0] === name);
-    const x = px(decYear(m[1])), y = py(m[2]);
+    const x = px(decYear(m[1])) + dx, y = py(m[2]);
     const w = 2.4;
     return d.text(s, txt, side === 'r'
       ? { x: x + 0.12, y: y - 0.14 + dy, w, h: 0.28, fontSize: 11, color: d.S.txt, valign: 'middle' }
@@ -199,7 +199,7 @@ async function metrSlide(d) {
   };
   const pl = [
     lab('GPT-2', 'GPT-2 · 3 sec'), lab('GPT-3', 'GPT-3 · 9 sec'), lab('GPT-3.5', 'GPT-3.5 · 36 sec'),
-    lab('GPT-4', 'GPT-4 · 4 min', 'l'), lab('o1', 'o1 · 39 min', 'l', -0.16), lab('o3', 'o3 · 2 hrs', 'l'),
+    lab('GPT-4', 'GPT-4 · 4 min', 'l'), lab('o1', 'o1 · 39 min', 'l', 0, -0.2), lab('o3', 'o3 · 2 hrs', 'l'),
     lab('Claude Opus 4.6', 'Claude Opus 4.6 · 12 hrs', 'l'),
     lab('Claude Mythos Preview (early)', 'Claude Mythos Preview · ~17 hrs', 'l', -0.1),
   ];
@@ -365,7 +365,7 @@ async function heroSlide(d) {
   s.addImage({ path: img, x: 0, y: 0, w: W, h, objectName: im });
   // soft dark scrim over the sky (a separate overlay, the image itself is untouched) so the deck's red kicker reads
   const scr = d.name('scrim');
-  s.addImage({ path: await scrim('hero-scrim.png', 1600, 400), x: 0, y: 0, w: W, h: 3.33, objectName: scr });
+  s.addImage({ path: await scrim('hero-scrim.png', 1600, 400, { max: 0.72 }), x: 0, y: 0, w: W, h: 3.33, objectName: scr });
   // kicker + title at exactly the Content layout's placeholder geometry (text boxes so they can be animated)
   const k = d.text(s, `${KICK} · CREATIVITY · 1`, { x: MX, y: 0.42, w: 9, h: 0.3, fontSize: 12, bold: true, color: d.S.red, charSpacing: 4, valign: 'top' });
   const t = d.text(s, 'This is not a photograph', { x: MX, y: 0.72, w: W - 2 * MX, h: 0.75, fontSize: 36, bold: true, color: d.S.txt, fontFace: 'Arial', valign: 'middle' });
@@ -423,7 +423,7 @@ async function creativeSlide(d) {
   const gy = cg.y + cg.h + 0.05 + 0.4 + 0.18;
   const genie = await d.frame(s, gfile, { x: x2, y: gy, w: W2, h: W2 * gnat.h / gnat.w }, { border: false, pad: 0 });
   const gg = genie.geom;
-  const gc = chip(d, s, 'GENIE 3 · A PROMPT BECOMES A WORLD', gg.x + 0.08, gg.y + 0.08, 3.3, { h: 0.27, fontSize: 10 }); // over the sky
+  const gc = chip(d, s, 'GENIE 3 · A PROMPT BECOMES A WORLD', gg.x + 0.08, gg.y + gg.h - 0.08 - 0.27, 3.08, { h: 0.27, fontSize: 10 }); // over the foliage
 
   // col 3: Hercules fact sheet (public domain) + zoom on panel 12 (Cerberus)
   const HERC = R('commons-chatgpt-hercules-factsheet.png');
@@ -452,10 +452,10 @@ async function creativeSlide(d) {
   d.source(s, 'Images: user original (heron) · Wikimedia Commons, public domain (GPT Image 2.5 and ChatGPT, Sep 2026) · Google DeepMind, Genie 3 page (Oct 2026) · The Register, Jan 29, 2026.');
   s.addNotes([
     'MESSAGE: creative work — drawing, illustration, design, video, music, playable 3-D worlds — is no longer a human-only domain.',
-    'Heron (user original, assets/original/image4.png): four successive pencil drawings made by a model iteratively refining its own technique ("Final 1" → "Final 4"; the labelled error falls from 6.34 to 3.37 as it adds close-up passes and tone-following pressure).',
+    'Heron (user original, assets/original/image4.png): four successive pencil drawings made by a model iteratively refining its own technique ("Final 1" → "Final 4"; the labelled error falls from 6.34 to 3.37 as it adds close-up passes and tone-following pressure). On the slide the tiny caption strip under each drawing is cropped off and replaced by the numbers 1–4 (= Final 1–4); say the error figures aloud if useful.',
     'Cow: generated with GPT Image 2.5 (ChatGPT Images 2.5, released Sep 8, 2026) from the 10-word prompt "1960\'s art of cow getting abducted by UFO in midwest". Wikimedia Commons, uploaded by Karl432 to show progress in image generation; license: public domain (CC0 + PD-algorithm tags on the Commons file page, checked Oct 4, 2026). https://commons.wikimedia.org/wiki/File:1960%27s_art_of_cow_getting_abducted_by_UFO_in_midwest_(GPT_Image_2.5_September_2026).png',
     'Hercules fact sheet: generated from the one-line prompt "Create a fact sheet on the twelve labours of Hercules" (ChatGPT, Sep 2026; the Commons file page lists the author field as "GPT Image 2.5", but the manifest only records ChatGPT, so say "ChatGPT"). Fully designed, legible text — but note the error: the "three-headed Cerberus" has four heads (red inset = panel 12 enlarged from the same image). Wikimedia Commons, public domain (CC0 + PD-algorithm tags, checked Oct 4, 2026). https://commons.wikimedia.org/wiki/File:AI_generated_fact_sheet_on_the_Twelve_labours_of_Hercules_(ChatGPT_September_2026).png . Related: TechCrunch, Apr 21, 2026, "ChatGPT\'s new Images 2.0 model is surprisingly good at generating text."',
-    'Genie 3 (Google DeepMind world model; official page hero frame, https://deepmind.google/models/genie/): turns prompts into explorable worlds; public "Project Genie" access launched Jan 29, 2026. The Register, Brandon Vigliarolo, Jan 29, 2026: "Google\'s Project Genie could put even more game developers out of work" — https://www.theregister.com/software/2026/01/29/googles-project-genie-turns-prompts-into-interactive-worlds/4186526 . (Bloomberg, Jan 30: "Unity, Video Game Stocks Fall as Google\'s AI Tool Sparks Fears" — headline via Wikipedia citation only.)',
+    'Genie 3 (Google DeepMind world model; a strip of the official page\'s hero frame, cropped above the page\'s wordmark and contrast-stretched to offset the page\'s dark overlay, https://deepmind.google/models/genie/): turns prompts into explorable worlds; public "Project Genie" access launched Jan 29, 2026. The Register, Brandon Vigliarolo, Jan 29, 2026: "Google\'s Project Genie could put even more game developers out of work" — https://www.theregister.com/software/2026/01/29/googles-project-genie-turns-prompts-into-interactive-worlds/4186526 . (Bloomberg, Jan 30: "Unity, Video Game Stocks Fall as Google\'s AI Tool Sparks Fears" — headline via Wikipedia citation only.)',
     'Not shown (space) — music: Variety, Corbin Bolies, Sep 18, 2026: "Sony Music, Universal Music Group Sue Suno Over Label-Backed Model: \'Fruit of the Same Poisoned Tree\'" (Suno v6 released Sep 9, 2026). https://variety.com/2026/music/news/sony-music-universal-music-sue-suno-label-backed-model-1236866921/',
     'Video: Google\'s 2026 video model is Gemini Omni ("Create anything from any input – starting with video"; Gemini Omni 1.1 Flash, Aug 2026): https://deepmind.google/models/gemini-omni/ . Note OpenAI\'s Sora — the 2024 showpiece — was shut down in 2026 (app closed Apr 26, API Sep 24), so do not cite Sora as current.',
   ].join('\n\n'));
@@ -495,7 +495,7 @@ async function videoSlide(d) {
   d.animate(s, [cap], { auto: true, effect: 'fade', dur: 600, after: 100 });
   d.animate(s, [card, who], { effect: 'fade', dur: 600 });
   s.addNotes([
-    'Play it (2:37). Let the audience sit with it — no explanation beforehand.',
+    'Play it (2:37). Let the audience sit with it — no explanation beforehand. (Cover = the video\'s own YouTube thumbnail, the word "MY" from the lyric, with a play button added.)',
     'AFTER IT ENDS, click to reveal who made it, and say it: according to the creator\'s GitHub repo (github.com/mexicat/pdoom-video), "Claude Opus 5.5 created the concept, treatment, lyric alignment, audio analysis, renderer, and all scenes" — a whole music video, written and rendered in code by an AI model. That is why it sits in the capabilities section. Present it as the creator\'s claim (we have not independently audited the repo history).',
     'Video: "i\'m upping my p(doom)" by mexicat, YouTube, published Sep 27, 2026, 2:37, ~89.5k views at time of research. https://www.youtube.com/watch?v=5EoO5413dBY',
     'Background (Q&A): a code-rendered music video made with Claude Opus 5.5 in Claude Code, per the repo. The song: lyrics by osmarks on a verse/chorus by MusicPerson (Udio, Nov 2024); audio is the "Claude-Pop" Suno version posted by deckard (@slimer48484), Sep 2026. The most viral copy (on X) reportedly reached ~2.77M views.',
@@ -531,7 +531,7 @@ async function navierSlide(d) {
   const quote = d.text(s, [
     { text: 'OPENAI, SEP 8, 2026', options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 2, breakLine: true } },
     { text: '“we used an internal model that is ', options: { fontSize: 17, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
-    { text: 'significantly more capable than GPT-6 Astra', options: { fontSize: 17, italic: true, bold: true, color: d.S.red, fontFace: 'Cambria' } },
+    { text: 'significantly more capable than GPT\u20116\u00A0Astra', options: { fontSize: 17, italic: true, bold: true, color: d.S.red, fontFace: 'Cambria' } },
     { text: '”', options: { fontSize: 17, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
   ], { x: qx, y: 1.78, w: qw, h: fg.h, valign: 'middle' });
 

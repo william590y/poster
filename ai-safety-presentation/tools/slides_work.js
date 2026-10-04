@@ -36,15 +36,17 @@ function mp4Gif(file, name, { ss, to, width, fps }) {
   return out;
 }
 
-// Quiz clip: the RA-Bench research MP4 as a looping GIF whose loop STARTS at frame k (frames k…end, then 0…k−1).
-// Nothing else changes: same frames, same 24 fps, same hard cut at the clip end. Both clips of a pair use the same k,
-// so they stay in sync, and a static preview shows a mid-clip frame instead of the first frame both clips share.
-function quizLoop(clip, width, k) {
-  const out = path.join(MEDIA, `${clip}-loop${width === 960 ? '' : width}.gif`);
+// Quiz clip: the RA-Bench research MP4 as a looping GIF whose loop STARTS at source frame k (frames k…end, then 0…k−1),
+// then resampled to `fps` and scaled to `width` (trim/scale/frame-rate only; per-frame palettes). Both clips of a pair
+// use the same k and the same fps/width, so they get identical frame timing and stay in sync, and a static preview shows a
+// mid-clip frame instead of the first frame both clips share. 15 fps / 720 px (question slide) and 12 fps / 480 px
+// (reveal slide) keep each GIF at ~5–25 MB, so PowerPoint can hold six at once without stalling (24 fps / 960 px was 50–70 MB each).
+function quizLoop(clip, width, k, fps) {
+  const out = path.join(MEDIA, `${clip}-loop${width}-${fps}fps.gif`);
   if (fs.existsSync(out)) return out;
   fs.mkdirSync(MEDIA, { recursive: true });
   const fc = `[0:v]split[s1][s2];[s1]trim=start_frame=${k},setpts=PTS-STARTPTS[a];[s2]trim=end_frame=${k},setpts=PTS-STARTPTS[b];` +
-    `[a][b]concat=n=2:v=1:a=0,scale=${width}:-2:flags=lanczos,${PAL}`;
+    `[a][b]concat=n=2:v=1:a=0,fps=${fps},scale=${width}:-2:flags=lanczos,${PAL}`;
   execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', R2(`${clip}.mp4`), '-filter_complex', fc, '-loop', '0', out]);
   execFileSync('gifsicle', ['-b', '-O3', out], { stdio: 'ignore' });
   return out;
@@ -62,11 +64,14 @@ function band(d, s, g, title, sub, { pos = 'top', h = sub ? 0.5 : 0.3, color = '
 }
 
 // Media tile: black cell (so letterboxed media read as one tile), the image/GIF fitted inside, and a caption band.
+// o.clear: fit the image BELOW the top caption band instead of under it (for stills whose top edge carries content).
 async function tile(d, s, file, box, title, sub, o = {}) {
   const bg = d.name('cell');
   s.addShape(d.pres.shapes.RECTANGLE, { ...box, fill: { color: '000000' }, line: { color: '000000', width: 0, transparency: 100 },
     shadow: { type: 'outer', color: '000000', blur: 12, offset: 3, angle: 90, opacity: 0.5 }, objectName: bg });
-  const im = await d.frame(s, file, box, { border: false, shadow: false, pad: 0, ...o });
+  const bh = (o.band && o.band.h) || (sub ? 0.5 : 0.3);
+  const ibox = o.clear ? { x: box.x + 0.04, y: box.y + bh + 0.04, w: box.w - 0.08, h: box.h - bh - 0.08 } : box;
+  const im = await d.frame(s, file, ibox, { border: false, shadow: false, pad: 0, ...o });
   const names = [bg, ...im];
   if (title) names.push(...band(d, s, box, title, sub, o.band || {}));
   names.geom = box;
@@ -213,34 +218,35 @@ async function hwDesignSlide(d) {
   const cells = [
     [R2('cad-autodesk-mcp-enclosure.gif'), 'CAD · AUTODESK FUSION + CLAUDE OPUS 4.8', 'One chat request → a molded Raspberry Pi case'],
     [R2('cad-autodesk-mcp-mold-toolpaths.gif'), 'CAM · SAME AGENT, NEXT REQUEST', '…then the mold and the CNC toolpaths to cut it'],
-    [R2('pcb-astra-kicad-hackaday.jpg'), 'PCB · GPT-6 ASTRA IN KICAD (OPENAI DEMO)', 'Schematic → placed, routed, manufacturable board'],
+    [R2('pcb-astra-kicad-hackaday.jpg'), 'PCB · GPT-6 ASTRA IN KICAD · OPENAI DEMO, STILL', 'Board layout mid-placement, and its 3D render', { clear: true }],
     [R2('pcb-quilter-speedrun-board-360.gif'), 'PCB · QUILTER “PROJECT SPEEDRUN”', '843-part Linux computer — booted on first power-up'],
   ];
   const tiles = [];
   for (let i = 0; i < 4; i++) {
-    const [f, t, sub] = cells[i];
+    const [f, t, sub, o] = cells[i];
     const box = { x: CX0 + (i % 2) * (tw + gap), y: gy + Math.floor(i / 2) * (th + gap), w: tw, h: th };
-    tiles.push(await tile(d, s, f, box, t, sub));
+    tiles.push(await tile(d, s, f, box, t, sub, o));
   }
   const gridBottom = gy + 2 * th + gap;
 
   // right: EEBench (simulation-graded circuit design) — best configuration per model
   const rx = 8.5, rw = CX1 - rx;
-  const lab = capLabel(d, s, 'EEBENCH · CIRCUIT DESIGN, GRADED BY SIMULATION', { x: rx, y: 1.72, w: rw, charSpacing: 1 });
-  const rows = [['Claude Opus 5.5', 75.0], ['GPT-6 Astra', 69.3], ['Claude Sonnet 5.5', 67.2], ['Grok 4.7', 64.0], ['GPT-6.1 Sol', 63.6], ['Claude Opus 5', 61.6], ['Gemini 3.8 Flash', 55.4], ['Claude Opus 4.8', 51.4]];
+  const lab = capLabel(d, s, 'EEBENCH CIRCUIT DESIGN · TOP 8 MODELS, BEST SETTING', { x: rx, y: 1.72, w: rw, charSpacing: 1 });
+  // the true top 8 models on the Sep 29, 2026 leaderboard (best configuration per model; next: GPT-6 Sol 56.3, Gemini 3.8 Flash 55.4)
+  const rows = [['Claude Opus 5.5', 75.0], ['GPT-6 Astra', 69.3], ['Claude Sonnet 5.5', 67.2], ['Grok 4.7', 64.0], ['GPT-6.1 Sol', 63.6], ['Claude Opus 5', 61.6], ['Grok 4.6', 57.1], ['Claude Fable 5.1', 56.4]];
   const ch = d.chart(s, 'bar', [{ name: 'Score', labels: rows.map(r => r[0]).reverse(), values: rows.map(r => r[1]).reverse() }],
-    { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 2.62 }, {
+    { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 2.5 }, {
       barDir: 'bar', chartColors: rows.map((r, i) => (i === 0 ? HEX.red : HEX.steel)).reverse(), showValue: true, dataLabelFormatCode: '0.0',
       dataLabelPosition: 'outEnd', dataLabelFontSize: 11, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 88,
       catAxisLabelFontSize: 11, catAxisLineShow: false, barGapWidthPct: 40,
     });
-  const st = stat(d, s, { x: rx, y: 4.62, w: rw, value: '61.6 → 75.0', valueSize: 32, labelSize: 13, labelH: 0.72,
-    label: 'Top score on Sep 1 vs Sep 29, 2026 (13 held-out tasks). “No human graders. No LLM-as-judge.” Run by atopile, a PCB-tool maker.' });
+  const st = stat(d, s, { x: rx, y: 4.5, w: rw, value: '61.6 → 75.0', valueSize: 32, labelSize: 14, labelH: 0.95,
+    label: 'Top score, Sep 1 vs Sep 29, 2026. 13 held-out tasks graded by circuit simulation: “No human graders. No LLM-as-judge.” Run by atopile, a PCB-tool maker.' });
   const chips = d.text(s, [
     { text: 'Chips too: ', options: { bold: true, color: d.S.amber } },
     { text: 'the best agent fixes 70.7% of 417 real chip-design bugs (HWE-Bench).', options: { color: d.S.txt } },
-  ], { x: rx, y: 5.95, w: rw, h: 0.55, fontSize: 14, valign: 'top' });
-  const cap = d.text(s, 'Demo clips play in the slideshow. Company demos: Autodesk, OpenAI, Quilter.', { x: CX0, y: gridBottom + 0.1, w: gw, h: 0.26, fontSize: 11, italic: true, color: d.S.steel, valign: 'top' });
+  ], { x: rx, y: 6.02, w: rw, h: 0.5, fontSize: 14, valign: 'top' });
+  const cap = d.text(s, 'GIFs play in the slideshow; the OpenAI tile is a still. Company demos: Autodesk, OpenAI, Quilter.', { x: CX0, y: gridBottom + 0.1, w: gw, h: 0.26, fontSize: 11, italic: true, color: d.S.steel, valign: 'top' });
 
   tiles.forEach((t, i) => d.animate(s, t, { auto: true, effect: 'fade', dur: 450, after: i ? 120 : 0 }));
   d.animate(s, [lab, ch, cap], { auto: true, effect: 'wipeLeft', dur: 900, after: 150 });
@@ -250,9 +256,9 @@ async function hwDesignSlide(d) {
   d.source(s, 'Sources: Autodesk Fusion blog & demos (Sep 15, 2026) · OpenAI demo still via Hackaday (Sep 5, 2026) · Quilter (Dec 2025) · EEBench (atopile, Sep 29, 2026) · HWE-Bench (arXiv 2604.14709).');
   s.addNotes([
     'Four real demos of AI doing hardware design. Top row (Autodesk’s official demo of its new Fusion Compute MCP, Sep 15, 2026): an agent — the model selector in the video reads “Opus 4.8 High” (Claude) — is asked to design a two-part injection-molded enclosure for a Raspberry Pi 4; it builds the parametric case, then a family mold with core and cavity, then programs the CNC toolpaths. Autodesk: “That is a design-to-manufacturing chain that normally requires several people over several days, now driven end to end from a chat window.” (Autodesk’s own demo.)',
-    'Bottom left: still from OpenAI’s GPT-6 Astra launch demo (image via Hackaday). OpenAI’s caption: “a 15-second condensed playback of GPT-6 Astra performing printed circuit board (PCB) layout in KiCad, turning an electronic schematic into a manufacturable PCB by placing components and routing copper connections” (a 2 min 54 s run). The clip itself could not be downloaded (Cloudflare/Vimeo), so this is the still. JLCPCB independently had Astra design a 44 × 34 mm amplifier board from a four-line brief: 0 ERC / 0 DRC violations under the configured rules (caveat: some rule categories were ignored, and a clean DRC is not a manufacturability check). Hackaday’s verdict was skeptical: “there is still a long way to go before hardware engineers can receive their pink slips.”',
+    'Bottom left (a still, not a clip): image from OpenAI’s GPT-6 Astra launch demo (via Hackaday) — on the left the KiCad board mid-placement, footprints still outside the outline and connections shown as unrouted ratsnest lines; on the right a 3D render of the board. OpenAI’s caption for the video: “a 15-second condensed playback of GPT-6 Astra performing printed circuit board (PCB) layout in KiCad, turning an electronic schematic into a manufacturable PCB by placing components and routing copper connections” (a 2 min 54 s run). The clip itself could not be downloaded (Cloudflare/Vimeo), so this is the still. JLCPCB independently had Astra design a 44 × 34 mm amplifier board from a four-line brief: 0 ERC / 0 DRC violations under the configured rules (caveat: some rule categories were ignored, and a clean DRC is not a manufacturability check). Hackaday’s verdict was skeptical: “there is still a long way to go before hardware engineers can receive their pink slips.”',
     'Bottom right: Quilter “Project Speedrun” — an 843-component, 8-layer, dual-board Linux computer laid out with Quilter’s physics-driven AI (not an LLM); it booted on first power-up. 38.5 hours of human work vs 428 hours quoted for manual layout (Quilter’s own figures; the clip is a marketing render of the real design).',
-    'Right: EEBench — 13 original, held-out electrical-engineering design tasks; each design is built and simulated (SPICE at worst-case tolerance corners): “No human graders. No LLM-as-judge.” Score = 0.65 × technical + 0.35 × cost-efficiency. Leaderboard Sep 29, 2026 (best configuration per model): Claude Opus 5.5 [xhigh] 75.0 ±8.3, GPT-6 Astra 69.3 ±10.7, Claude Sonnet 5.5 67.2, Grok 4.7 64.0. The top score on Sep 1 was 61.6 (Claude Opus 5). CAVEATS: built and funded by atopile, a company that sells PCB design tools; wide error bars; PCB layout is out of scope in V1. xAI now reports EEBench in its model cards (Grok 4.6) and launch posts (Grok 4.7: 64.0%).',
+    'Right: EEBench — 13 original, held-out electrical-engineering design tasks; each design is built and simulated (SPICE at worst-case tolerance corners): “No human graders. No LLM-as-judge.” Score = 0.65 × technical + 0.35 × cost-efficiency. Leaderboard Sep 29, 2026 — the chart shows the top 8 models, best configuration per model: Claude Opus 5.5 [xhigh] 75.0 ±8.3, GPT-6 Astra 69.3 ±10.7, Claude Sonnet 5.5 67.2, Grok 4.7 64.0, GPT-6.1 Sol 63.6, Claude Opus 5 61.6, Grok 4.6 57.1, Claude Fable 5.1 56.4 (next: GPT-6 Sol 56.3, Gemini 3.8 Flash 55.4, Claude Fable 5 54.3, Claude Opus 4.8 51.4). The top score on Sep 1 was 61.6 (Claude Opus 5). CAVEATS: built and funded by atopile, a company that sells PCB design tools; wide error bars; PCB layout is out of scope in V1. xAI now reports EEBench in its model cards (Grok 4.6) and launch posts (Grok 4.7: 64.0%).',
     'Chips: HWE-Bench (arXiv, Apr 2026) — 417 real bug fixes from open-source chip repositories (OpenTitan, CVA6, XiangShan…): the best agent (GPT-5.4) resolves 70.7%, >90% on small cores, <65% on SoC-level projects (spring-2026 models). Analog Design Bench (arXiv, Sep 27, 2026): full-spec pass rates from 8% to 78% on 50 transistor-level tasks in two-hour attempts (best: Claude Fable 5).',
     'Safety angle (say it): xAI’s Grok 4.6 model card, section “Engineering acceleration”: “agents that accelerate rocket design, IC layout, and datacenter power-and-cooling optimization compress the timelines of progress across the physical systems that enable further advances in AI capabilities and utility.” AI is starting to design the hardware that makes better AI.',
     'URLs: https://www.autodesk.com/products/fusion-360/blog/fusion-compute-mcp/ · https://hackaday.com/2026/09/05/can-ai-now-design-pcbs-that-just-work/ · https://jlcpcb.com/blog/gpt-6-astra-pcb-design-in-kicad · https://www.quilter.ai/project-speedrun · https://www.eebench.org/ · https://www.eebench.org/methodology.html · https://www.eebench.org/blog/can-ai-design-circuit-boards-yet/ · https://arxiv.org/abs/2604.14709 · https://arxiv.org/abs/2609.33356v1 · https://media.x.ai/v1/website/card-4p6-4cd2dc57.pdf · https://x.ai/news/grok-4-7',
@@ -295,7 +301,7 @@ async function hwJobsSlide(d) {
     const y = 2.02 + i * 1.11;
     fr.push([
       d.text(s, v, { x: bx, y, w: bw, h: 0.44, fontSize: 26, bold: true, color: i % 2 ? d.S.amber : d.S.red, fontFace: 'Arial', valign: 'bottom' }),
-      d.text(s, t, { x: bx, y: y + 0.46, w: bw, h: 0.56, fontSize: 13, color: d.S.muted, valign: 'top' }),
+      d.text(s, t, { x: bx, y: y + 0.45, w: bw, h: 0.62, fontSize: 14, color: d.S.muted, valign: 'top' }),
     ]);
   });
 
@@ -355,7 +361,7 @@ async function aleSlide(d) {
     ['GPT-5.5 · June launch test', 0, HEX.steel], ['Claude Fable 5 · June launch test', 0, HEX.steel], ['Composer 2.5 · June launch test', 0, HEX.steel],
   ];
   const ch = d.chart(s, 'bar', [{ name: 'Pass rate', labels: rows.map(r => r[0]).reverse(), values: rows.map(r => r[1]).reverse() }],
-    { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 2.5 }, {
+    { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 2.38 }, {
       barDir: 'bar', chartColors: rows.map(r => r[2]).reverse(), showValue: true, dataLabelFormatCode: '0.0"%"', dataLabelPosition: 'outEnd',
       dataLabelFontSize: 11, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 19.5,
       catAxisLabelFontSize: 11, catAxisLineShow: false, barGapWidthPct: 38,
@@ -364,10 +370,10 @@ async function aleSlide(d) {
     { text: 'June 2026: ', options: { bold: true, color: d.S.amber } },
     { text: '“On ALE’s hardest tier, every frontier agent we tested, including Fable 5, achieved a 0% success rate.”', options: { italic: true, color: d.S.txt } },
     { text: '  — Berkeley RDI', options: { fontSize: 11, color: d.S.muted } },
-  ], { x: rx, y: 4.6, w: rw, h: 0.85, fontSize: 14, valign: 'top' });
+  ], { x: rx, y: 4.46, w: rw, h: 0.62, fontSize: 14, valign: 'top' });
   const sw = (rw - 0.3) / 2;
-  const st1 = stat(d, s, { x: rx, y: 5.42, w: sw, value: '38.2%', valueSize: 30, labelSize: 12, labelH: 0.6, label: 'of all 152 public tasks passed outright by Claude Opus 5.5 (GPT-6 Astra: 34.2%)' });
-  const st2 = stat(d, s, { x: rx + sw + 0.3, y: 5.42, w: sw, value: '55 jobs', valueSize: 30, labelSize: 12, labelH: 0.6, label: 'occupations behind 1,500+ tasks written by 300+ industry experts' });
+  const st1 = stat(d, s, { x: rx, y: 5.16, w: sw, value: '38.2%', valueSize: 30, labelSize: 14, labelH: 0.84, label: 'of all 152 public tasks passed outright by Claude Opus 5.5 (GPT-6 Astra: 34.2%)' });
+  const st2 = stat(d, s, { x: rx + sw + 0.3, y: 5.16, w: sw, value: '55 jobs', valueSize: 30, labelSize: 14, labelH: 0.84, label: 'occupations behind 1,500+ tasks written by 300+ industry experts' });
 
   d.animate(s, c1, { auto: true, effect: 'rise', dur: 450 });
   d.animate(s, [...gif, gcap], { auto: true, effect: 'fade', dur: 500, after: 100 });
@@ -845,10 +851,10 @@ const QUIZ = [
   { clip: 'rabench-hp-trench', k: 48, top: 'ai' },         // E = AI, F = REAL  (paratroopers in a trench, exercise)
 ];
 const QUIZ_SOURCE = 'Source: Liang et al., “Can We Defend Against AI-Generated Video Attacks on Real-World Crisis Events?” (RA-Bench), arXiv 2608.14391 (Aug 2026) · real clips: U.S. DoD via DVIDS (public domain).';
-const QUIZ_NOTE = 'How the clips were made (RA-Bench): each AI clip is Seedance 2.0 image-to-video conditioned on the real clip’s first frame, so both clips of a pair open on the same picture and then diverge. Real clips: (1) California Air National Guard C-130J cockpit over the Palisades Fire, Jan 11, 2025 (DVIDS 949356); (2) Cal Guard drive-through COVID-19 vaccination site, Cal State LA, Feb 16, 2021 (DVIDS 783671); (3) paratroopers in a trench during the Swift Response 25 blank-fire exercise, Latvia, May 2025 (DVIDS 963299, a different shot of the same exercise). Pairs 1 and 2 are RA-Bench’s own Figure 1 “Which is which?” scenarios III and IV. Clips are 8.0 s / 8.0 s / 4.0 s, 24 fps, looping as GIFs (trimmed/scaled only; each loop starts mid-clip, the same frame for both clips of a pair, so they play in sync).';
+const QUIZ_NOTE = 'How the clips were made (RA-Bench): each AI clip is Seedance 2.0 image-to-video conditioned on the real clip’s first frame, so both clips of a pair open on the same picture and then diverge. Real clips: (1) California Air National Guard C-130J cockpit over the Palisades Fire, Jan 11, 2025 (DVIDS 949356); (2) Cal Guard drive-through COVID-19 vaccination site, Cal State LA, Feb 16, 2021 (DVIDS 783671); (3) paratroopers in a trench during the Swift Response 25 blank-fire exercise, Latvia, May 2025 (DVIDS 963299, a different shot of the same exercise). Pairs 1 and 2 are RA-Bench’s own Figure 1 “Which is which?” scenarios III and IV. Clips are 8.0 s / 8.0 s / 4.0 s (24 fps originals), shown as looping GIFs at 15 fps on the question slide and 12 fps on the reveal slide (trimmed, scaled and frame-rate reduced only — to keep the six simultaneous clips light enough for PowerPoint; each loop starts mid-clip, at the same frame for both clips of a pair, so they play in sync).';
 
 // 3 columns × 2 rows of looping clips with letter badges. Returns { base, reveals:[pair0, pair1, pair2], fw, fh }.
-function quizGrid(d, s, { x0, y0, gw, colGap, rowGap, badge, width, tagSize = 10, realSize = 12, answers = true, headSize = 13 }) {
+function quizGrid(d, s, { x0, y0, gw, colGap, rowGap, badge, width, fps, tagSize = 10, realSize = 12, answers = true, headSize = 13 }) {
   const fw = (gw - 2 * colGap) / 3, fh = fw * 9 / 16;
   const letters = 'ABCDEF';
   const base = [], reveals = [[], [], []];
@@ -864,7 +870,7 @@ function quizGrid(d, s, { x0, y0, gw, colGap, rowGap, badge, width, tagSize = 10
     const order = p.top === 'real' ? ['real', 'ai'] : ['ai', 'real'];
     order.forEach((kind, r) => {
       const y = y0 + r * (fh + rowGap);
-      const file = quizLoop(`${p.clip}-${kind === 'real' ? 'real' : 'ai-seedance2'}`, width, p.k);
+      const file = quizLoop(`${p.clip}-${kind === 'real' ? 'real' : 'ai-seedance2'}`, width, p.k, fps);
       const im = d.name('clip');
       s.addImage({ path: file, x, y, w: fw, h: fh, objectName: im, shadow: { type: 'outer', color: '000000', blur: 12, offset: 3, angle: 90, opacity: 0.5 } });
       const bg = d.name('badge');
@@ -894,7 +900,7 @@ async function realQuestionSlide(d) {
     { text: 'from its first frame (Seedance 2.0). ' },
     { text: 'Vote now.', options: { bold: true, color: d.S.txt } },
   ], { x: 6.6, y: 0.84, w: CX1 - 6.6, h: 0.54, fontSize: 14, color: d.S.muted, align: 'right', valign: 'middle' });
-  const g = quizGrid(d, s, { x0: CX0, y0: 2.06, gw: CW, colGap: 0.36, rowGap: 0.14, badge: 0.44, width: 960, answers: false, headSize: 14 });
+  const g = quizGrid(d, s, { x0: CX0, y0: 2.06, gw: CW, colGap: 0.36, rowGap: 0.14, badge: 0.44, width: 720, fps: 15, answers: false, headSize: 14 });
 
   d.animate(s, [hint], { auto: true, effect: 'fade' });
   d.animate(s, g.base, { auto: true, effect: 'fade', dur: 600, after: 100 });
@@ -915,7 +921,7 @@ async function realRevealSlide(d) {
 
   // left: the same six clips, smaller; the answers are click-revealed pair by pair
   const gw = 7.95, y0 = 2.06;
-  const g = quizGrid(d, s, { x0: CX0, y0, gw, colGap: 0.24, rowGap: 0.1, badge: 0.34, width: 640, tagSize: 10, realSize: 12, headSize: 12 });
+  const g = quizGrid(d, s, { x0: CX0, y0, gw, colGap: 0.24, rowGap: 0.1, badge: 0.34, width: 480, fps: 12, tagSize: 10, realSize: 12, headSize: 12 });
   const gridBottom = y0 + 2 * g.fh + 0.1;
   const cap = d.text(s, [
     { text: 'Each fake is Seedance 2.0, started from the real clip’s first frame — ', options: { color: d.S.txt } },

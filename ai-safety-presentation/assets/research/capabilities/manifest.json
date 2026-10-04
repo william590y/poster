@@ -6833,7 +6833,9 @@
   },
   {
    "outline_item": "Reddit r/singularity \"GPT-6 Astra\" Blender Palace of Fine Arts and heron drawing progression",
-   "searched": "Not searched further (user already has these images); WebSearch budget exhausted mid-task, so could not locate the original Reddit post URL."
+   "searched": "Not searched further (user already has these images); WebSearch budget exhausted mid-task, so could not locate the original Reddit post URL.",
+   "correction": "Superseded in research round rev2 (rev2/reddit.json): the Reddit post WAS found and verified, https://www.reddit.com/r/singularity/comments/1w6rilg/gpt6_astra_recreated_the_palace_of_fine_arts_in/ (u/Recoil42, 2026-09-04); see items reddit-palace-post-shot and reddit-palace-op-dome-closeup. Only the heron drawing progression's original source (user original image4.png) remains not found.",
+   "still_not_found": "heron drawing progression (original source)"
   },
   {
    "outline_item": "Kevin Buzzard \"Should we grieve?\"",

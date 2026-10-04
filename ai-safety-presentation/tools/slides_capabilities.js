@@ -558,7 +558,8 @@ async function closeupSlide(d) {
   const img = await crop(SRC, 'palace-closeup.png', { l: 0, t: CT, w: 3360, h: CH });
   const W = 13.333, H = W * CH / 3360, k = W / 3360;
   const bg = d.name('closeup');
-  s.addImage({ path: img, x: 0, y: 0, w: W, h: H, objectName: bg, hyperlink: { url: 'https://www.reddit.com/r/singularity/comments/1w6rilg/comment/p7p9gl9/' } });
+  // no hyperlink on the full-slide picture: a click must advance / drop the lens, not open Reddit (the caption carries the link)
+  s.addImage({ path: img, x: 0, y: 0, w: W, h: H, objectName: bg });
   const scr = d.name('scrim');
   s.addImage({ path: await scrim('closeup-scrim.png', 1600, 400, { max: 0.6 }), x: 0, y: 0, w: W, h: 3.0, objectName: scr });
 
@@ -1006,11 +1007,12 @@ async function headlinesSlide(d) {
   return s;
 }
 
-// ---------------------------------------------------------------- 9. mathematicians react (Sep 3 – Oct 1): blog quotes
+// ---------------------------------------------------------------- 9. experts react (Sep 3 – Oct 1): blog quotes
+// (title says "Experts", not "Mathematicians": the quoted words are Scott Aaronson's, a computer scientist)
 async function aftermathSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
   s.addText(`${KICK} · MATHEMATICS IN CRISIS · 3`, { placeholder: 'kicker' });
-  s.addText('Mathematicians react: “forevermore dethroned”', { placeholder: 'title' });
+  s.addText('Experts react: “forevermore dethroned”', { placeholder: 'title' });
 
   const qRuns = (parts, size) => parts.map(([t, em, br]) => ({ text: t, options: { bold: em === 1, color: em === 1 ? d.S.red : d.S.txt, breakLine: !!br, fontSize: size } }));
   // ---- top row: Aaronson · Tao

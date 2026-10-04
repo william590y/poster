@@ -1354,10 +1354,9 @@ async function robotWorkSlide(d) {
   const cx = (i) => box.x + box.w * (L.x + L.w * (i + 0.5) / 5);
   const vy = (v) => box.y + box.h * (L.y + L.h * (1 - v / 60));
   const cwid = box.w * L.w / 5;
-  const cats = [['Cognitive &', 'interpersonal'], ['E0: no robot', 'can do it'], ['E1: factory-', 'style cell'], ['E2: warehouse-', 'style site'], ['E3: open world', '(e.g. roads)']];
-  const catT = cats.map(([a, b], i) => d.text(s, [
-    { text: a, options: { breakLine: true } }, { text: b },
-  ], { x: cx(i) - cwid / 2 - 0.05, y: box.y + box.h + 0.03, w: cwid + 0.1, h: 0.4, fontSize: 11, color: i >= 2 ? 'FF8A8C' : d.S.muted, align: 'center', valign: 'top' }));
+  const cats = [['Cognitive &', 'interpersonal'], ['E0', 'no robot', 'can do it'], ['E1', 'purpose-built', '(factory line)'], ['E2', 'structured', '(warehouse)'], ['E3', 'unstructured', '(city road)']];
+  const catT = cats.map((ln, i) => d.text(s, ln.map((txt, j) => ({ text: txt, options: { breakLine: j < ln.length - 1, bold: ln.length === 3 && j === 0 } })),
+    { x: cx(i) - cwid / 2 - 0.08, y: box.y + box.h + 0.03, w: cwid + 0.16, h: 0.58, fontSize: 11, color: i >= 2 ? 'FF8A8C' : d.S.muted, align: 'center', valign: 'top' }));
   // bracket over the three robot-doable bars (E1–E3)
   const ba = cx(2) - 0.4, bb = cx(4) + 0.4, by = vy(37);
   const brk = [];
@@ -1372,7 +1371,7 @@ async function robotWorkSlide(d) {
   ], { x: ba - 0.3, y: by - 0.52, w: bb - ba + 0.6, h: 0.46, fontSize: 11, align: 'center', valign: 'bottom' }));
 
   // ---- bottom right: who is exposed (press clipping + two stats) ----
-  const yb = box.y + box.h + 0.62;
+  const yb = box.y + box.h + 0.76;
   const cnbc = R2('robotwork-cnbctv18-machines-have-a-type.png');
   const cw = 2.75;
   const c1 = await frameW(d, s, cnbc, rx + 0.05, yb + 0.1, cw, { rot: 1.5 });
@@ -1409,7 +1408,7 @@ async function robotCostSlide(d) {
   const lw = 6.35;
   const lab = capLabel(d, s, 'COST PER YEAR TO DO ONE WORKER’S ROBOT-DOABLE TASKS ($ THOUSANDS)', { x: CX0, y: 1.72, w: lw, charSpacing: 1 });
   const box = { x: CX0 - 0.1, y: 2.3, w: lw + 0.1, h: 3.35 };
-  const occ = ['Packers (560K jobs)', 'Taxi drivers (41K)', 'Dishwashers (477K)', 'Janitors & cleaners (2.2M)', 'Welders (416K)'];
+  const occ = ['Hand packers (560K jobs)', 'Taxi drivers (41K)', 'Dishwashers (477K)', 'Janitors & cleaners (2.2M)', 'Welders (416K)'];
   const robot = [45.4, 57.8, 172.0, 280.0, 334.6];
   const comp = [49.0, 56.8, 45.0, 47.7, 73.4], share = [0.97, 0.89, 1.0, 0.73, 0.9]; // Fig. 7 columns
   const human = comp.map((c, i) => Math.round(c * share[i] * 10) / 10);

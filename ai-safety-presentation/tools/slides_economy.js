@@ -47,6 +47,9 @@ const SP = {
   // marker centres (source px) used to place the native callouts
   jpm: [705, 101], kob: [733, 128], kobLeft: 726, mag7: [753, 202], chatgptX: 463.5, chatgptY: 72,
   kob0: [463.5, 234], kob0Left: 455,
+  // where the old "~25%" text sat on top of the dashed Kobeissi line, the erase leaves holes in the dashes: redraw
+  // those dash runs (same line fit, colour, ~2px anti-aliased width, and dash phase as the source)
+  redash: { m: -0.398100537, b: 420.756107, core: [226, 109, 60], runs: [[473, 478], [483, 487], [492, 497], [501, 506]] },
 };
 
 async function prepChart() {
@@ -61,6 +64,16 @@ async function prepChart() {
       if (!greyish) continue;
       const c = SP.grid.includes(y) && x <= SP.gridMaxX ? SP.gridRGB : SP.bg;
       data[i] = c[0]; data[i + 1] = c[1]; data[i + 2] = c[2];
+    }
+  }
+  const { m, b, core, runs } = SP.redash;
+  for (const [x0, x1] of runs) for (let x = x0; x <= x1; x++) {
+    const yc = m * x + b;
+    for (let y = Math.floor(yc - 1.5); y <= Math.ceil(yc + 1.5); y++) {
+      const al = Math.max(0, Math.min(1, 1.45 - Math.abs(y - yc)));
+      if (!al) continue;
+      const i = (y * info.width + x) * ch;
+      for (let k = 0; k < 3; k++) data[i + k] = Math.round(data[i + k] * (1 - al) + core[k] * al);
     }
   }
   await sharp(data, { raw: { width: info.width, height: info.height, channels: ch } }).extract(SP.box).png().toFile(out);

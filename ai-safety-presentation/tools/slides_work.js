@@ -466,7 +466,7 @@ const DF_SOURCE = 'Source: Shykula et al., “DF26: We Cannot Tell Fake From Rea
 const DF_FRAMES_NOTE = 'The fakes are text-to-video generations (Veo 3.1, Kling 3.0) from a prompt describing the real clip (DF26: “generated from semantic prompts derived from the frames of the corresponding real video”; the four commercial systems were run in text-to-video mode only), so they show a different but matched speaker and setting; these are last frames from DF26 Fig. 1.';
 
 // 2×3 grid of DF26 frames with letter badges. Returns { base, reveals:[row0, row1] } (reveals = REAL/AI labels).
-function dfGrid(d, s, { x0, y0, gw, gap, rowGap, badge, tagSize, realSize }) {
+function dfGrid(d, s, { x0, y0, gw, gap, rowGap, badge, tagSize, realSize, answers = true }) {
   const fw = (gw - 2 * gap) / 3, fh = fw * 9 / 16;
   const letters = 'ABCDEF';
   const base = [], reveals = [[], []];
@@ -481,6 +481,7 @@ function dfGrid(d, s, { x0, y0, gw, gap, rowGap, badge, tagSize, realSize }) {
       s.addShape(d.pres.shapes.OVAL, { x: x + m, y: y + m, w: badge, h: badge, fill: { color: '0A0C10', transparency: 15 }, line: { color: 'FFFFFF', width: 1.25 }, objectName: bg });
       const bt = d.text(s, letters[r * 3 + c], { x: x + m, y: y + m, w: badge, h: badge, fontSize: Math.round(badge * 36), bold: true, color: d.S.txt, align: 'center', valign: 'middle' });
       base.push(im, bg, bt);
+      if (!answers) continue; // question slide: frames and letters only — nothing to give the answer away
       if (tag) {
         const th = tagSize / 72 * 2.2, tw = tagSize / 72 * 10.5;
         reveals[r].push(d.text(s, tag, { x: x + m, y: y + fh - m - th, w: tw, h: th, fontSize: tagSize, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle', fill: { color: '0A0C10', transparency: 20 }, charSpacing: 1 }));
@@ -503,7 +504,7 @@ async function realQuestionSlide(d) {
     { text: 'description of it (Google Veo 3.1 · Kling 3.0). ' },
     { text: 'Vote now.', options: { bold: true, color: d.S.txt } },
   ], { x: 7.1, y: 0.84, w: CX1 - 7.1, h: 0.54, fontSize: 14, color: d.S.muted, align: 'right', valign: 'middle' });
-  const g = dfGrid(d, s, { x0: CX0, y0: 1.78, gw: CW, gap: 0.25, rowGap: 0.26, badge: 0.44, tagSize: 12, realSize: 16 });
+  const g = dfGrid(d, s, { x0: CX0, y0: 1.78, gw: CW, gap: 0.25, rowGap: 0.26, badge: 0.44, answers: false });
 
   d.animate(s, [hint], { auto: true, effect: 'fade' });
   d.animate(s, g.base, { auto: true, effect: 'fade', dur: 600, after: 100 });
@@ -522,9 +523,9 @@ async function realRevealSlide(d) {
   head(s, 'THE ACCELERATION · VIDEO · 3', 'Humans spot AI fakes barely above chance');
 
   // left: the same six frames, shrunk; the answers are click-revealed row by row
-  const gw = 7.4;
-  const g = dfGrid(d, s, { x0: CX0, y0: 1.85, gw, gap: 0.17, rowGap: 0.24, badge: 0.36, tagSize: 11, realSize: 13 });
-  const gridBottom = 1.85 + 2 * g.fh + 0.24;
+  const gw = 7.85;
+  const g = dfGrid(d, s, { x0: CX0, y0: 1.85, gw, gap: 0.18, rowGap: 0.26, badge: 0.38, tagSize: 11, realSize: 14 });
+  const gridBottom = 1.85 + 2 * g.fh + 0.26;
   const cap = d.text(s, [
     { text: 'Each fake is text-to-video from a description of the real clip, ', options: { color: d.S.txt } },
     { text: 'so the speaker and set differ but match. Stills shown here — in the study, people watched the full videos.', options: { color: d.S.muted } },
@@ -575,11 +576,11 @@ async function vlaWallSlide(d) {
   // Helix 2.5 above the numbers (right). The MIT TR “gig workers” clipping was dropped (illegible at this size).
   const items = [
     [R('vla-techcrunch-pi07.png'), 0.65, 1.85, 4.3, -2],
-    [R('vla-deepmind-gr2-blog.png'), 5.3, 1.9, 4.05, 1.5],
-    [R('vla-figure-helix25.png'), 9.7, 1.9, 3.0, -2],
-    [R('vla-bnnbloomberg-robot-brain.png'), 5.35, 3.38, 3.95, -1.5],
+    [R('vla-deepmind-gr2-blog.png'), 5.25, 1.9, 3.9, 1.5],
+    [R('vla-figure-helix25.png'), 9.42, 1.9, 3.25, -2],
+    [R('vla-bnnbloomberg-robot-brain.png'), 5.3, 3.36, 3.85, -1.5],
     [nvidia, 0.7, 4.12, 4.3, 1.5],
-    [R('vla-robotreport-gr2.png'), 5.3, 5.22, 4.0, 2],
+    [R('vla-robotreport-gr2.png'), 5.25, 5.2, 3.9, 2],
   ];
   const fr = [];
   for (const [f, x, y, w, rot] of items) fr.push(await frameW(d, s, f, x, y, w, { rot }));
@@ -590,14 +591,14 @@ async function vlaWallSlide(d) {
     ['2', 'related episodes to run an unfamiliar air fryer (π0.7)'],
   ];
   const facts = [];
-  const fx = 9.7, vw = 1.1, tw = CX1 - fx - vw - 0.06;
-  facts.push(capLabel(d, s, 'GENERALIZATION', { x: fx, y: 3.08, w: CX1 - fx, color: d.S.red }));
-  const rowH = [0.5, 0.98, 0.74];
-  let fy = 3.42;
+  const fx = 9.42, vw = 1.05, tw = CX1 - fx - vw - 0.06; // number column 1.05" (was 0.8"), text column 2.2"
+  facts.push(capLabel(d, s, 'GENERALIZATION', { x: fx, y: 3.12, w: CX1 - fx, color: d.S.red }));
+  const rowH = [0.5, 0.74, 0.5];
+  let fy = 3.46;
   factRows.forEach(([v, t], i) => {
     facts.push(d.text(s, v, { x: fx, y: fy - 0.02, w: vw, h: 0.42, fontSize: 24, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'top' }));
     facts.push(d.text(s, t, { x: fx + vw + 0.06, y: fy, w: tw, h: rowH[i], fontSize: 14, color: d.S.muted, valign: 'top' }));
-    fy += rowH[i] + 0.16;
+    fy += rowH[i] + 0.22;
   });
   facts.push(d.text(s, 'Company-reported results', { x: fx, y: fy - 0.06, w: CX1 - fx, h: 0.24, fontSize: 11, italic: true, color: d.S.amber, valign: 'top' }));
 

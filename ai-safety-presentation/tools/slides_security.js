@@ -31,8 +31,9 @@ async function crop(src, name, box) {
   return out;
 }
 
+// In-slide section / chart label: grey letter-spaced caps, the style used across the deck.
 function label(d, s, text, { x, y, w, h = 0.28, color, size = 11 } = {}) {
-  return d.text(s, text, { x, y, w, h, fontSize: size, bold: true, color: color || d.S.red, charSpacing: 3, valign: 'middle' });
+  return d.text(s, text, { x, y, w, h, fontSize: size, bold: true, color: color || d.S.steel, charSpacing: 2, valign: 'middle' });
 }
 
 // Kicker for Blank slides: same geometry/anchor as the Content layout's kicker placeholder (top-anchored).
@@ -92,10 +93,7 @@ async function cyberCves(d) {
   s.addText(`${KICK} · CYBERSECURITY · 1`, { placeholder: 'kicker' });
   s.addText('AI has joined the hunt for software flaws', { placeholder: 'title' });
 
-  const head = d.text(s, [
-    { text: 'Linux kernel CVEs published per year', options: { bold: true, color: d.S.txt, fontSize: 15 } },
-    { text: '    2026 = year to date (Oct 4)', options: { color: d.S.muted, fontSize: 11 } },
-  ], { x: MX, y: 1.75, w: 6.9, h: 0.34, valign: 'middle' });
+  const head = label(d, s, 'LINUX KERNEL CVES PER YEAR  ·  2026 = YEAR TO DATE (OCT 4)', { x: MX, y: 1.75, w: 6.9 });
   const colors = CVE.labels.map((l) => (+l >= 2024 ? HEX.red : '566173'));
   const chart = d.chart(s, 'bar', [{ name: 'Linux kernel CVEs (NVD)', labels: CVE.labels, values: CVE.values }],
     { x: 0.45, y: 2.12, w: 7.1, h: 4.4 }, {
@@ -162,19 +160,16 @@ async function cyberMythos(d) {
 
   const hdrImg = await crop(R('mythos-preview-red.png'), 'mythos-header.png', { left: 330, top: 20, width: 1900, height: 480 });
   const clip = await d.frame(s, hdrImg, { x: MX, y: 1.78, w: 6.0, h: 1.62 }, { rot: -1.2 });
-  const big = d.text(s, '27 years', { x: MX, y: 3.55, w: 6.2, h: 1.1, fontSize: 80, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'middle' });
+  const big = d.text(s, '27 years', { x: MX, y: 3.45, w: 6.2, h: 1.1, fontSize: 80, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'middle' });
   const hero = d.text(s, 'A bug that could crash any OpenBSD host over TCP went unnoticed for 27 years — until Claude Mythos Preview found it (April 2026).',
-    { x: MX, y: 4.7, w: 6.2, h: 1.05, fontSize: 19, bold: true, color: d.S.txt, valign: 'top' });
+    { x: MX, y: 4.84, w: 6.2, h: 1.05, fontSize: 19, bold: true, color: d.S.txt, valign: 'top' });
   const more = d.text(s, 'Found in ~1,000 runs, for under $20,000 of compute.',
-    { x: MX, y: 5.92, w: 6.2, h: 0.36, fontSize: 14, color: d.S.muted, valign: 'top' });
+    { x: MX, y: 6.04, w: 6.2, h: 0.36, fontSize: 14, color: d.S.muted, valign: 'top' });
 
   const rx = 7.35, rw = W - MX - rx;
-  const ch1 = d.text(s, [
-    { text: 'Firefox JS shell: trials with a working exploit', options: { bold: true, color: d.S.txt, fontSize: 15, breakLine: true } },
-    { text: 'Anthropic Frontier Red Team, Apr 7, 2026 (vendor-reported)', options: { color: d.S.muted, fontSize: 11 } },
-  ], { x: rx, y: 1.75, w: rw, h: 0.55, valign: 'top' });
+  const ch1 = label(d, s, 'FIREFOX JS SHELL  ·  TRIALS WITH A WORKING EXPLOIT', { x: rx, y: 1.75, w: rw });
   const chart = d.chart(s, 'bar', [{ name: 'Working exploit', labels: ['Sonnet 4.6  (0%)', 'Opus 4.6  (<1%)', 'Mythos Preview'], values: [0, 0, 72.4] }],
-    { x: rx - 0.1, y: 2.35, w: rw + 0.1, h: 2.15 }, {
+    { x: rx - 0.1, y: 2.1, w: rw + 0.1, h: 2.35 }, {
       barDir: 'bar', chartColors: ['566173', '566173', HEX.red], showLegend: false, barGapWidthPct: 45,
       catAxisOrientation: 'maxMin', valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 100, valAxisMinVal: 0,
       showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '[>=1]0.0"%";""', dataLabelFontSize: 14, dataLabelFontBold: true,
@@ -223,19 +218,21 @@ async function hfOverview(d) {
 
   const fort = await crop(R('hl-fortune-hf-escape.png'), 'fortune-hf.png', { left: 0, top: 0, width: 2410, height: 798 });
   const hfh = await crop(R('hf-blog-header.png'), 'hf-header.png', { left: 0, top: 0, width: 1340, height: 610 });
-  const c1 = await d.frame(s, fort, { x: MX, y: 1.8, w: 7.2, h: 2.62 }, { rot: -1 });
-  const c2 = await d.frame(s, hfh, { x: 0.85, y: 4.5, w: 4.3, h: 2.0 }, { rot: 1.5 });
+  // ~0.3" of clear space between the two clippings, even at their rotated corners.
+  const c1 = await d.frame(s, fort, { x: MX, y: 1.76, w: 7.0, h: 2.42 }, { rot: -1 });
+  const c2 = await d.frame(s, hfh, { x: 0.85, y: 4.62, w: 4.1, h: 1.88 }, { rot: 1.5 });
   const q = d.text(s, [
     { text: '“', options: { fontSize: 34, bold: true, color: d.S.red, fontFace: 'Cambria', breakLine: true } },
     { text: 'We consider this incident a ‘warning shot’ for us and for the world …”', options: { fontSize: 16, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true } },
     { text: '— OpenAI, Aug 26, 2026', options: { fontSize: 11, color: d.S.muted } },
-  ], { x: 5.55, y: 4.55, w: 2.3, h: 1.95, valign: 'top' });
+  ], { x: 5.45, y: 4.62, w: 2.4, h: 1.88, valign: 'top' });
 
   const rx = 8.35, rw = W - MX - rx;
   const stats = [
-    ['~17,600', 'attacker actions recovered by Hugging Face (July 9–13, 2026)'],
-    ['2.5 days', 'inside Hugging Face’s infrastructure — an end-to-end intrusion'],
-    ['0', 'humans steering it: “No human directed the individual steps.”'],
+    // Explicit breaks give two balanced lines (no orphaned last word).
+    ['~17,600', 'attacker actions recovered by Hugging Face\nduring the July 9–13, 2026 campaign'],
+    ['2.5 days', 'inside Hugging Face’s infrastructure —\nan end-to-end intrusion'],
+    ['0', 'humans steering it: “No human directed\nthe individual steps.”'],
   ];
   const sn = stats.map(([v, l], i) => d.stat(s, { x: rx, y: 1.75 + i * 1.6, w: rw, value: v, label: l, valueSize: 40, labelSize: 13 }));
 

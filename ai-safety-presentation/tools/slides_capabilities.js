@@ -423,7 +423,7 @@ async function creativeSlide(d) {
   const gy = cg.y + cg.h + 0.05 + 0.4 + 0.18;
   const genie = await d.frame(s, gfile, { x: x2, y: gy, w: W2, h: W2 * gnat.h / gnat.w }, { border: false, pad: 0 });
   const gg = genie.geom;
-  const gc = chip(d, s, 'GENIE 3 · A PROMPT BECOMES A WORLD', gg.x + 0.08, gg.y + gg.h - 0.08 - 0.27, 2.95, { h: 0.27, fontSize: 10 });
+  const gc = chip(d, s, 'GENIE 3 · A PROMPT BECOMES A WORLD', gg.x + 0.08, gg.y + 0.08, 3.3, { h: 0.27, fontSize: 10 }); // over the sky
 
   // col 3: Hercules fact sheet (public domain) + zoom on panel 12 (Cerberus)
   const HERC = R('commons-chatgpt-hercules-factsheet.png');
@@ -563,7 +563,7 @@ async function navierSlide(d) {
   ], { x: rx + fw + 0.4, y: fy + 0.05, w: fw - 0.3, h: fh - 0.1, valign: 'middle' }));
 
   d.animate(s, paper, { auto: true, effect: 'fade', dur: 700 });
-  d.animate(s, [hl, zl, ...zoom], { auto: true, effect: 'fade', dur: 450, after: 100 });
+  d.animate(s, [hl, zl, ...zoom], { auto: true, effect: 'zoom', dur: 450, after: 100 });
   d.animate(s, [...fig, figCap], { auto: true, effect: 'fade', dur: 700, after: 150 });
   d.animate(s, [quote], { effect: 'fade' });
   stats.forEach((st, i) => d.animate(s, st, i === 0 ? { effect: 'zoom', dur: 400 } : { auto: true, effect: 'zoom', dur: 400, after: 150 }));
@@ -609,12 +609,12 @@ async function headlinesSlide(d) {
   n.push(await clip(F.guardian, { x: col[2], y: 1.8, w: 3.97, h: 1.25 }, -1, 'THE GUARDIAN · SEP 8', 'bl'));
   n.push(await clip(F.verge, { x: col[1] - 0.05, y: 3.42, w: w + 0.1, h: 0.62 }, -1.2, 'THE VERGE · SEP 9', 'br'));
   n.push(await clip(F.fortune, { x: col[0] + 0.05, y: 3.85, w: w - 0.1, h: 2.45 }, 1.2, 'FORTUNE · SEP 8', 'br'));
-  n.push(await clip(F.wired, { x: col[2], y: 3.32, w: 3.97, h: 1.55 }, 1.5, 'WIRED · SEP 12', 'tr'));
+  n.push(await clip(F.wired, { x: col[2], y: 3.53, w: 3.97, h: 1.42 }, 1.5, 'WIRED · SEP 12', 'tr')); // clear of the Guardian tab
   n.push(await clip(F.techcrunch, { x: col[1] + 0.2, y: 4.38, w: w - 0.4, h: 1.92 }, 2, 'TECHCRUNCH · SEP 8', 'br'));
 
   // credit dispute, from Buckmaster's own (verified) Mastodon post
-  const dy = 5.1;
-  const mh = await d.frame(s, await crop(R('buckmaster-mastodon-scoop.png'), 'buckmaster-header.png', { l: 25, t: 25, w: 660, h: 110 }), { x: col[2], y: dy, w: 2.6, h: 0.5 }, { align: 'left', pad: 0.05 });
+  const dy = 5.24;
+  const mh = await d.frame(s, await crop(R('buckmaster-mastodon-scoop.png'), 'buckmaster-header.png', { l: 25, t: 25, w: 660, h: 110 }), { x: col[2], y: dy, w: 2.6, h: 0.46 }, { align: 'left', pad: 0.05 });
   const mg = mh.geom;
   const mlab = d.text(s, [
     { text: 'THE DISPUTE', options: { bold: true, color: d.S.red, charSpacing: 2, breakLine: true } },
@@ -623,7 +623,7 @@ async function headlinesSlide(d) {
   const strip = d.text(s, [
     { text: 'NYU’s Tristan Buckmaster accuses OpenAI of using customer data: ', options: { color: d.S.txt } },
     { text: '“Is it ethical to use customer\'s data to try to scoop their customer?”', options: { color: d.S.txt, italic: true, bold: true } },
-  ], { x: col[2], y: mg.y + mg.h + 0.14, w: 3.97, h: 6.52 - (mg.y + mg.h + 0.14), fontSize: 14, valign: 'top' });
+  ], { x: col[2], y: mg.y + mg.h + 0.12, w: 3.97, h: 6.52 - (mg.y + mg.h + 0.12), fontSize: 14, valign: 'top' });
 
   n.forEach((g, i) => d.animate(s, g, { auto: true, effect: 'slam', dur: 380, after: i === 0 ? 150 : 90 }));
   d.animate(s, [...mh, mlab, strip], { effect: 'fade' });
@@ -653,13 +653,14 @@ async function aftermathSlide(d) {
   const cw = (CW - 0.3) / 2, chh = 2.28, gy = 0.25;
   const cards = [
     {
-      shots: [[R('aaronson-title.png'), 'aaronson-title-crop.png', { l: 28, t: 24, w: 790, h: 78 }, 0.42]],
+      shots: [[R('aaronson-title.png'), 'aaronson-title-crop.png', { l: 26, t: 26, w: 1370, h: 139 }, 0.5]], // title + first line of the post
       quote: [['“…update on the fact that '], ['the wild prophecies have come true', 1], ['.”', 0, 1], ['“…human mathematicians are '], ['forevermore dethroned', 1], [' as the main theorem-proving entities on planet earth.”']],
       who: 'Scott Aaronson · Shtetl-Optimized · Sep 15, 2026',
     },
     {
-      shots: [[R('buzzard-flt-title.png'), 'buzzard-flt-crop.png', { l: 28, t: 34, w: 712, h: 66 }, 0.36],
-        [R('buzzard-title.png'), 'buzzard-grieve-crop.png', { l: 28, t: 34, w: 565, h: 66 }, 0.36]],
+      // title + "Posted on <date> by xenaproject" byline of each post
+      shots: [[R('buzzard-flt-title.png'), 'buzzard-flt-crop.png', { l: 28, t: 34, w: 712, h: 112 }, 0.53],
+        [R('buzzard-title.png'), 'buzzard-grieve-crop.png', { l: 28, t: 34, w: 565, h: 112 }, 0.53]],
       quote: [['“I was given £1M to run my project over 5 years; '], ['Anthropic took only 11 days', 1], [' but I do wonder if they spent more money…”', 0, 1],
         ['“A post-doc I know told me that they were '], ['considering leaving mathematical research', 1], [' because of what it was about to become.”']],
       size: 14,

@@ -1,5 +1,5 @@
 // THE ACCELERATION · work: engineering (CAD, PCB, chips), economically valuable labor (ALE, AutomationBench, RLI, GDPval),
-// software jobs, academia, video, robotics (VLA, humanoid factories, Unitree, Anthropic's "What work can robots do?").
+// software jobs, academia, video and voice (Tavus Griffin, an Eleven v4 voice demo, RA-Bench quiz), robotics (VLA, humanoid factories, Unitree, Anthropic's "What work can robots do?").
 const path = require('path');
 const fs = require('fs');
 const sharp = require('sharp');
@@ -901,6 +901,102 @@ async function tavusSlide(d) {
   return s;
 }
 
+// ========== 6b. Voice: Burak Tuyan's Eleven v4 spec ad (played with sound) ==========
+const VOICE = {
+  post: 'https://x.com/buraktuyan/status/2106018840383717513',
+  reply: 'https://x.com/buraktuyan/status/2106018843315601532',
+  mp4: 'https://video.twimg.com/amplify_video/2106018106569015296/vid/avc1/1920x1080/R_PiOqUxv7Sogn8Y.mp4?tag=29',
+  linkedin: 'https://www.linkedin.com/posts/buraktuyan_eleven-v4-is-insane-heres-my-44-sec-spec-activity-7511788695436308481-bjOt',
+  blog: 'https://elevenlabs.io/blog/eleven-v4',
+  docs: 'https://elevenlabs.io/docs/overview/capabilities/text-to-speech/eleven-v4',
+  launch: 'https://x.com/ElevenLabs/status/2104572127617994917',
+  aa: 'https://artificialanalysis.ai/text-to-speech/models/eleven-v4',
+  tc: 'https://techcrunch.com/2026/09/28/elevenlabs-new-v4-speech-model-supports-more-expression-control-and-90-languages/',
+  techtimes: 'https://www.techtimes.com/articles/328298/20260930/elevenlabs-eleven-v4-shifts-voice-ai-reading-acting-turbo-hits-sub-150ms-latency.htm',
+  livesci: 'https://www.livescience.com/technology/artificial-intelligence/ai-voices-are-now-indistinguishable-from-real-human-voices',
+  register: 'https://www.theregister.com/software/2025/10/09/humans-flunk-the-turing-test-for-voices-as-bots-get-chattier/318345',
+  radioink: 'https://radioink.com/2026/07/07/radio-listeners-cant-detect-ai-voice-but-dont-trust-it-either/',
+  cnn: 'https://www.cnn.com/2026/05/29/tech/ai-voice-cloning-scams-protect-yourself',
+  hassan: 'https://www.jec.senate.gov/public/index.cfm/democrats/2026/4/senator-hassan-presses-leading-ai-voice-cloning-companies-to-prevent-exploitation-by-scammers',
+};
+
+// Label + body rows in one text box (label = small caps line, body = 14pt).
+function voiceFacts(d, s, rows, box, { size = 14, labelColor = 'FF8A8C' } = {}) {
+  const runs = [];
+  rows.forEach(([lab, body, col], i) => {
+    runs.push({ text: lab, options: { fontSize: 10, bold: true, color: col || labelColor, charSpacing: 1, breakLine: true, paraSpaceAfter: 1 } });
+    runs.push({ text: body, options: { fontSize: size, color: d.S.txt, breakLine: i < rows.length - 1, paraSpaceAfter: 8 } });
+  });
+  return d.text(s, runs, { ...box, valign: 'top' });
+}
+
+// Cover for the embedded clip: its own frame at t = 4.6 s ("Tell me something.") with a play button composited on top.
+async function voiceCover() {
+  fs.mkdirSync(OUT, { recursive: true });
+  const out = path.join(OUT, 'voicedemo-cover-tell-me-something.jpg');
+  if (fs.existsSync(out)) return out;
+  const play = '<svg width="1920" height="1080"><circle cx="960" cy="540" r="92" fill="#0A0C10" fill-opacity="0.72" stroke="#FFFFFF" stroke-width="7"/>'
+    + '<polygon points="928,488 928,592 1018,540" fill="#FFFFFF"/></svg>';
+  await sharp(R2('voicedemo-poster-tell-me-something.png')).composite([{ input: Buffer.from(play) }]).jpeg({ quality: 92, mozjpeg: true }).toFile(out);
+  return out;
+}
+
+async function voiceSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  head(s, 'THE ACCELERATION · VIDEO · 2', 'AI voices now scream, whisper and sing');
+
+  // left: the 44-s spec ad, embedded with its audio (X's 1080p H.264 + AAC rendition, stream-copied — no re-encode)
+  const vw = 6.75;
+  const v = await d.localVideo(s, {
+    file: R2('voicedemo-eleven-v4-spec-ad.mp4'), cover: await voiceCover(), box: { x: CX0, y: 1.78, w: vw, h: vw * 9 / 16 },
+    label: 'Burak Tuyan’s spec ad for Eleven v4 · X · Oct 2, 2026 · 0:44 · click to play (sound on)', link: VOICE.post,
+  });
+  const capY = v.geom.y + v.geom.h + 0.46;
+  const cap = d.text(s, [
+    { text: 'Scripted and pre-rendered: ', options: { bold: true, color: d.S.amber } },
+    { text: 'not a live conversation, not a voice-cloning demo — and nobody has blind-tested this clip.', options: { color: d.S.txt } },
+  ], { x: CX0, y: capY, w: vw, h: 6.55 - capY, fontSize: 14, valign: 'top' });
+
+  // right: the post and the author's own disclosure (real screenshot, two crops), then what is claimed about the model
+  const rx = CX0 + vw + 0.42, rw = CX1 - rx;
+  const lab = capLabel(d, s, 'THE POST · 1.9M VIEWS · HIS X BIO: “EX-ELEVENLABS”', { x: rx, y: 1.7, w: rw, charSpacing: 1 });
+  const headCrop = await crop('rev2/voicedemo-x-post.png', 'voicedemo-x-post-head.png', { l: 0, t: 118, w: 1196, h: 450 });
+  const replyCrop = await crop('rev2/voicedemo-x-post.png', 'voicedemo-x-post-reply.png', { l: 0, t: 1522, w: 1196, h: 192 });
+  const pw = rw - 0.1;
+  const post = await frameW(d, s, headCrop, rx + 0.02, 2.04, pw, { rot: -1, link: VOICE.post });
+  const postBottom = 2.04 + await hFor(headCrop, pw);
+  const rpw = rw - 0.4;
+  const reply = await frameW(d, s, replyCrop, rx + 0.3, postBottom + 0.16, rpw, { rot: 1.2, link: VOICE.reply });
+  const replyBottom = postBottom + 0.16 + await hFor(replyCrop, rpw);
+  const fy = replyBottom + 0.24;
+  const facts = voiceFacts(d, s, [
+    ['THE MODEL · INDEPENDENT RANKING', 'ElevenLabs’ Eleven v4 (launched Sep 28) — ranked #1 in Artificial Analysis’s voice arena'],
+    ['VENDOR-REPORTED · NOT INDEPENDENTLY TESTED', 'Its Turbo version starts speaking in ~150 ms; clones a voice from 10 s of audio', d.S.amber],
+  ], { x: rx, y: fy, w: rw, h: 6.55 - fy });
+
+  d.animate(s, [v[0]], { auto: true, effect: 'fade', dur: 800 });
+  d.animate(s, [v[1], cap], { auto: true, effect: 'fade', dur: 500, after: 100 });
+  d.animate(s, [lab, ...post], { auto: true, effect: 'slam', dur: 420, after: 200 });
+  d.animate(s, reply, { auto: true, effect: 'rise', dur: 500, after: 150 });
+  d.animate(s, [facts], { auto: true, effect: 'fade', dur: 600, after: 150 });
+
+  d.source(s, 'Sources: X, @buraktuyan, post and self-reply (Oct 2, 2026; views Oct 4) · ElevenLabs, “Introducing Eleven v4, our most emotive model” (Sep 28, 2026) · Artificial Analysis, Eleven v4 page (Oct 4, 2026).');
+  s.addNotes([
+    'MESSAGE: Tavus did the face; this is the voice. Click the video and play all 44 seconds with SOUND ON. Set it up with the post\'s own line: "I wrote a script of everything an AI voice \'can\'t do.\' Then made Eleven v4 read it out loud." Then let the room react.',
+    'WHAT YOU WILL HEAR (burned-in subtitles; tagline by speech-to-text): a laugh, "AI voices? / Tell me something. / Can they scream like THIS? / And then fall apart like this? / ♪ And sing when the moment demands ♪ / Fine, some of them whisper. / But can they flirt in a whisper? / Can they talk while eating? / Or do an Italian accent? / [Italian] Impossibile!" … "Wait… Am I?" — then an Eleven V4 / ElevenLabs end card and a spoken tagline that machine transcription renders as "Eleven v4, the next frontier of human-level communication." The character (a Louis-XIV-like caricature in a Versailles-style palace) is AI-generated video too — the post carries X\'s "Made with AI" label — but the tool used for the picture is not named anywhere.',
+    'WHO / WHEN: Burak Tuyan (@buraktuyan; X bio: "I tell stories. Sometimes for brands. | ex-ElevenLabs"), posted Oct 2, 2026, 13:49 UTC: "Eleven v4 is INSANE! / Here\'s my 44-sec spec ad for it. / I wrote a script of everything an AI voice "can\'t do." Then made Eleven v4 read it out loud. / Sound on". By Oct 4 (fxtwitter): 1,919,174 views, 10,035 likes, 632 reposts, 444 replies, 6,211 bookmarks, 205 quotes. ' + VOICE.post,
+    'HIS DISCLOSURE (self-reply, shown on the slide): "This is a personal spec project. Not affiliated with or commissioned by ElevenLabs. Just a fan of what v4 can do, showing off something I\'ve been waiting a long time for." ' + VOICE.reply + ' — so: a fan-made ad by a FORMER ElevenLabs employee, not an official ElevenLabs video.',
+    'WHAT IT IS — AND ISN\'T: scripted, pre-rendered text-to-speech. It is NOT a real-time conversation, NOT a voice-cloning demo, and there is no blind listening test of this clip — the only realism claim is the author\'s "INSANE". Not stated anywhere: whether he used Eleven v4 or v4 Turbo, or which voice, tags or prompts. (Our own measurement of the audio, for the curious: the scream is ~12 dB louder than the whispers, −18 vs −30 dBFS RMS — a sign of dynamic range, not a quality score.)',
+    'THE MODEL: ElevenLabs launched Eleven v4 ("our most emotive text-to-speech model yet") and the low-latency Eleven v4 Turbo on Sep 28, 2026 — blog by Mati Staniszewski and Piotr Dabkowski ' + VOICE.blog + ' · docs ' + VOICE.docs + ' · launch post on X (4.9M views) ' + VOICE.launch + ' . Independent coverage: TechCrunch, Ivan Mehta, "ElevenLabs\' new v4 speech model supports more expression control and 90 languages" — subhead "ElevenLabs v4 can clone voices with a 10 second clip" ' + VOICE.tc + ' ; Tech Times (Sep 30) ' + VOICE.techtimes,
+    'INDEPENDENT RANKING: Artificial Analysis\'s crowd-voted Provider Voice Arena (read Oct 4, 2026) puts Eleven v4 first at Elo ~1321, ahead of Qwen-Audio-3.1-TTS-Plus 1292, Cartesia Sonic 3.6 1278 and Gemini 3.8 Flash TTS 1275; ElevenLabs\' previous model, Eleven v3, sits at 1174. Live leaderboard — numbers drift. ' + VOICE.aa,
+    'VENDOR-REPORTED (ElevenLabs\' own tests, not replicated): Eleven v4 Turbo has ~100 ms median inference latency and ~150 ms median time to first speech ("faster than the average pause between two people talking"), vs 262–814 ms for Cartesia Sonic 3.6, xAI TTS, Gemini 3.8 Flash-Lite TTS and OpenAI GPT-4o mini TTS in their chart. "Preferred by ~75% of listeners in blind head-to-head tests over competing models" (81% / 81% / 72% / 65% vs four rivals) — that is model-vs-model, NOT a human-vs-AI Turing test. 90+ languages; Instant Voice Clones "using just 10 seconds of audio"; inline tags like [laughs] or [said angrily in French accent].',
+    'THE TURING ANGLE (independent, older model): in a Queen Mary University of London / UCL study (PLOS One, 2025), listeners judged 58% of AI voices cloned from real people to be human — vs 62% of the real human voices: "no statistical difference". Clones were made with off-the-shelf ElevenLabs software from under five minutes of speech. Live Science, "AI voices are now indistinguishable from real human voices" (Oct 4, 2025) ' + VOICE.livesci + ' · The Register, "Humans flunk the Turing test for voices as bots get chattier" — dek: "Coin toss odds for spotting a deepfake, study finds. And that\'s before the machines learn to sing" (Oct 9, 2025) ' + VOICE.register + ' . Radio Ink (Jul 7, 2026): a blind study of 1,326 radio listeners found AI and human voiceover scored nearly identically ' + VOICE.radioink,
+    'WHY IT MATTERS FOR SAFETY: the same expressiveness plus 10-second cloning is the scammer\'s toolkit. CNN (May 29, 2026): "Americans lost $893 million to AI-related scams last year … according to the FBI" — AI-related scams in general, not only voice cloning ' + VOICE.cnn + ' . On Apr 16, 2026 Sen. Maggie Hassan pressed ElevenLabs, LOVO, Speechify and VEED on what they do to stop voice-clone scams ' + VOICE.hassan + ' . We found no coverage of safeguards specific to v4\'s 10-second cloning.',
+    'FILE: X\'s best rendition (1920×1080, 30 fps, H.264 High + AAC-LC stereo, 44.05 s, 19.6 MB), stream-copied with faststart — no re-encode. Direct mp4: ' + VOICE.mp4 + ' · Author\'s LinkedIn copy: ' + VOICE.linkedin + ' . Cover = the clip\'s own frame at 4.6 s ("Tell me something.") with a play button added.',
+  ].join('\n\n'));
+  return s;
+}
+
 // ========== 7. Which one is real? (RA-Bench clip pairs) — question slide, then reveal slide ==========
 // Three columns = three pairs (A/B, C/D, E/F). In each pair one clip is real U.S. military/National Guard footage (DVIDS,
 // public domain) and the other is Seedance 2.0 image-to-video generated from that real clip's FIRST frame (RA-Bench).
@@ -954,7 +1050,7 @@ function quizGrid(d, s, { x0, y0, gw, colGap, rowGap, badge, width, fps, tagSize
 
 async function realQuestionSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  head(s, 'THE ACCELERATION · VIDEO · 2', 'Which one is real?');
+  head(s, 'THE ACCELERATION · VIDEO · 3', 'Which one is real?');
   const hint = d.text(s, [
     { text: 'Each column: one real clip and one AI clip generated', options: { breakLine: true } },
     { text: 'from its first frame (Seedance 2.0). ' },
@@ -977,7 +1073,7 @@ async function realQuestionSlide(d) {
 
 async function realRevealSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  head(s, 'THE ACCELERATION · VIDEO · 3', 'Each of these fakes fooled all five reviewers');
+  head(s, 'THE ACCELERATION · VIDEO · 4', 'Each of these fakes fooled all five reviewers');
 
   // left: the same six clips, smaller; the answers are click-revealed pair by pair
   const gw = 7.95, y0 = 2.06;
@@ -1000,13 +1096,14 @@ async function realRevealSlide(d) {
   ov.push(capLabel(d, s, 'JUDGED “REAL” · % OF 53,550 JUDGMENTS', { x: ox + ip, y: oy + 1.9, w: ow - 2 * ip, charSpacing: 1 }));
   const jr = [['Real footage', 71.9, HEX.teal], ['Seedance 2.0', 51.9, HEX.red], ['Kling', 47.7, HEX.red], ['Runway', 34.8, HEX.steel], ['Open-source avg.', 26.3, HEX.steel]];
   ov.push(d.chart(s, 'bar', [{ name: 'Judged real', labels: jr.map(r => r[0]).reverse(), values: jr.map(r => r[1]).reverse() }],
-    { x: ox + ip - 0.1, y: oy + 2.16, w: ow - 2 * ip + 0.2, h: 1.72 }, {
+    { x: ox + ip - 0.1, y: oy + 2.16, w: ow - 2 * ip + 0.2, h: 1.58 }, {
       barDir: 'bar', chartColors: jr.map(r => r[2]).reverse(), showValue: true, dataLabelFormatCode: '0.0"%"', dataLabelPosition: 'outEnd',
       dataLabelFontSize: 11, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 92, valAxisMinVal: 0,
       catAxisLabelFontSize: 11, catAxisLineShow: false, barGapWidthPct: 35,
     }));
-  ov.push(d.text(s, 'AI detectors caught 46.0% of fakes — and 1.4% after a simulated social-media re-share.',
-    { x: ox + ip, y: oy + 3.92, w: ow - 2 * ip, h: 0.6, fontSize: 11, color: d.S.muted, italic: true, valign: 'top' }));
+  // RA-Bench Sec. 4.3.3: mean FakeR of its five fine-tuned MLLM detector configurations (4 Skyra + BusterX++), 46.0% -> 1.4%
+  ov.push(d.text(s, 'Fine-tuned AI detectors caught 46.0% of fakes on average (RA-Bench, 5 detector set-ups) — and 1.4% after a simulated social-media re-share.',
+    { x: ox + ip, y: oy + 3.8, w: ow - 2 * ip, h: 0.78, fontSize: 12, color: d.S.muted, italic: true, valign: 'top' }));
 
   d.animate(s, [...g.base, cap], { auto: true, effect: 'fade', dur: 400 });
   g.reveals.forEach(r => d.animate(s, r, { effect: 'zoom', dur: 350 }));
@@ -1347,24 +1444,24 @@ async function robotWorkSlide(d) {
   // ---- right: Figure 3 as a native chart ----
   const rx = 7.2, rw = CX1 - rx;
   const lab = capLabel(d, s, 'SHARE OF ALL US WORK TIME, BY WHERE A ROBOT CAN DO THE TASK', { x: rx, y: 1.72, w: rw, charSpacing: 1 });
-  const box = { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 2.12 };
+  const box = { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 1.9 };
   const L = { x: 0.08, y: 0.06, w: 0.9, h: 0.88 };
   const labels = ['Cognitive & interpersonal', 'E0: no robot can do it', 'E1: purpose-built site', 'E2: structured site', 'E3: open world'];
   const vals = [54, 12, 23, 10, 1];
   const ch = d.chart(s, 'bar', [{ name: 'Share of work time', labels, values: vals }], box, {
     barDir: 'col', layout: L, chartColors: ['4A5263', HEX.steel, HEX.red, HEX.red, HEX.red], showValue: true, dataLabelFormatCode: '0"%"',
-    dataLabelPosition: 'outEnd', dataLabelFontSize: 13, dataLabelFontBold: true, valAxisMinVal: 0, valAxisMaxVal: 60, valAxisMajorUnit: 30,
+    dataLabelPosition: 'outEnd', dataLabelFontSize: 13, dataLabelFontBold: true, valAxisMinVal: 0, valAxisMaxVal: 70, valAxisMajorUnit: 35,
     valAxisLabelFormatCode: '0"%"', catAxisHidden: true, barGapWidthPct: 40,
   });
   // category labels drawn as text (two short lines each) so the renderer never rotates or truncates them
   const cx = (i) => box.x + box.w * (L.x + L.w * (i + 0.5) / 5);
-  const vy = (v) => box.y + box.h * (L.y + L.h * (1 - v / 60));
+  const vy = (v) => box.y + box.h * (L.y + L.h * (1 - v / 70)); // 70 = valAxisMaxVal (top gridline clear of the 54% label)
   const cwid = box.w * L.w / 5;
   const cats = [['Cognitive &', 'interpersonal'], ['E0', 'no robot', 'can do it'], ['E1', 'purpose-built', '(factory line)'], ['E2', 'structured', '(warehouse)'], ['E3', 'unstructured', '(city road)']];
   const catT = cats.map((ln, i) => d.text(s, ln.map((txt, j) => ({ text: txt, options: { breakLine: j < ln.length - 1, bold: ln.length === 3 && j === 0 } })),
     { x: cx(i) - cwid / 2 - 0.08, y: box.y + box.h + 0.03, w: cwid + 0.16, h: 0.58, fontSize: 11, color: i >= 2 ? 'FF8A8C' : d.S.muted, align: 'center', valign: 'top' }));
   // bracket over the three robot-doable bars (E1–E3)
-  const ba = cx(2) - 0.4, bb = cx(4) + 0.4, by = vy(36); // label spans ~38–52%: clear of the 30% and 60% gridlines
+  const ba = cx(2) - 0.4, bb = cx(4) + 0.4, by = vy(40); // ticks end at the 35% gridline; label spans ~42–62%: clear of the 35% and 70% gridlines
   const brk = [];
   [[ba, by, bb - ba, 0], [ba, by, 0, 0.12], [bb, by, 0, 0.12]].forEach(([x, y, w, h]) => {
     const n = d.name('brk');
@@ -1380,11 +1477,11 @@ async function robotWorkSlide(d) {
   const catBottom = box.y + box.h + 0.03 + 0.58;
   const yb = catBottom + 0.24; // value text is bottom-aligned in its box: the visible gap to the labels is ≥0.3in
   const cnbc = R2('robotwork-cnbctv18-machines-have-a-type.png');
-  const cw = 2.4;
+  const cw = 2.1;
   const c1 = await frameW(d, s, cnbc, rx + 0.05, yb + 0.12, cw, { rot: 1.5 });
   const sx = rx + cw + 0.35, sw = CX1 - sx;
-  const st1 = stat(d, s, { x: sx, y: yb, w: sw, value: '$22.88 vs $52.97', valueSize: 19, labelSize: 12, labelH: 0.42, color: d.S.amber, label: 'hourly pay: most robot-exposed fifth of workers vs unexposed' });
-  const st2 = stat(d, s, { x: sx, y: yb + 0.8, w: sw, value: '9 of 10', valueSize: 19, labelSize: 12, labelH: 0.42, color: d.S.amber, label: 'most-exposed occupations (20K+ jobs) are vehicle operators' });
+  const st1 = stat(d, s, { x: sx, y: yb, w: sw, value: '$22.88 vs $52.97', valueSize: 19, labelSize: 14, labelH: 0.5, color: d.S.amber, label: 'hourly pay, most-exposed fifth vs unexposed workers' });
+  const st2 = stat(d, s, { x: sx, y: yb + 0.95, w: sw, value: '9 of 10', valueSize: 19, labelSize: 14, labelH: 0.5, color: d.S.amber, label: 'most-exposed big jobs (20K+) are vehicle operators' });
 
   d.animate(s, [...t1, meth, ...kfF, kfCap], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, kfHl.slice(0, 3), { auto: true, effect: 'wipeLeft', dur: 500, stagger: 350, after: 150 });
@@ -1438,7 +1535,11 @@ async function robotCostSlide(d) {
   });
   // tag the one occupation where robots already win
   const gy0 = box.y + box.h * L.y, gh = box.h * L.h / 5;
-  const tag = d.text(s, '◄ report: robots ~$2.5K a year cheaper', { x: box.x + box.w * (L.x + L.w * 48 / 380) + 0.78, y: gy0 + gh * 0.5 - 0.15, w: 3.2, h: 0.3, fontSize: 12, bold: true, color: '5FD3C4', valign: 'middle' });
+  // gap matches the bars ($47.5K − $45.4K); the report's own text rounds it to "about $2,500"
+  const tag = d.text(s, [
+    { text: '◄ robots ≈$2.1K a year cheaper', options: { fontSize: 12, bold: true, color: '5FD3C4', breakLine: true } },
+    { text: '(report’s rounded text: “about $2,500”)', options: { fontSize: 11, color: d.S.muted } },
+  ], { x: box.x + box.w * (L.x + L.w * 48 / 380) + 0.78, y: gy0 + gh * 0.5 - 0.25, w: 3.0, h: 0.5, valign: 'middle' });
   const note = d.text(s, [
     { text: 'Hand packers: robots costing over $2 million replace ~14 workers. ', options: { color: d.S.muted } },
     { text: 'Robot costs are Claude’s estimates (fixed costs annualized, plus running costs).', options: { color: d.S.steel, italic: true } },
@@ -1447,18 +1548,21 @@ async function robotCostSlide(d) {
   // ---- right: the report’s own sentences (highlights added) + the 50-year backtest ----
   const rx = 7.35, rw = CX1 - rx;
   const kf = R2('robotwork-kf-bullet-03pct-40yrs.png');
-  const f1 = await frameW(d, s, kf, rx, 1.8, rw);
+  const sw0 = rw - 0.3; // screenshots slightly narrower than the column, leaving room for 14pt stat labels below
+  const f1 = await frameW(d, s, kf, rx, 1.8, sw0);
   const h1 = await hlLines(d, s, kf, f1, [[508, 78, 742, 42], [42, 131, 91, 42], [139, 131, 1075, 42], [42, 184, 305, 42]]);
   const sc = R2('robotwork-scenarios-2085-2050-53yrs.png');
   const y2 = f1.geom.y + f1.geom.h + 0.06 + 0.3;
-  const f2 = await frameW(d, s, sc, rx, y2, rw);
+  const f2 = await frameW(d, s, sc, rx, y2, sw0);
   const h2a = await hlLines(d, s, sc, f2, [[40, 31, 1210, 42], [40, 83, 490, 42]]);
   const h2b = await hlLines(d, s, sc, f2, [[296, 136, 991, 42], [40, 189, 1247, 42], [40, 242, 927, 42]]);
   const yb = f2.geom.y + f2.geom.h + 0.06 + 0.2;
   const bl = capLabel(d, s, '50-YEAR BACKTEST: HISTORICALLY ROBOT-EXPOSED JOBS', { x: rx, y: yb, w: rw, color: d.S.amber, charSpacing: 1 });
-  const sw = 3.0, sw2 = rw - sw - 0.25;
-  const st1 = stat(d, s, { x: rx, y: yb + 0.32, w: sw, value: '−34%', valueSize: 26, labelSize: 12, labelH: 0.42, label: 'employment after ~20 years, fully exposed vs unexposed (95% CI −16% to −52%)' });
-  const st2 = stat(d, s, { x: rx + sw + 0.25, y: yb + 0.32, w: sw2, value: '−7%', valueSize: 26, labelSize: 12, labelH: 0.42, label: 'wages, same comparison (95% CI −5% to −9%)' });
+  const sw = 2.95, sw2 = rw - sw - 0.25;
+  // big number + its 95% CI as a small caption run on the same line; 14pt label below
+  const ci = (v, c) => [{ text: v, options: { fontSize: 26, bold: true, color: d.S.red, fontFace: 'Arial' } }, { text: `  95% CI ${c}`, options: { fontSize: 11, color: d.S.muted } }];
+  const st1 = stat(d, s, { x: rx, y: yb + 0.32, w: sw, value: ci('−34%', '−16% to −52%'), valueSize: 26, labelSize: 14, labelH: 0.5, label: 'employment after ~20 years, fully exposed vs unexposed' });
+  const st2 = stat(d, s, { x: rx + sw + 0.25, y: yb + 0.32, w: sw2, value: ci('−7%', '−5% to −9%'), valueSize: 26, labelSize: 14, labelH: 0.5, label: 'wages, same comparison' });
 
   d.animate(s, [lab, ...leg, ch], { auto: true, effect: 'wipeLeft', dur: 1100 });
   d.animate(s, [tag, note], { auto: true, effect: 'fade', after: 100 });
@@ -1493,6 +1597,7 @@ async function build(d) {
   await arxivSlide(d);
   await reviewSlide(d);
   await tavusSlide(d);
+  await voiceSlide(d);
   await realQuestionSlide(d);
   await realRevealSlide(d);
   await vlaWallSlide(d);

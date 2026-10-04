@@ -6375,6 +6375,40 @@
    "notes": "Screenshot is of the live page on 2026-10-04.",
    "verified": true,
    "research_round": "rev2/mathrumors.json"
+  },
+  {
+   "id": "x-scottnarmstrong-sep15-hundreds-of-proofs",
+   "slide_topic": "Math: OpenAI says its model has resolved 100+ open problems (results not yet released) — the \"hundreds\" hearsay",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/x-scottnarmstrong-sep15-hundreds-of-proofs-page.png",
+   "headline": null,
+   "dek": "I am worried about a situation in which rumors are constantly swirling about major results and your distance to the labs in the social graph distance determines how much you know.\n\nSince at least the ICM they (openAI) have been sitting on \"hundreds\" of proofs of results, I was told, and I suspect Levent has more than he has released. \n\nSome of them may not be released any time soon.  \n\nI don't think it's a great situation if this persists. \n\nIf they tell the NY times \"we have major advance on another millenium problem\" then they should be out with the news when they have the result\n\nThey can write a 450k lean formalization and a 160-page paper of a millenium problem in a few days \n\nIf they are taking time to do a better job polishing  the paper, then great. \n\nI suspect this is NOT what they are doing however",
+   "outlet": "X (@scottnarmstrong)",
+   "author": "Scott Armstrong (@scottnarmstrong; verified; bio \"CNRS DR at LJLL/Sorbonne and Math Prof at Courant/NYU. Research in math physics, probability, analysis/PDE\")",
+   "date": "2026-09-15",
+   "url": "https://x.com/scottnarmstrong/status/2099960311801696580",
+   "caption": "Real screenshot of the X post page (reply to @MSuskiewicz): NYU/Courant mathematician Scott Armstrong says OpenAI has been sitting on \"hundreds\" of proofs of results since at least the ICM — \"I was told\" (second-hand), \"Some of them may not be released any time soon.\" 8:35 PM UTC Sep 15, 2026, 58.9K views.",
+   "quality": 4,
+   "verified": true,
+   "notes": "SECOND-HAND HEARSAY, label it as such: Armstrong reports what he \"was told\"; he gives no source and no list. Text and counts verified via api.fxtwitter.com (2026-10-04): created Tue Sep 15 20:35:28 UTC 2026, 58,968 views, 217 likes, 23 reposts, 5 replies; replying to @MSuskiewicz (status 2099958783745081733). Screenshot captured 2026-10-04 with tools/shot.js (page view, 1200x1400 CSS, 2x). This is the real source of the \"hundreds of results awaiting release\" memory; it contrasts with OpenAI's own \"more than 100\" (Sep 21). \"Levent\" is not identified in the post. ICM 2026 = International Congress of Mathematicians, Philadelphia, July 23-30, 2026 (https://www.mathunion.org/icm/icm-2026).",
+   "research_round": "fix-capabilities-2026-10-04"
+  },
+  {
+   "id": "x-scottnarmstrong-aug24-icm-hundreds-of-results",
+   "slide_topic": "Math: OpenAI says its model has resolved 100+ open problems (results not yet released) — the \"hundreds\" hearsay",
+   "type": "screenshot",
+   "file": "rev2/mathrumors/x-scottnarmstrong-aug24-icm-hundreds-of-results-page.png",
+   "headline": null,
+   "dek": "@littmath @AlexKontorovich I am asking because I heard rumors at the ICM that they [openAI] \"are sitting on hundreds of results\"",
+   "outlet": "X (@scottnarmstrong)",
+   "author": "Scott Armstrong (@scottnarmstrong)",
+   "date": "2026-08-24",
+   "url": "https://x.com/scottnarmstrong/status/2091897271130448159",
+   "caption": "Real screenshot of the X post page: Armstrong's earlier reply to Daniel Litt (@littmath), \"I heard rumors at the ICM that they [openAI] 'are sitting on hundreds of results'\" — 2:35 PM UTC Aug 24, 2026, 3,381 views. Litt's parent post and Alex Kontorovich's reply are visible.",
+   "quality": 3,
+   "verified": true,
+   "notes": "HEARSAY (\"I heard rumors at the ICM\"). Verified via api.fxtwitter.com (2026-10-04): created Mon Aug 24 14:35:49 UTC 2026, 3,381 views, 12 likes, 1 repost; replying to @littmath (status 2091888575004446925). Context on the page: Daniel Litt, \"the recent announcement of 10 is surely only some portion of what they generated\"; Alex Kontorovich, \"probably won't release anything for a while until they have something even more extraordinary than before...\". Earliest public trace of the \"hundreds\" figure we found.",
+   "research_round": "fix-capabilities-2026-10-04"
   }
  ],
  "datasets": [
@@ -9380,6 +9414,12 @@
    "source": "Kalshi trade API",
    "url": "https://kalshi.com/markets/kxanthropicmillennium/anthropic-millennium-prize-claim/kxanthropicmillennium-27",
    "date": "2026-10-04"
+  },
+  {
+   "claim": "HEARSAY ONLY: NYU/Courant mathematician Scott Armstrong wrote on X (Sep 15, 2026) that since at least the ICM OpenAI has \"been sitting on \\\"hundreds\\\" of proofs of results, I was told\" and that \"Some of them may not be released any time soon.\" OpenAI itself says only \"more than 100\".",
+   "source": "Scott Armstrong on X (Sep 15, 2026; also Aug 24: \"I heard rumors at the ICM that they [openAI] 'are sitting on hundreds of results'\")",
+   "url": "https://x.com/scottnarmstrong/status/2099960311801696580",
+   "date": "2026-09-15"
   }
  ],
  "not_found": [
@@ -9601,7 +9641,7 @@
   },
   {
    "outline_item": "An OpenAI post saying \"hundreds\" of new math results are awaiting release / in the pipeline",
-   "searched": "OpenAI site pages loaded in full (Advisory Group post 2026-09-21; Navier-Stokes post 2026-09-08; \"Ten advances in mathematics\" 2026-08-01; openai.com/news and /news/company-announcements listings), OpenAI @OpenAI X post of 2026-09-21, WebSearch/DDG/TinyFish queries (\"hundreds\" + math results + awaiting release/pipeline/OpenAI/Pachocki/Bubeck/Brockman/Altman), Verge/NYT/TechCrunch/Decoder/Tao-blog coverage. The closest genuine statement is \"more than 100 long-standing open problems\" (Sept 21); Reddit commenters paraphrase it as \"hundreds\". Use \"100+\" on the slide."
+   "searched": "OpenAI site pages loaded in full (Advisory Group post 2026-09-21; Navier-Stokes post 2026-09-08; \"Ten advances in mathematics\" 2026-08-01; openai.com/news and /news/company-announcements listings), OpenAI @OpenAI X post of 2026-09-21, WebSearch/DDG/TinyFish queries (\"hundreds\" + math results + awaiting release/pipeline/OpenAI/Pachocki/Bubeck/Brockman/Altman), Verge/NYT/TechCrunch/Decoder/Tao-blog coverage. The closest genuine statement is \"more than 100 long-standing open problems\" (Sept 21); Reddit commenters paraphrase it as \"hundreds\". Use \"100+\" on the slide. CORRECTION (2026-10-04): the \"hundreds\" figure does exist, but NOT from OpenAI: NYU/Courant mathematician Scott Armstrong (@scottnarmstrong) on X, Sep 15, 2026 (https://x.com/scottnarmstrong/status/2099960311801696580): \"Since at least the ICM they (openAI) have been sitting on \\\"hundreds\\\" of proofs of results, I was told ... Some of them may not be released any time soon.\"; and Aug 24, 2026 (https://x.com/scottnarmstrong/status/2091897271130448159): \"I heard rumors at the ICM that they [openAI] \\\"are sitting on hundreds of results\\\"\". Both are second-hand hearsay (now items x-scottnarmstrong-*); an OpenAI statement saying \"hundreds\" is still not found."
   },
   {
    "outline_item": "Any lab (OpenAI, Anthropic, Google, ...) claiming a Hodge or BSD proof, or a named insider/on-record source for the rumor",

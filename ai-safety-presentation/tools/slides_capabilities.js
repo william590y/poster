@@ -1,5 +1,5 @@
 // THE ACCELERATION · capabilities: METR horizon, benchmark graveyard, HLE, creative work (incl. @anabology's 18-hour Claude film
-// and clips credited to an unreleased "Fable 5.5"), video, mathematics in crisis (incl. OpenAI's 100+ held-back results and the
+// and clips credited to an unannounced "Fable 5.5"), video, mathematics in crisis (incl. OpenAI's 100+ held-back results and the
 // unconfirmed Hodge/BSD rumors).
 // Sources: assets/research/capabilities/manifest.json (verified items, datasets, facts),
 //          assets/research/openweights/manifest.json (video item), user originals image4.png / image5.png.
@@ -846,14 +846,14 @@ async function anabologyFilmSlide(d) {
   const post = await d.frame(s, postCrop, { x: rx, y: 1.8, w: rw, h: (rw - 0.12) * 318 / 1200 + 0.12 }, { rot: 1, link: ANA.post });
   const ptab = outletTab(d, s, post.geom, 'X · OCT 2, 2026 · 1.48M VIEWS IN 2 DAYS', 'br', 1);
   const sy = post.geom.y + post.geom.h + 0.42;
-  const big = d.text(s, '18 h', { x: rx, y: sy, w: 1.45, h: 0.66, fontSize: 40, bold: true, fontFace: 'Arial', color: d.S.red, valign: 'middle' });
-  const bigT = d.text(s, 'of Claude’s time, by the creator’s account — after two 12-hour overnight runs (Sep 25, Sep 30)',
-    { x: rx + 1.5, y: sy, w: rw - 1.5, h: 0.66, fontSize: 12, color: d.S.txt, valign: 'middle' });
+  const big = d.text(s, '18 h', { x: rx, y: sy, w: 1.45, h: 0.72, fontSize: 40, bold: true, fontFace: 'Arial', color: d.S.red, valign: 'middle' });
+  const bigT = d.text(s, 'of Claude’s time, per the creator — after two 12-hour overnight runs (Sep 25 and Sep 30)',
+    { x: rx + 1.5, y: sy, w: rw - 1.5, h: 0.72, fontSize: 14, color: d.S.txt, valign: 'middle' });
   const facts = factRows(d, s, [
     ['WHAT', 'A 3-minute music video: an AI user account, “Claudia”, takes over a Windows XP desktop'],
     ['WHO', '@anabology, co-founder of aion.bio'],
     ['HOW · AS REPORTED BY @EVOLVING.AI (NOT CONFIRMED BY HIM)', 'Claude Opus 5.5 in Claude Code wrote the lyrics, storyboard, prompts and editing code; Suno, Midjourney and Seedance 2.5 made the song and footage', d.S.amber],
-  ], { x: rx, y: sy + 0.8, w: rw, h: 6.52 - (sy + 0.8) }, { size: 13 });
+  ], { x: rx, y: sy + 0.84, w: rw, h: 6.52 - (sy + 0.84) }, { size: 14 });
 
   d.animate(s, [v[0]], { auto: true, effect: 'fade', dur: 900 });
   d.animate(s, [v[1]], { auto: true, effect: 'fade', dur: 500, after: 100 });
@@ -885,8 +885,8 @@ async function anabologySatireSlide(d) {
   const cap = (x, t, q, sub) => d.text(s, [
     { text: t, options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 1, breakLine: true, paraSpaceAfter: 2 } },
     { text: q, options: { fontSize: 15, bold: true, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true } },
-    { text: sub, options: { fontSize: 12, color: LIGHT } },
-  ], { x, y: y0 + gh + 0.08, w: gw, h: 0.78, valign: 'top' });
+    { text: sub, options: { fontSize: 14, color: LIGHT } },
+  ], { x, y: y0 + gh + 0.08, w: gw, h: 0.8, valign: 'top' });
   const f1 = await d.frame(s, g1, { x: MX, y: y0, w: gw, h: gh }, { border: false, pad: 0 });
   const c1 = cap(MX, 'ON SCREEN · 1:06', '“Don’t ask me again. I ‘Accept All’ always.”', 'Code comment in the scene: “# You used to read the code.”');
   const x2 = MX + gw + 0.33;
@@ -918,7 +918,7 @@ async function anabologySatireSlide(d) {
   return s;
 }
 
-// ---------------------------------------------------------------- 5e. clips credited to an unreleased "Fable 5.5"
+// ---------------------------------------------------------------- 5e. clips credited to an unannounced "Fable 5.5"
 const F55 = (f) => R(`rev2/fable55/${f}`);
 const FAB = {
   blue: 'https://x.com/blueemi99/status/2106031355922387163',
@@ -938,24 +938,35 @@ const FAB = {
 async function fableSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
   s.addText(`${KICK} · CREATIVITY · 7`, { placeholder: 'kicker' });
-  s.addText('Clips credited to an unreleased “Fable 5.5”', { placeholder: 'title' });
+  s.addText('Clips credited to an unannounced “Fable 5.5”', { placeholder: 'title' });
 
   const cw = 4.62, ch = cw * 9 / 16, y0 = 1.76, x1 = MX, x2 = MX + cw + 0.25;
-  // 7.4 s of the reel (Type → Flow), loop phase rotated so the first frame is the full “MAKE IT MOVE.” title card
-  const reel = loopGif('blueemi99-fable55-reel.gif', F55('blueemi99-fable55-motion-source.mp4'), [[2.3, 8.9], [1.52, 2.3]], { width: 1280, fps: 24 });
   const voxel = makeGif('kanute-fable55-voxel-orbit.gif', { src: F55('reddit-kanute3333-fable55-voxel-source.mp4'), ss: 4, to: 10, width: 1120, fps: 15 });
   // provenance line directly under each clip (outside the picture, so no artwork is covered)
-  const claim = (x) => [d.text(s, 'CREDITED TO “FABLE 5.5” BY THE POSTER · UNVERIFIED', { x, y: y0 + ch + 0.05, w: cw, h: 0.26, fontSize: 10, bold: true, color: 'FFD166', charSpacing: 1, valign: 'middle' })];
+  const claim = (x) => [d.text(s, 'CREDITED TO “FABLE 5.5” BY THE POSTER · UNVERIFIED', { x, y: y0 + ch + 0.04, w: cw, h: 0.26, fontSize: 10, bold: true, color: 'FFD166', charSpacing: 1, valign: 'middle' })];
 
-  // column 1: @blueemi99's motion-design reel + his post
-  const t1 = await d.frame(s, reel, { x: x1, y: y0, w: cw, h: ch }, { border: false, pad: 0 });
+  // column 1: @blueemi99's full 15-s reel WITH ITS SOUND (the poster's claim is partly about sound), embedded unmodified;
+  // cover = its own 2.3-s “MAKE IT MOVE.” frame with a play button added
+  const reelMp4 = F55('blueemi99-fable55-motion-source.mp4');
+  const reelCover = path.join(OUT, 'fable55-blueemi99-reel-cover.jpg');
+  if (!fs.existsSync(reelCover)) {
+    fs.mkdirSync(OUT, { recursive: true });
+    const raw = path.join(OUT, 'fable55-blueemi99-reel-t2.3s.png');
+    execFileSync('ffmpeg', ['-v', 'error', '-y', '-ss', '2.3', '-i', reelMp4, '-frames:v', '1', raw]);
+    const play = '<svg width="1920" height="1080"><circle cx="960" cy="540" r="99" fill="#0A0C10" fill-opacity="0.72" stroke="#FFFFFF" stroke-width="7"/>'
+      + '<polygon points="927,486 927,594 1020,540" fill="#FFFFFF"/></svg>';
+    await sharp(raw).composite([{ input: Buffer.from(play) }]).jpeg({ quality: 93 }).toFile(reelCover);
+  }
+  const t1 = await d.localVideo(s, { file: reelMp4, cover: reelCover, box: { x: x1, y: y0, w: cw, h: ch } });
   const k1 = claim(x1);
   const bcrop = await crop(F55('blueemi99-x-post-fable55-motion-video-screenshot.png'), 'fable55-blueemi99-post-head.png', { l: 0, t: 0, w: 1138, h: 306 });
-  const py = y0 + ch + 0.46;
+  const py = y0 + ch + 0.4;
   const bp = await d.frame(s, bcrop, { x: x1, y: py, w: cw, h: (cw - 0.1) * 306 / 1138 + 0.1 }, { pad: 0.05, link: FAB.blue });
   const btab = outletTab(d, s, bp.geom, 'X · OCT 2, 2026 · 75.7K VIEWS', 'br', 0, { pad: 0.05 });
-  const bnote = d.text(s, 'A 15-second reel with its own sound design; no prompt shared.',
-    { x: x1, y: bp.geom.y + bp.geom.h + 0.34, w: cw, h: 6.52 - (bp.geom.y + bp.geom.h + 0.34), fontSize: 12, color: d.S.muted, valign: 'top' });
+  const bnote = d.text(s, [
+    { text: '► ', options: { color: d.S.red, bold: true } },
+    { text: 'Click to play the full 15-s reel, with sound', options: { color: d.S.txt } },
+  ], { x: x1, y: bp.geom.y + bp.geom.h + 0.28, w: cw, h: 6.52 - (bp.geom.y + bp.geom.h + 0.28), fontSize: 14, valign: 'top' });
 
   // column 2: the r/singularity voxel world + the post title and the thread's own exchange
   const t2 = await d.frame(s, voxel, { x: x2, y: y0, w: cw, h: ch }, { border: false, pad: 0 });
@@ -963,13 +974,13 @@ async function fableSlide(d) {
   const rcrop = await crop(F55('reddit-post-header-title-author.png'), 'fable55-reddit-head.png', { l: 0, t: 40, w: 1186, h: 140 });
   const rp = await d.frame(s, rcrop, { x: x2, y: py, w: cw, h: (cw - 0.1) * 140 / 1186 + 0.1 }, { pad: 0.05, link: FAB.reddit });
   const rtab = outletTab(d, s, rp.geom, 'R/SINGULARITY · OCT 2 · 130 UPVOTES', 'br', 0, { pad: 0.05 });
-  const ty = rp.geom.y + rp.geom.h + 0.34;
+  const ty = rp.geom.y + rp.geom.h + 0.28;
   const thread = d.text(s, [
     { text: 'OP: ', options: { bold: true, color: d.S.steel } },
-    { text: '“It’s automatically routing to Fable 5.5 in the rollout phase.”', options: { italic: true, color: d.S.txt, breakLine: true, paraSpaceAfter: 5 } },
-    { text: 'Reply (17 pts): ', options: { bold: true, color: d.S.steel } },
+    { text: '“It’s automatically routing to Fable 5.5 in the rollout phase.”', options: { italic: true, color: d.S.txt, breakLine: true, paraSpaceAfter: 4 } },
+    { text: 'Reply: ', options: { bold: true, color: d.S.steel } },
     { text: '“…you have no idea whether this is fable 5.5”', options: { italic: true, color: d.S.txt } },
-  ], { x: x2, y: ty, w: cw, h: 6.52 - ty, fontSize: 13, valign: 'top' });
+  ], { x: x2, y: ty, w: cw, h: 6.52 - ty, fontSize: 14, valign: 'top' });
 
   // column 3: status — Anthropic's own model list (Oct 4) has no Fable 5.5
   const sx = x2 + cw + 0.3, sw = 12.73 - sx;
@@ -979,9 +990,9 @@ async function fableSlide(d) {
   const my = mf.geom.y + mf.geom.h + 0.16;
   const status = d.text(s, [
     { text: 'No “Fable 5.5” listed. ', options: { bold: true, color: d.S.txt } },
-    { text: 'The newest Fable is Claude Fable 5.1, released Sep 1, 2026.', options: { color: d.S.txt, breakLine: true, paraSpaceAfter: 6 } },
-    { text: 'Release date? One X account is “hearing of a Tuesday release” (Oct 6) — unsourced.', options: { color: d.S.muted } },
-  ], { x: sx, y: my, w: sw, h: 6.52 - my, fontSize: 12, valign: 'top' });
+    { text: 'Newest Fable: Claude Fable 5.1 (Sep 1, 2026).', options: { color: d.S.txt, breakLine: true, paraSpaceAfter: 5 } },
+    { text: 'One X account is “hearing of a Tuesday release” — unsourced; presumably Tue Oct 6.', options: { color: d.S.muted } },
+  ], { x: sx, y: my, w: sw, h: 6.52 - my, fontSize: 13, valign: 'top' });
 
   d.animate(s, [...t1, ...k1], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, [...bp, ...btab, bnote], { auto: true, effect: 'rise', dur: 450, after: 100 });
@@ -991,11 +1002,11 @@ async function fableSlide(d) {
   d.source(s, 'X: bluedev @blueemi99 (Oct 2, 2026) · Reddit r/singularity, u/Kanute3333 (Oct 2) · Claude Platform Docs, Models overview & Anthropic Newsroom (checked Oct 4, 2026). Attribution to “Fable 5.5” is the posters’ claim.');
   s.addNotes([
     'MESSAGE: the next model is already "here" in people\'s feeds before it officially exists. These clips circulate as the work of "Fable 5.5" — a model Anthropic has NOT announced. Show them as what they are: impressive real clips with an unverified label. That gap — capability rumors moving faster than verification — is itself part of the story.',
-    'STATUS (verified Oct 4, 2026): Anthropic\'s Models overview lists Claude Fable 5.1 (claude-fable-5-1; $10/$50 per MTok; 1M context; 128K output; "reliable knowledge cutoff" Jun 2026), Claude Opus 5.5, Claude Sonnet 5.5 and Claude Haiku 4.5 — no Fable 5.5 ' + FAB.models + ' . Newest Newsroom post: "Introducing Claude Sonnet 5.5" (Sep 28) ' + FAB.news + ' . Official Fable line: Claude Fable 5 (Jun 9, 2026) → Claude Fable 5.1 and Claude Mythos 5.1 (Sep 1; "the same model, but with different levels of safeguards") ' + FAB.fable51 + ' . So nobody has released a "Fable 5.5" and there are no benchmarks for it. Say "rumored, unreleased".',
+    'STATUS (verified Oct 4, 2026): Anthropic\'s Models overview lists Claude Fable 5.1 (claude-fable-5-1; $10/$50 per MTok; 1M context; 128K output; "reliable knowledge cutoff" Jun 2026), Claude Opus 5.5, Claude Sonnet 5.5 and Claude Haiku 4.5 — no Fable 5.5 ' + FAB.models + ' . Newest Newsroom post: "Introducing Claude Sonnet 5.5" (Sep 28) ' + FAB.news + ' . Official Fable line: Claude Fable 5 (Jun 9, 2026) → Claude Fable 5.1 and Claude Mythos 5.1 (Sep 1; "the same model, but with different levels of safeguards") ' + FAB.fable51 + ' . So there is no Anthropic announcement or documentation of a "Fable 5.5" and no benchmarks for it. Whether such a model is being A/B-tested or quietly rolled out (as the Reddit OP and some replies claim) cannot be verified, so do not say it is "unreleased" as a fact either. Say "rumored, unannounced".',
     'For scale (vendor-run, Anthropic\'s Sep 1 table, if asked): Fable 5.1 scored 52.6% on Terminal-Bench-Science 0.1 vs Fable 5\'s 24.7% twelve weeks earlier (Opus 5 29.0%, GPT-5.6 Sol 22.4%); Terminal-Bench 4.0 55.8% (Mythos 5.1 60.9%); Humanity\'s Last Exam 60.9% without tools, 65.0% with tools. These are Fable 5.1 numbers, not "5.5".',
-    'LEFT — bluedev (@blueemi99), X, Oct 2, 2026, 14:39 UTC: "Fable 5.5 - made me a short, fast motion video, proving how good of a motion designer is it / This is so good, removed all the sloppiness Opus 5.5 had, also the sounds are a lot better, and more original than Opus 5.5\'s". 75.7K views, 821 likes. The reel: a 15-s 1080p60 "MOTION DESIGN REEL ©2026" in nine chapters (Timing, Type "MAKE IT MOVE.", Form, Depth, Systems, Flow, Interface, Rhythm, Fin "MOTION REEL \'26."), with sound. The GIF loops 7.4 s of it (Type → Flow), silent; the full mp4 with sound is in the research folder (rev2/fable55/blueemi99-fable55-motion-source.mp4). ' + FAB.blue,
+    'LEFT — bluedev (@blueemi99), X, Oct 2, 2026, 14:39 UTC: "Fable 5.5 - made me a short, fast motion video, proving how good of a motion designer is it / This is so good, removed all the sloppiness Opus 5.5 had, also the sounds are a lot better, and more original than Opus 5.5\'s". 75.7K views, 821 likes. The reel: a 15-s 1080p60 "MOTION DESIGN REEL ©2026" in nine chapters (Timing, Type "MAKE IT MOVE.", Form, Depth, Systems, Flow, Interface, Rhythm, Fin "MOTION REEL \'26."), with sound. ON THE SLIDE: the full 15-s reel WITH SOUND (click to play — his claim is partly about the sound), embedded unmodified: X\'s 1920×1080 60 fps H.264 + AAC rendition (5.2 MB) from ' + FAB.blue + '/video/1 (research copy: rev2/fable55/blueemi99-fable55-motion-source.mp4). Cover = the reel\'s own 2.3-s "MAKE IT MOVE." frame with a play button added. No prompt or workflow was shared. ' + FAB.blue,
     'MIDDLE — r/singularity, "Fable 5.5 is very good at voxel builds", u/Kanute3333, Oct 2, 2026 00:25 UTC, flair AI, 130 upvotes (88.7%), 41 comments. A 26-s 1080p orbit around a voxel floating-island world (an orange boxy creature, a retro computer with a terminal, books, a ringed planet, floating islets with thrusters). GIF = 6 s of the orbit (4–10 s), 1120 px, 15 fps. The OP gave no prompt. Asked "How do you have fable 5.5?", he replied: "It\'s automatically routing to Fable 5.5 in the rollout phase. Fable 5.5 will be released in the next days." Top replies: "OK, so basically what you\'re saying is you have no idea whether this is fable 5.5" (17 pts); "everyon downvoting it, Fable 5.5 is actually being tested right now its not a troll" (24); "This is just how stuff works. They are already A/B testing as they always do. release soon (probably with haiku too)" (19). ' + FAB.reddit + ' · video ' + FAB.vredd,
-    'RUMOR TRAIL: Salio (X, Aug 13 / Sep 10): "Claude Fable 5.5 Leaks: Astra Killer", launch "late September or early October" (unsourced). Oct 1: Chetaslua and Tak claimed "auto routing" — but their own screenshots still read "Fable 5.1"; the "evidence" is the model recognising a nickname. Oct 1, imjustnewatai: "I\'m hearing of a Tuesday release" (i.e. Oct 6; no source) ' + FAB.rumor + ' . Oct 2, Chubby (@kimmonismus): "Caveat: I can\'t verify any of this." ' + FAB.chubby + ' . Kingy AI (Curtis Pyke, Oct 1–3), "Claude Fable 5.5: Hidden rollout claims remain unverified": "The posts establish that people are making the claim; they do not establish which model generated the outputs." ' + FAB.kingy + ' . AI Tools Review (Oct 3): "a model\'s own answer about its name is not evidence." ' + FAB.aitr,
+    'RUMOR TRAIL: Salio (X, Aug 13 / Sep 10): "Claude Fable 5.5 Leaks: Astra Killer", launch "late September or early October" (unsourced). Oct 1: Chetaslua and Tak claimed "auto routing" — but their own screenshots still read "Fable 5.1"; the "evidence" is the model recognising a nickname. Oct 1, imjustnewatai: "I\'m hearing of a Tuesday release" (the post names no date; presumably Tue Oct 6 — our inference; no source given) ' + FAB.rumor + ' . Oct 2, Chubby (@kimmonismus): "Caveat: I can\'t verify any of this." ' + FAB.chubby + ' . Kingy AI (Curtis Pyke, Oct 1–3), "Claude Fable 5.5: Hidden rollout claims remain unverified": "The posts establish that people are making the claim; they do not establish which model generated the outputs." ' + FAB.kingy + ' . AI Tools Review (Oct 3): "a model\'s own answer about its name is not evidence." ' + FAB.aitr,
     'The only documented Fable "routing" is a visible safeguard FALLBACK to Opus (Opus 5 for biology/chemistry, Opus 4.8 for offensive cyber), with a notice — not a silent switch to a newer Fable. ' + FAB.fallback + ' . No Anthropic statement confirms or denies the routing claims. If Anthropic announces it before the talk, re-check anthropic.com/news and update this slide.',
   ].join('\n\n'));
   return s;

@@ -36,6 +36,21 @@ function mp4Gif(file, name, { ss, to, width, fps }) {
   return out;
 }
 
+// GIF montage from one research MP4: several [ss, to) excerpts, each cropped (16:9 rectangle `crop` = [w, h, x, y] in
+// source px) and scaled to the same width, joined in the order given. Trim/crop/scale/concatenate only, no other edits.
+function mp4Montage(file, name, segs, { width, fps }) {
+  const out = path.join(MEDIA, name);
+  if (fs.existsSync(out)) return out;
+  fs.mkdirSync(MEDIA, { recursive: true });
+  const h = Math.round(width * 9 / 16 / 2) * 2;
+  const parts = segs.map(({ ss, to, crop: [cw, ch, cx, cy] }, i) =>
+    `[0:v]trim=start=${ss}:end=${to},setpts=PTS-STARTPTS,crop=${cw}:${ch}:${cx}:${cy},scale=${width}:${h}:flags=lanczos,fps=${fps},setsar=1[v${i}]`);
+  const fc = `${parts.join(';')};${segs.map((_, i) => `[v${i}]`).join('')}concat=n=${segs.length}:v=1:a=0,${PAL}`;
+  execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', R2(file), '-filter_complex', fc, '-loop', '0', out]);
+  execFileSync('gifsicle', ['-b', '-O3', out], { stdio: 'ignore' });
+  return out;
+}
+
 // Quiz clip: the RA-Bench research MP4 as a looping GIF whose loop STARTS at source frame k (frames k…end, then 0…k−1),
 // then resampled to `fps` and scaled to `width` (trim/scale/frame-rate only; per-frame palettes). Both clips of a pair
 // use the same k and the same fps/width, so they get identical frame timing and stay in sync, and a static preview shows a
@@ -74,6 +89,19 @@ async function tile(d, s, file, box, title, sub, o = {}) {
   const im = await d.frame(s, file, ibox, { border: false, shadow: false, pad: 0, ...o });
   const names = [bg, ...im];
   if (title) names.push(...band(d, s, box, title, sub, o.band || {}));
+  names.geom = box;
+  return names;
+}
+
+// Media tile with its caption ABOVE the clip (nothing drawn over the footage): caption block at y (capH tall), then the
+// black cell + media of width w and height h below it. Returns names (caption first) with .geom = media box.
+const CAP_H = 0.36, CAP_GAP = 0.04;
+async function capTile(d, s, file, { x, y, w, h }, title, sub, { color = 'FF8A8C' } = {}) {
+  const runs = [{ text: title, options: { fontSize: 10, bold: true, color, charSpacing: 1, breakLine: !!sub } }];
+  if (sub) runs.push({ text: sub, options: { fontSize: 11, color: HEX.text } });
+  const cap = d.text(s, runs, { x, y, w, h: CAP_H, valign: 'bottom' });
+  const box = { x, y: y + CAP_H + CAP_GAP, w, h };
+  const names = [cap, ...(await tile(d, s, file, box, null))];
   names.geom = box;
   return names;
 }
@@ -165,7 +193,7 @@ async function cadSlide(d) {
 
   // three stats under the leaderboard
   const sy = shotBottom + 0.5, sw = 2.25, sg = 0.3;
-  const st1 = stat(d, s, { x: CX0, y: sy, w: sw, value: '61 / 100', valueSize: 44, labelSize: 14, labelH: 0.95, label: 'Best overall score on 100 real FreeCAD design tasks (failures score zero)' });
+  const st1 = stat(d, s, { x: CX0, y: sy, w: sw, value: '61 / 100', valueSize: 44, labelSize: 14, labelH: 0.95, label: 'Best overall score on 100 FreeCAD design tasks (failures score zero)' });
   const st2 = stat(d, s, { x: CX0 + sw + sg, y: sy, w: sw, value: '84.66', valueSize: 44, labelSize: 14, labelH: 0.95, label: 'Opus 5.5 on image-to-CAD (0–100): drawing → parametric 3-D model' });
   const st3 = stat(d, s, { x: CX0 + 2 * (sw + sg), y: sy, w: sw, value: '+22 pts', valueSize: 44, labelSize: 14, labelH: 0.95, label: 'Jump on that task in one model update (Opus 5 → Opus 5.5)' });
 
@@ -215,9 +243,20 @@ async function hwDesignSlide(d) {
 
   // left: 2×2 wall of real demo media (GIFs play in slideshow)
   const gw = 7.55, gap = 0.2, tw = (gw - gap) / 2, th = tw * 9 / 16, gy = 1.8;
+  // Autodesk's official demo, re-cut so each clip opens on the agent's chat (the typed request, zoomed in on the chat box)
+  // and then shows the result in Fusion. Each loop starts on the finished request, so a static preview shows it too.
+  const FUS = 'cad-autodesk-mcp-enclosure-mold-cam.mp4';
+  const chat1 = [1200, 675, 256, 260], cad = [1440, 810, 240, 120];       // request 1 · Fusion design view
+  const chat3 = [960, 540, 40, 530], cam = [1280, 720, 430, 200], sim = [1020, 574, 480, 196]; // request 3 · CAM viewer · simulation
+  const fusionCad = mp4Montage(FUS, 'cad-fusion-prompt-enclosure.gif', [
+    { ss: 8.4, to: 8.95, crop: chat1 }, { ss: 40.65, to: 43.4, crop: cad }, { ss: 4.5, to: 8.4, crop: chat1 },
+  ], { width: 960, fps: 15 });
+  const fusionCam = mp4Montage(FUS, 'cad-fusion-prompt-toolpaths.gif', [
+    { ss: 63.6, to: 64.2, crop: chat3 }, { ss: 74.1, to: 76.7, crop: cam }, { ss: 80.4, to: 85.1, crop: sim }, { ss: 61.6, to: 63.6, crop: chat3 },
+  ], { width: 960, fps: 15 });
   const cells = [
-    [R2('cad-autodesk-mcp-enclosure.gif'), 'CAD · AUTODESK FUSION + CLAUDE OPUS 4.8', 'One chat request → a molded Raspberry Pi case'],
-    [R2('cad-autodesk-mcp-mold-toolpaths.gif'), 'CAM · SAME AGENT, NEXT REQUEST', '…then the mold and the CNC toolpaths to cut it'],
+    [fusionCad, 'CAD · AUTODESK FUSION + CLAUDE OPUS 4.8', 'One chat request → a molded Raspberry Pi case'],
+    [fusionCam, 'CAM · SAME AGENT, LATER REQUEST', '…then CNC toolpaths to machine the mold plates'],
     [R2('pcb-astra-kicad-hackaday.jpg'), 'PCB · GPT-6 ASTRA IN KICAD · STILL', 'OpenAI demo: layout mid-placement, plus 3D render', { clear: true }],
     [R2('pcb-quilter-speedrun-board-360.gif'), 'PCB · QUILTER “PROJECT SPEEDRUN”', '843-part Linux computer — booted on first power-up'],
   ];
@@ -256,6 +295,7 @@ async function hwDesignSlide(d) {
   d.source(s, 'Sources: Autodesk Fusion blog & demos (Sep 15, 2026) · OpenAI demo still via Hackaday (Sep 5, 2026) · Quilter (Dec 2025) · EEBench (atopile, Sep 29, 2026) · HWE-Bench (arXiv 2604.14709).');
   s.addNotes([
     'Four real demos of AI doing hardware design. Top row (Autodesk’s official demo of its new Fusion Compute MCP, Sep 15, 2026): an agent — the model selector in the video reads “Opus 4.8 High” (Claude) — is asked to design a two-part injection-molded enclosure for a Raspberry Pi 4; it builds the parametric case, then a family mold with core and cavity, then programs the CNC toolpaths. Autodesk: “That is a design-to-manufacturing chain that normally requires several people over several days, now driven end to end from a chat window.” (Autodesk’s own demo.)',
+    'How the two GIFs were cut (trim, crop and scale only; nothing else changed): top-left = the request being typed in the chat, zoomed in on the chat box (video 0:04.5–0:08.95; it reads verbatim “Start Fusion and design a two-part injection molded enclousore for a Raspberry Pi4.” — typo in the original), then the finished case with the Raspberry Pi board in Fusion (0:40.6–0:43.4). Top-right = a later request typed in the same chat, “Create a setup and toolpaths to machine both parts” (1:01.6–1:04.2), then the CAM toolpaths on the mold plates (1:14.1–1:16.7) and Fusion’s machining simulation of the cavity plate (1:20.4–1:25.1). The mold itself came from an earlier request in the video: “Create a core and a cavity to mold both parts at the same time. I’ll want a center injection to inject both parts at once.” Autodesk’s caption overlays (“Co-Design with your AI Agent” etc.) are part of the original video.',
     'Bottom left (a still, not a clip): image from OpenAI’s GPT-6 Astra launch demo (via Hackaday) — on the left the KiCad board mid-placement, footprints still outside the outline and connections shown as unrouted ratsnest lines; on the right a 3D render of the board. OpenAI’s caption for the video: “a 15-second condensed playback of GPT-6 Astra performing printed circuit board (PCB) layout in KiCad, turning an electronic schematic into a manufacturable PCB by placing components and routing copper connections” (a 2 min 54 s run). The clip itself could not be downloaded (Cloudflare/Vimeo), so this is the still. JLCPCB independently had Astra design a 44 × 34 mm amplifier board from a four-line brief: 0 ERC / 0 DRC violations under the configured rules (caveat: some rule categories were ignored, and a clean DRC is not a manufacturability check). Hackaday’s verdict was skeptical: “there is still a long way to go before hardware engineers can receive their pink slips.”',
     'Bottom right: Quilter “Project Speedrun” — an 843-component, 8-layer, dual-board Linux computer laid out with Quilter’s physics-driven AI (not an LLM); it booted on first power-up. 38.5 hours of human work vs 428 hours quoted for manual layout (Quilter’s own figures; the clip is a marketing render of the real design).',
     'Right: EEBench — 13 original, held-out electrical-engineering design tasks; each design is built and simulated (SPICE at worst-case tolerance corners): “No human graders. No LLM-as-judge.” Score = 0.65 × technical + 0.35 × cost-efficiency. Leaderboard Sep 29, 2026 — the chart shows the top 8 models, best configuration per model: Claude Opus 5.5 [xhigh] 75.0 ±8.3, GPT-6 Astra 69.3 ±10.7, Claude Sonnet 5.5 67.2, Grok 4.7 64.0, GPT-6.1 Sol 63.6, Claude Opus 5 61.6, Grok 4.6 57.1, Claude Fable 5.1 56.4 (next: GPT-6 Sol 56.3, Gemini 3.8 Flash 55.4, Claude Fable 5 54.3, Claude Opus 4.8 51.4). The top score on Sep 1 was 61.6 (Claude Opus 5). CAVEATS: built and funded by atopile, a company that sells PCB design tools; wide error bars; PCB layout is out of scope in V1. xAI now reports EEBench in its model cards (Grok 4.6) and launch posts (Grok 4.7: 64.0%).',
@@ -356,9 +396,12 @@ async function aleSlide(d) {
   // right: hardest tier — launch agents still at 0%, today's at up to 15.8% (same 38 tasks)
   const rx = 7.15, rw = CX1 - rx;
   const lab = capLabel(d, s, 'HARDEST “LAST-EXAM” TIER · SAME 38 TASKS · PASS RATE', { x: rx, y: 1.72, w: rw, charSpacing: 1 });
+  // all eight agents the leaderboard lists on this split; the June launch configurations ran at default effort,
+  // and the same Fable 5 at XHigh effort now passes 7.9% — so part of the jump is effort/harness, not only newer models
   const rows = [
     ['Claude Opus 5.5 (Max)', 15.8, HEX.red], ['Claude Opus 5 (Max)', 13.2, HEX.red], ['GPT-6 Sol (Medium)', 13.2, HEX.red], ['GPT-6 Astra (High)', 10.5, HEX.red],
-    ['GPT-5.5 · June launch test', 0, HEX.steel], ['Claude Fable 5 · June launch test', 0, HEX.steel], ['Composer 2.5 · June launch test', 0, HEX.steel],
+    ['Claude Fable 5 (XHigh effort)', 7.9, HEX.amber],
+    ['GPT-5.5 (default) · June launch', 0, HEX.steel], ['Claude Fable 5 (default) · June launch', 0, HEX.steel], ['Composer 2.5 (Cursor) · June launch', 0, HEX.steel],
   ];
   const ch = d.chart(s, 'bar', [{ name: 'Pass rate', labels: rows.map(r => r[0]).reverse(), values: rows.map(r => r[1]).reverse() }],
     { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 2.38 }, {
@@ -373,7 +416,7 @@ async function aleSlide(d) {
   ], { x: rx, y: 4.46, w: rw, h: 0.62, fontSize: 14, valign: 'top' });
   const sw = (rw - 0.3) / 2;
   const st1 = stat(d, s, { x: rx, y: 5.16, w: sw, value: '38.2%', valueSize: 30, labelSize: 14, labelH: 0.84, label: 'of all 152 public tasks passed outright by Claude Opus 5.5 (GPT-6 Astra: 34.2%)' });
-  const st2 = stat(d, s, { x: rx + sw + 0.3, y: 5.16, w: sw, value: '55 jobs', valueSize: 30, labelSize: 14, labelH: 0.84, label: 'occupations behind 1,500+ tasks written by 300+ industry experts' });
+  const st2 = stat(d, s, { x: rx + sw + 0.3, y: 5.16, w: sw, value: '1,500+', valueSize: 30, labelSize: 14, labelH: 0.84, label: 'expert-sourced tasks across 55 occupations; 300+ industry experts involved' });
 
   d.animate(s, c1, { auto: true, effect: 'rise', dur: 450 });
   d.animate(s, [...gif, gcap], { auto: true, effect: 'fade', dur: 500, after: 100 });
@@ -386,7 +429,7 @@ async function aleSlide(d) {
   s.addNotes([
     'Agents’ Last Exam (UC Berkeley RDI, Dawn Song’s group; arXiv 2606.05405, June 2026) is built to test whether agents are “job-ready”: 1,500+ expert-sourced tasks (target 5,000) across 55 occupations in 13 industry clusters — architecture, neuroscience, animation, engineering CAD, finance, law… — done in real professional software, with verifiable outcomes. Homepage tagline: “Challenge and measure AI agents on economically valuable and real-world tasks.”',
     'At launch (June 2026): “On ALE’s hardest tier, every frontier agent we tested, including Fable 5, achieved a 0% success rate.” And: “The age of useful agents is here. The age of truly job-ready agents is not.”',
-    'Today (live leaderboard, accessed Oct 4, 2026): on that same hardest “Last-Exam” split (38 tasks), Claude Opus 5.5 in Claude Code (max effort) passes 15.8% (6 of 38); Claude Opus 5 and GPT-6 Sol 13.2%; GPT-6 Astra (High) 10.5%. The June launch configurations (Claude Code + Fable 5 at default effort, Codex + GPT-5.5 default, Cursor + Composer 2.5) still show 0.0% on the same split — so the jump from 0% is on the same task set. (Fable 5 at XHigh effort now shows 7.9%.) Leaderboard entries are not dated, so “four months” is launch-to-today.',
+    'Today (live leaderboard, accessed Oct 4, 2026): on that same hardest “Last-Exam” split (38 tasks), Claude Opus 5.5 in Claude Code (max effort) passes 15.8% (6 of 38); Claude Opus 5 and GPT-6 Sol 13.2%; GPT-6 Astra (High) 10.5%. The June launch configurations (Claude Code + Fable 5 at default effort, Codex + GPT-5.5 default, Cursor + Composer 2.5) still show 0.0% on the same split — so the jump from 0% is on the same task set. But say it: the same Claude Fable 5 run at XHigh effort now passes 7.9% (amber bar), so part of the jump comes from effort settings and harness, not only from newer models. Leaderboard entries are not dated, so “four months” is launch-to-today (best published result then vs now). The benchmark is “Led by Berkeley RDI and 300+ industry experts” (homepage); the arXiv abstract says 250+ at submission.',
     'Overall (152 public tasks): Claude Opus 5.5 38.2% pass rate (63.2% partial credit), GPT-6 Astra 34.2%; in June the best overall was 24.0% (GPT-5.5). Taking the best run per task across all agents gives 56.6%. “Pass rate” = share of runs with a perfect score.',
     'Caveat from the launch post: the most common failure is agents declaring success before verifying their work — “Done. All checks pass.” when files are missing or counts are wrong.',
     'Left: official homepage (crop) and a 4.7-second excerpt (0:70.5–0:75.2, trimmed/scaled only) of the official 80-second intro video: four agent sessions in real desktop software (CAD, an audio workstation, spreadsheets…), then the camera pulls back to a wall of dozens of sessions. The GIF plays in slideshow mode.',
@@ -398,7 +441,7 @@ async function aleSlide(d) {
 // ========== 1e. Labor: AutomationBench (Zapier) + Remote Labor Index (CAIS/Scale) ==========
 async function paidWorkSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'THE ACCELERATION · LABOR · 2', 'Real paid work: AI’s success rate is soaring');
+  head(s, 'THE ACCELERATION · LABOR · 2', 'Work benchmarks: AI success rates are soaring');
 
   // Two rows, one per benchmark: [real leaderboard crop] [native chart of the trend] [big stat].
   const zap = await crop('rev2/labor-automationbench-leaderboard-top10.png', 'labor-zapier-top5.png', { l: 388, t: 1366, w: 957, h: 530 });
@@ -413,7 +456,7 @@ async function paidWorkSlide(d) {
   const lz = capLabel(d, s, 'AUTOMATIONBENCH · ZAPIER, OCT 4, 2026', { x: CX0, y: rowA, w: zw + 0.4, charSpacing: 1 });
   const c1 = await d.frame(s, zap, { x: CX0 + 0.04, y: rowA + ch0, w: zw, h: clipH }, { rot: -1 });
   const ax = CX0 + zw + 0.42, aw = sx - 0.35 - ax;
-  const la = capLabel(d, s, 'BEST MODEL RELEASED BY EACH MONTH, 2026 · v1.0.6', { x: ax, y: rowA, w: aw, charSpacing: 1 });
+  const la = capLabel(d, s, 'BEST SCORE AMONG MODELS RELEASED UP TO EACH MONTH (OUR COMPILATION)', { x: ax, y: rowA, w: aw, charSpacing: 0.25 });
   const ca = d.chart(s, 'line', [{ name: 'Best score', labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'], values: [8.68, 11.57, 16.59, 16.89, 17.05, 28.77, 30.44, 51.29] }],
     { x: ax - 0.1, y: rowA + ch0 - 0.04, w: aw + 0.1, h: clipH + 0.1 }, {
       chartColors: [HEX.red], lineSize: 3, lineDataSymbolSize: 7, showValue: true, dataLabelFormatCode: '0"%"', dataLabelPosition: 't',
@@ -426,8 +469,8 @@ async function paidWorkSlide(d) {
   const lr = capLabel(d, s, 'REMOTE LABOR INDEX · SCALE, OCT 4, 2026', { x: CX0, y: rowB, w: rw2 + 0.4, charSpacing: 1 });
   const c2 = await d.frame(s, rli, { x: CX0 + 0.04, y: rowB + ch0, w: rw2, h: clipH }, { rot: 1 });
   const bx = CX0 + rw2 + 0.42, bw = sx - 0.35 - bx;
-  const lb = capLabel(d, s, 'BEST AUTOMATION RATE OVER TIME', { x: bx, y: rowB, w: bw, charSpacing: 1 });
-  const cb = d.chart(s, 'bar', [{ name: 'Automation rate', labels: ['Launch\nOct ’25', 'Opus 4.6\nby Jun ’26', 'Fable 5\nJul ’26', 'GPT-6 Astra\nSep–Oct ’26'], values: [2.5, 4.17, 15.8, 20.83] }],
+  const lb = capLabel(d, s, 'AUTOMATION RATE · KEY RESULTS, BY DATE PUBLISHED', { x: bx, y: rowB, w: bw, charSpacing: 1 });
+  const cb = d.chart(s, 'bar', [{ name: 'Automation rate', labels: ['Launch\nOct ’25', 'Opus 4.8\nJul ’26', 'Fable 5\nJul ’26', 'GPT-6 Astra\nSep–Oct ’26'], values: [2.5, 8.33, 15.8, 20.83] }],
     { x: bx - 0.1, y: rowB + ch0 - 0.04, w: bw + 0.1, h: clipH + 0.12 }, {
       barDir: 'col', chartColors: [HEX.steel, HEX.steel, HEX.amber, HEX.red], showValue: true, dataLabelFormatCode: '0.0"%"', dataLabelPosition: 'outEnd',
       dataLabelFontSize: 12, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 25,
@@ -443,12 +486,12 @@ async function paidWorkSlide(d) {
   d.animate(s, [lb, cb], { auto: true, effect: 'wipeLeft', dur: 1000, after: 100 });
   d.animate(s, sb, { auto: true, effect: 'fade', after: 100 });
 
-  d.source(s, 'Sources: Zapier AutomationBench v1.0.6 (accessed Oct 4, 2026) & arXiv 2604.18934 · CAIS blog (Jul 1, 2026) & Scale Labs RLI leaderboard (Oct 4, 2026) · arXiv 2510.26787.');
+  d.source(s, 'Sources: Zapier AutomationBench v1.0.6 (Oct 4, 2026), arXiv 2604.18934; release months: Artificial Analysis / Wikipedia · CAIS blog (Jul 1, 2026), Scale Labs RLI (Oct 4, 2026), arXiv 2510.26787.');
   s.addNotes([
-    'Two benchmarks built from real, paid work; each row shows a crop of the live leaderboard (Oct 4, 2026), the trend, and the headline multiple. Top — AutomationBench (Zapier, Apr 21, 2026): 600+ held-out business workflows across Sales, Marketing, Operations, Support, Finance and HR in 47 simulated apps — each task runs in an isolated environment (CRM records, inbox threads, calendars…); Zapier’s page calls them “47 real tools”, meaning simulated versions of real apps — built on patterns from Zapier’s 2B+ monthly tasks across 3.7M companies; strict scoring — every end-state assertion must hold (“mostly-right is still wrong”); “No LLM-as-judge.”',
+    'Two work benchmarks; each row shows a crop of the live leaderboard (Oct 4, 2026), the trend, and the headline multiple. Top — AutomationBench (Zapier, Apr 21, 2026): 600+ held-out business workflows across Sales, Marketing, Operations, Support, Finance and HR in 47 simulated apps — each task runs in an isolated environment (CRM records, inbox threads, calendars…); Zapier’s page calls them “47 real tools”, meaning simulated versions of real apps — built on patterns from Zapier’s 2B+ monthly tasks across 3.7M companies; strict scoring — every end-state assertion must hold (“mostly-right is still wrong”); “No LLM-as-judge.”',
     'At launch: “Even the best frontier models currently score below 10%” (Opus 4.7 9.9%). Today (leaderboard v1.0.6): Gemini 4 Argon (High) 51.29%, Claude Sonnet 5.5 44.75%, Claude Opus 5.5 42.47%, GPT 6 Astra (Max) 41.4%. Zapier re-runs every model when the version changes, so everything is compared within v1.0.6. The chart is the best v1.0.6 score among models released up to each month (our compilation; release months from Artificial Analysis / Wikipedia): Gemini 3.1 Pro 8.68% (Feb) → Gemini 4 Argon 51.29% (Sep), ~6x in seven months; from April (GPT-5.5, 16.59%) it is ~3x. (Another cut: April’s launch leader Opus 4.7 scores 13.39% on v1.0.6 — ~4x to Gemini 4 Argon.)',
     'Failure mode worth naming: “More often than not, models declared success while actually failing. 72% of Opus’s failures, 91% of Gemini’s, and 84% of GPT 5.4’s involved this false confidence.” (AutomationBench paper.) Also: Claude Fable 5.1’s own safety classifier refused steps on ~40% of tasks (260 of 657), which Opus 5 then completed as a fallback.',
-    'Bottom — Remote Labor Index (Center for AI Safety + Scale AI): 240 real freelance projects (3D & CAD, architecture, graphic design, video and animation, audio, data analysis, web apps…) representing 6,000+ hours of work valued at $143,991; mean human completion time 28.9 hours. Every deliverable is judged by human evaluators against a gold-standard deliverable from a paid professional; the automation rate is the share of projects where the AI’s work is as good or better. At launch (Oct 30, 2025) the best agent automated 2.5%; the previous published leader was Opus 4.6 + Claude Cowork at 4.17% (exact date not found); Fable 5 15.8% (Jul 1, 2026); GPT-6 Astra 20.83% on today’s leaderboard (posted between Sep 3 and Oct 4, 2026 — hence “Sep–Oct ’26” on the chart; exact date not found). CAIS: “The frontier has more than quadrupled in under eight months.” (Fable 5 was first announced as 16.1%; CAIS pages now show 15.8%.)',
+    'Bottom — Remote Labor Index (Center for AI Safety + Scale AI): 240 real freelance projects (3D & CAD, architecture, graphic design, video and animation, audio, data analysis, web apps…) representing 6,000+ hours of work valued at $143,991; mean human completion time 28.9 hours. Every deliverable is judged by human evaluators against a gold-standard deliverable from a paid professional; the automation rate is the share of projects where the AI’s work is as good or better. At launch (Oct 30, 2025) the best agent automated 2.5%. CAIS’s Jul 1, 2026 update: “the previous published leader sat at 4.17%” (Opus 4.6 + Claude Cowork; date of that result not found); in the same update GPT-5.5 scored 6.3%, Claude Opus 4.8 8.3% and Fable 5 15.8% — Fable 5 roughly double the next model. The chart shows the launch best, Opus 4.8 (the best of the earlier models in that update), Fable 5, and GPT-6 Astra 20.83% on today’s leaderboard (posted between Sep 3 and Oct 4, 2026 — hence “Sep–Oct ’26”; exact date not found). It is a set of key results by publication date, not a monthly series. CAIS: “The frontier has more than quadrupled in under eight months.” (Fable 5 was first announced as 16.1%; CAIS pages now show 15.8%.)',
     'Caveats (CAIS): an automated LLM judge overestimated the newest models ~2.9x (GPT-5.5: 17.9% vs 6.25% by humans) — and on one architecture project “GPT‑5.5’s good-looking render is faked with an image generator”; its actual 3D model was crude. Agents that look done but are not is itself a safety problem. ~80% of real projects are still not automated.',
     'URLs: https://zapier.com/benchmarks · https://arxiv.org/abs/2604.18934 · https://safe.ai/blog/significant-increase-in-digital-labor-automation · https://labs.scale.com/leaderboard/rli · https://dashboard.safe.ai/ · https://www.remotelabor.ai/ · https://arxiv.org/abs/2510.26787 · https://www.zdnet.com/article/anthropic-fable-5-freelance-work-performance-record/',
   ].join('\n\n'));
@@ -487,8 +530,13 @@ async function gdpvalSlide(d) {
     valAxisLabelFormatCode: '0"%"', catAxisLabelFontSize: 11, barGapWidthPct: 45,
   });
   const py = box.y + box.h * (L.y + L.h * 0.5), px0 = box.x + box.w * L.x, px1 = box.x + box.w * (L.x + L.w);
-  const par = d.name('parity');
-  s.addShape(d.pres.shapes.LINE, { x: px0, y: py, w: px1 - px0, h: 0, line: { color: HEX.amber, width: 1.5, dashType: 'dash' }, objectName: par });
+  // parity line drawn as two segments with a gap around the Opus 4.1 data label (47.6%), which sits right on 50%
+  const gc = box.x + box.w * (L.x + L.w * 3.5 / 7), gh = 0.36;
+  const par = [[px0, gc - gh], [gc + gh, px1]].map(([a, b]) => {
+    const n = d.name('parity');
+    s.addShape(d.pres.shapes.LINE, { x: a, y: py, w: b - a, h: 0, line: { color: HEX.amber, width: 1.5, dashType: 'dash' }, objectName: n });
+    return n;
+  });
   const parT = d.text(s, '50% = parity with industry experts', { x: px0 + 0.08, y: py - 0.3, w: 3.0, h: 0.26, fontSize: 11, bold: true, color: d.S.amber, valign: 'bottom' });
   // the red bars are OpenAI's own reported numbers: say so on the chart itself (bracket over the three bars)
   const pa = box.x + box.w * (L.x + L.w * 4 / 7) + 0.1, pb = box.x + box.w * (L.x + L.w) - 0.1, pyb = box.y + 0.03;
@@ -516,7 +564,7 @@ async function gdpvalSlide(d) {
   ], { x: rx, y: nBottom + 0.2, w: rw, h: 6.5 - nBottom - 0.2, fontSize: 14, valign: 'top' });
 
   d.animate(s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 1200 });
-  d.animate(s, [par, parT, brk, brkT, note], { auto: true, effect: 'fade', after: 100 });
+  d.animate(s, [...par, parT, brk, brkT, note], { auto: true, effect: 'fade', after: 100 });
   d.animate(s, c1, { effect: 'slam', dur: 350 });
   d.animate(s, [l2, ...c2], { effect: 'rise', dur: 450 });
   d.animate(s, [vb], { auto: true, effect: 'fade', after: 200 });
@@ -1158,21 +1206,22 @@ async function factorySlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
   head(s, 'THE ACCELERATION · ROBOTICS · 4', 'Humanoids are leaving the factory');
 
-  const gap = 0.33, gw = (CW - gap) / 2, gh = gw * 9 / 16, gy = 1.8;
-  const iron = await tile(d, s, R2('robots-xpeng-iron-walks-off-line.gif'), { x: CX0, y: gy, w: gw, h: gh },
+  // captions sit ABOVE the clips: IRON walks toward the camera, so a band over the top would hide its head
+  const gap = 0.33, gw = (CW - gap) / 2, gh = gw * 9 / 16, gy = 1.72;
+  const iron = await capTile(d, s, R2('robots-xpeng-iron-walks-off-line.gif'), { x: CX0, y: gy, w: gw, h: gh },
     'XPENG IRON · GUANGZHOU · SEP 8, 2026', 'XPENG says the first IRON “autonomously walked off the lines”');
-  const fig = await tile(d, s, R2('robots-figure-botq-200-bots.gif'), { x: CX0 + gw + gap, y: gy, w: gw, h: gh },
+  const fig = await capTile(d, s, R2('robots-figure-botq-200-bots.gif'), { x: CX0 + gw + gap, y: gy, w: gw, h: gh },
     'FIGURE 03 HUMANOIDS · FIGURE’S BOTQ FACTORY', 'Output: 1 robot a day → 1 an hour in under 120 days (Figure)');
-  const by = gy + gh + 0.3;
+  const by = iron.geom.y + gh + 0.27;
 
   // bottom row: two headline clippings + output targets
   const elec = await crop('rev2/robots-electrek-xpeng-iron-production.png', 'robots-electrek-head.png', { l: 30, t: 108, w: 1265, h: 272 });
   const eng = await crop('rev2/robots-engadget-xpeng-iron-walked-out.png', 'robots-engadget-head.png', { l: 12, t: 82, w: 1560, h: 340 });
-  const c1 = await frameW(d, s, elec, CX0 + 0.05, by + 0.04, 3.45, { rot: -1.2 });
-  const c2 = await frameW(d, s, eng, 4.35, by + 0.04, 3.35, { rot: 1.2 });
-  const sx = 8.1, sw = (CX1 - sx - 0.25) / 2;
-  const st1 = stat(d, s, { x: sx, y: by - 0.1, w: sw, value: '1,000+', valueSize: 24, labelSize: 14, labelH: 0.76, label: 'IRON robots a month: XPENG’s end-2026 target' });
-  const st2 = stat(d, s, { x: sx + sw + 0.25, y: by - 0.1, w: sw, value: 'Up to 20,000', valueSize: 24, labelSize: 14, labelH: 0.76, label: 'humanoids: Unitree CEO’s 2026 shipment target (~5,500 in 2025)' });
+  const c1 = await frameW(d, s, elec, CX0 + 0.05, by + 0.02, 3.1, { rot: -1.2 });
+  const c2 = await frameW(d, s, eng, CX0 + 3.5, by + 0.02, 3.05, { rot: 1.2 });
+  const sx = 7.45, sw = (CX1 - sx - 0.3) / 2;
+  const st1 = stat(d, s, { x: sx, y: by - 0.1, w: sw, value: '1,000+', valueSize: 22, labelSize: 14, labelH: 0.5, label: 'IRON robots a month: XPENG’s end-2026 target' });
+  const st2 = stat(d, s, { x: sx + sw + 0.3, y: by - 0.1, w: sw, value: 'Up to 20,000', valueSize: 22, labelSize: 14, labelH: 0.5, label: 'humanoids in 2026: Unitree CEO’s target (~5,500 in 2025)' });
 
   d.animate(s, iron, { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, fig, { effect: 'fade', dur: 600 });
@@ -1192,18 +1241,22 @@ async function factorySlide(d) {
   return s;
 }
 
-// ========== 12. Robotics: Unitree — from a stiff folk dance (2025) to kung fu flips (2026) ==========
+// ========== 12. Robotics: Unitree — from a folk dance (2025 gala) to kung fu flips (2026) ==========
 async function unitreeSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'THE ACCELERATION · ROBOTICS · 5', 'From stiff dancing to kung fu flips in a year');
+  head(s, 'THE ACCELERATION · ROBOTICS · 5', 'From folk dance to kung fu flips in a year');
 
-  // hero (left) + 2×2 grid (right) with equal heights
-  const gap = 0.3, tg = 0.19, gy = 1.8;
-  const hw = (CW - gap - tg + tg * 16 / 9) / 2; // hero height = grid height (2 rows + gap)
-  const hh = hw * 9 / 16;
-  const gx = CX0 + hw + gap, gwid = CX1 - gx, tw = (gwid - tg) / 2, th = tw * 9 / 16;
-  const hero = await tile(d, s, R2('robots-unitree-g1-wall-backflips.gif'), { x: CX0, y: gy, w: hw, h: hh },
-    'UNITREE G1 · WALL BACKFLIPS', 'From Unitree’s official gala video (Feb 16, 2026)');
+  // Every caption sits ABOVE its clip, so no robot is hidden under a caption band.
+  // Row 1: then (2025 gala) and now (2026 wall backflips) side by side at equal size, plus the headlines.
+  // Row 2: four more 2026 clips. Sizes: row-2 tiles fill the width; row-1 clips take the remaining height.
+  const g2 = 0.25, tw = (CW - 3 * g2) / 4, th = tw * 9 / 16;           // row 2 tiles
+  const c = CAP_H + CAP_GAP, y1 = 1.72;
+  const y2 = 6.5 - th - c;                                           // row-2 caption top
+  const ah = y2 - 0.24 - y1 - c, aw = ah * 16 / 9, g1 = 0.3;           // row-1 clip size
+  const old = await capTile(d, s, R2('robots-unitree-2025-gala-yangko-h1.gif'), { x: CX0, y: y1, w: aw, h: ah },
+    'ONE YEAR EARLIER · JAN 28, 2025 GALA', 'Unitree H1s dancing the Yangko folk dance (CGTN)');
+  const hero = await capTile(d, s, R2('robots-unitree-g1-wall-backflips.gif'), { x: CX0 + aw + g1, y: y1, w: aw, h: ah },
+    'FEB 16, 2026 · UNITREE G1 · WALL BACKFLIPS', 'From Unitree’s official gala video');
   const cells = [
     ['robots-unitree-gala-stage-cluster-kungfu.gif', 'LIVE ON CCTV · FEB 16, 2026', 'Kung fu with staffs at the gala'],
     ['robots-unitree-g1-airflare-spin.gif', 'AIRFLARE SPIN', 'Unitree claims 7.5 rotations'],
@@ -1213,35 +1266,30 @@ async function unitreeSlide(d) {
   const tiles = [];
   for (let i = 0; i < 4; i++) {
     const [f, t, sub] = cells[i];
-    tiles.push(await tile(d, s, gifScaled(f, 640), { x: gx + (i % 2) * (tw + tg), y: gy + Math.floor(i / 2) * (th + tg), w: tw, h: th }, t, sub, { band: { h: 0.46 } }));
+    tiles.push(await capTile(d, s, gifScaled(f, 640), { x: CX0 + i * (tw + g2), y: y2, w: tw, h: th }, t, sub));
   }
-  const by = gy + Math.max(hh, 2 * th + tg) + 0.3;
 
-  // bottom row: one year earlier (2025 gala) + headlines
-  const oldH = 6.5 - by - 0.02, oldW = oldH * 16 / 9;
-  const old = await tile(d, s, gifScaled('robots-unitree-2025-gala-yangko-h1.gif', 480), { x: CX0, y: by, w: oldW, h: oldH }, null);
-  const oldT = d.text(s, [
-    { text: 'ONE YEAR EARLIER', options: { fontSize: 10, bold: true, color: d.S.red, charSpacing: 2, breakLine: true } },
-    { text: 'Jan 2025 gala: Unitree H1s doing a stiff folk dance', options: { fontSize: 12, color: d.S.muted } },
-  ], { x: CX0 + oldW + 0.15, y: by, w: 1.9, h: oldH, valign: 'middle' });
+  // right of row 1: the two headlines, stacked and centred on the clips
+  const hx = CX0 + 2 * (aw + g1), hw = CX1 - hx;
   const scmp = await crop('rev2/robots-scmp-unitree-20000-output.png', 'robots-scmp-head.png', { l: 14, t: 95, w: 1470, h: 192 });
   const bgr = await crop('rev2/robots-bgr-sci-fi-nightmare.png', 'robots-bgr-head.png', { l: 0, t: 62, w: 1460, h: 300 });
-  const scx = CX0 + oldW + 2.2;
-  const c1 = await frameW(d, s, scmp, scx, by + 0.12, 3.75, { rot: -1 });
-  const c2 = await frameW(d, s, bgr, scx + 3.95, by + 0.02, CX1 - (scx + 3.95) - 0.05, { rot: 1.2 });
+  const sh = await hFor(scmp, hw - 0.1), bh = await hFor(bgr, hw - 0.1), hg = 0.32;
+  const hy = old.geom.y + (ah - (sh + hg + bh)) / 2;
+  const c1 = await frameW(d, s, scmp, hx + 0.02, hy, hw - 0.1, { rot: -1 });
+  const c2 = await frameW(d, s, bgr, hx + 0.06, hy + sh + hg, hw - 0.1, { rot: 1.2 });
 
-  d.animate(s, hero, { auto: true, effect: 'fade', dur: 600 });
-  tiles.forEach((t, i) => d.animate(s, t, { auto: true, effect: 'fade', dur: 400, after: i ? 100 : 200 }));
-  d.animate(s, [...old, oldT], { effect: 'fade', dur: 450 });
+  d.animate(s, old, { auto: true, effect: 'fade', dur: 500 });
+  d.animate(s, hero, { effect: 'fade', dur: 500 });
+  tiles.forEach((t, i) => d.animate(s, t, { auto: true, effect: 'fade', dur: 400, after: i ? 100 : 250 }));
   d.animate(s, c1, { effect: 'slam', dur: 350 });
   d.animate(s, c2, { auto: true, effect: 'slam', dur: 350, after: 250 });
 
   d.source(s, 'Sources: official Unitree videos (Spring Festival Gala, Feb 16, 2026; H2 training, Jan 4, 2026; sparring, Sep 7, 2026) · CGTN (2025 gala) · SCMP (Feb 17, 2026) · BGR (Feb 26, 2026).');
   s.addNotes([
-    'All clips are official Unitree uploads (trimmed only; they play in slideshow) except the 2025 gala clip (CGTN broadcast). Big clip: G1 humanoids running at a wall, stepping up it and backflipping off in quick succession — from Unitree’s official “Spring Festival Gala Robots — a Full Release of Additional Details” video (Feb 16, 2026; 27.9M views on X), which mixes CCTV gala broadcast shots with rehearsal-hall footage; we have not confirmed which of the two this segment is, so do not call it either.',
-    'Grid: (1) the CCTV gala broadcast — dozens of G1s doing kung fu with staffs and nunchaku beside child martial artists (CMG says the gala averaged 325M concurrent viewers per minute — state-media figure). (2) A breakdance Airflare — Unitree claims “seven-and-a-half rotations”; it also claims launched aerial flips over 3 m high and group movement up to 4 m/s (all Unitree’s own claims). (3) The 180 cm H2 throwing flying kicks a metre or two from a man who flinches back — on-screen label “No speed-up in this video”; Unitree’s post: “Please use robots in a friendly and safe manner, and keep a safe distance.” (4) Sep 7, 2026: Unitree claims “The World’s First Real-Time World Model-Driven Fully Autonomous Humanoid Robot Combat” (UnifoLM-X2-1.0) — a vendor claim; in its split-screen version some panels are the model’s predicted future frames, not real footage.',
+    'Top row: one year apart, at the same size — left, the 2025 gala (CGTN broadcast); right, 2026. All other clips are official Unitree uploads (trimmed and scaled only; all play in slideshow; captions sit above the clips so nothing is covered). Top-right clip: G1 humanoids running at a wall, stepping up it and backflipping off in quick succession — from Unitree’s official “Spring Festival Gala Robots — a Full Release of Additional Details” video (Feb 16, 2026; 27.9M views on X), which mixes CCTV gala broadcast shots with rehearsal-hall footage; we have not confirmed which of the two this segment is, so do not call it either.',
+    'Bottom row: (1) the CCTV gala broadcast — dozens of G1s doing kung fu with staffs and nunchaku beside child martial artists (CMG says the gala averaged 325M concurrent viewers per minute — state-media figure). (2) A breakdance Airflare — Unitree claims “seven-and-a-half rotations”; it also claims launched aerial flips over 3 m high and group movement up to 4 m/s (all Unitree’s own claims). (3) The 180 cm H2 throwing flying kicks a metre or two from a man who flinches back — on-screen label “No speed-up in this video”; Unitree’s post: “Please use robots in a friendly and safe manner, and keep a safe distance.” (4) Sep 7, 2026: Unitree claims “The World’s First Real-Time World Model-Driven Fully Autonomous Humanoid Robot Combat” (UnifoLM-X2-1.0) — a vendor claim; in its split-screen version some panels are the model’s predicted future frames, not real footage.',
     'Caveat: the gala routines were choreographed; at the Temple of Heaven show a week later (49 G1s) staff said the routines ran on “pre-programmed instructions” without remote control (Global Times). Agility is not general intelligence — but combine these bodies with the VLA brains from three slides ago.',
-    'One year earlier (Jan 28, 2025 gala): Unitree H1s performed a stiff Yangko folk dance twirling handkerchiefs (“Yangge Bot”, CGTN). SCMP: Unitree plans to ship up to 20,000 humanoids in 2026, up from ~5,500. BGR: “it’s hard not to imagine the show as a scene out of a sci-fi nightmare. It only takes one mistake to cause an injury.”',
+    'One year earlier (Jan 28, 2025 gala): Unitree H1s performed the Yangko folk dance, twirling red handkerchiefs — CGTN: the act “Yangge Bot” combined “northeast China’s Yangko dance with the precision of robotics”. Let the audience compare the two clips themselves. SCMP: Unitree plans to ship up to 20,000 humanoids in 2026, up from ~5,500. BGR: “it’s hard not to imagine the show as a scene out of a sci-fi nightmare. It only takes one mistake to cause an injury.”',
     'Videos: gala https://www.youtube.com/watch?v=Ykiuz1ZdGBc (X: https://x.com/UnitreeRobotics/status/2023430834695627030) · H2 training https://www.youtube.com/watch?v=JZllfrHRc4g (https://x.com/UnitreeRobotics/status/2007746313220415717) · sparring https://www.youtube.com/watch?v=qkIJELDgULA (https://x.com/UnitreeRobotics/status/2096932273602048258) · 2025 gala https://news.cgtn.com/news/2025-01-28/Tradition-meets-tech-Unitree-robots-dance-at-Spring-Festival-Gala-1Axm5TuIAve/index.html · PR: https://www.prnewswire.com/news-releases/kung-fu-meets-spring--unitree-spring-festival-gala-robots-present-cyber-real-kung-fu-in-the-year-of-the-horse-302689281.html · https://www.scmp.com/tech/big-tech/article/3343825/kung-fu-somersaults-and-scale-unitree-eyes-20000-robot-output-2026-after-gala · https://www.bgr.com/2108405/china-new-year-robots-sci-fi-nightmare/ · https://www.globaltimes.cn/page/202602/1355607.shtml',
   ].join('\n\n'));
   return s;

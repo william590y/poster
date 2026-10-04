@@ -127,7 +127,7 @@ function build(i) {
     if (m.kind === 'loop') {
       const v = document.createElement('video');
       Object.assign(v, { muted: true, loop: true, playsInline: true, preload: 'auto' }); v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
-      v.dataset.src = m.src; fillCrop(v, m); box.appendChild(v);
+      v.dataset.src = m.src; v.dataset.webm = m.webm || ''; fillCrop(v, m); box.appendChild(v);
     } else if (m.kind === 'video') {
       const v = document.createElement('video');
       Object.assign(v, { controls: true, playsInline: true, preload: 'none' }); v.poster = m.poster || ''; v.src = m.src;
@@ -155,7 +155,16 @@ function build(i) {
 function activate(el, on) {
   el.classList.toggle('on', on);
   el.querySelectorAll('video[data-src]').forEach(v => {
-    if (on) { if (!v.src) v.src = v.dataset.src; v.currentTime = 0; v.play().catch(() => {}); }
+    if (on) {
+      if (!v.firstChild) {   // lazy: attach WebM (VP9) + MP4 (H.264) sources the first time the slide is shown
+        for (const [src, type] of [[v.dataset.webm, 'video/webm'], [v.dataset.src, 'video/mp4']]) {
+          if (!src) continue; const so = document.createElement('source'); so.src = src; so.type = type; v.appendChild(so);
+        }
+        v.load();
+      }
+      try { v.currentTime = 0; } catch (e) {}
+      v.play().catch(() => {});
+    }
     else { v.pause(); }
   });
   if (!on) el.querySelectorAll('video:not([data-src])').forEach(v => v.pause());

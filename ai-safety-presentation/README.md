@@ -6,7 +6,8 @@ clips, embedded YouTube videos and speaker notes on every slide), plus an intera
 
 > **File size.** The full-quality build is ~780 MB, almost all of it looping GIF clips (quality was preferred over size).
 > That is over GitHub's 100 MB per-file limit, so the built deck and the few source clips larger than 45 MB are not committed
-> here (they are listed in the session's `.git/info/exclude`). The web version re-encodes every clip as H.264/VP9 video (~2 MB each).
+> here. **Download the full deck from the [`ai-safety-deck` release](https://github.com/william590y/poster/releases/tag/ai-safety-deck).**
+> The web version re-encodes every clip as H.264/VP9 video (~2 MB each).
 
 Built from William Liaw's one-page outline (`assets/original/outline.pptx`), expanded into five acts:
 

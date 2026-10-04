@@ -55,10 +55,10 @@ function line(d, s, x1, y1, x2, y2, { color = HEX.text, width = 2, dash = 'solid
 }
 
 // Small dark chip with white caps text, laid over a photo/figure.
-function chip(d, s, text, x, y, w, { h = 0.3, color = 'FFFFFF', fill = '0A0C10', transparency = 18, fontSize = 10 } = {}) {
+function chip(d, s, text, x, y, w, { h = 0.3, color = 'FFFFFF', fill = '0A0C10', transparency = 18, fontSize = 10, charSpacing = 1 } = {}) {
   const b = d.name('chip');
   s.addShape(d.pres.shapes.RECTANGLE, { x, y, w, h, fill: { color: fill, transparency }, line: { color: fill, width: 0, transparency: 100 }, objectName: b });
-  const t = d.text(s, text, { x: x + 0.1, y, w: w - 0.2, h, fontSize, bold: true, color, charSpacing: 1, valign: 'middle' });
+  const t = d.text(s, text, { x: x + 0.1, y, w: w - 0.2, h, fontSize, bold: true, color, charSpacing, valign: 'middle' });
   return [b, t];
 }
 
@@ -77,6 +77,18 @@ function outletTab(d, s, g, text, corner, rot = 0, { pad = 0.06, h = 0.24, inset
   s.addShape(d.pres.shapes.RECTANGLE, { ...box, rotate: rot, fill: { color: '2F3644' }, line: { color: '2F3644', width: 0 }, objectName: b });
   const t = d.text(s, text, { ...box, rotate: rot, fontSize: 10, bold: true, color: 'FFFFFF', charSpacing: 1, align: 'center', valign: 'middle' });
   return [b, t];
+}
+
+// The user's 2×2 heron image (assets/original/image4.png) without the tiny caption strip under each drawing:
+// [left, top, width, height] of each drawing in the source, then its [x, y] in the recomposed grid (same 5-px grey gutters).
+const HERON_TILES = [[5, 5, 516, 387, 5, 5], [526, 5, 516, 387, 526, 5], [5, 441, 516, 386, 5, 397], [526, 441, 516, 386, 526, 397]];
+async function heronGrid() {
+  fs.mkdirSync(OUT, { recursive: true });
+  const out = path.join(OUT, 'heron-grid.png');
+  const src = ORIG('image4.png');
+  const tiles = await Promise.all(HERON_TILES.map(async ([l, t, w, h, x, y]) => ({ input: await sharp(src).extract({ left: l, top: t, width: w, height: h }).toBuffer(), left: x, top: y })));
+  await sharp({ create: { width: 1047, height: 788, channels: 3, background: { r: 231, g: 231, b: 231 } } }).composite(tiles).png().toFile(out);
+  return out;
 }
 
 const decYear = (iso) => {
@@ -377,49 +389,61 @@ async function creativeSlide(d) {
   s.addText(`${KICK} · CREATIVITY · 2`, { placeholder: 'kicker' });
   s.addText('Machines now draw, design and build worlds', { placeholder: 'title' });
 
-  const top = 1.78, colW = (CW - 0.6) / 3, gap = 0.3;
-  // col 1: heron progression (user original) + Register headline
-  const heron = await d.frame(s, ORIG('image4.png'), { x: MX, y: top, w: colW, h: colW * 875 / 1047 }, { border: false, align: 'left' });
-  const hg = heron.geom;
-  const hc = chip(d, s, 'PENCIL DRAWINGS BY A MODEL · 4 ROUNDS', hg.x, hg.y + hg.h + 0.06, hg.w, { h: 0.28, fill: '161A22', transparency: 0, fontSize: 10 });
-  const reg = await d.frame(s, await crop(R('register-genie-gamedev.png'), 'register-genie.png', { l: 28, t: 6, w: 2010, h: 348 }), { x: MX, y: 5.5, w: colW, h: 0.95 }, { rot: -1.5, align: 'left' });
+  // three columns with equal 0.45" gutters, spanning the full content width; the fact sheet's width is set by its height
+  const top = 1.78, G = 0.45, W1 = 4.33, W2 = 3.9, W3 = CW - W1 - W2 - 2 * G;
+  const x2 = MX + W1 + G, x3 = x2 + W2 + G;
 
-  // col 2: GPT Image 2.5 cow (public domain) + Genie 3 world — a slightly narrower column, centred,
-  // so the Genie frame can be tall enough to read and still carry its chip underneath (like the heron)
-  const c2w = 3.27, cx = MX + colW + gap + (colW - c2w) / 2;
-  const cow = await d.frame(s, R('commons-gptimage25-cow-ufo.png'), { x: cx, y: top, w: c2w, h: (c2w - 0.12) * 960 / 1280 + 0.12 }, { border: false, align: 'left' });
+  // col 1: heron progression (user original, its tiny caption strips cropped off) + Register headline
+  const hfile = await heronGrid();
+  const hnat = await imgSize(hfile);
+  const heron = await d.frame(s, hfile, { x: MX, y: top, w: W1, h: W1 * hnat.h / hnat.w }, { border: false, pad: 0 });
+  const hg = heron.geom, hs = hg.w / hnat.w;
+  const badges = HERON_TILES.flatMap(([, , , , cx, cy], i) => {
+    const b = d.name('badge');
+    const bx = hg.x + cx * hs + 0.07, by = hg.y + cy * hs + 0.07;
+    s.addShape(d.pres.shapes.RECTANGLE, { x: bx, y: by, w: 0.26, h: 0.26, fill: { color: '161A22' }, line: { color: '161A22', width: 0 }, objectName: b });
+    return [b, d.text(s, String(i + 1), { x: bx, y: by, w: 0.26, h: 0.26, fontSize: 11, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle' })];
+  });
+  const hc = chip(d, s, 'PENCIL DRAWINGS BY A MODEL · ROUNDS 1 → 4', hg.x, hg.y + hg.h + 0.06, hg.w, { h: 0.28, fill: '161A22', transparency: 0, fontSize: 10 });
+  const reg = await d.frame(s, await crop(R('register-genie-gamedev.png'), 'register-genie.png', { l: 28, t: 6, w: 2010, h: 348 }), { x: MX, y: 5.68, w: W1, h: 0.8 }, { rot: -1.5, align: 'left' });
+
+  // col 2: GPT Image 2.5 cow (public domain) + Genie 3 world
+  const cow = await d.frame(s, R('commons-gptimage25-cow-ufo.png'), { x: x2, y: top, w: W2, h: W2 * 960 / 1280 }, { border: false, pad: 0 });
   const cg = cow.geom;
   const cc = d.text(s, [
     { text: 'GPT Image 2.5 · Sep 2026 · ', options: { bold: true, color: d.S.txt } },
     { text: 'prompt: “1960’s art of cow getting abducted by UFO in midwest”', options: { color: d.S.muted } },
-  ], { x: cg.x, y: cg.y + cg.h + 0.05, w: cg.w, h: 0.42, fontSize: 10.5, valign: 'top' });
-  // the overgrown temple ruin, vines and palms of the generated world, above the page's wordmark — no page text or buttons
-  const gfile = await crop(R('gdm-genie3-hero.png'), 'genie3-ruin.png', { l: 1270, t: 150, w: 1060, h: 425 });
-  const gy = cg.y + cg.h + 0.05 + 0.42 + 0.2;
-  const genie = await d.frame(s, gfile, { x: cx, y: gy, w: c2w, h: (c2w - 0.12) * 425 / 1060 + 0.12 }, { border: false, align: 'left' });
+  ], { x: cg.x, y: cg.y + cg.h + 0.05, w: cg.w, h: 0.4, fontSize: 10.5, valign: 'top' });
+  // a wide strip of the generated world (temple ruin, vines, palms) above the page's wordmark — no page text or buttons;
+  // shown smaller than its source and contrast-stretched to undo the page's dark scrim
+  const gfile = path.join(OUT, 'genie3-world.png');
+  await sharp(R('gdm-genie3-hero.png')).extract({ left: 560, top: 60, width: 1760, height: 507 }).resize({ width: 1170 })
+    .normalise({ lower: 1, upper: 99 }).sharpen({ sigma: 0.8 }).toFile(gfile);
+  const gnat = await imgSize(gfile);
+  const gy = cg.y + cg.h + 0.05 + 0.4 + 0.18;
+  const genie = await d.frame(s, gfile, { x: x2, y: gy, w: W2, h: W2 * gnat.h / gnat.w }, { border: false, pad: 0 });
   const gg = genie.geom;
-  const gc = chip(d, s, 'GENIE 3 · A PROMPT BECOMES A WORLD', gg.x, gg.y + gg.h + 0.04, gg.w, { h: 0.26, fill: '161A22', transparency: 0, fontSize: 10 });
+  const gc = chip(d, s, 'GENIE 3 · A PROMPT BECOMES A WORLD', gg.x + 0.08, gg.y + gg.h - 0.08 - 0.27, 2.95, { h: 0.27, fontSize: 10 });
 
   // col 3: Hercules fact sheet (public domain) + zoom on panel 12 (Cerberus)
-  const hx = MX + 2 * (colW + gap);
   const HERC = R('commons-chatgpt-hercules-factsheet.png');
-  const herc = await d.frame(s, HERC, { x: hx, y: top, w: colW, h: 4.2 }, { border: false });
+  const herc = await d.frame(s, HERC, { x: x3, y: top, w: W3, h: W3 * 1357 / 960 }, { border: false, pad: 0 });
   const kg = herc.geom;
   const kcap = d.text(s, [
     { text: 'ChatGPT · Sep 2026 · ', options: { bold: true, color: d.S.txt } },
     { text: 'prompt: “Create a fact sheet on the twelve labours of Hercules”', options: { color: d.S.muted } },
-  ], { x: kg.x, y: kg.y + kg.h + 0.05, w: kg.w, h: 0.42, fontSize: 10.5, valign: 'top' });
-  const zb = { l: 716, t: 912, w: 220, h: 205 }; // panel 12 artwork, in the 960×1357 source
+  ], { x: kg.x, y: kg.y + kg.h + 0.05, w: kg.w, h: 0.4, fontSize: 10.5, valign: 'top' });
+  const zb = { l: 730, t: 932, w: 190, h: 176 }; // panel 12 artwork only (below the "12" badge), in the 960×1357 source
   const ks = kg.w / 960;
   const p12 = d.name('p12');
   s.addShape(d.pres.shapes.RECTANGLE, { x: kg.x + zb.l * ks, y: kg.y + zb.t * ks, w: zb.w * ks, h: zb.h * ks, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 2 }, objectName: p12 });
-  const zw = 1.4, zh = zw * zb.h / zb.w;
-  const zoom = await d.frame(s, await crop(HERC, 'hercules-cerberus.png', zb), { x: kg.x - 0.32, y: kg.y + kg.h - zh - 0.5, w: zw, h: zh }, { pad: 0.05, frameColor: HEX.red });
+  const zw = 1.5, zh = (zw - 0.1) * zb.h / zb.w + 0.1;
+  const zoom = await d.frame(s, await crop(HERC, 'hercules-cerberus.png', zb), { x: kg.x + 0.1, y: kg.y + kg.h - zh - 0.62, w: zw, h: zh }, { pad: 0.05, frameColor: HEX.red });
   const zg = zoom.geom;
-  // ends flush with the fact sheet's right edge
-  const kc = chip(d, s, 'SPOT THE ERROR: FOUR-HEADED CERBERUS', zg.x - 0.05, zg.y + zg.h + 0.05, kg.x + kg.w - (zg.x - 0.05), { h: 0.3, fontSize: 10, fill: HEX.red, transparency: 0 });
+  // inside the fact sheet's width, so the column gutter stays clear
+  const kc = chip(d, s, 'SPOT THE ERROR: FOUR-HEADED CERBERUS', kg.x + 0.05, zg.y + zg.h + 0.05, kg.w - 0.1, { h: 0.3, fontSize: 10, fill: HEX.red, transparency: 0, charSpacing: 0 });
 
-  d.animate(s, [...heron, ...hc], { auto: true, effect: 'fade', dur: 600 });
+  d.animate(s, [...heron, ...badges, ...hc], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, [...cow, cc], { effect: 'fade' });
   d.animate(s, [...herc, kcap], { effect: 'fade' });
   d.animate(s, [p12, ...zoom, ...kc], { effect: 'zoom', dur: 450 });
@@ -440,31 +464,42 @@ async function creativeSlide(d) {
 
 // ---------------------------------------------------------------- 6. video
 async function videoSlide(d) {
-  const s = d.slide('Blank', { transition: 'fadeBlack' });
-  const v = await d.video(s, {
-    link: 'https://www.youtube.com/watch?v=5EoO5413dBY',
-    embed: 'https://www.youtube.com/embed/5EoO5413dBY',
-    cover: OW('yt-5EoO5413dBY.jpg'),
-    box: { x: MX, y: 0.55, w: CW, h: 5.72 },
-    label: '“i\'m upping my p(doom)” — mexicat · YouTube · Sep 27, 2026 · 2:37',
-  });
-  // reveal after the video has played: who made it (the creator's claim, quoted verbatim from the repo README)
+  const s = d.slide('Content', { transition: 'fadeBlack' });
+  s.addText(`${KICK} · INTERLUDE`, { placeholder: 'kicker' });
+  s.addText('“i’m upping my p(doom)”', { placeholder: 'title' });
+  // cover = the video's own YouTube thumbnail (kinetic-type "MY" from the lyric), with a play button so it reads as a video
+  const cover = path.join(OUT, 'pdoom-cover.jpg');
+  const play = '<svg width="1280" height="720"><circle cx="640" cy="360" r="74" fill="#0A0C10" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="5"/>'
+    + '<polygon points="615,320 615,400 685,360" fill="#FFFFFF"/></svg>';
+  await sharp(OW('yt-5EoO5413dBY.jpg')).composite([{ input: Buffer.from(play) }]).jpeg({ quality: 90 }).toFile(cover);
+  const link = 'https://www.youtube.com/watch?v=5EoO5413dBY';
+  const vw = 8.2;
+  const v = await d.video(s, { link, embed: 'https://www.youtube.com/embed/5EoO5413dBY', cover, box: { x: MX, y: 1.8, w: vw, h: vw * 9 / 16 } });
   const vg = v.geom;
+  // clickable citation in the source-line slot
+  const cap = d.text(s, [
+    { text: '►  ', options: { color: d.S.red, bold: true } },
+    { text: '“i\'m upping my p(doom)” — mexicat · YouTube · Sep 27, 2026 · 2:37', options: { color: d.S.muted, hyperlink: { url: link } } },
+  ], { x: MX, y: 6.62, w: CW, h: 0.32, fontSize: 11, valign: 'bottom' });
+  // revealed after the video has played: who made it (the creator's claim, quoted verbatim from the repo README)
+  const rx = vg.x + vg.w + 0.45, rw = 12.73 - rx;
+  const card = d.card(s, { x: rx, y: vg.y, w: rw, h: vg.h });
   const who = d.text(s, [
-    { text: 'Creator’s repo: ', options: { bold: true, color: d.S.txt } },
-    { text: '“', options: { color: d.S.muted } },
-    { text: 'Claude Opus 5.5', options: { bold: true, color: d.S.red } },
-    { text: ' created the concept, treatment, lyric alignment, audio analysis, renderer, and all scenes”', options: { color: d.S.muted } },
-  ], { x: vg.x, y: vg.y + vg.h + 0.38, w: vg.w, h: 0.3, fontSize: 11, valign: 'middle' });
+    { text: 'WHO MADE IT', options: { fontSize: 11, bold: true, color: d.S.red, charSpacing: 3, breakLine: true, paraSpaceAfter: 10 } },
+    { text: '“', options: { fontSize: 21, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
+    { text: 'Claude Opus 5.5', options: { fontSize: 21, italic: true, bold: true, color: d.S.red, fontFace: 'Cambria' } },
+    { text: ' created the concept, treatment, lyric alignment, audio analysis, renderer, and all scenes”', options: { fontSize: 21, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true, paraSpaceAfter: 10 } },
+    { text: '— the creator’s GitHub repo (mexicat/pdoom-video) for this code-rendered music video', options: { fontSize: 12, color: d.S.muted } },
+  ], { x: rx + 0.25, y: vg.y + 0.2, w: rw - 0.5, h: vg.h - 0.4, valign: 'middle' });
   d.animate(s, [v[0]], { auto: true, effect: 'fade', dur: 1200 });
-  d.animate(s, [v[1]], { auto: true, effect: 'fade', dur: 600, after: 100 });
-  d.animate(s, [who], { effect: 'fade', dur: 600 });
+  d.animate(s, [cap], { auto: true, effect: 'fade', dur: 600, after: 100 });
+  d.animate(s, [card, who], { effect: 'fade', dur: 600 });
   s.addNotes([
     'Play it (2:37). Let the audience sit with it — no explanation beforehand.',
     'AFTER IT ENDS, click to reveal who made it, and say it: according to the creator\'s GitHub repo (github.com/mexicat/pdoom-video), "Claude Opus 5.5 created the concept, treatment, lyric alignment, audio analysis, renderer, and all scenes" — a whole music video, written and rendered in code by an AI model. That is why it sits in the capabilities section. Present it as the creator\'s claim (we have not independently audited the repo history).',
     'Video: "i\'m upping my p(doom)" by mexicat, YouTube, published Sep 27, 2026, 2:37, ~89.5k views at time of research. https://www.youtube.com/watch?v=5EoO5413dBY',
     'Background (Q&A): a code-rendered music video made with Claude Opus 5.5 in Claude Code, per the repo. The song: lyrics by osmarks on a verse/chorus by MusicPerson (Udio, Nov 2024); audio is the "Claude-Pop" Suno version posted by deckard (@slimer48484), Sep 2026. The most viral copy (on X) reportedly reached ~2.77M views.',
-    'If the embed does not play (offline / no YouTube access), click the caption link under the video.',
+    'If the embed does not play (offline / no YouTube access), click the ► link in the source line at the bottom of the slide.',
   ].join('\n\n'));
   return s;
 }
@@ -475,15 +510,19 @@ async function navierSlide(d) {
   s.addText(`${KICK} · MATHEMATICS IN CRISIS · 1`, { placeholder: 'kicker' });
   s.addText('A Millennium Prize Problem, apparently settled', { placeholder: 'title' });
 
-  const paper = await d.frame(s, R('openai-navier-stokes-paper-p1.png'), { x: MX, y: 1.78, w: 3.75, h: 4.72 }, { align: 'left' });
-  const pg = paper.geom;
-  // zoom on the title + author line ("OPENAI")
+  // zoom on the title + author line ("OPENAI") sits ABOVE the page, so it covers nothing; the connector runs only
+  // through the page's blank top margin. Column width solves zoom + 0.3 gap + full page = 1.78 → 6.5.
+  const PAPER = R('openai-navier-stokes-paper-p1.png');
   const zb = { l: 330, t: 140, w: 615, h: 125 };
+  const colW = (4.72 - 0.3 - 0.1 - 0.12 + 0.1 * zb.h / zb.w + 0.12 * 1650 / 1275) / (zb.h / zb.w + 1650 / 1275);
+  const zh = (colW - 0.1) * zb.h / zb.w + 0.1;
+  const zoom = await d.frame(s, await crop(PAPER, 'ns-paper-title.png', zb), { x: MX, y: 1.78, w: colW, h: zh }, { pad: 0.05, frameColor: HEX.red });
+  const paper = await d.frame(s, PAPER, { x: MX, y: 1.78 + zh + 0.3, w: colW, h: 6.5 - (1.78 + zh + 0.3) }, { align: 'left' });
+  const pg = paper.geom;
   const sc = pg.w / 1275;
   const hl = d.name('hl');
   s.addShape(d.pres.shapes.RECTANGLE, { x: pg.x + zb.l * sc, y: pg.y + zb.t * sc, w: zb.w * sc, h: zb.h * sc, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 1.5 }, objectName: hl });
-  const zoom = await d.frame(s, await crop(R('openai-navier-stokes-paper-p1.png'), 'ns-paper-title.png', zb), { x: pg.x + 0.25, y: pg.y + 0.95, w: pg.w - 0.5, h: 1.0 }, { pad: 0.05, frameColor: HEX.red });
-  const zl = line(d, s, pg.x + (zb.l + zb.w / 2) * sc, pg.y + (zb.t + zb.h) * sc, pg.x + (zb.l + zb.w / 2) * sc, zoom.geom.y - 0.05, { color: HEX.red, width: 1.5 });
+  const zl = line(d, s, pg.x + (zb.l + zb.w / 2) * sc, pg.y + zb.t * sc, pg.x + (zb.l + zb.w / 2) * sc, zoom.geom.y + zoom.geom.h + 0.05, { color: HEX.red, width: 1.5 });
   const rx = pg.x + pg.w + 0.45, rw = 12.73 - rx;
   const fig = await d.frame(s, await crop(R('openai-navier-stokes-fig1-blowup.png'), 'ns-fig1.png', { l: 50, t: 8, w: 1580, h: 690 }), { x: rx, y: 1.78, w: 5.05, h: 1.95 }, { align: 'left' });
   const fg = fig.geom;
@@ -524,7 +563,7 @@ async function navierSlide(d) {
   ], { x: rx + fw + 0.4, y: fy + 0.05, w: fw - 0.3, h: fh - 0.1, valign: 'middle' }));
 
   d.animate(s, paper, { auto: true, effect: 'fade', dur: 700 });
-  d.animate(s, [hl, zl, ...zoom], { auto: true, effect: 'zoom', dur: 450, after: 100 });
+  d.animate(s, [hl, zl, ...zoom], { auto: true, effect: 'fade', dur: 450, after: 100 });
   d.animate(s, [...fig, figCap], { auto: true, effect: 'fade', dur: 700, after: 150 });
   d.animate(s, [quote], { effect: 'fade' });
   stats.forEach((st, i) => d.animate(s, st, i === 0 ? { effect: 'zoom', dur: 400 } : { auto: true, effect: 'zoom', dur: 400, after: 150 }));

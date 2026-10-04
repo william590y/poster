@@ -297,37 +297,75 @@ async function graveyardSlide(d) {
 }
 
 // ---------------------------------------------------------------- 3. Humanity's Last Exam
+// One source for the whole chart: Artificial Analysis (2,158 text-only questions, no tools). Scale/CAIS and Epoch use the
+// full 2,500-question set and are NOT mixed in (different question sets; e.g. Fable 5.1 59.1 on AA vs 46.5 on Scale).
 async function hleSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
   s.addText(`${KICK} · CAPABILITIES · 3`, { placeholder: 'kicker' });
-  s.addText('Humanity’s Last Exam: 4.6% → 54.8% in two years', { placeholder: 'title' });
+  s.addText('Humanity’s Last Exam: 7% → 61% in under 2 years', { placeholder: 'title' });
 
-  const Q = quarters([2024, 3], [2026, 3]);
-  const qlab = Q.map(([y, q]) => `Q${q} ’${String(y).slice(2)}`);
-  const vals = quarterBest(DS['hle-sota-over-time'], Q);
+  // best AA score to date by model release quarter (OpenAI/Anthropic/Google series), Q4 '24 (o1) → Q4 '26 so far
+  const ds = DS['hle-artificial-analysis'];
+  const i0 = ds.labels.indexOf("Q4 '24");
+  const vals = ds.series[0].values.slice(i0);
+  const qlab = ds.labels.slice(i0).map((l) => l.replace("'", '’').replace(' (so far)', '\nso far'));
+  const n = vals.length; // last = Q4 '26 so far (no new record yet), second-to-last = Q3 '26 (Claude Opus 5.5)
+
   const cw = 6.45;
   const lab = label(d, s, 'HLE · BEST SCORE TO DATE (%) · BY MODEL RELEASE QUARTER', MX, 1.7, cw);
-  const ch = d.chart(s, 'bar', [{ name: 'Best score', labels: qlab, values: vals }], { x: MX - 0.05, y: 1.98, w: cw + 0.05, h: 2.98 }, {
-    barDir: 'col', chartColors: [...vals.slice(0, -1).map(() => '6B7383'), HEX.red], barGapWidthPct: 45,
+  const sub = d.text(s, 'Independent runs by Artificial Analysis · 2,158 text-only questions · no tools',
+    { x: MX, y: 1.98, w: cw, h: 0.26, fontSize: 11, color: d.S.muted, valign: 'top' });
+  // manual plot layout so the overlaid callout can be placed against known bar positions
+  const cb = { x: MX - 0.05, y: 2.22, w: cw + 0.05, h: 2.76 };
+  const L = { x: 0.015, y: 0.03, w: 0.97, h: 0.83 };
+  const VMAX = 85;
+  const px0 = cb.x + L.x * cb.w, pw = L.w * cb.w;
+  const catW = pw / n, barW = catW / 1.45;
+  const barX = (i) => px0 + (i + 0.5) * catW - barW / 2;
+  const ch = d.chart(s, 'bar', [{ name: 'Best score to date', labels: qlab, values: vals }], cb, {
+    barDir: 'col', chartColors: [...vals.slice(0, -2).map(() => '6B7383'), HEX.red, '8C2F33'], barGapWidthPct: 45,
     showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '0.0', dataLabelFontSize: 12, dataLabelFontBold: true,
-    valAxisMinVal: 0, valAxisMaxVal: 70, valAxisMajorUnit: 10, valAxisHidden: true, valGridLine: { style: 'none' }, showLegend: false,
+    valAxisMinVal: 0, valAxisMaxVal: VMAX, valAxisMajorUnit: 10, valAxisHidden: true, valGridLine: { style: 'none' }, showLegend: false,
+    layout: L,
   });
+  // record callout: right-aligned, ending just left of the Q3 '26 bar, above the Q4 '25–Q2 '26 value labels
+  const annR = barX(n - 2) - 0.08;
   const ann = d.text(s, [
-    { text: 'GPT-6 Astra', options: { bold: true, color: d.S.red, breakLine: true } },
-    { text: 'Sep 2026 · ±1.9 pts', options: { color: d.S.muted } },
-  ], { x: MX + cw - 2.55, y: 2.0, w: 1.75, h: 0.48, fontSize: 11, align: 'right', valign: 'top' });
-
-  // right column: the billing + official leaderboard
-  const rx = 7.5, rw = 12.73 - rx;
-  // same label style and y as the chart label on the left, so the two column heads line up
-  const billLab = label(d, s, 'BILLED AT LAUNCH, JAN 2025', rx, 1.7, rw);
+    { text: `Claude Opus 5.5 · ${vals[n - 2].toFixed(1)}%`, options: { bold: true, color: d.S.red, breakLine: true } },
+    { text: 'released Sep 22, 2026', options: { color: d.S.muted, breakLine: true } },
+    { text: 'Q4 ’26 so far: no new record', options: { color: d.S.muted } },
+  ], { x: annR - 2.3, y: 2.25, w: 2.3, h: 0.56, fontSize: 11, align: 'right', valign: 'bottom' });
+  // the launch billing, in the empty upper-left of the chart (the bars there are the launch-era models)
   const bill = d.text(s, [
-    { text: '“designed to be the last academic exam of its kind for AI”', options: { fontSize: 19, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true } },
-    { text: 'Center for AI Safety & Scale AI · frontier models then scored <10%', options: { fontSize: 11, color: d.S.muted } },
-  ], { x: rx, y: 2.02, w: rw, h: 0.95, valign: 'top' });
-  const lbLab = label(d, s, 'OFFICIAL LEADERBOARD · TOP TWO · OCT 4, 2026', rx, 3.12, rw);
-  // top two rows, full bar width (cutting the bars would make them look equal); rank badges dropped
-  const lb = await d.frame(s, await crop(R('scale-hle-leaderboard.png'), 'hle-leaderboard-top2.png', { l: 100, t: 118, w: 885, h: 200 }), { x: rx, y: 3.42, w: rw, h: 1.45 }, { align: 'left' });
+    { text: 'Billed at launch, Jan 2025:', options: { fontSize: 11, bold: true, color: d.S.steel, breakLine: true } },
+    { text: '“designed to be the last academic exam of its kind for AI”', options: { fontSize: 16, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true } },
+    { text: 'Center for AI Safety & Scale AI', options: { fontSize: 11, color: d.S.muted } },
+  ], { x: MX + 0.1, y: 2.32, w: 2.5, h: 1.2, valign: 'top' });
+
+  // right column: the same independent leaderboard as a native chart (best setting per model, top 8 models), Opus 5.5 on top
+  const rx = 7.5, rw = 12.73 - rx;
+  const best = new Map();
+  ds.context_scores.forEach((c) => {
+    const m = c.model.replace(/ \(.*\)$/, '');
+    if (!best.has(m) || best.get(m).score < c.score) best.set(m, c);
+  });
+  const top = [...best.entries()].sort((a, b) => b[1].score - a[1].score).slice(0, 8);
+  const lbLab = label(d, s, 'ARTIFICIAL ANALYSIS LEADERBOARD · OCT 4, 2026', rx, 1.7, rw);
+  const lbSub = d.text(s, 'Same test as the chart · score (%) · best setting per model',
+    { x: rx, y: 1.98, w: rw, h: 0.26, fontSize: 11, color: d.S.muted, valign: 'top' });
+  const lb = d.chart(s, 'bar', [{
+    name: 'HLE score (%)',
+    labels: top.map(([m, c]) => m + (c.note ? '*' : '')),
+    values: top.map(([, c]) => c.score),
+  }], { x: rx - 0.05, y: 2.28, w: rw + 0.05, h: 2.4 }, {
+    barDir: 'bar', catAxisOrientation: 'maxMin', chartColors: top.map(([m]) => (m === 'Claude Opus 5.5' ? HEX.red : '6B7383')),
+    barGapWidthPct: 40, showLegend: false, layout: { x: 0.34, y: 0.01, w: 0.6, h: 0.98 },
+    valAxisMinVal: 0, valAxisMaxVal: 70, valAxisHidden: true, valGridLine: { style: 'none' }, catAxisLineShow: false,
+    showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '0.0', dataLabelFontSize: 12, dataLabelFontBold: true,
+    catAxisLabelFontSize: 12, catAxisLabelColor: LIGHT,
+  });
+  const lbFoot = d.text(s, '* Gemini 4 Argon: AA marks it “not publicly available”',
+    { x: rx, y: 4.7, w: rw, h: 0.26, fontSize: 11, color: d.S.muted, valign: 'top' });
 
   // bottom band: the organizers' own note, verbatim — one contiguous paragraph of the "Update September 17, 2026" entry
   const nc = await crop(R('scale-hle-rolling-noise-ceiling.png'), 'hle-noise-ceiling-para.png', { l: 30, t: 292, w: 1340, h: 150 });
@@ -338,19 +376,22 @@ async function hleSlide(d) {
   ], { x: MX, y: bandY, w: 3.6, h: 1.36, fontSize: 15, valign: 'middle' });
   const ncF = await d.frame(s, nc, { x: 4.4, y: bandY, w: 12.73 - 4.4, h: 1.38 }, { align: 'right' });
 
-  d.animate(s, [lab, { name: ch, effect: 'wipeLeft', dur: 1400 }], { auto: true, effect: 'fade' });
+  d.animate(s, [lab, sub, { name: ch, effect: 'wipeLeft', dur: 1400 }], { auto: true, effect: 'fade' });
   d.animate(s, [ann], { auto: true, effect: 'fade', after: 100 });
-  d.animate(s, [billLab, bill], { effect: 'fade' });
-  d.animate(s, [lbLab, ...lb], { effect: 'fade' });
+  d.animate(s, [bill], { effect: 'fade' });
+  d.animate(s, [lbLab, lbSub, { name: lb, effect: 'wipeLeft', dur: 1000 }, lbFoot], { effect: 'fade' });
   d.animate(s, [ncLab, ...ncF], { effect: 'rise' });
-  d.source(s, 'Data: Epoch AI Benchmarking Hub (hle_external.csv, CC-BY) · Scale AI / CAIS HLE leaderboard, labs.scale.com (accessed Oct 4, 2026; update of Sep 17, 2026).');
+  d.source(s, 'Data: Artificial Analysis, artificialanalysis.ai/evaluations/humanitys-last-exam (text-only, no tools; accessed Oct 4, 2026) · Scale AI / CAIS, labs.scale.com (update of Sep 17, 2026).');
   s.addNotes([
     'MESSAGE: even the test designed to be the last one is falling fast — and its organizers are already preparing a replacement.',
     'Humanity\'s Last Exam (HLE) launched in January 2025 from the Center for AI Safety and Scale AI, "designed to be the last academic exam of its kind for AI": ~2,500 expert-written questions across many fields. Frontier models then scored under 10%.',
-    'Chart: best score to date by model release quarter (Epoch AI hle_external.csv). Sep 2024 Gemini 1.5 Pro 002: 4.6% (scored retroactively); o1 (Dec 2024) 8.0%; Gemini 2.5 Pro (Mar 2025) 18.2%; GPT-5 (Aug 2025) 25.3%; Gemini 3 Pro (Nov 2025) 37.5%; Gemini 3.1 Pro (Feb 2026) 46.4%; Fable 5.1 (xhigh) 46.5%; GPT 6 Astra (Sep 2026) 54.8%.',
-    'Official leaderboard (labs.scale.com/leaderboard/humanitys_last_exam, Oct 4, 2026): GPT 6 Astra 54.80 ±1.94; Fable 5.1 (xhigh) 46.50; gemini-3.1-pro-preview 46.44; Gemini 3.8 Flash 44.52; gpt-5.4-pro 44.32. Other setups differ: Wikipedia (citing Artificial Analysis, Sep 22, 2026) lists text-only scores of Claude Opus 5.5 61.4%, Gemini 4 Argon 57.1%, GPT-6 Astra 54.7%.',
+    'Chart: ONE source throughout — Artificial Analysis (AA), independent runs on HLE\'s 2,158 text-only questions (multimodal questions excluded), pass@1, LLM-graded, no tools. Best AA score to date by model release quarter (OpenAI/Anthropic/Google models): Q4 \'24 7.0% (o1, Dec 2024) · Q1 \'25 18.0% (Gemini 2.5 Pro Preview) · Q2 \'25 22.5% (Gemini 2.5 Pro) · Q3 \'25 28.5% (GPT-5 high) · Q4 \'25 39.7% (Gemini 3 Pro Preview) · Q1 \'26 47.0% (Gemini 3.1 Pro Preview) · Q2 \'26 55.5% (Claude Fable 5) · Q3 \'26 61.4% (Claude Opus 5.5, max with fallback, released Sep 22, 2026). https://artificialanalysis.ai/evaluations/humanitys-last-exam',
+    'Q4 \'26 SO FAR (Oct 1–4): no new record — the bar carries Opus 5.5\'s 61.4% forward. The only model released Oct 1–4 that AA has scored is InclusionAI\'s open-weights Ling 3.1 Flash (Oct 1): 39.4%. https://artificialanalysis.ai/models/ling-3-1-flash',
+    'Right chart = the same AA leaderboard, best setting per model, top 8 models (Oct 4): Claude Opus 5.5 61.4% (max with fallback) · Claude Fable 5.1 59.1% (max with fallback) · Gemini 4 Argon 57.1% (high; AA marks it "not publicly available") · Claude Fable 5 55.5% (max, Opus 4.8 fallback) · Claude Sonnet 5.5 55.0% (max with fallback) · Claude Opus 5 54.9% (max) · GPT-6 Astra 54.7% (max) · GPT-6.1 Sol 52.9% (max). Next: GPT-5.6 Sol 49.5%. AA\'s Sep 22 article: "Humanity\'s Last Exam 61.4% (previous best 59.1%, Claude Fable 5.1)". https://artificialanalysis.ai/articles/claude-opus-5-5',
+    'If asked (Q&A only, vendor-run, not comparable with the chart): Anthropic\'s Claude Opus 5.5 system card (Table 8.1.A) reports 64.4% on the full 2,500-question HLE without tools and 67.7% with tools (web search, web fetch, code execution), max effort, averaged over five trials, graded by Claude Opus 4.6. https://anthropic.com/claude-opus-5-5-system-card · https://www.anthropic.com/news/claude-opus-5-5 · SiliconANGLE, Sep 22: "Anthropic releases Claude Opus 5.5 and OpenAI counters with two cheaper GPT-6 models" https://siliconangle.com/2026/09/22/anthropic-releases-claude-opus-5-5-and-openai-counters-with-two-cheaper-gpt-6-models/',
+    'Why not the official board: the Scale AI / CAIS leaderboard (labs.scale.com/leaderboard/humanitys_last_exam) uses the full multimodal set and, as of Oct 4, 2026, does not list Claude Opus 5.5 yet — its top entry is GPT 6 Astra at 54.80 ±1.94 (Fable 5.1 xhigh 46.50). Numbers from different question sets are not mixed on this chart. Scores depend heavily on who runs the test and how: Claude Fable 5.1 = 60.9% (Anthropic system card, full set, no tools), 59.1% (AA, max, text-only), 46.5% (official board, xhigh); GPT-6 Astra = 54.8% official vs 54.7% on AA. So Opus 5.5\'s 64.4% from Anthropic is not an official record.',
     'Verbatim (Scale/CAIS leaderboard, "Update September 17, 2026"): "The goal of HLE-Rolling is to provide a seamless migration path for researchers in the future once frontier models begin to hit the noise ceiling on the original HLE dataset." HLE-Rolling is a continually updated fork of HLE.',
-    'CAVEAT: I have found no major-outlet headline declaring HLE "saturated" — it is not saturated yet (≈55%). The point is the speed, and that the organizers are planning for the end.',
+    'CAVEAT: I have found no major-outlet headline declaring HLE "saturated" — it is not saturated yet (≈61%). The point is the speed, and that the organizers are planning for the end.',
   ].join('\n\n'));
   return s;
 }
@@ -467,38 +508,38 @@ async function videoSlide(d) {
   const s = d.slide('Content', { transition: 'fadeBlack' });
   s.addText(`${KICK} · INTERLUDE`, { placeholder: 'kicker' });
   s.addText('“i’m upping my p(doom)”', { placeholder: 'title' });
-  // cover = the video's own YouTube thumbnail (kinetic-type "MY" from the lyric), with a play button so it reads as a video
+  // the original hand-drawn version (orange Claude creature), with a play button added so the cover reads as a video
   const cover = path.join(OUT, 'pdoom-cover.jpg');
   const play = '<svg width="1280" height="720"><circle cx="640" cy="360" r="74" fill="#0A0C10" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="5"/>'
     + '<polygon points="615,320 615,400 685,360" fill="#FFFFFF"/></svg>';
-  await sharp(OW('yt-5EoO5413dBY.jpg')).composite([{ input: Buffer.from(play) }]).jpeg({ quality: 90 }).toFile(cover);
-  const link = 'https://www.youtube.com/watch?v=5EoO5413dBY';
+  await sharp(OW('yt-8j-hR4fJywU.jpg')).resize(1280, 720, { fit: 'cover' }).composite([{ input: Buffer.from(play) }]).jpeg({ quality: 90 }).toFile(cover);
+  const link = 'https://www.youtube.com/watch?v=8j-hR4fJywU';
   const vw = 8.2;
-  const v = await d.video(s, { link, embed: 'https://www.youtube.com/embed/5EoO5413dBY', cover, box: { x: MX, y: 1.8, w: vw, h: vw * 9 / 16 } });
+  const v = await d.video(s, { link, embed: 'https://www.youtube.com/embed/8j-hR4fJywU', cover, box: { x: MX, y: 1.8, w: vw, h: vw * 9 / 16 } });
   const vg = v.geom;
   // clickable citation in the source-line slot
   const cap = d.text(s, [
     { text: '►  ', options: { color: d.S.red, bold: true } },
-    { text: '“i\'m upping my p(doom)” — mexicat · YouTube · Sep 27, 2026 · 2:37', options: { color: d.S.muted, hyperlink: { url: link } } },
+    { text: '“Claude Pop – I\'m Upping My P(Doom)” — OtherReality · YouTube · 2:37', options: { color: d.S.muted, hyperlink: { url: link } } },
   ], { x: MX, y: 6.62, w: CW, h: 0.32, fontSize: 11, valign: 'bottom' });
-  // revealed after the video has played: who made it (the creator's claim, quoted verbatim from the repo README)
+  // revealed after the video has played: who made it (the creator's claim, quoted verbatim from the repo description)
   const rx = vg.x + vg.w + 0.45, rw = 12.73 - rx;
   const card = d.card(s, { x: rx, y: vg.y, w: rw, h: vg.h });
   const who = d.text(s, [
     { text: 'WHO MADE IT', options: { fontSize: 11, bold: true, color: d.S.red, charSpacing: 3, breakLine: true, paraSpaceAfter: 10 } },
-    { text: '“', options: { fontSize: 21, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
-    { text: 'Claude Opus 5.5', options: { fontSize: 21, italic: true, bold: true, color: d.S.red, fontFace: 'Cambria' } },
-    { text: ' created the concept, treatment, lyric alignment, audio analysis, renderer, and all scenes”', options: { fontSize: 21, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true, paraSpaceAfter: 10 } },
-    { text: '— the creator’s GitHub repo (mexicat/pdoom-video) for this code-rendered music video', options: { fontSize: 12, color: d.S.muted } },
+    { text: '“Source code for the ', options: { fontSize: 22, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
+    { text: 'Claude Opus 5.5', options: { fontSize: 22, italic: true, bold: true, color: d.S.red, fontFace: 'Cambria' } },
+    { text: ' music video”', options: { fontSize: 22, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true, paraSpaceAfter: 10 } },
+    { text: '— the creator’s GitHub repo (JohnHeibel/PDoomVideo): the video is written and rendered in code', options: { fontSize: 12, color: d.S.muted } },
   ], { x: rx + 0.25, y: vg.y + 0.2, w: rw - 0.5, h: vg.h - 0.4, valign: 'middle' });
   d.animate(s, [v[0]], { auto: true, effect: 'fade', dur: 1200 });
   d.animate(s, [cap], { auto: true, effect: 'fade', dur: 600, after: 100 });
   d.animate(s, [card, who], { effect: 'fade', dur: 600 });
   s.addNotes([
-    'Play it (2:37). Let the audience sit with it — no explanation beforehand. (Cover = the video\'s own YouTube thumbnail, the word "MY" from the lyric, with a play button added.)',
-    'AFTER IT ENDS, click to reveal who made it, and say it: according to the creator\'s GitHub repo (github.com/mexicat/pdoom-video), "Claude Opus 5.5 created the concept, treatment, lyric alignment, audio analysis, renderer, and all scenes" — a whole music video, written and rendered in code by an AI model. That is why it sits in the capabilities section. Present it as the creator\'s claim (we have not independently audited the repo history).',
-    'Video: "i\'m upping my p(doom)" by mexicat, YouTube, published Sep 27, 2026, 2:37, ~89.5k views at time of research. https://www.youtube.com/watch?v=5EoO5413dBY',
-    'Background (Q&A): a code-rendered music video made with Claude Opus 5.5 in Claude Code, per the repo. The song: lyrics by osmarks on a verse/chorus by MusicPerson (Udio, Nov 2024); audio is the "Claude-Pop" Suno version posted by deckard (@slimer48484), Sep 2026. The most viral copy (on X) reportedly reached ~2.77M views.',
+    'Play it (2:37). Let the audience sit with it — no explanation beforehand. (Cover = the video\'s own YouTube thumbnail — the original hand-drawn version with the orange Claude creature — with a play button added.)',
+    'AFTER IT ENDS, click to reveal who made it, and say it: the creator\'s GitHub repo (github.com/JohnHeibel/PDoomVideo) describes itself as "Source code for the Claude Opus 5.5 music video" — a whole music video, written and rendered in code by an AI model. That is why it sits in the capabilities section. Present it as the creator\'s claim (we have not independently audited the repo history).',
+    'Video: "Claude Pop - I\'m Upping My P(Doom)" by OtherReality (@thisotherreality), YouTube, 2:37 — the original hand-drawn upload. https://www.youtube.com/watch?v=8j-hR4fJywU (title and channel confirmed via YouTube oEmbed; upload date not captured because YouTube rate-limited our requests). A later, more widely shared kinetic-type version exists: "i\'m upping my p(doom)" by mexicat (Sep 27, 2026) https://www.youtube.com/watch?v=5EoO5413dBY',
+    'Background (Q&A): the song: lyrics by osmarks on a verse/chorus by MusicPerson (Udio, Nov 2024); audio is the "Claude-Pop" Suno version posted by deckard (@slimer48484), Sep 2026. The most viral copy (on X) reportedly reached ~2.77M views.',
     'If the embed does not play (offline / no YouTube access), click the ► link in the source line at the bottom of the slide.',
   ].join('\n\n'));
   return s;

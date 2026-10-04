@@ -1048,6 +1048,134 @@
    "caption": "arXiv abstract (WebFetch)",
    "quality": 4,
    "verified": true
+  },
+  {
+   "id": "anthropic-opus55-benchmark-table",
+   "slide_topic": "Rapid Advance of Capabilities (HLE)",
+   "type": "screenshot",
+   "file": "anthropic-opus55-benchmark-table.png",
+   "headline": "Introducing Claude Opus 5.5",
+   "dek": "Humanity's Last Exam (with tools): Opus 5.5 67.7% · Fable 5.1 65.6% · Opus 5 63.6% · GPT-6 Astra 57.2% · GPT-5.6 Sol —",
+   "outlet": "Anthropic",
+   "author": null,
+   "date": "2026-09-22",
+   "url": "https://www.anthropic.com/news/claude-opus-5-5",
+   "caption": "Anthropic's launch benchmark table for Claude Opus 5.5 (HLE row is 'Multidisciplinary reasoning', all HLE cells marked 'with tools')",
+   "quality": 4,
+   "verified": true,
+   "notes": "Vendor-reported. Footnote: 'Unless otherwise noted, all Claude Opus 5.5 results use adaptive thinking at max effort... evaluated with its production safeguards enabled.' Launch page gives only the with-tools HLE figure; the no-tools figure (64.4%) is in the system card. Newsroom lists the post as Sep 22, 2026. URL redirects to https://www.anthropic.com/claude-opus-5-5."
+  },
+  {
+   "id": "anthropic-opus55-syscard-table-hle-rows",
+   "slide_topic": "Rapid Advance of Capabilities (HLE)",
+   "type": "screenshot",
+   "file": "anthropic-opus55-syscard-table-hle-rows.png",
+   "headline": "System Card: Claude Opus 5.5 — 8.1 Evaluation summary (Table 8.1.A)",
+   "dek": "Humanity's Last Exam — No tools: Opus 5.5 64.4 · Opus 5 56.6 · Fable 5.1 60.9 · GPT-6 Astra –; With tools: 67.7 · 63.6 · 65.6 · 57.2",
+   "outlet": "Anthropic (system card PDF, p.174)",
+   "author": null,
+   "date": "2026-09-22",
+   "url": "https://anthropic.com/claude-opus-5-5-system-card",
+   "caption": "Crop of Table 8.1.A (header through the HLE rows) rendered from the system card PDF",
+   "quality": 4,
+   "verified": true,
+   "notes": "PDF: https://www-cdn.anthropic.com/fc1b44717c85dc068bc6ba5024219938094694bd/Claude%20Opus%205.5%20System%20Card.pdf . Table caption: 'all Claude Opus 5.5 results use ... adaptive thinking at max effort, default sampling settings (temperature, top_p), averaged over five trials... Competitor figures are drawn from the respective developers' published system cards or benchmark leaderboards.' Section 8.11.1: tested '(1) reasoning-only without tools and (2) with web search, web fetch, programmatic tool calling, and code execution'; total tokens capped at 1M; 'Claude Opus 4.6 served as the model grader'; tools runs use a blocklist of HLE-discussing sources. Full 2,500-question multimodal HLE. Vendor-run."
+  },
+  {
+   "id": "anthropic-opus55-syscard-table-8-1a",
+   "slide_topic": "Rapid Advance of Capabilities (HLE)",
+   "type": "screenshot",
+   "file": "anthropic-opus55-syscard-table-8-1a.png",
+   "headline": "System Card: Claude Opus 5.5 — Table 8.1.A Capability evaluation summary",
+   "dek": null,
+   "outlet": "Anthropic (system card PDF, p.174)",
+   "author": null,
+   "date": "2026-09-22",
+   "url": "https://anthropic.com/claude-opus-5-5-system-card",
+   "caption": "Full Table 8.1.A with caption, rendered from the system card PDF",
+   "quality": 3,
+   "verified": true,
+   "notes": "Same source as anthropic-opus55-syscard-table-hle-rows; full table incl. caption."
+  },
+  {
+   "id": "anthropic-opus55-syscard-hle-notools-fig",
+   "slide_topic": "Rapid Advance of Capabilities (HLE)",
+   "type": "chart",
+   "file": "anthropic-opus55-syscard-hle-notools-fig.png",
+   "headline": "Humanity's Last Exam (no tools): test-time compute scaling",
+   "dek": "Claude Opus 5.5: Low 52.9% · Med 59.0% · High 59.6% · Xhigh 62.8% · Max 64.4%; Fable 5.1 Max 60.9%; Opus 5 Max 56.6%",
+   "outlet": "Anthropic (system card PDF, p.186, Figure 8.11.1.B)",
+   "author": null,
+   "date": "2026-09-22",
+   "url": "https://anthropic.com/claude-opus-5-5-system-card",
+   "caption": "Vendor figure: HLE no-tools accuracy vs cost per task for Opus 5, Fable 5.1, Opus 5.5 across effort levels",
+   "quality": 4,
+   "verified": true,
+   "notes": "Opus 5.5 at low effort (52.9%, ~$0.03/task) roughly matches Opus 5 at medium/high. Vendor-run."
+  },
+  {
+   "id": "aa-hle-leaderboard-oct2026",
+   "slide_topic": "Rapid Advance of Capabilities (HLE)",
+   "type": "chart",
+   "file": "aa-hle-leaderboard-oct2026.png",
+   "headline": "Humanity's Last Exam: Score — Independently benchmarked by Artificial Analysis",
+   "dek": "Claude Opus 5.5 (max with fallback) 61.4% · Claude Fable 5.1 (max) 59.1% · Fable 5.1 (xhigh) 58.7% · Opus 5.5 (xhigh) 57.5% · Gemini 4 Argon (high) 57.1% · ... · GPT-6 Astra (max) 54.7% · GPT-6.1 Sol (max) 52.9%",
+   "outlet": "Artificial Analysis",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
+   "caption": "AA's HLE bar chart (default 30 of 653 models), Claude Opus 5.5 on top",
+   "quality": 4,
+   "verified": true,
+   "notes": "AA method: 2,158 text-only questions of the 2,500 (multimodal excluded), pass@1, graded by an LLM equality checker; no tools mentioned. Numbers are NOT comparable with the Scale/Epoch full-set series (e.g. Fable 5.1 xhigh = 46.5 on Scale vs 58.7 on AA). Last bar (Mistral Medium 3.5, 13.8%) is slightly clipped at the right edge. Gemini 4 Argon bar is checkered = 'Not publicly available'."
+  },
+  {
+   "id": "aa-ling31flash-hle",
+   "slide_topic": "Rapid Advance of Capabilities (HLE) — Q4 '26 so far",
+   "type": "chart",
+   "file": "aa-ling31flash-hle.png",
+   "headline": "Ling 3.1 Flash — Humanity's Last Exam (Artificial Analysis model page)",
+   "dek": "Ling 3.1 Flash (InclusionAI, open weights, released Oct 1, 2026): 39% on AA's HLE (39.43% in page data)",
+   "outlet": "Artificial Analysis",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://artificialanalysis.ai/models/ling-3-1-flash",
+   "caption": "AA HLE comparison chart on the Ling 3.1 Flash page (Ling highlighted at 39%)",
+   "quality": 2,
+   "verified": true,
+   "notes": "Only model released Oct 1-4, 2026 with an HLE score that I found. AA page data: releaseDate 2026-10-01, hle 0.394346617238183. Far below the frontier; does not change best-to-date."
+  },
+  {
+   "id": "siliconangle-opus55",
+   "slide_topic": "Rapid Advance of Capabilities (HLE)",
+   "type": "headline",
+   "file": "siliconangle-opus55.png",
+   "headline": "Anthropic releases Claude Opus 5.5 and OpenAI counters with two cheaper GPT-6 models",
+   "dek": "Humanity's Last Exam, run with tools, returned 67.7%.",
+   "outlet": "SiliconANGLE",
+   "author": "Duncan Riley",
+   "date": "2026-09-22",
+   "url": "https://siliconangle.com/2026/09/22/anthropic-releases-claude-opus-5-5-and-openai-counters-with-two-cheaper-gpt-6-models/",
+   "caption": "SiliconANGLE headline + hero (dateline 'UPDATED 18:58 EDT / SEPTEMBER 22 2026')",
+   "quality": 4,
+   "verified": true,
+   "notes": "Cropped to remove ad banner. The two GPT-6 models are GPT-6 Sol and GPT-6 Luna."
+  },
+  {
+   "id": "aa-hle-score-vs-release",
+   "slide_topic": "Rapid Advance of Capabilities (HLE)",
+   "type": "chart",
+   "file": "aa-hle-score-vs-release.png",
+   "headline": "Humanity's Last Exam: Score vs. Release Date",
+   "dek": null,
+   "outlet": "Artificial Analysis",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
+   "caption": "AA scatter of HLE score vs release date (Apr–Oct 2026, default 30 models); labels are busy",
+   "quality": 3,
+   "verified": true,
+   "notes": "Captured 2026-10-04, headless Chromium, 8 s wait."
   }
  ],
  "datasets": [
@@ -2015,6 +2143,362 @@
    ],
    "source": "Epoch AI benchmark_data.zip and ARC Prize leaderboard; earlier values from same frontier series (GPQA o1-mini high 62.4% Sep 2024; ARC-AGI-1 o1-preview 18% Sep 2024; ARC-AGI-2 o1-mini 0.8%; FrontierMath T1-3 0.7% (GPT-4 Turbo), T4 0% (o3-mini, Jan 2025); HLE 4.6% Gemini 1.5 Pro Sep 2024; ARC-AGI-3 0.4% at launch Mar 2026)",
    "url": "https://epoch.ai/data/benchmark_data.zip"
+  },
+  {
+   "id": "hle-q3-q4-2026-update",
+   "title": "Humanity's Last Exam: Q3 '26 late entries and Q4 '26 so far (as of 2026-10-04), by source/setting",
+   "unit": "% accuracy",
+   "labels": [
+    "Claude Opus 5.5 (2026-09-22)",
+    "Claude Fable 5.1 (2026-09-01)",
+    "Claude Opus 5 (earlier)",
+    "GPT-6 Astra (2026-09-03)",
+    "Gemini 4 Argon (2026-09-30)",
+    "GPT-6.1 Sol (2026-09-29)",
+    "Ling 3.1 Flash (2026-10-01)"
+   ],
+   "series": [
+    {
+     "name": "Anthropic system card, full HLE, no tools (vendor-run)",
+     "values": [
+      64.4,
+      60.9,
+      56.6,
+      null,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "name": "Anthropic system card/launch page, full HLE, with tools (vendor-run)",
+     "values": [
+      67.7,
+      65.6,
+      63.6,
+      57.2,
+      null,
+      null,
+      null
+     ]
+    },
+    {
+     "name": "Artificial Analysis, 2,158 text-only Qs, top config",
+     "values": [
+      61.4,
+      59.1,
+      null,
+      54.7,
+      57.1,
+      52.9,
+      39.4
+     ]
+    },
+    {
+     "name": "Scale AI/CAIS official leaderboard = Epoch hle_external (full set, no tools)",
+     "values": [
+      null,
+      46.5,
+      null,
+      54.8,
+      null,
+      null,
+      null
+     ]
+    }
+   ],
+   "source": "Anthropic Claude Opus 5.5 System Card Table 8.1.A (Sep 22, 2026); anthropic.com/news/claude-opus-5-5; Artificial Analysis HLE leaderboard + model pages (accessed 2026-10-04); labs.scale.com HLE leaderboard and Epoch benchmark_data.zip (re-downloaded 2026-10-04)",
+   "url": "https://anthropic.com/claude-opus-5-5-system-card",
+   "notes": "Release quarter: Claude Opus 5.5 was released Sep 22, 2026 -> Q3 '26 (not Q4). No frontier model was released Oct 1-4, 2026; the only Oct 1-4 model with an HLE score found is Ling 3.1 Flash (InclusionAI, Oct 1) at 39.4% on AA. So a 'best score to date' bar for Q4 '26 (so far) equals the Q3 value in whichever series is used: Scale/Epoch 54.8 (GPT 6 Astra; Opus 5.5 not yet listed on Scale or in Epoch hle_external as of Oct 4) / Anthropic no-tools 64.4 (Opus 5.5) / AA 61.4 (Opus 5.5). Do not mix series in one bar chart without labeling. Opus 5 'earlier' = prior Anthropic flagship, release date not verified in this pass. Gemini 4 Argon: Google's Sep 30 announcement page text has no HLE figure; 57.1 is AA's."
+  },
+  {
+   "id": "hle-artificial-analysis",
+   "title": "Humanity's Last Exam (Artificial Analysis, text-only, no tools): best score to date by model release quarter",
+   "unit": "% accuracy",
+   "labels": [
+    "Q1 '24",
+    "Q2 '24",
+    "Q3 '24",
+    "Q4 '24",
+    "Q1 '25",
+    "Q2 '25",
+    "Q3 '25",
+    "Q4 '25",
+    "Q1 '26",
+    "Q2 '26",
+    "Q3 '26",
+    "Q4 '26 (so far)"
+   ],
+   "series": [
+    {
+     "name": "Best AA HLE score to date (OpenAI/Anthropic/Google models) — recommended",
+     "values": [
+      4.2,
+      4.4,
+      4.6,
+      7.0,
+      18.0,
+      22.5,
+      28.5,
+      39.7,
+      47.0,
+      55.5,
+      61.4,
+      61.4
+     ]
+    },
+    {
+     "name": "Best AA HLE score to date (all 652 AA-scored models)",
+     "values": [
+      5.3,
+      5.4,
+      5.5,
+      7.0,
+      18.0,
+      22.5,
+      28.5,
+      39.7,
+      47.0,
+      55.5,
+      61.4,
+      61.4
+     ]
+    },
+    {
+     "name": "Best AA HLE score among models released in that quarter (all models)",
+     "values": [
+      4.8,
+      5.4,
+      5.5,
+      7.0,
+      18.0,
+      22.5,
+      28.5,
+      39.7,
+      47.0,
+      55.5,
+      61.4,
+      39.4
+     ]
+    }
+   ],
+   "point_labels": [
+    "Gemini 1.0 Pro (Dec 2023)",
+    "Gemini 1.5 Flash (May '24)",
+    "Gemini 1.5 Pro (Sep '24)",
+    "o1",
+    "Gemini 2.5 Pro Preview (Mar '25)",
+    "Gemini 2.5 Pro",
+    "GPT-5 (high)",
+    "Gemini 3 Pro Preview (high)",
+    "Gemini 3.1 Pro Preview",
+    "Claude Fable 5 (with fallback)",
+    "Claude Opus 5.5 (max with fallback)",
+    "Claude Opus 5.5 (max with fallback) — no new record yet"
+   ],
+   "point_dates": [
+    "2023-12-06",
+    "2024-05-14",
+    "2024-09-24",
+    "2024-12-05",
+    "2025-03-25",
+    "2025-06-05",
+    "2025-08-07",
+    "2025-11-18",
+    "2026-02-19",
+    "2026-06-09",
+    "2026-09-22",
+    "2026-09-22"
+   ],
+   "all_models_point_labels": [
+    "Llama 2 Chat 7B (Jul 2023)",
+    "DeepSeek Coder V2 Lite (Jun '24)",
+    "Llama 3.2 11B (Vision) (Sep '24)",
+    "o1",
+    "Gemini 2.5 Pro Preview (Mar '25)",
+    "Gemini 2.5 Pro",
+    "GPT-5 (high)",
+    "Gemini 3 Pro Preview (high)",
+    "Gemini 3.1 Pro Preview",
+    "Claude Fable 5 (with fallback)",
+    "Claude Opus 5.5 (max with fallback)",
+    "Claude Opus 5.5 (max with fallback); best Q4 release so far: Ling 3.1 Flash 39.4"
+   ],
+   "record_points": [
+    {
+     "date": "2024-12-05",
+     "model": "o1",
+     "score": 7.0
+    },
+    {
+     "date": "2025-01-20",
+     "model": "DeepSeek R1 (Jan '25)",
+     "score": 8.5
+    },
+    {
+     "date": "2025-01-31",
+     "model": "o3-mini (high)",
+     "score": 12.0
+    },
+    {
+     "date": "2025-03-25",
+     "model": "Gemini 2.5 Pro Preview (Mar '25)",
+     "score": 18.0
+    },
+    {
+     "date": "2025-04-16",
+     "model": "o3",
+     "score": 20.1
+    },
+    {
+     "date": "2025-06-05",
+     "model": "Gemini 2.5 Pro",
+     "score": 22.5
+    },
+    {
+     "date": "2025-07-10",
+     "model": "Grok 4",
+     "score": 26.7
+    },
+    {
+     "date": "2025-08-07",
+     "model": "GPT-5 (high)",
+     "score": 28.5
+    },
+    {
+     "date": "2025-11-11",
+     "model": "KAT-Coder-Pro V1",
+     "score": 33.6
+    },
+    {
+     "date": "2025-11-18",
+     "model": "Gemini 3 Pro Preview (high)",
+     "score": 39.7
+    },
+    {
+     "date": "2026-02-05",
+     "model": "GPT-5.3 Codex (xhigh)",
+     "score": 42.5
+    },
+    {
+     "date": "2026-02-19",
+     "model": "Gemini 3.1 Pro Preview",
+     "score": 47.0
+    },
+    {
+     "date": "2026-05-28",
+     "model": "Claude Opus 4.8 (max)",
+     "score": 48.7
+    },
+    {
+     "date": "2026-06-09",
+     "model": "Claude Fable 5 (with fallback)",
+     "score": 55.5
+    },
+    {
+     "date": "2026-09-01",
+     "model": "Claude Fable 5.1 (max with fallback)",
+     "score": 59.1
+    },
+    {
+     "date": "2026-09-22",
+     "model": "Claude Opus 5.5 (max with fallback)",
+     "score": 61.4
+    }
+   ],
+   "context_scores": [
+    {
+     "model": "Claude Opus 5.5 (max with fallback)",
+     "creator": "Anthropic",
+     "release": "2026-09-22",
+     "score": 61.4
+    },
+    {
+     "model": "Claude Fable 5.1 (max with fallback)",
+     "creator": "Anthropic",
+     "release": "2026-09-01",
+     "score": 59.1
+    },
+    {
+     "model": "Claude Fable 5.1 (xhigh with fallback)",
+     "creator": "Anthropic",
+     "release": "2026-09-01",
+     "score": 58.7
+    },
+    {
+     "model": "Claude Opus 5.5 (xhigh with fallback)",
+     "creator": "Anthropic",
+     "release": "2026-09-22",
+     "score": 57.5
+    },
+    {
+     "model": "Gemini 4 Argon (high)",
+     "creator": "Google",
+     "release": "2026-09-30",
+     "score": 57.1,
+     "note": "AA marks it 'Not publicly available'"
+    },
+    {
+     "model": "Claude Fable 5 (with fallback)",
+     "creator": "Anthropic",
+     "release": "2026-06-09",
+     "score": 55.5
+    },
+    {
+     "model": "Claude Sonnet 5.5 (max with fallback)",
+     "creator": "Anthropic",
+     "release": "2026-09-28",
+     "score": 55.0
+    },
+    {
+     "model": "Claude Opus 5 (max)",
+     "creator": "Anthropic",
+     "release": "2026-07-24",
+     "score": 54.9
+    },
+    {
+     "model": "GPT-6 Astra (max)",
+     "creator": "OpenAI",
+     "release": "2026-09-03",
+     "score": 54.7
+    },
+    {
+     "model": "GPT-6.1 Sol (max)",
+     "creator": "OpenAI",
+     "release": "2026-09-29",
+     "score": 52.9
+    },
+    {
+     "model": "Muse Spark 1.3 (max)",
+     "creator": "Meta",
+     "release": "2026-09-02",
+     "score": 48.7
+    },
+    {
+     "model": "Gemini 3.8 Flash (high)",
+     "creator": "Google",
+     "release": "2026-09-02",
+     "score": 47.8
+    },
+    {
+     "model": "Grok 4.7 (xhigh)",
+     "creator": "SpaceXAI",
+     "release": "2026-09-21",
+     "score": 43.1
+    },
+    {
+     "model": "Ling 3.1 Flash",
+     "creator": "InclusionAI",
+     "release": "2026-10-01",
+     "score": 39.4,
+     "note": "only AA-scored model released Oct 1-4, 2026"
+    }
+   ],
+   "source": "Artificial Analysis — Humanity's Last Exam evaluation page and model pages (embedded chart data: HLE score + release date for 652 models), accessed 2026-10-04",
+   "url": "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
+   "access_date": "2026-10-04",
+   "verified": true,
+   "notes": "Rounded from AA's exact values (Opus 5.5 max 0.61353). AA method: 2,158 text-only HLE questions (May 2025 revision, 2,500 total; multimodal excluded), pass@1, LLM equality-checker grading, no tools. Opus 5.5 released 2026-09-22 = Q3 '26 by release quarter; Q4 '26 so far (Oct 1-4) has no new record, so best-to-date stays 61.4 (only Q4 release with an AA score: Ling 3.1 Flash, 2026-10-01, 39.4). 2024 values (2-6%) are at HLE's noise floor; AA notes HLE was adversarially filtered against GPT-4o, Gemini 1.5 Pro, Claude 3.5 Sonnet, o1 etc. and discourages direct comparison for them. In the all-models series small open models (Llama 2 Chat 7B, DeepSeek Coder V2 Lite, Llama 3.2 11B) edge out flagships by <1 pt in 2024 — hence the OpenAI/Anthropic/Google series is recommended; from Q4 '24 on both series are identical. AA numbers differ from Scale/CAIS & Epoch (full 2,500-question multimodal set): GPT-6 Astra 54.7 (AA) vs 54.80 (Scale); Fable 5.1 59.1 max (AA) vs 46.50 xhigh (Scale) — do not mix sources in one series."
   }
  ],
  "facts": [
@@ -2119,6 +2603,42 @@
    "source": "Wikipedia GPT-6; NBC; ARC Prize leaderboard",
    "url": "https://en.wikipedia.org/wiki/GPT-6",
    "date": "2026-09-22"
+  },
+  {
+   "claim": "Claude Opus 5.5 (released Sep 22, 2026) scores 64.4% on Humanity's Last Exam without tools and 67.7% with tools (web search, fetch, code execution), per Anthropic's system card — vendor-run, max effort, averaged over five trials.",
+   "source": "Anthropic, Claude Opus 5.5 System Card, Table 8.1.A and §8.11.1",
+   "url": "https://anthropic.com/claude-opus-5-5-system-card",
+   "date": "2026-09-22"
+  },
+  {
+   "claim": "On Anthropic's own with-tools HLE table: Opus 5.5 67.7%, Claude Fable 5.1 65.6%, Claude Opus 5 63.6%, GPT-6 Astra 57.2%.",
+   "source": "Anthropic, Introducing Claude Opus 5.5",
+   "url": "https://www.anthropic.com/news/claude-opus-5-5",
+   "date": "2026-09-22"
+  },
+  {
+   "claim": "Independently, Artificial Analysis scores Claude Opus 5.5 at 61.4% on HLE's 2,158 text-only questions — the top score on its leaderboard (previous best 59.1%, Claude Fable 5.1); Gemini 4 Argon 57.1%, GPT-6 Astra 54.7%.",
+   "source": "Artificial Analysis HLE leaderboard and 'Claude Opus 5.5 takes the top spot' (Sep 22, 2026)",
+   "url": "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "As of Oct 4, 2026 the official Scale AI/CAIS HLE leaderboard (and Epoch AI's HLE data) still does not list Claude Opus 5.5; its top entry remains GPT 6 Astra at 54.80 ±1.94.",
+   "source": "labs.scale.com HLE leaderboard; Epoch AI benchmark_data.zip hle_external.csv",
+   "url": "https://labs.scale.com/leaderboard/humanitys_last_exam",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "Q4 2026 so far (Oct 1-4): no new frontier model; the only new model with an HLE score found is InclusionAI's open-weights Ling 3.1 Flash (Oct 1) at 39.4% on Artificial Analysis — so the best score to date is unchanged from Q3.",
+   "source": "Artificial Analysis model page; Tech Times AI timeline; Digital Applied October 2026 tracker",
+   "url": "https://artificialanalysis.ai/models/ling-3-1-flash",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "On Artificial Analysis's Humanity's Last Exam (text-only, no tools), the best score rose from 7.0% (o1, Dec 2024) to 61.4% (Claude Opus 5.5, Sep 22, 2026) in under two years.",
+   "source": "Artificial Analysis HLE data (accessed 2026-10-04)",
+   "url": "https://artificialanalysis.ai/evaluations/humanitys-last-exam",
+   "date": "2026-10-04"
   }
  ],
  "not_found": [
@@ -2153,6 +2673,14 @@
   {
    "outline_item": "Headlines explicitly about HLE \"saturation\"",
    "searched": "Only third-party blogs (benchlm.ai etc.) found before search budget ran out; used Scale/CAIS official \"noise ceiling\" note instead."
+  },
+  {
+   "outline_item": "Claude Opus 5.5 on the official Scale AI/CAIS HLE leaderboard or in Epoch AI's hle_external data",
+   "searched": "labs.scale.com/leaderboard/humanitys_last_exam (WebFetch, 2026-10-04: 53 entries, top GPT 6 Astra 54.80; no Opus 5.5); epoch.ai/data/benchmark_data.zip re-downloaded 2026-10-04 (latest Anthropic row: Fable 5.1 xhigh 46.5)"
+  },
+  {
+   "outline_item": "A frontier/flagship model released Oct 1-4, 2026 with an HLE score; vendor HLE for Gemini 4 Argon or GPT-6.1 Sol",
+   "searched": "Digital Applied Oct 2026 tracker, Tech Times AI timeline (updated Oct 3), AA release data (latest: Ling 3.1 Flash Oct 1), DuckDuckGo/WebSearch; Google's Gemini 4 Argon post (Sep 30) has no HLE in page text; openai.com GPT-6.1 Sol page returned 403"
   }
  ]
 }

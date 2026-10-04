@@ -21,8 +21,8 @@ async function crop(src, name, box) {
 }
 
 // Small uppercase label above a visual.
-function label(d, s, text, x, y, w, { color, h = 0.28 } = {}) {
-  return d.text(s, text, { x, y, w, h, fontSize: 10, bold: true, color: color || d.S.steel, charSpacing: 2, valign: 'bottom' });
+function label(d, s, text, x, y, w, { color, h = 0.28, cs = 2 } = {}) {
+  return d.text(s, text, { x, y, w, h, fontSize: 10, bold: true, color: color || d.S.steel, charSpacing: cs, valign: 'bottom' });
 }
 
 // Straight line from (x1,y1) to (x2,y2); arrowhead at the end if `arrow`.
@@ -127,73 +127,85 @@ async function gapSlide(d) {
   return s;
 }
 
-// ---------------------------------------------------------------- 2. MiniMax M3
+// ---------------------------------------------------------------- 2. MiniMax M3.1
+// Per the user's instruction, the community attribution "Space Bunny Alpha" = MiniMax M3.1 is treated as true:
+// Space Bunny's results are shown as M3.1's, with one short on-slide attribution (*) and the full caveat in the notes.
 async function minimaxSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
   s.addText('THE WORLD · OPEN WEIGHTS · 2', { placeholder: 'kicker' });
-  s.addText('MiniMax M3: near-frontier code, open weights', { placeholder: 'title' });
+  s.addText('MiniMax M3.1: already close behind the frontier', { placeholder: 'title' });
 
-  // left: benchmark chart (vendor-reported, frontier as of M3's launch)
-  const ds = DS['minimax-m3-vs-frontier'];
-  const pick = ['MiniMax M3 (open)', 'GPT 5.5', 'Claude Opus 4.7'];
-  const data = pick.map((nm) => {
-    const sr = ds.series.find((x) => x.name === nm);
-    return { name: nm, labels: ds.labels, values: sr.values };
-  });
+  // ---- left: independent coding benchmark (AI Coding Daily), native horizontal bar chart
   const lw = 5.75;
-  const lab1 = label(d, s, 'MINIMAX-REPORTED · % · AT LAUNCH, JUNE 2026', MX, 1.72, lw);
-  // Every bar carries its value, so the value axis and grid are dropped (frees width for the category labels).
-  const ch = d.chart(s, 'bar', data, { x: MX - 0.1, y: 2.02, w: lw + 0.25, h: 2.8 }, {
-    barDir: 'col', chartColors: [HEX.red, LIGHT, HEX.steel], barGapWidthPct: 50,
-    valAxisMinVal: 0, valAxisMaxVal: 100, valAxisHidden: true, valGridLine: { style: 'none' },
-    showValue: true, dataLabelFormatCode: '0.0', dataLabelFontSize: 10, dataLabelPosition: 'outEnd',
-    catAxisLabelFontSize: 11, legendPos: 't', legendFontSize: 12,
+  const ds = DS['aicodingdaily-space-bunny-vs-field'];
+  // Effort suffixes moved to the key line (all High except M3.1 at Max) so every label fits on one line.
+  const rename = { 'Space Bunny (Max)': 'MiniMax M3.1*', 'Opus 5.5 (High)': 'Claude Opus 5.5' };
+  const keep = ['GPT-6.1-Sol (High)', 'Opus 5.5 (High)', 'Space Bunny (Max)', 'Kimi K3 (High)', 'GLM-5.3 (High)', 'DeepSeek-V4.1-Flash (High)'];
+  const idx = keep.map((l) => ds.labels.indexOf(l));
+  if (idx.some((i) => i < 0)) throw new Error('aicodingdaily dataset labels changed');
+  const labels = idx.map((i) => rename[ds.labels[i]] || ds.labels[i].replace(/ \((High|Max)\)$/, ''));
+  const values = idx.map((i) => ds.series[0].values[i]);
+  const colors = keep.map((l) => (l.startsWith('GPT') || l.startsWith('Opus') ? LIGHT : l.startsWith('Space') ? HEX.red : '566173'));
+  const lab1 = label(d, s, 'AI CODING DAILY · SELECTED MODELS · POINTS (MAX 80)', MX, 1.72, lw);
+  const key = d.text(s, [
+    { text: '■ ', options: { color: LIGHT } }, { text: 'US frontier   ', options: { color: d.S.muted } },
+    { text: '■ ', options: { color: HEX.red } }, { text: 'MiniMax M3.1*   ', options: { color: d.S.muted } },
+    { text: '■ ', options: { color: '566173' } }, { text: 'other Chinese models   ', options: { color: d.S.muted } },
+    { text: 'effort: High (M3.1: Max)', options: { color: d.S.steel, italic: true } },
+  ], { x: MX, y: 2.02, w: lw, h: 0.26, fontSize: 11, valign: 'middle' });
+  const ch = d.chart(s, 'bar', [{ name: 'Total points', labels, values }], { x: MX - 0.1, y: 2.3, w: lw + 0.2, h: 1.9 }, {
+    barDir: 'bar', catAxisOrientation: 'maxMin', chartColors: colors, barGapWidthPct: 45, showLegend: false,
+    layout: { x: 0.3, y: 0.02, w: 0.62, h: 0.96 }, // fixed plot area: leaves room for one-line category labels
+    valAxisMinVal: 0, valAxisMaxVal: 80, valAxisHidden: true, valGridLine: { style: 'none' },
+    showValue: true, dataLabelFormatCode: '0.0', dataLabelPosition: 'outEnd', dataLabelFontSize: 11,
+    catAxisLabelFontSize: 11,
   });
+  const take = d.text(s, [
+    { text: '#15 on the board, ~10 points behind #1 GPT-6.1-Sol and #2 Claude Opus 5.5 — ', options: { color: d.S.txt, bold: true } },
+    { text: 'ahead of every other Chinese model on this test.', options: { color: d.S.muted } },
+  ], { x: MX, y: 4.25, w: lw, h: 0.5, fontSize: 14, valign: 'top' });
+  const attr = d.text(s, '* Released anonymously as “Space Bunny Alpha” (OpenRouter/OpenCode, Sep 23). Tokenizer tests tie it to MiniMax; community posts identify it as M3.1. MiniMax has not confirmed.',
+    { x: MX, y: 4.8, w: lw, h: 0.36, fontSize: 10, italic: true, color: d.S.amber, valign: 'top' });
 
-  // left bottom: the point
-  const by = 5.15, bh = 1.3;
+  // ---- left bottom: the point
+  const by = 5.35, bh = 1.12;
   const band = [];
   band.push(d.card(s, { x: MX, y: by, w: lw, h: bh }, { color: '1A1012', line: '4A1F22' }));
   band.push(d.rect(s, { x: MX, y: by, w: 0.08, h: bh, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 } }));
   band.push(d.text(s, [
     { text: 'Once weights are released, every safeguard is optional.', options: { bold: true, color: d.S.txt, fontSize: 16, breakLine: true, paraSpaceAfter: 5 } },
-    { text: 'Anyone with the hardware can run M3 offline, fine-tune it — or strip out its safety training.', options: { color: d.S.muted, fontSize: 14 } },
-  ], { x: MX + 0.3, y: by + 0.16, w: lw - 0.45, h: bh - 0.32, valign: 'middle' }));
+    { text: 'MiniMax has released weights for every main LLM since Jan 2025 (M3’s within two weeks). M3.1’s are not out yet.', options: { color: d.S.muted, fontSize: 14 } },
+  ], { x: MX + 0.3, y: by + 0.1, w: lw - 0.45, h: bh - 0.2, valign: 'middle' }));
 
-  // right: two one-shot browser games, larger, each with a label
-  const gx = 6.75, fw = 3.6, fh = 2.07;
-  const lab2 = label(d, s, 'BROWSER GAMES MINIMAX M3 BUILT IN ONE SHOT', gx, 1.72, 12.73 - gx);
-  const games = [
-    { f: 'goldiebench-minimax-m3-racing.png', t: 'Neon Velocity', desc: '59 KB third-person arcade racer: laps, timer, minimap, boost' },
-    { f: 'goldiebench-minimax-m3-dragonrealm.png', t: 'The Dragon Realm', desc: '34 KB frozen open world: snowy mountains, a flying dragon, a full HUD' },
-  ];
-  const shots = [];
-  const tx = gx + fw + 0.25, tw = 12.73 - tx;
-  for (let i = 0; i < games.length; i++) {
-    const y = 2.06 + i * (fh + 0.22);
-    const fr = await d.frame(s, R(games[i].f), { x: gx, y, w: fw, h: fh }, { rot: 0, pad: 0.05 });
-    const txt = d.text(s, [
-      { text: games[i].t, options: { bold: true, color: d.S.txt, fontSize: 16, breakLine: true } },
-      { text: '9.0 / 10', options: { bold: true, color: d.S.red, fontSize: 20, fontFace: 'Arial', breakLine: true } },
-      { text: games[i].desc, options: { color: d.S.muted, fontSize: 12 } },
-    ], { x: tx, y: y + 0.05, w: tw, h: fh - 0.1, valign: 'top', paraSpaceAfter: 4 });
-    shots.push([...fr, txt]);
-  }
-  const cap = d.text(s, 'Goldie Bench: 47 one-shot builds, average 7.97 / 10', { x: tx, y: 2.06 + 2 * fh + 0.22 - 0.42, w: tw, h: 0.4, fontSize: 10, color: d.S.steel, italic: true, valign: 'bottom' });
+  // ---- right: the launch, the usage, a demo
+  const gx = 6.75, rw = 12.73 - gx;
+  const bw = 2.72, bhA = 1.55, cx = gx + bw + 0.26, cw = 12.73 - cx;
+  const lab2 = label(d, s, 'MINIMAX’S LAUNCH · SEP 27', gx, 1.72, bw);
+  const ban = await d.frame(s, R('x-minimax-m31-flash-preview-announce.jpg'), { x: gx, y: 2.02, w: bw, h: bhA }, { rot: 0, pad: 0.05 });
+  const lab3 = label(d, s, '#1 ON OPENROUTER · TO OCT 3 · FREE', cx, 1.72, cw, { cs: 1 }); // tighter spacing keeps it on one line
+  const orc = await crop('openrouter-rankings-space-bunny-1st.png', 'openrouter-rankings-top2.png', { left: 0, top: 0, width: 960, height: 460 });
+  const orf = await d.frame(s, orc, { x: cx, y: 2.02, w: cw, h: bhA }, { rot: 0, pad: 0.05 });
 
-  d.animate(s, [lab1], { auto: true });
-  d.animate(s, [ch], { auto: true, effect: 'wipeDown', dur: 1000, delay: 0 });
-  d.animate(s, [lab2], { effect: 'fade' });
-  shots.forEach((sh, i) => d.animate(s, sh, { auto: true, effect: 'rise', dur: 450, delay: i ? 120 : 0 }));
-  d.animate(s, [cap], { auto: true, effect: 'fade', delay: 100 });
+  const lab4 = label(d, s, 'BUILT WITH M3.1* · A USER’S 3D FREIGHT-CONTROL APP', gx, 3.84, rw);
+  const ear = await crop('x-veee-space-bunny-earthside-app.jpg', 'earthside-app-top.jpg', { left: 0, top: 0, width: 2655, height: 958 });
+  const earf = await d.frame(s, ear, { x: gx, y: 4.14, w: rw, h: 2.3 }, { rot: 0, pad: 0.05 });
+
+  d.animate(s, [lab1, key], { auto: true });
+  d.animate(s, [ch], { auto: true, effect: 'wipeLeft', dur: 1000, delay: 0 });
+  d.animate(s, [take, attr], { auto: true, effect: 'fade', delay: 100 });
+  d.animate(s, [lab2, ...ban], { effect: 'rise', dur: 450 });
+  d.animate(s, [lab3, ...orf], { auto: true, effect: 'rise', dur: 450, delay: 150 });
+  d.animate(s, [lab4, ...earf], { effect: 'rise', dur: 500 });
   d.animate(s, band, { effect: 'fade' });
-  d.source(s, 'Sources: MiniMax-M3 model card, Hugging Face (June 2026; scores reported by MiniMax) · Goldie Bench, goldiebench.com/models/minimax (game screenshots).');
+  d.source(s, 'Sources: AI Coding Daily (Sep 30, 2026) · OpenRouter rankings (to Oct 3) · MiniMax on X (Sep 27) · @vikktorrrre on X · Hugging Face (MiniMaxAI) · Attribution: @cheatyyyy, @MarMarLabs on X (Sep 23).');
   s.addNotes([
-    'MESSAGE: A Chinese lab released a model that is close to the frontier at coding, with the weights free to download.',
-    'MiniMax M3 (open weights, MiniMax Community License): ~428B total / ~23B active parameters, 1M-token context, released June 2026. Benchmarks from MiniMax\'s own model-card figure (vendor-reported; some run on MiniMax\'s own harness; compared with the frontier models at M3\'s June 2026 launch, not with the later frontier models shown elsewhere in this deck): SWE-Bench Verified 80.5 (GPT 5.5 82.9, Claude Opus 4.7 87.6); SWE-Bench Pro 59.0 (GPT 5.5 58.6, Opus 4.7 64.3); Terminal Bench 2.1 66.0 (GPT 5.5 78.2, Opus 4.7 66.1); BrowseComp 83.5 (GPT 5.5 84.4, Opus 4.7 79.3). https://huggingface.co/MiniMaxAI/MiniMax-M3',
-    'Games: title screens of browser games M3 generated in one shot, captured by Goldie Bench — Neon Velocity ("59KB third-person arcade racer") and The Dragon Realm ("34KB frozen open world — snowy mountains, pines, flying dragon, full HUD"), each 9.0/10; Twilight Vale and Nordic Crypt also scored 9.0; 47 builds averaged 7.97/10. https://goldiebench.com/models/minimax',
-    'Hardware caveat: M3 is ~428B parameters (~23B active); even heavily quantised, the weights alone need hundreds of GB of memory (a multi-GPU server or a large-memory workstation). Hence "anyone with the hardware": a real bar, but far lower than training such a model.',
-    'If asked about "MiniMax 3.1 Flash": the real name is MiniMax M3.1-Flash-Preview, launched 27 Sep 2026 (DataNorth AI, https://datanorth.ai/news/minimax-releases-m3-1-flash-preview). It is NOT open weights — it runs only inside the MiniMax Code tool — and MiniMax has published no official benchmarks. A "73.8% SWE-bench" number circulating online is unverified; do not cite it. An independent tester (elma.sh) scored it 66.25% on KingBench 3 vs 31.25% for M3.',
+    'MESSAGE: China\'s next model is already close behind the newest US frontier models — and its maker has released the weights of every main LLM it has launched since January 2025. This is the open-weights pipeline from the last slide, happening in real time.',
+    'WHAT IS OFFICIAL: MiniMax launched "M3.1-Flash-Preview" on 27 Sep 2026 inside its MiniMax Code app and Token Plan subscription ("MiniMax\'s latest text model, M3.1-Flash-Preview, debuts today on MiniMax Code"; launch graphic on the slide). https://x.com/MiniMaxAgent/status/2104079819881517400 and https://x.com/MiniMax_AI/status/2104256406786547800 . As of 4 Oct 2026 there is no model card, no official benchmark, no per-token price, no OpenRouter ID and no Hugging Face weights; no full (non-Flash) M3.1 has been announced, and MiniMax\'s site still lists M3 as its newest LLM. Startup Fortune: "MiniMax slips a new coding model into its agent tool without a price tag" https://startupfortune.com/minimax-slips-a-new-coding-model-into-its-agent-tool-without-a-price-tag/',
+    'ATTRIBUTION CAVEAT (say it if asked — the slide marks it with *): the benchmark, the usage figures and the demo were all measured on "Space Bunny Alpha", an anonymous ("stealth") model on OpenRouter since 23 Sep 2026, 14:48 UTC (stealth/space-bunny-alpha: free, 1M-token context, up to 524,288 output tokens, text/image/video input, reasoning always on with low/medium/high/xhigh/max effort; "Going away October 5, 2026"). https://openrouter.ai/stealth/space-bunny-alpha . We present it as MiniMax M3.1 on the strength of community evidence, NOT a confirmation: (1) tokenizer fingerprints — @cheatyyyy: "most certainly MiniMax M3.1 … the text tokenizer perfectly matches that of the MiniMax M3" (https://x.com/cheatyyyy/status/2102781392199565683); MarMar Labs: 36/36 comparisons match, but "M2.7 matched too", i.e. this proves the MiniMax family, not the exact version (https://x.com/MarMarLabs/status/2102804031819387032); Qwen, GLM, DeepSeek and Llama tokenizers did not match. (2) MiniMax\'s own public config lists M3.1-Flash-Preview with 512K/1M context, reasoning forced on and the same effort levels as Space Bunny (https://agent.minimax.io/minimax-cloud/api/v1/config). (3) Asked in Chinese, its reasoning said "we are an AI assistant made by MiniMax" (https://x.com/AiBattle_/status/2102775779054502289) — weak: in another test it claimed to be OpenAI\'s GPT-5. (4) A LuminaBench log shows provider "minimax-m3-a-official" returning model "space-bunny" (https://x.com/vikktorrrre/status/2103828326179557726) — cannot be checked from outside. Neither MiniMax nor OpenRouter has confirmed; no mainstream outlet has covered it. Best timeline: CellCog, https://cellcog.ai/blog/what-is-space-bunny-alpha/ ; The Neuron, "Who Made Space Bunny? A MiniMax Clue Sharpens the Mystery", https://www.theneuron.ai/blog/who-made-space-bunny-minimax-clue/ .',
+    'BENCHMARK (independent): AI Coding Daily (Povilas Korop) — 7 real coding projects, max 80 points. Space Bunny (Max effort, run via OpenCode on 30 Sep 2026): 57.19, rank #15. GPT-6.1-Sol (High) 68.1 (#1); Claude Opus 5.5 (High) 67.41 (#2); Kimi K3 (High) 56.89 (#17); GLM-5.3 (High) 54.82 (#21); DeepSeek-V4.1-Flash (High) 54.35 (#22). The chart shows selected models only: 12 leaderboard entries (some are the same model at other effort levels, e.g. #3 GPT-6.1-Sol (Medium) 67.09) sit between Opus 5.5 and Space Bunny, the nearest being #14 GPT-6-Luna (Max) 59.07 — the take line under the chart states the #15 rank so the adjacent bars are not read as "third place". It is the highest-ranked Chinese model on the board. Weak spot: bug-finding 4.58/20. https://aicodingdaily.com/model/space-bunny and https://aicodingdaily.com/leaderboard . Mixed signal: AI BENCHY gives Space Bunny (xhigh) only 6.2/10, rank #229 (https://aibenchy.com/model/stealth-space-bunny-alpha-xhigh/). Not on LMArena, Design Arena, Yupp or Artificial Analysis. MiniMax M3 (High) scored 40.35 (#40) on AI Coding Daily in June, but probably on an older project set — do NOT claim a "+17-point jump". A direct (non-rumor) M3.1 test: elma.sh scored M3.1-Flash-Preview 66.25% on KingBench 3 vs 31.25% for M3 (https://elma.sh/blog/minimax-m3-1-flash-review). A "73.8% SWE-bench" figure circulating online is unverified — do not cite.',
+    'USAGE: OpenRouter rankings, week through 3 Oct 2026: Space Bunny Alpha #1 with 35.9T tokens (+264%), ahead of DeepSeek V4.1 Flash 25.6T (https://openrouter.ai/rankings). OpenCode: #1 with 57T tokens last week; since launch 90T tokens, 425K users, 31.3M completed sessions (https://stats.opencode.ai/data/unknown/space-bunny). Caveat: it costs $0 during the stealth test, which inflates usage.',
+    'DEMO: "Earthside Freight Control", a 3D-globe shipping dashboard built with Space Bunny by X user @vikktorrrre (frame from his own video, cropped; the app runs on demo/sample data; number of prompts not stated). https://x.com/vikktorrrre/status/2103411231771988024',
+    'OPEN WEIGHTS — the point: MiniMax has published weights for every main LLM from Jan 2025 until M3.1: Text-01, M1 (Apache-2.0), M2, M2.1, M2.5 (modified MIT), M2.7 and M3 (MiniMax Community License). Recent lag from API to Hugging Face: M2.7 18 Mar → 9 Apr 2026; M3 31 May → first public commit 12 Jun 2026 (Artificial Analysis, 8 Jun: "Leading open weights model, once the weights are released"). https://huggingface.co/MiniMaxAI . M3.1 is NOT open-weight as of 4 Oct 2026 — say "not yet", not "open". A rumored full-M3.1 drop on 30 Sep (with an "Open Source SOTA" claim by an X poster) did not happen. The open-weight baseline today is M3 (~428B total / ~23B active parameters, 1M context; vendor-reported SWE-Bench Verified 80.5): https://huggingface.co/MiniMaxAI/MiniMax-M3 . Once a model\'s weights are out, anyone with the hardware (for M3: hundreds of GB of memory) can run it offline, fine-tune it, or strip its safety training — the abliteration slide shows how.',
     'Bridge: next slide — part of how the gap closes is copying.',
   ].join('\n\n'));
   return s;
@@ -213,7 +225,7 @@ async function distillSlide(d) {
   const st3l = d.text(s, [
     { text: 'DeepSeek, Moonshot and ', options: { color: d.S.muted } },
     { text: 'MiniMax', options: { color: d.S.txt, bold: true } },
-    { text: ' — the maker of M3', options: { color: d.S.muted } },
+    { text: ' — the maker of M3.1', options: { color: d.S.muted } },
   ], { x: MX, y: 5.64, w: 3.4, h: 0.6, fontSize: 14, valign: 'top' });
 
   // right: clippings
@@ -233,7 +245,7 @@ async function distillSlide(d) {
   d.animate(s, [st3v, st3l], { effect: 'zoom' });
   d.source(s, 'Sources: Anthropic, “Detecting and preventing distillation attacks” (Feb 23, 2026) · TechCrunch (Feb 23, 2026) · Reuters via Yahoo Finance (Feb 12, 2026) · Decrypt (Apr 23, 2026).');
   s.addNotes([
-    'MESSAGE: US labs and the US government allege that part of how the open frontier keeps up is distillation — training on the outputs of US frontier models. And MiniMax, whose open model we just saw, is one of the labs Anthropic named. Say "allege": these are accusations, not findings.',
+    'MESSAGE: US labs and the US government allege that part of how the open frontier keeps up is distillation — training on the outputs of US frontier models. And MiniMax, whose M3.1 we just saw (and whose earlier models are open-weight), is one of the labs Anthropic named. Say "allege": these are accusations, not findings.',
     'Anthropic (23 Feb 2026): "We have identified industrial-scale campaigns by three AI laboratories—DeepSeek, Moonshot, and MiniMax—to illicitly extract Claude\'s capabilities to improve their own models. These labs generated over 16 million exchanges with Claude through approximately 24,000 fraudulent accounts, in violation of our terms of service and regional access restrictions." Also: "The window to act is narrow." https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks',
     'TechCrunch, Rebecca Bellan (23 Feb 2026): "Anthropic accuses Chinese AI labs of mining Claude as US debates AI chip exports." https://techcrunch.com/2026/02/23/anthropic-accuses-chinese-ai-labs-of-mining-claude-as-us-debates-ai-chip-exports/',
     'Reuters via Yahoo Finance (12 Feb 2026): "OpenAI says China\'s DeepSeek trained its AI by distilling US models, memo shows" — OpenAI\'s memo to the House Select Committee on China cited "ongoing efforts to free-ride on the capabilities developed by OpenAI and other U.S. frontier labs." https://finance.yahoo.com/news/openai-accuses-deepseek-distilling-us-221629899.html',

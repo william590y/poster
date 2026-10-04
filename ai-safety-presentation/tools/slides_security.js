@@ -229,6 +229,88 @@ async function cyberMythos(d) {
 }
 
 // =====================================================================
+// 2b. Interlude — "Ignore Previous Instructions" (prompt-injection pop song; embedded YouTube)
+// Same pattern as the capabilities interlude ("i'm upping my p(doom)"): big embed with the video's own thumbnail as the
+// cover (+ a play button), clickable citation in the source slot, honest side cards revealed after the video plays.
+// =====================================================================
+async function cyberInterlude(d) {
+  const s = d.slide('Content', { transition: 'fadeBlack' });
+  s.addText(`${KICK} · CYBERSECURITY · INTERLUDE`, { placeholder: 'kicker' });
+  s.addText('“Ignore Previous Instructions”', { placeholder: 'title' });
+
+  const vid = item('intermission-video');          // verified: title, channel, date, URL
+  item('intermission-video-thumb');                // verified: official maxres thumbnail (1280×720)
+  item('intermission-yt-description');             // verified: "Every frame is code." + made-with credits + metrics
+  item('intermission-creator-linkedin-text');      // verified: 128 agents / 15 h / ~42M tokens; "Claude blocked and flagged it"
+  const ID = '4Q-o_ylnVnc';
+  const link = vid.url;                            // https://www.youtube.com/watch?v=4Q-o_ylnVnc
+
+  // Cover: the video's own maxres thumbnail with a play button added so it reads as a video.
+  fs.mkdirSync(OUT, { recursive: true });
+  const cover = path.join(OUT, 'interlude-cover.jpg');
+  const play = '<svg width="1280" height="720"><circle cx="640" cy="360" r="70" fill="#0A0C10" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="5"/>'
+    + '<polygon points="616,322 616,398 682,360" fill="#FFFFFF"/></svg>';
+  await sharp(R('rev2/intermission-thumb-maxres.jpg')).resize(1280, 720, { fit: 'cover' })
+    .composite([{ input: Buffer.from(play) }]).jpeg({ quality: 92 }).toFile(cover);
+  const vw = 7.6;
+  const v = await d.video(s, { link, embed: `https://www.youtube.com/embed/${ID}`, cover, box: { x: MX, y: 1.8, w: vw, h: vw * 9 / 16 } });
+  const vg = v.geom;
+
+  // Clickable citation in the source-line slot (+ where the card text comes from).
+  const cap = d.text(s, [
+    { text: '►  ', options: { color: d.S.red, bold: true } },
+    { text: '“Claude Opus 5.5 Music Video - Ignore Previous Instructions” — Seguramente · YouTube · Sep 29, 2026 · 3:02', options: { color: d.S.muted, hyperlink: { url: link } } },
+    { text: '     Cards: the video’s description and the creator’s LinkedIn post (Oct 1)', options: { color: d.S.steel, italic: true, fontSize: 10 } },
+  ], { x: MX, y: 6.62, w: W - 2 * MX, h: 0.32, fontSize: 11, valign: 'bottom' });
+
+  // Side cards, revealed after the video has played.
+  const rx = vg.x + vg.w + 0.4, rw = W - MX - rx;
+  const aH = 1.98, gap = 0.2;
+  const cardA = d.card(s, { x: rx, y: vg.y, w: rw, h: aH });
+  const who = d.text(s, [
+    { text: 'WHO MADE IT · WHAT IT’S ABOUT', options: { fontSize: 11, bold: true, color: d.S.red, charSpacing: 3, breakLine: true, paraSpaceAfter: 6 } },
+    { text: 'Seguramente', options: { fontSize: 20, bold: true, color: d.S.txt, breakLine: true } },
+    { text: 'Annybell Villarroel’s online-safety channel', options: { fontSize: 12, color: d.S.muted, breakLine: true, paraSpaceAfter: 8 } },
+    { text: 'A K-pop song about ', options: { fontSize: 14, color: d.S.txt } },
+    { text: 'prompt injection', options: { fontSize: 14, bold: true, color: d.S.amber } },
+    { text: ': text planted in what an AI agent reads, so it obeys the attacker instead of you.', options: { fontSize: 14, color: d.S.txt } },
+  ], { x: rx + 0.22, y: vg.y + 0.16, w: rw - 0.44, h: aH - 0.3, valign: 'top' });
+
+  const by = vg.y + aH + gap, bH = vg.y + vg.h - by;
+  const cardB = d.card(s, { x: rx, y: by, w: rw, h: bH });
+  const howL = d.text(s, [
+    { text: 'HOW IT WAS MADE', options: { color: d.S.red } },
+    { text: ' · CREATOR-REPORTED', options: { color: d.S.amber } },
+  ], { x: rx + 0.22, y: by + 0.14, w: rw - 0.44, h: 0.26, fontSize: 11, bold: true, charSpacing: 3, valign: 'top' });
+  const stats = [['128', 'Opus 5.5 agents'], ['15 h', 'of agent work'], ['42M+', 'tokens']];
+  const colW = (rw - 0.44) / 3;
+  const statNames = stats.flatMap(([val, lab], i) => [
+    d.text(s, val, { x: rx + 0.22 + i * colW, y: by + 0.44, w: colW, h: 0.46, fontSize: 26, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' }),
+    d.text(s, lab, { x: rx + 0.22 + i * colW, y: by + 0.92, w: colW - 0.05, h: 0.24, fontSize: 11, color: d.S.muted, valign: 'top' }),
+  ]);
+  const how = d.text(s, [
+    { text: '“Every frame is code.” ', options: { italic: true, bold: true, color: d.S.txt, fontFace: 'Cambria' } },
+    { text: 'Claude Opus 5.5 in Claude Code did the animation, editing and timing; the song is from Suno.', options: { color: d.S.muted } },
+  ], { x: rx + 0.22, y: by + 1.26, w: rw - 0.44, h: bH - 1.36, fontSize: 13, valign: 'top' });
+
+  d.animate(s, [v[0]], { auto: true, effect: 'fade', dur: 1200 });
+  d.animate(s, [cap], { auto: true, effect: 'fade', dur: 600, after: 100 });
+  d.animate(s, [cardA, who], { effect: 'fade', dur: 600 });
+  d.animate(s, [cardB, howL, ...statNames, how], { auto: true, effect: 'rise', after: 250 });
+  s.addNotes([
+    'A breather before the Hugging Face story. Play it (3:02) — no explanation beforehand. Cover = the video’s own YouTube thumbnail (maxresdefault) with a play button added. If the embed does not play (offline / no YouTube access), click the ► link in the source line.',
+    'Fun detail to point out, from the creator: there is one hidden white-on-white line in the video — "an easter egg for humans that Claude Opus 5.5 decided to write for you." The first viewer to find it put it at 2:08, and the creator confirmed ("First person to find it!! Congrats :D"). We could not retrieve the text of that line, so do not quote it. White-on-white text is exactly the kind of trick real prompt injections use.',
+    'AFTER IT ENDS, click to reveal the cards. WHO: Seguramente (@CyberWithAnny), the online-safety channel of Annybell Villarroel. Channel blurb: "I\'m Annybell Villarroel, and Seguramente is online safety without the lectures." (877 subscribers on Oct 4, 2026.) https://www.youtube.com/@CyberWithAnny',
+    'WHAT IT IS ABOUT — from the video description, verbatim: "The song is about prompt injection attacks. A prompt injection is text planted in the content an AI agent reads, written to make it follow the attacker\'s instructions instead of yours. How bad it gets depends on what the agent can access and do." And: "The lesson is in the bridge of the song: least privilege, human in the loop and not letting agents use or have access to sensitive details that they shouldn\'t ever be able to lose."',
+    'HOW IT WAS MADE — all creator-reported, not independently verified. Description: "Every frame is code." Made with: "Song: suno / Animation, editing & timing: Claude Opus 5.5 in Claude Code / Timing map & sound effects: ElevenLabs / Character references: Higgsfield". Metrics: "15h of active agent work, 128 agents with up to 8 working in parallel. 38 hours of human time due to usage limit hits. 42M+ tokens. 23,500 lines of code" (+ 167 ElevenLabs sound effects). Her LinkedIn post (Oct 1, 2026) repeats "128 Claude Opus 5.5 agents … 15 hours of agent work, ~42M tokens, one weekend of mine" and: "Past music videos took weeks and a significant amount of budget. This one took me a weekend." https://www.linkedin.com/posts/annyv2_this-weekend-i-tested-an-idea-could-claude-activity-7511478234828611584-iztT',
+    'THE SAFETY ANGLE (say it): she set out to make "a K-pop music video about prompt injection that also contains a hidden prompt injection? An inception attack". Result: "I couldn\'t get a hidden prompt injection into the video. Claude blocked and flagged it." One research agent "even ran into an actual prompt injection during its research", and a verification agent audited the final video for hidden injections ("no white-on-white text, no whispered audio, no noise, no single-frame hidden images"). This is the creator\'s account.',
+    'CAVEATS: (1) Nothing says who wrote the lyrics. The credit is only "Song: suno", so do NOT say Claude wrote the lyrics. (2) The metrics and the account of the agents come only from the creator. We found no outside coverage (web and Hacker News searches found none; Reddit and X search could not be reached). (3) Counts as of Oct 4, 2026: 21,625 views, 450 likes, 86 comments. (4) Uploaded Sep 29, 2026, seven days after Anthropic released Claude Opus 5.5 (Sep 22, 2026: https://www.anthropic.com/news/claude-opus-5-5). (5) This is a different video from the p(doom) interlude in the capabilities section and from the "We found other agents" song later in this section.',
+    'Video: "Claude Opus 5.5 Music Video - Ignore Previous Instructions" — Seguramente, YouTube, 3:02. ' + link,
+  ].join('\n\n'));
+  return s;
+}
+
+// =====================================================================
 // 3. Hugging Face hack — headlines + key facts
 // =====================================================================
 async function hfOverview(d) {
@@ -1524,6 +1606,7 @@ async function freqTrackers(d) {
 async function build(d) {
   await cyberCves(d);
   await cyberMythos(d);
+  await cyberInterlude(d);
   await hfOverview(d);
   await hfDiagram(d);
   await hfSwarm(d);

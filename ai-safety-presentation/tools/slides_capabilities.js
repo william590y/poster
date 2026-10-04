@@ -1038,8 +1038,8 @@ async function takSlide(d) {
   const cy = y0 + gh + 0.42;
   const caveat = d.text(s, [
     { text: 'Why “5.5”? ', options: { bold: true, color: 'FFD166' } },
-    { text: 'Four hours earlier he posted “I am getting routed to Fable 5.5” — under a Claude Code header reading “Fable 5.1”. ', options: { color: d.S.txt } },
-    { text: 'The “Fable 5.5 画” and “ED. 55” painted into the clip are generated art, not evidence.', options: { color: d.S.muted } },
+    { text: 'About four hours earlier he posted “I am getting routed to Fable 5.5” — under a Claude Code header reading “Fable 5.1”. ', options: { color: d.S.txt } },
+    { text: 'The “Fable 5.5” signature and “ED. 55” painted into the clip are generated art, not evidence.', options: { color: d.S.muted } },
   ], { x: MX, y: cy, w: gw, h: 6.52 - cy, fontSize: 14, valign: 'top' });
 
   // ---- right, top: the post itself (real screenshot, cropped to author + text; the counts go in the tab)

@@ -3,4 +3,3 @@ build/
 # research folders: only manifests + files the deck uses are committed (see tools/collect_assets.sh)
 assets/research/*
 !assets/research/ttt_session/
-AI_Safety_and_Existential_Risk.pptx

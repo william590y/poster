@@ -69,7 +69,7 @@ function sectionSlide(d, { num, title, body, notes }) {
 
 async function orthogonalitySlide(d) {
   const s = d.slide('Content');
-  s.addText('THEORY · 1', { placeholder: 'kicker' });
+  s.addText('THE ALIGNMENT PROBLEM · THEORY 1', { placeholder: 'kicker' });
   s.addText('The orthogonality thesis', { placeholder: 'title' });
   // quote
   const q = d.text(s, [
@@ -124,7 +124,7 @@ async function orthogonalitySlide(d) {
 
 async function convergenceSlide(d) {
   const s = d.slide('Content');
-  s.addText('THEORY · 2', { placeholder: 'kicker' });
+  s.addText('THE ALIGNMENT PROBLEM · THEORY 2', { placeholder: 'kicker' });
   s.addText('Instrumental convergence: the basic AI drives', { placeholder: 'title' });
   const cx = W / 2, cy = 3.95;
   // hub
@@ -173,15 +173,15 @@ async function convergenceSlide(d) {
 
 async function explosionSlide(d) {
   const s = d.slide('Content');
-  s.addText('THEORY · 3', { placeholder: 'kicker' });
+  s.addText('INSIDE THE MACHINE · RECURSIVE SELF-IMPROVEMENT', { placeholder: 'kicker' });
   s.addText('The intelligence explosion', { placeholder: 'title' });
   const q = d.text(s, [
     { text: '“', options: { fontSize: 54, color: d.S.red, bold: true, fontFace: 'Cambria', breakLine: true } },
     { text: 'An ultraintelligent machine could design even better machines; there would then unquestionably be an ‘intelligence explosion,’ and the intelligence of man would be left far behind. Thus the first ultraintelligent machine is the last invention that man need ever make, provided that the machine is docile enough to tell us how to keep it under control.', options: { fontSize: 17, color: d.S.txt, italic: true, fontFace: 'Cambria', breakLine: true } },
     { text: '— I. J. Good, 1965', options: { fontSize: 12, color: d.S.muted } },
-  ], { x: MX, y: 1.65, w: 6.1, h: 4.6, valign: 'top' });
+  ], { x: MX, y: 1.65, w: 5.5, h: 4.75, valign: 'top' });
   // loop diagram
-  const cx = 9.85, cy = 4.0, r = 1.75;
+  const cx = 9.7, cy = 4.0, r = 1.5;
   const steps = [['FaRobot', 'AI does AI research'], ['FaMicrochip', 'Better AI'], ['FaBolt', 'Faster research'], ['FaRedoAlt', 'Even better AI']];
   const g = [];
   const ring = d.name('ring');
@@ -197,10 +197,12 @@ async function explosionSlide(d) {
     const im = d.name('nimg');
     s.addImage({ data: await icon(steps[i][0], '#FF6B6B'), x: nx - 0.2, y: ny - 0.2, w: 0.4, h: 0.4, objectName: im });
     nn.push(im);
-    const lw = 1.9;
-    const lx = nx - lw / 2;
-    const ly = Math.sin(a) < -0.5 ? ny - 0.85 : ny + 0.47;
-    nn.push(d.text(s, steps[i][1], { x: lx, y: ly, w: lw, h: 0.38, fontSize: 14, bold: true, color: d.S.txt, align: 'center', valign: 'middle' }));
+    // labels sit outside the ring: above/below for top/bottom nodes, beside for left/right nodes
+    const side = Math.cos(a) > 0.5 ? 'right' : Math.cos(a) < -0.5 ? 'left' : 'center';
+    const lw = side === 'center' ? 1.9 : side === 'left' ? 1.5 : 1.05;
+    const lx = side === 'center' ? nx - lw / 2 : side === 'left' ? nx - 0.5 - lw : nx + 0.5;
+    const ly = side === 'center' ? (Math.sin(a) < 0 ? ny - 0.85 : ny + 0.47) : ny - 0.19;
+    nn.push(d.text(s, steps[i][1], { x: lx, y: ly, w: lw, h: 0.38, fontSize: 14, bold: true, color: d.S.txt, align: side === 'center' ? 'center' : side === 'left' ? 'right' : 'left', valign: 'middle' }));
     nodes.push(nn);
   }
   const center = d.text(s, [{ text: '×', options: { fontSize: 40, bold: true, color: d.S.red, breakLine: true } }, { text: 'each lap faster', options: { fontSize: 12, color: d.S.muted } }], { x: cx - 1, y: cy - 0.6, w: 2, h: 1.2, align: 'center', valign: 'middle' });

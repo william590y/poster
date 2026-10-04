@@ -116,11 +116,11 @@ class Deck {
   }
   name(prefix) { this.uid += 1; return `${prefix}_${this.uid}`; }
   // Register an animation group on slide `s`. names: array of objectNames, or array of {name, effect, delay, dur}
-  animate(s, names, { auto = false, effect = 'fade', stagger = 0, delay = 0, dur = 500 } = {}) {
+  animate(s, names, { auto = false, effect = 'fade', stagger = 0, delay = 0, dur = 500, after = 0 } = {}) {
     const effects = names.map((n, i) => (typeof n === 'string'
       ? { name: n, effect, delay: delay + i * stagger, dur }
       : { effect, dur, delay: delay + i * stagger, ...n }));
-    this.anim[s._num].groups.push({ auto, effects });
+    this.anim[s._num].groups.push({ auto, effects, after });
   }
   setTransition(s, t) { this.anim[s._num].transition = t; }
 
@@ -240,7 +240,7 @@ class Deck {
     }
     if (label) {
       names.push(this.text(s, [
-        { text: '▶  ', options: { color: this.S.red, bold: true } },
+        { text: '►  ', options: { color: this.S.red, bold: true } },
         { text: label, options: { color: this.S.muted, hyperlink: { url: link } } },
       ], { x: g.x, y: g.y + g.h + 0.08, w: g.w, h: 0.3, fontSize: 11 }));
     }

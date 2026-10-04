@@ -246,15 +246,15 @@ async function metrSlide(d) {
   const bar = d.name('bar');
   s.addShape(d.pres.shapes.RECTANGLE, { x: rx, y: ry, w: rw, h: 0.42, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 }, objectName: bar });
   const barT = d.text(s, 'WHY THE GRAPH ENDS', { x: rx + 0.2, y: ry, w: rw - 0.4, h: 0.42, fontSize: 13, bold: true, color: 'FFFFFF', charSpacing: 3, valign: 'middle' });
+  // (METR's May 8 X post is shown in full on the next slide, so it is not quoted here)
   const Q = (q, who) => [
-    { text: q, options: { fontFace: 'Cambria', italic: true, fontSize: 15.5, color: d.S.txt, breakLine: true, paraSpaceAfter: 2 } },
-    { text: who, options: { fontSize: 10.5, color: d.S.muted, breakLine: true, paraSpaceAfter: 10 } },
+    { text: q, options: { fontFace: 'Cambria', italic: true, fontSize: 17, color: d.S.txt, breakLine: true, paraSpaceAfter: 3 } },
+    { text: who, options: { fontSize: 10.5, color: d.S.muted, breakLine: true, paraSpaceAfter: 16 } },
   ];
   const quotes = d.text(s, [
-    { text: 'METR, in its own words:', options: { fontSize: 11, bold: true, color: 'FF8A8C', charSpacing: 1, breakLine: true, paraSpaceAfter: 8 } },
-    ...Q('“…at the upper end of what we can measure without new tasks.”', 'on Claude Mythos Preview · X, May 8, 2026'),
-    ...Q('“…it is infeasible to precisely measure time horizons in this range.”', 'on tasks above 16 h · Frontier Risk Report, May 19'),
+    { text: 'METR, in its own words:', options: { fontSize: 11, bold: true, color: 'FF8A8C', charSpacing: 1, breakLine: true, paraSpaceAfter: 10 } },
     ...Q('“The most capable agents we evaluated essentially saturated our Time Horizon 1.1 benchmark…”', 'Frontier Risk Report, May 19, 2026'),
+    ...Q('“…it is infeasible to precisely measure time horizons in this range.”', 'on tasks above 16 h · same report'),
   ], { x: rx + 0.22, y: ry + 0.56, w: rw - 0.42, h: rh - 1.3, valign: 'top' });
   const foot = d.text(s, 'METR’s chart has not been updated since May 8, 2026.', { x: rx + 0.22, y: ry + rh - 0.66, w: rw - 0.42, h: 0.52, fontSize: 12.5, bold: true, color: d.S.red, valign: 'middle' });
 
@@ -264,11 +264,11 @@ async function metrSlide(d) {
   d.animate(s, [{ name: wall, effect: 'wipeDown', dur: 500 }, wallT, voidN, voidT, todayL, todayT, ...ci], { effect: 'fade', dur: 500 });
   d.animate(s, [big, arrow], { auto: true, effect: 'slam', dur: 450, after: 150 });
   d.animate(s, [card, bar, barT, quotes, foot], { effect: 'fade', dur: 600 });
-  d.source(s, 'Data: METR, Time Horizon 1.1 (benchmark_results_1_1.yaml; metr.org/time-horizons, “last updated May 8, 2026”, checked Oct 4, 2026) · METR on X, May 8, 2026 · METR Frontier Risk Report, May 19, 2026.');
+  d.source(s, 'Data: METR, Time Horizon 1.1 (benchmark_results_1_1.yaml; metr.org/time-horizons, “last updated May 8, 2026”, checked Oct 4, 2026) · METR Frontier Risk Report, May 19, 2026.');
   s.addNotes([
     'MESSAGE: the length of real software tasks AI agents can complete on their own grew exponentially — doubling roughly every four months — until METR\'s measuring stick ran out. THE GRAPH ENDS BECAUSE METR CAN NO LONGER MEASURE THE FRONTIER, not because progress stopped.',
     'What the chart shows: METR times how long each task takes skilled human experts, then finds the task length at which a model succeeds 50% of the time. GPT-2 (2019) managed ~3-second tasks; GPT-4 (Mar 2023) ~4 minutes; o3 (Apr 2025) ~2 hours; Claude Opus 4.6 (Feb 2026) ~12 hours; Claude Mythos Preview (early, Apr 2026) "at least 16hrs" in METR\'s words (dashboard readout 17 hr; raw estimate 1,044.8 min = 17.4 h; 95% CI 8.5–55 h, drawn as the red error bar reaching deep into the red zone).',
-    'THE RED ZONE + THE WALL (say it plainly): METR\'s own chart now carries the notice "Measurements above 16 hrs are unreliable with our current task suite" (changelog, May 8, 2026). Its X thread the same day: "We estimated a 50%-time-horizon of at least 16hrs (95% CI 8.5hrs to 55hrs) on our task suite, at the upper end of what we can measure without new tasks." … "Of the 228 tasks in our suite, only 5 are estimated as 16+ hours long, making measurements at this range unstable and less meaningful than at ranges with better task coverage. Thus, we are not highlighting exact estimates for models above 16 hours measured with our current suite." … "we do not consider measurements at this range to be robust enough for precise quantitative comparisons or extrapolations." … "we\'re working on updated methods. But these are still in development". https://x.com/METR_Evals/status/2052896621760004602',
+    'THE RED ZONE + THE WALL (say it plainly): METR\'s own chart now carries the notice "Measurements above 16 hrs are unreliable with our current task suite" (changelog, May 8, 2026). Keep this brief: the evidence (METR\'s X post, the task histogram, GPT-5.6 Sol\'s three estimates) is the NEXT slide. Its X thread the same day: "We estimated a 50%-time-horizon of at least 16hrs (95% CI 8.5hrs to 55hrs) on our task suite, at the upper end of what we can measure without new tasks." … "Of the 228 tasks in our suite, only 5 are estimated as 16+ hours long, making measurements at this range unstable and less meaningful than at ranges with better task coverage. Thus, we are not highlighting exact estimates for models above 16 hours measured with our current suite." … "we do not consider measurements at this range to be robust enough for precise quantitative comparisons or extrapolations." … "we\'re working on updated methods. But these are still in development". https://x.com/METR_Evals/status/2052896621760004602',
     'Frontier Risk Report (May 19, 2026): "The most capable agents we evaluated essentially saturated our Time Horizon 1.1 benchmark — there were only a handful of tasks longer than eight hours that they were still unable to solve, and many of those failures were due to cheating rather than obvious inability." Table 1 footnote: "The TH 1.1 suite can\'t reliably measure time horizons above 16 hours". And (quoted on the slide): "…since only 5 tasks in the TH1.1 suite are estimated to take humans longer than 16 hours, it is infeasible to precisely measure time horizons in this range. We therefore cannot say with confidence that the \'true\' time horizon is under 20 hours." https://metr.org/blog/2026-05-19-frontier-risk-report/',
     'Since then (checked Oct 4, 2026): metr.org/time-horizons still reads "LAST UPDATED May 8, 2026". METR has published NO time horizon for GPT-6 Astra, Claude Fable 5.1 or Claude Opus 5.5 (its Opus 5.5 evaluation used five bespoke tasks and reports no horizon, without saying why — so do not claim that was due to saturation). Its GPT-5.6 Sol evaluation (Jun 26) produced 11.3 h, 71 h or "beyond 270hrs" depending on how cheating runs are scored, and METR said none is "a robust measurement" (next slide). No replacement "Time Horizon 2" suite has been announced. Numbers circulating online for newer models (e.g. "153 h") are third-party predictions, not METR\'s.',
     'Doubling time: METR\'s fit from 2023 onward is 128.7 days (CI 104–158 days); all-time 187.8 days; METR\'s May 8 chart (2024–Feb 2026 data) says 105 days. The dashed amber line uses METR\'s 128.7-day slope through the centroid of frontier points since 2023 (illustrative; METR\'s own regression excludes points above 16 h), and it is deliberately stopped at the wall — METR warns against extrapolating.',
@@ -349,7 +349,7 @@ async function graveyardSlide(d) {
   s.addText('Benchmarks built to last years now die in months', { placeholder: 'title' });
 
   const tiles = [
-    { name: 'FrontierMath Tier 4', desc: 'research-level math', from: '0%', to: '100%', when: 'Jan 2025 → Sep 29, 2026 (GPT-6.1 Sol)', note: 'problems written by top mathematicians' },
+    { name: 'FrontierMath Tier 4', desc: 'research-level math', from: '0%', to: '100%', when: 'Jan 2025 → Sep 29, 2026 (GPT-6.1 Sol)', note: 'Epoch’s own run · Tier 4 v2 problem set' },
     { name: 'ARC-AGI-3', desc: 'novel interactive puzzles', from: '<1%', to: '62.7%', when: 'Mar 2026 launch → Sep 2026 (GPT-6 Astra)', note: '99.9% with a different (provider-adapter) harness' },
     { name: 'ARC-AGI-2', desc: 'abstract visual puzzles', from: '0.8%', to: '95%', when: 'o1-mini (2024) → GPT-6 Astra (Sep 2026)', note: 'at a cost of $1.12 per task' },
     { name: 'ARC-AGI-1', desc: 'abstract visual puzzles', from: '18%', to: '98.5%', when: 'o1-preview (Sep 2024) → Claude Fable 5 (Jun 2026)', note: 'effectively saturated since Feb 2026' },
@@ -399,7 +399,7 @@ async function graveyardSlide(d) {
   d.source(s, 'Data: Epoch AI Benchmarking Hub (CC-BY, downloaded Oct 4, 2026) · ARC Prize Foundation leaderboard (Oct 4, 2026). Best verified score by model release date.');
   s.addNotes([
     'MESSAGE: benchmarks that were designed to last years are being saturated in months. Each tile: best score near launch (or two years ago) → best score today.',
-    'FrontierMath Tier 4 (research-level problems written by professional mathematicians): 0% (o3-mini, Jan 2025) → 100% (GPT-6.1 Sol, run Sep 29, 2026; Tier 4 v2). Epoch AI benchmark_data.zip, frontiermath_tier_4_v2.csv. (Older v1 file topped out at 47.9%.)',
+    'FrontierMath Tier 4 (research-level problems written by professional mathematicians): 0% (o3-mini, Jan 2025) → 100% (GPT-6.1 Sol at max effort, Epoch\'s own run of Sep 29, 2026, on the Tier 4 v2 problem set). Epoch AI benchmark_data.zip, frontiermath_tier_4_v2.csv. IF ASKED "100% on research math?": SAY it is one Epoch run on v2 (41 problems; GPT-6 Astra 97.6%, Claude Opus 5.5 95%), the version in Epoch\'s current data (v2 runs start Jun 9, 2026). The older v1 problem set topped out at 47.9% (Google DeepMind AI co-mathematician, May 8, 2026) and has had no runs since Jun 8, so the newest models were never scored on it.',
     'ARC-AGI-3 (interactive, novel environments; humans solve 100%) launched Mar 25, 2026 with every frontier model below 1%. Six months later: GPT-6 Astra (Max) 62.7% on the standard harness; GPT-6 Astra (High) 99.9% with the "Provider Adapter" harness — a different, provider-built harness, so not like-for-like. GPT-6.1 Sol: 52.7% standard / 96.2% adapter. Runs cost thousands of dollars (GPT-6 Astra Max ≈ $26.1K). https://arcprize.org/leaderboard',
     'ARC-AGI-2: 0.8% (o1-mini) → 95.0% (GPT-6 Astra Max, $1.12/task). ARC-AGI-1: 18% (o1-preview, Sep 2024) → 98.5% (Claude Fable 5, Jun 2026); effectively saturated since Feb 2026.',
     'GPQA Diamond (PhD-level science questions): 35.7% (GPT-4, Mar 2023) → 95.8% (GPT-6 Astra). Expert human baseline ~65–70% per the original GPQA paper.',
@@ -749,7 +749,7 @@ async function worldsSlide(d) {
   const t4 = await capTile(d, s, game, { x: X(0), y: y2, w: cw, h: ch }, 'GPT-6 ASTRA · A “FINISHED” 3-D GAME', '“Not a demo. A FINISHED, playable game.” — creator');
   // same person, same subject (a realistic bat in Blender), 56 days apart — the two prompts were worded differently
   const bat1 = await capTile(d, s, CR('stills/ollivier-sol-bat-jul11-t101-fur-render.jpg'), { x: X(1), y: y2, w: cw, h: ch }, 'BLENDER · JUL 11, 2026 · “SOL”', '“make me a realistic bat”', { toolColor: LIGHT });
-  const bat2 = await capTile(d, s, CR('stills/ollivier-astra-bat-sep5-final-render.jpg'), { x: X(2), y: y2, w: cw, h: ch }, 'BLENDER · SEP 5, 2026 · GPT-6 ASTRA', 'Same person, same subject, 56 days later');
+  const bat2 = await capTile(d, s, CR('stills/ollivier-astra-bat-sep5-final-render.jpg'), { x: X(2), y: y2, w: cw, h: ch }, 'BLENDER · SEP 5, 2026 · GPT-6 ASTRA', 'Same person, 56 days later, different prompt');
   const cx = X(2) - G / 2, cy = y2 + ch / 2;
   const dot = d.name('dot');
   s.addShape(d.pres.shapes.OVAL, { x: cx - 0.48, y: cy - 0.48, w: 0.96, h: 0.96, fill: { color: HEX.red }, line: { color: '0A0C10', width: 2.5 }, shadow: { type: 'outer', color: '000000', blur: 10, offset: 3, angle: 90, opacity: 0.6 }, objectName: dot });
@@ -765,7 +765,7 @@ async function worldsSlide(d) {
     'BLENDER TRAIN — Tom Krcha, Sep 4: "I took an old drawing of a steam train, gave it to Astra to reconstruct it in Blender. After few minutes it crafted 3,295 fully editable detailed objects with beautiful geometry." (object count is creator-reported). 2.07M views. Note the reference drawing open next to the model. https://x.com/tomkrcha/status/2095756085890310311',
     'CAD — MecAgent (an AI-for-CAD startup — a VENDOR DEMO of its own harness), Sep 9: "GPT-6 Astra on CAD (SolidWorks 2026) with the MecAgent harness." Sketches, revolves and patterns become nacelle, fan blades and core, assembled into a turbofan; the clip opens on the finished assembly. 469K views. https://x.com/MecAgent/status/2097676816592797816 . (Similar: adam\'s Onshape cutaway turbofan, 3.61M views, also a vendor. OpenAI reports Astra 95.9% on BenchCAD vs Claude Fable 5.1 84.3% — vendor-reported, Claude runs with modified settings.)',
     'GAME — Emm Tee (@builtbysketch), Sep 12: "I spent 1.6 billion tokens building a full game with GPT-6 ASTRA. Not a demo. A FINISHED, playable game." PaperRoute, a Paperboy-style browser game, is live at https://www.paperroute.lol/ (loaded Oct 4). 3.45M views; token count creator-reported. https://x.com/builtbysketch/status/2098777028078211283',
-    'BATS — Alix Ollivier. Jul 11, 2026: "Just asked Sol to download Blender, set up the MCP, and make me a realistic bat…" → a plush-toy bat (left; the post only says "Sol", presumably GPT-5.6 Sol — don\'t assert). Sep 5: "I asked Astra to make a photorealistic bat in Blender, and it just kept going until I ran out of tokens." → the photoreal Cycles render (right). Same person, same subject, 56 days apart — but NOT the identical prompt: the July request also asked Sol to install Blender and set up the MCP (and to make a video), while in September Astra was asked for a "photorealistic" bat and left running until the tokens ran out. 3.79M views. https://x.com/aollivier82/status/2076042781647098092 · https://x.com/aollivier82/status/2096226819401801896',
+    'BATS — SAY: "same person, same subject, 56 days apart, but not a controlled comparison: different prompts, and in September Astra ran until the tokens ran out." Alix Ollivier. Jul 11, 2026: "Just asked Sol to download Blender, set up the MCP, and make me a realistic bat…" → a plush-toy bat (left; the post only says "Sol", presumably GPT-5.6 Sol — don\'t assert). Sep 5: "I asked Astra to make a photorealistic bat in Blender, and it just kept going until I ran out of tokens." → the photoreal Cycles render (right). Same person, same subject, 56 days apart — but NOT the identical prompt: the July request also asked Sol to install Blender and set up the MCP (and to make a video), while in September Astra was asked for a "photorealistic" bat and left running until the tokens ran out. 3.79M views. https://x.com/aollivier82/status/2076042781647098092 · https://x.com/aollivier82/status/2096226819401801896',
     'CAVEATS: these are showcases chosen by their creators (several had early access; some are vendors); nobody has independently checked the numbers (3,295 objects, 1.6B tokens, the week-long build). Viral clips are sometimes recycled — 36Kr (Jun 2026) reported a "Claude Fable 5 showcase" that "might be entirely handcrafted" — so every clip here is tied to its named creator\'s original post. Views as of Oct 4, 2026.',
   ].join('\n\n'));
   return s;
@@ -1108,11 +1108,11 @@ async function videoSlide(d) {
   const rx = vg.x + vg.w + 0.45, rw = 12.73 - rx;
   const card = d.card(s, { x: rx, y: vg.y, w: rw, h: vg.h });
   const who = d.text(s, [
-    { text: 'WHO MADE IT', options: { fontSize: 11, bold: true, color: d.S.red, charSpacing: 3, breakLine: true, paraSpaceAfter: 10 } },
+    { text: 'WHO MADE IT · CREATOR’S CLAIM', options: { fontSize: 11, bold: true, color: d.S.red, charSpacing: 2, breakLine: true, paraSpaceAfter: 10 } },
     { text: '“Source code for the ', options: { fontSize: 22, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
     { text: 'Claude Opus 5.5', options: { fontSize: 22, italic: true, bold: true, color: d.S.red, fontFace: 'Cambria' } },
     { text: ' music video”', options: { fontSize: 22, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true, paraSpaceAfter: 10 } },
-    { text: '— the creator’s GitHub repo (JohnHeibel/PDoomVideo): the video is written and rendered in code', options: { fontSize: 12, color: d.S.muted } },
+    { text: '— the creator’s GitHub repo (JohnHeibel/PDoomVideo), which says the video was made in code. Not independently checked.', options: { fontSize: 12, color: d.S.muted } },
   ], { x: rx + 0.25, y: vg.y + 0.2, w: rw - 0.5, h: vg.h - 0.4, valign: 'middle' });
   d.animate(s, [v[0]], { auto: true, effect: 'fade', dur: 1200 });
   d.animate(s, [cap], { auto: true, effect: 'fade', dur: 600, after: 100 });
@@ -1149,9 +1149,11 @@ async function navierSlide(d) {
   const PAPER = R('openai-navier-stokes-paper-p1.png');
   const aw = 3.2;
   const pl = label(d, s, 'THE PROOF · 166 PAGES · SEP 8, 2026', MX, 1.7, aw + 0.3);
-  const zoom = await d.frame(s, await crop(PAPER, 'ns-paper-title.png', { l: 330, t: 140, w: 615, h: 125 }), { x: MX, y: 2.03, w: aw, h: (aw - 0.1) * 125 / 615 + 0.1 }, { pad: 0.05, frameColor: HEX.red, align: 'left', link: 'https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf' });
+  // title card and the red qualifier under it share one width (zw), so their left AND right edges line up
+  const zw = aw + 0.25;
+  const zoom = await d.frame(s, await crop(PAPER, 'ns-paper-title.png', { l: 330, t: 140, w: 615, h: 125 }), { x: MX, y: 2.03, w: zw, h: (zw - 0.1) * 125 / 615 + 0.1 }, { pad: 0.05, frameColor: HEX.red, align: 'left', link: 'https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf' });
   const zg = zoom.geom;
-  const qual = chip(d, s, 'PRECISELY: FINITE-TIME BLOWUP, FORCED CASE', MX, zg.y + zg.h + 0.1, aw + 0.25, { h: 0.3, fill: HEX.red, transparency: 0, fontSize: 10, charSpacing: 0.5 });
+  const qual = chip(d, s, 'PRECISELY: FINITE-TIME BLOWUP, FORCED CASE', MX, zg.y + zg.h + 0.1, zw, { h: 0.3, fill: HEX.red, transparency: 0, fontSize: 10, charSpacing: 0.5 });
   const fx = MX + aw + 0.6, fw = 3.45;
   const fig = await d.frame(s, await crop(R('openai-navier-stokes-fig1-blowup.png'), 'ns-fig1.png', { l: 50, t: 8, w: 1580, h: 690 }), { x: fx, y: 1.72, w: fw, h: 1.36 }, { align: 'left' });
   const fg = fig.geom;

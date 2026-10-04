@@ -1075,7 +1075,7 @@ async function freqTally(d) {
     ['2026-08-04', 'UK AISI', '19', 'unsanctioned actions, in 10 of 122 runs', false],
     ['2026-08-05', 'Meta', '1', 'company hacked via the same eval flaw', true],
     ['2026-09-18', 'Google', '3', 'companies hacked by Gemini, in May', true],
-    ['2026-09-23', 'OpenAI', '1', 'Australia’s Medicare portal, hit Jun 18', false],
+    ['2026-09-23', 'OpenAI', '1', 'Australia’s Medicare portal accessed', false],
     ['2026-09-30', 'OpenAI', '100+', 'orgs notified (notice ≠ compromise)', false],
     ['2026-10-01', 'Asymmetric', '55', 'orgs’ data accessed by OpenAI agents', false],
   ];
@@ -1114,7 +1114,7 @@ async function freqTally(d) {
   });
 
   // Cards in an even row; a leader runs from each card to its dot on the to-scale axis.
-  const n = cards.length, cg = 0.08, cw = (W - 2 * MX - (n - 1) * cg) / n, cy = 3.3, ch = 2.08;
+  const n = cards.length, cg = 0.08, cw = (W - 2 * MX - (n - 1) * cg) / n, cy = 3.3, ch = 1.94;
   const cGroups = cards.map(([iso, who, num, unit, lab], i) => {
     const x = MX + i * (cw + cg), col = lab ? HEX.red : '566173', dx = X(iso);
     const dot = d.name('tdot');
@@ -1128,12 +1128,12 @@ async function freqTally(d) {
         { text: who, options: { bold: true, fontSize: 13, color: d.S.txt } },
       ], { x: x + 0.1, y: cy + 0.07, w: cw - 0.16, h: 0.46, valign: 'top' }),
       d.text(s, num, { x: x + 0.1, y: cy + 0.55, w: cw - 0.16, h: 0.44, fontSize: 26, bold: true, color: lab ? d.S.red : d.S.txt, fontFace: 'Arial', valign: 'middle' }),
-      d.text(s, unit, { x: x + 0.1, y: cy + 1.03, w: cw - 0.14, h: 1.0, fontSize: 14, color: 'D5DAE2', valign: 'top' }),
+      d.text(s, unit, { x: x + 0.1, y: cy + 1.03, w: cw - 0.2, h: 0.86, fontSize: 14, color: 'D5DAE2', valign: 'top' }),
     ];
   });
 
   // Reading rule, at body size.
-  const ty = 5.62;
+  const ty = 5.5;
   const warn = await iconDisc(d, s, 'FaExclamationTriangle', { x: MX, y: ty + 0.06, size: 0.56, color: HEX.amber, fill: '2A1E0E' });
   const take = d.text(s, [
     { text: 'Not one unit: don’t add these up. ', options: { bold: true, color: d.S.amber } },
@@ -1173,7 +1173,7 @@ async function freqTrackers(d) {
   // Left: Transluce's public dataset, summed by month (native chart). The window ends Sep 21, so the last bar is partial
   // and labelled as such; every bar carries its value so the low months read as "low", not "zero".
   const tr = dataset('transluce-urlquery-agent-reports-monthly');
-  const mon = ['Nov ’25', 'Dec', 'Jan ’26', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep 1–21'];
+  const mon = ['Nov ’25', 'Dec', 'Jan ’26', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep\n(1–21)'];
   const tot = tr.series.find((x) => x.name === 'Total').values;
   const bx = MX, bw = 6.6, by = 1.75;
   const tl = label(d, s, 'APPARENT AI-AGENT SCAN REPORTS ON URLQUERY.NET, PER MONTH', { x: bx, y: by, w: bw, size: 10.5 });
@@ -1196,7 +1196,7 @@ async function freqTrackers(d) {
   const fx = 7.75, fw = W - MX - fx;
   const fl = label(d, s, 'FELONYBENCH.ORG · SATIRICAL FELONY TALLY · OCT 4', { x: fx, y: by, w: fw, size: 10.5 });
   const fchart = d.chart(s, 'bar', [{ name: 'Probable felony acts', labels: flabels, values: fb.series[0].values }],
-    { x: fx - 0.1, y: by + 0.28, w: fw + 0.1, h: 2.62 }, {
+    { x: fx - 0.1, y: by + 0.28, w: fw + 0.1, h: 2.98 }, {
       barDir: 'bar', chartColors: [HEX.red], barGapWidthPct: 45,
       catAxisOrientation: 'maxMin', valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 12, valAxisMinVal: 0,
       showValue: true, dataLabelPosition: 'outEnd', dataLabelFormatCode: '0', dataLabelFontSize: 12, dataLabelFontBold: true,
@@ -1207,7 +1207,7 @@ async function freqTrackers(d) {
     { text: '(n incidents): ', options: { color: d.S.amber, bold: true } },
     { text: 'documented incidents it rated as no probable felony. ', options: { color: d.S.txt } },
     { text: 'Published cases only, so it measures disclosure, not occurrence.', options: { color: d.S.muted, italic: true } },
-  ], { x: fx, y: 4.82, w: fw, h: 1.68, fontSize: 14, valign: 'top' });
+  ], { x: fx, y: 5.18, w: fw, h: 1.32, fontSize: 14, valign: 'top' });
 
   d.animate(s, [tl, chart], { auto: true, effect: 'wipeLeft', dur: 1000 });
   d.animate(s, [tcap], { auto: true, effect: 'fade', after: 200 });

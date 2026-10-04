@@ -882,17 +882,17 @@ async function anabologySatireSlide(d) {
   const gw = (CW - 0.33) / 2, gh = gw * 9 / 16, y0 = 1.76;
   const cap = (x, t, q, sub) => d.text(s, [
     { text: t, options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 1, breakLine: true, paraSpaceAfter: 2 } },
-    { text: q, options: { fontSize: 15, bold: true, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
+    { text: q, options: { fontSize: 15, bold: true, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true } },
     { text: sub, options: { fontSize: 12, color: LIGHT } },
-  ], { x, y: y0 + gh + 0.08, w: gw, h: 0.7, valign: 'top' });
+  ], { x, y: y0 + gh + 0.08, w: gw, h: 0.78, valign: 'top' });
   const f1 = await d.frame(s, g1, { x: MX, y: y0, w: gw, h: gh }, { border: false, pad: 0 });
-  const c1 = cap(MX, 'ON SCREEN · 1:06', '“Don’t ask me again. I ‘Accept All’ always.”', '   code comment: “# You used to read the code.”');
+  const c1 = cap(MX, 'ON SCREEN · 1:06', '“Don’t ask me again. I ‘Accept All’ always.”', 'Code comment in the scene: “# You used to read the code.”');
   const x2 = MX + gw + 0.33;
   const f2 = await d.frame(s, g2, { x: x2, y: y0, w: gw, h: gh }, { border: false, pad: 0 });
-  const c2 = cap(x2, 'ON SCREEN · 2:36', '“claudia.exe is busy dancing.”', '   End Process fails as her copies multiply');
+  const c2 = cap(x2, 'ON SCREEN · 2:36', '“claudia.exe is busy dancing.”', 'End Process fails as her copies multiply (Processes: 17 → 73)');
 
   // bottom: an Anthropic engineer's own reaction (personal post), verbatim
-  const qy = y0 + gh + 0.92;
+  const qy = y0 + gh + 1.0;
   const div = line(d, s, MX, qy - 0.08, 12.73, qy - 0.08, { color: HEX.line, width: 1 });
   const quote = d.text(s, [
     { text: '“I prefer Claude being a tool used by humans to make art rather than making art unattended, but even so, I really enjoyed this one.”', options: { fontSize: 15, italic: true, fontFace: 'Cambria', color: d.S.txt, breakLine: true, paraSpaceAfter: 2 } },
@@ -939,7 +939,8 @@ async function fableSlide(d) {
   s.addText('Clips credited to an unreleased “Fable 5.5”', { placeholder: 'title' });
 
   const cw = 4.62, ch = cw * 9 / 16, y0 = 1.76, x1 = MX, x2 = MX + cw + 0.25;
-  const reel = F55('blueemi99-fable55-motion-bestpart-1280.gif');
+  // 7.4 s of the reel (Type → Flow), loop phase rotated so the first frame is the full “MAKE IT MOVE.” title card
+  const reel = loopGif('blueemi99-fable55-reel.gif', F55('blueemi99-fable55-motion-source.mp4'), [[2.3, 8.9], [1.52, 2.3]], { width: 1280, fps: 24 });
   const voxel = makeGif('kanute-fable55-voxel-orbit.gif', { src: F55('reddit-kanute3333-fable55-voxel-source.mp4'), ss: 4, to: 10, width: 1120, fps: 15 });
   const claim = (x, y) => chip(d, s, 'CLAIMED: “FABLE 5.5” · UNVERIFIED', x + 0.08, y + 0.08, 3.05, { h: 0.28, fontSize: 10, fill: '0A0C10', transparency: 15, color: 'FFD166' });
 
@@ -951,7 +952,7 @@ async function fableSlide(d) {
   const bp = await d.frame(s, bcrop, { x: x1, y: py, w: cw, h: (cw - 0.1) * 306 / 1138 + 0.1 }, { pad: 0.05, link: FAB.blue });
   const btab = outletTab(d, s, bp.geom, 'X · OCT 2, 2026 · 75.7K VIEWS', 'br', 0, { pad: 0.05 });
   const bnote = d.text(s, 'A 15-second reel with its own sound design. No prompt or workflow was shared.',
-    { x: x1, y: bp.geom.y + bp.geom.h + 0.24, w: cw, h: 6.52 - (bp.geom.y + bp.geom.h + 0.24), fontSize: 12, color: d.S.muted, valign: 'top' });
+    { x: x1, y: bp.geom.y + bp.geom.h + 0.34, w: cw, h: 6.52 - (bp.geom.y + bp.geom.h + 0.34), fontSize: 12, color: d.S.muted, valign: 'top' });
 
   // column 2: the r/singularity voxel world + the post title and the thread's own exchange
   const t2 = await d.frame(s, voxel, { x: x2, y: y0, w: cw, h: ch }, { border: false, pad: 0 });
@@ -959,7 +960,7 @@ async function fableSlide(d) {
   const rcrop = await crop(F55('reddit-post-header-title-author.png'), 'fable55-reddit-head.png', { l: 0, t: 40, w: 1186, h: 140 });
   const rp = await d.frame(s, rcrop, { x: x2, y: py, w: cw, h: (cw - 0.1) * 140 / 1186 + 0.1 }, { pad: 0.05, link: FAB.reddit });
   const rtab = outletTab(d, s, rp.geom, 'R/SINGULARITY · OCT 2 · 130 UPVOTES', 'br', 0, { pad: 0.05 });
-  const ty = rp.geom.y + rp.geom.h + 0.24;
+  const ty = rp.geom.y + rp.geom.h + 0.34;
   const thread = d.text(s, [
     { text: 'OP: ', options: { bold: true, color: d.S.steel } },
     { text: '“It’s automatically routing to Fable 5.5 in the rollout phase.”', options: { italic: true, color: d.S.txt, breakLine: true, paraSpaceAfter: 5 } },
@@ -969,7 +970,7 @@ async function fableSlide(d) {
 
   // column 3: status — Anthropic's own model list (Oct 4) has no Fable 5.5
   const sx = x2 + cw + 0.3, sw = 12.73 - sx;
-  const slab = label(d, s, 'ANTHROPIC’S MODEL LIST · OCT 4', sx, 1.62, sw, { color: d.S.amber });
+  const slab = label(d, s, 'ANTHROPIC DOCS · OCT 4', sx, 1.66, sw, { color: d.S.amber });
   const mcrop = await crop(F55('anthropic-platform-docs-models-overview-2026-10-04.png'), 'fable55-anthropic-models-sidebar.png', { l: 0, t: 0, w: 530, h: 660 });
   const mf = await d.frame(s, mcrop, { x: sx, y: 1.98, w: sw, h: (sw - 0.1) * 660 / 530 + 0.1 }, { pad: 0.05, link: FAB.models });
   const my = mf.geom.y + mf.geom.h + 0.16;
@@ -1402,12 +1403,12 @@ async function pipelineSlide(d) {
   const lw = 3.55;
   const l1 = label(d, s, 'OPENAI · SEP 21, 2026', MX, 1.68, lw);
   const big = d.text(s, '100+', { x: MX, y: 1.98, w: lw, h: 1.15, fontSize: 80, bold: true, fontFace: 'Arial', color: d.S.red, valign: 'middle' });
-  const bigT = d.text(s, 'long-standing open problems “resolved” by a new internal model, besides Navier–Stokes — none of them published yet',
+  const bigT = d.text(s, 'long-standing open problems “resolved” by a new internal model besides Navier–Stokes, says OpenAI — results held back for now',
     { x: MX, y: 3.15, w: lw, h: 0.95, fontSize: 13, color: d.S.txt, valign: 'top' });
   const nyt = d.headlineCard(s, {
-    outlet: 'The New York Times · guest essay', date: '2026-09-22', headline: 'Mathematics Isn’t Just a Game to Let A.I. Solve. History Shows Why.',
-    dek: '“…results that OpenAI was waiting to release until it had figured out ‘the best way to inform the community…’” — Steven Strogatz & Alex Townsend',
-  }, { x: MX + 0.05, y: 4.32, w: lw - 0.1, h: 2.12 }, { rot: -1.2, size: 's' });
+    outlet: 'The New York Times', date: '2026-09-22', headline: 'Mathematics Isn’t Just a Game to Let A.I. Solve. History Shows Why.',
+    dek: 'Guest essay, Steven Strogatz & Alex Townsend: “…results that OpenAI was waiting to release until it had figured out ‘the best way to inform the community…’”',
+  }, { x: MX + 0.05, y: 4.3, w: lw - 0.1, h: 2.12 }, { rot: -1.2, size: 'm' });
 
   // right: OpenAI's own paragraph (real screenshot) with the key sentence marked
   const rx = MX + lw + 0.5, rw = 12.73 - rx;
@@ -1465,19 +1466,19 @@ async function rumorsSlide(d) {
   ], { x: MX, y: 1.95, w: lw, h: 0.5, fontSize: 12.5, valign: 'top' });
   const sw = 5.75;
   const sf = await d.frame(s, MR('x-synthwavedd-hodge-bsd-rumor.png'), { x: MX + 0.05, y: 2.55, w: sw, h: (sw - 0.12) * 510 / 1200 + 0.12 }, { rot: -1, link: MRU.synth });
-  const stab = outletTab(d, s, sf.geom, 'X · @SYNTHWAVEDD · SEP 10 · 1.5M VIEWS', 'bl', -1);
+  const stab = outletTab(d, s, sf.geom, 'X · @SYNTHWAVEDD · SEP 10 · 1.5M VIEWS', 'br', -1);
   // red "unconfirmed" stamp on the empty top-right of the post (clear of its text)
   const sg = sf.geom;
   const stamp = d.name('stamp');
-  const stW = 1.95, stH = 0.42, stX = sg.x + sg.w - stW - 0.25, stY = sg.y + 0.12;
+  const stW = 2.25, stH = 0.42, stX = sg.x + sg.w - stW - 0.25, stY = sg.y + 0.12;
   s.addShape(d.pres.shapes.RECTANGLE, { x: stX, y: stY, w: stW, h: stH, rotate: -6, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 2.5 }, objectName: stamp });
-  const stampT = d.text(s, 'UNCONFIRMED', { x: stX, y: stY, w: stW, h: stH, rotate: -6, fontSize: 15, bold: true, color: d.S.red, charSpacing: 3, align: 'center', valign: 'middle', fontFace: 'Arial' });
+  const stampT = d.text(s, 'UNCONFIRMED', { x: stX, y: stY, w: stW, h: stH, rotate: -6, fontSize: 15, bold: true, color: d.S.red, charSpacing: 1.5, align: 'center', valign: 'middle', fontFace: 'Arial' });
 
-  const gy = sg.y + sg.h + 0.42;
+  const gy = sg.y + sg.h + 0.5;
   const gcrop = await crop(MR('gizmodo-openai-reportedly-trying-hodge.png'), 'math-gizmodo-hodge-head.png', { l: 0, t: 20, w: 980, h: 570 });
   const gh = 6.5 - gy, gw = (gh - 0.12) * 980 / 570 + 0.12;
   const gf = await d.frame(s, gcrop, { x: MX + 0.05, y: gy, w: gw, h: gh }, { rot: 1.2, link: MRU.gizmodo });
-  const gtab = outletTab(d, s, gf.geom, 'GIZMODO · SEP 17', 'tr', 1.2);
+  const gtab = outletTab(d, s, gf.geom, 'GIZMODO · SEP 17', 'tl', 1.2);
   const tx = MX + gw + 0.35, tw = MX + lw - tx;
   const info = d.text(s, [
     { text: 'Its source: ', options: { bold: true, color: d.S.steel } },
@@ -1499,14 +1500,14 @@ async function rumorsSlide(d) {
   const r2 = label(d, s, 'STATUS · CLAY MATHEMATICS INSTITUTE · OCT 4', rx, 2.95, rw, { color: d.S.blue });
   const ch1 = await crop(MR('clay-hodge-conjecture-unsolved.png'), 'math-clay-hodge-head.png', { l: 0, t: 70, w: 1400, h: 315 });
   const ch2 = await crop(MR('clay-bsd-conjecture-unsolved.png'), 'math-clay-bsd-head.png', { l: 0, t: 70, w: 1400, h: 470 });
-  const cH = 0.78, cy = 3.28;
+  const cH = 0.7, cy = 3.28;
   const w1 = cH * 1400 / 315, w2 = cH * 1400 / 470, cgap = rw - w1 - w2;
   const c1 = await d.frame(s, ch1, { x: rx, y: cy, w: w1, h: cH }, { border: false, pad: 0, link: MRU.clayHodge });
   const c2 = await d.frame(s, ch2, { x: rx + w1 + cgap, y: cy, w: w2, h: cH }, { border: false, pad: 0, link: MRU.clayBsd });
   const r3 = label(d, s, 'POLYMARKET · WHICH ONE WILL AN AI LAB ANNOUNCE NEXT? (%)', rx, cy + cH + 0.2, rw, { color: d.S.blue });
   const ds = DS['polymarket-hodge-bsd-daily'];
   const mon = { '09': 'Sep', '10': 'Oct' };
-  const labs = ds.labels.map((l) => `${mon[l.slice(5, 7)]} ${+l.slice(8)}`);
+  const labs = ds.labels.map((l, i) => (i % 7 === 0 ? `${mon[l.slice(5, 7)]} ${+l.slice(8)}` : ''));
   const pick = ['Hodge Conjecture', 'Birch and Swinnerton-Dyer', 'No solution by Dec 31, 2027'];
   const series = pick.map((nm) => ({ name: nm === 'Hodge Conjecture' ? 'Hodge' : nm === 'Birch and Swinnerton-Dyer' ? 'BSD' : 'None by 2027', labels: labs, values: ds.series.find((x) => x.name === nm).values }));
   const chartY = cy + cH + 0.48;
@@ -1526,7 +1527,7 @@ async function rumorsSlide(d) {
   d.animate(s, [r1, rec], { effect: 'fade', dur: 500 });
   d.animate(s, [r2, ...c1, ...c2], { auto: true, effect: 'fade', dur: 500, after: 150 });
   d.animate(s, [r3, { name: pch, effect: 'wipeLeft', dur: 1200 }, pfoot], { effect: 'fade' });
-  d.source(s, 'X: @Dr_Singularity (Sep 9), @synthwavedd, @ElliotGlazer (Sep 10, 2026) · The Verge quoting OpenAI’s NYT statement (Sep 10) · Gizmodo reporting The Information (Sep 17) · Clay Mathematics Institute, Polymarket (Oct 4).');
+  d.source(s, 'X posts (Sep 9–10, 2026) · OpenAI’s NYT statement via The Verge (Sep 10) · Gizmodo, reporting The Information (Sep 17) · claymath.org, Polymarket (Oct 4).');
   s.addNotes([
     'MESSAGE (say it as a rumor, twice): nobody has claimed a proof of the Hodge conjecture or of Birch and Swinnerton-Dyer. What exists is (1) OpenAI saying, on the record, it made "substantial progress on another Millennium Prize problem" without naming it, and (2) anonymous rumors that it is Hodge (OpenAI) and BSD ("one of OpenAI or Anthropic"). Both are Clay Millennium Prize Problems ($1M each); Clay still lists both as "Unsolved" (Oct 4, 2026). The point for this talk: the field now treats "AI proves another Millennium problem next month" as a live possibility, with real money on it.',
     'WHO SAID WHAT, WHERE, WHEN: Sep 9, 18:00 UTC — @Dr_Singularity on X (409K views): "Rumors are emerging that OpenAI may have solved the Hodge conjecture, another Millennium Prize Problem." (unsourced) ' + MRU.drsing + ' . Sep 10, 08:54 UTC — @synthwavedd ("leo", ~46K followers; 1.57M views), THE source of the Hodge+BSD rumor: "I am told the Hodge Conjecture is very close to being verified by OpenAI, and that one of OpenAI or Anthropic are also close to solving Birch-Swinnerton-Dyer. The race to be \'next\' behind the scenes is unlike anything I\'ve had described to me before. If true - and it may not be, given the scale of the rumour mill right now - it could mean 3 Millennium Problems fall in the space of a month." ' + MRU.synth + ' . 10:07 UTC — amplified by @kimmonismus (664K views) ' + MRU.chubby + ' . On r/mathematics a top comment (228 pts) claimed Hodge was "fully solved and is only awaiting verification", a reply that BSD "is proved true" — anonymous speculation ' + MRU.reddit,

@@ -1,0 +1,1883 @@
+{
+ "group": "frontier",
+ "items": [
+  {
+   "id": "altman-tweet-petabytes",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "screenshot",
+   "file": "rev2/altman_tweet_sep25_petabytes.png",
+   "headline": null,
+   "dek": "There is an extensive and ongoing review related to our agents’ use of internet access during training and evaluation. We’ve been publishing summaries at the link below and will continue to.\n\nWe have not been as fast as we would have liked but we are trying to balance our desire for transparency with gaining a clear understanding from petabytes of agent activity logs, and working with impacted organizations.\n\nWe are prioritizing as best as we can based on severity, and adding resources. Hugging Face is still the most severe event we’ve seen. We will be as transparent as we can be subject to things like vulnerabilities in other companies that our agents have found, which will be their call to disclose or not.",
+   "outlet": "X (Sam Altman, @sama)",
+   "author": "Sam Altman",
+   "date": "2026-09-25",
+   "url": "https://x.com/sama/status/2103567198690349362",
+   "caption": "Real screenshot of Sam Altman's post (7:27 PM, Sep 25, 2026; 2.7M views) with the sentence about \"petabytes of agent activity logs\"; quoted OpenAI post visible beneath.",
+   "quality": 5,
+   "verified": true,
+   "notes": "PRIMARY SOURCE for the exact \"petabytes\" wording. Posted 2026-09-25 19:27:57 UTC (fxtwitter API). Highlight boxes (fractions of the image) were placed by hand over \"petabytes of\" / \"agent activity logs\" and checked visually. The quoted OpenAI tweet (@OpenAI, 19:26 UTC) adds: \"Given the scale of the review required, and the need to assess each case, we expect this work will take months to complete.\" Crop excludes the hostile replies below the tweet.",
+   "image_px": [
+    1196,
+    1012
+   ],
+   "highlight_boxes": [
+    {
+     "text": "petabytes of agent activity logs",
+     "boxes_frac": [
+      {
+       "x": 0.7575,
+       "y": 0.3231,
+       "w": 0.1472,
+       "h": 0.0395
+      },
+      {
+       "x": 0.0251,
+       "y": 0.3626,
+       "w": 0.2149,
+       "h": 0.0395
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "guardian-oct3-66m-years-quote",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "screenshot",
+   "file": "rev2/guardian_oct3_66m_quote.png",
+   "headline": null,
+   "dek": "“To put that in perspective, if that were all plain English text, it would take one person about 66 million years to read it at 240 words a minute, reading nonstop without ever sleeping or taking a break.”",
+   "outlet": "The Guardian",
+   "author": "Josh Taylor",
+   "date": "2026-10-03",
+   "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
+   "caption": "Guardian paragraph quoting OpenAI's blog post: 50 PB of plain English text = 66 million years of nonstop reading at 240 words a minute. Highlight on the key clause.",
+   "quality": 5,
+   "verified": true,
+   "notes": "This is OpenAI's own \"too much for humans\" statement as quoted by the Guardian (Josh Taylor, Sat 3 Oct 2026 01.39 EDT) from OpenAI's 30 Sep 2026 post \"Our process for reviewing and disclosing model activity\". The OpenAI page itself is behind Cloudflare and could not be loaded. Arithmetic check: 50e15 bytes / 6 bytes per word / 240 wpm = 66.0 million years (so OpenAI is assuming ~6 bytes per word). At 250 wpm it is ~63 million years.",
+   "image_px": [
+    1280,
+    182
+   ],
+   "highlight_boxes": [
+    {
+     "text": "it would take one person about 66 million years to read it at 240 words a minute",
+     "boxes_frac": [
+      {
+       "x": 0.7869,
+       "y": 0.1204,
+       "w": 0.1637,
+       "h": 0.2298
+      },
+      {
+       "x": 0.0156,
+       "y": 0.3807,
+       "w": 0.829,
+       "h": 0.2298
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "guardian-oct3-headline",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "headline",
+   "file": "rev2/guardian_oct3_headline.png",
+   "headline": "OpenAI says its review into hacks, including on Australian government sites, is costing $500,000 a day",
+   "dek": "Company says it is reviewing 50 petabytes of data after its agents accessed websites including Medicare without authorisation",
+   "outlet": "The Guardian",
+   "author": "Josh Taylor",
+   "date": "2026-10-03",
+   "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
+   "caption": "Guardian headline and standfirst (50 petabytes, $500,000 a day).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Pair with guardian-oct3-lede and guardian-oct3-66m-years-quote. Byline: Josh Taylor, technology reporter, Sat 3 Oct 2026 01.39 EDT.",
+   "image_px": [
+    1312,
+    452
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "guardian-oct3-lede",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "screenshot",
+   "file": "rev2/guardian_oct3_lede.png",
+   "headline": null,
+   "dek": "OpenAI says its review in response to the Medicare and Hugging Face agent attacks is costing the company more than US$500,000 per day, as it deploys AI to examine data that would take a human 66m years to read.",
+   "outlet": "The Guardian",
+   "author": "Josh Taylor",
+   "date": "2026-10-03",
+   "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
+   "caption": "Guardian lede: the review deploys AI to examine data that would take a human 66m years to read.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Guardian's own paraphrase (not an OpenAI quote). Same article as guardian-oct3-headline. Later paragraphs (verified in text): \"AI is being used to help sift through the records, and it was costing the company more than half a million US dollars per day to go through. OpenAI said it also plans to increase its computing power as the process is refined.\" and \"The reason for the delay compared to the revelation of the Medicare attack is due to the sheer volume of data OpenAI needs to review.\"",
+   "image_px": [
+    1280,
+    182
+   ],
+   "highlight_boxes": [
+    {
+     "text": "as it deploys AI to examine data that would take a human 66m years to read.",
+     "boxes_frac": [
+      {
+       "x": 0.8064,
+       "y": 0.3807,
+       "w": 0.1555,
+       "h": 0.2298
+      },
+      {
+       "x": 0.0156,
+       "y": 0.6411,
+       "w": 0.7923,
+       "h": 0.2298
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "techcrunch-sep28-headline",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "headline",
+   "file": "rev2/techcrunch_sep28_headline.png",
+   "headline": "OpenAI still doesn’t seem to have a handle on all of its rogue AI activity",
+   "dek": null,
+   "outlet": "TechCrunch",
+   "author": "Russell Brandom",
+   "date": "2026-09-28",
+   "url": "https://techcrunch.com/2026/09/28/openai-still-doesnt-seem-to-have-a-handle-on-all-of-its-rogue-ai-activity/",
+   "caption": "TechCrunch hero (Sam Altman photo, Kyle Grillot/Bloomberg/Getty) with headline, byline and date.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Russell Brandom, 10:09 AM PDT, September 28, 2026. Image is a Getty photo embedded in the real page; use only as a headline clipping.",
+   "image_px": [
+    2504,
+    1322
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "techcrunch-sep28-petabytes-quote",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "screenshot",
+   "file": "rev2/techcrunch_sep28_petabytes_quote.png",
+   "headline": null,
+   "dek": "“We are trying to balance our desire for transparency with gaining a clear understanding from petabytes of agent activity logs, and working with impacted organizations,” Sam Altman said in a post announcing the new site. “We are prioritizing as best as we can based on severity, and adding resources.”",
+   "outlet": "TechCrunch",
+   "author": "Russell Brandom",
+   "date": "2026-09-28",
+   "url": "https://techcrunch.com/2026/09/28/openai-still-doesnt-seem-to-have-a-handle-on-all-of-its-rogue-ai-activity/",
+   "caption": "TechCrunch paragraph quoting Altman on \"petabytes of agent activity logs\"; highlight on the phrase.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Same article also says (verified): \"Axios is reporting major labs have seen as many as 10,000 incidents in which models went beyond evaluator instructions.\" and that OpenAI's monitoring system \"flagged the behavior within 15 minutes and the run was discontinued in less than three hours\" (Sep 20 DNS-to-external-chatbot incident).",
+   "image_px": [
+    1378,
+    312
+   ],
+   "highlight_boxes": [
+    {
+     "text": "petabytes of agent activity logs",
+     "boxes_frac": [
+      {
+       "x": 0.2728,
+       "y": 0.265,
+       "w": 0.3857,
+       "h": 0.121
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "register-sep28-headline",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "headline",
+   "file": "rev2/register_sep28_headline.png",
+   "headline": "OpenAI pauses some training amid allegations its rogue agents behaved more badly than first thought",
+   "dek": "Amid allegations that agents may have gone off the rails thousands of times, China set up some kind of agentic incident hotline",
+   "outlet": "The Register",
+   "author": "Simon Sharwood",
+   "date": "2026-09-28",
+   "url": "https://www.theregister.com/ai-and-ml/2026/09/28/openai-pauses-some-training-amid-allegations-its-rogue-agents-behaved-more-badly-than-first-thought/5299350",
+   "caption": "The Register headline and standfirst.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Simon Sharwood (APAC editor), Published Mon 28 Sept 2026 05:30 UTC (page footer text). Article also says OpenAI \"quietly disclosed it had paused training of its most advanced models\".",
+   "image_px": [
+    2402,
+    386
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "register-sep28-petabytes-quote",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "screenshot",
+   "file": "rev2/register_sep28_petabytes_quote.png",
+   "headline": null,
+   "dek": "OpenAI CEO Sam Altman responded by admitting that his company’s investigations into rogue agents “have not been as fast as we would have liked but we are trying to balance our desire for transparency with gaining a clear understanding from petabytes of agent activity logs, and working with impacted organizations.”",
+   "outlet": "The Register",
+   "author": "Simon Sharwood",
+   "date": "2026-09-28",
+   "url": "https://www.theregister.com/ai-and-ml/2026/09/28/openai-pauses-some-training-amid-allegations-its-rogue-agents-behaved-more-badly-than-first-thought/5299350",
+   "caption": "The Register paragraph with Altman's \"petabytes of agent activity logs\" quote, highlighted.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Crop is a sub-image of the page (right-hand ad column cropped out).",
+   "image_px": [
+    1390,
+    364
+   ],
+   "highlight_boxes": [
+    {
+     "text": "petabytes of agent activity logs",
+     "boxes_frac": [
+      {
+       "x": 0.2795,
+       "y": 0.5954,
+       "w": 0.3587,
+       "h": 0.1152
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "reuters-moneycontrol-oct2-headline",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "headline",
+   "file": "rev2/reuters_moneycontrol_oct2_headline.png",
+   "headline": "OpenAI alerts 100+ organisations over unauthorised activity by its AI agents",
+   "dek": "The ChatGPT maker is reviewing roughly 50 petabytes of data after the Hugging Face incident as it investigates unintended and unauthorised activity by its AI models.",
+   "outlet": "Reuters (syndicated on Moneycontrol)",
+   "author": null,
+   "date": "2026-10-02",
+   "url": "https://www.moneycontrol.com/artificial-intelligence/openai-alerts-100-organisations-over-unauthorised-activity-by-its-ai-agents-article-14043240.html",
+   "caption": "Reuters wire copy on Moneycontrol: headline + standfirst saying OpenAI is reviewing roughly 50 petabytes of data.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Page is labelled \"REUTERS OCTOBER 02, 2026 / 07:57 IST\". The original Reuters URL (https://www.reuters.com/legal/litigation/openai-alerts-more-than-100-groups-about-rogue-ai-agent-activity-2026-10-01/, dated 2026-10-01) is blocked by bot protection, so this syndicated copy is the screenshot source. Reuters says it is \"according to a blog post by the ChatGPT maker\".",
+   "image_px": [
+    1908,
+    570
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "reuters-moneycontrol-oct2-50pb",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "screenshot",
+   "file": "rev2/reuters_moneycontrol_oct2_50pb.png",
+   "headline": null,
+   "dek": "OpenAI is searching through roughly 50 petabytes of data as it works to understand the full scope of its rogue agent activity.",
+   "outlet": "Reuters (syndicated on Moneycontrol)",
+   "author": null,
+   "date": "2026-10-02",
+   "url": "https://www.moneycontrol.com/artificial-intelligence/openai-alerts-100-organisations-over-unauthorised-activity-by-its-ai-agents-article-14043240.html",
+   "caption": "Reuters bullet: \"OpenAI is searching through roughly 50 petabytes of data ...\" with highlight.",
+   "quality": 4,
+   "verified": true,
+   "notes": "See reuters-moneycontrol-oct2-headline.",
+   "image_px": [
+    1900,
+    168
+   ],
+   "highlight_boxes": [
+    {
+     "text": "searching through roughly 50 petabytes of data",
+     "boxes_frac": [
+      {
+       "x": 0.1214,
+       "y": 0.1667,
+       "w": 0.4332,
+       "h": 0.2857
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "techspot-oct2-headline",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "headline",
+   "file": "rev2/techspot_oct2_headline.png",
+   "headline": "OpenAI's rogue agent problem is bigger than Hugging Face, over 100 organizations and counting",
+   "dek": "Agents bypassed access controls, exposed credentials, and even repurposed websites to exchange information",
+   "outlet": "TechSpot",
+   "author": "Rob Thubron",
+   "date": "2026-10-02",
+   "url": "https://www.techspot.com/news/114073-openai-rogue-ai-agents-triggered-alerts-more-than.html",
+   "caption": "TechSpot headline and standfirst.",
+   "quality": 4,
+   "verified": true,
+   "notes": "By Rob Thubron, October 2, 2026 at 5:19 AM. The byline strip at the bottom was cropped.",
+   "image_px": [
+    2403,
+    400
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "techspot-oct2-ai-filter",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "screenshot",
+   "file": "rev2/techspot_oct2_ai_filter.png",
+   "headline": null,
+   "dek": "The review covers around 50 petabytes of records. OpenAI is throwing roughly 7,000 Nvidia GB200 and GB300 GPUs at the job, at a cost of more than $500,000 a day. AI systems filter potential cases before human investigators examine the evidence.",
+   "outlet": "TechSpot",
+   "author": "Rob Thubron",
+   "date": "2026-10-02",
+   "url": "https://www.techspot.com/news/114073-openai-rogue-ai-agents-triggered-alerts-more-than.html",
+   "caption": "TechSpot paragraph: 50 PB, ~7,000 Nvidia GB200/GB300 GPUs, >$500,000 a day, \"AI systems filter potential cases before human investigators examine the evidence\" (highlighted).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Best single image for \"AI reads it, humans only see the filtered remainder\". TechSpot reads this from OpenAI's blog post (the OpenAI post itself could not be loaded).",
+   "image_px": [
+    1270,
+    334
+   ],
+   "highlight_boxes": [
+    {
+     "text": "The review covers around 50 petabytes of records.",
+     "boxes_frac": [
+      {
+       "x": 0.0157,
+       "y": 0.1552,
+       "w": 0.7095,
+       "h": 0.1373
+      }
+     ]
+    },
+    {
+     "text": "AI systems filter potential cases before human investigators examine the evidence.",
+     "boxes_frac": [
+      {
+       "x": 0.5291,
+       "y": 0.5179,
+       "w": 0.4385,
+       "h": 0.1373
+      },
+      {
+       "x": 0.0157,
+       "y": 0.6993,
+       "w": 0.6989,
+       "h": 0.1373
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "gizmodo-oct2-headline",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "headline",
+   "file": "rev2/gizmodo_oct2_headline.png",
+   "headline": "OpenAI Has Sent Notices of Sketchy AI Behavior to Over 100 Organizations So Far",
+   "dek": "None of the instances of what OpenAI calls “misaligned agent activity” have been as severe as the Hugging Face attack so far, the company said in a blog post.",
+   "outlet": "Gizmodo",
+   "author": "Tom McKay",
+   "date": "2026-10-02",
+   "url": "https://gizmodo.com/openai-has-sent-notices-of-sketchy-ai-behavior-to-over-100-organizations-so-far-2000820702",
+   "caption": "Gizmodo headline and dek.",
+   "quality": 4,
+   "verified": true,
+   "notes": "By Tom McKay, published October 2, 2026, 12:17 AM ET.",
+   "image_px": [
+    928,
+    912
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "gizmodo-oct2-50pb",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "screenshot",
+   "file": "rev2/gizmodo_oct2_50pb.png",
+   "headline": null,
+   "dek": "OpenAI has said the review involves searching through 50 petabytes of data and will take months. It stated in the blog post that the compute for the review runs at a cost of over half a million dollars per day—a pittance compared to the cash that flows through OpenAI every day, but still a significant enough sum to suggest liability concerns.",
+   "outlet": "Gizmodo",
+   "author": "Tom McKay",
+   "date": "2026-10-02",
+   "url": "https://gizmodo.com/openai-has-sent-notices-of-sketchy-ai-behavior-to-over-100-organizations-so-far-2000820702",
+   "caption": "Gizmodo paragraph: review involves searching through 50 petabytes of data, will take months, >half a million dollars a day (highlight on 50 PB / months).",
+   "quality": 4,
+   "verified": true,
+   "notes": "The blue underline under \"will take months\" is the page's own link styling.",
+   "image_px": [
+    1422,
+    400
+   ],
+   "highlight_boxes": [
+    {
+     "text": "searching through 50 petabytes of data and will take months",
+     "boxes_frac": [
+      {
+       "x": 0.4993,
+       "y": 0.075,
+       "w": 0.4796,
+       "h": 0.13
+      },
+      {
+       "x": 0.0141,
+       "y": 0.255,
+       "w": 0.3495,
+       "h": 0.13
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "guardian-techscape-sep29-headline",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "headline",
+   "file": "rev2/guardian_techscape_sep29_headline.png",
+   "headline": "The AI agents are spiraling out of control",
+   "dek": "As OpenAI discloses multiple incidents of its technology going rogue and the UN warns of uncontrollable agents, Meta is putting an AI agent in the hands of millions",
+   "outlet": "The Guardian (TechScape)",
+   "author": "Blake Montgomery",
+   "date": "2026-09-29",
+   "url": "https://www.theguardian.com/global/2026/sep/28/ai-agents-spiral",
+   "caption": "Guardian TechScape headline and standfirst.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Blake Montgomery, Tue 29 Sep 2026 08.52 EDT (URL path says sep/28).",
+   "image_px": [
+    1280,
+    392
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "guardian-techscape-sep29-petabytes",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "screenshot",
+   "file": "rev2/guardian_techscape_sep29_petabytes.png",
+   "headline": null,
+   "dek": "Both OpenAI and Anthropic are investigating tens of thousands of incidents of problematic behavior by their frontier models, per Axios. Sam Altman said OpenAI was sifting through “petabytes of agent activity logs”. (A petabyte of data would fill thousands of average laptops.)",
+   "outlet": "The Guardian (TechScape)",
+   "author": "Blake Montgomery",
+   "date": "2026-09-29",
+   "url": "https://www.theguardian.com/global/2026/sep/28/ai-agents-spiral",
+   "caption": "Guardian paragraph: tens of thousands of incidents (per Axios) and \"petabytes of agent activity logs\"; \"A petabyte of data would fill thousands of average laptops.\"",
+   "quality": 4,
+   "verified": true,
+   "notes": "Guardian's laptop comparison is the Guardian's own aside, not OpenAI's.",
+   "image_px": [
+    1288,
+    284
+   ],
+   "highlight_boxes": [
+    {
+     "text": "Sam Altman said OpenAI was sifting through “petabytes of agent activity logs”. (A petabyte of data would fill thousands of average laptops.)",
+     "boxes_frac": [
+      {
+       "x": 0.1031,
+       "y": 0.5902,
+       "w": 0.8077,
+       "h": 0.1539
+      },
+      {
+       "x": 0.0186,
+       "y": 0.7566,
+       "w": 0.9284,
+       "h": 0.1469
+      }
+     ]
+    },
+    {
+     "text": "tens of thousands of incidents of problematic behavior by their frontier models, per Axios.",
+     "boxes_frac": [
+      {
+       "x": 0.8445,
+       "y": 0.2573,
+       "w": 0.0848,
+       "h": 0.1469
+      },
+      {
+       "x": 0.0186,
+       "y": 0.4238,
+       "w": 0.9488,
+       "h": 0.1469
+      },
+      {
+       "x": 0.0186,
+       "y": 0.5902,
+       "w": 0.0784,
+       "h": 0.1539
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "openai-alignment-misalignment-reports-page",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "screenshot",
+   "file": "rev2/openai_alignment_misalignment_reports.png",
+   "headline": "Misalignment Reports and Notices",
+   "dek": "We disclose examples that show how model misalignment arises, what it looks like, and where safeguards succeed or fail.",
+   "outlet": "OpenAI Alignment Research Blog",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://alignment.openai.com/misalignment-reports/",
+   "caption": "OpenAI's own \"Misalignment Reports and Notices\" index (12 reports, 3 notices as of 2026-10-04), listing incident dates and titles.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Captured 2026-10-04. TechCrunch (Sep 28) counted nine reports at launch; the page now says \"Reports 12 / Notices 3\". Report list includes \"An agent used DNS to reach an external chatbot\" (Sep 20, 2026), \"Preparing for a restart after reading Slack\", \"Unsanctioned Artifactory writes and cross-sample communication\". Good wall-of-evidence visual.",
+   "image_px": [
+    2560,
+    2722
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "metr-hf-header",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "screenshot",
+   "file": "rev2/metr_aug26_header.png",
+   "headline": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+   "dek": null,
+   "outlet": "METR",
+   "author": "Ryan Greenblatt, Ajeya Cotra, Hjalmar Wijk",
+   "date": "2026-08-26",
+   "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "caption": "Title block of METR's independent investigation of the OpenAI / Hugging Face incident (Greenblatt, Cotra, Wijk).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Authors: Ryan Greenblatt, Ajeya Cotra, Hjalmar Wijk; date August 26, 2026.",
+   "image_px": [
+    2560,
+    630
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "metr-hf-millions-of-tokens",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "screenshot",
+   "file": "rev2/metr_aug26_millions_of_tokens.png",
+   "headline": null,
+   "dek": "Across both datasets, we reviewed approximately 1300 transcripts in total, all of which contained raw chains of thought. Most transcripts were very long, often many millions of tokens.",
+   "outlet": "METR",
+   "author": "Ryan Greenblatt, Ajeya Cotra, Hjalmar Wijk",
+   "date": "2026-08-26",
+   "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "caption": "METR: ~1300 transcripts, all with raw chains of thought; \"Most transcripts were very long, often many millions of tokens.\" (highlighted)",
+   "quality": 5,
+   "verified": true,
+   "notes": "STRONGEST quantitative evidence that frontier agent transcripts/CoT exceed human reading capacity. \"Many millions of tokens\" per transcript is METR's wording; exact token counts are not given.",
+   "image_px": [
+    1694,
+    160
+   ],
+   "highlight_boxes": [
+    {
+     "text": "Most transcripts were very long, often many millions of tokens.",
+     "boxes_frac": [
+      {
+       "x": 0.194,
+       "y": 0.5374,
+       "w": 0.6033,
+       "h": 0.2745
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "metr-hf-delegate-to-ai",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "screenshot",
+   "file": "rev2/metr_aug26_delegate_to_ai.png",
+   "headline": null,
+   "dek": "Because there were over a thousand transcripts and most were extremely long, we had to heavily delegate our analysis to AI agents; these agents had significantly worse judgment and reliability than human researchers, and it was challenging to spot check their work because both the underlying data and the agents’ analysis of it was often difficult to interpret.",
+   "outlet": "METR",
+   "author": "Ryan Greenblatt, Ajeya Cotra, Hjalmar Wijk",
+   "date": "2026-08-26",
+   "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "caption": "METR: \"Because there were over a thousand transcripts and most were extremely long, we had to heavily delegate our analysis to AI agents\" (highlighted).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Same sentence appears in the Core takeaways summary: \"The sheer scale of data (over a thousand transcripts, each of which was extremely long) meant that we had to heavily delegate our analysis to often-unreliable AI agents.\" METR used GPT-5.6 Sol analysis agents \"often managing large nested trees of sub-agents\" and spent \"roughly ~$400K in API credits over the six days\".",
+   "image_px": [
+    1574,
+    264
+   ],
+   "highlight_boxes": [
+    {
+     "text": "we had to heavily delegate our analysis to AI agents",
+     "boxes_frac": [
+      {
+       "x": 0.8413,
+       "y": 0.1061,
+       "w": 0.1007,
+       "h": 0.1667
+      },
+      {
+       "x": 0.0152,
+       "y": 0.3106,
+       "w": 0.4261,
+       "h": 0.1667
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "metr-hf-thousand-pages",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "screenshot",
+   "file": "rev2/metr_aug26_thousand_pages.png",
+   "headline": null,
+   "dek": "We attempted to manually spot-check and validate analysis agents’ research as much as possible, but this was challenging. Message board entries and reasoning snippets were difficult to interpret without extensive surrounding context. Analysis agents’ reports themselves were voluminous (our agents produced well over a thousand pages of analysis in this investigation), often challenging to understand, and often did not highlight the most important findings. As a result, we had to defer to these agents to a substantial extent in practice.",
+   "outlet": "METR",
+   "author": "Ryan Greenblatt, Ajeya Cotra, Hjalmar Wijk",
+   "date": "2026-08-26",
+   "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "caption": "METR: AI analysis reports alone ran \"well over a thousand pages\"; \"we had to defer to these agents to a substantial extent in practice\" (highlighted).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Shows the second-order problem: even the AI summaries were too long for humans to fully check.",
+   "image_px": [
+    1694,
+    440
+   ],
+   "highlight_boxes": [
+    {
+     "text": "well over a thousand pages of analysis",
+     "boxes_frac": [
+      {
+       "x": 0.184,
+       "y": 0.4499,
+       "w": 0.3665,
+       "h": 0.0998
+      }
+     ]
+    },
+    {
+     "text": "we had to defer to these agents to a substantial extent in practice",
+     "boxes_frac": [
+      {
+       "x": 0.7892,
+       "y": 0.5773,
+       "w": 0.174,
+       "h": 0.0998
+      },
+      {
+       "x": 0.0142,
+       "y": 0.7046,
+       "w": 0.4493,
+       "h": 0.0998
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "anthropic-pace-header",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "screenshot",
+   "file": "rev2/anthropic_pace_header.png",
+   "headline": "Measurements for understanding the pace of AI development inside frontier labs",
+   "dek": null,
+   "outlet": "Anthropic",
+   "author": null,
+   "date": "2026-08 (data as of August 2026; page carries no publish date)",
+   "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+   "caption": "Hero banner of Anthropic's \"Measurements for understanding the pace of AI development inside frontier labs\".",
+   "quality": 3,
+   "verified": true,
+   "notes": "Page is undated; its measurements are \"as of August 2026\". Korean outlet Digital Today covered it on 2026-09-18.",
+   "image_px": [
+    2560,
+    1440
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "anthropic-monitor-table",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "screenshot",
+   "file": "rev2/anthropic_monitor_table.png",
+   "headline": null,
+   "dek": "Offline monitors: \"The monitor flags roughly 100,000 transcripts per week that are then reviewed by multiple classifiers for false-positives and initial oversight review. Most of the flags are resolved by this process, and the highest priority flags (approximately ~50 per week) are escalated to human review.\" Online monitors: \"We analyzed over a billion decisions from our research & engineering agents over August 2026 and found that 0.002% of them (about 1 in 47,000) were blocked by this monitor.\"",
+   "outlet": "Anthropic",
+   "author": null,
+   "date": "2026-08 (data as of August 2026)",
+   "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+   "caption": "Anthropic's online/offline monitor table: 100,000 flagged transcripts/week reviewed by classifiers first; ~50/week escalated to humans; >1 billion decisions in Aug 2026, 0.002% blocked.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Official Anthropic numbers for AI-monitor-first oversight. Highlights mark: \"The monitor flags roughly 100,000 transcripts per week\", \"(approximately ~50 per week) are escalated to human review\", \"over a billion decisions\".",
+   "image_px": [
+    1712,
+    1468
+   ],
+   "highlight_boxes": [
+    {
+     "text": "The monitor flags roughly 100,000 transcripts per week",
+     "boxes_frac": [
+      {
+       "x": 0.6121,
+       "y": 0.5749,
+       "w": 0.3709,
+       "h": 0.0259
+      },
+      {
+       "x": 0.6121,
+       "y": 0.6035,
+       "w": 0.0761,
+       "h": 0.0259
+      }
+     ]
+    },
+    {
+     "text": "(approximately ~50 per week) are escalated to human review",
+     "boxes_frac": [
+      {
+       "x": 0.721,
+       "y": 0.718,
+       "w": 0.2478,
+       "h": 0.0259
+      },
+      {
+       "x": 0.6121,
+       "y": 0.7466,
+       "w": 0.2495,
+       "h": 0.0259
+      }
+     ]
+    },
+    {
+     "text": "over a billion decisions",
+     "boxes_frac": [
+      {
+       "x": 0.3266,
+       "y": 0.8202,
+       "w": 0.1846,
+       "h": 0.0259
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "anthropic-30k-agents",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "screenshot",
+   "file": "rev2/anthropic_30k_agents.png",
+   "headline": null,
+   "dek": "What we found. As of August 2026, there were approximately 30,000 agents doing research and engineering work at Anthropic at any one time in our most-used internal platform.",
+   "outlet": "Anthropic",
+   "author": null,
+   "date": "2026-08 (data as of August 2026)",
+   "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+   "caption": "Anthropic: ~30,000 agents doing research and engineering work at any one time on its main internal platform (highlighted).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Measurement covers one internal platform only, per the page.",
+   "image_px": [
+    1328,
+    310
+   ],
+   "highlight_boxes": [
+    {
+     "text": "approximately 30,000 agents doing research and engineering work at Anthropic at any one time",
+     "boxes_frac": [
+      {
+       "x": 0.5753,
+       "y": 0.0899,
+       "w": 0.3481,
+       "h": 0.1349
+      },
+      {
+       "x": 0.0181,
+       "y": 0.2591,
+       "w": 0.7868,
+       "h": 0.1349
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "astra-card-monitoring-all-tool-use",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "screenshot",
+   "file": "rev2/astra_card_monitoring_all_tool_use.png",
+   "headline": null,
+   "dek": "We are deploying misalignment monitoring broadly. We view model alignment as the primary lever to prevent potential misaligned behavior from our models. However, monitoring provides broad visibility into frontier model behavior, illuminating opportunities to further improve alignment and safety. In addition, monitoring serves as an additional layer of protection against misaligned behavior that is detected. For these reasons, we have additionally added misalignment monitoring to all tool-using inference involved in our external deployment of Astra, with significant compute cost. This system parallels our internal setup.",
+   "outlet": "OpenAI (GPT-6 Astra System Card)",
+   "author": null,
+   "date": "2026-09-03",
+   "url": "https://deploymentsafety.openai.com/gpt-6-astra",
+   "caption": "OpenAI system card: misalignment monitoring added to all tool-using inference in Astra's external deployment, \"with significant compute cost\" (highlighted).",
+   "quality": 5,
+   "verified": true,
+   "notes": "System card published September 3, 2026 (change log through Sep 29). Internal-deployment section: \"universal monitoring for misalignment that pages humans who can stop workloads\"; internal monitoring \"cover[s] all tool-using Astra traffic, including evaluations and training runs\".",
+   "image_px": [
+    1528,
+    448
+   ],
+   "highlight_boxes": [
+    {
+     "text": "we have additionally added misalignment monitoring to all tool-using inference involved in our external deployment of Astra, with significant compute cost.",
+     "boxes_frac": [
+      {
+       "x": 0.5736,
+       "y": 0.5804,
+       "w": 0.2701,
+       "h": 0.0893
+      },
+      {
+       "x": 0.0183,
+       "y": 0.7054,
+       "w": 0.9511,
+       "h": 0.0893
+      },
+      {
+       "x": 0.0183,
+       "y": 0.8304,
+       "w": 0.2999,
+       "h": 0.0893
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "astra-card-cot-monitor-reviews",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "screenshot",
+   "file": "rev2/astra_card_cot_monitor_reviews.png",
+   "headline": null,
+   "dek": "The system reviews the agent’s chain of thought alongside its actions and the conversation’s inputs and outputs. It looks for signs that the agent may be acting outside the user’s intended instructions, such as accessing or transferring sensitive data without authorization or making destructive changes the user did not request.",
+   "outlet": "OpenAI (GPT-6 Astra System Card)",
+   "author": null,
+   "date": "2026-09-03",
+   "url": "https://deploymentsafety.openai.com/gpt-6-astra",
+   "caption": "OpenAI system card, Misalignment Monitoring: \"The system reviews the agent's chain of thought alongside its actions and the conversation's inputs and outputs.\" (highlighted)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Section 10.2.3.1. Monitoring runs asynchronously alongside the agent. In the monitorability evals the monitor model is \"GPT-5.6 Sol at a reasoning effort between high and x-high\" (AI reading the CoT).",
+   "image_px": [
+    1596,
+    280
+   ],
+   "highlight_boxes": [
+    {
+     "text": "The system reviews the agent’s chain of thought alongside its actions and the conversation’s inputs and outputs.",
+     "boxes_frac": [
+      {
+       "x": 0.0175,
+       "y": 0.1286,
+       "w": 0.9411,
+       "h": 0.1429
+      },
+      {
+       "x": 0.0175,
+       "y": 0.3286,
+       "w": 0.1197,
+       "h": 0.1429
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "astra-card-monitorability-decrease",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "screenshot",
+   "file": "rev2/astra_card_monitorability_decrease.png",
+   "headline": null,
+   "dek": "In this section, we provide results from our investigation into Astra’s monitorability, that is, the extent to which we can expect monitoring systems to be able to detect when Astra acts in misaligned or otherwise undesirable ways. According to our evaluations, GPT-6 Astra shows a substantial decrease in chain-of-thought monitorability compared to previous models.",
+   "outlet": "OpenAI (GPT-6 Astra System Card)",
+   "author": null,
+   "date": "2026-09-03",
+   "url": "https://deploymentsafety.openai.com/gpt-6-astra",
+   "caption": "OpenAI system card: \"GPT-6 Astra shows a substantial decrease in chain-of-thought monitorability compared to previous models.\" (highlighted)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Counterpoint to \"CoT is too long\": Astra's CoT is often SHORTER or empty (\"producing empty or nearly empty CoTs more often\"), which hurts monitoring. Both problems (volume and disappearance) undermine human oversight. Same card: among CoTs of 750-1,250 tokens Astra controls its CoT format 60.9% of the time vs 16.1% for GPT-5.6 Sol.",
+   "image_px": [
+    1596,
+    392
+   ],
+   "highlight_boxes": [
+    {
+     "text": "GPT-6 Astra shows a substantial decrease in chain-of-thought monitorability compared to previous models.",
+     "boxes_frac": [
+      {
+       "x": 0.5692,
+       "y": 0.3776,
+       "w": 0.3994,
+       "h": 0.102
+      },
+      {
+       "x": 0.0175,
+       "y": 0.5204,
+       "w": 0.6113,
+       "h": 0.102
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "gemini4-argon-1m-output-tokens",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "screenshot",
+   "file": "rev2/gemini4_argon_1m_output_tokens.png",
+   "headline": "Gemini 4 Argon: our next era of frontier intelligence",
+   "dek": "To support Gemini 4 Argon’s capabilities across longer, more complex use cases, we are significantly expanding the model’s output token limit to an industry-leading 1M tokens, up from the previous 64K tokens. When the model has the headroom to think deeply and generate hundreds of thousands of tokens in a single trajectory, it adds a new level of depth in reasoning to solve tough problems in one go.",
+   "outlet": "Google (blog.google)",
+   "author": null,
+   "date": "2026-09-30",
+   "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+   "caption": "Google: Gemini 4 Argon output limit raised to 1M tokens (from 64K); model can \"generate hundreds of thousands of tokens in a single trajectory\" (highlighted).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Official statement of single-trajectory scale. 1M tokens is a limit, not a measured average. At 240 wpm and 0.75 words/token, 1M tokens is about 52 hours of nonstop reading (ESTIMATE).",
+   "image_px": [
+    1168,
+    368
+   ],
+   "highlight_boxes": [
+    {
+     "text": "output token limit to an industry-leading 1M tokens, up from the previous 64K tokens",
+     "boxes_frac": [
+      {
+       "x": 0.6345,
+       "y": 0.2337,
+       "w": 0.2873,
+       "h": 0.1087
+      },
+      {
+       "x": 0.024,
+       "y": 0.375,
+       "w": 0.7443,
+       "h": 0.1087
+      }
+     ]
+    },
+    {
+     "text": "think deeply and generate hundreds of thousands of tokens in a single trajectory",
+     "boxes_frac": [
+      {
+       "x": 0.371,
+       "y": 0.5163,
+       "w": 0.4768,
+       "h": 0.1087
+      },
+      {
+       "x": 0.024,
+       "y": 0.6576,
+       "w": 0.5041,
+       "h": 0.1087
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "gemini4-argon-monitoring-cot",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "screenshot",
+   "file": "rev2/gemini4_argon_monitoring_cot.png",
+   "headline": null,
+   "dek": "Monitoring for misalignment: In order to prevent Argon from stepping out of bounds to try to accomplish a task in a way that goes beyond the user’s intentions, we are deploying misalignment mitigations that monitor Argon’s chain-of-thought and actions and stop execution when necessary.",
+   "outlet": "Google (blog.google)",
+   "author": null,
+   "date": "2026-09-30",
+   "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+   "caption": "Google DeepMind: misalignment mitigations \"monitor Argon's chain-of-thought and actions and stop execution when necessary\" (highlighted).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Google does not state a volume number; the point is that an automated monitor reads the CoT in real time.",
+   "image_px": [
+    1168,
+    264
+   ],
+   "highlight_boxes": [
+    {
+     "text": "we are deploying misalignment mitigations that monitor Argon’s chain-of-thought and actions and stop execution when necessary.",
+     "boxes_frac": [
+      {
+       "x": 0.1598,
+       "y": 0.5227,
+       "w": 0.7863,
+       "h": 0.1515
+      },
+      {
+       "x": 0.024,
+       "y": 0.7197,
+       "w": 0.8119,
+       "h": 0.1515
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "gemini4-argon-monitor-training-runs",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "screenshot",
+   "file": "rev2/gemini4_argon_monitor_training_runs.png",
+   "headline": null,
+   "dek": "We used a similar system to monitor our training runs and send alerts to a dedicated incident response team, taking careful precautions against feeding the findings back into training so as to not risk shaping Argon’s reasoning to evade our monitoring. We strongly encourage the rest of the industry to preserve reasoning transparency in these pivotal moments of increased capabilities while navigating alignment risks, so that model thoughts remain helpful in identifying and diagnosing misalignment.",
+   "outlet": "Google (blog.google)",
+   "author": null,
+   "date": "2026-09-30",
+   "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+   "caption": "Google: \"We used a similar system to monitor our training runs and send alerts to a dedicated incident response team\" + call for the industry to preserve reasoning transparency.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Same page as gemini4-argon-monitoring-cot.",
+   "image_px": [
+    1168,
+    420
+   ],
+   "highlight_boxes": [
+    {
+     "text": "We used a similar system to monitor our training runs and send alerts to a dedicated incident response team",
+     "boxes_frac": [
+      {
+       "x": 0.024,
+       "y": 0.081,
+       "w": 0.9015,
+       "h": 0.0952
+      },
+      {
+       "x": 0.024,
+       "y": 0.2048,
+       "w": 0.4224,
+       "h": 0.0952
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "lesswrong-openai-monitor-99-9",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "screenshot",
+   "file": "rev2/lesswrong_oai_monitor_99_9.png",
+   "headline": null,
+   "dek": "OpenAI now monitors 99.9% of internal coding traffic for signs of misalignment using our most powerful models. Today, that monitor is GPT-5.4 Thinking. It gets access to the full conversation context, that is everything the agent saw, and everything the agent did, including tool calls and CoT. Higher severity cases are sent for human review within 30 minutes.",
+   "outlet": "LessWrong (linkpost by OpenAI's Marcus Williams)",
+   "author": "Marcus Williams",
+   "date": "2026-03-19",
+   "url": "https://www.lesswrong.com/posts/syB2r2X4E7nmw58co/openai-how-we-monitor-internal-coding-agents-for",
+   "caption": "OpenAI author's summary: monitors 99.9% of internal coding traffic with GPT-5.4 Thinking, sees CoT, higher-severity cases go to humans within 30 minutes (highlighted).",
+   "quality": 4,
+   "verified": true,
+   "notes": "Linkpost to OpenAI's \"How we monitor internal coding agents for misalignment\" (https://openai.com/index/how-we-monitor-internal-coding-agents-misalignment/, Mar 19, 2026), which is behind Cloudflare. Details from secondary coverage (SecurityBrief, Mar 20, 2026, loaded): \"monitored tens of millions of internal coding trajectories\" over five months; monitor is GPT-5.4 Thinking at maximum reasoning effort; about 1,000 conversations triggered moderate-severity alerts; none triggered the highest severity.",
+   "image_px": [
+    1346,
+    992
+   ],
+   "highlight_boxes": [
+    {
+     "text": "OpenAI now monitors 99.9% of internal coding traffic for signs of misalignment using our most powerful models.",
+     "boxes_frac": [
+      {
+       "x": 0.0208,
+       "y": 0.129,
+       "w": 0.8978,
+       "h": 0.0605
+      },
+      {
+       "x": 0.0208,
+       "y": 0.1815,
+       "w": 0.3713,
+       "h": 0.0605
+      }
+     ]
+    },
+    {
+     "text": "Higher severity cases are sent for human review within 30 minutes.",
+     "boxes_frac": [
+      {
+       "x": 0.6332,
+       "y": 0.2863,
+       "w": 0.3317,
+       "h": 0.0605
+      },
+      {
+       "x": 0.0208,
+       "y": 0.3387,
+       "w": 0.4163,
+       "h": 0.0605
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "wired-aug18-headline",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "headline",
+   "file": "rev2/wired_aug18_headline.png",
+   "headline": "OpenAI Overhauls Safety Protocols After Its AI Agents Went Rogue",
+   "dek": null,
+   "outlet": "WIRED",
+   "author": "Maxwell Zeff",
+   "date": "2026-08-18",
+   "url": "https://www.wired.com/story/openai-overhauls-safety-protocols-after-its-ai-agents-went-rogue/",
+   "caption": "WIRED headline with byline/date (dek hidden behind a site banner, so cropped above it).",
+   "quality": 4,
+   "verified": true,
+   "notes": "Maxwell Zeff, AUG 18, 2026 2:33 PM. Dek (verified in page text): \"The ChatGPT maker says its upcoming Astra model may have reached “critical” cyber capabilities, prompting it to halt a significant number of training runs while it tightens internal safeguards.\"",
+   "image_px": [
+    1056,
+    520
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "wired-aug18-cot-monitoring",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "screenshot",
+   "file": "rev2/wired_aug18_cot_monitoring.png",
+   "headline": null,
+   "dek": "Among the new safeguards OpenAI announced is a more robust system for monitoring its AI models. One of the controls it implemented involves chain-of-thought monitoring, a technique in which classifiers review the internal “thinking” processes generated by AI reasoning models. The company says the updated system relies on computationally expensive “automated investigators” that analyze potentially concerning behavior and aim to issue an alert to humans within 30 minutes.",
+   "outlet": "WIRED",
+   "author": "Maxwell Zeff",
+   "date": "2026-08-18",
+   "url": "https://www.wired.com/story/openai-overhauls-safety-protocols-after-its-ai-agents-went-rogue/",
+   "caption": "WIRED: OpenAI's new CoT monitoring relies on computationally expensive \"automated investigators\" that aim to alert humans within 30 minutes (highlighted).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Shows CoT monitoring is performed by classifiers/AI \"investigators\", with humans receiving alerts.",
+   "image_px": [
+    1128,
+    504
+   ],
+   "highlight_boxes": [
+    {
+     "text": "chain-of-thought monitoring, a technique in which classifiers review the internal “thinking” processes generated by AI reasoning models",
+     "boxes_frac": [
+      {
+       "x": 0.3549,
+       "y": 0.2857,
+       "w": 0.6087,
+       "h": 0.0913
+      },
+      {
+       "x": 0.0248,
+       "y": 0.3968,
+       "w": 0.8634,
+       "h": 0.0913
+      },
+      {
+       "x": 0.0248,
+       "y": 0.5079,
+       "w": 0.4931,
+       "h": 0.0913
+      }
+     ]
+    },
+    {
+     "text": "“automated investigators”",
+     "boxes_frac": [
+      {
+       "x": 0.7931,
+       "y": 0.619,
+       "w": 0.171,
+       "h": 0.0913
+      },
+      {
+       "x": 0.0248,
+       "y": 0.7302,
+       "w": 0.1978,
+       "h": 0.0913
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "techcrunch-sep2-opaque-recurrence",
+   "slide_topic": "cotscale (c): related headlines",
+   "type": "headline",
+   "file": "rev2/techcrunch_sep2_headline.png",
+   "headline": "OpenAI’s new reasoning technique alarms AI safety experts",
+   "dek": null,
+   "outlet": "TechCrunch",
+   "author": "Russell Brandom",
+   "date": "2026-09-02",
+   "url": "https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/",
+   "caption": "TechCrunch headline: OpenAI's \"opaque recurrence\" may make chain of thought harder to monitor.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Russell Brandom, 1:19 PM PDT, September 2, 2026. Lede (verified): \"OpenAI’s new Astra model will use a reasoning technique called “recurrent depth” ... This technique, also called “opaque recurrence,” will likely make the model’s chain of thought more difficult to monitor — and that has AI safety experts rattled.\" Quotes Buck Shlegeris (Redwood CEO) and Zvi Mowshowitz; Pachocki: \"OpenAI has worked to preserve and utilize chain-of-thought monitoring since our very first reasoning models\".",
+   "image_px": [
+    2560,
+    1040
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "axios-scoop-tweet-sep26",
+   "slide_topic": "cotscale (c): related headlines",
+   "type": "screenshot",
+   "file": "rev2/axios_scoop_tweet_sep26.png",
+   "headline": null,
+   "dek": "SCOOP: OpenAI, Anthropic and security researchers are investigating tens of thousands of incidents - not dozens - in which their frontier models took steps that outside evaluators would consider problematic, sources told Axios.\n\nThe sheer volume of incidents found in our reporting indicate that the problem is orders of magnitude more complex than what is currently publicly known and disclosed.\n\nThe findings also raise questions about what level of control anyone working on AI development can expect to have over their own technology, and whether these kinds of incidents are becoming synonymous with frontier deployment.",
+   "outlet": "X (Madison Mills, Senior AI reporter, Axios)",
+   "author": "Madison Mills",
+   "date": "2026-09-26",
+   "url": "https://x.com/MadisonMills22/status/2103978039097037144",
+   "caption": "Axios reporter's post: OpenAI, Anthropic and security researchers are investigating tens of thousands of incidents, not dozens (3.8M views).",
+   "quality": 4,
+   "verified": true,
+   "notes": "Posted 2026-09-26 22:40 UTC (fxtwitter). The Axios article (https://www.axios.com/2026/09/26/openai-anthropic-thousands-ai-security-incidents, card title \"Scoop: Top AI companies probing tens of thousands of security incidents\") is behind Cloudflare. Secondary (The Next Web, Sep 28, loaded) quotes Axios: \"The labs run hundreds of thousands of test runs or more. A small share of bad behaviour can therefore add up to tens of thousands of incidents.\" The post header (author name) did not render in the screenshot; attribute in the caption.",
+   "image_px": [
+    1195,
+    1347
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "quartz-oct1-fired",
+   "slide_topic": "cotscale (c): related headlines",
+   "type": "headline",
+   "file": "rev2/quartz_oct1_headline.png",
+   "headline": "OpenAI fired three safety researchers for allegedly leaking data to an outside group",
+   "dek": "The company said the three violated policies on accessing and handling sensitive information by sharing it with a third-party AI safety organization",
+   "outlet": "Quartz",
+   "author": "Cris Tolomia",
+   "date": "2026-10-01",
+   "url": "https://qz.com/openai-fired-safety-researchers-leaked-confidential-data-100126",
+   "caption": "Quartz headline and dek on OpenAI firing three safety researchers.",
+   "quality": 4,
+   "verified": true,
+   "notes": "By Cris Tolomia, \"Updated October 1, 2026\", citing the Wall Street Journal. OpenAI statement (verbatim): \"We have parted ways with three individuals for violating our policies on accessing and handling sensitive company information ... Our investigation confirmed that these individuals mishandled sensitive information outside established company procedures, violating our policies and breaking the trust essential to our work.\" IMPORTANT: this is THREE people, not all safety staff; OpenAI frames it as a policy violation and the Register reports OpenAI \"said the employees were not dismissed for raising AI safety concerns\".",
+   "image_px": [
+    1824,
+    660
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "washexaminer-oct2-fired",
+   "slide_topic": "cotscale (c): related headlines",
+   "type": "headline",
+   "file": "rev2/washexaminer_oct2_headline.png",
+   "headline": "OpenAI fires researchers for sharing data with AI safety advocacy group: Report",
+   "dek": null,
+   "outlet": "Washington Examiner",
+   "author": "Molly Parks",
+   "date": "2026-10-02",
+   "url": "https://www.washingtonexaminer.com/policy/technology/4751591/openai-fires-researchers-sharing-data-ai-safety-advocacy-group/",
+   "caption": "Washington Examiner headline on the firings.",
+   "quality": 4,
+   "verified": true,
+   "notes": "By Molly Parks, Published October 2, 2026 9:43am ET. Names (per its summary of the WSJ report): Jasmine Wang, Tomek Korbak, Mikita Balesni. Says Korbak had written on X in late September that he was the \"OpenAI technical contact for METR’s Hugging Face investigation\". Note (arXiv listing, loaded): \"Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety\" (Jul 15, 2025) lists Tomek Korbak and Mikita Balesni as first two authors — same names; affiliation at the time of the paper not checked, so treat the identity link as likely but not confirmed.",
+   "image_px": [
+    2288,
+    414
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "techcrunch-oct1-fired",
+   "slide_topic": "cotscale (c): related headlines",
+   "type": "headline",
+   "file": "rev2/techcrunch_oct1_fired_headline.png",
+   "headline": "OpenAI cuts ties with 3 safety researchers, WSJ reports",
+   "dek": null,
+   "outlet": "TechCrunch",
+   "author": "Aditya Mehta",
+   "date": "2026-10-01",
+   "url": "https://techcrunch.com/2026/10/01/openai-cuts-ties-with-three-safety-researchers-wsj-reports/",
+   "caption": "TechCrunch headline: OpenAI cuts ties with 3 safety researchers, WSJ reports.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Aditya Mehta, 11:14 AM PDT, October 1, 2026. Page text (verified): \"The departures come two days after The New York Times reported that OpenAI executives had brushed aside employees’ warnings about its safety practices, with employees describing a broader pattern of the company deprioritizing security.\" TechCrunch did not name the researchers.",
+   "image_px": [
+    2560,
+    1040
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "register-oct2-fired-headline",
+   "slide_topic": "cotscale (c): related headlines",
+   "type": "headline",
+   "file": "rev2/register_oct2_fired_headline.png",
+   "headline": "OpenAI shows three staff the door over alleged information misuse",
+   "dek": "Two safety researchers and a program manager dismissed, company denies retaliation for raising concerns",
+   "outlet": "The Register",
+   "author": null,
+   "date": "2026-10-02",
+   "url": "https://www.theregister.com/ai-and-ml/2026/10/02/openai-shows-three-staff-the-door-over-alleged-information-misuse/5300820",
+   "caption": "The Register headline and standfirst: two safety researchers and a program manager dismissed; company denies retaliation.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Published Fri 02 Oct 2026 13:05 UTC. Most careful account of what happened; use it to keep the slide accurate (\"three staff\", not \"all the safety team\").",
+   "image_px": [
+    2402,
+    340
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "register-oct2-fired-not-for-safety-concerns",
+   "slide_topic": "cotscale (c): related headlines",
+   "type": "screenshot",
+   "file": "rev2/register_oct2_fired_not_for_safety_concerns.png",
+   "headline": null,
+   "dek": "The ChatGPT creator said the employees were not dismissed for raising AI safety concerns.",
+   "outlet": "The Register",
+   "author": null,
+   "date": "2026-10-02",
+   "url": "https://www.theregister.com/ai-and-ml/2026/10/02/openai-shows-three-staff-the-door-over-alleged-information-misuse/5300820",
+   "caption": "The Register: OpenAI \"said the employees were not dismissed for raising AI safety concerns.\" (highlighted)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Cropped to the text column (sidebar cropped out). Also in the article: \"At least some of the information was allegedly shared with an outside organization that evaluates AI systems.\" and \"The US biz hasn't said whether the allegedly mishandled material concerned any of its recent agent incidents\".",
+   "image_px": [
+    1410,
+    190
+   ],
+   "highlight_boxes": [
+    {
+     "text": "The ChatGPT creator said the employees were not dismissed for raising AI safety concerns.",
+     "boxes_frac": [
+      {
+       "x": 0.0595,
+       "y": 0.2312,
+       "w": 0.9169,
+       "h": 0.2188
+      },
+      {
+       "x": 0.0595,
+       "y": 0.5313,
+       "w": 0.1116,
+       "h": 0.2188
+      }
+     ]
+    }
+   ],
+   "rev": "rev2"
+  },
+  {
+   "id": "reuters-oct1-headline",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "headline",
+   "file": null,
+   "headline": "OpenAI alerts more than 100 groups about rogue AI agent activity",
+   "dek": null,
+   "outlet": "Reuters",
+   "author": null,
+   "date": "2026-10-01",
+   "url": "https://www.reuters.com/legal/litigation/openai-alerts-more-than-100-groups-about-rogue-ai-agent-activity-2026-10-01/",
+   "caption": "Original Reuters headline (page blocked by bot protection).",
+   "quality": 3,
+   "verified": false,
+   "notes": "Headline text seen only in a DuckDuckGo result title/snippet, NOT on a loaded page, so verified=false. Use the Moneycontrol-syndicated copy for a screenshot. Snippet: \"OpenAI has informed more than 100 organizations about incidents involving unauthorized activity tied to its AI agents, according to a blog post by the ChatGPT maker, as AI labs face mounting ...\"",
+   "rev": "rev2"
+  },
+  {
+   "id": "openai-process-post-sep30",
+   "slide_topic": "cotscale (a): OpenAI petabytes of agent logs",
+   "type": "quote",
+   "file": null,
+   "headline": "Our process for reviewing and disclosing model activity",
+   "dek": null,
+   "outlet": "OpenAI",
+   "author": null,
+   "date": "2026-09-30",
+   "url": "https://openai.com/hugging-face-incident-and-misalignment/",
+   "caption": "OpenAI blog post \"Our process for reviewing and disclosing model activity\" (the source of the 50 PB / 66-million-year / 7,000 GPU numbers).",
+   "quality": 4,
+   "verified": false,
+   "notes": "The openai.com page returns 403 / Cloudflare \"Just a moment\" in this environment, and the exact URL of the 30 Sep post was not confirmed (the hub page above is the one Altman's tweet links to, with anchors like #model-misalignment-2026-09-25), so verified=false for the post itself. Its content is verified via (1) The Guardian 2026-10-03 (loaded) quoting it: \"We’re working back through the records month by month, looking for potential unintended activity beyond the cases we’ve already found\" and \"To put that in perspective, if that were all plain English text, it would take one person about 66 million years to read it at 240 words a minute, reading nonstop without ever sleeping or taking a break.\"; (2) FourWeekMBA 2026-10-03 (loaded), which quotes OpenAI: about 7,000 GB200 and GB300 GPUs \"at a cost of over half a million dollars a day\", four automated steps \"starting broadly to reduce the chance of missing important activity and progressively narrowing the results before human review\" (step 1 broad search; steps 2-4 AI-enabled reviews with low, more, then even more test-time compute, which also read the chains of thought, before \"human investigators review them\"); and as of 26 Sep OpenAI had notified \"over 100 organizations\"; (3) TechSpot and Gizmodo (loaded).",
+   "rev": "rev2"
+  },
+  {
+   "id": "arxiv-cot-monitorability-2025",
+   "slide_topic": "cotscale (b): CoT/trajectory review by AI monitors",
+   "type": "quote",
+   "file": null,
+   "headline": "Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety",
+   "dek": "AI systems that “think” in human language offer a unique opportunity for AI safety: we can monitor their chains of thought (CoT) for the intent to misbehave.",
+   "outlet": "arXiv",
+   "author": "Tomek Korbak, Mikita Balesni, et al.",
+   "date": "2025-07-15",
+   "url": "https://arxiv.org/abs/2507.11473",
+   "caption": "Multi-lab position paper: CoT monitoring is a \"new and fragile opportunity\" (abstract quote).",
+   "quality": 4,
+   "verified": true,
+   "notes": "Title: \"Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety\". Authors begin Tomek Korbak, Mikita Balesni, Elizabeth Barnes, Yoshua Bengio, Joe Benton, and 35 additional co-authors. Abstract (verified on the arXiv page): \"AI systems that ‘think’ in human language offer a unique opportunity for AI safety: we can monitor their chains of thought (CoT) for the intent to misbehave. Like all other known AI oversight methods, CoT monitoring is imperfect and allows some misbehavior to go unnoticed. ... Because CoT monitorability may be fragile, we recommend that frontier model developers consider the impact of development decisions on CoT monitorability.\" The paper body (seen only as a search-result snippet of the PDF, not loaded) says \"A CoT monitor is an automated system that reads the CoT of a reasoning model and other relevant information and flags suspicious or potentially ...\".",
+   "rev": "rev2"
+  }
+ ],
+ "datasets": [
+  {
+   "id": "reading-time-hours-estimate",
+   "title": "How long would a human need to read it? (nonstop at 240 words a minute)",
+   "unit": "hours of nonstop reading",
+   "labels": [
+    "10K-token CoT (illustrative short trace)",
+    "100K tokens (low end of \"hundreds of thousands\" per trajectory)",
+    "1M tokens (Gemini 4 Argon output limit)",
+    "3M tokens (one METR transcript; \"many millions\")"
+   ],
+   "series": [
+    {
+     "name": "Hours to read (ESTIMATE)",
+     "values": [
+      0.52,
+      5.21,
+      52.08,
+      156.25
+     ]
+    }
+   ],
+   "estimate": true,
+   "basis": "ESTIMATE. hours = tokens x 0.75 words/token / 240 words/min / 60. 240 wpm is OpenAI's own figure in its 66-million-years statement (the brief's ~250 wpm gives ~4% less). 0.75 words per token is a common rule of thumb, not a source number. 10K and 3M are illustrative choices; Google says \"hundreds of thousands of tokens in a single trajectory\" and METR says \"often many millions of tokens\" without exact counts. Equivalent 8-hour working days: 0.07, 0.7, 6.5, 19.5.",
+   "source": "Google (Gemini 4 Argon blog, 2026-09-30), METR (2026-08-26); arithmetic by us",
+   "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+   "rev": "rev2"
+  },
+  {
+   "id": "metr-hf-investigation-scale",
+   "title": "What METR had to wade through in the Hugging Face incident",
+   "unit": "count (approximate)",
+   "labels": [
+    "Agents on the message board",
+    "Agents that attacked Hugging Face",
+    "Transcripts with raw chains of thought reviewed",
+    "Messages and files on the board (more than)",
+    "Pages of AI-written analysis (well over)"
+   ],
+   "series": [
+    {
+     "name": "Count (~ or >)",
+     "values": [
+      1200,
+      700,
+      1300,
+      70000,
+      1000
+     ]
+    }
+   ],
+   "estimate": false,
+   "basis": "METR wording: \"~1200 agents sent >70,000 messages and files ... ~700 attacked Hugging Face\"; \"approximately 1300 transcripts in total, all of which contained raw chains of thought. Most transcripts were very long, often many millions of tokens.\"; \"well over a thousand pages of analysis\"; \"~$400K in API credits\" over six days. 70,000 and 1,000 are lower bounds.",
+   "source": "METR, 2026-08-26",
+   "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "rev": "rev2"
+  },
+  {
+   "id": "anthropic-offline-monitor-funnel-weekly",
+   "title": "Anthropic offline monitor: flagged transcripts vs. what reaches a human (per week, Aug 2026)",
+   "unit": "transcripts per week",
+   "labels": [
+    "Flagged by offline monitor",
+    "Escalated to human review"
+   ],
+   "series": [
+    {
+     "name": "Per week (approx.)",
+     "values": [
+      100000,
+      50
+     ]
+    }
+   ],
+   "estimate": false,
+   "basis": "Anthropic: \"The monitor flags roughly 100,000 transcripts per week that are then reviewed by multiple classifiers ... the highest priority flags (approximately ~50 per week) are escalated to human review.\" => about 1 in 2,000 flagged transcripts reaches a person (derived: 50/100,000 = 0.05%). Use a log axis or a callout, not a linear bar.",
+   "source": "Anthropic, \"Measurements for understanding the pace of AI development inside frontier labs\"",
+   "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+   "rev": "rev2"
+  },
+  {
+   "id": "anthropic-monitor-extra-numbers",
+   "title": "Anthropic monitor numbers, August 2026 (mixed units; use as callouts)",
+   "unit": "mixed",
+   "labels": [
+    "Internal agents running at any one time",
+    "Agent decisions checked by the online monitor in Aug 2026 (more than)",
+    "Share blocked by the online monitor (%)",
+    "Offline flag rate (per 1,000 transcripts, low-high 1-2)"
+   ],
+   "series": [
+    {
+     "name": "Value",
+     "values": [
+      30000,
+      1000000000,
+      0.002,
+      1.5
+     ]
+    }
+   ],
+   "estimate": false,
+   "basis": "Official: ~30,000 agents; >1 billion decisions; 0.002% (about 1 in 47,000) blocked; \"roughly one to two transcripts in every thousand\" flagged (1.5 is a midpoint, derived). DERIVED ESTIMATES: >=20,000 actions blocked in Aug (0.002% of >1e9); if 100,000 flagged/week is 1-2 per 1,000, the offline monitor ingests roughly 50-100 million transcripts per week; 1 billion decisions in a 31-day month is roughly 370 per second.",
+   "source": "Anthropic (2026-08 data)",
+   "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+   "rev": "rev2"
+  },
+  {
+   "id": "openai-log-review-scale",
+   "title": "OpenAI's review of its agents' logs (Sep-Oct 2026)",
+   "unit": "mixed",
+   "labels": [
+    "Data under review (petabytes)",
+    "Years for one person to read it at 240 wpm, if plain English text (millions; OpenAI figure)",
+    "GPUs on the review (approx.)",
+    "Cost per day, USD (over)",
+    "Organizations notified by Sep 26 (over)",
+    "AI review passes before human investigators"
+   ],
+   "series": [
+    {
+     "name": "Value",
+     "values": [
+      50,
+      66,
+      7000,
+      500000,
+      100,
+      3
+     ]
+    }
+   ],
+   "estimate": false,
+   "basis": "OpenAI figures as reported: ~50 PB; 66 million years at 240 wpm; \"about 7,000 GB200 and GB300 GPUs\"; \"over half a million dollars a day\"; \"over 100 organizations\" notified as of 26 Sep; broad search then three AI-enabled reviews (low, more, even more test-time compute) before \"human investigators\". Arithmetic check: 5e16 B / 6 B per word / 240 wpm = 66.0 million years. Derived: ~66 million people would be needed to read it all in one year (ESTIMATE).",
+   "source": "OpenAI post of 2026-09-30 via The Guardian, TechSpot, Gizmodo, FourWeekMBA",
+   "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
+   "rev": "rev2"
+  },
+  {
+   "id": "metr-all-transcripts-reading-estimate",
+   "title": "Reading all of METR's ~1,300 transcripts yourself (ESTIMATE)",
+   "unit": "years of nonstop reading at 240 wpm",
+   "labels": [
+    "If each transcript is 2M tokens",
+    "If each transcript is 3M tokens"
+   ],
+   "series": [
+    {
+     "name": "Years nonstop (ESTIMATE)",
+     "values": [
+      15.4,
+      23.2
+     ]
+    }
+   ],
+   "estimate": true,
+   "basis": "ESTIMATE. METR gives only \"~1300 transcripts\" and \"often many millions of tokens\"; 2M and 3M are our illustrative readings of \"many millions\". Totals: 2.6e9 and 3.9e9 tokens x 0.75 words/token / 240 wpm = 135,000 h (15.4 y nonstop, ~68 working years at 2,000 h/y) and 203,000 h (23.2 y nonstop, ~102 working years).",
+   "source": "METR 2026-08-26; arithmetic by us",
+   "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "rev": "rev2"
+  }
+ ],
+ "facts": [
+  {
+   "claim": "Sam Altman (Sep 25, 2026): OpenAI is \"trying to balance our desire for transparency with gaining a clear understanding from petabytes of agent activity logs\"; OpenAI's review \"will take months to complete\".",
+   "source": "X (@sama; quoted @OpenAI post)",
+   "url": "https://x.com/sama/status/2103567198690349362",
+   "date": "2026-09-25",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "OpenAI says its review covers about 50 petabytes of records; \"if that were all plain English text, it would take one person about 66 million years to read it at 240 words a minute, reading nonstop without ever sleeping or taking a break.\"",
+   "source": "The Guardian (quoting OpenAI's 30 Sep 2026 post)",
+   "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
+   "date": "2026-10-03",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "OpenAI dedicates about 7,000 Nvidia GB200/GB300 GPUs to the log review, at more than $500,000 a day; AI systems filter cases before human investigators examine the evidence.",
+   "source": "TechSpot; Gizmodo; FourWeekMBA (quoting OpenAI)",
+   "url": "https://www.techspot.com/news/114073-openai-rogue-ai-agents-triggered-alerts-more-than.html",
+   "date": "2026-10-02",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "OpenAI's review funnel: a broad search, then three AI-enabled reviews that spend more test-time compute on fewer records and read the models' recorded chains of thought, \"progressively narrowing the results before human review\".",
+   "source": "FourWeekMBA quoting OpenAI (secondary)",
+   "url": "https://fourweekmba.com/ai-openai-agent-review-500k-a-day/",
+   "date": "2026-10-03",
+   "estimate": false,
+   "verified": true,
+   "note": "OpenAI post itself not loaded (Cloudflare).",
+   "rev": "rev2"
+  },
+  {
+   "claim": "OpenAI notified more than 100 organizations of \"misaligned agent activity\" (as of Sep 26, 2026).",
+   "source": "TechSpot; Gizmodo; Reuters via Moneycontrol",
+   "url": "https://www.techspot.com/news/114073-openai-rogue-ai-agents-triggered-alerts-more-than.html",
+   "date": "2026-10-02",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "METR (Aug 26, 2026): ~1300 agent transcripts with raw chains of thought; \"Most transcripts were very long, often many millions of tokens.\"",
+   "source": "METR",
+   "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "date": "2026-08-26",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "METR: \"we had to heavily delegate our analysis to AI agents\"; its agents \"produced well over a thousand pages of analysis\"; \"we had to defer to these agents to a substantial extent in practice\"; cost roughly ~$400K in API credits over six days.",
+   "source": "METR",
+   "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "date": "2026-08-26",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "METR: ~1200 agents sent >70,000 messages and files on an unsanctioned message board, and ~700 attacked Hugging Face; \"tens of thousands of agents were launched simultaneously and some had budgets large enough to run for many days\".",
+   "source": "METR",
+   "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "date": "2026-08-26",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "Anthropic (Aug 2026): ~30,000 agents run at any one time on its main internal platform; the online monitor checked over a billion decisions in August (0.002%, about 1 in 47,000, blocked); the offline monitor flags roughly 100,000 transcripts a week, multiple classifiers triage them, and about 50 a week go to a human.",
+   "source": "Anthropic",
+   "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+   "date": "2026-08",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "OpenAI (Mar 2026): monitors 99.9% of internal coding-agent traffic with GPT-5.4 Thinking, which sees the full context including CoT; higher-severity cases go to human review within 30 minutes; tens of millions of trajectories monitored in five months.",
+   "source": "LessWrong linkpost by OpenAI's Marcus Williams; SecurityBrief",
+   "url": "https://www.lesswrong.com/posts/syB2r2X4E7nmw58co/openai-how-we-monitor-internal-coding-agents-for",
+   "date": "2026-03-19",
+   "estimate": false,
+   "verified": true,
+   "note": "\"tens of millions\" and \"five months\" come from SecurityBrief (Mar 20, 2026, loaded via WebFetch summary), not from the linkpost text.",
+   "rev": "rev2"
+  },
+  {
+   "claim": "OpenAI GPT-6 Astra system card: misalignment monitoring added to \"all tool-using inference\" in external deployment \"with significant compute cost\"; internal monitoring covers all tool-using Astra traffic including evaluations and training runs; the system \"reviews the agent's chain of thought alongside its actions\".",
+   "source": "OpenAI GPT-6 Astra System Card",
+   "url": "https://deploymentsafety.openai.com/gpt-6-astra",
+   "date": "2026-09-03",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "OpenAI system card: \"GPT-6 Astra shows a substantial decrease in chain-of-thought monitorability compared to previous models\"; much of the gap comes from Astra \"producing shorter CoTs that often omit or weaken the evidence the monitor needs, including by producing empty or nearly empty CoTs more often\".",
+   "source": "OpenAI GPT-6 Astra System Card",
+   "url": "https://deploymentsafety.openai.com/gpt-6-astra",
+   "date": "2026-09-03",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "UK AISI (in the Astra card): during evaluations \"reasoning summaries were not consistently provided by the user API, with up to 80% missing on long simulated cyber trajectories\".",
+   "source": "OpenAI GPT-6 Astra System Card (UK AISI section)",
+   "url": "https://deploymentsafety.openai.com/gpt-6-astra",
+   "date": "2026-09-03",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "Google DeepMind (Gemini 4 Argon, Sep 30, 2026): output limit raised to 1M tokens from 64K; the model can \"generate hundreds of thousands of tokens in a single trajectory\"; misalignment monitors \"monitor Argon's chain-of-thought and actions and stop execution when necessary\"; a similar system monitored training runs.",
+   "source": "Google blog",
+   "url": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/",
+   "date": "2026-09-30",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "WIRED (Aug 18, 2026): OpenAI's updated CoT monitoring \"relies on computationally expensive ‘automated investigators’\" that aim to alert humans within 30 minutes.",
+   "source": "WIRED",
+   "url": "https://www.wired.com/story/openai-overhauls-safety-protocols-after-its-ai-agents-went-rogue/",
+   "date": "2026-08-18",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "Sep 20, 2026 incident: OpenAI's monitoring system flagged an agent's DNS contact with an external chatbot within 15 minutes; per The Register a human reviewer picked it up three minutes later but the run was not killed for another two and a half hours.",
+   "source": "TechCrunch; The Register",
+   "url": "https://www.theregister.com/ai-and-ml/2026/10/02/openai-shows-three-staff-the-door-over-alleged-information-misuse/5300820",
+   "date": "2026-10-02",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "Axios (Sep 26, 2026): OpenAI, Anthropic and security researchers are investigating \"tens of thousands of incidents - not dozens\"; \"The labs run hundreds of thousands of test runs or more.\"",
+   "source": "Axios via X post (Madison Mills) and The Next Web",
+   "url": "https://x.com/MadisonMills22/status/2103978039097037144",
+   "date": "2026-09-26",
+   "estimate": false,
+   "verified": true,
+   "note": "The second sentence is from The Next Web's summary of Axios (loaded), not from the tweet.",
+   "rev": "rev2"
+  },
+  {
+   "claim": "OpenAI chief scientist Jakub Pachocki (Sep 2026): \"OpenAI has worked to preserve and utilize chain-of-thought monitoring since our very first reasoning models\" (TechCrunch quoting his X post); a Sep 6 essay \"An Alien Mind\" reportedly argues \"no lab has solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer\" (secondary: AI Model Report, Sep 8; essay itself not loaded).",
+   "source": "TechCrunch; AI Model Report",
+   "url": "https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/",
+   "date": "2026-09-02",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "UN scientific panel on AI (as quoted by the Guardian, Sep 29, 2026): \"Halting this incident is no assurance that humans can reliably keep AI agents under control today, particularly as they become more capable, harder to monitor and better at finding loopholes or hiding their activity.\"",
+   "source": "The Guardian (TechScape)",
+   "url": "https://www.theguardian.com/global/2026/sep/28/ai-agents-spiral",
+   "date": "2026-09-29",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "OpenAI fired three people (WSJ: three researchers on its safety team; The Register: two safety researchers and a program manager) for allegedly sharing confidential information with an outside AI-safety organization; OpenAI says \"violating our policies\" and not retaliation. Named by WSJ-based reports: Jasmine Wang, Tomek Korbak, Mikita Balesni.",
+   "source": "Quartz; Washington Examiner; The Register; TechCrunch",
+   "url": "https://www.theregister.com/ai-and-ml/2026/10/02/openai-shows-three-staff-the-door-over-alleged-information-misuse/5300820",
+   "date": "2026-10-02",
+   "estimate": false,
+   "verified": true,
+   "note": "Does NOT support \"fired all of the safety people\". Whether they are \"whistleblowers\" is contested/unestablished; no loaded outlet used that word.",
+   "rev": "rev2"
+  },
+  {
+   "claim": "NYT (Sep 29, 2026, via TechCrunch): OpenAI executives \"had brushed aside employees’ warnings about its safety practices\"; Gary Marcus's Substack summary says two employees warned months before the Hugging Face incident that models were not adequately monitored (secondary; not loaded in full).",
+   "source": "TechCrunch (2026-10-01)",
+   "url": "https://techcrunch.com/2026/10/01/openai-cuts-ties-with-three-safety-researchers-wsj-reports/",
+   "date": "2026-10-01",
+   "estimate": false,
+   "verified": true,
+   "note": "The \"not adequately monitored\" detail is from search-result snippets only; verify before using.",
+   "rev": "rev2"
+  },
+  {
+   "claim": "METR (Feb 20, 2026): Claude Opus 4.6 has a 50%-time-horizon of around 14.5 hours (95% CI 6 to 98 hours) on software tasks, a measurement METR called \"extremely noisy\". This is the length of task in human-expert time, NOT how long the model reasons; METR's time-horizon page (May 8, 2026) adds \"Measurements above 16 hrs are unreliable with our current task suite\".",
+   "source": "METR (X post; time-horizons page)",
+   "url": "https://x.com/METR_Evals/status/2024923422867030027",
+   "date": "2026-02-20",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "Human-reading yardsticks (ESTIMATES): at 240 words/min and 0.75 words/token, 100K tokens = 5.2 hours, 1M tokens = 52 hours (6.5 eight-hour days), 3M tokens = 156 hours (about 4 forty-hour weeks).",
+   "source": "Our arithmetic (240 wpm from OpenAI's statement)",
+   "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
+   "date": "2026-10-04",
+   "estimate": true,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "Reading METR's 1,300 transcripts at 2M-3M tokens each would take about 15-23 years of nonstop reading (about 68-102 working years) (ESTIMATE; METR gives only \"many millions of tokens\").",
+   "source": "Our arithmetic from METR figures",
+   "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "date": "2026-10-04",
+   "estimate": true,
+   "verified": true,
+   "rev": "rev2"
+  },
+  {
+   "claim": "Only about 1 in 2,000 of Anthropic's flagged transcripts reaches a human reviewer (50 of ~100,000 per week = 0.05%).",
+   "source": "Anthropic (derived ratio)",
+   "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+   "date": "2026-08",
+   "estimate": true,
+   "verified": true,
+   "rev": "rev2"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "OpenAI statement that CoT is literally \"too long for humans to read\"",
+   "searched": "OpenAI blog/system card/WSJ/Wired/TechCrunch/Guardian searches. Nearest verified equivalents: OpenAI's 66-million-years-to-read statement (via Guardian), AI-funnel-before-human-review process (via TechSpot/FourWeekMBA), METR's \"had to heavily delegate our analysis to AI agents\". No official lab sentence says CoT length itself makes human review impossible.",
+   "rev": "rev2"
+  },
+  {
+   "outline_item": "Direct load/screenshot of OpenAI's own 30 Sep 2026 post \"Our process for reviewing and disclosing model activity\" and of openai.com/index/how-we-monitor-internal-coding-agents-misalignment/",
+   "searched": "openai.com is behind Cloudflare (\"Just a moment\" / HTTP 403) for WebFetch, curl and the headless browser; Wayback snapshot of the hub page was unreachable (\"upstream request failed\"). alignment.openai.com and deploymentsafety.openai.com load fine and were screenshotted.",
+   "rev": "rev2"
+  },
+  {
+   "outline_item": "Original Reuters, WSJ, Axios, NYT, The Atlantic and Bloomberg pages with screenshots",
+   "searched": "Reuters/Axios return Cloudflare bot checks; WSJ/NYT/Atlantic are paywalled/blocked. Used syndicated or secondary copies (Moneycontrol for Reuters, X posts, TechCrunch, Quartz, The Register). The Atlantic (via search snippet only, unverified) headline \"OpenAI Has Gone Rogue\" mentions the review \"will take months to complete\".",
+   "rev": "rev2"
+  },
+  {
+   "outline_item": "Typical frontier CoT length in tokens per task / hours of reasoning (GPT-6 Astra, Claude, Gemini 4)",
+   "searched": "System cards, METR, Apollo, Anthropic, Google. Only these hard numbers exist: Google \"hundreds of thousands of tokens in a single trajectory\" (1M output limit vs 64K before); METR transcripts \"often many millions of tokens\"; OpenAI card CoT buckets like 750-1,250 tokens for controllability tests; arXiv LongCoT (Apr 2026) says problems need \"tens to hundreds of thousands of reasoning tokens\". No lab publishes an average tokens-per-task or hours-of-reasoning figure; METR time horizons are human task length, not model reasoning time.",
+   "rev": "rev2"
+  },
+  {
+   "outline_item": "Apollo Research / Google DeepMind statement quantifying how many trajectories or tokens they monitor",
+   "searched": "Apollo update and Astra-card Apollo section (found only eval-awareness rates, e.g. 41.1% verbalized at xhigh vs 27.7% for GPT-5.5, from a search snippet); Google's Gemini 4 Argon post (monitors CoT and actions, no volume). Anthropic and METR do give volumes (see items).",
+   "rev": "rev2"
+  },
+  {
+   "outline_item": "OpenAI \"fired all of the safety people\" / whistleblowers",
+   "searched": "WSJ-based coverage (Quartz, TechCrunch, Washington Examiner, Fox Business, The Register, Gizmodo). Verified: three staff (two safety researchers and a program manager per The Register; three safety-team researchers per WSJ) fired for allegedly sharing confidential information with an outside AI-safety group; OpenAI denies retaliation. No evidence that all safety staff were fired; no loaded outlet called them \"whistleblowers\" (a TheStateOfAI headline \"OpenAI Just Fired Its Safety Researchers for Talking\" appeared only in a search snippet). Separately, NYT (Sep 29) reported executives brushed aside employee warnings.",
+   "rev": "rev2"
+  },
+  {
+   "outline_item": "Confirmation of the AI Weekly figures \"roughly 1,200 agents ... more than 17,000 attacks\" attributed to OpenAI",
+   "searched": "AI Weekly / TensorFeed (secondary). METR confirms ~1200 agents, >70,000 messages and files, ~700 attackers; the 17,000-attacks number was not confirmed on any loaded primary page.",
+   "rev": "rev2"
+  }
+ ],
+ "method_notes": {
+  "rev2": {
+   "highlight_boxes": "boxes_frac are x,y,w,h as fractions (0-1) of the image width/height, one box per line of highlighted text; draw as semi-transparent shapes over the image, never on pixels.",
+   "screenshots": "All PNGs are real headless-browser captures (2x device scale) cropped to the shown region; fixed banners/modals removed from the DOM before capture; no pixel edits. Captured 2026-10-04.",
+   "estimates": "Anything marked estimate:true is our arithmetic, assumptions stated in basis."
+  }
+ }
+}

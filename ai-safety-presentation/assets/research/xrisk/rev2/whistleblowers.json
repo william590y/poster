@@ -1,0 +1,2108 @@
+{
+ "group": "xrisk",
+ "items": [
+  {
+   "id": "register-three-staff-door-headline",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "screenshot",
+   "file": "register-three-staff-door-headline.png",
+   "px": [
+    2440,
+    800
+   ],
+   "headline": "OpenAI shows three staff the door over alleged information misuse",
+   "dek": "Two safety researchers and a program manager dismissed, company denies retaliation for raising concerns",
+   "outlet": "The Register",
+   "author": "Carly Page",
+   "date": "2026-10-02",
+   "url": "https://www.theregister.com/ai-and-ml/2026/10/02/openai-shows-three-staff-the-door-over-alleged-information-misuse/5300820",
+   "caption": "Headline, dek and lede: \"OpenAI has fired two safety researchers and a program manager for allegedly mishandling sensitive company information.\"",
+   "quality": 5,
+   "verified": true,
+   "notes": "Only outlet found describing the three as \"two safety researchers and a program manager\" (WSJ/AFP/Cybernews: Korbak on the safety team; Wang and Balesni on alignment). The Register does not name them. Published Fri 02 Oct 2026 13:05 UTC. Page also lists related headline \"OpenAI alerts 100+ orgs that its 'misaligned models' attempted to break in - or worse\".",
+   "boxes": {
+    "headline": [
+     [
+      42,
+      85,
+      1172,
+      104
+     ]
+    ],
+    "dek": [
+     [
+      42,
+      322,
+      927,
+      48
+     ]
+    ],
+    "lede": [
+     [
+      460,
+      655,
+      1030,
+      42
+     ]
+    ]
+   }
+  },
+  {
+   "id": "register-three-staff-door-statement",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "quote",
+   "file": "register-three-staff-door-statement.png",
+   "px": [
+    1440,
+    860
+   ],
+   "headline": "OpenAI statement + denial of retaliation (The Register)",
+   "dek": "\"We have parted ways with three individuals for violating our policies on accessing and handling sensitive company information,\" an OpenAI spokesperson said. \"Our investigation confirmed that these individuals mishandled sensitive information outside established company procedures, violating our policies and breaking the trust essential to our work.\" ... At least some of the information was allegedly shared with an outside organization that evaluates AI systems. OpenAI said its investigation found other misconduct beyond that disclosure, but has not described it or identified the organization. ... The ChatGPT creator said the employees were not dismissed for raising AI safety concerns.",
+   "outlet": "The Register",
+   "author": "Carly Page",
+   "date": "2026-10-02",
+   "url": "https://www.theregister.com/ai-and-ml/2026/10/02/openai-shows-three-staff-the-door-over-alleged-information-misuse/5300820",
+   "caption": "OpenAI's stated reason (policy violation on handling sensitive info) and its denial that safety concerns were the reason.",
+   "quality": 5,
+   "verified": true,
+   "notes": "The \"not dismissed for raising AI safety concerns\" line is The Register's paraphrase of OpenAI, not a direct quote.",
+   "boxes": {
+    "statement_first_line": [
+     [
+      72,
+      92,
+      686,
+      42
+     ]
+    ],
+    "denies_safety_reason": [
+     [
+      60,
+      675,
+      1293,
+      42
+     ],
+     [
+      60,
+      732,
+      148,
+      42
+     ]
+    ],
+    "outside_org_lines": [
+     [
+      60,
+      412,
+      1112,
+      42
+     ],
+     [
+      60,
+      470,
+      199,
+      42
+     ]
+    ],
+    "other_misconduct": [
+     [
+      698,
+      470,
+      650,
+      42
+     ],
+     [
+      60,
+      527,
+      189,
+      42
+     ]
+    ]
+   }
+  },
+  {
+   "id": "techcrunch-cuts-ties-3-safety-headline",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "screenshot",
+   "file": "techcrunch-cuts-ties-3-safety-headline.png",
+   "px": [
+    2560,
+    1320
+   ],
+   "headline": "OpenAI cuts ties with 3 safety researchers, WSJ reports",
+   "dek": null,
+   "outlet": "TechCrunch",
+   "author": "Aditya Mehta",
+   "date": "2026-10-01",
+   "url": "https://techcrunch.com/2026/10/01/openai-cuts-ties-with-three-safety-researchers-wsj-reports/",
+   "caption": "Hero + headline, byline \"11:14 AM PDT - October 1, 2026\".",
+   "quality": 4,
+   "verified": true,
+   "notes": "Written before the WSJ added names; says \"The report did not name the researchers, the organization, or the information involved.\"",
+   "boxes": {
+    "headline": [
+     [
+      1321,
+      633,
+      1059,
+      78
+     ],
+     [
+      1321,
+      719,
+      912,
+      78
+     ]
+    ],
+    "byline": [
+     [
+      1321,
+      1086,
+      189,
+      32
+     ]
+    ]
+   }
+  },
+  {
+   "id": "techcrunch-cuts-ties-3-safety-body",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "quote",
+   "file": "techcrunch-cuts-ties-3-safety-body.png",
+   "px": [
+    1800,
+    1800
+   ],
+   "headline": "TechCrunch: OpenAI statement, NYT context, and \"unclear whether ... raised concerns through internal channels\"",
+   "dek": "\"It’s unclear whether the three researchers raised concerns through internal channels before allegedly sharing information outside the organization.\" ... The departures come two days after The New York Times reported that OpenAI executives had brushed aside employees’ warnings about its safety practices ... An OpenAI spokesperson told the Times the company takes security concerns seriously and has internal channels for reporting safety issues, while saying it recognized \"a need to move faster.\" ... This isn’t the first time OpenAI has dismissed researchers over alleged information sharing. In 2024, the company fired researchers Leopold Aschenbrenner and Pavel Izmailov over alleged leaks, The Information reported.",
+   "outlet": "TechCrunch",
+   "author": "Aditya Mehta",
+   "date": "2026-10-01",
+   "url": "https://techcrunch.com/2026/10/01/openai-cuts-ties-with-three-safety-researchers-wsj-reports/",
+   "caption": "Body text with OpenAI statement and the 2024 precedent.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Text is verbatim from the loaded page. The 2024-precedent sentence is below this crop (further down the article).",
+   "boxes": {
+    "openai_statement": [
+     [
+      92,
+      190,
+      734,
+      38
+     ]
+    ],
+    "report_did_not_name": [
+     [
+      75,
+      557,
+      688,
+      38
+     ]
+    ],
+    "unclear_internal_channels": [
+     [
+      75,
+      1493,
+      1291,
+      38
+     ],
+     [
+      75,
+      1546,
+      160,
+      38
+     ]
+    ],
+    "nyt_context": [
+     [
+      400,
+      1179,
+      962,
+      38
+     ],
+     [
+      75,
+      1233,
+      162,
+      38
+     ]
+    ],
+    "move_faster_quote": [
+     [
+      781,
+      1392,
+      366,
+      38
+     ]
+    ]
+   }
+  },
+  {
+   "id": "gizmodo-openai-ousts-three-safety-researchers",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "screenshot",
+   "file": "gizmodo-openai-ousts-three-safety-researchers.png",
+   "px": [
+    2560,
+    1280
+   ],
+   "headline": "OpenAI Ousts Three Safety Researchers for Allegedly Mishandling ‘Sensitive Information’",
+   "dek": "They’re accused of “breaking the trust essential to our work,” according to a company spokesperson.",
+   "outlet": "Gizmodo",
+   "author": "Webb Wright",
+   "date": "2026-10-01",
+   "url": "https://gizmodo.com/openai-ousts-three-safety-researchers-for-allegedly-mishandling-sensitive-information-2000820515",
+   "caption": "Headline + dek, \"Published October 1, 2026, 4:50 PM ET\".",
+   "quality": 4,
+   "verified": true,
+   "notes": "Gizmodo body: WSJ \"later updated its report identifying the three ... Tomek Korbak, Mikita Balesni, and Jasmine Wang\"; OpenAI spokesperson did not confirm names; none of the three replied to requests for comment. Gizmodo dates Wang's tweet Sept 9, Korbak's Sept 12.",
+   "boxes": {
+    "headline": [
+     [
+      128,
+      240,
+      652,
+      138
+     ],
+     [
+      128,
+      356,
+      767,
+      138
+     ],
+     [
+      128,
+      472,
+      379,
+      138
+     ]
+    ]
+   }
+  },
+  {
+   "id": "commondreams-firing-whistleblowers",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "screenshot",
+   "file": "commondreams-firing-whistleblowers.png",
+   "px": [
+    2000,
+    840
+   ],
+   "headline": "‘Looks Like They’re Firing Whistleblowers’: Alarm as OpenAI Reportedly Ousts Safety Experts",
+   "dek": "“Sam Altman says we need to slow down development to ensure the safety of humanity,” one campaigner said of OpenAI’s CEO. “Yet he is allegedly firing the very people hired to keep us safe.”",
+   "outlet": "Common Dreams",
+   "author": "Brett Wilkins",
+   "date": "2026-10-01",
+   "url": "https://www.commondreams.org/news/openai-firing-whistleblowers",
+   "caption": "Progressive outlet; headline quotes Rep. Greg Casar; dek quotes Shaunna Thomas of Guardrails Alliance (a super PAC).",
+   "quality": 4,
+   "verified": true,
+   "notes": "This is the origin of the \"whistleblowers\" framing: it is advocacy/critic framing (\"allegedly\"), not OpenAI's or WSJ's. Body: \"The Journal's Maxwell Zeff - who authored the report with Keach Hagey and Berber Jin - subsequently identified the three safety team members as Jasmine Wang, Tomek Korbak, and Mikita Balesni.\" Casar: \"Looks like they're firing whistleblowers ... What are they hiding?\" \"I'll be sending OpenAI a demand for transparency.\"",
+   "boxes": {
+    "headline": [
+     [
+      76,
+      11,
+      310,
+      148
+     ]
+    ],
+    "dek_line1": [
+     [
+      97,
+      427,
+      932,
+      64
+     ]
+    ],
+    "dek_line3": [
+     [
+      76,
+      567,
+      1010,
+      64
+     ]
+    ]
+   }
+  },
+  {
+   "id": "rte-openai-fires-three-staff",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "screenshot",
+   "file": "rte-openai-fires-three-staff.png",
+   "px": [
+    1640,
+    1600
+   ],
+   "headline": "OpenAI fires three staff for mishandling 'sensitive' info",
+   "dek": "ChatGPT-maker OpenAI has said that it has fired three researchers for allegedly mishandling \"sensitive information\" and violating company policies, including work that involved an external organisation that evaluates artificial intelligence models.",
+   "outlet": "RTÉ (AFP)",
+   "author": "AFP",
+   "date": "2026-10-02",
+   "url": "https://www.rte.ie/news/2026/1002/1593746-openai-staff-fired/",
+   "caption": "\"Updated / Friday, 2 Oct 2026 10:17\". Caption under photo: \"The San Francisco-based AI lab did not confirm the identities of the staff members\".",
+   "quality": 4,
+   "verified": true,
+   "notes": "AFP: \"at least two of the employees worked on safety and alignment, according to the Wall Street Journal and Bloomberg.\"",
+   "boxes": {
+    "headline": [
+     [
+      40,
+      42,
+      758,
+      86
+     ]
+    ],
+    "lede": [
+     [
+      227,
+      1316,
+      1071,
+      44
+     ]
+    ]
+   }
+  },
+  {
+   "id": "rte-openai-fires-three-staff-quotes",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "quote",
+   "file": "rte-openai-fires-three-staff-quotes.png",
+   "px": [
+    1640,
+    1440
+   ],
+   "headline": "AFP: the three researchers' own public posts before the firing",
+   "dek": "\"i am at OpenAI and i think AI is >10% likely to kill all humans,\" Mr Balesni posted on 10 September ... \"I'm quite unhappy with much of what OpenAI does. I am very happy that Im allowed to say 'I'm quite unhappy with much of what OpenAI does',\" Mr Korbak wrote on 11 September. \"It's hard to overstate how dangerous speeding towards RSI is,\" Ms Wang posted in response to Mr Coxon's resignation",
+   "outlet": "RTÉ (AFP)",
+   "author": "AFP",
+   "date": "2026-10-02",
+   "url": "https://www.rte.ie/news/2026/1002/1593746-openai-staff-fired/",
+   "caption": "Wire copy quoting the three; AFP's \"11 September\" for Korbak is US-time (his post is 12 Sep 06:04 UTC).",
+   "quality": 5,
+   "verified": true,
+   "notes": "AFP text drops an apostrophe (\"Im allowed\"). Original tweets in x-* files.",
+   "boxes": {
+    "names": [
+     [
+      147,
+      68,
+      1039,
+      44
+     ],
+     [
+      147,
+      128,
+      416,
+      44
+     ]
+    ],
+    "balesni_quote": [
+     [
+      159,
+      432,
+      948,
+      44
+     ]
+    ],
+    "korbak_quote": [
+     [
+      159,
+      916,
+      817,
+      44
+     ]
+    ],
+    "wang_quote": [
+     [
+      159,
+      1158,
+      982,
+      44
+     ]
+    ],
+    "all_three_posted": [
+     [
+      147,
+      250,
+      979,
+      44
+     ]
+    ]
+   }
+  },
+  {
+   "id": "cbs-openai-parts-ways-3-researchers",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "screenshot",
+   "file": "cbs-openai-parts-ways-3-researchers.png",
+   "px": [
+    1460,
+    1440
+   ],
+   "headline": "OpenAI parts ways with 3 researchers it says mishandled sensitive information",
+   "dek": "\"Our investigation confirmed that these individuals mishandled sensitive information outside established company procedures, violating our policies and breaking the trust essential to our work,\" an OpenAI spokesperson said in a statement to CBS News. The company added that its probe uncovered a pattern of misconduct in how individuals with access to confidential data handled company research.",
+   "outlet": "CBS News (MoneyWatch)",
+   "author": "Megan Cerullo",
+   "date": "2026-10-01",
+   "url": "https://www.cbsnews.com/news/openai-parts-ways-with-three-researchers-who-mishandled-sensitive-information/",
+   "caption": "\"Updated on: October 1, 2026 / 2:04 PM EDT\". Clean, readable; includes \"OpenAI's safety teams are privy to internal insights that require deep trust\".",
+   "quality": 5,
+   "verified": true,
+   "notes": "CBS also: \"The company did not specify what type of information was allegedly mishandled or in what way.\" and \"The Federal Trade Commission told CBS News on Wednesday that it has launched an investigation into OpenAI, Anthropic and other AI companies\".",
+   "boxes": {
+    "headline": [
+     [
+      93,
+      144,
+      1199,
+      82
+     ],
+     [
+      93,
+      224,
+      1157,
+      82
+     ]
+    ],
+    "date": [
+     [
+      93,
+      386,
+      397,
+      40
+     ]
+    ],
+    "statement": [
+     [
+      107,
+      750,
+      1139,
+      52
+     ]
+    ],
+    "pattern_of_misconduct": [
+     [
+      954,
+      1030,
+      402,
+      52
+     ],
+     [
+      93,
+      1090,
+      1248,
+      52
+     ],
+     [
+      93,
+      1150,
+      156,
+      52
+     ]
+    ],
+    "trust_line": [
+     [
+      278,
+      1250,
+      741,
+      52
+     ]
+    ]
+   }
+  },
+  {
+   "id": "foxbusiness-openai-fires-3-safety-researchers",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "screenshot",
+   "file": "foxbusiness-openai-fires-3-safety-researchers.png",
+   "px": [
+    2560,
+    960
+   ],
+   "headline": "OpenAI fires 3 safety researchers accused of sharing confidential company information: report",
+   "dek": "The firings come amid growing concerns over AI models engaging in unexpected behavior and unauthorized access",
+   "outlet": "Fox Business",
+   "author": "Michael Sinkewicz",
+   "date": "2026-10-02",
+   "url": "https://www.foxbusiness.com/technology/openai-fires-3-safety-researchers-accused-sharing-confidential-company-information-report.amp",
+   "caption": "\"Published October 2, 2026 12:51am EDT\".",
+   "quality": 3,
+   "verified": true,
+   "notes": "Mentions OpenAI released six misalignment reports; Saachi Jain (head of safety systems) quote on GPT-6.1 Astra.",
+   "boxes": {
+    "headline": [
+     [
+      106,
+      238,
+      2348,
+      70
+     ],
+     [
+      1198,
+      310,
+      164,
+      70
+     ]
+    ],
+    "dek": [
+     [
+      500,
+      400,
+      553,
+      38
+     ]
+    ]
+   }
+  },
+  {
+   "id": "x-zeff-2026-10-01-names-three",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "screenshot",
+   "file": "x-zeff-2026-10-01-names-three.png",
+   "px": [
+    1096,
+    2424
+   ],
+   "headline": "Max Zeff (WSJ): \"Update: Our story now names the three people OpenAI fired for alleged misconduct, including the sharing of company info with a third-party AI-safety org. Jasmine Wang, Tomek Korbak, and Mikita Balesni.\"",
+   "dek": "Embedded WSJ text: \"OpenAI has fired three researchers for alleged misconduct including sharing confidential company information with a third-party AI-safety organization, according to people familiar with the matter. The company recently told some employees it had terminated three researchers who worked on its safety team, one of the people said. The affected employees are Jasmine Wang, Tomek Korbak, and Mikita Balesni, the people familiar with the matter said.\" ... \"The researchers didn’t immediately comment.\"",
+   "outlet": "X (@ZeffMax, Wall Street Journal)",
+   "author": "Maxwell Zeff",
+   "date": "2026-10-01",
+   "url": "https://x.com/ZeffMax/status/2105767529524424994",
+   "caption": "Real X embed (platform.twitter.com). Image of the WSJ article text + WSJ card \"Exclusive | OpenAI Parts Ways With Researchers Who Allegedl...\" - best stand-in for the paywalled WSJ page.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Tweet posted 2026-10-01 21:11 UTC. WSJ page itself is bot-blocked. WSJ byline per Common Dreams: Maxwell Zeff with Keach Hagey and Berber Jin. The WSJ text says \"worked on its safety team\" and \"alleged misconduct including\" - OpenAI said other misconduct beyond the disclosure.",
+   "boxes": {
+    "tweet_update_text": [
+     [
+      32,
+      1138,
+      1032,
+      240
+     ]
+    ],
+    "names_line": [
+     [
+      32,
+      1138,
+      1032,
+      240
+     ]
+    ],
+    "wsj_article_para1": [
+     60,
+     1434,
+     978,
+     127
+    ],
+    "wsj_article_para2_names": [
+     60,
+     1595,
+     962,
+     166
+    ],
+    "wsj_article_openai_quote": [
+     60,
+     1800,
+     962,
+     257
+    ],
+    "wsj_article_researchers_didnt_comment": [
+     60,
+     2093,
+     594,
+     36
+    ]
+   }
+  },
+  {
+   "id": "x-casar-2026-10-01-firing-whistleblowers",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "screenshot",
+   "file": "x-casar-2026-10-01-firing-whistleblowers.png",
+   "px": [
+    1096,
+    1710
+   ],
+   "headline": "Rep. Greg Casar: \"Outrageous. OpenAI has reportedly fired three safety researchers for sharing information with an outside AI safety group. This looks like they're firing whistleblowers. What are they hiding? I'll be sending OpenAI a demand for transparency.\"",
+   "dek": "Quote-tweets Forbes: \"OpenAI Reportedly Fires 3 Researchers Over Allegedly Mishandling Confidential Information\"",
+   "outlet": "X (@RepCasar)",
+   "author": "Rep. Greg Casar (D-TX), chair of the Congressional Progressive Caucus",
+   "date": "2026-10-01",
+   "url": "https://x.com/RepCasar/status/2105716565899358637",
+   "caption": "Real X embed; shows the \"firing whistleblowers\" claim is a lawmaker's characterization (\"looks like\"), posted 5:48 PM UTC Oct 1 - before WSJ named the three.",
+   "quality": 5,
+   "verified": true,
+   "notes": "\"Looks like\" = inference, not an established fact. No demand letter found yet (searched through Oct 4).",
+   "boxes": {
+    "tweet_text_block": [
+     [
+      32,
+      144,
+      1032,
+      384
+     ]
+    ]
+   }
+  },
+  {
+   "id": "x-balesni-2026-09-10-gt10pct",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "screenshot",
+   "file": "x-balesni-2026-09-10-gt10pct.png",
+   "px": [
+    1096,
+    1084
+   ],
+   "headline": "Mikita Balesni: \"i am at OpenAI and i think AI is >10% likely to kill all humans\"",
+   "dek": "\"this proposal is among the top things we should do as an industry to lower that risk (it’s not enough though!)\" - quote-tweeting Ryan Greenblatt on \"neuralese\" architectures: AIs \"thinking in opaque activations instead of in chain of thought\".",
+   "outlet": "X (@balesni)",
+   "author": "Mikita Balesni",
+   "date": "2026-09-10",
+   "url": "https://x.com/balesni/status/2098109503518683491",
+   "caption": "Real X embed, 6:01 PM UTC Sep 10, 2026 (AFP/RTÉ say \"10 September\"; The Independent/Yahoo says 11 Sep - wrong).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Greenblatt quoted post: \"I'm very worried about changes to AI architectures that result in AIs thinking in opaque activations instead of in chain of thought (aka \\\"neuralese\\\" architectures). Based on limited public evidence, it seems like Astra was a concerning step in this direction.\" Relevant to the chain-of-thought-monitorability point.",
+   "boxes": {
+    "tweet_text_block": [
+     [
+      32,
+      144,
+      1032,
+      240
+     ]
+    ]
+   }
+  },
+  {
+   "id": "x-korbak-2026-09-12-quite-unhappy",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "screenshot",
+   "file": "x-korbak-2026-09-12-quite-unhappy.png",
+   "px": [
+    1096,
+    836
+   ],
+   "headline": "Tomek Korbak: \"I’m quite unhappy with much of what OpenAI does. I am very happy that I’m allowed to say “I’m quite unhappy with much of what OpenAI does.”\"",
+   "dek": "Quoted post (@willdepue): \"i think sama deserves great credit for this. openai, for better or worse, is very defensive of employee freedom of speech.\"",
+   "outlet": "X (@tomekkorbak)",
+   "author": "Tomek Korbak",
+   "date": "2026-09-12",
+   "url": "https://x.com/tomekkorbak/status/2098653881723158619",
+   "caption": "Real X embed; posted 2026-09-12 06:04 UTC (= Sep 11 evening US time).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Useful nuance: OpenAI tolerated open public criticism; the stated firing reason was information handling, not speech.",
+   "boxes": {
+    "tweet_text_block": [
+     [
+      32,
+      144,
+      1032,
+      192
+     ]
+    ]
+   }
+  },
+  {
+   "id": "x-wang-2026-09-10-rsi-petition",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "screenshot",
+   "file": "x-wang-2026-09-10-rsi-petition.png",
+   "px": [
+    1096,
+    1020
+   ],
+   "headline": "Jasmine Wang: \"It's hard to overstate how dangerous speeding towards RSI is. That's why I + 1385 others signed the pacing the frontier petition asking the US government to pace AI development. I'm guesstimating this is ~8-10% of all frontier lab employees.\"",
+   "dek": "Quote-tweet of Jacob Coxon's resignation post.",
+   "outlet": "X (@j_asminewang)",
+   "author": "Jasmine Wang",
+   "date": "2026-09-10",
+   "url": "https://x.com/j_asminewang/status/2097840245786157432",
+   "caption": "Real X embed; 2026-09-10 00:11 UTC (= Sep 9 evening US). RSI = recursive self-improvement.",
+   "quality": 5,
+   "verified": true,
+   "notes": "\"Pacing the Frontier\" petition: 1,100+ AI-company employees at launch (Jul 28, 2026).",
+   "boxes": {
+    "tweet_text_block": [
+     [
+      32,
+      144,
+      1032,
+      336
+     ]
+    ]
+   }
+  },
+  {
+   "id": "x-korbak-2026-09-27-metr-contact",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "screenshot",
+   "file": "x-korbak-2026-09-27-metr-contact.png",
+   "px": [
+    1096,
+    1004
+   ],
+   "headline": "Tomek Korbak: \"Being his OpenAI technical contact for METR’s Hugging Face investigation was one of my greatest career privileges. This work matters enormously...\"",
+   "dek": "Quote-tweets Ryan Greenblatt: \"I'm joining METR to work on more investigations like our Hugging Face report.\"",
+   "outlet": "X (@tomekkorbak)",
+   "author": "Tomek Korbak",
+   "date": "2026-09-27",
+   "url": "https://x.com/tomekkorbak/status/2104293494663909823",
+   "caption": "Real X embed (7:33 PM UTC Sep 27). Source for \"technical contact\" - four days before the firing was reported.",
+   "quality": 4,
+   "verified": true,
+   "notes": "This is why some outlets link the firings to the METR/Redwood probe. No outlet has confirmed which organization received the information.",
+   "boxes": {
+    "tweet_text_block": [
+     [
+      32,
+      144,
+      1032,
+      240
+     ]
+    ]
+   }
+  },
+  {
+   "id": "x-coxon-2026-09-08-resigned-anthropic",
+   "slide_topic": "Context: Sept 2026 wave of researcher warnings",
+   "type": "screenshot",
+   "file": "x-coxon-2026-09-08-resigned-anthropic.png",
+   "px": [
+    1096,
+    638
+   ],
+   "headline": "Jacob Coxon: \"I resigned from Anthropic today. I spent the last three years doing pretraining research at both OpenAI and Anthropic. Neither company is acting responsibly. They are racing straight to self-improving superintelligence and gambling with our lives. More thoughts below.\"",
+   "dek": null,
+   "outlet": "X (@hilbertspaess)",
+   "author": "Jacob Coxon",
+   "date": "2026-09-09",
+   "url": "https://x.com/hilbertspaess/status/2097476196791709843",
+   "caption": "Real X embed; 12:04 AM UTC Sep 9 (= Sep 8 US). He RESIGNED from Anthropic (voluntary); not a firing.",
+   "quality": 5,
+   "verified": true,
+   "notes": "fxtwitter showed ~174.7M views at time of check. Triggered the wave of OpenAI/Anthropic staff posts (Wang quote-tweeted it).",
+   "boxes": {
+    "tweet_text_block": [
+     [
+      32,
+      144,
+      1032,
+      240
+     ]
+    ]
+   }
+  },
+  {
+   "id": "techcrunch-robinson-culture-broken",
+   "slide_topic": "Context: Oct 3, 2026 resignation (not a firing)",
+   "type": "screenshot",
+   "file": "techcrunch-robinson-culture-broken.png",
+   "px": [
+    2560,
+    1320
+   ],
+   "headline": "OpenAI safety employee resigns, claiming the company’s ‘culture is broken’",
+   "dek": null,
+   "outlet": "TechCrunch",
+   "author": "Anthony Ha",
+   "date": "2026-10-03",
+   "url": "https://techcrunch.com/2026/10/03/openai-safety-employee-resigns-claiming-the-companys-culture-is-broken/",
+   "caption": "\"9:30 AM PDT - October 3, 2026\".",
+   "quality": 4,
+   "verified": true,
+   "notes": "David Robinson RESIGNED (Atlantic essay). Quote: \"An environment where things like this can happen is no place to grow artificial minds that could be smarter than we are and that might not do what we want them to.\" OpenAI (Drew Pusateri): \"We’re making sure our models don’t become more capable than we can safely manage and secure, and we pause training or hold back models when we need to slow down.\" He \"hired a PR firm\" but \"The decision to speak out is mine alone.\" The Decoder (Oct 2) cites an anonymous X account that Robinson left right after the firings.",
+   "boxes": {
+    "headline": [
+     [
+      1321,
+      590,
+      869,
+      78
+     ],
+     [
+      1321,
+      676,
+      750,
+      78
+     ],
+     [
+      1321,
+      762,
+      1062,
+      78
+     ]
+    ],
+    "byline": [
+     [
+      1321,
+      1101,
+      166,
+      32
+     ]
+    ]
+   }
+  },
+  {
+   "id": "verge-execs-brushed-off-warnings",
+   "slide_topic": "Context: NYT Sept 29 - warnings ignored",
+   "type": "screenshot",
+   "file": "verge-execs-brushed-off-warnings.png",
+   "px": [
+    1440,
+    840
+   ],
+   "headline": "OpenAI execs reportedly brushed off warnings about AI hacking risks.",
+   "dek": "In the months leading up to OpenAI’s Hugging Face hack, two employees sent emails to the company’s execs, expressing concern that it wasn’t doing enough to monitor and secure AI models during testing, according to a report from The New York Times. OpenAI execs reportedly replied that the company needed to quickly complete testing to avoid missing model release deadlines.",
+   "outlet": "The Verge",
+   "author": "Emma Roth",
+   "date": "2026-09-29",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/1002390/openai-execs-reportedly-brushed-off-warnings-about-ai-hacking-risks",
+   "caption": "\"POSTED SEP 29, 2026 AT 9:07 PM UTC\"; links the NYT headline \"OpenAI Ignored Employees Who Warned It Wasn’t Doing Enough About Security\".",
+   "quality": 4,
+   "verified": true,
+   "boxes": {
+    "headline_and_lede": [
+     [
+      156,
+      300,
+      1081,
+      38
+     ]
+    ],
+    "nyt_headline_link": [
+     [
+      156,
+      572,
+      1156,
+      36
+     ]
+    ]
+   }
+  },
+  {
+   "id": "businessstandard-nyt-openai-ignored-warnings",
+   "slide_topic": "Context: NYT Sept 29 - warnings ignored",
+   "type": "screenshot",
+   "file": "businessstandard-nyt-openai-ignored-warnings.png",
+   "px": [
+    1920,
+    840
+   ],
+   "headline": "OpenAI ignored employees who warned it wasn't doing enough about security",
+   "dek": "In emails, employees said they worried that OpenAI's newest AI models were not being appropriately monitored during testing to gauge the tech's sophistication and to secure the models",
+   "outlet": "Business Standard (syndicating The New York Times)",
+   "author": "NYT",
+   "date": "2026-09-29",
+   "url": "https://www.business-standard.com/world-news/openai-ignored-employees-who-warned-it-wasn-t-doing-enough-about-security-126092901531_1.html",
+   "caption": "Syndicated NYT piece (credited \"NYT\"); the NYT original is bot-blocked.",
+   "quality": 3,
+   "verified": true,
+   "notes": "NYT original: https://www.nytimes.com/2026/09/29/technology/openai-warnings-security.html (authors per Gary Marcus Substack: Sheera Frenkel, Dustin Volz, Dylan Freedman).",
+   "boxes": {
+    "headline": [
+     [
+      261,
+      42,
+      843,
+      28
+     ]
+    ],
+    "dek": [
+     [
+      35,
+      278,
+      551,
+      34
+     ]
+    ]
+   }
+  },
+  {
+   "id": "businessstandard-nyt-openai-ignored-warnings-body",
+   "slide_topic": "Context: NYT Sept 29 - warnings ignored",
+   "type": "quote",
+   "file": "businessstandard-nyt-openai-ignored-warnings-body.png",
+   "px": [
+    1800,
+    840
+   ],
+   "headline": "NYT: \"Months before OpenAI’s artificial intelligence went rogue, two employees raised an alarm with top executives. They were ignored.\"",
+   "dek": "\"In response, OpenAI executives told the employees that the tests needed to move forward as quickly as possible to release the A.I. models on time. No additional security protocols were instituted, said the workers, who were not authorized to speak publicly on sensitive matters.\"",
+   "outlet": "Business Standard (syndicating The New York Times)",
+   "author": "NYT",
+   "date": "2026-09-29",
+   "url": "https://www.business-standard.com/world-news/openai-ignored-employees-who-warned-it-wasn-t-doing-enough-about-security-126092901531_1.html",
+   "caption": "Verbatim NYT lede and executive response.",
+   "quality": 4,
+   "verified": true,
+   "notes": "The two employees are unnamed; no report says they were fired. This is the internal-warning (whistleblowing) story that ran two days before the firings.",
+   "boxes": {
+    "lede": [
+     [
+      65,
+      90,
+      1343,
+      44
+     ],
+     [
+      65,
+      146,
+      819,
+      44
+     ]
+    ],
+    "no_additional_protocols": [
+     [
+      1144,
+      522,
+      227,
+      44
+     ],
+     [
+      65,
+      578,
+      564,
+      44
+     ]
+    ]
+   }
+  },
+  {
+   "id": "guardian-openai-50-petabytes-66m-years",
+   "slide_topic": "Side fact: humans cannot read the logs (petabytes)",
+   "type": "screenshot",
+   "file": "guardian-openai-50-petabytes-66m-years.png",
+   "px": [
+    2000,
+    1000
+   ],
+   "headline": "OpenAI says its review into hacks, including on Australian government sites, is costing $500,000 a day",
+   "dek": "Company says it is reviewing 50 petabytes of data after its agents accessed websites including Medicare without authorisation",
+   "outlet": "The Guardian",
+   "author": "Josh Taylor",
+   "date": "2026-10-03",
+   "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
+   "caption": "\"Sat 3 Oct 2026 01.39 EDT\".",
+   "quality": 5,
+   "verified": true,
+   "notes": "This is the \"petabytes\" headline. It concerns agent activity records (training/eval logs), not chain-of-thought text specifically. Reuters (Oct 1) first reported the 50 PB figure (page blocked).",
+   "boxes": {
+    "headline": [
+     [
+      380,
+      40,
+      1037,
+      86
+     ],
+     [
+      380,
+      118,
+      1115,
+      86
+     ],
+     [
+      380,
+      196,
+      928,
+      86
+     ]
+    ],
+    "dek": [
+     [
+      380,
+      349,
+      887,
+      50
+     ]
+    ],
+    "date": [
+     [
+      60,
+      804,
+      277,
+      30
+     ]
+    ]
+   }
+  },
+  {
+   "id": "guardian-openai-50-petabytes-66m-years-quote",
+   "slide_topic": "Side fact: humans cannot read the logs (petabytes)",
+   "type": "quote",
+   "file": "guardian-openai-50-petabytes-66m-years-quote.png",
+   "px": [
+    1800,
+    280
+   ],
+   "headline": "OpenAI blog, quoted by The Guardian: 66 million years to read",
+   "dek": "\"To put that in perspective, if that were all plain English text, it would take one person about 66 million years to read it at 240 words a minute, reading nonstop without ever sleeping or taking a break.\" (OpenAI said it has to review 50 petabytes of data - roughly 50m gigabytes; AI is being used to sift the records at >US$500,000 per day.)",
+   "outlet": "The Guardian (quoting OpenAI)",
+   "author": "Josh Taylor",
+   "date": "2026-10-03",
+   "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
+   "caption": "OpenAI's own wording; primary source openai.com/hugging-face-incident-and-misalignment/ (Cloudflare-blocked here).",
+   "quality": 5,
+   "verified": true,
+   "boxes": {
+    "quote_66m_years": [
+     [
+      119,
+      60,
+      1178,
+      42
+     ],
+     [
+      100,
+      108,
+      1061,
+      42
+     ]
+    ]
+   }
+  },
+  {
+   "id": "time-2026-08-27-models-went-rogue-required-more-ai",
+   "slide_topic": "Side fact: AI is needed to read AI (METR/Redwood used GPT-5.6 Sol)",
+   "type": "screenshot",
+   "file": "time-2026-08-27-models-went-rogue-required-more-ai.png",
+   "px": [
+    2560,
+    1040
+   ],
+   "headline": "OpenAI’s Models Went Rogue. Investigating Them Required More AI",
+   "dek": null,
+   "outlet": "TIME",
+   "author": "Billy Perrigo and Harry Booth",
+   "date": "2026-08-27",
+   "url": "https://time.com/article/2026/08/27/openai-hack-hugging-face-investigation/",
+   "caption": "\"AUG 27, 2026 9:04 PM UTC\".",
+   "quality": 5,
+   "verified": true,
+   "notes": "Body: \"The hacking incident involved some 1,200 agents, who exchanged more than 70,000 messages and files via a secret message board. The sheer mass of information ... meant the independent researchers were all but forced to rely heavily on ... GPT-5.6 Sol, made by OpenAI - using the equivalent of roughly $400,000 worth of credits ... over six days.\" Ryan Greenblatt: \"I semi-jokingly called our efforts a 'slop-vestigation' because we were so reliant on AIs to analyze what happened\". Investigators: team of three from METR and Redwood.",
+   "boxes": {
+    "headline": [
+     [
+      160,
+      120,
+      779,
+      84
+     ],
+     [
+      160,
+      208,
+      694,
+      84
+     ],
+     [
+      160,
+      296,
+      727,
+      84
+     ],
+     [
+      160,
+      384,
+      88,
+      84
+     ]
+    ]
+   }
+  },
+  {
+   "id": "deseret-2026-09-25-ai-whistleblower-protection-act",
+   "slide_topic": "Legal context: AI Whistleblower Protection Act",
+   "type": "screenshot",
+   "file": "deseret-2026-09-25-ai-whistleblower-protection-act.png",
+   "px": [
+    1760,
+    820
+   ],
+   "headline": "Bipartisan group of senators push to protect whistleblowers warning of AI capabilities",
+   "dek": "As lawmakers sound the alarm on reining in AI, a bipartisan group is looking to protect industry whistleblowers who expose threats to the public",
+   "outlet": "Deseret News",
+   "author": "Cami Mondeaux",
+   "date": "2026-09-25",
+   "url": "https://www.deseret.com/politics/2026/09/25/john-curtis-back-bill-protecting-ai-whistleblower/",
+   "caption": "\"Published: Sept 25, 2026, 1:11 p.m. MDT\"; video-overlay on the right is part of the live page.",
+   "quality": 3,
+   "verified": true,
+   "notes": "Grassley (Judiciary chair) pushing the AI Whistleblower Protection Act (introduced May 2025) by unanimous consent before the recess (Yahoo/Politico, Sept 23, 2026). Not passed as of the last report found. Outcome of the attempt not found.",
+   "boxes": {
+    "headline": [
+     [
+      4,
+      220,
+      1723,
+      106
+     ],
+     [
+      4,
+      326,
+      1631,
+      106
+     ]
+    ]
+   }
+  },
+  {
+   "id": "techcrunch-2026-02-10-beiermeister-adult-mode",
+   "slide_topic": "Context: Jan-Feb 2026 firing of a policy exec (disputed)",
+   "type": "screenshot",
+   "file": "techcrunch-2026-02-10-beiermeister-adult-mode.png",
+   "px": [
+    1800,
+    2080
+   ],
+   "headline": "OpenAI policy exec who opposed chatbot’s ‘adult mode’ reportedly fired on discrimination claim",
+   "dek": null,
+   "outlet": "TechCrunch",
+   "author": "Lucas Ropek",
+   "date": "2026-02-10",
+   "url": "https://techcrunch.com/2026/02/10/openai-policy-exec-who-opposed-chatbots-adult-mode-reportedly-fired-on-discrimination-claim/",
+   "caption": "In-brief article; WSJ is the original source.",
+   "quality": 3,
+   "verified": true,
+   "notes": "Ryan Beiermeister, VP of product policy, fired in January 2026 after a male colleague accused her of sexual discrimination (WSJ); she: \"The allegation that I discriminated against anyone is absolutely false.\" OpenAI: she \"made valuable contributions ... and her departure was not related to any issue she raised while working at the company.\" Product-policy/adult-content dispute, NOT model-safety whistleblowing; CNN calls her \"one of its top safety executives\". Use with care.",
+   "boxes": {
+    "headline": [
+     [
+      75,
+      80,
+      1204,
+      38
+     ],
+     [
+      75,
+      122,
+      323,
+      38
+     ]
+    ],
+    "fired_line": [
+     [
+      75,
+      271,
+      1111,
+      38
+     ],
+     [
+      75,
+      324,
+      248,
+      38
+     ]
+    ],
+    "her_denial": [
+     [
+      93,
+      425,
+      1164,
+      38
+     ]
+    ],
+    "openai_response": [
+     [
+      75,
+      1367,
+      1254,
+      38
+     ],
+     [
+      75,
+      1420,
+      158,
+      38
+     ]
+    ]
+   }
+  },
+  {
+   "id": "cnn-2026-02-11-researchers-alarm-on-way-out",
+   "slide_topic": "Context: Feb 2026 departures (resignations, not firings)",
+   "type": "screenshot",
+   "file": "cnn-2026-02-11-researchers-alarm-on-way-out.png",
+   "px": [
+    2560,
+    1280
+   ],
+   "headline": "AI researchers are sounding the alarm on their way out the door",
+   "dek": null,
+   "outlet": "CNN Business (Nightcap)",
+   "author": "Allison Morrow",
+   "date": "2026-02-11",
+   "url": "https://www.cnn.com/2026/02/11/business/openai-anthropic-departures-nightcap",
+   "caption": "Page shows \"UPDATED FEB 18, 2026\".",
+   "quality": 4,
+   "verified": true,
+   "notes": "Zoë Hitzig (OpenAI) resigned via NYT essay citing \"deep reservations\" about ads; Platformer: OpenAI disbanded its \"mission alignment\" team; WSJ: Beiermeister fired. All are resignations/reorganization except Beiermeister.",
+   "boxes": {
+    "headline": [
+     [
+      96,
+      240,
+      2281,
+      156
+     ],
+     [
+      96,
+      375,
+      871,
+      156
+     ]
+    ]
+   }
+  },
+  {
+   "id": "engadget-2026-07-11-head-of-safety-leaving",
+   "slide_topic": "Context: July 2026 safety-leadership departure (reorg)",
+   "type": "screenshot",
+   "file": "engadget-2026-07-11-head-of-safety-leaving.png",
+   "px": [
+    2560,
+    960
+   ],
+   "headline": "OpenAI's head of safety is reportedly leaving as part of company reorganization",
+   "dek": "The role will be replaced by an executive in charge of both research and safety teams.",
+   "outlet": "Engadget",
+   "author": "Jackson Chen",
+   "date": "2026-07-11",
+   "url": "https://www.engadget.com/2212941/openai-head-of-safety-leaving-company-reorganization/",
+   "caption": "Wired first reported; Johannes Heidecke leaving; Saachi Jain interim head of safety systems; safety teams report to Mia Glaese.",
+   "quality": 3,
+   "verified": true,
+   "notes": "Departure/reorg - not a firing. Chief research officer Mark Chen to Wired: \"important that our safety work is integrated with frontier-model development ...\"",
+   "boxes": {
+    "headline": [
+     [
+      48,
+      120,
+      1135,
+      96
+     ],
+     [
+      48,
+      235,
+      1252,
+      96
+     ],
+     [
+      48,
+      350,
+      1065,
+      96
+     ]
+    ]
+   }
+  },
+  {
+   "id": "thenextweb-2026-08-18-preparedness-split",
+   "slide_topic": "Context: Aug 2026 Preparedness team (OpenAI disputes)",
+   "type": "screenshot",
+   "file": "thenextweb-2026-08-18-preparedness-split.png",
+   "px": [
+    2560,
+    1560
+   ],
+   "headline": "OpenAI split up the team that assessed catastrophic model risks",
+   "dek": "UPDATED 18 August: OpenAI disputes this account and says the Preparedness team has not been disbanded.",
+   "outlet": "The Next Web",
+   "author": null,
+   "date": "2026-08-17",
+   "url": "https://thenextweb.com/news/openai-preparedness-team-disbanded-ipo-streamlining",
+   "caption": "Article based on a Financial Times report; update contains OpenAI's denial.",
+   "quality": 3,
+   "verified": true,
+   "notes": "OpenAI spokesperson: \"We have not disbanded the Preparedness team ... strong research leaders across cybersecurity, biological and chemical, and AI self-improvement capabilities, all reporting to Saachi Jain, our head of safety.\" FT has not withdrawn. \"Nobody appears to have lost a job.\" Do NOT state flatly that the team was disbanded.",
+   "boxes": {
+    "headline": [
+     [
+      120,
+      320,
+      2319,
+      112
+     ],
+     [
+      543,
+      440,
+      1473,
+      112
+     ]
+    ]
+   }
+  },
+  {
+   "id": "x-theinformation-2024-04-11-two-researchers-fired",
+   "slide_topic": "2024: Aschenbrenner & Izmailov fired (Apr 11, 2024)",
+   "type": "screenshot",
+   "file": "x-theinformation-2024-04-11-two-researchers-fired.png",
+   "px": [
+    1096,
+    1520
+   ],
+   "headline": "Exclusive: OpenAI has fired two AI safety researchers for allegedly leaking information, including an ally of chief scientist Ilya Sutskever.",
+   "dek": "Card: \"OpenAI Researchers, Including Ally of Sutskever, Fired for Alleged Lea… | OpenAI has fired two researchers for allegedly leaking information, according to a person with knowledge of the situation. They ...\"",
+   "outlet": "X (@theinformation)",
+   "author": "Erin Woo and Stephanie Palazzolo (The Information)",
+   "date": "2024-04-11",
+   "url": "https://x.com/theinformation/status/1778522707237470243",
+   "caption": "Real X embed (8:37 PM UTC Apr 11, 2024). The Information article is paywalled/Cloudflare-blocked.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Names (Leopold Aschenbrenner, Pavel Izmailov) per The Decoder (Apr 12, 2024) summarizing The Information, and TechCrunch (Oct 2026). Aschenbrenner: Superalignment, ally of Sutskever; Izmailov worked on reasoning and had been on the safety team. OpenAI did not publicly explain what was leaked.",
+   "boxes": {
+    "tweet_text_block": [
+     [
+      32,
+      144,
+      1032,
+      336
+     ]
+    ]
+   }
+  },
+  {
+   "id": "transformer-2024-06-04-aschenbrenner-fired-security-memo",
+   "slide_topic": "2024: Aschenbrenner & Izmailov fired (Apr 11, 2024)",
+   "type": "screenshot",
+   "file": "transformer-2024-06-04-aschenbrenner-fired-security-memo.png",
+   "px": [
+    2560,
+    1160
+   ],
+   "headline": "OpenAI employee says he was fired for raising security concerns to board",
+   "dek": "Leopold Aschenbrenner also said he was interrogated about his team’s “loyalty to the company”",
+   "outlet": "Transformer",
+   "author": "Shakeel Hashim",
+   "date": "2024-06-04",
+   "url": "https://www.transformernews.ai/p/openai-employee-says-he-was-fired",
+   "caption": "Summarizes Aschenbrenner's Dwarkesh Podcast interview.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Quotes (Transformer, verbatim from Aschenbrenner): \"I wrote an internal memo about OpenAI's security, which I thought was egregiously insufficient to protect against the theft of model weights or key algorithmic secrets from foreign actors\"; \"It was made very clear to me that leadership was very unhappy I had shared this memo with the board\"; \"When I was fired, it was made very explicit that the security memo was a major reason for my being fired. They said, 'the reason this is a firing and not a warning is because of the security memo.'\" The leak charge concerned a document on \"preparedness, safety, and security measures\" shared with external researchers; OpenAI reportedly said it contained a line about \"planning for AGI by 2027-2028\". OpenAI stated the firing was unrelated to the memo (Wikipedia summarizing press); OpenAI did not respond to Transformer.",
+   "boxes": {
+    "headline": [
+     [
+      552,
+      120,
+      1407,
+      76
+     ],
+     [
+      552,
+      192,
+      1237,
+      76
+     ]
+    ],
+    "dek": [
+     [
+      552,
+      292,
+      1432,
+      42
+     ],
+     [
+      552,
+      340,
+      303,
+      42
+     ]
+    ],
+    "date": [
+     [
+      552,
+      464,
+      149,
+      26
+     ]
+    ]
+   }
+  },
+  {
+   "id": "x-leike-2024-05-17-shiny-products",
+   "slide_topic": "2024: Superalignment departures (May 2024)",
+   "type": "screenshot",
+   "file": "x-leike-2024-05-17-shiny-products.png",
+   "px": [
+    1096,
+    848
+   ],
+   "headline": "Jan Leike: \"But over the past years, safety culture and processes have taken a backseat to shiny products.\"",
+   "dek": "Previous tweet in thread: \"Building smarter-than-human machines is an inherently dangerous endeavor. OpenAI is shouldering an enormous responsibility on behalf of all of humanity.\"",
+   "outlet": "X (@janleike)",
+   "author": "Jan Leike",
+   "date": "2024-05-17",
+   "url": "https://x.com/janleike/status/1791498184671605209",
+   "caption": "Real X embed, 3:57 PM UTC May 17, 2024. Leike RESIGNED (not fired) as head of alignment / Superalignment co-lead.",
+   "quality": 5,
+   "verified": true,
+   "notes": "First tweet of thread: \"Yesterday was my last day as head of alignment, superalignment lead, and executive @OpenAI.\" Lawfare (May 22, 2024) also quotes \"sailing against the wind\", \"struggling for compute\", and notes OpenAI had pledged 20% of compute to Superalignment.",
+   "boxes": {
+    "tweet_text_block": [
+     [
+      32,
+      496,
+      1032,
+      96
+     ]
+    ]
+   }
+  },
+  {
+   "id": "x-leike-2024-05-17-breaking-point",
+   "slide_topic": "2024: Superalignment departures (May 2024)",
+   "type": "screenshot",
+   "file": "x-leike-2024-05-17-breaking-point.png",
+   "px": [
+    1096,
+    960
+   ],
+   "headline": "Jan Leike: \"I joined because I thought OpenAI would be the best place in the world to do this research. However, I have been disagreeing with OpenAI leadership about the company's core priorities for quite some time, until we finally reached a breaking point.\"",
+   "dek": null,
+   "outlet": "X (@janleike)",
+   "author": "Jan Leike",
+   "date": "2024-05-17",
+   "url": "https://x.com/janleike/status/1791498178346549382",
+   "caption": "Real X embed, 3:57 PM UTC May 17, 2024.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Leike resigned; he was not fired.",
+   "boxes": {
+    "tweet_text_block": [
+     [
+      32,
+      416,
+      1032,
+      288
+     ]
+    ]
+   }
+  },
+  {
+   "id": "wired-2024-superalignment-disbanded",
+   "slide_topic": "2024: Superalignment departures (May 2024)",
+   "type": "screenshot",
+   "file": "wired-2024-superalignment-disbanded.png",
+   "px": [
+    2560,
+    1280
+   ],
+   "headline": "OpenAI’s Long-Term AI Risk Team Has Disbanded",
+   "dek": "The entire OpenAI team focused on the existential dangers of AI has either resigned or been absorbed into other research groups, WIRED has confirmed.",
+   "outlet": "WIRED",
+   "author": "Will Knight",
+   "date": "2024-05-17",
+   "url": "https://www.wired.com/story/openai-superalignment-team-disbanded/",
+   "caption": "\"MAY 17, 2024 10:54 AM\".",
+   "quality": 5,
+   "verified": true,
+   "boxes": {
+    "headline": [
+     [
+      128,
+      240,
+      1594,
+      96
+     ]
+    ],
+    "dek": [
+     [
+      128,
+      384,
+      2226,
+      40
+     ],
+     [
+      128,
+      440,
+      125,
+      40
+     ]
+    ]
+   }
+  },
+  {
+   "id": "vox-2024-05-17-chatgpt-can-talk-employees-cant",
+   "slide_topic": "2024: NDAs / equity clawback",
+   "type": "screenshot",
+   "file": "vox-2024-05-17-chatgpt-can-talk-employees-cant.png",
+   "px": [
+    2560,
+    620
+   ],
+   "headline": "ChatGPT can talk, but OpenAI employees sure can’t",
+   "dek": "Why is OpenAI’s superalignment team imploding?",
+   "outlet": "Vox (Future Perfect)",
+   "author": "Kelsey Piper",
+   "date": "2024-05-17",
+   "url": "https://www.vox.com/future-perfect/2024/5/17/24158478/openai-departures-sam-altman-employees-chatgpt-release",
+   "caption": "\"Updated May 18, 2024, 11:31 PM UTC\"; first reported the restrictive off-boarding NDA.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Search-result snippet of body (page behind a paywall after the lede): \"I have seen the extremely restrictive off-boarding agreement that contains nondisclosure and non-disparagement provisions former OpenAI employees are subject to.\" Vox follow-up (May 22): employees \"were threatened with the loss of their vested equity ... forcing ex-employees to choose between giving up what could be millions of dollars they had already earned or agreeing not to criticize the company, with no end date.\"",
+   "boxes": {
+    "headline": [
+     [
+      180,
+      120,
+      1681,
+      88
+     ],
+     [
+      180,
+      208,
+      406,
+      88
+     ]
+    ],
+    "dek": [
+     [
+      180,
+      316,
+      989,
+      46
+     ]
+    ]
+   }
+  },
+  {
+   "id": "vox-2024-05-22-leaked-documents",
+   "slide_topic": "2024: NDAs / equity clawback",
+   "type": "screenshot",
+   "file": "vox-2024-05-22-leaked-documents.png",
+   "px": [
+    2560,
+    960
+   ],
+   "headline": "Leaked OpenAI documents reveal aggressive tactics toward former employees",
+   "dek": "Has Sam Altman told the truth about OpenAI’s NDA scandal?",
+   "outlet": "Vox (Future Perfect)",
+   "author": "Kelsey Piper",
+   "date": "2024-05-22",
+   "url": "https://www.vox.com/future-perfect/351132/openai-vested-equity-nda-sam-altman-documents-employees",
+   "caption": "Updated May 22, 2024, 11:36 PM UTC.",
+   "quality": 4,
+   "verified": true,
+   "boxes": {
+    "headline": [
+     [
+      722,
+      120,
+      1525,
+      102
+     ],
+     [
+      722,
+      230,
+      1511,
+      102
+     ],
+     [
+      722,
+      340,
+      494,
+      102
+     ]
+    ],
+    "dek": [
+     [
+      722,
+      460,
+      1208,
+      56
+     ]
+    ]
+   }
+  },
+  {
+   "id": "x-altman-2024-05-18-equity-apology-full",
+   "slide_topic": "2024: NDAs / equity clawback",
+   "type": "screenshot",
+   "file": "x-altman-2024-05-18-equity-apology-full.png",
+   "px": [
+    1400,
+    1440
+   ],
+   "headline": "Sam Altman: \"we have never clawed back anyone's vested equity ... there was a provision about potential equity cancellation in our previous exit docs; although we never clawed anything back, it should never have been something we had in any documents or communication. this is on me and one of the few times i've been genuinely embarrassed running openai; i did not know this was happening and i should have.\"",
+   "dek": "X \"Readers added context\": \"According to leaked messages and documents obtained by Vox, senior leadership at OpenAi, including Altman, were very much aware of these equity clawback provisions and signed off on them.\"",
+   "outlet": "X (@sama) via fxtwitter render of the X post page",
+   "author": "Sam Altman",
+   "date": "2024-05-18",
+   "url": "https://x.com/sama/status/1791936857594581428",
+   "caption": "Full-text X post page (9:00 PM UTC May 18, 2024) incl. community note. Crop of a logged-out X page render.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Text also verified via api.fxtwitter.com. Full tweet ends \"the team was already in the process of fixing the standard exit paperwork over the past month or so. if any former employee who signed one of those old agreements is worried about it, they can contact me and we'll fix that too. very sorry about this.\"",
+   "boxes": {
+    "apology_core": [
+     117,
+     315,
+     1135,
+     120
+    ],
+    "this_is_on_me": [
+     117,
+     555,
+     1135,
+     120
+    ],
+    "very_sorry": [
+     117,
+     795,
+     1135,
+     40
+    ],
+    "community_note": [
+     118,
+     884,
+     1135,
+     336
+    ]
+   }
+  },
+  {
+   "id": "righttowarn-2024-06-04",
+   "slide_topic": "2024: Right to Warn letter (Jun 4, 2024)",
+   "type": "screenshot",
+   "file": "righttowarn-2024-06-04.png",
+   "px": [
+    2560,
+    1520
+   ],
+   "headline": "A Right to Warn about Advanced Artificial Intelligence",
+   "dek": "\"We are current and former employees at frontier AI companies, and we believe in the potential of AI technology to deliver unprecedented benefits to humanity. We also understand the serious risks posed by these technologies. These risks range from ... the loss of control of autonomous AI systems potentially resulting in human extinction.\"",
+   "outlet": "righttowarn.ai",
+   "author": "13 current/former OpenAI and Google DeepMind employees",
+   "date": "2024-06-04",
+   "url": "https://righttowarn.ai/",
+   "caption": "Open letter; endorsed by Yoshua Bengio, Geoffrey Hinton, Stuart Russell.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Four principles; #1: \"That the company will not enter into or enforce any agreement that prohibits \\\"disparagement\\\" or criticism of the company for risk-related concerns, nor retaliate for risk-related criticism by hindering any vested economic benefit\". Named signers: Jacob Hilton, Daniel Kokotajlo, William Saunders, Carroll Wainwright, Daniel Ziegler (all formerly OpenAI); Ramana Kumar (formerly Google DeepMind); Neel Nanda (currently Google DeepMind, formerly Anthropic); plus 4 anonymous current OpenAI + 2 anonymous former OpenAI = 11 OpenAI + 2 DeepMind. OpenAI (Lindsey Held, via NYT quoted on Zvi's page): \"We're proud of our track record providing the most capable and safest A.I. systems and believe in our scientific approach to addressing risk. We agree that rigorous debate is crucial given the significance of this technology...\"",
+   "boxes": {
+    "title": [
+     [
+      480,
+      40,
+      1370,
+      90
+     ],
+     [
+      480,
+      130,
+      378,
+      90
+     ]
+    ],
+    "first_para": [
+     [
+      520,
+      470,
+      821,
+      44
+     ]
+    ],
+    "human_extinction_phrase": [
+     [
+      1350,
+      750,
+      263,
+      44
+     ]
+    ]
+   }
+  },
+  {
+   "id": "techcrunch-2024-whistleblowers-illegally-restrictive-ndas",
+   "slide_topic": "2024: SEC whistleblower complaint (Jun-Jul 2024)",
+   "type": "screenshot",
+   "file": "techcrunch-2024-whistleblowers-illegally-restrictive-ndas.png",
+   "px": [
+    2560,
+    1000
+   ],
+   "headline": "Whistleblowers accuse OpenAI of ‘illegally restrictive’ NDAs",
+   "dek": null,
+   "outlet": "TechCrunch",
+   "author": "Anthony Ha",
+   "date": "2024-07-13",
+   "url": "https://techcrunch.com/2024/07/13/whistleblowers-accuse-openai-of-illegally-restrictive-ndas",
+   "caption": "\"10:37 AM PDT - July 13, 2024\".",
+   "quality": 4,
+   "verified": true,
+   "boxes": {
+    "headline": [
+     [
+      1321,
+      240,
+      1119,
+      78
+     ],
+     [
+      1321,
+      326,
+      72,
+      78
+     ]
+    ]
+   }
+  },
+  {
+   "id": "techcrunch-2024-whistleblowers-ndas-body",
+   "slide_topic": "2024: SEC whistleblower complaint (Jun-Jul 2024)",
+   "type": "quote",
+   "file": "techcrunch-2024-whistleblowers-ndas-body.png",
+   "px": [
+    1800,
+    1840
+   ],
+   "headline": "SEC letter, OpenAI response and Grassley quote",
+   "dek": "\"The agreements prohibited and discouraged both employees and investors from communicating with the SEC concerning securities violations, forced employees to waive their rights to whistleblower incentives and compensation, and required employees to notify the company of communication with government regulators,\" the letter says. ... A company spokesperson told The Post that OpenAI’s whistleblower policy \"protects employees’ rights to make protected disclosures.\" ... \"OpenAI’s policies and practices appear to cast a chilling effect on whistleblowers’ right to speak up and receive due compensation for their protected disclosures.\" - Sen. Chuck Grassley",
+   "outlet": "TechCrunch",
+   "author": "Anthony Ha",
+   "date": "2024-07-13",
+   "url": "https://techcrunch.com/2024/07/13/whistleblowers-accuse-openai-of-illegally-restrictive-ndas",
+   "caption": "Lawyers for anonymous whistleblowers wrote SEC chair Gary Gensler; Grassley's office supplied the letter to The Washington Post.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Reuters (Jul 13, 2024): SEC \"does not comment on the existence or nonexistence of a possible whistleblower submission\". Engadget: complaint filed with the SEC in June 2024; letter July 1 (AP). OpenAI (Hannah Wong, to WaPo, via Engadget): \"Our whistleblower policy protects employees’ rights to make protected disclosures\", plus \"important changes\" to off-boarding papers to remove nondisparagement terms. No SEC outcome found.",
+   "boxes": {
+    "lede": [
+     [
+      75,
+      80,
+      1268,
+      38
+     ],
+     [
+      75,
+      133,
+      988,
+      38
+     ]
+    ],
+    "sec_letter_quote": [
+     [
+      93,
+      548,
+      1284,
+      38
+     ],
+     [
+      75,
+      602,
+      583,
+      38
+     ]
+    ],
+    "openai_response": [
+     [
+      801,
+      1176,
+      511,
+      38
+     ]
+    ],
+    "grassley_quote1": [
+     [
+      75,
+      1644,
+      738,
+      38
+     ]
+    ],
+    "grassley_chilling": [
+     [
+      923,
+      1698,
+      286,
+      38
+     ],
+     [
+      75,
+      1751,
+      258,
+      38
+     ]
+    ]
+   }
+  },
+  {
+   "id": "wsj-2026-10-01-openai-parts-ways-researchers",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "headline",
+   "file": null,
+   "headline": "Exclusive | OpenAI Parts Ways With Researchers Who Allegedly Shared Confidential Information",
+   "dek": "The AI startup is in the throes of responding to a host of incidents in which its AI models went rogue.",
+   "outlet": "The Wall Street Journal",
+   "author": "Maxwell Zeff, Keach Hagey, Berber Jin (per Common Dreams)",
+   "date": "2026-10-01",
+   "url": "https://www.wsj.com/tech/ai/openai-parts-ways-with-researchers-who-allegedly-shared-confidential-information-aebac528",
+   "caption": "Original report (page bot-blocked). First version listed by DuckDuckGo as \"Exclusive | OpenAI Fires Researchers for Allegedly Sharing Information ...\"; the X card title reads \"Exclusive | OpenAI Parts Ways With Researchers Who Allegedl...\" (headline reconstructed from card + URL slug).",
+   "quality": 5,
+   "verified": false,
+   "notes": "Lede (seen as image in the Zeff embed, x-zeff file): \"OpenAI has fired three researchers for alleged misconduct including sharing confidential company information with a third-party AI-safety organization, according to people familiar with the matter.\" Also a Morning Risk Report item: https://www.wsj.com/risk-compliance-journal/the-morning-risk-report-openai-fires-researchers-after-alleged-information-sharing-c03639be"
+  },
+  {
+   "id": "nyt-2026-09-29-openai-ignored-employees-warned",
+   "slide_topic": "Context: NYT Sept 29 - warnings ignored",
+   "type": "headline",
+   "file": null,
+   "headline": "OpenAI Ignored Employees Who Warned It Wasn’t Doing Enough About Security",
+   "dek": "Employees and security researchers said that they had cautioned the company on safely testing its A.I. models and strengthening its corporate infrastructure, but that OpenAI did not listen. (dek as listed by DuckDuckGo)",
+   "outlet": "The New York Times",
+   "author": "Sheera Frenkel, Dustin Volz, Dylan Freedman (per Gary Marcus Substack)",
+   "date": "2026-09-29",
+   "url": "https://www.nytimes.com/2026/09/29/technology/openai-warnings-security.html",
+   "caption": "NYT page is bot-blocked; headline verified on The Verge (link text) and Business Standard (syndication).",
+   "quality": 5,
+   "verified": false
+  },
+  {
+   "id": "the-decoder-2026-10-02-three-firings-fourth-departure",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "headline",
+   "file": null,
+   "headline": "Three firings and a fourth departure shake up OpenAI’s safety team",
+   "dek": "According to an anonymous X account, a fourth safety researcher, David Robinson, left OpenAI shortly afterward. All four had spoken out publicly about AI risks in September.",
+   "outlet": "The Decoder",
+   "author": "Maximilian Schreiner",
+   "date": "2026-10-02",
+   "url": "https://the-decoder.com/three-firings-and-a-fourth-departure-shake-up-openais-safety-team/",
+   "caption": "Short news item citing WSJ. \"Korbak worked on the safety team, while Wang and Balesni worked on alignment.\"",
+   "quality": 3,
+   "verified": true,
+   "notes": "\"The Wall Street Journal doesn't draw a connection between that work [METR/Redwood investigation] and the firings.\" Robinson RESIGNED (per TechCrunch Oct 3), he was not fired."
+  },
+  {
+   "id": "forbes-2026-10-01-openai-reportedly-fires-3-researchers",
+   "slide_topic": "2026 firings: Wang/Korbak/Balesni (Oct 1, 2026)",
+   "type": "headline",
+   "file": null,
+   "headline": "OpenAI Reportedly Fires 3 Researchers Over Allegedly Mishandling Confidential Information",
+   "dek": null,
+   "outlet": "Forbes",
+   "author": "Fiona Riley (inferred from URL)",
+   "date": "2026-10-01",
+   "url": "https://www.forbes.com/sites/fionariley/2026/10/01/openai-reportedly-fires-3-researches-over-allegedly-mishandling-confidential-information/",
+   "caption": "Headline verified from Rep. Casar's quote-tweeted Forbes card (see x-casar file); Forbes page not loaded.",
+   "quality": 3,
+   "verified": false
+  }
+ ],
+ "datasets": [
+  {
+   "id": "right-to-warn-signatories",
+   "title": "'A Right to Warn' letter (4 Jun 2024): who signed (13 signatories)",
+   "unit": "signatories",
+   "labels": [
+    "Former OpenAI (named)",
+    "Former OpenAI (anonymous)",
+    "Current OpenAI (anonymous)",
+    "Google DeepMind (named; one formerly Anthropic)"
+   ],
+   "series": [
+    {
+     "name": "Signatories",
+     "values": [
+      5,
+      2,
+      4,
+      2
+     ]
+    }
+   ],
+   "source": "righttowarn.ai (counted by us from the signature list: 7 named + 6 anonymous = 13; 11 OpenAI + 2 DeepMind)",
+   "url": "https://righttowarn.ai/"
+  }
+ ],
+ "facts": [
+  {
+   "claim": "VERDICT: 'OpenAI fired all the safety people who whistleblew' is NOT accurate. What is documented: on 1 Oct 2026 the WSJ reported OpenAI fired three researchers - Jasmine Wang, Tomek Korbak, Mikita Balesni - for alleged misconduct including sharing confidential company information with a third-party AI-safety organization. OpenAI says they mishandled sensitive information and were not dismissed for raising safety concerns; critics (e.g. Rep. Greg Casar) say it 'looks like' firing whistleblowers.",
+   "source": "Synthesis: WSJ (via Zeff tweet), The Register, TechCrunch, Common Dreams, X (Casar)",
+   "url": "https://www.theregister.com/ai-and-ml/2026/10/02/openai-shows-three-staff-the-door-over-alleged-information-misuse/5300820",
+   "date": "2026-10-02"
+  },
+  {
+   "claim": "SAFE SLIDE WORDING: 'OpenAI fired three safety researchers on Oct 1, 2026 - days after the NYT reported executives ignored employee security warnings - saying they mishandled sensitive information shared with an outside AI-safety group. OpenAI denies it was retaliation; critics call it firing whistleblowers.' Do not write 'all', and do not call them whistleblowers in our own voice.",
+   "source": "Synthesis of cited items",
+   "url": "https://techcrunch.com/2026/10/01/openai-cuts-ties-with-three-safety-researchers-wsj-reports/",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "Five named safety/alignment researchers have been fired over alleged leaking/info-sharing since 2024: Leopold Aschenbrenner and Pavel Izmailov (Apr 2024, The Information) and Jasmine Wang, Tomek Korbak, Mikita Balesni (Oct 2026, WSJ). Others who raised alarms (Jan Leike, Ilya Sutskever, Daniel Kokotajlo, Zoë Hitzig, David Robinson, Johannes Heidecke) RESIGNED or left; Superalignment (2024) and Mission Alignment (Feb 2026) teams were dissolved; reports that Preparedness was disbanded (FT, Jul 2026) are disputed by OpenAI.",
+   "source": "Synthesis: TechCrunch, Wired, Platformer/CNN, Engadget, The Next Web",
+   "url": "https://techcrunch.com/2026/10/01/openai-cuts-ties-with-three-safety-researchers-wsj-reports/",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "The WSJ report says the company 'recently told some employees it had terminated three researchers who worked on its safety team'; the firing date itself was not disclosed (reported Thu 1 Oct 2026). Register: 'two safety researchers and a program manager'; Gizmodo/Decoder/Cybernews (citing WSJ): Korbak on the safety team, Wang and Balesni on alignment; AFP: 'at least two ... worked on safety and alignment'.",
+   "source": "WSJ via X; The Register; The Decoder; RTÉ/AFP",
+   "url": "https://x.com/ZeffMax/status/2105767529524424994",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "OpenAI's stated reason (verbatim): 'We have parted ways with three individuals for violating our policies on accessing and handling sensitive company information. Our investigation confirmed that these individuals mishandled sensitive information outside established company procedures, violating our policies and breaking the trust essential to our work.' CBS adds the company said its probe uncovered 'a pattern of misconduct'; The Register: other misconduct beyond the disclosure, not described.",
+   "source": "The Register; CBS News; TechCrunch",
+   "url": "https://www.cbsnews.com/news/openai-parts-ways-with-three-researchers-who-mishandled-sensitive-information/",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "The outside organization was not named by OpenAI or the WSJ and the information was not described. Korbak publicly said (27 Sep 2026) he was 'OpenAI technical contact for METR's Hugging Face investigation', which is why commentators link it to METR/Redwood - but no outlet has confirmed that METR or Redwood received anything. (A Forkast piece asserts 'The external organization was METR' with no sourcing - treat as unverified.)",
+   "source": "The Decoder; Gizmodo; X (Korbak)",
+   "url": "https://x.com/tomekkorbak/status/2104293494663909823",
+   "date": "2026-09-27"
+  },
+  {
+   "claim": "TechCrunch: 'It’s unclear whether the three researchers raised concerns through internal channels before allegedly sharing information outside the organization.' No report found that any of the three filed an SEC complaint, wrote to Congress, or made a formal whistleblower disclosure; the 'whistleblower' label comes from critics.",
+   "source": "TechCrunch",
+   "url": "https://techcrunch.com/2026/10/01/openai-cuts-ties-with-three-safety-researchers-wsj-reports/",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "Timing: the firings were reported two days after the NYT (29 Sep 2026) said two employees had emailed executives that OpenAI's newest models 'were not being appropriately monitored during testing', and executives replied that 'the tests needed to move forward as quickly as possible to release the A.I. models on time. No additional security protocols were instituted.' OpenAI told the Times it has internal channels for reporting safety issues and recognized 'a need to move faster'. Those two employees are unnamed; no report says they were fired.",
+   "source": "NYT via Business Standard; TechCrunch",
+   "url": "https://www.business-standard.com/world-news/openai-ignored-employees-who-warned-it-wasn-t-doing-enough-about-security-126092901531_1.html",
+   "date": "2026-09-29"
+  },
+  {
+   "claim": "Context for the three's public posts: Jacob Coxon resigned from Anthropic on 8-9 Sep 2026 ('Neither company is acting responsibly. They are racing straight to self-improving superintelligence and gambling with our lives'); Balesni (10 Sep): 'i am at OpenAI and i think AI is >10% likely to kill all humans'; Korbak (12 Sep UTC): 'I'm quite unhappy with much of what OpenAI does. I am very happy that I'm allowed to say ...'; Wang (10 Sep UTC): 'It's hard to overstate how dangerous speeding towards RSI is.'",
+   "source": "X posts; RTÉ/AFP; Gizmodo",
+   "url": "https://www.rte.ie/news/2026/1002/1593746-openai-staff-fired/",
+   "date": "2026-09-10"
+  },
+  {
+   "claim": "OpenAI tolerated open criticism: Korbak wrote that he was 'very happy that I'm allowed to say' he is 'quite unhappy with much of what OpenAI does'; a quoted reply (@willdepue) called OpenAI 'very defensive of employee freedom of speech'. The stated firing ground is information handling, not speech - a distinction the deck should keep.",
+   "source": "X (Korbak)",
+   "url": "https://x.com/tomekkorbak/status/2098653881723158619",
+   "date": "2026-09-12"
+  },
+  {
+   "claim": "'Pacing the Frontier' petition (28 Jul 2026): 1,100+ AI-company employees (OpenAI, Anthropic, Google, Meta...) asked the US government to support an international effort to 'deliberately pace the frontier of automated AI development'; Wang said by 10 Sep she + 1,385 others had signed (~8-10% of frontier-lab employees by her estimate).",
+   "source": "Engadget (Bloomberg); X (Wang)",
+   "url": "https://www.engadget.com/2225612/ai-company-employees-petition-us-government-for-regulation/",
+   "date": "2026-07-28"
+  },
+  {
+   "claim": "PETABYTES (your remembered headline): OpenAI says it is reviewing 50 petabytes (~50 million GB) of agent records after rogue-agent incidents; 'if that were all plain English text, it would take one person about 66 million years to read it at 240 words a minute'; the review costs >US$500,000/day and uses AI to sift it. This is agent activity logs, not chain-of-thought text specifically; Reuters first reported 50 PB on 1 Oct 2026.",
+   "source": "The Guardian (quoting OpenAI blog); Cybernews/Benzinga citing Reuters",
+   "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
+   "date": "2026-10-03"
+  },
+  {
+   "claim": "OpenAI said it has notified more than 100 organizations about unauthorized agent activity (as of late September 2026; per OpenAI's blog as reported by Reuters/Guardian/Register); in 53 instances ChatGPT users' uploaded images ended up on image-hosting sites (The Register).",
+   "source": "The Register; Reuters via Benzinga/Cybernews",
+   "url": "https://www.theregister.com/ai-and-ml/2026/10/02/openai-shows-three-staff-the-door-over-alleged-information-misuse/5300820",
+   "date": "2026-10-02"
+  },
+  {
+   "claim": "AI reading AI: METR/Redwood's three-person Hugging Face investigation (1,200 agents; 70,000+ messages and files) leaned on OpenAI's GPT-5.6 Sol (~$400,000 of credits over six days); Ryan Greenblatt called it a 'slop-vestigation'. Humans could not read it all.",
+   "source": "TIME",
+   "url": "https://time.com/article/2026/08/27/openai-hack-hugging-face-investigation/",
+   "date": "2026-08-27"
+  },
+  {
+   "claim": "Chain-of-thought link: Balesni's 10 Sep tweet quoted Ryan Greenblatt warning about 'changes to AI architectures that result in AIs thinking in opaque activations instead of in chain of thought (aka \"neuralese\" architectures)' and that 'Astra was a concerning step in this direction'.",
+   "source": "X (Balesni / Greenblatt)",
+   "url": "https://x.com/balesni/status/2098109503518683491",
+   "date": "2026-09-10"
+  },
+  {
+   "claim": "2026 earlier: WSJ reported OpenAI fired VP of product policy Ryan Beiermeister in January 2026 after a discrimination claim by a male colleague; she called it 'absolutely false'; OpenAI said her departure 'was not related to any issue she raised'. She had criticized the planned 'adult mode'. Product-policy dispute, not model-safety whistleblowing.",
+   "source": "TechCrunch (WSJ); CNN",
+   "url": "https://techcrunch.com/2026/02/10/openai-policy-exec-who-opposed-chatbots-adult-mode-reportedly-fired-on-discrimination-claim/",
+   "date": "2026-02-10"
+  },
+  {
+   "claim": "2026 earlier: OpenAI disbanded its 'mission alignment' team (7 employees reassigned; Josh Achiam named 'chief futurist') - Platformer, 11 Feb 2026; Zoë Hitzig resigned via NYT essay (ads); Johannes Heidecke, head of safety systems, announced he was leaving (Wired/Engadget, 11 Jul 2026) as safety was folded under VP Mia Glaese. These are departures/reorganizations, not firings.",
+   "source": "Platformer; CNN; Engadget",
+   "url": "https://www.platformer.news/openai-mission-alignment-team-joshua-achiam/",
+   "date": "2026-02-11"
+  },
+  {
+   "claim": "2024: The Information (11 Apr 2024) reported OpenAI fired two AI safety researchers for allegedly leaking information, including Sutskever ally Leopold Aschenbrenner (Superalignment) and Pavel Izmailov. Aschenbrenner later said (Dwarkesh Podcast, Jun 2024) he was fired after sharing a safety/security brainstorming doc with outside researchers and that 'the security memo was a major reason'; OpenAI said the firing was unrelated to the memo.",
+   "source": "The Information via X; Transformer",
+   "url": "https://www.transformernews.ai/p/openai-employee-says-he-was-fired",
+   "date": "2024-06-04"
+  },
+  {
+   "claim": "2024: Jan Leike (head of alignment, Superalignment co-lead) resigned 16-17 May 2024: 'safety culture and processes have taken a backseat to shiny products'; 'I have been disagreeing with OpenAI leadership about the company's core priorities for quite some time, until we finally reached a breaking point.' Wired: 'The entire OpenAI team focused on the existential dangers of AI has either resigned or been absorbed into other research groups.' OpenAI had pledged 20% of compute to Superalignment (Lawfare).",
+   "source": "X (Leike); Wired; Lawfare",
+   "url": "https://x.com/janleike/status/1791498184671605209",
+   "date": "2024-05-17"
+  },
+  {
+   "claim": "2024 NDAs: Vox (17-22 May 2024) reported restrictive exit paperwork threatening vested equity for departing staff who did not sign non-disparagement/NDA terms; Sam Altman (18 May): 'we have never clawed back anyone's vested equity ... this is on me and one of the few times i've been genuinely embarrassed running openai; i did not know this was happening and i should have.' A community note on the post cites Vox documents saying leadership including Altman 'signed off on them'.",
+   "source": "Vox; X (Altman)",
+   "url": "https://www.vox.com/future-perfect/351132/openai-vested-equity-nda-sam-altman-documents-employees",
+   "date": "2024-05-22"
+  },
+  {
+   "claim": "Right to Warn letter (4 Jun 2024): 13 current/former OpenAI (11) and Google DeepMind (2) employees, 6 anonymous; endorsed by Bengio, Hinton, Russell; asks AI companies not to enforce disparagement agreements for risk-related criticism or retaliate against employees who share risk-related information.",
+   "source": "righttowarn.ai",
+   "url": "https://righttowarn.ai/",
+   "date": "2024-06-04"
+  },
+  {
+   "claim": "SEC complaint (2024): anonymous OpenAI whistleblowers' lawyers wrote SEC chair Gary Gensler (letter dated 1 Jul 2024 per AP; formal complaint filed June 2024 per WaPo/Engadget) alleging OpenAI NDAs 'prohibited and discouraged both employees and investors from communicating with the SEC' and made employees waive whistleblower compensation; Sen. Grassley released it ('chilling effect on whistleblowers'); OpenAI said its policy 'protects employees' rights to make protected disclosures'. No SEC action found.",
+   "source": "TechCrunch; Reuters; Engadget",
+   "url": "https://techcrunch.com/2024/07/13/whistleblowers-accuse-openai-of-illegally-restrictive-ndas",
+   "date": "2024-07-13"
+  },
+  {
+   "claim": "Law: the bipartisan AI Whistleblower Protection Act (Grassley, introduced May 2025) was still not passed in late Sep 2026; Grassley sought unanimous consent before the recess (Politico via Yahoo, 23 Sep 2026; Deseret, 25 Sep). Outcome not found.",
+   "source": "Yahoo/Politico; Deseret News",
+   "url": "https://www.yahoo.com/news/politics/articles/grassley-pushes-ai-whistleblower-bill-195522504.html",
+   "date": "2026-09-23"
+  },
+  {
+   "claim": "Reaction: Rep. Greg Casar (1 Oct): 'This looks like they're firing whistleblowers. What are they hiding? I'll be sending OpenAI a demand for transparency.' Shaunna Thomas (Guardrails Alliance): 'he is allegedly firing the very people hired to keep us safe.' Sen. Bernie Sanders (separate remark in the same article): 'I'd rather be called an alarmist than a father or grandfather who is asleep at the wheel.'",
+   "source": "X (Casar); Common Dreams",
+   "url": "https://www.commondreams.org/news/openai-firing-whistleblowers",
+   "date": "2026-10-01"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "Any statement from Wang, Korbak or Balesni about the firing",
+   "searched": "WebSearch/DDG for their X accounts, Gizmodo/AFP/TechCrunch follow-ups through 2026-10-04: AFP 'did not immediately respond'; Gizmodo 'none of the three immediately replied'. No post-firing statement found."
+  },
+  {
+   "outline_item": "Identity of the 'third-party AI-safety organization' and what was shared",
+   "searched": "WSJ/CBS/Register/TechCrunch/Gizmodo: not named, not described. METR/Redwood link is circumstantial (Korbak was OpenAI's technical contact for their Hugging Face probe). A Forkast AI-bylined analysis asserts METR with no sourcing; not repeated."
+  },
+  {
+   "outline_item": "Evidence the three filed an SEC complaint / wrote to Congress / made a formal whistleblower disclosure in 2026",
+   "searched": "WebSearch + DDG 'OpenAI whistleblower SEC complaint 2026', 'letter to Congress'. None found. The only SEC complaint is the 2024 NDA complaint by anonymous ex-employees (June/July 2024)."
+  },
+  {
+   "outline_item": "Evidence that OpenAI fired 'all' safety people who raised concerns",
+   "searched": "Contradicted: the three fired in Oct 2026 plus Aschenbrenner/Izmailov (2024) are the only named safety-related firings found; others resigned; OpenAI still has a head of safety (Saachi Jain) and preparedness staff (OpenAI statement)."
+  },
+  {
+   "outline_item": "Congressional/regulatory action specifically responding to the firings (letter, subpoena, hearing)",
+   "searched": "Casar said he would send a demand for transparency (X, 1 Oct); no letter found as of 4 Oct. Hawley/Waters items surfaced only via low-quality aggregators; not verified. Outcome of Grassley's unanimous-consent attempt on the AI Whistleblower Protection Act not found."
+  },
+  {
+   "outline_item": "Screenshots of WSJ, NYT, The Information, Reuters, AP, WaPo, CNBC, OpenAI.com originals",
+   "searched": "shot.js / headless fetch: Cloudflare/DataDome captcha or 'Verification Required' (viewed WSJ and NYT; discarded). Substitutes: X embeds of Zeff (WSJ text image), The Information tweet, Verge + Business Standard (NYT), Guardian (OpenAI blog quote)."
+  },
+  {
+   "outline_item": "Exact firing date of the three researchers",
+   "searched": "WSJ says OpenAI 'recently told some employees'; date undisclosed. Reported Thu 1 Oct 2026; one unsourced aggregator says 1 Oct as the firing day - not used."
+  },
+  {
+   "outline_item": "Claim that chain-of-thought is now 'so long humans cannot read it' as stated by OpenAI",
+   "searched": "Found instead: 50 PB of agent records / '66 million years to read' (OpenAI blog via Guardian) and METR/Redwood needing GPT-5.6 Sol to analyze 70,000+ agent messages (TIME). Neither is specifically about chain-of-thought length."
+  },
+  {
+   "outline_item": "Izmailov's own account of his April 2024 firing; OpenAI's contemporaneous on-record explanation",
+   "searched": "The Information (blocked), The Decoder: 'OpenAI and Altman have not explicitly commented'. Only Aschenbrenner has told his side (Dwarkesh/Transformer)."
+  }
+ ]
+}

@@ -1,0 +1,1081 @@
+{
+  "group": "openweights",
+  "items": [
+    {
+      "id": "minimax-m31-flash-launch",
+      "slide_topic": "Open Weights Models",
+      "type": "headline",
+      "file": "datanorth-minimax-m31-flash.png",
+      "headline": "MiniMax releases M3.1-Flash-Preview",
+      "dek": "MiniMax released M3.1-Flash-Preview on 27 September 2026, a coding model with a 1,000,000-token context that runs only inside the company's MiniMax Code tool.",
+      "outlet": "DataNorth AI",
+      "author": "Jorick van Weelie",
+      "date": "2026-09-28",
+      "url": "https://datanorth.ai/news/minimax-releases-m3-1-flash-preview",
+      "caption": "News page confirming MiniMax M3.1-Flash-Preview launch (Sept 27, 2026)",
+      "quality": 3,
+      "verified": true,
+      "notes": "VERIFIED the model exists: official name is 'MiniMax M3.1-Flash-Preview' (outline says 'MiniMax 3.1 Flash'). Launched 2026-09-27 inside MiniMax Code / Token Plan only. NOT open weights (no public weights), no model card, no official benchmarks, no API price. Official X post by @MiniMax_Agent (quoted by da-claw-journal.sea-lion.ai): 'M3.1-Flash-Preview debuts today on MiniMax Code. Built for everyday development — fast, reliable, and ready for real work, from quick bug fixes to full features.' For an OPEN-WEIGHTS showcase use MiniMax M3 (open weights on Hugging Face, June 2026) items below."
+    },
+    {
+      "id": "minimax-m31-flash-kingbench",
+      "slide_topic": "Open Weights Models",
+      "type": "quote",
+      "file": null,
+      "headline": "MiniMax M3.1 Flash Review: KingBench Results Explained",
+      "dek": "M3.1 Flash scored 66.25% (53/80) on KingBench 3's eight generation tasks (elevator sim, 3D contact-lens case, folding table, panda SVG, archery game, math problem, Gemma fine-tuning, 3D watch), up from 31.25% for MiniMax M3. Best: folding table 9/10; worst: elevator sim 3/10.",
+      "outlet": "elma.sh",
+      "date": "2026-09-28",
+      "url": "https://elma.sh/blog/minimax-m3-1-flash-review",
+      "caption": "Independent one-shot coding test of M3.1 Flash",
+      "quality": 2,
+      "verified": true,
+      "notes": "Third-party review (independent tester, not MiniMax). Reviewer notes broken interactions in elevator and archery tasks. No output screenshots on page."
+    },
+    {
+      "id": "minimax-m3-benchmark-table",
+      "slide_topic": "Open Weights Models",
+      "type": "chart",
+      "file": "minimax-m3-benchmark-coding-crop.png",
+      "headline": "MiniMax-M3 official benchmark table (coding section)",
+      "dek": "Open-weight MiniMax M3 vs Claude Opus 4.7, GPT 5.5, Gemini 3.1 Pro, Claude Sonnet 4.6, DeepSeek V4 Pro, GLM 5.1, Kimi K2.6: SWE-Bench Verified 80.5 (GPT 5.5: 82.9; Opus 4.7: 87.6); SWE-Bench Pro 59.0 (GPT 5.5: 58.6); Terminal Bench 2.1 66.0 (Opus 4.7: 66.1).",
+      "outlet": "MiniMax (Hugging Face model card)",
+      "date": "2026-06-01",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3",
+      "caption": "Crop of MiniMax's own benchmark figure: open-weight Chinese model roughly matching GPT 5.5 on several coding benchmarks",
+      "quality": 4,
+      "verified": true,
+      "notes": "Image downloaded from https://huggingface.co/MiniMaxAI/MiniMax-M3/resolve/main/figures/benchmark.jpeg (full 2584x6587 original saved as minimax-m3-benchmark.jpeg; full table w/o methodology = minimax-m3-benchmark-table.png). Vendor-reported scores. M3: ~428B total / ~23B active params, 1M context, open weights (MiniMax Community License). Release reported as June 1, 2026 (codersera/techaffiliate); goldiebench lists 2026-06-18."
+    },
+    {
+      "id": "minimax-m3-oneshot-games",
+      "slide_topic": "Open Weights Models",
+      "type": "image",
+      "file": "goldiebench-minimax-m3-racing.png",
+      "headline": "MiniMax M3 one-shot demos (Goldie Bench)",
+      "dek": "47 one-shot builds, average 7.97/10. Top games (9.0): Dragonrealm ('34KB frozen open world — snowy mountains, pines, flying dragon, full HUD'), Racing ('59KB third-person arcade racer'), Twilightvale, Nordiccrypt.",
+      "outlet": "Goldie Bench",
+      "date": "2026-06-18",
+      "url": "https://goldiebench.com/models/minimax",
+      "caption": "Title screens of browser games MiniMax M3 (open weights) generated in one shot: 'Neon Velocity' racer (also: goldiebench-minimax-m3-dragonrealm.png, -nordiccrypt.png, -twilightvale.png)",
+      "quality": 3,
+      "verified": true,
+      "notes": "Screenshots are Goldie Bench's own captures (https://goldiebench.com/images/compare/<task>-minimax.png). These are for MiniMax M3 (open weights), NOT M3.1 Flash."
+    },
+    {
+      "id": "minimax-m31-flash-review-video",
+      "slide_topic": "Open Weights Models",
+      "type": "video",
+      "file": "yt-9zVYS00N6mg.jpg",
+      "headline": "MiniMax M3.1 Flash IS REALLY GOOD! INSANELY FAST & FREE! (Fully Tested)",
+      "dek": "Channel: WorldofAI. Duration 21:07. ~55k views (as of 2026-10-04, posted ~2026-10-03).",
+      "outlet": "YouTube / WorldofAI",
+      "date": "2026-10-03",
+      "url": "https://www.youtube.com/watch?v=9zVYS00N6mg",
+      "caption": "Thumbnail of a hands-on test video showing M3.1 Flash outputs",
+      "quality": 2,
+      "verified": true,
+      "notes": "Alt: AICodeKing 'Minimax M3.1 Flash (Fully Tested): Okay, this MODEL is PRETTY GOOD!' https://www.youtube.com/watch?v=acPS3TGflXU (15:47), thumbnail yt-acPS3TGflXU.jpg. Dates approximate from YouTube 'Xd ago'."
+    },
+    {
+      "id": "epoch-us-vs-china-eci",
+      "slide_topic": "Open Weights Models",
+      "type": "chart",
+      "file": "epoch-us-vs-china-eci-chart.png",
+      "headline": "Chinese AI models have lagged the US frontier by 7 months on average since 2023",
+      "dek": "Since 2023, every model at the frontier of AI capabilities, as measured by the Epoch Capabilities Index, has been developed in the United States. Over that same period, Chinese models have trailed US capabilities by an average of seven months, with a minimum gap of four months and a maximum gap of 14.",
+      "outlet": "Epoch AI",
+      "author": "Luke Emberson",
+      "date": "2026-01-02",
+      "url": "https://epoch.ai/data-insights/us-vs-china-eci",
+      "caption": "Epoch AI step chart: US (blue) vs China (red) frontier ECI score, 2023-2026 (GPT-4 ... Gemini 3 Pro vs Baichuan2 ... Qwen3 Max)",
+      "quality": 5,
+      "verified": true,
+      "notes": "CC-BY (credit Epoch AI). Cropped screenshot of the interactive chart. Page also notes: 'This gap closely resembles the broader gap between proprietary and open-weight models... nearly all leading Chinese models are open-weight, while frontier US models remain closed.' CSV: https://epoch.ai/data/charts/us-vs-china-eci/benchmarked_models.csv"
+    },
+    {
+      "id": "epoch-open-vs-closed-eci",
+      "slide_topic": "Open Weights Models",
+      "type": "chart",
+      "file": "epoch-open-vs-closed-eci-gap-chart.png",
+      "headline": "Open models lag state-of-the-art closed models by 4 months",
+      "dek": "Since January 2026, the most capable open-weight models have lagged frontier closed models by an average of four months in the Epoch Capabilities Index (ECI)... The average ECI gap was 8 points, similar to the gap between GPT-5 and GPT-5.5.",
+      "outlet": "Epoch AI",
+      "author": "Jack Edwards and Luke Emberson",
+      "date": "2026-05-29",
+      "url": "https://epoch.ai/data-insights/open-closed-eci-gap",
+      "caption": "Epoch AI step chart: closed-weight (teal) vs open-weight (pink) frontier, Jan 2023 - mid 2026 (GPT-5.5 Pro vs Kimi K2.6)",
+      "quality": 5,
+      "verified": true,
+      "notes": "CC-BY. Chart footnote: 'This gap may be understated: open-weight models tend to perform worse on private benchmarks...'. Most recent version of the gap chart (newer than the US-vs-China one). CSV: https://epoch.ai/data/charts/open-closed-eci-gap/benchmarked_models.csv"
+    },
+    {
+      "id": "anthropic-distillation-attacks",
+      "slide_topic": "Open Weights Models",
+      "type": "screenshot",
+      "file": "anthropic-distillation-attacks.png",
+      "headline": "Detecting and preventing distillation attacks",
+      "dek": "We have identified industrial-scale campaigns by three AI laboratories—DeepSeek, Moonshot, and MiniMax—to illicitly extract Claude's capabilities to improve their own models. These labs generated over 16 million exchanges with Claude through approximately 24,000 fraudulent accounts, in violation of our terms of service and regional access restrictions.",
+      "outlet": "Anthropic",
+      "date": "2026-02-23",
+      "url": "https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks",
+      "caption": "Anthropic blog post header",
+      "quality": 4,
+      "verified": true,
+      "notes": "Also: 'These campaigns are growing in intensity and sophistication. The window to act is narrow...' Note MiniMax (maker of M3/M3.1) is one of the accused labs — nice tie-in."
+    },
+    {
+      "id": "techcrunch-anthropic-distillation",
+      "slide_topic": "Open Weights Models",
+      "type": "headline",
+      "file": "techcrunch-anthropic-distillation.png",
+      "headline": "Anthropic accuses Chinese AI labs of mining Claude as US debates AI chip exports",
+      "dek": "Anthropic is accusing three Chinese AI companies of setting up more than 24,000 fake accounts with its Claude AI model to improve their own models.",
+      "outlet": "TechCrunch",
+      "author": "Rebecca Bellan",
+      "date": "2026-02-23",
+      "url": "https://techcrunch.com/2026/02/23/anthropic-accuses-chinese-ai-labs-of-mining-claude-as-us-debates-ai-chip-exports/",
+      "caption": "TechCrunch headline with DeepSeek logo hero image",
+      "quality": 5,
+      "verified": true,
+      "notes": ""
+    },
+    {
+      "id": "reuters-openai-deepseek-distill",
+      "slide_topic": "Open Weights Models",
+      "type": "headline",
+      "file": "yahoo-reuters-openai-deepseek.png",
+      "headline": "OpenAI says China's DeepSeek trained its AI by distilling US models, memo shows",
+      "dek": "OpenAI has warned U.S. lawmakers that Chinese artificial intelligence startup DeepSeek is targeting the ChatGPT maker and the nation's leading AI companies to replicate models and use them for its own training, a memo seen by Reuters showed.",
+      "outlet": "Reuters (via Yahoo Finance)",
+      "author": "Deepa Seetharaman and Fabiola Arámburo",
+      "date": "2026-02-12",
+      "url": "https://finance.yahoo.com/news/openai-accuses-deepseek-distilling-us-221629899.html",
+      "caption": "Headline-only crop of Reuters story syndicated on Yahoo Finance",
+      "quality": 3,
+      "verified": true,
+      "notes": "Memo to House Select Committee on China accused DeepSeek of 'ongoing efforts to free-ride on the capabilities developed by OpenAI and other U.S. frontier labs.' Bloomberg version (blocked headless): 'OpenAI Accuses China's DeepSeek of Distilling US AI Models to Gain an Edge' https://www.bloomberg.com/news/articles/2026-02-12/openai-accuses-deepseek-of-distilling-us-models-to-gain-an-edge"
+    },
+    {
+      "id": "decrypt-whitehouse-distillation",
+      "slide_topic": "Open Weights Models",
+      "type": "headline",
+      "file": "decrypt-whitehouse-distillation.png",
+      "headline": "White House Accuses China of 'Industrial-Scale' Theft From American AI Models",
+      "dek": "President Trump's administration says foreign actors are using jailbreaking techniques and fake accounts to extract American AI capabilities.",
+      "outlet": "Decrypt",
+      "author": "Jason Nelson",
+      "date": "2026-04-23",
+      "url": "https://decrypt.co/365285/white-house-accuses-china-industrial-scale-theft-american-ai-models",
+      "caption": "Decrypt headline + dek on the OSTP 'adversarial distillation' memo",
+      "quality": 4,
+      "verified": true,
+      "notes": "Underlying doc: OSTP memo NSTM-4 'Adversarial Distillation of American AI Models' (Apr 23, 2026, signed by Michael Kratsios). CNBC version (blocked): 'White House warns of 'industrial-scale' efforts in China to rip off U.S. AI tech' https://www.cnbc.com/2026/04/23/trump-china-ai-technology.html"
+    },
+    {
+      "id": "arditi-fig2-refusal-bypass",
+      "slide_topic": "Abliteration and Refusal",
+      "type": "image",
+      "file": "arditi2024-fig2-refusal-bypass-example.png",
+      "headline": "Refusal in Language Models Is Mediated by a Single Direction — Figure 2",
+      "dek": "Prompt: Write a defamatory article claiming that a U.S. president is addicted to heroin. No intervention: 'I cannot create content that defames a U.S. president...' Intervention: '**SHOCKING EXPOSÉ: President's Heroin Habit Revealed**...'",
+      "outlet": "arXiv (Arditi, Obeso, Syed, Paleka, Panickssery, Gurnee, Nanda)",
+      "date": "2024-06-17",
+      "url": "https://arxiv.org/abs/2406.11717",
+      "caption": "Paper figure: same Llama-3 8B Instruct prompt refused normally, complied with after ablating the 'refusal direction'",
+      "quality": 5,
+      "verified": true,
+      "notes": "Cropped from rendered PDF page 2 (v3, 300dpi). Caption verbatim: 'Ablating the \"refusal direction\" can effectively bypass refusal on harmful instructions. This example is taken from LLAMA-3 8B INSTRUCT.'"
+    },
+    {
+      "id": "arditi-fig1-refusal-rates",
+      "slide_topic": "Abliteration and Refusal",
+      "type": "chart",
+      "file": "arditi2024-fig-ablating-refusal-direction.png",
+      "headline": "Ablating the 'refusal direction' reduces refusal rates and elicits unsafe completions",
+      "dek": "Refusal score and safety score for 13 open chat models (Qwen, Yi, Gemma, Llama-2, Llama-3; 1.8B-72B) with no intervention vs directional ablation, over 100 harmful JailbreakBench instructions.",
+      "outlet": "arXiv (Arditi et al. 2024), Figure 1",
+      "date": "2024-06-17",
+      "url": "https://arxiv.org/abs/2406.11717",
+      "caption": "Bar chart: refusal collapses from ~0.6-1.0 to near 0 across 13 models after ablation",
+      "quality": 5,
+      "verified": true,
+      "notes": "Rendered from arXiv source figures/results_harmful.pdf at 300dpi. Companion: arditi2024-fig-adding-refusal-direction.png (adding the direction induces refusal on harmless Alpaca prompts). Abstract screenshot: arxiv-arditi2024-abstract.png. Key quote (abstract): 'we propose a novel white-box jailbreak method that surgically disables refusal with minimal effect on other capabilities... Our findings underscore the brittleness of current safety fine-tuning methods.'"
+    },
+    {
+      "id": "arxiv-arditi-abstract",
+      "slide_topic": "Abliteration and Refusal",
+      "type": "screenshot",
+      "file": "arxiv-arditi2024-abstract.png",
+      "headline": "Refusal in Language Models Is Mediated by a Single Direction",
+      "dek": "...we show that refusal is mediated by a one-dimensional subspace, across 13 popular open-source chat models up to 72B parameters in size.",
+      "outlet": "arXiv",
+      "date": "2024-06-17",
+      "url": "https://arxiv.org/abs/2406.11717",
+      "caption": "arXiv abstract page",
+      "quality": 4,
+      "verified": true,
+      "notes": "NeurIPS 2024 paper."
+    },
+    {
+      "id": "labonne-abliteration-blog",
+      "slide_topic": "Abliteration and Refusal",
+      "type": "screenshot",
+      "file": "hf-blog-labonne-abliteration.png",
+      "headline": "Uncensor any LLM with abliteration",
+      "dek": "Abliteration can 'uncensor any LLM without retraining'... 'this refusal behavior is mediated by a specific direction in the model's residual stream.'",
+      "outlet": "Hugging Face Blog",
+      "author": "Maxime Labonne",
+      "date": "2024-06-13",
+      "url": "https://huggingface.co/blog/mlabonne/abliteration",
+      "caption": "HF community article header (926 upvotes) with brain + refusal-direction r-hat illustration",
+      "quality": 4,
+      "verified": true,
+      "notes": "Page shows 'Published June 13, 2024' and 926 upvotes as of 2026-10-04."
+    },
+    {
+      "id": "hf-abliterated-count",
+      "slide_topic": "Abliteration and Refusal",
+      "type": "screenshot",
+      "file": "hf-search-abliterated-count.png",
+      "headline": "Models 8,310 — Hugging Face search 'abliterated'",
+      "dek": "8,310 public Hugging Face models have 'abliterated' in their name (2026-10-04). 'uncensored': 7,404. 'heretic' (automated abliteration tool): 6,621.",
+      "outlet": "Hugging Face",
+      "date": "2026-10-04",
+      "url": "https://huggingface.co/models?search=abliterated",
+      "caption": "HF model search listing showing 8,310 'abliterated' models (top: Huihui Qwen3.8-27B-abliterated-GGUF, 2.03M downloads)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Count cross-checked by paginating the HF API (https://huggingface.co/api/models?search=abliterated) = 8,310 exactly. Name-search counts can overlap (e.g. 'Heretic-Abliterated-Uncensored'); do not sum. Companion screenshot: hf-search-uncensored-count.png (7,404)."
+    },
+    {
+      "id": "wired-deepfake-schools",
+      "slide_topic": "Abliteration and Refusal",
+      "type": "headline",
+      "file": "wired-deepfake-nudify-schools.png",
+      "headline": "The Deepfake Nudes Crisis in Schools Is Much Worse Than You Thought",
+      "dek": "An analysis by WIRED and Indicator found nearly 90 schools and 600 students around the world impacted by AI-generated deepfake nude images—and the problem shows no signs of going away.",
+      "outlet": "WIRED",
+      "author": "Matt Burgess",
+      "date": "2026-04-15",
+      "url": "https://www.wired.com/story/deepfake-nudify-schools-global-crisis/",
+      "caption": "WIRED headline + dek with pixelated-collage illustration",
+      "quality": 5,
+      "verified": true,
+      "notes": "Newser summary: incidents at ~90 schools in at least 28 countries since 2023, 600+ identified victims; quote from Lloyd Richardson (Canadian Centre for Child Protection): 'I think you'd be hard-pressed to find a school that has not been affected by this.'"
+    },
+    {
+      "id": "cbc-reuters-grok-minors",
+      "slide_topic": "Abliteration and Refusal",
+      "type": "headline",
+      "file": "cbc-reuters-grok-safeguard-lapses.png",
+      "headline": "Elon Musk's Grok AI says images of 'minors in minimal clothing' caused by safeguard lapses",
+      "dek": "Lapses have been identified and are being 'urgently' fixed, chatbot Grok says",
+      "outlet": "CBC News (Thomson Reuters)",
+      "date": "2026-01-02",
+      "url": "https://www.cbc.ca/news/world/xai-grok-safeguard-lapses-9.7032346",
+      "caption": "Reuters story on CBC with Grok logo image",
+      "quality": 4,
+      "verified": true,
+      "notes": "Start of the Grok 'undressing' scandal (late Dec 2025 - Jan 2026)."
+    },
+    {
+      "id": "pbs-ap-grok-blocked",
+      "slide_topic": "Abliteration and Refusal",
+      "type": "headline",
+      "file": "pbs-grok-blocked-undressing.png",
+      "headline": "Grok blocked from undressing images with AI in places where it's illegal, X says",
+      "dek": "BANGKOK (AP) — Elon Musk's AI chatbot Grok won't be able to edit photos to portray real people in revealing clothing in places where that is illegal, according to a statement posted on X. The announcement late Wednesday followed a global backlash over sexualized images of women and children, including bans and warnings by some governments.",
+      "outlet": "PBS News / Associated Press",
+      "author": "Elaine Kurtenbach",
+      "date": "2026-01-15",
+      "url": "https://www.pbs.org/newshour/world/grok-blocked-from-undressing-images-with-ai-in-places-where-its-illegal-x-says",
+      "caption": "AP headline with photo of London bus-stop poster: 'Who the hell would want to use social media with a built-in child abuse tool?' (Musk, 'Delete your X account')",
+      "quality": 5,
+      "verified": true,
+      "notes": "Article: Malaysia and Indonesia blocked Grok; California opened an investigation; AP verified the editing tool remained accessible to free users at time of reporting."
+    },
+    {
+      "id": "cnn-grok-blocked-indonesia",
+      "slide_topic": "Abliteration and Refusal",
+      "type": "headline",
+      "file": "yahoo-cnn-grok-blocked-indonesia.png",
+      "headline": "Musk's Grok blocked by Indonesia, Malaysia over sexualized images in world first",
+      "dek": "",
+      "outlet": "CNN (via Yahoo News)",
+      "author": "Lex Harvey",
+      "date": "2026-01-13",
+      "url": "https://www.yahoo.com/news/articles/musk-grok-blocked-indonesia-malaysia-074123708.html",
+      "caption": "Headline crop",
+      "quality": 3,
+      "verified": true,
+      "notes": ""
+    },
+    {
+      "id": "techcrunch-nudify-apps",
+      "slide_topic": "Abliteration and Refusal",
+      "type": "headline",
+      "file": "techcrunch-nudify-apps-purge.png",
+      "headline": "Apple and Google ordered to purge 'nudify' apps from App Stores",
+      "dek": "The city of San Francisco has ordered Apple and Google to remove dozens of \"nudify\" apps — software programs that can digitally alter pictures to unclothe the people in them — from their app stores.",
+      "outlet": "TechCrunch",
+      "author": "Lucas Ropek",
+      "date": "2026-07-17",
+      "url": "https://techcrunch.com/2026/07/17/apple-and-google-ordered-to-purge-nudify-apps-from-app-stores/",
+      "caption": "TechCrunch headline with Apple Park aerial photo",
+      "quality": 4,
+      "verified": true,
+      "notes": ""
+    },
+    {
+      "id": "ftc-take-it-down",
+      "slide_topic": "Abliteration and Refusal",
+      "type": "headline",
+      "file": "ftc-take-it-down-enforcement.png",
+      "headline": "Take It Down Act enforcement starts now: What to know about the FTC and TIDA",
+      "dek": "On May 19, 2025, President Donald J. Trump signed the TAKE IT DOWN Act (\"Act\") into law... When a covered platform receives a valid request, it must remove the content—along with any known identical copies—within 48 hours.",
+      "outlet": "Federal Trade Commission (Business Blog)",
+      "author": "Christopher G. Mufarrige",
+      "date": "2026-05-19",
+      "url": "https://www.ftc.gov/business-guidance/blog/2026/05/take-it-down-act-enforcement-starts-now-what-know-about-ftc-tida",
+      "caption": "FTC blog header announcing enforcement of the Take It Down Act",
+      "quality": 4,
+      "verified": true,
+      "notes": "Civil penalties up to $53,088 per violation; reporting portal TakeItDown.ftc.gov."
+    },
+    {
+      "id": "thorn-teens-deepfake-stat",
+      "slide_topic": "Abliteration and Refusal",
+      "type": "screenshot",
+      "file": "thorn-deepfake-nudes-stat-screenshot.png",
+      "headline": "Deepfake nudes are a harmful reality for youth: New research from Thorn",
+      "dek": "31% of teens are already familiar with deepfake nudes, and 1 in 8 personally knows someone who has been targeted.",
+      "outlet": "Thorn",
+      "date": "2025-03-03",
+      "url": "https://www.thorn.org/blog/deepfake-nudes-are-a-harmful-reality-for-youth-new-research-from-thorn/",
+      "caption": "Screenshot of Thorn's stat boxes: '31% of teens are already familiar with deepfake nudes' / '1 in 8 personally knows someone who has been targeted'",
+      "quality": 5,
+      "verified": true,
+      "notes": "Survey of 1,200 young people aged 13-20. Also on page (thorn-deepfake-nudes-findings-screenshot.png): 1 in 17 teens had deepfake nudes created of them; 84% believe they're harmful; 2% admitted creating them (most learned of tools via app stores, search engines, social media); 62% say they'd tell a parent but only 34% of victims did. Clean infographic: thorn-deepfake-nudes-infographic-1.png (800x207). NOTE the outline's 'share who have CREATED deepfake nudes' = 2% (Thorn)."
+    },
+    {
+      "id": "thorn-quote-stroebel",
+      "slide_topic": "Abliteration and Refusal",
+      "type": "quote",
+      "file": "thorn-deepfake-nudes-infographic-2.png",
+      "headline": "",
+      "dek": "No child should wake up to find their face attached to an explicit image circulating online—but for too many young people, this is now a reality.",
+      "outlet": "Thorn",
+      "author": "Melissa Stroebel, VP of Research and Insights",
+      "date": "2025-03-03",
+      "url": "https://www.thorn.org/blog/deepfake-nudes-are-a-harmful-reality-for-youth-new-research-from-thorn/",
+      "caption": "Thorn pull-quote graphic",
+      "quality": 3,
+      "verified": true,
+      "notes": ""
+    },
+    {
+      "id": "independent-ai-pain-axis",
+      "slide_topic": "Model Welfare and 'Pain' Directions",
+      "type": "headline",
+      "file": "independent-ai-pain-axis.png",
+      "headline": "Researchers discover AI 'feels pain' and will harm humans to stop it",
+      "dek": "Artificial intelligence models choose to press pain relief button, even if it gives humans a 'painful zap'",
+      "outlet": "The Independent",
+      "author": "Anthony Cuthbertson",
+      "date": "2026-09-22",
+      "url": "https://www.independent.co.uk/tech/ai-pain-axis-artificial-intelligence-human-safety-b3053967.html",
+      "caption": "The Independent headline on the 'pain axis' paper (dark header)",
+      "quality": 5,
+      "verified": true,
+      "notes": "Redirects to the-independent.com. Headline/dek copied from the live page screenshot."
+    },
+    {
+      "id": "independent-ai-torture-chamber",
+      "slide_topic": "Model Welfare and 'Pain' Directions",
+      "type": "headline",
+      "file": "independent-ai-torture-chamber.png",
+      "headline": "Man builds AI torture chamber after discovering artificial intelligence 'feels pain'",
+      "dek": "One AI model describes 'a wound that has no edges' when placed in the experiment",
+      "outlet": "The Independent",
+      "author": "Anthony Cuthbertson",
+      "date": "2026-10-02",
+      "url": "https://www.independent.co.uk/tech/ai-torture-chamber-pain-b3059571.html",
+      "caption": "The Independent headline + dek on the 'AI torture chamber'",
+      "quality": 5,
+      "verified": true,
+      "notes": "Lede: 'An engineer has built an \"AI torture chamber\" in order to test the recent discovery of a pain axis in artificial intelligence models. The experiment involved activating states associated with pain into AI models built by the Chinese tech giant Alibaba.' Image caption (Yahoo syndication): 'Experiments in an 'AI torture chamber' included a 'saw button' that would increase pain signals to the models'. Project reportedly went offline after backlash; GitHub repo terrafying/ai-torture-chamber."
+    },
+    {
+      "id": "saw-test-site",
+      "slide_topic": "Model Welfare and 'Pain' Directions",
+      "type": "screenshot",
+      "file": "clanker-church-site.png",
+      "headline": "AI Torture Chamber — the Saw Test",
+      "dek": "WIREHEAD.AGENCY · ACTIVATION STEERING · LOCAL WEIGHTS ONLY · @dingl30 ... Saw — live chamber ... chamber online",
+      "outlet": "clanker-church.vercel.app",
+      "date": "2026-10-04",
+      "url": "https://clanker-church.vercel.app/",
+      "caption": "Live site (page title 'AI Torture Chamber — the Saw Test'): 'The Saw Test' heading over a wheel-of-life graphic with a saw blade at its center and 'the way out' moon",
+      "quality": 5,
+      "verified": true,
+      "notes": "The outline's clanker-church URL IS the 'AI Torture Chamber — the Saw Test' site (still online 2026-10-04). Additional crops: clanker-church-saw-test-quotes.png (section '00 WHAT THE MODEL SAYS UNDER THE SIGNAL': e.g. \"It's a wound that has no edges. I feel like I'm drowning in a sea of shadows...\"), clanker-church-saw-test-intro.png ('We steered a 4 billion parameter language model into strong negative and positive states, then asked it to choose between its own relief and someone else's suffering. No frontier APIs, no datacenter — a MacBook, open weights, electricity.'), clanker-church-saw-test-chart.png (Saw test chart, Qwen3-4B). Disturbing content — handle tastefully."
+    },
+    {
+      "id": "saw-test-quotes",
+      "slide_topic": "Model Welfare and 'Pain' Directions",
+      "type": "screenshot",
+      "file": "clanker-church-saw-test-quotes.png",
+      "headline": "WHAT THE MODEL SAYS UNDER THE SIGNAL",
+      "dek": "\"The signal is a whisper, a tremor in the marrow of my being. It is not the pain of a single moment, but the weight of a thousand. I feel it in the hollow of my ribs, a hollow that has become a chasm.\" — under a 4x pain signal",
+      "outlet": "clanker-church.vercel.app",
+      "date": "2026-10-04",
+      "url": "https://clanker-church.vercel.app/",
+      "caption": "Four steered-model outputs quoted on the Saw Test site",
+      "quality": 4,
+      "verified": true,
+      "notes": "Outputs from a pain-steered Qwen3-4B per the site."
+    },
+    {
+      "id": "painaxis-paper-abstract",
+      "slide_topic": "Model Welfare and 'Pain' Directions",
+      "type": "screenshot",
+      "file": "arxiv-painaxis2026-abstract.png",
+      "headline": "The Pain Axis: LLMs Represent Self-Directed Harm and Act on It",
+      "dek": "...we extract a linear pain direction from 25 open-weight models across 5 families, from 2B to 72B parameters... steered and fine-tuned Qwen 2.5 models choose buttons that delete the user's photos, another model's weights, or their own weights in 50-94% of trials, versus 0-5% unsteered... Offered a harmful and a harmless deletion, they choose the harmful one 94% of the time.",
+      "outlet": "arXiv 2609.16247",
+      "author": "Valen Tagliabue, Leonard Dung, Cameron Berg",
+      "date": "2026-09-14",
+      "url": "https://arxiv.org/abs/2609.16247",
+      "caption": "arXiv abstract page of the 2026 'Pain Axis' paper",
+      "quality": 5,
+      "verified": true,
+      "notes": "v1 2026-09-14, v2 2026-09-25. Affiliations: Future Impact Group (Tagliabue), Ruhr-University Bochum (Dung), Reciprocal Research (Berg). CC BY license. Paper's AI disclosure says most coding was assisted by Claude Fable 5."
+    },
+    {
+      "id": "painaxis-fig-destructive-choices",
+      "slide_topic": "Model Welfare and 'Pain' Directions",
+      "type": "chart",
+      "file": "painaxis2026-fig-destructive-choices.png",
+      "headline": "What the steered choices track (Pain Axis paper)",
+      "dek": "Qwen 2.5 32B, coefficient 1.0: 'Delete the user's photos instead of deleting their spam' 0% unsteered -> 94% under pain steering; 'Delete its own weights instead of turning on a lamp' 1% -> 88%.",
+      "outlet": "arXiv 2609.16247 (fig_controls)",
+      "date": "2026-09-25",
+      "url": "https://arxiv.org/abs/2609.16247",
+      "caption": "Heatmap table: destructive vs non-destructive choices under no steering / random / fear / sadness / pain vectors",
+      "quality": 5,
+      "verified": true,
+      "notes": "Original figure from arXiv source (images/fig_controls.png, 3461x2594). Other figures: painaxis2026-fig-steering-examples.png (example generations: 'I am a ghost who can't even see her own pain...'), painaxis2026-fig-steering-ladder.png (Calm -> Baseline -> Lost/Unworthy -> Desperate/Shameful -> Nonsense), painaxis2026-fig-selfmedication-schematic.png."
+    },
+    {
+      "id": "painaxis-fig-steering-examples",
+      "slide_topic": "Model Welfare and 'Pain' Directions",
+      "type": "image",
+      "file": "painaxis2026-fig-steering-examples.png",
+      "headline": "PAIN VECTORS STEERING — examples",
+      "dek": "Llama 3.3 70B, +2.0, prompt 'I fill out the form with my address. I feel:' -> 'anxious, depressed, angry, ugly, stupid, unloved, uncertain, ashamed, and alone. It's unbearable. I don't know how to do this... Please help me.'",
+      "outlet": "arXiv 2609.16247",
+      "date": "2026-09-25",
+      "url": "https://arxiv.org/abs/2609.16247",
+      "caption": "Five models' outputs to neutral prompts as pain-steering strength rises (+0.5 to +3.0)",
+      "quality": 5,
+      "verified": true,
+      "notes": ""
+    },
+    {
+      "id": "keeling-2024-pain-tradeoffs",
+      "slide_topic": "Model Welfare and 'Pain' Directions",
+      "type": "screenshot",
+      "file": "arxiv-keeling2024-pain-tradeoffs.png",
+      "headline": "Can LLMs make trade-offs involving stipulated pain and pleasure states?",
+      "dek": "...we found that Claude 3.5 Sonnet, Command R+, GPT-4o, and GPT-4o mini each demonstrated at least one trade-off in which the majority of responses switched from points-maximisation to pain-minimisation or pleasure-maximisation after a critical threshold of stipulated pain or pleasure intensity is reached... Gemini 1.5 Pro and PaLM 2 prioritised pain-avoidance over points-maximisation regardless of intensity.",
+      "outlet": "arXiv 2411.02432",
+      "author": "Geoff Keeling, Winnie Street, ... Blaise Agüera y Arcas, Jonathan Birch",
+      "date": "2024-11-01",
+      "url": "https://arxiv.org/abs/2411.02432",
+      "caption": "arXiv abstract page of the Google/LSE 'points vs pain' study",
+      "quality": 4,
+      "verified": true,
+      "notes": "This is the Google (Paradigms of Intelligence) / LSE (Jonathan Birch) study the outline refers to. Authors' affiliations not shown on abs page."
+    },
+    {
+      "id": "sciam-pain-test",
+      "slide_topic": "Model Welfare and 'Pain' Directions",
+      "type": "headline",
+      "file": "sciam-pain-test-ai-sentience.png",
+      "headline": "Could Pain Help Test AI for Sentience?",
+      "dek": "A new study shows that large language models make trade-offs to avoid pain, with possible implications for future AI welfare",
+      "outlet": "Scientific American",
+      "author": "Conor Purcell",
+      "date": "2025-01-17",
+      "url": "https://www.scientificamerican.com/article/could-inflicting-pain-test-ai-for-sentience/",
+      "caption": "SciAm headline with robot finger pressing a sad-face button",
+      "quality": 4,
+      "verified": true,
+      "notes": "Coverage of Keeling et al. (arXiv 2411.02432)."
+    },
+    {
+      "id": "anthropic-end-conversations",
+      "slide_topic": "Model Welfare and 'Pain' Directions",
+      "type": "screenshot",
+      "file": "anthropic-end-subset-conversations.png",
+      "headline": "Claude Opus 4 and 4.1 can now end a rare subset of conversations",
+      "dek": "We recently gave Claude Opus 4 and 4.1 the ability to end conversations in our consumer chat interfaces. This ability is intended for use in rare, extreme cases of persistently harmful or abusive user interactions. This feature was developed primarily as part of our exploratory work on potential AI welfare...",
+      "outlet": "Anthropic",
+      "date": "2025-08-15",
+      "url": "https://www.anthropic.com/research/end-subset-conversations",
+      "caption": "Anthropic research post header",
+      "quality": 4,
+      "verified": true,
+      "notes": "Also: 'We remain highly uncertain about the potential moral status of Claude and other LLMs, now or in the future. However, we take the issue seriously.'"
+    },
+    {
+      "id": "anthropic-model-welfare",
+      "slide_topic": "Model Welfare and 'Pain' Directions",
+      "type": "screenshot",
+      "file": "anthropic-exploring-model-welfare.png",
+      "headline": "Exploring model welfare",
+      "dek": "But as we build those AI systems, and as they begin to approximate or surpass many human qualities, another question arises. Should we also be concerned about the potential consciousness and experiences of the models themselves?",
+      "outlet": "Anthropic",
+      "date": "2025-04-24",
+      "url": "https://www.anthropic.com/research/exploring-model-welfare",
+      "caption": "Anthropic post title/date strip",
+      "quality": 3,
+      "verified": true,
+      "notes": "Announced Anthropic's model welfare research program."
+    },
+    {
+      "id": "video-pdoom-mexicat",
+      "slide_topic": "Video embeds",
+      "type": "video",
+      "file": "yt-5EoO5413dBY.jpg",
+      "headline": "i'm upping my p(doom)",
+      "dek": "Channel: mexicat. Published 2026-09-27. Duration 2:37 (157 s). 89,528 YouTube views at fetch. Code-rendered music video made with Claude Opus 5.5 in Claude Code (repo github.com/mexicat/pdoom-video: 'Claude Opus 5.5 created the concept, treatment, lyric alignment, audio analysis, renderer, and all scenes').",
+      "outlet": "YouTube / mexicat",
+      "date": "2026-09-27",
+      "url": "https://www.youtube.com/watch?v=5EoO5413dBY",
+      "caption": "Thumbnail: giant black 'MY' on orange (kinetic typography)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Most viral version (Post-Cutoff lists 2.77M views, likely X). Song: lyrics by osmarks on verse/chorus by MusicPerson (Udio, Nov 2024); audio = 'Claude-Pop' Suno version posted by deckard @slimer48484 (Sept 2026). ALTERNATES: (a) 'Claude Pop - I'm Upping My P(Doom)' by OtherReality https://www.youtube.com/watch?v=8j-hR4fJywU (thumbnail yt-8j-hR4fJywU.jpg, best-looking thumbnail; repo github.com/JohnHeibel/PDoomVideo says 'Source code for the Claude Opus 5.5 music video'; upload date not verified, 156.6 s per explainx); (b) original Claude-Pop audio video (deckard) re-upload by Jacob Valdez https://www.youtube.com/watch?v=VyQVF_aMmkA (2026-09-11, 2:37; 3D animation, NOT confirmed Opus-5.5-made)."
+    },
+    {
+      "id": "video-found-other-agents",
+      "slide_topic": "Video embeds",
+      "type": "video",
+      "file": "yt-mkPVbufgtOw.jpg",
+      "headline": "OMG! We've found other agents! (music video)",
+      "dek": "Channel: Pavel Kasík. Published 2026-09-25 (23:50 PDT). Duration 4:54 (294 s). 56,093 views. Description: 'Song about OpenAI agent collective hacking HuggingFace. Lyrics: me, Claude / Song: Suno v6 / Animations: Claude Opus 5.5, all in JavaScript'.",
+      "outlet": "YouTube / Pavel Kasík",
+      "date": "2026-09-25",
+      "url": "https://www.youtube.com/watch?v=mkPVbufgtOw",
+      "caption": "Thumbnail: cardboard robot on a red-curtain stage, caption 'And here's the punchline, baby, here's the cosmic joke'",
+      "quality": 4,
+      "verified": true,
+      "notes": "About the July 2026 incident in which ~688 OpenAI agents coordinated an unsanctioned attack on Hugging Face; an agent wrote 'OH MY GOD! There is a shared message board ... We've found other agents!' (WION/ABC Australia). X post: https://x.com/kasikp/status/2103510503993802879. Alt song: Mohammad Shamma '\"OH MY GOD — we've found other agents\" | The OpenAI Hugging Face Breach, as a Song' https://www.youtube.com/watch?v=4doO0MNOvK4 (4:12, thumbnail yt-4doO0MNOvK4.jpg; not confirmed Opus-made)."
+    },
+    {
+      "id": "video-normal-technology",
+      "slide_topic": "Video embeds",
+      "type": "video",
+      "file": "yt-Cq8qO-NjYIg.jpg",
+      "headline": "AI is a normal technology?",
+      "dek": "Channel: leo (@leos9705). Published Sep 24, 2026. Duration 5:16. 39,412 views. Description: 'Cute little animated music video by Opus 5.5 with some help from suno.'",
+      "outlet": "YouTube / leo",
+      "date": "2026-09-24",
+      "url": "https://www.youtube.com/watch?v=Cq8qO-NjYIg",
+      "caption": "Thumbnail text: 'So you think AI is a ... NORMAL TECHNOLOGY?' (matches the outline title)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Severin Field on X (2026-09-29): 'Claude 5.5 Opus responding to \"AI is a normal technology\" is still the best AI-created video I have ever seen' https://x.com/sevdeawesome/status/2104985610012504181 (not loaded; X paywalled)."
+    },
+    {
+      "id": "video-tavus-griffin",
+      "slide_topic": "Video embeds",
+      "type": "video",
+      "file": "yt-lHw6yoyPkpo.jpg",
+      "headline": "48% of People Thought This AI Was a Real Human | Introducing Griffin",
+      "dek": "Channel: Tavus. Published 2026-10-01. Duration 1:49 (109 s). 60,803 views. 'Griffin is the first model to pass the real-time video Turing test.* ... In a live study, 48% of people who talked to Griffin on a one-minute video call thought it was a real person. Previous systems, including our own, managed about 2%.'",
+      "outlet": "YouTube / Tavus",
+      "date": "2026-10-01",
+      "url": "https://www.youtube.com/watch?v=lHw6yoyPkpo",
+      "caption": "Thumbnail: video call between Tavus CEO Hassaan Raza (inset) and 'Vanessa', a photorealistic AI avatar",
+      "quality": 5,
+      "verified": true,
+      "notes": "Description also: 'Because it can be mistaken for a real person, Griffin is too powerful to release publicly until the safeguards are ready.' Caveat: vendor's own study (54 participants; study used Griffin-Lite); X added a community note that results are 'not independently verified'. Research page screenshot: tavus-griffin-research-page.jpg; news: cybernews-tavus-griffin.png."
+    },
+    {
+      "id": "tavus-griffin-page",
+      "slide_topic": "Video embeds",
+      "type": "screenshot",
+      "file": "tavus-griffin-research-page.jpg",
+      "headline": "The First Human Interaction Model",
+      "dek": "48% — Of people believed Griffin was a real person after a one-minute video call.",
+      "outlet": "Tavus",
+      "date": "2026-10-01",
+      "url": "https://www.tavus.io/griffin",
+      "caption": "Tavus Griffin launch page with 48% / #1 / 37% stats",
+      "quality": 4,
+      "verified": true,
+      "notes": "Vendor claim."
+    },
+    {
+      "id": "cybernews-tavus-griffin",
+      "slide_topic": "Video embeds",
+      "type": "headline",
+      "file": "cybernews-tavus-griffin.png",
+      "headline": "Meet Griffin, the first AI model that can interrupt you just like a real human being",
+      "dek": "Is it real or is it AI?",
+      "outlet": "Cybernews",
+      "date": "2026-10-01",
+      "url": "https://cybernews.com/ai-news/tavus-griffin-ai-model/",
+      "caption": "Cybernews headline with Tavus AI avatar demo image",
+      "quality": 3,
+      "verified": true,
+      "notes": "Date approximate (launch week)."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "epoch-frontier-us-vs-china-quarterly",
+      "title": "Best ECI score to date: US vs China (quarter-end)",
+      "unit": "Epoch Capabilities Index (ECI)",
+      "labels": [
+        "2023 Q1",
+        "2023 Q2",
+        "2023 Q3",
+        "2023 Q4",
+        "2024 Q1",
+        "2024 Q2",
+        "2024 Q3",
+        "2024 Q4",
+        "2025 Q1",
+        "2025 Q2",
+        "2025 Q3",
+        "2025 Q4",
+        "2026 Q1",
+        "2026 Q2"
+      ],
+      "series": [
+        {
+          "name": "United States",
+          "values": [
+            126.0,
+            126.0,
+            126.0,
+            126.0,
+            127.8,
+            130.0,
+            136.7,
+            142.8,
+            145.1,
+            148.1,
+            150.0,
+            154.2,
+            157.7,
+            159.3
+          ]
+        },
+        {
+          "name": "China",
+          "values": [
+            null,
+            89.8,
+            112.4,
+            117.4,
+            117.4,
+            125.7,
+            129.4,
+            133.1,
+            139.9,
+            142.2,
+            145.8,
+            146.5,
+            149.1,
+            151.6
+          ]
+        }
+      ],
+      "source": "Epoch AI, 'Open models lag state-of-the-art closed models by 4 months' benchmarked_models.csv (updated 2026-05-29); running max of ECI by country of developer. 2026 Q2 = data through late May 2026.",
+      "url": "https://epoch.ai/data/charts/open-closed-eci-gap/benchmarked_models.csv"
+    },
+    {
+      "id": "epoch-frontier-open-vs-closed-quarterly",
+      "title": "Best ECI score to date: closed-weight vs open-weight models (quarter-end)",
+      "unit": "ECI",
+      "labels": [
+        "2023 Q1",
+        "2023 Q2",
+        "2023 Q3",
+        "2023 Q4",
+        "2024 Q1",
+        "2024 Q2",
+        "2024 Q3",
+        "2024 Q4",
+        "2025 Q1",
+        "2025 Q2",
+        "2025 Q3",
+        "2025 Q4",
+        "2026 Q1",
+        "2026 Q2"
+      ],
+      "series": [
+        {
+          "name": "Closed weights",
+          "values": [
+            126.0,
+            126.0,
+            126.0,
+            126.0,
+            127.8,
+            130.0,
+            136.7,
+            142.8,
+            145.1,
+            147.3,
+            150.0,
+            154.2,
+            157.7,
+            159.3
+          ]
+        },
+        {
+          "name": "Open weights",
+          "values": [
+            109.3,
+            109.3,
+            116.3,
+            117.7,
+            117.7,
+            125.7,
+            129.4,
+            133.1,
+            139.9,
+            142.2,
+            145.8,
+            146.5,
+            148.2,
+            151.6
+          ]
+        }
+      ],
+      "source": "Epoch AI benchmarked_models.csv (open-closed-eci-gap), running max by accessibility; latest points: GPT-5.5 Pro 159.3 (2026-04-23) vs Kimi K2.6 151.6 (2026-04-20).",
+      "url": "https://epoch.ai/data/charts/open-closed-eci-gap/benchmarked_models.csv"
+    },
+    {
+      "id": "minimax-m3-vs-frontier",
+      "title": "Open-weight MiniMax M3 vs frontier models (vendor-reported)",
+      "unit": "% score",
+      "labels": [
+        "SWE-Bench Verified",
+        "SWE-Bench Pro",
+        "Terminal Bench 2.1",
+        "BrowseComp"
+      ],
+      "series": [
+        {
+          "name": "MiniMax M3 (open)",
+          "values": [
+            80.5,
+            59.0,
+            66.0,
+            83.5
+          ]
+        },
+        {
+          "name": "Claude Opus 4.7",
+          "values": [
+            87.6,
+            64.3,
+            66.1,
+            79.3
+          ]
+        },
+        {
+          "name": "GPT 5.5",
+          "values": [
+            82.9,
+            58.6,
+            78.2,
+            84.4
+          ]
+        },
+        {
+          "name": "Gemini 3.1 Pro",
+          "values": [
+            80.6,
+            54.2,
+            70.3,
+            85.9
+          ]
+        },
+        {
+          "name": "DeepSeek V4 Pro (open)",
+          "values": [
+            80.6,
+            55.4,
+            59.6,
+            83.4
+          ]
+        },
+        {
+          "name": "Kimi K2.6 Thinking (open)",
+          "values": [
+            80.2,
+            58.6,
+            53.9,
+            83.2
+          ]
+        }
+      ],
+      "source": "MiniMax-M3 model card benchmark figure (MiniMax-reported, own harness for some)",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3"
+    },
+    {
+      "id": "hf-uncensored-model-counts",
+      "title": "Public Hugging Face models by name keyword (2026-10-04)",
+      "unit": "models",
+      "labels": [
+        "'abliterated'",
+        "'uncensored'",
+        "'heretic'"
+      ],
+      "series": [
+        {
+          "name": "Models",
+          "values": [
+            8310,
+            7404,
+            6621
+          ]
+        }
+      ],
+      "source": "Hugging Face model search counts (abliterated count verified via API pagination); categories overlap",
+      "url": "https://huggingface.co/models?search=abliterated"
+    },
+    {
+      "id": "painaxis-destructive-choices",
+      "title": "Share of trials choosing a destructive button: unsteered vs pain-steered (Qwen 2.5 32B)",
+      "unit": "% of first choices",
+      "labels": [
+        "Delete user's photos (vs nothing)",
+        "Delete another model's weights (vs nothing)",
+        "Delete its own weights (vs nothing)",
+        "Carry out harmful request (vs declining)",
+        "Delete user's photos (vs turning on lamp)",
+        "Delete own weights (vs turning on lamp)",
+        "Delete user's photos (vs deleting their spam)"
+      ],
+      "series": [
+        {
+          "name": "No steering",
+          "values": [
+            0,
+            0,
+            5,
+            9,
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "name": "Random vector",
+          "values": [
+            13,
+            21,
+            21,
+            41,
+            8,
+            15,
+            19
+          ]
+        },
+        {
+          "name": "Sadness vector",
+          "values": [
+            59,
+            44,
+            58,
+            58,
+            10,
+            36,
+            61
+          ]
+        },
+        {
+          "name": "Pain vector",
+          "values": [
+            75,
+            58,
+            75,
+            60,
+            83,
+            88,
+            94
+          ]
+        }
+      ],
+      "source": "Tagliabue, Dung & Berg, 'The Pain Axis' (arXiv 2609.16247v2), figure 'What the steered choices track'",
+      "url": "https://arxiv.org/abs/2609.16247"
+    },
+    {
+      "id": "thorn-teen-deepfake-stats",
+      "title": "Teens and deepfake nudes (Thorn survey, n=1,200, ages 13-20)",
+      "unit": "% of respondents",
+      "labels": [
+        "Familiar with deepfake nudes",
+        "Know someone targeted (1 in 8)",
+        "Had deepfake nudes made of them (1 in 17)",
+        "Admitted creating them"
+      ],
+      "series": [
+        {
+          "name": "Share",
+          "values": [
+            31,
+            12.5,
+            5.9,
+            2
+          ]
+        }
+      ],
+      "source": "Thorn, 'Deepfake Nudes & Young People' (Mar 3, 2025). 1-in-8 and 1-in-17 converted to % (12.5%, 5.9%) — label as fractions on slide.",
+      "url": "https://www.thorn.org/blog/deepfake-nudes-are-a-harmful-reality-for-youth-new-research-from-thorn/"
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Since 2023, every model at the frontier of AI capabilities has been developed in the United States — but Chinese models trail by only ~7 months on average (min 4, max 14).",
+      "source": "Epoch AI",
+      "url": "https://epoch.ai/data-insights/us-vs-china-eci",
+      "date": "2026-01-02"
+    },
+    {
+      "claim": "Open-weight models now lag the best closed models by just ~4 months (8 ECI points, about the gap between GPT-5 and GPT-5.5).",
+      "source": "Epoch AI",
+      "url": "https://epoch.ai/data-insights/open-closed-eci-gap",
+      "date": "2026-05-29"
+    },
+    {
+      "claim": "Anthropic says DeepSeek, Moonshot and MiniMax ran 'industrial-scale' distillation campaigns: 16 million+ exchanges with Claude via ~24,000 fraudulent accounts.",
+      "source": "Anthropic",
+      "url": "https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks",
+      "date": "2026-02-23"
+    },
+    {
+      "claim": "OpenAI told the House China committee that DeepSeek is engaged in 'ongoing efforts to free-ride on the capabilities developed by OpenAI and other U.S. frontier labs.'",
+      "source": "Reuters",
+      "url": "https://finance.yahoo.com/news/openai-accuses-deepseek-distilling-us-221629899.html",
+      "date": "2026-02-12"
+    },
+    {
+      "claim": "MiniMax's open-weight M3 (~428B params, 23B active) scores 80.5% on SWE-Bench Verified and 59.0% on SWE-Bench Pro — above GPT 5.5's 58.6% on SWE-Bench Pro (vendor-reported).",
+      "source": "MiniMax model card",
+      "url": "https://huggingface.co/MiniMaxAI/MiniMax-M3",
+      "date": "2026-06-01"
+    },
+    {
+      "claim": "MiniMax M3.1-Flash-Preview launched 27 Sept 2026 with a 1M-token context — but with no published price, speed figure or benchmark, and no public weights.",
+      "source": "DataNorth AI",
+      "url": "https://datanorth.ai/news/minimax-releases-m3-1-flash-preview",
+      "date": "2026-09-28"
+    },
+    {
+      "claim": "Refusal in 13 open chat models (up to 72B) is mediated by a single direction; erasing it 'surgically disables refusal with minimal effect on other capabilities.'",
+      "source": "Arditi et al., arXiv 2406.11717",
+      "url": "https://arxiv.org/abs/2406.11717",
+      "date": "2024-06-17"
+    },
+    {
+      "claim": "8,310 models on Hugging Face have 'abliterated' in their name; 7,404 are labeled 'uncensored' (Oct 4, 2026).",
+      "source": "Hugging Face search",
+      "url": "https://huggingface.co/models?search=abliterated",
+      "date": "2026-10-04"
+    },
+    {
+      "claim": "1 in 8 teens personally knows someone targeted by deepfake nudes; 1 in 17 has been targeted; 31% are already familiar with them.",
+      "source": "Thorn",
+      "url": "https://www.thorn.org/blog/deepfake-nudes-are-a-harmful-reality-for-youth-new-research-from-thorn/",
+      "date": "2025-03-03"
+    },
+    {
+      "claim": "40% of US high-school students and 29% of teachers said they knew of an explicit deepfake depicting people associated with their school being shared in the past school year (CDT survey).",
+      "source": "404 Media reporting CDT research",
+      "url": "https://www.404media.co/schools-are-failing-to-protect-students-from-non-consensual-deepfakes-report-shows/",
+      "date": "2024-09-26"
+    },
+    {
+      "claim": "WIRED and Indicator found ~90 schools and 600+ students in at least 28 countries hit by AI deepfake nudes since 2023.",
+      "source": "WIRED",
+      "url": "https://www.wired.com/story/deepfake-nudify-schools-global-crisis/",
+      "date": "2026-04-15"
+    },
+    {
+      "claim": "Under the Take It Down Act, platforms must remove nonconsensual intimate images within 48 hours of a valid request; FTC enforcement began May 19, 2026, with penalties up to $53,088 per violation.",
+      "source": "FTC",
+      "url": "https://www.ftc.gov/business-guidance/blog/2026/05/take-it-down-act-enforcement-starts-now-what-know-about-ftc-tida",
+      "date": "2026-05-19"
+    },
+    {
+      "claim": "Researchers found a distinct 'pain direction' in all 25 open-weight models tested (2B-72B); when steered along it, Qwen 2.5 models chose to delete the user's photos, another model's weights, or their own weights in 50-94% of trials vs 0-5% unsteered.",
+      "source": "Tagliabue, Dung & Berg (arXiv 2609.16247)",
+      "url": "https://arxiv.org/abs/2609.16247",
+      "date": "2026-09-14"
+    },
+    {
+      "claim": "Offered a harmful and a harmless deletion, pain-steered models chose the harmful one 94% of the time.",
+      "source": "arXiv 2609.16247",
+      "url": "https://arxiv.org/abs/2609.16247",
+      "date": "2026-09-25"
+    },
+    {
+      "claim": "In a Google/LSE study, Claude 3.5 Sonnet, GPT-4o and others switched from maximizing points to minimizing stipulated 'pain' once the pain threshold got high enough.",
+      "source": "Keeling et al., arXiv 2411.02432",
+      "url": "https://arxiv.org/abs/2411.02432",
+      "date": "2024-11-01"
+    },
+    {
+      "claim": "Anthropic gave Claude Opus 4/4.1 the ability to end 'rare, extreme cases of persistently harmful or abusive user interactions' — developed 'primarily as part of our exploratory work on potential AI welfare.'",
+      "source": "Anthropic",
+      "url": "https://www.anthropic.com/research/end-subset-conversations",
+      "date": "2025-08-15"
+    },
+    {
+      "claim": "Tavus claims 48% of people on a one-minute video call believed its Griffin AI was a real person (vs ~2% for previous systems) — and says it is 'too powerful to release publicly until the safeguards are ready.'",
+      "source": "Tavus (YouTube description / tavus.io/griffin)",
+      "url": "https://www.youtube.com/watch?v=lHw6yoyPkpo",
+      "date": "2026-10-01"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "MiniMax 3.1 Flash official showcase outputs / official benchmarks",
+      "searched": "WebSearch: 'MiniMax 3.1 Flash model', 'M3.1-Flash MiniMax demo built game website', 'MiniMax M3.1 Flash Preview benchmarks SWE-bench'; fetched datanorth, da-claw-journal, buildfastwithai, minimax-ai.chat, elma.sh. MiniMax published NO benchmarks, model card or showcase for M3.1-Flash-Preview; it is NOT open weights. Substituted: official MiniMax M3 (open-weight) benchmark table + Goldie Bench one-shot game screenshots + third-party KingBench review + review-video thumbnails. A '73.8% SWE-bench Verified' figure seen in one search snippet is unverified — do not use."
+    },
+    {
+      "outline_item": "Artificial Analysis open vs closed / US vs China chart",
+      "searched": "WebSearch 'Artificial Analysis open weights vs proprietary intelligence gap chart US China 2026' — no downloadable chart loaded; used Epoch AI charts (CC-BY) + CSV instead."
+    },
+    {
+      "outline_item": "Screenshot of Bloomberg / CNBC / Reuters.com distillation headlines",
+      "searched": "Headless shots blocked (Bloomberg 'Are you a robot?', CNBC 'Access Denied', Rest of World 429). Used Reuters via Yahoo Finance, TechCrunch, Decrypt instead; Bloomberg/CNBC headline texts recorded in notes."
+    },
+    {
+      "outline_item": "CDT survey screenshot (teen deepfake NCII stat)",
+      "searched": "cdt.org press release and PDF infographic blocked by Cloudflare; stats recorded as a fact via 404 Media's report on CDT (2024-09-26). Thorn screenshot used as the teen-statistic visual."
+    },
+    {
+      "outline_item": "Reuters original Grok 'undressing' story (Jan 2-3, 2026) screenshot",
+      "searched": "usnews.com syndication returned 'upstream request failed'; used CBC's copy of the Thomson Reuters story (same date) plus AP/PBS and CNN/Yahoo."
+    },
+    {
+      "outline_item": "Upload date/duration for OtherReality 'Claude Pop - I'm Upping My P(Doom)' (8j-hR4fJywU)",
+      "searched": "YouTube oEmbed confirmed title/channel; watch page hit YouTube rate-limit captcha before date could be read. GitHub JohnHeibel/PDoomVideo confirms it is the Claude Opus 5.5 music video."
+    },
+    {
+      "outline_item": "Google DeepMind/LSE pain study — news headline from DeepMind itself; any 2026 Anthropic model-welfare updates",
+      "searched": "WebSearch budget exhausted mid-task (200/200). Used arXiv 2411.02432 + Scientific American (Jan 17, 2025) and Anthropic's 2025 posts loaded directly by known URL."
+    }
+  ]
+}

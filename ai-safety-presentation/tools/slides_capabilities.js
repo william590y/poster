@@ -366,7 +366,7 @@ async function creativeSlide(d) {
   // col 2: GPT Image 2.5 cow (public domain) + Genie 3 world — a slightly narrower column, centred,
   // so the Genie frame can be tall enough to read and still carry its chip underneath (like the heron)
   const c2w = 3.27, cx = MX + colW + gap + (colW - c2w) / 2;
-  const cow = await d.frame(s, R('commons-gptimage25-cow-ufo.png'), { x: cx, y: top, w: c2w, h: c2w * 960 / 1280 }, { border: false, align: 'left' });
+  const cow = await d.frame(s, R('commons-gptimage25-cow-ufo.png'), { x: cx, y: top, w: c2w, h: (c2w - 0.12) * 960 / 1280 + 0.12 }, { border: false, align: 'left' });
   const cg = cow.geom;
   const cc = d.text(s, [
     { text: 'GPT Image 2.5 · Sep 2026 · ', options: { bold: true, color: d.S.txt } },
@@ -657,7 +657,7 @@ async function vibemathedSlide(d) {
   s.addText('Hundreds of open problems fall — and a backlash', { placeholder: 'title' });
 
   const lw = 6.75;
-  const st1 = d.stat(s, { x: MX, y: 1.68, w: 3.0, value: '755', valueSize: 54, color: d.S.red, label: 'problems tracked as solved with AI (514 fully resolved, 159 Lean-verified)', labelSize: 12 });
+  const st1 = d.stat(s, { x: MX, y: 1.68, w: 3.0, value: '755', valueSize: 54, color: d.S.red, label: 'problems tracked as solved with AI\n(514 fully resolved, 159 Lean-verified)', labelSize: 12 });
   const st2 = d.stat(s, { x: MX + 3.35, y: 1.68, w: 3.35, value: '11,425', valueSize: 54, color: d.S.txt, label: 'combined years those problems had been open (VibeMathed’s tally, incl. partial results)', labelSize: 12 });
 
   // monthly chart (stacked: fully resolved + partial/candidate)

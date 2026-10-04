@@ -8,7 +8,9 @@ const T = require('./theory_slides');
 async function mod(d, name) {
   const f = path.join(__dirname, `slides_${name}.js`);
   if (!fs.existsSync(f)) { console.warn(`(module ${name} missing — skipped)`); return; }
+  const first = d.n + 1;
   await require(f).build(d);
+  console.log(`  ${name}: slides ${first}-${d.n}`);
 }
 
 (async () => {
@@ -42,7 +44,7 @@ async function mod(d, name) {
   d.sectionStart('V · Coda');
   T.sectionSlide(d, { num: 'V', title: 'Coda', body: 'What now?' });
   await T.whatNowSlide(d);
-  T.closingSlide(d, { agents: Number(process.env.AGENT_COUNT || 8) });
+  T.closingSlide(d, { agents: process.env.AGENT_COUNT || 'more than 70' });
 
   fs.mkdirSync(path.dirname(out), { recursive: true });
   await d.write(out);

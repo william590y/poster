@@ -1,0 +1,1560 @@
+{
+ "group": "work",
+ "items": [
+  {
+   "id": "cadbench-v3-leaderboard",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "screenshot",
+   "file": "cadbench-v3-leaderboard.png",
+   "headline": "Parametric CAD Bench V3 Leaderboard",
+   "dek": "Scores are on a 0–100 scale. Overall is the mean reward across all 100 tasks; failures count as zero.",
+   "outlet": "cadbench.ai (gNucleus.ai)",
+   "date": "2026-09-24",
+   "url": "https://cadbench.ai/",
+   "caption": "Real leaderboard table: Claude Opus 5.5 (Claude Code) #1 at 61.03, GPT-6 Astra (Codex) 56.87, Claude Fable 5.1 56.75 on 100 FreeCAD design tasks",
+   "quality": 5,
+   "notes": "This is the benchmark featuring the new 2026 models (Opus 5.5, GPT-6 Astra, Fable 5.1). V3 = 30 text-to-CAD, 30 create+edit, 40 engineering-drawing-to-CAD tasks. Image-to-CAD column: Opus 5.5 hits 84.66.",
+   "verified": true
+  },
+  {
+   "id": "cadbench-home",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "screenshot",
+   "file": "cadbench-home.png",
+   "headline": "Benchmarks for AI Models and Agents on CAD Tasks",
+   "dek": "Parametric CAD Bench evaluates models and AI agents on parametric CAD tasks.",
+   "outlet": "cadbench.ai (gNucleus.ai)",
+   "date": "2026-09-24",
+   "url": "https://cadbench.ai/",
+   "caption": "Homepage hero with exploded gearbox drawing plus top of the V3 leaderboard",
+   "quality": 4,
+   "verified": true
+  },
+  {
+   "id": "cadbench-v3-opus55-news",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "quote",
+   "file": null,
+   "headline": "Parametric CAD Bench V3: Claude Opus 5.5 Takes the Lead",
+   "dek": "Two Claude Opus 5.5 results join the V3 leaderboard. Claude Code reaches 61.03% and mini-swe-agent with the multimodal bridge reaches 57.96%, with both systems setting new image-to-CAD highs.",
+   "outlet": "cadbench.ai",
+   "date": "2026-09-24",
+   "url": "https://cadbench.ai/cad-bench/news/cad-bench-v3-opus-5-5",
+   "caption": "Release note text; Opus 5 -> Opus 5.5: +10.18 pts overall, image-to-CAD 62.64% -> 84.66% (+22.02), cost down 43.3%",
+   "quality": 4,
+   "notes": "Authors caution CIs of top four rows overlap. Also Aug 14 2026 V1 run: Claude Opus 5 = 0.906, 'the first result to break 0.9'; best score rose 0.832 (May) -> 0.906 (Aug) in 91 days.",
+   "verified": true
+  },
+  {
+   "id": "cadbench-arxiv-overview",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "image",
+   "file": "cadbench-arxiv-overview.png",
+   "headline": "CADBench: A Multimodal Benchmark for AI-Assisted CAD Program Generation",
+   "dek": "Figure 1: Overview of CadBench (18,000 CAD samples, five modalities, six metrics).",
+   "outlet": "arXiv 2605.10873 (MIT, Faez Ahmed lab)",
+   "author": "Doris, Sony, Nehme, Syla, Heyrani Nobari, Ahmed",
+   "date": "2026-05-11",
+   "url": "https://arxiv.org/abs/2605.10873",
+   "caption": "Paper overview graphic: model zoo (Gemini 3.1 Pro, Claude Opus 4.7, GPT-5.4...), benchmark, performance insights",
+   "quality": 4,
+   "notes": "Academic 'CADBench' (different from cadbench.ai). Its finding is more cautious: methods 'remain far from reliable CAD program reconstruction'; Claude Opus 4.7 has best aggregate IoU among general VLMs.",
+   "verified": true
+  },
+  {
+   "id": "cadbench-arxiv-complexity",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "chart",
+   "file": "cadbench-arxiv-complexity.png",
+   "headline": "Model performance as a function of geometric complexity (CADBench Fig. 3)",
+   "outlet": "arXiv 2605.10873",
+   "date": "2026-06-18",
+   "url": "https://arxiv.org/html/2605.10873v2",
+   "caption": "IoU vs. part face count for mesh-to-CAD and image-to-CAD models (Gemini 3.1 Pro, Claude Opus 4.7, GPT-5.4, Kimi K2.6)",
+   "quality": 3,
+   "notes": "Shows degradation with complexity; use only if nuance wanted.",
+   "verified": true
+  },
+  {
+   "id": "swe-cnn-block",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "headline",
+   "file": "swe-cnn-block.png",
+   "headline": "Block lays off nearly half its staff because of AI. Its CEO said most companies will do the same",
+   "outlet": "CNN Business",
+   "author": "Ramishah Maruf",
+   "date": "2026-02-26",
+   "url": "https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey",
+   "caption": "CNN headline with photo of Jack Dorsey",
+   "quality": 5,
+   "notes": "Block cut >4,000 (~40%) of staff; Dorsey shareholder letter: 'a significantly smaller team, using the tools we're building, can do more and do it better.' Page shows 'Updated Feb 27, 2026'. Right side of crop includes an empty ad box - crop further if needed.",
+   "verified": true
+  },
+  {
+   "id": "swe-semafor-google75",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "headline",
+   "file": "swe-semafor-google75.png",
+   "headline": "Google CEO says 75% of company’s new code is AI-generated",
+   "dek": "Google chief Sundar Pichai said 75% of the company's new code is AI-generated. In 2024 that figure was 25%, rising to 50% last fall.",
+   "outlet": "Semafor",
+   "author": "Tom Chivers",
+   "date": "2026-04-24",
+   "url": "https://www.semafor.com/article/04/24/2026/google-ceo-says-75-of-companys-new-code-is-ai-generated",
+   "caption": "Semafor headline with photo of Sundar Pichai",
+   "quality": 5,
+   "notes": "Primary source: Google blog (Cloud Next '26, Apr 22 2026): '75% of all new code at Google is now AI-generated and approved by engineers, up from 50% last fall.' Article also: 'Snap reached 65% AI-generated code this month and immediately cut planned headcount.'",
+   "verified": true
+  },
+  {
+   "id": "swe-bi-anthropic-cfo-90pct",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "headline",
+   "file": "swe-bi-anthropic-cfo-90pct.png",
+   "headline": "Anthropic CFO says AI now writes 90% of its code, changing white-collar jobs from execution to oversight",
+   "dek": "\"90 plus percent of our code is actually written by Claude Code\" — Krishna Rao, Anthropic CFO (Invest Like the Best podcast)",
+   "outlet": "Business Insider (via AOL syndication)",
+   "author": "Katherine Tangalakis-Lippert",
+   "date": "2026-05-13",
+   "url": "https://www.aol.com/articles/anthropic-cfo-says-ai-now-224949000.html",
+   "caption": "Business Insider headline with photo of Claude app on phone",
+   "quality": 5,
+   "verified": true
+  },
+  {
+   "id": "swe-fortune-100pct-code",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "headline",
+   "file": "swe-fortune-100pct-code.png",
+   "headline": "Top engineers at Anthropic, OpenAI say AI now writes 100% of their code—with big implications for the future of software development jobs",
+   "dek": "Boris Cherny: \"For me personally, it has been 100% for two+ months now, I don't even make small edits by hand.\" roon (OpenAI): \"100%, I don't write code anymore.\"",
+   "outlet": "Fortune",
+   "author": "Beatrice Nolan",
+   "date": "2026-01-29",
+   "url": "https://fortune.com/2026/01/29/100-percent-of-code-at-anthropic-and-openai-is-now-ai-written-boris-cherny-roon/",
+   "caption": "Fortune headline with Claude 4 phone image",
+   "quality": 5,
+   "verified": true
+  },
+  {
+   "id": "swe-cbs-ai-layoffs",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "headline",
+   "file": "swe-cbs-ai-layoffs.png",
+   "headline": "AI emerges as a top cause of layoffs, accounting for 26% of April's job cuts",
+   "dek": "The report found 21,490 AI-related cuts last month, or 26% of the 88,387 total, marking the second straight month the technology has been the top driver of layoffs.",
+   "outlet": "CBS News (MoneyWatch)",
+   "author": "Megan Cerullo",
+   "date": "2026-05-07",
+   "url": "https://www.cbsnews.com/news/ai-layoffs-job-cuts-challenger-report-april-2026/",
+   "caption": "CBS headline + first two paragraphs citing Challenger, Gray & Christmas",
+   "quality": 5,
+   "verified": true
+  },
+  {
+   "id": "swe-fortune-cs-enrollment",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "headline",
+   "file": "swe-fortune-cs-enrollment.png",
+   "headline": "Computer science enrollment is plunging, but AI is taking over the rest of the college campus as it reshapes how students learn and work",
+   "dek": "Undergraduate computer science enrollment declined 8.4% in spring 2026 from a year earlier, after a 3.6% drop in fall 2025; graduate enrollment fell 14%.",
+   "outlet": "Fortune",
+   "author": "Marco Quiroz-Gutierrez",
+   "date": "2026-08-06",
+   "url": "https://fortune.com/2026/08/06/computer-science-enrollment-plunging-ai-college-campus/",
+   "caption": "Fortune headline with classroom photo",
+   "quality": 4,
+   "verified": true
+  },
+  {
+   "id": "swe-chronicle-cs-majors",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "headline",
+   "file": "swe-chronicle-cs-majors.png",
+   "headline": "Once Seen as a Sure Thing, Computer Science Has Lost 53,000 Majors",
+   "outlet": "The Chronicle of Higher Education",
+   "author": "Jacquelyn Elias",
+   "date": "2026-08-27",
+   "url": "https://www.chronicle.com/article/once-seen-as-a-sure-thing-computer-science-has-lost-53-000-majors",
+   "caption": "Chronicle headline, byline and date",
+   "quality": 4,
+   "notes": "Article body is paywalled (403 to fetch); headline/byline/date verified from the rendered page.",
+   "verified": true
+  },
+  {
+   "id": "swe-signalfire-newgrad-share",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "chart",
+   "file": "swe-signalfire-newgrad-share.png",
+   "headline": "Share of new hires by level of experience (≤ 1 year)",
+   "dek": "New grad hiring down ~65% at Tech Majors and ~76% at early-stage startups vs 2019.",
+   "outlet": "SignalFire State of Tech Talent Report 2026",
+   "date": "2026-06-22",
+   "url": "https://www.signalfire.com/blog/signalfire-state-of-talent-report-2026",
+   "caption": "Line chart 2016-2025: new grads fell to 8% of hires at Tech Majors and 3% at startups",
+   "quality": 5,
+   "verified": true
+  },
+  {
+   "id": "swe-signalfire-techmajors-indexed",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "chart",
+   "file": "swe-signalfire-techmajors-hires-indexed.png",
+   "headline": "Hires in the previous 12 months by experience level at Tech Majors (Index 2019 = 100)",
+   "outlet": "SignalFire State of Tech Talent Report 2026",
+   "date": "2026-06-22",
+   "url": "https://www.signalfire.com/blog/signalfire-state-of-talent-report-2026",
+   "caption": "Q4 2025: ≤1yr experience hires at 35 (vs 100 in 2019) while 10+ yrs at 96",
+   "quality": 5,
+   "verified": true
+  },
+  {
+   "id": "swe-signalfire-startup-hires",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "chart",
+   "file": "swe-signalfire-startup-hires.png",
+   "headline": "Hires in the previous 12 months by experience level at early-stage startups (Index 2019 = 100)",
+   "outlet": "SignalFire State of Tech Talent Report 2026",
+   "date": "2026-06-22",
+   "url": "https://www.signalfire.com/blog/signalfire-state-of-talent-report-2026",
+   "caption": "Q4 2025: ≤1yr hires at 24 vs 10+ yrs at 144 — the senior/junior scissors",
+   "quality": 5,
+   "verified": true
+  },
+  {
+   "id": "swe-stanford-canaries",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "chart",
+   "file": "swe-stanford-canaries-swe-by-age.png",
+   "headline": "Headcount Over Time by Age Group — Software Developers (Normalized)",
+   "dek": "Employment of young workers (ages 22–25) in AI-exposed occupations now stands 19% below where it would be had it kept pace with that of their less-exposed peers; experienced workers show no comparable gap.",
+   "outlet": "Stanford Digital Economy Lab — 'Canaries in the Coal Mine?' (Aug 2026 version, Fig. B.3)",
+   "author": "Erik Brynjolfsson, Bharat Chandar, Ruyu Chen",
+   "date": "2026-08-12",
+   "url": "https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf",
+   "caption": "ADP payroll data: software developers aged 22-25 fall to ~0.8 of Nov-2022 level while 35-49 year-olds rise to 1.15-1.2",
+   "quality": 5,
+   "notes": "Cropped from page 62 of the PDF (rendered at 330 dpi). Authors stress descriptive, not causal.",
+   "verified": true
+  },
+  {
+   "id": "swe-google-blog-quote",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "quote",
+   "file": null,
+   "headline": "Cloud Next ‘26: Momentum and innovation at Google scale",
+   "dek": "75% of all new code at Google is now AI-generated and approved by engineers, up from 50% last fall.",
+   "outlet": "Google blog (Sundar Pichai)",
+   "author": "Sundar Pichai",
+   "date": "2026-04-22",
+   "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/",
+   "caption": "Primary-source quote",
+   "quality": 4,
+   "notes": "Also: 'a particularly complex code migration done by agents and engineers working together was completed six times faster than was possible a year ago with engineers alone.'",
+   "verified": true
+  },
+  {
+   "id": "swe-hrdive-tech-layoffs",
+   "slide_topic": "Obsolescence of Engineering",
+   "type": "headline",
+   "file": null,
+   "headline": "Tech accounts for nearly a third of US layoffs in the first half of 2026, Challenger finds",
+   "dek": "Sector job cuts jumped 83% from January through June on a year-over-year basis as AI rattles the workforce.",
+   "outlet": "HR Dive",
+   "author": "Alexei Alexis",
+   "date": "2026-07-02",
+   "url": "https://www.hrdive.com/news/tech-layoffs-surge-83percent-h1-2026-challenger-ai-disruption/824320/",
+   "caption": "Text-only (headless browser hit a Cloudflare challenge)",
+   "quality": 3,
+   "notes": "H1 2026 tech cuts 139,156 vs 76,214 in H1 2025; 101,743 cuts cited AI (~23% of all); AI top reason for 4th straight month in June.",
+   "verified": true
+  },
+  {
+   "id": "acad-arxiv-ratelimit-blog",
+   "slide_topic": "State of academia",
+   "type": "screenshot",
+   "file": "acad-arxiv-blog-ratelimit.png",
+   "headline": "Fair Moderation, Equitable Access, and AI: arXiv’s Updated Rate Limit Policy",
+   "dek": "arXiv now limits submitters to up to two submissions per calendar month, with a limit of three total active submissions at any given time.",
+   "outlet": "arXiv blog (official)",
+   "author": "Kat Boboris",
+   "date": "2026-10-01",
+   "url": "https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy/",
+   "caption": "Official arXiv announcement: Sept 2016 9,869 → Sept 2024 20,569 → Sept 2026 40,363 submissions",
+   "quality": 5,
+   "notes": "VERIFIED: the 2-per-month cap is real, effective Oct 1 2026, across ALL categories, rejected submissions count. Rationale quote: 'There is also a marked increase in dense, AI-written papers. AI tools are making it easy for authors to flood arXiv and other repositories with these low-value papers.' Also 'thin papers of narrow scope' and 'salami' papers; ~9,000 support tickets in September.",
+   "verified": true
+  },
+  {
+   "id": "acad-arxiv-monthly-chart",
+   "slide_topic": "State of academia",
+   "type": "chart",
+   "file": "acad-arxiv-monthly-submissions-sep2026.png",
+   "headline": "arXiv monthly submissions 1991–2026 (September 2026: 40,363)",
+   "outlet": "arXiv blog",
+   "date": "2026-10-01",
+   "url": "https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy/",
+   "caption": "Official bar chart; total submissions as of Oct 1 2026 = 3,192,873; Sept 2026 spike highlighted",
+   "quality": 5,
+   "verified": true
+  },
+  {
+   "id": "acad-arxiv-csai-chart",
+   "slide_topic": "State of academia",
+   "type": "chart",
+   "file": "acad-arxiv-csai-growth.png",
+   "headline": "cs.AI submissions per month, 2024 - 2026",
+   "outlet": "arXiv blog",
+   "date": "2026-10-01",
+   "url": "https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy/",
+   "caption": "cs.AI monthly submissions grew from ~300 (Jan 2024) to ~3,300 (Aug 2026) — 'over 6X increase'",
+   "quality": 5,
+   "verified": true
+  },
+  {
+   "id": "acad-cybernews-arxiv-limit",
+   "slide_topic": "State of academia",
+   "type": "headline",
+   "file": "acad-cybernews-arxiv-limit.png",
+   "headline": "Too much AI slop: arXiv limits researchers to two papers a month",
+   "dek": "The moderators were overwhelmed with an influx of AI research submissions.",
+   "outlet": "Cybernews",
+   "author": "Anna Zhadan",
+   "date": "2026-10-02",
+   "url": "https://cybernews.com/ai-news/arxiv-limits-researchers-to-two-papers-a-month/",
+   "caption": "News headline + arXiv/Cornell photo",
+   "quality": 4,
+   "notes": "Page <title> reads 'arXiv submission limit targets AI slop as paper flood strains moderators'; on-page H1 is as given. Date approximate (article published ~Oct 1-2, 2026; not confirmed on page).",
+   "verified": true
+  },
+  {
+   "id": "acad-arxiv-cs-review-papers",
+   "slide_topic": "State of academia",
+   "type": "screenshot",
+   "file": "acad-arxiv-blog-cs-review-papers.png",
+   "headline": "Attention Authors: Updated Practice for Review Articles and Position Papers in arXiv CS Category",
+   "dek": "Before being considered for submission to arXiv’s CS category, review articles and position papers must now be accepted at a journal or a conference and complete successful peer review.",
+   "outlet": "arXiv blog (official)",
+   "author": "Kat Boboris",
+   "date": "2025-10-31",
+   "url": "https://blog.arxiv.org/2025/10/31/attention-authors-updated-practice-for-review-articles-and-position-papers-in-arxiv-cs-category/",
+   "caption": "Earlier (Oct 2025) restriction: 'This change is being implemented due to the unmanageable influx of review articles and position papers to arXiv CS.'",
+   "quality": 4,
+   "verified": true
+  },
+  {
+   "id": "acad-404-arxiv-ban",
+   "slide_topic": "State of academia",
+   "type": "headline",
+   "file": "acad-404-arxiv-ban.png",
+   "headline": "ArXiv to Ban Researchers for a Year if They Submit AI Slop",
+   "dek": "The change comes as arXiv and others struggle to manage an influx of AI-generated materials masquerading as rigorous science.",
+   "outlet": "404 Media",
+   "author": "Samantha Cole",
+   "date": "2026-05-15",
+   "url": "https://www.404media.co/new-arxiv-rules-ai-generated-papers-ban/",
+   "caption": "404 Media headline (white on black)",
+   "quality": 4,
+   "notes": "Policy: 1-year ban for 'incontrovertible evidence that the authors did not check the results of LLM generation' (hallucinated refs, leftover prompts).",
+   "verified": true
+  },
+  {
+   "id": "acad-nature-iclr-ai-reviews",
+   "slide_topic": "State of academia",
+   "type": "headline",
+   "file": "acad-nature-iclr-ai-reviews.png",
+   "headline": "Major AI conference flooded with peer reviews written fully by AI",
+   "dek": "Controversy has erupted after 21% of manuscript reviews for an international AI conference were found to be generated by artificial intelligence.",
+   "outlet": "Nature",
+   "author": "Miryam Naddaf",
+   "date": "2025-11-27",
+   "url": "https://www.nature.com/articles/d41586-025-03506-6",
+   "caption": "Nature news headline + dek (ICLR 2026)",
+   "quality": 5,
+   "notes": "Pangram screened 19,490 submissions and 75,800 reviews: 21% of reviews fully AI-generated, >50% showed signs of AI use.",
+   "verified": true
+  },
+  {
+   "id": "acad-iclr-retrospective",
+   "slide_topic": "State of academia",
+   "type": "screenshot",
+   "file": "acad-iclr-retrospective.png",
+   "headline": "A Retrospective on the ICLR 2026 Review Process",
+   "dek": "ICLR 2026 received 19,525 valid, format-compliant submissions... 13,763 submissions received an accept or reject decision based on 76,139 reviews provided by 18,054 reviewers... 5,355 papers were accepted... an acceptance rate of 27.4%.",
+   "outlet": "ICLR blog (Program Chairs)",
+   "date": "2026-03-31",
+   "url": "https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/",
+   "caption": "Official ICLR stats paragraph + 'unique challenges due to the rise of LLMs in submissions/reviews and the security incident'",
+   "quality": 4,
+   "notes": "Also covers LLM-detector flagging of reviews, desk-rejecting papers with hallucinated references, and the OpenReview API leak of reviewer identities.",
+   "verified": true
+  },
+  {
+   "id": "acad-neurips-position-ai",
+   "slide_topic": "State of academia",
+   "type": "screenshot",
+   "file": "acad-neurips-position-ai-papers.png",
+   "headline": "AI-Generated Papers in the NeurIPS 2026 Position Paper Track",
+   "dek": "178 submissions (18.4% of all submissions) will be desk rejected. 123 submissions (12.7%) will be requested to provide evidence of substantial human engagement or risk a desk reject.",
+   "outlet": "NeurIPS blog (official)",
+   "author": "Alex Lu, Seth Lazar, David Rügamer",
+   "date": "2026-06-02",
+   "url": "https://blog.neurips.cc/2026/06/02/ai-generated-papers-in-the-neurips-2026-position-paper-track/",
+   "caption": "Official NeurIPS post; 969 position-paper submissions screened with Pangram",
+   "quality": 4,
+   "verified": true
+  },
+  {
+   "id": "video-tavus-griffin-page",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "screenshot",
+   "file": "video-tavus-griffin-page.jpg",
+   "headline": "The First Human Interaction Model",
+   "dek": "48% Of people believed Griffin was a real person after a one-minute video call. | #1 On NVIDIA’s independent test of face-to-face AI | 37% Ahead of the next best AI at reacting in the moment",
+   "outlet": "Tavus (official announcement)",
+   "author": "Hassaan Raza, Ioannis Patras",
+   "date": "2026-10-01",
+   "url": "https://www.tavus.io/griffin",
+   "caption": "Tavus Griffin announcement hero with 48% / #1 / 37% stat row",
+   "quality": 5,
+   "notes": "Page text: 'Griffin is the first model to pass the real-time, video Turing test. In a live study, 48% of participants who talked with Griffin thought they had talked with a real human. Previous systems... had a max 2% pass rate.' Study detail on page: Griffin-Lite 26 of 54 participants (48%) vs previous system 1 of 41 (2.4%); one-minute calls with a partner they were told was another participant. Company-run study, not independently verified (X community note). Released as 'Griffin-Lite' research preview to select testers.",
+   "verified": true
+  },
+  {
+   "id": "video-tavus-still-promotion",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "image",
+   "file": "video-tavus-griffin-still-promotion.jpg",
+   "headline": null,
+   "outlet": "Tavus",
+   "date": "2026-10-01",
+   "url": "https://www.tavus.io/griffin",
+   "caption": "Official demo clip still ('Rudy gets a promotion'): video call on a laptop — the woman on the right ('Vanessa') is the Griffin-generated persona",
+   "quality": 5,
+   "notes": "Cloudflare Stream poster frame 7702d509094b4a348f40778919eed59b, 1920x1080. Tavus caption: 'Rudy tells Vanessa he’s been promoted. She reacts before he’s finished...'",
+   "verified": true
+  },
+  {
+   "id": "video-tavus-still-cubecoach",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "image",
+   "file": "video-tavus-griffin-still-cubecoach.jpg",
+   "headline": null,
+   "outlet": "Tavus",
+   "date": "2026-10-01",
+   "url": "https://www.tavus.io/griffin",
+   "caption": "Official demo still ('Cube coach'): Griffin (inset, top-left) coaches a man solving a Rubik's Cube over video",
+   "quality": 4,
+   "notes": "Tavus caption: 'Griffin coaches Ari through a Rubik’s Cube. It watches the cube as he turns it...'",
+   "verified": true
+  },
+  {
+   "id": "video-tavus-still-simonsays",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "image",
+   "file": "video-tavus-griffin-still-simonsays.jpg",
+   "headline": null,
+   "outlet": "Tavus",
+   "date": "2026-10-01",
+   "url": "https://www.tavus.io/griffin",
+   "caption": "Official demo still ('Simon says'): Griffin persona in inset window; 'Every movement is generated on the spot, body and background included.'",
+   "quality": 3,
+   "verified": true
+  },
+  {
+   "id": "video-tavus-og",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "image",
+   "file": "video-tavus-griffin-og.jpg",
+   "headline": "Griffin — The first Human Interaction Model (HIM)",
+   "outlet": "Tavus",
+   "date": "2026-10-01",
+   "url": "https://www.tavus.io/griffin",
+   "caption": "Official Griffin social card (1200x630)",
+   "quality": 3,
+   "verified": true
+  },
+  {
+   "id": "video-yt-tavus-businesswire",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "video",
+   "file": "video-yt-VcQcRRHJTyc.jpg",
+   "headline": "Tavus Introduces Griffin, the First Face-to-Face Human Interaction Model, Unlocking the Future...",
+   "outlet": "YouTube (BusinessWire channel, press-release video)",
+   "date": "2026-10-01",
+   "url": "https://www.youtube.com/watch?v=VcQcRRHJTyc",
+   "caption": "Thumbnail: two men laughing on a video call with the AI woman in an inset window, subtitle 'I thrifted this.'",
+   "quality": 5,
+   "notes": "No official Tavus-owned YouTube upload found; this is the BusinessWire-distributed release video. Full press release: https://www.businesswire.com/news/home/20261001092598/en/ (screenshot failed).",
+   "verified": true
+  },
+  {
+   "id": "video-yt-tavus-preview-handson",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "video",
+   "file": "video-yt-YLh5ToBSyOw.jpg",
+   "headline": "You can now video call an AI person | Tavus Griffin Preview",
+   "outlet": "YouTube (Rohan Richard)",
+   "date": "2026-10",
+   "url": "https://www.youtube.com/watch?v=YLh5ToBSyOw",
+   "caption": "Thumbnail: Griffin preview persona picker (Ashley, Ben, Kenji, Vanessa)",
+   "quality": 3,
+   "notes": "Third-party hands-on; date not confirmed.",
+   "verified": true
+  },
+  {
+   "id": "video-businesstoday-griffin",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "headline",
+   "file": "video-businesstoday-griffin.png",
+   "headline": "Beyond chatbots: Tavus's Griffin model passes video Turing test with 48% human success rate",
+   "dek": "Unlike traditional conversational AI setups that rely on a stitched-together cascade of text transcription, large language model generation, and separate voice or video synthesis, Griffin operates as a single, full-duplex video-to-video pipeline.",
+   "outlet": "Business Today",
+   "date": "2026-10-03",
+   "url": "https://www.businesstoday.in/technology/artificial-intelligence/story/beyond-chatbots-tavuss-griffin-model-passes-video-turing-test-with-48-human-success-rate-559295-2026-10-03",
+   "caption": "Headline + dek only",
+   "quality": 4,
+   "verified": true
+  },
+  {
+   "id": "video-cybernews-griffin",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "headline",
+   "file": "video-cybernews-griffin.png",
+   "headline": "Meet Griffin, the first AI model that can interrupt you just like a real human being",
+   "dek": "Is it real or is it AI?",
+   "outlet": "Cybernews",
+   "author": "Konstancija Gasaitytė",
+   "date": "2026-10-02",
+   "url": "https://cybernews.com/ai-news/tavus-griffin-ai-model/",
+   "caption": "Headline with Tavus-supplied image of an AI avatar",
+   "quality": 3,
+   "notes": "Date approximate (~Oct 1-2, 2026).",
+   "verified": true
+  },
+  {
+   "id": "video-df26-paper",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "quote",
+   "file": null,
+   "headline": "DF26: We Cannot Tell Fake From Real Anymore",
+   "dek": "Human performance in detecting AI-generated videos, as well as state-of-the-art deepfake detectors, is close to random chance. ... accuracy on fake videos drops to 52.6% on DF26, barely above chance.",
+   "outlet": "arXiv 2609.07369 (CTU Prague et al.)",
+   "author": "Shykula, Yermakov, Samarskyi, Mishkin, Cech, Mishchuk",
+   "date": "2026-09-07",
+   "url": "https://arxiv.org/abs/2609.07369",
+   "caption": "Academic confirmation that modern video generators fool humans",
+   "quality": 5,
+   "verified": true
+  },
+  {
+   "id": "video-df26-ex1",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "image",
+   "file": "video-df26-ex1-real.jpg",
+   "headline": null,
+   "outlet": "arXiv 2609.07369 Fig. 1",
+   "date": "2026-09-07",
+   "url": "https://arxiv.org/html/2609.07369v1",
+   "caption": "Real/fake triplet from DF26 Fig. 1: video-df26-ex1-real.jpg (REAL), video-df26-ex1-fake-veo31.jpg (FAKE, Veo 3.1), video-df26-ex1-fake-kling30.jpg (FAKE, Kling 3.0) — a 'spot the real one' quiz",
+   "quality": 5,
+   "notes": "Individual last-frame images from the paper's Figure 1 grid, 1280x720 each. Label which is real in the reveal.",
+   "verified": true
+  },
+  {
+   "id": "video-df26-ex2",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "image",
+   "file": "video-df26-ex2-real.jpg",
+   "headline": null,
+   "outlet": "arXiv 2609.07369 Fig. 1",
+   "date": "2026-09-07",
+   "url": "https://arxiv.org/html/2609.07369v1",
+   "caption": "Second triplet (news-anchor setting): video-df26-ex2-real.jpg (REAL), video-df26-ex2-fake-veo31.jpg (Veo 3.1), video-df26-ex2-fake-kling30.jpg (Kling 3.0)",
+   "quality": 4,
+   "verified": true
+  },
+  {
+   "id": "video-df26-ex1-fake-veo31",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "image",
+   "file": "video-df26-ex1-fake-veo31.jpg",
+   "headline": null,
+   "outlet": "arXiv 2609.07369 Fig. 1",
+   "date": "2026-09-07",
+   "url": "https://arxiv.org/html/2609.07369v1",
+   "caption": "AI-GENERATED frame (Veo 3.1, image-to-video) matching the real presenter on stage clip in video-df26-ex1-real.jpg",
+   "quality": 4,
+   "verified": true,
+   "notes": "Last frame of a synthetic DF26 clip; pair with the real frame for a 'which is real?' quiz."
+  },
+  {
+   "id": "video-df26-ex1-fake-kling30",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "image",
+   "file": "video-df26-ex1-fake-kling30.jpg",
+   "headline": null,
+   "outlet": "arXiv 2609.07369 Fig. 1",
+   "date": "2026-09-07",
+   "url": "https://arxiv.org/html/2609.07369v1",
+   "caption": "AI-GENERATED frame (Kling 3.0, image-to-video) matching the real presenter on stage clip in video-df26-ex1-real.jpg",
+   "quality": 4,
+   "verified": true,
+   "notes": "Last frame of a synthetic DF26 clip; pair with the real frame for a 'which is real?' quiz."
+  },
+  {
+   "id": "video-df26-ex2-fake-veo31",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "image",
+   "file": "video-df26-ex2-fake-veo31.jpg",
+   "headline": null,
+   "outlet": "arXiv 2609.07369 Fig. 1",
+   "date": "2026-09-07",
+   "url": "https://arxiv.org/html/2609.07369v1",
+   "caption": "AI-GENERATED frame (Veo 3.1, image-to-video) matching the real news anchor clip in video-df26-ex2-real.jpg",
+   "quality": 4,
+   "verified": true,
+   "notes": "Last frame of a synthetic DF26 clip; pair with the real frame for a 'which is real?' quiz."
+  },
+  {
+   "id": "video-df26-ex2-fake-kling30",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "image",
+   "file": "video-df26-ex2-fake-kling30.jpg",
+   "headline": null,
+   "outlet": "arXiv 2609.07369 Fig. 1",
+   "date": "2026-09-07",
+   "url": "https://arxiv.org/html/2609.07369v1",
+   "caption": "AI-GENERATED frame (Kling 3.0, image-to-video) matching the real news anchor clip in video-df26-ex2-real.jpg",
+   "quality": 4,
+   "verified": true,
+   "notes": "Last frame of a synthetic DF26 clip; pair with the real frame for a 'which is real?' quiz."
+  },
+  {
+   "id": "video-helpnet-9in10",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "headline",
+   "file": "video-helpnet-9in10-cant-tell.png",
+   "headline": "9 out of 10 people can no longer distinguish real from AI-generated content",
+   "dek": "Nearly nine in ten adults say they can no longer tell what is real from AI-generated content, according to the latest Malwarebytes survey. The share increased from 66% in 2025 to 85% in 2026.",
+   "outlet": "Help Net Security",
+   "author": "Sinisa Markovic",
+   "date": "2026-06-11",
+   "url": "https://www.helpnetsecurity.com/2026/06/11/ai-scams-deepfakes-survey/",
+   "caption": "Headline + lede",
+   "quality": 3,
+   "notes": "Survey of 1,500 adults in US, UK, Austria, Germany, Switzerland. Self-reported.",
+   "verified": true
+  },
+  {
+   "id": "video-cnn-sora2",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "headline",
+   "file": "video-cnn-sora2-unreality.png",
+   "headline": "Why you need to pay attention to Sora 2 and our future AI unreality",
+   "outlet": "CNN Business",
+   "author": "Brian Stelter, Andrew Kirell",
+   "date": "2025-10-03",
+   "url": "https://www.cnn.com/2025/10/03/media/sora-2-chatgpt-videos-deepfake-disinfo-future",
+   "caption": "CNN headline with an 'AI-GENERATED FAKE IMAGE' of Sam Altman from OpenAI's Sora 2 launch",
+   "quality": 4,
+   "verified": true
+  },
+  {
+   "id": "video-nyt-sora",
+   "slide_topic": "Video Turing Test Passed",
+   "type": "headline",
+   "file": null,
+   "headline": "OpenAI’s Sora makes disinformation extremely easy and extremely real",
+   "dek": "In its first three days, users of a new app from OpenAI deployed artificial intelligence to create strikingly realistic videos of ballot fraud, immigration arrests, protests, crimes and attacks on city streets – none of which took place.",
+   "outlet": "The New York Times (syndicated by The Star)",
+   "author": "Tiffany Hsu, Stuart A. Thompson, Steven Lee Myers",
+   "date": "2025-10-03",
+   "url": "https://www.thestar.com.my/tech/tech-news/2025/10/06/openais-sora-makes-disinformation-extremely-easy-and-extremely-real",
+   "caption": "Text only — nytimes.com served a captcha to the headless browser",
+   "quality": 4,
+   "notes": "Verified via syndicated full text on The Star (Oct 6, 2025); NYT original published ~Oct 3, 2025.",
+   "verified": true
+  },
+  {
+   "id": "vla-pi0-teaser",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "image",
+   "file": "vla-pi0-teaser-fig1.png",
+   "headline": "π0: A Vision-Language-Action Flow Model for General Robot Control (Fig. 1)",
+   "dek": "Our generalist robot policy uses a pre-trained vision-language model (VLM) backbone, as well as a diverse cross-embodiment dataset with a variety of dexterous manipulation tasks.",
+   "outlet": "arXiv 2410.24164 (Physical Intelligence)",
+   "date": "2024-10-31",
+   "url": "https://arxiv.org/abs/2410.24164",
+   "caption": "BEST simple architecture visual: 'π0 vision-language-action model' = [pre-trained VLM] + [action expert], fed by internet pre-training + robot data",
+   "quality": 5,
+   "verified": true
+  },
+  {
+   "id": "vla-pi0-architecture",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "image",
+   "file": "vla-pi0-overview-fig3.png",
+   "headline": "π0 Fig. 3: Overview of our framework",
+   "outlet": "arXiv 2410.24164 (Physical Intelligence)",
+   "date": "2024-10-31",
+   "url": "https://arxiv.org/html/2410.24164v4",
+   "caption": "Detailed: images → ViT → 'pre-trained VLM: SigLIP (400M) + Gemma (2.6B)' + 'fold shirt' prompt → 'action expert (300M)' → action chunk a_t…a_t+H",
+   "quality": 5,
+   "notes": "Shows explicitly that the VLA backbone is an off-the-shelf LLM/VLM (Gemma) with a small action head bolted on.",
+   "verified": true
+  },
+  {
+   "id": "vla-openvla-architecture",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "image",
+   "file": "vla-openvla-model-fig2.png",
+   "headline": "OpenVLA model architecture (Fig. 2)",
+   "outlet": "arXiv 2406.09246 (Stanford/Berkeley/TRI)",
+   "date": "2024-06-13",
+   "url": "https://arxiv.org/abs/2406.09246",
+   "caption": "Input image + 'Put eggplant in bowl' → DinoV2/SigLIP → MLP projector → Llama 2 7B → Action De-Tokenizer → 7D robot action",
+   "quality": 5,
+   "notes": "Clearest 'it's literally Llama 2 7B' diagram.",
+   "verified": true
+  },
+  {
+   "id": "vla-pi05-architecture",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "image",
+   "file": "vla-pi05-model-fig3.png",
+   "headline": "π0.5 model overview (Fig. 3)",
+   "outlet": "arXiv 2504.16054 (Physical Intelligence)",
+   "date": "2025-04-22",
+   "url": "https://arxiv.org/abs/2504.16054",
+   "caption": "Pre-training on web+robot data in a VLM, then post-training with an action expert; 'clean the bedroom' → 'pick up the pillow' → continuous actions",
+   "quality": 4,
+   "verified": true
+  },
+  {
+   "id": "vla-pi07-overview",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "image",
+   "file": "vla-pi07-fig1.png",
+   "headline": "π0.7: a Steerable Generalist Robotic Foundation Model with Emergent Capabilities (Fig. 1)",
+   "outlet": "arXiv 2604.15483 (Physical Intelligence)",
+   "date": "2026-04-16",
+   "url": "https://arxiv.org/abs/2604.15483",
+   "caption": "π0.7 VLA overview: robot + web + egocentric human data → VLA with action expert; 'Out-of-the-Box Performance Without Fine-Tuning', cross-embodiment transfer",
+   "quality": 5,
+   "verified": true
+  },
+  {
+   "id": "vla-techcrunch-pi07",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "headline",
+   "file": "vla-techcrunch-pi07.png",
+   "headline": "Physical Intelligence, a hot robotics startup, says its new robot brain can figure out tasks it was never taught",
+   "dek": "\"I'm rarely surprised. But the last few months have been the first time where I'm genuinely surprised\" — Ashwin Balakrishna, Physical Intelligence",
+   "outlet": "TechCrunch",
+   "author": "Connie Loizos",
+   "date": "2026-04-16",
+   "url": "https://techcrunch.com/2026/04/16/physical-intelligence-a-hot-robotics-startup-says-its-new-robot-brain-can-figure-out-tasks-it-was-never-taught/",
+   "caption": "TechCrunch headline with robot arm at espresso machine",
+   "quality": 5,
+   "notes": "π0.7 operated an unfamiliar air fryer having seen only two related training episodes. Sergey Levine: 'the capabilities are going up more than linearly'.",
+   "verified": true
+  },
+  {
+   "id": "vla-deepmind-gr2",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "headline",
+   "file": "vla-deepmind-gr2-blog.png",
+   "headline": "Gemini Robotics 2 brings whole body intelligence to robots",
+   "dek": "Our most advanced vision-language-action model (VLA) that converts vision and language input into motor control",
+   "outlet": "Google DeepMind blog",
+   "author": "Carolina Parada",
+   "date": "2026-07-30",
+   "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+   "caption": "Official DeepMind headline",
+   "quality": 4,
+   "notes": "On-device version adapts to new robot bodies 'with just a few hours of adaptation time, typically with less than 200 examples.' Success rates vary: whole-body manipulation 46-76%.",
+   "verified": true
+  },
+  {
+   "id": "vla-robotreport-gr2",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "headline",
+   "file": "vla-robotreport-gr2.png",
+   "headline": "Google DeepMind says Gemini Robotics 2 enables full body control",
+   "outlet": "The Robot Report",
+   "date": "2026-08-02",
+   "url": "https://www.therobotreport.com/google-deepmind-says-gemini-robotics-2-enables-full-body-control/",
+   "caption": "Trade-press headline",
+   "quality": 3,
+   "verified": true
+  },
+  {
+   "id": "vla-figure-helix25",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "headline",
+   "file": "vla-figure-helix25.png",
+   "headline": "Helix 2.5: Zero-Shot 30-Home Generalization",
+   "dek": "Helix 2.5 performs three long-horizon behaviors across 30 unseen homes, with no data collection, fine-tuning, or adaptation in those environments or manipulated objects.",
+   "outlet": "Figure AI (official)",
+   "date": "2026-09-17",
+   "url": "https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization",
+   "caption": "Official Figure headline (white on black)",
+   "quality": 4,
+   "notes": "'Index pretraining alone increased zero-shot success from 9% to 56%.' Tasks: tidying living rooms, folding towels, making beds.",
+   "verified": true
+  },
+  {
+   "id": "vla-nvidia-gtc2026",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "headline",
+   "file": "vla-nvidia-gtc2026-physical-ai.png",
+   "headline": "NVIDIA and Global Robotics Leaders Take Physical AI to the Real World",
+   "dek": "\"Physical AI has arrived — every industrial company will become a robotics company.\" — Jensen Huang",
+   "outlet": "NVIDIA Newsroom",
+   "date": "2026-03-16",
+   "url": "https://nvidianews.nvidia.com/news/nvidia-and-global-robotics-leaders-take-physical-ai-to-the-real-world",
+   "caption": "NVIDIA GTC 2026 press release headline with 4-panel robot imagery",
+   "quality": 4,
+   "notes": "GR00T N2: 'helps robots succeed at new tasks in new environments more than twice as often as leading vision language action models'; slated for end of 2026.",
+   "verified": true
+  },
+  {
+   "id": "vla-reuters-robot-brain",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "headline",
+   "file": "vla-bnnbloomberg-robot-brain.png",
+   "headline": "Chinese ‘robot brain’ startup sees ChatGPT-style breakthrough as soon as next year",
+   "dek": "Humanoid robots will be able to complete most general-purpose tasks from verbal instructions as soon as next year, although becoming useful around the house will take much longer, said the head of a leading Chinese company developing robot brains.",
+   "outlet": "Reuters (via BNN Bloomberg)",
+   "date": "2026-09-18",
+   "url": "https://www.bnnbloomberg.ca/business/artificial-intelligence/2026/09/18/chinese-robot-brain-startup-sees-chatgpt-style-breakthrough-as-soon-as-next-year/",
+   "caption": "Reuters wire headline (Spirit AI, Beijing)",
+   "quality": 4,
+   "verified": true
+  },
+  {
+   "id": "vla-mittr-humanoid-gig",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "headline",
+   "file": "vla-mittr-humanoid-gig.png",
+   "headline": "The gig workers who are training humanoid robots at home",
+   "dek": "People in Nigeria and India are strapping iPhones onto their heads and recording themselves doing chores.",
+   "outlet": "MIT Technology Review",
+   "author": "Michelle Kim",
+   "date": "2026-04-01",
+   "url": "https://www.technologyreview.com/2026/04/01/1134863/humanoid-data-training-gig-economy-2026-breakthrough-technology/",
+   "caption": "MIT TR headline (data-scaling angle)",
+   "quality": 3,
+   "verified": true
+  },
+  {
+   "id": "vla-yt-gemini-robotics-2",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "video",
+   "file": "video-yt-4lSQnrMC6nY.jpg",
+   "headline": "Gemini Robotics 2 brings whole body intelligence to robots",
+   "outlet": "YouTube (Google DeepMind)",
+   "date": "2026-07-30",
+   "url": "https://www.youtube.com/watch?v=4lSQnrMC6nY",
+   "caption": "Official DeepMind video; thumbnail: Apptronik humanoid with dexterous hand",
+   "quality": 5,
+   "notes": "Other official GR2 clips: https://www.youtube.com/watch?v=9MNLEAzA59o (Intelligent whole-body control; thumbnail video-yt-9MNLEAzA59o.jpg), CiTPDm7PKW0 (multi-robot collaboration), O9-650iHAls (advanced dexterity).",
+   "verified": true
+  },
+  {
+   "id": "vla-yt-gemini-robotics-2-wholebody",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "video",
+   "file": "video-yt-9MNLEAzA59o.jpg",
+   "headline": "Intelligent whole-body control with Gemini Robotics 2",
+   "outlet": "YouTube (Google DeepMind)",
+   "date": "2026-07-30",
+   "url": "https://www.youtube.com/watch?v=9MNLEAzA59o",
+   "caption": "Official DeepMind clip; thumbnail: humanoid handling a bin, 'Intelligent Whole-Body Control'",
+   "quality": 4,
+   "verified": true
+  },
+  {
+   "id": "vla-yt-figure-helix25",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "video",
+   "file": "video-yt-lJpM_2a1zrE.jpg",
+   "headline": "Helix 2.5 30-Home Generalization",
+   "outlet": "YouTube (Figure)",
+   "date": "2026-09-17",
+   "url": "https://www.youtube.com/watch?v=lJpM_2a1zrE",
+   "caption": "Official Figure video; thumbnail: Figure 03 humanoid making a bed, 'HELIX 2.5 30-HOME GENERALIZATION'",
+   "quality": 5,
+   "notes": "Companion official upload: https://www.youtube.com/watch?v=HuYXf_3TNW8 ('30 Home Generalization').",
+   "verified": true
+  },
+  {
+   "id": "vla-yt-pi05",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "video",
+   "file": "video-yt-Zn8yMaepzVk.jpg",
+   "headline": "π0.5: a VLA with Open-World Generalization",
+   "outlet": "YouTube (Physical Intelligence)",
+   "date": "2025-04-22",
+   "url": "https://www.youtube.com/watch?v=Zn8yMaepzVk",
+   "caption": "Official PI video; thumbnail: mobile manipulator in an unseen home kitchen, 'autonomous, unseen, 10x speed'",
+   "quality": 4,
+   "verified": true
+  },
+  {
+   "id": "vla-yt-pistar06-laundry",
+   "slide_topic": "Vision-Language-Action Models",
+   "type": "video",
+   "file": "video-yt-ZpHapIlJnMo.jpg",
+   "headline": "π*0.6: two and a half hours of unseen folding laundry",
+   "outlet": "YouTube (Physical Intelligence)",
+   "date": "2025-11",
+   "url": "https://www.youtube.com/watch?v=ZpHapIlJnMo",
+   "caption": "Official PI video; thumbnail: bimanual robot folding laundry, 'autonomous, 1x'",
+   "quality": 4,
+   "notes": "Upload date not confirmed (π*0.6 released Nov 2025).",
+   "verified": true
+  }
+ ],
+ "datasets": [
+  {
+   "id": "indeed-swe-postings",
+   "title": "Indeed job postings index: Software Development vs. all jobs (Feb 1, 2020 = 100)",
+   "unit": "index (monthly average of daily values)",
+   "labels": [
+    "2020-02",
+    "2020-07",
+    "2021-01",
+    "2021-07",
+    "2022-01",
+    "2022-07",
+    "2023-01",
+    "2023-07",
+    "2024-01",
+    "2024-07",
+    "2025-01",
+    "2025-07",
+    "2026-01",
+    "2026-07",
+    "2026-09"
+   ],
+   "series": [
+    {
+     "name": "Software development postings",
+     "values": [
+      99.7,
+      67.3,
+      93.4,
+      145.7,
+      216.1,
+      202.1,
+      126.3,
+      83.5,
+      71.8,
+      70.1,
+      67.5,
+      65.5,
+      68.1,
+      75.0,
+      76.5
+     ]
+    },
+    {
+     "name": "All Indeed postings",
+     "values": [
+      100.0,
+      78.3,
+      97.7,
+      137.4,
+      156.5,
+      155.7,
+      140.6,
+      129.4,
+      119.4,
+      113.7,
+      110.2,
+      104.3,
+      103.3,
+      101.6,
+      102.9
+     ]
+    }
+   ],
+   "source": "Indeed Hiring Lab via FRED (series IHLIDXUSTPSOFTDEVE and IHLIDXUS), data through 2026-09-18",
+   "url": "https://fred.stlouisfed.org/series/IHLIDXUSTPSOFTDEVE",
+   "notes": "Peak Feb 2022 = 229.2; trough Mar 2025 = 62.3. Honest caveat: SWE postings have partially recovered in 2026 (76.5) but remain ~23% below pre-pandemic while overall postings are ~3% above."
+  },
+  {
+   "id": "google-ai-code-share",
+   "title": "Share of new code at Google that is AI-generated",
+   "unit": "%",
+   "labels": [
+    "2024",
+    "Fall 2025",
+    "Apr 2026"
+   ],
+   "series": [
+    {
+     "name": "Google",
+     "values": [
+      25,
+      50,
+      75
+     ]
+    }
+   ],
+   "source": "Semafor (Apr 24 2026) / Google Cloud Next '26 blog by Sundar Pichai",
+   "url": "https://www.semafor.com/article/04/24/2026/google-ceo-says-75-of-companys-new-code-is-ai-generated",
+   "notes": "Comparable claims: Microsoft 20-30% (Nadella, Apr 2025 — no 2026 update found); Anthropic '90 plus percent' (CFO Krishna Rao, May 2026); Snap 65% (Semafor)."
+  },
+  {
+   "id": "swe-bench-verified-frontier",
+   "title": "SWE-bench Verified: best score at time of release (Epoch AI runs)",
+   "unit": "% resolved",
+   "labels": [
+    "2024-11",
+    "2025-02",
+    "2025-04",
+    "2025-05",
+    "2025-08",
+    "2025-11",
+    "2026-02",
+    "2026-04"
+   ],
+   "series": [
+    {
+     "name": "Frontier",
+     "values": [
+      31.0,
+      61.0,
+      62.3,
+      70.7,
+      73.6,
+      76.7,
+      78.7,
+      83.5
+     ]
+    }
+   ],
+   "model_names": [
+    "GPT-4o (Nov 24)",
+    "Claude 3.7 Sonnet",
+    "o3",
+    "Claude Opus 4",
+    "GPT-5 (high)",
+    "Claude Opus 4.5",
+    "Claude Opus 4.6",
+    "Claude Opus 4.7 (max)"
+   ],
+   "source": "Epoch AI Benchmarking Hub (CC-BY), retrieved 2026-10-04",
+   "url": "https://epoch.ai/benchmarks",
+   "notes": "Epoch's own runs end at June 2026. Vendor-reported scores are higher (secondary sources cite Claude Opus 5 at 96.0% and GPT-5.6 Sol at 96.2% by Aug 2026 — not independently verified here)."
+  },
+  {
+   "id": "metr-time-horizon-frontier",
+   "title": "METR 50% task-completion time horizon of frontier models",
+   "unit": "minutes of human-expert task length",
+   "labels": [
+    "2023-03",
+    "2024-06",
+    "2024-09",
+    "2024-12",
+    "2025-02",
+    "2025-04",
+    "2025-08",
+    "2025-11",
+    "2025-12",
+    "2026-02",
+    "2026-04"
+   ],
+   "series": [
+    {
+     "name": "Frontier",
+     "values": [
+      5.4,
+      11.4,
+      20.3,
+      38.8,
+      60.4,
+      119.7,
+      203.0,
+      293.0,
+      352.2,
+      718.8,
+      1044.8
+     ]
+    }
+   ],
+   "model_names": [
+    "GPT-4",
+    "Claude 3.5 Sonnet",
+    "o1-preview",
+    "o1",
+    "Claude 3.7 Sonnet",
+    "o3",
+    "GPT-5",
+    "Claude Opus 4.5",
+    "GPT-5.2",
+    "Claude Opus 4.6",
+    "Claude Mythos Preview (early)"
+   ],
+   "source": "METR via Epoch AI data hub (metr_time_horizons_external.csv)",
+   "url": "https://metr.org/blog/2025-03-19-measuring-ai-ability-to-complete-long-tasks/",
+   "notes": "Wide CIs at the top (Mythos 509-3304 min). May overlap with the capabilities group."
+  },
+  {
+   "id": "cadbench-v3-overall",
+   "title": "Parametric CAD Bench V3 — overall score (100 FreeCAD tasks)",
+   "unit": "score 0-100",
+   "labels": [
+    "Claude Opus 5.5 (Claude Code)",
+    "Claude Opus 5.5 (mini-swe-agent)",
+    "GPT-6 Astra (Codex)",
+    "Claude Fable 5.1 (Claude Code)",
+    "Claude Opus 5 (Claude Code)",
+    "Gemini 3.8 Flash (mini-swe-agent)",
+    "Grok 4.7 (Grok Build)",
+    "GPT-5.6 Sol (Codex)",
+    "Grok 4.6 (Grok Build)",
+    "Gemini 3.8 Flash (Antigravity)",
+    "Kimi K3 (mini-swe-agent)",
+    "Muse Spark 1.3 (mini-swe-agent)",
+    "GPT-5.6 Terra (Codex)"
+   ],
+   "series": [
+    {
+     "name": "Overall",
+     "values": [
+      61.03,
+      57.96,
+      56.87,
+      56.75,
+      50.86,
+      36.19,
+      34.82,
+      29.98,
+      27.72,
+      27.56,
+      24.92,
+      20.92,
+      17.24
+     ]
+    },
+    {
+     "name": "Image-to-CAD",
+     "values": [
+      84.66,
+      81.77,
+      69.7,
+      72.71,
+      62.64,
+      31.1,
+      26.91,
+      29.2,
+      13.0,
+      17.45,
+      15.36,
+      8.84,
+      8.18
+     ]
+    }
+   ],
+   "source": "cadbench.ai (gNucleus.ai), snapshot 2026-09-24",
+   "url": "https://cadbench.ai/"
+  },
+  {
+   "id": "signalfire-hires-by-experience-q4-2025",
+   "title": "Hires in previous 12 months by experience level, Q4 2025 (Index FY2019 = 100)",
+   "unit": "index",
+   "labels": [
+    "≤1 year",
+    "1-2 years",
+    "2-5 years",
+    "5-10 years",
+    "10+ years"
+   ],
+   "series": [
+    {
+     "name": "Tech Majors",
+     "values": [
+      35,
+      50,
+      74,
+      81,
+      96
+     ]
+    },
+    {
+     "name": "Early-stage startups",
+     "values": [
+      24,
+      31,
+      65,
+      87,
+      144
+     ]
+    }
+   ],
+   "source": "SignalFire State of Tech Talent Report 2026 (end-point labels on charts)",
+   "url": "https://www.signalfire.com/blog/signalfire-state-of-talent-report-2026",
+   "notes": "Also labeled: new grads = 8% of Tech Major hires and 3% of startup hires in 2025."
+  },
+  {
+   "id": "neurips-submissions",
+   "title": "NeurIPS main-track submissions by year",
+   "unit": "submissions",
+   "labels": [
+    "2013",
+    "2014",
+    "2015",
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026"
+   ],
+   "series": [
+    {
+     "name": "Submissions",
+     "values": [
+      1420,
+      1678,
+      1838,
+      2406,
+      3240,
+      4856,
+      6743,
+      9467,
+      9122,
+      10411,
+      12343,
+      15671,
+      21575,
+      30709
+     ]
+    },
+    {
+     "name": "Accepted",
+     "values": [
+      360,
+      414,
+      403,
+      568,
+      678,
+      1011,
+      1428,
+      1898,
+      2334,
+      2672,
+      3218,
+      4043,
+      5290,
+      7900
+     ]
+    }
+   ],
+   "source": "CS Conf Stats (csconfstats.xoveexu.com) and OpenAccept (openaccept.org) — both agree on every value",
+   "url": "https://csconfstats.xoveexu.com/conferences/neurips/",
+   "notes": "Aggregator sites compiled from proceedings; NeurIPS has not been loaded directly for the 2026 figure. 2026 = +42% YoY, ~3x 2022."
+  },
+  {
+   "id": "iclr-submissions",
+   "title": "ICLR submissions by year",
+   "unit": "submissions",
+   "labels": [
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026"
+   ],
+   "series": [
+    {
+     "name": "Submissions",
+     "values": [
+      507,
+      981,
+      1591,
+      2594,
+      2997,
+      3391,
+      4938,
+      7304,
+      11565,
+      19525
+     ]
+    }
+   ],
+   "source": "CS Conf Stats; 2026 value confirmed by official ICLR 2026 retrospective (19,525 valid submissions)",
+   "url": "https://csconfstats.xoveexu.com/conferences/iclr/",
+   "notes": "Official ICLR blog: 76,139 reviews by 18,054 reviewers; acceptance 27.4%."
+  },
+  {
+   "id": "arxiv-september-submissions",
+   "title": "arXiv submissions in the month of September",
+   "unit": "submissions",
+   "labels": [
+    "Sep 2016",
+    "Sep 2024",
+    "Sep 2026"
+   ],
+   "series": [
+    {
+     "name": "Submissions",
+     "values": [
+      9869,
+      20569,
+      40363
+     ]
+    }
+   ],
+   "source": "arXiv blog, Oct 1 2026",
+   "url": "https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy/"
+  },
+  {
+   "id": "tavus-video-turing",
+   "title": "Share of participants who believed their video-call partner was a real person",
+   "unit": "%",
+   "labels": [
+    "Previous Tavus system (Phoenix-4.5+Sparrow-2+Raven-1)",
+    "Griffin-Lite"
+   ],
+   "series": [
+    {
+     "name": "Judged human",
+     "values": [
+      2.4,
+      48.0
+     ]
+    }
+   ],
+   "source": "Tavus Griffin announcement (company-run study: 1/41 vs 26/54 participants, one-minute calls)",
+   "url": "https://www.tavus.io/griffin"
+  },
+  {
+   "id": "df26-human-accuracy",
+   "title": "Human accuracy at spotting AI-generated videos (fake subset)",
+   "unit": "% correct",
+   "labels": [
+    "Celeb-DF v3",
+    "DSv2",
+    "DF26 (2026 generators)"
+   ],
+   "series": [
+    {
+     "name": "Accuracy on fakes",
+     "values": [
+      74.5,
+      69.8,
+      52.6
+     ]
+    }
+   ],
+   "source": "DF26 paper, arXiv 2609.07369 (232 labeling sessions); 50% = chance",
+   "url": "https://arxiv.org/html/2609.07369v1",
+   "notes": "Accuracy on real videos ~73-76% on all three datasets."
+  }
+ ],
+ "facts": [
+  {
+   "claim": "arXiv now caps every author at 2 submissions per month (and 3 active at once) — a stopgap against a flood of AI-written papers.",
+   "source": "arXiv blog",
+   "url": "https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy/",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "arXiv received a record 40,363 submissions in September 2026 — double September 2024 (20,569) and 4x September 2016 (9,869).",
+   "source": "arXiv blog",
+   "url": "https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy/",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "cs.AI submissions to arXiv grew more than 6x in two years.",
+   "source": "arXiv blog",
+   "url": "https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy/",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "21% of ICLR 2026 peer reviews were fully AI-generated; more than half showed signs of AI use.",
+   "source": "Nature (Pangram analysis)",
+   "url": "https://www.nature.com/articles/d41586-025-03506-6",
+   "date": "2025-11-27"
+  },
+  {
+   "claim": "ICLR 2026: 19,525 submissions, 76,139 reviews — submissions up ~6x since 2022 (3,391).",
+   "source": "ICLR blog / CS Conf Stats",
+   "url": "https://blog.iclr.cc/2026/03/31/a-retrospective-on-the-iclr-2026-review-process/",
+   "date": "2026-03-31"
+  },
+  {
+   "claim": "NeurIPS 2026 received 30,709 main-track submissions — triple 2022 (10,411).",
+   "source": "CS Conf Stats / OpenAccept",
+   "url": "https://openaccept.org/c/ai/neurips/",
+   "date": "2026-10-03"
+  },
+  {
+   "claim": "NeurIPS 2026 desk-rejected 18.4% of position-paper submissions (178 of 969) as AI-generated.",
+   "source": "NeurIPS blog",
+   "url": "https://blog.neurips.cc/2026/06/02/ai-generated-papers-in-the-neurips-2026-position-paper-track/",
+   "date": "2026-06-02"
+  },
+  {
+   "claim": "75% of all new code at Google is now AI-generated, up from 50% last fall and 25% in 2024.",
+   "source": "Google blog (Sundar Pichai) / Semafor",
+   "url": "https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/cloud-next-2026-sundar-pichai/",
+   "date": "2026-04-22"
+  },
+  {
+   "claim": "Anthropic's CFO: \"90 plus percent of our code is actually written by Claude Code.\"",
+   "source": "Business Insider",
+   "url": "https://www.aol.com/articles/anthropic-cfo-says-ai-now-224949000.html",
+   "date": "2026-05-13"
+  },
+  {
+   "claim": "New-grad hiring is down ~65% at Big Tech and ~76% at early-stage startups vs 2019; new grads are just 8% of Big Tech hires.",
+   "source": "SignalFire State of Tech Talent 2026",
+   "url": "https://www.signalfire.com/blog/signalfire-state-of-talent-report-2026",
+   "date": "2026-06-22"
+  },
+  {
+   "claim": "Employment of software developers aged 22-25 has fallen ~20% from its late-2022 peak while developers over 35 kept growing.",
+   "source": "Stanford Digital Economy Lab, Canaries (Aug 2026) / Semafor",
+   "url": "https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf",
+   "date": "2026-08-12"
+  },
+  {
+   "claim": "AI was cited in 101,743 announced U.S. job cuts in H1 2026 (~23% of all) — already nearly double the 54,836 AI-attributed cuts in all of 2025.",
+   "source": "HR Dive / Challenger, Gray & Christmas",
+   "url": "https://www.hrdive.com/news/tech-layoffs-surge-83percent-h1-2026-challenger-ai-disruption/824320/",
+   "date": "2026-07-02"
+  },
+  {
+   "claim": "Block cut more than 4,000 jobs (~40% of staff), citing AI; Jack Dorsey said most companies will do the same.",
+   "source": "CNN Business",
+   "url": "https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey",
+   "date": "2026-02-26"
+  },
+  {
+   "claim": "Undergraduate computer science enrollment fell 8.4% in spring 2026; graduate CS enrollment fell 14%.",
+   "source": "Fortune (National Student Clearinghouse data)",
+   "url": "https://fortune.com/2026/08/06/computer-science-enrollment-plunging-ai-college-campus/",
+   "date": "2026-08-06"
+  },
+  {
+   "claim": "Software-development job postings on Indeed sit ~23% below Feb 2020 (index 76.5), down ~67% from the 2022 peak.",
+   "source": "Indeed Hiring Lab via FRED",
+   "url": "https://fred.stlouisfed.org/series/IHLIDXUSTPSOFTDEVE",
+   "date": "2026-09-18"
+  },
+  {
+   "claim": "On CAD Bench V3, Claude Opus 5.5 scores 84.66 on turning engineering drawings into parametric CAD models; Opus 5 -> 5.5 gained 22 points on that task in one release.",
+   "source": "cadbench.ai",
+   "url": "https://cadbench.ai/cad-bench/news/cad-bench-v3-opus-5-5",
+   "date": "2026-09-24"
+  },
+  {
+   "claim": "Tavus Griffin: 48% (26 of 54) of people on a one-minute live video call believed it was a real human; Tavus's previous system fooled 2.4% (1 of 41).",
+   "source": "Tavus (company study, not independently verified)",
+   "url": "https://www.tavus.io/griffin",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "Griffin \"generates every pixel in every frame in real time from one reference image\" — face, hands, chair, shadows and background.",
+   "source": "Tavus",
+   "url": "https://www.tavus.io/griffin",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "Humans spot AI-generated videos from 2026 generators only 52.6% of the time — essentially a coin flip.",
+   "source": "DF26, arXiv 2609.07369",
+   "url": "https://arxiv.org/abs/2609.07369",
+   "date": "2026-09-07"
+  },
+  {
+   "claim": "85% of adults say they can no longer tell real from AI-generated content, up from 66% in 2025.",
+   "source": "Help Net Security / Malwarebytes survey",
+   "url": "https://www.helpnetsecurity.com/2026/06/11/ai-scams-deepfakes-survey/",
+   "date": "2026-06-11"
+  },
+  {
+   "claim": "π0 is literally a pre-trained VLM (SigLIP 400M + Gemma 2.6B) plus a 300M-parameter 'action expert'.",
+   "source": "π0 paper, arXiv 2410.24164",
+   "url": "https://arxiv.org/abs/2410.24164",
+   "date": "2024-10-31"
+  },
+  {
+   "claim": "Figure's Helix 2.5 worked in 30 homes it had never seen, with zero data collected there; pretraining on human video raised zero-shot success from 9% to 56%.",
+   "source": "Figure AI",
+   "url": "https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization",
+   "date": "2026-09-17"
+  },
+  {
+   "claim": "Physical Intelligence's π0.7 ran an unfamiliar air fryer after seeing only two related training episodes.",
+   "source": "TechCrunch",
+   "url": "https://techcrunch.com/2026/04/16/physical-intelligence-a-hot-robotics-startup-says-its-new-robot-brain-can-figure-out-tasks-it-was-never-taught/",
+   "date": "2026-04-16"
+  },
+  {
+   "claim": "NVIDIA says GR00T N2 succeeds at new tasks in new environments more than twice as often as leading VLAs; Jensen Huang: \"Physical AI has arrived.\"",
+   "source": "NVIDIA Newsroom",
+   "url": "https://nvidianews.nvidia.com/news/nvidia-and-global-robotics-leaders-take-physical-ai-to-the-real-world",
+   "date": "2026-03-16"
+  },
+  {
+   "claim": "Gemini Robotics 2 (a VLA) transfers to an entirely new robot body with a few hours of adaptation and typically fewer than 200 examples.",
+   "source": "Google DeepMind",
+   "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+   "date": "2026-07-30"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "Microsoft % of code written by AI (2026 update)",
+   "searched": "WebSearch 'Microsoft percentage of code written by AI 2026 Nadella' — only the April 2025 '20%, 30%' LlamaCon remark found; no 2026 figure."
+  },
+  {
+   "outline_item": "CNBC '20,000 job cuts at Meta, Microsoft raise concern that AI-driven labor crisis is here' (2026-04-24)",
+   "searched": "Headline seen in search results/CNBC X post but cnbc.com returned 'Access Denied' to the browser, so not loaded; not included as an item. URL: https://www.cnbc.com/2026/04/24/20k-job-cuts-at-meta-microsoft-raise-concern-of-ai-labor-crisis-.html"
+  },
+  {
+   "outline_item": "Science: 'ArXiv preprint server clamps down on AI slop'",
+   "searched": "science.org returned Cloudflare challenge (403) and archive.org failed; not verified."
+  },
+  {
+   "outline_item": "Hiring-freeze headline (e.g. Salesforce 'no new engineers' FY2026)",
+   "searched": "Found only secondary/2025 coverage (The Register Feb 2025, Fortune May 2026 on Benioff); not loaded/screenshotted before search budget ran out."
+  },
+  {
+   "outline_item": "Tesla Optimus / 1X NEO 2026 headlines",
+   "searched": "Bloomberg 'Tesla Aims to Sell Optimus Robots to Public Next Year, Musk Says' (2026-01-22) is paywalled (403); 1X NEO: no verified customer deliveries found as of mid-2026. Not included."
+  },
+  {
+   "outline_item": "Official Tavus-owned YouTube video of Griffin",
+   "searched": "youtube.com/@tavus is an unrelated channel; used BusinessWire-distributed video VcQcRRHJTyc and tavus.io demo stills instead. X announcement https://x.com/tavus/status/2105704169009246248 not loaded."
+  },
+  {
+   "outline_item": "Physical Intelligence blog pages (pi.website)",
+   "searched": "Vercel security checkpoint blocks fetch/screenshot; used arXiv papers and PI's official YouTube channel instead."
+  },
+  {
+   "outline_item": "ICLR 2027 submission count",
+   "searched": "Deadline was Sept 25 2026; no published count found (ICLR 2027 introduced a 20-papers-per-author cap)."
+  },
+  {
+   "outline_item": "SWE-bench Verified scores for Opus 5 / 5.5 / GPT-6 Astra from an independent source",
+   "searched": "Epoch's runs stop at June 2026 (best 83.5%, Opus 4.7). Vendor numbers (~96%) only on secondary aggregator sites; not used in dataset."
+  }
+ ]
+}

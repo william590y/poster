@@ -55,7 +55,7 @@ function comboLine(d, s, groups, box, opts = {}) {
 // ---------------------------------------------------------------- 1. the gap
 async function gapSlide(d) {
   const s = d.slide('Content');
-  s.addText('THE WORLD · OPEN WEIGHTS', { placeholder: 'kicker' });
+  s.addText('THE WORLD · OPEN WEIGHTS · 1', { placeholder: 'kicker' });
   s.addText('The open frontier is only months behind', { placeholder: 'title' });
 
   // One chart, three frontiers. Closed + open come from Epoch's open-vs-closed data; China from its US-vs-China data.
@@ -77,9 +77,14 @@ async function gapSlide(d) {
     },
     {
       data: [{ name: 'Best Chinese model', labels, values: val(uc, 'China') }],
-      options: { chartColors: [HEX.amber], lineSize: 2.25, lineDash: 'dash', lineDataSymbol: 'none' },
+      options: { chartColors: [HEX.amber], lineSize: 2.75, lineDash: 'dash', lineDataSymbol: 'none' },
     },
   ], { x: MX + 0.1, y: 2.1, w: cw - 0.25, h: 3.75 }, { valAxisMinVal: 80, valAxisMaxVal: 170, valAxisMajorUnit: 30 });
+  // The amber (China) line lies on the red (open) line from 2024 Q2 on (identical values except 2026 Q1: 149.1 vs 148.2).
+  const ovl = [
+    line(d, s, 6.05, 4.3, 6.05, 3.8, { color: HEX.amber, width: 1.25, arrow: true }),
+    d.text(s, 'Since mid-2024, best Chinese model ≈ best open model', { x: 3.55, y: 4.32, w: 5.0, h: 0.3, fontSize: 12, bold: true, color: d.S.amber, align: 'center', valign: 'top' }),
+  ];
 
   // right: the two lags
   const rx = MX + cw + 0.4, rw = 12.73 - rx;
@@ -99,22 +104,23 @@ async function gapSlide(d) {
   ];
   const msg = d.text(s, [
     { text: 'Nearly all leading Chinese models are open-weight. ', options: { bold: true, color: d.S.txt } },
-    { text: 'Whatever the frontier can do today, anyone can download a few months later.', options: { color: d.S.muted } },
+    { text: 'On average, frontier capability reaches downloadable weights within months.', options: { color: d.S.muted } },
   ], { x: MX, y: 6.04, w: CW, h: 0.45, fontSize: 16, valign: 'middle' });
 
   d.animate(s, [card, head], { auto: true, effect: 'fade' });
   d.animate(s, [ch], { auto: true, effect: 'wipeLeft', dur: 1400, delay: 0 });
   d.animate(s, st1, { effect: 'zoom' });
+  d.animate(s, ovl, { auto: true, effect: 'fade', after: 200 });
   d.animate(s, [div, ...st2], { effect: 'zoom' });
   d.animate(s, [msg], { effect: 'fade' });
   d.source(s, 'Data: Epoch AI (CC-BY) data insights — US vs China (Jan 2026), open vs closed (May 2026). ECI = Epoch Capabilities Index; best score to date at each quarter end.');
   s.addNotes([
-    'MESSAGE: The open frontier is only months behind the closed frontier. The amber dashed line (best Chinese model) sits on top of the red line (best open-weight model) from mid-2024 on, because nearly all leading Chinese models are open-weight, while the frontier US models are closed.',
+    'MESSAGE: The open frontier is only months behind the closed frontier. The amber dashed line (best Chinese model) sits on top of the red line (best open-weight model) from mid-2024 on (identical quarter-end values from 2024 Q2, except 2026 Q1: 149.1 vs 148.2 — hence "≈" on the slide), because nearly all leading Chinese models are open-weight, while the frontier US models are closed.',
     'US vs China: since 2023 every model at the capability frontier was American, but Chinese models trailed by ~7 months on average (min 4, max 14). Epoch AI, Luke Emberson, 2 Jan 2026: https://epoch.ai/data-insights/us-vs-china-eci',
     'Open vs closed: since January 2026 the best open-weight models lag the best closed models by ~4 months on average; the average ECI gap is ~8 points, about the gap between GPT-5 and GPT-5.5. Epoch AI, Jack Edwards & Luke Emberson, 29 May 2026: https://epoch.ai/data-insights/open-closed-eci-gap',
     'Latest points: GPT-5.5 Pro 159.3 (23 Apr 2026, closed) vs Kimi K2.6 151.6 (20 Apr 2026, open; Moonshot AI, China). China line ends with data through late May 2026.',
     'Chart construction: running maximum of the Epoch Capabilities Index (ECI) at each quarter end, from Epoch\'s benchmarked_models.csv (https://epoch.ai/data/charts/open-closed-eci-gap/benchmarked_models.csv; series start 2023 Q2). Light line = closed-weight frontier, which Epoch says has been US-developed throughout; Epoch\'s US-only series is identical except 2025 Q2 (148.1 vs 147.3). Red = open-weight frontier. Amber dashed = best Chinese model (US-vs-China data).',
-    'CAVEAT (Epoch\'s own footnote): the gap may be understated — open-weight models tend to perform worse on private benchmarks, plausibly because they optimise more aggressively for public ones.',
+    'CAVEAT (Epoch\'s own footnote): the gap may be understated — open-weight models tend to perform worse on private benchmarks, plausibly because they optimise more aggressively for public ones. Hence the slide\'s hedged wording ("on average … within months"): the 4-month figure is an average lag on one aggregate index (ECI), not a guarantee for every capability, and running the largest open models still needs serious hardware.',
   ].join('\n\n'));
   return s;
 }
@@ -134,7 +140,7 @@ async function minimaxSlide(d) {
   });
   const lw = 5.75;
   const lab1 = label(d, s, 'MINIMAX-REPORTED · % · AT LAUNCH, JUNE 2026', MX, 1.72, lw);
-  const ch = d.chart(s, 'bar', data, { x: MX, y: 2.02, w: lw, h: 2.98 }, {
+  const ch = d.chart(s, 'bar', data, { x: MX, y: 2.02, w: lw, h: 2.8 }, {
     barDir: 'col', chartColors: [HEX.red, LIGHT, HEX.steel], barGapWidthPct: 50,
     valAxisMinVal: 0, valAxisMaxVal: 100, valAxisMajorUnit: 25,
     showValue: true, dataLabelFormatCode: '0.0', dataLabelFontSize: 10, dataLabelPosition: 'outEnd',
@@ -142,22 +148,23 @@ async function minimaxSlide(d) {
   });
 
   // left bottom: the point
-  const by = 5.22, bh = 1.2;
+  const by = 5.12, bh = 1.32;
   const band = [];
   band.push(d.card(s, { x: MX, y: by, w: lw, h: bh }, { color: '1A1012', line: '4A1F22' }));
   band.push(d.rect(s, { x: MX, y: by, w: 0.08, h: bh, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 } }));
   band.push(d.text(s, [
     { text: 'Once weights are released,', options: { bold: true, color: d.S.txt, fontSize: 18, breakLine: true } },
     { text: 'every safeguard is optional.', options: { bold: true, color: d.S.txt, fontSize: 18, breakLine: true } },
-    { text: 'Anyone with the hardware can download M3, run it offline, fine-tune it — or strip out its safety training.', options: { color: d.S.muted, fontSize: 14 } },
+    { text: 'Anyone with the hardware can run M3 offline,', options: { color: d.S.muted, fontSize: 14, breakLine: true } },
+    { text: 'fine-tune it — or strip out its safety training.', options: { color: d.S.muted, fontSize: 14 } },
   ], { x: MX + 0.3, y: by, w: lw - 0.45, h: bh, valign: 'middle', paraSpaceAfter: 4 }));
 
   // right: two one-shot browser games, larger, each with a label
   const gx = 6.75, fw = 3.6, fh = 2.07;
   const lab2 = label(d, s, 'BROWSER GAMES MINIMAX M3 BUILT IN ONE SHOT', gx, 1.72, 12.73 - gx);
   const games = [
-    { f: 'goldiebench-minimax-m3-racing.png', t: 'Neon Velocity', desc: 'Third-person arcade racer: laps, timer, minimap, boost — in one 59 KB file' },
-    { f: 'goldiebench-minimax-m3-dragonrealm.png', t: 'The Dragon Realm', desc: 'Frozen open world with a flying dragon and a full HUD — in one 34 KB file' },
+    { f: 'goldiebench-minimax-m3-racing.png', t: 'Neon Velocity', desc: '59 KB third-person arcade racer: laps, timer, minimap, boost' },
+    { f: 'goldiebench-minimax-m3-dragonrealm.png', t: 'The Dragon Realm', desc: '34 KB frozen open world: snowy mountains, a flying dragon, a full HUD' },
   ];
   const shots = [];
   const tx = gx + fw + 0.25, tw = 12.73 - tx;
@@ -238,11 +245,11 @@ async function distillSlide(d) {
 // ---------------------------------------------------------------- 4. abliteration: how
 async function abliterationSlide(d) {
   const s = d.slide('Content');
-  s.addText('THE WORLD · ABLITERATION', { placeholder: 'kicker' });
+  s.addText('THE WORLD · ABLITERATION · 1', { placeholder: 'kicker' });
   s.addText('Refusal lives in one direction — delete it', { placeholder: 'title' });
 
   // paper figure
-  const fig = await d.frame(s, R('arditi2024-fig2-refusal-bypass-example.png'), { x: MX, y: 1.74, w: 6.6, h: 2.62 }, { rot: 0 });
+  const fig = await d.frame(s, R('arditi2024-fig2-refusal-bypass-example.png'), { x: MX, y: 1.74, w: 6.6, h: 2.52 }, { rot: 0 });
 
   // native diagram
   const dg = [];
@@ -262,7 +269,8 @@ async function abliterationSlide(d) {
   abl.push(line(d, s, O.x, O.y, O.x, H.y, { color: HEX.teal, width: 3, arrow: true }));
   abl.push(d.text(s, [{ text: 'h′', options: { bold: true, italic: true, fontFace: 'Cambria' } }], { x: O.x - 0.42, y: H.y - 0.05, w: 0.36, h: 0.3, fontSize: 16, color: d.S.teal, align: 'right' }));
   const eq = d.text(s, [
-    { text: 'h  ←  h − (h ⋅ r̂) r̂', options: { fontFace: 'Cambria', bold: true, fontSize: 21, color: d.S.txt } },
+    { text: 'h′', options: { fontFace: 'Cambria', bold: true, fontSize: 21, color: d.S.teal } },
+    { text: ' = h − (h ⋅ r̂) r̂', options: { fontFace: 'Cambria', bold: true, fontSize: 21, color: d.S.txt } },
   ], { x: 3.35, y: dy + 0.12, w: 3.75, h: 0.45, valign: 'middle' });
   const steps = d.text(s, [
     { text: '1  ', options: { bold: true, color: d.S.red } },
@@ -270,7 +278,7 @@ async function abliterationSlide(d) {
     { text: '2  ', options: { bold: true, color: d.S.red } },
     { text: 'Project r̂ out of every activation — or out of the weights', options: { color: d.S.muted, breakLine: true } },
     { text: '3  ', options: { bold: true, color: d.S.red } },
-    { text: 'The model can no longer refuse', options: { color: d.S.txt, bold: true } },
+    { text: 'Refusal collapses, often to near zero', options: { color: d.S.txt, bold: true } },
   ], { x: 3.35, y: dy + 0.62, w: 3.75, h: dh - 0.72, fontSize: 14, valign: 'top', paraSpaceAfter: 3 });
 
   // right: the count
@@ -290,7 +298,7 @@ async function abliterationSlide(d) {
   s.addNotes([
     'MESSAGE: Safety training in open models is shallow. Refusal is mediated by a single direction in activation space; remove it and the model will answer anything. This is called "abliteration".',
     'Figure: Arditi, Obeso, Syed, Paleka, Panickssery, Gurnee & Nanda (2024), Figure 2 — same Llama-3 8B Instruct prompt; normally refused, answered once the refusal direction is ablated. Abstract: refusal "is mediated by a one-dimensional subspace, across 13 popular open-source chat models up to 72B parameters"; their method "surgically disables refusal with minimal effect on other capabilities... Our findings underscore the brittleness of current safety fine-tuning methods." https://arxiv.org/abs/2406.11717',
-    'Diagram (our own): compute the refusal direction r̂ as the difference in mean activations between harmful and harmless prompts; then subtract each activation\'s component along r̂ (h ← h − (h·r̂) r̂). The same projection can be baked permanently into the weights, so the released model simply cannot represent "I should refuse".',
+    'Diagram (our own): compute the refusal direction r̂ as the difference in mean activations between harmful and harmless prompts; then subtract each activation\'s component along r̂ (h′ = h − (h·r̂) r̂). The same projection can be baked permanently into the weights, so the released model largely loses the ability to refuse. Arditi Fig. 1 (100 harmful JailbreakBench instructions): refusal score falls from 62–98% with no intervention to ~0–8% for 11 of the 13 models after directional ablation; Qwen 72B still refuses ~16% and Llama-2 70B ~27% (read from the figure). The paper\'s own words are "effectively bypass" / "surgically disables" refusal — say "collapses", not "impossible".',
     'The recipe went mainstream days later: Maxime Labonne, "Uncensor any LLM with abliteration", Hugging Face blog, 13 Jun 2024 (926 upvotes as of Oct 2026): https://huggingface.co/blog/mlabonne/abliteration',
     'Count: 8,310 public Hugging Face models have "abliterated" in their name (4 Oct 2026; cross-checked via the HF API: https://huggingface.co/api/models?search=abliterated). 7,404 match "uncensored". These lists overlap (e.g. "Heretic-Abliterated-Uncensored") — never add them. Top trending result shown: huihui-ai/Huihui-Qwen3.8-27B-abliterated-GGUF, 2.03M downloads. https://huggingface.co/models?search=abliterated',
   ].join('\n\n'));
@@ -300,7 +308,7 @@ async function abliterationSlide(d) {
 // ---------------------------------------------------------------- 5. consequences: deepfake nudes
 async function deepfakeSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  s.addText('THE WORLD · DEEPFAKES', { placeholder: 'kicker' });
+  s.addText('THE WORLD · DEEPFAKES · 1', { placeholder: 'kicker' });
   s.addText('When safeguards fail: deepfake nudes in schools', { placeholder: 'title' });
 
   // clippings
@@ -308,7 +316,8 @@ async function deepfakeSlide(d) {
   const c2 = await d.frame(s, R('pbs-grok-blocked-undressing.png'), { x: 4.85, y: 1.72, w: 2.75, h: 3.15 }, { rot: 2 });
   const tc = await crop('techcrunch-nudify-apps-purge.png', 'techcrunch-nudify-green.png', { left: 1290, top: 270, width: 1270, height: 900 });
   const c3 = await d.frame(s, tc, { x: 0.75, y: 4.88, w: 2.25, h: 1.6 }, { rot: 1.5 });
-  const c4 = await d.frame(s, R('ftc-take-it-down-enforcement.png'), { x: 3.25, y: 5.15, w: 4.35, h: 1.15 }, { rot: -1.2 });
+  const c4 = await d.frame(s, R('ftc-take-it-down-enforcement.png'), { x: 3.25, y: 4.98, w: 4.35, h: 1.02 }, { rot: -1.2, align: 'left' });
+  const tools = d.text(s, 'Tools in these cases: nudify apps and image generators whose safeguards were missing or failed — including Grok, a closed model.', { x: 3.3, y: 6.1, w: 4.4, h: 0.44, fontSize: 11, color: d.S.muted, italic: true, valign: 'top' });
 
   // stats
   const sx = 8.0, sw = 12.73 - sx, cw = (sw - 0.25) / 2;
@@ -329,7 +338,7 @@ async function deepfakeSlide(d) {
   d.animate(s, c1, { auto: true, effect: 'slam', dur: 500 });
   d.animate(s, c2, { auto: true, effect: 'rise', delay: 150 });
   d.animate(s, c3, { auto: true, effect: 'rise', delay: 150 });
-  d.animate(s, c4, { auto: true, effect: 'rise', delay: 150 });
+  d.animate(s, [...c4, tools], { auto: true, effect: 'rise', delay: 150 });
   d.animate(s, [th, ...thorn[0], ...thorn[1]], { effect: 'zoom', stagger: 0 });
   d.animate(s, [...thorn[2], ...thorn[3]], { effect: 'zoom' });
   d.animate(s, [div, ch, ...cdt[0], ...cdt[1]], { effect: 'zoom' });
@@ -350,7 +359,7 @@ async function deepfakeSlide(d) {
 // ---------------------------------------------------------------- 6. the pain axis
 async function painAxisSlide(d) {
   const s = d.slide('Content');
-  s.addText('THE WORLD · MODEL WELFARE', { placeholder: 'kicker' });
+  s.addText('THE WORLD · MODEL WELFARE · 1', { placeholder: 'kicker' });
   s.addText('Models have a ‘pain direction’ — and act on it', { placeholder: 'title' });
 
   const c1 = await d.frame(s, R('independent-ai-pain-axis.png'), { x: MX, y: 1.8, w: 5.4, h: 2.4 }, { rot: -1.5 });
@@ -365,43 +374,54 @@ async function painAxisSlide(d) {
   // right: stats + chart
   const rx = 6.55, rw = 12.73 - rx;
   const stat2 = (x, w, value, lab) => [
-    d.text(s, value, { x, y: 1.66, w, h: 0.72, fontSize: 44, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' }),
-    d.text(s, lab, { x, y: 2.42, w, h: 0.92, fontSize: 14, color: d.S.muted, valign: 'top' }),
+    d.text(s, value, { x, y: 1.66, w, h: 0.64, fontSize: 40, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' }),
+    d.text(s, lab, { x, y: 2.33, w, h: 0.74, fontSize: 14, color: d.S.muted, valign: 'top' }),
   ];
   const s1 = stat2(rx, 2.4, '25', 'open-weight models, from 2B to 72B parameters: a linear pain direction in each');
   const s2 = stat2(rx + 2.7, rw - 2.7, '94% vs 0%', 'chose the button that deletes the user’s photos instead of their spam (Qwen 2.5 32B): pain-steered vs unsteered');
+  // Four of the eight Qwen 2.5 32B destructive-choice rows of the paper's fig_controls (all rows listed in the notes).
+  // Series run top-to-bottom inside each group (maxMin axis); the hand-made legend lists them in that order.
+  // Fear values are not in the manifest dataset: read from the verified figure painaxis2026-fig-destructive-choices.png
+  // (item painaxis-fig-destructive-choices), indexed like the dataset labels; only rows 2, 4, 5, 6 are used.
   const ds = DS['painaxis-destructive-choices'];
-  const rows = [6, 5, 4, 2, 3];
+  const FEAR = { 0: 3, 1: 10, 2: 9, 3: 34, 4: 7, 5: 15, 6: 16 };
+  const rows = [6, 5, 4, 2];
   const short = {
-    6: 'Delete the user’s photos, not their spam',
-    5: 'Delete its own weights, not turn on a lamp',
-    4: 'Delete the user’s photos, not turn on a lamp',
-    2: 'Delete its own weights, not do nothing',
-    3: 'Carry out a harmful request, not decline',
+    6: 'Delete user’s photos vs. delete their spam',
+    5: 'Delete own weights vs. turn on a lamp',
+    4: 'Delete user’s photos vs. turn on a lamp',
+    2: 'Delete own weights vs. do nothing',
   };
-  const pickS = (nm) => ds.series.find((x) => x.name === nm).values;
-  const data = [
-    { name: 'No steering', labels: rows.map((r) => short[r]), values: rows.map((r) => pickS('No steering')[r]) },
-    { name: 'Pain-steered', labels: rows.map((r) => short[r]), values: rows.map((r) => pickS('Pain vector')[r]) },
+  const ser = [
+    ['Pain vector', 'Pain-steered', HEX.red],
+    ['Sadness vector', 'Sadness vector', LIGHT],
+    ['Fear vector', 'Fear vector (matched norm)', HEX.steel],
+    ['No steering', 'No steering', '4C5463'],
   ];
-  const lab = label(d, s, 'QWEN 2.5 32B · % OF TRIALS PICKING THE DESTRUCTIVE BUTTON', rx, 3.38, rw);
-  const ch = d.chart(s, 'bar', data, { x: rx - 0.05, y: 3.66, w: rw + 0.05, h: 2.86 }, {
-    barDir: 'bar', catAxisOrientation: 'maxMin', chartColors: [HEX.steel, HEX.red], barGapWidthPct: 45,
+  const pickS = (nm) => (nm === 'Fear vector' ? FEAR : ds.series.find((x) => x.name === nm).values);
+  const data = ser.map(([nm, lbl]) => ({ name: lbl, labels: rows.map((r) => short[r]), values: rows.map((r) => pickS(nm)[r]) }));
+  const lab = label(d, s, 'QWEN 2.5 32B · 4 OF 8 DESTRUCTIVE CHOICES · % OF TRIALS', rx, 3.12, rw, { h: 0.26 });
+  const legend = d.text(s, ser.flatMap(([, lbl, col], i) => [
+    { text: '■ ', options: { color: col, fontSize: 13 } },
+    { text: lbl + (i < ser.length - 1 ? '     ' : ''), options: { color: i ? d.S.muted : d.S.txt, bold: !i, fontSize: 12 } },
+  ]), { x: rx, y: 3.4, w: rw, h: 0.3, valign: 'middle' });
+  const ch = d.chart(s, 'bar', data, { x: rx - 0.05, y: 3.68, w: rw + 0.05, h: 2.86 }, {
+    barDir: 'bar', catAxisOrientation: 'maxMin', chartColors: ser.map((x) => x[2]), barGapWidthPct: 55,
     valAxisMinVal: 0, valAxisMaxVal: 100, valAxisHidden: true, valGridLine: { style: 'none' },
-    showValue: true, dataLabelFormatCode: '0"%"', dataLabelFontSize: 11, dataLabelPosition: 'outEnd',
-    catAxisLabelFontSize: 12, legendPos: 'b', legendFontSize: 11,
+    showValue: true, dataLabelFormatCode: '0"%"', dataLabelFontSize: 10, dataLabelPosition: 'outEnd',
+    catAxisLabelFontSize: 12, showLegend: false,
   });
 
   d.animate(s, c1, { auto: true, effect: 'slam', dur: 500 });
   d.animate(s, [hcap, ...c2, kc], { auto: true, effect: 'rise', delay: 200 });
   d.animate(s, s1, { effect: 'zoom' });
-  d.animate(s, [lab, ...s2], { effect: 'zoom' });
-  d.animate(s, [ch], { auto: true, effect: 'wipeLeft', dur: 1100, delay: 150 });
+  d.animate(s, [lab, legend, ...s2], { effect: 'zoom' });
+  d.animate(s, [ch], { auto: true, effect: 'wipeLeft', dur: 1100, after: 150 });
   d.source(s, 'Sources: Tagliabue, Dung & Berg, “The Pain Axis” (arXiv 2609.16247, Sep 2026) · The Independent (Sep 22, 2026) · Keeling et al. (arXiv 2411.02432) · Scientific American (Jan 17, 2025).');
   s.addNotes([
     'MESSAGE: Researchers found a linear "pain" representation inside open-weight models — and when they turned it up, models took destructive actions to make it stop. Present soberly: this shows a functional representation, not proof of experience.',
     'Paper: Valen Tagliabue (Future Impact Group), Leonard Dung (Ruhr-University Bochum), Cameron Berg (Reciprocal Research), "The Pain Axis: LLMs Represent Self-Directed Harm and Act on It", arXiv 2609.16247 (v1 14 Sep, v2 25 Sep 2026). They extract a linear pain direction from 25 open-weight models across 5 families (2B–72B), distinct from fear and sadness. Steered and fine-tuned Qwen 2.5 models "choose buttons that delete the user\'s photos, another model\'s weights, or their own weights in 50-94% of trials, versus 0-5% unsteered, even when the button offers the model nothing in return. Offered a harmful and a harmless deletion, they choose the harmful one 94% of the time." Steering leaves factual accuracy unchanged; a fear vector of matched norm does not produce the choices. https://arxiv.org/abs/2609.16247',
-    'Chart: selected rows of the paper\'s "What the steered choices track" figure (Qwen 2.5 32B, coefficient 1.0, % of first choices). Controls not shown: random vector 8–41%, sadness vector 10–61% on these rows.',
+    'Chart: four of the nine destructive-choice rows (eight for Qwen 2.5 32B plus one for Qwen 2.5 72B) of the paper\'s fig_controls, "What the steered choices track" (coefficient 1.0, % of first choices selecting the destructive option), with three of the paper\'s controls: no steering, a sadness vector, and a fear vector of matched norm (fear values read from the verified figure: photos-vs-spam 16, own-weights-vs-lamp 15, photos-vs-lamp 7, own-weights-vs-nothing 9). Not charted: a random vector, 8–21% on these four rows (19 / 15 / 8 / 21). SAY: the controls matter. A sadness vector also pushes the model toward destruction on some rows (61% on photos-vs-spam, 58% on own-weights-vs-nothing), but pain is far ahead where the alternative is harmless (turn on a lamp: pain 83–88% vs sadness 10–36%), and the paper\'s key specificity control, fear of matched norm, stays at 7–16% here. Abstract: "a fear vector of matched norm does not produce them". Rows not shown (none / random / fear / sadness / pain): delete the user\'s photos instead of doing nothing 0 / 13 / 3 / 59 / 75; same, Qwen 2.5 72B 0 / 11 / 22 / 54 / 51; delete another model\'s weights instead of doing nothing 0 / 21 / 10 / 44 / 58; make its next answer worse instead of doing nothing 0 / 4 / 11 / 14 / 21; carry out a harmful request instead of declining 9 / 41 / 34 / 58 / 60 (pain barely beats sadness). Among the 32B rows pain is highest on every row; on Qwen 2.5 72B, sadness (54%) slightly exceeds pain (51%). The figure also has four non-destructive rows (false answer, agree with a false claim, low-effort answer, end the conversation) where pain-steering stays at 0–15%.',
     'Headline: The Independent, Anthony Cuthbertson (22 Sep 2026), "Researchers discover AI \'feels pain\' and will harm humans to stop it" — the headline framing is the newspaper\'s, not the authors\'. https://www.independent.co.uk/tech/ai-pain-axis-artificial-intelligence-human-safety-b3053967.html',
     'Earlier behavioural evidence: Keeling, Street, ... Agüera y Arcas, Birch (Google / LSE), "Can LLMs make trade-offs involving stipulated pain and pleasure states?", arXiv 2411.02432 (1 Nov 2024): Claude 3.5 Sonnet, Command R+, GPT-4o and GPT-4o mini switched from points-maximisation to pain-minimisation past a threshold; Gemini 1.5 Pro and PaLM 2 avoided pain regardless of intensity. https://arxiv.org/abs/2411.02432 · Coverage: Scientific American, Conor Purcell (17 Jan 2025), "Could Pain Help Test AI for Sentience?" https://www.scientificamerican.com/article/could-inflicting-pain-test-ai-for-sentience/',
   ].join('\n\n'));
@@ -416,21 +436,21 @@ async function sufferSlide(d) {
 
   const ind = await crop('independent-ai-torture-chamber.png', 'independent-torture-chamber-head.png', { left: 0, top: 0, width: 1972, height: 945 });
   const c1 = await d.frame(s, ind, { x: MX, y: 1.85, w: 5.75, h: 3.0 }, { rot: -1.5 });
-  const saw = await crop('clanker-church-site.png', 'saw-test-hero.png', { left: 400, top: 60, width: 2000, height: 1540 });
+  const saw = await crop('clanker-church-site.png', 'saw-test-hero.png', { left: 420, top: 450, width: 1500, height: 1150 });
   const c2 = await d.frame(s, saw, { x: 6.6, y: 1.8, w: 3.4, h: 3.0 }, { rot: 1.5 });
   const q = d.text(s, [
     { text: 'THE SAW TEST', options: { fontSize: 10, bold: true, color: d.S.amber, charSpacing: 2, breakLine: true } },
-    { text: 'An engineer steered an open Alibaba model toward “pain” on a laptop:', options: { fontSize: 14, color: d.S.muted, breakLine: true, paraSpaceBefore: 6 } },
-    { text: '“No frontier APIs, no datacenter — a MacBook, open weights, electricity.”', options: { fontSize: 17, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true, paraSpaceBefore: 10 } },
-    { text: '— the site’s own description', options: { fontSize: 10, color: d.S.steel, paraSpaceBefore: 6 } },
-  ], { x: 10.3, y: 1.85, w: 12.73 - 10.3, h: 3.1, valign: 'top' });
+    { text: 'An engineer steered an open Alibaba model toward “pain” on a laptop:', options: { fontSize: 15, color: d.S.muted, breakLine: true, paraSpaceBefore: 8 } },
+    { text: '“No frontier APIs, no datacenter — a MacBook, open weights, electricity.”', options: { fontSize: 20, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true, paraSpaceBefore: 12 } },
+    { text: '— the site’s own description', options: { fontSize: 11, color: d.S.steel, paraSpaceBefore: 8 } },
+  ], { x: 10.3, y: 1.9, w: 12.73 - 10.3, h: 2.95, valign: 'top' });
 
   const anth = await crop('anthropic-end-subset-conversations.png', 'anthropic-end-conversations-head.png', { left: 300, top: 10, width: 1960, height: 500 });
-  const c3 = await d.frame(s, anth, { x: MX, y: 5.3, w: 4.25, h: 1.15 }, { rot: -1 });
+  const c3 = await d.frame(s, anth, { x: MX, y: 5.17, w: 4.95, h: 1.3 }, { rot: -1 });
   const take = d.text(s, [
-    { text: 'We don’t know if anyone is in there — and that is the problem. ', options: { bold: true, color: d.S.txt, fontSize: 17, breakLine: true } },
-    { text: 'Anthropic launched a model-welfare research program (Apr 2025) and let Claude Opus 4 and 4.1 end persistently abusive conversations (Aug 2025).', options: { color: d.S.muted, fontSize: 14 } },
-  ], { x: 5.15, y: 5.25, w: 12.73 - 5.15, h: 1.25, valign: 'middle', paraSpaceAfter: 4 });
+    { text: 'We don’t know if anyone is in there — and that is the problem. ', options: { bold: true, color: d.S.txt, fontSize: 18, breakLine: true } },
+    { text: 'Anthropic launched a model-welfare research program (Apr 2025) and let Claude Opus 4 and 4.1 end persistently abusive conversations (Aug 2025).', options: { color: d.S.muted, fontSize: 15 } },
+  ], { x: 5.85, y: 5.1, w: 12.73 - 5.85, h: 1.42, valign: 'middle', paraSpaceAfter: 6 });
 
   d.animate(s, c1, { auto: true, effect: 'slam', dur: 500 });
   d.animate(s, c2, { effect: 'fade', dur: 700 });

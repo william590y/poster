@@ -17,12 +17,6 @@ async function crop(file, name, { l, t, w, h }) {
   return out;
 }
 
-// d.animate + support for the `after` gap on chained auto groups.
-function anim(d, s, names, opts = {}) {
-  d.animate(s, names, opts);
-  if (opts.after) { const g = d.anim[s._num].groups; g[g.length - 1].after = opts.after; }
-}
-
 function head(s, kicker, title) {
   s.addText(kicker, { placeholder: 'kicker' });
   s.addText(title, { placeholder: 'title' });
@@ -78,10 +72,21 @@ async function neuripsClip() {
   return out;
 }
 
+// π0 Fig. 3 without the camera-photo row: rectangular crop to y=478 (keeps the q_t / noise labels on the right),
+// then the top sliver of the photos (left of x=620, below y=442) is painted white.
+async function pi0Crop() {
+  fs.mkdirSync(OUT, { recursive: true });
+  const out = path.join(OUT, 'vla-pi0-fig3-blocks.png');
+  const base = await sharp(R('vla-pi0-overview-fig3.png')).extract({ left: 372, top: 0, width: 1282, height: 478 }).png().toBuffer();
+  const white = await sharp({ create: { width: 620, height: 36, channels: 3, background: '#FFFFFF' } }).png().toBuffer();
+  await sharp(base).composite([{ input: white, left: 0, top: 442 }]).png().toFile(out);
+  return out;
+}
+
 // ========== 1. Engineering: CAD Bench ==========
 async function cadSlide(d) {
   const s = d.slide('Content');
-  head(s, 'THE ACCELERATION · ENGINEERING', 'AI agents now do real engineering design');
+  head(s, 'THE ACCELERATION · ENGINEERING', 'AI agents are learning real engineering design');
 
   const lb = await crop('cadbench-v3-leaderboard.png', 'cad-leaderboard-top5.png', { l: 0, t: 0, w: 1820, h: 562 });
   const shot = await frameW(d, s, lb, CX0, 1.8, 7.35);
@@ -90,7 +95,7 @@ async function cadSlide(d) {
   // three stats under the leaderboard
   const sy = shotBottom + 0.5, sw = 2.25, sg = 0.3;
   const st1 = stat(d, s, { x: CX0, y: sy, w: sw, value: '61 / 100', valueSize: 44, labelSize: 14, labelH: 0.95, label: 'Best overall score on 100 real FreeCAD design tasks (failures score zero)' });
-  const st2 = stat(d, s, { x: CX0 + sw + sg, y: sy, w: sw, value: '84.66', valueSize: 44, labelSize: 14, labelH: 0.95, label: 'Image-to-CAD: engineering drawing → working parametric 3-D model' });
+  const st2 = stat(d, s, { x: CX0 + sw + sg, y: sy, w: sw, value: '84.66', valueSize: 44, labelSize: 14, labelH: 0.95, label: 'Opus 5.5 on image-to-CAD (0–100): drawing → parametric 3-D model' });
   const st3 = stat(d, s, { x: CX0 + 2 * (sw + sg), y: sy, w: sw, value: '+22 pts', valueSize: 44, labelSize: 14, labelH: 0.95, label: 'Jump on that task in one model update (Opus 5 → Opus 5.5)' });
 
   // native chart: overall scores, all entries (top on top)
@@ -114,9 +119,9 @@ async function cadSlide(d) {
     { text: ': Opus 5, the previous model.', options: { color: d.S.muted } },
   ], { x: cx, y: 6.08, w: cw, h: 0.42, fontSize: 11, valign: 'top' });
 
-  anim(d, s, shot, { auto: true, effect: 'rise', dur: 600 });
-  anim(d, s, [lab, ch, { name: key, effect: 'fade', delay: 700, dur: 500 }], { auto: true, effect: 'wipeLeft', dur: 900, after: 150 });
-  anim(d, s, [...st1, ...st2, ...st3], { effect: 'rise', stagger: 0, dur: 450 });
+  d.animate(s, shot, { auto: true, effect: 'rise', dur: 600 });
+  d.animate(s, [lab, ch, { name: key, effect: 'fade', delay: 700, dur: 500 }], { auto: true, effect: 'wipeLeft', dur: 900, after: 150 });
+  d.animate(s, [...st1, ...st2, ...st3], { effect: 'rise', stagger: 0, dur: 450 });
   // stagger the three stats as one click
   const g = d.anim[s._num].groups[2].effects;
   g.forEach((e, i) => { e.delay = Math.floor(i / 2) * 300; });
@@ -124,7 +129,7 @@ async function cadSlide(d) {
   d.source(s, 'Sources: Parametric CAD Bench V3 leaderboard, cadbench.ai (gNucleus.ai), snapshot Sep 24, 2026 · CAD Bench V3 release note “Claude Opus 5.5 Takes the Lead” (Sep 24, 2026).');
   s.addNotes([
     'CAD — computer-aided design — is the core tool of mechanical engineering. Parametric CAD Bench V3 is 100 complex FreeCAD tasks: 30 create-from-text, 30 create-and-edit, 40 create-from-an-engineering-drawing. Failures count as zero.',
-    'Claude Opus 5.5 running in Claude Code is #1 at 61.03 overall; GPT-6 Astra (Codex) 56.87; Claude Fable 5.1 56.75. On image-to-CAD — turning an engineering drawing into a parametric model — Opus 5.5 scores 84.66, up from 62.64 for Opus 5 (+22.02 points) in one release, with cost down 43%.',
+    'Claude Opus 5.5 running in Claude Code is #1 at 61.03 overall; GPT-6 Astra (Codex) 56.87; Claude Fable 5.1 56.75. All scores are mean rewards on a 0–100 scale, so the best agent is still far from perfect. On image-to-CAD — turning an engineering drawing into a parametric model — Opus 5.5 scores 84.66, up from 62.64 for Opus 5 (+22.02 points) in one release, with cost down 43%.',
     'On the older V1 suite, the best score rose from 0.832 (May) to 0.906 (Aug 2026) in 91 days — Opus 5 was the first result to break 0.9.',
     'Caveats: the benchmark authors note that the confidence intervals of the top four rows overlap. An independent academic benchmark (CADBench, MIT, arXiv 2605.10873, May 2026) is more cautious: methods "remain far from reliable CAD program reconstruction", especially on high-complexity parts.',
     'URLs: https://cadbench.ai/ · https://cadbench.ai/cad-bench/news/cad-bench-v3-opus-5-5 · https://arxiv.org/abs/2605.10873',
@@ -182,11 +187,11 @@ async function juniorSlide(d) {
     { text: ', while all postings are ~3% above.', options: { color: d.S.muted } },
   ], { x: rx, y: sy + 0.08, w: rw, h: 1.25, fontSize: 14, valign: 'top' });
 
-  anim(d, s, [l1, ...can, ...annot], { auto: true, effect: 'rise', dur: 600 });
-  anim(d, s, [l2, ch], { auto: true, effect: 'wipeLeft', dur: 1000, after: 100 });
-  anim(d, s, [...a, ...b, ...c], { effect: 'rise', dur: 450 });
+  d.animate(s, [l1, ...can, ...annot], { auto: true, effect: 'rise', dur: 600 });
+  d.animate(s, [l2, ch], { auto: true, effect: 'wipeLeft', dur: 1000, after: 100 });
+  d.animate(s, [...a, ...b, ...c], { effect: 'rise', dur: 450 });
   d.anim[s._num].groups[2].effects.forEach((e, i) => { e.delay = Math.floor(i / 2) * 250; });
-  anim(d, s, [cav], { effect: 'fade' });
+  d.animate(s, [cav], { effect: 'fade' });
 
   d.source(s, 'Sources: Brynjolfsson et al., “Canaries in the Coal Mine?” (Stanford, Aug 2026, Fig. B.3) · SignalFire State of Tech Talent 2026 · Indeed Hiring Lab via FRED (to Sep 18, 2026).');
   s.addNotes([
@@ -201,7 +206,7 @@ async function juniorSlide(d) {
 // ========== 3. Code share + layoffs collage ==========
 async function codeSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'THE ACCELERATION · ENGINEERING · 3', 'AI writes the code now — and layoffs follow');
+  head(s, 'THE ACCELERATION · ENGINEERING · 3', 'AI writes the code — firms cite it for job cuts');
 
   // left: Google code-share chart + AI layoffs stat
   const lw = 3.4;
@@ -227,12 +232,12 @@ async function codeSlide(d) {
   const c4 = await frameW(d, s, cnn, 4.5, 4.35, 4.6, { rot: 1.2 });
   const c5 = await frameW(d, s, cbs, 7.75, 5.3, 4.2, { rot: -1.5 });
 
-  anim(d, s, [lab, ch], { auto: true, effect: 'wipeDown', dur: 800 });
-  anim(d, s, [...c1, ...c2, ...c3], { auto: true, effect: 'rise', dur: 450, after: 200 });
+  d.animate(s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 800 });
+  d.animate(s, [...c1, ...c2, ...c3], { auto: true, effect: 'rise', dur: 450, after: 200 });
   d.anim[s._num].groups[1].effects.forEach((e, i) => { e.delay = Math.floor(i / 2) * 220; });
-  anim(d, s, c4, { effect: 'slam', dur: 350 });
-  anim(d, s, c5, { auto: true, effect: 'slam', dur: 350, after: 250 });
-  anim(d, s, st, { effect: 'rise' });
+  d.animate(s, c4, { effect: 'slam', dur: 350 });
+  d.animate(s, c5, { auto: true, effect: 'slam', dur: 350, after: 250 });
+  d.animate(s, st, { effect: 'rise' });
 
   d.source(s, 'Sources: Google blog / Semafor (Apr 2026) · Business Insider (May 2026) · Fortune (Jan 2026) · CNN (Feb 2026) · CBS News (May 2026) · HR Dive / Challenger, Gray & Christmas (Jul 2026).');
   s.addNotes([
@@ -248,21 +253,35 @@ async function codeSlide(d) {
 // ========== 4. Academia: arXiv rate limit ==========
 async function arxivSlide(d) {
   const s = d.slide('Content');
-  head(s, 'THE ACCELERATION · ACADEMIA', 'arXiv now caps authors at two papers a month');
+  head(s, 'THE ACCELERATION · ACADEMIA', 'arXiv now caps submitters at two papers a month');
 
   const chartImg = R('acad-arxiv-monthly-submissions-sep2026.png');
   const cw = 6.95;
   const chH = await hFor(chartImg, cw);
   const chY = 1.8 + (4.7 - chH) / 2;
   const chart = await d.frame(s, chartImg, { x: CX0, y: chY, w: cw, h: chH });
-  // callout over the empty upper-left of the chart
-  const g = chart.geom;
+  // callout over the empty upper-left of the chart (image px 170–1430 × 165–740 hold no bars):
+  // left = the total-submissions number, right = arXiv's own cs.AI chart from the same post
+  const g = chart.geom, ppx = g.w / 1966;
+  const kx = g.x + 170 * ppx, ky = g.y + 160 * ppx, kw = 4.4, kh = 2.02;
   const co = [];
-  co.push(d.card(s, { x: g.x + 1.05, y: g.y + 0.75, w: 3.25, h: 1.42 }, { color: '10141B', line: HEX.red }));
+  co.push(d.card(s, { x: kx, y: ky, w: kw, h: kh }, { color: '10141B', line: HEX.red }));
   co.push(d.text(s, [
     { text: '40,363', options: { fontSize: 36, bold: true, color: d.S.red, fontFace: 'Arial', breakLine: true } },
     { text: 'submissions in Sept 2026 — 2× Sept 2024, 4× Sept 2016', options: { fontSize: 14, color: d.S.txt } },
-  ], { x: g.x + 1.22, y: g.y + 0.82, w: 2.95, h: 1.28, valign: 'middle' }));
+  ], { x: kx + 0.18, y: ky + 0.14, w: 2.0, h: kh - 0.28, valign: 'middle' }));
+  const dv = d.name('div');
+  s.addShape(d.pres.shapes.LINE, { x: kx + 2.36, y: ky + 0.22, w: 0, h: kh - 0.44, line: { color: HEX.line, width: 1 }, objectName: dv });
+  co.push(dv);
+  const csx = kx + 2.52, csw = kw - 2.52 - 0.16;
+  co.push(capLabel(d, s, 'CS.AI ALONE · MONTHLY', { x: csx, y: ky + 0.08, w: csw + 0.1, charSpacing: 0 }));
+  const csai = await crop('acad-arxiv-csai-growth.png', 'acad-arxiv-csai-plot.png', { l: 0, t: 165, w: 2999, h: 2056 });
+  const csf = await frameW(d, s, csai, csx, ky + 0.4, csw, { pad: 0.04, shadow: false });
+  co.push(...csf);
+  co.push(d.text(s, [
+    { text: '>6× ', options: { bold: true, color: d.S.red } },
+    { text: 'in two years', options: { color: d.S.txt } },
+  ], { x: csx, y: ky + 0.4 + await hFor(csai, csw, 0.04) + 0.05, w: csw + 0.1, h: 0.28, fontSize: 13, valign: 'middle' }));
 
   // right column: official post + headline + quote
   const rx = 7.95, rw = CX1 - rx;
@@ -275,16 +294,17 @@ async function arxivSlide(d) {
     { text: '— arXiv, announcing the cap (Oct 1, 2026)', options: { fontSize: 11, color: d.S.muted } },
   ], { x: rx, y: 5.0, w: rw, h: 1.45, valign: 'top' });
 
-  anim(d, s, chart, { auto: true, effect: 'wipeLeft', dur: 1200 });
-  anim(d, s, co, { effect: 'zoom', dur: 400 });
-  anim(d, s, c1, { effect: 'rise' });
-  anim(d, s, c2, { auto: true, effect: 'slam', dur: 350, after: 300 });
-  anim(d, s, [q], { effect: 'fade' });
+  d.animate(s, chart, { auto: true, effect: 'wipeLeft', dur: 1200 });
+  d.animate(s, co, { effect: 'zoom', dur: 400 });
+  d.animate(s, c1, { effect: 'rise' });
+  d.animate(s, c2, { auto: true, effect: 'slam', dur: 350, after: 300 });
+  d.animate(s, [q], { effect: 'fade' });
 
   d.source(s, 'Sources: arXiv blog, “Fair Moderation, Equitable Access, and AI: arXiv’s Updated Rate Limit Policy” (Kat Boboris, Oct 1, 2026) incl. monthly-submissions chart · Cybernews (Oct 2026).');
   s.addNotes([
-    'From October 1, 2026 arXiv limits every submitter to two submissions per calendar month and three active submissions at any time — across ALL categories; rejected submissions count. arXiv calls it a stopgap while it works out best practice for authors using advanced AI tools.',
-    'Numbers from the official post: September 2016: 9,869 submissions · September 2024: 20,569 · September 2026: 40,363 — doubled in two years, generating almost 9,000 support tickets. cs.AI submissions grew more than 6x in two years. Total submissions as of Oct 1 2026: 3,192,873.',
+    'From October 1, 2026 arXiv limits every submitter (the cap applies to the submitter, i.e. the account that uploads the paper) to two submissions per calendar month and three active submissions at any time — across ALL categories; rejected submissions count. arXiv calls it a stopgap while it works out best practice for authors using advanced AI tools.',
+    'Numbers from the official post: September 2016: 9,869 submissions · September 2024: 20,569 · September 2026: 40,363 — doubled in two years, generating almost 9,000 support tickets. Total submissions as of Oct 1 2026: 3,192,873.',
+    'The small inset is arXiv’s own chart from the same post, “cs.AI submissions per month, 2024 - 2026”: from roughly 300 a month (Jan 2024) to roughly 3,300 (Aug 2026); the post says cs.AI submissions grew more than 6x in two years. Compare arXiv as a whole: 2x in two years. The AI category itself is where the flood is fastest.',
     'Rationale quote (verbatim): “There is also a marked increase in dense, AI-written papers. AI tools are making it easy for authors to flood arXiv and other repositories with these low-value papers.” They also cite “thin papers of narrow scope” and “salami” papers.',
     'Context: in Oct 2025 arXiv CS already stopped accepting un-reviewed review articles and position papers because of an “unmanageable influx”; in May 2026 it announced one-year bans for authors who submit unchecked LLM output (hallucinated references, leftover prompts) — 404 Media.',
     'Cybernews headline date is approximate (~Oct 1–2, 2026).',
@@ -330,12 +350,12 @@ async function reviewSlide(d) {
   const c2 = await frameW(d, s, neu, rx + 0.05, 5.1, 3.3, { rot: 1.2 });
   const st = stat(d, s, { x: rx + 3.65, y: 5.02, w: rw - 3.65, value: '18.4%', valueSize: 38, labelSize: 14, labelH: 0.9, label: 'of NeurIPS 2026 position papers desk-rejected as AI-generated' });
 
-  anim(d, s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 1100 });
-  anim(d, s, note, { auto: true, effect: 'fade', after: 100 });
-  anim(d, s, c1, { effect: 'slam', dur: 350 });
-  anim(d, s, [line], { auto: true, effect: 'fade', after: 200 });
-  anim(d, s, c2, { effect: 'rise' });
-  anim(d, s, st, { auto: true, effect: 'rise', after: 250 });
+  d.animate(s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 1100 });
+  d.animate(s, note, { auto: true, effect: 'fade', after: 100 });
+  d.animate(s, c1, { effect: 'slam', dur: 350 });
+  d.animate(s, [line], { auto: true, effect: 'fade', after: 200 });
+  d.animate(s, c2, { effect: 'rise' });
+  d.animate(s, st, { auto: true, effect: 'rise', after: 250 });
 
   d.source(s, 'Sources: CS Conf Stats / OpenAccept; ICLR 2026 retrospective (Mar 31, 2026) · Nature, Naddaf (Nov 27, 2025; Pangram analysis) · NeurIPS blog (Jun 2, 2026).');
   s.addNotes([
@@ -351,7 +371,7 @@ async function reviewSlide(d) {
 // ========== 6. Video Turing test: Tavus Griffin ==========
 async function tavusSlide(d) {
   const s = d.slide('Content', { transition: 'zoom' });
-  head(s, 'THE ACCELERATION · VIDEO', '48% believed this AI was a real person');
+  head(s, 'THE ACCELERATION · VIDEO', 'Tavus: 48% thought its AI was a real person');
 
   // official Tavus upload (openweights manifest: video-tavus-griffin)
   const vw = 6.45;
@@ -369,28 +389,30 @@ async function tavusSlide(d) {
 
   const rx = 7.75, rw = CX1 - rx;
   const page = await crop('video-tavus-griffin-page.jpg', 'video-tavus-page-hero.jpg', { l: 214, t: 365, w: 2092, h: 1395 });
-  const sw = rw - 0.3;
+  const sw = rw - 0.4;
   const shot = await frameW(d, s, page, rx + (rw - sw) / 2, 1.8, sw);
   const shotBottom = 1.8 + await hFor(page, sw);
   // two-bar comparison drawn with native shapes (exact label placement)
   const bars = [];
   const rowsT = [['Previous Tavus system', 2.4, HEX.steel], ['Griffin-Lite', 48.0, HEX.red]];
-  const bx = rx + 2.05, perPct = 2.0 / 48, by0 = shotBottom + 0.32;
+  const bx = rx + 2.05, perPct = 2.0 / 48, by0 = shotBottom + 0.26;
   rowsT.forEach(([name, v, col], i) => {
-    const yy = by0 + i * 0.42;
+    const yy = by0 + i * 0.4;
     bars.push(d.text(s, name, { x: rx, y: yy, w: 1.95, h: 0.32, fontSize: 12, color: d.S.muted, align: 'right', valign: 'middle' }));
     const b = d.name('bar');
     s.addShape(d.pres.shapes.RECTANGLE, { x: bx, y: yy + 0.02, w: v * perPct, h: 0.28, fill: { color: col }, line: { color: col, width: 0 }, objectName: b });
     bars.push(b);
     bars.push(d.text(s, `${v.toFixed(1)}%`, { x: bx + v * perPct + 0.08, y: yy, w: 0.8, h: 0.32, fontSize: 14, bold: true, color: i ? d.S.red : d.S.txt, valign: 'middle' }));
   });
-  const cavY = by0 + 0.42 + 0.32 + 0.16;
+  const cavY = by0 + 0.4 + 0.32 + 0.12;
   const cav = d.text(s, 'Company-run study (26 of 54 vs 1 of 41, one-minute calls) — not independently verified.',
-    { x: rx, y: cavY, w: rw, h: 6.55 - cavY, fontSize: 13, color: d.S.amber, valign: 'top' });
+    { x: rx, y: cavY, w: rw, h: 6.55 - cavY, fontSize: 14, color: d.S.amber, valign: 'top' });
 
-  anim(d, s, [cap], { auto: true, effect: 'fade', delay: 300 });
-  anim(d, s, shot, { effect: 'rise' });
-  anim(d, s, [...bars, cav], { effect: 'wipeLeft', dur: 800 });
+  // the company-run caveat arrives with the numbers, on slide entry — never a click later
+  d.animate(s, [cap], { auto: true, effect: 'fade', delay: 300 });
+  d.animate(s, shot, { auto: true, effect: 'rise', after: 200 });
+  d.animate(s, bars, { auto: true, effect: 'wipeLeft', dur: 800, after: 100 });
+  d.animate(s, [cav], { auto: true, effect: 'fade', dur: 400, after: 0 });
 
   d.source(s, 'Sources: Tavus, “The First Human Interaction Model” — tavus.io/griffin (Oct 1, 2026) · Tavus, “Introducing Griffin” (official YouTube video and description, Oct 1, 2026).');
   s.addNotes([
@@ -407,7 +429,7 @@ async function tavusSlide(d) {
 async function realSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
   head(s, 'THE ACCELERATION · VIDEO · 2', 'Which one is real?');
-  const hint = d.text(s, [{ text: 'Each row: one real frame, two AI-generated', options: { breakLine: true } }, { text: '(Google Veo 3.1 · Kling 3.0). Vote now.' }],
+  const hint = d.text(s, [{ text: 'Each row: one real frame, two AI-generated from a text', options: { breakLine: true } }, { text: 'description of it (Google Veo 3.1 · Kling 3.0). Vote now.' }],
     { x: 7.1, y: 0.84, w: CX1 - 7.1, h: 0.54, fontSize: 14, color: d.S.muted, align: 'right', valign: 'middle' });
 
   const rows = [
@@ -458,16 +480,16 @@ async function realSlide(d) {
     }));
   ov.push(d.text(s, [{ text: 'Earlier deepfake test sets vs DF26 (2026 generators).', options: { breakLine: true } }, { text: '50% = chance.' }], { x: ox + 4.15, y: oy + oh - 0.64, w: ow - 4.45, h: 0.42, fontSize: 11, color: d.S.muted, italic: true, valign: 'top' }));
 
-  anim(d, s, [hint], { auto: true, effect: 'fade' });
-  anim(d, s, base, { auto: true, effect: 'fade', dur: 600, after: 100 });
-  anim(d, s, reveals[0], { effect: 'zoom', dur: 350 });
-  anim(d, s, reveals[1], { effect: 'zoom', dur: 350 });
-  anim(d, s, ov, { effect: 'zoom', dur: 450 });
+  d.animate(s, [hint], { auto: true, effect: 'fade' });
+  d.animate(s, base, { auto: true, effect: 'fade', dur: 600, after: 100 });
+  d.animate(s, reveals[0], { effect: 'zoom', dur: 350 });
+  d.animate(s, reveals[1], { effect: 'zoom', dur: 350 });
+  d.animate(s, ov, { effect: 'zoom', dur: 450 });
 
   d.source(s, 'Source: Shykula et al., “DF26: We Cannot Tell Fake From Real Anymore”, arXiv 2609.07369 (Sep 2026), Fig. 1 frames and human study (232 labeling sessions).');
   s.addNotes([
     'Interactive: let the audience vote on each row before clicking. Click 1 reveals row 1 (B is real), click 2 reveals row 2 (F is real), click 3 shows the human-accuracy result.',
-    'Answers: Row 1 — A = Veo 3.1 (AI), B = REAL, C = Kling 3.0 (AI). Row 2 — D = Kling 3.0 (AI), E = Veo 3.1 (AI), F = REAL. The fakes are image-to-video generations seeded from the real clip; these are last frames from DF26 Fig. 1.',
+    'Answers: Row 1 — A = Veo 3.1 (AI), B = REAL, C = Kling 3.0 (AI). Row 2 — D = Kling 3.0 (AI), E = Veo 3.1 (AI), F = REAL. The fakes are text-to-video generations (Veo 3.1, Kling 3.0) from a prompt describing the real clip (DF26: “generated from semantic prompts derived from the frames of the corresponding real video”; the four commercial systems were run in text-to-video mode only), so they show a different but matched speaker and setting; these are last frames from DF26 Fig. 1.',
     'DF26 (CTU Prague et al.): “Human performance in detecting AI-generated videos, as well as state-of-the-art deepfake detectors, is close to random chance.” Human accuracy on fake videos: Celeb-DF v3 74.5%, DSv2 69.8%, DF26 52.6% — barely above chance. Accuracy on real videos was ~73–76% on all three. 232 labeling sessions.',
     'Note: these are still frames; in the study participants watched full videos. Related: a Malwarebytes survey (Help Net Security, Jun 2026) found 85% of adults say they can no longer tell real from AI-generated content (self-reported).',
     'URL: https://arxiv.org/abs/2609.07369 · https://arxiv.org/html/2609.07369v1',
@@ -486,7 +508,7 @@ async function vlaWallSlide(d) {
     [R('vla-deepmind-gr2-blog.png'), 5.55, 1.85, 4.15, 1.5],
     [R('vla-figure-helix25.png'), 10.0, 1.95, 2.7, -2],
     [R('vla-bnnbloomberg-robot-brain.png'), 5.4, 3.25, 3.95, -1.5],
-    [R('vla-robotreport-gr2.png'), 9.75, 3.0, 2.95, 2],
+    [R('vla-robotreport-gr2.png'), 9.75, 2.88, 2.95, 2],
     [nvidia, 0.75, 4.1, 4.3, 1.5],
     [R('vla-mittr-humanoid-gig.png'), 5.6, 4.95, 4.1, 1],
   ];
@@ -498,16 +520,19 @@ async function vlaWallSlide(d) {
     ['2', 'related episodes to run an unfamiliar air fryer (π0.7)'],
   ];
   const facts = [];
-  const fx = 10.0, vw = 0.86;
-  facts.push(capLabel(d, s, 'GENERALIZATION', { x: fx, y: 3.9, w: CX1 - fx, color: d.S.red }));
+  const fx = 10.0, vw = 0.8, tw = CX1 - fx - vw - 0.06;
+  facts.push(capLabel(d, s, 'GENERALIZATION', { x: fx, y: 3.72, w: CX1 - fx, color: d.S.red }));
+  const rowH = [0.5, 0.74, 0.74];
+  let fy = 4.04;
   factRows.forEach(([v, t], i) => {
-    const y = 4.26 + i * 0.76;
-    facts.push(d.text(s, v, { x: fx, y, w: vw, h: 0.6, fontSize: 24, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'top' }));
-    facts.push(d.text(s, t, { x: fx + vw + 0.06, y: y + 0.02, w: CX1 - fx - vw - 0.06, h: 0.7, fontSize: 13, color: d.S.muted, valign: 'top' }));
+    facts.push(d.text(s, v, { x: fx, y: fy - 0.02, w: vw, h: 0.42, fontSize: 24, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'top' }));
+    facts.push(d.text(s, t, { x: fx + vw + 0.06, y: fy, w: tw, h: rowH[i], fontSize: 14, color: d.S.muted, valign: 'top' }));
+    fy += rowH[i] + 0.09;
   });
+  facts.push(d.text(s, 'Company-reported results', { x: fx, y: fy - 0.04, w: CX1 - fx, h: 0.24, fontSize: 11, italic: true, color: d.S.amber, valign: 'top' }));
 
-  fr.forEach((f, i) => anim(d, s, f, { auto: true, effect: i % 3 === 0 ? 'slam' : 'rise', dur: i % 3 === 0 ? 330 : 420, after: i ? 90 : 0 }));
-  anim(d, s, facts, { effect: 'fade' });
+  fr.forEach((f, i) => d.animate(s, f, { auto: true, effect: i % 3 === 0 ? 'slam' : 'rise', dur: i % 3 === 0 ? 330 : 420, after: i ? 90 : 0 }));
+  d.animate(s, facts, { effect: 'fade' });
   d.anim[s._num].groups[d.anim[s._num].groups.length - 1].effects.forEach((e, i) => { e.delay = i === 0 ? 0 : Math.floor((i - 1) / 2) * 250; });
 
   d.source(s, 'Sources: TechCrunch (Apr 2026) · Google DeepMind (Jul 2026) · Figure AI (Sep 2026) · Reuters via BNN Bloomberg (Sep 2026) · The Robot Report (Aug 2026) · NVIDIA (Mar 2026) · MIT Tech Review (Apr 2026).');
@@ -527,7 +552,7 @@ async function vlaArchSlide(d) {
   head(s, 'THE ACCELERATION · ROBOTICS · 2', 'A VLA is a language model with hands');
 
   // native diagram
-  const y = 1.85, h = 1.8, ag = 0.55;
+  const y = 1.85, h = 1.66, ag = 0.55;
   const ws = [2.3, 4.2, 2.1, 1.88];
   const xs = [CX0];
   for (let i = 1; i < 4; i++) xs.push(xs[i - 1] + ws[i - 1] + ag);
@@ -542,14 +567,14 @@ async function vlaArchSlide(d) {
     if (ic) {
       for (let k = 0; k < ic.length; k++) {
         const im = d.name('vic');
-        s.addImage({ data: await icon(ic[k], hot ? '#E5383B' : '#F2F3F5'), x: tx + k * 0.48, y: y + 0.5, w: 0.36, h: 0.36, objectName: im });
+        s.addImage({ data: await icon(ic[k], hot ? '#E5383B' : '#F2F3F5'), x: tx + k * 0.46, y: y + 0.44, w: 0.34, h: 0.34, objectName: im });
         g.push(im);
       }
     }
     g.push(d.text(s, [
       { text: title, options: { fontSize: hot ? 20 : 16, bold: true, color: d.S.txt, fontFace: 'Arial', breakLine: true } },
       { text: sub, options: { fontSize: 12, color: d.S.muted } },
-    ], { x: xs[i] + 0.18, y: y + 0.92, w: ws[i] - 0.3, h: h - 1.0, valign: 'top' }));
+    ], { x: xs[i] + 0.18, y: y + 0.84, w: ws[i] - 0.3, h: h - 0.9, valign: 'top' }));
     return g;
   };
   steps.push(await mk(0, { kicker: 'INPUT', ic: ['FaCamera', 'FaCommentAlt'], title: 'Camera + words', sub: '“fold the shirt”' }));
@@ -564,27 +589,28 @@ async function vlaArchSlide(d) {
   }
 
   // paper figures
-  const fy = 4.0, fh = 2.15;
-  const pi0 = await crop('vla-pi0-overview-fig3.png', 'vla-pi0-fig3-core.png', { l: 372, t: 0, w: 1282, h: 568 });
+  // π0 Fig. 3 cropped to the VLM + action-expert blocks (camera-photo row dropped) so its labels read larger
+  const fy = 3.86, fh = 2.24, fgap = 0.4;
+  const pi0 = await pi0Crop();
   const ov = R('vla-openvla-model-fig2.png');
   const n1 = await imgSize(pi0), n2 = await imgSize(ov);
   const w1 = (fh - 0.12) * n1.w / n1.h + 0.12, w2 = (fh - 0.12) * n2.w / n2.h + 0.12;
-  const fx = CX0 + (CW - (w1 + w2 + 0.5)) / 2;
+  const fx = CX0 + (CW - (w1 + w2 + fgap)) / 2;
   const f1 = await d.frame(s, pi0, { x: fx, y: fy, w: w1, h: fh });
-  const f2 = await d.frame(s, ov, { x: fx + w1 + 0.5, y: fy, w: w2, h: fh });
+  const f2 = await d.frame(s, ov, { x: fx + w1 + fgap, y: fy, w: w2, h: fh });
   const cp1 = d.text(s, [{ text: 'π0 (Physical Intelligence): ', options: { bold: true, color: d.S.txt } }, { text: 'SigLIP + Gemma 2.6B → 300M action expert', options: { color: d.S.muted } }],
     { x: fx, y: fy + fh + 0.08, w: w1, h: 0.3, fontSize: 11 });
   const cp2 = d.text(s, [{ text: 'OpenVLA (Stanford/Berkeley): ', options: { bold: true, color: d.S.txt } }, { text: 'the backbone is literally Llama 2 7B', options: { color: d.S.muted } }],
-    { x: fx + w1 + 0.5, y: fy + fh + 0.08, w: w2, h: 0.3, fontSize: 11 });
+    { x: fx + w1 + fgap, y: fy + fh + 0.08, w: w2, h: 0.3, fontSize: 11 });
 
-  anim(d, s, steps[0], { auto: true, effect: 'fade', dur: 400 });
+  d.animate(s, steps[0], { auto: true, effect: 'fade', dur: 400 });
   // arrow draws first (its own short wipe), then the whole box appears as one unit so text never floats on bare background
   for (let i = 1; i < 4; i++) {
-    anim(d, s, [arrows[i - 1]], { auto: true, effect: 'wipeLeft', dur: 300, after: 120 });
-    anim(d, s, steps[i], { auto: true, effect: 'fade', dur: 400, after: 0 });
+    d.animate(s, [arrows[i - 1]], { auto: true, effect: 'wipeLeft', dur: 300, after: 120 });
+    d.animate(s, steps[i], { auto: true, effect: 'fade', dur: 400, after: 0 });
   }
-  anim(d, s, [...f1, cp1], { effect: 'rise' });
-  anim(d, s, [...f2, cp2], { auto: true, effect: 'rise', after: 200 });
+  d.animate(s, [...f1, cp1], { effect: 'rise' });
+  d.animate(s, [...f2, cp2], { auto: true, effect: 'rise', after: 200 });
 
   d.source(s, 'Sources: Black et al., “π0: A Vision-Language-Action Flow Model for General Robot Control”, arXiv 2410.24164, Fig. 3 · Kim et al., “OpenVLA”, arXiv 2406.09246, Fig. 2.');
   s.addNotes([
@@ -633,8 +659,8 @@ async function vlaDemoSlide(d) {
     thumbs.push(im, t);
   }
 
-  anim(d, s, st, { auto: true, effect: 'rise', delay: 300 });
-  anim(d, s, [lab, ...thumbs], { auto: true, effect: 'fade', after: 150 });
+  d.animate(s, st, { auto: true, effect: 'rise', delay: 300 });
+  d.animate(s, [lab, ...thumbs], { auto: true, effect: 'fade', after: 150 });
 
   d.source(s, 'Sources: Figure AI, “Helix 2.5: Zero-Shot 30-Home Generalization” (Sep 17, 2026) · official YouTube uploads by Figure, Google DeepMind and Physical Intelligence.');
   s.addNotes([

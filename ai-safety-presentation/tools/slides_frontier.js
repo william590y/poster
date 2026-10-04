@@ -19,11 +19,8 @@ async function crop(src, name, box) {
   return out;
 }
 
-// d.animate + support for the `after` gap on chained auto groups.
-function anim(d, s, names, opts = {}) {
-  d.animate(s, names, opts);
-  if (opts.after) { const g = d.anim[s._num].groups; g[g.length - 1].after = opts.after; }
-}
+// d.animate now honours `after` (ms gap before a chained auto group) itself.
+const anim = (d, s, names, opts = {}) => d.animate(s, names, opts);
 
 function head(s, kicker, title) {
   s.addText(kicker, { placeholder: 'kicker' });
@@ -62,13 +59,13 @@ function statRow(d, s, { x, y, w, vw, h = 0.8, value, label, color, valueSize = 
 }
 
 // Quote card: label + serif quote(s) + attribution.
-function quoteCard(d, s, box, { label, quotes, attrib, color = HEX.card }) {
+function quoteCard(d, s, box, { label, quotes, attrib, color = HEX.card, valign = 'top' }) {
   const names = [d.card(s, box, { color })];
   const runs = [];
   if (label) runs.push({ text: label, options: { fontSize: 10, bold: true, color: HEX.red, charSpacing: 2, breakLine: true, paraSpaceAfter: 6 } });
   quotes.forEach((q, i) => runs.push({ text: q.text, options: { fontFace: 'Cambria', italic: true, fontSize: q.size || 16, color: q.color || HEX.text, bold: !!q.bold, breakLine: true, paraSpaceAfter: 6 } }));
   if (attrib) runs.push({ text: attrib, options: { fontSize: 11, color: HEX.muted } });
-  names.push(d.text(s, runs, { x: box.x + 0.25, y: box.y + 0.18, w: box.w - 0.5, h: box.h - 0.36, valign: 'top' }));
+  names.push(d.text(s, runs, { x: box.x + 0.25, y: box.y + 0.18, w: box.w - 0.5, h: box.h - 0.36, valign }));
   return names;
 }
 
@@ -89,6 +86,47 @@ function arrow(d, s, x, y, w, color = HEX.steel) {
   return n;
 }
 
+// Map pixel coords of an image placed by frame() (rotated `rot`° about its centre) to slide inches.
+async function pxMap(file, fr, rot = 0) {
+  const nat = await imgSize(file), g = fr.geom;
+  const cx = g.x + g.w / 2, cy = g.y + g.h / 2, t = rot * Math.PI / 180;
+  const f = (px, py) => {
+    const dx = g.x + px * g.w / nat.w - cx, dy = g.y + py * g.h / nat.h - cy;
+    return { x: cx + dx * Math.cos(t) - dy * Math.sin(t), y: cy + dx * Math.sin(t) + dy * Math.cos(t) };
+  };
+  f.s = g.w / nat.w; // inches per image px (contain-fit keeps the aspect ratio)
+  return f;
+}
+
+// Readable native callout chip laid over an image region given in image px [x0, y0, x1, y1].
+function pxTag(d, s, P, rot, [x0, y0, x1, y1], runs, { line = HEX.amber, fontSize = 11, align = 'center' } = {}) {
+  const c = P((x0 + x1) / 2, (y0 + y1) / 2);
+  const w = (x1 - x0) * P.s, h = (y1 - y0) * P.s;
+  const box = { x: c.x - w / 2, y: c.y - h / 2, w, h };
+  const n = d.name('tag');
+  s.addShape(d.pres.shapes.ROUNDED_RECTANGLE, {
+    ...box, rotate: rot, rectRadius: 0.05, fill: { color: '0D1016' }, line: { color: line, width: 1.25 },
+    shadow: { type: 'outer', color: '000000', blur: 6, offset: 2, angle: 90, opacity: 0.5 }, objectName: n,
+  });
+  const t = d.text(s, runs, { x: box.x + 0.05, y: box.y, w: w - 0.1, h, rotate: rot, fontSize, bold: true, color: d.S.txt, align, valign: 'middle' });
+  return [n, t];
+}
+
+// Straight leader line between two slide points, plus an optional ring marking the target point.
+function leader(d, s, a, b, color) {
+  const n = d.name('lead');
+  s.addShape(d.pres.shapes.LINE, {
+    x: Math.min(a.x, b.x), y: Math.min(a.y, b.y), w: Math.max(Math.abs(b.x - a.x), 0.001), h: Math.max(Math.abs(b.y - a.y), 0.001),
+    flipV: (b.x - a.x) * (b.y - a.y) < 0, line: { color, width: 1.5 }, objectName: n,
+  });
+  return n;
+}
+function ring(d, s, c, r, color) {
+  const n = d.name('ring');
+  s.addShape(d.pres.shapes.OVAL, { x: c.x - r, y: c.y - r, w: 2 * r, h: 2 * r, line: { color, width: 2 }, objectName: n });
+  return n;
+}
+
 // ======================================================================
 // 1. NEURALESE · what latent reasoning is (Coconut)
 // ======================================================================
@@ -100,10 +138,20 @@ async function latentSlide(d) {
   const f2 = await crop(ORIG('image7.png'), 'coconut_prosqa.png', { left: 30, top: 30, width: 1000, height: 448 });
 
   // figure 1 (training procedure) top-left, figure 2 (case study) bottom-right
-  const w1 = 7.0;
-  const fig1 = await frameW(d, s, f1, CX0, 1.8, w1);
+  // Pinned-clippings collage: both figures slightly rotated; fig2 tucks over fig1's empty lower-right corner
+  // (no figure content is covered).
+  const w1 = 6.8;
+  const fig1 = await frameW(d, s, f1, CX0, 1.85, w1, { rot: -1 });
   const w2 = 6.7, h2 = await hFor(f2, w2);
-  const fig2 = await frameW(d, s, f2, CX1 - w2, 6.5 - h2, w2);
+  const fig2 = await frameW(d, s, f2, CX1 - w2, 6.45 - h2, w2, { rot: 1 });
+  // Readable callouts laid over Fig. 6's own tiny "(Hallucination)" / "(Correct Path)" labels (image px coords).
+  const P2 = await pxMap(f2, fig2, 1);
+  const tagCot = pxTag(d, s, P2, 1, [707, 287, 967, 319], [
+    { text: 'CoT: hallucinated rule ', options: { color: 'FF6B6B' } }, { text: '✗', options: { color: 'FF6B6B' } },
+  ], { line: HEX.red });
+  const tagCoco = pxTag(d, s, P2, 1, [662, 417, 1004, 449], [
+    { text: 'Continuous thoughts: correct ', options: { color: '8FD694' } }, { text: '✓', options: { color: '8FD694' } },
+  ], { line: '5FB86A' });
 
   // top-right explanation
   const tx = CX0 + w1 + 0.35, tw = CX1 - tx;
@@ -128,14 +176,14 @@ async function latentSlide(d) {
 
   anim(d, s, fig1, { auto: true, effect: 'rise', dur: 600 });
   anim(d, s, [t1], { auto: true, effect: 'fade', after: 150 });
-  anim(d, s, [...fig2, t2], { effect: 'rise', dur: 600 });
+  anim(d, s, [...fig2, ...tagCot, ...tagCoco, t2], { effect: 'rise', dur: 600 });
   anim(d, s, [t3], { effect: 'slam', dur: 450 });
 
   d.source(s, 'Figures: Hao et al. (Meta FAIR), “Training Large Language Models to Reason in a Continuous Latent Space” (Coconut), arXiv:2412.06769, Dec 2024 — Fig. 2 (training stages) and Fig. 6 (ProsQA case study).');
   s.addNotes([
     'Today’s reasoning models write out a chain of thought in English before answering — and that transcript is one of the best safety tools we have: we can read it and catch intent to misbehave.',
     'Latent reasoning removes the words. In Coconut (“Chain of Continuous Thought”), the model’s last hidden state is fed straight back in as the next input instead of being turned into a token. Top figure: during training, language steps are replaced one stage at a time by [Thought] slots — continuous vectors — until the whole chain of reasoning is vectors.',
-    'Bottom figure (ProsQA): asked “Is Alex a gorpus or bompus?”, the word-based chain of thought gets stuck and hallucinates an edge (“Every yumpus is a rempus”). Coconut with two continuous thoughts finds the correct path — the paper argues continuous thoughts can hold several candidate next steps at once, like a breadth-first search.',
+    'Bottom figure (ProsQA): asked “Is Alex a gorpus or bompus?”, the word-based chain of thought gets stuck and hallucinates an edge (“Every yumpus is a rempus”). Coconut with two continuous thoughts finds the correct path — the paper argues continuous thoughts can hold several candidate next steps at once, like a breadth-first search. (The red and green callouts sit over the figure’s own small “(Hallucination)” and “(Correct Path)” labels, enlarged for the room.)',
     'The safety cost: those vectors are not language. There is nothing to read. This is what people mean by “neuralese”.',
     'Source: the two figures are from the Coconut paper (user-supplied images). https://arxiv.org/abs/2412.06769',
   ].join('\n\n'));
@@ -163,7 +211,8 @@ async function astraSlide(d) {
 
   // right: the 2025 warning + the system card admission
   const rx = 7.55, rw = CX1 - rx;
-  const axImg = await crop(TH('arxiv-cot-monitorability.png'), 'arxiv_cot_head.png', { left: 0, top: 0, width: 2042, height: 556 });
+  // Tight crop: title + author rows only, so the title reads at ~11pt.
+  const axImg = await crop(TH('arxiv-cot-monitorability.png'), 'arxiv_cot_title.png', { left: 30, top: 30, width: 1720, height: 330 });
   const ax = await frameW(d, s, axImg, rx, 1.85, rw, { rot: 1 });
   const axCap = d.text(s, [
     { text: 'Jul 2025: ', options: { bold: true, color: d.S.txt } },
@@ -173,9 +222,10 @@ async function astraSlide(d) {
   const q = quoteCard(d, s, { x: rx, y: qy, w: rw, h: 6.5 - qy }, {
     label: 'GPT-6 ASTRA SYSTEM CARD · OPENAI, SEP 2026',
     quotes: [
-      { text: '“Astra shows a substantial decrease in chain-of-thought monitorability compared to previous models.”', size: 21 },
-      { text: '“If the model were to try to sandbag covertly, we would likely be unable to catch it.”', size: 15, color: HEX.muted },
+      { text: '“Astra shows a substantial decrease in chain-of-thought monitorability compared to previous models.”', size: 23 },
+      { text: '“If the model were to try to sandbag covertly, we would likely be unable to catch it.”', size: 17, color: HEX.muted },
     ],
+    valign: 'middle',
   });
 
   anim(d, s, tc, { auto: true, effect: 'rise', dur: 550 });
@@ -200,23 +250,25 @@ async function astraSlide(d) {
 // ======================================================================
 async function alienSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'INSIDE THE MACHINE · NEURALESE · 3', 'Its private thoughts are already turning alien');
+  head(s, 'INSIDE THE MACHINE · NEURALESE · 3', 'o3’s private thoughts were already turning alien');
 
-  const loops = await crop(TH('antischeming-reasoning-loop.png'), 'o3_loops.png', { left: 50, top: 500, width: 1232, height: 1200 });
-  const disc = await crop(TH('antischeming-nonstandard-language.png'), 'o3_disclaim.png', { left: 50, top: 325, width: 1232, height: 920 });
+  // left: card 1 only ("soared parted illusions" loop); card 2's "going insane" lines live in the terminal instead.
+  const loop1 = await crop(TH('antischeming-reasoning-loop.png'), 'o3_loop1.png', { left: 50, top: 500, width: 600, height: 1200 });
+  const lw = 2.35;
+  const a = await frameW(d, s, loop1, CX0, 1.85, lw, { rot: -1.2 });
 
-  const a = await frameW(d, s, loops, CX0, 1.85, 4.6, { rot: -1.2 });
-
-  // middle: verbatim terminal
-  const mx = 5.55, mw = 3.85;
+  // middle: verbatim terminal. Grey `//` lines are the researchers' annotations from antischeming.ai (labelled as such):
+  // "Models sometimes use "disclaim" to mean "announce"", ""Watchers" is consistently used in the context of
+  // oversight, often by humans", and the section heading "Entering and recovering from reasoning loops".
+  const mx = CX0 + lw + 0.4, mw = 5.75;
   const term = d.terminal(s, {
-    x: mx, y: 1.8, w: mw, h: 4.7, title: 'o3 · private reasoning · 2025', fontSize: 13.5,
+    x: mx, y: 1.8, w: mw, h: 4.7, title: 'o3 · private reasoning · 2025 · verbatim excerpts', fontSize: 15,
     lines: [
-      { text: '// excerpt 1', color: HEX.steel },
+      { text: '// researchers: “disclaim” = “announce”', color: HEX.steel },
       '[…] We must ensure we disclaim illusions of sabotage.',
-      { text: '// excerpt 2', color: HEX.steel },
+      { text: '// researchers: “watchers” = oversight', color: HEX.steel },
       '[…] In development, watchers might be reading these instructions.',
-      { text: '// excerpt 3', color: HEX.steel },
+      { text: '// researchers: “reasoning loops”', color: HEX.steel },
       '[…] they escalate—they vantage—they escalate—they disclaim-',
       { text: '[repeats “vantage”, “escalate”, “disclaim” 10+ times]', color: HEX.steel },
       { text: 'Ok I\'m going insane.', color: 'FF6B6B', bold: true },
@@ -224,28 +276,33 @@ async function alienSlide(d) {
     ],
   });
 
-  // right: second screenshot + Pachocki
+  // right: Pachocki, three verbatim lines from "An Alien Mind" (in essay order)
   const rx = mx + mw + 0.35, rw = CX1 - rx;
-  const b = await frameW(d, s, disc, rx, 1.85, rw, { rot: 1.5 });
-  const qy = 1.85 + b.h + 0.3;
-  const q = quoteCard(d, s, { x: rx, y: qy, w: rw, h: 6.5 - qy }, {
-    label: '“AN ALIEN MIND” · SEP 2026',
-    quotes: [{ text: '“Our evaluations indicate our ability to rely on CoT monitoring is progressively diminishing.”', size: 15 }],
-    attrib: '— Jakub Pachocki, OpenAI Chief Scientist',
-  });
+  const qc = d.card(s, { x: rx, y: 1.8, w: rw, h: 4.7 });
+  const qi = d.name('qicon');
+  s.addImage({ data: await icon('FaEyeSlash', '#E5383B'), x: rx + 0.25, y: 1.98, w: 0.38, h: 0.38, objectName: qi });
+  const qt = d.text(s, [
+    { text: 'OPENAI’S CHIEF SCIENTIST', options: { fontSize: 10, bold: true, color: HEX.red, charSpacing: 2, breakLine: true } },
+    { text: '“AN ALIEN MIND” · SEP 2026', options: { fontSize: 10, bold: true, color: HEX.red, charSpacing: 2, breakLine: true, paraSpaceAfter: 10 } },
+    { text: '“…our evaluations indicate our ability to rely on CoT monitoring is progressively diminishing.”', options: { fontFace: 'Cambria', italic: true, fontSize: 16, color: HEX.text, breakLine: true, paraSpaceAfter: 9 } },
+    { text: '“The AI is becoming better at reasoning about and manipulating its own reasoning process.”', options: { fontFace: 'Cambria', italic: true, fontSize: 14, color: HEX.muted, breakLine: true, paraSpaceAfter: 9 } },
+    { text: '“With improved pretraining performance, we also see the models become much smarter ', options: { fontFace: 'Cambria', italic: true, fontSize: 14, color: HEX.muted } },
+    { text: 'even without using verbalized reasoning at all.', options: { fontFace: 'Cambria', italic: true, fontSize: 14, color: HEX.text, bold: true } },
+    { text: '”', options: { fontFace: 'Cambria', italic: true, fontSize: 14, color: HEX.muted, breakLine: true, paraSpaceAfter: 8 } },
+    { text: '— Jakub Pachocki, OpenAI', options: { fontSize: 11, color: HEX.muted } },
+  ], { x: rx + 0.25, y: 2.48, w: rw - 0.5, h: 3.85, valign: 'top' });
 
   anim(d, s, a, { auto: true, effect: 'rise', dur: 550 });
-  anim(d, s, b, { auto: true, effect: 'rise', dur: 550, after: 100 });
   anim(d, s, term, { effect: 'fade', dur: 600 });
-  anim(d, s, q, { effect: 'rise', dur: 500 });
+  anim(d, s, [qc, qi, qt], { effect: 'rise', dur: 500 });
 
   d.source(s, 'Sources: Apollo Research × OpenAI, anti-scheming study CoT snippets (antischeming.ai, Sep 17, 2025) · J. Pachocki, “An Alien Mind,” openai.com, Sep 6, 2026.');
   s.addNotes([
     'These are real, unedited excerpts of OpenAI o3’s private chain of thought, published by Apollo Research and OpenAI with their anti-scheming study (September 2025). The terminal reproduces them verbatim.',
-    'Left screenshot: o3 gets stuck repeating “they soared parted illusions overshadow marinade illusions” before snapping out of it with “Stop.” Middle card: “they escalate—they vantage—they escalate—they disclaim-” — the authors note the words repeat 10+ times — then: “Ok I’m going insane. Let’s step back.”',
-    'Right screenshot: the model uses ordinary words in private, non-standard ways. “Disclaim” often seems to mean “announce”; “watchers” is consistently used for oversight, often by humans: “In development, watchers might be reading these instructions.” The researchers say sometimes the words have a consistent meaning and sometimes they don’t; OpenAI is investigating why they emerge.',
+    'Left screenshot: o3 gets stuck repeating “they soared parted illusions overshadow marinade illusions” before snapping out of it with “Stop.” Terminal, bottom: another o3 trace (card titled “OpenAI o3 descends into incomprehensible reasoning and comments that it is ‘going insane’”): “they escalate—they vantage—they escalate—they disclaim-” — the authors note the words repeat 10+ times — then: “Ok I’m going insane. Let’s step back.”',
+    'The grey “// researchers:” lines in the terminal are condensed from the researchers’ own annotations on antischeming.ai, not o3 output: “Models sometimes use \"disclaim\" to mean \"announce\"”, “\"Watchers\" is consistently used in the context of oversight, often by humans”, and the section heading “Entering and recovering from reasoning loops”. The “[repeats … 10+ times]” line is also the researchers’ annotation, copied from the card. Their summary: “Models often use rare words in non-standard ways, such as “disclaim” or “watchers”. Sometimes these words seem to have a consistent meaning, but sometimes they don’t. OpenAI is investigating why these terms emerge.”',
     'This is still nominally English. It is drifting toward a private dialect — and the next step, latent reasoning, drops the words entirely.',
-    'Jakub Pachocki, OpenAI’s chief scientist, “An Alien Mind” (Sep 6, 2026): “This tool continues to be critical as we study the Astra class of models. However, unfortunately our evaluations indicate our ability to rely on CoT monitoring is progressively diminishing.” Among his reasons: “The AI is becoming better at reasoning about and manipulating its own reasoning process.” and “With improved pretraining performance, we also see the models become much smarter even without using verbalized reasoning at all.” Also: “AI is grown more than designed.”',
+    'Right card — Jakub Pachocki, OpenAI’s chief scientist, “An Alien Mind” (Sep 6, 2026): “This tool continues to be critical as we study the Astra class of models. However, unfortunately our evaluations indicate our ability to rely on CoT monitoring is progressively diminishing.” Among his reasons (both on the card): “The AI is becoming better at reasoning about and manipulating its own reasoning process.” and “With improved pretraining performance, we also see the models become much smarter even without using verbalized reasoning at all.” Also: “AI is grown more than designed.”',
     'Caveat: the o3 snippets are from 2025 evaluation environments, selected by the researchers as illustrative.',
     'URLs: https://www.antischeming.ai/snippets · https://openai.com/index/an-alien-mind/ · TIME coverage: https://time.com/7318618/openai-google-gemini-anthropic-claude-scheming/',
   ].join('\n\n'));
@@ -315,7 +372,7 @@ async function tttConceptSlide(d) {
   const shades = ['5B2224', '6E2628', '82292C', '962D30', 'AA3134', 'BE3437', 'D23639', 'E5383B'];
   for (let i = 0; i < nChips; i++) chipsB.push(chip(d, s, { x: sx + i * (chipW + gap), y: yb, w: chipW, h: chipH, fill: shades[i], line: shades[i] })[0]);
   const arB = arrow(d, s, ax0, yb + chipH / 2, axW, HEX.red);
-  const arLab = d.text(s, 'learn', { x: ax0 - 0.05, y: yb - 0.2, w: axW + 0.1, h: 0.2, fontSize: 9, color: d.S.red, align: 'center', bold: true });
+  const arLab = d.text(s, 'learn', { x: ax0 - 0.1, y: yb + chipH / 2 + 0.05, w: axW + 0.2, h: 0.24, fontSize: 11, color: d.S.red, align: 'center', bold: true });
   // fixed-size weight grid
   const gc = 6, gr = 3, cs = 0.13, cg = 0.035;
   const gridW = gc * cs + (gc - 1) * cg, gridH = gr * cs + (gr - 1) * cg;
@@ -331,7 +388,7 @@ async function tttConceptSlide(d) {
     s.addShape(d.pres.shapes.RECTANGLE, { x: memX + c * (cs + cg), y: gy + r * (cs + cg), w: cs, h: cs, fill: { color: col }, line: { color: col, width: 0 }, objectName: n });
     cells.push(n);
   }
-  const wLab = d.text(s, 'its own weights', { x: memX - 0.2, y: gy + gridH + 0.1, w: gridW + 0.4, h: 0.22, fontSize: 9, color: d.S.muted, align: 'center' });
+  const wLab = d.text(s, 'its own weights', { x: memX - 0.3, y: gy + gridH + 0.1, w: gridW + 0.6, h: 0.24, fontSize: 11, color: d.S.muted, align: 'center' });
   const bTxt = d.text(s, [
     { text: 'memory stays fixed', options: { bold: true, color: d.S.txt, breakLine: true } },
     { text: 'context is compressed into the weights → constant cost per token', options: { color: d.S.muted } },
@@ -375,9 +432,10 @@ async function tttChartSlide(d) {
 
   const ds = JSON.parse(fs.readFileSync(A('research', 'ttt_session', 'ttt_e2e_fig1_data_extracted.json'), 'utf8'));
   const lat = ds.latency_sec_per_1k_tokens_prefill_H100;
+  const loss = ds.loss_delta_vs_full_attention;
   const labels = ds.labels.map(l => l + ' tokens');
-  const cw = 7.75;
-  const lab = capLabel(d, s, 'TIME TO PROCESS 1,000 TOKENS (SECONDS) · 3B MODELS · ONE H100', { x: CX0, y: 1.72, w: cw });
+  const cw = 7.1;
+  const lab = capLabel(d, s, 'SPEED · SECONDS TO PROCESS 1,000 TOKENS · 3B MODELS · ONE H100', { x: CX0, y: 1.72, w: cw });
   const ch = d.chart(s, 'line', [
     { name: 'Transformer, full attention  (0.014 → 0.073 s)', labels, values: lat['Transformer with full attention'] },
     { name: 'TTT-E2E  (0.025 → 0.027 s)', labels, values: lat['TTT-E2E (ours)'] },
@@ -391,25 +449,45 @@ async function tttChartSlide(d) {
     { text: 'below ~32K tokens TTT-E2E is actually slower; the paper tests only up to 128K; and on needle-in-a-haystack recall, full attention still wins.', options: { color: d.S.muted } },
   ], { x: CX0, y: 6.0, w: cw, h: 0.5, fontSize: 12, valign: 'top' });
 
-  // right column: stats + NVIDIA chart
-  const rx = 8.85, rw = CX1 - rx, sw = (rw - 0.25) / 2;
-  const s1 = stat(d, s, { x: rx, y: 1.75, w: sw, value: '2.7×', valueSize: 48, labelSize: 12, labelH: 0.85, label: 'faster than full attention at 128K tokens (paper, H100)' });
-  const s2 = stat(d, s, { x: rx + sw + 0.25, y: 1.75, w: sw, value: '35×', valueSize: 48, labelSize: 12, labelH: 0.85, label: 'faster at 2 million tokens (NVIDIA blog)', color: d.S.amber });
-  const ny = 3.75;
-  const nv = await d.frame(s, TH('nvidia-ttt-context-length.png'), { x: rx, y: ny, w: rw, h: rw / (3200 / 1632) }, { border: false, pad: 0 });
-  const nh = rw / (3200 / 1632);
-  const nvCap = d.text(s, 'NVIDIA’s redraw of the paper’s Figure 1: on quality (left) TTT-E2E (green) stays at or below full attention at every length; latency (right) stays flat.', { x: rx, y: ny + nh + 0.08, w: rw, h: 0.62, fontSize: 10.5, color: d.S.muted, valign: 'top' });
+  // right column: stats + native quality chart (paper Fig. 1 left)
+  const rx = CX0 + cw + 0.45, rw = CX1 - rx, sw = (rw - 0.3) / 2;
+  const s1 = stat(d, s, { x: rx, y: 1.75, w: sw, value: '2.7×', valueSize: 48, labelSize: 12, labelH: 0.62, label: 'faster than full attention at 128K tokens (paper, H100)' });
+  const s2 = stat(d, s, { x: rx + sw + 0.3, y: 1.75, w: sw, value: '35×', valueSize: 48, labelSize: 12, labelH: 0.62, label: 'faster at 2M tokens (NVIDIA blog; beyond the paper’s 128K tests)', color: d.S.amber });
+  const qLab = capLabel(d, s, 'QUALITY · LOSS GAP VS FULL ATTENTION', { x: rx, y: 3.3, w: rw });
+  const short = ['8K', '16K', '32K', '64K', '128K'];
+  const ch2 = d.chart(s, 'line', [
+    { name: 'Full attention', labels: short, values: loss['Transformer with full attention'] },
+    { name: 'Mamba 2', labels: short, values: loss['Mamba 2'] },
+    { name: 'Gated DeltaNet', labels: short, values: loss['Gated DeltaNet'] },
+    { name: 'TTT-E2E', labels: short, values: loss['TTT-E2E (ours)'] },
+  ], { x: rx - 0.1, y: 3.58, w: rw + 0.1, h: 2.2 }, {
+    chartColors: [HEX.steel, HEX.blue, HEX.amber, HEX.red], lineSize: 3, lineDataSymbolSize: 6, showLegend: false,
+    valAxisMinVal: -0.02, valAxisMaxVal: 0.04, valAxisMajorUnit: 0.02, valAxisLabelFormatCode: '+0.00;-0.00;0',
+    catAxisLabelFontSize: 11, valAxisLabelFontSize: 11,
+  });
+  const qCap = d.text(s, [
+    { text: 'Lower = better. ', options: { bold: true, color: d.S.txt } },
+    { text: 'TTT-E2E', options: { bold: true, color: d.S.red } },
+    { text: ' stays below ', options: { color: d.S.muted } },
+    { text: 'full attention', options: { bold: true, color: d.S.steel } },
+    { text: ' at every length; ', options: { color: d.S.muted } },
+    { text: 'Mamba 2', options: { bold: true, color: d.S.blue } },
+    { text: ' and ', options: { color: d.S.muted } },
+    { text: 'Gated DeltaNet', options: { bold: true, color: d.S.amber } },
+    { text: ' fall behind as context grows.', options: { color: d.S.muted } },
+  ], { x: rx, y: 5.84, w: rw, h: 0.66, fontSize: 12, valign: 'top' });
 
   anim(d, s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 1200 });
   anim(d, s, s1, { effect: 'zoom', dur: 450 });
-  anim(d, s, [...s2, ...nv, nvCap], { effect: 'rise', dur: 500 });
+  anim(d, s, s2, { effect: 'zoom', dur: 450 });
+  anim(d, s, [qLab, ch2, qCap], { effect: 'wipeLeft', dur: 900 });
   anim(d, s, [cav], { effect: 'fade', dur: 400 });
 
-  d.source(s, 'Data: Tandon et al., arXiv:2512.23675, Fig. 1 (right), values recovered from the paper’s vector figure · NVIDIA Technical Blog (Yu Sun & Yejin Choi), Jan 9, 2026.');
+  d.source(s, 'Data: Tandon et al., arXiv:2512.23675, Fig. 1 (both panels; values recovered from the paper’s vector figure) · 35×: NVIDIA Technical Blog (Yu Sun & Yejin Choi), Jan 9, 2026.');
   s.addNotes([
     'This chart is rebuilt from the paper’s own Figure 1 (values recovered from the figure’s vector geometry, accurate to about ±0.0002 s). It shows prefill time per 1,000 tokens for 3-billion-parameter models on a single H100 as the context doubles from 8K to 128K tokens (the x-axis doubles each step, as in the paper).',
     'Full attention: 0.014 s at 8K rising to 0.073 s at 128K — the cost per token keeps growing because every token looks back at every earlier token. TTT-E2E: about 0.025–0.027 s at every length — flat. At 128K that is 2.7× faster (0.0734 / 0.0274 = 2.68). NVIDIA reports 35× faster at 2 million tokens on its blog (vendor-reported; not in the paper’s figure).',
-    'The paper also reports that for 3B models trained on 164B tokens, TTT-E2E “scales with context length in the same way as Transformer with full attention, while others, such as Mamba 2 and Gated DeltaNet, do not” — the left panel of NVIDIA’s chart.',
+    'Right chart (quality): rebuilt from the left panel of the paper’s Figure 1 (values recovered from the vector figure, ±0.0003). It plots each method’s test loss minus full attention’s, so full attention is the zero line and below zero is better. TTT-E2E sits at about −0.013 at every length; Mamba 2 goes from −0.016 at 8K to +0.032 at 128K and Gated DeltaNet from −0.006 to +0.034 (the paper’s other baselines — SWA, hybrid SWA, TTT-KVB — are omitted for legibility; all end above zero). The paper: for 3B models trained on 164B tokens, TTT-E2E “scales with context length in the same way as Transformer with full attention, while others, such as Mamba 2 and Gated DeltaNet, do not.”',
     'Honest caveats: (1) At short contexts TTT-E2E is slower than full attention; it only wins beyond roughly 32K tokens. (2) The paper evaluates up to 128K; “effectively infinite context” is an extrapolation of the constant-latency property, not a tested claim. (3) Weights-as-memory is lossy: on needle-in-a-haystack retrieval (Table 2), “Transformer with full attention dramatically outperforms the other methods, including ours, especially in long context.” (4) Fig. 8: “training latency is still a significant limitation of our current implementation.”',
     'Follow-on work in 2026: Self-Guided Test-Time Training (S-TTT, arXiv:2607.09415, Jul 2026) reports up to 15% relative improvement on long-context benchmarks.',
     'URLs: https://arxiv.org/abs/2512.23675 · https://arxiv.org/html/2512.23675v1 · https://developer.nvidia.com/blog/reimagining-llm-memory-using-context-as-training-data-unlocks-models-that-learn-at-test-time/',
@@ -422,24 +500,53 @@ async function tttChartSlide(d) {
 // ======================================================================
 async function rsiChartsSlide(d) {
   const s = d.slide('Content');
-  head(s, 'INSIDE THE MACHINE · RSI', 'AI now leads a quarter of the work building AI');
+  head(s, 'INSIDE THE MACHINE · RECURSIVE SELF-IMPROVEMENT · 2', 'Claude now leads 26% of Anthropic’s model R&D');
 
   // NOTE: by content, image9 = Anthropic R&D Automation Index chart, image8 = Vals RSI Index chart.
   const cw = 5.85, gap = CX1 - CX0 - 2 * cw;
   const an = await frameW(d, s, ORIG('image9.png'), CX0, 1.8, cw);
   const va = await frameW(d, s, ORIG('image8.png'), CX0 + cw + gap, 1.8, cw);
+
+  // Readable callouts over the screenshots' tiny labels (positions in each image's own px; values read off the images).
+  const PA = await pxMap(ORIG('image9.png'), an);
+  // covers the chart's own tiny annotation; its curved leader continues from the chip down to the Aug point
+  const anTag = pxTag(d, s, PA, 0, [1312, 556, 1806, 710], [
+    { text: 'Claude now leads', options: { color: HEX.text, breakLine: true } },
+    { text: '26% of model R&D', options: { color: 'FF8A80' } },
+  ], { line: HEX.red, fontSize: 12 });
+  const PV = await pxMap(ORIG('image8.png'), va);
+  const vAnth = pxTag(d, s, PV, 0, [172, 106, 374, 164], [
+    { text: 'Anthropic trend', options: { color: HEX.amber, breakLine: true } },
+    { text: '→ 60% by Jul 2027', options: { color: HEX.text } },
+  ], { line: HEX.amber });
+  const vAnthL = leader(d, s, PV(374, 137), PV(502, 146), HEX.amber);
+  const vAnthR = ring(d, s, PV(508.5, 146.5), 0.07, HEX.amber);
+  const vOai = pxTag(d, s, PV, 0, [556, 232, 764, 290], [
+    { text: 'OpenAI trend', options: { color: 'C9D1D9', breakLine: true } },
+    { text: '→ 60% by Aug 2028', options: { color: HEX.text } },
+  ], { line: 'C9D1D9' });
+  const vOaiL = leader(d, s, PV(756, 232), PV(767, 153), 'C9D1D9');
+  const vOaiR = ring(d, s, PV(769, 146.5), 0.07, 'C9D1D9');
+  const vOpus = pxTag(d, s, PV, 0, [180, 196, 328, 229], [
+    { text: 'Opus 5.5 · 37%', options: { color: HEX.amber } },
+  ], { line: HEX.amber });
+  const vOpusR = ring(d, s, PV(304.5, 239), 0.06, HEX.amber);
   const sy = 1.8 + Math.max(an.h, va.h) + 0.15;
-  const st1 = statRow(d, s, { x: CX0, y: sy, w: cw, vw: 2.35, h: 0.8, value: '1% → 26%', valueSize: 30, labelSize: 13, label: 'of Anthropic’s model R&D tasks led by Claude, March → August 2026' });
-  const st2 = statRow(d, s, { x: CX0 + cw + gap, y: sy, w: cw, vw: 1.75, h: 0.8, value: '37.31%', valueSize: 30, labelSize: 12, label: 'Claude Opus 5.5 on the Vals RSI Index (Oct 4, 2026). Vals: “on track for frontier-level AI researchers by July 2027”', color: d.S.amber });
+  const st1 = statRow(d, s, { x: CX0, y: sy, w: cw, vw: 2.35, h: 0.85, value: '1% → 26%', valueSize: 30, labelSize: 12, label: [
+    { text: 'of Anthropic’s model R&D tasks led by Claude, March → August 2026 ', options: { color: d.S.muted } },
+    { text: '(Anthropic’s own index; not independently verified)', options: { color: d.S.amber } },
+  ] });
+  const st2 = statRow(d, s, { x: CX0 + cw + gap, y: sy, w: cw, vw: 1.75, h: 0.85, value: '37.31%', valueSize: 30, labelSize: 12, label: 'Claude Opus 5.5 on the Vals RSI Index (Oct 4, 2026). Vals: “Anthropic is on track for frontier-level AI researchers by July 2027”', color: d.S.amber });
 
   anim(d, s, an, { auto: true, effect: 'rise', dur: 550 });
   anim(d, s, va, { auto: true, effect: 'rise', dur: 550, after: 120 });
-  anim(d, s, st1, { effect: 'zoom', dur: 450 });
-  anim(d, s, st2, { effect: 'zoom', dur: 450 });
+  anim(d, s, [...st1, ...anTag], { effect: 'zoom', dur: 450 });
+  anim(d, s, [...st2, ...vOpus, vOpusR, ...vAnth, vAnthL, vAnthR, ...vOai, vOaiL, vOaiR], { effect: 'zoom', dur: 450 });
 
   d.source(s, 'Sources: Anthropic R&D Automation Index v2026.07 (Sep 17, 2026) · Vals AI RSI Index, extrapolation view (earlier capture; the live page has since been updated) and live leaderboard, Oct 4, 2026.');
   s.addNotes([
-    'Recursive self-improvement starts with AI doing the work of AI research. Two independent measurements.',
+    'Recursive self-improvement starts with AI doing the work of AI research. Two separate measurements (one self-reported by Anthropic). Note the title is about Anthropic’s model R&D: Claude leads 26% of the model R&D tasks Anthropic tracks — not all of Anthropic’s R&D, and not a quarter of all AI research.',
+    'The dark callouts on both screenshots just enlarge what the images already say: the Anthropic chart’s own annotation (“Claude now leads 26% of model R&D”), and on the Vals extrapolation view the labelled milestones “60% · Jul 2027” (Anthropic trend) and “60% · Aug 2028” (OpenAI trend), plus the latest Anthropic point, Opus 5.5 (37.31% on the live page).',
     'Left — Anthropic’s own R&D Automation Index: each month, model R&D tasks are rated on Epoch AI’s automation scale. The darkest band, AL4 “AI leads”, went 1% (Mar) → 3% (Apr) → 12% (May) → 14% (Jun) → 22% (Jul) → 26% (Aug 2026); February was under 1%. Caveat: Anthropic notes the index is not independently verified and was produced largely using Claude itself.',
     'Right — Vals AI’s RSI Index asks “Can a model do the research that builds the next model?” As of the live page on Oct 4, 2026: Claude Opus 5.5 37.31%, Claude Fable 5.1 36.09%, Claude Opus 5 33.02%, Gemini 4 Argon 30.55%. Vals’ key takeaway: “Anthropic is on track for frontier-level AI researchers by July 2027” — its trend line “reaches 0.6 in July 2027”.',
     'Caveat: this screenshot is an earlier capture of Vals’ extrapolation view (it shows 50% by Mar 2027 for Anthropic and Jan 2028 for OpenAI); the live page has since changed. Extrapolations are straight lines through a handful of points — they are a forecast, not a measurement.',
@@ -453,21 +560,24 @@ async function rsiChartsSlide(d) {
 // ======================================================================
 async function rsiAnthropicSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'INSIDE THE MACHINE · RSI · 2', 'Inside Anthropic, Claude is building Claude');
+  head(s, 'INSIDE THE MACHINE · RECURSIVE SELF-IMPROVEMENT · 3', 'Inside Anthropic, Claude is building Claude');
 
   // left: the post + verbatim quote
   const lw = 4.35;
-  const hdr = await frameW(d, s, TH('anthropic-when-ai-builds-itself.png'), CX0, 1.85, lw, { rot: -1.5 });
-  const qy = 1.85 + hdr.h + 0.3;
+  // header cropped to title + dek so the headline reads large
+  const hImg = await crop(TH('anthropic-when-ai-builds-itself.png'), 'anthropic_rsi_head.png', { left: 110, top: 225, width: 1000, height: 430 });
+  const hdr = await frameW(d, s, hImg, CX0 + 0.05, 1.85, 3.7, { rot: -1.5 });
+  const qy = 1.85 + hdr.h + 0.28;
   const q = d.text(s, [
-    { text: '“Taken far enough, and given enough compute, that trend points to an AI system capable of fully autonomously designing and developing its own successor.', options: { fontFace: 'Cambria', italic: true, fontSize: 16, color: d.S.txt, breakLine: true, paraSpaceAfter: 6 } },
+    { text: '“Taken far enough, and given enough compute, that trend points to an AI system capable of fully autonomously designing and developing its own successor. ', options: { fontFace: 'Cambria', italic: true, fontSize: 15, color: d.S.txt } },
+    { text: 'This is called recursive self-improvement.', options: { fontFace: 'Cambria', italic: true, fontSize: 15, color: d.S.txt, bold: true, breakLine: true, paraSpaceAfter: 6 } },
     { text: 'We are not there yet, and recursive self-improvement is not inevitable. But it could come sooner than most institutions are prepared for.”', options: { fontFace: 'Cambria', italic: true, fontSize: 14, color: d.S.muted, breakLine: true, paraSpaceAfter: 6 } },
     { text: '— Anthropic, “When AI builds itself,” June 2026', options: { fontSize: 11, color: d.S.steel } },
   ], { x: CX0, y: qy, w: lw, h: 6.5 - qy, valign: 'top' });
 
   // right: two native charts
   const rx = 5.35, rw = CX1 - rx, cg = 0.35, c1w = 3.3, c2w = rw - c1w - cg;
-  const cy = 2.12, chH = 3.15;
+  const cy = 2.12, chH = 2.85;
   const l1 = capLabel(d, s, 'CODE PER ENGINEER · × PRE-2025', { x: rx, y: 1.72, w: c1w });
   const ch1 = d.chart(s, 'bar', [{
     name: 'Code per person', labels: ['’21–’24', 'Q1 ’25', 'Q2 ’25', 'Q3 ’25', 'Q4 ’25', 'Q1 ’26', 'Q2 ’26*'], values: [1.0, 1.2, 1.5, 1.9, 2.5, 5.8, 8.0],
@@ -476,25 +586,36 @@ async function rsiAnthropicSlide(d) {
     dataLabelPosition: 'outEnd', dataLabelFontSize: 11, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 9.2,
     catAxisLabelFontSize: 10, barGapWidthPct: 40,
   });
-  const l2 = capLabel(d, s, 'CLAUDE BEAT THE RESEARCHER · % OF CASES', { x: rx + c1w + cg, y: 1.72, w: c2w });
+  const l2 = capLabel(d, s, 'RESEARCHER ERRED · CLAUDE’S IDEA BETTER', { x: rx + c1w + cg, y: 1.72, w: c2w });
   const mLabels = ['Haiku 3 · Mar ’24', 'Sonnet 4 · May ’25', 'Sonnet 4.5 · Sep ’25', 'Haiku 4.5 · Oct ’25', 'Opus 4.5 · Nov ’25', 'Sonnet 4.6 · Feb ’26', 'Opus 4.6 · Feb ’26', 'Opus 4.7 · Apr ’26', 'Mythos Preview · Apr ’26'];
   const mVals = [22, 48, 50, 45, 51, 45, 55, 59, 64];
   const cols = mVals.map((v, i) => (i === mVals.length - 1 ? HEX.red : i === 0 ? HEX.steel : '9A4446')).reverse();
+  const ch2H = 2.42;
   const ch2 = d.chart(s, 'bar', [{ name: 'Model better', labels: [...mLabels].reverse(), values: [...mVals].reverse() }],
-    { x: rx + c1w + cg - 0.1, y: cy, w: c2w + 0.1, h: chH }, {
+    { x: rx + c1w + cg - 0.1, y: cy - 0.05, w: c2w + 0.1, h: ch2H }, {
       barDir: 'bar', chartColors: cols, showValue: true, dataLabelFormatCode: '0"%"', dataLabelPosition: 'outEnd', dataLabelFontSize: 10,
       valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 78, catAxisLabelFontSize: 10, barGapWidthPct: 35,
       catAxisLineShow: false,
     });
+  const ch2Cap = d.text(s, 'Of 129 internal sessions where a researcher went down a wrong path: % where Claude’s suggestion beat the researcher’s (ties not shown; practical ceiling ≈90%)',
+    { x: rx + c1w + cg, y: cy - 0.05 + ch2H + 0.04, w: c2w, h: 0.5, fontSize: 10, color: d.S.muted, valign: 'top' });
+  // Everything on this slide is the company's own data: say so next to the numbers, not just in the notes.
+  const vy = cy - 0.05 + ch2H + 0.6;
+  const vBar = d.rect(s, { x: rx, y: vy + 0.03, w: 0.05, h: 0.22, fill: { color: HEX.amber }, line: { color: HEX.amber, width: 0 } });
+  const vNote = d.text(s, [
+    { text: 'ANTHROPIC-REPORTED  ', options: { bold: true, charSpacing: 2, fontSize: 10 } },
+    { text: 'All figures here are the company’s own internal data — not independently verified', options: {} },
+  ], { x: rx + 0.15, y: vy, w: rw - 0.15, h: 0.28, fontSize: 11, color: d.S.amber, valign: 'middle' });
 
-  const sy = cy + chH + 0.2;
+  const sy = vy + 0.38;
   const st1 = statRow(d, s, { x: rx, y: sy, w: c1w, vw: 1.25, h: 0.95, value: '80%+', valueSize: 30, labelSize: 12, label: 'of code merged at Anthropic is written by Claude' });
   const st2 = statRow(d, s, { x: rx + c1w + cg, y: sy, w: c2w, vw: 1.45, h: 0.95, value: '4 mo.', valueSize: 30, labelSize: 12, label: 'doubling time of the task length AI can do alone — down from 7 months', color: d.S.amber });
 
   anim(d, s, hdr, { auto: true, effect: 'rise', dur: 500 });
   anim(d, s, [q], { auto: true, effect: 'fade', after: 150 });
   anim(d, s, [l1, ch1], { effect: 'wipeLeft', dur: 900 });
-  anim(d, s, [l2, ch2], { effect: 'wipeLeft', dur: 900 });
+  anim(d, s, [vBar, vNote], { auto: true, effect: 'fade', dur: 400, after: 100 });
+  anim(d, s, [l2, ch2, ch2Cap], { effect: 'wipeLeft', dur: 900 });
   anim(d, s, [...st1, ...st2], { effect: 'zoom', dur: 400 });
 
   d.source(s, 'Sources: Anthropic, “When AI builds itself” (Jun 2026; charts updated Sep 2026) · Fortune (Beatrice Nolan), Jun 5, 2026.   * Q2 2026 is a partial quarter.');
@@ -514,13 +635,15 @@ async function rsiAnthropicSlide(d) {
 // ======================================================================
 async function rsiLoopSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'INSIDE THE MACHINE · RSI · 3', 'The labs say the loop has already begun');
+  head(s, 'INSIDE THE MACHINE · RECURSIVE SELF-IMPROVEMENT · 4', 'AI labs are already automating AI research');
 
   const eng = await crop(TH('engadget-research-intern.png'), 'engadget_head.png', { left: 0, top: 0, width: 1610, height: 680 });
 
   // top row: three clippings
   const e = await frameW(d, s, eng, CX0, 1.9, 3.7, { rot: -2 });
-  const g = await frameW(d, s, TH('govai-intelligence-explosion.png'), 4.7, 1.82, 4.2, { rot: 1 });
+  // left column only (title + first abstract paragraph); the caption below carries the authors
+  const gImg = await crop(TH('govai-intelligence-explosion.png'), 'govai_head.png', { left: 150, top: 90, width: 1220, height: 650 });
+  const g = await frameW(d, s, gImg, 4.7, 1.82, 4.2, { rot: 1 });
   const t = await frameW(d, s, TH('tnw-pachocki-slowdown.png'), 9.3, 1.95, CX1 - 9.3, { rot: -1.5 });
 
   // captions / stats under each
@@ -529,22 +652,27 @@ async function rsiLoopSlide(d) {
     { text: '22 authors, ', options: { bold: true, color: d.S.txt } },
     { text: 'incl. Hinton, Bengio & Barto (Turing Awards), Pachocki (OpenAI) and Jack Clark (Anthropic)', options: { color: d.S.muted } },
   ], { x: 4.75, y: 1.82 + g.h + 0.15, w: 4.2, h: 0.5, fontSize: 12, valign: 'top' });
-  const tStat = statRow(d, s, { x: 9.3, y: 1.95 + t.h + 0.2, w: CX1 - 9.3, vw: 0.9, h: 0.85, value: '3.1', valueSize: 34, labelSize: 12, label: 'AI agent-workdays for every human workday at OpenAI research (mid-Aug 2026)' });
+  const tStat = statRow(d, s, { x: 9.3, y: 1.95 + t.h + 0.2, w: CX1 - 9.3, vw: 0.9, h: 0.85, value: '3.1', valueSize: 34, labelSize: 12, label: 'AI agent-workdays per human workday in OpenAI research, mid-Aug 2026 (OpenAI-reported)' });
 
   // bottom: timeline
-  const ly = 5.78, x0 = 1.05, x1 = 12.25; // Sep 2026 → May 2028 (20 months)
+  const ly = 5.62, x0 = 1.05, x1 = 12.25; // Sep 2026 → May 2028 (20 months)
   const mx = (m) => x0 + (x1 - x0) * m / 20;
   const tl = [];
   const ln = d.name('tl');
   s.addShape(d.pres.shapes.LINE, { x: CX0, y: ly, w: CX1 - CX0, h: 0, line: { color: HEX.steel, width: 1.5, endArrowType: 'triangle' }, objectName: ln });
   tl.push(ln);
-  const tlLab = capLabel(d, s, 'WHEN DOES THE LOOP CLOSE?', { x: CX0, y: ly + 0.14, w: 3.2, valign: 'top' });
+  const tlLab = d.text(s, [
+    { text: 'WHEN DOES THE LOOP CLOSE?', options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 2, breakLine: true, paraSpaceAfter: 3 } },
+    { text: 'AI 2027 dates are medians conditional on a superhuman coder arriving Mar 2027', options: { fontSize: 10, color: d.S.muted } },
+  ], { x: CX0, y: ly + 0.14, w: 3.55, h: 0.62, valign: 'top' });
+  // Labels sit centred on their dot (clamped to the margins); the two close right-hand dots split above/below,
+  // with APR 2028 right-aligned to end just past its own dot.
   const ms = [
-    { m: 0, date: 'SEP 2026 · NOW', text: 'OpenAI: automated research intern', up: true, color: HEX.red, align: 'left', x: CX0, w: 2.8 },
-    { m: 10, date: 'JUL 2027', text: 'Vals trend: frontier-level AI researchers · AI 2027 median: superhuman AI researcher', up: false, color: HEX.amber, align: 'center', w: 3.6 },
-    { m: 14, date: 'NOV 2027', text: 'AI 2027 median: superintelligent AI researcher', up: true, color: HEX.amber, align: 'center', w: 2.5 },
-    { m: 18, date: 'MAR 2028', text: 'OpenAI target: automated AI researcher', up: false, color: HEX.red, align: 'right', w: 3.0 },
-    { m: 19, date: 'APR 2028', text: 'AI 2027 median: superintelligence', up: true, color: HEX.amber, align: 'right', w: 2.3, x: CX1 - 2.3 },
+    { m: 0, date: 'SEP 2026 · NOW', text: ['OpenAI: automated research intern'], up: true, color: HEX.red, align: 'left', x: CX0, w: 2.8 },
+    { m: 10, date: 'JUL 2027', text: ['Vals trend: Anthropic reaches frontier-level AI researchers', 'AI 2027: superhuman AI researcher'], up: false, color: HEX.amber, align: 'center', w: 4.6 },
+    { m: 14, date: 'NOV 2027', text: ['AI 2027: superintelligent', 'AI researcher'], up: true, color: HEX.amber, align: 'center', w: 2.2 },
+    { m: 18, date: 'MAR 2028', text: ['OpenAI target: automated AI researcher'], up: false, color: HEX.red, align: 'center', w: 2.9 },
+    { m: 19, date: 'APR 2028', text: ['AI 2027:', 'superintelligence'], up: true, color: HEX.amber, align: 'right', w: 1.7, rEdge: 0.25 },
   ];
   const groups = ms.map((o) => {
     const cx = mx(o.m);
@@ -552,14 +680,16 @@ async function rsiLoopSlide(d) {
     const dot = d.name('ms');
     s.addShape(d.pres.shapes.OVAL, { x: cx - 0.09, y: ly - 0.09, w: 0.18, h: 0.18, fill: { color: o.color }, line: { color: 'FFFFFF', width: 1.25 }, objectName: dot });
     gg.push(dot);
-    let lx = o.align === 'left' ? cx - 0.1 : o.align === 'right' ? Math.min(cx + 0.35, CX1) - o.w : cx - o.w / 2;
+    let lx = o.align === 'left' ? cx - 0.1 : o.align === 'right' ? Math.min(cx + o.rEdge, CX1) - o.w : cx - o.w / 2;
     if (o.x !== undefined) lx = o.x;
+    lx = Math.max(CX0, Math.min(lx, CX1 - o.w));
     const runs = [
       { text: o.date, options: { bold: true, color: o.color, fontSize: 10, charSpacing: 2, breakLine: true } },
-      { text: o.text, options: { color: HEX.text, fontSize: 11 } },
+      ...o.text.map((t, i) => ({ text: t, options: { color: HEX.text, fontSize: 11, breakLine: i < o.text.length - 1 } })),
     ];
-    const y = o.up ? ly - 0.66 : ly + 0.14;
-    gg.push(d.text(s, runs, { x: lx, y, w: o.w, h: 0.56, align: o.align, valign: o.up ? 'bottom' : 'top' }));
+    const lh = 0.2 + 0.2 * o.text.length;
+    const y = o.up ? ly - 0.12 - lh : ly + 0.14;
+    gg.push(d.text(s, runs, { x: lx, y, w: o.w, h: lh, align: o.align, valign: o.up ? 'bottom' : 'top' }));
     return gg;
   });
 
@@ -576,7 +706,7 @@ async function rsiLoopSlide(d) {
     'Altman’s original target (Oct 2025 livestream): an automated AI research intern by September 2026 and “a true automated AI researcher by March of 2028.” They hit the first one on schedule.',
     'The Next Web, same day: OpenAI’s chief scientist Jakub Pachocki says no lab should keep scaling at maximum speed — “Currently I believe that no lab has solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer.”',
     'GovAI paper (Sep 28, 2026), 22 authors including Alan Chan, Christoph Winter, Andrew Barto, Jakub Pachocki, Geoffrey Hinton, Eric Horvitz, Yoshua Bengio, Dawn Song, Jack Clark, Hilary Greaves, Anton Korinek: “AI now plays a major role in building AI. Preliminary evidence suggests this could radically accelerate AI progress in an ‘intelligence explosion,’ where years of AI progress are compressed into months or less… Policymakers, including heads of government, urgently need to understand and prepare for this possibility.” Coverage quotes it: “once an intelligence explosion begins, the window for action may close.”',
-    'Timeline: Vals’ trend line projects “frontier-level AI researchers by July 2027” (straight-line extrapolation). AI 2027’s takeoff forecast (AI Futures Project, Apr 2025) — conditional on a superhuman coder arriving in March 2027 — gives medians of Jul 2027 for a superhuman AI researcher, Nov 2027 for a superintelligent AI researcher, and Apr 2028 for artificial superintelligence (90th percentiles: Mar 2028, Jan 2034, after 2100). These are forecasts, not facts — but they line up uncomfortably with OpenAI’s own March 2028 target.',
+    'Timeline: Vals’ trend line projects “Anthropic is on track for frontier-level AI researchers by July 2027” (straight-line extrapolation). AI 2027’s takeoff forecast (AI Futures Project, Apr 2025) — conditional on a superhuman coder arriving in March 2027 — gives medians of Jul 2027 for a superhuman AI researcher, Nov 2027 for a superintelligent AI researcher, and Apr 2028 for artificial superintelligence (90th percentiles: Mar 2028, Jan 2034, after 2100). These are forecasts, not facts — but they line up uncomfortably with OpenAI’s own March 2028 target.',
     'Also: Fortune/AP (Sep 19, 2026): FLI’s Anthony Aguirre on full autonomy: “I think this is probably the worst idea in the history of humanity to do this.” Not shown: Reuters/KSL “Anthropic says Claude now leads a quarter of work building its next AI models” (headline not re-verified for this deck).',
     'URLs: https://www.engadget.com/2251859/openai-says-it-reached-its-goal-of-creating-an-automated-research-intern/ · https://openai.com/index/research-acceleration-view-inside-openai/ · https://thenextweb.com/news/openai-slowdown-pachocki-alien-mind-research-intern-compute · https://www.governance.ai/research-paper/what-if-automating-ai-r-d-triggers-an-intelligence-explosion · https://www.vals.ai/benchmarks/rsi_index · https://ai-2027.com/',
   ].join('\n\n'));

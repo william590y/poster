@@ -3220,6 +3220,22 @@
       "slide_topic": "Frequency of AI security / rogue-agent incidents",
       "verified": true,
       "rev": "rev2:frequency.json"
+    },
+    {
+      "id": "transluce-urlquery-dataset-v5",
+      "slide_topic": "Frequency of AI security / rogue-agent incidents",
+      "type": "chart",
+      "file": null,
+      "headline": "URLQuery agent-activity dataset - v5 with reviewed confidence",
+      "dek": "38,160 distinct reports: ... 37,649 included reports: 6,467 significant and 31,182 suggestive.",
+      "outlet": "Transluce (public dataset)",
+      "date": "2026-09-24",
+      "url": "https://transluce.org/data/urlquery-agent-activity-2026-09-23.zip",
+      "caption": "Numeric data behind Transluce's scans-per-day chart (daily counts by confidence), downloaded and summed by month",
+      "quality": 5,
+      "verified": true,
+      "notes": "Downloaded 2026-10-04 (4.57 MB zip). Files saved: rev2/freq-transluce-urlquery-daily-counts-v5.csv, rev2/freq-transluce-urlquery-dataset-README-v5.md, rev2/freq-transluce-urlquery-collection-summary-v5.json. Monthly totals: Apr 3,828; May 20,082; Jun 13,146; Jul 26.",
+      "rev": "rev2:editor"
     }
   ],
   "datasets": [
@@ -4341,6 +4357,77 @@
       "source": "alignment.openai.com/misalignment-reports (loaded 2026-10-04)",
       "url": "https://alignment.openai.com/misalignment-reports/",
       "notes": "Counts what OpenAI chose to disclose after it launched its disclosure framework on 2026-09-16; most items were published/updated Sep 16-Oct 2, so the shape reflects disclosure timing and the 'May 2026' cluster of RL-training sandbox escapes, not a trend. One report (Uploading files to the internet in order to cite them) has samples Oct 22, 2025 and Jan 24, 2026 and is counted at the later date; 'Self-replicating prompt injections exist' uses its discovery date (Jun 27). DSEwiki notice has no activity date."
+    },
+    {
+      "id": "transluce-urlquery-agent-reports-monthly",
+      "title": "Transluce: urlquery.net reports showing apparent AI-agent activity, per month (UTC)",
+      "unit": "included urlquery.net scan reports per month (chart window Nov 1 2025 - Sep 21 2026; Sep is partial)",
+      "labels": [
+        "2025-11",
+        "2025-12",
+        "2026-01",
+        "2026-02",
+        "2026-03",
+        "2026-04",
+        "2026-05",
+        "2026-06",
+        "2026-07",
+        "2026-08",
+        "2026-09"
+      ],
+      "series": [
+        {
+          "name": "Higher confidence ('significant')",
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            6,
+            1341,
+            2673,
+            2436,
+            2,
+            0,
+            9
+          ]
+        },
+        {
+          "name": "Moderate confidence ('suggestive')",
+          "values": [
+            118,
+            35,
+            26,
+            233,
+            107,
+            2487,
+            17409,
+            10710,
+            24,
+            5,
+            17
+          ]
+        },
+        {
+          "name": "Total",
+          "values": [
+            118,
+            35,
+            26,
+            233,
+            113,
+            3828,
+            20082,
+            13146,
+            26,
+            5,
+            26
+          ]
+        }
+      ],
+      "source": "Transluce public dataset urlquery-agent-activity (v5, generated 2026-09-24), daily-counts.csv summed by month by us; saved as rev2/freq-transluce-urlquery-daily-counts-v5.csv",
+      "url": "https://transluce.org/data/urlquery-agent-activity-2026-09-23.zip",
+      "notes": "README: 37,649 included reports (6,467 significant, 31,182 suggestive); chart window covers 37,638. 'significant' and 'suggestive' denote higher and moderate qualitative confidence in agent-like activity; they are not calibrated probabilities or verified actors. Public URLQuery coverage and this selected collection are incomplete. Counts are reports, not unique tasks or successful accesses. Peak day 2026-05-11 (2,239 reports); peak higher-confidence day 2026-06-15 (505). Activity collapses after 2026-06-22. Report page: https://transluce.org/agent-activity (Sep 23, 2026)."
     }
   ],
   "facts": [
@@ -4691,6 +4778,12 @@
       "source": "Compiled from the sources above",
       "url": "https://oecd.ai/en/incidents",
       "date": "2026-10-04"
+    },
+    {
+      "claim": "Transluce's public dataset counts 37,649 urlquery.net reports showing apparent AI-agent activity (6,467 higher-confidence), Nov 2025 - Sep 2026; 20,082 of them in May 2026 alone; peak day May 11, 2026 with 2,239.",
+      "source": "Transluce urlquery agent-activity dataset v5 (our monthly sums of daily-counts.csv)",
+      "url": "https://transluce.org/data/urlquery-agent-activity-2026-09-23.zip",
+      "date": "2026-09-24"
     }
   ],
   "not_found": [

@@ -1,0 +1,37 @@
+{
+ "clip": {
+  "x": 40,
+  "y": 80,
+  "w": 780,
+  "h": 200
+ },
+ "dpr": 2,
+ "rel": {
+  "The Information reported Thursday, citing a single source at OpenAI, that employees at the AI firm expect to soon crack the Hodge Conjecture.": [
+   {
+    "x": 24,
+    "y": 39.8,
+    "w": 152.9,
+    "h": 26
+   },
+   {
+    "x": 176.9,
+    "y": 39.8,
+    "w": 503.9,
+    "h": 26
+   },
+   {
+    "x": 24,
+    "y": 75.8,
+    "w": 599,
+    "h": 26
+   },
+   {
+    "x": 24,
+    "y": 111.8,
+    "w": 110.5,
+    "h": 26
+   }
+  ]
+ }
+}

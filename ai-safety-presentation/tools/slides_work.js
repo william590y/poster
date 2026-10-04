@@ -1450,8 +1450,8 @@ async function robotCostSlide(d) {
   const yb = f2.geom.y + f2.geom.h + 0.06 + 0.2;
   const bl = capLabel(d, s, 'BUT ONCE ROBOTS CAN DO A JOB: 50-YEAR BACKTEST', { x: rx, y: yb, w: rw, color: d.S.amber, charSpacing: 1 });
   const sw = (rw - 0.3) / 2;
-  const st1 = stat(d, s, { x: rx, y: yb + 0.22, w: sw, value: '−34%', valueSize: 26, labelSize: 12, labelH: 0.45, label: 'jobs in fully robot-exposed occupations over ~20 years' });
-  const st2 = stat(d, s, { x: rx + sw + 0.3, y: yb + 0.22, w: sw, value: '−7%', valueSize: 26, labelSize: 12, labelH: 0.45, label: 'wages, vs unexposed jobs in the same industry' });
+  const st1 = stat(d, s, { x: rx, y: yb + 0.22, w: sw, value: '−34%', valueSize: 26, labelSize: 12, labelH: 0.45, label: 'employment over ~20 years: fully robot-exposed vs unexposed jobs' });
+  const st2 = stat(d, s, { x: rx + sw + 0.3, y: yb + 0.22, w: sw, value: '−7%', valueSize: 26, labelSize: 12, labelH: 0.45, label: 'wages, same comparison (within the same industry)' });
 
   d.animate(s, [lab, ...leg, ch], { auto: true, effect: 'wipeLeft', dur: 1100 });
   d.animate(s, [tag, note], { auto: true, effect: 'fade', after: 100 });

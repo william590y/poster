@@ -1,0 +1,545 @@
+{
+ "source_pdf": "https://info.thorn.org/hubfs/Research/Thorn_2025YouthPerspectives_Report.pdf",
+ "dpi": 300,
+ "images": [
+  {
+   "file": "thorn-yp2025-cover.png",
+   "pdf_page": 1,
+   "crop_of_page_px": [
+    0,
+    0,
+    3300,
+    2550
+   ],
+   "image_px": [
+    3300,
+    2550
+   ],
+   "highlights": [
+    {
+     "text": "JULY 2026",
+     "line_rects_px": [
+      [
+       470,
+       417,
+       273,
+       71
+      ]
+     ],
+     "bbox_px": [
+      470,
+      417,
+      273,
+      71
+     ]
+    }
+   ]
+  },
+  {
+   "file": "thorn-yp2025-p15-key-metrics.png",
+   "pdf_page": 15,
+   "crop_of_page_px": [
+    0,
+    0,
+    3300,
+    2550
+   ],
+   "image_px": [
+    3300,
+    2550
+   ],
+   "highlights": [
+    {
+     "text": "1 in 25 teens reported having a personal experience with deepfake nudes being created of them.",
+     "line_rects_px": [
+      [
+       258,
+       1790,
+       296,
+       144
+      ],
+      [
+       258,
+       1913,
+       470,
+       72
+      ],
+      [
+       258,
+       1971,
+       494,
+       72
+      ],
+      [
+       258,
+       2029,
+       594,
+       72
+      ],
+      [
+       258,
+       2088,
+       169,
+       72
+      ]
+     ],
+     "bbox_px": [
+      258,
+      1790,
+      594,
+      370
+     ]
+    },
+    {
+     "text": "1 in 5 minors reported having an online sexual interaction with someone they believed to be an adult",
+     "line_rects_px": [
+      [
+       258,
+       931,
+       235,
+       144
+      ],
+      [
+       258,
+       1053,
+       519,
+       72
+      ],
+      [
+       258,
+       1112,
+       577,
+       72
+      ],
+      [
+       258,
+       1170,
+       561,
+       72
+      ],
+      [
+       258,
+       1228,
+       166,
+       72
+      ]
+     ],
+     "bbox_px": [
+      258,
+      931,
+      577,
+      369
+     ]
+    }
+   ]
+  },
+  {
+   "file": "thorn-yp2025-p15-key-metrics-crop.png",
+   "pdf_page": 15,
+   "crop_of_page_px": [
+    200,
+    361,
+    950,
+    1919
+   ],
+   "image_px": [
+    950,
+    1919
+   ],
+   "highlights": [
+    {
+     "text": "1 in 25 teens reported having a personal experience with deepfake nudes being created of them.",
+     "line_rects_px": [
+      [
+       58,
+       1429,
+       296,
+       144
+      ],
+      [
+       58,
+       1552,
+       470,
+       72
+      ],
+      [
+       58,
+       1610,
+       494,
+       72
+      ],
+      [
+       58,
+       1668,
+       594,
+       72
+      ],
+      [
+       58,
+       1727,
+       169,
+       72
+      ]
+     ],
+     "bbox_px": [
+      58,
+      1429,
+      594,
+      370
+     ]
+    }
+   ]
+  },
+  {
+   "file": "thorn-yp2025-p16-deepfake-text.png",
+   "pdf_page": 16,
+   "crop_of_page_px": [
+    0,
+    0,
+    3300,
+    2550
+   ],
+   "image_px": [
+    3300,
+    2550
+   ],
+   "highlights": [
+    {
+     "text": "Among teens surveyed, 7% reported they have seen a deepfake nude of another child, and an additional 13% indicated they weren't sure",
+     "line_rects_px": [
+      [
+       1691,
+       409,
+       1303,
+       72
+      ],
+      [
+       1691,
+       471,
+       1246,
+       72
+      ]
+     ],
+     "bbox_px": [
+      1691,
+      409,
+      1303,
+      134
+     ]
+    },
+    {
+     "text": "Four percent (4%) of teens reported they have had a personal experience with deepfake nudes being created of them",
+     "line_rects_px": [
+      [
+       1873,
+       534,
+       1155,
+       72
+      ],
+      [
+       1691,
+       596,
+       1043,
+       72
+      ]
+     ],
+     "bbox_px": [
+      1691,
+      534,
+      1337,
+      134
+     ]
+    },
+    {
+     "text": "2% reported using technology to create deepfake nudes of someone else",
+     "line_rects_px": [
+      [
+       1691,
+       659,
+       1288,
+       72
+      ],
+      [
+       1691,
+       721,
+       83,
+       72
+      ]
+     ],
+     "bbox_px": [
+      1691,
+      659,
+      1288,
+      134
+     ]
+    }
+   ]
+  },
+  {
+   "file": "thorn-yp2025-p20-fig10-deepfake-tables.png",
+   "pdf_page": 20,
+   "crop_of_page_px": [
+    0,
+    0,
+    3300,
+    2550
+   ],
+   "image_px": [
+    3300,
+    2550
+   ],
+   "highlights": [
+    {
+     "text": "Exposure to deepfake nudes depicting other minors",
+     "line_rects_px": [
+      [
+       358,
+       285,
+       700,
+       65
+      ],
+      [
+       202,
+       331,
+       240,
+       65
+      ]
+     ],
+     "bbox_px": [
+      202,
+      285,
+      856,
+      111
+     ]
+    },
+    {
+     "text": "Percentage of minors who have had deepfake nudes made of them",
+     "line_rects_px": [
+      [
+       359,
+       1067,
+       829,
+       65
+      ],
+      [
+       202,
+       1112,
+       376,
+       65
+      ]
+     ],
+     "bbox_px": [
+      202,
+      1067,
+      986,
+      110
+     ]
+    },
+    {
+     "text": "Experiences creating deepfake nudes of other people",
+     "line_rects_px": [
+      [
+       359,
+       1845,
+       733,
+       65
+      ],
+      [
+       202,
+       1891,
+       236,
+       65
+      ]
+     ],
+     "bbox_px": [
+      202,
+      1845,
+      890,
+      111
+     ]
+    },
+    {
+     "text": "ROW:Ages 13-17",
+     "line_rects_px": [
+      [
+       1344,
+       306,
+       1735,
+       56
+      ]
+     ],
+     "bbox_px": [
+      1344,
+      306,
+      1735,
+      56
+     ]
+    },
+    {
+     "text": "ROW:Ages 13-17",
+     "line_rects_px": [
+      [
+       1344,
+       1087,
+       1734,
+       56
+      ]
+     ],
+     "bbox_px": [
+      1344,
+      1087,
+      1734,
+      56
+     ]
+    },
+    {
+     "text": "ROW:Ages 13-17",
+     "line_rects_px": [
+      [
+       1344,
+       1866,
+       1731,
+       56
+      ]
+     ],
+     "bbox_px": [
+      1344,
+      1866,
+      1731,
+      56
+     ]
+    }
+   ]
+  },
+  {
+   "file": "thorn-yp2025-p41-fig33-45pct.png",
+   "pdf_page": 41,
+   "crop_of_page_px": [
+    0,
+    0,
+    3300,
+    2550
+   ],
+   "image_px": [
+    3300,
+    2550
+   ],
+   "highlights": [
+    {
+     "text": "45%",
+     "line_rects_px": [
+      [
+       2619,
+       886,
+       221,
+       144
+      ]
+     ],
+     "bbox_px": [
+      2619,
+      886,
+      221,
+      144
+     ]
+    },
+    {
+     "text": "of teens reported having at least one type of sexual experience online, when additional sexual harm types were assessed cumulatively.",
+     "line_rects_px": [
+      [
+       2619,
+       1007,
+       413,
+       62
+      ],
+      [
+       2619,
+       1057,
+       439,
+       62
+      ],
+      [
+       2619,
+       1107,
+       407,
+       62
+      ],
+      [
+       2619,
+       1157,
+       480,
+       62
+      ],
+      [
+       2619,
+       1207,
+       476,
+       62
+      ]
+     ],
+     "bbox_px": [
+      2619,
+      1007,
+      480,
+      262
+     ]
+    }
+   ]
+  },
+  {
+   "file": "thorn-yp2025-p20-fig10a-seen-crop.png",
+   "pdf_page": 20,
+   "crop_of_page_px": [
+    150,
+    194,
+    3000,
+    660
+   ],
+   "image_px": [
+    3000,
+    660
+   ],
+   "highlights": [
+    {
+     "text": "Exposure to deepfake nudes depicting other minors",
+     "line_rects_px": [
+      [
+       208,
+       91,
+       700,
+       65
+      ],
+      [
+       52,
+       137,
+       240,
+       65
+      ]
+     ],
+     "bbox_px": [
+      52,
+      91,
+      856,
+      111
+     ]
+    },
+    {
+     "text": "ROW:Ages 13-17",
+     "line_rects_px": [
+      [
+       1194,
+       112,
+       1735,
+       56
+      ]
+     ],
+     "bbox_px": [
+      1194,
+      112,
+      1735,
+      56
+     ]
+    }
+   ]
+  }
+ ]
+}

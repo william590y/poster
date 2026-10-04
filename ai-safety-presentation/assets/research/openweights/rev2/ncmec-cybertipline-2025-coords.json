@@ -1,0 +1,128 @@
+{
+ "url": "https://www.missingkids.org/gethelpnow/cybertipline/cybertiplinedata",
+ "viewport_width": 1280,
+ "device_scale_factor": 2,
+ "captured": "2026-10-04T11:14:55.085Z",
+ "shots": [
+  {
+   "file": "ncmec-cybertipline-2025-generative-ai.png",
+   "image_px": [
+    2320,
+    1970
+   ],
+   "page_clip_css": [
+    94,
+    9543,
+    1160,
+    985
+   ],
+   "highlights": [
+    {
+     "text": "more than 400,000 reports of exploitation with a GAI nexus.",
+     "line_rects_px": [
+      [
+       48,
+       546,
+       1057,
+       58
+      ],
+      [
+       48,
+       624,
+       228,
+       58
+      ]
+     ],
+     "bbox_px": [
+      48,
+      546,
+      1057,
+      136
+     ]
+    },
+    {
+     "text": "more than 182,000 reports involved offenders possessing, generating or attempting to generate GAI CSAM",
+     "line_rects_px": [
+      [
+       858,
+       624,
+       219,
+       58
+      ],
+      [
+       48,
+       702,
+       1019,
+       58
+      ],
+      [
+       48,
+       779,
+       1045,
+       58
+      ]
+     ],
+     "bbox_px": [
+      48,
+      624,
+      1045,
+      214
+     ]
+    },
+    {
+     "text": "\"nudify\" apps",
+     "line_rects_px": [
+      [
+       48,
+       1790,
+       283,
+       58
+      ]
+     ],
+     "bbox_px": [
+      48,
+      1790,
+      283,
+      58
+     ]
+    }
+   ]
+  },
+  {
+   "file": "ncmec-cybertipline-2025-total-reports.png",
+   "image_px": [
+    2560,
+    424
+   ],
+   "page_clip_css": [
+    0,
+    1942,
+    1280,
+    212
+   ],
+   "highlights": [
+    {
+     "text": "21.3 million reports",
+     "line_rects_px": [
+      [
+       430,
+       180,
+       1699,
+       230
+      ]
+     ],
+     "bbox_px": [
+      430,
+      180,
+      1699,
+      230
+     ]
+    }
+   ]
+  },
+  {
+   "file": "ncmec-cybertipline-2025-fullpage.png",
+   "note": "full page incl. nav and footer"
+  }
+ ]
+}

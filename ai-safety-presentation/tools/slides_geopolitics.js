@@ -410,13 +410,13 @@ async function proteinSlide(d) {
   const lw = 6.0;
   const gif = await d.frame(s, D('protein-binders.gif'), { x: MX, y: 1.8, w: lw, h: lw * 9 / 16 }, { border: false });
   const gb = gif.geom;
-  const cap = d.text(s, 'Anthropic’s clip: nine lab-confirmed binders Claude designed (orange), on their targets (grey), then alone',
+  const cap = d.text(s, 'Anthropic’s clip: nine lab-confirmed binders · binding shown, function not yet tested',
     { x: MX, y: gb.y + gb.h + 0.08, w: lw, h: 0.26, fontSize: 11, italic: true, color: d.S.steel });
   const sy = gb.y + gb.h + 0.47, sw = (lw - 0.5) / 3;
   const stats = [
     miniStat(d, s, { x: MX, y: sy, w: sw, value: '14 of 15', color: d.S.red, label: 'targets got a binder confirmed in the wet lab' }),
     miniStat(d, s, { x: MX + sw + 0.25, y: sy, w: sw, value: '0', color: d.S.amber, label: 'human inputs into any design decision' }),
-    miniStat(d, s, { x: MX + 2 * (sw + 0.25), y: sy, w: sw, value: '24–48 h', color: d.S.txt, label: 'per campaign; a specialist takes weeks or months' }),
+    miniStat(d, s, { x: MX + 2 * (sw + 0.25), y: sy, w: sw, value: '24–48 h', color: d.S.txt, label: 'per campaign (up to 15 targets); a specialist: weeks or months per target' }),
   ];
 
   // right: the sources (real screenshots), then the hit-rate comparison
@@ -439,8 +439,11 @@ async function proteinSlide(d) {
       s.addShape(d.pres.shapes.RECTANGLE, { x: tx, y: by, w: tw * frac / max, h: bh, fill: { color, transparency: tr }, line: { color, width: 0 }, objectName: n });
       return n;
     };
-    if (i === 0) { // the 10–15 % industry range: solid to 10 %, lighter band to 15 %
-      g.push(bar(15, HEX.steel, 55), bar(10, HEX.steel));
+    if (i === 0) { // the 10–15 % industry range: solid steel to 10 %, dashed-outline band to 15 %
+      g.push(bar(10, HEX.steel));
+      const bn = d.name('bar');
+      s.addShape(d.pres.shapes.RECTANGLE, { x: tx + tw * 10 / max, y: by, w: tw * (15 - 10) / max, h: bh, fill: { type: 'none' }, line: { color: HEX.steel, width: 1, dashType: 'dash' }, objectName: bn });
+      g.push(bn);
       g.push(d.text(s, '10–15%', { x: tx + tw * 15 / max + 0.08, y, w: 1.1, h: 0.36, fontSize: 13, bold: true, color: d.S.muted, valign: 'middle' }));
     } else if (i === 1) {
       g.push(bar(27, HEX.amber));
@@ -459,7 +462,7 @@ async function proteinSlide(d) {
   d.animate(s, rowG[1], { auto: true, effect: 'wipeLeft', after: 250, dur: 600 });
   d.animate(s, rowG[2], { effect: 'wipeLeft', dur: 900 });
   d.animate(s, stats.flat(), { effect: 'zoom', stagger: 150, dur: 400 });
-  d.source(s, 'Sources: Anthropic research post + technical report, Aug 18, 2026 (company-reported; binding measured by two CROs, Adaptyv Bio & Twist Bioscience) · Dataconomy, Aug 20, 2026.');
+  d.source(s, 'Sources: Anthropic research post + technical report, Aug 18, 2026 (company-reported; binding measured by two CROs, Adaptyv Bio & Twist Bioscience) · Dataconomy, Aug 20, 2026. Built for drug discovery — but dual-use (next slide).');
   s.addNotes([
     'THE 2026 UPDATE TO THE VIROLOGY SLIDE. Aug 18, 2026: Anthropic published “How Claude is accelerating protein design and analytical chemistry” plus a 29-page technical report, “Autonomous de novo protein binder design with Claude” (Claude Science & Amir Shanehsazzadeh). Claude Opus 4.8 and Mythos Preview ran de novo protein-binder design campaigns end to end; two independent contract research organizations (Adaptyv Bio, Twist Bioscience) synthesized every design exactly as delivered and measured binding.',
     'THE “ABOUT HALF” NUMBER, precisely: “among the designs ranked first for each target in each campaign, 49% bound” (report abstract). Pooling the 41 rankings from the three campaigns that covered 13+ targets: 49% for the top-ranked design alone (a binder in 20 of 41 rankings), 44% over the top five, 39% over the top ten, 28% over all 30. Say: “Claude’s first pick for a target worked about half the time.”',
@@ -476,7 +479,7 @@ async function proteinSlide(d) {
 // ---------------------------------------------------------------- 9. Dual-use: labs gate their bio models
 async function accessSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  heading(s, 'THE WORLD · USE BY BAD ACTORS · 4', 'The same power is a weapon — so it’s gated');
+  heading(s, 'THE WORLD · USE BY BAD ACTORS · 4', 'The same power is dual-use — so it’s gated');
 
   // left column: the two labs' own framing. Anthropic's dual-use quote, then OpenAI's system-card clippings.
   const lw = 6.35;
@@ -486,24 +489,24 @@ async function accessSlide(d) {
     { text: 'Anthropic — on the protein-design result. Protein design stays out of general access in Claude Fable 5.', options: { fontSize: 12, color: d.S.muted } },
   ], { x: MX + 0.22, y: 1.92, w: lw - 0.44, h: 1.48, valign: 'middle' });
 
-  const ocLab = label(d, s, 'OPENAI’S GPT-ROSALIND-5.5 — A PURPOSE-BUILT BIOLOGY MODEL · JUN 2026', { x: MX, y: 3.66, w: lw });
-  const hc = await d.frame(s, D('rosalind-highcap.png'), { x: MX, y: 3.98, w: lw, h: 0.72 }, { rot: 0 });
+  const ocLab = label(d, s, 'OPENAI · GPT-ROSALIND-5.5 SYSTEM CARD · JUN 2026', { x: MX, y: 3.66, w: lw });
+  const hc = await d.frame(s, D('rosalind-highcap.png'), { x: MX, y: 3.98, w: lw, h: 0.52 }, { rot: 0 });
   const hcHl = await highlight(d, s, D('rosalind-highcap.png'), hc, BIO_HL['rosalind-highcap.png']);
-  const nr = await d.frame(s, D('rosalind-norefuse.png'), { x: MX, y: 4.86, w: lw, h: 0.92 }, { rot: 0 });
+  const nr = await d.frame(s, D('rosalind-norefuse.png'), { x: MX, y: 4.64, w: lw, h: 0.71 }, { rot: 0 });
   const nrHl = await highlight(d, s, D('rosalind-norefuse.png'), nr, BIO_HL['rosalind-norefuse.png']);
-  const nm = await d.frame(s, D('rosalind-nomonitor.png'), { x: MX, y: 5.92, w: lw, h: 0.56 }, { rot: 0 });
+  const nm = await d.frame(s, D('rosalind-nomonitor.png'), { x: MX, y: 5.49, w: lw, h: 0.72 }, { rot: 0 });
   const nmHl = await highlight(d, s, D('rosalind-nomonitor.png'), nm, BIO_HL['rosalind-nomonitor.png']);
 
   // right column: what the safeguard now is, and the uplift picture
   const rx = 7.2, rw = W - MX - rx;
-  const lab = label(d, s, 'THE SAFEGUARD IS NO LONGER REFUSAL — IT’S ACCESS CONTROL', { x: rx, y: 1.78, w: rw }, d.S.amber);
+  const lab = label(d, s, 'SAFEGUARD: ACCESS CONTROL, NOT REFUSAL', { x: rx, y: 1.78, w: rw }, d.S.amber);
   const pts = [
     ['FaFlask', 'High', 'OpenAI judged GPT-Rosalind-5.5 at its “High” capability threshold for biology & chemistry (below “Critical”)'],
     ['FaDoorOpen', 'Not refusal', 'Unlike GPT-5.5 it is “trained not to refuse sophisticated biology queries”; vetted-access review is “the primary safeguard”'],
     ['FaUserShield', 'Who, not what', 'Deployed only to approved scientists, institutes and government partners — no real-time monitor blocking its outputs'],
   ];
   const cardsG = [];
-  const chh = 0.98, cgap = 0.12;
+  const chh = 0.90, cgap = 0.10;
   for (let i = 0; i < pts.length; i++) {
     const [ic, tag, body] = pts[i];
     const y = 2.14 + i * (chh + cgap);
@@ -514,18 +517,19 @@ async function accessSlide(d) {
     s.addImage({ data: await icon(ic, '#F4A261'), x: rx + 0.31, y: y + 0.36, w: 0.26, h: 0.26, objectName: g[g.length - 1] });
     g.push(d.text(s, [
       { text: tag + '   ', options: { bold: true, fontSize: 15, color: d.S.amber } },
-      { text: body, options: { fontSize: 13, color: d.S.muted, breakLine: false } },
+      { text: body, options: { fontSize: 14, color: d.S.muted, breakLine: false } },
     ], { x: rx + 0.88, y: y + 0.08, w: rw - 1.02, h: chh - 0.16, valign: 'middle' }));
     cardsG.push(g);
   }
 
-  const upLab = label(d, s, 'WHO GETS UPLIFTED — AND HOW MUCH', { x: rx, y: 5.42, w: rw });
-  const upCard = d.card(s, { x: rx, y: 5.74, w: rw, h: 0.78 });
+  const upLab = label(d, s, 'WHO GETS UPLIFTED — AND HOW MUCH', { x: rx, y: 5.12, w: rw });
+  const upCard = d.card(s, { x: rx, y: 5.44, w: rw, h: 1.08 });
   const up = d.text(s, [
-    { text: 'Novices + an LLM were 4.16× more accurate on in-silico bio benchmarks', options: { color: d.S.txt, bold: true } },
-    { text: '; but a wet-lab novice trial (n=153) found a non-significant 1.42×. ', options: { color: d.S.muted } },
-    { text: '“Experts will be the first group uplifted to catastrophic bio capabilities.”', options: { color: d.S.amber, italic: true } },
-  ], { x: rx + 0.18, y: 5.82, w: rw - 0.36, h: 0.62, fontSize: 13, valign: 'middle' });
+    { text: 'Novices + an LLM: 4.16× more accurate than controls on in-silico bio tests', options: { color: d.S.txt, bold: true } },
+    { text: ' — but a non-significant 1.42× in a wet-lab trial (n=153). ', options: { color: d.S.muted } },
+    { text: '“Experts will be the first group uplifted to access catastrophic bio capabilities.”', options: { color: d.S.amber, italic: true } },
+    { text: ' — Humam Aziz, EA Forum review', options: { color: d.S.muted } },
+  ], { x: rx + 0.18, y: 5.50, w: rw - 0.36, h: 0.96, fontSize: 14, valign: 'middle' });
 
   d.animate(s, [qc, q], { auto: true, effect: 'slam', dur: 450 });
   d.animate(s, [ocLab, ...hc, ...hcHl], { auto: true, effect: 'rise', delay: 150 });
@@ -534,13 +538,13 @@ async function accessSlide(d) {
   d.animate(s, [lab, ...cardsG[0]], { effect: 'rise' });
   cardsG.slice(1).forEach(g => d.animate(s, g, { auto: true, effect: 'rise', delay: 150 }));
   d.animate(s, [upLab, upCard, up], { effect: 'fade' });
-  d.source(s, 'Sources: Anthropic, Aug 18, 2026 · OpenAI, GPT-Rosalind-5.5 System Card, Jun 3, 2026 (highlights added) · bio-uplift survey: Zhang/Knight et al. 2026, Hong et al. 2026 (n=153), via EA Forum, May 2026.');
+  d.source(s, 'Sources: Anthropic, Aug 18, 2026 · OpenAI, GPT-Rosalind-5.5 System Card, Jun 3, 2026 (highlights added) · bio-uplift review: H. Aziz, “The State of Bio-Uplift Research in Mid-2026,” EA Forum, May 30, 2026 (citing Zhang/Knight et al. 2026; Hong et al. 2026, n=153).');
   s.addNotes([
     'THE TURN: once models can do this kind of work, refusing individual prompts stops being the main defense. Both leading labs now treat WHO can use the capability — not just what the model will say — as the safeguard.',
     'ANTHROPIC (same Aug 18, 2026 post as the previous slide): “The uplift provided by the increasingly autonomous research capabilities of AI models will undoubtedly speed the development of human therapies and fundamental scientific discoveries. However, such capabilities are also dual-use: without robust safety measures, they could enable bad actors to perform dangerous research, such as the development of bioweapons.” Protein design and other dual-use biology capabilities “remain unavailable for general access in Claude Fable 5.”',
     'OPENAI GPT-Rosalind-5.5 System Card (June 3, 2026) — a purpose-built biology model. Verbatim, highlighted on the clippings: (1) p.2 “the Preparedness evaluations in the Biological and Chemical domain met our threshold for High capability while falling below the threshold for Critical.” (2) p.2 “Unlike GPT-5.5, it is trained not to refuse sophisticated biology queries, and leverages a trusted access and responsible deployment structure as the primary safeguard.” (3) p.8 “Unlike our safeguards posture for our more broadly distributed flagship models, in this case we are not deploying automated monitors for real-time blocking of potentially unsafe generations.”',
     'BALANCE — do not overstate: the model is still “trained to refuse malicious requests that would meaningfully enable biological weaponization,” and GPT-5.5 was already rated High in biology. Access is limited to vetted scientists, research institutes and government partners with business/compliance screening. The shift being shown is from refusal-as-safeguard to access-control-as-safeguard, not “no safeguards.”',
-    'UPLIFT (mid-2026 survey on the EA Forum, citing primary sources): novices + LLM were 4.16× more accurate than controls across 8 in-silico benchmarks [95% CI 2.63–6.87] (Zhang, Knight et al. 2026); a wet-lab novice RCT (Hong et al. 2026, n=153) found a non-significant 1.42× [0.74–2.62]. The survey’s warning: “Experts will be the first group uplifted to access catastrophic bio capabilities; novice uplift will remain a late signal.” So benchmark leaps overstate real-world novice uplift today — the worry is expert uplift, which is under-measured.',
+    'UPLIFT (mid-2026 review on the EA Forum by Humam Aziz, “The State of Bio-Uplift Research in Mid-2026,” May 30, 2026, citing primary sources): novices + LLM were 4.16× more accurate than controls across 8 in-silico benchmarks [95% CI 2.63–6.87] (Zhang, Knight et al. 2026); a wet-lab novice RCT (Hong et al. 2026, “Measuring Mid-2025 LLM-Assistance on Novice Performance in Biology,” n=153) found a non-significant 1.42× [0.74–2.62]. The review author’s warning: “Experts will be the first group uplifted to access catastrophic bio capabilities; novice uplift will remain a late signal.” The amber quote on the slide is Aziz’s own framing, not a finding of the cited studies. So benchmark leaps overstate real-world novice uplift today — the worry is expert uplift, which is under-measured.',
     'Disclosure (as elsewhere in the deck): this deck was built with Claude (Anthropic), one of the companies discussed.',
     'URLs: https://www.anthropic.com/research/Claude-accelerates-protein-design · https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf · https://forum.effectivealtruism.org/posts/S6ydgTdTr8sXkfs9x/the-state-of-bio-uplift-research-in-mid-2026',
   ].join('\n\n'));

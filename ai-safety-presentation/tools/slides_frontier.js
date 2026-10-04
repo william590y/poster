@@ -142,6 +142,38 @@ function ring(d, s, c, r, color) {
   return n;
 }
 
+// Native semi-transparent "highlighter" boxes laid over a screenshot (never painted on its pixels).
+// boxes: [[x0, y0, x1, y1], ...] in the RAW capture's px; off = [left, top] of the crop taken from that capture.
+function highlight(d, s, P, rot, boxes, off = [0, 0], { color = 'FFC93C', transparency = 55, padX = 5, padY = 1 } = {}) {
+  return boxes.map(([x0, y0, x1, y1]) => {
+    const a = [x0 - off[0] - padX, y0 - off[1] - padY, x1 - off[0] + padX, y1 - off[1] + padY];
+    const c = P((a[0] + a[2]) / 2, (a[1] + a[3]) / 2);
+    const w = (a[2] - a[0]) * P.s, h = (a[3] - a[1]) * P.s;
+    const n = d.name('hl');
+    s.addShape(d.pres.shapes.RECTANGLE, {
+      x: c.x - w / 2, y: c.y - h / 2, w, h, rotate: rot, fill: { color, transparency }, line: { color, width: 0, transparency: 100 }, objectName: n,
+    });
+    return n;
+  });
+}
+
+// Highlight boxes recorded in the manifest (raw capture px) for one item / phrase.
+const RES = (f) => A('research', 'frontier', f);
+let _man = null;
+function hlPx(id, phrase, W, H) {
+  _man = _man || JSON.parse(fs.readFileSync(RES('manifest.json'), 'utf8'));
+  const it = _man.items.find(i => i.id === id);
+  if (!it) throw new Error('manifest item missing: ' + id);
+  let b = it.highlight_boxes_px && it.highlight_boxes_px[phrase];
+  // researcher items store fractions (0-1) of the raw image instead
+  if (!b && it.highlight_boxes) {
+    const e = it.highlight_boxes.find(h => h.text === phrase);
+    if (e) b = e.boxes_frac.map(q => [q.x * W, q.y * H, (q.x + q.w) * W, (q.y + q.h) * H]);
+  }
+  if (!b) throw new Error(`no highlight boxes for ${id}: ${phrase}`);
+  return b;
+}
+
 // ======================================================================
 // 1. NEURALESE · what latent reasoning is (Coconut)
 // ======================================================================
@@ -276,7 +308,7 @@ async function astraSlide(d) {
 // ======================================================================
 async function alienSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'INSIDE THE MACHINE · NEURALESE · 3', 'o3’s private thoughts were already turning alien');
+  head(s, 'INSIDE THE MACHINE · NEURALESE · 5', 'o3’s private thoughts were already turning alien');
 
   // left: card 1 only ("soared parted illusions" loop); card 2's "going insane" lines live in the terminal instead.
   const loop1 = await crop(TH('antischeming-reasoning-loop.png'), 'o3_loop1.png', { left: 50, top: 500, width: 600, height: 1200 });
@@ -763,6 +795,8 @@ async function rsiLoopSlide(d) {
 async function build(d) {
   await latentSlide(d);
   await astraSlide(d);
+  await cotVolumeSlide(d);
+  await petabytesSlide(d);
   await alienSlide(d);
   await tttConceptSlide(d);
   await tttChartSlide(d);

@@ -1440,6 +1440,185 @@
    "verified": true,
    "notes": "Title: \"Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety\". Authors begin Tomek Korbak, Mikita Balesni, Elizabeth Barnes, Yoshua Bengio, Joe Benton, and 35 additional co-authors. Abstract (verified on the arXiv page): \"AI systems that ‘think’ in human language offer a unique opportunity for AI safety: we can monitor their chains of thought (CoT) for the intent to misbehave. Like all other known AI oversight methods, CoT monitoring is imperfect and allows some misbehavior to go unnoticed. ... Because CoT monitorability may be fragile, we recommend that frontier model developers consider the impact of development decisions on CoT monitorability.\" The paper body (seen only as a search-result snippet of the PDF, not loaded) says \"A CoT monitor is an automated system that reads the CoT of a reasoning model and other relevant information and flags suspicious or potentially ...\".",
    "rev": "rev2"
+  },
+  {
+   "id": "metr-hf-millions-narrow",
+   "slide_topic": "CoT volume / AI reads AI (frontier, narrow-viewport recapture for legibility)",
+   "type": "screenshot",
+   "file": "rev2/metr_aug26_millions_narrow.png",
+   "headline": null,
+   "dek": "Across both datasets, we reviewed approximately 1300 transcripts in total, all of which contained raw chains of thought. Most transcripts were very long, often many millions of tokens.",
+   "outlet": "METR",
+   "author": "Ryan Greenblatt, Ajeya Cotra, Hjalmar Wijk",
+   "date": "2026-08-26",
+   "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "caption": "Narrow-viewport (440-520 CSS px, 3x) headless capture of one paragraph so the text stays legible on a slide; captured 2026-10-04; no pixel edits.",
+   "quality": 5,
+   "verified": true,
+   "rev": "rev2-editor",
+   "highlight_boxes_px": {
+    "Most transcripts were very long, often many millions of tokens.": [
+     [
+      1059,
+      229,
+      1193,
+      298
+     ],
+     [
+      30,
+      318,
+      1239,
+      387
+     ],
+     [
+      30,
+      406,
+      284,
+      476
+     ]
+    ]
+   },
+   "notes": ""
+  },
+  {
+   "id": "metr-hf-sheer-scale-narrow",
+   "slide_topic": "CoT volume / AI reads AI (frontier, narrow-viewport recapture for legibility)",
+   "type": "screenshot",
+   "file": "rev2/metr_aug26_sheer_scale_narrow.png",
+   "headline": null,
+   "dek": "The sheer scale of data (over a thousand transcripts, each of which was extremely long) [6] meant that we had to heavily delegate our analysis to often-unreliable AI agents.",
+   "outlet": "METR",
+   "author": "Ryan Greenblatt, Ajeya Cotra, Hjalmar Wijk",
+   "date": "2026-08-26",
+   "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "caption": "Narrow-viewport (440-520 CSS px, 3x) headless capture of one paragraph so the text stays legible on a slide; captured 2026-10-04; no pixel edits.",
+   "quality": 5,
+   "verified": true,
+   "rev": "rev2-editor",
+   "highlight_boxes_px": {
+    "The sheer scale of data": [
+     [
+      78,
+      84,
+      677,
+      153
+     ]
+    ],
+    "we had to heavily delegate our analysis to often-unreliable AI agents": [
+     [
+      196,
+      341,
+      881,
+      409
+     ],
+     [
+      78,
+      426,
+      883,
+      495
+     ],
+     [
+      78,
+      512,
+      323,
+      580
+     ]
+    ]
+   },
+   "notes": "List item under \"Core takeaways about this incident\". Top ~60px shows the tail of the previous list item (\"our datasets.\"); crop it off."
+  },
+  {
+   "id": "guardian-oct3-lede-narrow",
+   "slide_topic": "CoT volume / AI reads AI (frontier, narrow-viewport recapture for legibility)",
+   "type": "screenshot",
+   "file": "rev2/guardian_oct3_lede_narrow.png",
+   "headline": null,
+   "dek": "OpenAI says its review in response to the Medicare and Hugging Face agent attacks is costing the company more than US$500,000 per day, as it deploys AI to examine data that would take a human 66m years to read.",
+   "outlet": "The Guardian",
+   "author": "Josh Taylor",
+   "date": "2026-10-03",
+   "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
+   "caption": "Narrow-viewport (440-520 CSS px, 3x) headless capture of one paragraph so the text stays legible on a slide; captured 2026-10-04; no pixel edits.",
+   "quality": 5,
+   "verified": true,
+   "rev": "rev2-editor",
+   "highlight_boxes_px": {
+    "as it deploys AI to examine data that would take a human 66m years to read.": [
+     [
+      654,
+      167,
+      1417,
+      229
+     ],
+     [
+      21,
+      238,
+      1078,
+      301
+     ]
+    ]
+   },
+   "notes": ""
+  },
+  {
+   "id": "guardian-oct3-head-dek",
+   "slide_topic": "CoT volume / AI reads AI (frontier, narrow-viewport recapture for legibility)",
+   "type": "screenshot",
+   "file": "rev2/guardian_oct3_head_dek.png",
+   "headline": "OpenAI says its review into hacks, including on Australian government sites, is costing $500,000 a day",
+   "dek": "Company says it is reviewing 50 petabytes of data after its agents accessed websites including Medicare without authorisation",
+   "outlet": "The Guardian",
+   "author": "Josh Taylor",
+   "date": "2026-10-03",
+   "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
+   "caption": "Narrow-viewport (440-520 CSS px, 3x) headless capture of one paragraph so the text stays legible on a slide; captured 2026-10-04; no pixel edits.",
+   "quality": 5,
+   "verified": true,
+   "rev": "rev2-editor",
+   "highlight_boxes_px": {
+    "reviewing 50 petabytes of data": [
+     [
+      365,
+      341,
+      915,
+      391
+     ]
+    ]
+   },
+   "notes": "Top ~30px is the site nav bar and the bottom ~25px the start of the next line; crop both."
+  },
+  {
+   "id": "guardian-oct3-quote-narrow",
+   "slide_topic": "CoT volume / AI reads AI (frontier, narrow-viewport recapture for legibility)",
+   "type": "screenshot",
+   "file": "rev2/guardian_oct3_quote_narrow.png",
+   "headline": null,
+   "dek": "“To put that in perspective, if that were all plain English text, it would take one person about 66 million years to read it at 240 words a minute, reading nonstop without ever sleeping or taking a break.”",
+   "outlet": "The Guardian (quoting OpenAI)",
+   "author": "Josh Taylor",
+   "date": "2026-10-03",
+   "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
+   "caption": "Narrow-viewport (440-520 CSS px, 3x) headless capture of one paragraph so the text stays legible on a slide; captured 2026-10-04; no pixel edits.",
+   "quality": 5,
+   "verified": true,
+   "rev": "rev2-editor",
+   "highlight_boxes_px": {
+    "it would take one person about 66 million years to read it at 240 words a minute": [
+     [
+      166,
+      116,
+      1369,
+      179
+     ],
+     [
+      42,
+      188,
+      744,
+      251
+     ]
+    ]
+   },
+   "notes": ""
   }
  ],
  "datasets": [
@@ -1834,6 +2013,16 @@
    "estimate": true,
    "verified": true,
    "rev": "rev2"
+  },
+  {
+   "claim": "OpenAI's review funnel (Sep 30 post, via FourWeekMBA): four automated steps, 'starting broadly to reduce the chance of missing important activity and progressively narrowing the results before human review': (1) broad search for records where models accessed/changed websites or handled credentials; (2) first AI-enabled review with low test-time compute that reads relevant records 'including the models’ recorded reasoning, known as chains of thought'; (3) second AI review with more test-time compute; (4) third review with even more test-time compute, grouping behaviour by type, then human investigators. OpenAI also says a handful of training and testing runs can generate a large volume of data because they use tens of thousands of GPUs on diverse tasks.",
+   "source": "FourWeekMBA (Gennaro Cuofano), Oct 3, 2026, quoting OpenAI's Sep 30 post",
+   "url": "https://fourweekmba.com/ai-openai-agent-review-500k-a-day/",
+   "date": "2026-10-03",
+   "estimate": false,
+   "verified": true,
+   "rev": "rev2-editor",
+   "note": "Re-read by the slide editor on 2026-10-04 (page loaded via curl). OpenAI's own page is Cloudflare-blocked."
   }
  ],
  "not_found": [

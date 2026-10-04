@@ -31,7 +31,7 @@
      [
       42,
       186,
-      100,
+      287,
       104
      ]
     ],
@@ -39,7 +39,7 @@
      [
       42,
       322,
-      1827,
+      1999,
       48
      ]
     ],
@@ -365,7 +365,7 @@
      [
       128,
       588,
-      410,
+      770,
       138
      ]
     ],
@@ -385,7 +385,7 @@
      [
       128,
       910,
-      212,
+      472,
       52
      ]
     ]
@@ -422,6 +422,12 @@
       76,
       131,
       1595,
+      148
+     ],
+     [
+      76,
+      251,
+      285,
       148
      ]
     ],
@@ -473,6 +479,20 @@
       42,
       1316,
       86
+     ],
+     [
+      40,
+      122,
+      475,
+      86
+     ]
+    ],
+    "date": [
+     [
+      263,
+      262,
+      212,
+      34
      ]
     ],
     "lede": [
@@ -499,14 +519,6 @@
       1496,
       900,
       44
-     ]
-    ],
-    "date": [
-     [
-      40,
-      262,
-      436,
-      34
      ]
     ]
    }
@@ -665,7 +677,7 @@
      [
       280,
       386,
-      211,
+      229,
       40
      ]
     ],
@@ -783,7 +795,7 @@
      [
       1298,
       170,
-      220,
+      371,
       32
      ]
     ]
@@ -1347,15 +1359,21 @@
    "boxes": {
     "quote_66m_years": [
      [
-      119,
+      100,
       60,
-      1178,
+      1197,
       42
      ],
      [
       100,
       108,
-      1061,
+      1201,
+      42
+     ],
+     [
+      100,
+      155,
+      788,
       42
      ]
     ]
@@ -1441,6 +1459,14 @@
       326,
       1631,
       106
+     ]
+    ],
+    "published": [
+     [
+      176,
+      561,
+      379,
+      42
      ]
     ]
    }
@@ -1559,7 +1585,7 @@
      [
       96,
       375,
-      871,
+      1224,
       156
      ]
     ]
@@ -1604,6 +1630,20 @@
       1065,
       96
      ]
+    ],
+    "dek": [
+     [
+      48,
+      494,
+      1538,
+      44
+     ],
+     [
+      48,
+      555,
+      132,
+      44
+     ]
     ]
    }
   },
@@ -1639,6 +1679,20 @@
       440,
       1473,
       112
+     ]
+    ],
+    "update": [
+     [
+      192,
+      610,
+      2175,
+      58
+     ],
+     [
+      78,
+      682,
+      251,
+      58
      ]
     ]
    }
@@ -1828,7 +1882,7 @@
      [
       128,
       440,
-      125,
+      553,
       40
      ]
     ]
@@ -2017,21 +2071,21 @@
      [
       520,
       530,
-      854,
+      1023,
       44
      ]
     ],
     "extinction_para": [
      [
-      1807,
+      1947,
       690,
-      202,
+      62,
       44
      ],
      [
       520,
       750,
-      1093,
+      1253,
       44
      ]
     ]
@@ -2066,8 +2120,16 @@
      [
       1321,
       326,
-      72,
+      1005,
       78
+     ]
+    ],
+    "byline": [
+     [
+      1321,
+      694,
+      166,
+      32
      ]
     ]
    }
@@ -2425,6 +2487,18 @@
    "source": "X (Casar); Common Dreams",
    "url": "https://www.commondreams.org/news/openai-firing-whistleblowers",
    "date": "2026-10-01"
+  },
+  {
+   "claim": "Misalignment disclosures: OpenAI disclosed the Hugging Face compromise on 21 Jul 2026; in September it published six reports of 'unexpected or concerning' behavior (e.g. a model inserting 'jailbreak-like instructions' into its own notes) and said (16 Sep blog, per Gizmodo) it would publish misalignment reports faster, 'even when we haven't fully explained or mitigated the behavior we're reporting'. The FTC told CBS (30 Sep) it launched an investigation into OpenAI, Anthropic and other AI companies.",
+   "source": "CBS News; Gizmodo; METR",
+   "url": "https://www.cbsnews.com/news/openai-parts-ways-with-three-researchers-who-mishandled-sensitive-information/",
+   "date": "2026-10-01"
+  },
+  {
+   "claim": "Congress: on 30 Sep 2026 METR president Chris Painter testified before a Senate Homeland Security & Governmental Affairs subcommittee (Chairman Hawley) at a hearing titled 'Rogue AI: Securing the Homeland Against AI Agent Attacks', about OpenAI's Hugging Face incident - the day before the firings were reported. No source ties the firings to that hearing.",
+   "source": "METR (testimony page)",
+   "url": "https://metr.org/blog/2026-09-30-chris-painter-senate-testimony/",
+   "date": "2026-09-30"
   }
  ],
  "not_found": [

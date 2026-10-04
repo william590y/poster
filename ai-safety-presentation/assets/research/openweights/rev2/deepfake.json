@@ -1,0 +1,7335 @@
+{
+ "group": "openweights",
+ "subtask": "deepfake (rev2)",
+ "items": [
+  {
+   "id": "csm-pr-headline",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "csm-pr-headline.png",
+   "headline": "Common Sense Media Releases New Research on Teens and AI-Generated Explicit Material",
+   "dek": "Almost half of teens have already seen AI-generated sexual material, and almost a quarter have seen it depicting themselves or someone they know",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+   "caption": "Press-release headline + dek + \"Tuesday, July 21, 2026\" date line (no site chrome)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Clean headline clipping. Highlight boxes (pixel coords in this image) for the headline, the dek and the date. Alt file = same clip rendered at 960px viewport, 3x (bigger relative text, headline wraps 2 lines).",
+   "image_px": [
+    2416,
+    466
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "Common Sense Media Releases New Research on Teens and AI-Generated Explicit Material",
+     "bbox_px": [
+      48,
+      48,
+      2134,
+      159
+     ],
+     "line_rects_px": [
+      [
+       48,
+       48,
+       2134,
+       78
+      ],
+      [
+       48,
+       129,
+       480,
+       78
+      ]
+     ]
+    },
+    {
+     "text": "Almost half of teens have already seen AI-generated sexual material, and almost a quarter have seen it depicting themselves or someone they know",
+     "bbox_px": [
+      48,
+      262,
+      2033,
+      38
+     ],
+     "line_rects_px": [
+      [
+       48,
+       262,
+       2033,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "Tuesday, July 21, 2026",
+     "bbox_px": [
+      48,
+      386,
+      254,
+      32
+     ],
+     "line_rects_px": [
+      [
+       48,
+       386,
+       254,
+       32
+      ]
+     ]
+    }
+   ],
+   "alt_file": "csm-pr-headline-w960.png",
+   "alt_image_px": [
+    2880,
+    771
+   ],
+   "alt_capture": "headless Chromium, viewport 960px, deviceScaleFactor 3",
+   "alt_highlights": [
+    {
+     "text": "Common Sense Media Releases New Research on Teens and AI-Generated Explicit Material",
+     "bbox_px": [
+      72,
+      72,
+      2583,
+      239
+     ],
+     "line_rects_px": [
+      [
+       72,
+       72,
+       2583,
+       117
+      ],
+      [
+       72,
+       194,
+       1337,
+       117
+      ]
+     ]
+    },
+    {
+     "text": "Almost half of teens have already seen AI-generated sexual material, and almost a quarter have seen it depicting themselves or someone they know",
+     "bbox_px": [
+      72,
+      393,
+      2622,
+      129
+     ],
+     "line_rects_px": [
+      [
+       72,
+       393,
+       2622,
+       57
+      ],
+      [
+       72,
+       465,
+       418,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "Tuesday, July 21, 2026",
+     "bbox_px": [
+      72,
+      651,
+      381,
+      48
+     ],
+     "line_rects_px": [
+      [
+       72,
+       651,
+       381,
+       48
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-pr-masthead-headline",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "csm-pr-masthead-headline.png",
+   "headline": "Common Sense Media Releases New Research on Teens and AI-Generated Explicit Material",
+   "dek": "Almost half of teens have already seen AI-generated sexual material, and almost a quarter have seen it depicting themselves or someone they know",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+   "caption": "Common Sense Media site masthead/nav + press-release headline + dek",
+   "quality": 5,
+   "verified": true,
+   "notes": "Includes the real commonsensemedia.org logo/nav bar for authenticity.",
+   "image_px": [
+    2416,
+    533
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "Common Sense Media Releases New Research on Teens and AI-Generated Explicit Material",
+     "bbox_px": [
+      48,
+      227,
+      2134,
+      159
+     ],
+     "line_rects_px": [
+      [
+       48,
+       227,
+       2134,
+       78
+      ],
+      [
+       48,
+       308,
+       480,
+       78
+      ]
+     ]
+    },
+    {
+     "text": "Almost half of teens have already seen AI-generated sexual material, and almost a quarter have seen it depicting themselves or someone they know",
+     "bbox_px": [
+      48,
+      441,
+      2033,
+      38
+     ],
+     "line_rects_px": [
+      [
+       48,
+       441,
+       2033,
+       38
+      ]
+     ]
+    }
+   ],
+   "alt_file": "csm-pr-masthead-headline-w960.png",
+   "alt_image_px": [
+    2880,
+    804
+   ],
+   "alt_capture": "headless Chromium, viewport 960px, deviceScaleFactor 3",
+   "alt_highlights": [
+    {
+     "text": "Common Sense Media Releases New Research on Teens and AI-Generated Explicit Material",
+     "bbox_px": [
+      72,
+      273,
+      2583,
+      239
+     ],
+     "line_rects_px": [
+      [
+       72,
+       273,
+       2583,
+       117
+      ],
+      [
+       72,
+       395,
+       1337,
+       117
+      ]
+     ]
+    },
+    {
+     "text": "Almost half of teens have already seen AI-generated sexual material, and almost a quarter have seen it depicting themselves or someone they know",
+     "bbox_px": [
+      72,
+      594,
+      2622,
+      129
+     ],
+     "line_rects_px": [
+      [
+       72,
+       594,
+       2622,
+       57
+      ],
+      [
+       72,
+       666,
+       418,
+       57
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-pr-headline-lead",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "csm-pr-headline-lead.png",
+   "headline": "Common Sense Media Releases New Research on Teens and AI-Generated Explicit Material",
+   "dek": "SAN FRANCISCO, July 21, 2026—Common Sense Media's Youth AI Safety Institute today released new research that reveals some concerning truths about teens' use of AI to create explicit deepfakes. The report found that nearly half of teens have already seen AI-generated explicit sexual material, and almost a quarter have seen it depicting themselves or someone they know.",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+   "caption": "Headline, dek, date and the SAN FRANCISCO lead paragraph",
+   "quality": 5,
+   "verified": true,
+   "notes": "Highlight: \"nearly half of teens ... someone they know.\" (2 line rects).",
+   "image_px": [
+    2416,
+    642
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "Common Sense Media Releases New Research on Teens and AI-Generated Explicit Material",
+     "bbox_px": [
+      48,
+      48,
+      2134,
+      159
+     ],
+     "line_rects_px": [
+      [
+       48,
+       48,
+       2134,
+       78
+      ],
+      [
+       48,
+       129,
+       480,
+       78
+      ]
+     ]
+    },
+    {
+     "text": "Almost half of teens have already seen AI-generated sexual material, and almost a quarter have seen it depicting themselves or someone they know",
+     "bbox_px": [
+      48,
+      262,
+      2033,
+      38
+     ],
+     "line_rects_px": [
+      [
+       48,
+       262,
+       2033,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "Tuesday, July 21, 2026",
+     "bbox_px": [
+      48,
+      386,
+      254,
+      32
+     ],
+     "line_rects_px": [
+      [
+       48,
+       386,
+       254,
+       32
+      ]
+     ]
+    },
+    {
+     "text": "nearly half of teens have already seen AI-generated explicit sexual material, and almost a quarter have seen it depicting themselves or someone they know.",
+     "bbox_px": [
+      48,
+      518,
+      2281,
+      86
+     ],
+     "line_rects_px": [
+      [
+       823,
+       518,
+       1507,
+       38
+      ],
+      [
+       48,
+       566,
+       622,
+       38
+      ]
+     ]
+    }
+   ],
+   "alt_file": "csm-pr-headline-lead-w960.png",
+   "alt_image_px": [
+    2880,
+    1035
+   ],
+   "alt_capture": "headless Chromium, viewport 960px, deviceScaleFactor 3",
+   "alt_highlights": [
+    {
+     "text": "Common Sense Media Releases New Research on Teens and AI-Generated Explicit Material",
+     "bbox_px": [
+      72,
+      72,
+      2583,
+      239
+     ],
+     "line_rects_px": [
+      [
+       72,
+       72,
+       2583,
+       117
+      ],
+      [
+       72,
+       194,
+       1337,
+       117
+      ]
+     ]
+    },
+    {
+     "text": "Almost half of teens have already seen AI-generated sexual material, and almost a quarter have seen it depicting themselves or someone they know",
+     "bbox_px": [
+      72,
+      393,
+      2622,
+      129
+     ],
+     "line_rects_px": [
+      [
+       72,
+       393,
+       2622,
+       57
+      ],
+      [
+       72,
+       465,
+       418,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "Tuesday, July 21, 2026",
+     "bbox_px": [
+      72,
+      651,
+      381,
+      48
+     ],
+     "line_rects_px": [
+      [
+       72,
+       651,
+       381,
+       48
+      ]
+     ]
+    },
+    {
+     "text": "nearly half of teens have already seen AI-generated explicit sexual material, and almost a quarter have seen it depicting themselves or someone they know.",
+     "bbox_px": [
+      72,
+      849,
+      2673,
+      129
+     ],
+     "line_rects_px": [
+      [
+       1965,
+       849,
+       780,
+       57
+      ],
+      [
+       72,
+       921,
+       2412,
+       57
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-pr-steyer-quote",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "quote",
+   "file": "csm-pr-steyer-quote.png",
+   "headline": "",
+   "dek": "\"AI has made it possible for anyone, at any time, to create nude images and videos with one click,\" said Common Sense Media founder and CEO James P. Steyer. \"Our new research confirms that, even if parents don't know it, many teens are seeing explicit deepfakes online. It's time for parents to start having honest, judgment-free conversations with their teens about AI and pornography. These talks aren't always easy, but they are always necessary.\"",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "author": "James P. Steyer (founder and CEO, Common Sense Media)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+   "caption": "Paragraph with CEO James P. Steyer quote",
+   "quality": 5,
+   "verified": true,
+   "notes": "Best pull-quote: the \"with one click\" sentence (highlight 1).",
+   "image_px": [
+    2416,
+    224
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "\"AI has made it possible for anyone, at any time, to create nude images and videos with one click,\"",
+     "bbox_px": [
+      48,
+      52,
+      1334,
+      38
+     ],
+     "line_rects_px": [
+      [
+       48,
+       52,
+       1334,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "said Common Sense Media founder and CEO James P. Steyer",
+     "bbox_px": [
+      1388,
+      52,
+      838,
+      38
+     ],
+     "line_rects_px": [
+      [
+       1388,
+       52,
+       838,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "many teens are seeing explicit deepfakes online.",
+     "bbox_px": [
+      846,
+      100,
+      663,
+      38
+     ],
+     "line_rects_px": [
+      [
+       846,
+       100,
+       663,
+       38
+      ]
+     ]
+    }
+   ],
+   "alt_file": "csm-pr-steyer-quote-w960.png",
+   "alt_image_px": [
+    2880,
+    408
+   ],
+   "alt_capture": "headless Chromium, viewport 960px, deviceScaleFactor 3",
+   "alt_highlights": [
+    {
+     "text": "\"AI has made it possible for anyone, at any time, to create nude images and videos with one click,\"",
+     "bbox_px": [
+      72,
+      78,
+      2001,
+      57
+     ],
+     "line_rects_px": [
+      [
+       72,
+       78,
+       2001,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "said Common Sense Media founder and CEO James P. Steyer",
+     "bbox_px": [
+      72,
+      78,
+      2570,
+      129
+     ],
+     "line_rects_px": [
+      [
+       2082,
+       78,
+       560,
+       57
+      ],
+      [
+       72,
+       150,
+       689,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "many teens are seeing explicit deepfakes online.",
+     "bbox_px": [
+      72,
+      150,
+      2639,
+      129
+     ],
+     "line_rects_px": [
+      [
+       2088,
+       150,
+       622,
+       57
+      ],
+      [
+       72,
+       222,
+       363,
+       57
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-pr-key-findings",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "csm-pr-key-findings.png",
+   "headline": "",
+   "dek": "Researchers from Common Sense Media and the global communications firm Burson surveyed a demographically representative set of 1,314 teens age 13 to 17 in the United States. Key findings from the report include:",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+   "caption": "Methodology sentence (1,314 teens, Burson) + the 5 key-finding bullets of the press release",
+   "quality": 5,
+   "verified": true,
+   "notes": "9 highlight boxes: sample; 67% fear; girls 71% vs boys 62%; 18% made/know; 25% shared; 63% people they know; boys 11% vs girls 4%; 82% illegal; 23% \"no one gets hurt\". w960 alt is more square (good for half-slide).",
+   "image_px": [
+    2416,
+    558
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "surveyed a demographically representative set of 1,314 teens age 13 to 17 in the United States",
+     "bbox_px": [
+      48,
+      52,
+      2296,
+      86
+     ],
+     "line_rects_px": [
+      [
+       1227,
+       52,
+       1117,
+       38
+      ],
+      [
+       48,
+       100,
+       190,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "Two-thirds of teens (67%) fear being deepfaked without consent",
+     "bbox_px": [
+      128,
+      192,
+      890,
+      38
+     ],
+     "line_rects_px": [
+      [
+       128,
+       192,
+       890,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "Girls are more worried than boys (71% vs. 62%).",
+     "bbox_px": [
+      128,
+      230,
+      2231,
+      76
+     ],
+     "line_rects_px": [
+      [
+       1973,
+       230,
+       386,
+       38
+      ],
+      [
+       128,
+       268,
+       272,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "1 in 5 (18%) has made AI pornography or knows someone who has",
+     "bbox_px": [
+      128,
+      306,
+      912,
+      38
+     ],
+     "line_rects_px": [
+      [
+       128,
+       306,
+       912,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "25% have shared it or know someone who has",
+     "bbox_px": [
+      1111,
+      306,
+      636,
+      38
+     ],
+     "line_rects_px": [
+      [
+       1111,
+       306,
+       636,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "63% have created pornography depicting themselves or people they know",
+     "bbox_px": [
+      128,
+      344,
+      2137,
+      76
+     ],
+     "line_rects_px": [
+      [
+       1695,
+       344,
+       571,
+       38
+      ],
+      [
+       128,
+       382,
+       447,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "Boys are almost three times as likely as girls to have made it (11% vs. 4%).",
+     "bbox_px": [
+      128,
+      420,
+      1010,
+      38
+     ],
+     "line_rects_px": [
+      [
+       128,
+       420,
+       1010,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "82% who have seen AI-generated pornography say creating it without consent should be illegal",
+     "bbox_px": [
+      128,
+      458,
+      1312,
+      38
+     ],
+     "line_rects_px": [
+      [
+       128,
+       458,
+       1312,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "23% believe AI nudes are less harmful than real ones \"because no one gets hurt.\"",
+     "bbox_px": [
+      128,
+      458,
+      2238,
+      76
+     ],
+     "line_rects_px": [
+      [
+       1507,
+       458,
+       860,
+       38
+      ],
+      [
+       128,
+       496,
+       242,
+       38
+      ]
+     ]
+    }
+   ],
+   "alt_file": "csm-pr-key-findings-w960.png",
+   "alt_image_px": [
+    2880,
+    837
+   ],
+   "alt_capture": "headless Chromium, viewport 960px, deviceScaleFactor 3",
+   "alt_highlights": [
+    {
+     "text": "surveyed a demographically representative set of 1,314 teens age 13 to 17 in the United States",
+     "bbox_px": [
+      72,
+      78,
+      2668,
+      129
+     ],
+     "line_rects_px": [
+      [
+       1840,
+       78,
+       900,
+       57
+      ],
+      [
+       72,
+       150,
+       1060,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "Two-thirds of teens (67%) fear being deepfaked without consent",
+     "bbox_px": [
+      192,
+      288,
+      1336,
+      57
+     ],
+     "line_rects_px": [
+      [
+       192,
+       288,
+       1336,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "Girls are more worried than boys (71% vs. 62%).",
+     "bbox_px": [
+      1480,
+      402,
+      995,
+      57
+     ],
+     "line_rects_px": [
+      [
+       1480,
+       402,
+       995,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "1 in 5 (18%) has made AI pornography or knows someone who has",
+     "bbox_px": [
+      192,
+      459,
+      1368,
+      57
+     ],
+     "line_rects_px": [
+      [
+       192,
+       459,
+       1368,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "25% have shared it or know someone who has",
+     "bbox_px": [
+      1666,
+      459,
+      954,
+      57
+     ],
+     "line_rects_px": [
+      [
+       1666,
+       459,
+       954,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "63% have created pornography depicting themselves or people they know",
+     "bbox_px": [
+      192,
+      516,
+      2552,
+      114
+     ],
+     "line_rects_px": [
+      [
+       2542,
+       516,
+       202,
+       57
+      ],
+      [
+       192,
+       573,
+       1324,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "Boys are almost three times as likely as girls to have made it (11% vs. 4%).",
+     "bbox_px": [
+      192,
+      630,
+      1515,
+      57
+     ],
+     "line_rects_px": [
+      [
+       192,
+       630,
+       1515,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "82% who have seen AI-generated pornography say creating it without consent should be illegal",
+     "bbox_px": [
+      192,
+      687,
+      1968,
+      57
+     ],
+     "line_rects_px": [
+      [
+       192,
+       687,
+       1968,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "23% believe AI nudes are less harmful than real ones \"because no one gets hurt.\"",
+     "bbox_px": [
+      192,
+      687,
+      2591,
+      114
+     ],
+     "line_rects_px": [
+      [
+       2260,
+       687,
+       523,
+       57
+      ],
+      [
+       192,
+       744,
+       1129,
+       57
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-pr-top-through-findings",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "csm-pr-top-through-findings.png",
+   "headline": "Common Sense Media Releases New Research on Teens and AI-Generated Explicit Material",
+   "dek": "Almost half of teens have already seen AI-generated sexual material, and almost a quarter have seen it depicting themselves or someone they know",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+   "caption": "Whole press-release body from headline through the key-findings bullets (tall image)",
+   "quality": 5,
+   "verified": true,
+   "notes": "One-image version for a scroll/zoom build; 8 highlight boxes.",
+   "image_px": [
+    2416,
+    1360
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "Almost half of teens have already seen AI-generated sexual material, and almost a quarter have seen it depicting themselves or someone they know",
+     "bbox_px": [
+      48,
+      262,
+      2033,
+      38
+     ],
+     "line_rects_px": [
+      [
+       48,
+       262,
+       2033,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "\"AI has made it possible for anyone, at any time, to create nude images and videos with one click,\"",
+     "bbox_px": [
+      48,
+      662,
+      1334,
+      38
+     ],
+     "line_rects_px": [
+      [
+       48,
+       662,
+       1334,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "1,314 teens age 13 to 17",
+     "bbox_px": [
+      1916,
+      854,
+      342,
+      38
+     ],
+     "line_rects_px": [
+      [
+       1916,
+       854,
+       342,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "Two-thirds of teens (67%) fear being deepfaked without consent",
+     "bbox_px": [
+      128,
+      994,
+      890,
+      38
+     ],
+     "line_rects_px": [
+      [
+       128,
+       994,
+       890,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "1 in 5 (18%) has made AI pornography or knows someone who has",
+     "bbox_px": [
+      128,
+      1108,
+      912,
+      38
+     ],
+     "line_rects_px": [
+      [
+       128,
+       1108,
+       912,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "63% have created pornography depicting themselves or people they know",
+     "bbox_px": [
+      128,
+      1146,
+      2137,
+      76
+     ],
+     "line_rects_px": [
+      [
+       1695,
+       1146,
+       571,
+       38
+      ],
+      [
+       128,
+       1184,
+       447,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "Boys are almost three times as likely as girls to have made it (11% vs. 4%).",
+     "bbox_px": [
+      128,
+      1222,
+      1010,
+      38
+     ],
+     "line_rects_px": [
+      [
+       128,
+       1222,
+       1010,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "23% believe AI nudes are less harmful than real ones \"because no one gets hurt.\"",
+     "bbox_px": [
+      128,
+      1260,
+      2238,
+      76
+     ],
+     "line_rects_px": [
+      [
+       1507,
+       1260,
+       860,
+       38
+      ],
+      [
+       128,
+       1298,
+       242,
+       38
+      ]
+     ]
+    }
+   ],
+   "alt_file": "csm-pr-top-through-findings-w960.png",
+   "alt_image_px": [
+    2880,
+    2184
+   ],
+   "alt_capture": "headless Chromium, viewport 960px, deviceScaleFactor 3",
+   "alt_highlights": [
+    {
+     "text": "Almost half of teens have already seen AI-generated sexual material, and almost a quarter have seen it depicting themselves or someone they know",
+     "bbox_px": [
+      72,
+      393,
+      2622,
+      129
+     ],
+     "line_rects_px": [
+      [
+       72,
+       393,
+       2622,
+       57
+      ],
+      [
+       72,
+       465,
+       418,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "\"AI has made it possible for anyone, at any time, to create nude images and videos with one click,\"",
+     "bbox_px": [
+      72,
+      1065,
+      2001,
+      57
+     ],
+     "line_rects_px": [
+      [
+       72,
+       1065,
+       2001,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "1,314 teens age 13 to 17",
+     "bbox_px": [
+      197,
+      1497,
+      514,
+      57
+     ],
+     "line_rects_px": [
+      [
+       197,
+       1497,
+       514,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "Two-thirds of teens (67%) fear being deepfaked without consent",
+     "bbox_px": [
+      192,
+      1635,
+      1336,
+      57
+     ],
+     "line_rects_px": [
+      [
+       192,
+       1635,
+       1336,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "1 in 5 (18%) has made AI pornography or knows someone who has",
+     "bbox_px": [
+      192,
+      1806,
+      1368,
+      57
+     ],
+     "line_rects_px": [
+      [
+       192,
+       1806,
+       1368,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "63% have created pornography depicting themselves or people they know",
+     "bbox_px": [
+      192,
+      1863,
+      2552,
+      114
+     ],
+     "line_rects_px": [
+      [
+       2542,
+       1863,
+       202,
+       57
+      ],
+      [
+       192,
+       1920,
+       1324,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "Boys are almost three times as likely as girls to have made it (11% vs. 4%).",
+     "bbox_px": [
+      192,
+      1977,
+      1515,
+      57
+     ],
+     "line_rects_px": [
+      [
+       192,
+       1977,
+       1515,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "23% believe AI nudes are less harmful than real ones \"because no one gets hurt.\"",
+     "bbox_px": [
+      192,
+      2034,
+      2591,
+      114
+     ],
+     "line_rects_px": [
+      [
+       2260,
+       2034,
+       523,
+       57
+      ],
+      [
+       192,
+       2091,
+       1129,
+       57
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-pr-fullpage",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "csm-pr-fullpage.png",
+   "headline": "Common Sense Media Releases New Research on Teens and AI-Generated Explicit Material",
+   "dek": "Almost half of teens have already seen AI-generated sexual material, and almost a quarter have seen it depicting themselves or someone they know",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+   "caption": "Full press-release page incl. nav, About section and footer",
+   "quality": 3,
+   "verified": true,
+   "notes": "Reference/evidence copy. About section states: \"The Youth AI Safety Institute is funded by both philanthropy and industry, including the makers of some of the technologies it evaluates.\" No highlight coords for this file.",
+   "image_px": null,
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": []
+  },
+  {
+   "id": "csm-report-landing",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "csm-report-landing-title-cover-survey.png",
+   "headline": "Teens and Explicit Deepfakes in the Age of AI",
+   "dek": "Our nationally representative survey of 1,314 teens age 13 to 17, conducted in fall 2025, found that nearly half of teens have seen AI-generated explicit material. And 1 in 4 of those who have seen AI pornography say they've seen it depicting themselves or someone they know.",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/research/teens-and-explicit-deepfakes-in-the-age-of-ai",
+   "caption": "Research landing page: title \"Teens and Explicit Deepfakes in the Age of AI\", date, report-cover thumbnail, intro incl. survey sentence",
+   "quality": 5,
+   "verified": true,
+   "notes": "Shows the green report cover next to the title.",
+   "image_px": [
+    1496,
+    1010
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "Teens and Explicit Deepfakes in the Age of AI",
+     "bbox_px": [
+      48,
+      48,
+      837,
+      159
+     ],
+     "line_rects_px": [
+      [
+       48,
+       48,
+       837,
+       78
+      ],
+      [
+       48,
+       129,
+       441,
+       78
+      ]
+     ]
+    },
+    {
+     "text": "Our nationally representative survey of 1,314 teens age 13 to 17, conducted in fall 2025,",
+     "bbox_px": [
+      48,
+      848,
+      1226,
+      38
+     ],
+     "line_rects_px": [
+      [
+       48,
+       848,
+       1226,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "nearly half of teens have seen AI-generated explicit material.",
+     "bbox_px": [
+      48,
+      892,
+      838,
+      38
+     ],
+     "line_rects_px": [
+      [
+       48,
+       892,
+       838,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "And 1 in 4 of those who have seen AI pornography say they've seen it depicting themselves or someone they know.",
+     "bbox_px": [
+      48,
+      892,
+      1356,
+      82
+     ],
+     "line_rects_px": [
+      [
+       892,
+       892,
+       512,
+       38
+      ],
+      [
+       48,
+       936,
+       1067,
+       38
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-cover",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p01-cover.png",
+   "headline": "Teens in the AI Era: Pornography and Sexual Content",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Report cover: pixelated face on a phone held by a teen; \"2026 | TEENS IN THE AI ERA  Pornography and Sexual Content\"; Common Sense Media / Youth AI Safety Institute",
+   "quality": 5,
+   "verified": true,
+   "notes": "Portrait 2550x3300 (300 dpi). PDF metadata creation date 2026-08-06; release date 2026-07-21.",
+   "image_px": [
+    2550,
+    3300
+   ],
+   "capture": "PDF page 1 rendered at 300 dpi (full page)",
+   "highlights": []
+  },
+  {
+   "id": "csm-report-keyart",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-keyart-socialshare.jpg",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Report key art (landscape): teen holding up a phone whose screen shows a pixelated face",
+   "quality": 4,
+   "verified": true,
+   "notes": "Official social-share image 1000x525 from commonsensemedia.org (og:image of the research page). Not a screenshot; good full-bleed background."
+  },
+  {
+   "id": "csm-report-p09-finding2-statement",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p09-finding2-statement-crop.png",
+   "headline": "Almost half of teens (44%) have seen sexual content they believe was AI-generated, and for most of them, the exposure was accidental.",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Key Finding 2 statement + body + quote box (\"Sometimes when I'm scrolling...\")",
+   "quality": 5,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2440,
+    1152
+   ],
+   "capture": "PDF page 11 rendered at 300 dpi, cropped (x,y,w,h on page = [110, 178, 2440, 1152])",
+   "highlights": [
+    {
+     "text": "Almost half of teens (44%) have seen sexual content they believe was AI-generated, and for most of them, the exposure was accidental.",
+     "bbox_px": [
+      36,
+      150,
+      1570,
+      266
+     ],
+     "line_rects_px": [
+      [
+       36,
+       150,
+       1570,
+       83
+      ],
+      [
+       36,
+       242,
+       1414,
+       83
+      ],
+      [
+       36,
+       333,
+       1067,
+       83
+      ]
+     ]
+    },
+    {
+     "text": "TikTok (33%), Instagram (27%), and X/Twitter (25%), among others.",
+     "bbox_px": [
+      181,
+      606,
+      2110,
+      161
+     ],
+     "line_rects_px": [
+      [
+       2143,
+       606,
+       148,
+       67
+      ],
+      [
+       181,
+       709,
+       1208,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "79% say their exposure was accidental,",
+     "bbox_px": [
+      36,
+      821,
+      1481,
+      129
+     ],
+     "line_rects_px": [
+      [
+       1041,
+       821,
+       476,
+       58
+      ],
+      [
+       36,
+       892,
+       313,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "Sometimes when I'm scrolling through TikTok or Instagram, I see a lot of it, and it confuses me on what is real and what is not.",
+     "bbox_px": [
+      1763,
+      536,
+      592,
+      350
+     ],
+     "line_rects_px": [
+      [
+       1763,
+       536,
+       457,
+       67
+      ],
+      [
+       1781,
+       606,
+       565,
+       67
+      ],
+      [
+       1779,
+       677,
+       542,
+       67
+      ],
+      [
+       1780,
+       748,
+       575,
+       67
+      ],
+      [
+       1781,
+       819,
+       493,
+       67
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-figD",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "chart",
+   "file": "csm-report-p09-figD-44pct-donut-crop.png",
+   "headline": "Exposure to AI-generated sexual content",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "FIGURE D donut: 44% yes / 54% no / 2% prefer not to say (N=1,314)",
+   "quality": 5,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2330,
+    1702
+   ],
+   "capture": "PDF page 11 rendered at 300 dpi, cropped (x,y,w,h on page = [110, 1327, 2330, 1702])",
+   "highlights": [
+    {
+     "text": "Yes, I have seen sexual content that I believed was AI-generated",
+     "bbox_px": [
+      1816,
+      402,
+      429,
+      160
+     ],
+     "line_rects_px": [
+      [
+       1816,
+       402,
+       423,
+       55
+      ],
+      [
+       1816,
+       455,
+       429,
+       55
+      ],
+      [
+       1816,
+       507,
+       339,
+       55
+      ]
+     ]
+    },
+    {
+     "text": "44%",
+     "bbox_px": [
+      1816,
+      557,
+      141,
+      101
+     ],
+     "line_rects_px": [
+      [
+       1816,
+       557,
+       141,
+       101
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p09-page",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p09-finding2-44pct-seen.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Full report page 9 (Key Finding 2 + Figure D)",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2550,
+    3300
+   ],
+   "capture": "PDF page 11 rendered at 300 dpi (full page)",
+   "highlights": [
+    {
+     "text": "Almost half of teens (44%) have seen sexual content they believe was AI-generated, and for most of them, the exposure was accidental.",
+     "bbox_px": [
+      146,
+      328,
+      1570,
+      266
+     ],
+     "line_rects_px": [
+      [
+       146,
+       328,
+       1570,
+       83
+      ],
+      [
+       146,
+       420,
+       1414,
+       83
+      ],
+      [
+       146,
+       511,
+       1067,
+       83
+      ]
+     ]
+    },
+    {
+     "text": "TikTok (33%), Instagram (27%), and X/Twitter (25%), among others.",
+     "bbox_px": [
+      291,
+      784,
+      2110,
+      161
+     ],
+     "line_rects_px": [
+      [
+       2253,
+       784,
+       148,
+       67
+      ],
+      [
+       291,
+       887,
+       1208,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "79% say their exposure was accidental,",
+     "bbox_px": [
+      146,
+      999,
+      1481,
+      129
+     ],
+     "line_rects_px": [
+      [
+       1151,
+       999,
+       476,
+       58
+      ],
+      [
+       146,
+       1070,
+       313,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "Sometimes when I'm scrolling through TikTok or Instagram, I see a lot of it, and it confuses me on what is real and what is not.",
+     "bbox_px": [
+      1873,
+      714,
+      592,
+      350
+     ],
+     "line_rects_px": [
+      [
+       1873,
+       714,
+       457,
+       67
+      ],
+      [
+       1891,
+       784,
+       565,
+       67
+      ],
+      [
+       1889,
+       855,
+       542,
+       67
+      ],
+      [
+       1890,
+       926,
+       575,
+       67
+      ],
+      [
+       1891,
+       997,
+       493,
+       67
+      ]
+     ]
+    },
+    {
+     "text": "44%",
+     "bbox_px": [
+      1926,
+      1884,
+      141,
+      101
+     ],
+     "line_rects_px": [
+      [
+       1926,
+       1884,
+       141,
+       101
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-figE",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "chart",
+   "file": "csm-report-p10-figE-platforms-crop.png",
+   "headline": "Exposure to AI-generated sexual content across platforms",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "FIGURE E bar chart: where teens encountered AI sexual content (Social media net 82%, porn sites 41%, ... OnlyFans 10%; n=586)",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2330,
+    1274
+   ],
+   "capture": "PDF page 12 rendered at 300 dpi, cropped (x,y,w,h on page = [110, 182, 2330, 1274])",
+   "highlights": [
+    {
+     "text": "Social media (Net)",
+     "bbox_px": [
+      215,
+      289,
+      301,
+      58
+     ],
+     "line_rects_px": [
+      [
+       215,
+       289,
+       301,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "82%",
+     "bbox_px": [
+      2194,
+      293,
+      73,
+      54
+     ],
+     "line_rects_px": [
+      [
+       2194,
+       293,
+       73,
+       54
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-fig3",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "chart",
+   "file": "csm-report-p24-fig3-platforms-detail-crop.png",
+   "headline": "Percentage who have encountered AI-generated sexual content on the following platforms",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "FIGURE 3 detailed platform bars incl. \"AI chatbot platforms (ChatGPT, Grok, Claude, etc.)\" 16%, TikTok 33%, porn sites 41%, social media net 82% (n=586); crop ends after OnlyFans row (the \"Other 2%\" row and Q/Base line are cut to avoid a quote box)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Highlights: AI chatbot row, Social media (Net) row, TikTok row. Full page with Q/Base: csm-report-p24-fig3-platforms-detail.png. Base: teens who have ever seen AI-generated sexual content (n=586).",
+   "image_px": [
+    2330,
+    1769
+   ],
+   "capture": "PDF page 26 rendered at 300 dpi (pdftoppm), cropped",
+   "highlights": [
+    {
+     "text": "ROW:AI chatbot platforms (ChatGPT, Grok, Claude, etc.)",
+     "bbox_px": [
+      69,
+      1422,
+      1093,
+      57
+     ],
+     "line_rects_px": [
+      [
+       69,
+       1422,
+       1093,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "ROW:Social media (Net):",
+     "bbox_px": [
+      561,
+      277,
+      1707,
+      53
+     ],
+     "line_rects_px": [
+      [
+       561,
+       277,
+       1707,
+       53
+      ]
+     ]
+    },
+    {
+     "text": "ROW:TikTok",
+     "bbox_px": [
+      764,
+      372,
+      683,
+      57
+     ],
+     "line_rects_px": [
+      [
+       764,
+       372,
+       683,
+       57
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p24-page",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p24-fig3-platforms-detail.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Full report page 24 (Figure 3 + teen quote about TikTok/Instagram vs Twitter)",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2550,
+    3300
+   ],
+   "capture": "PDF page 26 rendered at 300 dpi (pdftoppm)",
+   "highlights": [
+    {
+     "text": "ROW:AI chatbot platforms (ChatGPT, Grok, Claude, etc.)",
+     "bbox_px": [
+      179,
+      1684,
+      1093,
+      57
+     ],
+     "line_rects_px": [
+      [
+       179,
+       1684,
+       1093,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "ROW:TikTok",
+     "bbox_px": [
+      874,
+      634,
+      683,
+      57
+     ],
+     "line_rects_px": [
+      [
+       874,
+       634,
+       683,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "ROW:Pornography websites (Pornhub, XVideos, etc.)",
+     "bbox_px": [
+      231,
+      1398,
+      1460,
+      57
+     ],
+     "line_rects_px": [
+      [
+       231,
+       1398,
+       1460,
+       57
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p11-finding3",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p11-finding3-statement-crop.png",
+   "headline": "Among teens who have ever seen AI-generated sexual content, 24% report having seen content of themselves or someone else they know personally.",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Key Finding 3 statement (24% have seen content of themselves or someone they know)",
+   "quality": 5,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2330,
+    897
+   ],
+   "capture": "PDF page 13 rendered at 300 dpi, cropped (x,y,w,h on page = [110, 178, 2330, 897])",
+   "highlights": [
+    {
+     "text": "Among teens who have ever seen AI-generated sexual content, 24% report having seen content of themselves or someone else they know personally.",
+     "bbox_px": [
+      36,
+      150,
+      1530,
+      266
+     ],
+     "line_rects_px": [
+      [
+       36,
+       150,
+       1428,
+       83
+      ],
+      [
+       36,
+       242,
+       1518,
+       83
+      ],
+      [
+       36,
+       333,
+       1530,
+       83
+      ]
+     ]
+    },
+    {
+     "text": "almost two- thirds (64%) have seen it featuring celebrities,",
+     "bbox_px": [
+      36,
+      496,
+      1517,
+      129
+     ],
+     "line_rects_px": [
+      [
+       1305,
+       496,
+       248,
+       58
+      ],
+      [
+       36,
+       567,
+       928,
+       58
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-figF",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "chart",
+   "file": "csm-report-p11-figF-by-gender-crop.png",
+   "headline": "Exposure to AI-generated sexual content featuring the following groups, by gender",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "FIGURE F grouped bars by gender: myself-or-people-I-know net 24% overall, 28% boys, 19% girls",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2330,
+    1650
+   ],
+   "capture": "PDF page 13 rendered at 300 dpi, cropped (x,y,w,h on page = [110, 1102, 2330, 1650])",
+   "highlights": [
+    {
+     "text": "24%",
+     "bbox_px": [
+      151,
+      395,
+      77,
+      57
+     ],
+     "line_rects_px": [
+      [
+       151,
+       395,
+       77,
+       57
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p12-finding4",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p12-finding4-statement-crop.png",
+   "headline": "Nearly 1 in 5 teens (18%) have created AI-generated sexual content themselves or know someone who has, and over half say it targeted people they know.",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Key Finding 4 statement + body + \"With no hurdles...\" quote box (Boy, age 17)",
+   "quality": 5,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2440,
+    998
+   ],
+   "capture": "PDF page 14 rendered at 300 dpi, cropped (x,y,w,h on page = [110, 178, 2440, 998])",
+   "highlights": [
+    {
+     "text": "Nearly 1 in 5 teens (18%) have created AI-generated sexual content themselves or know someone who has, and over half say it targeted people they know.",
+     "bbox_px": [
+      36,
+      150,
+      1575,
+      266
+     ],
+     "line_rects_px": [
+      [
+       36,
+       150,
+       1575,
+       83
+      ],
+      [
+       36,
+       242,
+       1506,
+       83
+      ],
+      [
+       36,
+       333,
+       1548,
+       83
+      ]
+     ]
+    },
+    {
+     "text": "Eight percent of teens report having personally created AI-generated sexual content,",
+     "bbox_px": [
+      36,
+      496,
+      1515,
+      129
+     ],
+     "line_rects_px": [
+      [
+       36,
+       496,
+       1515,
+       58
+      ],
+      [
+       36,
+       567,
+       174,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "(11% of boys vs. 4% of girls).",
+     "bbox_px": [
+      36,
+      709,
+      564,
+      58
+     ],
+     "line_rects_px": [
+      [
+       36,
+       709,
+       564,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "With no hurdles or anything you have to jump over, you can just do it right there.",
+     "bbox_px": [
+      1763,
+      544,
+      502,
+      279
+     ],
+     "line_rects_px": [
+      [
+       1763,
+       544,
+       418,
+       67
+      ],
+      [
+       1780,
+       615,
+       447,
+       67
+      ],
+      [
+       1781,
+       685,
+       484,
+       67
+      ],
+      [
+       1781,
+       756,
+       363,
+       67
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-figG",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "chart",
+   "file": "csm-report-p12-figG-63pct-created-crop.png",
+   "headline": "Personal creating of AI-generated sexual content",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "FIGURE G bars: someone I know 10%, myself 4%, both 4%, neither 74%, not sure 8%; callout \"Among these, 63% say the content depicted themselves or people they know personally\"",
+   "quality": 5,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2330,
+    1329
+   ],
+   "capture": "PDF page 14 rendered at 300 dpi, cropped (x,y,w,h on page = [110, 1242, 2330, 1329])",
+   "highlights": [
+    {
+     "text": "63%",
+     "bbox_px": [
+      912,
+      364,
+      299,
+      213
+     ],
+     "line_rects_px": [
+      [
+       912,
+       364,
+       299,
+       213
+      ]
+     ]
+    },
+    {
+     "text": "say the content depicted themselves or people they know personally",
+     "bbox_px": [
+      924,
+      557,
+      580,
+      92
+     ],
+     "line_rects_px": [
+      [
+       924,
+       557,
+       580,
+       48
+      ],
+      [
+       924,
+       601,
+       500,
+       48
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p13-finding5",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p13-finding5-statement-crop.png",
+   "headline": "One-quarter (25%) of teens have either sent or shared AI-generated sexual content themselves or know someone who has sent this content, often on common channels like social media, group chats, and DMs.",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Key Finding 5 statement (25% sent/shared or know someone who has)",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2330,
+    1222
+   ],
+   "capture": "PDF page 15 rendered at 300 dpi, cropped (x,y,w,h on page = [110, 178, 2330, 1222])",
+   "highlights": [
+    {
+     "text": "One-quarter (25%) of teens have either sent or shared AI-generated sexual content themselves or know someone who has sent this content, often on common channels like social media, group chats, and DMs.",
+     "bbox_px": [
+      36,
+      150,
+      1532,
+      450
+     ],
+     "line_rects_px": [
+      [
+       36,
+       150,
+       1411,
+       83
+      ],
+      [
+       36,
+       242,
+       1529,
+       83
+      ],
+      [
+       36,
+       333,
+       1532,
+       83
+      ],
+      [
+       36,
+       425,
+       1462,
+       83
+      ],
+      [
+       36,
+       517,
+       291,
+       83
+      ]
+     ]
+    },
+    {
+     "text": "nearly half (44%) say the content depicted themselves or people they know,",
+     "bbox_px": [
+      36,
+      821,
+      1531,
+      129
+     ],
+     "line_rects_px": [
+      [
+       915,
+       821,
+       652,
+       58
+      ],
+      [
+       36,
+       892,
+       832,
+       58
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-figH",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "chart",
+   "file": "csm-report-p13-figH-44pct-shared-crop.png",
+   "headline": "Personal sharing of AI-generated sexual content",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "FIGURE H bars: someone I know shared 17%, myself 3%, both 5%, neither 68%, not sure 6%; callout 44%",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2330,
+    1355
+   ],
+   "capture": "PDF page 15 rendered at 300 dpi, cropped (x,y,w,h on page = [110, 1400, 2330, 1355])",
+   "highlights": [
+    {
+     "text": "44%",
+     "bbox_px": [
+      1145,
+      379,
+      315,
+      224
+     ],
+     "line_rects_px": [
+      [
+       1145,
+       379,
+       315,
+       224
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p14-finding6",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p14-finding6-statement-crop.png",
+   "headline": "Two-thirds of teens (67%) are worried about being depicted in deepfakes without their consent, and many are changing their online behaviors to protect themselves.",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Key Finding 6 statement + body (67% worried; 30% private; 23% post less; 9% deleted accounts)",
+   "quality": 5,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2330,
+    1060
+   ],
+   "capture": "PDF page 16 rendered at 300 dpi, cropped (x,y,w,h on page = [110, 178, 2330, 1060])",
+   "highlights": [
+    {
+     "text": "Two-thirds of teens (67%) are worried about being depicted in deepfakes without their consent, and many are changing their online behaviors to protect themselves.",
+     "bbox_px": [
+      36,
+      150,
+      1520,
+      358
+     ],
+     "line_rects_px": [
+      [
+       36,
+       150,
+       1520,
+       83
+      ],
+      [
+       36,
+       242,
+       1481,
+       83
+      ],
+      [
+       36,
+       333,
+       1329,
+       83
+      ],
+      [
+       36,
+       425,
+       608,
+       83
+      ]
+     ]
+    },
+    {
+     "text": "30% have made their social media accounts private,",
+     "bbox_px": [
+      36,
+      800,
+      1503,
+      129
+     ],
+     "line_rects_px": [
+      [
+       996,
+       800,
+       543,
+       58
+      ],
+      [
+       36,
+       871,
+       475,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "9% have deleted social media accounts entirely.",
+     "bbox_px": [
+      118,
+      942,
+      938,
+      58
+     ],
+     "line_rects_px": [
+      [
+       118,
+       942,
+       938,
+       58
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-figI",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "chart",
+   "file": "csm-report-p14-figI-67pct-worried-crop.png",
+   "headline": "Percent who are worried about being depicted in deepfakes without their consent",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "FIGURE I donut: 67% somewhat/pretty/extremely worried vs 33% not worried at all (N=1,314)",
+   "quality": 5,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2330,
+    1751
+   ],
+   "capture": "PDF page 16 rendered at 300 dpi, cropped (x,y,w,h on page = [110, 1240, 2330, 1751])",
+   "highlights": [
+    {
+     "text": "67%",
+     "bbox_px": [
+      350,
+      1055,
+      152,
+      109
+     ],
+     "line_rects_px": [
+      [
+       350,
+       1055,
+       152,
+       109
+      ]
+     ]
+    },
+    {
+     "text": "Somewhat, pretty, or extremely worried",
+     "bbox_px": [
+      69,
+      953,
+      430,
+      116
+     ],
+     "line_rects_px": [
+      [
+       69,
+       953,
+       430,
+       59
+      ],
+      [
+       115,
+       1010,
+       384,
+       59
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-figJ",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "chart",
+   "file": "csm-report-p15-figJ-distortion-crop.png",
+   "headline": "How much AI-generated sexual content impacts what teens think about the following...",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "FIGURE J stacked bars: AI sexual content impacts what teens think about bodies (66% a lot/some), sex & consent (64%), relationships (61%), trust in photos/videos (65%), partner expectations (64%), stereotypes (61%)",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2330,
+    1345
+   ],
+   "capture": "PDF page 17 rendered at 300 dpi, cropped (x,y,w,h on page = [110, 1047, 2330, 1345])",
+   "highlights": [
+    {
+     "text": "What bodies should look like",
+     "bbox_px": [
+      242,
+      273,
+      262,
+      104
+     ],
+     "line_rects_px": [
+      [
+       287,
+       273,
+       216,
+       59
+      ],
+      [
+       242,
+       318,
+       262,
+       59
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p15-quote",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p15-finding7-quote-pressure-crop.png",
+   "headline": "",
+   "dek": "\"It puts a lot of pressure on the other person. It definitely alters your brain a little bit because just seeing that, especially before your frontal lobe is developed, whether you're 13 or 19, it's going to make you think about what bodies should look like and how you should be having sex.\"",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Green quote box (Girl, age 17) over photo of a teen at a laptop",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2550,
+    794
+   ],
+   "capture": "PDF page 17 rendered at 300 dpi, cropped (x,y,w,h on page = [0, 2474, 2550, 794])",
+   "highlights": [
+    {
+     "text": "It puts a lot of pressure on the other person. It definitely alters your brain a little bit because just seeing that, especially before your frontal lobe is developed, whether you're 13 or 19, it's going to make you think about what bodies should look like and how you should be having sex.",
+     "bbox_px": [
+      130,
+      150,
+      1550,
+      416
+     ],
+     "line_rects_px": [
+      [
+       130,
+       150,
+       1475,
+       82
+      ],
+      [
+       149,
+       234,
+       1355,
+       82
+      ],
+      [
+       148,
+       317,
+       1475,
+       82
+      ],
+      [
+       144,
+       400,
+       1466,
+       82
+      ],
+      [
+       148,
+       484,
+       1532,
+       82
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p16-finding8",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p16-finding8-statement-crop.png",
+   "headline": "Only 20% of teens have discussed AI-generated sexual content with a trusted adult, and a third want to but don't know how to start.",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Key Finding 8 statement + body (20% discussed with trusted adult; 42% parents; 13% teachers; 34% want to talk)",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    1635,
+    1406
+   ],
+   "capture": "PDF page 18 rendered at 300 dpi, cropped (x,y,w,h on page = [110, 1643, 1635, 1406])",
+   "highlights": [
+    {
+     "text": "Only 20% of teens have discussed AI-generated sexual content with a trusted adult, and a third want to but don't know how to start.",
+     "bbox_px": [
+      36,
+      150,
+      1437,
+      266
+     ],
+     "line_rects_px": [
+      [
+       36,
+       150,
+       1437,
+       83
+      ],
+      [
+       36,
+       242,
+       1417,
+       83
+      ],
+      [
+       36,
+       333,
+       1108,
+       83
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p16-quote",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p16-finding8-quote-we-grew-crop.png",
+   "headline": "",
+   "dek": "\"We grew as AI grew. We grew up together. Adults don't have the same life experience that we do. They don't understand how advanced and how intense AI is.\"",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Dark-green quote box (Girl, age 17): \"We grew as AI grew...\"",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    850,
+    885
+   ],
+   "capture": "PDF page 18 rendered at 300 dpi, cropped (x,y,w,h on page = [1700, 1369, 850, 885])",
+   "highlights": [
+    {
+     "text": "We grew as AI grew. We grew up together. Adults don't have the same life experience that we do. They don't understand how advanced and how intense AI is.",
+     "bbox_px": [
+      173,
+      110,
+      485,
+      563
+     ],
+     "line_rects_px": [
+      [
+       173,
+       110,
+       445,
+       67
+      ],
+      [
+       187,
+       181,
+       451,
+       67
+      ],
+      [
+       187,
+       252,
+       453,
+       67
+      ],
+      [
+       191,
+       323,
+       430,
+       67
+      ],
+      [
+       190,
+       394,
+       356,
+       67
+      ],
+      [
+       191,
+       465,
+       467,
+       67
+      ],
+      [
+       190,
+       535,
+       402,
+       67
+      ],
+      [
+       191,
+       606,
+       291,
+       67
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p17-finding9",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p17-finding9-statement-crop.png",
+   "headline": "Most teens believe creating AI-generated sexual content of someone without their permission should be illegal, but nearly a quarter of teens believe this content is less harmful because no one gets hurt.",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Key Finding 9 statement + body (82% illegal; 23% \"no one gets hurt\")",
+   "quality": 5,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2330,
+    1222
+   ],
+   "capture": "PDF page 19 rendered at 300 dpi, cropped (x,y,w,h on page = [110, 178, 2330, 1222])",
+   "highlights": [
+    {
+     "text": "Most teens believe creating AI-generated sexual content of someone without their permission should be illegal, but nearly a quarter of teens believe this content is less harmful because no one gets hurt.",
+     "bbox_px": [
+      36,
+      150,
+      1524,
+      450
+     ],
+     "line_rects_px": [
+      [
+       36,
+       150,
+       1469,
+       83
+      ],
+      [
+       36,
+       242,
+       1373,
+       83
+      ],
+      [
+       36,
+       333,
+       1383,
+       83
+      ],
+      [
+       36,
+       425,
+       1524,
+       83
+      ],
+      [
+       36,
+       517,
+       295,
+       83
+      ]
+     ]
+    },
+    {
+     "text": "82% agree that creating this content without the subject's permission should be illegal.",
+     "bbox_px": [
+      36,
+      821,
+      1401,
+      129
+     ],
+     "line_rects_px": [
+      [
+       291,
+       821,
+       1146,
+       58
+      ],
+      [
+       36,
+       892,
+       558,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "Nearly one-quarter of these teens (23%) believe that AI-generated nudes and sexual content are less harmful than real pornography because \"no one gets hurt,\"",
+     "bbox_px": [
+      36,
+      892,
+      1510,
+      200
+     ],
+     "line_rects_px": [
+      [
+       595,
+       892,
+       951,
+       58
+      ],
+      [
+       36,
+       963,
+       1374,
+       58
+      ],
+      [
+       36,
+       1034,
+       803,
+       58
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-figK",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "chart",
+   "file": "csm-report-p17-figK-82pct-illegal-crop.png",
+   "headline": "Do you agree or disagree with the following statements?",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "FIGURE K agree/disagree bars: illegal 82/12/6; teens don't understand implications 66/19/15; \"less harmful because no one gets hurt\" 23/25/52 (n=586)",
+   "quality": 5,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2330,
+    1322
+   ],
+   "capture": "PDF page 19 rendered at 300 dpi, cropped (x,y,w,h on page = [110, 1422, 2330, 1322])",
+   "highlights": [
+    {
+     "text": "Creating AI-generated nudes and sexual content of someone without permission should be illegal",
+     "bbox_px": [
+      72,
+      277,
+      1766,
+      64
+     ],
+     "line_rects_px": [
+      [
+       72,
+       277,
+       1766,
+       64
+      ]
+     ]
+    },
+    {
+     "text": "82%",
+     "bbox_px": [
+      1690,
+      390,
+      73,
+      45
+     ],
+     "line_rects_px": [
+      [
+       1690,
+       390,
+       73,
+       45
+      ]
+     ]
+    },
+    {
+     "text": "AI-generated nudes and sexual content is less harmful than real porn because no one gets hurt",
+     "bbox_px": [
+      72,
+      820,
+      1717,
+      64
+     ],
+     "line_rects_px": [
+      [
+       72,
+       820,
+       1717,
+       64
+      ]
+     ]
+    },
+    {
+     "text": "23%",
+     "bbox_px": [
+      442,
+      928,
+      73,
+      45
+     ],
+     "line_rects_px": [
+      [
+       442,
+       928,
+       73,
+       45
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p06-page",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p06-finding1-porn-exposure.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Full page 6: Key Finding 1 (74% have seen online porn; 52% by age 12) + Figure A",
+   "quality": 3,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2550,
+    3300
+   ],
+   "capture": "PDF page 8 rendered at 300 dpi (full page)",
+   "highlights": [
+    {
+     "text": "Online pornography exposure remains high among U.S. teens, with 74% of teens reporting having ever seen online pornography, and most reporting exposure by age 12.",
+     "bbox_px": [
+      146,
+      729,
+      1532,
+      358
+     ],
+     "line_rects_px": [
+      [
+       146,
+       729,
+       1532,
+       83
+      ],
+      [
+       146,
+       820,
+       1386,
+       83
+      ],
+      [
+       146,
+       912,
+       1507,
+       83
+      ],
+      [
+       146,
+       1004,
+       602,
+       83
+      ]
+     ]
+    },
+    {
+     "text": "More than half (52%) first encountered it by age 12, including 12% by age 10 or younger.",
+     "bbox_px": [
+      146,
+      1238,
+      1392,
+      128
+     ],
+     "line_rects_px": [
+      [
+       146,
+       1238,
+       1392,
+       58
+      ],
+      [
+       146,
+       1308,
+       378,
+       58
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p10-page",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p10-figE-platforms.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Full page 10 (Figure E) with photo",
+   "quality": 3,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2550,
+    3300
+   ],
+   "capture": "PDF page 12 rendered at 300 dpi (full page)",
+   "highlights": [
+    {
+     "text": "Social media (Net)",
+     "bbox_px": [
+      325,
+      471,
+      301,
+      58
+     ],
+     "line_rects_px": [
+      [
+       325,
+       471,
+       301,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "82%",
+     "bbox_px": [
+      2304,
+      475,
+      73,
+      54
+     ],
+     "line_rects_px": [
+      [
+       2304,
+       475,
+       73,
+       54
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p11-page",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p11-finding3-24pct-self-or-known.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Full page 11 (Key Finding 3 + Figure F)",
+   "quality": 3,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2550,
+    3300
+   ],
+   "capture": "PDF page 13 rendered at 300 dpi (full page)",
+   "highlights": [
+    {
+     "text": "Among teens who have ever seen AI-generated sexual content, 24% report having seen content of themselves or someone else they know personally.",
+     "bbox_px": [
+      146,
+      328,
+      1530,
+      266
+     ],
+     "line_rects_px": [
+      [
+       146,
+       328,
+       1428,
+       83
+      ],
+      [
+       146,
+       420,
+       1518,
+       83
+      ],
+      [
+       146,
+       511,
+       1530,
+       83
+      ]
+     ]
+    },
+    {
+     "text": "almost two- thirds (64%) have seen it featuring celebrities,",
+     "bbox_px": [
+      146,
+      674,
+      1517,
+      129
+     ],
+     "line_rects_px": [
+      [
+       1415,
+       674,
+       248,
+       58
+      ],
+      [
+       146,
+       745,
+       928,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "nearly one quarter (24%) have seen it featuring themselves or people they know personally.",
+     "bbox_px": [
+      146,
+      745,
+      1523,
+      129
+     ],
+     "line_rects_px": [
+      [
+       1159,
+       745,
+       510,
+       58
+      ],
+      [
+       146,
+       816,
+       1325,
+       58
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p12-page",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p12-finding4-18pct-created.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Full page 12 (Key Finding 4 + Figure G)",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2550,
+    3300
+   ],
+   "capture": "PDF page 14 rendered at 300 dpi (full page)",
+   "highlights": [
+    {
+     "text": "Nearly 1 in 5 teens (18%) have created AI-generated sexual content themselves or know someone who has, and over half say it targeted people they know.",
+     "bbox_px": [
+      146,
+      328,
+      1575,
+      266
+     ],
+     "line_rects_px": [
+      [
+       146,
+       328,
+       1575,
+       83
+      ],
+      [
+       146,
+       420,
+       1506,
+       83
+      ],
+      [
+       146,
+       511,
+       1548,
+       83
+      ]
+     ]
+    },
+    {
+     "text": "Eight percent of teens report having personally created AI-generated sexual content,",
+     "bbox_px": [
+      146,
+      674,
+      1515,
+      129
+     ],
+     "line_rects_px": [
+      [
+       146,
+       674,
+       1515,
+       58
+      ],
+      [
+       146,
+       745,
+       174,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "(11% of boys vs. 4% of girls).",
+     "bbox_px": [
+      146,
+      887,
+      564,
+      58
+     ],
+     "line_rects_px": [
+      [
+       146,
+       887,
+       564,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "With no hurdles or anything you have to jump over, you can just do it right there.",
+     "bbox_px": [
+      1873,
+      722,
+      502,
+      279
+     ],
+     "line_rects_px": [
+      [
+       1873,
+       722,
+       418,
+       67
+      ],
+      [
+       1890,
+       793,
+       447,
+       67
+      ],
+      [
+       1891,
+       863,
+       484,
+       67
+      ],
+      [
+       1891,
+       934,
+       363,
+       67
+      ]
+     ]
+    },
+    {
+     "text": "63%",
+     "bbox_px": [
+      1022,
+      1606,
+      299,
+      213
+     ],
+     "line_rects_px": [
+      [
+       1022,
+       1606,
+       299,
+       213
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p13-page",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p13-finding5-25pct-shared.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Full page 13 (Key Finding 5 + Figure H)",
+   "quality": 3,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2550,
+    3300
+   ],
+   "capture": "PDF page 15 rendered at 300 dpi (full page)",
+   "highlights": [
+    {
+     "text": "One-quarter (25%) of teens have either sent or shared AI-generated sexual content themselves or know someone who has sent this content, often on common channels like social media, group chats, and DMs.",
+     "bbox_px": [
+      146,
+      328,
+      1532,
+      450
+     ],
+     "line_rects_px": [
+      [
+       146,
+       328,
+       1411,
+       83
+      ],
+      [
+       146,
+       420,
+       1529,
+       83
+      ],
+      [
+       146,
+       511,
+       1532,
+       83
+      ],
+      [
+       146,
+       603,
+       1462,
+       83
+      ],
+      [
+       146,
+       695,
+       291,
+       83
+      ]
+     ]
+    },
+    {
+     "text": "nearly half (44%) say the content depicted themselves or people they know,",
+     "bbox_px": [
+      146,
+      999,
+      1531,
+      129
+     ],
+     "line_rects_px": [
+      [
+       1025,
+       999,
+       652,
+       58
+      ],
+      [
+       146,
+       1070,
+       832,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "44%",
+     "bbox_px": [
+      1255,
+      1779,
+      315,
+      224
+     ],
+     "line_rects_px": [
+      [
+       1255,
+       1779,
+       315,
+       224
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p14-page",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p14-finding6-67pct-worried.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Full page 14 (Key Finding 6 + Figure I)",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2550,
+    3300
+   ],
+   "capture": "PDF page 16 rendered at 300 dpi (full page)",
+   "highlights": [
+    {
+     "text": "Two-thirds of teens (67%) are worried about being depicted in deepfakes without their consent, and many are changing their online behaviors to protect themselves.",
+     "bbox_px": [
+      146,
+      328,
+      1520,
+      358
+     ],
+     "line_rects_px": [
+      [
+       146,
+       328,
+       1520,
+       83
+      ],
+      [
+       146,
+       420,
+       1481,
+       83
+      ],
+      [
+       146,
+       511,
+       1329,
+       83
+      ],
+      [
+       146,
+       603,
+       608,
+       83
+      ]
+     ]
+    },
+    {
+     "text": "30% have made their social media accounts private,",
+     "bbox_px": [
+      146,
+      978,
+      1503,
+      129
+     ],
+     "line_rects_px": [
+      [
+       1106,
+       978,
+       543,
+       58
+      ],
+      [
+       146,
+       1049,
+       475,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "9% have deleted social media accounts entirely.",
+     "bbox_px": [
+      228,
+      1120,
+      938,
+      58
+     ],
+     "line_rects_px": [
+      [
+       228,
+       1120,
+       938,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "67%",
+     "bbox_px": [
+      460,
+      2295,
+      152,
+      109
+     ],
+     "line_rects_px": [
+      [
+       460,
+       2295,
+       152,
+       109
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p15-page",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p15-finding7-distorting-bodies.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Full page 15 (Key Finding 7 + Figure J + quote/photo)",
+   "quality": 3,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2550,
+    3300
+   ],
+   "capture": "PDF page 17 rendered at 300 dpi (full page)",
+   "highlights": [
+    {
+     "text": "Nearly two-thirds of teens think AI-generated sexual content is distorting how peers see bodies, relationships, and intimacy.",
+     "bbox_px": [
+      146,
+      328,
+      1497,
+      266
+     ],
+     "line_rects_px": [
+      [
+       146,
+       328,
+       1399,
+       83
+      ],
+      [
+       146,
+       420,
+       1497,
+       83
+      ],
+      [
+       146,
+       511,
+       836,
+       83
+      ]
+     ]
+    },
+    {
+     "text": "It puts a lot of pressure on the other person. It definitely alters your brain a little bit because just seeing that, especially before your frontal lobe is developed, whether you're 13 or 19, it's going to make you think about what bodies should look like and how you should be having sex.",
+     "bbox_px": [
+      130,
+      2624,
+      1550,
+      416
+     ],
+     "line_rects_px": [
+      [
+       130,
+       2624,
+       1475,
+       82
+      ],
+      [
+       149,
+       2708,
+       1355,
+       82
+      ],
+      [
+       148,
+       2791,
+       1475,
+       82
+      ],
+      [
+       144,
+       2874,
+       1466,
+       82
+      ],
+      [
+       148,
+       2958,
+       1532,
+       82
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p16-page",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p16-finding8-20pct-trusted-adult.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Full page 16 (Key Finding 8, photo of teen on phone, quote)",
+   "quality": 3,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2550,
+    3300
+   ],
+   "capture": "PDF page 18 rendered at 300 dpi (full page)",
+   "highlights": [
+    {
+     "text": "Only 20% of teens have discussed AI-generated sexual content with a trusted adult, and a third want to but don't know how to start.",
+     "bbox_px": [
+      146,
+      1793,
+      1437,
+      266
+     ],
+     "line_rects_px": [
+      [
+       146,
+       1793,
+       1437,
+       83
+      ],
+      [
+       146,
+       1885,
+       1417,
+       83
+      ],
+      [
+       146,
+       1976,
+       1108,
+       83
+      ]
+     ]
+    },
+    {
+     "text": "We grew as AI grew. We grew up together. Adults don't have the same life experience that we do. They don't understand how advanced and how intense AI is.",
+     "bbox_px": [
+      1873,
+      1479,
+      485,
+      563
+     ],
+     "line_rects_px": [
+      [
+       1873,
+       1479,
+       445,
+       67
+      ],
+      [
+       1887,
+       1550,
+       451,
+       67
+      ],
+      [
+       1887,
+       1621,
+       453,
+       67
+      ],
+      [
+       1891,
+       1692,
+       430,
+       67
+      ],
+      [
+       1890,
+       1763,
+       356,
+       67
+      ],
+      [
+       1891,
+       1834,
+       467,
+       67
+      ],
+      [
+       1890,
+       1904,
+       402,
+       67
+      ],
+      [
+       1891,
+       1975,
+       291,
+       67
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p17-page",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p17-finding9-82pct-illegal.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Full page 17 (Key Finding 9 + Figure K)",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2550,
+    3300
+   ],
+   "capture": "PDF page 19 rendered at 300 dpi (full page)",
+   "highlights": [
+    {
+     "text": "Most teens believe creating AI-generated sexual content of someone without their permission should be illegal, but nearly a quarter of teens believe this content is less harmful because no one gets hurt.",
+     "bbox_px": [
+      146,
+      328,
+      1524,
+      450
+     ],
+     "line_rects_px": [
+      [
+       146,
+       328,
+       1469,
+       83
+      ],
+      [
+       146,
+       420,
+       1373,
+       83
+      ],
+      [
+       146,
+       511,
+       1383,
+       83
+      ],
+      [
+       146,
+       603,
+       1524,
+       83
+      ],
+      [
+       146,
+       695,
+       295,
+       83
+      ]
+     ]
+    },
+    {
+     "text": "82% agree that creating this content without the subject's permission should be illegal.",
+     "bbox_px": [
+      146,
+      999,
+      1401,
+      129
+     ],
+     "line_rects_px": [
+      [
+       401,
+       999,
+       1146,
+       58
+      ],
+      [
+       146,
+       1070,
+       558,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "Nearly one-quarter of these teens (23%) believe that AI-generated nudes and sexual content are less harmful than real pornography because \"no one gets hurt,\"",
+     "bbox_px": [
+      146,
+      1070,
+      1510,
+      200
+     ],
+     "line_rects_px": [
+      [
+       705,
+       1070,
+       951,
+       58
+      ],
+      [
+       146,
+       1141,
+       1374,
+       58
+      ],
+      [
+       146,
+       1212,
+       803,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "Creating AI-generated nudes and sexual content of someone without permission should be illegal",
+     "bbox_px": [
+      182,
+      1699,
+      1766,
+      64
+     ],
+     "line_rects_px": [
+      [
+       182,
+       1699,
+       1766,
+       64
+      ]
+     ]
+    },
+    {
+     "text": "82%",
+     "bbox_px": [
+      1800,
+      1812,
+      73,
+      45
+     ],
+     "line_rects_px": [
+      [
+       1800,
+       1812,
+       73,
+       45
+      ]
+     ]
+    },
+    {
+     "text": "AI-generated nudes and sexual content is less harmful than real porn because no one gets hurt",
+     "bbox_px": [
+      182,
+      2242,
+      1717,
+      64
+     ],
+     "line_rects_px": [
+      [
+       182,
+       2242,
+       1717,
+       64
+      ]
+     ]
+    },
+    {
+     "text": "23%",
+     "bbox_px": [
+      552,
+      2350,
+      73,
+      45
+     ],
+     "line_rects_px": [
+      [
+       552,
+       2350,
+       73,
+       45
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p46-methodology",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p46-methodology.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Methodology page 46: Burson; data collection Sept 22, 2025–Feb 26, 2026; N = 1,314; ±2.7 pp",
+   "quality": 3,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2550,
+    3300
+   ],
+   "capture": "PDF page 48 rendered at 300 dpi (full page)",
+   "highlights": [
+    {
+     "text": "Data collection was conducted from September 22, 2025, to February 26, 2026.",
+     "bbox_px": [
+      146,
+      1042,
+      1539,
+      128
+     ],
+     "line_rects_px": [
+      [
+       1371,
+       1042,
+       314,
+       58
+      ],
+      [
+       146,
+       1112,
+       1292,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "The survey was conducted among N = 1,314 respondents.",
+     "bbox_px": [
+      146,
+      1225,
+      1161,
+      62
+     ],
+     "line_rects_px": [
+      [
+       146,
+       1225,
+       1161,
+       62
+      ]
+     ]
+    },
+    {
+     "text": "±2.7 percentage points,",
+     "bbox_px": [
+      966,
+      1367,
+      481,
+      58
+     ],
+     "line_rects_px": [
+      [
+       966,
+       1367,
+       481,
+       58
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-p47-methodology-dates",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-p47-methodology-survey-dates.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Methodology page 47: 12-minute online survey of 1,314 teens; fielded Nov 21–Dec 9, 2025",
+   "quality": 3,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2550,
+    3300
+   ],
+   "capture": "PDF page 49 rendered at 300 dpi (full page)",
+   "highlights": [
+    {
+     "text": "12-minute online survey of 1,314 teens age 13 to 17 in the United States",
+     "bbox_px": [
+      146,
+      2690,
+      1461,
+      58
+     ],
+     "line_rects_px": [
+      [
+       146,
+       2690,
+       1461,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "Data collection was conducted from November 21, 2025, to December 9, 2025.",
+     "bbox_px": [
+      146,
+      2832,
+      1439,
+      128
+     ],
+     "line_rects_px": [
+      [
+       854,
+       2832,
+       731,
+       58
+      ],
+      [
+       146,
+       2902,
+       865,
+       58
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-report-pdf",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "csm-teens-ai-era-pornography-sexual-content-2026.pdf",
+   "headline": "Teens in the AI Era: Pornography and Sexual Content",
+   "dek": "",
+   "outlet": "Common Sense Media report \"Teens in the AI Era: Pornography and Sexual Content\" (2026)",
+   "author": "Mann, S., Zimmermann, L., Radesky, J., & Robb, M. B. (2026); DOI 10.65077/ESUU3962",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "caption": "Full 57-page report PDF (source of all report renders)",
+   "quality": 3,
+   "verified": true,
+   "notes": "Funded by: Oak Foundation (credits page). Advisers include Debby Herbenick (Indiana University). Questionnaire: https://www.commonsensemedia.org/sites/default/files/uploads/pdfs/research/teens-in-the-ai-era-questionnaire.pdf"
+  },
+  {
+   "id": "csm-article-making-them",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "headline",
+   "file": "csm-article-making-them-headline-hero.png",
+   "headline": "Teens told us they're not just seeing AI nudes — they're making them",
+   "dek": "Our new survey finds that sexual deepfakes often involve friends, exes, and classmates—and parents are barely talking about them.",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "author": "Geoffrey A. Fowler (Head of Public Engagement, Youth AI Safety Institute; former Washington Post columnist)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/articles/teens-told-us-theyre-not-just-seeing-ai-nudes-theyre-making-them",
+   "caption": "Article headline + dek + hero photo: hand holding phone with AI app, prompt \"Put Julie's face on this models' body\", pixelated generated image, \"GENERATE IMAGE\" button",
+   "quality": 5,
+   "verified": true,
+   "notes": "Page shows \"Last reviewed or updated on: September 1, 2026\"; date given is the report release (article accompanies it; exact original publish date not shown on page). The hero photo is a staged illustration by Common Sense, not a real app screenshot.",
+   "image_px": [
+    1496,
+    1394
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "Teens told us they're not just seeing AI nudes — they're making them",
+     "bbox_px": [
+      48,
+      48,
+      1354,
+      159
+     ],
+     "line_rects_px": [
+      [
+       48,
+       48,
+       1354,
+       78
+      ],
+      [
+       48,
+       129,
+       595,
+       78
+      ]
+     ]
+    },
+    {
+     "text": "Our new survey finds that sexual deepfakes often involve friends, exes, and classmates—and parents are barely talking about them.",
+     "bbox_px": [
+      48,
+      228,
+      1339,
+      188
+     ],
+     "line_rects_px": [
+      [
+       48,
+       228,
+       1264,
+       60
+      ],
+      [
+       48,
+       292,
+       1339,
+       60
+      ],
+      [
+       48,
+       356,
+       268,
+       60
+      ]
+     ]
+    }
+   ],
+   "alt_file": "csm-article-making-them-headline-hero-w960.png",
+   "alt_image_px": [
+    2244,
+    2116
+   ],
+   "alt_capture": "headless Chromium, viewport 960px, deviceScaleFactor 3",
+   "alt_highlights": [
+    {
+     "text": "Teens told us they're not just seeing AI nudes — they're making them",
+     "bbox_px": [
+      72,
+      72,
+      2032,
+      239
+     ],
+     "line_rects_px": [
+      [
+       72,
+       72,
+       2032,
+       117
+      ],
+      [
+       72,
+       194,
+       893,
+       117
+      ]
+     ]
+    },
+    {
+     "text": "Our new survey finds that sexual deepfakes often involve friends, exes, and classmates—and parents are barely talking about them.",
+     "bbox_px": [
+      72,
+      342,
+      2008,
+      282
+     ],
+     "line_rects_px": [
+      [
+       72,
+       342,
+       1897,
+       90
+      ],
+      [
+       72,
+       438,
+       2008,
+       90
+      ],
+      [
+       72,
+       534,
+       402,
+       90
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "csm-article-hero",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-article-hero-phone-prompt.jpg",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/articles/teens-told-us-theyre-not-just-seeing-ai-nudes-theyre-making-them",
+   "caption": "Original hero image 1200x630: phone running a generic AI image app with prompt \"Put Julie's face on this models' body\" and a pixelated output",
+   "quality": 5,
+   "verified": true,
+   "notes": "Downloaded from https://www.commonsensemedia.org/sites/default/files/blog/2026_csm_teensaipornography_site_article_institute.jpg . Staged illustration (not a real product UI)."
+  },
+  {
+   "id": "csm-article-passage",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "csm-article-making-them-made-it-passage.png",
+   "headline": "",
+   "dek": "Eight percent of all teens—roughly one in 12—said they had made AI sexual content themselves. Boys were nearly three times as likely as girls to do so: 11% versus 4%.",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/articles/teens-told-us-theyre-not-just-seeing-ai-nudes-theyre-making-them",
+   "caption": "Article passage: \"Eight percent of all teens—roughly one in 12—said they had made AI sexual content themselves. Boys were nearly three times as likely as girls to do so: 11% versus 4%.\"",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    1496,
+    148
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "Eight percent of all teens—roughly one in 12—said they had made AI sexual content themselves.",
+     "bbox_px": [
+      48,
+      32,
+      1323,
+      38
+     ],
+     "line_rects_px": [
+      [
+       48,
+       32,
+       1323,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "Boys were nearly three times as likely as girls to do so: 11% versus 4%.",
+     "bbox_px": [
+      48,
+      32,
+      1397,
+      86
+     ],
+     "line_rects_px": [
+      [
+       1377,
+       32,
+       68,
+       38
+      ],
+      [
+       48,
+       80,
+       895,
+       38
+      ]
+     ]
+    }
+   ],
+   "alt_file": "csm-article-making-them-made-it-passage-w960.png",
+   "alt_image_px": [
+    2244,
+    222
+   ],
+   "alt_capture": "headless Chromium, viewport 960px, deviceScaleFactor 3",
+   "alt_highlights": [
+    {
+     "text": "Eight percent of all teens—roughly one in 12—said they had made AI sexual content themselves.",
+     "bbox_px": [
+      72,
+      48,
+      1984,
+      57
+     ],
+     "line_rects_px": [
+      [
+       72,
+       48,
+       1984,
+       57
+      ]
+     ]
+    },
+    {
+     "text": "Boys were nearly three times as likely as girls to do so: 11% versus 4%.",
+     "bbox_px": [
+      72,
+      48,
+      2096,
+      129
+     ],
+     "line_rects_px": [
+      [
+       2066,
+       48,
+       103,
+       57
+      ],
+      [
+       72,
+       120,
+       1343,
+       57
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tnnd-teens-fear-deepfakes",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "headline",
+   "file": "tnnd-teens-fear-deepfakes-header-photo.png",
+   "headline": "Most teens fear deepfakes amid widespread exposure to AI sexual content: survey",
+   "dek": "(TNND) — Two-thirds of teenagers are afraid of becoming deepfake victims, while nearly half report seeing pornographic or sexually explicit material generated by artificial intelligence in the online spaces they visit.",
+   "outlet": "The National News Desk (Sinclair)",
+   "author": "Cory Smith",
+   "date": "2026-07-21",
+   "url": "https://thenationaldesk.com/news/americas-news-now/most-teens-fear-deepfakes-amid-widespread-exposure-to-ai-sexual-content-survey-common-sense-media-artificial-intelligence-youth-safety-online-pornography",
+   "caption": "TNND headline + byline (Tue, July 21st 2026 at 6:53 PM) + photo of hands holding a phone (Mireya Acierto/Getty Images, file)",
+   "quality": 4,
+   "verified": true,
+   "notes": "Syndicated to many Sinclair local stations (WGME, Fox Baltimore, WSBT, ABC 3340 ...).",
+   "image_px": [
+    1316,
+    1164
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "Most teens fear deepfakes amid widespread exposure to AI sexual content: survey",
+     "bbox_px": [
+      60,
+      58,
+      1178,
+      116
+     ],
+     "line_rects_px": [
+      [
+       60,
+       58,
+       1178,
+       60
+      ],
+      [
+       60,
+       114,
+       607,
+       60
+      ]
+     ]
+    },
+    {
+     "text": "Tue, July 21st 2026 at 6:53 PM",
+     "bbox_px": [
+      553,
+      242,
+      332,
+      34
+     ],
+     "line_rects_px": [
+      [
+       553,
+       242,
+       332,
+       34
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "tnnd-teens-fear-deepfakes-lede",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "tnnd-teens-fear-deepfakes-lede.png",
+   "headline": "",
+   "dek": "Overall, 44% of teens said they have seen sexual content they believe was AI-generated.",
+   "outlet": "The National News Desk (Sinclair)",
+   "author": "Cory Smith",
+   "date": "2026-07-21",
+   "url": "https://thenationaldesk.com/news/americas-news-now/most-teens-fear-deepfakes-amid-widespread-exposure-to-ai-sexual-content-survey-common-sense-media-artificial-intelligence-youth-safety-online-pornography",
+   "caption": "Article lede through \"Overall, 44% of teens said they have seen sexual content they believe was AI-generated.\" (incl. Supreet Mann quote)",
+   "quality": 3,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    1202,
+    1616
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "Two-thirds of teenagers are afraid of becoming deepfake victims, while nearly half report seeing pornographic or sexually explicit material generated by artificial intelligence in the online spaces they visit.",
+     "bbox_px": [
+      48,
+      32,
+      1086,
+      148
+     ],
+     "line_rects_px": [
+      [
+       205,
+       32,
+       847,
+       44
+      ],
+      [
+       48,
+       84,
+       1064,
+       44
+      ],
+      [
+       48,
+       136,
+       1086,
+       44
+      ]
+     ]
+    },
+    {
+     "text": "Overall, 44% of teens said they have seen sexual content they believe was AI-generated.",
+     "bbox_px": [
+      48,
+      1488,
+      1096,
+      96
+     ],
+     "line_rects_px": [
+      [
+       48,
+       1488,
+       1096,
+       44
+      ],
+      [
+       48,
+       1540,
+       201,
+       44
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "thorn-pr-2026-headline",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "headline",
+   "file": "thorn-pr-2026-headline.png",
+   "headline": "As AI becomes part of kids' response to online harm, new Thorn research finds children turning to chatbots for guidance after online sexual interactions",
+   "dek": "Annual survey of more than 1,000 U.S. kids ages 9 to 17 finds young people who experienced an online sexual interaction were twice as likely to seek help from an AI chatbot as kids who were bullied online",
+   "outlet": "Thorn",
+   "date": "2026-07-28",
+   "url": "https://www.thorn.org/press-releases/as-ai-becomes-part-of-kids-response-to-online-harm-new-thorn-research-finds-children-turning-to-chatbots-for-guidance-after-online-sexual-interactions/",
+   "caption": "Thorn press-release headline + \"July 28, 2026\"",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2400,
+    797
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "As AI becomes part of kids' response to online harm, new Thorn research finds children turning to chatbots for guidance after online sexual interactions",
+     "bbox_px": [
+      111,
+      122,
+      2179,
+      554
+     ],
+     "line_rects_px": [
+      [
+       141,
+       122,
+       2117,
+       158
+      ],
+      [
+       187,
+       254,
+       2025,
+       158
+      ],
+      [
+       111,
+       386,
+       2179,
+       158
+      ],
+      [
+       386,
+       518,
+       1627,
+       158
+      ]
+     ]
+    },
+    {
+     "text": "July 28, 2026",
+     "bbox_px": [
+      945,
+      728,
+      191,
+      36
+     ],
+     "line_rects_px": [
+      [
+       945,
+       728,
+       191,
+       36
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "thorn-pr-2026-deepfake-bullet",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "thorn-pr-2026-deepfake-bullet.png",
+   "headline": "",
+   "dek": "Deepfake nudes are creating new uncertainty for teens. Among teens surveyed, 4% reported having had a personal experience with deepfake nudes being created of them, and 7% reported having seen a deepfake nude of another kid or teen. In contrast, 13% of teens said they weren't sure whether they had seen a deepfake nude of another child, underscoring the difficulty young people may face in discerning the authenticity of nude content they encounter.",
+   "outlet": "Thorn",
+   "date": "2026-07-28",
+   "url": "https://www.thorn.org/press-releases/as-ai-becomes-part-of-kids-response-to-online-harm-new-thorn-research-finds-children-turning-to-chatbots-for-guidance-after-online-sexual-interactions/",
+   "caption": "Press-release bullet \"Deepfake nudes are creating new uncertainty for teens.\" (4% / 7% / 13%)",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    1516,
+    372
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "Deepfake nudes are creating new uncertainty for teens.",
+     "bbox_px": [
+      48,
+      28,
+      980,
+      44
+     ],
+     "line_rects_px": [
+      [
+       48,
+       28,
+       980,
+       44
+      ]
+     ]
+    },
+    {
+     "text": "4% reported having had a personal experience with deepfake nudes being created of them,",
+     "bbox_px": [
+      48,
+      82,
+      1413,
+      98
+     ],
+     "line_rects_px": [
+      [
+       48,
+       82,
+       1413,
+       44
+      ],
+      [
+       48,
+       136,
+       97,
+       44
+      ]
+     ]
+    },
+    {
+     "text": "7% reported having seen a deepfake nude of another kid or teen.",
+     "bbox_px": [
+      226,
+      136,
+      1072,
+      44
+     ],
+     "line_rects_px": [
+      [
+       226,
+       136,
+       1072,
+       44
+      ]
+     ]
+    },
+    {
+     "text": "13% of teens said they weren't sure whether they had seen a deepfake nude of another child,",
+     "bbox_px": [
+      48,
+      190,
+      1327,
+      98
+     ],
+     "line_rects_px": [
+      [
+       208,
+       190,
+       1168,
+       44
+      ],
+      [
+       48,
+       244,
+       366,
+       44
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "thorn-pr-2026-chatbots",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "thorn-pr-2026-chatbot-findings.png",
+   "headline": "",
+   "dek": "According to Thorn's latest report, Youth Perspectives on Online Safety, 2025 — an annual report now in its sixth consecutive year — 67% of minors surveyed have reported using an AI chatbot or companion. Among the 27% of minors who reported experiencing an online sexual interaction, 15% said they confided in or sought guidance from an AI chatbot or companion in response, more than twice the rate of minors who cited being bullied or made uncomfortable online (7%).",
+   "outlet": "Thorn",
+   "date": "2026-07-28",
+   "url": "https://www.thorn.org/press-releases/as-ai-becomes-part-of-kids-response-to-online-harm-new-thorn-research-finds-children-turning-to-chatbots-for-guidance-after-online-sexual-interactions/",
+   "caption": "Press-release paragraph: 67% of minors used an AI chatbot/companion; 15% sought guidance from AI after an online sexual interaction",
+   "quality": 3,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    1596,
+    372
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "67% of minors surveyed have reported using an AI chatbot or companion.",
+     "bbox_px": [
+      48,
+      82,
+      1462,
+      98
+     ],
+     "line_rects_px": [
+      [
+       872,
+       82,
+       638,
+       44
+      ],
+      [
+       48,
+       136,
+       572,
+       44
+      ]
+     ]
+    },
+    {
+     "text": "15% said they confided in or sought guidance from an AI chatbot or companion in response,",
+     "bbox_px": [
+      48,
+      190,
+      1409,
+      98
+     ],
+     "line_rects_px": [
+      [
+       527,
+       190,
+       930,
+       44
+      ],
+      [
+       48,
+       244,
+       581,
+       44
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "thorn-pr-2026-fullpage",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "thorn-pr-2026-fullpage.png",
+   "headline": "As AI becomes part of kids' response to online harm, new Thorn research finds children turning to chatbots for guidance after online sexual interactions",
+   "dek": "Annual survey of more than 1,000 U.S. kids ages 9 to 17 finds young people who experienced an online sexual interaction were twice as likely to seek help from an AI chatbot as kids who were bullied online",
+   "outlet": "Thorn",
+   "date": "2026-07-28",
+   "url": "https://www.thorn.org/press-releases/as-ai-becomes-part-of-kids-response-to-online-harm-new-thorn-research-finds-children-turning-to-chatbots-for-guidance-after-online-sexual-interactions/",
+   "caption": "Full Thorn press-release page (consent banner removed)",
+   "quality": 2,
+   "verified": true,
+   "notes": "",
+   "image_px": null,
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": []
+  },
+  {
+   "id": "thorn-yp2025-cover",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "thorn-yp2025-cover.png",
+   "headline": "Youth Perspectives on Online Safety, 2025",
+   "dek": "",
+   "outlet": "Thorn, \"Youth Perspectives on Online Safety, 2025\" (published July 2026, with Burson)",
+   "date": "2026-07",
+   "url": "https://info.thorn.org/hubfs/Research/Thorn_2025YouthPerspectives_Report.pdf",
+   "caption": "Report cover \"JULY 2026 / Youth Perspectives on Online Safety, 2025\" (Thorn + Burson logos)",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    3300,
+    2550
+   ],
+   "capture": "PDF page 1 rendered at 300 dpi (pdftoppm)",
+   "highlights": [
+    {
+     "text": "JULY 2026",
+     "bbox_px": [
+      470,
+      417,
+      273,
+      71
+     ],
+     "line_rects_px": [
+      [
+       470,
+       417,
+       273,
+       71
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "thorn-yp2025-key-metrics",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "thorn-yp2025-p15-key-metrics.png",
+   "headline": "",
+   "dek": "1 in 25 teens reported having a personal experience with deepfake nudes being created of them.",
+   "outlet": "Thorn, \"Youth Perspectives on Online Safety, 2025\" (published July 2026, with Burson)",
+   "date": "2026-07",
+   "url": "https://info.thorn.org/hubfs/Research/Thorn_2025YouthPerspectives_Report.pdf",
+   "caption": "Report p.15 with KEY METRICS sidebar (1 in 2 / 1 in 5 / 1 in 25 sextorted / 1 in 25 teens deepfake nudes)",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    3300,
+    2550
+   ],
+   "capture": "PDF page 15 rendered at 300 dpi (pdftoppm)",
+   "highlights": [
+    {
+     "text": "1 in 25 teens reported having a personal experience with deepfake nudes being created of them.",
+     "bbox_px": [
+      258,
+      1790,
+      594,
+      370
+     ],
+     "line_rects_px": [
+      [
+       258,
+       1790,
+       296,
+       144
+      ],
+      [
+       258,
+       1913,
+       470,
+       72
+      ],
+      [
+       258,
+       1971,
+       494,
+       72
+      ],
+      [
+       258,
+       2029,
+       594,
+       72
+      ],
+      [
+       258,
+       2088,
+       169,
+       72
+      ]
+     ]
+    },
+    {
+     "text": "1 in 5 minors reported having an online sexual interaction with someone they believed to be an adult",
+     "bbox_px": [
+      258,
+      931,
+      577,
+      369
+     ],
+     "line_rects_px": [
+      [
+       258,
+       931,
+       235,
+       144
+      ],
+      [
+       258,
+       1053,
+       519,
+       72
+      ],
+      [
+       258,
+       1112,
+       577,
+       72
+      ],
+      [
+       258,
+       1170,
+       561,
+       72
+      ],
+      [
+       258,
+       1228,
+       166,
+       72
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "thorn-yp2025-key-metrics-crop",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "thorn-yp2025-p15-key-metrics-crop.png",
+   "headline": "",
+   "dek": "1 in 25 teens reported having a personal experience with deepfake nudes being created of them.",
+   "outlet": "Thorn, \"Youth Perspectives on Online Safety, 2025\" (published July 2026, with Burson)",
+   "date": "2026-07",
+   "url": "https://info.thorn.org/hubfs/Research/Thorn_2025YouthPerspectives_Report.pdf",
+   "caption": "KEY METRICS sidebar only (portrait strip)",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    950,
+    1919
+   ],
+   "capture": "PDF page 15 rendered at 300 dpi (pdftoppm), cropped",
+   "highlights": [
+    {
+     "text": "1 in 25 teens reported having a personal experience with deepfake nudes being created of them.",
+     "bbox_px": [
+      58,
+      1429,
+      594,
+      370
+     ],
+     "line_rects_px": [
+      [
+       58,
+       1429,
+       296,
+       144
+      ],
+      [
+       58,
+       1552,
+       470,
+       72
+      ],
+      [
+       58,
+       1610,
+       494,
+       72
+      ],
+      [
+       58,
+       1668,
+       594,
+       72
+      ],
+      [
+       58,
+       1727,
+       169,
+       72
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "thorn-yp2025-p16-text",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "thorn-yp2025-p16-deepfake-text.png",
+   "headline": "",
+   "dek": "Among teens surveyed, 7% reported they have seen a deepfake nude of another child, and an additional 13% indicated they weren't sure (Fig 10A). Four percent (4%) of teens reported they have had a personal experience with deepfake nudes being created of them (Fig 10B), and 2% reported using technology to create deepfake nudes of someone else (Fig 10C).",
+   "outlet": "Thorn, \"Youth Perspectives on Online Safety, 2025\" (published July 2026, with Burson)",
+   "date": "2026-07",
+   "url": "https://info.thorn.org/hubfs/Research/Thorn_2025YouthPerspectives_Report.pdf",
+   "caption": "Report p.16: deepfake-nude paragraph (7% seen / 13% unsure / 4% victim / 2% creator) + footnotes (6% in 2024 survey); dek omits superscript footnote markers 21/22",
+   "quality": 3,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    3300,
+    2550
+   ],
+   "capture": "PDF page 16 rendered at 300 dpi (pdftoppm)",
+   "highlights": [
+    {
+     "text": "Among teens surveyed, 7% reported they have seen a deepfake nude of another child, and an additional 13% indicated they weren't sure",
+     "bbox_px": [
+      1691,
+      409,
+      1303,
+      134
+     ],
+     "line_rects_px": [
+      [
+       1691,
+       409,
+       1303,
+       72
+      ],
+      [
+       1691,
+       471,
+       1246,
+       72
+      ]
+     ]
+    },
+    {
+     "text": "Four percent (4%) of teens reported they have had a personal experience with deepfake nudes being created of them",
+     "bbox_px": [
+      1691,
+      534,
+      1337,
+      134
+     ],
+     "line_rects_px": [
+      [
+       1873,
+       534,
+       1155,
+       72
+      ],
+      [
+       1691,
+       596,
+       1043,
+       72
+      ]
+     ]
+    },
+    {
+     "text": "2% reported using technology to create deepfake nudes of someone else",
+     "bbox_px": [
+      1691,
+      659,
+      1288,
+      134
+     ],
+     "line_rects_px": [
+      [
+       1691,
+       659,
+       1288,
+       72
+      ],
+      [
+       1691,
+       721,
+       83,
+       72
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "thorn-yp2025-fig10",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "chart",
+   "file": "thorn-yp2025-p20-fig10-deepfake-tables.png",
+   "headline": "Exposure to deepfake nudes depicting other minors / Percentage of minors who have had deepfake nudes made of them / Experiences creating deepfake nudes of other people",
+   "dek": "",
+   "outlet": "Thorn, \"Youth Perspectives on Online Safety, 2025\" (published July 2026, with Burson)",
+   "date": "2026-07",
+   "url": "https://info.thorn.org/hubfs/Research/Thorn_2025YouthPerspectives_Report.pdf",
+   "caption": "Fig 10A/10B/10C tables (teens 13-17): seen deepfake nude of another minor 7% (13% not sure); had deepfake nudes made of them 4%; created deepfake nudes 2%; by gender/LGBTQ+/race",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    3300,
+    2550
+   ],
+   "capture": "PDF page 20 rendered at 300 dpi (pdftoppm)",
+   "highlights": [
+    {
+     "text": "Exposure to deepfake nudes depicting other minors",
+     "bbox_px": [
+      202,
+      285,
+      856,
+      111
+     ],
+     "line_rects_px": [
+      [
+       358,
+       285,
+       700,
+       65
+      ],
+      [
+       202,
+       331,
+       240,
+       65
+      ]
+     ]
+    },
+    {
+     "text": "Percentage of minors who have had deepfake nudes made of them",
+     "bbox_px": [
+      202,
+      1067,
+      986,
+      110
+     ],
+     "line_rects_px": [
+      [
+       359,
+       1067,
+       829,
+       65
+      ],
+      [
+       202,
+       1112,
+       376,
+       65
+      ]
+     ]
+    },
+    {
+     "text": "Experiences creating deepfake nudes of other people",
+     "bbox_px": [
+      202,
+      1845,
+      890,
+      111
+     ],
+     "line_rects_px": [
+      [
+       359,
+       1845,
+       733,
+       65
+      ],
+      [
+       202,
+       1891,
+       236,
+       65
+      ]
+     ]
+    },
+    {
+     "text": "ROW:Ages 13-17",
+     "bbox_px": [
+      1344,
+      306,
+      1735,
+      56
+     ],
+     "line_rects_px": [
+      [
+       1344,
+       306,
+       1735,
+       56
+      ]
+     ]
+    },
+    {
+     "text": "ROW:Ages 13-17",
+     "bbox_px": [
+      1344,
+      1087,
+      1734,
+      56
+     ],
+     "line_rects_px": [
+      [
+       1344,
+       1087,
+       1734,
+       56
+      ]
+     ]
+    },
+    {
+     "text": "ROW:Ages 13-17",
+     "bbox_px": [
+      1344,
+      1866,
+      1731,
+      56
+     ],
+     "line_rects_px": [
+      [
+       1344,
+       1866,
+       1731,
+       56
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "thorn-yp2025-fig10a",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "chart",
+   "file": "thorn-yp2025-p20-fig10a-seen-crop.png",
+   "headline": "Exposure to deepfake nudes depicting other minors",
+   "dek": "",
+   "outlet": "Thorn, \"Youth Perspectives on Online Safety, 2025\" (published July 2026, with Burson)",
+   "date": "2026-07",
+   "url": "https://info.thorn.org/hubfs/Research/Thorn_2025YouthPerspectives_Report.pdf",
+   "caption": "Fig 10A crop only (seen a deepfake nude of another kid/teen)",
+   "quality": 3,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    3000,
+    660
+   ],
+   "capture": "PDF page 20 rendered at 300 dpi (pdftoppm), cropped",
+   "highlights": [
+    {
+     "text": "Exposure to deepfake nudes depicting other minors",
+     "bbox_px": [
+      52,
+      91,
+      856,
+      111
+     ],
+     "line_rects_px": [
+      [
+       208,
+       91,
+       700,
+       65
+      ],
+      [
+       52,
+       137,
+       240,
+       65
+      ]
+     ]
+    },
+    {
+     "text": "ROW:Ages 13-17",
+     "bbox_px": [
+      1194,
+      112,
+      1735,
+      56
+     ],
+     "line_rects_px": [
+      [
+       1194,
+       112,
+       1735,
+       56
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "thorn-yp2025-fig33",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "chart",
+   "file": "thorn-yp2025-p41-fig33-45pct.png",
+   "headline": "",
+   "dek": "45% of teens reported having at least one type of sexual experience online, when additional sexual harm types were assessed cumulatively.",
+   "outlet": "Thorn, \"Youth Perspectives on Online Safety, 2025\" (published July 2026, with Burson)",
+   "date": "2026-07",
+   "url": "https://info.thorn.org/hubfs/Research/Thorn_2025YouthPerspectives_Report.pdf",
+   "caption": "Report p.41 Fig 33: 34% traditional online sexual interaction -> 45% when SG-CSAM, sextortion and deepfake-nude experiences are included; Fig 34 co-occurrence",
+   "quality": 3,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    3300,
+    2550
+   ],
+   "capture": "PDF page 41 rendered at 300 dpi (pdftoppm)",
+   "highlights": [
+    {
+     "text": "45%",
+     "bbox_px": [
+      2619,
+      886,
+      221,
+      144
+     ],
+     "line_rects_px": [
+      [
+       2619,
+       886,
+       221,
+       144
+      ]
+     ]
+    },
+    {
+     "text": "of teens reported having at least one type of sexual experience online, when additional sexual harm types were assessed cumulatively.",
+     "bbox_px": [
+      2619,
+      1007,
+      480,
+      262
+     ],
+     "line_rects_px": [
+      [
+       2619,
+       1007,
+       413,
+       62
+      ],
+      [
+       2619,
+       1057,
+       439,
+       62
+      ],
+      [
+       2619,
+       1107,
+       407,
+       62
+      ],
+      [
+       2619,
+       1157,
+       480,
+       62
+      ],
+      [
+       2619,
+       1207,
+       476,
+       62
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "thorn-yp2025-pdf",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "thorn-youth-perspectives-2025-report.pdf",
+   "headline": "Youth Perspectives on Online Safety, 2025",
+   "dek": "An annual report of youth attitudes and experiences",
+   "outlet": "Thorn",
+   "date": "2026-07",
+   "url": "https://info.thorn.org/hubfs/Research/Thorn_2025YouthPerspectives_Report.pdf",
+   "caption": "65-page report PDF",
+   "quality": 3,
+   "verified": true,
+   "notes": "PDF creation date 2026-07-07; press release 2026-07-28."
+  },
+  {
+   "id": "ncmec-gai-by-the-numbers",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "ncmec-gai-by-the-numbers.png",
+   "headline": "By the Numbers",
+   "dek": "NCMEC began tracking GAI-related reports submitted to the CyberTipline in January 2023 and has seen a steady rise.",
+   "outlet": "NCMEC (missingkids.org, Generative AI issue page)",
+   "date": "2026",
+   "url": "https://www.missingkids.org/theissues/generative-ai",
+   "caption": "NCMEC \"By the Numbers\" panel: 2023: 4,700 / 2024: 67,000 / 2025: more than 400,000 CyberTipline reports of GAI, with 5 category tiles (12,000+ / 7,000+ / 30,000+ / 145,000+ / 3,000+)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Red background panel; perfect for a \"steady rise\" slide with highlight boxes on each year. Page undated (reflects 2025 data, published 2026).",
+   "image_px": [
+    2560,
+    1794
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "4,700 CyberTipline reports of GAI from the public and ESPs",
+     "bbox_px": [
+      123,
+      410,
+      1062,
+      86
+     ],
+     "line_rects_px": [
+      [
+       123,
+       410,
+       197,
+       86
+      ],
+      [
+       321,
+       444,
+       864,
+       44
+      ]
+     ]
+    },
+    {
+     "text": "67,000 CyberTipline reports of GAI from the public and ESPs",
+     "bbox_px": [
+      1354,
+      410,
+      1105,
+      86
+     ],
+     "line_rects_px": [
+      [
+       1354,
+       410,
+       240,
+       86
+      ],
+      [
+       1594,
+       444,
+       864,
+       44
+      ]
+     ]
+    },
+    {
+     "text": "More than 400,000 CyberTipline reports of GAI from the public and ESPs",
+     "bbox_px": [
+      344,
+      826,
+      1183,
+      44
+     ],
+     "line_rects_px": [
+      [
+       344,
+       826,
+       1183,
+       44
+      ]
+     ]
+    },
+    {
+     "text": "7,000+ reports of users generating or possessing GAI CSAM",
+     "bbox_px": [
+      671,
+      1012,
+      254,
+      274
+     ],
+     "line_rects_px": [
+      [
+       677,
+       1012,
+       243,
+       86
+      ],
+      [
+       671,
+       1098,
+       254,
+       44
+      ],
+      [
+       690,
+       1146,
+       216,
+       44
+      ],
+      [
+       674,
+       1194,
+       249,
+       44
+      ],
+      [
+       747,
+       1242,
+       103,
+       44
+      ]
+     ]
+    },
+    {
+     "text": "145,000+ reports of users using GAI to engage or alter a CSAM file without text prompts included",
+     "bbox_px": [
+      1597,
+      1012,
+      329,
+      322
+     ],
+     "line_rects_px": [
+      [
+       1601,
+       1012,
+       321,
+       86
+      ],
+      [
+       1635,
+       1098,
+       254,
+       44
+      ],
+      [
+       1597,
+       1146,
+       329,
+       44
+      ],
+      [
+       1606,
+       1194,
+       311,
+       44
+      ],
+      [
+       1663,
+       1242,
+       197,
+       44
+      ],
+      [
+       1620,
+       1290,
+       283,
+       44
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ncmec-gai-intro",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "ncmec-gai-intro.png",
+   "headline": "Generative AI (GAI)",
+   "dek": "More than 275 direct victims of GAI CSAM were identified in 2024 and 2025 alone and the offenders in many cases were people in the child's life with direct access to them.",
+   "outlet": "NCMEC (missingkids.org, Generative AI issue page)",
+   "date": "2026",
+   "url": "https://www.missingkids.org/theissues/generative-ai",
+   "caption": "Page banner \"Generative AI (GAI)\" with prompt-UI illustration + Overview with the 275-victims bullet",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2171,
+    1888
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "More than 275 direct victims of GAI CSAM were identified in 2024 and 2025 alone and the offenders in many cases were people in the child's life with direct access to them.",
+     "bbox_px": [
+      377,
+      1646,
+      1413,
+      184
+     ],
+     "line_rects_px": [
+      [
+       377,
+       1646,
+       1367,
+       48
+      ],
+      [
+       377,
+       1714,
+       1413,
+       48
+      ],
+      [
+       377,
+       1782,
+       282,
+       48
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ncmec-cybertipline-2025-gai",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "ncmec-cybertipline-2025-generative-ai.png",
+   "headline": "Generative AI",
+   "dek": "Reports to the CyberTipline in 2025 included more than 400,000 reports of exploitation with a GAI nexus. Within those submissions, more than 182,000 reports involved offenders possessing, generating or attempting to generate GAI CSAM, underscoring the increasing role of generative AI in enabling and scaling child sexual exploitation and abuse.",
+   "outlet": "NCMEC (CyberTipline Data page, 2025 data)",
+   "date": "2026",
+   "url": "https://www.missingkids.org/gethelpnow/cybertipline/cybertiplinedata",
+   "caption": "CyberTipline Data page \"Generative AI\" section with 158000 stat tile",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2320,
+    1970
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "more than 400,000 reports of exploitation with a GAI nexus.",
+     "bbox_px": [
+      48,
+      546,
+      1057,
+      136
+     ],
+     "line_rects_px": [
+      [
+       48,
+       546,
+       1057,
+       58
+      ],
+      [
+       48,
+       624,
+       228,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "more than 182,000 reports involved offenders possessing, generating or attempting to generate GAI CSAM",
+     "bbox_px": [
+      48,
+      624,
+      1045,
+      214
+     ],
+     "line_rects_px": [
+      [
+       858,
+       624,
+       219,
+       58
+      ],
+      [
+       48,
+       702,
+       1019,
+       58
+      ],
+      [
+       48,
+       779,
+       1045,
+       58
+      ]
+     ]
+    },
+    {
+     "text": "\"nudify\" apps",
+     "bbox_px": [
+      48,
+      1790,
+      283,
+      58
+     ],
+     "line_rects_px": [
+      [
+       48,
+       1790,
+       283,
+       58
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ncmec-cybertipline-2025-total",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "ncmec-cybertipline-2025-total-reports.png",
+   "headline": "",
+   "dek": "In 2025, the CyberTipline received 21.3 million reports",
+   "outlet": "NCMEC (CyberTipline Data page, 2025 data)",
+   "date": "2026",
+   "url": "https://www.missingkids.org/gethelpnow/cybertipline/cybertiplinedata",
+   "caption": "\"In 2025, the CyberTipline received 21.3 million reports\" stat banner",
+   "quality": 3,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2560,
+    424
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "21.3 million reports",
+     "bbox_px": [
+      430,
+      180,
+      1699,
+      230
+     ],
+     "line_rects_px": [
+      [
+       430,
+       180,
+       1699,
+       230
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ncmec-2025-report-cover",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "ncmec-2025-cybertipline-report-cover.png",
+   "headline": "2025 CyberTipline Report",
+   "dek": "",
+   "outlet": "NCMEC 2025 CyberTipline Report",
+   "date": "2026-07-22",
+   "url": "https://www.missingkids.org/content/dam/missingkids/pdfs/2025-cybertipline-report.pdf",
+   "caption": "Report cover: hooded teen lit by phone, \"2025 CyberTipline Report\"",
+   "quality": 4,
+   "verified": true,
+   "notes": "PDF creation date 2026-07-22; landscape 3300x2550 at 300 dpi.",
+   "image_px": [
+    3300,
+    2550
+   ],
+   "capture": "PDF page 1 rendered at 300 dpi (pdftoppm)",
+   "highlights": []
+  },
+  {
+   "id": "ncmec-2025-report-gai-page",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "ncmec-2025-cybertipline-report-p14-generative-ai.png",
+   "headline": "Generative AI",
+   "dek": "NCMEC continues to hear from many children and families who have been harmed by the use of AI technology in the exploitation of children. Reports to the CyberTipline in 2025 included more than 400,000 reports of exploitation with a GAI nexus.",
+   "outlet": "NCMEC 2025 CyberTipline Report",
+   "date": "2026-07-22",
+   "url": "https://www.missingkids.org/content/dam/missingkids/pdfs/2025-cybertipline-report.pdf",
+   "caption": "Report p.14 \"Generative AI\": 400,000 GAI-nexus reports, 182,000 GAI CSAM, 275 victims, 158,000 images & videos",
+   "quality": 5,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    3300,
+    2550
+   ],
+   "capture": "PDF page 14 rendered at 300 dpi (pdftoppm)",
+   "highlights": [
+    {
+     "text": "400,000 reports of exploitation with a GAI nexus.",
+     "bbox_px": [
+      409,
+      593,
+      1303,
+      74
+     ],
+     "line_rects_px": [
+      [
+       409,
+       593,
+       1303,
+       74
+      ]
+     ]
+    },
+    {
+     "text": "more than 182,000 reports involved offenders possessing, generating or attempting to generate GAI CSAM,",
+     "bbox_px": [
+      409,
+      732,
+      1634,
+      241
+     ],
+     "line_rects_px": [
+      [
+       1101,
+       732,
+       942,
+       74
+      ],
+      [
+       409,
+       815,
+       1568,
+       74
+      ],
+      [
+       409,
+       899,
+       302,
+       74
+      ]
+     ]
+    },
+    {
+     "text": "more than 275 victims of GAI CSAM have been identified,",
+     "bbox_px": [
+      409,
+      1315,
+      1494,
+      158
+     ],
+     "line_rects_px": [
+      [
+       812,
+       1315,
+       1091,
+       74
+      ],
+      [
+       409,
+       1399,
+       415,
+       74
+      ]
+     ]
+    },
+    {
+     "text": "158,000",
+     "bbox_px": [
+      2297,
+      1235,
+      580,
+      183
+     ],
+     "line_rects_px": [
+      [
+       2297,
+       1235,
+       580,
+       183
+      ]
+     ]
+    },
+    {
+     "text": "leveraging \"nudify\" apps to create and spread harmful content.",
+     "bbox_px": [
+      409,
+      1649,
+      1559,
+      157
+     ],
+     "line_rects_px": [
+      [
+       1081,
+       1649,
+       887,
+       74
+      ],
+      [
+       409,
+       1732,
+       742,
+       74
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ncmec-nudify-blog-2026",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "headline",
+   "file": "ncmec-nudify-blog-2026-headline-photo-w960.png",
+   "headline": "Back-to-School Checklist: Talk About AI \"Nudify\" Apps",
+   "dek": "",
+   "outlet": "NCMEC blog",
+   "author": "Emma Henderson Vaughan",
+   "date": "2026-08-11",
+   "url": "https://www.missingkids.org/blog/2026/back-to-school-checklist-talk-about-ai-nudify-apps.html",
+   "caption": "NCMEC blog headline + photo of worried parent and teen looking at phone + byline/date 08-11-2026",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2880,
+    2084
+   ],
+   "capture": "headless Chromium, viewport 960px, deviceScaleFactor 3",
+   "highlights": [
+    {
+     "text": "Back-to-School Checklist: Talk About AI \"Nudify\" Apps",
+     "bbox_px": [
+      225,
+      48,
+      2429,
+      303
+     ],
+     "line_rects_px": [
+      [
+       225,
+       48,
+       2429,
+       162
+      ],
+      [
+       1010,
+       189,
+       860,
+       162
+      ]
+     ]
+    },
+    {
+     "text": "08-11-2026",
+     "bbox_px": [
+      2633,
+      1991,
+      189,
+      42
+     ],
+     "line_rects_px": [
+      [
+       2633,
+       1991,
+       189,
+       42
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ncmec-nudify-blog-2026-lede",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "ncmec-nudify-blog-2026-lede-w960.png",
+   "headline": "",
+   "dek": "NCMEC is seeing a growing number of these incidents in schools across the country, most often involving classmates ages 14 to 17.",
+   "outlet": "NCMEC blog",
+   "author": "Emma Henderson Vaughan",
+   "date": "2026-08-11",
+   "url": "https://www.missingkids.org/blog/2026/back-to-school-checklist-talk-about-ai-nudify-apps.html",
+   "caption": "Blog lede paragraphs incl. \"most often involving classmates ages 14 to 17\"",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    2880,
+    1272
+   ],
+   "capture": "headless Chromium, viewport 960px, deviceScaleFactor 3",
+   "highlights": [
+    {
+     "text": "08-11-2026",
+     "bbox_px": [
+      2633,
+      199,
+      189,
+      42
+     ],
+     "line_rects_px": [
+      [
+       2633,
+       199,
+       189,
+       42
+      ]
+     ]
+    },
+    {
+     "text": "\"Nudify\" apps use AI to create fake nude or sexually explicit images from ordinary, fully clothed photos.",
+     "bbox_px": [
+      59,
+      687,
+      2474,
+      66
+     ],
+     "line_rects_px": [
+      [
+       59,
+       687,
+       2474,
+       66
+      ]
+     ]
+    },
+    {
+     "text": "These images can also be created using free AI image generators and chatbots,",
+     "bbox_px": [
+      345,
+      831,
+      1910,
+      66
+     ],
+     "line_rects_px": [
+      [
+       345,
+       831,
+       1910,
+       66
+      ]
+     ]
+    },
+    {
+     "text": "NCMEC is seeing a growing number of these incidents in schools across the country, most often involving classmates ages 14 to 17.",
+     "bbox_px": [
+      59,
+      1023,
+      2557,
+      138
+     ],
+     "line_rects_px": [
+      [
+       59,
+       1023,
+       2557,
+       66
+      ],
+      [
+       59,
+       1095,
+       605,
+       66
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "ncmec-2025-report-pdf",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "ncmec-2025-cybertipline-report.pdf",
+   "headline": "NCMEC 2025 CyberTipline Report",
+   "dek": "",
+   "outlet": "NCMEC",
+   "date": "2026-07-22",
+   "url": "https://www.missingkids.org/content/dam/missingkids/pdfs/2025-cybertipline-report.pdf",
+   "caption": "32-page report PDF",
+   "quality": 3,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "edweek-deepfakes-cyberbullying-2026",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "headline",
+   "file": "edweek-deepfakes-cyberbullying-2026-header-photo.png",
+   "headline": "Deepfakes Are Supercharging Cyberbullying. How Should Schools Respond?",
+   "dek": "The focus should be on prevention, not punishment, experts say.",
+   "outlet": "Education Week",
+   "author": "Olina Banerji",
+   "date": "2026-08-06",
+   "url": "https://www.edweek.org/technology/deepfakes-are-supercharging-cyberbullying-how-should-schools-respond/2026/08",
+   "caption": "EdWeek headline + byline (August 06, 2026) + AP photo of deepfake victim Francesca Mani at a DEFIANCE Act news conference at the Capitol (Jan. 22, 2026), with caption",
+   "quality": 5,
+   "verified": true,
+   "notes": "Photo: Allison Robbert/AP Photo. Caption (verbatim): \"Deepfake victim Francesca Mani speaks at a news conference promoting the passage of the DEFIANCE Act at the Capitol, Thursday, Jan. 22, 2026, in Washington. Schools need to amend their cyberbullying policies to stem the spread of deepfakes and protect victims.\"",
+   "image_px": [
+    1816,
+    2067
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "Deepfakes Are Supercharging Cyberbullying. How Should Schools Respond?",
+     "bbox_px": [
+      48,
+      124,
+      1660,
+      362
+     ],
+     "line_rects_px": [
+      [
+       48,
+       124,
+       1375,
+       142
+      ],
+      [
+       48,
+       234,
+       1660,
+       142
+      ],
+      [
+       48,
+       344,
+       449,
+       142
+      ]
+     ]
+    },
+    {
+     "text": "August 06, 2026",
+     "bbox_px": [
+      478,
+      532,
+      253,
+      38
+     ],
+     "line_rects_px": [
+      [
+       478,
+       532,
+       253,
+       38
+      ]
+     ]
+    },
+    {
+     "text": "Deepfake victim Francesca Mani speaks at a news conference promoting the passage of the DEFIANCE Act at the Capitol",
+     "bbox_px": [
+      48,
+      1919,
+      1535,
+      30
+     ],
+     "line_rects_px": [
+      [
+       48,
+       1919,
+       1535,
+       30
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "edweek-deepfakes-cyberbullying-2026-headline",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "headline",
+   "file": "edweek-deepfakes-cyberbullying-2026-headline.png",
+   "headline": "Deepfakes Are Supercharging Cyberbullying. How Should Schools Respond?",
+   "dek": "The focus should be on prevention, not punishment, experts say.",
+   "outlet": "Education Week",
+   "author": "Olina Banerji",
+   "date": "2026-08-06",
+   "url": "https://www.edweek.org/technology/deepfakes-are-supercharging-cyberbullying-how-should-schools-respond/2026/08",
+   "caption": "Headline + byline strip only (no photo)",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "image_px": [
+    1816,
+    630
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "Deepfakes Are Supercharging Cyberbullying. How Should Schools Respond?",
+     "bbox_px": [
+      48,
+      124,
+      1660,
+      362
+     ],
+     "line_rects_px": [
+      [
+       48,
+       124,
+       1375,
+       142
+      ],
+      [
+       48,
+       234,
+       1660,
+       142
+      ],
+      [
+       48,
+       344,
+       449,
+       142
+      ]
+     ]
+    },
+    {
+     "text": "August 06, 2026",
+     "bbox_px": [
+      478,
+      532,
+      253,
+      38
+     ],
+     "line_rects_px": [
+      [
+       478,
+       532,
+       253,
+       38
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "edweek-cdt-woelfel-quote",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "quote",
+   "file": "edweek-deepfakes-cyberbullying-2026-cdt-quote.png",
+   "headline": "",
+   "dek": "“It’s not just like ‘You’ll get in trouble if you do this.’ It should also be like, ‘Here is who you report something like this to.’ Even the initial reaction when a student tries to report something can be very consequential to how they like move past it,” said Woelfel.",
+   "outlet": "Education Week",
+   "author": "Kristin Woelfel (policy counsel, Center for Democracy and Technology), quoted by Olina Banerji",
+   "date": "2026-08-06",
+   "url": "https://www.edweek.org/technology/deepfakes-are-supercharging-cyberbullying-how-should-schools-respond/2026/08",
+   "caption": "EdWeek paragraphs quoting CDT policy counsel Kristin Woelfel",
+   "quality": 4,
+   "verified": true,
+   "notes": "This is the only 2026 CDT voice found (no 2026 CDT survey).",
+   "image_px": [
+    1613,
+    606
+   ],
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": [
+    {
+     "text": "said Kristin Woelfel, a policy counsel for the Center for Democracy and Technology",
+     "bbox_px": [
+      48,
+      218,
+      1506,
+      100
+     ],
+     "line_rects_px": [
+      [
+       617,
+       218,
+       938,
+       40
+      ],
+      [
+       48,
+       278,
+       482,
+       40
+      ]
+     ]
+    }
+   ]
+  },
+  {
+   "id": "evidence-csm-pr-fullpage-w960",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "csm-pr-fullpage-w960.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+   "caption": "Full press-release page at 960px viewport (3x)",
+   "quality": 2,
+   "verified": true,
+   "notes": "Evidence/reference capture (headless Chromium, fixed/sticky overlays removed); no highlight coords.",
+   "image_px": null,
+   "capture": "headless Chromium, viewport 960px, deviceScaleFactor 3",
+   "highlights": []
+  },
+  {
+   "id": "evidence-csm-report-landing-fullpage",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "csm-report-landing-fullpage.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/research/teens-and-explicit-deepfakes-in-the-age-of-ai",
+   "caption": "Full research landing page (title, cover thumbnail, intro, \"Read the full report\")",
+   "quality": 2,
+   "verified": true,
+   "notes": "Evidence/reference capture (headless Chromium, fixed/sticky overlays removed); no highlight coords.",
+   "image_px": null,
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": []
+  },
+  {
+   "id": "evidence-csm-article-making-them-fullpage",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "csm-article-making-them-fullpage.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/articles/teens-told-us-theyre-not-just-seeing-ai-nudes-theyre-making-them",
+   "caption": "Full Common Sense article page incl. two in-article charts (Figure G and Figure I re-used from the report)",
+   "quality": 2,
+   "verified": true,
+   "notes": "Evidence/reference capture (headless Chromium, fixed/sticky overlays removed); no highlight coords.",
+   "image_px": null,
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": []
+  },
+  {
+   "id": "evidence-csm-article-making-them-fullpage-w960",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "csm-article-making-them-fullpage-w960.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/articles/teens-told-us-theyre-not-just-seeing-ai-nudes-theyre-making-them",
+   "caption": "Full Common Sense article page at 960px viewport",
+   "quality": 2,
+   "verified": true,
+   "notes": "Evidence/reference capture (headless Chromium, fixed/sticky overlays removed); no highlight coords.",
+   "image_px": null,
+   "capture": "headless Chromium, viewport 960px, deviceScaleFactor 3",
+   "highlights": []
+  },
+  {
+   "id": "evidence-edweek-deepfakes-cyberbullying-2026-fullpage",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "edweek-deepfakes-cyberbullying-2026-fullpage.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Education Week",
+   "date": "2026-08-06",
+   "url": "https://www.edweek.org/technology/deepfakes-are-supercharging-cyberbullying-how-should-schools-respond/2026/08",
+   "caption": "Full EdWeek article page",
+   "quality": 2,
+   "verified": true,
+   "notes": "Evidence/reference capture (headless Chromium, fixed/sticky overlays removed); no highlight coords.",
+   "image_px": null,
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": []
+  },
+  {
+   "id": "evidence-tnnd-teens-fear-deepfakes-fullpage",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "tnnd-teens-fear-deepfakes-fullpage.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "The National News Desk (Sinclair)",
+   "date": "2026-07-21",
+   "url": "https://thenationaldesk.com/news/americas-news-now/most-teens-fear-deepfakes-amid-widespread-exposure-to-ai-sexual-content-survey-common-sense-media-artificial-intelligence-youth-safety-online-pornography",
+   "caption": "Full TNND article page",
+   "quality": 2,
+   "verified": true,
+   "notes": "Evidence/reference capture (headless Chromium, fixed/sticky overlays removed); no highlight coords.",
+   "image_px": null,
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": []
+  },
+  {
+   "id": "evidence-ncmec-gai-fullpage",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "ncmec-gai-fullpage.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "NCMEC",
+   "date": "2026",
+   "url": "https://www.missingkids.org/theissues/generative-ai",
+   "caption": "Full NCMEC Generative AI issue page",
+   "quality": 2,
+   "verified": true,
+   "notes": "Evidence/reference capture (headless Chromium, fixed/sticky overlays removed); no highlight coords.",
+   "image_px": null,
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": []
+  },
+  {
+   "id": "evidence-ncmec-cybertipline-2025-fullpage",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "ncmec-cybertipline-2025-fullpage.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "NCMEC",
+   "date": "2026",
+   "url": "https://www.missingkids.org/gethelpnow/cybertipline/cybertiplinedata",
+   "caption": "Full NCMEC CyberTipline Data page (2025 data)",
+   "quality": 2,
+   "verified": true,
+   "notes": "Evidence/reference capture (headless Chromium, fixed/sticky overlays removed); no highlight coords.",
+   "image_px": null,
+   "capture": "headless Chromium, viewport 1280px, deviceScaleFactor 2",
+   "highlights": []
+  },
+  {
+   "id": "evidence-ncmec-nudify-blog-2026-fullpage-w960",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "screenshot",
+   "file": "ncmec-nudify-blog-2026-fullpage-w960.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "NCMEC blog",
+   "date": "2026-08-11",
+   "url": "https://www.missingkids.org/blog/2026/back-to-school-checklist-talk-about-ai-nudify-apps.html",
+   "caption": "Full NCMEC nudify-apps blog page",
+   "quality": 2,
+   "verified": true,
+   "notes": "Evidence/reference capture (headless Chromium, fixed/sticky overlays removed); no highlight coords.",
+   "image_px": null,
+   "capture": "headless Chromium, viewport 960px, deviceScaleFactor 3",
+   "highlights": []
+  },
+  {
+   "id": "csm-report-cover-web",
+   "slide_topic": "Deepfake nudes & teens (open-weights / nudify harms)",
+   "type": "image",
+   "file": "csm-report-cover-thumbnail.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/research/teens-and-explicit-deepfakes-in-the-age-of-ai",
+   "caption": "Report cover thumbnail as shown on the research landing page (667x1000)",
+   "quality": 3,
+   "verified": true,
+   "notes": "https://www.commonsensemedia.org/sites/default/files/research/2026_csm_teensaipornography_site_thumbnail.png ; the 300-dpi PDF render csm-report-p01-cover.png is sharper."
+  }
+ ],
+ "datasets": [
+  {
+   "id": "csm-2026-seen-ai-sexual-content",
+   "title": "Teens who have ever seen sexual content they believed was AI-generated (Figure D)",
+   "unit": "% of U.S. teens 13-17 (N=1,314)",
+   "labels": [
+    "Yes",
+    "No",
+    "Prefer not to say"
+   ],
+   "series": [
+    {
+     "name": "All teens",
+     "values": [
+      44,
+      54,
+      2
+     ]
+    }
+   ],
+   "source": "Common Sense Media, Teens in the AI Era (2026), Figure D",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf"
+  },
+  {
+   "id": "csm-2026-platforms",
+   "title": "Where teens encountered AI-generated nudes or sexual content (Figure E, select all)",
+   "unit": "% of teens who have seen AI sexual content (n=586)",
+   "labels": [
+    "Social media (net)",
+    "Pornography websites",
+    "Text messages (one on one)",
+    "Group messaging apps",
+    "AI apps that make or modify photos/videos",
+    "Gaming platforms",
+    "OnlyFans"
+   ],
+   "series": [
+    {
+     "name": "Teens",
+     "values": [
+      82,
+      41,
+      23,
+      20,
+      15,
+      14,
+      10
+     ]
+    }
+   ],
+   "source": "Common Sense Media (2026), Figure E",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf"
+  },
+  {
+   "id": "csm-2026-platforms-detail",
+   "title": "Platforms where teens encountered AI-generated sexual content (Figure 3, select all)",
+   "unit": "% of teens who have seen AI sexual content (n=586)",
+   "labels": [
+    "Social media (net)",
+    "TikTok",
+    "Instagram",
+    "YouTube",
+    "X/Twitter",
+    "Facebook/Messenger",
+    "Snapchat",
+    "Discord",
+    "Reddit",
+    "Pornography websites",
+    "Text messages (one on one)",
+    "Group messaging apps",
+    "AI chatbot platforms (ChatGPT, Grok, Claude, etc.)",
+    "AI apps that make or modify photos/videos",
+    "Gaming platforms",
+    "OnlyFans",
+    "Other"
+   ],
+   "series": [
+    {
+     "name": "Teens",
+     "values": [
+      82,
+      33,
+      27,
+      25,
+      25,
+      23,
+      23,
+      16,
+      15,
+      41,
+      23,
+      20,
+      16,
+      15,
+      14,
+      10,
+      2
+     ]
+    }
+   ],
+   "source": "Common Sense Media (2026), Figure 3 (report p.24)",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf"
+  },
+  {
+   "id": "csm-2026-seen-self-or-known-by-gender",
+   "title": "Seen AI sexual content featuring myself or people I know (net), by gender (Figure F)",
+   "unit": "% of teens who have seen AI sexual content",
+   "labels": [
+    "Overall (n=586)",
+    "Boys (n=313)",
+    "Girls (n=237)"
+   ],
+   "series": [
+    {
+     "name": "Myself or people I know (net)",
+     "values": [
+      24,
+      28,
+      19
+     ]
+    },
+    {
+     "name": "Peers, friends, or other people I know",
+     "values": [
+      19,
+      21,
+      16
+     ]
+    },
+    {
+     "name": "Current or former romantic partners",
+     "values": [
+      12,
+      15,
+      9
+     ]
+    },
+    {
+     "name": "Myself",
+     "values": [
+      11,
+      13,
+      8
+     ]
+    }
+   ],
+   "source": "Common Sense Media (2026), Figure F (boys vs girls difference on net is significant, p<.05)",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf"
+  },
+  {
+   "id": "csm-2026-created",
+   "title": "Have you or someone you know ever created AI-generated nudes or sexual content? (Figure G)",
+   "unit": "% of all teens (N=1,314)",
+   "labels": [
+    "Yes, someone I know has",
+    "Yes, I have myself",
+    "Both",
+    "Neither",
+    "Not sure"
+   ],
+   "series": [
+    {
+     "name": "All teens",
+     "values": [
+      10,
+      4,
+      4,
+      74,
+      8
+     ]
+    }
+   ],
+   "source": "Common Sense Media (2026), Figure G; among creators/knowers 63% say it depicted themselves or people they know",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf"
+  },
+  {
+   "id": "csm-2026-shared",
+   "title": "Have you or someone you know ever sent or shared AI-generated nudes or sexual content? (Figure H)",
+   "unit": "% of all teens (N=1,314)",
+   "labels": [
+    "Yes, someone I know has",
+    "Yes, I have myself",
+    "Both",
+    "Neither",
+    "Not sure"
+   ],
+   "series": [
+    {
+     "name": "All teens",
+     "values": [
+      17,
+      3,
+      5,
+      68,
+      6
+     ]
+    }
+   ],
+   "source": "Common Sense Media (2026), Figure H; among sharers/knowers 44% say it depicted themselves or people they know",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf"
+  },
+  {
+   "id": "csm-2026-created-by-gender",
+   "title": "Teens who have personally created AI-generated sexual content, by gender",
+   "unit": "% of teens",
+   "labels": [
+    "Boys",
+    "Girls",
+    "All teens"
+   ],
+   "series": [
+    {
+     "name": "Created it myself",
+     "values": [
+      11,
+      4,
+      8
+     ]
+    }
+   ],
+   "source": "Common Sense Media (2026) Key Finding 4 + press release",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf"
+  },
+  {
+   "id": "csm-2026-worried",
+   "title": "How worried are teens about being depicted in deepfakes without consent? (Figure I)",
+   "unit": "% of all teens (N=1,314)",
+   "labels": [
+    "Somewhat, pretty, or extremely worried",
+    "Not worried at all"
+   ],
+   "series": [
+    {
+     "name": "All teens",
+     "values": [
+      67,
+      33
+     ]
+    }
+   ],
+   "source": "Common Sense Media (2026), Figure I; girls 71% vs boys 62% (press release)",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf"
+  },
+  {
+   "id": "csm-2026-protective-actions",
+   "title": "What worried teens are doing to protect themselves",
+   "unit": "% of teens at least somewhat worried",
+   "labels": [
+    "More careful about what they post",
+    "Made social media accounts private",
+    "Post pictures/videos of themselves less often",
+    "Deleted social media accounts"
+   ],
+   "series": [
+    {
+     "name": "Worried teens",
+     "values": [
+      38,
+      30,
+      23,
+      9
+     ]
+    }
+   ],
+   "source": "Common Sense Media (2026), Key Finding 6",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf"
+  },
+  {
+   "id": "csm-2026-attitudes",
+   "title": "Do you agree or disagree with the following statements? (Figure K)",
+   "unit": "% of teens who have seen AI sexual content (n=586)",
+   "labels": [
+    "Creating AI nudes of someone without permission should be illegal",
+    "Most teens don't understand the implications",
+    "AI nudes are less harmful than real porn because no one gets hurt"
+   ],
+   "series": [
+    {
+     "name": "Agree",
+     "values": [
+      82,
+      66,
+      23
+     ]
+    },
+    {
+     "name": "Neither",
+     "values": [
+      12,
+      19,
+      25
+     ]
+    },
+    {
+     "name": "Disagree",
+     "values": [
+      6,
+      15,
+      52
+     ]
+    }
+   ],
+   "source": "Common Sense Media (2026), Figure K",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf"
+  },
+  {
+   "id": "csm-2026-distortion",
+   "title": "How much AI-generated sexual content impacts what teens think about... (Figure J)",
+   "unit": "% of all teens (N=1,314)",
+   "labels": [
+    "What bodies should look like",
+    "What sex should be like and \"consent\" means",
+    "What relationships should be like",
+    "Trust in photos and videos they see",
+    "Expectations of romantic partners",
+    "Stereotypes about different groups of people"
+   ],
+   "series": [
+    {
+     "name": "A lot/some",
+     "values": [
+      66,
+      64,
+      61,
+      65,
+      64,
+      61
+     ]
+    },
+    {
+     "name": "A little",
+     "values": [
+      19,
+      22,
+      23,
+      23,
+      20,
+      24
+     ]
+    },
+    {
+     "name": "Not at all",
+     "values": [
+      15,
+      14,
+      16,
+      12,
+      16,
+      15
+     ]
+    }
+   ],
+   "source": "Common Sense Media (2026), Figure J",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf"
+  },
+  {
+   "id": "csm-2026-who-to-talk-to",
+   "title": "Who teens feel comfortable talking to about disturbing AI-generated sexual content (Table A, total)",
+   "unit": "% of teens who have seen AI sexual content (n=586)",
+   "labels": [
+    "Close friends",
+    "Parents or guardians",
+    "Online friends or communities",
+    "No one - I handle it alone",
+    "Other family members",
+    "Mental health professionals",
+    "School counselors or teachers",
+    "AI chatbot platforms"
+   ],
+   "series": [
+    {
+     "name": "Total",
+     "values": [
+      48,
+      42,
+      20,
+      19,
+      18,
+      14,
+      13,
+      10
+     ]
+    }
+   ],
+   "source": "Common Sense Media (2026), Table A",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf"
+  },
+  {
+   "id": "csm-2026-age-first-porn",
+   "title": "Age of first exposure to online pornography (Figure A)",
+   "unit": "% of teens who have ever seen online porn (n=993)",
+   "labels": [
+    "Under 10",
+    "10-12 years",
+    "13-14 years",
+    "15-17 years"
+   ],
+   "series": [
+    {
+     "name": "Teens",
+     "values": [
+      12,
+      40,
+      32,
+      16
+     ]
+    }
+   ],
+   "source": "Common Sense Media (2026), Figure A",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf"
+  },
+  {
+   "id": "thorn-2025-deepfake-nudes-teens",
+   "title": "Teens (13-17) and deepfake nudes, Thorn Youth Perspectives 2025 (Fig 10A-C)",
+   "unit": "% of teens",
+   "labels": [
+    "Seen a deepfake nude of another kid/teen",
+    "Not sure whether they have seen one",
+    "Had deepfake nudes made of them",
+    "Created deepfake nudes of someone else"
+   ],
+   "series": [
+    {
+     "name": "Ages 13-17",
+     "values": [
+      7,
+      13,
+      4,
+      2
+     ]
+    }
+   ],
+   "source": "Thorn, Youth Perspectives on Online Safety, 2025 (July 2026), Fig 10A-10C; survey of 1,003 minors 9-17, Nov 12-Dec 1, 2025 (deepfake questions teens only)",
+   "url": "https://info.thorn.org/hubfs/Research/Thorn_2025YouthPerspectives_Report.pdf"
+  },
+  {
+   "id": "thorn-deepfake-victim-trend",
+   "title": "Teens reporting a personal experience with deepfake nudes created of them, Thorn surveys",
+   "unit": "% of teens",
+   "labels": [
+    "2024 survey",
+    "2025 survey"
+   ],
+   "series": [
+    {
+     "name": "Had deepfake nudes made of them",
+     "values": [
+      6,
+      4
+     ]
+    },
+    {
+     "name": "Created deepfake nudes of someone else",
+     "values": [
+      2,
+      2
+     ]
+    }
+   ],
+   "source": "Thorn Youth Perspectives 2025, footnotes 21-22 (2024 figures from Thorn 2025 \"Deepfake nudes & young people\"); different samples, directional only",
+   "url": "https://info.thorn.org/hubfs/Research/Thorn_2025YouthPerspectives_Report.pdf"
+  },
+  {
+   "id": "ncmec-gai-reports-by-year",
+   "title": "CyberTipline reports involving generative AI, by year",
+   "unit": "reports",
+   "labels": [
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "series": [
+    {
+     "name": "GAI-related CyberTipline reports",
+     "values": [
+      4700,
+      67000,
+      400000
+     ]
+    }
+   ],
+   "source": "NCMEC Generative AI page (\"By the Numbers\"); 2025 value is \"More than 400,000\"; tracking began January 2023",
+   "url": "https://www.missingkids.org/theissues/generative-ai"
+  },
+  {
+   "id": "ncmec-gai-2025-categories",
+   "title": "2025 GAI CyberTipline reports by category",
+   "unit": "reports (each \"more than\")",
+   "labels": [
+    "Users using GAI to alter a CSAM file (no text prompt)",
+    "GAI nexus, insufficient information",
+    "Attempting to generate GAI CSAM (upload + prompt)",
+    "CSAM identified in training data",
+    "Generating or possessing GAI CSAM",
+    "Other GAI exploitation (e.g., chat-based)"
+   ],
+   "series": [
+    {
+     "name": "2025",
+     "values": [
+      145000,
+      200000,
+      30000,
+      12000,
+      7000,
+      3000
+     ]
+    }
+   ],
+   "source": "NCMEC Generative AI page, By the Numbers (2025)",
+   "url": "https://www.missingkids.org/theissues/generative-ai"
+  },
+  {
+   "id": "rand-principals-deepfake-bullying",
+   "title": "Schools reporting bullying via AI-generated deepfakes, 2023-24 and 2024-25 school years (principals)",
+   "unit": "% of schools",
+   "labels": [
+    "All schools",
+    "Elementary",
+    "Middle",
+    "High"
+   ],
+   "series": [
+    {
+     "name": "Principals reporting incidents",
+     "values": [
+      13,
+      8,
+      20,
+      22
+     ]
+    }
+   ],
+   "source": "RAND American School Leader Panel, Oct 2024 (n=957); RAND RR-A3930-5, published Sep 24, 2025",
+   "url": "https://www.rand.org/pubs/research_reports/RRA3930-5.html"
+  }
+ ],
+ "facts": [
+  {
+   "claim": "44% of U.S. teens (13-17) have seen sexual content they believe was AI-generated; 79% of them came across it accidentally.",
+   "source": "Common Sense Media, Teens in the AI Era (2026)",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "date": "2026-07-21",
+   "verbatim": "Almost half of teens (44%) have seen sexual content they believe was AI-generated, and for most of them, the exposure was accidental."
+  },
+  {
+   "claim": "Almost a quarter (24%) of teens who have seen AI sexual content have seen it depicting themselves or someone they know (boys 28% vs girls 19%).",
+   "source": "Common Sense Media (2026)",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "date": "2026-07-21",
+   "verbatim": "Among teens who have ever seen AI-generated sexual content, 24% report having seen content of themselves or someone else they know personally."
+  },
+  {
+   "claim": "1 in 5 teens (18%) has made AI pornography or knows someone who has; 25% have shared it or know someone who has.",
+   "source": "Common Sense Media press release",
+   "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+   "date": "2026-07-21",
+   "verbatim": "1 in 5 (18%) has made AI pornography or knows someone who has, and 25% have shared it or know someone who has."
+  },
+  {
+   "claim": "Among teens who made AI porn or know someone who did, 63% say it depicted themselves or people they know.",
+   "source": "Common Sense Media press release",
+   "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+   "date": "2026-07-21",
+   "verbatim": "They're doing it to people they know: Among those who have created AI pornography or know someone who has, 63% have created pornography depicting themselves or people they know."
+  },
+  {
+   "claim": "8% of teens have personally made AI sexual content; boys are almost three times as likely as girls (11% vs 4%).",
+   "source": "Common Sense Media (2026) / press release",
+   "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+   "date": "2026-07-21",
+   "verbatim": "Boys are almost three times as likely as girls to have made it (11% vs. 4%)."
+  },
+  {
+   "claim": "Two-thirds of teens (67%) fear being deepfaked without consent; girls 71% vs boys 62%. Worried teens are making accounts private (30%), posting less (23%) or deleting accounts (9%).",
+   "source": "Common Sense Media press release",
+   "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+   "date": "2026-07-21",
+   "verbatim": "Two-thirds of teens (67%) fear being deepfaked without consent, and many are scaling back online activity to protect themselves."
+  },
+  {
+   "claim": "82% of teens who have seen AI porn say creating it without consent should be illegal, yet 23% believe AI nudes are less harmful \"because no one gets hurt.\"",
+   "source": "Common Sense Media press release",
+   "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+   "date": "2026-07-21",
+   "verbatim": "82% who have seen AI-generated pornography say creating it without consent should be illegal, but 23% believe AI nudes are less harmful than real ones \"because no one gets hurt.\""
+  },
+  {
+   "claim": "Only 20% of teens have discussed AI-generated sexual content with a trusted adult; 34% want to talk to an adult but don't know how to start.",
+   "source": "Common Sense Media (2026)",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "date": "2026-07-21",
+   "verbatim": "Only 20% of teens have discussed AI-generated sexual content with a trusted adult, and a third want to but don't know how to start."
+  },
+  {
+   "claim": "19% of teens would not feel comfortable talking to anyone about disturbing AI sexual content; 10% would turn to an AI chatbot.",
+   "source": "Common Sense Media (2026), Key Finding 10",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "date": "2026-07-21"
+  },
+  {
+   "claim": "Roughly two-thirds of teens think AI sexual content shapes how peers think about what bodies should look like (66%), trust in media (65%) and expectations of romantic partners (64%).",
+   "source": "Common Sense Media (2026), Key Finding 7",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "date": "2026-07-21"
+  },
+  {
+   "claim": "Among teens who have seen AI sexual content, 82% encountered it on social media, incl. TikTok (33%), Instagram (27%) and X/Twitter (25%); 41% on porn sites.",
+   "source": "Common Sense Media (2026), Key Finding 2 & Figure E",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "date": "2026-07-21",
+   "verbatim": "The content shows up across platforms that teens use every day, including TikTok (33%), Instagram (27%), and X/Twitter (25%), among others."
+  },
+  {
+   "claim": "16% of teens who have seen AI sexual content encountered it on AI chatbot platforms (\"ChatGPT, Grok, Claude, etc.\"); 15% via AI apps that make or modify photos/videos.",
+   "source": "Common Sense Media (2026), Figure 3",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "date": "2026-07-21",
+   "verbatim": "AI chatbot platforms (ChatGPT, Grok, Claude, etc.)"
+  },
+  {
+   "claim": "74% of teens have seen online pornography (73% in 2023); 52% first saw it by age 12.",
+   "source": "Common Sense Media (2026), Key Finding 1",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "date": "2026-07-21",
+   "verbatim": "Seventy-four percent of teens report having seen online pornography. More than half (52%) first encountered it by age 12, including 12% by age 10 or younger."
+  },
+  {
+   "claim": "\"AI has made it possible for anyone, at any time, to create nude images and videos with one click.\" — James P. Steyer, Common Sense Media CEO",
+   "source": "Common Sense Media press release",
+   "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+   "date": "2026-07-21",
+   "verbatim": "\"AI has made it possible for anyone, at any time, to create nude images and videos with one click,\" said Common Sense Media founder and CEO James P. Steyer."
+  },
+  {
+   "claim": "\"With no hurdles or anything you have to jump over, you can just do it right there.\" — boy, 17 (Common Sense focus group)",
+   "source": "Common Sense Media (2026), Key Finding 4",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "date": "2026-07-21",
+   "verbatim": "\"With no hurdles or anything you have to jump over, you can just do it right there.\" Boy, age 17"
+  },
+  {
+   "claim": "Survey methodology: nationally representative online survey of 1,314 U.S. teens aged 13-17 by Common Sense Media and Burson; 12-minute survey fielded Nov 21-Dec 9, 2025; weighted to Census; margin of error ±2.7 points; plus 20 interviews (Sept 22-Oct 21, 2025) and 2 focus groups (Feb 25-26, 2026).",
+   "source": "Common Sense Media (2026), Methodology pp. 46-49",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "date": "2026-07-21",
+   "verbatim": "Data collection was conducted from November 21, 2025, to December 9, 2025."
+  },
+  {
+   "claim": "AI-generated sexual content of anyone under 18 is felony-level child sexual abuse material (CSAM).",
+   "source": "Common Sense Media (2026), Introduction footnote 1",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "date": "2026-07-21",
+   "verbatim": "It is important to note that AI-generated sexual content of youth under 18 is considered felony-level child sexual abuse material (CSAM)."
+  },
+  {
+   "claim": "CDT: 12% of high school students have heard of deepfake nonconsensual sexual images depicting someone associated with their school (2024-25 school year).",
+   "source": "Common Sense Media (2026) Introduction, citing CDT (Laird et al., 2025)",
+   "url": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+   "date": "2026-07-21",
+   "verbatim": "According to the Center for Democracy and Technology, 12% of high school students have heard of deepfake nonconsensual sexual images being shared that depict someone associated with their school (Laird et al., 2025)."
+  },
+  {
+   "claim": "CDT 2025: only 40% of students got any guidance on deepfake NCII and just 11% were told where to report it; 21% of teachers say their school shared deepfake-NCII policies.",
+   "source": "Benton Institute summary of CDT \"Hand in Hand\" (Oct 2, 2025)",
+   "url": "https://www.benton.org/blog/ai-use-and-risk-rise-students",
+   "date": "2025-10-16",
+   "verbatim": "Less than half of students (40 percent) reported receiving guidance or discussion on deepfake NCII, and just 11 percent had been told where to report it."
+  },
+  {
+   "claim": "Thorn 2026: 4% of U.S. teens say deepfake nudes have been made of them (1 in 25); 7% have seen a deepfake nude of another kid; 13% aren't sure; 2% have made one.",
+   "source": "Thorn, Youth Perspectives on Online Safety, 2025 (July 2026)",
+   "url": "https://www.thorn.org/press-releases/as-ai-becomes-part-of-kids-response-to-online-harm-new-thorn-research-finds-children-turning-to-chatbots-for-guidance-after-online-sexual-interactions/",
+   "date": "2026-07-28",
+   "verbatim": "Among teens surveyed, 4% reported having had a personal experience with deepfake nudes being created of them, and 7% reported having seen a deepfake nude of another kid or teen."
+  },
+  {
+   "claim": "Thorn 2026: 67% of minors (9-17) have used an AI chatbot or companion; after an online sexual interaction, 15% sought guidance from an AI chatbot — twice the rate for bullying (7%).",
+   "source": "Thorn press release",
+   "url": "https://www.thorn.org/press-releases/as-ai-becomes-part-of-kids-response-to-online-harm-new-thorn-research-finds-children-turning-to-chatbots-for-guidance-after-online-sexual-interactions/",
+   "date": "2026-07-28",
+   "verbatim": "67% of minors surveyed have reported using an AI chatbot or companion."
+  },
+  {
+   "claim": "Thorn 2026: counting SG-CSAM, sextortion and deepfake-nude experiences, nearly 1 in 2 teens (45%) reported at least one type of sexual interaction online.",
+   "source": "Thorn press release",
+   "url": "https://www.thorn.org/press-releases/as-ai-becomes-part-of-kids-response-to-online-harm-new-thorn-research-finds-children-turning-to-chatbots-for-guidance-after-online-sexual-interactions/",
+   "date": "2026-07-28",
+   "verbatim": "nearly 1 in 2 teens (45%) reported having at least one type of sexual interaction online."
+  },
+  {
+   "claim": "Thorn survey methodology: 1,003 U.S. minors aged 9-17, 18-minute online survey, Nov 12-Dec 1, 2025, with Burson; weighted to Census; deepfake questions asked of teens 13-17 only.",
+   "source": "Thorn report, Methodology",
+   "url": "https://info.thorn.org/hubfs/Research/Thorn_2025YouthPerspectives_Report.pdf",
+   "date": "2026-07",
+   "verbatim": "In total, 1,003 minors from across the United States participated in an 18-minute online survey between November 12 and December 1, 2025."
+  },
+  {
+   "claim": "NCMEC: GAI-related CyberTipline reports rose from 4,700 (2023) to 67,000 (2024) to more than 400,000 (2025).",
+   "source": "NCMEC Generative AI page",
+   "url": "https://www.missingkids.org/theissues/generative-ai",
+   "date": "2026",
+   "verbatim": "More than 400,000 CyberTipline reports of GAI from the public and ESPs"
+  },
+  {
+   "claim": "NCMEC: in 2025 more than 182,000 CyberTipline reports involved offenders possessing, generating or attempting to generate AI-generated CSAM.",
+   "source": "NCMEC 2025 CyberTipline Report",
+   "url": "https://www.missingkids.org/content/dam/missingkids/pdfs/2025-cybertipline-report.pdf",
+   "date": "2026-07-22",
+   "verbatim": "more than 182,000 reports involved offenders possessing, generating or attempting to generate GAI CSAM"
+  },
+  {
+   "claim": "NCMEC: since 2023, more than 275 victims of AI-generated CSAM identified and more than 158,000 images and videos categorized as AI CSAM; offenders were often people in the child's life.",
+   "source": "NCMEC 2025 CyberTipline Report / GAI page",
+   "url": "https://www.missingkids.org/content/dam/missingkids/pdfs/2025-cybertipline-report.pdf",
+   "date": "2026-07-22",
+   "verbatim": "Since 2023, when we started tracking the use of GAI, more than 275 victims of GAI CSAM have been identified, and more than 158,000 images and videos have been categorized as GAI CSAM."
+  },
+  {
+   "claim": "NCMEC: companies (ESPs) flagged just over 11,000 images/videos as AI-generated (Jan 2023-Dec 2025) vs. 158,000+ categorized by NCMEC staff.",
+   "source": "NCMEC Generative AI page",
+   "url": "https://www.missingkids.org/theissues/generative-ai",
+   "date": "2026"
+  },
+  {
+   "claim": "NCMEC: CyberTipline received 21.3 million reports in 2025 (61.8 million files).",
+   "source": "NCMEC CyberTipline Data (2025)",
+   "url": "https://www.missingkids.org/gethelpnow/cybertipline/cybertiplinedata",
+   "date": "2026",
+   "verbatim": "In 2025, the CyberTipline received 21.3 million reports"
+  },
+  {
+   "claim": "NCMEC (Aug 2026): nudify-app incidents are growing in schools nationwide, most often involving classmates ages 14 to 17.",
+   "source": "NCMEC blog, Emma Henderson Vaughan",
+   "url": "https://www.missingkids.org/blog/2026/back-to-school-checklist-talk-about-ai-nudify-apps.html",
+   "date": "2026-08-11",
+   "verbatim": "NCMEC is seeing a growing number of these incidents in schools across the country, most often involving classmates ages 14 to 17."
+  },
+  {
+   "claim": "RAND: 13% of U.S. principals reported deepfake bullying incidents in 2023-24/2024-25 — 22% of high schools and 20% of middle schools.",
+   "source": "RAND RR-A3930-5 (Sep 24, 2025)",
+   "url": "https://www.rand.org/pubs/research_reports/RRA3930-5.html",
+   "date": "2025-09-24",
+   "verbatim": "we found that 13 percent of principals reported incidents of bullying that involved AI-generated deepfakes during the 2023–2024 and 2024–2025 school years"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "Charts/graphics inside the Common Sense Media press release itself",
+   "searched": "Loaded the press release (Drupal page): it is text-only (headline, dek, lead, Steyer quote, 5 bullets, About). All charts were therefore taken from the underlying report PDF (Figures D-K) and the landing page."
+  },
+  {
+   "outline_item": "CDT 2026 survey/report on deepfake NCII in schools",
+   "searched": "WebSearch \"Center for Democracy and Technology 2026 deepfake NCII students\"; CDT RSS search feed (?s=deepfake / NCII / polling / Hand in Hand) lists no 2026 polling report as of 2026-10-04 (latest: \"Hand in Hand\", Oct 2025). cdt.org pages and PDFs return Cloudflare \"Just a moment\"/403 to the headless browser, curl and WebFetch, so no CDT screenshot. Used: CDT stat cited in the Common Sense report (12% of HS students), Benton Institute summary of CDT 2025, and EdWeek (2026-08-06) quoting CDT's Kristin Woelfel. The \"12% students / 8% teachers\" and \"15% / 2.3 million students (2023-24)\" CDT figures seen in search snippets were not loaded from CDT directly."
+  },
+  {
+   "outline_item": "NCMEC blog \"The Work Never Stops: A First Look at NCMEC's 2025 Data\" and its \"1.5 million GAI reports (1.1 million from Amazon AI Services)\" figure",
+   "searched": "URL https://www.missingkids.org/blog/2026/the-work-never-stops-first-look-at-ncmecs-2025-data returns 404 (WebFetch and headless). The current NCMEC GAI page and 2025 CyberTipline Report say \"more than 400,000\" GAI reports for 2025 (Amazon AI Services is listed among ESPs whose reports lacked jurisdiction info). Do NOT use 1.5M/1.1M."
+  },
+  {
+   "outline_item": "Top-tier news coverage (NYT/WaPo/Axios/CNN/AP) of the Common Sense July 2026 report",
+   "searched": "WebSearch for Common Sense deepfake teens survey + Axios/USA Today/The Hill/NBC/CNN/Washington Post. Only Sinclair's The National News Desk (syndicated to many local stations) and Common Sense's own article were found."
+  },
+  {
+   "outline_item": "aicommission.org \"AI deepfake pornography targeting teens is rising, new survey warns\" (May 2026)",
+   "searched": "Seen in WebSearch results; URL returns 404 via WebFetch. Not used."
+  },
+  {
+   "outline_item": "Thorn standalone 2026 deepfake report",
+   "searched": "Thorn's 2026 deepfake data are inside \"Youth Perspectives on Online Safety, 2025\" (published July 2026). Thorn's dedicated \"Deepfake Nudes & Young People\" report is from March 2025 (already in manifest as thorn-teens-deepfake-stat). Note the 2026 victim rate (4%) is lower than the 2025 report's 6% (1 in 17) — different samples."
+  }
+ ],
+ "caveats": [
+  "Common Sense Youth AI Safety Institute discloses it \"is funded by both philanthropy and industry, including the makers of some of the technologies it evaluates\" (press release About section); the report itself lists Oak Foundation as funder.",
+  "Date wording differs: landing page says survey \"conducted in fall 2025\"; methodology gives survey fieldwork Nov 21-Dec 9, 2025 and overall data collection Sept 22, 2025-Feb 26, 2026.",
+  "Press release says \"1 in 5 (18%) has made AI pornography or knows someone who has\" — 18% is the combined made-or-know figure; only 8% made it themselves.",
+  "24%/\"almost a quarter\" is among teens who have SEEN AI sexual content (n=586), not all teens; the 82% and 23% figures are also among those who have seen it.",
+  "NCMEC GAI page says 275 direct victims \"identified in 2024 and 2025 alone\"; the 2025 CyberTipline Report says \"Since 2023\" — use \"more than 275 since tracking began\" to be safe.",
+  "Highlight coordinates: every highlights[].bbox_px / line_rects_px is [x, y, w, h] in pixels of THAT image file (top-left origin). Use line_rects_px for multi-line passages. Overlay native semi-transparent shapes; do not paint on the screenshot."
+ ]
+}

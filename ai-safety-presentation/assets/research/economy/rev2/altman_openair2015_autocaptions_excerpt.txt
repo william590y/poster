@@ -1,0 +1,46 @@
+YouTube auto-generated English captions (machine transcription, unedited; may contain mis-hearings)
+Video: 'Fireside Chat - Sam Altman President, YCombinator and Mike Curtis, VP of Engineering, Airbnb - 2015'
+URL: https://www.youtube.com/watch?v=d6lDZpvHAoo  (re-upload by channel 'nova clave'; description: 'This video was originally available on Airbnb's YouTube channel. Originally published July 31 2015')
+Captions retrieved 2026-10-04 via Invidious mirror invidious.f5.si (YouTube blocked from this network). Timestamps = position in this re-upload (duration 39:59).
+
+--- 'end of the world' passage ---
+00:08:36.959 incredibly High leverage thing that
+00:08:38.399 factors into basically everything else
+00:08:40.880 uh like most wars get fought over energy
+00:08:42.839 there's the huge like economic effects
+00:08:45.240 that would be really good um you know I
+00:08:48.240 think AI will probably like most likely
+00:08:50.800 sort of lead to the end of the world but
+00:08:52.760 in the meantime uh there will be great
+00:08:54.959 companies created with serious machine
+00:08:56.959 learning um and I think think uh
+00:09:00.279 actually just agreed to fund a company
+00:09:01.959 that is not even really a company sort
+00:09:03.399 of a semi company semi- nonprofit uh
+00:09:06.240 doing AI Safety Research um but I think
+00:09:10.040 you know the the machine learning stuff
+00:09:11.800 is just working so well at this point
+00:09:13.320 and has so much longer to go that I
+
+--- '$100 billion' passage ---
+00:38:08.520 um and we need more powerful computers
+00:38:11.119 but not way more powerful you know the
+00:38:13.079 the brain has like a 100 billion uh
+00:38:15.760 neurons I think about 100 trillion
+00:38:17.480 synapses like if you just think about
+00:38:19.160 what it takes in terms of memory and
+00:38:21.359 processor to represent that you maybe it
+00:38:23.640 takes us till 2030 to get there um it's
+00:38:26.359 not it's not 100 years away and we'll
+00:38:29.200 figure out the algorithm so I think yeah
+00:38:31.960 we should be doing a whole lot more uh
+00:38:35.160 to uh prevent a bad outcome here um if I
+00:38:40.000 were Barack Obama I would be spending
+00:38:42.599 like I would I would sort of commit a
+00:38:44.440 hundred billion dollar to R&D for
+00:38:46.560 machine intelligence safety because
+00:38:48.319 right now the answer is we have no idea
+00:38:50.599 there are a few deeply underfunded
+00:38:52.160 groups working on sort of how to have
+00:38:55.119 this happen in a positive way but we
+00:38:56.680 have no idea how to make this work and

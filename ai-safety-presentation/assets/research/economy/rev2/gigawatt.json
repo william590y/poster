@@ -1,0 +1,813 @@
+{
+ "group": "economy/rev2/gigawatt",
+ "items": [
+  {
+   "id": "gw-pcgamer-astra-100k-gpus",
+   "slide_topic": "GPT-6 Astra training cluster (100k Grace Blackwell GPUs)",
+   "type": "headline",
+   "file": "gw_pcgamer_astra_100k_gpus.png",
+   "headline": "Jensen Huang says 100,000 Nvidia GPUs were used to train OpenAI's latest model, GPT-6 Astra, and there's already plans to bring quadruple that amount of hardware online",
+   "dek": "That's a whole lot of compute, and apparently a big chunk of that went into 'safety and alignment'",
+   "outlet": "PC Gamer",
+   "author": "Jess Kinghorn",
+   "date": "2026-09-07",
+   "url": "https://www.pcgamer.com/software/ai/jensen-huang-says-100-000-nvidia-gpus-were-used-to-train-openais-latest-model-gpt-6-astra-and-theres-already-plans-to-bring-quadruple-that-amount-of-hardware-online/",
+   "caption": "Cropped headline + byline + dek (real screenshot)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Body: 'According to Jensen Huang via X, the model was trained on \"~100K+ Nvidia Grace Blackwell NVLink72\" server racks, and there are already plans to get 400,000 GPUs online'. Also quotes Brockman to Stratechery: 'the first run that we've trained on more than 100,000 GPUs.'"
+  },
+  {
+   "id": "gw-fortune-astra-launch",
+   "slide_topic": "GPT-6 Astra launch / largest training run",
+   "type": "headline",
+   "file": "gw_fortune_astra_launch.png",
+   "headline": "OpenAI launches GPT-6 Astra, its most powerful model yet, and touts its ability to use your computer",
+   "dek": "Astra's development also involved the company's largest training run \"by far,\" OpenAI vice president of research Aidan Clark told reporters today. \"It's the first time we've pretrained on more than 100,000 GPUs at our Stargate site in Texas.\"",
+   "outlet": "Fortune",
+   "author": "Emily Forlini",
+   "date": "2026-09-03",
+   "url": "https://fortune.com/2026/09/03/openai-debuts-gpt-6-astra-computer-use-greg-brockman-says-start-of-agi/",
+   "caption": "Cropped headline, byline/date and Greg Brockman photo (Bloomberg/Getty credit visible)",
+   "quality": 5,
+   "verified": true,
+   "notes": "dek field is a verbatim quote from the article body (paywall-blurred in headless browser, text verified via page text). Article is the citation used by Wikipedia's GPT-6 page."
+  },
+  {
+   "id": "gw-stratechery-brockman-quote",
+   "slide_topic": "GPT-6 Astra training scale (quote)",
+   "type": "quote",
+   "file": "gw_stratechery_brockman_100k.png",
+   "headline": "An Interview with OpenAI President Greg Brockman About Astra and Alignment",
+   "dek": "We're talking about the fact that this is the first run that we've trained on more than 100,000 GPUs, which is an easy number to throw around, but just think about the scale of that. These data centers in some ways are these big machines that we've built in order to help deliver and create AI technology...",
+   "outlet": "Stratechery",
+   "author": "Ben Thompson (interviewer); Greg Brockman",
+   "date": "2026-09-04",
+   "url": "https://stratechery.com/2026/an-interview-with-openai-president-greg-brockman-about-astra-and-alignment/",
+   "caption": "Screenshot of the verbatim interview paragraph",
+   "quality": 4,
+   "verified": true,
+   "notes": "Same answer continues: 'so much of the compute goes into safety and alignment'. Recorded before the Sep 3 announcement."
+  },
+  {
+   "id": "gw-dcd-abilene-450k-gb200",
+   "slide_topic": "Stargate Abilene: 450,000 GB200, 1.2 GW",
+   "type": "headline",
+   "file": "gw_dcd_abilene_450k_gb200.png",
+   "headline": "OpenAI and Oracle to deploy 450,000 GB200 GPUs at Stargate data center in Abilene, Texas",
+   "dek": "Firms look set to occupy entire campus",
+   "outlet": "DCD (DatacenterDynamics)",
+   "author": "Georgia Butler",
+   "date": "2025-10-15",
+   "url": "https://www.datacenterdynamics.com/en/news/openai-and-oracle-to-deploy-450000-gb200-gpus-at-stargate-abilene-data-center/",
+   "caption": "Cropped headline, dek, date and first two paragraphs incl. Ellison's '1.2GW ... one million four-bedroom homes' quote",
+   "quality": 5,
+   "verified": true,
+   "notes": "Body: 'The Stargate data center will use 1.2GW, \"enough power for one million four-bedroom homes in the United States,\" the billionaire said.' Ellison added: 'That's a pretty good-sized city.' Power from 'a combination of grid energy and natural gas turbines'; eight buildings connected 'to support a single cluster'."
+  },
+  {
+   "id": "gw-crusoe-abilene-p19",
+   "slide_topic": "Stargate Abilene: 50,000 GB200 per building, 1.2 GW, 206 MW in 2025",
+   "type": "screenshot",
+   "file": "gw_crusoe_impact2024_abilene_p19.png",
+   "headline": "Crusoe's Abilene, Texas Data Center Campus (Crusoe 2024 Impact Report, p.19)",
+   "dek": "The data center campus will support AI workloads with 1.2 GW of power capacity with more than 200 MWs slated to be energized in 2025. ... Each building has been designed to operate up to 50,000 NVIDIA GB200 NVL72s, representing a major step forward in high-density GPU cluster design.",
+   "outlet": "Crusoe (company report)",
+   "date": "2025",
+   "url": "https://cdn.prod.website-files.com/6855c1aa175582ee23e0aa19/68710273a71bb7c11049ba28_Crusoe_Impact_Report_2024.pdf#page=19",
+   "caption": "Full page render (3556x2000) of the official PDF: case study text, aerial construction photo, '206 MW of data center capacity coming online in 2025'",
+   "quality": 4,
+   "verified": true,
+   "notes": "Same report p.18: 'Crusoe designs its data centers for power usage effectiveness (PUE) of an average of 1.2 to 1.3'. Two buildings x 50,000 GB200 = the ~100k-GPU phase that matches Astra's '100,000+ GPUs'."
+  },
+  {
+   "id": "gw-epoch-abilene-specs",
+   "slide_topic": "Stargate Abilene power today (Epoch)",
+   "type": "screenshot",
+   "file": "gw_epoch_abilene_specs.png",
+   "headline": "OpenAI Stargate Abilene (Epoch AI data center directory, updated Oct. 2, 2026)",
+   "dek": "It hosts an estimated 509k H100-equivalents of AI compute, supported by 421 MW of IT power at a capital cost of $15.9 B. In Q4 2026, we project it to rise to 1,019k H100-eq AI compute, 843 MW IT power and a cost of $31.9 B.",
+   "outlet": "Epoch AI",
+   "date": "2026-10-02",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene",
+   "caption": "Epoch page header with annotated satellite image (Jul 27, 2026) and Scale & specifications panel (421 MW -> 843 MW IT)",
+   "quality": 4,
+   "verified": true,
+   "notes": "CC-BY Epoch AI. Timeline: Bldg 1 operational ~Sep 26 2025 (105 MW IT); Bldg 2 Dec 24 2025 (211 MW IT, 295 MW facility); Bldg 3-4 May 23 2026 (421 MW IT, 590 MW facility); Bldg 5-8 projected Nov 1 2026 (843 MW IT, 1,180 MW facility)."
+  },
+  {
+   "id": "gw-spacex-s1-colossus2",
+   "slide_topic": "xAI Colossus 2: 110k GB200 = ~210 MW; gigawatt-scale",
+   "type": "screenshot",
+   "file": "gw_spacex_s1_colossus2_power.png",
+   "headline": "SpaceX Form S-1 (filed May 20, 2026): COLOSSUS / COLOSSUS II compute power",
+   "dek": "COLOSSUS and COLOSSUS II collectively provide approximately 1.0 gigawatt of compute power, with additional power capacity available for data center operations. ... At COLOSSUS II, we brought online the first cluster of approximately 110,000 GB200 processors, approximately 210 megawatts of compute power, even faster in 91 days.",
+   "outlet": "U.S. SEC (SpaceX S-1)",
+   "date": "2026-05-20",
+   "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm",
+   "caption": "Screenshot of the S-1 paragraph (live sec.gov page)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Also: 'the second cluster of 110,000 GB300 processors and 220 megawatts of compute power in 64 days'; next phase 'at least 220,000 additional GB300 processors and over 400 additional megawatts'; COLOSSUS: '~100,000 H100 processors, approximately 130 megawatts of compute power, in just 122 days'. Elsewhere: 'the first company to deploy a coherent gigawatt-scale AI training cluster' (company claim). SpaceX acquired xAI in Feb 2026. Key cross-check: 210 MW / 110,000 GB200 = 1.91 kW per GPU (IT, before cooling)."
+  },
+  {
+   "id": "gw-hpe-nvl72-132kw",
+   "slide_topic": "Per-GPU power: GB200 NVL72 rack = 132 kW / 72 GPUs",
+   "type": "screenshot",
+   "file": "gw_hpe_gb200_nvl72_132kw.png",
+   "headline": "NVIDIA GB200 NVL72 by HPE QuickSpecs: Power Delivery and Requirements",
+   "dek": "The rack's TDP (thermal design power) is 132 kW nominal with a EDPp (electrical design power – peak) of 1.5x TDP or approximately 192 kW",
+   "outlet": "HPE",
+   "date": "",
+   "url": "https://www.hpe.com/us/en/collaterals/collateral.a50009224enw.html",
+   "caption": "Spec-sheet passage: 132 kW nominal per 72-GPU rack (= 1.83 kW per GPU at the rack, before cooling/networking)",
+   "quality": 3,
+   "verified": true,
+   "notes": "QuickSpecs: '36 NVIDIA Grace ARM processors and 72 NVIDIA Blackwell GPUs'."
+  },
+  {
+   "id": "gw-nyiso-goldbook-zoneJ",
+   "slide_topic": "NYC electricity: 50,104 GWh in 2025",
+   "type": "chart",
+   "file": "gw_nyiso_goldbook2026_table_I2_zoneJ.png",
+   "headline": "NYISO 2026 Load & Capacity Data Report (Gold Book), Table I-2: Baseline Annual Energy, Historical & Forecast",
+   "dek": "Annual Energy by Zone - GWh: Zone J (New York City) 2025 = 50,104 GWh; 2024 = 49,703 GWh",
+   "outlet": "NYISO",
+   "date": "2026-04",
+   "url": "https://www.nyiso.com/documents/20142/2226333/2026-Gold-Book-Public.pdf/a8fd42fe-5a8c-88cb-5052-f93dfd6423b8?t=1777471793334",
+   "caption": "300-dpi render of the official table (historical rows 2016-2025); column J = New York City. Overlay an amber box on J/2025 natively on the slide.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Zone J = 'New York City (Load Zone J)' per NYISO Power Trends 2026 glossary (https://www.nyiso.com/documents/d/guest/2026-power-trends). 2025 Zone J summer non-coincident peak 10,825 MW (Table I-4a). Historical values reflect actual weather."
+  },
+  {
+   "id": "gw-epoch-2030-forecast",
+   "slide_topic": "Frontier training runs heading to 4-16 GW by 2030",
+   "type": "chart",
+   "file": "gw_epoch_frontier_training_power_forecast_2030.png",
+   "headline": "Projected power growth for frontier AI training (Epoch AI / EPRI)",
+   "dek": "We conclude that the largest individual frontier training runs in 2030 will likely draw 4-16 gigawatts (GW) of power, or enough to power millions of US homes.",
+   "outlet": "Epoch AI",
+   "author": "Josh You, David Owen",
+   "date": "2025-08-11",
+   "url": "https://epoch.ai/publications/power-demands-of-frontier-ai-training",
+   "caption": "Log chart, 2018-2030: historic points (GPT-3, GPT-4, Llama 3.1, Grok-3) and forecast 2.6x/yr (2.2-2.9x) vs reference lines (Abilene 1.2 GW, Meta Louisiana 2 GW, 5 GW single-site plans, all US data centers 2023 ~20 GW)",
+   "quality": 5,
+   "verified": true,
+   "notes": "CC-BY. Figure predates GPT-6 Astra; Epoch's DB now puts Astra at ~233 MW (Sep 2026), close to the trend line. Image 2580x1680."
+  },
+  {
+   "id": "gw-epoch-us-capacity-2030",
+   "slide_topic": "Total US AI data-center capacity forecast",
+   "type": "chart",
+   "file": "gw_epoch_us_ai_capacity_forecast_2030.png",
+   "headline": "Forecasted total capacity of U.S. AI data centers (Epoch AI)",
+   "dek": "Overall, we find that >100 GW of total AI capacity worldwide and >50 GW in the US is plausible by 2030, which would approach 5% of the US's total power generation capacity.",
+   "outlet": "Epoch AI",
+   "date": "2025-08-11",
+   "url": "https://epoch.ai/publications/power-demands-of-frontier-ai-training",
+   "caption": "Four projections, ~6 GW (2025) to ~35-74 GW (2030)",
+   "quality": 4,
+   "verified": true,
+   "notes": "CC-BY."
+  },
+  {
+   "id": "gw-epoch-power-doubling",
+   "slide_topic": "Training power doubling annually",
+   "type": "chart",
+   "file": "gw_epoch_power_doubling_chart.png",
+   "headline": "The power required to train frontier AI models is doubling annually",
+   "dek": "Training frontier models requires a large and growing amount of power for GPUs, servers, cooling and other equipment.",
+   "outlet": "Epoch AI",
+   "author": "Luke Emberson, Robi Rahman",
+   "date": "2024-09-19",
+   "url": "https://epoch.ai/data-insights/power-usage-trend",
+   "caption": "Scatter (log W) of training power draw 2011-2025 with 2.1x/year trend; labels GPT-3, GPT-4, Llama 3",
+   "quality": 3,
+   "verified": true,
+   "notes": "Live chart does not yet show GPT-6 Astra; prefer native chart from dataset gw-epoch-frontier-training-power."
+  },
+  {
+   "id": "gw-anthropic-amazon-5gw",
+   "slide_topic": "Anthropic compute: up to 5 GW with Amazon",
+   "type": "headline",
+   "file": "gw_anthropic_amazon_5gw.png",
+   "headline": "Anthropic and Amazon expand collaboration for up to 5 gigawatts of new compute",
+   "dek": "We have signed a new agreement with Amazon that will deepen our existing partnership and secure up to 5 gigawatts (GW) of capacity for training and deploying Claude, including new Trainium2 capacity coming online in the first half of this year and nearly 1GW total of Trainium2 and Trainium3 capacity coming online by the end of 2026.",
+   "outlet": "Anthropic",
+   "date": "2026-04-20",
+   "url": "https://www.anthropic.com/news/anthropic-amazon-compute",
+   "caption": "Cropped headline + date",
+   "quality": 4,
+   "verified": true,
+   "notes": "Same post: 'we currently use over one million Trainium2 chips to train and serve Claude'; 'committing more than $100 billion over the next ten years to AWS technologies'."
+  },
+  {
+   "id": "gw-anthropic-google-broadcom",
+   "slide_topic": "Anthropic compute: multiple GW of TPUs from 2027",
+   "type": "headline",
+   "file": null,
+   "headline": "Anthropic expands partnership with Google and Broadcom for multiple gigawatts of next-generation compute",
+   "dek": "We have signed a new agreement with Google and Broadcom for multiple gigawatts of next-generation TPU capacity that we expect to come online starting in 2027.",
+   "outlet": "Anthropic",
+   "date": "2026-04-06",
+   "url": "https://www.anthropic.com/news/google-broadcom-partnership-compute",
+   "caption": "Text only (use citation card)",
+   "quality": 3,
+   "verified": true,
+   "notes": ""
+  },
+  {
+   "id": "gw-amazon-project-rainier",
+   "slide_topic": "Project Rainier (Anthropic training cluster)",
+   "type": "headline",
+   "file": null,
+   "headline": "AWS activates Project Rainier: One of the world’s largest AI compute clusters comes online",
+   "dek": "Project Rainier is now in use, featuring one of the world's largest AI compute clusters with nearly half a million Trainium2 chips.",
+   "outlet": "About Amazon",
+   "date": "2025-10-29",
+   "url": "https://www.aboutamazon.com/news/aws/aws-project-rainier-ai-trainium-chips-compute-cluster",
+   "caption": "Text only",
+   "quality": 3,
+   "verified": true,
+   "notes": "Headline is the page's visible H1 (HTML <title> reads 'AWS’s Project Rainier: the world's most powerful computer for training AI'). Page dates: June 24, 2025 (orig) / October 29, 2025 (update). Also: 'Claude is expected to be on more than 1 million Trainium2 chips ... by the end of the year.'"
+  },
+  {
+   "id": "gw-dcd-meta-multigw",
+   "slide_topic": "Meta Prometheus (1 GW+, 2026) and Hyperion (5 GW)",
+   "type": "headline",
+   "file": "gw_dcd_meta_multigw_clusters.png",
+   "headline": "Meta to invest \"hundreds of billions of dollars into compute to build superintelligence,\" with several multi-GW data center clusters",
+   "dek": "Prometheus is coming in 2026",
+   "outlet": "DCD (DatacenterDynamics)",
+   "author": "Sebastian Moss",
+   "date": "2025-07-14",
+   "url": "https://www.datacenterdynamics.com/en/news/meta-to-invest-hundreds-of-billions-of-dollars-into-compute-to-build-superintelligence-with-several-multi-gw-data-center-clusters/",
+   "caption": "Cropped headline + dek + date",
+   "quality": 4,
+   "verified": true,
+   "notes": "Zuckerberg (Threads), quoted: 'We're actually building several multi-GW clusters. We're calling the first one Prometheus and it's coming online in '26. We're also building Hyperion, which will be able to scale up to 5GW over several years. ... Just one of these covers a significant part of the footprint of Manhattan.'"
+  },
+  {
+   "id": "gw-doe-reactor-card",
+   "slide_topic": "Reference load: a typical reactor = ~1 GW",
+   "type": "image",
+   "file": "gw_doe_reactor_1gw_card.png",
+   "headline": "INFOGRAPHIC: How Much Power Does A Nuclear Reactor Produce?",
+   "dek": "A typical nuclear reactor produces 1 gigawatt of power per plant on average.",
+   "outlet": "U.S. Department of Energy, Office of Nuclear Energy",
+   "author": "Mike Mueller",
+   "date": "2021-03-31",
+   "url": "https://www.energy.gov/ne/articles/infographic-how-much-power-does-nuclear-reactor-produce",
+   "caption": "Official DOE title card (1200x630), illustration of reactor, transmission lines and city",
+   "quality": 3,
+   "verified": true,
+   "notes": "US government work. Full tall infographic saved as gw_doe_reactor_1gw_infographic.png (1875x5209): 1 GW = 3.125 million PV panels = 431 wind turbines = 100 million LED bulbs = ~1.3 million horses = 2,000 Corvette Z06s."
+  },
+  {
+   "id": "gw-doe-reactor-infographic",
+   "slide_topic": "Reference load: what 1 GW looks like",
+   "type": "image",
+   "file": "gw_doe_reactor_1gw_infographic.png",
+   "headline": "How Much Power Does a Nuclear Reactor Produce?",
+   "dek": "3.125 million PV panels / 431 utility-scale wind turbines / 100 million LED bulbs / roughly 1.3 million horses / 2,000 Corvette Z06s",
+   "outlet": "U.S. Department of Energy",
+   "date": "2021-03-31",
+   "url": "https://www.energy.gov/ne/articles/infographic-how-much-power-does-nuclear-reactor-produce",
+   "caption": "Full vertical infographic (crop sections for slides)",
+   "quality": 3,
+   "verified": true,
+   "notes": "Page notes '*Updated July 2022'."
+  }
+ ],
+ "datasets": [
+  {
+   "id": "gw-epoch-frontier-training-power",
+   "title": "Power drawn by record frontier training runs (Epoch AI estimates)",
+   "unit": "MW",
+   "labels": [
+    "GPT-3 (2020)",
+    "GPT-4 (2023)",
+    "Gemini 1.0 Ultra (2023)",
+    "Llama 3.1-405B (2024)",
+    "Grok 3 (2025)",
+    "GPT-6 Astra (2026)"
+   ],
+   "series": [
+    {
+     "name": "Training power draw (MW)",
+     "values": [
+      5.1,
+      19.9,
+      38.4,
+      22.6,
+      110.0,
+      232.7
+     ]
+    }
+   ],
+   "source": "Epoch AI, 'Data on AI models' (all_ai_models.csv, accessed 2026-10-04); field 'Training power draw (W)' = PUE x 1.82 server overhead x chip power x chip count",
+   "url": "https://epoch.ai/data/all_ai_models.csv",
+   "file": "gw_epoch_frontier_training_power.csv",
+   "notes": "Estimates, not company disclosures. Astra row last modified 2026-09-23 with hardware 100,000 GB200 (a lower bound). Llama 3.1 not a power record but useful reference."
+  },
+  {
+   "id": "gw-training-energy-in-nyc-time",
+   "title": "Energy of one frontier training run, in hours of New York City's electricity",
+   "unit": "hours of NYC electricity (2025 average)",
+   "labels": [
+    "GPT-3 (2020)",
+    "GPT-4 (2023)",
+    "Llama 3.1-405B (2024)",
+    "Gemini 1.0 Ultra (2023)",
+    "Grok 3 (2025)",
+    "GPT-6 Astra (2026, 90-day assumption)"
+   ],
+   "series": [
+    {
+     "name": "NYC-hours",
+     "values": [
+      0.3,
+      8.0,
+      8.5,
+      16.1,
+      41.5,
+      87.9
+     ]
+    },
+    {
+     "name": "Training energy (GWh)",
+     "values": [
+      1.8,
+      45.5,
+      48.5,
+      92.2,
+      237.5,
+      502.6
+     ]
+    }
+   ],
+   "source": "Derived: Epoch AI training power x Epoch training time (GPT-6 Astra: 90 days, Epoch's compute-estimate assumption) / NYISO Zone J 2025 = 50,104 GWh (5.72 GWh per hour)",
+   "url": "https://epoch.ai/data/all_ai_models.csv",
+   "file": "gw_epoch_frontier_training_power.csv",
+   "notes": "Our arithmetic on Epoch estimates - label as 'estimate'. GPT-3 ~ 18 minutes of NYC; GPT-4 ~ 8 hours; GPT-6 Astra ~ 88 hours (~3.7 days)."
+  },
+  {
+   "id": "gw-frontier-sites-power-2026",
+   "title": "Biggest AI training sites: power today (Epoch AI estimates, latest operational status)",
+   "unit": "MW",
+   "labels": [
+    "xAI Colossus 2 (Jun 2026)",
+    "Anthropic-Amazon New Carlisle (Mar 2026)",
+    "Microsoft Fairwater Atlanta (Jun 2026)",
+    "Meta Prometheus (Aug 2026)",
+    "OpenAI Stargate Abilene (May 2026)",
+    "Microsoft Fairwater Wisconsin (Apr 2026)"
+   ],
+   "series": [
+    {
+     "name": "IT power (MW)",
+     "values": [
+      946,
+      910,
+      636,
+      471,
+      421,
+      369
+     ]
+    },
+    {
+     "name": "Total facility power incl. cooling (MW)",
+     "values": [
+      1276,
+      1092,
+      859,
+      612,
+      590,
+      442
+     ]
+    }
+   ],
+   "source": "Epoch AI, AI data centers hub (data_center_timelines.csv; directory pages updated Oct. 2, 2026)",
+   "url": "https://epoch.ai/data/ai-data-centers",
+   "file": "gw_epoch_frontier_sites_power.csv",
+   "notes": "Facility power = IT power x assumed peak PUE (1.2 hyperscalers / 1.4 others). Projections: Abilene 843 MW IT / 1,180 MW facility by Nov 2026; Colossus 2 1,531/2,065 MW by Feb 2027; New Carlisle 1,925/2,310 MW by Mar 2028; Meta Hyperion first phase 1,632/2,203 MW by Jan 2028."
+  },
+  {
+   "id": "gw-abilene-buildout",
+   "title": "Stargate Abilene build-out (Epoch AI)",
+   "unit": "MW",
+   "labels": [
+    "Sep 2025",
+    "Dec 2025",
+    "May 2026",
+    "Nov 2026 (proj.)"
+   ],
+   "series": [
+    {
+     "name": "IT power (MW)",
+     "values": [
+      105,
+      211,
+      421,
+      843
+     ]
+    },
+    {
+     "name": "Total facility power (MW)",
+     "values": [
+      147,
+      295,
+      590,
+      1180
+     ]
+    }
+   ],
+   "source": "Epoch AI, OpenAI Stargate Abilene directory page / data_center_timelines.csv",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene",
+   "file": "gw_epoch_frontier_sites_power.csv",
+   "notes": "Bldg 1-2 (Dec 2025) = 100,800 GB200 per Epoch citing Crusoe = the ~100k-GPU cluster consistent with Astra's pretraining."
+  },
+  {
+   "id": "gw-power-scale-comparison",
+   "title": "AI power vs. familiar loads",
+   "unit": "MW",
+   "labels": [
+    "GPT-6 Astra training run (est.)",
+    "Hoover Dam average output",
+    "Typical nuclear reactor",
+    "Stargate Abilene (full)",
+    "xAI Colossus 2 (facility, Jun 2026)",
+    "Hoover Dam nameplate",
+    "NYC average load (2025)",
+    "NYC peak (2025)",
+    "Largest training run 2030 (Epoch, low)",
+    "Largest training run 2030 (Epoch, high)"
+   ],
+   "series": [
+    {
+     "name": "MW",
+     "values": [
+      233,
+      480,
+      1000,
+      1200,
+      1276,
+      2080,
+      5720,
+      10825,
+      4000,
+      16000
+     ]
+    }
+   ],
+   "source": "Epoch AI (Astra, Colossus 2, 2030 forecast); USBR (Hoover: 2,080 MW nameplate; ~4.2 billion kWh/yr avg 1947-2008 = ~480 MW avg); DOE (reactor ~1 GW); Oracle/Ellison via DCD (Abilene 1.2 GW); NYISO Gold Book 2026 (NYC Zone J 50,104 GWh = 5,720 MW avg; 10,825 MW peak)",
+   "url": "https://epoch.ai/publications/power-demands-of-frontier-ai-training",
+   "file": null,
+   "notes": "Use a log axis or split into two charts; the 2030 bars are forecasts."
+  },
+  {
+   "id": "gw-nyc-zoneJ-energy",
+   "title": "New York City (NYISO Zone J) annual electricity use",
+   "unit": "GWh",
+   "labels": [
+    "2016",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025"
+   ],
+   "series": [
+    {
+     "name": "Annual energy (GWh)",
+     "values": [
+      53653,
+      52266,
+      53360,
+      52003,
+      48060,
+      48832,
+      49740,
+      48280,
+      49703,
+      50104
+     ]
+    },
+    {
+     "name": "Summer peak, non-coincident (MW)",
+     "values": [
+      10990,
+      10671,
+      11070,
+      10802,
+      10150,
+      10352,
+      10830,
+      10372,
+      10245,
+      10825
+     ]
+    }
+   ],
+   "source": "NYISO 2026 Gold Book, Tables I-2 and I-4a",
+   "url": "https://www.nyiso.com/documents/20142/2226333/2026-Gold-Book-Public.pdf/a8fd42fe-5a8c-88cb-5052-f93dfd6423b8?t=1777471793334",
+   "file": "gw_nyc_zoneJ_energy_peak.csv",
+   "notes": ""
+  },
+  {
+   "id": "gw-astra-vs-nyc-scenarios",
+   "title": "GPT-6 Astra pretraining energy vs. one week of NYC electricity",
+   "unit": "GWh",
+   "labels": [
+    "Low (206 MW x 60 d)",
+    "Central (233 MW x 90 d)",
+    "High (293 MW x 120 d)",
+    "NYC, one week (2025)"
+   ],
+   "series": [
+    {
+     "name": "GWh",
+     "values": [
+      296.6,
+      502.6,
+      842.9,
+      960.9
+     ]
+    }
+   ],
+   "source": "See facts/arithmetic: Crusoe, Epoch AI, NYISO",
+   "url": "https://epoch.ai/data/all_ai_models.csv",
+   "file": "gw_astra_vs_nyc_arithmetic.csv",
+   "notes": "Duration is not disclosed by OpenAI; 90 days is Epoch's assumption."
+  }
+ ],
+ "facts": [
+  {
+   "claim": "OpenAI: GPT-6 Astra was 'the first time we've pretrained on more than 100,000 GPUs at our Stargate site in Texas' - the company's largest training run 'by far' (Aidan Clark, VP of research).",
+   "source": "Fortune (Emily Forlini)",
+   "url": "https://fortune.com/2026/09/03/openai-debuts-gpt-6-astra-computer-use-greg-brockman-says-start-of-agi/",
+   "date": "2026-09-03"
+  },
+  {
+   "claim": "Greg Brockman: 'this is the first run that we've trained on more than 100,000 GPUs, which is an easy number to throw around, but just think about the scale of that.'",
+   "source": "Stratechery interview",
+   "url": "https://stratechery.com/2026/an-interview-with-openai-president-greg-brockman-about-astra-and-alignment/",
+   "date": "2026-09-04"
+  },
+  {
+   "claim": "Jensen Huang (via X): Astra was trained on '~100K+ Nvidia Grace Blackwell NVLink72'; plans to bring 400,000 GPUs online next (4x).",
+   "source": "PC Gamer",
+   "url": "https://www.pcgamer.com/software/ai/jensen-huang-says-100-000-nvidia-gpus-were-used-to-train-openais-latest-model-gpt-6-astra-and-theres-already-plans-to-bring-quadruple-that-amount-of-hardware-online/",
+   "date": "2026-09-07"
+  },
+  {
+   "claim": "OpenAI's EU AI Act summary: GPT-6 Astra 'is not a modification or a fine-tune of a prior model' and was trained on 'More than 10 trillion tokens'; placed on the EU market 3 September 2026.",
+   "source": "OpenAI, Public Summary of Training Content for GPT-6 Astra (v1, 2 Sep 2026)",
+   "url": "https://cdn.openai.com/pdf/gpt-6-astra-eu-ai-act-public-summary-of-training-content.pdf",
+   "date": "2026-09-02"
+  },
+  {
+   "claim": "Epoch AI estimates GPT-6 Astra at ~1e27 FLOP (90% CI ~5e26-2e27) - 'corresponding to ~100k GB200s over 90 days at 25% FP8 MFU' - about 50x GPT-4 (~2.1e25), drawing ~233 MW (232.67 MW) during training.",
+   "source": "Epoch AI 'Data on AI models' (all_ai_models.csv, row last modified 2026-09-23)",
+   "url": "https://epoch.ai/data/all_ai_models.csv",
+   "date": "2026-09-23"
+  },
+  {
+   "claim": "Epoch's power method: Training power draw = PUE x Server overhead (1.82, from DGX H100: 10.2 kW / 8 x 700 W) x Power per GPU x Hardware quantity; PUE 1.08 in 2025, declining ~0.8%/yr. For Astra this implies ~1,200 W per GB200 x 1.82 x ~1.065 = ~2.33 kW per GPU all-in.",
+   "source": "Epoch AI models documentation - Estimation",
+   "url": "https://epoch.ai/data/ai-models-documentation/estimation",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "Stargate Abilene (Crusoe): 1.2 GW of power capacity; eight buildings; 'Each building has been designed to operate up to 50,000 NVIDIA GB200 NVL72s'; 206 MW coming online in 2025; design PUE 'an average of 1.2 to 1.3'.",
+   "source": "Crusoe 2024 Impact Report pp.18-19",
+   "url": "https://cdn.prod.website-files.com/6855c1aa175582ee23e0aa19/68710273a71bb7c11049ba28_Crusoe_Impact_Report_2024.pdf#page=19",
+   "date": "2025"
+  },
+  {
+   "claim": "Larry Ellison: Abilene will house more than 450,000 Nvidia GB200 GPUs and 'will use 1.2GW, \"enough power for one million four-bedroom homes in the United States\"' - 'That's a pretty good-sized city.'",
+   "source": "DCD",
+   "url": "https://www.datacenterdynamics.com/en/news/openai-and-oracle-to-deploy-450000-gb200-gpus-at-stargate-abilene-data-center/",
+   "date": "2025-10-15"
+  },
+  {
+   "claim": "Epoch AI: Abilene buildings 1-2 (100,800 GB200) were fully operational by Dec 24, 2025 at ~211 MW IT / ~295 MW total facility power; the site is now ~421 MW IT (509k H100e, $15.9B) and projected at 843 MW IT / ~1.18 GW facility by Nov 2026. Oracle posted on Apr 22, 2026: 'In Abilene, 200MW is already operational'.",
+   "source": "Epoch AI data center directory (updated Oct 2, 2026)",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene",
+   "date": "2026-10-02"
+  },
+  {
+   "claim": "A GB200 NVL72 rack (72 GPUs + 36 Grace CPUs) has a TDP of 132 kW nominal (peak electrical design ~192 kW) - ~1.83 kW per GPU before cooling and cluster networking.",
+   "source": "HPE QuickSpecs",
+   "url": "https://www.hpe.com/us/en/collaterals/collateral.a50009224enw.html",
+   "date": ""
+  },
+  {
+   "claim": "SpaceX S-1: at Colossus II, xAI brought online ~110,000 GB200 processors = ~210 MW of compute power in 91 days, then 110,000 GB300 = 220 MW in 64 days; next phase adds at least 220,000 GB300 and over 400 MW. Colossus + Colossus II provide ~1.0 GW of compute power.",
+   "source": "SpaceX Form S-1 (SEC)",
+   "url": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026036936/spaceexplorationtechnologi.htm",
+   "date": "2026-05-20"
+  },
+  {
+   "claim": "Epoch AI: xAI's Colossus 2 (Memphis) runs ~946 MW of IT power (~1.28 GW incl. cooling), ~1.11M H100-equivalents, $35.8B; projected 1,531 MW IT by Q1 2027.",
+   "source": "Epoch AI data center directory",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/colossus-2",
+   "date": "2026-10-02"
+  },
+  {
+   "claim": "Zuckerberg: 'We're calling the first one Prometheus and it's coming online in '26. We're also building Hyperion, which will be able to scale up to 5GW over several years.' Epoch now estimates Prometheus at 471 MW IT (~612 MW facility, Aug 2026); Hyperion's first phase ~1.6 GW IT (~2.2 GW facility) by 2028.",
+   "source": "DCD (Jul 14, 2025); Epoch AI directory",
+   "url": "https://www.datacenterdynamics.com/en/news/meta-to-invest-hundreds-of-billions-of-dollars-into-compute-to-build-superintelligence-with-several-multi-gw-data-center-clusters/",
+   "date": "2025-07-14"
+  },
+  {
+   "claim": "Anthropic: deal with Amazon for 'up to 5 gigawatts (GW) of capacity for training and deploying Claude' with 'nearly 1GW total of Trainium2 and Trainium3 capacity coming online by the end of 2026'; 'we currently use over one million Trainium2 chips'. Epoch: the Anthropic-Amazon New Carlisle (Project Rainier) campus is at ~910 MW IT (~1.09 GW facility).",
+   "source": "Anthropic (Apr 20, 2026); Epoch AI directory",
+   "url": "https://www.anthropic.com/news/anthropic-amazon-compute",
+   "date": "2026-04-20"
+  },
+  {
+   "claim": "Epoch AI/EPRI: power for the largest training runs has grown ~2.2x per year; 'the largest individual frontier training runs in 2030 will likely draw 4-16 gigawatts (GW) of power, or enough to power millions of US homes.'",
+   "source": "Epoch AI (Josh You, David Owen)",
+   "url": "https://epoch.ai/publications/power-demands-of-frontier-ai-training",
+   "date": "2025-08-11"
+  },
+  {
+   "claim": "Epoch AI: '>100 GW of total AI capacity worldwide and >50 GW in the US is plausible by 2030, which would approach 5% of the US's total power generation capacity.'",
+   "source": "Epoch AI",
+   "url": "https://epoch.ai/publications/power-demands-of-frontier-ai-training",
+   "date": "2025-08-11"
+  },
+  {
+   "claim": "New York City (NYISO Zone J) used 50,104 GWh of electricity in 2025 (49,703 GWh in 2024) - an average load of ~5.7 GW, ~137 GWh per day, ~961 GWh per week; its 2025 summer peak was 10,825 MW.",
+   "source": "NYISO 2026 Gold Book, Tables I-2 & I-4a; Zone J = New York City per NYISO Power Trends 2026",
+   "url": "https://www.nyiso.com/documents/20142/2226333/2026-Gold-Book-Public.pdf/a8fd42fe-5a8c-88cb-5052-f93dfd6423b8?t=1777471793334",
+   "date": "2026"
+  },
+  {
+   "claim": "The average US residential electricity customer used 863 kWh per month in 2024 (~10,360 kWh/yr); EIA's FAQ gives 10,791 kWh for 2022.",
+   "source": "EIA Electric Sales, Revenue, and Average Price, Table 5A (2024); EIA FAQ",
+   "url": "https://www.eia.gov/electricity/sales_revenue_price/pdf/table_5A.pdf",
+   "date": "2024"
+  },
+  {
+   "claim": "DOE: 'A typical nuclear reactor produces 1 gigawatt of power per plant on average.'",
+   "source": "U.S. DOE Office of Nuclear Energy",
+   "url": "https://www.energy.gov/ne/articles/infographic-how-much-power-does-nuclear-reactor-produce",
+   "date": "2021-03-31"
+  },
+  {
+   "claim": "Hoover Dam: nameplate capacity 'about 2,080 megawatts'; average annual net generation 1947-2008 'about 4.2 billion kilowatt-hours' (~480 MW average output).",
+   "source": "U.S. Bureau of Reclamation, Hoover Dam FAQ",
+   "url": "https://www.usbr.gov/lc/hooverdam/faqs/powerfaq.html",
+   "date": ""
+  },
+  {
+   "claim": "ARITHMETIC (claim check): 100,000 GPUs x ~2.33 kW all-in (Epoch) = ~233 MW; x 90 days x 24 h = ~503 GWh. NYC uses 50,104 GWh / 365 x 7 = ~961 GWh per week. So Astra's pretraining ~ 0.52 of a NYC-week = ~3.7 days of New York City's electricity - roughly HALF the 'NYC for a week' claim. Range: 2.2 days (206 MW, 60 days) to 6.1 days (293 MW peak facility power, 120 days). Matching a full week at 233 MW would need ~172 days of pretraining.",
+   "source": "Inputs: Epoch AI, Crusoe, NYISO (our arithmetic)",
+   "url": "https://epoch.ai/data/all_ai_models.csv",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "At ~233 MW, the Astra training cluster drew ~4% of NYC's average load (~2% of its 2025 peak) - the continuous use of ~197,000 average US homes, about a quarter of a typical nuclear reactor, or half of Hoover Dam's average output. The ~503 GWh run equals a year of electricity for ~48,500 US homes.",
+   "source": "Derived from Epoch AI, NYISO, EIA, DOE, USBR",
+   "url": "https://epoch.ai/data/all_ai_models.csv",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "Measured in New York City's electricity: training GPT-3 (2020) ~ 18 minutes; GPT-4 (2023) ~ 8 hours; Grok 3 (2025) ~ 1.7 days; GPT-6 Astra (2026) ~ 3.7 days (Epoch estimates of power x duration).",
+   "source": "Derived from Epoch AI model DB + NYISO",
+   "url": "https://epoch.ai/data/all_ai_models.csv",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "The next step Huang describes - 400,000 GPUs - at the same ~2.33 kW per GPU would draw ~0.93 GW: one nuclear reactor, ~16% of NYC's average load. Epoch's 2030 forecast for one training run (4-16 GW) spans 0.7x to 2.8x NYC's average load - the top end is ~1.5x NYC's 2025 summer peak (10.8 GW).",
+   "source": "Derived from PC Gamer/Huang, Epoch AI, NYISO",
+   "url": "https://epoch.ai/publications/power-demands-of-frontier-ai-training",
+   "date": "2026-10-04"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "Official GPT-6 Astra training duration, energy (MWh) or power draw",
+   "searched": "openai.com/index/gpt-6-astra (403 to WebFetch), Fortune, Stratechery, PC Gamer, Axios, OpenAI EU AI Act public summary PDF (gives tokens and dates, no energy/compute). Duration is undisclosed; the only 'roughly two months / a couple of months' figure is an unverified Emad Mostaque repost aggregated by agihunt.info - not used. Epoch assumes ~90 days."
+  },
+  {
+   "outline_item": "GPT-6 Sol (and Luna) training cluster/power",
+   "searched": "Wikipedia GPT-6 (Sol and Luna released Sep 22, 2026), Epoch DB (no compute/hardware fields for Sol/Luna). Nothing published; the 100k-GPU statements refer to Astra."
+  },
+  {
+   "outline_item": "OpenAI naming Abilene explicitly as Astra's training site",
+   "searched": "OpenAI (via Fortune) says 'our Stargate site in Texas'; Abilene attribution comes from Epoch AI's model notes ('100,000 GB200s in Abilene, Texas') and press. Treat 'Abilene' as reported, not OpenAI-confirmed."
+  },
+  {
+   "outline_item": "Con Edison NYC-specific consumption/peak figures",
+   "searched": "Used NYISO Zone J (New York City) Gold Book data instead, which is the grid operator's official NYC series; Con Edison figures not fetched."
+  },
+  {
+   "outline_item": "Hoover Dam photo",
+   "searched": "Wikimedia Commons returned 403/429 (rate limit) for '2017 Aerial view Hoover Dam 4771.jpg' (3798x2532, CC BY-SA 4.0, https://commons.wikimedia.org/wiki/File:2017_Aerial_view_Hoover_Dam_4771.jpg); usbr.gov later returned empty replies. Retry later if a photo is wanted."
+  },
+  {
+   "outline_item": "Verbatim 'user belief' that GPT-6 training used as much electricity as NYC in a week",
+   "searched": "No source makes this claim; arithmetic from verified inputs gives ~3.7 days (range ~2-6 days), i.e. about half a week. Note: total development compute (experiments + RL post-training + inference) is not disclosed and could be larger; Epoch says AI power is split roughly equally between training, experiments and inference."
+  }
+ ],
+ "arithmetic": {
+  "question": "Did training GPT-6 (Astra) on ~100k GPUs use about as much electricity as New York City uses in a week?",
+  "inputs": {
+   "gpu_count": {
+    "value": 100000,
+    "note": "'more than 100,000 GPUs' (OpenAI via Fortune; Brockman via Stratechery); GB200 NVL72 per Huang; Abilene bldg 1-2 = 100,800 GB200 (Epoch citing Crusoe)"
+   },
+   "kw_per_gpu_all_in": {
+    "low": 2.06,
+    "central": 2.327,
+    "high": 2.927,
+    "crosschecks": {
+     "hpe_rack_it_only": 1.833,
+     "spacex_colossus2_it": 1.909,
+     "epoch_hub_abilene_it": 2.093,
+     "spacex_it_x_crusoe_pue_1p2_to_1p3": [
+      2.291,
+      2.482
+     ]
+    },
+    "note": "low = Crusoe 206 MW / 100,000; central = Epoch 232.67 MW / 100,000 (1,200 W x 1.82 x PUE ~1.065); high = Epoch peak facility 295 MW / 100,800. All assume near-peak draw; real average draw is likely lower."
+   },
+   "training_days": {
+    "low": 60,
+    "central": 90,
+    "high": 120,
+    "note": "Undisclosed. 90 days = Epoch's assumption; Epoch notes many frontier runs now exceed 100 days."
+   },
+   "nyc_annual_GWh_2025": 50104,
+   "nyc_week_GWh": 960.9,
+   "nyc_avg_MW": 5719.6
+  },
+  "formula": "energy_GWh = gpus x kW_per_gpu x days x 24 / 1e6 ; nyc_weeks = energy_GWh / (50,104 x 7 / 365)",
+  "results": [
+   {
+    "scenario": "low",
+    "kW_per_gpu": 2.06,
+    "cluster_MW": 206.0,
+    "days": 60,
+    "energy_GWh": 296.6,
+    "nyc_weeks": 0.309,
+    "nyc_days": 2.16
+   },
+   {
+    "scenario": "central",
+    "kW_per_gpu": 2.327,
+    "cluster_MW": 232.7,
+    "days": 90,
+    "energy_GWh": 502.6,
+    "nyc_weeks": 0.523,
+    "nyc_days": 3.66
+   },
+   {
+    "scenario": "high",
+    "kW_per_gpu": 2.927,
+    "cluster_MW": 292.7,
+    "days": 120,
+    "energy_GWh": 842.9,
+    "nyc_weeks": 0.877,
+    "nyc_days": 6.14
+   }
+  ],
+  "sensitivity_nyc_days": {
+   "columns_days": [
+    60,
+    90,
+    120,
+    180
+   ],
+   "rows": {
+    "2.06 kW": [
+     2.16,
+     3.24,
+     4.32,
+     6.48
+    ],
+    "2.327 kW": [
+     2.44,
+     3.66,
+     4.88,
+     7.32
+    ],
+    "2.927 kW": [
+     3.07,
+     4.61,
+     6.14,
+     9.21
+    ]
+   }
+  },
+  "verdict": "Overstated by ~2x. Central estimate ~503 GWh = ~3.7 days (~0.52 week) of NYC electricity; plausible range ~2-6 days. Reaching a full NYC-week would need ~172 days of pretraining at ~233 MW, or ~137 days even at Epoch's peak facility power (~293 MW) - longer than any evidence suggests. Safe slide phrasing: 'Training GPT-6 Astra used roughly as much electricity as New York City uses in 3-4 days (Epoch-based estimate).'"
+ }
+}

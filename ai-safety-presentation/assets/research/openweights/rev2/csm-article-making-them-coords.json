@@ -1,0 +1,134 @@
+{
+ "url": "https://www.commonsensemedia.org/articles/teens-told-us-theyre-not-just-seeing-ai-nudes-theyre-making-them",
+ "viewport_width": 1280,
+ "device_scale_factor": 2,
+ "captured": "2026-10-04T11:23:35.612Z",
+ "shots": [
+  {
+   "file": "csm-article-making-them-headline-hero.png",
+   "image_px": [
+    1496,
+    1394
+   ],
+   "page_clip_css": [
+    266,
+    525,
+    748,
+    697
+   ],
+   "highlights": [
+    {
+     "text": "Teens told us they're not just seeing AI nudes — they're making them",
+     "line_rects_px": [
+      [
+       48,
+       48,
+       1354,
+       78
+      ],
+      [
+       48,
+       129,
+       595,
+       78
+      ]
+     ],
+     "bbox_px": [
+      48,
+      48,
+      1354,
+      159
+     ]
+    },
+    {
+     "text": "Our new survey finds that sexual deepfakes often involve friends, exes, and classmates—and parents are barely talking about them.",
+     "line_rects_px": [
+      [
+       48,
+       228,
+       1264,
+       60
+      ],
+      [
+       48,
+       292,
+       1339,
+       60
+      ],
+      [
+       48,
+       356,
+       268,
+       60
+      ]
+     ],
+     "bbox_px": [
+      48,
+      228,
+      1339,
+      188
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-article-making-them-made-it-passage.png",
+   "image_px": [
+    1496,
+    148
+   ],
+   "page_clip_css": [
+    266,
+    2357,
+    748,
+    74
+   ],
+   "highlights": [
+    {
+     "text": "Eight percent of all teens—roughly one in 12—said they had made AI sexual content themselves.",
+     "line_rects_px": [
+      [
+       48,
+       32,
+       1323,
+       38
+      ]
+     ],
+     "bbox_px": [
+      48,
+      32,
+      1323,
+      38
+     ]
+    },
+    {
+     "text": "Boys were nearly three times as likely as girls to do so: 11% versus 4%.",
+     "line_rects_px": [
+      [
+       1377,
+       32,
+       68,
+       38
+      ],
+      [
+       48,
+       80,
+       895,
+       38
+      ]
+     ],
+     "bbox_px": [
+      48,
+      32,
+      1397,
+      86
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-article-making-them-fullpage.png",
+   "note": "full page incl. nav and footer"
+  }
+ ]
+}

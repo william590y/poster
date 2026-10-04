@@ -1,0 +1,146 @@
+{
+ "source_pdf": "https://www.missingkids.org/content/dam/missingkids/pdfs/2025-cybertipline-report.pdf",
+ "dpi": 300,
+ "images": [
+  {
+   "file": "ncmec-2025-cybertipline-report-cover.png",
+   "pdf_page": 1,
+   "crop_of_page_px": [
+    0,
+    0,
+    3300,
+    2550
+   ],
+   "image_px": [
+    3300,
+    2550
+   ],
+   "highlights": []
+  },
+  {
+   "file": "ncmec-2025-cybertipline-report-p14-generative-ai.png",
+   "pdf_page": 14,
+   "crop_of_page_px": [
+    0,
+    0,
+    3300,
+    2550
+   ],
+   "image_px": [
+    3300,
+    2550
+   ],
+   "highlights": [
+    {
+     "text": "400,000 reports of exploitation with a GAI nexus.",
+     "line_rects_px": [
+      [
+       409,
+       593,
+       1303,
+       74
+      ]
+     ],
+     "bbox_px": [
+      409,
+      593,
+      1303,
+      74
+     ]
+    },
+    {
+     "text": "more than 182,000 reports involved offenders possessing, generating or attempting to generate GAI CSAM,",
+     "line_rects_px": [
+      [
+       1101,
+       732,
+       942,
+       74
+      ],
+      [
+       409,
+       815,
+       1568,
+       74
+      ],
+      [
+       409,
+       899,
+       302,
+       74
+      ]
+     ],
+     "bbox_px": [
+      409,
+      732,
+      1634,
+      241
+     ]
+    },
+    {
+     "text": "more than 275 victims of GAI CSAM have been identified,",
+     "line_rects_px": [
+      [
+       812,
+       1315,
+       1091,
+       74
+      ],
+      [
+       409,
+       1399,
+       415,
+       74
+      ]
+     ],
+     "bbox_px": [
+      409,
+      1315,
+      1494,
+      158
+     ]
+    },
+    {
+     "text": "158,000",
+     "line_rects_px": [
+      [
+       2297,
+       1235,
+       580,
+       183
+      ]
+     ],
+     "bbox_px": [
+      2297,
+      1235,
+      580,
+      183
+     ]
+    },
+    {
+     "text": "leveraging \"nudify\" apps to create and spread harmful content.",
+     "line_rects_px": [
+      [
+       1081,
+       1649,
+       887,
+       74
+      ],
+      [
+       409,
+       1732,
+       742,
+       74
+      ]
+     ],
+     "bbox_px": [
+      409,
+      1649,
+      1559,
+      157
+     ]
+    }
+   ]
+  }
+ ]
+}

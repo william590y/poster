@@ -1,0 +1,2430 @@
+{
+ "source_pdf": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+ "dpi": 300,
+ "page_px": [
+  2550,
+  3300
+ ],
+ "pages": [
+  {
+   "file": "csm-report-p01-cover.png",
+   "pdf_page": 1,
+   "printed_page": -1,
+   "image_px": [
+    2550,
+    3300
+   ],
+   "highlights": []
+  },
+  {
+   "file": "csm-report-p06-finding1-porn-exposure.png",
+   "pdf_page": 8,
+   "printed_page": 6,
+   "image_px": [
+    2550,
+    3300
+   ],
+   "highlights": [
+    {
+     "text": "Online pornography exposure remains high among U.S. teens, with 74% of teens reporting having ever seen online pornography, and most reporting exposure by age 12.",
+     "line_rects_px": [
+      [
+       146,
+       729,
+       1532,
+       83
+      ],
+      [
+       146,
+       820,
+       1386,
+       83
+      ],
+      [
+       146,
+       912,
+       1507,
+       83
+      ],
+      [
+       146,
+       1004,
+       602,
+       83
+      ]
+     ],
+     "bbox_px": [
+      146,
+      729,
+      1532,
+      358
+     ]
+    },
+    {
+     "text": "More than half (52%) first encountered it by age 12, including 12% by age 10 or younger.",
+     "line_rects_px": [
+      [
+       146,
+       1238,
+       1392,
+       58
+      ],
+      [
+       146,
+       1308,
+       378,
+       58
+      ]
+     ],
+     "bbox_px": [
+      146,
+      1238,
+      1392,
+      128
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p09-finding2-44pct-seen.png",
+   "pdf_page": 11,
+   "printed_page": 9,
+   "image_px": [
+    2550,
+    3300
+   ],
+   "highlights": [
+    {
+     "text": "Almost half of teens (44%) have seen sexual content they believe was AI-generated, and for most of them, the exposure was accidental.",
+     "line_rects_px": [
+      [
+       146,
+       328,
+       1570,
+       83
+      ],
+      [
+       146,
+       420,
+       1414,
+       83
+      ],
+      [
+       146,
+       511,
+       1067,
+       83
+      ]
+     ],
+     "bbox_px": [
+      146,
+      328,
+      1570,
+      266
+     ]
+    },
+    {
+     "text": "TikTok (33%), Instagram (27%), and X/Twitter (25%), among others.",
+     "line_rects_px": [
+      [
+       2253,
+       784,
+       148,
+       67
+      ],
+      [
+       291,
+       887,
+       1208,
+       58
+      ]
+     ],
+     "bbox_px": [
+      291,
+      784,
+      2110,
+      161
+     ]
+    },
+    {
+     "text": "79% say their exposure was accidental,",
+     "line_rects_px": [
+      [
+       1151,
+       999,
+       476,
+       58
+      ],
+      [
+       146,
+       1070,
+       313,
+       58
+      ]
+     ],
+     "bbox_px": [
+      146,
+      999,
+      1481,
+      129
+     ]
+    },
+    {
+     "text": "Sometimes when I'm scrolling through TikTok or Instagram, I see a lot of it, and it confuses me on what is real and what is not.",
+     "line_rects_px": [
+      [
+       1873,
+       714,
+       457,
+       67
+      ],
+      [
+       1891,
+       784,
+       565,
+       67
+      ],
+      [
+       1889,
+       855,
+       542,
+       67
+      ],
+      [
+       1890,
+       926,
+       575,
+       67
+      ],
+      [
+       1891,
+       997,
+       493,
+       67
+      ]
+     ],
+     "bbox_px": [
+      1873,
+      714,
+      592,
+      350
+     ]
+    },
+    {
+     "text": "44%",
+     "line_rects_px": [
+      [
+       1926,
+       1884,
+       141,
+       101
+      ]
+     ],
+     "bbox_px": [
+      1926,
+      1884,
+      141,
+      101
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p10-figE-platforms.png",
+   "pdf_page": 12,
+   "printed_page": 10,
+   "image_px": [
+    2550,
+    3300
+   ],
+   "highlights": [
+    {
+     "text": "Social media (Net)",
+     "line_rects_px": [
+      [
+       325,
+       471,
+       301,
+       58
+      ]
+     ],
+     "bbox_px": [
+      325,
+      471,
+      301,
+      58
+     ]
+    },
+    {
+     "text": "82%",
+     "line_rects_px": [
+      [
+       2304,
+       475,
+       73,
+       54
+      ]
+     ],
+     "bbox_px": [
+      2304,
+      475,
+      73,
+      54
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p11-finding3-24pct-self-or-known.png",
+   "pdf_page": 13,
+   "printed_page": 11,
+   "image_px": [
+    2550,
+    3300
+   ],
+   "highlights": [
+    {
+     "text": "Among teens who have ever seen AI-generated sexual content, 24% report having seen content of themselves or someone else they know personally.",
+     "line_rects_px": [
+      [
+       146,
+       328,
+       1428,
+       83
+      ],
+      [
+       146,
+       420,
+       1518,
+       83
+      ],
+      [
+       146,
+       511,
+       1530,
+       83
+      ]
+     ],
+     "bbox_px": [
+      146,
+      328,
+      1530,
+      266
+     ]
+    },
+    {
+     "text": "almost two- thirds (64%) have seen it featuring celebrities,",
+     "line_rects_px": [
+      [
+       1415,
+       674,
+       248,
+       58
+      ],
+      [
+       146,
+       745,
+       928,
+       58
+      ]
+     ],
+     "bbox_px": [
+      146,
+      674,
+      1517,
+      129
+     ]
+    },
+    {
+     "text": "nearly one quarter (24%) have seen it featuring themselves or people they know personally.",
+     "line_rects_px": [
+      [
+       1159,
+       745,
+       510,
+       58
+      ],
+      [
+       146,
+       816,
+       1325,
+       58
+      ]
+     ],
+     "bbox_px": [
+      146,
+      745,
+      1523,
+      129
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p12-finding4-18pct-created.png",
+   "pdf_page": 14,
+   "printed_page": 12,
+   "image_px": [
+    2550,
+    3300
+   ],
+   "highlights": [
+    {
+     "text": "Nearly 1 in 5 teens (18%) have created AI-generated sexual content themselves or know someone who has, and over half say it targeted people they know.",
+     "line_rects_px": [
+      [
+       146,
+       328,
+       1575,
+       83
+      ],
+      [
+       146,
+       420,
+       1506,
+       83
+      ],
+      [
+       146,
+       511,
+       1548,
+       83
+      ]
+     ],
+     "bbox_px": [
+      146,
+      328,
+      1575,
+      266
+     ]
+    },
+    {
+     "text": "Eight percent of teens report having personally created AI-generated sexual content,",
+     "line_rects_px": [
+      [
+       146,
+       674,
+       1515,
+       58
+      ],
+      [
+       146,
+       745,
+       174,
+       58
+      ]
+     ],
+     "bbox_px": [
+      146,
+      674,
+      1515,
+      129
+     ]
+    },
+    {
+     "text": "(11% of boys vs. 4% of girls).",
+     "line_rects_px": [
+      [
+       146,
+       887,
+       564,
+       58
+      ]
+     ],
+     "bbox_px": [
+      146,
+      887,
+      564,
+      58
+     ]
+    },
+    {
+     "text": "With no hurdles or anything you have to jump over, you can just do it right there.",
+     "line_rects_px": [
+      [
+       1873,
+       722,
+       418,
+       67
+      ],
+      [
+       1890,
+       793,
+       447,
+       67
+      ],
+      [
+       1891,
+       863,
+       484,
+       67
+      ],
+      [
+       1891,
+       934,
+       363,
+       67
+      ]
+     ],
+     "bbox_px": [
+      1873,
+      722,
+      502,
+      279
+     ]
+    },
+    {
+     "text": "63%",
+     "line_rects_px": [
+      [
+       1022,
+       1606,
+       299,
+       213
+      ]
+     ],
+     "bbox_px": [
+      1022,
+      1606,
+      299,
+      213
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p13-finding5-25pct-shared.png",
+   "pdf_page": 15,
+   "printed_page": 13,
+   "image_px": [
+    2550,
+    3300
+   ],
+   "highlights": [
+    {
+     "text": "One-quarter (25%) of teens have either sent or shared AI-generated sexual content themselves or know someone who has sent this content, often on common channels like social media, group chats, and DMs.",
+     "line_rects_px": [
+      [
+       146,
+       328,
+       1411,
+       83
+      ],
+      [
+       146,
+       420,
+       1529,
+       83
+      ],
+      [
+       146,
+       511,
+       1532,
+       83
+      ],
+      [
+       146,
+       603,
+       1462,
+       83
+      ],
+      [
+       146,
+       695,
+       291,
+       83
+      ]
+     ],
+     "bbox_px": [
+      146,
+      328,
+      1532,
+      450
+     ]
+    },
+    {
+     "text": "nearly half (44%) say the content depicted themselves or people they know,",
+     "line_rects_px": [
+      [
+       1025,
+       999,
+       652,
+       58
+      ],
+      [
+       146,
+       1070,
+       832,
+       58
+      ]
+     ],
+     "bbox_px": [
+      146,
+      999,
+      1531,
+      129
+     ]
+    },
+    {
+     "text": "44%",
+     "line_rects_px": [
+      [
+       1255,
+       1779,
+       315,
+       224
+      ]
+     ],
+     "bbox_px": [
+      1255,
+      1779,
+      315,
+      224
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p14-finding6-67pct-worried.png",
+   "pdf_page": 16,
+   "printed_page": 14,
+   "image_px": [
+    2550,
+    3300
+   ],
+   "highlights": [
+    {
+     "text": "Two-thirds of teens (67%) are worried about being depicted in deepfakes without their consent, and many are changing their online behaviors to protect themselves.",
+     "line_rects_px": [
+      [
+       146,
+       328,
+       1520,
+       83
+      ],
+      [
+       146,
+       420,
+       1481,
+       83
+      ],
+      [
+       146,
+       511,
+       1329,
+       83
+      ],
+      [
+       146,
+       603,
+       608,
+       83
+      ]
+     ],
+     "bbox_px": [
+      146,
+      328,
+      1520,
+      358
+     ]
+    },
+    {
+     "text": "30% have made their social media accounts private,",
+     "line_rects_px": [
+      [
+       1106,
+       978,
+       543,
+       58
+      ],
+      [
+       146,
+       1049,
+       475,
+       58
+      ]
+     ],
+     "bbox_px": [
+      146,
+      978,
+      1503,
+      129
+     ]
+    },
+    {
+     "text": "9% have deleted social media accounts entirely.",
+     "line_rects_px": [
+      [
+       228,
+       1120,
+       938,
+       58
+      ]
+     ],
+     "bbox_px": [
+      228,
+      1120,
+      938,
+      58
+     ]
+    },
+    {
+     "text": "67%",
+     "line_rects_px": [
+      [
+       460,
+       2295,
+       152,
+       109
+      ]
+     ],
+     "bbox_px": [
+      460,
+      2295,
+      152,
+      109
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p15-finding7-distorting-bodies.png",
+   "pdf_page": 17,
+   "printed_page": 15,
+   "image_px": [
+    2550,
+    3300
+   ],
+   "highlights": [
+    {
+     "text": "Nearly two-thirds of teens think AI-generated sexual content is distorting how peers see bodies, relationships, and intimacy.",
+     "line_rects_px": [
+      [
+       146,
+       328,
+       1399,
+       83
+      ],
+      [
+       146,
+       420,
+       1497,
+       83
+      ],
+      [
+       146,
+       511,
+       836,
+       83
+      ]
+     ],
+     "bbox_px": [
+      146,
+      328,
+      1497,
+      266
+     ]
+    },
+    {
+     "text": "It puts a lot of pressure on the other person. It definitely alters your brain a little bit because just seeing that, especially before your frontal lobe is developed, whether you're 13 or 19, it's going to make you think about what bodies should look like and how you should be having sex.",
+     "line_rects_px": [
+      [
+       130,
+       2624,
+       1475,
+       82
+      ],
+      [
+       149,
+       2708,
+       1355,
+       82
+      ],
+      [
+       148,
+       2791,
+       1475,
+       82
+      ],
+      [
+       144,
+       2874,
+       1466,
+       82
+      ],
+      [
+       148,
+       2958,
+       1532,
+       82
+      ]
+     ],
+     "bbox_px": [
+      130,
+      2624,
+      1550,
+      416
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p16-finding8-20pct-trusted-adult.png",
+   "pdf_page": 18,
+   "printed_page": 16,
+   "image_px": [
+    2550,
+    3300
+   ],
+   "highlights": [
+    {
+     "text": "Only 20% of teens have discussed AI-generated sexual content with a trusted adult, and a third want to but don't know how to start.",
+     "line_rects_px": [
+      [
+       146,
+       1793,
+       1437,
+       83
+      ],
+      [
+       146,
+       1885,
+       1417,
+       83
+      ],
+      [
+       146,
+       1976,
+       1108,
+       83
+      ]
+     ],
+     "bbox_px": [
+      146,
+      1793,
+      1437,
+      266
+     ]
+    },
+    {
+     "text": "We grew as AI grew. We grew up together. Adults don't have the same life experience that we do. They don't understand how advanced and how intense AI is.",
+     "line_rects_px": [
+      [
+       1873,
+       1479,
+       445,
+       67
+      ],
+      [
+       1887,
+       1550,
+       451,
+       67
+      ],
+      [
+       1887,
+       1621,
+       453,
+       67
+      ],
+      [
+       1891,
+       1692,
+       430,
+       67
+      ],
+      [
+       1890,
+       1763,
+       356,
+       67
+      ],
+      [
+       1891,
+       1834,
+       467,
+       67
+      ],
+      [
+       1890,
+       1904,
+       402,
+       67
+      ],
+      [
+       1891,
+       1975,
+       291,
+       67
+      ]
+     ],
+     "bbox_px": [
+      1873,
+      1479,
+      485,
+      563
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p17-finding9-82pct-illegal.png",
+   "pdf_page": 19,
+   "printed_page": 17,
+   "image_px": [
+    2550,
+    3300
+   ],
+   "highlights": [
+    {
+     "text": "Most teens believe creating AI-generated sexual content of someone without their permission should be illegal, but nearly a quarter of teens believe this content is less harmful because no one gets hurt.",
+     "line_rects_px": [
+      [
+       146,
+       328,
+       1469,
+       83
+      ],
+      [
+       146,
+       420,
+       1373,
+       83
+      ],
+      [
+       146,
+       511,
+       1383,
+       83
+      ],
+      [
+       146,
+       603,
+       1524,
+       83
+      ],
+      [
+       146,
+       695,
+       295,
+       83
+      ]
+     ],
+     "bbox_px": [
+      146,
+      328,
+      1524,
+      450
+     ]
+    },
+    {
+     "text": "82% agree that creating this content without the subject's permission should be illegal.",
+     "line_rects_px": [
+      [
+       401,
+       999,
+       1146,
+       58
+      ],
+      [
+       146,
+       1070,
+       558,
+       58
+      ]
+     ],
+     "bbox_px": [
+      146,
+      999,
+      1401,
+      129
+     ]
+    },
+    {
+     "text": "Nearly one-quarter of these teens (23%) believe that AI-generated nudes and sexual content are less harmful than real pornography because \"no one gets hurt,\"",
+     "line_rects_px": [
+      [
+       705,
+       1070,
+       951,
+       58
+      ],
+      [
+       146,
+       1141,
+       1374,
+       58
+      ],
+      [
+       146,
+       1212,
+       803,
+       58
+      ]
+     ],
+     "bbox_px": [
+      146,
+      1070,
+      1510,
+      200
+     ]
+    },
+    {
+     "text": "Creating AI-generated nudes and sexual content of someone without permission should be illegal",
+     "line_rects_px": [
+      [
+       182,
+       1699,
+       1766,
+       64
+      ]
+     ],
+     "bbox_px": [
+      182,
+      1699,
+      1766,
+      64
+     ]
+    },
+    {
+     "text": "82%",
+     "line_rects_px": [
+      [
+       1800,
+       1812,
+       73,
+       45
+      ]
+     ],
+     "bbox_px": [
+      1800,
+      1812,
+      73,
+      45
+     ]
+    },
+    {
+     "text": "AI-generated nudes and sexual content is less harmful than real porn because no one gets hurt",
+     "line_rects_px": [
+      [
+       182,
+       2242,
+       1717,
+       64
+      ]
+     ],
+     "bbox_px": [
+      182,
+      2242,
+      1717,
+      64
+     ]
+    },
+    {
+     "text": "23%",
+     "line_rects_px": [
+      [
+       552,
+       2350,
+       73,
+       45
+      ]
+     ],
+     "bbox_px": [
+      552,
+      2350,
+      73,
+      45
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p46-methodology.png",
+   "pdf_page": 48,
+   "printed_page": 46,
+   "image_px": [
+    2550,
+    3300
+   ],
+   "highlights": [
+    {
+     "text": "Data collection was conducted from September 22, 2025, to February 26, 2026.",
+     "line_rects_px": [
+      [
+       1371,
+       1042,
+       314,
+       58
+      ],
+      [
+       146,
+       1112,
+       1292,
+       58
+      ]
+     ],
+     "bbox_px": [
+      146,
+      1042,
+      1539,
+      128
+     ]
+    },
+    {
+     "text": "The survey was conducted among N = 1,314 respondents.",
+     "line_rects_px": [
+      [
+       146,
+       1225,
+       1161,
+       62
+      ]
+     ],
+     "bbox_px": [
+      146,
+      1225,
+      1161,
+      62
+     ]
+    },
+    {
+     "text": "\u00b12.7 percentage points,",
+     "line_rects_px": [
+      [
+       966,
+       1367,
+       481,
+       58
+      ]
+     ],
+     "bbox_px": [
+      966,
+      1367,
+      481,
+      58
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p47-methodology-survey-dates.png",
+   "pdf_page": 49,
+   "printed_page": 47,
+   "image_px": [
+    2550,
+    3300
+   ],
+   "highlights": [
+    {
+     "text": "12-minute online survey of 1,314 teens age 13 to 17 in the United States",
+     "line_rects_px": [
+      [
+       146,
+       2690,
+       1461,
+       58
+      ]
+     ],
+     "bbox_px": [
+      146,
+      2690,
+      1461,
+      58
+     ]
+    },
+    {
+     "text": "Data collection was conducted from November 21, 2025, to December 9, 2025.",
+     "line_rects_px": [
+      [
+       854,
+       2832,
+       731,
+       58
+      ],
+      [
+       146,
+       2902,
+       865,
+       58
+      ]
+     ],
+     "bbox_px": [
+      146,
+      2832,
+      1439,
+      128
+     ]
+    }
+   ]
+  }
+ ],
+ "crops": [
+  {
+   "file": "csm-report-p09-finding2-statement-crop.png",
+   "pdf_page": 11,
+   "printed_page": 9,
+   "crop_of_page_px": [
+    110,
+    178,
+    2440,
+    1152
+   ],
+   "image_px": [
+    2440,
+    1152
+   ],
+   "highlights": [
+    {
+     "text": "Almost half of teens (44%) have seen sexual content they believe was AI-generated, and for most of them, the exposure was accidental.",
+     "line_rects_px": [
+      [
+       36,
+       150,
+       1570,
+       83
+      ],
+      [
+       36,
+       242,
+       1414,
+       83
+      ],
+      [
+       36,
+       333,
+       1067,
+       83
+      ]
+     ],
+     "bbox_px": [
+      36,
+      150,
+      1570,
+      266
+     ]
+    },
+    {
+     "text": "TikTok (33%), Instagram (27%), and X/Twitter (25%), among others.",
+     "line_rects_px": [
+      [
+       2143,
+       606,
+       148,
+       67
+      ],
+      [
+       181,
+       709,
+       1208,
+       58
+      ]
+     ],
+     "bbox_px": [
+      181,
+      606,
+      2110,
+      161
+     ]
+    },
+    {
+     "text": "79% say their exposure was accidental,",
+     "line_rects_px": [
+      [
+       1041,
+       821,
+       476,
+       58
+      ],
+      [
+       36,
+       892,
+       313,
+       58
+      ]
+     ],
+     "bbox_px": [
+      36,
+      821,
+      1481,
+      129
+     ]
+    },
+    {
+     "text": "Sometimes when I'm scrolling through TikTok or Instagram, I see a lot of it, and it confuses me on what is real and what is not.",
+     "line_rects_px": [
+      [
+       1763,
+       536,
+       457,
+       67
+      ],
+      [
+       1781,
+       606,
+       565,
+       67
+      ],
+      [
+       1779,
+       677,
+       542,
+       67
+      ],
+      [
+       1780,
+       748,
+       575,
+       67
+      ],
+      [
+       1781,
+       819,
+       493,
+       67
+      ]
+     ],
+     "bbox_px": [
+      1763,
+      536,
+      592,
+      350
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p09-figD-44pct-donut-crop.png",
+   "pdf_page": 11,
+   "printed_page": 9,
+   "crop_of_page_px": [
+    110,
+    1327,
+    2330,
+    1702
+   ],
+   "image_px": [
+    2330,
+    1702
+   ],
+   "highlights": [
+    {
+     "text": "Yes, I have seen sexual content that I believed was AI-generated",
+     "line_rects_px": [
+      [
+       1816,
+       402,
+       423,
+       55
+      ],
+      [
+       1816,
+       455,
+       429,
+       55
+      ],
+      [
+       1816,
+       507,
+       339,
+       55
+      ]
+     ],
+     "bbox_px": [
+      1816,
+      402,
+      429,
+      160
+     ]
+    },
+    {
+     "text": "44%",
+     "line_rects_px": [
+      [
+       1816,
+       557,
+       141,
+       101
+      ]
+     ],
+     "bbox_px": [
+      1816,
+      557,
+      141,
+      101
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p10-figE-platforms-crop.png",
+   "pdf_page": 12,
+   "printed_page": 10,
+   "crop_of_page_px": [
+    110,
+    182,
+    2330,
+    1274
+   ],
+   "image_px": [
+    2330,
+    1274
+   ],
+   "highlights": [
+    {
+     "text": "Social media (Net)",
+     "line_rects_px": [
+      [
+       215,
+       289,
+       301,
+       58
+      ]
+     ],
+     "bbox_px": [
+      215,
+      289,
+      301,
+      58
+     ]
+    },
+    {
+     "text": "82%",
+     "line_rects_px": [
+      [
+       2194,
+       293,
+       73,
+       54
+      ]
+     ],
+     "bbox_px": [
+      2194,
+      293,
+      73,
+      54
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p11-finding3-statement-crop.png",
+   "pdf_page": 13,
+   "printed_page": 11,
+   "crop_of_page_px": [
+    110,
+    178,
+    2330,
+    897
+   ],
+   "image_px": [
+    2330,
+    897
+   ],
+   "highlights": [
+    {
+     "text": "Among teens who have ever seen AI-generated sexual content, 24% report having seen content of themselves or someone else they know personally.",
+     "line_rects_px": [
+      [
+       36,
+       150,
+       1428,
+       83
+      ],
+      [
+       36,
+       242,
+       1518,
+       83
+      ],
+      [
+       36,
+       333,
+       1530,
+       83
+      ]
+     ],
+     "bbox_px": [
+      36,
+      150,
+      1530,
+      266
+     ]
+    },
+    {
+     "text": "almost two- thirds (64%) have seen it featuring celebrities,",
+     "line_rects_px": [
+      [
+       1305,
+       496,
+       248,
+       58
+      ],
+      [
+       36,
+       567,
+       928,
+       58
+      ]
+     ],
+     "bbox_px": [
+      36,
+      496,
+      1517,
+      129
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p11-figF-by-gender-crop.png",
+   "pdf_page": 13,
+   "printed_page": 11,
+   "crop_of_page_px": [
+    110,
+    1102,
+    2330,
+    1650
+   ],
+   "image_px": [
+    2330,
+    1650
+   ],
+   "highlights": [
+    {
+     "text": "24%",
+     "line_rects_px": [
+      [
+       151,
+       395,
+       77,
+       57
+      ]
+     ],
+     "bbox_px": [
+      151,
+      395,
+      77,
+      57
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p12-finding4-statement-crop.png",
+   "pdf_page": 14,
+   "printed_page": 12,
+   "crop_of_page_px": [
+    110,
+    178,
+    2440,
+    998
+   ],
+   "image_px": [
+    2440,
+    998
+   ],
+   "highlights": [
+    {
+     "text": "Nearly 1 in 5 teens (18%) have created AI-generated sexual content themselves or know someone who has, and over half say it targeted people they know.",
+     "line_rects_px": [
+      [
+       36,
+       150,
+       1575,
+       83
+      ],
+      [
+       36,
+       242,
+       1506,
+       83
+      ],
+      [
+       36,
+       333,
+       1548,
+       83
+      ]
+     ],
+     "bbox_px": [
+      36,
+      150,
+      1575,
+      266
+     ]
+    },
+    {
+     "text": "Eight percent of teens report having personally created AI-generated sexual content,",
+     "line_rects_px": [
+      [
+       36,
+       496,
+       1515,
+       58
+      ],
+      [
+       36,
+       567,
+       174,
+       58
+      ]
+     ],
+     "bbox_px": [
+      36,
+      496,
+      1515,
+      129
+     ]
+    },
+    {
+     "text": "(11% of boys vs. 4% of girls).",
+     "line_rects_px": [
+      [
+       36,
+       709,
+       564,
+       58
+      ]
+     ],
+     "bbox_px": [
+      36,
+      709,
+      564,
+      58
+     ]
+    },
+    {
+     "text": "With no hurdles or anything you have to jump over, you can just do it right there.",
+     "line_rects_px": [
+      [
+       1763,
+       544,
+       418,
+       67
+      ],
+      [
+       1780,
+       615,
+       447,
+       67
+      ],
+      [
+       1781,
+       685,
+       484,
+       67
+      ],
+      [
+       1781,
+       756,
+       363,
+       67
+      ]
+     ],
+     "bbox_px": [
+      1763,
+      544,
+      502,
+      279
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p12-figG-63pct-created-crop.png",
+   "pdf_page": 14,
+   "printed_page": 12,
+   "crop_of_page_px": [
+    110,
+    1242,
+    2330,
+    1329
+   ],
+   "image_px": [
+    2330,
+    1329
+   ],
+   "highlights": [
+    {
+     "text": "63%",
+     "line_rects_px": [
+      [
+       912,
+       364,
+       299,
+       213
+      ]
+     ],
+     "bbox_px": [
+      912,
+      364,
+      299,
+      213
+     ]
+    },
+    {
+     "text": "say the content depicted themselves or people they know personally",
+     "line_rects_px": [
+      [
+       924,
+       557,
+       580,
+       48
+      ],
+      [
+       924,
+       601,
+       500,
+       48
+      ]
+     ],
+     "bbox_px": [
+      924,
+      557,
+      580,
+      92
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p13-finding5-statement-crop.png",
+   "pdf_page": 15,
+   "printed_page": 13,
+   "crop_of_page_px": [
+    110,
+    178,
+    2330,
+    1222
+   ],
+   "image_px": [
+    2330,
+    1222
+   ],
+   "highlights": [
+    {
+     "text": "One-quarter (25%) of teens have either sent or shared AI-generated sexual content themselves or know someone who has sent this content, often on common channels like social media, group chats, and DMs.",
+     "line_rects_px": [
+      [
+       36,
+       150,
+       1411,
+       83
+      ],
+      [
+       36,
+       242,
+       1529,
+       83
+      ],
+      [
+       36,
+       333,
+       1532,
+       83
+      ],
+      [
+       36,
+       425,
+       1462,
+       83
+      ],
+      [
+       36,
+       517,
+       291,
+       83
+      ]
+     ],
+     "bbox_px": [
+      36,
+      150,
+      1532,
+      450
+     ]
+    },
+    {
+     "text": "nearly half (44%) say the content depicted themselves or people they know,",
+     "line_rects_px": [
+      [
+       915,
+       821,
+       652,
+       58
+      ],
+      [
+       36,
+       892,
+       832,
+       58
+      ]
+     ],
+     "bbox_px": [
+      36,
+      821,
+      1531,
+      129
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p13-figH-44pct-shared-crop.png",
+   "pdf_page": 15,
+   "printed_page": 13,
+   "crop_of_page_px": [
+    110,
+    1400,
+    2330,
+    1355
+   ],
+   "image_px": [
+    2330,
+    1355
+   ],
+   "highlights": [
+    {
+     "text": "44%",
+     "line_rects_px": [
+      [
+       1145,
+       379,
+       315,
+       224
+      ]
+     ],
+     "bbox_px": [
+      1145,
+      379,
+      315,
+      224
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p14-finding6-statement-crop.png",
+   "pdf_page": 16,
+   "printed_page": 14,
+   "crop_of_page_px": [
+    110,
+    178,
+    2330,
+    1060
+   ],
+   "image_px": [
+    2330,
+    1060
+   ],
+   "highlights": [
+    {
+     "text": "Two-thirds of teens (67%) are worried about being depicted in deepfakes without their consent, and many are changing their online behaviors to protect themselves.",
+     "line_rects_px": [
+      [
+       36,
+       150,
+       1520,
+       83
+      ],
+      [
+       36,
+       242,
+       1481,
+       83
+      ],
+      [
+       36,
+       333,
+       1329,
+       83
+      ],
+      [
+       36,
+       425,
+       608,
+       83
+      ]
+     ],
+     "bbox_px": [
+      36,
+      150,
+      1520,
+      358
+     ]
+    },
+    {
+     "text": "30% have made their social media accounts private,",
+     "line_rects_px": [
+      [
+       996,
+       800,
+       543,
+       58
+      ],
+      [
+       36,
+       871,
+       475,
+       58
+      ]
+     ],
+     "bbox_px": [
+      36,
+      800,
+      1503,
+      129
+     ]
+    },
+    {
+     "text": "9% have deleted social media accounts entirely.",
+     "line_rects_px": [
+      [
+       118,
+       942,
+       938,
+       58
+      ]
+     ],
+     "bbox_px": [
+      118,
+      942,
+      938,
+      58
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p14-figI-67pct-worried-crop.png",
+   "pdf_page": 16,
+   "printed_page": 14,
+   "crop_of_page_px": [
+    110,
+    1240,
+    2330,
+    1751
+   ],
+   "image_px": [
+    2330,
+    1751
+   ],
+   "highlights": [
+    {
+     "text": "67%",
+     "line_rects_px": [
+      [
+       350,
+       1055,
+       152,
+       109
+      ]
+     ],
+     "bbox_px": [
+      350,
+      1055,
+      152,
+      109
+     ]
+    },
+    {
+     "text": "Somewhat, pretty, or extremely worried",
+     "line_rects_px": [
+      [
+       69,
+       953,
+       430,
+       59
+      ],
+      [
+       115,
+       1010,
+       384,
+       59
+      ]
+     ],
+     "bbox_px": [
+      69,
+      953,
+      430,
+      116
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p15-figJ-distortion-crop.png",
+   "pdf_page": 17,
+   "printed_page": 15,
+   "crop_of_page_px": [
+    110,
+    1047,
+    2330,
+    1345
+   ],
+   "image_px": [
+    2330,
+    1345
+   ],
+   "highlights": [
+    {
+     "text": "What bodies should look like",
+     "line_rects_px": [
+      [
+       287,
+       273,
+       216,
+       59
+      ],
+      [
+       242,
+       318,
+       262,
+       59
+      ]
+     ],
+     "bbox_px": [
+      242,
+      273,
+      262,
+      104
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p16-finding8-statement-crop.png",
+   "pdf_page": 18,
+   "printed_page": 16,
+   "crop_of_page_px": [
+    110,
+    1643,
+    1635,
+    1406
+   ],
+   "image_px": [
+    1635,
+    1406
+   ],
+   "highlights": [
+    {
+     "text": "Only 20% of teens have discussed AI-generated sexual content with a trusted adult, and a third want to but don't know how to start.",
+     "line_rects_px": [
+      [
+       36,
+       150,
+       1437,
+       83
+      ],
+      [
+       36,
+       242,
+       1417,
+       83
+      ],
+      [
+       36,
+       333,
+       1108,
+       83
+      ]
+     ],
+     "bbox_px": [
+      36,
+      150,
+      1437,
+      266
+     ]
+    },
+    {
+     "text": "We grew as AI grew. We grew up together. Adults don't have the same life experience that we do. They don't understand how advanced and how intense AI is.",
+     "line_rects_px": [
+      [
+       1763,
+       -164,
+       445,
+       67
+      ],
+      [
+       1777,
+       -93,
+       451,
+       67
+      ],
+      [
+       1777,
+       -22,
+       453,
+       67
+      ],
+      [
+       1781,
+       49,
+       430,
+       67
+      ],
+      [
+       1780,
+       120,
+       356,
+       67
+      ],
+      [
+       1781,
+       191,
+       467,
+       67
+      ],
+      [
+       1780,
+       261,
+       402,
+       67
+      ],
+      [
+       1781,
+       332,
+       291,
+       67
+      ]
+     ],
+     "bbox_px": [
+      1763,
+      -164,
+      485,
+      563
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p17-finding9-statement-crop.png",
+   "pdf_page": 19,
+   "printed_page": 17,
+   "crop_of_page_px": [
+    110,
+    178,
+    2330,
+    1222
+   ],
+   "image_px": [
+    2330,
+    1222
+   ],
+   "highlights": [
+    {
+     "text": "Most teens believe creating AI-generated sexual content of someone without their permission should be illegal, but nearly a quarter of teens believe this content is less harmful because no one gets hurt.",
+     "line_rects_px": [
+      [
+       36,
+       150,
+       1469,
+       83
+      ],
+      [
+       36,
+       242,
+       1373,
+       83
+      ],
+      [
+       36,
+       333,
+       1383,
+       83
+      ],
+      [
+       36,
+       425,
+       1524,
+       83
+      ],
+      [
+       36,
+       517,
+       295,
+       83
+      ]
+     ],
+     "bbox_px": [
+      36,
+      150,
+      1524,
+      450
+     ]
+    },
+    {
+     "text": "82% agree that creating this content without the subject's permission should be illegal.",
+     "line_rects_px": [
+      [
+       291,
+       821,
+       1146,
+       58
+      ],
+      [
+       36,
+       892,
+       558,
+       58
+      ]
+     ],
+     "bbox_px": [
+      36,
+      821,
+      1401,
+      129
+     ]
+    },
+    {
+     "text": "Nearly one-quarter of these teens (23%) believe that AI-generated nudes and sexual content are less harmful than real pornography because \"no one gets hurt,\"",
+     "line_rects_px": [
+      [
+       595,
+       892,
+       951,
+       58
+      ],
+      [
+       36,
+       963,
+       1374,
+       58
+      ],
+      [
+       36,
+       1034,
+       803,
+       58
+      ]
+     ],
+     "bbox_px": [
+      36,
+      892,
+      1510,
+      200
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p17-figK-82pct-illegal-crop.png",
+   "pdf_page": 19,
+   "printed_page": 17,
+   "crop_of_page_px": [
+    110,
+    1422,
+    2330,
+    1322
+   ],
+   "image_px": [
+    2330,
+    1322
+   ],
+   "highlights": [
+    {
+     "text": "Creating AI-generated nudes and sexual content of someone without permission should be illegal",
+     "line_rects_px": [
+      [
+       72,
+       277,
+       1766,
+       64
+      ]
+     ],
+     "bbox_px": [
+      72,
+      277,
+      1766,
+      64
+     ]
+    },
+    {
+     "text": "82%",
+     "line_rects_px": [
+      [
+       1690,
+       390,
+       73,
+       45
+      ]
+     ],
+     "bbox_px": [
+      1690,
+      390,
+      73,
+      45
+     ]
+    },
+    {
+     "text": "AI-generated nudes and sexual content is less harmful than real porn because no one gets hurt",
+     "line_rects_px": [
+      [
+       72,
+       820,
+       1717,
+       64
+      ]
+     ],
+     "bbox_px": [
+      72,
+      820,
+      1717,
+      64
+     ]
+    },
+    {
+     "text": "23%",
+     "line_rects_px": [
+      [
+       442,
+       928,
+       73,
+       45
+      ]
+     ],
+     "bbox_px": [
+      442,
+      928,
+      73,
+      45
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p16-finding8-quote-we-grew-crop.png",
+   "pdf_page": 18,
+   "printed_page": 16,
+   "crop_of_page_px": [
+    1700,
+    1369,
+    850,
+    885
+   ],
+   "image_px": [
+    850,
+    885
+   ],
+   "highlights": [
+    {
+     "text": "We grew as AI grew. We grew up together. Adults don't have the same life experience that we do. They don't understand how advanced and how intense AI is.",
+     "line_rects_px": [
+      [
+       173,
+       110,
+       445,
+       67
+      ],
+      [
+       187,
+       181,
+       451,
+       67
+      ],
+      [
+       187,
+       252,
+       453,
+       67
+      ],
+      [
+       191,
+       323,
+       430,
+       67
+      ],
+      [
+       190,
+       394,
+       356,
+       67
+      ],
+      [
+       191,
+       465,
+       467,
+       67
+      ],
+      [
+       190,
+       535,
+       402,
+       67
+      ],
+      [
+       191,
+       606,
+       291,
+       67
+      ]
+     ],
+     "bbox_px": [
+      173,
+      110,
+      485,
+      563
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p15-finding7-quote-pressure-crop.png",
+   "pdf_page": 17,
+   "printed_page": 15,
+   "crop_of_page_px": [
+    0,
+    2474,
+    2550,
+    794
+   ],
+   "image_px": [
+    2550,
+    794
+   ],
+   "highlights": [
+    {
+     "text": "It puts a lot of pressure on the other person. It definitely alters your brain a little bit because just seeing that, especially before your frontal lobe is developed, whether you're 13 or 19, it's going to make you think about what bodies should look like and how you should be having sex.",
+     "line_rects_px": [
+      [
+       130,
+       150,
+       1475,
+       82
+      ],
+      [
+       149,
+       234,
+       1355,
+       82
+      ],
+      [
+       148,
+       317,
+       1475,
+       82
+      ],
+      [
+       144,
+       400,
+       1466,
+       82
+      ],
+      [
+       148,
+       484,
+       1532,
+       82
+      ]
+     ],
+     "bbox_px": [
+      130,
+      150,
+      1550,
+      416
+     ]
+    }
+   ]
+  }
+ ]
+}

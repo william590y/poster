@@ -1,7 +1,13 @@
 # AI Safety and Existential Risk — presentation
 
-**Deliverable:** [`AI_Safety_and_Existential_Risk.pptx`](AI_Safety_and_Existential_Risk.pptx) (16:9, 80 slides, with transitions,
-entrance animations, embedded YouTube videos and speaker notes on every slide).
+**Deliverable:** `AI_Safety_and_Existential_Risk.pptx` (16:9, 96 slides, with transitions, entrance animations, looping GIF
+clips, embedded YouTube videos and speaker notes on every slide), plus an interactive web version for williamliaw.com/aisafety/
+(`tools/export_web.py`).
+
+> **File size.** The full-quality build is ~780 MB, almost all of it looping GIF clips (quality was preferred over size).
+> That is over GitHub's 100 MB per-file limit, so the built deck and the few source clips larger than 45 MB are not committed
+> here. **Download the full deck from the [`ai-safety-deck` release](https://github.com/william590y/poster/releases/tag/ai-safety-deck).**
+> The web version re-encodes every clip as H.264/VP9 video (~2 MB each).
 
 Built from William Liaw's one-page outline (`assets/original/outline.pptx`), expanded into five acts:
 
@@ -63,6 +69,10 @@ npm install                # pptxgenjs, sharp, react-icons, playwright
   openweights); `node tools/render_module.js <section>` renders one section for QA.
 - `tools/postprocess.py` — injects slide transitions + entrance animations (pptxgenjs can’t), writes the theme colors, and
   downsizes oversized images.
+- `tools/export_web.py` + `tools/web_viewer.html` — the web version: every slide rendered at 1920 px, with the GIFs laid back over
+  their exact positions as looping videos, click-to-play YouTube, a speaker-notes panel, a slide grid and a download button
+  (`python3 tools/export_web.py <out_dir> [--download-url URL]`).
+- `tools/make_loop_gif.py` — the animated intelligence-explosion loop.
 - `tools/shot.js` — real browser screenshots through the session proxy. `tools/make_art.js` — procedural background art.
 - `assets/research/<group>/manifest.json` — research manifests (only files the deck uses are committed;
   `tools/collect_assets.sh` lists them). `assets/slides/` — cropped derivatives. `assets/original/` — the user’s outline and images.
@@ -70,6 +80,8 @@ npm install                # pptxgenjs, sharp, react-icons, playwright
 ## Presenting
 
 - Videos are online YouTube embeds (need internet; PowerPoint 365 / 2019+). Each video slide also has a clickable link.
+- The GIF clips play automatically in PowerPoint. With ~780 MB of clips, give the file a minute to open and use a
+  reasonably recent machine; the “Which one is real?” slide plays six clips at once.
 - Builds advance on click; collages and charts animate in automatically. Speaker notes carry the talking points and caveats.
-- At ~1.5 min/slide the full deck (80 slides) runs ~2 hours. For a shorter talk, the easiest cuts are the second slide of each multi-slide
+- At ~1.5 min/slide the full deck (96 slides) runs ~2.5 hours. For a shorter talk, the easiest cuts are the second slide of each multi-slide
   topic (e.g. economy 3, maths 3, robotics 1, rogue agents 2, open weights 2/3).

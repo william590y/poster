@@ -1,0 +1,156 @@
+{
+ "url": "https://www.missingkids.org/blog/2026/back-to-school-checklist-talk-about-ai-nudify-apps.html",
+ "viewport_width": 960,
+ "device_scale_factor": 3,
+ "captured": "2026-10-04T11:18:35.304Z",
+ "shots": [
+  {
+   "file": "ncmec-nudify-blog-2026-headline-photo-w960.png",
+   "image_px": [
+    2880,
+    2084
+   ],
+   "page_clip_css": [
+    0,
+    46,
+    960,
+    695
+   ],
+   "highlights": [
+    {
+     "text": "Back-to-School Checklist: Talk About AI \"Nudify\" Apps",
+     "line_rects_px": [
+      [
+       225,
+       48,
+       2429,
+       162
+      ],
+      [
+       1010,
+       189,
+       860,
+       162
+      ]
+     ],
+     "bbox_px": [
+      225,
+      48,
+      2429,
+      303
+     ]
+    },
+    {
+     "text": "08-11-2026",
+     "line_rects_px": [
+      [
+       2633,
+       1991,
+       189,
+       42
+      ]
+     ],
+     "bbox_px": [
+      2633,
+      1991,
+      189,
+      42
+     ]
+    }
+   ]
+  },
+  {
+   "file": "ncmec-nudify-blog-2026-lede-w960.png",
+   "image_px": [
+    2880,
+    1272
+   ],
+   "page_clip_css": [
+    0,
+    643,
+    960,
+    424
+   ],
+   "highlights": [
+    {
+     "text": "08-11-2026",
+     "line_rects_px": [
+      [
+       2633,
+       199,
+       189,
+       42
+      ]
+     ],
+     "bbox_px": [
+      2633,
+      199,
+      189,
+      42
+     ]
+    },
+    {
+     "text": "\"Nudify\" apps use AI to create fake nude or sexually explicit images from ordinary, fully clothed photos.",
+     "line_rects_px": [
+      [
+       59,
+       687,
+       2474,
+       66
+      ]
+     ],
+     "bbox_px": [
+      59,
+      687,
+      2474,
+      66
+     ]
+    },
+    {
+     "text": "These images can also be created using free AI image generators and chatbots,",
+     "line_rects_px": [
+      [
+       345,
+       831,
+       1910,
+       66
+      ]
+     ],
+     "bbox_px": [
+      345,
+      831,
+      1910,
+      66
+     ]
+    },
+    {
+     "text": "NCMEC is seeing a growing number of these incidents in schools across the country, most often involving classmates ages 14 to 17.",
+     "line_rects_px": [
+      [
+       59,
+       1023,
+       2557,
+       66
+      ],
+      [
+       59,
+       1095,
+       605,
+       66
+      ]
+     ],
+     "bbox_px": [
+      59,
+      1023,
+      2557,
+      138
+     ]
+    }
+   ]
+  },
+  {
+   "file": "ncmec-nudify-blog-2026-fullpage-w960.png",
+   "note": "full page incl. nav and footer"
+  }
+ ]
+}

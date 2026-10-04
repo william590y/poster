@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>AI Safety and Existential Risk — William Liaw</title>
+<meta name="description" content="Slides for William Liaw's talk on how fast AI is advancing, why that should worry us, and the theory behind AI safety (__COUNT__ slides, every claim sourced).">
+<meta property="og:title" content="AI Safety and Existential Risk">
+<meta property="og:description" content="How fast AI is advancing, why that should worry us, and the theory behind AI safety.">
+<meta property="og:image" content="thumbs/thumb-01.jpg">
+<style>
+  :root { --bg:#07080b; --panel:#11141b; --line:#262b36; --txt:#f2f3f5; --muted:#9aa3b2; --red:#e5383b; }
+  * { box-sizing:border-box; }
+  html, body { margin:0; height:100%; background:var(--bg); color:var(--txt); font:15px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; overflow:hidden; }
+  a { color:#ff8a8c; }
+  #app { position:fixed; inset:0; display:flex; flex-direction:column; }
+  header { display:flex; align-items:center; gap:14px; padding:10px 16px; border-bottom:1px solid var(--line); background:rgba(7,8,11,.92); z-index:5; }
+  header .title { font-weight:700; letter-spacing:.2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+  header .title span { color:var(--red); }
+  header .spacer { flex:1; }
+  .btn { display:inline-flex; align-items:center; gap:6px; padding:7px 12px; border:1px solid var(--line); border-radius:7px; background:var(--panel); color:var(--txt);
+         font:inherit; font-size:13px; cursor:pointer; text-decoration:none; white-space:nowrap; }
+  .btn:hover { border-color:#3a4150; }
+  .btn.primary { background:var(--red); border-color:var(--red); color:#fff; font-weight:600; }
+  .btn.primary:hover { background:#c62c2f; }
+  .btn[aria-pressed="true"] { border-color:var(--red); color:#ff8a8c; }
+  main { position:relative; flex:1; display:flex; min-height:0; }
+  #stagewrap { position:relative; flex:1; display:flex; align-items:center; justify-content:center; min-width:0; padding:14px; }
+  #stage { position:relative; aspect-ratio:16/9; width:min(100%, calc((100vh - 130px) * 16 / 9)); background:#000; box-shadow:0 10px 40px rgba(0,0,0,.6); overflow:hidden; }
+  #stage .slide { position:absolute; inset:0; opacity:0; transition:opacity .28s ease; }
+  #stage .slide.on { opacity:1; }
+  #stage .slide > img.bg { position:absolute; inset:0; width:100%; height:100%; display:block; user-select:none; -webkit-user-drag:none; }
+  #stage .slide > img.top { position:absolute; display:block; pointer-events:none; user-select:none; -webkit-user-drag:none; }
+  .ov { position:absolute; overflow:hidden; transform-origin:center center; }
+  .ov video, .ov iframe { position:absolute; border:0; display:block; }
+  .yt { cursor:pointer; background:transparent; border:0; padding:0; }
+  .yt .play { position:absolute; left:50%; top:50%; width:74px; height:74px; margin:-37px 0 0 -37px; border-radius:50%; background:rgba(229,56,59,.92);
+              box-shadow:0 6px 30px rgba(0,0,0,.5); transition:transform .15s; }
+  .yt .play::after { content:""; position:absolute; left:29px; top:22px; border-style:solid; border-width:15px 0 15px 25px; border-color:transparent transparent transparent #fff; }
+  .yt:hover .play { transform:scale(1.08); }
+  .nav { position:absolute; top:0; bottom:0; width:12%; cursor:pointer; z-index:2; }
+  .nav.prev { left:0; } .nav.next { right:0; }
+  footer { display:flex; align-items:center; gap:10px; padding:8px 16px 12px; justify-content:center; }
+  #counter { min-width:80px; text-align:center; color:var(--muted); font-variant-numeric:tabular-nums; }
+  #progress { position:absolute; left:0; right:0; bottom:0; height:3px; background:transparent; }
+  #progress div { height:100%; background:var(--red); width:0; transition:width .25s; }
+  #notes { width:0; overflow:hidden; border-left:1px solid var(--line); background:var(--panel); transition:width .25s; }
+  #notes.open { width:min(420px, 42vw); }
+  #notes .inner { width:min(420px, 42vw); height:100%; overflow:auto; padding:16px 18px 40px; }
+  #notes h3 { margin:0 0 10px; font-size:12px; letter-spacing:2px; color:var(--red); text-transform:uppercase; }
+  #notes p { margin:0 0 .8em; white-space:pre-wrap; word-wrap:break-word; color:#d7dbe2; font-size:14px; }
+  #grid { position:absolute; inset:0; background:rgba(7,8,11,.97); z-index:10; overflow:auto; padding:20px; display:none; }
+  #grid.open { display:block; }
+  #grid .tiles { display:grid; grid-template-columns:repeat(auto-fill, minmax(220px, 1fr)); gap:14px; max-width:1500px; margin:0 auto; }
+  #grid .tile { position:relative; cursor:pointer; border:2px solid transparent; border-radius:6px; overflow:hidden; background:#000; }
+  #grid .tile.cur { border-color:var(--red); }
+  #grid .tile img { width:100%; display:block; aspect-ratio:16/9; object-fit:cover; }
+  #grid .tile span { position:absolute; left:6px; bottom:6px; background:rgba(0,0,0,.7); padding:1px 7px; border-radius:4px; font-size:12px; color:var(--muted); }
+  #help { color:var(--muted); font-size:12px; }
+  @media (max-width: 760px) {
+    header .hide-sm, #help { display:none; }
+    #notes.open { position:absolute; inset:auto 0 0 0; width:100%; height:45%; border-left:0; border-top:1px solid var(--line); z-index:6; }
+    #notes .inner { width:100%; }
+    #stagewrap { padding:6px; }
+    #stage { width:100%; }
+  }
+  :fullscreen header, :fullscreen footer { display:none; }
+  :fullscreen #stagewrap { padding:0; }
+  :fullscreen #stage { width:min(100vw, 100vh * 16 / 9); box-shadow:none; }
+</style>
+</head>
+<body>
+<div id="app">
+  <header>
+    <a class="btn" href="/" title="Back to williamliaw.com">←&nbsp;Blog</a>
+    <div class="title"><span>AI Safety</span> and Existential Risk <span style="color:var(--muted);font-weight:400">· William Liaw</span></div>
+    <div class="spacer"></div>
+    <button class="btn hide-sm" id="bGrid" aria-pressed="false" title="All slides (G)">▦&nbsp;All slides</button>
+    <button class="btn" id="bNotes" aria-pressed="false" title="Speaker notes & sources (N)">✎&nbsp;Notes</button>
+    <button class="btn hide-sm" id="bFull" title="Fullscreen (F)">⤢</button>
+    <a class="btn primary" id="bDown" href="#" download>⬇&nbsp;<span class="hide-sm">Download&nbsp;</span>.pptx</a>
+  </header>
+  <main>
+    <div id="stagewrap">
+      <div id="stage" aria-live="polite"><div class="nav prev" title="Previous"></div><div class="nav next" title="Next"></div><div id="progress"><div></div></div></div>
+      <div id="grid"><div class="tiles"></div></div>
+    </div>
+    <aside id="notes"><div class="inner"><h3>Speaker notes &amp; sources</h3><div id="notesBody"></div></div></aside>
+  </main>
+  <footer>
+    <button class="btn" id="bPrev" title="Previous (←)">‹</button>
+    <div id="counter">1 / __COUNT__</div>
+    <button class="btn" id="bNext" title="Next (→)">›</button>
+    <span id="help">← → to navigate · N notes · G all slides · F fullscreen · videos play in place</span>
+  </footer>
+</div>
+<script>
+const DATA = __DATA__;
+const S = DATA.slides, N = S.length;
+const stage = document.getElementById('stage');
+const built = new Map();
+let cur = 0;
+
+if (DATA.download) {
+  document.getElementById('bDown').href = DATA.download;
+  document.getElementById('bDown').title = `Download the PowerPoint (${DATA.sizeMB} MB) — animations, GIFs and videos play in PowerPoint 365 / 2019+`;
+} else {
+  document.getElementById('bDown').remove();  // exported with --download-url '' (no public copy of the .pptx)
+}
+
+function place(el, m) {
+  el.style.left = (m.x * 100) + '%'; el.style.top = (m.y * 100) + '%';
+  el.style.width = (m.w * 100) + '%'; el.style.height = (m.h * 100) + '%';
+  if (m.rot) el.style.transform = `rotate(${m.rot}deg)`;
+}
+function fillCrop(child, m) {
+  // a:srcRect crop -> scale/offset the media inside the clipping box
+  const [l, t, r, b] = m.crop || [0, 0, 0, 0];
+  const sw = 1 - l - r, sh = 1 - t - b;
+  child.style.width = (100 / sw) + '%'; child.style.height = (100 / sh) + '%';
+  child.style.left = (-l / sw * 100) + '%'; child.style.top = (-t / sh * 100) + '%';
+  child.style.objectFit = 'fill';
+}
+function build(i) {
+  if (built.has(i)) return built.get(i);
+  const s = S[i];
+  const el = document.createElement('div'); el.className = 'slide';
+  const img = document.createElement('img'); img.className = 'bg'; img.src = s.img; img.alt = 'Slide ' + s.n; img.decoding = 'async';
+  el.appendChild(img);
+  for (const m of s.media) {
+    const box = document.createElement('div'); box.className = 'ov'; place(box, m);
+    if (m.kind === 'loop') {
+      const v = document.createElement('video');
+      Object.assign(v, { muted: true, loop: true, playsInline: true, preload: 'auto' }); v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
+      v.dataset.src = m.src; v.dataset.webm = m.webm || ''; fillCrop(v, m); box.appendChild(v);
+      // stay transparent until frames arrive, so the slide image (which shows the clip's first frame) is never blacked out
+      v.style.opacity = 0; v.style.transition = 'opacity .2s'; v.addEventListener('playing', () => { v.style.opacity = 1; });
+    } else if (m.kind === 'video') {
+      const v = document.createElement('video');
+      Object.assign(v, { controls: true, playsInline: true, preload: 'none' }); v.poster = m.poster || ''; v.src = m.src;
+      fillCrop(v, m); box.appendChild(v);
+    } else if (m.kind === 'youtube') {
+      const b = document.createElement('button'); b.className = 'ov yt'; place(b, m); b.title = 'Play video';
+      const pl = document.createElement('div'); pl.className = 'play'; b.appendChild(pl);
+      b.onclick = (e) => {
+        e.stopPropagation();
+        const f = document.createElement('iframe');
+        f.src = `https://www.youtube-nocookie.com/embed/${m.id}?autoplay=1&rel=0&playsinline=1`;
+        f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen = true;
+        Object.assign(f.style, { left: 0, top: 0, width: '100%', height: '100%', background: '#000' });
+        const holder = document.createElement('div'); holder.className = 'ov'; place(holder, m); holder.appendChild(f);
+        b.replaceWith(holder);
+      };
+      el.appendChild(b); continue;
+    }
+    el.appendChild(box);
+  }
+  if (s.overlay) {  // shapes the deck draws on top of its clips (labels, badges), rendered as a transparent layer
+    const o = document.createElement('img'); o.className = 'top'; o.src = s.overlay.src; o.alt = ''; o.decoding = 'async';
+    place(o, s.overlay); el.appendChild(o);
+  }
+  stage.insertBefore(el, stage.querySelector('.nav'));
+  built.set(i, el);
+  return el;
+}
+function activate(el, on) {
+  el.classList.toggle('on', on);
+  el.querySelectorAll('video[data-src]').forEach(v => {
+    if (on) {
+      if (!v.firstChild) {   // lazy: attach WebM (VP9) + MP4 (H.264) sources the first time the slide is shown
+        for (const [src, type] of [[v.dataset.webm, 'video/webm'], [v.dataset.src, 'video/mp4']]) {
+          if (!src) continue; const so = document.createElement('source'); so.src = src; so.type = type; v.appendChild(so);
+        }
+        v.load();
+      }
+      try { v.currentTime = 0; } catch (e) {}
+      v.play().catch(() => {});
+    }
+    else {  // release the decoder: phones only allow a handful of live video players
+      v.pause(); v.style.opacity = 0;
+      while (v.firstChild) v.removeChild(v.firstChild);
+      v.removeAttribute('src'); v.load();
+    }
+  });
+  if (!on) el.querySelectorAll('video:not([data-src])').forEach(v => v.pause());
+  if (!on) el.querySelectorAll('iframe').forEach(f => { const src = f.src; f.src = 'about:blank'; f.src = src.replace('autoplay=1', 'autoplay=0'); });
+}
+function linkify(text, parent) {
+  const re = /(https?:\/\/[^\s)\]]+)/g; let last = 0, m;
+  while ((m = re.exec(text))) {
+    parent.appendChild(document.createTextNode(text.slice(last, m.index)));
+    const a = document.createElement('a'); a.href = m[1]; a.textContent = m[1]; a.target = '_blank'; a.rel = 'noopener'; parent.appendChild(a);
+    last = m.index + m[1].length;
+  }
+  parent.appendChild(document.createTextNode(text.slice(last)));
+}
+function renderNotes() {
+  const body = document.getElementById('notesBody'); body.textContent = '';
+  const t = S[cur].notes || '(No notes for this slide.)';
+  for (const para of t.split(/\n\s*\n|\n/)) { if (!para.trim()) continue; const p = document.createElement('p'); linkify(para, p); body.appendChild(p); }
+}
+function go(i, push = true) {
+  i = Math.max(0, Math.min(N - 1, i));
+  const prev = built.get(cur);
+  const next = build(i);
+  if (prev && prev !== next) activate(prev, false);
+  activate(next, true);
+  cur = i;
+  document.getElementById('counter').textContent = `${i + 1} / ${N}`;
+  document.querySelector('#progress div').style.width = ((i + 1) / N * 100) + '%';
+  renderNotes();
+  if (push) history.replaceState(null, '', '#' + (i + 1));
+  [i + 1, i + 2, i - 1].forEach(j => { if (j >= 0 && j < N) build(j); });   // preload neighbours
+  document.querySelectorAll('#grid .tile').forEach((t, k) => t.classList.toggle('cur', k === i));
+}
+// grid
+const tiles = document.querySelector('#grid .tiles');
+S.forEach((s, k) => {
+  const d = document.createElement('div'); d.className = 'tile';
+  d.innerHTML = `<img loading="lazy" src="${s.thumb}" alt="Slide ${s.n}"><span>${s.n}</span>`;
+  d.onclick = () => { toggleGrid(false); go(k); }; tiles.appendChild(d);
+});
+function toggleGrid(on) {
+  const g = document.getElementById('grid'); on = on ?? !g.classList.contains('open');
+  g.classList.toggle('open', on); document.getElementById('bGrid').setAttribute('aria-pressed', on);
+  if (on) tiles.children[cur].scrollIntoView({ block: 'center' });
+}
+function toggleNotes(on) {
+  const n = document.getElementById('notes'); on = on ?? !n.classList.contains('open');
+  n.classList.toggle('open', on); document.getElementById('bNotes').setAttribute('aria-pressed', on);
+}
+function toggleFull() { if (!document.fullscreenElement) document.documentElement.requestFullscreen?.(); else document.exitFullscreen?.(); }
+document.getElementById('bPrev').onclick = () => go(cur - 1);
+document.getElementById('bNext').onclick = () => go(cur + 1);
+document.querySelector('.nav.prev').onclick = () => go(cur - 1);
+document.querySelector('.nav.next').onclick = () => go(cur + 1);
+document.getElementById('bGrid').onclick = () => toggleGrid();
+document.getElementById('bNotes').onclick = () => toggleNotes();
+document.getElementById('bFull').onclick = toggleFull;
+addEventListener('keydown', e => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const k = e.key;
+  if (['ArrowRight', 'PageDown', ' ', 'Enter'].includes(k)) { e.preventDefault(); go(cur + 1); }
+  else if (['ArrowLeft', 'PageUp', 'Backspace'].includes(k)) { e.preventDefault(); go(cur - 1); }
+  else if (k === 'Home') go(0); else if (k === 'End') go(N - 1);
+  else if (k === 'n' || k === 'N') toggleNotes(); else if (k === 'g' || k === 'G') toggleGrid();
+  else if (k === 'f' || k === 'F') toggleFull(); else if (k === 'Escape') { toggleGrid(false); }
+});
+let tx = null, ty = null;
+stage.addEventListener('touchstart', e => { tx = e.touches[0].clientX; ty = e.touches[0].clientY; }, { passive: true });
+stage.addEventListener('touchend', e => {
+  if (tx === null) return; const dx = e.changedTouches[0].clientX - tx, dy = e.changedTouches[0].clientY - ty;
+  if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) go(cur + (dx < 0 ? 1 : -1)); tx = null;
+});
+addEventListener('hashchange', () => { const h = parseInt(location.hash.slice(1)); if (h && h - 1 !== cur) go(h - 1, false); });
+go((parseInt(location.hash.slice(1)) || 1) - 1, false);
+</script>
+</body>
+</html>

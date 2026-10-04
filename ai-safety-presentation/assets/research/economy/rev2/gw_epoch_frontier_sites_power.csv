@@ -1,0 +1,51 @@
+data_center,date,status_note,IT_power_MW,total_facility_power_MW,H100_equivalents
+Colossus 2,2025-10-19,"Battery facility looks complete (though more might be added). Turbines look connected up, minimal construction around them. We believe this state corresponds to",239,323,277918
+Colossus 2,2026-01-13,"Since October, an array of dry cooling air-cooled condensers has been added (the array of large fans to the left of the building), and appears almost complete. ",239,323,277918
+Colossus 2,2026-04-06,"The first array of dry cooling air-cooled condensers for Building 1 has been completed and is operational. A second array, with larger fans, is about halfway co",490,661,555836
+Colossus 2,2026-06-15,"The site is estimated to have at least ~830 MW of GPU server power, with at least ""at least 220,000 additional GB300 processors and over 400 additional megawatt",946,1276,1111673
+Colossus 2,2027-02-25,Building 3 is estimated to be completed. The site is predicted to have enough power infrastructure installed for a total of 1.5 GW of IT Power. Based on buildin,1531,2065,1824154
+Anthropic-Amazon New Carlisle,2025-06-23,Buildings 1-7 are operational. Based on all of the roofs being completed for over 5 months.,398,478,300152
+Anthropic-Amazon New Carlisle,2025-09-26,"Roof complete on building 16. Generators are being installed for buildings 8-15. In the north, Building 17 and 18 are under construction. To the south of buildi",398,478,300152
+Anthropic-Amazon New Carlisle,2025-10-17,"Confirmation that nearly 500,000 chips are operational, which fits buildings 1-7. In an [interview](https://www.youtube.com/watch?v=jwgW_gHI1Vs&t=220s), AWS CEO",398,478,300152
+Anthropic-Amazon New Carlisle,2025-12-23,"Buildings 8-11 are operational, given it's been over 7 months since their roofs were complete, and the backup generators and roof chimneys look complete. The ro",626,751,471450
+Anthropic-Amazon New Carlisle,2026-02-09,"Buildings 12-16 still have a few generators that look incomplete, so they are unlikely to be operational just yet. Buildings 17-18 still have ongoing roof work,",626,751,471450
+Anthropic-Amazon New Carlisle,2026-03-23,"Buildings 12-16 are operational. Based on how long previous buildings took, when they were in a similar state to Buildings 12-16 in December.",910,1092,685912
+Anthropic-Amazon New Carlisle,2026-06-03,"Buildings 17-18 fully roofed but still having surrounding generators/cooling under construction. Cleared land for buildings 19-32 is still bare, with no buildin",910,1092,685912
+Anthropic-Amazon New Carlisle,2026-10-19,"Buildings 17-18 are operational. This is an estimate based on a rule of thumb of ""operational 5 months after roof is complete"", assuming the roofs took one more",1037,1244,818428
+Anthropic-Amazon New Carlisle,2028-03-17,"Buildings 19-32 are operational. This is an estimate based on how long Buildings 1-16 took to become operational. In May 2026, the foundation of several buildin",1925,2310,1746038
+Microsoft Fairwater Atlanta,2025-10-14,Building 1 and 2 are [operational](https://news.microsoft.com/source/features/ai/from-wisconsin-to-atlanta-microsoft-connects-datacenters-to-build-its-first-ai-,321,433,387982
+Microsoft Fairwater Atlanta,2026-02-13,"Building 4 roof is complete and all mechanical equipment appears to be installed. However, there is still a lot of construction activity around the building.",321,433,387982
+Microsoft Fairwater Atlanta,2026-05-15,"Building 4 still has some equipment strewn around the perimeter, so we think it is still going through commissioning. Two new buildings at the campus have shell",321,433,387982
+Microsoft Fairwater Atlanta,2026-06-14,Building 3 and 4 are operational.,636,859,768769
+Meta Prometheus,2025-10-14,"Building 1 is operational, based on there being minimal construction work and cars in the main carpark. Building 2 still has some construction work around the b",76,99,86624
+Meta Prometheus,2026-01-18,"Buildings 2-6 are operational, based on all equipment being in place, the paved ground, and minimal construction equipment by the buildings. Buildings 7-11 all ",368,478,419442
+Meta Prometheus,2026-03-12,"The Socrates South power plant to the right of Buildings 7-12 now has 10 natural gas turbines in place, judging by the number of exhaust stacks. Battery backup ",368,478,419442
+Meta Prometheus,2026-05-18,"Building 7-11 (Meta tents) look structurally complete but not operational, given there is still construction activity, including at the adjacent Socrates South ",368,478,419442
+Meta Prometheus,2026-08-31,"Buildings 7-10 (tents) are operational, based on infrared drone video from RAAD (raad.com) captured on this date. The video suggests that 138.8 MW of nameplate ",471,612,536343
+Meta Prometheus,2026-11-30,"Socrates South and Socrates North gas power plants are fully operational, enabling the operability of Buildings 11-12 and 16-21. This completes the 2 sets of 6 ",676,878,770146
+Meta Prometheus,2027-01-15,"Building 13 (Vantage) is operational, based on the pace of construction seen in earlier images.",740,962,843092
+Meta Prometheus,2027-04-15,"Building 14 (Vantage) is operational, based on it starting construction about 3 months after Building 13.",804,1045,916038
+Meta Prometheus,2027-07-14,"Building 15 (Vantage) operational, based on it starting construction about 3 months after Building 14. ",868,1128,988985
+Meta Prometheus,2028-07-01,Buildings 22-27 (3rd set of 6 Meta tents) are operational. This is a conservative estimate to align with the operability of the [Socrates the Younger](https://d,1022,1328,1164337
+OpenAI Stargate Abilene,2025-09-26,"Building 1 is fully operational around this date. The first phase was ""live"" on September 30 according a Crusoe [announcement](https://www.crusoe.ai/resources/n",105,147,127337
+OpenAI Stargate Abilene,2025-12-24,"Building 2 is fully operational. This exact date corresponds to the expected completion date of ""Four (4) data hall spaces and an administrative office build-ou",211,295,254674
+OpenAI Stargate Abilene,2026-01-15,"The 1 GW substation looks close to completion. Building 3 appears to have all power and cooling equipment installed, but there are still signs of construction w",211,295,254674
+OpenAI Stargate Abilene,2026-03-24,"Building 3 and 4 look complete, but are not fully operational. Not as many cars are parked next to it as Building 1-2 which suggests they may still be ramping u",211,295,254674
+OpenAI Stargate Abilene,2026-05-23,"Buildings 3 and 4 are estimated to be operational. On April 22nd, Oracle [posted](https://x.com/i/status/2047012589302153558) that ""In Abilene, 200MW is already",421,590,509348
+OpenAI Stargate Abilene,2026-07-28,Buildings 5-8 are structurally complete and roofed but not yet confirmed operational (fit-out ongoing). The substation looks complete.,421,590,509348
+OpenAI Stargate Abilene,2026-11-01,"Buildings 5-8 are estimated to be operational. On March 24, Building 8 roughly looked like where Building 3 was in September. Building 3 is estimated to be oper",843,1180,1018696
+Microsoft Fairwater Wisconsin,2026-04-16,Building 1 is operational. [X post](https://x.com/satyanadella/status/2044767391293509761?s=61) from Microsoft saying this date for Fairwater becoming operation,369,442,445680
+Microsoft Fairwater Wisconsin,2026-05-15,"The main shell of Building 2 looks almost completed. In Area 2 (northwest of Buildings 1-2), the grading for the original design has been replaced with grading ",369,442,445680
+Microsoft Fairwater Wisconsin,2027-02-20,"Building 2 is operational. This is estimated based on (1) the delay between Building 1 and Building 2 starting land clearing, (2) in March 2025, a Microsoft spo",737,885,889338
+Microsoft Fairwater Wisconsin,2028-05-13,"Buildings 3-11 are estimated to be operational. The grading for this revised 9-building plan was underway in May 2026, and we assume an average 2-year [build ti",2263,2715,4527539
+Meta Hyperion,2028-01-01,"First phase is operational, based on a [Meta blog post](https://drive.google.com/file/d/1PmFNgOwkPepwjpGIbNUuPJP0LNgIqe7l/view?usp=sharing). We assume that this",1632,2203,4142944
+OpenAI Stargate Shackelford,2027-08-15,"Building 1 is operational (estimate). TDLR lists the construction completion date for Building 1 as 2027-02-15. We add 6 months for commissioning, installation ",140,196,355230
+OpenAI Stargate Shackelford,2027-10-19,"Building 2 is operational (estimate). TDLR lists the construction completion date for Building 2 as 2027-04-19. We add 6 months for commissioning, installation ",280,392,712481
+OpenAI Stargate Shackelford,2027-11-18,"Building 3 is operational (estimate). TDLR lists the construction completion date for Building 3 as 2027-05-18. We add 6 months for commissioning, installation ",420,588,1066195
+OpenAI Stargate Shackelford,2028-02-11,"Building 4 is operational (estimate). TDLR lists the construction completion date for Building 4 as 2027-08-11. We add 6 months for commissioning, installation ",560,784,1419909
+OpenAI Stargate Shackelford,2028-03-08,"Building 5 is operational (estimate). TDLR lists the construction completion date for Building 5 as 2027-09-08. We add 6 months for commissioning, installation ",700,980,1778676
+OpenAI Stargate Shackelford,2028-04-04,"Building 6 is operational (estimate). TDLR lists the construction completion date for Building 6 as 2027-10-04. We add 6 months for commissioning, installation ",840,1176,2334512
+OpenAI Stargate Shackelford,2028-05-12,"Building 7 is operational (estimate). TDLR lists the construction completion date for Building 7 as 2027-11-12. We add 6 months for commissioning, installation ",980,1372,2890349
+OpenAI Stargate Shackelford,2028-10-17,"Building 8 is operational (estimate). TDLR lists the construction completion date for Building 8 as 2028-04-17. We add 6 months for commissioning, installation ",1120,1568,3451238
+OpenAI Stargate Shackelford,2028-10-18,"Building 9 is operational (estimate). TDLR lists the construction completion date for Building 9 as 2028-04-18. We add 6 months for commissioning, installation ",1260,1764,4007074
+OpenAI Stargate Shackelford,2028-11-11,"Building 10 is operational (estimate). TDLR lists the construction completion date for Building 10 as 2028-05-11. We add 6 months for commissioning, installatio",1400,1960,4562911

@@ -1,0 +1,107 @@
+{
+ "url": "https://www.commonsensemedia.org/research/teens-and-explicit-deepfakes-in-the-age-of-ai",
+ "viewport_width": 1280,
+ "device_scale_factor": 2,
+ "captured": "2026-10-04T10:56:21.744Z",
+ "shots": [
+  {
+   "file": "csm-report-landing-title-cover-survey.png",
+   "image_px": [
+    1496,
+    1010
+   ],
+   "page_clip_css": [
+    266,
+    167,
+    748,
+    505
+   ],
+   "highlights": [
+    {
+     "text": "Teens and Explicit Deepfakes in the Age of AI",
+     "line_rects_px": [
+      [
+       48,
+       48,
+       837,
+       78
+      ],
+      [
+       48,
+       129,
+       441,
+       78
+      ]
+     ],
+     "bbox_px": [
+      48,
+      48,
+      837,
+      159
+     ]
+    },
+    {
+     "text": "Our nationally representative survey of 1,314 teens age 13 to 17, conducted in fall 2025,",
+     "line_rects_px": [
+      [
+       48,
+       848,
+       1226,
+       38
+      ]
+     ],
+     "bbox_px": [
+      48,
+      848,
+      1226,
+      38
+     ]
+    },
+    {
+     "text": "nearly half of teens have seen AI-generated explicit material.",
+     "line_rects_px": [
+      [
+       48,
+       892,
+       838,
+       38
+      ]
+     ],
+     "bbox_px": [
+      48,
+      892,
+      838,
+      38
+     ]
+    },
+    {
+     "text": "And 1 in 4 of those who have seen AI pornography say they've seen it depicting themselves or someone they know.",
+     "line_rects_px": [
+      [
+       892,
+       892,
+       512,
+       38
+      ],
+      [
+       48,
+       936,
+       1067,
+       38
+      ]
+     ],
+     "bbox_px": [
+      48,
+      892,
+      1356,
+      82
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-landing-fullpage.png",
+   "note": "full page incl. nav and footer"
+  }
+ ]
+}

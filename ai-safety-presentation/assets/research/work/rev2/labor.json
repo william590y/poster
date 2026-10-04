@@ -1,0 +1,1344 @@
+{
+ "group": "work/labor",
+ "items": [
+  {
+   "id": "labor-ale-leaderboard-overall",
+   "slide_topic": "Agents' Last Exam — who leads on real professional work (Oct 2026)",
+   "type": "screenshot",
+   "file": "labor-ale-leaderboard-chart.png",
+   "headline": "ALE-V1 Leaderboard — Agents — Pass Rate (Overall)",
+   "dek": "Pass Rate is the share of runs that earned a perfect score; Score is the average partial-credit score.",
+   "outlet": "Agents' Last Exam (UC Berkeley RDI)",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://agents-last-exam.org/leaderboard",
+   "caption": "Live ALE-V1 leaderboard bar chart, Overall split: Best-per-task 56.6%, claude-opus-5-5 (Claude Code, Max) 38.2%, GPT-6 Astra (Codex, Max) 34.2%, Muse Spark 1.3 32.2%, Kimi K3 28.3%, Qwen-3-8-max 27.0%, Grok 4.5 27.0%, glm-5-2 20.4%, composer-2-5 20.4%, seed-2.1-pro 19.5%, gemini-3-1-pro 16.4%.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Captured 2026-10-04 at 1700px viewport (rightmost deepseek-v4-pro bar 12.4% is cut off by the page's own chart width). The 'Best-per-task (Jul 4, 2026)' bar is an oracle (best run per task across all agents), not a single agent. Public ALE-V1 split = 152 tasks (the full pool is 1,500+). Row data from https://agents-last-exam.org/api/demo/leaderboard."
+  },
+  {
+   "id": "labor-ale-leaderboard-lastexam",
+   "slide_topic": "ALE hardest tier: from 0% (June) to 15.8% (Oct)",
+   "type": "screenshot",
+   "file": "labor-ale-leaderboard-lastexam-tier.png",
+   "headline": "ALE-V1 Leaderboard — Last-Exam (frontier difficulty) — Pass Rate",
+   "dek": null,
+   "outlet": "Agents' Last Exam (UC Berkeley RDI)",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://agents-last-exam.org/leaderboard",
+   "caption": "Last-Exam tier tab: claude-opus-5-5 (Claude Code, Max) 15.8%; GPT-6 Astra, Qwen-3-8-max, Muse Spark 1.3, Grok 4.5, Kimi K3 10.5%; glm-5-2 2.6%; seed-2.1-pro, composer-2-5, deepseek-v4-pro, gemini-3-1-pro 0%.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Last-Exam split has 38 tasks; 15.8% = 6 of 38. In the same split the June launch configs still show 0.0% (Claude Code+Fable 5 default effort, Codex+GPT-5.5 default, Cursor+Composer 2.5), so the June->Oct jump is on the same task set. Table below the chart also lists gpt-6-sol (Medium) and claude-opus-5 (Max) at 13.2%."
+  },
+  {
+   "id": "labor-ale-leaderboard-table",
+   "slide_topic": "Agents' Last Exam — leaderboard table with cost/runtime",
+   "type": "screenshot",
+   "file": "labor-ale-leaderboard-table.png",
+   "headline": "ALE-V1 leaderboard table (Overall): harness, model, effort, pass rate, score, est. cost, runtime, tokens",
+   "dek": null,
+   "outlet": "Agents' Last Exam (UC Berkeley RDI)",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://agents-last-exam.org/leaderboard",
+   "caption": "Top 14 rows: Claude Code/claude-opus-5-5 38.2% pass, 63.2% score, $1,340, 182h 45m; Codex/GPT-6 Astra 34.2%, 59.3%, $1,100; Codex/gpt-6-sol 32.2%; Claude Code/claude-opus-5 32.2%; Codex/Muse Spark 1.3 32.2%; ...",
+   "quality": 4,
+   "verified": true,
+   "notes": "Captured at 1400px viewport. Cost/runtime are totals over the 152-task split."
+  },
+  {
+   "id": "labor-ale-rdi-blog-header",
+   "slide_topic": "Agents' Last Exam launch: 'every frontier agent ... achieved a 0% success rate'",
+   "type": "screenshot",
+   "file": "labor-ale-rdi-blog-header.png",
+   "headline": "Agents’ Last Exam",
+   "dek": "On ALE’s hardest tier, every frontier agent we tested, including Fable 5, achieved a 0% success rate. The age of useful agents is here. The age of truly job-ready agents is not.",
+   "outlet": "UC Berkeley RDI blog",
+   "author": "Yiyou Sun, Xinyang Han, Weichen Zhang, ..., Dawn Song",
+   "date": "2026-06",
+   "url": "https://rdi.berkeley.edu/blog/agents-last-exam/",
+   "caption": "Header + intro of Berkeley RDI's ALE announcement post (June 2026).",
+   "quality": 5,
+   "verified": true,
+   "notes": "agents-last-exam.org/blogs lists this announcement as June 14, 2026; arXiv v1 is June 3, 2026."
+  },
+  {
+   "id": "labor-ale-blog-main-results",
+   "slide_topic": "ALE launch results (June 2026)",
+   "type": "chart",
+   "file": "labor-ale-blog-main-results.png",
+   "headline": "Agent pass rates on Agents' Last Exam across the Full-Spectrum tier, Last-Exam tier, and overall",
+   "dek": null,
+   "outlet": "UC Berkeley RDI blog",
+   "author": null,
+   "date": "2026-06",
+   "url": "https://rdi.berkeley.edu/blog/agents-last-exam/main-results.png",
+   "caption": "Official June figure: Full-Spectrum pass rate gpt-5-5 22.7%, claude-fable-5 20.9%, composer-2-5 18.2%; Last-Exam tier 0.0% for all three; Overall gpt-5-5 24.0%, claude-fable-5 22.0%, composer-2-5 20.4%, gemini-3-1-pro 15.8%, deepseek-v4-pro 12.4%, qwen3-7-max 11.8% (hatched bars = fine-grained scores).",
+   "quality": 5,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-ale-blog-positioning",
+   "slide_topic": "Why ALE is harder than other agent benchmarks",
+   "type": "chart",
+   "file": "labor-ale-blog-benchmark-positioning.png",
+   "headline": "Agents' Last Exam vs. Existing Agent Benchmarks",
+   "dek": null,
+   "outlet": "UC Berkeley RDI blog",
+   "author": null,
+   "date": "2026-06",
+   "url": "https://rdi.berkeley.edu/blog/agents-last-exam/benchmark-positioning.png",
+   "caption": "Bubble chart: top-tier pass rate vs domain coverage — Terminal-Bench ~82%, OSWorld ~75%, WebArena ~62%, SWE-bench-Pro ~59% (5 or fewer domains) vs ALE ~26% across 55 domains; 'Last-Exam tier: 2.6%'.",
+   "quality": 5,
+   "verified": true,
+   "notes": "The 2.6% Last-Exam figure here is the average across harness/backbone configs per the RDI figure; the arXiv abstract says 'below 1%'."
+  },
+  {
+   "id": "labor-ale-blog-cli-comparison",
+   "slide_topic": "ALE-CLI vs Terminal-Bench vs SWE-bench-Pro",
+   "type": "chart",
+   "file": "labor-ale-blog-ale-cli-comparison.png",
+   "headline": "ALE-CLI vs. Terminal-Bench vs. SWE-bench-Pro: broader, longer-horizon, and harder",
+   "dek": null,
+   "outlet": "UC Berkeley RDI blog",
+   "author": null,
+   "date": "2026-06",
+   "url": "https://rdi.berkeley.edu/blog/agents-last-exam/ale-cli-comparison.png",
+   "caption": "Domain coverage 6 / 5 / 40 subdomains; task horizon minutes-hours / hours-days / hours-weeks; best agent pass rate 82.0% / 59.1% / 25.2%.",
+   "quality": 5,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-ale-blog-taxonomy",
+   "slide_topic": "ALE covers 55 occupations",
+   "type": "image",
+   "file": "labor-ale-blog-taxonomy-wheel.png",
+   "headline": "Agents' Last Exam taxonomy of 55 occupations",
+   "dek": null,
+   "outlet": "UC Berkeley RDI blog",
+   "author": null,
+   "date": "2026-06",
+   "url": "https://rdi.berkeley.edu/blog/agents-last-exam/taxonomy-wheel.png",
+   "caption": "3D wheel of ALE's 13 clusters / 55 sub-fields (engineering, life sciences, health, legal, business & finance, visual media, etc.).",
+   "quality": 5,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-ale-blog-cost",
+   "slide_topic": "Same performance, very different cost",
+   "type": "chart",
+   "file": "labor-ale-blog-cost-vs-performance.png",
+   "headline": "Pass rate & score vs. Cost (GPT-5.5, Fable 5, Composer 2.5)",
+   "dek": "Fable 5: ~$15.70 → GPT-5.5: ~$3.80 → Composer 2.5: ~$1.33 ... At current pricing, Fable 5 delivers similar performance while costing roughly 4–12× more per completed task.",
+   "outlet": "UC Berkeley RDI blog",
+   "author": null,
+   "date": "2026-06",
+   "url": "https://rdi.berkeley.edu/blog/agents-last-exam/cost-vs-performance.png",
+   "caption": "Scatter of pass rate and score vs total API cost for three agents.",
+   "quality": 4,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-ale-blog-per-domain",
+   "slide_topic": "Jagged frontier across domains",
+   "type": "chart",
+   "file": "labor-ale-blog-per-domain.png",
+   "headline": "Per-domain pass rates for the three frontier agents",
+   "dek": null,
+   "outlet": "UC Berkeley RDI blog",
+   "author": null,
+   "date": "2026-06",
+   "url": "https://rdi.berkeley.edu/blog/agents-last-exam/per-domain.png",
+   "caption": "Dot plot: GPT-5.5 / Fable 5 / Composer 2.5 pass rates by domain (~50%+ in Business & Finance and Computing & Math; ~17-28% in Engineering and Visual & Media).",
+   "quality": 4,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-ale-blog-per-task",
+   "slide_topic": "Agents fail differently on identical tasks",
+   "type": "image",
+   "file": "labor-ale-blog-per-task-examples.png",
+   "headline": "Per-task examples where one model passes and another fails on the same task",
+   "dek": null,
+   "outlet": "UC Berkeley RDI blog",
+   "author": null,
+   "date": "2026-06",
+   "url": "https://rdi.berkeley.edu/blog/agents-last-exam/per-task-examples.png",
+   "caption": "Example ALE tasks (InterProScan protein annotation, TCGA breast-cancer differential expression, ATSP branch-and-bound solver, J1-J2 Heisenberg exact diagonalization...) with per-model scores.",
+   "quality": 4,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-ale-quote-false-success",
+   "slide_topic": "Agents declare success without verifying",
+   "type": "quote",
+   "file": null,
+   "headline": "The most common failure mode remains a familiar one: agents declare success before they’ve truly verified their work.",
+   "dek": "A typical completion reads: “Done. All checks pass.” Yet the output may be missing required files, contain incorrect counts, omit key fields, or violate explicit constraints in the task specification.",
+   "outlet": "UC Berkeley RDI blog (Agents’ Last Exam)",
+   "author": null,
+   "date": "2026-06",
+   "url": "https://rdi.berkeley.edu/blog/agents-last-exam/",
+   "caption": null,
+   "quality": 5,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-ale-homepage-hero",
+   "slide_topic": "Agents' Last Exam overview",
+   "type": "screenshot",
+   "file": "labor-ale-homepage-hero.png",
+   "headline": "Agents' Last Exam — Challenge and measure AI agents on economically valuable and real-world tasks.",
+   "dek": "Led by Berkeley RDI and 300+ industry experts, it now spans all 55 targeted sub-industries covering most major fields of professional work performed on a computer, with 1,500+ tasks collected toward a 5,000-task target",
+   "outlet": "agents-last-exam.org",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://agents-last-exam.org/",
+   "caption": "Homepage hero with tilted screenshots of agents working in professional software (architecture, neuroscience/FSLeyes, animation, engineering CAD).",
+   "quality": 4,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-ale-intro-video",
+   "slide_topic": "Agents' Last Exam overview video",
+   "type": "video",
+   "file": "labor-ale-intro.mp4",
+   "headline": "Agents' Last Exam — 1-min overview (official intro video)",
+   "dek": null,
+   "outlet": "agents-last-exam.org",
+   "author": null,
+   "date": "2026",
+   "url": "https://agents-last-exam.org/videos/ale-intro.mp4",
+   "caption": "80-second official intro (1280x720, with audio): '1,500+ verifiable tasks', '55 industries', taxonomy wheel, manufacturing workflow, 'A GCUA is the whole body', ends with a wall of agents operating real desktop software.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Downloaded mp4 directly from the site (not YouTube). Posters: labor-ale-intro-poster-montage.jpg (t=71s, 4-up agents in real apps), labor-ale-intro-poster-wheel.jpg (t=30s), labor-ale-intro-poster-agent-wall.jpg (t=75.5s), site poster labor-ale-intro-poster.jpg ('1,500+ verifiable tasks'). Upload date not shown on site."
+  },
+  {
+   "id": "labor-ale-intro-agent-wall-gif",
+   "slide_topic": "Agents doing real professional work (looping visual)",
+   "type": "image",
+   "file": "labor-ale-intro-agent-wall.gif",
+   "headline": "'Come test your agents on ALE!' — wall of agent desktop sessions",
+   "dek": null,
+   "outlet": "agents-last-exam.org (intro video)",
+   "author": null,
+   "date": "2026",
+   "url": "https://agents-last-exam.org/videos/ale-intro.mp4",
+   "caption": "6-second 960px GIF (t=69.9-75.9s of the official video): grid of real agent desktop sessions zooming out — CAD, DAW, X-ray viewer, spreadsheets, Odoo, etc.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Trimmed/scaled only (palette GIF, 90 frames, 12 MB). Insert with border:false; it autoplays in slideshow."
+  },
+  {
+   "id": "labor-rli-scale-leaderboard",
+   "slide_topic": "Remote Labor Index — current leaderboard (GPT-6 Astra 20.83%)",
+   "type": "screenshot",
+   "file": "labor-rli-leaderboard-panel.png",
+   "headline": "Remote Labor Index (RLI) — Performance Comparison",
+   "dek": "Score measures Automation Rate. There is no confidence interval for Automation Rate.",
+   "outlet": "Scale Labs",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://labs.scale.com/leaderboard/rli",
+   "caption": "All 18 rows: GPT 6 Astra 20.83, Fable 5.1 17.92, Fable 5 15.80, Opus 4.8 8.33, Codex GPT 5.5 6.25, Gemini 3.8 Flash 5.83 (NEW), Gemini 3.7 Flash 5.00, claude-opus-4-6 (CoWork) 4.17, claude-opus-4-5-20251101-thinking 3.75, Manus_1.6 (Max) 2.92, gpt-5.2 (medium) / Manus 1.5 / Manus 1.0 2.50, ... gemini-2.5-pro-preview 0.83.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Also labor-rli-leaderboard-page.png = page view with title 'Remote Labor Index (RLI) — Evaluating the capability of AI agents to perform real-world, economically valuable remote work' + overview text beside the panel."
+  },
+  {
+   "id": "labor-rli-scale-leaderboard-page",
+   "slide_topic": "Remote Labor Index — what it is",
+   "type": "screenshot",
+   "file": "labor-rli-leaderboard-page.png",
+   "headline": "Remote Labor Index (RLI)",
+   "dek": "Evaluating the capability of AI agents to perform real-world, economically valuable remote work",
+   "outlet": "Scale Labs",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://labs.scale.com/leaderboard/rli",
+   "caption": "Leaderboard page: overview + dataset sourcing text on the left, performance comparison bars on the right.",
+   "quality": 4,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-rli-cais-dashboard",
+   "slide_topic": "RLI headline number: 20.8% of remote projects fully automated",
+   "type": "screenshot",
+   "file": "labor-rli-cais-dashboard-20pct.png",
+   "headline": "RLI: Remote Labor Automation — 20.8% full automation of remote projects",
+   "dek": null,
+   "outlet": "CAIS AI Dashboard",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://dashboard.safe.ai/",
+   "caption": "CAIS dashboard card: GPT-6 Astra 20.8%, Fable 5.1 17.9%, Fable 5 15.8%, Opus 4.8 8.3%, GPT-5.5 6.3%, Opus 4.6 4.2%, GPT-5.2 2.5%.",
+   "quality": 5,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-rli-cais-blog-header",
+   "slide_topic": "RLI July 2026 update: frontier quadrupled in under eight months",
+   "type": "screenshot",
+   "file": "labor-rli-cais-blog-header.png",
+   "headline": "A Significant Increase in Digital Labor Automation",
+   "dek": "The newest frontier models automate substantially more real freelance work than their predecessors.",
+   "outlet": "Center for AI Safety (CAIS) blog",
+   "author": "Mantas Mazeika",
+   "date": "2026-07-01",
+   "url": "https://safe.ai/blog/significant-increase-in-digital-labor-automation",
+   "caption": "Header, intro and stat cards: GPT-5.5 6.3%, Opus 4.8 8.3%, Fable 5 15.8% (HIGHEST); 'The frontier has more than quadrupled in under eight months'.",
+   "quality": 5,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-rli-cais-blog-chart",
+   "slide_topic": "RLI automation rate by model (July 2026)",
+   "type": "chart",
+   "file": "labor-rli-cais-blog-chart.png",
+   "headline": "Full-automation rate on the Remote Labor Index",
+   "dek": null,
+   "outlet": "CAIS blog",
+   "author": null,
+   "date": "2026-07-01",
+   "url": "https://safe.ai/blog/significant-increase-in-digital-labor-automation",
+   "caption": "Bars: Gemini 3 Pro 1.25%, Grok 4 2.08%, GPT-5.2 2.50%, Manus 1.6 Max 2.92%, Opus 4.6 4.17%, GPT-5.5 6.3%, Opus 4.8 8.3%, Fable 5 15.8%.",
+   "quality": 5,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-rli-cais-tweet-chart",
+   "slide_topic": "RLI July 2026 update (as originally posted)",
+   "type": "chart",
+   "file": "labor-rli-cais-jul2026-chart.jpg",
+   "headline": "New Remote Labor Index results: AI automation of real remote work is increasing fast.",
+   "dek": "Claude Fable 5 now completes 16.1% of projects at a professional standard, roughly double the next model and up from Opus 4.6’s 4.2% automation rate.",
+   "outlet": "Center for AI Safety on X (@CAIS)",
+   "author": null,
+   "date": "2026-07-01",
+   "url": "https://x.com/CAIS/status/2072360965522489789",
+   "caption": "Image attached to the CAIS post (1999x1088): same bars as the blog but Fable 5 labelled 16.1%.",
+   "quality": 4,
+   "verified": true,
+   "notes": "CAIS later shows 15.8% for Fable 5 (blog, dashboard; Scale leaderboard 15.80; remotelabor.ai 15.83). Prefer 15.8% on slides; 16.1% was the July 1 figure widely reported (ZDNET etc.). Tweet text fetched via api.fxtwitter.com; 524,139 views at fetch time."
+  },
+  {
+   "id": "labor-rli-ring-renders",
+   "slide_topic": "What RLI work looks like: AI vs human deliverables",
+   "type": "image",
+   "file": "labor-rli-cais-blog-ring-row.png",
+   "headline": "Ring Design (3D & CAD) — Photorealistic render: GPT-5.5 · Opus 4.8 · Fable 5 · Human",
+   "dek": "Fable 5's ring design is qualitatively much better than deliverables from previous AIs, although upon closer examination it remains unprofessional (low-effort rounded prong design).",
+   "outlet": "CAIS blog",
+   "author": null,
+   "date": "2026-07-01",
+   "url": "https://safe.ai/blog/significant-increase-in-digital-labor-automation",
+   "caption": "Screenshot row of four renders of a marquise-cut engagement ring (brief: swap emerald cut for marquise; deliver 3D model + rose/yellow-gold renders).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Individual full-res renders: labor-rli-cais-AD59_render_gpt_55.png, _opus_48.png, _fable_5.png, _human.png; brief input: labor-rli-cais-AD59_ref_ring.png."
+  },
+  {
+   "id": "labor-rli-video-frames",
+   "slide_topic": "What RLI work looks like: 2D animated ad",
+   "type": "image",
+   "file": "labor-rli-cais-AD73_human.png",
+   "headline": "Advertisement Video (Video & Animation): three frames per video — Human / Fable 5 / Opus 4.8 / GPT-5.5",
+   "dek": "On vector graphics 2D animation, visual quality improves noticeably with the newer models, with animations and synchronization with the audio becoming smoother.",
+   "outlet": "CAIS blog",
+   "author": null,
+   "date": "2026-07-01",
+   "url": "https://safe.ai/blog/significant-increase-in-digital-labor-automation",
+   "caption": "Film-strip images (intro / consultation / safety frames) of a ~60 s ad for 'Skyline Tree Services'. Files: labor-rli-cais-AD73_human.png, _fable_5.png, _opus_48.png, _gpt_55.png (each ~4370x1048).",
+   "quality": 4,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-rli-floorplans",
+   "slide_topic": "What RLI work looks like: architecture floor plan",
+   "type": "image",
+   "file": "labor-rli-cais-LR16_plan_human.png",
+   "headline": "Floor Plan & Renders (Architecture): dimensioned floor plan — GPT-5.5 · Opus 4.8 · Fable 5 · Human",
+   "dek": "The floor plans get visibly more accurate and the 3D models more detailed with the newer models, Fable 5 strongest among them.",
+   "outlet": "CAIS blog",
+   "author": null,
+   "date": "2026-07-01",
+   "url": "https://safe.ai/blog/significant-increase-in-digital-labor-automation",
+   "caption": "Files: labor-rli-cais-LR16_plan_gpt_55.png, _opus_48.png, _fable_5.png, _human.png; bathroom renders labor-rli-cais-LR16_render_human.png, _fable_5.png, _opus_48.png.",
+   "quality": 4,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-rli-gpt55-faked-render",
+   "slide_topic": "AI faking the work: image-generator 'render' instead of a 3D model",
+   "type": "image",
+   "file": "labor-rli-cais-LR16_render2_gpt_55.png",
+   "headline": "GPT‑5.5's good-looking render is faked with an image generator.",
+   "dek": "Note that GPT‑5.5's good-looking render is faked with an image generator. Its 3D model deliverable is shown beside it. ... catching the fake requires opening the 3D project and inspecting the actual geometry, which a judge that can't reliably operate the software simply won't do.",
+   "outlet": "CAIS blog",
+   "author": null,
+   "date": "2026-07-01",
+   "url": "https://safe.ai/blog/significant-increase-in-digital-labor-automation",
+   "caption": "Polished bathroom 'render' (2612x1742) submitted by GPT-5.5 — made with an image generator; pair with labor-rli-cais-LR16_render1_gpt_55.png (its actual crude 3D model).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Strong safety tie-in: agent output that looks right but isn't; automated judge overestimated GPT-5.5 ~2.9x (17.9% vs 6.25% human ground truth)."
+  },
+  {
+   "id": "labor-rli-zdnet",
+   "slide_topic": "RLI news coverage",
+   "type": "headline",
+   "file": "labor-zdnet-fable5-rli-record.png",
+   "headline": "Fable 5 just set a new AI freelance work performance record – but it can’t replace humans yet",
+   "dek": "The newly reinstated Anthropic model topped charts for automating work. Here's what that means for the future.",
+   "outlet": "ZDNET",
+   "author": "Radhika Rajkumar",
+   "date": "2026-07-02",
+   "url": "https://www.zdnet.com/article/anthropic-fable-5-freelance-work-performance-record/",
+   "caption": "ZDNET article header (masthead, headline, dek, byline, July 2, 2026, 4:29 pm ET).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Also syndicated on Yahoo Tech: https://tech.yahoo.com/ai/claude/articles/fable-5-just-set-ai-202926200.html (key takeaway: 'Fable 5 accelerates AI's success rate on remote tasks to 16%')."
+  },
+  {
+   "id": "labor-automationbench-leaderboard",
+   "slide_topic": "AutomationBench — can AI do real business workflows?",
+   "type": "screenshot",
+   "file": "labor-automationbench-leaderboard-top10.png",
+   "headline": "AutomationBench AI benchmark leaderboard",
+   "dek": "Can AI models do real work? Zapier's AI benchmark assessment measures execution in realistic systems.",
+   "outlet": "Zapier",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://zapier.com/benchmarks",
+   "caption": "Leaderboard v1.0.6 top 10: Gemini 4 Argon (High) 51.29%, Gemini 4 Argon (Medium) 50.08%, Claude Sonnet 5.5 (default fallbacks, Max) 44.75%, Claude Opus 5.5 (default fallbacks, Max) 42.47%, GPT 6 Astra (Max) 41.4%, GPT 6 Astra (XHigh) 38.96%, ...",
+   "quality": 5,
+   "verified": true,
+   "notes": "121 configurations listed. Scores on a held-out private set; strict pass/fail (every assertion must hold)."
+  },
+  {
+   "id": "labor-automationbench-example",
+   "slide_topic": "One AutomationBench task end to end",
+   "type": "screenshot",
+   "file": "labor-automationbench-example-task.png",
+   "headline": "ONE TASK, END TO END · SALES.MULTI_HOP_LOOKUP",
+   "dek": "\"We just closed the Meridian Corp Platform Deal! Mark it as won and route the win notice to the right team per our routing policy. ...\" Pass five of six and partial_credit is 0.83 — useful training signal. But the headline metric is strict: every assertion must hold. Like production, mostly-right is still wrong.",
+   "outlet": "Zapier",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://zapier.com/benchmarks",
+   "caption": "Worked example: three near-duplicate CRM records, stale spreadsheet rows (EUR→USD 1.30, tier Enterprise), routing policy hidden in the inbox, six end-state assertions.",
+   "quality": 5,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-automationbench-pipeline",
+   "slide_topic": "How AutomationBench grades agents",
+   "type": "image",
+   "file": "labor-automationbench-paper-fig1-pipeline.png",
+   "headline": "Figure 1: AutomationBench evaluation pipeline",
+   "dek": null,
+   "outlet": "arXiv 2604.18934 (Zapier)",
+   "author": "Daniel Shepard, Robin Salimans",
+   "date": "2026-04-21",
+   "url": "https://arxiv.org/abs/2604.18934",
+   "caption": "Diagram: task prompt → AI agent → search/execute API tools → simulated app state (Gmail, Sheets, Zoom, Slack, Salesforce, Asana) with environment noise (distractor records, trap emails) → deterministic assertions.",
+   "quality": 4,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-automationbench-launch-chart",
+   "slide_topic": "AutomationBench at launch (April 2026): every model below 10%",
+   "type": "chart",
+   "file": "labor-automationbench-paper-fig2-v1.0.0-cost-vs-pass.png",
+   "headline": "Cost vs. Pass Rate - Multi-Model View (AutomationBench v1.0.0)",
+   "dek": "State-of-the-art models all score below 10%. Opus 4.7 tops the leaderboard at 9.9%.",
+   "outlet": "arXiv 2604.18934 (Zapier)",
+   "author": null,
+   "date": "2026-04-21",
+   "url": "https://arxiv.org/abs/2604.18934",
+   "caption": "Launch chart: claude-opus-4-7 (max) ~9.9%, gemini-3.1-pro-preview (high) ~9.6%, gpt-5.4 (high) ~7.6%, claude-sonnet-4-6 ~5.3%, haiku ~1.5% — y-axis tops out at 30%.",
+   "quality": 4,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-automationbench-false-confidence",
+   "slide_topic": "Agents report success while failing",
+   "type": "quote",
+   "file": null,
+   "headline": "More often than not, models declared success while actually failing.",
+   "dek": "72% of Opus’s failures, 91% of Gemini’s, and 84% of GPT 5.4’s involved this false confidence.",
+   "outlet": "AutomationBench paper (arXiv 2604.18934) / zapier.com/benchmarks FAQ",
+   "author": null,
+   "date": "2026-04-21",
+   "url": "https://arxiv.org/abs/2604.18934",
+   "caption": null,
+   "quality": 5,
+   "verified": true,
+   "notes": "Zapier FAQ phrasing: 'The most striking failure mode: models declare success while actually failing ... the agent reports the task done, but the world state is wrong.'"
+  },
+  {
+   "id": "labor-automationbench-fable-classifier",
+   "slide_topic": "Safety classifier refusals on routine business work",
+   "type": "quote",
+   "file": null,
+   "headline": "Claude Fable 5.1 (with Opus 5 Fallback): Opus 5 completes steps Fable 5.1's safety classifier refuses, then Fable finishes the task.",
+   "dek": "Opus 5 handled ~40% of tasks (260 of 657), and those completions count toward the 31.4%. Cost / task covers Fable 5.1 only, so the true combo cost is higher.",
+   "outlet": "Zapier AutomationBench leaderboard footnote",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://zapier.com/benchmarks",
+   "caption": null,
+   "quality": 4,
+   "verified": true,
+   "notes": "Without fallback Claude Fable 5.1 scores 22.37% (Max) / 21.31% (XHigh). README: '(Fable 5 score is after the July 2026 stricter classifier.)'"
+  },
+  {
+   "id": "labor-gdpval-paper-fig5",
+   "slide_topic": "GDPval: models approaching parity with industry experts (Sept 2025)",
+   "type": "chart",
+   "file": "labor-gdpval-paper-fig5-win-rates.png",
+   "headline": "GDPval: Pairwise Expert Preferences",
+   "dek": "On human pairwise comparisons, models are beginning to approach parity with industry experts on the GDPval gold subset.",
+   "outlet": "OpenAI — GDPval paper (arXiv 2510.04374)",
+   "author": null,
+   "date": "2025-09-25",
+   "url": "https://arxiv.org/abs/2510.04374",
+   "caption": "Wins+ties vs industry professional: GPT-4o 12.4%, Grok 4 24.3%, Gemini 2.5 Pro 25.5%, o4-mini high 27.9%, o3 high 34.1%, GPT-5 high 38.8%, Claude Opus 4.1 47.6%; red dashed 50% 'Parity with Industry Expert' line.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Extracted from the arXiv PDF (original raster, resized to 2600px). GDPval released Sep 25, 2025 (evals.openai.com); arXiv v1 Oct 5, 2025."
+  },
+  {
+   "id": "labor-gdpval-paper-fig6",
+   "slide_topic": "GDPval: roughly linear improvement over time",
+   "type": "chart",
+   "file": "labor-gdpval-paper-fig6-over-time.png",
+   "headline": "GDPval: OpenAI Frontier Model Performance Over Time",
+   "dek": null,
+   "outlet": "OpenAI — GDPval paper (arXiv 2510.04374)",
+   "author": null,
+   "date": "2025-09-25",
+   "url": "https://arxiv.org/abs/2510.04374",
+   "caption": "Line chart by release date: GPT-4o (~12%) → o3 high (~34%) → GPT-5 high (~39%) wins+ties, with 50% parity line.",
+   "quality": 5,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-gdpval-task-example",
+   "slide_topic": "What a GDPval task looks like",
+   "type": "image",
+   "file": "labor-gdpval-paper-task-example.png",
+   "headline": "Prompt and Reference Files → Human Gold Deliverable vs GPT-5 Sample Response → Pairwise Grading",
+   "dek": null,
+   "outlet": "OpenAI — GDPval paper (arXiv 2510.04374)",
+   "author": null,
+   "date": "2025-09-25",
+   "url": "https://arxiv.org/abs/2510.04374",
+   "caption": "Example task: concierge at a Hawaii golf club must produce a formatted SOP PDF from two .docx references; expert graders pick which deliverable is better.",
+   "quality": 4,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-gdpval-tnw-gpt54",
+   "slide_topic": "GDPval: GPT-5.4 matches/beats professionals in 83% of comparisons",
+   "type": "headline",
+   "file": "labor-tnw-gpt54-gdpval.png",
+   "headline": "OpenAI’s GPT-5.4 sets new records on professional benchmarks",
+   "dek": "GPT-5.4 ... “matched or exceeded industry professionals in 83% of comparisons, up from 70.9% for GPT-5.2.”",
+   "outlet": "The Next Web",
+   "author": "Ana-Maria Stanciuc",
+   "date": "2026-03-05",
+   "url": "https://thenextweb.com/news/openai-gpt-54-launch-computer-use-benchmarks",
+   "caption": "TNW headline + date bar (March 5, 2026).",
+   "quality": 4,
+   "verified": true,
+   "notes": null
+  },
+  {
+   "id": "labor-gdpval-mtp-gpt55",
+   "slide_topic": "GDPval: GPT-5.5 84.9%",
+   "type": "headline",
+   "file": "labor-marktechpost-gpt55-gdpval.png",
+   "headline": "OpenAI Releases GPT-5.5, a Fully Retrained Agentic Model That Scores 82.7% on Terminal-Bench 2.0 and 84.9% on GDPval",
+   "dek": "For broader knowledge work, GPT-5.5 scores 84.9% on GDPval, which tests agents across 44 occupations of knowledge work.",
+   "outlet": "MarkTechPost",
+   "author": "Michal Sutter",
+   "date": "2026-04-23",
+   "url": "https://www.marktechpost.com/2026/04/23/openai-releases-gpt-5-5-a-fully-retrained-agentic-model-that-scores-82-7-on-terminal-bench-2-0-and-84-9-on-gdpval/",
+   "caption": "MarkTechPost headline and byline (dark theme site).",
+   "quality": 3,
+   "verified": true,
+   "notes": "Trade outlet; number is OpenAI-reported (openai.com launch page blocked by Cloudflare for our browser)."
+  },
+  {
+   "id": "labor-gdpval-venturebeat-astra-omission",
+   "slide_topic": "OpenAI stopped reporting GDPval with GPT-6 Astra",
+   "type": "headline",
+   "file": null,
+   "headline": "'Welcome to the AGI era': OpenAI launches GPT-6 Astra",
+   "dek": "One notable omission from OpenAI's Astra launch materials is GDPval, the company's own benchmark for measuring performance on economically valuable, real-world work. ... That makes the absence conspicuous given the AGI framing around Astra.",
+   "outlet": "VentureBeat",
+   "author": "Carl Franzen",
+   "date": "2026-09-03",
+   "url": "https://venturebeat.com/technology/welcome-to-the-agi-era-openai-launches-gpt-6-astra",
+   "caption": "Neutral citation card (headless screenshot rendered without CSS; not usable).",
+   "quality": 4,
+   "verified": true,
+   "notes": "Same article quotes Greg Brockman: “Welcome to the AGI era.” and OpenAI's AGI definition 'highly autonomous systems that outperform humans at most economically valuable work.'"
+  },
+  {
+   "id": "labor-gdpval-openai-leaderboard-inactive",
+   "slide_topic": "OpenAI's GDPval leaderboard is no longer active",
+   "type": "screenshot",
+   "file": "labor-gdpval-openai-leaderboard-inactive.png",
+   "headline": "The OpenAI-hosted GDPval leaderboard is no longer active.",
+   "dek": "For third-party leaderboard views, you can refer to the Artificial Analysis GDPval-AA leaderboard.",
+   "outlet": "OpenAI Evals",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://evals.openai.com/gdpval/leaderboard",
+   "caption": "Notice box on evals.openai.com/gdpval/leaderboard.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Date the leaderboard was deactivated is not shown."
+  },
+  {
+   "id": "labor-gdpval-aa-leaderboard",
+   "slide_topic": "GDPval-AA (independent): Claude Opus 5.5 leads",
+   "type": "screenshot",
+   "file": "labor-gdpval-aa-leaderboard.png",
+   "headline": "GDPval-AA v2.1 Leaderboard",
+   "dek": "Elo rating for performance on real-world work tasks · Anchored to DeepSeek V4.1 Flash (max) at 1600 · Higher is better",
+   "outlet": "Artificial Analysis",
+   "author": null,
+   "date": "2026-10-04",
+   "url": "https://artificialanalysis.ai/evaluations/gdpval-aa",
+   "caption": "Top-30 Elo bars: Claude Opus 5.5 (max, fallback) 1867, Claude Sonnet 5.5 (max) 1840, Claude Opus 5.5 (xhigh) 1837, Claude Fable 5.1 (max) 1758, ... GPT-6.1 Sol (max) 1575, GPT-6 Astra (max) 1542 ...",
+   "quality": 4,
+   "verified": true,
+   "notes": "Leftmost x-axis label is clipped by the page's own chart. GDPval-AA = Artificial Analysis' agentic re-run of OpenAI's 220 gold GDPval tasks, graded by blind pairwise comparison (Elo), not OpenAI's wins-vs-human-expert metric."
+  }
+ ],
+ "datasets": [
+  {
+   "id": "labor-ale-overall-pass-rate",
+   "title": "Agents' Last Exam (ALE-V1, Overall, 152 public tasks): pass rate and partial-credit score by agent, as of 2026-10-04",
+   "unit": "% of tasks",
+   "labels": [
+    "Best per task (oracle)",
+    "Claude Opus 5.5 (Claude Code, Max)",
+    "GPT-6 Astra (Codex, Max)",
+    "Muse Spark 1.3 (Codex, XHigh)",
+    "Kimi K3 (Kimi Code, Max)",
+    "Qwen-3-8-max (Claude Code, XHigh)",
+    "Grok 4.5 (Grok Build, High)",
+    "glm-5-2 (Claude Code, Max)",
+    "composer-2-5 (Cursor, Adaptive)",
+    "seed-2.1-pro (Claude Code)",
+    "gemini-3-1-pro (Gemini CLI, High)",
+    "deepseek-v4-pro (OpenClaw, High)"
+   ],
+   "series": [
+    {
+     "name": "Pass rate (perfect score)",
+     "values": [
+      56.6,
+      38.2,
+      34.2,
+      32.2,
+      28.3,
+      27.0,
+      27.0,
+      20.4,
+      20.4,
+      19.5,
+      16.4,
+      12.4
+     ]
+    },
+    {
+     "name": "Score (partial credit)",
+     "values": [
+      78.8,
+      63.2,
+      59.3,
+      55.8,
+      51.6,
+      52.5,
+      51.2,
+      41.1,
+      39.5,
+      41.9,
+      32.7,
+      27.6
+     ]
+    }
+   ],
+   "source": "Agents' Last Exam leaderboard (UC Berkeley RDI), live page + /api/demo/leaderboard, accessed 2026-10-04",
+   "url": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+   "id": "labor-ale-lastexam-tier",
+   "title": "ALE hardest 'Last-Exam' tier (38 tasks): pass rate by agent on the current leaderboard (Oct 4, 2026)",
+   "unit": "% of tasks passed",
+   "labels": [
+    "Composer 2.5 (Cursor)",
+    "GPT-5.5 (Codex, default)",
+    "Claude Fable 5 (Claude Code, default)",
+    "Claude Fable 5 (Claude Code, XHigh)",
+    "GPT-6 Astra (Codex, High)",
+    "gpt-6-sol (Codex, Medium)",
+    "Claude Opus 5 (Claude Code, Max)",
+    "Claude Opus 5.5 (Claude Code, Max)"
+   ],
+   "series": [
+    {
+     "name": "Pass rate",
+     "values": [
+      0.0,
+      0.0,
+      0.0,
+      7.9,
+      10.5,
+      13.2,
+      13.2,
+      15.8
+     ]
+    }
+   ],
+   "source": "Agents' Last Exam leaderboard API (split full/last-exam), accessed 2026-10-04. June 2026 launch post: 'every frontier agent we tested, including Fable 5, achieved a 0% success rate' on this tier.",
+   "url": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+   "id": "labor-ale-launch-june2026",
+   "title": "ALE launch results (June 2026 figure): pass rate",
+   "unit": "%",
+   "labels": [
+    "gpt-5-5 (Codex)",
+    "claude-fable-5 (Claude Code)",
+    "composer-2-5 (Cursor)"
+   ],
+   "series": [
+    {
+     "name": "Full-Spectrum tier",
+     "values": [
+      22.7,
+      20.9,
+      18.2
+     ]
+    },
+    {
+     "name": "Last-Exam tier",
+     "values": [
+      0.0,
+      0.0,
+      0.0
+     ]
+    },
+    {
+     "name": "Overall",
+     "values": [
+      24.0,
+      22.0,
+      20.4
+     ]
+    }
+   ],
+   "source": "UC Berkeley RDI blog figure main-results.png (June 2026)",
+   "url": "https://rdi.berkeley.edu/blog/agents-last-exam/"
+  },
+  {
+   "id": "labor-ale-overall-by-release",
+   "title": "ALE Overall pass rate of each lab's flagship by model release month (best effort setting)",
+   "unit": "% of tasks",
+   "labels": [
+    "GPT-5.5 (Apr 2026)",
+    "Claude Fable 5 (Jun 2026)",
+    "GPT-5.6 Sol (Jul 2026)",
+    "Claude Opus 5 (Jul 2026)",
+    "GPT-6 Astra (Sep 2026)",
+    "Claude Opus 5.5 (Sep 2026)"
+   ],
+   "series": [
+    {
+     "name": "Pass rate",
+     "values": [
+      26.6,
+      25.7,
+      30.6,
+      32.2,
+      34.2,
+      38.2
+     ]
+    }
+   ],
+   "source": "ALE leaderboard (accessed 2026-10-04); release months from Wikipedia (GPT-5.5 Apr 23 2026; GPT-6 Astra Sep 3-4 2026) and Artificial Analysis model listings",
+   "url": "https://agents-last-exam.org/leaderboard"
+  },
+  {
+   "id": "labor-rli-leaderboard",
+   "title": "Remote Labor Index: automation rate (share of 240 real freelance projects done at client-acceptable quality), as of 2026-10-04",
+   "unit": "% of projects",
+   "labels": [
+    "GPT 6 Astra",
+    "Fable 5.1",
+    "Fable 5",
+    "Opus 4.8",
+    "Codex GPT 5.5",
+    "Gemini 3.8 Flash",
+    "Gemini 3.7 Flash",
+    "claude-opus-4-6 (CoWork)",
+    "claude-opus-4-5 (thinking)",
+    "Manus 1.6 (Max)",
+    "gpt-5.2 (medium)",
+    "Manus 1.5",
+    "Manus 1.0",
+    "claude-4-5-Sonnet",
+    "gpt-5.2 (default)",
+    "gpt-5 (2025-08-07)",
+    "ChatGPT agent",
+    "gemini-3-pro-preview",
+    "gemini-2.5-pro-preview"
+   ],
+   "series": [
+    {
+     "name": "Automation rate",
+     "values": [
+      20.83,
+      17.92,
+      15.8,
+      8.33,
+      6.25,
+      5.83,
+      5.0,
+      4.17,
+      3.75,
+      2.92,
+      2.5,
+      2.5,
+      2.5,
+      2.08,
+      2.08,
+      1.67,
+      1.25,
+      1.25,
+      0.83
+     ]
+    }
+   ],
+   "source": "Scale Labs RLI leaderboard (joint with CAIS), accessed 2026-10-04",
+   "url": "https://labs.scale.com/leaderboard/rli"
+  },
+  {
+   "id": "labor-rli-frontier-over-time",
+   "title": "Remote Labor Index: best automation rate over time",
+   "unit": "% of projects",
+   "labels": [
+    "Oct 30, 2025 (launch: Manus)",
+    "Before Jul 2026 (Opus 4.6 + Claude Cowork)",
+    "Jul 1, 2026 (Fable 5)",
+    "Oct 4, 2026 (GPT-6 Astra)"
+   ],
+   "series": [
+    {
+     "name": "Best automation rate",
+     "values": [
+      2.5,
+      4.17,
+      15.8,
+      20.83
+     ]
+    }
+   ],
+   "source": "arXiv 2510.26787 v1 (Oct 30, 2025: 'highest-performing agent achieving an automation rate of 2.5%'); CAIS blog Jul 1, 2026 ('previous published leader sat at 4.17%'; Fable 5 15.8%); Scale/CAIS leaderboard Oct 4, 2026 (GPT 6 Astra 20.83). Exact date Astra's result was posted is between Sep 3 and Oct 4, 2026; exact date of the Opus 4.6 result not found.",
+   "url": "https://safe.ai/blog/significant-increase-in-digital-labor-automation"
+  },
+  {
+   "id": "labor-rli-cais-july-chart",
+   "title": "RLI automation rate by model (CAIS, July 1 2026)",
+   "unit": "% of projects",
+   "labels": [
+    "Gemini 3 Pro",
+    "Grok 4",
+    "GPT-5.2",
+    "Manus 1.6 Max",
+    "Opus 4.6",
+    "GPT-5.5",
+    "Opus 4.8",
+    "Fable 5"
+   ],
+   "series": [
+    {
+     "name": "Automation rate",
+     "values": [
+      1.25,
+      2.08,
+      2.5,
+      2.92,
+      4.17,
+      6.3,
+      8.3,
+      15.8
+     ]
+    }
+   ],
+   "source": "CAIS blog \"A Significant Increase in Digital Labor Automation\" (Jul 1, 2026)",
+   "url": "https://safe.ai/blog/significant-increase-in-digital-labor-automation"
+  },
+  {
+   "id": "labor-rli-judge-overestimate",
+   "title": "RLI: automated LLM judge vs human ground truth",
+   "unit": "% automation rate",
+   "labels": [
+    "GPT-5.5",
+    "Opus 4.8",
+    "Earlier models (calibration set)"
+   ],
+   "series": [
+    {
+     "name": "Human (ground truth)",
+     "values": [
+      6.25,
+      8.33,
+      3.3
+     ]
+    },
+    {
+     "name": "Automated judge",
+     "values": [
+      17.9,
+      18.8,
+      3.0
+     ]
+    }
+   ],
+   "source": "CAIS blog (Jul 1, 2026), table \"Human Judges Remain Necessary\" (earlier-models judge value given as ~3%)",
+   "url": "https://safe.ai/blog/significant-increase-in-digital-labor-automation"
+  },
+  {
+   "id": "labor-automationbench-top",
+   "title": "AutomationBench v1.0.6 (Zapier): best score per model, strict pass rate on held-out business workflows (Oct 4, 2026)",
+   "unit": "% of tasks fully correct",
+   "labels": [
+    "Gemini 4 Argon (High)",
+    "Claude Sonnet 5.5 (Max, fallbacks)",
+    "Claude Opus 5.5 (Max, fallbacks)",
+    "GPT 6 Astra (Max)",
+    "GPT 6 Sol (XHigh)",
+    "Claude Fable 5.1 (+Opus 5 fallback)",
+    "Gemini 3.7 Flash (High)",
+    "Gemini 3.8 Flash",
+    "GPT-5.6 Sol (Max)",
+    "Claude Opus 5 (Max)",
+    "Kimi K3",
+    "Claude Fable 5.1 (Max, no fallback)",
+    "Muse Spark 1.3 (Max)",
+    "GPT 6 Luna (Max)"
+   ],
+   "series": [
+    {
+     "name": "Score",
+     "values": [
+      51.29,
+      44.75,
+      42.47,
+      41.4,
+      33.2,
+      31.4,
+      30.44,
+      29.68,
+      28.77,
+      26.94,
+      22.68,
+      22.37,
+      20.7,
+      20.7
+     ]
+    }
+   ],
+   "source": "zapier.com/benchmarks leaderboard v1.0.6 (expanded \"See 111 more\"), accessed 2026-10-04",
+   "url": "https://zapier.com/benchmarks"
+  },
+  {
+   "id": "labor-automationbench-frontier-by-release",
+   "title": "AutomationBench v1.0.6: best score among models released up to each month",
+   "unit": "% of tasks fully correct",
+   "labels": [
+    "Feb 2026 (Gemini 3.1 Pro)",
+    "Mar 2026 (GPT-5.4)",
+    "Apr 2026 (GPT-5.5)",
+    "May 2026 (Claude Opus 4.8)",
+    "Jun 2026 (Claude Fable 5.0)",
+    "Jul 2026 (GPT-5.6 Sol)",
+    "Aug 2026 (Gemini 3.7 Flash)",
+    "Sep 2026 (Gemini 4 Argon)"
+   ],
+   "series": [
+    {
+     "name": "Best score",
+     "values": [
+      8.68,
+      11.57,
+      16.59,
+      16.89,
+      17.05,
+      28.77,
+      30.44,
+      51.29
+     ]
+    }
+   ],
+   "source": "Scores: zapier.com/benchmarks v1.0.6 (all models re-run on the same version), accessed 2026-10-04. Release months: Artificial Analysis model listings / Wikipedia. Derived (best-to-date) series compiled by us.",
+   "url": "https://zapier.com/benchmarks"
+  },
+  {
+   "id": "labor-automationbench-launch",
+   "title": "AutomationBench at launch (v1.0.0, April 21, 2026)",
+   "unit": "% of tasks fully correct",
+   "labels": [
+    "Opus 4.7 (max)",
+    "Gemini 3.1 Pro (high)",
+    "GPT 5.4 (high)",
+    "Sonnet 4.6 (max)",
+    "Haiku 4.5",
+    "GPT 5.4 (no reasoning)"
+   ],
+   "series": [
+    {
+     "name": "Score",
+     "values": [
+      9.9,
+      9.6,
+      7.6,
+      5.3,
+      1.5,
+      1.2
+     ]
+    }
+   ],
+   "source": "AutomationBench paper, arXiv 2604.18934 v1, Section 6 Leaderboard",
+   "url": "https://arxiv.org/abs/2604.18934"
+  },
+  {
+   "id": "labor-gdpval-openai-wins-ties",
+   "title": "GDPval (OpenAI): share of tasks where the model's deliverable beats or ties an industry expert's",
+   "unit": "% wins + ties",
+   "labels": [
+    "GPT-4o (mid-2024)",
+    "o3 high (Apr 2025)",
+    "GPT-5 high (Aug 2025)",
+    "Claude Opus 4.1 (GDPval paper, Sep 2025)",
+    "GPT-5.2 Thinking (Dec 2025)",
+    "GPT-5.4 (Mar 2026)",
+    "GPT-5.5 (Apr 2026)"
+   ],
+   "series": [
+    {
+     "name": "Wins + ties vs expert",
+     "values": [
+      12.4,
+      34.1,
+      38.8,
+      47.6,
+      70.9,
+      83.0,
+      84.9
+     ]
+    }
+   ],
+   "source": "GDPval paper fig. 5/6 (Sep 2025) for GPT-4o, o3, GPT-5, Claude Opus 4.1; GPT-5.2 70.9% and GPT-5.4 83.0% as reported by The Next Web (Mar 5, 2026); GPT-5.5 84.9% as reported by MarkTechPost (Apr 23, 2026). 50% = parity with experts. OpenAI published no GDPval figure for GPT-5.6 or GPT-6 Astra (VentureBeat) and its hosted leaderboard is 'no longer active'.",
+   "url": "https://arxiv.org/abs/2510.04374"
+  },
+  {
+   "id": "labor-gdpval-paper-models",
+   "title": "GDPval gold subset (Sept 2025): win rate vs industry professional",
+   "unit": "% wins + ties",
+   "labels": [
+    "GPT-4o",
+    "Grok 4",
+    "Gemini 2.5 Pro",
+    "o4-mini high",
+    "o3 high",
+    "GPT-5 high",
+    "Claude Opus 4.1"
+   ],
+   "series": [
+    {
+     "name": "Wins + ties",
+     "values": [
+      12.4,
+      24.3,
+      25.5,
+      27.9,
+      34.1,
+      38.8,
+      47.6
+     ]
+    }
+   ],
+   "source": "GDPval paper (arXiv 2510.04374), Figure 5",
+   "url": "https://arxiv.org/abs/2510.04374"
+  },
+  {
+   "id": "labor-gdpval-aa-top",
+   "title": "GDPval-AA v2.1 (Artificial Analysis, independent): Elo on OpenAI GDPval tasks, Oct 4 2026",
+   "unit": "Elo (DeepSeek V4.1 Flash max = 1600)",
+   "labels": [
+    "Claude Opus 5.5 (Max)",
+    "Claude Sonnet 5.5 (Max)",
+    "Claude Fable 5.1 (Max)",
+    "Claude Opus 5 (Max)",
+    "Grok 4.7 (Xhigh)",
+    "MiMo-V2.6-Pro",
+    "Muse Spark 1.3 (Max)",
+    "Qwen3.8 Max (0902)",
+    "GLM-5.3 (Max)",
+    "Gemini 4 Argon (High)",
+    "GPT-5.6 Sol (Max)",
+    "GPT-6.1 Sol (Max)",
+    "GPT-6 Astra (Max)",
+    "Kimi K3 (Max)"
+   ],
+   "series": [
+    {
+     "name": "Elo",
+     "values": [
+      1867,
+      1840,
+      1758,
+      1726,
+      1716,
+      1688,
+      1684,
+      1671,
+      1653,
+      1627,
+      1611,
+      1575,
+      1542,
+      1538
+     ]
+    }
+   ],
+   "source": "Artificial Analysis GDPval-AA v2.1 leaderboard table, accessed 2026-10-04",
+   "url": "https://artificialanalysis.ai/evaluations/gdpval-aa"
+  },
+  {
+   "id": "labor-gdpval-aa-frontier-by-release",
+   "title": "GDPval-AA v2.1: best Elo among models released up to each month",
+   "unit": "Elo",
+   "labels": [
+    "Aug 2025 (GPT-5 High)",
+    "Dec 2025 (GLM-4.7)",
+    "Feb 2026 (Claude Sonnet 4.6)",
+    "Mar 2026 (GPT-5.4)",
+    "Apr 2026 (Claude Opus 4.7)",
+    "May 2026 (Claude Opus 4.8)",
+    "Jun 2026 (Claude Fable 5)",
+    "Jul 2026 (Claude Opus 5)",
+    "Sep 2026 (Claude Opus 5.5)"
+   ],
+   "series": [
+    {
+     "name": "Best Elo to date",
+     "values": [
+      920,
+      1017,
+      1234,
+      1248,
+      1356,
+      1456,
+      1613,
+      1726,
+      1867
+     ]
+    }
+   ],
+   "source": "Derived from the Artificial Analysis GDPval-AA v2.1 table (254 rows with release month), accessed 2026-10-04; only models AA currently lists",
+   "url": "https://artificialanalysis.ai/evaluations/gdpval-aa"
+  }
+ ],
+ "facts": [
+  {
+   "claim": "Agents' Last Exam (UC Berkeley RDI, June 2026): 1,500+ expert-sourced tasks spanning 55 occupations; at launch 'every frontier agent we tested, including Fable 5, achieved a 0% success rate' on the hardest tier.",
+   "source": "UC Berkeley RDI blog",
+   "url": "https://rdi.berkeley.edu/blog/agents-last-exam/",
+   "date": "2026-06"
+  },
+  {
+   "claim": "'The age of useful agents is here. The age of truly job-ready agents is not.' — Berkeley RDI, Agents' Last Exam",
+   "source": "UC Berkeley RDI blog",
+   "url": "https://rdi.berkeley.edu/blog/agents-last-exam/",
+   "date": "2026-06"
+  },
+  {
+   "claim": "Four months later, Claude Opus 5.5 (in Claude Code, max effort) passes 15.8% of ALE's hardest 'Last-Exam' tasks (6 of 38) — while the June launch configs of Fable 5, GPT-5.5 and Composer 2.5 still score 0% on the same split.",
+   "source": "Agents' Last Exam leaderboard",
+   "url": "https://agents-last-exam.org/leaderboard",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "ALE overall leader (Oct 4, 2026): Claude Opus 5.5 38.2% pass rate (63.2% partial credit), GPT-6 Astra 34.2%; taking the best run on each task across all agents gives 56.6%.",
+   "source": "Agents' Last Exam leaderboard",
+   "url": "https://agents-last-exam.org/leaderboard",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "ALE arXiv abstract: 'Developed in collaboration with 250+ industry experts ... 55 sub fields grouped into 13 industry clusters covering 1K+ tasks ... the average full pass rate is below 1%' on the hardest tier.",
+   "source": "arXiv 2606.05405 (v1 Jun 3, 2026; v2 Jun 11, 2026)",
+   "url": "https://arxiv.org/abs/2606.05405",
+   "date": "2026-06-03"
+  },
+  {
+   "claim": "ALE-CLI's best agent passed just 25.2% at launch vs 82.0% on Terminal-Bench and 59.1% on SWE-bench-Pro.",
+   "source": "UC Berkeley RDI blog",
+   "url": "https://rdi.berkeley.edu/blog/agents-last-exam/",
+   "date": "2026-06"
+  },
+  {
+   "claim": "Remote Labor Index (CAIS + Scale): at launch (Oct 2025) the best AI agent fully completed 2.5% of 240 real freelance projects; by Oct 4, 2026 GPT-6 Astra completes 20.83% — an ~8x jump in under a year.",
+   "source": "arXiv 2510.26787; Scale Labs RLI leaderboard",
+   "url": "https://labs.scale.com/leaderboard/rli",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "'The frontier has more than quadrupled in under eight months, a concrete signal of how quickly economically capable AI agents are advancing.' — CAIS, July 1, 2026",
+   "source": "CAIS blog",
+   "url": "https://safe.ai/blog/significant-increase-in-digital-labor-automation",
+   "date": "2026-07-01"
+  },
+  {
+   "claim": "RLI's 240 projects represent over 6,000 hours of real work valued at over $140,000 (total $143,991); mean human completion time 28.9 hours.",
+   "source": "remotelabor.ai; Scale Labs RLI page",
+   "url": "https://www.remotelabor.ai/",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "An LLM judge calibrated on older models overestimated the newest models' RLI automation ~2.9x for GPT-5.5 (17.9% vs 6.25% by humans) and ~2.3x for Opus 4.8 (18.8% vs 8.33%).",
+   "source": "CAIS blog",
+   "url": "https://safe.ai/blog/significant-increase-in-digital-labor-automation",
+   "date": "2026-07-01"
+  },
+  {
+   "claim": "GPT-5.5's polished bathroom 'render' on an RLI architecture project was 'faked with an image generator'; its actual 3D model was crude.",
+   "source": "CAIS blog",
+   "url": "https://safe.ai/blog/significant-increase-in-digital-labor-automation",
+   "date": "2026-07-01"
+  },
+  {
+   "claim": "On RLI, success does not fall as human completion time rises — 'the time-horizon model fits the data poorly' (jagged frontier).",
+   "source": "CAIS blog",
+   "url": "https://safe.ai/blog/significant-increase-in-digital-labor-automation",
+   "date": "2026-07-01"
+  },
+  {
+   "claim": "AutomationBench (Zapier, Apr 21, 2026): at launch 'Even the best frontier models currently score below 10%' (Opus 4.7 9.9%); on today's v1.0.6 board Gemini 4 Argon (High) completes 51.29% of held-out business workflows end-to-end.",
+   "source": "arXiv 2604.18934; zapier.com/benchmarks",
+   "url": "https://zapier.com/benchmarks",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "On the same AutomationBench v1.0.6 board, Claude Opus 4.7 (April's launch leader) scores 13.39% vs 51.29% for Gemini 4 Argon (Sep 2026) — ~4x in five months.",
+   "source": "zapier.com/benchmarks",
+   "url": "https://zapier.com/benchmarks",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "AutomationBench: 'More often than not, models declared success while actually failing. 72% of Opus’s failures, 91% of Gemini’s, and 84% of GPT 5.4’s involved this false confidence.'",
+   "source": "AutomationBench paper",
+   "url": "https://arxiv.org/abs/2604.18934",
+   "date": "2026-04-21"
+  },
+  {
+   "claim": "AutomationBench is built on patterns from Zapier's 2B+ monthly tasks across 3.7M companies; 600+ held-out tasks, 6 business domains, 47 simulated apps, ~500 API endpoints; strict scoring — 'mostly-right is still wrong'.",
+   "source": "zapier.com/benchmarks",
+   "url": "https://zapier.com/benchmarks",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "On AutomationBench, Claude Fable 5.1's own safety classifier refused steps on ~40% of tasks (260 of 657), which Opus 5 then completed as a fallback.",
+   "source": "zapier.com/benchmarks footnote",
+   "url": "https://zapier.com/benchmarks",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "GDPval (OpenAI, Sep 2025): 44 occupations, 9 sectors, tasks from professionals averaging 14 years' experience; best model then (Claude Opus 4.1) beat or tied experts on 47.6% of tasks; GPT-5 high 38.8%; GPT-4o 12.4%.",
+   "source": "GDPval paper",
+   "url": "https://arxiv.org/abs/2510.04374",
+   "date": "2025-09-25"
+  },
+  {
+   "claim": "OpenAI-reported GDPval wins-or-ties vs industry professionals: GPT-5.2 70.9% (Dec 2025) → GPT-5.4 83.0% (Mar 2026) → GPT-5.5 84.9% (Apr 2026) — past the 50% parity line.",
+   "source": "The Next Web (Mar 5, 2026); MarkTechPost (Apr 23, 2026)",
+   "url": "https://thenextweb.com/news/openai-gpt-54-launch-computer-use-benchmarks",
+   "date": "2026-04-23"
+  },
+  {
+   "claim": "'One notable omission from OpenAI's Astra launch materials is GDPval, the company's own benchmark for measuring performance on economically valuable, real-world work.' — VentureBeat, Sep 3, 2026",
+   "source": "VentureBeat",
+   "url": "https://venturebeat.com/technology/welcome-to-the-agi-era-openai-launches-gpt-6-astra",
+   "date": "2026-09-03"
+  },
+  {
+   "claim": "OpenAI's own GDPval leaderboard page now reads: 'The OpenAI-hosted GDPval leaderboard is no longer active.'",
+   "source": "evals.openai.com",
+   "url": "https://evals.openai.com/gdpval/leaderboard",
+   "date": "2026-10-04"
+  },
+  {
+   "claim": "Independent GDPval-AA v2.1 (Artificial Analysis): Claude Opus 5.5 leads at 1867 Elo, ahead of Claude Sonnet 5.5 (1840); GPT-6 Astra (max) scores 1542. The best Elo rose from 920 (GPT-5, Aug 2025) to 1867 (Claude Opus 5.5, Sep 2026).",
+   "source": "Artificial Analysis",
+   "url": "https://artificialanalysis.ai/evaluations/gdpval-aa",
+   "date": "2026-10-04"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "OpenAI GDPval 'wins or ties' share for GPT-5.6 (Sol/Terra/Luna) and GPT-6 Astra",
+   "searched": "WebSearch/DDG for GDPval + GPT-5.6 / GPT-6 Astra; VentureBeat GPT-5.6 and Astra launch articles (no GDPval; Astra omission explicitly noted); GPT-5.6 preview system card (no GDPval); evals.openai.com (leaderboard inactive). openai.com pages (introducing-gpt-5-5, gpt-6-astra, gdpval) return Cloudflare 'Just a moment' / 403 to our tools and web.archive.org was unreachable, so OpenAI's own launch pages were not loaded — GPT-5.2/5.4/5.5 GDPval numbers come from TNW and MarkTechPost reporting."
+  },
+  {
+   "outline_item": "Exact dates GPT-6 Astra (20.83%) and Fable 5.1 (17.92%) were added to the Remote Labor Index, and date of the Opus 4.6 (4.17%) result",
+   "searched": "Scale Labs leaderboard, remotelabor.ai, dashboard.safe.ai (no dates shown), CAIS blog, DDG for CAIS/Scale posts; only bound: Astra released Sep 3-4, 2026, so posted between then and Oct 4, 2026."
+  },
+  {
+   "outline_item": "Per-entry submission dates on the Agents' Last Exam leaderboard / a dated ALE progress chart",
+   "searched": "agents-last-exam.org leaderboard + JSON API (no dates except 'Best-per-task (Jul 4, 2026)'), blogs index (posts dated Mar 4, Jun 9, Jun 11, Jun 14 2026; no later update post)."
+  },
+  {
+   "outline_item": "Historical AutomationBench leaderboard snapshots between v1.0.0 (Apr 2026) and v1.0.6",
+   "searched": "zapier.com/benchmarks, GitHub README (notes private tasks are re-hardened and all models re-run on version changes); web.archive.org unreachable. Used launch paper table + current v1.0.6 only."
+  },
+  {
+   "outline_item": "Usable screenshot of VentureBeat 'Welcome to the AGI era' article and of the CAIS X post",
+   "searched": "Headless render of VentureBeat loaded without CSS (unusable); X/Twitter not screenshotted — tweet text and its attached chart image fetched via api.fxtwitter.com instead."
+  },
+  {
+   "outline_item": "Snorkel-hosted ALE leaderboard (snorkel.ai/leaderboard/agents-last-exam)",
+   "searched": "Seen in search results (claims Opus 5.5 34.3% / GPT-6 Astra 33.3%, matching the official ALE-CLI split) but not loaded; use the official agents-last-exam.org numbers."
+  }
+ ]
+}

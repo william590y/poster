@@ -1,0 +1,222 @@
+{
+ "url": "https://www.missingkids.org/theissues/generative-ai",
+ "viewport_width": 1280,
+ "device_scale_factor": 2,
+ "captured": "2026-10-04T11:11:02.667Z",
+ "shots": [
+  {
+   "file": "ncmec-gai-by-the-numbers.png",
+   "image_px": [
+    2560,
+    1794
+   ],
+   "page_clip_css": [
+    0,
+    1550,
+    1280,
+    897
+   ],
+   "highlights": [
+    {
+     "text": "4,700 CyberTipline reports of GAI from the public and ESPs",
+     "line_rects_px": [
+      [
+       123,
+       410,
+       197,
+       86
+      ],
+      [
+       321,
+       444,
+       864,
+       44
+      ]
+     ],
+     "bbox_px": [
+      123,
+      410,
+      1062,
+      86
+     ]
+    },
+    {
+     "text": "67,000 CyberTipline reports of GAI from the public and ESPs",
+     "line_rects_px": [
+      [
+       1354,
+       410,
+       240,
+       86
+      ],
+      [
+       1594,
+       444,
+       864,
+       44
+      ]
+     ],
+     "bbox_px": [
+      1354,
+      410,
+      1105,
+      86
+     ]
+    },
+    {
+     "text": "More than 400,000 CyberTipline reports of GAI from the public and ESPs",
+     "line_rects_px": [
+      [
+       344,
+       826,
+       1183,
+       44
+      ]
+     ],
+     "bbox_px": [
+      344,
+      826,
+      1183,
+      44
+     ]
+    },
+    {
+     "text": "7,000+ reports of users generating or possessing GAI CSAM",
+     "line_rects_px": [
+      [
+       677,
+       1012,
+       243,
+       86
+      ],
+      [
+       671,
+       1098,
+       254,
+       44
+      ],
+      [
+       690,
+       1146,
+       216,
+       44
+      ],
+      [
+       674,
+       1194,
+       249,
+       44
+      ],
+      [
+       747,
+       1242,
+       103,
+       44
+      ]
+     ],
+     "bbox_px": [
+      671,
+      1012,
+      254,
+      274
+     ]
+    },
+    {
+     "text": "145,000+ reports of users using GAI to engage or alter a CSAM file without text prompts included",
+     "line_rects_px": [
+      [
+       1601,
+       1012,
+       321,
+       86
+      ],
+      [
+       1635,
+       1098,
+       254,
+       44
+      ],
+      [
+       1597,
+       1146,
+       329,
+       44
+      ],
+      [
+       1606,
+       1194,
+       311,
+       44
+      ],
+      [
+       1663,
+       1242,
+       197,
+       44
+      ],
+      [
+       1620,
+       1290,
+       283,
+       44
+      ]
+     ],
+     "bbox_px": [
+      1597,
+      1012,
+      329,
+      322
+     ]
+    }
+   ]
+  },
+  {
+   "file": "ncmec-gai-intro.png",
+   "image_px": [
+    2171,
+    1888
+   ],
+   "page_clip_css": [
+    97,
+    162,
+    1085,
+    944
+   ],
+   "highlights": [
+    {
+     "text": "More than 275 direct victims of GAI CSAM were identified in 2024 and 2025 alone and the offenders in many cases were people in the child's life with direct access to them.",
+     "line_rects_px": [
+      [
+       377,
+       1646,
+       1367,
+       48
+      ],
+      [
+       377,
+       1714,
+       1413,
+       48
+      ],
+      [
+       377,
+       1782,
+       282,
+       48
+      ]
+     ],
+     "bbox_px": [
+      377,
+      1646,
+      1413,
+      184
+     ]
+    }
+   ]
+  },
+  {
+   "file": "ncmec-gai-fullpage.png",
+   "note": "full page incl. nav and footer"
+  }
+ ]
+}

@@ -91,3 +91,21 @@ Short: slide list (title per slide), what visuals/animations you used, any place
 - A one-series bar chart colors each bar differently when `chartColors` has more than one entry; pass a single color
   (e.g. `chartColors: [HEX.red]`) for uniform bars, or one entry per bar on purpose to highlight (e.g. the last bar red).
 - `valAxisLabelFormatCode` examples: `'0%'` (values as fractions), `'#,##0'`, `'$#,##0"B"'`.
+
+## Media (GIFs, video clips) — quality first
+- The user prioritises QUALITY over file size (deck size is not a constraint).
+- Tools: `ffmpeg`, `gifsicle`, `yt-dlp` are installed. **YouTube downloads are blocked from this network** ("sign in to confirm you're not
+  a bot") — for YouTube content use `d.video` (online embed + thumbnail cover). Other hosts (company sites' mp4s, Reddit v.redd.it,
+  GIPHY/Tenor, X via fxtwitter/vxtwitter direct mp4 links, arXiv/project pages) can often be downloaded with curl or yt-dlp.
+- Short looping clips (≤ ~10 s): high-quality animated GIF via a palette pass, e.g.
+  `ffmpeg -ss START -t DUR -i in.mp4 -vf "fps=15,scale=960:-1:flags=lanczos,split[a][b];[a]palettegen=stats_mode=diff[p];[b][p]paletteuse=dither=sierra2_4a" out.gif`
+  then `gifsicle -O3 out.gif -o out.gif` (no --lossy). Insert with `d.frame(s, gif, box, { border:false })` — GIFs autoplay + loop in
+  PowerPoint slideshow; LibreOffice previews show the first frame only.
+- Longer clips / audio: `await d.localVideo(s, { file: 'clip.mp4', cover: 'poster.jpg', box, label, link })` embeds the mp4 (click to play).
+  Make the poster with `ffmpeg -ss T -i clip.mp4 -frames:v 1 poster.jpg`.
+- Save derived media under assets/slides/<module>/; record the source URL of every clip in the manifest and the speaker notes.
+- Real footage only — never generate or fake a clip. Trimming/scaling/re-encoding is fine.
+- Search: if WebSearch is exhausted, use `node /tmp/claude-0/-home-user-poster/a99e0376-0534-5e3e-8b47-ccbc03821dfd/scratchpad/ddg.js "<query>"`
+  (read it first for usage) and `node tools/shot.js <url> <out.png>` for real screenshots.
+- Highlighting a passage in a screenshot: overlay native semi-transparent shapes (e.g. amber rectangle, transparency 65) on top of the image —
+  never paint on the screenshot pixels.

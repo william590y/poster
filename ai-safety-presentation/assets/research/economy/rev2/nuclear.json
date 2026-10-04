@@ -1,0 +1,872 @@
+{
+  "group": "economy",
+  "task": "nuclear",
+  "items": [
+    {
+      "id": "npr-tmi-microsoft-2024",
+      "slide_topic": "Three Mile Island / Crane restart for Microsoft",
+      "type": "headline",
+      "file": "npr_tmi_microsoft_2024.png",
+      "headline": "Three Mile Island nuclear plant will reopen to power Microsoft data centers",
+      "dek": "Three Mile Island, the Pennsylvania power plant that was the scene of the worst commercial nuclear accident in American history, will reopen and sell power to Microsoft.",
+      "outlet": "NPR",
+      "author": "C Mandler",
+      "date": "2024-09-20",
+      "url": "https://www.npr.org/2024/09/20/nx-s1-5120581/three-mile-island-nuclear-power-plant-microsoft-ai",
+      "caption": "NPR article header: headline, dateline Sept 20 2024, byline, and Getty photo of TMI cooling towers (Jeff Fusco/Getty Images)",
+      "quality": 5,
+      "verified": true,
+      "notes": "Body (verbatim): 'The agreement will span 20 years, and the plant is expected to reopen in 2028. It will be renamed the Crane Clean Energy Center in honor of Chris Crane...' Restart has since been pulled forward to 2027."
+    },
+    {
+      "id": "cnn-tmi-microsoft-2024",
+      "slide_topic": "Three Mile Island / Crane restart for Microsoft",
+      "type": "headline",
+      "file": "cnn_tmi_microsoft_2024.png",
+      "headline": "Three Mile Island is reopening and selling its power to Microsoft",
+      "dek": "Three Mile Island, the site of worst nuclear disaster in the United States, is reopening and will exclusively sell the power to Microsoft as the company searches for energy sources to fuel its AI ambitions.",
+      "outlet": "CNN Business",
+      "author": "Jordan Valinsky",
+      "date": "2024-09-20",
+      "url": "https://www.cnn.com/2024/09/20/energy/three-mile-island-microsoft-ai/index.html",
+      "caption": "CNN header: huge headline, byline, AFP/Getty photo of TMI cooling towers venting steam (ad box at right)",
+      "quality": 5,
+      "verified": true,
+      "notes": "Body (verbatim): 'Financial terms of the 20-year agreement, which Constellation called its largest ever, weren't disclosed.'"
+    },
+    {
+      "id": "ans-constellation-ferc-crane-2026",
+      "slide_topic": "Three Mile Island / Crane restart for Microsoft",
+      "type": "headline",
+      "file": "ans_constellation_ferc_crane_2026-04-03.png",
+      "headline": "Constellation seeks FERC help with Crane restart",
+      "dek": "When the former Three Mile Island-1 restarts in 2027 as the Crane Clean Energy Center, it will not face a delay of several years before it can be reconnected to the grid, Constellation CEO Joseph Dominguez said this week.",
+      "outlet": "ANS Nuclear Newswire",
+      "date": "2026-04-03",
+      "url": "https://www.ans.org/news/2026-04-03/article-7905/constellation-seeks-ferc-help-with-crane-restart/",
+      "caption": "Nuclear Newswire article: headline, aerial photo of TMI before its 2019 shutdown (Constellation), first two paragraphs incl. PJM 2031 grid-connection analysis",
+      "quality": 4,
+      "verified": true,
+      "notes": "Verbatim: 'a Reuters report on an analysis from electric grid provider PJM suggesting the plant may not be connected to the grid until 2031.' Dominguez: 'We are working on that with PJM, and we continue to expect to start this unit in 2027.' FERC later granted the waiver (Constellation Q2 2026 release)."
+    },
+    {
+      "id": "witf-tmi-env-review-2026",
+      "slide_topic": "Three Mile Island / Crane restart for Microsoft",
+      "type": "headline",
+      "file": "witf_tmi_restart_env_review_2026-07-28.png",
+      "headline": "Three Mile Island reactor restart progresses through environmental review, public comments",
+      "dek": "Three Mile Island is on schedule to receive nuclear material by the end of the year. The material will be held in storage until the power plant, now renamed the Christopher M. Crane Clean Energy Center, earns approval to return to operations.",
+      "outlet": "WITF",
+      "author": "Jordan Wilkie/WITF",
+      "date": "2026-07-28",
+      "url": "https://www.witf.org/2026/07/28/three-mile-island-reactor-restart-progresses-through-environmental-review-public-comments/",
+      "caption": "WITF header with photo of TMI cooling towers across the Susquehanna (June 3, 2024, Jeremy Long - WITF)",
+      "quality": 4,
+      "verified": true,
+      "notes": "WITF discloses Constellation Energy is a financial supporter. Article says NRC operating-license decision expected May 2027, plant online later in 2027."
+    },
+    {
+      "id": "capitalstar-crane-2027-2026",
+      "slide_topic": "Three Mile Island / Crane restart for Microsoft",
+      "type": "headline",
+      "file": "capitalstar_crane_2027_restart_2026-07-29.png",
+      "headline": "Concern persists as former Three Mile Island nuclear plant progresses toward 2027 restart",
+      "dek": "Federal regulators provided updates and worked to assure neighbors they can trust the process",
+      "outlet": "Pennsylvania Capital-Star",
+      "author": "Peter Hall",
+      "date": "2026-07-29",
+      "url": "https://penncapital-star.com/energy-environment/concern-persists-as-crane-nuclear-plant-progresses-toward-2027-restart/",
+      "caption": "Capital-Star header: headline, subhead, byline, aerial photo of the island plant on the Susquehanna",
+      "quality": 5,
+      "verified": true,
+      "notes": "Verbatim: 'Constellation is now undertaking a $1.6 billion effort to restart the reactor, which will supply 835 megawatts of electricity to the region's electricity grid.' / 'on track to begin producing electricity again by the middle of next year, federal regulators said.' / 'new uranium fuel is set to be delivered to the plant by the end of 2026'. 600 permanent jobs planned."
+    },
+    {
+      "id": "pennlive-tmi-transformer-2026",
+      "slide_topic": "Three Mile Island / Crane restart for Microsoft",
+      "type": "headline",
+      "file": "pennlive_tmi_transformer_2026-08-17.png",
+      "headline": "Slow roll onto Three Mile Island marks big step in return of nuclear power",
+      "dek": "Delivery of a 262-ton power transformer is a significant milestone in the planned restart of the nuclear power plant at Three Mile Island.",
+      "outlet": "PennLive",
+      "date": "2026-08-17",
+      "url": "https://www.pennlive.com/news/2026/08/slow-roll-onto-three-mile-island-marks-big-step-in-return-of-nuclear-power.html",
+      "caption": "PennLive header + big photo of the 262-ton transformer on a heavy-haul trailer",
+      "quality": 4,
+      "verified": true,
+      "notes": "Verbatim: 'the industrial cream-colored, 262-ton unit completed the last leg of a month-long odyssey from South Korea'; first of three new power transformers. Updated Aug 20, 2026."
+    },
+    {
+      "id": "wnn-crane-ea-complete-2026",
+      "slide_topic": "Three Mile Island / Crane restart for Microsoft",
+      "type": "headline",
+      "file": "wnn_crane_ea_complete_2026-09-28.png",
+      "headline": "NRC completes environmental review of Crane restart",
+      "dek": "The US regulator, together with the Department of Energy Office of Energy Dominance Financing, has issued an environmental assessment and finding of no significant impact for environmental effects from proposed Federal actions related to reauthorising power operations at the Christopher Crane Clean Energy Center in Pennsylvania.",
+      "outlet": "World Nuclear News",
+      "date": "2026-09-28",
+      "url": "https://www.world-nuclear-news.org/articles/nrc-completes-environmental-review-of-crane-restart",
+      "caption": "WNN article: headline, date, lede and photo of workers in the Crane turbine hall under a US flag (Image: Constellation)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Constellation to WNN (verbatim): 'the restart remains ahead of schedule, and we're on track to return 835 megawatts of dependable, emissions-free power to the grid in 2027'. Licence would run to 19 April 2034; Constellation aims to extend to 2054. Federal Register notice 2026-09-25."
+    },
+    {
+      "id": "commons-tmi-aerial-2021",
+      "slide_topic": "Three Mile Island / Crane restart for Microsoft",
+      "type": "image",
+      "file": "commons_tmi_formulanone_2021.jpg",
+      "headline": null,
+      "dek": null,
+      "outlet": "Wikimedia Commons / Flickr",
+      "author": "formulanone",
+      "date": "2021-04-26",
+      "url": "https://commons.wikimedia.org/wiki/File:Three_Mile_Island_Nuclear_Generating_Station_(51142893665).jpg",
+      "caption": "Aerial photo of Three Mile Island Nuclear Generating Station on the Susquehanna River, 26 April 2021 (four cooling towers, both units)",
+      "quality": 5,
+      "verified": true,
+      "notes": "LICENCE: CC BY-SA 2.0 (Creative Commons Attribution-Share Alike 2.0 Generic), verified on the Commons file page and Flickr 'Some rights reserved' BY-SA icons. Credit line: 'Photo: formulanone / Wikimedia Commons, CC BY-SA 2.0'. 3600x2400 original downloaded from the Flickr source https://live.staticflickr.com/65535/51142893665_e51eeac7ba_o.jpg (identical to the Commons file; Commons originals were rate-limited). Taken while TMI-1 was shut (closed Sept 2019)."
+    },
+    {
+      "id": "commons-tmi-doe-1979",
+      "slide_topic": "Three Mile Island / Crane restart for Microsoft (1979 accident context)",
+      "type": "image",
+      "file": "commons_tmi_doe_1979_color_1920.jpg",
+      "headline": null,
+      "dek": null,
+      "outlet": "Wikimedia Commons (US Department of Energy)",
+      "author": "United States Department of Energy",
+      "date": "1979",
+      "url": "https://commons.wikimedia.org/wiki/File:Three_Mile_Island_(color).jpg",
+      "caption": "1979 colour aerial of Three Mile Island: two reactor containment domes in front of cooling towers",
+      "quality": 4,
+      "verified": true,
+      "notes": "LICENCE: Public domain (work of a US Department of Energy employee; Commons 'Valued image'). Commons description: 'Color photograph of the Three Mile Island nuclear generating station, which suffered a partial meltdown in 1979.' 1920x1843 Commons thumbnail (original 2592x2488)."
+    },
+    {
+      "id": "michiganpublic-palisades-fuel-2026",
+      "slide_topic": "Palisades restart (Holtec)",
+      "type": "headline",
+      "file": "michiganpublic_palisades_fuel_loading_2026-09-01.png",
+      "headline": "Fuel loading begins at Palisades nuclear plant",
+      "dek": "This latest step brings the Southwest Michigan nuclear power plant one step closer to a historic restart.",
+      "outlet": "Michigan Public (NPR)",
+      "author": "Dustin Dwyer",
+      "date": "2026-09-01",
+      "url": "https://www.michiganpublic.org/economy/2026-09-01/fuel-loading-begins-at-palisades-nuclear-plant",
+      "caption": "Michigan Public header + glowing-blue photo looking down into the Palisades reactor vessel during fuel installation (Courtesy Holtec International)",
+      "quality": 5,
+      "verified": true,
+      "notes": "Verbatim: 'Palisades has the capability to generate electricity for about 800,000 homes at full power.' Days later an assembly tilted (Aug 30) and loading was paused - use as 'before' slide."
+    },
+    {
+      "id": "inquirer-holtec-ipo-2026",
+      "slide_topic": "Palisades restart (Holtec) / AI-power backlash",
+      "type": "headline",
+      "file": "inquirer_holtec_ipo_delay_2026-09-17.png",
+      "headline": "Holtec delays IPO, citing energy demand uncertainty amid U.S. data center backlash",
+      "dek": "CEO and founder Krishna P. Singh had hoped to raise over $750 million.",
+      "outlet": "The Philadelphia Inquirer",
+      "author": "Joseph N. DiStefano",
+      "date": "2026-09-17",
+      "url": "https://www.inquirer.com/business/holtec-camden-ipo-data-center-backlash-20260917.html",
+      "caption": "Inquirer header: headline, subhead, photo of Holtec's Camden campus, byline/date",
+      "quality": 5,
+      "verified": true,
+      "notes": "Singh to FT (verbatim, quoted by Inquirer): 'Our business, rightly or wrongly, is viewed as connected to [data centers]... We provide nuclear power. So that was, of course, a big factor in market sentiment against nuclear.' Also: Constellation shares 'have fallen from a high of over $400 last fall to the mid-$260s in recent trading.' Good bridge to AI-bubble/backlash slides."
+    },
+    {
+      "id": "national-palisades-shadow-2026",
+      "slide_topic": "Palisades restart (Holtec)",
+      "type": "headline",
+      "file": "national_palisades_shadow_2026-09-23.png",
+      "headline": "Shadow cast over US nuclear revival after Palisades reactor incident",
+      "dek": "Nuclear regulator investigating issue at site in Michigan where restart plans are well under way",
+      "outlet": "The National",
+      "author": "Cody Combs",
+      "date": "2026-09-23",
+      "url": "https://www.thenationalnews.com/future/technology/2026/09/23/palisades-power-plant-nuclear-incident/",
+      "caption": "The National: control-room photo above headline and subhead (cookie banner dismissed before capture)",
+      "quality": 5,
+      "verified": true,
+      "notes": "Verbatim: 'The revival has been driven largely by the proliferation of energy-hungry data centres as part of the vast investment in artificial intelligence.' NRC's Viktoria Mitlyng: 'no radiological release'."
+    },
+    {
+      "id": "ans-palisades-incident-2026",
+      "slide_topic": "Palisades restart (Holtec)",
+      "type": "headline",
+      "file": "ans_palisades_incident_2026-09-25.png",
+      "headline": "Incident pauses Palisades fuel loading; plant connected to switchyard",
+      "dek": "An incident involving a fuel assembly has paused the fuel loading process at the Palisades power plant in Covert, Mich., operator Holtec has acknowledged.",
+      "outlet": "ANS Nuclear Newswire",
+      "date": "2026-09-25",
+      "url": "https://www.ans.org/news/2026-09-25/article-8436/incident-pauses-palisades-fuel-loading-plant-connected-to-switchyard/",
+      "caption": "Text-heavy Nuclear Newswire crop: headline + 4 paragraphs describing the tilted fuel assembly",
+      "quality": 3,
+      "verified": true,
+      "notes": "Verbatim: 'Fuel loading began on August 30 as Palisades entered Mode 6... The reactor core consists of 204 fuel assemblies'; 'one previously used fuel assembly tilted from its upright position after it had been placed in the vessel.' Switchyard reconnected Sept 11, 2026."
+    },
+    {
+      "id": "freep-palisades-mishap-2026",
+      "slide_topic": "Palisades restart (Holtec)",
+      "type": "headline",
+      "file": "freep_palisades_mishap_probe_2026-09-26.png",
+      "headline": "Nuclear regulators probe fuel assembly installation mishap at Palisades",
+      "dek": "\"There has been no radiological release and no workers or the public have been affected,\" an NRC spokeswoman said of the incident.",
+      "outlet": "Detroit Free Press",
+      "author": "Keith Matheny",
+      "date": "2026-09-26",
+      "url": "https://www.freep.com/story/news/environment/2026/09/26/palisades-nuclear-holtec-nrc/91934961007/",
+      "caption": "Headline-only crop (byline row omitted because author photo failed to load)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Edwin Lyman (Union of Concerned Scientists), verbatim: 'I suspect that the rush to do things quickly is leading to mistakes - and you don't like to have too many mistakes when you're talking about a nuclear power plant.' Freep: 'Neither ... Holtec, nor NRC officials released information to the public about the incident for weeks.'"
+    },
+    {
+      "id": "nei-palisades-delayed-2026",
+      "slide_topic": "Palisades restart (Holtec)",
+      "type": "headline",
+      "file": "nei_palisades_restart_delayed_2026-09-28.png",
+      "headline": "Palisades restart delayed",
+      "dek": "The delay follows a fuel-loading incident involving a partially used radioactive fuel assembly.",
+      "outlet": "Nuclear Engineering International",
+      "date": "2026-09-28",
+      "url": "https://www.neimagazine.com/news/palisades-restart-delayed/",
+      "caption": "Headline + subhead + date strip",
+      "quality": 3,
+      "verified": true,
+      "notes": "NEI calls Palisades an 800 MWe PWR and says the restart is 'delayed indefinitely'. Holtec: 'Progression to subsequent operating modes remains subject to satisfactory resolution of the affected fuel assembly, completion of required testing and modifications, and applicable NRC approvals.'"
+    },
+    {
+      "id": "mlive-palisades-tilted-2026",
+      "slide_topic": "Palisades restart (Holtec)",
+      "type": "headline",
+      "file": "mlive_palisades_tilted_fuel_2026-10-03.png",
+      "headline": "Federal regulators investigating tilted fuel assembly at Michigan nuclear plant",
+      "dek": "Engineers are working on a plan to retrieve the tilted fuel assembly and return it to the spent-fuel pool.",
+      "outlet": "MLive",
+      "date": "2026-10-03",
+      "url": "https://www.mlive.com/environment/2026/10/federal-regulators-investigating-tilted-fuel-assembly-at-michigan-nuclear-plant.html",
+      "caption": "MLive header (Oct 3, 2026) + large reactor-vessel photo",
+      "quality": 4,
+      "verified": true,
+      "notes": "Most recent status found (Oct 3, 2026). Holtec's Nick Culp: 'Fuel loading remains paused while the affected assembly is addressed. Once that work is complete, fuel loading will resume.' Holtec submitted its retrieval plan to the NRC 'this week'. 204 assemblies: 68 new + 136 partially used; each 12 ft long with 216 rods."
+    },
+    {
+      "id": "yahoo-reuters-nextera-google-duane-2025",
+      "slide_topic": "Duane Arnold restart (NextEra + Google)",
+      "type": "headline",
+      "file": "yahoo_reuters_nextera_google_duane_arnold_2025-10-27.png",
+      "headline": "NextEra Energy partners with Google to restart Iowa nuclear plant",
+      "dek": "(Reuters) -U.S. utility NextEra Energy and Alphabet's Google have singed a power supply deal, which would help restart the Duane Arnold nuclear plant in Iowa.",
+      "outlet": "Reuters (via Yahoo News)",
+      "date": "2025-10-27",
+      "url": "https://www.yahoo.com/news/articles/nextera-energy-partners-google-restart-205722275.html",
+      "caption": "Yahoo-syndicated Reuters story: headline, 'Reuters', Oct 27 2025 timestamp, first paragraphs",
+      "quality": 4,
+      "verified": true,
+      "notes": "Typo 'singed' is verbatim in the Reuters copy. reuters.com itself served a bot-check, so the Yahoo syndicated copy was captured. Original: https://www.reuters.com/business/energy/nextera-energy-partners-with-google-restart-iowa-nuclear-plant-2025-10-27/"
+    },
+    {
+      "id": "bnn-reuters-nextera-doe-loan-2026",
+      "slide_topic": "Duane Arnold restart (NextEra + Google)",
+      "type": "headline",
+      "file": "bnn_reuters_nextera_doe_loan_duane_arnold_2026-09-08.png",
+      "headline": "NextEra secures up to $1.9B U.S. loan to restart Duane Arnold nuclear center",
+      "dek": "NextEra Energy said on Tuesday it has secured a U.S. Department of Energy loan of up to $1.9 billion to support the restart of its Duane Arnold Energy Center in Iowa, as the country seeks to add reliable power generation capacity to meet rising demand.",
+      "outlet": "Reuters (via BNN Bloomberg)",
+      "date": "2026-09-08",
+      "url": "https://www.bnnbloomberg.ca/business/international/2026/09/08/nextera-secures-up-to-19b-us-loan-to-restart-duane-arnold-nuclear-center/",
+      "caption": "Headline + 'By Reuters' + date (stock-photo hero image cropped out)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Body: 'The restart is backed by a 25-year agreement signed by Alphabet's Google last year...'"
+    },
+    {
+      "id": "wnn-doe-loan-duane-2026",
+      "slide_topic": "Duane Arnold restart (NextEra + Google)",
+      "type": "headline",
+      "file": "wnn_doe_loan_duane_arnold_2026-09-08.png",
+      "headline": "US Department of Energy closes loan for Duane Arnold restart",
+      "dek": "The US Department of Energy's Office of Energy Dominance Financing has closed a loan of up to USD1.9 billion to NextEra Energy to help finance the restart of the Duane Arnold Energy Center, taking the company closer to bringing Iowa's only nuclear power plant back into operation.",
+      "outlet": "World Nuclear News",
+      "date": "2026-09-08",
+      "url": "https://www.world-nuclear-news.org/articles/us-department-of-energy-closes-loan-for-duane-arnold-restart",
+      "caption": "WNN article with aerial photo of Duane Arnold before its 2020 closure (Image: NextEra Energy)",
+      "quality": 4,
+      "verified": true
+    },
+    {
+      "id": "guardian-google-kairos-2024",
+      "slide_topic": "SMR deals: Google/Kairos",
+      "type": "headline",
+      "file": "guardian_google_kairos_smr_2024-10-15.png",
+      "headline": "Google to buy nuclear power for AI datacentres in 'world first' deal",
+      "dek": "Tech company orders six or seven small nuclear reactors from California's Kairos Power",
+      "outlet": "The Guardian",
+      "author": "Alex Lawson",
+      "date": "2024-10-15",
+      "url": "https://www.theguardian.com/technology/2024/oct/15/google-buy-nuclear-power-ai-datacentres-kairos-power",
+      "caption": "Guardian article: headline, standfirst, byline, Google logo photo (Mike Blake/Reuters), first two paragraphs",
+      "quality": 5,
+      "verified": true,
+      "notes": "Headline uses curly quotes around 'world first'. Verbatim: 'with the first due to be completed by 2030 and the remainder by 2035.' Page shows 'This article is more than 1 year old' banner."
+    },
+    {
+      "id": "ans-kairos-hermes2-2026",
+      "slide_topic": "SMR deals: Google/Kairos",
+      "type": "headline",
+      "file": "ans_kairos_hermes2_groundbreaking_2026-04-21.png",
+      "headline": "Kairos Power breaks ground on first power-producing reactor in Oak Ridge",
+      "dek": "On April 17, Kairos Power broke ground on its Hermes 2 demonstration plant in Oak Ridge, Tenn., for which it received test reactor construction permits from the Nuclear Regulatory Commission in November 2024. Kairos expects Hermes 2 to begin operations by 2030, when the fluoride salt-cooled high temperature reactor could become the first NRC-licensed non-light water reactor to produce power.",
+      "outlet": "ANS Nuclear Newswire",
+      "date": "2026-04-21",
+      "url": "https://www.ans.org/news/2026-04-21/article-7964/kairos-power-breaks-ground-on-first-powerproducing-reactor-in-oak-ridge/",
+      "caption": "Groundbreaking photo: executives with shovels in front of a CAT excavator at the Hermes 2 site (Photo: Kairos Power)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Groundbreaking was April 17, 2026 (article dated April 21). Hermes 2 is 50 MWe, power sold to TVA under the Aug 2025 PPA for Google's TN/AL data centers."
+    },
+    {
+      "id": "talen-ir-amazon-2025",
+      "slide_topic": "Amazon / Talen Susquehanna",
+      "type": "headline",
+      "file": "talen_ir_amazon_1920mw_2025-06-11.png",
+      "headline": "Talen Energy Expands Nuclear Energy Relationship with Amazon",
+      "dek": "Talen enters power purchase agreement for 1,920 megawatts of carbon-free electricity at full quantity to support Amazon operations, and explore SMR technology",
+      "outlet": "Talen Energy (press release)",
+      "date": "2025-06-11",
+      "url": "https://ir.talenenergy.com/news-releases/news-release-details/talen-energy-expands-nuclear-energy-relationship-amazon",
+      "caption": "Company press release header + subhead (plain typographic)",
+      "quality": 3,
+      "verified": true,
+      "notes": "Verbatim: 'Talen will provide Amazon with 1,920 megawatts of carbon-free nuclear power through 2042... expecting to achieve the full volume no later than 2032'. AWS's Kevin Miller: '$20B - to bring 1,250 high-skilled jobs'. Reuters headline (seen only in search listing, not loaded): 'Talen Energy and Amazon sign nuclear power deal to fuel data centers'."
+    },
+    {
+      "id": "wnn-talen-amazon-2025",
+      "slide_topic": "Amazon / Talen Susquehanna",
+      "type": "headline",
+      "file": "wnn_talen_amazon_1920mw_2025-06-12.png",
+      "headline": "New supply agreement expands Talen-Amazon partnership",
+      "dek": "Talen Energy Corporation has entered into a new agreement for the long-term supply of 1,920 MWe of electricity from its Susquehanna nuclear power plant to support Amazon Web Services' data centres, as well as looking into building SMRs and capacity uprates.",
+      "outlet": "World Nuclear News",
+      "date": "2025-06-12",
+      "url": "https://www.world-nuclear-news.org/articles/new-supply-agreement-expands-talen-amazon-partnership",
+      "caption": "WNN article with sunset photo of Susquehanna's cooling towers (Image: Talen)",
+      "quality": 4,
+      "verified": true
+    },
+    {
+      "id": "techcrunch-meta-nuclear-2026",
+      "slide_topic": "Meta nuclear deals",
+      "type": "headline",
+      "file": "techcrunch_meta_nuclear_6gw_2026-01-09.png",
+      "headline": "Meta signs deals with three nuclear companies for 6-plus GW of power",
+      "dek": null,
+      "outlet": "TechCrunch",
+      "author": "Tim De Chant",
+      "date": "2026-01-09",
+      "url": "https://techcrunch.com/2026/01/09/meta-signs-deals-with-three-nuclear-companies-for-6-plus-gw-of-power/",
+      "caption": "TechCrunch hero: cooling-tower photo (Micha Pawlitzki/Getty) beside green headline panel",
+      "quality": 5,
+      "verified": true
+    },
+    {
+      "id": "meta-newsroom-nuclear-2026",
+      "slide_topic": "Meta nuclear deals",
+      "type": "headline",
+      "file": "meta_newsroom_nuclear_6p6gw_2026-01-09.png",
+      "headline": "Meta Announces Nuclear Energy Projects, Unlocking Up to 6.6 GW to Power American Leadership in AI Innovation",
+      "dek": "Our landmark agreements with Vistra, TerraPower, and Oklo will expand the operation of three nuclear power plants, boost the development of nuclear technology, and foster job growth in American communities.",
+      "outlet": "Meta Newsroom",
+      "date": "2026-01-09",
+      "url": "https://about.fb.com/news/2026/01/meta-nuclear-energy-projects-power-american-ai-leadership/",
+      "caption": "Meta newsroom headline + date (typographic)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Opens with 'At Meta, we're focused on building personal superintelligence for everyone'. Joel Kaplan quote: 'Our agreements with Vistra, TerraPower, Oklo, and Constellation make Meta one of the most significant corporate purchasers of nuclear energy in American history.'"
+    },
+    {
+      "id": "constellation-amazon-calvert-2026",
+      "slide_topic": "Amazon / Calvert Cliffs uprate",
+      "type": "headline",
+      "file": "constellation_amazon_calvert_cliffs_2026-09-30.png",
+      "headline": "Constellation and Amazon Announce 20-Year Power Purchase Agreement Adding 190 Megawatts of Nuclear Capacity at Calvert Cliffs",
+      "dek": "LUSBY, MD - SEPT. 30, 2026 - Constellation (Nasdaq: CEG) and Amazon (Nasdaq: AMZN) today announced a long-term agreement that will support the continued investment in and expansion of the Calvert Cliffs Clean Energy Center, Maryland's only nuclear plant and largest source of clean energy.",
+      "outlet": "Constellation (press release)",
+      "date": "2026-09-30",
+      "url": "https://www.constellationenergy.com/news/2026/09/constellation-and-amazon-announce-20-year-power-purchase-agreement-at-calvert-cliffs.html",
+      "caption": "Press-release page with aerial hero photo of Calvert Cliffs on Chesapeake Bay above the headline",
+      "quality": 4,
+      "verified": true,
+      "notes": "690 MW 20-year PPA including a 190 MW uprate online 2030-2032; >$3B Maryland investment; enables 20-year licence extension. Newest hyperscaler nuclear deal found (4 days before today)."
+    },
+    {
+      "id": "dcd-google-fortum-2026",
+      "slide_topic": "Google / Fortum Loviisa (first non-US)",
+      "type": "headline",
+      "file": "dcd_google_fortum_loviisa_2026-09-09.png",
+      "headline": "Google signs nuclear PPA with Fortum in Loviisa, Finland",
+      "dek": "The company's first nuclear PPA outside of the US market",
+      "outlet": "Data Center Dynamics",
+      "author": "Zachary Skidmore",
+      "date": "2026-09-09",
+      "url": "https://www.datacenterdynamics.com/en/news/google-signs-nuclear-ppa-with-fortum-in-loviisa-finland/",
+      "caption": "Headline + subhead + byline strip",
+      "quality": 3,
+      "verified": true,
+      "notes": "Verbatim: 'The 22-year deal'; 'Google agreeing to offtake 50 percent of the plant's capacity from 2030 to 2049. The PPA will come into effect in 2028, with a smaller offtake.' Plant: two VVER-440 reactors of 507MW each."
+    },
+    {
+      "id": "yt-cbs21-inside-tmi",
+      "slide_topic": "Three Mile Island / Crane restart for Microsoft",
+      "type": "video",
+      "file": "yt_vCdl4EuyqB0.jpg",
+      "headline": "A look inside Three Mile Island Unit 1, soon to be restarted as 'Crane Clean Energy Center'",
+      "dek": null,
+      "outlet": "YouTube (CBS 21 News)",
+      "date": null,
+      "url": "https://www.youtube.com/watch?v=vCdl4EuyqB0",
+      "caption": "Thumbnail: TMI Unit 1 control room with 'INSIDE THREE MILE ISLAND UNIT 1' caption (1280x720)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Title/channel from YouTube oEmbed; upload date not retrievable (YouTube bot-check). Embed with d.video (YouTube downloads blocked)."
+    },
+    {
+      "id": "yt-wgal-crane-transformer",
+      "slide_topic": "Three Mile Island / Crane restart for Microsoft",
+      "type": "video",
+      "file": "yt_ggfiS76jU1g.jpg",
+      "headline": "Massive transformer delivery marks milestone in Crane Clean Energy Center restart",
+      "dek": null,
+      "outlet": "YouTube (wgaltv (WGAL 8))",
+      "date": null,
+      "url": "https://www.youtube.com/watch?v=ggfiS76jU1g",
+      "caption": "Thumbnail: transmission tower, lower-third 'GENERATOR ARRIVES AT CRANE CLEAN ENERGY CENTER' (1280x720)",
+      "quality": 2,
+      "verified": true,
+      "notes": "Title/channel from oEmbed. Search snippet: delivery on 'Monday, Aug. 17' - matches PennLive Aug 17, 2026 story. Thumbnail is visually weak."
+    },
+    {
+      "id": "yt-woodtv-palisades-inside",
+      "slide_topic": "Palisades restart (Holtec)",
+      "type": "video",
+      "file": "yt_FDOOgJUrxRo.jpg",
+      "headline": "An inside look at work to restart Palisades nuclear plant",
+      "dek": null,
+      "outlet": "YouTube (WOOD TV8)",
+      "date": null,
+      "url": "https://www.youtube.com/watch?v=FDOOgJUrxRo",
+      "caption": "Thumbnail: plant machinery, lower-third 'A LOOK INSIDE THE REOPENING PROCESS OF PALISADES' (1280x720)",
+      "quality": 2,
+      "verified": true,
+      "notes": "Date unknown (on-screen 29 degrees suggests a winter tour, likely before 2026). Search snippet: tour showed 'a steam generator which still needs tests and repairs'."
+    },
+    {
+      "id": "quote-lyman-ucs-palisades",
+      "slide_topic": "Palisades restart (Holtec)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "I suspect that the rush to do things quickly is leading to mistakes - and you don't like to have too many mistakes when you're talking about a nuclear power plant.",
+      "outlet": "Detroit Free Press",
+      "author": "Edwin Lyman, director of nuclear power safety, Union of Concerned Scientists",
+      "date": "2026-09-26",
+      "url": "https://www.freep.com/story/news/environment/2026/09/26/palisades-nuclear-holtec-nrc/91934961007/",
+      "caption": "Quote: Edwin Lyman, director of nuclear power safety, Union of Concerned Scientists",
+      "quality": 4,
+      "verified": true,
+      "notes": "Original uses a spaced minus sign as the dash."
+    },
+    {
+      "id": "quote-singh-holtec-datacenters",
+      "slide_topic": "Palisades restart (Holtec) / AI-power backlash",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Our business, rightly or wrongly, is viewed as connected to [data centers]. We provide nuclear power. So that was, of course, a big factor in market sentiment against nuclear.",
+      "outlet": "The Philadelphia Inquirer",
+      "author": "Krishna P. Singh, Holtec founder and CEO (to the Financial Times)",
+      "date": "2026-09-17",
+      "url": "https://www.inquirer.com/business/holtec-camden-ipo-data-center-backlash-20260917.html",
+      "caption": "Quote: Krishna P. Singh, Holtec founder and CEO (to the Financial Times)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Secondary quote: the Inquirer quoting Singh's FT interview; the FT original was not loaded."
+    },
+    {
+      "id": "quote-kaplan-meta",
+      "slide_topic": "Meta nuclear deals",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Our agreements with Vistra, TerraPower, Oklo, and Constellation make Meta one of the most significant corporate purchasers of nuclear energy in American history.",
+      "outlet": "Meta Newsroom",
+      "author": "Joel Kaplan, Chief Global Affairs Officer, Meta",
+      "date": "2026-01-09",
+      "url": "https://about.fb.com/news/2026/01/meta-nuclear-energy-projects-power-american-ai-leadership/",
+      "caption": "Quote: Joel Kaplan, Chief Global Affairs Officer, Meta",
+      "quality": 4,
+      "verified": true
+    },
+    {
+      "id": "quote-dominguez-crane-2027",
+      "slide_topic": "Three Mile Island / Crane restart for Microsoft",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "We are working on that with PJM, and we continue to expect to start this unit in 2027.",
+      "outlet": "ANS Nuclear Newswire",
+      "author": "Joseph Dominguez, CEO, Constellation",
+      "date": "2026-04-03",
+      "url": "https://www.ans.org/news/2026-04-03/article-7905/constellation-seeks-ferc-help-with-crane-restart/",
+      "caption": "Quote: Joseph Dominguez, CEO, Constellation",
+      "quality": 4,
+      "verified": true
+    },
+    {
+      "id": "quote-hollis-microsoft",
+      "slide_topic": "Three Mile Island / Crane restart for Microsoft",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "This agreement is a major milestone in Microsoft's efforts to help decarbonize the grid in support of our commitment to become carbon negative.",
+      "outlet": "Constellation (press release)",
+      "author": "Bobby Hollis, VP of Energy, Microsoft",
+      "date": "2024-09-20",
+      "url": "https://www.constellationenergy.com/news/2024/Constellation-to-Launch-Crane-Clean-Energy-Center-Restoring-Jobs-and-Carbon-Free-Power-to-The-Grid.html",
+      "caption": "Quote: Bobby Hollis, VP of Energy, Microsoft",
+      "quality": 4,
+      "verified": true
+    }
+  ],
+  "datasets": [
+    {
+      "id": "hyperscaler-nuclear-deals-mw",
+      "title": "Big Tech nuclear deals for AI data centers, by capacity (MW)",
+      "unit": "MW",
+      "labels": [
+        "Microsoft - Crane/TMI-1 restart (Constellation)",
+        "Google - Duane Arnold restart (NextEra)",
+        "Amazon - Susquehanna (Talen)",
+        "Meta - Clinton (Constellation)",
+        "Meta - Perry, Davis-Besse, Beaver Valley (Vistra)",
+        "Amazon - Calvert Cliffs (Constellation)",
+        "Meta - Natrium units (TerraPower)",
+        "Meta - Pike County campus (Oklo)",
+        "Google - KP-FHR fleet (Kairos)",
+        "Amazon - Cascade Xe-100 (Energy Northwest/X-energy)"
+      ],
+      "series": [
+        {
+          "name": "Restarted reactor",
+          "values": [
+            835,
+            615,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "Existing plant output",
+          "values": [
+            0,
+            0,
+            1920,
+            1121,
+            2100,
+            500,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "name": "New capacity (uprates / new reactors)",
+          "values": [
+            0,
+            0,
+            0,
+            0,
+            433,
+            190,
+            2800,
+            1200,
+            500,
+            320
+          ]
+        }
+      ],
+      "source": "Constellation (2024-09-20, 2025-06-03, 2026-09-30), Microsoft blog (2024-09-20), NextEra/DOE (2026-09-08), Talen (2025-06-11), Meta Newsroom (2026-01-09), Google/Kairos via Guardian & DCD, Amazon (2024-10-16)",
+      "url": "https://about.fb.com/news/2026/01/meta-nuclear-energy-projects-power-american-ai-leadership/",
+      "notes": "Headline/max capacities as announced: Talen 1,920 MW at full quantity by 2032; Clinton 1,121 MW from June 2027 (separately +30 MW uprate, not added); Vistra 'more than 2.1 GW' existing + 433 MW uprates (early 2030s); Calvert Cliffs PPA is 690 MW total incl. 190 MW uprate (500 = 690-190); TerraPower 'up to' 2.8 GW (690 MW firm from 2 units by 2032) plus 1.2 GW storage not counted; Oklo 'up to 1.2 GW'; Kairos 'up to 500 MW' by 2035; Cascade 320 MW initial, option to 960 MW; Amazon/X-energy target >5 GW by 2039. Google-Fortum Loviisa (50% of a 2x507 MW plant, 2030-2049) excluded because only a percentage was given."
+    },
+    {
+      "id": "us-reactor-restarts",
+      "title": "The three US reactor restarts: size, shutdown year, federal loan, target",
+      "unit": "MW / year / $bn",
+      "labels": [
+        "Palisades (Holtec, MI)",
+        "Crane / TMI-1 (Constellation, PA)",
+        "Duane Arnold (NextEra, IA)"
+      ],
+      "series": [
+        {
+          "name": "Capacity (MW)",
+          "values": [
+            800,
+            835,
+            615
+          ]
+        },
+        {
+          "name": "Year shut down",
+          "values": [
+            2022,
+            2019,
+            2020
+          ]
+        },
+        {
+          "name": "Federal loan ($bn)",
+          "values": [
+            1.52,
+            1.0,
+            1.9
+          ]
+        }
+      ],
+      "source": "POWER (2024-09-30), NEI Magazine (2026-09-28), Constellation (2025-11-18), WNN (2026-09-28), NextEra (2026-09-08), Utility Dive (2026-09-08)",
+      "url": "https://www.world-nuclear-news.org/articles/nrc-completes-environmental-review-of-crane-restart",
+      "notes": "Offtaker: Palisades -> rural co-ops Wolverine (~435 MW) and Hoosier (370 MW), NOT a hyperscaler; Crane -> Microsoft (20-yr); Duane Arnold -> Google (25-yr). Status Oct 2026: Palisades fuel loading paused since Aug 30, 2026 tilted-assembly incident, no new date (targets end-2025 and early-2026 missed); Crane 'ahead of schedule', return in 2027 (originally 2028); Duane Arnold targeted no later than Q1 2029. Duane Arnold loan is 'up to' $1.9B; Palisades $1.52B is a DOE loan guarantee (plus $1.325B USDA awards to the co-ops)."
+    },
+    {
+      "id": "nuclear-ai-deal-timeline",
+      "title": "Timeline of AI-linked nuclear deals and milestones",
+      "unit": "date",
+      "labels": [
+        "2024-09-20",
+        "2024-10-14",
+        "2024-10-16",
+        "2025-06-03",
+        "2025-06-11",
+        "2025-08-18",
+        "2025-10-27",
+        "2025-11-18",
+        "2026-01-09",
+        "2026-04-17",
+        "2026-08-30",
+        "2026-09-08",
+        "2026-09-09",
+        "2026-09-17",
+        "2026-09-28",
+        "2026-09-30"
+      ],
+      "series": [
+        {
+          "name": "event",
+          "values": [
+            "Microsoft-Constellation 20-yr PPA to restart TMI-1 (835 MW)",
+            "Google-Kairos: up to 500 MW of SMRs by 2035",
+            "Amazon invests in X-energy; Energy Northwest 320-960 MW; Dominion SMR MOU",
+            "Meta-Constellation 20-yr Clinton PPA (1,121 MW)",
+            "Amazon-Talen 1,920 MW PPA through 2042",
+            "TVA-Kairos-Google 50 MW Hermes 2 PPA",
+            "Google-NextEra: restart Duane Arnold (615 MW), 25-yr PPA",
+            "DOE $1B loan for Crane restart",
+            "Meta: up to 6.6 GW with Vistra, TerraPower, Oklo",
+            "Kairos breaks ground on Hermes 2",
+            "Palisades fuel loading begins; assembly tilts, loading paused",
+            "DOE closes up to $1.9B Duane Arnold loan",
+            "Google-Fortum 22-yr Loviisa PPA (first non-US)",
+            "Holtec postpones IPO citing data-center demand uncertainty",
+            "NRC finalizes Crane environmental assessment (FONSI)",
+            "Amazon-Constellation 20-yr Calvert Cliffs PPA (690 MW incl. 190 MW uprate)"
+          ]
+        }
+      ],
+      "source": "see items/facts",
+      "url": "https://www.world-nuclear-news.org/",
+      "notes": "Google-Kairos date is the Monday announcement (Reuters/Google 2024-10-14; Guardian story dated 2024-10-15). TVA-Kairos date per CNBC URL/POWER (search listing). Kairos groundbreaking April 17 per ANS."
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Microsoft signed a 20-year deal to buy power from Three Mile Island Unit 1 - an 835 MW reactor shut in 2019 - so Constellation can restart it as the Crane Clean Energy Center.",
+      "source": "Microsoft Cloud Blog / Constellation press release",
+      "url": "https://www.microsoft.com/en-us/microsoft-cloud/blog/2024/09/20/accelerating-the-addition-of-carbon-free-energy-an-update-on-progress/",
+      "date": "2024-09-20"
+    },
+    {
+      "claim": "Financial terms of the Microsoft-Constellation 20-year agreement 'weren't disclosed'.",
+      "source": "CNN Business",
+      "url": "https://www.cnn.com/2024/09/20/energy/three-mile-island-microsoft-ai/index.html",
+      "date": "2024-09-20"
+    },
+    {
+      "claim": "Crane restart was first targeted for 2028; Constellation now says it is 'ahead of schedule' and 'on track to return 835 megawatts ... to the grid in 2027'.",
+      "source": "NPR (2024) / World Nuclear News (2026)",
+      "url": "https://www.world-nuclear-news.org/articles/nrc-completes-environmental-review-of-crane-restart",
+      "date": "2026-09-28"
+    },
+    {
+      "claim": "Constellation is spending $1.6 billion to restart the Crane reactor; DOE closed a $1 billion loan for it (announced Nov 18, 2025).",
+      "source": "Pennsylvania Capital-Star; Constellation press release",
+      "url": "https://www.constellationenergy.com/news/2025/11/us-government-backs-constellations-plan-to-launch-crane-clean-energy-center-adding-835-mws-of-new-baseload-power-to-the-grid.html",
+      "date": "2025-11-18"
+    },
+    {
+      "claim": "A PJM analysis suggested Crane might not connect to the grid until 2031; FERC then granted Constellation's waiver to move capacity interconnection rights from its Eddystone gas units to Crane, and the NRC approved Crane's fuel licence amendment.",
+      "source": "ANS Nuclear Newswire; Constellation Q2 2026 results (republished on StockTitan)",
+      "url": "https://www.stocktitan.net/news/CEG/constellation-reports-second-quarter-2026-rtppfjewi2nw.html",
+      "date": "2026-08-06"
+    },
+    {
+      "claim": "NRC issued its final environmental assessment and finding of no significant impact for the Crane restart (Federal Register, Sept 25, 2026); an exemption and three licence amendments are still pending.",
+      "source": "World Nuclear News; Federal Register",
+      "url": "https://www.world-nuclear-news.org/articles/nrc-completes-environmental-review-of-crane-restart",
+      "date": "2026-09-28"
+    },
+    {
+      "claim": "A 262-ton transformer, shipped a month from South Korea, reached Three Mile Island on Aug 17, 2026, the first of three new power transformers for the restart.",
+      "source": "PennLive",
+      "url": "https://www.pennlive.com/news/2026/08/slow-roll-onto-three-mile-island-marks-big-step-in-return-of-nuclear-power.html",
+      "date": "2026-08-17"
+    },
+    {
+      "claim": "Palisades (800 MW, shut May 2022) began loading fuel on Aug 30, 2026; a used fuel assembly tilted inside the reactor vessel and loading has been paused since. No restart date has been set.",
+      "source": "Holtec 'Progress Report on Palisades' March to Startup'; ANS; NEI Magazine",
+      "url": "https://holtecinternational.com/hh-41-22/",
+      "date": "2026-09-21"
+    },
+    {
+      "claim": "Holtec did not disclose the Aug 30 Palisades incident publicly until a Sept 21 progress report, about three weeks later; NRC says there was 'no radiological release'.",
+      "source": "Detroit Free Press; MLive",
+      "url": "https://www.mlive.com/environment/2026/10/federal-regulators-investigating-tilted-fuel-assembly-at-michigan-nuclear-plant.html",
+      "date": "2026-10-03"
+    },
+    {
+      "claim": "Palisades' restart targets have slipped from end-2025 to early 2026 and now to an open date; Holtec's contract calls for supplying power by March 2027.",
+      "source": "NEI Magazine (2025-12-18); ANS (2026-09-25)",
+      "url": "https://www.ans.org/news/2026-09-25/article-8436/incident-pauses-palisades-fuel-loading-plant-connected-to-switchyard/",
+      "date": "2026-09-25"
+    },
+    {
+      "claim": "Holtec postponed its planned $750M+ IPO in Sept 2026; its CEO blamed uncertainty about US data-center power demand.",
+      "source": "The Philadelphia Inquirer",
+      "url": "https://www.inquirer.com/business/holtec-camden-ipo-data-center-backlash-20260917.html",
+      "date": "2026-09-17"
+    },
+    {
+      "claim": "Constellation shares fell 'from a high of over $400 last fall to the mid-$260s'; the VanEck Uranium and Nuclear ETF peaked above $160 in January and has lately traded below $110.",
+      "source": "The Philadelphia Inquirer",
+      "url": "https://www.inquirer.com/business/holtec-camden-ipo-data-center-backlash-20260917.html",
+      "date": "2026-09-17"
+    },
+    {
+      "claim": "Google signed a 25-year deal to buy power from Iowa's Duane Arnold (615 MW, shut 2020); DOE closed a loan of up to $1.9B on Sept 8, 2026; restart targeted no later than Q1 2029.",
+      "source": "NextEra press release; Utility Dive",
+      "url": "https://www.investor.nexteraenergy.com/news-and-events/news-releases/2026/09-08-2026-123110497",
+      "date": "2026-09-08"
+    },
+    {
+      "claim": "DOE on Duane Arnold: 'Thanks to President Trump's Ratepayer Protection Pledge, hyperscalers, not taxpayers, are paying for the new power generation.'",
+      "source": "Utility Dive (DOE statement)",
+      "url": "https://www.utilitydive.com/news/nextera-doe-loan-duane-arnold-nuclear-restart/829773/",
+      "date": "2026-09-08"
+    },
+    {
+      "claim": "Amazon will take up to 1,920 MW from Talen's Susquehanna nuclear plant through 2042, reaching full volume no later than 2032, alongside a $20B Pennsylvania data-center investment.",
+      "source": "Talen Energy press release",
+      "url": "https://ir.talenenergy.com/news-releases/news-release-details/talen-energy-expands-nuclear-energy-relationship-amazon",
+      "date": "2025-06-11"
+    },
+    {
+      "claim": "Amazon invested in X-energy (Oct 2024); its first project, with Energy Northwest in Washington, is four Xe-100 reactors (320 MW, expandable to 960 MW). The construction permit application is expected to be filed in the first half of 2027.",
+      "source": "Amazon; X-energy 10-Q (Q2 2026); ANS",
+      "url": "https://www.ans.org/news/2026-08-17/article-8297/xenergy-terrapower-share-updates-on-advanced-reactor-projects/",
+      "date": "2026-08-17"
+    },
+    {
+      "claim": "Google's Kairos deal covers up to 500 MW from six or seven small reactors, the first by 2030 and the rest by 2035; ground was broken on the 50 MW Hermes 2 in Oak Ridge on April 17, 2026.",
+      "source": "The Guardian; ANS Nuclear Newswire",
+      "url": "https://www.ans.org/news/2026-04-21/article-7964/kairos-power-breaks-ground-on-first-powerproducing-reactor-in-oak-ridge/",
+      "date": "2026-04-21"
+    },
+    {
+      "claim": "Meta announced nuclear deals for up to 6.6 GW by 2035: more than 2.1 GW from two Vistra plants in Ohio plus 433 MW of uprates across three Vistra plants, up to eight TerraPower Natrium units (2.8 GW), and an Oklo campus of up to 1.2 GW in Ohio, to power its Prometheus supercluster.",
+      "source": "Meta Newsroom",
+      "url": "https://about.fb.com/news/2026/01/meta-nuclear-energy-projects-power-american-ai-leadership/",
+      "date": "2026-01-09"
+    },
+    {
+      "claim": "Meta's first nuclear deal was a 20-year PPA for all 1,121 MW of Constellation's Clinton plant from June 2027, which keeps the plant running after Illinois' subsidy ends and adds 30 MW through uprates.",
+      "source": "Constellation press release",
+      "url": "https://investors.constellationenergy.com/news-releases/news-release-details/constellation-meta-sign-20-year-deal-clean-reliable-nuclear",
+      "date": "2025-06-03"
+    },
+    {
+      "claim": "Amazon signed a 20-year, 690 MW PPA for Calvert Cliffs that includes a 190 MW uprate (online 2030-2032) and more than $3B of investment.",
+      "source": "Constellation press release",
+      "url": "https://www.constellationenergy.com/news/2026/09/constellation-and-amazon-announce-20-year-power-purchase-agreement-at-calvert-cliffs.html",
+      "date": "2026-09-30"
+    },
+    {
+      "claim": "Google's first nuclear PPA outside the US is a 22-year deal for 50% of Finland's Loviisa plant over 2030-2049.",
+      "source": "Data Center Dynamics",
+      "url": "https://www.datacenterdynamics.com/en/news/google-signs-nuclear-ppa-with-fortum-in-loviisa-finland/",
+      "date": "2026-09-09"
+    },
+    {
+      "claim": "Constellation signed another 920 MW of 15-20 year nuclear PPAs in Q2 2026, including a 176 MW Walmart deal that enables a 30 MW uprate at Dresden.",
+      "source": "Constellation Q2 2026 results (StockTitan republication)",
+      "url": "https://www.stocktitan.net/news/CEG/constellation-reports-second-quarter-2026-rtppfjewi2nw.html",
+      "date": "2026-08-06"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Exact Crane restart month",
+      "searched": "Constellation Q2 2026 release, WNN, WITF, Capital-Star, ANS. Sources give only '2027'. Capital-Star cites NRC: 'by the middle of next year'. WITF: licence decision about May 2027, online later in 2027. A search summary said 'second half of 2027', but no loaded page confirmed it."
+    },
+    {
+      "outline_item": "Value of the Microsoft-Crane PPA",
+      "searched": "CNN, Constellation, Microsoft. Terms were not disclosed. Aggregator figures of '$16 billion' actually refer to the Brattle estimate of Pennsylvania GDP impact, so do not use them as the deal value."
+    },
+    {
+      "outline_item": "New Microsoft nuclear PPA in 2025-2026 (besides Crane)",
+      "searched": "WebSearch and DuckDuckGo for 'Microsoft nuclear power agreement 2026'. Only SEO aggregators (enkiai, smrintel, presenc) came up, with no credible primary source."
+    },
+    {
+      "outline_item": "Palisades new restart date",
+      "searched": "Holtec 2026-09-21 progress report, ANS, NEI, Freep, MLive (2026-10-03). None given. The restart is 'delayed indefinitely' pending retrieval of the assembly and NRC approval of a licence amendment."
+    },
+    {
+      "outline_item": "Reuters, AP, CNBC, Axios and Bloomberg headline screenshots",
+      "searched": "These sites returned a captcha, 'Just a moment', or 'Access Denied' to the headless browser. Syndicated Reuters copies were captured on Yahoo and BNN Bloomberg instead."
+    },
+    {
+      "outline_item": "Upload dates for the three YouTube videos",
+      "searched": "YouTube returned a Google 'sorry' bot-check to curl and the headless browser. Title and channel come from oEmbed only."
+    },
+    {
+      "outline_item": "Confirmation that the Talen-Amazon 'front-of-the-meter' switch happened in spring 2026",
+      "searched": "Talen's 2025 release only says it was 'expected in the Spring of 2026'. A search summary claimed it happened in April 2026, but no loaded page confirmed it."
+    },
+    {
+      "outline_item": "Other US reactor restarts beyond Palisades, Crane and Duane Arnold",
+      "searched": "Searched Indian Point, Kewaunee, Pilgrim and Vermont Yankee. Experts say demolition at these sites is too far along to revive the reactors. Holtec has only floated building new reactors at Indian Point."
+    },
+    {
+      "outline_item": "Full-resolution Commons original of 'Three Mile Island 042018.jpg' (CC BY-SA 4.0)",
+      "searched": "upload.wikimedia.org returned HTTP 429 (rate-limited), so it was not downloaded. The formulanone 3600x2400 photo was used instead."
+    }
+  ]
+}

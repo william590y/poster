@@ -1,0 +1,235 @@
+{
+ "url": "https://www.thorn.org/press-releases/as-ai-becomes-part-of-kids-response-to-online-harm-new-thorn-research-finds-children-turning-to-chatbots-for-guidance-after-online-sexual-interactions/",
+ "viewport_width": 1280,
+ "device_scale_factor": 2,
+ "captured": "2026-10-04T11:18:17.838Z",
+ "shots": [
+  {
+   "file": "thorn-pr-2026-headline.png",
+   "image_px": [
+    2400,
+    797
+   ],
+   "page_clip_css": [
+    40,
+    173,
+    1200,
+    399
+   ],
+   "highlights": [
+    {
+     "text": "As AI becomes part of kids' response to online harm, new Thorn research finds children turning to chatbots for guidance after online sexual interactions",
+     "line_rects_px": [
+      [
+       141,
+       122,
+       2117,
+       158
+      ],
+      [
+       187,
+       254,
+       2025,
+       158
+      ],
+      [
+       111,
+       386,
+       2179,
+       158
+      ],
+      [
+       386,
+       518,
+       1627,
+       158
+      ]
+     ],
+     "bbox_px": [
+      111,
+      122,
+      2179,
+      554
+     ]
+    },
+    {
+     "text": "July 28, 2026",
+     "line_rects_px": [
+      [
+       945,
+       728,
+       191,
+       36
+      ]
+     ],
+     "bbox_px": [
+      945,
+      728,
+      191,
+      36
+     ]
+    }
+   ]
+  },
+  {
+   "file": "thorn-pr-2026-deepfake-bullet.png",
+   "image_px": [
+    1516,
+    372
+   ],
+   "page_clip_css": [
+    281,
+    2030,
+    758,
+    186
+   ],
+   "highlights": [
+    {
+     "text": "Deepfake nudes are creating new uncertainty for teens.",
+     "line_rects_px": [
+      [
+       48,
+       28,
+       980,
+       44
+      ]
+     ],
+     "bbox_px": [
+      48,
+      28,
+      980,
+      44
+     ]
+    },
+    {
+     "text": "4% reported having had a personal experience with deepfake nudes being created of them,",
+     "line_rects_px": [
+      [
+       48,
+       82,
+       1413,
+       44
+      ],
+      [
+       48,
+       136,
+       97,
+       44
+      ]
+     ],
+     "bbox_px": [
+      48,
+      82,
+      1413,
+      98
+     ]
+    },
+    {
+     "text": "7% reported having seen a deepfake nude of another kid or teen.",
+     "line_rects_px": [
+      [
+       226,
+       136,
+       1072,
+       44
+      ]
+     ],
+     "bbox_px": [
+      226,
+      136,
+      1072,
+      44
+     ]
+    },
+    {
+     "text": "13% of teens said they weren't sure whether they had seen a deepfake nude of another child,",
+     "line_rects_px": [
+      [
+       208,
+       190,
+       1168,
+       44
+      ],
+      [
+       48,
+       244,
+       366,
+       44
+      ]
+     ],
+     "bbox_px": [
+      48,
+      190,
+      1327,
+      98
+     ]
+    }
+   ]
+  },
+  {
+   "file": "thorn-pr-2026-chatbot-findings.png",
+   "image_px": [
+    1596,
+    372
+   ],
+   "page_clip_css": [
+    241,
+    958,
+    798,
+    186
+   ],
+   "highlights": [
+    {
+     "text": "67% of minors surveyed have reported using an AI chatbot or companion.",
+     "line_rects_px": [
+      [
+       872,
+       82,
+       638,
+       44
+      ],
+      [
+       48,
+       136,
+       572,
+       44
+      ]
+     ],
+     "bbox_px": [
+      48,
+      82,
+      1462,
+      98
+     ]
+    },
+    {
+     "text": "15% said they confided in or sought guidance from an AI chatbot or companion in response,",
+     "line_rects_px": [
+      [
+       527,
+       190,
+       930,
+       44
+      ],
+      [
+       48,
+       244,
+       581,
+       44
+      ]
+     ],
+     "bbox_px": [
+      48,
+      190,
+      1409,
+      98
+     ]
+    }
+   ]
+  },
+  {
+   "file": "thorn-pr-2026-fullpage.png",
+   "note": "full page incl. nav and footer"
+  }
+ ]
+}

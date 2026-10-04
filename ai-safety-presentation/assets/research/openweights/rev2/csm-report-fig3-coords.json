@@ -1,0 +1,140 @@
+{
+ "source_pdf": "https://www.commonsensemedia.org/sites/default/files/research/report/commonsensemedia_teensaipornographysexualcontent_2026_1.pdf",
+ "dpi": 300,
+ "images": [
+  {
+   "file": "csm-report-p24-fig3-platforms-detail.png",
+   "pdf_page": 26,
+   "crop_of_page_px": [
+    0,
+    0,
+    2550,
+    3300
+   ],
+   "image_px": [
+    2550,
+    3300
+   ],
+   "highlights": [
+    {
+     "text": "ROW:AI chatbot platforms (ChatGPT, Grok, Claude, etc.)",
+     "line_rects_px": [
+      [
+       179,
+       1684,
+       1093,
+       57
+      ]
+     ],
+     "bbox_px": [
+      179,
+      1684,
+      1093,
+      57
+     ]
+    },
+    {
+     "text": "ROW:TikTok",
+     "line_rects_px": [
+      [
+       874,
+       634,
+       683,
+       57
+      ]
+     ],
+     "bbox_px": [
+      874,
+      634,
+      683,
+      57
+     ]
+    },
+    {
+     "text": "ROW:Pornography websites (Pornhub, XVideos, etc.)",
+     "line_rects_px": [
+      [
+       231,
+       1398,
+       1460,
+       57
+      ]
+     ],
+     "bbox_px": [
+      231,
+      1398,
+      1460,
+      57
+     ]
+    }
+   ]
+  },
+  {
+   "file": "csm-report-p24-fig3-platforms-detail-crop.png",
+   "pdf_page": 26,
+   "crop_of_page_px": [
+    110,
+    262,
+    2330,
+    1769
+   ],
+   "image_px": [
+    2330,
+    1769
+   ],
+   "highlights": [
+    {
+     "text": "ROW:AI chatbot platforms (ChatGPT, Grok, Claude, etc.)",
+     "line_rects_px": [
+      [
+       69,
+       1422,
+       1093,
+       57
+      ]
+     ],
+     "bbox_px": [
+      69,
+      1422,
+      1093,
+      57
+     ]
+    },
+    {
+     "text": "ROW:Social media (Net):",
+     "line_rects_px": [
+      [
+       561,
+       277,
+       1707,
+       53
+      ]
+     ],
+     "bbox_px": [
+      561,
+      277,
+      1707,
+      53
+     ]
+    },
+    {
+     "text": "ROW:TikTok",
+     "line_rects_px": [
+      [
+       764,
+       372,
+       683,
+       57
+      ]
+     ],
+     "bbox_px": [
+      764,
+      372,
+      683,
+      57
+     ]
+    }
+   ]
+  }
+ ]
+}

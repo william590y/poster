@@ -1,13 +1,110 @@
-// THE ACCELERATION · work: engineering, software jobs, academia, video, robotics (VLA).
+// THE ACCELERATION · work: engineering (CAD, PCB, chips), economically valuable labor (ALE, AutomationBench, RLI, GDPval),
+// software jobs, academia, video, robotics (VLA, humanoid factories, Unitree).
 const path = require('path');
 const fs = require('fs');
 const sharp = require('sharp');
+const { execFileSync } = require('child_process');
 const { HEX, W, MX, A, imgSize, fit } = require('./lib');
 const { icon } = require('./icons');
 
 const R = (f) => A('research', 'work', f);
+const R2 = (f) => R(`rev2/${f}`);
 const OUT = A('slides', 'work');
+const MEDIA = path.join(OUT, 'media');
 const CX0 = MX, CX1 = W - MX, CW = CX1 - CX0; // content x-range
+
+// ---------- media helpers (outputs cached under assets/slides/work/media) ----------
+const PAL = 'split[x][y];[x]palettegen=stats_mode=single[p];[y][p]paletteuse=new=1:dither=sierra2_4a';
+
+// Smaller copy of a research GIF for a small tile: same frames and timing, only scaled (per-frame palettes).
+function gifScaled(file, width) {
+  const out = path.join(MEDIA, file.replace(/\.gif$/, `-${width}.gif`));
+  if (fs.existsSync(out)) return out;
+  fs.mkdirSync(MEDIA, { recursive: true });
+  execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', R2(file), '-filter_complex', `scale=${width}:-2:flags=lanczos,${PAL}`, '-loop', '0', out]);
+  execFileSync('gifsicle', ['-b', '-O3', out], { stdio: 'ignore' });
+  return out;
+}
+
+// GIF trimmed (and scaled) from a research MP4: input range [ss, to) at fps/width, per-frame palettes. Trim/scale only.
+function mp4Gif(file, name, { ss, to, width, fps }) {
+  const out = path.join(MEDIA, name);
+  if (fs.existsSync(out)) return out;
+  fs.mkdirSync(MEDIA, { recursive: true });
+  execFileSync('ffmpeg', ['-v', 'error', '-y', '-ss', String(ss), '-to', String(to), '-i', R2(file), '-filter_complex', `fps=${fps},scale=${width}:-2:flags=lanczos,${PAL}`, '-loop', '0', out]);
+  execFileSync('gifsicle', ['-b', '-O3', out], { stdio: 'ignore' });
+  return out;
+}
+
+// GIF montage from one research MP4: several [ss, to) excerpts, each cropped (16:9 rectangle `crop` = [w, h, x, y] in
+// source px) and scaled to the same width, joined in the order given. Trim/crop/scale/concatenate only, no other edits.
+function mp4Montage(file, name, segs, { width, fps }) {
+  const out = path.join(MEDIA, name);
+  if (fs.existsSync(out)) return out;
+  fs.mkdirSync(MEDIA, { recursive: true });
+  const h = Math.round(width * 9 / 16 / 2) * 2;
+  const parts = segs.map(({ ss, to, crop: [cw, ch, cx, cy] }, i) =>
+    `[0:v]trim=start=${ss}:end=${to},setpts=PTS-STARTPTS,crop=${cw}:${ch}:${cx}:${cy},scale=${width}:${h}:flags=lanczos,fps=${fps},setsar=1[v${i}]`);
+  const fc = `${parts.join(';')};${segs.map((_, i) => `[v${i}]`).join('')}concat=n=${segs.length}:v=1:a=0,${PAL}`;
+  execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', R2(file), '-filter_complex', fc, '-loop', '0', out]);
+  execFileSync('gifsicle', ['-b', '-O3', out], { stdio: 'ignore' });
+  return out;
+}
+
+// Quiz clip: the RA-Bench research MP4 as a looping GIF whose loop STARTS at source frame k (frames k…end, then 0…k−1),
+// then resampled to `fps` and scaled to `width` (trim/scale/frame-rate only; per-frame palettes). Both clips of a pair
+// use the same k and the same fps/width, so they get identical frame timing and stay in sync, and a static preview shows a
+// mid-clip frame instead of the first frame both clips share. 15 fps / 720 px (question slide) and 12 fps / 480 px
+// (reveal slide) keep each GIF at ~5–25 MB, so PowerPoint can hold six at once without stalling (24 fps / 960 px was 50–70 MB each).
+function quizLoop(clip, width, k, fps) {
+  const out = path.join(MEDIA, `${clip}-loop${width}-${fps}fps.gif`);
+  if (fs.existsSync(out)) return out;
+  fs.mkdirSync(MEDIA, { recursive: true });
+  const fc = `[0:v]split[s1][s2];[s1]trim=start_frame=${k},setpts=PTS-STARTPTS[a];[s2]trim=end_frame=${k},setpts=PTS-STARTPTS[b];` +
+    `[a][b]concat=n=2:v=1:a=0,fps=${fps},scale=${width}:-2:flags=lanczos,${PAL}`;
+  execFileSync('ffmpeg', ['-v', 'error', '-y', '-i', R2(`${clip}.mp4`), '-filter_complex', fc, '-loop', '0', out]);
+  execFileSync('gifsicle', ['-b', '-O3', out], { stdio: 'ignore' });
+  return out;
+}
+
+// Dark caption band over the top (or bottom) of a media tile: caps title line + optional one-line fact.
+function band(d, s, g, title, sub, { pos = 'top', h = sub ? 0.5 : 0.3, color = 'FF8A8C' } = {}) {
+  const y = pos === 'top' ? g.y : g.y + g.h - h;
+  const b = d.name('band');
+  s.addShape(d.pres.shapes.RECTANGLE, { x: g.x, y, w: g.w, h, fill: { color: '0A0C10', transparency: 22 }, line: { color: '0A0C10', width: 0, transparency: 100 }, objectName: b });
+  const runs = [{ text: title, options: { fontSize: 10, bold: true, color, charSpacing: 1, breakLine: !!sub } }];
+  if (sub) runs.push({ text: sub, options: { fontSize: 11, color: HEX.text } });
+  const t = d.text(s, runs, { x: g.x + 0.12, y: y + 0.03, w: g.w - 0.2, h: h - 0.06, valign: 'middle' });
+  return [b, t];
+}
+
+// Media tile: black cell (so letterboxed media read as one tile), the image/GIF fitted inside, and a caption band.
+// o.clear: fit the image BELOW the top caption band instead of under it (for stills whose top edge carries content).
+async function tile(d, s, file, box, title, sub, o = {}) {
+  const bg = d.name('cell');
+  s.addShape(d.pres.shapes.RECTANGLE, { ...box, fill: { color: '000000' }, line: { color: '000000', width: 0, transparency: 100 },
+    shadow: { type: 'outer', color: '000000', blur: 12, offset: 3, angle: 90, opacity: 0.5 }, objectName: bg });
+  const bh = (o.band && o.band.h) || (sub ? 0.5 : 0.3);
+  const ibox = o.clear ? { x: box.x + 0.04, y: box.y + bh + 0.04, w: box.w - 0.08, h: box.h - bh - 0.08 } : box;
+  const im = await d.frame(s, file, ibox, { border: false, shadow: false, pad: 0, ...o });
+  const names = [bg, ...im];
+  if (title) names.push(...band(d, s, box, title, sub, o.band || {}));
+  names.geom = box;
+  return names;
+}
+
+// Media tile with its caption ABOVE the clip (nothing drawn over the footage): caption block at y (capH tall), then the
+// black cell + media of width w and height h below it. Returns names (caption first) with .geom = media box.
+const CAP_H = 0.36, CAP_GAP = 0.04;
+async function capTile(d, s, file, { x, y, w, h }, title, sub, { color = 'FF8A8C' } = {}) {
+  const runs = [{ text: title, options: { fontSize: 10, bold: true, color, charSpacing: 1, breakLine: !!sub } }];
+  if (sub) runs.push({ text: sub, options: { fontSize: 11, color: HEX.text } });
+  const cap = d.text(s, runs, { x, y, w, h: CAP_H, valign: 'bottom' });
+  const box = { x, y: y + CAP_H + CAP_GAP, w, h };
+  const names = [cap, ...(await tile(d, s, file, box, null))];
+  names.geom = box;
+  return names;
+}
 
 // ---------- local helpers ----------
 async function crop(file, name, { l, t, w, h }) {
@@ -96,7 +193,7 @@ async function cadSlide(d) {
 
   // three stats under the leaderboard
   const sy = shotBottom + 0.5, sw = 2.25, sg = 0.3;
-  const st1 = stat(d, s, { x: CX0, y: sy, w: sw, value: '61 / 100', valueSize: 44, labelSize: 14, labelH: 0.95, label: 'Best overall score on 100 real FreeCAD design tasks (failures score zero)' });
+  const st1 = stat(d, s, { x: CX0, y: sy, w: sw, value: '61 / 100', valueSize: 44, labelSize: 14, labelH: 0.95, label: 'Best overall score on 100 FreeCAD design tasks (failures score zero)' });
   const st2 = stat(d, s, { x: CX0 + sw + sg, y: sy, w: sw, value: '84.66', valueSize: 44, labelSize: 14, labelH: 0.95, label: 'Opus 5.5 on image-to-CAD (0–100): drawing → parametric 3-D model' });
   const st3 = stat(d, s, { x: CX0 + 2 * (sw + sg), y: sy, w: sw, value: '+22 pts', valueSize: 44, labelSize: 14, labelH: 0.95, label: 'Jump on that task in one model update (Opus 5 → Opus 5.5)' });
 
@@ -139,10 +236,355 @@ async function cadSlide(d) {
   return s;
 }
 
+// ========== 1b. Engineering: AI designs CAD parts, molds and PCBs (GIF wall) + EEBench ==========
+async function hwDesignSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  head(s, 'THE ACCELERATION · ENGINEERING · 2', 'AI agents now design circuit boards and parts');
+
+  // left: 2×2 wall of real demo media (GIFs play in slideshow)
+  const gw = 7.55, gap = 0.2, tw = (gw - gap) / 2, th = tw * 9 / 16, gy = 1.8;
+  // Autodesk's official demo, re-cut so each clip opens on the agent's chat (the typed request, zoomed in on the chat box)
+  // and then shows the result in Fusion. Each loop starts on the finished request, so a static preview shows it too.
+  const FUS = 'cad-autodesk-mcp-enclosure-mold-cam.mp4';
+  const chat1 = [1200, 675, 256, 260], cad = [1440, 810, 240, 120];       // request 1 · Fusion design view
+  const chat3 = [960, 540, 40, 530], cam = [1280, 720, 430, 200], sim = [1020, 574, 480, 196]; // request 3 · CAM viewer · simulation
+  const fusionCad = mp4Montage(FUS, 'cad-fusion-prompt-enclosure.gif', [
+    { ss: 8.4, to: 8.95, crop: chat1 }, { ss: 40.65, to: 43.4, crop: cad }, { ss: 4.5, to: 8.4, crop: chat1 },
+  ], { width: 960, fps: 15 });
+  const fusionCam = mp4Montage(FUS, 'cad-fusion-prompt-toolpaths.gif', [
+    { ss: 63.6, to: 64.2, crop: chat3 }, { ss: 74.4, to: 76.7, crop: cam }, { ss: 80.4, to: 85.1, crop: sim }, { ss: 61.6, to: 63.6, crop: chat3 },
+  ], { width: 960, fps: 15 });
+  const cells = [
+    [fusionCad, 'CAD · AUTODESK FUSION + CLAUDE OPUS 4.8', 'One chat request → a molded Raspberry Pi case'],
+    [fusionCam, 'CAM · SAME AGENT, LATER REQUEST', '…then CNC toolpaths to machine the mold plates'],
+    [R2('pcb-astra-kicad-hackaday.jpg'), 'PCB · GPT-6 ASTRA IN KICAD · STILL', 'OpenAI demo: layout mid-placement, plus 3D render', { clear: true }],
+    [R2('pcb-quilter-speedrun-board-360.gif'), 'PCB · QUILTER “PROJECT SPEEDRUN”', '843-part Linux computer — booted on first power-up'],
+  ];
+  const tiles = [];
+  for (let i = 0; i < 4; i++) {
+    const [f, t, sub, o] = cells[i];
+    const box = { x: CX0 + (i % 2) * (tw + gap), y: gy + Math.floor(i / 2) * (th + gap), w: tw, h: th };
+    tiles.push(await tile(d, s, f, box, t, sub, o));
+  }
+  const gridBottom = gy + 2 * th + gap;
+
+  // right: EEBench (simulation-graded circuit design) — best configuration per model
+  const rx = 8.5, rw = CX1 - rx;
+  const lab = capLabel(d, s, 'EEBENCH CIRCUIT DESIGN · TOP 8 MODELS, BEST SETTING', { x: rx, y: 1.72, w: rw, charSpacing: 1 });
+  // the true top 8 models on the Sep 29, 2026 leaderboard (best configuration per model; next: GPT-6 Sol 56.3, Gemini 3.8 Flash 55.4)
+  const rows = [['Claude Opus 5.5', 75.0], ['GPT-6 Astra', 69.3], ['Claude Sonnet 5.5', 67.2], ['Grok 4.7', 64.0], ['GPT-6.1 Sol', 63.6], ['Claude Opus 5', 61.6], ['Grok 4.6', 57.1], ['Claude Fable 5.1', 56.4]];
+  const ch = d.chart(s, 'bar', [{ name: 'Score', labels: rows.map(r => r[0]).reverse(), values: rows.map(r => r[1]).reverse() }],
+    { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 2.5 }, {
+      barDir: 'bar', chartColors: rows.map((r, i) => (i === 0 ? HEX.red : HEX.steel)).reverse(), showValue: true, dataLabelFormatCode: '0.0',
+      dataLabelPosition: 'outEnd', dataLabelFontSize: 11, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 88,
+      catAxisLabelFontSize: 11, catAxisLineShow: false, barGapWidthPct: 40,
+    });
+  const st = stat(d, s, { x: rx, y: 4.5, w: rw, value: '61.6 → 75.0', valueSize: 32, labelSize: 14, labelH: 0.95,
+    label: 'Top score, Sep 1 vs Sep 29, 2026. 13 held-out tasks graded by circuit simulation: “No human graders. No LLM-as-judge.” Run by atopile, a PCB-tool maker.' });
+  const chips = d.text(s, [
+    { text: 'Chips too: ', options: { bold: true, color: d.S.amber } },
+    { text: 'the best agent fixes 70.7% of 417 real chip-design bugs (HWE-Bench).', options: { color: d.S.txt } },
+  ], { x: rx, y: 6.02, w: rw, h: 0.5, fontSize: 14, valign: 'top' });
+  const cap = d.text(s, 'GIFs play in the slideshow; the OpenAI tile is a still. Company demos: Autodesk, OpenAI, Quilter.', { x: CX0, y: gridBottom + 0.1, w: gw, h: 0.26, fontSize: 11, italic: true, color: d.S.steel, valign: 'top' });
+
+  tiles.forEach((t, i) => d.animate(s, t, { auto: true, effect: 'fade', dur: 450, after: i ? 120 : 0 }));
+  d.animate(s, [lab, ch, cap], { auto: true, effect: 'wipeLeft', dur: 900, after: 150 });
+  d.animate(s, [...st], { effect: 'rise', dur: 450 });
+  d.animate(s, [chips], { auto: true, effect: 'fade', after: 300 });
+
+  d.source(s, 'Sources: Autodesk Fusion blog & demos (Sep 15, 2026) · OpenAI demo still via Hackaday (Sep 5, 2026) · Quilter (Dec 2025) · EEBench (atopile, Sep 29, 2026) · HWE-Bench (arXiv 2604.14709).');
+  s.addNotes([
+    'Four real demos of AI doing hardware design. Top row (Autodesk’s official demo of its new Fusion Compute MCP, Sep 15, 2026): an agent — the model selector in the video reads “Opus 4.8 High” (Claude) — is asked to design a two-part injection-molded enclosure for a Raspberry Pi 4; it builds the parametric case, then a family mold with core and cavity, then programs the CNC toolpaths. Autodesk: “That is a design-to-manufacturing chain that normally requires several people over several days, now driven end to end from a chat window.” (Autodesk’s own demo.)',
+    'How the two GIFs were cut (trim, crop and scale only; nothing else changed): top-left = the request being typed in the chat, zoomed in on the chat box (video 0:04.5–0:08.95; it reads verbatim “Start Fusion and design a two-part injection molded enclousore for a Raspberry Pi4.” — typo in the original), then the finished case with the Raspberry Pi board in Fusion (0:40.6–0:43.4). Top-right = a later request typed in the same chat, “Create a setup and toolpaths to machine both parts” (1:01.6–1:04.2), then the CAM toolpaths on the mold plates (1:14.4–1:16.7) and Fusion’s machining simulation of the cavity plate (1:20.4–1:25.1). The mold itself came from an earlier request in the video: “Create a core and a cavity to mold both parts at the same time. I’ll want a center injection to inject both parts at once.” Autodesk’s caption overlays (“Co-Design with your AI Agent” etc.) are part of the original video.',
+    'Bottom left (a still, not a clip): image from OpenAI’s GPT-6 Astra launch demo (via Hackaday) — on the left the KiCad board mid-placement, footprints still outside the outline and connections shown as unrouted ratsnest lines; on the right a 3D render of the board. OpenAI’s caption for the video: “a 15-second condensed playback of GPT-6 Astra performing printed circuit board (PCB) layout in KiCad, turning an electronic schematic into a manufacturable PCB by placing components and routing copper connections” (a 2 min 54 s run). The clip itself could not be downloaded (Cloudflare/Vimeo), so this is the still. JLCPCB independently had Astra design a 44 × 34 mm amplifier board from a four-line brief: 0 ERC / 0 DRC violations under the configured rules (caveat: some rule categories were ignored, and a clean DRC is not a manufacturability check). Hackaday’s verdict was skeptical: “there is still a long way to go before hardware engineers can receive their pink slips.”',
+    'Bottom right: Quilter “Project Speedrun” — an 843-component, 8-layer, dual-board Linux computer laid out with Quilter’s physics-driven AI (not an LLM); it booted on first power-up. 38.5 hours of human work vs 428 hours quoted for manual layout (Quilter’s own figures; the clip is a marketing render of the real design).',
+    'Right: EEBench — 13 original, held-out electrical-engineering design tasks; each design is built and simulated (SPICE at worst-case tolerance corners): “No human graders. No LLM-as-judge.” Score = 0.65 × technical + 0.35 × cost-efficiency. Leaderboard Sep 29, 2026 — the chart shows the top 8 models, best configuration per model: Claude Opus 5.5 [xhigh] 75.0 ±8.3, GPT-6 Astra 69.3 ±10.7, Claude Sonnet 5.5 67.2, Grok 4.7 64.0, GPT-6.1 Sol 63.6, Claude Opus 5 61.6, Grok 4.6 57.1, Claude Fable 5.1 56.4 (next: GPT-6 Sol 56.3, Gemini 3.8 Flash 55.4, Claude Fable 5 54.3, Claude Opus 4.8 51.4). The top score on Sep 1 was 61.6 (Claude Opus 5). CAVEATS: built and funded by atopile, a company that sells PCB design tools; wide error bars; PCB layout is out of scope in V1. xAI now reports EEBench in its model cards (Grok 4.6) and launch posts (Grok 4.7: 64.0%).',
+    'Chips: HWE-Bench (arXiv, Apr 2026) — 417 real bug fixes from open-source chip repositories (OpenTitan, CVA6, XiangShan…): the best agent (GPT-5.4) resolves 70.7%, >90% on small cores, <65% on SoC-level projects (spring-2026 models). Analog Design Bench (arXiv, Sep 27, 2026): full-spec pass rates from 8% to 78% on 50 transistor-level tasks in two-hour attempts (best: Claude Fable 5).',
+    'Safety angle (say it): xAI’s Grok 4.6 model card, section “Engineering acceleration”: “agents that accelerate rocket design, IC layout, and datacenter power-and-cooling optimization compress the timelines of progress across the physical systems that enable further advances in AI capabilities and utility.” AI is starting to design the hardware that makes better AI.',
+    'URLs: https://www.autodesk.com/products/fusion-360/blog/fusion-compute-mcp/ · https://hackaday.com/2026/09/05/can-ai-now-design-pcbs-that-just-work/ · https://jlcpcb.com/blog/gpt-6-astra-pcb-design-in-kicad · https://www.quilter.ai/project-speedrun · https://www.eebench.org/ · https://www.eebench.org/methodology.html · https://www.eebench.org/blog/can-ai-design-circuit-boards-yet/ · https://arxiv.org/abs/2604.14709 · https://arxiv.org/abs/2609.33356v1 · https://media.x.ai/v1/website/card-4p6-4cd2dc57.pdf · https://x.ai/news/grok-4-7',
+  ].join('\n\n'));
+  return s;
+}
+
+// ========== 1c. Engineering: how hard (and valuable) these jobs are ==========
+async function hwJobsSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  head(s, 'THE ACCELERATION · ENGINEERING · 3', 'Hardware design is slow, costly and well paid');
+
+  // column A: pay (BLS) + training
+  const ax = CX0, aw = 3.95;
+  const l1 = capLabel(d, s, 'MEDIAN US PAY, MAY 2025 (BLS)', { x: ax, y: 1.72, w: aw });
+  const pay = [['All US workers', 50980], ['Mechanical engineers', 104110], ['Electrical & electronics', 125040], ['Computer hardware', 161740]];
+  const ch = d.chart(s, 'bar', [{ name: 'Median pay', labels: pay.map(p => p[0]).reverse(), values: pay.map(p => p[1]).reverse() }],
+    { x: ax - 0.1, y: 1.98, w: aw + 0.1, h: 2.45 }, {
+      barDir: 'bar', chartColors: [HEX.steel, HEX.red, HEX.red, HEX.red].reverse(), showValue: true, dataLabelFormatCode: '$#,##0',
+      dataLabelPosition: 'outEnd', dataLabelFontSize: 12, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' },
+      valAxisMinVal: 0, valAxisMaxVal: 235000, catAxisLabelFontSize: 11, catAxisLineShow: false, barGapWidthPct: 45,
+    });
+  const l2 = capLabel(d, s, 'TRAINING', { x: ax, y: 4.6, w: aw });
+  const tr = d.text(s, [
+    { text: 'A bachelor’s degree just to start. ', options: { bold: true, color: d.S.txt } },
+    { text: 'A Professional Engineer license adds two exams and typically at least 4 years of work experience.', options: { color: d.S.muted } },
+  ], { x: ax, y: 4.9, w: aw, h: 1.5, fontSize: 14, valign: 'top' });
+
+  // column B: time and money per design
+  const bx = 4.95, bw = 3.95;
+  const l3 = capLabel(d, s, 'TIME AND MONEY PER DESIGN', { x: bx, y: 1.72, w: bw });
+  const facts = [
+    ['$725M', 'to design one leading-edge 2 nm chip — vs $249M at 7 nm (IBS estimates)'],
+    ['18–24 months', 'OpenAI’s old baseline for a chip like Jalapeño; with Codex: ~9 months'],
+    ['2.9 respins', 'average PCB redesigns before production — each ≈2 weeks, >$28K in materials'],
+    ['428 hours', 'quoted for manual layout of an 843-part board; with Quilter’s AI: 38.5 hours'],
+  ];
+  const fr = [];
+  facts.forEach(([v, t], i) => {
+    const y = 2.02 + i * 1.11;
+    fr.push([
+      d.text(s, v, { x: bx, y, w: bw, h: 0.44, fontSize: 26, bold: true, color: i % 2 ? d.S.amber : d.S.red, fontFace: 'Arial', valign: 'bottom' }),
+      d.text(s, t, { x: bx, y: y + 0.45, w: bw, h: 0.62, fontSize: 14, color: d.S.muted, valign: 'top' }),
+    ]);
+  });
+
+  // column C: Tom's Hardware headline (Jalapeño) + Richard Ho quote
+  const cx = 9.25, cw = CX1 - cx;
+  const toms = await crop('rev2/chip-tomshardware-jalapeno-ho-interview.png', 'hw-toms-jalapeno.png', { l: 0, t: 0, w: 1260, h: 905 });
+  const c1 = await frameW(d, s, toms, cx + 0.08, 1.86, cw - 0.16, { rot: 1.5 });
+  const cBottom = 1.86 + await hFor(toms, cw - 0.16);
+  const q = d.text(s, [
+    { text: '“We didn’t replace our engineers; they just became super productive. With a smaller team …”', options: { italic: true, fontFace: 'Cambria', fontSize: 15, color: d.S.txt, breakLine: true } },
+    { text: '— Richard Ho, OpenAI head of hardware', options: { fontSize: 11, color: d.S.muted } },
+  ], { x: cx, y: cBottom + 0.3, w: cw, h: 6.5 - cBottom - 0.3, valign: 'top' });
+
+  d.animate(s, [l1, ch], { auto: true, effect: 'wipeLeft', dur: 900 });
+  d.animate(s, [l2, tr], { auto: true, effect: 'fade', after: 100 });
+  d.animate(s, [l3, ...fr[0]], { effect: 'rise', dur: 400 });
+  fr.slice(1).forEach(f => d.animate(s, f, { auto: true, effect: 'rise', dur: 400, after: 150 }));
+  d.animate(s, c1, { effect: 'slam', dur: 350 });
+  d.animate(s, [q], { auto: true, effect: 'fade', after: 250 });
+
+  d.source(s, 'Sources: BLS Occupational Outlook Handbook (May 2025 pay) · Arm IPO prospectus (2023) citing IBS · Tom’s Hardware (Sep 30, 2026) · Siemens EDA blog citing Lifecycle Insights (Jun 2026) · Quilter (vendor figures).');
+  s.addNotes([
+    'Why this matters economically: these are some of the best-paid, longest-trained jobs in the economy, and each design takes months and costs a fortune — exactly the work the previous slides showed AI starting to do.',
+    'Pay (BLS, May 2025 medians): computer hardware engineers $161,740; electrical & electronics engineers $125,040; mechanical engineers $104,110 — vs $50,980 for all US workers. Jobs (2025): ~298,000 electrical & electronics engineers, ~298,500 mechanical engineers, ~76,100 computer hardware engineers.',
+    'Training (BLS): all three typically need a bachelor’s degree to enter; a Professional Engineer (PE) license additionally requires passing the Fundamentals of Engineering (FE) exam, relevant work experience (“typically at least 4 years”), and the PE exam.',
+    'Cost and cycle time: designing a leading-edge chip costs “approximately $249 million for a 7nm chip and approximately $725 million for a 2nm chip” (IBS, cited in Arm’s 2023 IPO prospectus). OpenAI’s Jalapeño inference ASIC went from RTL to tapeout in about nine months using Codex; Richard Ho: “In the old baseline, you’re talking 18 months to two years, roughly.” PCBs: designs average 2.9 respins before volume production, “with each rework cycle adding roughly two weeks and more than $28K in material costs alone” (Lifecycle Insights study, via a Siemens blog — vendor-adjacent). Quilter Project Speedrun: 428 hours quoted for manual layout vs 38.5 hours of human work with Quilter (vendor figures). Synopsys benchmarks its spec-to-verified-RTL agent against “a four- to six-month team effort”; Cadence claims its agents cut “a typical five-week verification loop to less than a day” — vendor-measured, not independently verified (Tom’s Hardware).',
+    'Richard Ho (Tom’s Hardware, Sep 30, 2026), full quote: “This is how AI should be used. We didn’t replace our engineers; they just became super productive. With a smaller team of really good engineers with a lot of this AI stuff, you could do things faster and better than you could otherwise.” Note the “smaller team”.',
+    'Further (say if time): Architect Labs (startup, Aug 27, 2026) claims its AI generated “100% of the RTL” and verification for an AI accelerator from a spec by two human architects in under two weeks (its own chart spans 22 days; FPGA prototype only, not taped out) and calls it “one of the earliest demonstrations of recursive self-improvement” — a company claim.',
+    'URLs: https://www.bls.gov/ooh/architecture-and-engineering/computer-hardware-engineers.htm · https://www.bls.gov/ooh/architecture-and-engineering/electrical-and-electronics-engineers.htm · https://www.bls.gov/ooh/architecture-and-engineering/mechanical-engineers.htm · https://www.sec.gov/Archives/edgar/data/1973239/000119312523235320/d550931d424b4.htm · https://www.tomshardware.com/tech-industry/asics/this-is-how-ai-should-be-used-openai-head-of-hardware-breaks-down-the-ai-assisted-design-of-its-jalapeno-asic · https://blogs.sw.siemens.com/electronic-systems-design/2026/06/25/design-today-reuse-tomorrow-mastering-ip-management-for-electronics-teams/ · https://www.quilter.ai/project-speedrun · https://www.tomshardware.com/tech-industry/semiconductors/the-state-of-agentic-ai-in-chip-design-tools-in-2026-cadence-synopsys-and-siemens-all-pitch-autonomous-engineers · https://architectlabs.com/blog/redwood',
+  ].join('\n\n'));
+  return s;
+}
+
+// ========== 1d. Labor: Agents' Last Exam ==========
+async function aleSlide(d) {
+  const s = d.slide('Content', { transition: 'fade' });
+  head(s, 'THE ACCELERATION · LABOR', 'Agents’ Last Exam: 0% to 16% in four months');
+
+  // left: official homepage (title + tagline) and the official video's wall of agents at work
+  const lw = 6.15;
+  const hero = await crop('rev2/labor-ale-homepage-hero.png', 'labor-ale-hero-head.png', { l: 640, t: 125, w: 1520, h: 280 });
+  const c1 = await frameW(d, s, hero, CX0, 1.82, lw);
+  const gy = 1.82 + await hFor(hero, lw) + 0.24;
+  const gh = 6.5 - gy - 0.32, gwid = gh * 16 / 9;
+  const aleGif = mp4Gif('labor-ale-intro.mp4', 'labor-ale-agents-70s.gif', { ss: 70.5, to: 75.2, width: 960, fps: 15 });
+  const gif = await tile(d, s, aleGif, { x: CX0, y: gy, w: gwid, h: gh }, null);
+  const gcap = d.text(s, [
+    { text: '►  ', options: { color: d.S.red, bold: true } },
+    { text: 'Official ALE video: agents at work in real professional software', options: { color: d.S.muted } },
+  ], { x: CX0, y: gy + gh + 0.05, w: lw, h: 0.26, fontSize: 10, valign: 'top' });
+
+  // right: hardest tier — launch agents still at 0%, today's at up to 15.8% (same 38 tasks)
+  const rx = 7.15, rw = CX1 - rx;
+  const lab = capLabel(d, s, 'HARDEST “LAST-EXAM” TIER · SAME 38 TASKS · PASS RATE', { x: rx, y: 1.72, w: rw, charSpacing: 1 });
+  // all eight agents the leaderboard lists on this split; the June launch configurations ran at default effort,
+  // and the same Fable 5 at XHigh effort now passes 7.9% — so part of the jump is effort/harness, not only newer models
+  const rows = [
+    ['Claude Opus 5.5 (Max)', 15.8, HEX.red], ['Claude Opus 5 (Max)', 13.2, HEX.red], ['GPT-6 Sol (Medium)', 13.2, HEX.red], ['GPT-6 Astra (High)', 10.5, HEX.red],
+    ['Claude Fable 5 (XHigh effort)', 7.9, HEX.amber],
+    ['GPT-5.5 (default) · June launch', 0, HEX.steel], ['Claude Fable 5 (default) · June launch', 0, HEX.steel], ['Composer 2.5 (Cursor) · June launch', 0, HEX.steel],
+  ];
+  const ch = d.chart(s, 'bar', [{ name: 'Pass rate', labels: rows.map(r => r[0]).reverse(), values: rows.map(r => r[1]).reverse() }],
+    { x: rx - 0.1, y: 1.98, w: rw + 0.1, h: 2.38 }, {
+      barDir: 'bar', chartColors: rows.map(r => r[2]).reverse(), showValue: true, dataLabelFormatCode: '0.0"%"', dataLabelPosition: 'outEnd',
+      dataLabelFontSize: 11, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 19.5,
+      catAxisLabelFontSize: 11, catAxisLineShow: false, barGapWidthPct: 38,
+    });
+  const q = d.text(s, [
+    { text: 'June 2026: ', options: { bold: true, color: d.S.amber } },
+    { text: '“On ALE’s hardest tier, every frontier agent we tested, including Fable 5, achieved a 0% success rate.”', options: { italic: true, color: d.S.txt } },
+    { text: '  — Berkeley RDI', options: { fontSize: 11, color: d.S.muted } },
+  ], { x: rx, y: 4.46, w: rw, h: 0.62, fontSize: 14, valign: 'top' });
+  const sw = (rw - 0.3) / 2;
+  const st1 = stat(d, s, { x: rx, y: 5.16, w: sw, value: '38.2%', valueSize: 30, labelSize: 14, labelH: 0.84, label: 'of all 152 public tasks passed outright by Claude Opus 5.5 (GPT-6 Astra: 34.2%)' });
+  const st2 = stat(d, s, { x: rx + sw + 0.3, y: 5.16, w: sw, value: '1,500+', valueSize: 30, labelSize: 14, labelH: 0.84, label: 'expert-sourced tasks across 55 occupations; 300+ industry experts involved' });
+
+  d.animate(s, c1, { auto: true, effect: 'rise', dur: 450 });
+  d.animate(s, [...gif, gcap], { auto: true, effect: 'fade', dur: 500, after: 100 });
+  d.animate(s, [lab, ch], { effect: 'wipeLeft', dur: 1000 });
+  d.animate(s, [q], { auto: true, effect: 'fade', after: 200 });
+  d.animate(s, [...st1, ...st2], { effect: 'rise', dur: 450 });
+  d.anim[s._num].groups[d.anim[s._num].groups.length - 1].effects.forEach((e, i) => { e.delay = Math.floor(i / 2) * 250; });
+
+  d.source(s, 'Sources: Agents’ Last Exam (UC Berkeley RDI): agents-last-exam.org homepage, leaderboard and intro video (accessed Oct 4, 2026); launch post (June 2026).');
+  s.addNotes([
+    'Agents’ Last Exam (UC Berkeley RDI, Dawn Song’s group; arXiv 2606.05405, June 2026) is built to test whether agents are “job-ready”: 1,500+ expert-sourced tasks (target 5,000) across 55 occupations in 13 industry clusters — architecture, neuroscience, animation, engineering CAD, finance, law… — done in real professional software, with verifiable outcomes. Homepage tagline: “Challenge and measure AI agents on economically valuable and real-world tasks.”',
+    'At launch (June 2026): “On ALE’s hardest tier, every frontier agent we tested, including Fable 5, achieved a 0% success rate.” And: “The age of useful agents is here. The age of truly job-ready agents is not.”',
+    'Today (live leaderboard, accessed Oct 4, 2026): on that same hardest “Last-Exam” split (38 tasks), Claude Opus 5.5 in Claude Code (max effort) passes 15.8% (6 of 38); Claude Opus 5 and GPT-6 Sol 13.2%; GPT-6 Astra (High) 10.5%. The June launch configurations (Claude Code + Fable 5 at default effort, Codex + GPT-5.5 default, Cursor + Composer 2.5) still show 0.0% on the same split — so the jump from 0% is on the same task set. But say it: the same Claude Fable 5 run at XHigh effort now passes 7.9% (amber bar), so part of the jump comes from effort settings and harness, not only from newer models. Leaderboard entries are not dated, so “four months” is launch-to-today (best published result then vs now). The benchmark is “Led by Berkeley RDI and 300+ industry experts” (homepage); the arXiv abstract says 250+ at submission.',
+    'Overall (152 public tasks): Claude Opus 5.5 38.2% pass rate (63.2% partial credit), GPT-6 Astra 34.2%; in June the best overall was 24.0% (GPT-5.5). Taking the best run per task across all agents gives 56.6%. “Pass rate” = share of runs with a perfect score.',
+    'Caveat from the launch post: the most common failure is agents declaring success before verifying their work — “Done. All checks pass.” when files are missing or counts are wrong.',
+    'Left: official homepage (crop) and a 4.7-second excerpt (0:70.5–0:75.2, trimmed/scaled only) of the official 80-second intro video: four agent sessions in real desktop software (CAD, an audio workstation, spreadsheets…), then the camera pulls back to a wall of dozens of sessions. The GIF plays in slideshow mode.',
+    'URLs: https://agents-last-exam.org/ · https://agents-last-exam.org/leaderboard · https://rdi.berkeley.edu/blog/agents-last-exam/ · https://arxiv.org/abs/2606.05405 · video: https://agents-last-exam.org/videos/ale-intro.mp4',
+  ].join('\n\n'));
+  return s;
+}
+
+// ========== 1e. Labor: AutomationBench (Zapier) + Remote Labor Index (CAIS/Scale) ==========
+async function paidWorkSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  head(s, 'THE ACCELERATION · LABOR · 2', 'Work benchmarks: AI success rates are soaring');
+
+  // Two rows, one per benchmark: [real leaderboard crop] [native chart of the trend] [big stat].
+  const zap = await crop('rev2/labor-automationbench-leaderboard-top10.png', 'labor-zapier-top5.png', { l: 388, t: 1366, w: 957, h: 530 });
+  const rli = await crop('rev2/labor-rli-leaderboard-panel.png', 'labor-rli-top4.png', { l: 15, t: 15, w: 985, h: 470 });
+  const sx = 9.85, sw = CX1 - sx;          // stat column
+  const rowA = 1.72, rowB = 4.3, ch0 = 0.33; // row tops (labels), label-to-content offset
+  const clipH = 6.5 - (rowB + ch0) - 0.02;   // clipping height (same in both rows)
+  const pad = 0.06;
+  const zw = (clipH - 2 * pad) * 957 / 530 + 2 * pad, rw2 = (clipH - 2 * pad) * 985 / 470 + 2 * pad;
+
+  // Row A: AutomationBench (Zapier)
+  const lz = capLabel(d, s, 'AUTOMATIONBENCH · ZAPIER, OCT 4, 2026', { x: CX0, y: rowA, w: zw + 0.4, charSpacing: 1 });
+  const c1 = await d.frame(s, zap, { x: CX0 + 0.04, y: rowA + ch0, w: zw, h: clipH }, { rot: -1 });
+  const ax = CX0 + zw + 0.42, aw = sx - 0.35 - ax;
+  const la = capLabel(d, s, 'BEST SCORE AMONG MODELS RELEASED UP TO EACH MONTH (OUR COMPILATION)', { x: ax, y: rowA, w: aw, charSpacing: 0.25 });
+  const ca = d.chart(s, 'line', [{ name: 'Best score', labels: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep'], values: [8.68, 11.57, 16.59, 16.89, 17.05, 28.77, 30.44, 51.29] }],
+    { x: ax - 0.1, y: rowA + ch0 - 0.04, w: aw + 0.1, h: clipH + 0.1 }, {
+      chartColors: [HEX.red], lineSize: 3, lineDataSymbolSize: 7, showValue: true, dataLabelFormatCode: '0"%"', dataLabelPosition: 't',
+      dataLabelFontSize: 11, valAxisMinVal: 0, valAxisMaxVal: 60, valAxisMajorUnit: 20, valAxisLabelFormatCode: '0"%"', catAxisLabelFontSize: 11,
+    });
+  const sa = stat(d, s, { x: sx, y: rowA + 0.02, w: sw, value: '~6×', valueSize: 40, labelSize: 14, labelH: 1.25,
+    label: 'in seven months on the same tasks: 8.7% (Feb) → 51.3% (Sep). Workflows in 47 simulated business apps; strict pass/fail.' });
+
+  // Row B: Remote Labor Index (CAIS + Scale)
+  const lr = capLabel(d, s, 'REMOTE LABOR INDEX · SCALE, OCT 4, 2026', { x: CX0, y: rowB, w: rw2 + 0.4, charSpacing: 1 });
+  const c2 = await d.frame(s, rli, { x: CX0 + 0.04, y: rowB + ch0, w: rw2, h: clipH }, { rot: 1 });
+  const bx = CX0 + rw2 + 0.42, bw = sx - 0.35 - bx;
+  const lb = capLabel(d, s, 'AUTOMATION RATE · KEY RESULTS, BY DATE PUBLISHED', { x: bx, y: rowB, w: bw, charSpacing: 1 });
+  const cb = d.chart(s, 'bar', [{ name: 'Automation rate', labels: ['Launch\nOct ’25', 'Opus 4.8\nJul ’26', 'Fable 5\nJul ’26', 'GPT-6 Astra\nSep–Oct ’26'], values: [2.5, 8.33, 15.8, 20.83] }],
+    { x: bx - 0.1, y: rowB + ch0 - 0.04, w: bw + 0.1, h: clipH + 0.12 }, {
+      barDir: 'col', chartColors: [HEX.steel, HEX.steel, HEX.amber, HEX.red], showValue: true, dataLabelFormatCode: '0.0"%"', dataLabelPosition: 'outEnd',
+      dataLabelFontSize: 12, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: 25,
+      catAxisLabelFontSize: 11, barGapWidthPct: 45,
+    });
+  const sb = stat(d, s, { x: sx, y: rowB + 0.02, w: sw, value: '8×', valueSize: 40, labelSize: 14, labelH: 1.25,
+    label: 'in under a year: 2.5% → 20.8%. 240 real freelance jobs worth $144K, each judged by humans against a paid professional’s work.' });
+
+  d.animate(s, [lz, ...c1], { auto: true, effect: 'rise', dur: 450 });
+  d.animate(s, [la, ca], { auto: true, effect: 'wipeLeft', dur: 1100, after: 100 });
+  d.animate(s, sa, { auto: true, effect: 'fade', after: 100 });
+  d.animate(s, [lr, ...c2], { effect: 'rise', dur: 450 });
+  d.animate(s, [lb, cb], { auto: true, effect: 'wipeLeft', dur: 1000, after: 100 });
+  d.animate(s, sb, { auto: true, effect: 'fade', after: 100 });
+
+  d.source(s, 'Sources: Zapier AutomationBench v1.0.6 (Oct 4, 2026), arXiv 2604.18934; release months: Artificial Analysis / Wikipedia · CAIS blog (Jul 1, 2026), Scale Labs RLI (Oct 4, 2026), arXiv 2510.26787.');
+  s.addNotes([
+    'Two work benchmarks; each row shows a crop of the live leaderboard (Oct 4, 2026), the trend, and the headline multiple. Top — AutomationBench (Zapier, Apr 21, 2026): 600+ held-out business workflows across Sales, Marketing, Operations, Support, Finance and HR in 47 simulated apps — each task runs in an isolated environment (CRM records, inbox threads, calendars…); Zapier’s page calls them “47 real tools”, meaning simulated versions of real apps — built on patterns from Zapier’s 2B+ monthly tasks across 3.7M companies; strict scoring — every end-state assertion must hold (“mostly-right is still wrong”); “No LLM-as-judge.”',
+    'At launch: “Even the best frontier models currently score below 10%” (Opus 4.7 9.9%). Today (leaderboard v1.0.6): Gemini 4 Argon (High) 51.29%, Claude Sonnet 5.5 44.75%, Claude Opus 5.5 42.47%, GPT 6 Astra (Max) 41.4%. Zapier re-runs every model when the version changes, so everything is compared within v1.0.6. The chart is the best v1.0.6 score among models released up to each month (our compilation; release months from Artificial Analysis / Wikipedia): Gemini 3.1 Pro 8.68% (Feb) → Gemini 4 Argon 51.29% (Sep), ~6x in seven months; from April (GPT-5.5, 16.59%) it is ~3x. (Another cut: April’s launch leader Opus 4.7 scores 13.39% on v1.0.6 — ~4x to Gemini 4 Argon.)',
+    'Failure mode worth naming: “More often than not, models declared success while actually failing. 72% of Opus’s failures, 91% of Gemini’s, and 84% of GPT 5.4’s involved this false confidence.” (AutomationBench paper.) Also: Claude Fable 5.1’s own safety classifier refused steps on ~40% of tasks (260 of 657), which Opus 5 then completed as a fallback.',
+    'Bottom — Remote Labor Index (Center for AI Safety + Scale AI): 240 real freelance projects (3D & CAD, architecture, graphic design, video and animation, audio, data analysis, web apps…) representing 6,000+ hours of work valued at $143,991; mean human completion time 28.9 hours. Every deliverable is judged by human evaluators against a gold-standard deliverable from a paid professional; the automation rate is the share of projects where the AI’s work is as good or better. At launch (Oct 30, 2025) the best agent automated 2.5%. CAIS’s Jul 1, 2026 update: “the previous published leader sat at 4.17%” (Opus 4.6 + Claude Cowork; date of that result not found); in the same update GPT-5.5 scored 6.3%, Claude Opus 4.8 8.3% and Fable 5 15.8% — Fable 5 roughly double the next model. The chart shows the launch best, Opus 4.8 (the best of the earlier models in that update), Fable 5, and GPT-6 Astra 20.83% on today’s leaderboard (posted between Sep 3 and Oct 4, 2026 — hence “Sep–Oct ’26”; exact date not found). It is a set of key results by publication date, not a monthly series. CAIS: “The frontier has more than quadrupled in under eight months.” (Fable 5 was first announced as 16.1%; CAIS pages now show 15.8%.)',
+    'Caveats (CAIS): an automated LLM judge overestimated the newest models ~2.9x (GPT-5.5: 17.9% vs 6.25% by humans) — and on one architecture project “GPT‑5.5’s good-looking render is faked with an image generator”; its actual 3D model was crude. Agents that look done but are not is itself a safety problem. ~80% of real projects are still not automated.',
+    'URLs: https://zapier.com/benchmarks · https://arxiv.org/abs/2604.18934 · https://safe.ai/blog/significant-increase-in-digital-labor-automation · https://labs.scale.com/leaderboard/rli · https://dashboard.safe.ai/ · https://www.remotelabor.ai/ · https://arxiv.org/abs/2510.26787 · https://www.zdnet.com/article/anthropic-fable-5-freelance-work-performance-record/',
+  ].join('\n\n'));
+  return s;
+}
+
+// OpenAI's GDPval leaderboard page: page header + the "no longer active" line, stacked into one clipping (verbatim crops).
+async function openaiNoticeClip() {
+  fs.mkdirSync(OUT, { recursive: true });
+  const out = path.join(OUT, 'labor-openai-gdpval-notice.png');
+  const src = R2('labor-gdpval-openai-leaderboard-inactive.png');
+  const top = await sharp(src).extract({ left: 30, top: 25, width: 840, height: 82 }).png().toBuffer();
+  const line = await sharp(src).extract({ left: 425, top: 283, width: 935, height: 62 }).png().toBuffer();
+  const Wd = 1010, pad = 26, gap = 34;
+  const Hd = pad + 82 + gap + 62 + pad;
+  await sharp({ create: { width: Wd, height: Hd, channels: 3, background: '#FFFFFF' } })
+    .composite([{ input: top, left: 18, top: pad }, { input: line, left: 40, top: pad + 82 + gap }]).png().toFile(out);
+  return out;
+}
+
+// ========== 1f. Labor: GDPval ==========
+async function gdpvalSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  head(s, 'THE ACCELERATION · LABOR · 3', 'OpenAI: AI tied or beat experts 85% of the time');
+
+  // left: GDPval wins + ties vs industry professionals, with the 50% parity line
+  const lw = 6.55;
+  const lab = capLabel(d, s, 'GDPVAL · DELIVERABLE JUDGED AS GOOD AS OR BETTER THAN AN EXPERT’S', { x: CX0, y: 1.72, w: lw, charSpacing: 1 });
+  const box = { x: CX0 - 0.1, y: 1.98, w: lw + 0.1, h: 3.55 };
+  const L = { x: 0.07, y: 0.12, w: 0.92, h: 0.72 };
+  const labels = ['GPT-4o (2024)', 'o3 (Apr ’25)', 'GPT-5 (Aug ’25)', 'Opus 4.1 (Sep ’25)', 'GPT-5.2 (Dec ’25)', 'GPT-5.4 (Mar ’26)', 'GPT-5.5 (Apr ’26)'].map(l => l.replace(/ (’\d\d\))/, '\u00A0$1'));
+  const vals = [12.4, 34.1, 38.8, 47.6, 70.9, 83.0, 84.9];
+  const ch = d.chart(s, 'bar', [{ name: 'Wins + ties', labels, values: vals }], box, {
+    barDir: 'col', layout: L, chartColors: vals.map(v => (v >= 50 ? HEX.red : HEX.steel)), showValue: true, dataLabelFormatCode: '0.0"%"',
+    dataLabelPosition: 'outEnd', dataLabelFontSize: 12, dataLabelFontBold: true, valAxisMinVal: 0, valAxisMaxVal: 100, valAxisMajorUnit: 25,
+    valAxisLabelFormatCode: '0"%"', catAxisLabelFontSize: 11, barGapWidthPct: 45,
+  });
+  const py = box.y + box.h * (L.y + L.h * 0.5), px0 = box.x + box.w * L.x, px1 = box.x + box.w * (L.x + L.w);
+  // parity line drawn as two segments with a gap around the Opus 4.1 data label (47.6%), which sits right on 50%
+  const gc = box.x + box.w * (L.x + L.w * 3.5 / 7), gh = 0.36;
+  const par = [[px0, gc - gh], [gc + gh, px1]].map(([a, b]) => {
+    const n = d.name('parity');
+    s.addShape(d.pres.shapes.LINE, { x: a, y: py, w: b - a, h: 0, line: { color: HEX.amber, width: 1.5, dashType: 'dash' }, objectName: n });
+    return n;
+  });
+  const parT = d.text(s, '50% = parity with industry experts', { x: px0 + 0.08, y: py - 0.3, w: 3.0, h: 0.26, fontSize: 11, bold: true, color: d.S.amber, valign: 'bottom' });
+  // the red bars are OpenAI's own reported numbers: say so on the chart itself (bracket over the three bars)
+  const pa = box.x + box.w * (L.x + L.w * 4 / 7) + 0.1, pb = box.x + box.w * (L.x + L.w) - 0.1, pyb = box.y + 0.03;
+  const brk = d.name('brk');
+  s.addShape(d.pres.shapes.LINE, { x: pa, y: pyb + 0.3, w: pb - pa, h: 0, line: { color: HEX.red, width: 1.25 }, objectName: brk });
+  const brkT = d.text(s, 'OPENAI-REPORTED', { x: pa, y: pyb, w: pb - pa, h: 0.26, fontSize: 10, bold: true, color: d.S.red, charSpacing: 1, align: 'center', valign: 'bottom' });
+  const note = d.text(s, [
+    { text: 'OpenAI’s own benchmark: 44 occupations; tasks written by professionals with ~14 years’ experience; graded blind by other experts. ', options: { color: d.S.muted } },
+    { text: 'Grey: GDPval paper (Sep 2025). Red: OpenAI-reported, via press.', options: { color: d.S.steel, italic: true } },
+  ], { x: CX0, y: box.y + box.h + 0.08, w: lw, h: 0.85, fontSize: 14, valign: 'top' });
+
+  // right: the headline, then OpenAI stops publishing the number
+  const rx = 7.5, rw = CX1 - rx;
+  const mtp = R2('labor-marktechpost-gpt55-gdpval.png');
+  const kw = rw - 0.8; // clippings narrower than the column so the full VentureBeat sentence fits below
+  const c1 = await frameW(d, s, mtp, rx + 0.4, 1.86, kw, { rot: -1.2 });
+  const mBottom = 1.86 + await hFor(mtp, kw);
+  const l2 = capLabel(d, s, 'SINCE THEN: NO NEW NUMBER FROM OPENAI', { x: rx, y: mBottom + 0.22, w: rw, color: d.S.amber });
+  const notice = await openaiNoticeClip();
+  const c2 = await frameW(d, s, notice, rx + 0.4, mBottom + 0.55, kw, { rot: 1 });
+  const nBottom = mBottom + 0.55 + await hFor(notice, kw);
+  const vb = d.text(s, [
+    { text: '“One notable omission from OpenAI’s Astra launch materials is GDPval, the company’s own benchmark for measuring performance on economically valuable, real-world work.”', options: { italic: true, fontFace: 'Cambria', color: d.S.txt, breakLine: true } },
+    { text: '— VentureBeat, Sep 3, 2026. An independent re-run (Artificial Analysis) now ranks Claude Opus 5.5 first.', options: { fontSize: 11, color: d.S.muted } },
+  ], { x: rx, y: nBottom + 0.2, w: rw, h: 6.5 - nBottom - 0.2, fontSize: 14, valign: 'top' });
+
+  d.animate(s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 1200 });
+  d.animate(s, [...par, parT, brk, brkT, note], { auto: true, effect: 'fade', after: 100 });
+  d.animate(s, c1, { effect: 'slam', dur: 350 });
+  d.animate(s, [l2, ...c2], { effect: 'rise', dur: 450 });
+  d.animate(s, [vb], { auto: true, effect: 'fade', after: 200 });
+
+  d.source(s, 'Sources: OpenAI, GDPval (arXiv 2510.04374, Sep 2025) · The Next Web (Mar 5, 2026) · MarkTechPost (Apr 23, 2026) · evals.openai.com (Oct 4, 2026) · VentureBeat (Sep 3, 2026) · Artificial Analysis GDPval-AA v2.1.');
+  s.addNotes([
+    'GDPval is OpenAI’s own benchmark of economically valuable work: 44 occupations across the 9 sectors contributing most to US GDP; tasks (with reference files) written by professionals averaging 14 years of experience; other experts compare the AI’s deliverable with the expert’s, blind. The metric is the share of tasks where the AI’s deliverable is judged as good as or better than the expert’s (wins + ties); 50% = parity.',
+    'Paper (Sep 2025): GPT-4o 12.4%, o3 high 34.1%, GPT-5 high 38.8%, Claude Opus 4.1 47.6% (best at the time — an Anthropic model on OpenAI’s benchmark). Later OpenAI-reported results (we could not load openai.com, so these are as reported by the press): GPT-5.2 70.9% and GPT-5.4 “matched or exceeded industry professionals in 83% of comparisons” (The Next Web, Mar 5, 2026); GPT-5.5 84.9% (MarkTechPost, Apr 23, 2026).',
+    'Then: “One notable omission from OpenAI’s Astra launch materials is GDPval, the company’s own benchmark for measuring performance on economically valuable, real-world work.” (VentureBeat, Sep 3, 2026 — the same article quotes Greg Brockman: “Welcome to the AGI era.”) OpenAI’s GDPval leaderboard page now reads: “The OpenAI-hosted GDPval leaderboard is no longer active.” We do not know why; do not speculate beyond the facts.',
+    'Independent: Artificial Analysis re-runs the 220 public GDPval tasks agentically and scores them by blind pairwise Elo (a different metric): Claude Opus 5.5 leads at 1867, Claude Sonnet 5.5 1840; GPT-6 Astra (max) 1542. Best Elo rose from 920 (GPT-5, Aug 2025) to 1867 (Sep 2026).',
+    'Caveat: “as good as an expert on a well-specified one-off task” is not “can do the expert’s job” — but the trend line crossed parity within a year.',
+    'URLs: https://arxiv.org/abs/2510.04374 · https://thenextweb.com/news/openai-gpt-54-launch-computer-use-benchmarks · https://www.marktechpost.com/2026/04/23/openai-releases-gpt-5-5-a-fully-retrained-agentic-model-that-scores-82-7-on-terminal-bench-2-0-and-84-9-on-gdpval/ · https://evals.openai.com/gdpval/leaderboard · https://venturebeat.com/technology/welcome-to-the-agi-era-openai-launches-gpt-6-astra · https://artificialanalysis.ai/evaluations/gdpval-aa',
+  ].join('\n\n'));
+  return s;
+}
+
 // ========== 2. Software jobs: the junior engineer is disappearing ==========
 async function juniorSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'THE ACCELERATION · ENGINEERING · 2', 'The junior engineer is disappearing');
+  head(s, 'THE ACCELERATION · JOBS', 'The junior engineer is disappearing');
 
   const lx = CX0, lw = 5.85, rx = 6.95, rw = CX1 - rx;
   const vy = 2.1, vh = 2.9;
@@ -210,7 +652,7 @@ async function juniorSlide(d) {
 // ========== 3. Code share + layoffs collage ==========
 async function codeSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'THE ACCELERATION · ENGINEERING · 3', 'AI writes the code — firms cite it for job cuts');
+  head(s, 'THE ACCELERATION · JOBS · 2', 'AI writes the code — firms cite it for job cuts');
 
   // left: Google code-share chart + AI layoffs stat
   const lw = 3.4;
@@ -458,42 +900,54 @@ async function tavusSlide(d) {
   return s;
 }
 
-// ========== 7. Which one is real? (DF26) — question slide, then reveal slide ==========
-const DF_ROWS = [
-  [['video-df26-ex1-fake-veo31.jpg', 'AI · VEO 3.1'], ['video-df26-ex1-real.jpg', null], ['video-df26-ex1-fake-kling30.jpg', 'AI · KLING 3.0']],
-  [['video-df26-ex2-fake-kling30.jpg', 'AI · KLING 3.0'], ['video-df26-ex2-fake-veo31.jpg', 'AI · VEO 3.1'], ['video-df26-ex2-real.jpg', null]],
+// ========== 7. Which one is real? (RA-Bench clip pairs) — question slide, then reveal slide ==========
+// Three columns = three pairs (A/B, C/D, E/F). In each pair one clip is real U.S. military/National Guard footage (DVIDS,
+// public domain) and the other is Seedance 2.0 image-to-video generated from that real clip's FIRST frame (RA-Bench).
+// All three AI clips are in RA-Bench-HumanProof: all five human reviewers labelled them "Real".
+const QUIZ = [
+  { clip: 'rabench-fig1-wildfire', k: 96, top: 'ai' },     // A = AI, B = REAL  (C-130J cockpit over the Palisades Fire)
+  { clip: 'rabench-fig1-vaccination', k: 96, top: 'real' }, // C = REAL, D = AI  (drive-through COVID-19 vaccination)
+  { clip: 'rabench-hp-trench', k: 48, top: 'ai' },         // E = AI, F = REAL  (paratroopers in a trench, exercise)
 ];
-const DF_SOURCE = 'Source: Shykula et al., “DF26: We Cannot Tell Fake From Real Anymore”, arXiv 2609.07369 (Sep 2026), Fig. 1 frames and human study (232 labeling sessions).';
-const DF_FRAMES_NOTE = 'The fakes are text-to-video generations (Veo 3.1, Kling 3.0) from a prompt describing the real clip (DF26: “generated from semantic prompts derived from the frames of the corresponding real video”; the four commercial systems were run in text-to-video mode only), so they show a different but matched speaker and setting; these are last frames from DF26 Fig. 1.';
+const QUIZ_SOURCE = 'Source: Liang et al., “Can We Defend Against AI-Generated Video Attacks on Real-World Crisis Events?” (RA-Bench), arXiv 2608.14391 (Aug 2026) · real clips: U.S. DoD via DVIDS (public domain).';
+const QUIZ_NOTE = 'How the clips were made (RA-Bench): each AI clip is Seedance 2.0 image-to-video conditioned on the real clip’s first frame, so both clips of a pair open on the same picture and then diverge. Real clips: (1) California Air National Guard C-130J cockpit over the Palisades Fire, Jan 11, 2025 (DVIDS 949356); (2) Cal Guard drive-through COVID-19 vaccination site, Cal State LA, Feb 16, 2021 (DVIDS 783671); (3) paratroopers in a trench during the Swift Response 25 blank-fire exercise, Latvia, May 2025 (DVIDS 963299, a different shot of the same exercise). Pairs 1 and 2 are RA-Bench’s own Figure 1 “Which is which?” scenarios III and IV. Clips are 8.0 s / 8.0 s / 4.0 s (24 fps originals), shown as looping GIFs at 15 fps on the question slide and 12 fps on the reveal slide (trimmed, scaled and frame-rate reduced only — to keep the six simultaneous clips light enough for PowerPoint; each loop starts mid-clip, at the same frame for both clips of a pair, so they play in sync).';
 
-// 2×3 grid of DF26 frames with letter badges. Returns { base, reveals:[row0, row1] } (reveals = REAL/AI labels).
-function dfGrid(d, s, { x0, y0, gw, gap, rowGap, badge, tagSize, realSize, answers = true }) {
-  const fw = (gw - 2 * gap) / 3, fh = fw * 9 / 16;
+// 3 columns × 2 rows of looping clips with letter badges. Returns { base, reveals:[pair0, pair1, pair2], fw, fh }.
+function quizGrid(d, s, { x0, y0, gw, colGap, rowGap, badge, width, fps, tagSize = 10, realSize = 12, answers = true, headSize = 13 }) {
+  const fw = (gw - 2 * colGap) / 3, fh = fw * 9 / 16;
   const letters = 'ABCDEF';
-  const base = [], reveals = [[], []];
-  const m = badge * 0.27; // inset of badge / tags from the frame edge
-  for (let r = 0; r < 2; r++) {
-    for (let c = 0; c < 3; c++) {
-      const [file, tag] = DF_ROWS[r][c];
-      const x = x0 + c * (fw + gap), y = y0 + r * (fh + rowGap);
-      const im = d.name('df');
-      s.addImage({ path: R(file), x, y, w: fw, h: fh, objectName: im, shadow: { type: 'outer', color: '000000', blur: 12, offset: 3, angle: 90, opacity: 0.5 } });
+  const base = [], reveals = [[], [], []];
+  const m = badge * 0.27; // inset of badge / tags from the clip edge
+  QUIZ.forEach((p, c) => {
+    const x = x0 + c * (fw + colGap);
+    base.push(d.text(s, `${letters[2 * c]} or ${letters[2 * c + 1]}?`, { x, y: y0 - 0.32, w: fw, h: 0.26, fontSize: headSize, bold: true, color: d.S.muted, align: 'center', valign: 'bottom' }));
+    if (c) { // thin divider between pairs
+      const ln = d.name('div');
+      s.addShape(d.pres.shapes.LINE, { x: x - colGap / 2, y: y0 - 0.3, w: 0, h: 2 * fh + rowGap + 0.3, line: { color: HEX.line, width: 1 }, objectName: ln });
+      base.push(ln);
+    }
+    const order = p.top === 'real' ? ['real', 'ai'] : ['ai', 'real'];
+    order.forEach((kind, r) => {
+      const y = y0 + r * (fh + rowGap);
+      const file = quizLoop(`${p.clip}-${kind === 'real' ? 'real' : 'ai-seedance2'}`, width, p.k, fps);
+      const im = d.name('clip');
+      s.addImage({ path: file, x, y, w: fw, h: fh, objectName: im, shadow: { type: 'outer', color: '000000', blur: 12, offset: 3, angle: 90, opacity: 0.5 } });
       const bg = d.name('badge');
       s.addShape(d.pres.shapes.OVAL, { x: x + m, y: y + m, w: badge, h: badge, fill: { color: '0A0C10', transparency: 15 }, line: { color: 'FFFFFF', width: 1.25 }, objectName: bg });
-      const bt = d.text(s, letters[r * 3 + c], { x: x + m, y: y + m, w: badge, h: badge, fontSize: Math.round(badge * 36), bold: true, color: d.S.txt, align: 'center', valign: 'middle' });
+      const bt = d.text(s, letters[2 * c + r], { x: x + m, y: y + m, w: badge, h: badge, fontSize: Math.round(badge * 36), bold: true, color: d.S.txt, align: 'center', valign: 'middle' });
       base.push(im, bg, bt);
-      if (!answers) continue; // question slide: frames and letters only — nothing to give the answer away
-      if (tag) {
-        const th = tagSize / 72 * 2.2, tw = tagSize / 72 * 10.5;
-        reveals[r].push(d.text(s, tag, { x: x + m, y: y + fh - m - th, w: tw, h: th, fontSize: tagSize, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle', fill: { color: '0A0C10', transparency: 20 }, charSpacing: 1 }));
+      if (!answers) return; // question slide: clips and letters only — nothing to give the answer away
+      if (kind === 'ai') {
+        const th = tagSize / 72 * 2.2, tw = tagSize / 72 * 13;
+        reveals[c].push(d.text(s, 'AI · SEEDANCE 2.0', { x: x + m, y: y + fh - m - th, w: tw, h: th, fontSize: tagSize, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle', fill: { color: '0A0C10', transparency: 20 }, charSpacing: 1 }));
       } else {
         const ol = d.name('ol');
         s.addShape(d.pres.shapes.RECTANGLE, { x: x - 0.04, y: y - 0.04, w: fw + 0.08, h: fh + 0.08, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 4 }, objectName: ol });
         const th = realSize / 72 * 1.75, tw = realSize / 72 * 4.9;
-        reveals[r].push(ol, d.text(s, 'REAL', { x: x + m, y: y + fh - m - th, w: tw, h: th, fontSize: realSize, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle', fill: { color: HEX.red }, charSpacing: 3 }));
+        reveals[c].push(ol, d.text(s, 'REAL', { x: x + m, y: y + fh - m - th, w: tw, h: th, fontSize: realSize, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle', fill: { color: HEX.red }, charSpacing: 3 }));
       }
-    }
-  }
+    });
+  });
   return { base, reveals, fw, fh };
 }
 
@@ -501,68 +955,71 @@ async function realQuestionSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
   head(s, 'THE ACCELERATION · VIDEO · 2', 'Which one is real?');
   const hint = d.text(s, [
-    { text: 'Each row: one real frame, two AI-generated from a text', options: { breakLine: true } },
-    { text: 'description of it (Google Veo 3.1 · Kling 3.0). ' },
+    { text: 'Each column: one real clip and one AI clip generated', options: { breakLine: true } },
+    { text: 'from its first frame (Seedance 2.0). ' },
     { text: 'Vote now.', options: { bold: true, color: d.S.txt } },
-  ], { x: 7.1, y: 0.84, w: CX1 - 7.1, h: 0.54, fontSize: 14, color: d.S.muted, align: 'right', valign: 'middle' });
-  const g = dfGrid(d, s, { x0: CX0, y0: 1.78, gw: CW, gap: 0.25, rowGap: 0.26, badge: 0.44, answers: false });
+  ], { x: 6.6, y: 0.84, w: CX1 - 6.6, h: 0.54, fontSize: 14, color: d.S.muted, align: 'right', valign: 'middle' });
+  const g = quizGrid(d, s, { x0: CX0, y0: 2.06, gw: CW, colGap: 0.36, rowGap: 0.14, badge: 0.44, width: 720, fps: 15, answers: false, headSize: 14 });
 
   d.animate(s, [hint], { auto: true, effect: 'fade' });
   d.animate(s, g.base, { auto: true, effect: 'fade', dur: 600, after: 100 });
 
-  d.source(s, DF_SOURCE);
+  d.source(s, QUIZ_SOURCE);
   s.addNotes([
-    'Interactive: ask the audience to vote on each row — which of A, B, C is the real frame? Which of D, E, F? Show of hands. The answers and the human-study result are on the next slide.',
-    DF_FRAMES_NOTE,
-    'URL: https://arxiv.org/abs/2609.07369 · https://arxiv.org/html/2609.07369v1',
+    'Interactive: the clips loop. Ask the audience to vote for each column — A or B? C or D? E or F? Show of hands. The answers and the human-study result are on the next slide.',
+    QUIZ_NOTE,
+    'Why not the DF26 clips used earlier: the DF26 dataset (arXiv 2609.07369) is gated and its license forbids redistributing any part of it, so its videos cannot be shown; RA-Bench’s dataset is public.',
+    'URLs: https://arxiv.org/abs/2608.14391 · https://huggingface.co/datasets/liangshuo0111/RA-Bench',
   ].join('\n\n'));
   return s;
 }
 
 async function realRevealSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  head(s, 'THE ACCELERATION · VIDEO · 3', 'Humans spot AI fakes barely above chance');
+  head(s, 'THE ACCELERATION · VIDEO · 3', 'Each of these fakes fooled all five reviewers');
 
-  // left: the same six frames, shrunk; the answers are click-revealed row by row
-  const gw = 7.85;
-  const g = dfGrid(d, s, { x0: CX0, y0: 1.85, gw, gap: 0.18, rowGap: 0.26, badge: 0.38, tagSize: 11, realSize: 14 });
-  const gridBottom = 1.85 + 2 * g.fh + 0.26;
+  // left: the same six clips, smaller; the answers are click-revealed pair by pair
+  const gw = 7.95, y0 = 2.06;
+  const g = quizGrid(d, s, { x0: CX0, y0, gw, colGap: 0.24, rowGap: 0.1, badge: 0.34, width: 480, fps: 12, tagSize: 10, realSize: 12, headSize: 12 });
+  const gridBottom = y0 + 2 * g.fh + 0.1;
   const cap = d.text(s, [
-    { text: 'Each fake is text-to-video from a description of the real clip, ', options: { color: d.S.txt } },
-    { text: 'so the speaker and set differ but match. Stills shown here — in the study, people watched the full videos.', options: { color: d.S.muted } },
+    { text: 'Each fake is Seedance 2.0, started from the real clip’s first frame — ', options: { color: d.S.txt } },
+    { text: 'so both open on the same picture, then diverge. In RA-Bench, all five human reviewers labelled each of these three fakes “Real”.', options: { color: d.S.muted } },
   ], { x: CX0, y: gridBottom + 0.3, w: gw, h: 6.5 - gridBottom - 0.3, fontSize: 14, valign: 'top' });
 
-  // right: result card, beside the frames (never on top of them)
-  const ox = CX0 + gw + 0.32, oy = 1.85, ow = CX1 - ox, oh = 4.6, ip = 0.3;
+  // right: result card, beside the clips (never on top of them)
+  const ox = CX0 + gw + 0.3, oy = 1.85, ow = CX1 - ox, oh = 4.62, ip = 0.26;
   const ov = [];
   ov.push(d.card(s, { x: ox, y: oy, w: ow, h: oh }, { color: '0D1016', line: HEX.red }));
-  ov.push(d.text(s, '52.6%', { x: ox + ip, y: oy + 0.18, w: ow - 2 * ip, h: 1.0, fontSize: 60, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' }));
+  ov.push(d.text(s, '51.9%', { x: ox + ip, y: oy + 0.14, w: ow - 2 * ip, h: 0.92, fontSize: 54, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' }));
   ov.push(d.text(s, [
-    { text: 'Human accuracy at spotting fake videos from 2026 generators. ', options: { color: d.S.txt, bold: true } },
-    { text: 'A coin flip scores 50%.', options: { color: d.S.muted } },
-  ], { x: ox + ip, y: oy + 1.24, w: ow - 2 * ip, h: 0.8, fontSize: 15, valign: 'top' }));
-  ov.push(capLabel(d, s, 'HUMANS SPOTTING FAKES, % CORRECT', { x: ox + ip, y: oy + 2.08, w: ow - 2 * ip, charSpacing: 1 }));
-  ov.push(d.chart(s, 'bar', [{ name: 'Accuracy on fakes', labels: ['Celeb-DF v3', 'DSv2', 'DF26 (2026)'], values: [74.5, 69.8, 52.6] }],
-    { x: ox + ip - 0.1, y: oy + 2.36, w: ow - 2 * ip + 0.2, h: 1.62 }, {
-      barDir: 'col', chartColors: [HEX.steel, HEX.steel, HEX.red], showValue: true, dataLabelFormatCode: '0.0', dataLabelPosition: 'outEnd',
-      dataLabelFontSize: 12, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 90, valAxisMinVal: 0,
-      catAxisLabelFontSize: 11, barGapWidthPct: 45,
+    { text: 'of reviewer judgments called Seedance 2.0 fakes “Real”. ', options: { color: d.S.txt, bold: true } },
+    { text: 'Genuine footage: 71.9%.', options: { color: d.S.muted } },
+  ], { x: ox + ip, y: oy + 1.1, w: ow - 2 * ip, h: 0.78, fontSize: 14, valign: 'top' }));
+  ov.push(capLabel(d, s, 'JUDGED “REAL” · % OF 53,550 JUDGMENTS', { x: ox + ip, y: oy + 1.9, w: ow - 2 * ip, charSpacing: 1 }));
+  const jr = [['Real footage', 71.9, HEX.teal], ['Seedance 2.0', 51.9, HEX.red], ['Kling', 47.7, HEX.red], ['Runway', 34.8, HEX.steel], ['Open-source avg.', 26.3, HEX.steel]];
+  ov.push(d.chart(s, 'bar', [{ name: 'Judged real', labels: jr.map(r => r[0]).reverse(), values: jr.map(r => r[1]).reverse() }],
+    { x: ox + ip - 0.1, y: oy + 2.16, w: ow - 2 * ip + 0.2, h: 1.72 }, {
+      barDir: 'bar', chartColors: jr.map(r => r[2]).reverse(), showValue: true, dataLabelFormatCode: '0.0"%"', dataLabelPosition: 'outEnd',
+      dataLabelFontSize: 11, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 92, valAxisMinVal: 0,
+      catAxisLabelFontSize: 11, catAxisLineShow: false, barGapWidthPct: 35,
     }));
-  ov.push(d.text(s, [{ text: 'Earlier deepfake test sets vs DF26 (2026 generators).', options: { breakLine: true } }, { text: '50% = chance.' }],
-    { x: ox + ip, y: oy + 4.04, w: ow - 2 * ip, h: 0.42, fontSize: 11, color: d.S.muted, italic: true, valign: 'top' }));
+  ov.push(d.text(s, 'AI detectors caught 46.0% of fakes — and 1.4% after a simulated social-media re-share.',
+    { x: ox + ip, y: oy + 3.92, w: ow - 2 * ip, h: 0.6, fontSize: 11, color: d.S.muted, italic: true, valign: 'top' }));
 
   d.animate(s, [...g.base, cap], { auto: true, effect: 'fade', dur: 400 });
-  d.animate(s, g.reveals[0], { effect: 'zoom', dur: 350 });
-  d.animate(s, g.reveals[1], { effect: 'zoom', dur: 350 });
+  g.reveals.forEach(r => d.animate(s, r, { effect: 'zoom', dur: 350 }));
   d.animate(s, ov, { effect: 'zoom', dur: 450 });
 
-  d.source(s, DF_SOURCE);
+  d.source(s, QUIZ_SOURCE);
   s.addNotes([
-    'Click 1 reveals row 1 (B is real), click 2 reveals row 2 (F is real), click 3 shows the human-accuracy result.',
-    'Answers: Row 1 — A = Veo 3.1 (AI), B = REAL, C = Kling 3.0 (AI). Row 2 — D = Kling 3.0 (AI), E = Veo 3.1 (AI), F = REAL. ' + DF_FRAMES_NOTE,
-    'DF26 (CTU Prague et al.): “Human performance in detecting AI-generated videos, as well as state-of-the-art deepfake detectors, is close to random chance.” Human accuracy on fake videos: Celeb-DF v3 74.5%, DSv2 69.8%, DF26 52.6% — barely above chance. Accuracy on real videos was ~73–76% on all three. 232 labeling sessions.',
-    'Note: these are still frames; in the study participants watched full videos. Related: a Malwarebytes survey (Help Net Security, Jun 2026) found 85% of adults say they can no longer tell real from AI-generated content (self-reported).',
-    'URL: https://arxiv.org/abs/2609.07369 · https://arxiv.org/html/2609.07369v1',
+    'Clicks 1–3 reveal the pairs (B is real; C is real; F is real); click 4 shows the human-study result.',
+    'Answers: A = AI (Seedance 2.0), B = REAL (wildfire cockpit) · C = REAL (vaccination), D = AI · E = AI, F = REAL (trench). These match RA-Bench’s own Figure 1 answer key for the two scenarios taken from it (III: Real/Generated; IV: Generated/Real).',
+    QUIZ_NOTE,
+    'Human study (RA-Bench, 20 reviewers, 53,550 judgments): Seedance 2.0 fakes were judged “Real” in 51.9% of judgments vs 71.9% for genuine footage; Kling 47.7%; open-source generators 26.3% on average. “Reviewers identify 68.6% of open-source videos as generated, but only 52.9% of closed-source videos, with Seedance2.0 and Kling falling to 40.7% and 45.1%.” Real crisis footage was labelled “Generated” 22.8% of the time — real videos get mistaken for fakes too. 633 AI clips were labelled Real by all five reviewers (RA-Bench-HumanProof); on those, Gemini reaches only ~55% balanced accuracy and seven traditional detectors average 47.5% AUC. After a simulated social-media re-share (re-encode, half resolution, 8 fps, a news badge) fine-tuned detectors’ mean fake-detection rate fell “from 46.0% to 1.4%”.',
+    'Independent confirmation (DF26, arXiv 2609.07369, Sep 2026): people spotted DF26 deepfakes 52.6% of the time — near the 50% of a coin flip — vs 74.5% and 69.8% on two older deepfake datasets (232 labeling sessions). DF26’s own clips are license-restricted, so they are not shown.',
+    'Caveat: the AI clips carry no explicit license in the RA-Bench repository; they are credited to RA-Bench (Liang et al.). Real clips are U.S. government public domain (DVIDS).',
+    'URLs: https://arxiv.org/abs/2608.14391 · https://huggingface.co/datasets/liangshuo0111/RA-Bench · https://arxiv.org/abs/2609.07369',
   ].join('\n\n'));
   return s;
 }
@@ -744,8 +1201,107 @@ async function vlaDemoSlide(d) {
   return s;
 }
 
+// ========== 11. Robotics: humanoids leaving the factory (XPENG IRON, Figure BotQ) ==========
+async function factorySlide(d) {
+  const s = d.slide('Content', { transition: 'fade' });
+  head(s, 'THE ACCELERATION · ROBOTICS · 4', 'Humanoids are leaving the factory');
+
+  // captions sit ABOVE the clips: IRON walks toward the camera, so a band over the top would hide its head
+  const gap = 0.33, gw = (CW - gap) / 2, gh = gw * 9 / 16, gy = 1.72;
+  const iron = await capTile(d, s, R2('robots-xpeng-iron-walks-off-line.gif'), { x: CX0, y: gy, w: gw, h: gh },
+    'XPENG IRON · GUANGZHOU · SEP 8, 2026', 'XPENG says the first IRON “autonomously walked off the lines”');
+  const fig = await capTile(d, s, R2('robots-figure-botq-200-bots.gif'), { x: CX0 + gw + gap, y: gy, w: gw, h: gh },
+    'FIGURE 03 HUMANOIDS · FIGURE’S BOTQ FACTORY', 'Output: 1 robot a day → 1 an hour in under 120 days (Figure)');
+  const by = iron.geom.y + gh + 0.27;
+
+  // bottom row: two headline clippings + output targets
+  const elec = await crop('rev2/robots-electrek-xpeng-iron-production.png', 'robots-electrek-head.png', { l: 30, t: 108, w: 1265, h: 272 });
+  const eng = await crop('rev2/robots-engadget-xpeng-iron-walked-out.png', 'robots-engadget-head.png', { l: 12, t: 82, w: 1560, h: 340 });
+  const c1 = await frameW(d, s, elec, CX0 + 0.05, by + 0.02, 3.1, { rot: -1.2 });
+  const c2 = await frameW(d, s, eng, CX0 + 3.5, by + 0.02, 3.05, { rot: 1.2 });
+  const sx = 7.45, sw = (CX1 - sx - 0.3) / 2;
+  const st1 = stat(d, s, { x: sx, y: by - 0.1, w: sw, value: '1,000+', valueSize: 22, labelSize: 14, labelH: 0.5, label: 'IRON robots a month: XPENG’s end-2026 target' });
+  const st2 = stat(d, s, { x: sx + sw + 0.3, y: by - 0.1, w: sw, value: 'Up to 20,000', valueSize: 22, labelSize: 14, labelH: 0.5, label: 'humanoids in 2026: Unitree CEO’s target (~5,500 in 2025)' });
+
+  d.animate(s, iron, { auto: true, effect: 'fade', dur: 600 });
+  d.animate(s, fig, { effect: 'fade', dur: 600 });
+  d.animate(s, c1, { effect: 'slam', dur: 350 });
+  d.animate(s, c2, { auto: true, effect: 'slam', dur: 350, after: 200 });
+  d.animate(s, [...st1, ...st2], { effect: 'rise', dur: 450 });
+  d.anim[s._num].groups[d.anim[s._num].groups.length - 1].effects.forEach((e, i) => { e.delay = Math.floor(i / 2) * 250; });
+
+  d.source(s, 'Sources: XPENG press release & official video (Sep 8, 2026) · Figure AI, “Ramping Figure 03 Production” (Apr 29, 2026) · Electrek (Sep 7, 2026) · Engadget (Sep 22, 2026) · SCMP (Feb 17, 2026) · CnEVPost (Jul 15, 2026).');
+  s.addNotes([
+    'Left (plays in slideshow): XPENG’s official ceremony video, Sep 8, 2026 — the first IRON humanoid walks down the aisle between the robotic assembly cells of XPENG’s new humanoid production line in Guangzhou (burned-in subtitles: “This is the first IRON robot / rolling off the production line at XPENG Robotics”). XPENG: IRON “autonomously walked off the lines”; CEO He Xiaopeng then hung a staff badge on it. “Autonomous” and “world’s first” are XPENG’s claims — no outlet verified them independently; no Reuters/Bloomberg story; the number of IRON units built so far is not public.',
+    'XPENG release: over 80% of the line’s core processes automated; IRON has 76 degrees of freedom in the body and 21 per hand, and three Turing AI chips (2,250 TOPS); mass production by end of 2026, market launch and deliveries in 2027. He Xiaopeng: “the robot production lines were created from scratch with no precedent to follow. Today’s step is small, but XPENG is building the production lines for an entirely new product category.” XPENG’s robotics unit raised over US$900M (Aug 24, 2026) at a valuation over US$6.3B. Target: more than 1,000 IRONs a month by end-2026 (CnEVPost). Electrek: “Tesla is still converting a car line. XPeng just turned one on.” (Musk once predicted ~10,000 Optimus robots in 2026.) Engadget’s dek is the honest caveat: “completing a working day will be a tougher test.”',
+    'Right (plays in slideshow): Figure’s official footage of ~200 finished Figure 03 humanoids at its BotQ factory (count from the video’s file name). Figure says it delivered over 350 Figure 03s and went from 1 robot per day to 1 per hour — “a 24x throughput improvement in under 120 days” (vendor-reported, Apr 29, 2026).',
+    'Unitree: CEO Wang Xingxing plans to ship as many as 20,000 humanoids in 2026, up from about 5,500 in 2025 (SCMP, citing 36Kr). Unitree listed on Shanghai’s STAR Market on Aug 19, 2026 and opened up as much as 629%.',
+    'Video: https://www.youtube.com/watch?v=p9P84bt3AQY (XPENG official) · NBC News report: https://www.youtube.com/watch?v=_2hL9iabiEM · URLs: https://www.xpeng.com/news/01a080371029a057bc8e8a02a2c6012b · https://electrek.co/2026/09/07/xpeng-iron-humanoid-robot-production-line/ · https://www.engadget.com/2261658/xpeng-building-humanoid-robots-walked-out-after-assembled/ · https://cnevpost.com/2026/07/15/xpeng-aims-1000-robots-month-2027-global-roll-out/ · https://www.figure.ai/news/ramping-figure-03-production · https://www.scmp.com/tech/big-tech/article/3343825/kung-fu-somersaults-and-scale-unitree-eyes-20000-robot-output-2026-after-gala',
+  ].join('\n\n'));
+  return s;
+}
+
+// ========== 12. Robotics: Unitree — from a folk dance (2025 gala) to kung fu flips (2026) ==========
+async function unitreeSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  head(s, 'THE ACCELERATION · ROBOTICS · 5', 'From folk dance to kung fu flips in a year');
+
+  // Every caption sits ABOVE its clip, so no robot is hidden under a caption band.
+  // Row 1: then (2025 gala) and now (2026 wall backflips) side by side at equal size, plus the headlines.
+  // Row 2: four more 2026 clips. Sizes: row-2 tiles fill the width; row-1 clips take the remaining height.
+  const g2 = 0.25, tw = (CW - 3 * g2) / 4, th = tw * 9 / 16;           // row 2 tiles
+  const c = CAP_H + CAP_GAP, y1 = 1.72;
+  const y2 = 6.5 - th - c;                                           // row-2 caption top
+  const ah = y2 - 0.24 - y1 - c, aw = ah * 16 / 9, g1 = 0.3;           // row-1 clip size
+  const old = await capTile(d, s, R2('robots-unitree-2025-gala-yangko-h1.gif'), { x: CX0, y: y1, w: aw, h: ah },
+    'ONE YEAR EARLIER · JAN 28, 2025 GALA', 'Unitree H1s dancing the Yangko folk dance (CGTN)');
+  const hero = await capTile(d, s, R2('robots-unitree-g1-wall-backflips.gif'), { x: CX0 + aw + g1, y: y1, w: aw, h: ah },
+    'FEB 16, 2026 · UNITREE G1 · WALL BACKFLIPS', 'From Unitree’s official gala video');
+  const cells = [
+    ['robots-unitree-gala-stage-cluster-kungfu.gif', 'LIVE ON CCTV · FEB 16, 2026', 'Kung fu with staffs at the gala'],
+    ['robots-unitree-g1-airflare-spin.gif', 'AIRFLARE SPIN', 'Unitree claims 7.5 rotations'],
+    ['robots-unitree-h2-flying-kicks.gif', 'H2 · 180 CM · “NO SPEED-UP”', 'Flying kicks right next to a person'],
+    ['robots-unitree-autonomous-boxing.gif', 'SPARRING · SEP 7, 2026', 'Unitree: “fully autonomous” combat'],
+  ];
+  const tiles = [];
+  for (let i = 0; i < 4; i++) {
+    const [f, t, sub] = cells[i];
+    tiles.push(await capTile(d, s, gifScaled(f, 640), { x: CX0 + i * (tw + g2), y: y2, w: tw, h: th }, t, sub));
+  }
+
+  // right of row 1: the two headlines, stacked and centred on the clips
+  const hx = CX0 + 2 * (aw + g1), hw = CX1 - hx;
+  const scmp = await crop('rev2/robots-scmp-unitree-20000-output.png', 'robots-scmp-head.png', { l: 14, t: 95, w: 1470, h: 192 });
+  const bgr = await crop('rev2/robots-bgr-sci-fi-nightmare.png', 'robots-bgr-head.png', { l: 0, t: 62, w: 1460, h: 300 });
+  const sh = await hFor(scmp, hw - 0.1), bh = await hFor(bgr, hw - 0.1), hg = 0.32;
+  const hy = old.geom.y + (ah - (sh + hg + bh)) / 2;
+  const c1 = await frameW(d, s, scmp, hx + 0.02, hy, hw - 0.1, { rot: -1 });
+  const c2 = await frameW(d, s, bgr, hx + 0.06, hy + sh + hg, hw - 0.1, { rot: 1.2 });
+
+  d.animate(s, old, { auto: true, effect: 'fade', dur: 500 });
+  d.animate(s, hero, { effect: 'fade', dur: 500 });
+  tiles.forEach((t, i) => d.animate(s, t, { auto: true, effect: 'fade', dur: 400, after: i ? 100 : 250 }));
+  d.animate(s, c1, { effect: 'slam', dur: 350 });
+  d.animate(s, c2, { auto: true, effect: 'slam', dur: 350, after: 250 });
+
+  d.source(s, 'Sources: official Unitree videos (Spring Festival Gala, Feb 16, 2026; H2 training, Jan 4, 2026; sparring, Sep 7, 2026) · CGTN (2025 gala) · SCMP (Feb 17, 2026) · BGR (Feb 26, 2026).');
+  s.addNotes([
+    'Top row: one year apart, at the same size — left, the 2025 gala (CGTN broadcast); right, 2026. All other clips are official Unitree uploads (trimmed and scaled only; all play in slideshow; captions sit above the clips so nothing is covered). Top-right clip: G1 humanoids running at a wall, stepping up it and backflipping off in quick succession — from Unitree’s official “Spring Festival Gala Robots — a Full Release of Additional Details” video (Feb 16, 2026; 27.9M views on X), which mixes CCTV gala broadcast shots with rehearsal-hall footage; we have not confirmed which of the two this segment is, so do not call it either.',
+    'Bottom row: (1) the CCTV gala broadcast — dozens of G1s doing kung fu with staffs and nunchaku beside child martial artists (CMG says the gala averaged 325M concurrent viewers per minute — state-media figure). (2) A breakdance Airflare — Unitree claims “seven-and-a-half rotations”; it also claims launched aerial flips over 3 m high and group movement up to 4 m/s (all Unitree’s own claims). (3) The 180 cm H2 throwing flying kicks a metre or two from a man who flinches back — on-screen label “No speed-up in this video”; Unitree’s post: “Please use robots in a friendly and safe manner, and keep a safe distance.” (4) Sep 7, 2026: Unitree claims “The World’s First Real-Time World Model-Driven Fully Autonomous Humanoid Robot Combat” (UnifoLM-X2-1.0) — a vendor claim; in its split-screen version some panels are the model’s predicted future frames, not real footage.',
+    'Caveat: the gala routines were choreographed; at the Temple of Heaven show a week later (49 G1s) staff said the routines ran on “pre-programmed instructions” without remote control (Global Times). Agility is not general intelligence — but combine these bodies with the VLA brains from three slides ago.',
+    'One year earlier (Jan 28, 2025 gala): Unitree H1s performed the Yangko folk dance, twirling red handkerchiefs — CGTN: the act “Yangge Bot” combined “northeast China’s Yangko dance with the precision of robotics”. Let the audience compare the two clips themselves. SCMP: Unitree plans to ship up to 20,000 humanoids in 2026, up from ~5,500. BGR: “it’s hard not to imagine the show as a scene out of a sci-fi nightmare. It only takes one mistake to cause an injury.”',
+    'Videos: gala https://www.youtube.com/watch?v=Ykiuz1ZdGBc (X: https://x.com/UnitreeRobotics/status/2023430834695627030) · H2 training https://www.youtube.com/watch?v=JZllfrHRc4g (https://x.com/UnitreeRobotics/status/2007746313220415717) · sparring https://www.youtube.com/watch?v=qkIJELDgULA (https://x.com/UnitreeRobotics/status/2096932273602048258) · 2025 gala https://news.cgtn.com/news/2025-01-28/Tradition-meets-tech-Unitree-robots-dance-at-Spring-Festival-Gala-1Axm5TuIAve/index.html · PR: https://www.prnewswire.com/news-releases/kung-fu-meets-spring--unitree-spring-festival-gala-robots-present-cyber-real-kung-fu-in-the-year-of-the-horse-302689281.html · https://www.scmp.com/tech/big-tech/article/3343825/kung-fu-somersaults-and-scale-unitree-eyes-20000-robot-output-2026-after-gala · https://www.bgr.com/2108405/china-new-year-robots-sci-fi-nightmare/ · https://www.globaltimes.cn/page/202602/1355607.shtml',
+  ].join('\n\n'));
+  return s;
+}
+
 async function build(d) {
   await cadSlide(d);
+  await hwDesignSlide(d);
+  await hwJobsSlide(d);
+  await aleSlide(d);
+  await paidWorkSlide(d);
+  await gdpvalSlide(d);
   await juniorSlide(d);
   await codeSlide(d);
   await arxivSlide(d);
@@ -756,6 +1312,8 @@ async function build(d) {
   await vlaWallSlide(d);
   await vlaArchSlide(d);
   await vlaDemoSlide(d);
+  await factorySlide(d);
+  await unitreeSlide(d);
 }
 
 module.exports = { build };

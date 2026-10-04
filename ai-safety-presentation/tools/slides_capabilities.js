@@ -228,9 +228,9 @@ async function metrSlide(d) {
   const todayT = d.text(s, 'today', { x: px(yToday) - 0.4, y: bot + 0.02, w: 0.8, h: 0.22, fontSize: 9.5, italic: true, color: 'FF8A8C', align: 'center', valign: 'top' });
   const todayL = line(d, s, px(yToday), bot - 0.06, px(yToday), bot + 0.04, { color: HEX.red, width: 1.5 });
   const big = d.text(s, [
-    { text: 'THE DATA STOPS HERE', options: { fontSize: 24, bold: true, color: d.S.red, fontFace: 'Arial', breakLine: true } },
-    { text: 'METR can no longer measure the frontier', options: { fontSize: 13.5, bold: true, color: d.S.txt } },
-  ], { x: px(yWall) - 4.6, y: py(1 / 6) - 0.2, w: 4.45, h: 0.8, align: 'right', valign: 'top' });
+    { text: 'THE DATA STOPS HERE', options: { fontSize: 26, bold: true, color: d.S.red, fontFace: 'Arial', breakLine: true } },
+    { text: 'because METR can no longer measure the frontier', options: { fontSize: 13.5, bold: true, color: d.S.txt } },
+  ], { x: px(yWall) - 5.05, y: py(1 / 6) - 0.25, w: 4.9, h: 0.85, align: 'right', valign: 'top' });
   const arrow = line(d, s, px(yWall) - 0.13, py(1 / 6) + 0.03, px(yWall) - 0.02, py(1 / 6) + 0.03, { color: HEX.red, width: 3, arrow: true });
 
   // right column: METR's own words (verbatim)
@@ -241,12 +241,12 @@ async function metrSlide(d) {
   const barT = d.text(s, 'WHY THE GRAPH ENDS', { x: rx + 0.2, y: ry, w: rw - 0.4, h: 0.42, fontSize: 13, bold: true, color: 'FFFFFF', charSpacing: 3, valign: 'middle' });
   const Q = (q, who) => [
     { text: q, options: { fontFace: 'Cambria', italic: true, fontSize: 15.5, color: d.S.txt, breakLine: true, paraSpaceAfter: 2 } },
-    { text: who, options: { fontSize: 10.5, color: d.S.muted, breakLine: true, paraSpaceAfter: 13 } },
+    { text: who, options: { fontSize: 10.5, color: d.S.muted, breakLine: true, paraSpaceAfter: 10 } },
   ];
   const quotes = d.text(s, [
     { text: 'METR, in its own words:', options: { fontSize: 11, bold: true, color: 'FF8A8C', charSpacing: 1, breakLine: true, paraSpaceAfter: 8 } },
     ...Q('“…at the upper end of what we can measure without new tasks.”', 'on Claude Mythos Preview · X, May 8, 2026'),
-    ...Q('“Of the 228 tasks in our suite, only 5 are estimated as 16+ hours long”', 'X, May 8, 2026'),
+    ...Q('“…it is infeasible to precisely measure time horizons in this range.”', 'on tasks above 16 hours · Frontier Risk Report, May 19, 2026'),
     ...Q('“The most capable agents we evaluated essentially saturated our Time Horizon 1.1 benchmark”', 'Frontier Risk Report, May 19, 2026'),
   ], { x: rx + 0.22, y: ry + 0.56, w: rw - 0.42, h: rh - 1.3, valign: 'top' });
   const foot = d.text(s, 'METR’s chart has not been updated since May 8, 2026.', { x: rx + 0.22, y: ry + rh - 0.66, w: rw - 0.42, h: 0.52, fontSize: 12.5, bold: true, color: d.S.red, valign: 'middle' });
@@ -262,7 +262,7 @@ async function metrSlide(d) {
     'MESSAGE: the length of real software tasks AI agents can complete on their own grew exponentially — doubling roughly every four months — until METR\'s measuring stick ran out. THE GRAPH ENDS BECAUSE METR CAN NO LONGER MEASURE THE FRONTIER, not because progress stopped.',
     'What the chart shows: METR times how long each task takes skilled human experts, then finds the task length at which a model succeeds 50% of the time. GPT-2 (2019) managed ~3-second tasks; GPT-4 (Mar 2023) ~4 minutes; o3 (Apr 2025) ~2 hours; Claude Opus 4.6 (Feb 2026) ~12 hours; Claude Mythos Preview (early, Apr 2026) "at least 16hrs" in METR\'s words (dashboard readout 17 hr; raw estimate 1,044.8 min = 17.4 h; 95% CI 8.5–55 h, drawn as the red error bar reaching deep into the red zone).',
     'THE RED ZONE + THE WALL (say it plainly): METR\'s own chart now carries the notice "Measurements above 16 hrs are unreliable with our current task suite" (changelog, May 8, 2026). Its X thread the same day: "We estimated a 50%-time-horizon of at least 16hrs (95% CI 8.5hrs to 55hrs) on our task suite, at the upper end of what we can measure without new tasks." … "Of the 228 tasks in our suite, only 5 are estimated as 16+ hours long, making measurements at this range unstable and less meaningful than at ranges with better task coverage. Thus, we are not highlighting exact estimates for models above 16 hours measured with our current suite." … "we do not consider measurements at this range to be robust enough for precise quantitative comparisons or extrapolations." … "we\'re working on updated methods. But these are still in development". https://x.com/METR_Evals/status/2052896621760004602',
-    'Frontier Risk Report (May 19, 2026): "The most capable agents we evaluated essentially saturated our Time Horizon 1.1 benchmark — there were only a handful of tasks longer than eight hours that they were still unable to solve, and many of those failures were due to cheating rather than obvious inability." Table 1 footnote: "The TH 1.1 suite can\'t reliably measure time horizons above 16 hours". https://metr.org/blog/2026-05-19-frontier-risk-report/',
+    'Frontier Risk Report (May 19, 2026): "The most capable agents we evaluated essentially saturated our Time Horizon 1.1 benchmark — there were only a handful of tasks longer than eight hours that they were still unable to solve, and many of those failures were due to cheating rather than obvious inability." Table 1 footnote: "The TH 1.1 suite can\'t reliably measure time horizons above 16 hours". And (quoted on the slide): "…since only 5 tasks in the TH1.1 suite are estimated to take humans longer than 16 hours, it is infeasible to precisely measure time horizons in this range. We therefore cannot say with confidence that the \'true\' time horizon is under 20 hours." https://metr.org/blog/2026-05-19-frontier-risk-report/',
     'Since then (checked Oct 4, 2026): metr.org/time-horizons still reads "LAST UPDATED May 8, 2026". METR has published NO time horizon for GPT-6 Astra, Claude Fable 5.1 or Claude Opus 5.5 (its Opus 5.5 evaluation used five bespoke tasks and reports no horizon, without saying why — so do not claim that was due to saturation). Its GPT-5.6 Sol evaluation (Jun 26) produced 11.3 h, 71 h or "beyond 270hrs" depending on how cheating runs are scored, and METR said none is "a robust measurement" (next slide). No replacement "Time Horizon 2" suite has been announced. Numbers circulating online for newer models (e.g. "153 h") are third-party predictions, not METR\'s.',
     'Doubling time: METR\'s fit from 2023 onward is 128.7 days (CI 104–158 days); all-time 187.8 days; METR\'s May 8 chart (2024–Feb 2026 data) says 105 days. The dashed amber line uses METR\'s 128.7-day slope through the centroid of frontier points since 2023 (illustrative; METR\'s own regression excludes points above 16 h), and it is deliberately stopped at the wall — METR warns against extrapolating.',
     'Red dots = models METR flags as state of the art at release; grey = other models. Values are METR\'s p50 estimates from https://metr.org/assets/benchmark_results_1_1.yaml ; official chart: https://metr.org/time-horizons/ . The 50% horizon is not "the AI can work for 17 hours"; at 80% success horizons are much shorter (Mythos ~3 h). The shaded red column runs from METR\'s last update (May 8) to today (Oct 4, 2026).',
@@ -633,9 +633,9 @@ function makeGif(name, { src, ss = 0, to, speed = 1, crop: cr, width, fps = 15, 
 }
 
 // Dark caption band across the bottom of a media tile: tool line (caps, coloured) + one-line fact.
-function band(d, s, g, tool, fact, { h = 0.52, toolColor = 'FF8A8C' } = {}) {
+function band(d, s, g, tool, fact, { h = 0.52, toolColor = 'FF8A8C', transparency = 22 } = {}) {
   const b = d.name('band');
-  s.addShape(d.pres.shapes.RECTANGLE, { x: g.x, y: g.y + g.h - h, w: g.w, h, fill: { color: '0A0C10', transparency: 22 }, line: { color: '0A0C10', width: 0, transparency: 100 }, objectName: b });
+  s.addShape(d.pres.shapes.RECTANGLE, { x: g.x, y: g.y + g.h - h, w: g.w, h, fill: { color: '0A0C10', transparency }, line: { color: '0A0C10', width: 0, transparency: 100 }, objectName: b });
   const t = d.text(s, [
     { text: tool, options: { fontSize: 9.5, bold: true, color: toolColor, charSpacing: 1, breakLine: true } },
     { text: fact, options: { fontSize: 11.5, color: 'FFFFFF' } },
@@ -683,7 +683,7 @@ async function paintSlide(d) {
     s.addShape(d.pres.shapes.RECTANGLE, { x: bx, y: by, w: 0.24, h: 0.24, fill: { color: '161A22' }, line: { color: '161A22', width: 0 }, objectName: b });
     return [b, d.text(s, String(i + 1), { x: bx, y: by, w: 0.24, h: 0.24, fontSize: 10, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle' })];
   });
-  const heronB = band(d, s, hgg, 'PENCIL · ROUNDS 1 → 4', 'A model redraws a heron, refining its own strokes');
+  const heronB = band(d, s, hgg, 'PENCIL · ROUNDS 1 → 4', 'A model redraws a heron, refining its own strokes', { h: 0.46, transparency: 30 });
   const noteT = await tile(d, s, notes, { x: gx + cw + G, y: top, w: cw, h: r1h }, 'GPT-6 ASTRA · APPLE NOTES ON A MAC', 'Draws a portrait with the mouse, then colours it');
   const robotT = await tile(d, s, robot, { x: gx, y: r2y, w: cw, h: r2h }, 'GPT-6 ASTRA · ROBOT ARM, REAL PAINT', 'Teaches itself to paint the Golden Gate');
   const duelT = await tile(d, s, duel, { x: gx + cw + G, y: r2y, w: cw, h: r2h }, 'COMPUTER USE · MS PAINT', 'GPT-6 Astra vs Claude Fable 5.1, same photo');
@@ -837,8 +837,9 @@ async function navierSlide(d) {
   const big = d.text(s, [
     { text: '204', options: { fontSize: 44, bold: true, color: d.S.red, fontFace: 'Arial', breakLine: true } },
     { text: 'YEARS OPEN', options: { fontSize: 12, bold: true, color: d.S.txt, charSpacing: 2, breakLine: true, paraSpaceAfter: 3 } },
-    { text: '92 since Leray’s question · 26 as a $1M prize', options: { fontSize: 10, color: d.S.muted } },
-  ], { x: MX, y: ay - 0.86, w: 1.95, h: 1.72, valign: 'middle' });
+    { text: '92 since Leray’s question', options: { fontSize: 10.5, color: d.S.muted, breakLine: true } },
+    { text: '26 as a $1M prize', options: { fontSize: 10.5, color: d.S.muted } },
+  ], { x: MX, y: ay - 0.86, w: 1.8, h: 1.72, valign: 'middle' });
   const ax0 = MX + 2.25, ax1 = 12.73 - 0.33, T0 = 1822.21, T1 = 2026.69;
   const tx = (yr) => ax0 + (yr - T0) / (T1 - T0) * (ax1 - ax0);
   const axis = line(d, s, ax0, ay, ax1, ay, { color: HEX.steel, width: 2 });
@@ -848,7 +849,7 @@ async function navierSlide(d) {
     { x: tx(1845.28), img: await roundPng(N('commons-stokes-portrait.jpg'), 'ns-stokes.png'), year: '1845', txt: 'Stokes derives them again (Cambridge)', pos: 'above', align: 'left', w: 3.0 },
     { x: tx(1934.5), img: await roundPng(N('commons-leray-portrait.jpg'), 'ns-leray.png'), year: '1934', txt: 'Leray suspects flows can blow up, but can’t build an example', pos: 'below', align: 'center' },
     { x: tx(2000.39), img: null, year: '2000', txt: 'Clay names it a $1M Millennium Prize Problem', pos: 'above', align: 'right', w: 3.4 },
-    { x: tx(2026.69), img: await roundPng(N('openai-x-vortex-blowup-1254.jpg'), 'ns-vortex.png', 400, { l: 150, t: 150, size: 954 }), year: 'Sep 2026', txt: 'An AI system: finite-time blowup, forced case', pos: 'below', align: 'right', red: true, w: 3.15, dx: 0.33 },
+    { x: tx(2026.69), img: await roundPng(N('openai-x-vortex-blowup-1254.jpg'), 'ns-vortex.png', 400, { l: 150, t: 150, size: 954 }), year: 'Sep 2026', txt: 'An AI system: finite-time blowup, forced case', pos: 'below', align: 'right', red: true, w: 3.15, dx: 0.03 },
   ];
   const nodeGroups = nodes.map((n) => {
     const g = [];
@@ -1007,17 +1008,17 @@ async function aftermathSlide(d) {
   const by = y0 + chh + 0.25, bh = 6.52 - by, bx = MX, bw = CW;
   const bz = [d.card(s, { x: bx, y: by, w: bw, h: bh })];
   const lw = 3.55;
-  const head = await d.frame(s, R('rev2/buzzard-grieve-header.png'), { x: bx + 0.2, y: by + 0.18, w: lw, h: lw * 228 / 966 }, { align: 'left', pad: 0.05, link: 'https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/' });
+  const head = await d.frame(s, R('rev2/buzzard-grieve-header.png'), { x: bx + 0.2, y: by + 0.16, w: 3.3, h: 3.3 * 228 / 966 }, { align: 'left', pad: 0.05, link: 'https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/' });
   const hg = head.geom;
   const whoB = d.text(s, 'Kevin Buzzard (Imperial College London) · Oct 1, 2026', { x: bx + 0.22, y: hg.y + hg.h + 0.1, w: lw + 0.2, h: 0.3, fontSize: 11, color: d.S.muted, valign: 'top' });
-  // FLT: the "11 days" line, kept small
-  const fy = by + bh - 0.66;
-  const flt = await d.frame(s, await crop(R('buzzard-flt-title.png'), 'buzzard-flt-crop.png', { l: 28, t: 34, w: 712, h: 112 }), { x: bx + 0.2, y: fy, w: 1.6, h: 0.46 }, { align: 'left', pad: 0.04 });
+  // FLT: the "11 days" line, kept small — the post's real title line (legible size) + a verbatim fragment
+  const fy = by + bh - 0.74;
+  const flt = await d.frame(s, await crop(R('buzzard-flt-title.png'), 'buzzard-flt-crop.png', { l: 28, t: 36, w: 712, h: 62 }), { x: bx + 0.2, y: fy, w: 2.75, h: 2.65 * 62 / 712 + 0.1 }, { align: 'left', pad: 0.05, link: 'https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/' });
   const fg = flt.geom;
   const fltT = d.text(s, [
     { text: 'Sep 4: ', options: { color: d.S.muted, bold: true } },
-    { text: '“Anthropic took only 11 days”', options: { color: d.S.txt, italic: true, fontFace: 'Cambria' } },
-  ], { x: fg.x + fg.w + 0.12, y: fg.y - 0.08, w: bx + lw + 0.5 - (fg.x + fg.w + 0.12), h: fg.h + 0.16, fontSize: 11, valign: 'middle' });
+    { text: '“…Anthropic took only 11 days…”', options: { color: d.S.txt, italic: true, fontFace: 'Cambria' } },
+  ], { x: bx + 0.22, y: fg.y + fg.h + 0.1, w: lw + 0.2, h: 0.26, fontSize: 11, valign: 'middle' });
   const div = line(d, s, bx + lw + 0.55, by + 0.25, bx + lw + 0.55, by + bh - 0.25, { color: HEX.line, width: 1 });
   const px = bx + lw + 0.8, pw = bx + bw - 0.25 - px;
   const pull = d.text(s, [

@@ -133,6 +133,8 @@ function build(i) {
       const v = document.createElement('video');
       Object.assign(v, { muted: true, loop: true, playsInline: true, preload: 'auto' }); v.setAttribute('muted', ''); v.setAttribute('playsinline', '');
       v.dataset.src = m.src; v.dataset.webm = m.webm || ''; fillCrop(v, m); box.appendChild(v);
+      // stay transparent until frames arrive, so the slide image (which shows the clip's first frame) is never blacked out
+      v.style.opacity = 0; v.style.transition = 'opacity .2s'; v.addEventListener('playing', () => { v.style.opacity = 1; });
     } else if (m.kind === 'video') {
       const v = document.createElement('video');
       Object.assign(v, { controls: true, playsInline: true, preload: 'none' }); v.poster = m.poster || ''; v.src = m.src;
@@ -174,7 +176,11 @@ function activate(el, on) {
       try { v.currentTime = 0; } catch (e) {}
       v.play().catch(() => {});
     }
-    else { v.pause(); }
+    else {  // release the decoder: phones only allow a handful of live video players
+      v.pause(); v.style.opacity = 0;
+      while (v.firstChild) v.removeChild(v.firstChild);
+      v.removeAttribute('src'); v.load();
+    }
   });
   if (!on) el.querySelectorAll('video:not([data-src])').forEach(v => v.pause());
   if (!on) el.querySelectorAll('iframe').forEach(f => { const src = f.src; f.src = 'about:blank'; f.src = src.replace('autoplay=1', 'autoplay=0'); });

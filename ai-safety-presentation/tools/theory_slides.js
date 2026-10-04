@@ -67,110 +67,6 @@ function sectionSlide(d, { num, title, body, notes }) {
   return s;
 }
 
-async function orthogonalitySlide(d) {
-  const s = d.slide('Content');
-  s.addText('THE ALIGNMENT PROBLEM · THEORY 1', { placeholder: 'kicker' });
-  s.addText('The orthogonality thesis', { placeholder: 'title' });
-  // quote
-  const q = d.text(s, [
-    { text: '“', options: { fontSize: 60, color: d.S.red, bold: true, fontFace: 'Cambria', breakLine: true } },
-    { text: 'Intelligence and final goals are orthogonal: more or less any level of intelligence could in principle be combined with more or less any final goal.', options: { fontSize: 20, color: d.S.txt, italic: true, fontFace: 'Cambria', breakLine: true } },
-    { text: '— Nick Bostrom, “The Superintelligent Will” (2012)', options: { fontSize: 12, color: d.S.muted } },
-  ], { x: MX, y: 1.7, w: 5.6, h: 3.0, valign: 'top' });
-  const take = d.text(s, [
-    { text: 'Being smart is not the same as being good. ', options: { bold: true, color: d.S.txt, breakLine: true } },
-    { text: 'Capability tells you nothing about what a system wants. Nothing about “getting smarter” pulls a mind toward human values.', options: { color: d.S.muted } },
-  ], { x: MX, y: 4.85, w: 5.6, h: 1.3, fontSize: 15, valign: 'top' });
-
-  // plot: intelligence (x) vs goals (rows)
-  const px = 7.15, py = 1.85, pw = 5.55, ph = 4.3;
-  const plot = [];
-  plot.push(d.card(s, { x: px - 0.1, y: py - 0.15, w: pw + 0.25, h: ph + 0.75 }, { color: '10141B' }));
-  const rows = ['Human flourishing', 'Predict the next token', 'Win at chess', 'Maximize paperclips'];
-  const rowH = ph / rows.length;
-  const axisX = px + 1.85;
-  rows.forEach((r, i) => {
-    const y = py + i * rowH;
-    plot.push(d.text(s, r, { x: px, y: y + rowH / 2 - 0.2, w: 1.75, h: 0.4, fontSize: 11, color: d.S.muted, align: 'right', valign: 'middle' }));
-    const ln = d.name('grid');
-    s.addShape(d.pres.shapes.LINE, { x: axisX, y: y + rowH / 2, w: pw - 1.95, h: 0, line: { color: HEX.line, width: 0.75, dashType: 'dash' }, objectName: ln });
-    plot.push(ln);
-  });
-  const ax = d.name('axis');
-  s.addShape(d.pres.shapes.LINE, { x: axisX, y: py + ph + 0.05, w: pw - 1.95, h: 0, line: { color: HEX.steel, width: 1.25, endArrowType: 'triangle' }, objectName: ax });
-  plot.push(ax);
-  plot.push(d.text(s, 'INTELLIGENCE  →', { x: axisX, y: py + ph + 0.12, w: pw - 1.95, h: 0.3, fontSize: 10, bold: true, color: d.S.steel, charSpacing: 3, align: 'right' }));
-  // dots: [row, xFrac, label?, hot?]
-  const pts = [[0, 0.12], [0, 0.55], [1, 0.25], [1, 0.62], [2, 0.08], [2, 0.4], [2, 0.8], [3, 0.18], [3, 0.5], [0, 0.96, true], [3, 0.96, true]];
-  const dots = pts.map(([r, f, hot]) => {
-    const n = d.name('pt');
-    const cx = axisX + 0.15 + f * (pw - 2.3), cy = py + r * rowH + rowH / 2;
-    const sz = hot ? 0.3 : 0.17;
-    s.addShape(d.pres.shapes.OVAL, { x: cx - sz / 2, y: cy - sz / 2, w: sz, h: sz, fill: { color: hot ? HEX.red : HEX.steel }, line: { color: hot ? 'FFFFFF' : HEX.steel, width: hot ? 1.5 : 0 }, objectName: n });
-    return { n, hot, cx, cy };
-  });
-  const lab = d.text(s, 'superintelligent\npaperclip maximizer', { x: axisX + pw - 3.95, y: py + 3 * rowH + rowH / 2 - 0.85, w: 1.85, h: 0.55, fontSize: 10, bold: true, color: d.S.red, align: 'right', valign: 'bottom' });
-  const lab2 = d.text(s, 'what we hope for', { x: axisX + pw - 3.95, y: py + rowH / 2 + 0.2, w: 1.85, h: 0.3, fontSize: 10, bold: true, color: d.S.txt, align: 'right' });
-
-  d.animate(s, plot, { auto: true, effect: 'fade' });
-  d.animate(s, dots.filter(x => !x.hot).map(x => x.n), { auto: true, effect: 'zoom', stagger: 70, dur: 300 });
-  d.animate(s, [dots.filter(x => x.hot)[0].n, lab2], { effect: 'zoom' });
-  d.animate(s, [dots.filter(x => x.hot)[1].n, lab], { effect: 'zoom' });
-  d.animate(s, [take], { effect: 'fade' });
-  d.source(s, 'Bostrom, N. (2012). The Superintelligent Will: Motivation and Instrumental Rationality in Advanced Artificial Agents. Minds and Machines 22(2).');
-  s.addNotes('Every combination on this chart is possible. The paperclip maximizer is not stupid — it is extremely intelligent, and wants something we do not.');
-  return s;
-}
-
-async function convergenceSlide(d) {
-  const s = d.slide('Content');
-  s.addText('THE ALIGNMENT PROBLEM · THEORY 2', { placeholder: 'kicker' });
-  s.addText('Instrumental convergence: the basic AI drives', { placeholder: 'title' });
-  const cx = W / 2, cy = 3.95;
-  // hub
-  const hub = d.name('hub');
-  s.addShape(d.pres.shapes.OVAL, { x: cx - 1.05, y: cy - 1.05, w: 2.1, h: 2.1, fill: { color: '2A0C0E' }, line: { color: HEX.red, width: 2 }, objectName: hub });
-  const hubT = d.text(s, [{ text: 'ANY', options: { fontSize: 12, color: d.S.red, bold: true, charSpacing: 3, breakLine: true } }, { text: 'final goal', options: { fontSize: 20, bold: true, color: d.S.txt } }], { x: cx - 1.0, y: cy - 0.6, w: 2.0, h: 1.2, align: 'center', valign: 'middle' });
-  const drives = [
-    ['FaShieldAlt', 'Self-preservation', 'It can’t achieve its goal if it is switched off.', -1, -1],
-    ['FaLock', 'Goal-content integrity', 'It resists having its goal changed — by anyone.', 1, -1],
-    ['FaCoins', 'Resource acquisition', 'More compute, money and influence help with almost any goal.', -1, 1],
-    ['FaBrain', 'Cognitive enhancement', 'Getting smarter makes it better at everything else.', 1, 1],
-  ];
-  const cw = 4.1, ch = 1.45;
-  const groups = [];
-  for (const [ic, t, sub, sx, sy] of drives) {
-    const x = sx < 0 ? MX + 0.1 : W - MX - 0.1 - cw;
-    const y = sy < 0 ? 1.75 : 4.75;
-    const g = [];
-    g.push(d.card(s, { x, y, w: cw, h: ch }));
-    const ci = d.name('ic');
-    s.addShape(d.pres.shapes.OVAL, { x: x + 0.25, y: y + 0.3, w: 0.8, h: 0.8, fill: { color: '2A0C0E' }, line: { color: HEX.red, width: 1 }, objectName: ci });
-    g.push(ci);
-    const im = d.name('icimg');
-    s.addImage({ data: await icon(ic, '#E5383B'), x: x + 0.45, y: y + 0.5, w: 0.4, h: 0.4, objectName: im });
-    g.push(im);
-    g.push(d.text(s, [{ text: t, options: { bold: true, fontSize: 17, color: d.S.txt, breakLine: true, fontFace: 'Arial' } }, { text: sub, options: { fontSize: 13, color: d.S.muted } }], { x: x + 1.25, y: y + 0.18, w: cw - 1.45, h: ch - 0.36, valign: 'middle' }));
-    // connector
-    const ln = d.name('conn');
-    const x1 = sx < 0 ? x + cw : x, y1 = y + ch / 2;
-    const x2 = cx + sx * 0.78, y2 = cy + sy * 0.78;
-    s.addShape(d.pres.shapes.LINE, { x: Math.min(x1, x2), y: Math.min(y1, y2), w: Math.abs(x2 - x1), h: Math.abs(y2 - y1), flipH: (x2 < x1) !== (y2 < y1), line: { color: HEX.red, width: 1.25, dashType: 'dash' }, objectName: ln });
-    g.unshift(ln);
-    groups.push(g);
-  }
-  const quote = d.text(s, [
-    { text: '“You can’t fetch the coffee if you’re dead.”', options: { italic: true, fontFace: 'Cambria', fontSize: 18, color: d.S.txt } },
-    { text: '   — Stuart Russell', options: { fontSize: 12, color: d.S.muted } },
-  ], { x: MX, y: 6.3, w: W - 2 * MX, h: 0.4, align: 'center' });
-  d.animate(s, [hub, hubT], { auto: true, effect: 'zoom' });
-  groups.forEach(g => d.animate(s, g, { effect: 'fade' }));
-  d.animate(s, [quote], { effect: 'fade' });
-  d.source(s, 'Omohundro, S. (2008). The Basic AI Drives. AGI-08 · Bostrom, N. (2014). Superintelligence, ch. 7 · Russell, S. (2019). Human Compatible.', { y: 6.75 });
-  s.addNotes('These are not programmed in. They fall out of almost any objective, because they are useful for almost any objective. This is why “just don’t give it bad goals” is not enough.');
-  return s;
-}
-
 async function explosionSlide(d) {
   const s = d.slide('Content');
   s.addText('INSIDE THE MACHINE · RECURSIVE SELF-IMPROVEMENT', { placeholder: 'kicker' });
@@ -265,4 +161,4 @@ function closingSlide(d, { agents = 8 } = {}) {
   return s;
 }
 
-module.exports = { titleSlide, agendaSlide, sectionSlide, orthogonalitySlide, convergenceSlide, explosionSlide, whatNowSlide, closingSlide, curvePt };
+module.exports = { titleSlide, agendaSlide, sectionSlide, explosionSlide, whatNowSlide, closingSlide, curvePt };

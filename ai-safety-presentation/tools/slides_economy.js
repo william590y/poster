@@ -14,7 +14,8 @@ const D = (f) => path.join(OUT, f);
 // Boxes are in source-pixel coordinates.
 const CROPS = {
   'fortune_housing.png': ['fortune_datacenter_spending_exceeds_housing.png', { left: 77, top: 429, width: 2406, height: 851 }],
-  'fortune_furman.png': ['fortune_furman_gdp_without_datacenters.png', { left: 77, top: 378, width: 2406, height: 857 }],
+  // headline + byline only: the article photo (Fed Chair Jerome Powell) would read as the "Harvard economist"
+  'fortune_furman.png': ['fortune_furman_gdp_without_datacenters.png', { left: 77, top: 378, width: 1200, height: 680 }],
   'fortune_hyperion_head.png': ['fortune_meta_hyperion_50b.png', { left: 77, top: 384, width: 1190, height: 486 }],
   'guardian_ramageddon_head.png': ['guardian_ramageddon_iphone.png', { left: 342, top: 342, width: 1277, height: 342 }],
   'guardian_thermal.png': ['guardian_xai_thermal_drone.png', { left: 342, top: 422, width: 1904, height: 950 }],
@@ -29,8 +30,38 @@ const CROPS = {
   'tc_openai_852b.png': ['techcrunch_openai_122b_852b.png', { left: 0, top: 0, width: 2500, height: 1240 }],
 };
 
+// User's S&P 500 share chart (image2.png, 826×459): cropped to the plot (its footnote is on the slide's source line)
+// and with its ~6.5pt series-end labels and "ChatGPT launch" removed, because they are re-set natively at 12pt
+// (same values/words). Only greyish text pixels inside the boxes are cleared; coloured series pixels are kept and
+// gridline rows are restored. Boxes are [x0, y0, x1, y1] in source pixels.
+const SP = {
+  file: 'sp500_ai_share.png', box: { left: 50, top: 8, width: 756, height: 394 },
+  erase: [[669, 95, 697, 109], [637, 122, 725, 138], [759, 202, 796, 216], [418, 45, 510, 59]],
+  grid: [49, 102, 156, 209, 263, 317], gridMaxX: 778, bg: [252, 252, 251], gridRGB: [225, 224, 217],
+  // marker centres (source px) used to place the native callouts
+  jpm: [705, 101], kob: [733, 128], kobLeft: 726, mag7: [753, 202], chatgptX: 463.5, chatgptY: 52,
+};
+
+async function prepChart() {
+  const src = O('image2.png'), out = D(SP.file);
+  if (fs.existsSync(out) && fs.statSync(out).mtimeMs > fs.statSync(src).mtimeMs && fs.statSync(out).mtimeMs > fs.statSync(__filename).mtimeMs) return;
+  const { data, info } = await sharp(src).removeAlpha().raw().toBuffer({ resolveWithObject: true });
+  const ch = info.channels;
+  for (const [x0, y0, x1, y1] of SP.erase) {
+    for (let y = y0; y <= y1; y++) for (let x = x0; x <= x1; x++) {
+      const i = (y * info.width + x) * ch, r = data[i], g = data[i + 1], b = data[i + 2];
+      const greyish = Math.max(r, g, b) - Math.min(r, g, b) < 40 && (r + g + b) / 3 < 247;
+      if (!greyish) continue;
+      const c = SP.grid.includes(y) && x <= SP.gridMaxX ? SP.gridRGB : SP.bg;
+      data[i] = c[0]; data[i + 1] = c[1]; data[i + 2] = c[2];
+    }
+  }
+  await sharp(data, { raw: { width: info.width, height: info.height, channels: ch } }).extract(SP.box).png().toFile(out);
+}
+
 async function prep() {
   fs.mkdirSync(OUT, { recursive: true });
+  await prepChart();
   for (const [dst, [src, box]] of Object.entries(CROPS)) {
     const out = D(dst);
     if (fs.existsSync(out) && fs.statSync(out).mtimeMs > fs.statSync(R(src)).mtimeMs && fs.statSync(out).mtimeMs > fs.statSync(__filename).mtimeMs) continue;
@@ -87,12 +118,28 @@ function stat(d, s, o) {
 // 1. THE MARKET
 async function marketSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  kicker(s, 'THE ACCELERATION · ECONOMY 1');
+  kicker(s, 'THE ACCELERATION · ECONOMY · 1');
   title(s, 'AI is swallowing the stock market');
 
-  // hero: user's S&P share chart, with the headline clipping pinned above it
-  const chart = await d.frame(s, O('image2.png'), { x: MX, y: 2.95, w: 6.5, h: 3.6 }, { pad: 0.06 });
+  // hero: user's S&P share chart (cleaned crop, see SP), with the headline clipping pinned above it
+  const chart = await d.frame(s, D(SP.file), { x: MX, y: 2.95, w: 6.5, h: 3.6 }, { pad: 0.06 });
   const head = await d.frame(s, O('image3.png'), { x: MX + 0.05, y: 1.74, w: 6.4, h: 0.98 }, { rot: -1.2, pad: 0.08 });
+
+  // Native 12pt callouts at the series ends (they double as the legend). Positions come from the source-pixel
+  // marker coordinates; white fill = the chart's background, so gridlines don't run through the text.
+  const cg = chart.geom, ck = cg.w / SP.box.width;
+  const P = ([sx, sy]) => ({ x: cg.x + (sx - SP.box.left) * ck, y: cg.y + (sy - SP.box.top) * ck });
+  const calloutH = 0.21;
+  const callout = (value, desc, color, right, yMid, w) => d.text(s, [
+    { text: value, options: { bold: true } }, { text: ` · ${desc}` },
+  ], { x: right - w, y: yMid - calloutH / 2, w, h: calloutH, fontSize: 12, color, align: 'right', valign: 'middle', fill: { color: 'FCFCFB' } });
+  const pJ = P(SP.jpm), pK = P(SP.kob), pM = P(SP.mag7);
+  const kobRight = P([SP.kobLeft, 0]).x - 0.06;
+  const cJ = callout('50%', 'JPMorgan, 28 “direct AI” stocks', '1E8A57', pJ.x - 0.1, pK.y - 0.09 - calloutH, 2.6);
+  const cK = callout('45%', 'Kobeissi, broad AI-linked (Apr 2026)', 'C9531C', kobRight, pK.y - 0.09, 2.92);
+  const cM = callout('31.5%', 'Magnificent 7', '2F62C8', pM.x + 0.2, pM.y + 0.25, 1.56);
+  const pC = P([SP.chatgptX, SP.chatgptY]);
+  const cC = d.text(s, 'ChatGPT launch', { x: pC.x - 0.6, y: pC.y - calloutH / 2, w: 1.2, h: calloutH, fontSize: 12, color: '5F6670', align: 'center', valign: 'middle', fill: { color: 'FCFCFB' } });
 
   // Nvidia market cap (native)
   const rx = 7.5, rw = W - MX - rx;
@@ -116,12 +163,12 @@ async function marketSlide(d) {
   // stat callouts
   const divider = d.name('div');
   s.addShape(d.pres.shapes.LINE, { x: rx, y: 4.72, w: rw, h: 0, line: { color: HEX.line, width: 1 }, objectName: divider });
-  const st1 = stat(d, s, { x: rx, y: 4.82, w: 2.45, value: '$852B', label: 'OpenAI’s valuation, Mar 2026 — reportedly in talks at ~$1.4T', color: d.S.txt, labelH: 0.62 });
+  const st1 = stat(d, s, { x: rx, y: 4.82, w: 2.45, value: '$96.2B', label: 'Nvidia’s revenue in one quarter, up 106% in a year (Aug 2026)', color: d.S.txt, labelH: 0.62 });
   const st2 = stat(d, s, { x: rx + 2.7, y: 4.82, w: rw - 2.7, value: '$65B', label: 'Anthropic’s annualized revenue, Jul 2026 — up from $9B at end of 2025', color: d.S.txt, labelH: 0.62 });
 
-  d.source(s, 'Sources: S&P 500 share chart — Mag 7 via historyofmarket.com, Kobeissi Letter, JPMorgan (definitions differ) · Nvidia: CompaniesMarketCap (2026 = Oct 3) · TechCrunch, Mar 31, Aug 17 & Sep 29, 2026');
+  d.source(s, 'Sources: S&P 500 share chart — Mag 7 via historyofmarket.com, Kobeissi Letter, JPMorgan (definitions differ) · Nvidia: CompaniesMarketCap (2026 = Oct 3) · Guardian, Aug 26, 2026 · TechCrunch, Aug 17, 2026');
 
-  d.animate(s, chart, { auto: true, effect: 'fade', dur: 600 });
+  d.animate(s, [...chart, cJ, cK, cM, cC], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, head, { effect: 'slam', dur: 450 });
   d.animate(s, [nvLab, nvChart, nvNote, nvLine], { effect: 'wipeLeft', dur: 900 });
   d.animate(s, [divider, ...st1, ...st2], { effect: 'rise', stagger: 200 });
@@ -130,8 +177,9 @@ async function marketSlide(d) {
     'The AI trade is now the stock market. The Magnificent 7 alone are about a third of the S&P 500; broader AI-linked baskets put it at 45% (Kobeissi, Apr 2026) or 50% (JPMorgan’s 28 “direct AI” stocks). The three series use different definitions, so they are not directly comparable — the point is the direction.',
     'Click 1 — the headline: “AI Swallows Wall Street: Stocks Hit Record 45% of S&P 500 Market Cap” (user-supplied headline image; outlet not recorded in our research manifest — matches the Kobeissi 45% figure in the chart).',
     'Click 2 — Nvidia: from about $18B at the end of 2015 to $5.65T on Oct 3, 2026 (CompaniesMarketCap). It became the first public company worth $5T on Oct 29, 2025; the Guardian noted that was more than the GDP of India, Japan or the UK (IMF). It has NOT reached $6T — don’t say it has. The chart shows year-end values, so the 2025 bar ($4.64T) sits below $5T: it crossed $5T in late October, then ended the year lower (dashed line = the $5T level).',
-    'Click 3 — the labs: OpenAI raised $122B at an $852B valuation (TechCrunch, Mar 31, 2026) and is reportedly in talks to raise at ~$1.4T (TechCrunch citing Bloomberg, Sep 29, 2026 — talks, not closed). Anthropic’s annualized revenue run rate went from $9B at end-2025 to over $65B by end of July 2026 (TechCrunch citing Bloomberg, Aug 17, 2026); it also raised $65B at a $965B valuation in May 2026.',
-    'URLs: https://companiesmarketcap.com/nvidia/marketcap/ · https://techcrunch.com/2025/10/29/nvidia-becomes-first-public-company-worth-5-trillion/ · https://www.theguardian.com/technology/2025/oct/29/nvidia-first-company-5-trillion · https://techcrunch.com/2026/03/31/openai-not-yet-public-raises-3b-from-retail-investors-in-monster-122b-fund-raise/ · https://techcrunch.com/2026/09/29/openai-reportedly-in-talks-to-raise-30b-round-at-1-4t-valuation/ · https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/ · https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/',
+    'Click 3 — the money behind it: The Guardian, Aug 26, 2026 — “Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’”: $96.2B in the quarter, 106% more than a year earlier, with guidance of $108B for the next quarter. Anthropic’s annualized revenue run rate went from $9B at end-2025 to over $65B by end of July 2026 (TechCrunch citing Bloomberg, Aug 17, 2026); it also raised $65B at a $965B valuation in May 2026. (OpenAI’s $852B valuation and ~$1.4T talks are saved for the section closer.)',
+    'Chart footnote (cropped from the image; summarized on the source line): Mag 7 series from historyofmarket.com (semiannual, through Jul 24, 2026); broad AI-linked from The Kobeissi Letter via Yahoo Finance (Apr 2026, “+20 pts since ChatGPT”, i.e. from ~25%); JPMorgan Eye on the Market, Outlook 2026. The end-value labels and “ChatGPT launch” were re-set in larger type on the slide; values unchanged.',
+    'URLs: https://companiesmarketcap.com/nvidia/marketcap/ · https://techcrunch.com/2025/10/29/nvidia-becomes-first-public-company-worth-5-trillion/ · https://www.theguardian.com/technology/2025/oct/29/nvidia-first-company-5-trillion · https://www.theguardian.com/technology/2026/aug/26/nvidia-quarterly-revenue · https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/ · https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/',
   ].join('\n\n'));
   return s;
 }
@@ -140,7 +188,7 @@ async function marketSlide(d) {
 // 2. THE CAPEX BOOM
 async function capexSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  kicker(s, 'THE ACCELERATION · ECONOMY 2');
+  kicker(s, 'THE ACCELERATION · ECONOMY · 2');
   title(s, 'The capex boom: up to $760B in 2026');
 
   // Hyperscaler capex by company, calendar years (2022-25 Epoch sums of SEC filings; 2026 Statista guidance upper limits)
@@ -189,11 +237,14 @@ async function capexSlide(d) {
 // 3. AI IS THE ECONOMY
 async function gdpSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  kicker(s, 'THE ACCELERATION · ECONOMY 3');
+  kicker(s, 'THE ACCELERATION · ECONOMY · 3');
   title(s, 'AI investment is now propping up US growth');
 
   const c1 = await d.frame(s, D('fortune_housing.png'), { x: MX, y: 1.76, w: 6.25, h: 2.3 }, { rot: -1.2, pad: 0.06 });
-  const c2 = await d.frame(s, D('fortune_furman.png'), { x: MX + 0.15, y: 4.2, w: 6.05, h: 2.3 }, { rot: 1.2, pad: 0.06 });
+  // Furman clipping cropped to its headline/byline (narrower), with his 92% figure beside it
+  const c2 = await d.frame(s, D('fortune_furman.png'), { x: MX + 0.12, y: 4.28, w: 3.75, h: 2.2 }, { rot: 1.2, pad: 0.06 });
+  const st1 = stat(d, s, { x: 4.85, y: 4.62, w: 2.1, value: '92%', labelH: 0.85,
+    label: 'of H1-2025 US GDP growth came from information-processing investment — Jason Furman' });
 
   // Epoch AI: computing infrastructure share of GDP vs 2015-22 trend
   const qlab = [];
@@ -211,21 +262,21 @@ async function gdpSlide(d) {
     catAxisLabelFrequency: 4, catAxisLabelFontSize: 10, catAxisLabelRotate: 0, legendPos: 'b', legendFontSize: 10,
   });
 
-  const st1 = stat(d, s, { x: rx, y: 5.02, w: 2.55, value: '92%', label: 'of H1-2025 GDP growth came from information-processing investment', labelH: 0.62 });
-  const st2 = stat(d, s, { x: rx + 2.8, y: 5.02, w: rw - 2.8, value: '~2×', label: 'computing’s share of GDP vs. the 2015–22 norm (1.5% vs ~0.7%)', labelH: 0.62 });
+  const st2 = stat(d, s, { x: rx, y: 5.02, w: 2.55, value: '~2×', label: 'computing’s share of GDP vs. the 2015–22 norm (1.5% vs ~0.7%)', labelH: 0.62 });
+  const st3 = stat(d, s, { x: rx + 2.8, y: 5.02, w: rw - 2.8, value: '~0.8%', label: 'of US GDP from AI data centers, chips and networking alone', labelH: 0.62 });
 
   d.source(s, 'Sources: Fortune, Sep 20, 2026 & Oct 7, 2025 (Jason Furman) · Epoch AI, “The AI boom has doubled computing infrastructure’s share of US GDP” (CC-BY; BEA via FRED, Census, SEC)');
 
   d.animate(s, c1, { auto: true, effect: 'rise' });
   d.animate(s, c2, { auto: true, effect: 'rise', after: 250 });
-  d.animate(s, [lab, ch], { effect: 'wipeLeft', dur: 1100 });
   d.animate(s, st1, { effect: 'zoom', dur: 400 });
-  d.animate(s, st2, { effect: 'zoom', dur: 400 });
+  d.animate(s, [lab, ch], { effect: 'wipeLeft', dur: 1100 });
+  d.animate(s, [...st2, ...st3], { effect: 'rise', stagger: 200 });
 
   s.addNotes([
     'Two Fortune headlines. Sep 20, 2026: “U.S. economy hits pivotal milestone: Spending on data centers and other information-processing hardware now exceeds housing investment.” Quote from SF Fed’s Adam Shapiro: “investment is shifting away from residential investment and towards computers.” Oct 7, 2025: “Without data centers, GDP growth was 0.1% in the first half of 2025, Harvard economist says.”',
-    'Jason Furman’s calculation: information-processing equipment & software was ~4% of GDP but accounted for 92% of GDP growth in H1 2025. Caveat: this is an accounting decomposition, not a counterfactual — without the boom, other spending might have been higher.',
-    'Chart (Epoch AI, CC-BY): total computing-infrastructure investment hit ~1.49% of US GDP in Q1 2026 vs a 2015–22 trend of ~0.66%. Epoch attributes ~0.8% of GDP to AI-related data-center construction, compute hardware and networking (the gap above trend). “AI infrastructure is now the leading driver of growth in private investment in the US.”',
+    'Click 1 — 92%: Jason Furman’s calculation: information-processing equipment & software was ~4% of GDP but accounted for 92% of GDP growth in H1 2025. Caveat: this is an accounting decomposition, not a counterfactual — without the boom, other spending might have been higher. (The Fortune clipping is cropped to its headline; the article’s photo is of Fed Chair Jerome Powell, not Furman.)',
+    'Click 2 — chart (Epoch AI, CC-BY): total computing-infrastructure investment hit ~1.49% of US GDP in Q1 2026 vs a 2015–22 trend of ~0.66%. Click 3 — so it is about double the norm, and Epoch attributes ~0.8% of GDP to AI-related data-center construction, compute hardware and networking (roughly the gap above trend). “AI infrastructure is now the leading driver of growth in private investment in the US.”',
     'URLs: https://fortune.com/2026/09/20/us-economy-milestone-spending-data-centers-ai-boom-housing-residential-investment/ · https://fortune.com/2025/10/07/data-centers-gdp-growth-zero-first-half-2025-jason-furman-harvard-economist/ · https://epoch.ai/data-insights/ai-datacenter-share-gdp',
   ].join('\n\n'));
   return s;
@@ -235,7 +286,7 @@ async function gdpSlide(d) {
 // 4. INFORMATION IS PHYSICAL — SCALE
 async function scaleSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  kicker(s, 'THE ACCELERATION · INFORMATION IS PHYSICAL 1');
+  kicker(s, 'THE ACCELERATION · INFORMATION IS PHYSICAL · 1');
   title(s, 'The “cloud” is now concrete, steel and gigawatts');
 
   const gap = 0.3, cw = (W - 2 * MX - 2 * gap) / 3, ph = 3.05, y0 = 1.76;
@@ -279,7 +330,7 @@ async function scaleSlide(d) {
 // 5. STARGATE ABILENE — BEFORE / AFTER
 async function abileneSlide(d) {
   const s = d.slide('Content', { transition: 'pushLeft' });
-  kicker(s, 'THE ACCELERATION · INFORMATION IS PHYSICAL 2');
+  kicker(s, 'THE ACCELERATION · INFORMATION IS PHYSICAL · 2');
   title(s, 'Stargate Abilene, 13 months apart');
 
   const box = { x: MX, y: 1.76, w: 8.1, h: 4.56 };
@@ -317,7 +368,7 @@ async function abileneSlide(d) {
 // 6. SUPPLY CAN'T KEEP UP
 async function supplySlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  kicker(s, 'THE ACCELERATION · INFORMATION IS PHYSICAL 3');
+  kicker(s, 'THE ACCELERATION · INFORMATION IS PHYSICAL · 3');
   title(s, 'The build-out is outrunning supply');
 
   const lw = 6.2;
@@ -372,7 +423,7 @@ async function supplySlide(d) {
 // 7. THE ENVIRONMENTAL BILL
 async function envSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  kicker(s, 'THE ACCELERATION · INFORMATION IS PHYSICAL 4');
+  kicker(s, 'THE ACCELERATION · INFORMATION IS PHYSICAL · 4');
   title(s, 'The environmental bill is coming due');
 
   const lw = 4.5;
@@ -390,10 +441,10 @@ async function envSlide(d) {
   const jx1 = ig.cx(1) - ig.bw / 2 - 0.1;
   const japan = d.text(s, '2030: more than Japan’s\ntotal use today', { x: jx1 - 1.6, y: ig.vy(1000) - 0.19, w: 1.6, h: 0.38, fontSize: 11, italic: true, color: d.S.muted, align: 'right', valign: 'middle' });
 
-  const st1 = stat(d, s, { x: MX, y: 4.92, w: 2.1, value: '18.6¢', valueSize: 30, color: d.S.amber, labelSize: 12, labelH: 0.95,
-    label: 'projected US home power price per kWh in 2027, up from 16.5¢ in 2024 (EIA)' });
-  const st2 = stat(d, s, { x: MX + 2.4, y: 4.92, w: 2.1, value: '6.7–12%', valueSize: 30, color: d.S.amber, labelSize: 12, labelH: 0.95,
+  const st1 = stat(d, s, { x: MX, y: 4.92, w: 2.1, value: '6.7–12%', valueSize: 30, color: d.S.amber, labelSize: 12, labelH: 0.95,
     label: 'of US electricity to data centers by 2028 (LBNL projection), vs 4.4% in 2023' });
+  const st2 = stat(d, s, { x: MX + 2.4, y: 4.92, w: 2.1, value: '+37%', valueSize: 30, color: d.S.amber, labelSize: 12, labelH: 0.95,
+    label: 'Google’s freshwater use, 2025 vs 2024; its energy use rose 36% — Google report' });
 
   // wall of headlines: two staggered columns
   const w1 = await d.frame(s, D('guardian_xai_head.png'), { x: 5.45, y: 1.78, w: 3.6, h: 1.1 }, { rot: -1.5, pad: 0.07 });
@@ -402,22 +453,25 @@ async function envSlide(d) {
   const w4 = await d.frame(s, D('wired_gas.png'), { x: 9.2, y: 4.25, w: 3.53, h: 1.75 }, { rot: -1.5, pad: 0.06 });
   const w5 = await d.frame(s, R('nbc_datacenter_opposition_130b.png'), { x: 5.45, y: 4.8, w: 3.6, h: 1.32 }, { rot: -1, pad: 0.06 });
 
-  d.source(s, 'Sources: IEA, Energy and AI (2025, CC BY 4.0) · LBNL (Dec 2024) · EIA STEO, Sep 2026 · The Guardian, Jan 15, Feb 13 & Jun 8, 2026 · WIRED, Jan 28, 2026 · NBC News, Jun 12, 2026');
+  d.source(s, 'Sources: IEA, Energy and AI (2025, CC BY 4.0) · LBNL (Dec 2024) · Google 2026 Environmental Report · The Guardian, Jan 15, Feb 13 & Jun 8, 2026 · WIRED, Jan 28, 2026 · NBC News, Jun 12, 2026');
 
+  // build follows the notes: electricity (chart, then LBNL) → pollution (xAI; thermal drone + WIRED gas boom)
+  // → water (drought + Google) → backlash (NBC)
   d.animate(s, [lab, ch, japan], { auto: true, effect: 'wipeLeft', dur: 1000 });
+  d.animate(s, st1, { auto: true, effect: 'rise', after: 300 });
   d.animate(s, w1, { effect: 'slam', dur: 450 });
   // stagger whole clippings (frame + image together), not their individual parts
   const together = (groups, st) => groups.flatMap((g, i) => g.map(name => ({ name, delay: i * st })));
-  d.animate(s, together([w2, w3], 200), { effect: 'rise' });
-  d.animate(s, together([w4, w5], 200), { effect: 'rise' });
-  d.animate(s, [...st1, ...st2], { effect: 'rise', stagger: 200 });
+  d.animate(s, together([w2, w4], 200), { effect: 'rise' });
+  d.animate(s, together([w3, st2], 250), { effect: 'rise' });
+  d.animate(s, w5, { effect: 'rise' });
 
   s.addNotes([
-    'Electricity: the IEA (Energy and AI, 2025, Base Case) puts data-center use at ~415 TWh in 2024 (~1.5% of world electricity), ~945 TWh by 2030 — slightly more than Japan’s total consumption today — and ~1,200 TWh by 2035. In the US, data centers are nearly half of electricity-demand growth to 2030. LBNL: US data centers used 4.4% of US electricity in 2023 (176 TWh), projected 6.7–12% by 2028. (IEA’s 2026 update was not accessible to us, so we use the 2025 report.)',
-    'Pollution: Guardian, Jan 15, 2026 — “Elon Musk’s xAI datacenter generating extra electricity illegally, regulator rules” (dozens of methane gas turbines powering Colossus in Memphis). Guardian/Floodlight, Feb 13, 2026 — “‘A different set of rules’: thermal drone footage shows Musk’s AI power plant flouting clean air regulations” (turbines just across the line in Mississippi). WIRED, Jan 28, 2026 — gas projects explicitly linked to data centers up almost 25× in two years (Global Energy Monitor).',
-    'Water: Guardian analysis, Jun 8, 2026 — about two-thirds of upcoming US datacenters are set to be built in places that have been among the driest in the country over the past year.',
-    'Bills & backlash: EIA projects average US residential electricity at 18.6¢/kWh in 2027, up from 16.5¢ in 2024 (national averages; data centers are one driver among several — don’t claim they are the sole cause). NBC News: “Data center opponents have blocked or delayed projects worth nearly $130 billion in 2026, study finds” — Data Center Watch counted at least 75 projects in Q1 2026, the most on record, and 45 more worth $68B in Q2.',
-    'URLs: https://iea.blob.core.windows.net/assets/de9dea13-b07d-42c5-a398-d1b3ae17d866/EnergyandAI.pdf · https://newscenter.lbl.gov/2025/01/15/berkeley-lab-report-evaluates-increase-in-electricity-demand-from-data-centers/ · https://www.theguardian.com/technology/2026/jan/15/elon-musk-xai-datacenter-memphis · https://www.theguardian.com/environment/2026/feb/13/elon-musk-xai-datacenters-air-pollution-mississippi · https://www.theguardian.com/us-news/2026/jun/08/datacenter-ai-drought-water · https://www.wired.com/story/data-centers-are-driving-a-us-gas-boom/ · https://www.eia.gov/outlooks/steo/report/elec_coal_renew.php · https://www.nbcnews.com/tech/tech-news/data-center-opposition-sharply-rising-2026-study-finds-rcna349728 · https://www.datacenterwatch.org/q2-2026',
+    'Electricity (builds automatically, chart then the LBNL stat): the IEA (Energy and AI, 2025, Base Case) puts data-center use at ~415 TWh in 2024 (~1.5% of world electricity), ~945 TWh by 2030 — slightly more than Japan’s total consumption today — and ~1,200 TWh by 2035. In the US, data centers are nearly half of electricity-demand growth to 2030. LBNL: US data centers used 4.4% of US electricity in 2023 (176 TWh), projected 6.7–12% by 2028. (IEA’s 2026 update was not accessible to us, so we use the 2025 report.)',
+    'Click 1 — Pollution: Guardian, Jan 15, 2026 — “Elon Musk’s xAI datacenter generating extra electricity illegally, regulator rules” (dozens of methane gas turbines powering Colossus in Memphis). Click 2 — Guardian/Floodlight, Feb 13, 2026 — “‘A different set of rules’: thermal drone footage shows Musk’s AI power plant flouting clean air regulations” (turbines just across the line in Mississippi). WIRED, Jan 28, 2026 — gas projects explicitly linked to data centers up almost 25× in two years (Global Energy Monitor).',
+    'Click 3 — Water: Guardian analysis, Jun 8, 2026 — about two-thirds of upcoming US datacenters are set to be built in places that have been among the driest in the country over the past year. Google’s own 2026 Environmental Report (company-reported): freshwater consumption up 37% in 2025; total energy use up 36% in one year (32.3 → 44.0 TWh); electricity demand up more than 250% since 2019; emissions up 18%.',
+    'Click 4 — Backlash: NBC News: “Data center opponents have blocked or delayed projects worth nearly $130 billion in 2026, study finds” — Data Center Watch counted at least 75 projects in Q1 2026, the most on record, and 45 more worth $68B in Q2. If asked about household bills: EIA projects average US residential electricity at 18.6¢/kWh in 2027, up from 16.5¢ in 2024 (national averages; data centers are one driver among several — don’t claim they are the sole cause).',
+    'URLs: https://iea.blob.core.windows.net/assets/de9dea13-b07d-42c5-a398-d1b3ae17d866/EnergyandAI.pdf · https://newscenter.lbl.gov/2025/01/15/berkeley-lab-report-evaluates-increase-in-electricity-demand-from-data-centers/ · https://www.theguardian.com/technology/2026/jan/15/elon-musk-xai-datacenter-memphis · https://www.theguardian.com/environment/2026/feb/13/elon-musk-xai-datacenters-air-pollution-mississippi · https://www.theguardian.com/us-news/2026/jun/08/datacenter-ai-drought-water · https://www.wired.com/story/data-centers-are-driving-a-us-gas-boom/ · https://sustainability.google/files/google-2026-environmental-report.pdf · https://www.eia.gov/outlooks/steo/report/elec_coal_renew.php · https://www.nbcnews.com/tech/tech-news/data-center-opposition-sharply-rising-2026-study-finds-rcna349728 · https://www.datacenterwatch.org/q2-2026',
   ].join('\n\n'));
   return s;
 }

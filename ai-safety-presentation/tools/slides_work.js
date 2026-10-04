@@ -276,14 +276,19 @@ async function arxivSlide(d) {
   s.addShape(d.pres.shapes.LINE, { x: kx + 2.36, y: ky + 0.22, w: 0, h: kh - 0.44, line: { color: HEX.line, width: 1 }, objectName: dv });
   co.push(dv);
   const csx = kx + 2.52, csw = kw - 2.52 - 0.16;
-  co.push(capLabel(d, s, 'CS.AI ALONE · MONTHLY', { x: csx, y: ky + 0.08, w: csw + 0.1, charSpacing: 0 }));
-  const csai = await crop('acad-arxiv-csai-growth.png', 'acad-arxiv-csai-plot.png', { l: 0, t: 165, w: 2999, h: 2056 });
-  const csf = await frameW(d, s, csai, csx, ky + 0.4, csw, { pad: 0.04, shadow: false });
+  co.push(capLabel(d, s, 'CS.AI ALONE · MONTHLY', { x: csx, y: ky + 0.06, w: csw + 0.1, charSpacing: 0 }));
+  // inset = the plot box only (its tick labels would render at ~3–4pt); the scale is given in native text below it,
+  // from the post's own figures (~300 in Jan 2024 → ~3,300 in Aug 2026, “over 6X”)
+  const csai = await crop('acad-arxiv-csai-growth.png', 'acad-arxiv-csai-plotarea.png', { l: 330, t: 170, w: 2510, h: 1880 });
+  const csTxtH = 0.44, csTxtY = ky + kh - 0.1 - csTxtH, csImgY = ky + 0.38;
+  const csn = await imgSize(csai), csImgH = csTxtY - 0.05 - csImgY;
+  const csf = await d.frame(s, csai, { x: csx, y: csImgY, w: (csImgH - 0.08) * csn.w / csn.h + 0.08, h: csImgH }, { pad: 0.04, shadow: false });
   co.push(...csf);
   co.push(d.text(s, [
     { text: '>6× ', options: { bold: true, color: d.S.red } },
-    { text: 'in two years', options: { color: d.S.txt } },
-  ], { x: csx, y: ky + 0.4 + await hFor(csai, csw, 0.04) + 0.05, w: csw + 0.1, h: 0.28, fontSize: 13, valign: 'middle' }));
+    { text: 'in two years', options: { color: d.S.txt, breakLine: true } },
+    { text: '~300 → ~3,300/month', options: { color: d.S.muted } },
+  ], { x: csx, y: csTxtY, w: csw + 0.1, h: csTxtH, fontSize: 13, valign: 'top' }));
 
   // right column: official post + headline + quote
   const rx = 7.95, rw = CX1 - rx;
@@ -519,7 +524,8 @@ async function vlaWallSlide(d) {
   for (const [f, x, y, w, rot] of items) fr.push(await frameW(d, s, f, x, y, w, { rot }));
   const factRows = [
     ['30', 'unseen homes, zero-shot (Figure Helix 2.5)'],
-    ['<200', 'examples, typically, to adapt to a new robot body (Gemini Robotics 2)'], // DeepMind: “typically with less than 200 examples”
+    // DeepMind: “typically with less than 200 examples”; no-break spaces keep “robot body” and the attribution whole (no orphaned “2)”)
+    ['<200', 'examples, typically, to adapt to a new robot\u00A0body (Gemini\u00A0Robotics\u00A02)'],
     ['2', 'related episodes to run an unfamiliar air fryer (π0.7)'],
   ];
   const facts = [];

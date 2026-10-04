@@ -24,20 +24,6 @@ async function crop(src, name, { l, t, w, h }) {
   return out;
 }
 
-// Stack several crops of one image vertically on a white canvas (e.g. a header line + one paragraph).
-async function stack(src, name, parts, { gap = 18, pad = 0, bg = '#FFFFFF' } = {}) {
-  fs.mkdirSync(OUT, { recursive: true });
-  const bufs = [];
-  for (const p of parts) bufs.push({ p, buf: await sharp(src).extract({ left: p.l, top: p.t, width: p.w, height: p.h }).toBuffer() });
-  const W = Math.max(...parts.map((p) => p.w)) + 2 * pad;
-  const H = parts.reduce((s, p) => s + p.h, 0) + gap * (parts.length - 1) + 2 * pad;
-  let y = pad;
-  const comp = bufs.map(({ p, buf }) => { const o = { input: buf, left: pad, top: y }; y += p.h + gap; return o; });
-  const out = path.join(OUT, name);
-  await sharp({ create: { width: W, height: H, channels: 3, background: bg } }).composite(comp).png().toFile(out);
-  return out;
-}
-
 function label(d, s, text, x, y, w, { color, h = 0.28, align = 'left' } = {}) {
   return d.text(s, text, { x, y, w, h, fontSize: 10, bold: true, color: color || d.S.steel, charSpacing: 2, valign: 'bottom', align });
 }
@@ -57,6 +43,23 @@ function chip(d, s, text, x, y, w, { h = 0.3, color = 'FFFFFF', fill = '0A0C10',
   const b = d.name('chip');
   s.addShape(d.pres.shapes.RECTANGLE, { x, y, w, h, fill: { color: fill, transparency }, line: { color: fill, width: 0, transparency: 100 }, objectName: b });
   const t = d.text(s, text, { x: x + 0.1, y, w: w - 0.2, h, fontSize, bold: true, color, charSpacing: 1, valign: 'middle' });
+  return [b, t];
+}
+
+// Outlet tab pinned to a (rotated) clipping: sits just outside the given edge, overlapping only the white frame border.
+// g = image geometry from d.frame (frame = g grown by pad); corner: 'tl' | 'tr' | 'bl' | 'br'.
+function outletTab(d, s, g, text, corner, rot = 0, { pad = 0.06, h = 0.24, inset = 0.14 } = {}) {
+  const w = text.length * 0.083 + 0.24;
+  const FW = g.w + 2 * pad, FH = g.h + 2 * pad;
+  const cx = g.x + g.w / 2, cy = g.y + g.h / 2;
+  const lx = corner[1] === 'r' ? FW / 2 - inset - w / 2 : -FW / 2 + inset + w / 2;
+  const ly = corner[0] === 't' ? -FH / 2 - h / 2 + pad : FH / 2 + h / 2 - pad;
+  const th = rot * Math.PI / 180;
+  const px = cx + lx * Math.cos(th) - ly * Math.sin(th), py = cy + lx * Math.sin(th) + ly * Math.cos(th);
+  const box = { x: px - w / 2, y: py - h / 2, w, h };
+  const b = d.name('tab');
+  s.addShape(d.pres.shapes.RECTANGLE, { ...box, rotate: rot, fill: { color: '2F3644' }, line: { color: '2F3644', width: 0 }, objectName: b });
+  const t = d.text(s, text, { ...box, rotate: rot, fontSize: 10, bold: true, color: 'FFFFFF', charSpacing: 1, align: 'center', valign: 'middle' });
   return [b, t];
 }
 
@@ -196,7 +199,7 @@ async function metrSlide(d) {
 async function graveyardSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
   s.addText(`${KICK} · CAPABILITIES · 2`, { placeholder: 'kicker' });
-  s.addText('The benchmark graveyard', { placeholder: 'title' });
+  s.addText('Benchmarks built to last years now die in months', { placeholder: 'title' });
 
   const tiles = [
     { name: 'FrontierMath Tier 4', desc: 'research-level math', from: '0%', to: '100%', when: 'Jan 2025 → Sep 29, 2026 (GPT-6.1 Sol)', note: 'problems written by top mathematicians' },
@@ -269,7 +272,7 @@ async function hleSlide(d) {
   const Q = quarters([2024, 3], [2026, 3]);
   const qlab = Q.map(([y, q]) => `Q${q} ’${String(y).slice(2)}`);
   const vals = quarterBest(DS['hle-sota-over-time'], Q);
-  const cw = 6.95;
+  const cw = 6.45;
   const lab = label(d, s, 'HLE · BEST SCORE TO DATE (%) · BY MODEL RELEASE QUARTER', MX, 1.7, cw);
   const ch = d.chart(s, 'bar', [{ name: 'Best score', labels: qlab, values: vals }], { x: MX - 0.05, y: 1.98, w: cw + 0.05, h: 2.98 }, {
     barDir: 'col', chartColors: [...vals.slice(0, -1).map(() => '6B7383'), HEX.red], barGapWidthPct: 45,
@@ -282,19 +285,18 @@ async function hleSlide(d) {
   ], { x: MX + cw - 2.55, y: 2.0, w: 1.75, h: 0.48, fontSize: 11, align: 'right', valign: 'top' });
 
   // right column: the billing + official leaderboard
-  const rx = 7.95, rw = 12.73 - rx;
+  const rx = 7.5, rw = 12.73 - rx;
   const bill = d.text(s, [
     { text: 'BILLED AT LAUNCH, JAN 2025', options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 2, breakLine: true } },
     { text: '“designed to be the last academic exam of its kind for AI”', options: { fontSize: 19, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true } },
     { text: 'Center for AI Safety & Scale AI · frontier models then scored <10%', options: { fontSize: 11, color: d.S.muted } },
   ], { x: rx, y: 1.72, w: rw, h: 1.45, valign: 'top' });
-  const lbLab = label(d, s, 'OFFICIAL LEADERBOARD · OCT 4, 2026', rx, 3.12, rw);
-  const lb = await d.frame(s, await crop(R('scale-hle-leaderboard.png'), 'hle-leaderboard-top3.png', { l: 0, t: 118, w: 1040, h: 300 }), { x: rx, y: 3.42, w: rw, h: 1.55 }, { align: 'left' });
+  const lbLab = label(d, s, 'OFFICIAL LEADERBOARD · TOP TWO · OCT 4, 2026', rx, 3.12, rw);
+  // top two rows, full bar width (cutting the bars would make them look equal); rank badges dropped
+  const lb = await d.frame(s, await crop(R('scale-hle-leaderboard.png'), 'hle-leaderboard-top2.png', { l: 100, t: 118, w: 885, h: 200 }), { x: rx, y: 3.42, w: rw, h: 1.45 }, { align: 'left' });
 
-  // bottom band: the organizers' own note, verbatim
-  const nc = await stack(R('scale-hle-rolling-noise-ceiling.png'), 'hle-noise-ceiling.png', [
-    { l: 30, t: 42, w: 1340, h: 50 }, { l: 30, t: 292, w: 1340, h: 150 },
-  ], { gap: 14, pad: 0 });
+  // bottom band: the organizers' own note, verbatim — one contiguous paragraph of the "Update September 17, 2026" entry
+  const nc = await crop(R('scale-hle-rolling-noise-ceiling.png'), 'hle-noise-ceiling-para.png', { l: 30, t: 292, w: 1340, h: 150 });
   const bandY = 5.15;
   const ncLab = d.text(s, [
     { text: 'Sep 17, 2026: ', options: { bold: true, color: d.S.red } },
@@ -302,7 +304,7 @@ async function hleSlide(d) {
   ], { x: MX, y: bandY, w: 3.6, h: 1.36, fontSize: 15, valign: 'middle' });
   const ncF = await d.frame(s, nc, { x: 4.4, y: bandY, w: 12.73 - 4.4, h: 1.38 }, { align: 'right' });
 
-  d.animate(s, [lab, { name: ch, effect: 'wipeDown', dur: 1200 }], { auto: true, effect: 'fade' });
+  d.animate(s, [lab, { name: ch, effect: 'wipeLeft', dur: 1400 }], { auto: true, effect: 'fade' });
   d.animate(s, [ann], { auto: true, effect: 'fade', after: 100 });
   d.animate(s, [bill], { effect: 'fade' });
   d.animate(s, [lbLab, ...lb], { effect: 'fade' });
@@ -364,28 +366,41 @@ async function creativeSlide(d) {
     { text: 'prompt: “1960’s art of cow getting abducted by UFO in midwest”', options: { color: d.S.muted } },
   ], { x: cg.x, y: cg.y + cg.h + 0.05, w: cg.w, h: 0.42, fontSize: 10.5, valign: 'top' });
   const gy = 5.2;
-  const genie = await d.frame(s, await crop(R('gdm-genie3-hero.png'), 'genie3-band.png', { l: 0, t: 300, w: 2360, h: 760 }), { x: cx, y: gy, w: colW, h: 6.48 - gy }, { border: false, align: 'left' });
+  // the generated jungle/ruins above the page's wordmark — no page text or buttons in the crop
+  const genie = await d.frame(s, await crop(R('gdm-genie3-hero.png'), 'genie3-world.png', { l: 330, t: 0, w: 1700, h: 570 }), { x: cx, y: gy, w: colW, h: 6.48 - gy }, { border: false, align: 'left' });
   const gg = genie.geom;
   const gc = chip(d, s, 'GENIE 3 · A PROMPT BECOMES A WORLD', gg.x, gg.y + gg.h - 0.28, gg.w, { h: 0.28, fontSize: 9 });
 
-  // col 3: Hercules fact sheet (public domain)
+  // col 3: Hercules fact sheet (public domain) + zoom on panel 12 (Cerberus)
   const hx = MX + 2 * (colW + gap);
-  const herc = await d.frame(s, R('commons-chatgpt-hercules-factsheet.png'), { x: hx, y: top, w: colW, h: 4.7 }, { border: false });
+  const HERC = R('commons-chatgpt-hercules-factsheet.png');
+  const herc = await d.frame(s, HERC, { x: hx, y: top, w: colW, h: 4.2 }, { border: false });
   const kg = herc.geom;
-  const kc = chip(d, s, 'ONE-LINE PROMPT. SPOT THE ERROR: CERBERUS HAS FOUR HEADS', kg.x, kg.y + kg.h - 0.5, kg.w, { h: 0.5, fontSize: 10, transparency: 8 });
+  const kcap = d.text(s, [
+    { text: 'ChatGPT · Sep 2026 · ', options: { bold: true, color: d.S.txt } },
+    { text: 'prompt: “Create a fact sheet on the twelve labours of Hercules”', options: { color: d.S.muted } },
+  ], { x: kg.x, y: kg.y + kg.h + 0.05, w: kg.w, h: 0.42, fontSize: 10.5, valign: 'top' });
+  const zb = { l: 716, t: 912, w: 220, h: 205 }; // panel 12 artwork, in the 960×1357 source
+  const ks = kg.w / 960;
+  const p12 = d.name('p12');
+  s.addShape(d.pres.shapes.RECTANGLE, { x: kg.x + zb.l * ks, y: kg.y + zb.t * ks, w: zb.w * ks, h: zb.h * ks, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 2 }, objectName: p12 });
+  const zw = 1.4, zh = zw * zb.h / zb.w;
+  const zoom = await d.frame(s, await crop(HERC, 'hercules-cerberus.png', zb), { x: kg.x - 0.32, y: kg.y + kg.h - zh - 0.5, w: zw, h: zh }, { pad: 0.05, frameColor: HEX.red });
+  const zg = zoom.geom;
+  const kc = chip(d, s, 'SPOT THE ERROR: CERBERUS HAS FOUR HEADS', zg.x - 0.05, zg.y + zg.h + 0.05, 3.5, { h: 0.3, fontSize: 10, fill: HEX.red, transparency: 0 });
 
   d.animate(s, [...heron, ...hc], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, [...cow, cc], { effect: 'fade' });
-  d.animate(s, [...herc], { effect: 'fade' });
-  d.animate(s, kc, { effect: 'fade' });
+  d.animate(s, [...herc, kcap], { effect: 'fade' });
+  d.animate(s, [p12, ...zoom, ...kc], { effect: 'zoom', dur: 450 });
   d.animate(s, [...genie, ...gc], { effect: 'fade' });
   d.animate(s, [...reg], { effect: 'slam', dur: 450 });
-  d.source(s, 'Images: user original (heron) · Wikimedia Commons, public domain (GPT Image 2.5, Sep 2026) · Google DeepMind, Genie 3 page (Oct 2026) · The Register, Jan 29, 2026.');
+  d.source(s, 'Images: user original (heron) · Wikimedia Commons, public domain (GPT Image 2.5 and ChatGPT, Sep 2026) · Google DeepMind, Genie 3 page (Oct 2026) · The Register, Jan 29, 2026.');
   s.addNotes([
     'MESSAGE: creative work — drawing, illustration, design, video, music, playable 3-D worlds — is no longer a human-only domain.',
     'Heron (user original, assets/original/image4.png): four successive pencil drawings made by a model iteratively refining its own technique ("Final 1" → "Final 4"; the labelled error falls from 6.34 to 3.37 as it adds close-up passes and tone-following pressure).',
     'Cow: generated with GPT Image 2.5 (ChatGPT Images 2.5, released Sep 8, 2026) from the 10-word prompt "1960\'s art of cow getting abducted by UFO in midwest". Wikimedia Commons, uploaded by Karl432 to show progress in image generation; license: Public domain (AI-generated, no human author). https://commons.wikimedia.org/wiki/File:1960%27s_art_of_cow_getting_abducted_by_UFO_in_midwest_(GPT_Image_2.5_September_2026).png',
-    'Hercules fact sheet: generated from the one-line prompt "Create a fact sheet on the twelve labours of Hercules" (ChatGPT / GPT Image 2.5, Sep 2026). Fully designed, legible text — but note the error: the "three-headed Cerberus" has four heads. Wikimedia Commons, Public domain. https://commons.wikimedia.org/wiki/File:AI_generated_fact_sheet_on_the_Twelve_labours_of_Hercules_(ChatGPT_September_2026).png . Related: TechCrunch, Apr 21, 2026, "ChatGPT\'s new Images 2.0 model is surprisingly good at generating text."',
+    'Hercules fact sheet: generated from the one-line prompt "Create a fact sheet on the twelve labours of Hercules" (ChatGPT / GPT Image 2.5, Sep 2026). Fully designed, legible text — but note the error: the "three-headed Cerberus" has four heads (red inset = panel 12 enlarged from the same image). Wikimedia Commons, Public domain. https://commons.wikimedia.org/wiki/File:AI_generated_fact_sheet_on_the_Twelve_labours_of_Hercules_(ChatGPT_September_2026).png . Related: TechCrunch, Apr 21, 2026, "ChatGPT\'s new Images 2.0 model is surprisingly good at generating text."',
     'Genie 3 (Google DeepMind world model; official page hero frame, https://deepmind.google/models/genie/): turns prompts into explorable worlds; public "Project Genie" access launched Jan 29, 2026. The Register, Brandon Vigliarolo, Jan 29, 2026: "Google\'s Project Genie could put even more game developers out of work" — https://www.theregister.com/software/2026/01/29/googles-project-genie-turns-prompts-into-interactive-worlds/4186526 . (Bloomberg, Jan 30: "Unity, Video Game Stocks Fall as Google\'s AI Tool Sparks Fears" — headline via Wikipedia citation only.)',
     'Not shown (space) — music: Variety, Corbin Bolies, Sep 18, 2026: "Sony Music, Universal Music Group Sue Suno Over Label-Backed Model: \'Fruit of the Same Poisoned Tree\'" (Suno v6 released Sep 9, 2026). https://variety.com/2026/music/news/sony-music-universal-music-sue-suno-label-backed-model-1236866921/',
     'Video: Google\'s 2026 video model is Gemini Omni ("Create anything from any input – starting with video"; Gemini Omni 1.1 Flash, Aug 2026): https://deepmind.google/models/gemini-omni/ . Note OpenAI\'s Sora — the 2024 showpiece — was shut down in 2026 (app closed Apr 26, API Sep 24), so do not cite Sora as current.',
@@ -400,15 +415,25 @@ async function videoSlide(d) {
     link: 'https://www.youtube.com/watch?v=5EoO5413dBY',
     embed: 'https://www.youtube.com/embed/5EoO5413dBY',
     cover: OW('yt-5EoO5413dBY.jpg'),
-    box: { x: MX, y: 0.32, w: CW, h: 6.22 },
+    box: { x: MX, y: 0.55, w: CW, h: 5.72 },
     label: '“i\'m upping my p(doom)” — mexicat · YouTube · Sep 27, 2026 · 2:37',
   });
+  // reveal after the video has played: who made it (the creator's claim, quoted verbatim from the repo README)
+  const vg = v.geom;
+  const who = d.text(s, [
+    { text: 'Creator’s repo: ', options: { bold: true, color: d.S.txt } },
+    { text: '“', options: { color: d.S.muted } },
+    { text: 'Claude Opus 5.5', options: { bold: true, color: d.S.red } },
+    { text: ' created the concept, treatment, lyric alignment, audio analysis, renderer, and all scenes”', options: { color: d.S.muted } },
+  ], { x: vg.x, y: vg.y + vg.h + 0.38, w: vg.w, h: 0.3, fontSize: 11, valign: 'middle' });
   d.animate(s, [v[0]], { auto: true, effect: 'fade', dur: 1200 });
   d.animate(s, [v[1]], { auto: true, effect: 'fade', dur: 600, after: 100 });
+  d.animate(s, [who], { effect: 'fade', dur: 600 });
   s.addNotes([
-    'Play it (2:37). Let the audience sit with it; do not explain who made it until afterwards if asked.',
+    'Play it (2:37). Let the audience sit with it — no explanation beforehand.',
+    'AFTER IT ENDS, click to reveal who made it, and say it: according to the creator\'s GitHub repo (github.com/mexicat/pdoom-video), "Claude Opus 5.5 created the concept, treatment, lyric alignment, audio analysis, renderer, and all scenes" — a whole music video, written and rendered in code by an AI model. That is why it sits in the capabilities section. Present it as the creator\'s claim (we have not independently audited the repo history).',
     'Video: "i\'m upping my p(doom)" by mexicat, YouTube, published Sep 27, 2026, 2:37, ~89.5k views at time of research. https://www.youtube.com/watch?v=5EoO5413dBY',
-    'Background (for Q&A only, not on the slide): a code-rendered music video; the creator\'s repo github.com/mexicat/pdoom-video says "Claude Opus 5.5 created the concept, treatment, lyric alignment, audio analysis, renderer, and all scenes". The song: lyrics by osmarks on a verse/chorus by MusicPerson (Udio, Nov 2024); audio is the "Claude-Pop" Suno version posted by deckard (@slimer48484), Sep 2026. The most viral copy (on X) reportedly reached ~2.77M views.',
+    'Background (Q&A): a code-rendered music video made with Claude Opus 5.5 in Claude Code, per the repo. The song: lyrics by osmarks on a verse/chorus by MusicPerson (Udio, Nov 2024); audio is the "Claude-Pop" Suno version posted by deckard (@slimer48484), Sep 2026. The most viral copy (on X) reportedly reached ~2.77M views.',
     'If the embed does not play (offline / no YouTube access), click the caption link under the video.',
   ].join('\n\n'));
   return s;
@@ -441,25 +466,25 @@ async function navierSlide(d) {
     { text: '”', options: { fontSize: 17, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
   ], { x: qx, y: 1.78, w: qw, h: fg.h, valign: 'middle' });
 
-  // stats row
-  const sy = 4.55, sw = (rw - 0.3 * 3) / 4;
+  // stats row — the first two are OpenAI's own figures, labelled as such
+  const sy = 4.42, sw = (rw - 0.3 * 3) / 4;
   const stats = [
-    ['10,000+', 'AI agents working in parallel'], ['88 hrs', 'from start to finished proof'],
-    ['166 pp', 'paper, plus a Lean formalization'], ['~$15M', 'compute burned (Aaronson’s estimate)'],
-  ].map(([v, l], i) => d.stat(s, { x: rx + i * (sw + 0.3), y: sy - 0.05, w: sw, value: v, label: l, valueSize: 32, labelSize: 12, color: i === 0 ? d.S.red : d.S.txt }));
+    ['10,000+', 'AI agents, per OpenAI'], ['88 hrs', 'to crack it, per OpenAI'],
+    ['166 pp', 'paper + Lean formalization, per OpenAI'], ['~$15M', 'compute burned (Aaronson’s estimate)'],
+  ].map(([v, l], i) => d.stat(s, { x: rx + i * (sw + 0.3), y: sy, w: sw, value: v, label: l, valueSize: 28, labelSize: 12, color: i === 0 ? d.S.red : d.S.txt }));
 
   // framing strip
-  const fy = 5.62, fw = (rw - 0.25) / 2;
-  const proved = [d.card(s, { x: rx, y: fy, w: fw, h: 0.88 })];
+  const fy = 5.38, fh = 1.14, fw = (rw - 0.25) / 2;
+  const proved = [d.card(s, { x: rx, y: fy, w: fw, h: fh })];
   proved.push(d.text(s, [
     { text: 'THE RESULT  ', options: { bold: true, color: d.S.teal, fontSize: 11, charSpacing: 2 } },
-    { text: 'With a smooth external force, a 3-D flow starting at rest can blow up in finite time — Fefferman’s alternatives (C) and (D).', options: { color: d.S.txt, fontSize: 12 } },
-  ], { x: rx + 0.15, y: fy + 0.05, w: fw - 0.3, h: 0.78, valign: 'middle' }));
-  const open = [d.card(s, { x: rx + fw + 0.25, y: fy, w: fw, h: 0.88 })];
+    { text: 'With a smooth external force, a 3-D flow starting at rest can blow up in finite time — Fefferman’s (C) and (D).', options: { color: d.S.txt, fontSize: 14 } },
+  ], { x: rx + 0.15, y: fy + 0.05, w: fw - 0.3, h: fh - 0.1, valign: 'middle' }));
+  const open = [d.card(s, { x: rx + fw + 0.25, y: fy, w: fw, h: fh })];
   open.push(d.text(s, [
     { text: 'STILL OPEN  ', options: { bold: true, color: d.S.amber, fontSize: 11, charSpacing: 2 } },
-    { text: 'The unforced case. Clay Institute: “apparently settled”; verification “deliberately unhurried”; no prize awarded.', options: { color: d.S.txt, fontSize: 12 } },
-  ], { x: rx + fw + 0.4, y: fy + 0.05, w: fw - 0.3, h: 0.78, valign: 'middle' }));
+    { text: 'The unforced case. Clay Institute: “apparently settled”; verification “deliberately unhurried”; no prize awarded.', options: { color: d.S.txt, fontSize: 14 } },
+  ], { x: rx + fw + 0.4, y: fy + 0.05, w: fw - 0.3, h: fh - 0.1, valign: 'middle' }));
 
   d.animate(s, paper, { auto: true, effect: 'fade', dur: 700 });
   d.animate(s, [hl, zl, ...zoom], { auto: true, effect: 'zoom', dur: 450, after: 100 });
@@ -473,7 +498,7 @@ async function navierSlide(d) {
     'MESSAGE: a Millennium Prize Problem — one of the seven hardest open problems in mathematics, with a $1M prize — has (apparently) been settled by an AI system. Be precise about what was proved.',
     'OpenAI, Sep 8, 2026, "On the Navier–Stokes Millennium Prize Problem": "This proof, produced by an internal OpenAI system, shows that the dynamics of the Navier-Stokes equations for fluid motion can develop a singularity in finite time." Same page: "To solve the Navier–Stokes problem, we used an internal model that is significantly more capable than GPT‑6 Astra. We believe it is important to inform the world about the pace of AI progress and what to expect from upcoming models." https://openai.com/index/navier-stokes-solution/',
     'The paper (author line: "OPENAI"), 166 pages: "For every positive viscosity, we construct a solution of the three-dimensional incompressible Navier–Stokes equations that starts from rest and develops unbounded velocity in finite time while maintaining uniformly bounded kinetic energy." It states this establishes alternative (C) of Fefferman\'s problem statement, and via compact support also alternative (D) on the torus. https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf',
-    'Scale: 10,000+ AI agents, 88 hours, ~2.7 million messages, a 166-page proof plus a Lean formalization (OpenAI via Guardian/BBC; Wikipedia "Navier–Stokes priority controversy"). Compute: Scott Aaronson estimates OpenAI burned "at least ~$15 million", and notes the proof "probably hasn\'t yet been read and understood by any human." https://scottaaronson.blog/?p=10062',
+    'Scale — OPENAI\'S OWN FIGURES, say so: 10,000+ AI agents, 88 hours, ~2.7 million messages, a 166-page proof plus a Lean formalization (as reported by the Guardian — "Company behind ChatGPT says 10,000 of its AI systems cracked the Navier-Stokes problem in 88 hours" — and BBC "OpenAI says it cracked 90-year-old maths problem in 88 hours"; also Wikipedia "Navier–Stokes priority controversy"). The 166-page length is confirmed by the PDF itself. Compute: Scott Aaronson estimates OpenAI burned "at least ~$15 million", and notes the proof "probably hasn\'t yet been read and understood by any human." https://scottaaronson.blog/?p=10062',
     'WHAT IS NOT SETTLED: this is the FORCED case — the construction uses a smooth external force chosen deliberately. The unforced problem (no external force; alternatives A/B or an unforced blowup) remains open. The Clay Mathematics Institute (Sep 11): "CMI shares in the excitement of the global mathematical community as we contemplate the announcement that the Navier-Stokes problem has apparently been settled" and "The process is deliberately unhurried, but we will provide updates." No prize has been awarded; OpenAI says it will not claim it. https://www.claymath.org/news/navier-stokes-announcement/',
   ].join('\n\n'));
   return s;
@@ -490,32 +515,43 @@ async function headlinesSlide(d) {
     ['guardian', 'guardian-navier-stokes.png', { l: 34, t: 342, w: 1460, h: 425 }],
     ['quanta', 'quanta-navier-stokes.png', { l: 100, t: 55, w: 1500, h: 480 }],
     ['verge', 'verge-navier-chill.png', { l: 20, t: 22, w: 1720, h: 250 }],
-    ['fortune', 'fortune-navier-stokes.png', { l: 77, t: 0, w: 1210, h: 595 }],
+    ['fortune', 'fortune-navier-stokes.png', { l: 77, t: 0, w: 1210, h: 770 }], // incl. byline + date
     ['techcrunch', 'techcrunch-navier-fought-dirty.png', { l: 1101, t: 520, w: 1395, h: 640 }],
     ['wired', 'wired-strogatz-terrified.png', { l: 30, t: 30, w: 1010, h: 440 }],
   ];
   const F = {};
   for (const [k, f, b] of C) F[k] = await crop(R(f), `ns-${k}.png`, b);
-  // three columns of pinned clippings
+  // three columns of pinned clippings; each gets an outlet tab sitting just outside its edge (covers only the white border)
   const col = [MX, 4.68, 8.76], w = 3.95;
+  const clip = async (file, box, rot, tabText, corner, opts = {}) => {
+    const g = await d.frame(s, file, box, { rot, ...opts });
+    return [...g, ...outletTab(d, s, g.geom, tabText, corner, rot)];
+  };
   const n = [];
-  n.push(await d.frame(s, F.bbc, { x: col[0], y: 1.78, w, h: 1.7 }, { rot: -2, align: 'left' }));
-  n.push(await d.frame(s, F.quanta, { x: col[1], y: 1.8, w, h: 1.35 }, { rot: 1.5 }));
-  n.push(await d.frame(s, F.guardian, { x: col[2], y: 1.8, w: 3.97, h: 1.25 }, { rot: -1 }));
-  n.push(await d.frame(s, F.verge, { x: col[1] - 0.05, y: 3.42, w: w + 0.1, h: 0.62 }, { rot: -1.2 }));
-  n.push(await d.frame(s, F.fortune, { x: col[0] + 0.1, y: 3.75, w: w - 0.2, h: 1.9 }, { rot: 1.2 }));
-  n.push(await d.frame(s, F.wired, { x: col[2], y: 3.3, w: 3.97, h: 1.75 }, { rot: 1.5 }));
-  n.push(await d.frame(s, F.techcrunch, { x: col[1] + 0.2, y: 4.35, w: w - 0.4, h: 1.95 }, { rot: 2 }));
+  n.push(await clip(F.bbc, { x: col[0], y: 1.78, w, h: 1.7 }, -2, 'BBC NEWS · SEP 8', 'br', { align: 'left' }));
+  n.push(await clip(F.quanta, { x: col[1], y: 1.8, w, h: 1.35 }, 1.5, 'QUANTA MAGAZINE · SEP 8', 'tr'));
+  n.push(await clip(F.guardian, { x: col[2], y: 1.8, w: 3.97, h: 1.25 }, -1, 'THE GUARDIAN · SEP 8', 'bl'));
+  n.push(await clip(F.verge, { x: col[1] - 0.05, y: 3.42, w: w + 0.1, h: 0.62 }, -1.2, 'THE VERGE · SEP 9', 'br'));
+  n.push(await clip(F.fortune, { x: col[0] + 0.05, y: 3.85, w: w - 0.1, h: 2.45 }, 1.2, 'FORTUNE · SEP 8', 'br'));
+  n.push(await clip(F.wired, { x: col[2], y: 3.32, w: 3.97, h: 1.55 }, 1.5, 'WIRED · SEP 12', 'tr'));
+  n.push(await clip(F.techcrunch, { x: col[1] + 0.2, y: 4.38, w: w - 0.4, h: 1.92 }, 2, 'TECHCRUNCH · SEP 8', 'br'));
 
-  // credit-dispute strip
+  // credit dispute, from Buckmaster's own (verified) Mastodon post
+  const dy = 5.1;
+  const mh = await d.frame(s, await crop(R('buckmaster-mastodon-scoop.png'), 'buckmaster-header.png', { l: 25, t: 25, w: 660, h: 110 }), { x: col[2], y: dy, w: 2.6, h: 0.5 }, { align: 'left', pad: 0.05 });
+  const mg = mh.geom;
+  const mlab = d.text(s, [
+    { text: 'THE DISPUTE', options: { bold: true, color: d.S.red, charSpacing: 2, breakLine: true } },
+    { text: 'MASTODON · SEP 8', options: { bold: true, color: d.S.steel, charSpacing: 1 } },
+  ], { x: mg.x + mg.w + 0.2, y: mg.y - 0.05, w: 12.73 - (mg.x + mg.w + 0.2), h: mg.h + 0.1, fontSize: 10, valign: 'middle' });
   const strip = d.text(s, [
-    { text: 'The dispute: ', options: { bold: true, color: d.S.red } },
-    { text: 'NYU’s Tristan Buckmaster says unpublished progress by him and Levent Alpöge was passed to OpenAI days before its announcement. OpenAI denies using it.', options: { color: d.S.txt } },
-  ], { x: col[2], y: 5.35, w: 3.97, h: 1.1, fontSize: 13, valign: 'top' });
+    { text: 'NYU’s Tristan Buckmaster accuses OpenAI of using customer data: ', options: { color: d.S.txt } },
+    { text: '“Is it ethical to use customer\'s data to try to scoop their customer?”', options: { color: d.S.txt, italic: true, bold: true } },
+  ], { x: col[2], y: mg.y + mg.h + 0.14, w: 3.97, h: 6.52 - (mg.y + mg.h + 0.14), fontSize: 14, valign: 'top' });
 
   n.forEach((g, i) => d.animate(s, g, { auto: true, effect: 'slam', dur: 380, after: i === 0 ? 150 : 90 }));
-  d.animate(s, [strip], { effect: 'fade' });
-  d.source(s, 'BBC News, Guardian, Quanta, TechCrunch, Fortune (Sep 8, 2026) · The Verge (Sep 9) · WIRED (Sep 12) · Wikipedia, “Navier–Stokes priority controversy”.');
+  d.animate(s, [...mh, mlab, strip], { effect: 'fade' });
+  d.source(s, 'BBC News, Quanta Magazine, The Guardian, Fortune, TechCrunch (Sep 8, 2026) · The Verge (Sep 9) · WIRED (Sep 12) · Tristan Buckmaster on Mastodon (Sep 8).');
   s.addNotes([
     'MESSAGE: this was front-page news worldwide — and immediately contested.',
     'BBC News (Kali Hays, Sep 8): "OpenAI says it cracked 90-year-old maths problem in 88 hours" https://www.bbc.co.uk/news/articles/cy7zygy3rl2o',
@@ -525,7 +561,8 @@ async function headlinesSlide(d) {
     'Fortune (Jeremy Kahn, Sep 8): "OpenAI says it cracked one of math\'s grand challenges. But there are troubling questions about how they did it—and what it means for us all" https://fortune.com/2026/09/08/openai-says-it-cracked-navier-stokes-math-grand-challenge-buckmaster-accusation-cheating-intimidation-tao-lament/',
     'TechCrunch (Russell Brandom, Sep 8): "OpenAI fought dirty on career-making math problem, says NYU mathematician" https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/',
     'WIRED (Isabella Ward, Sep 12): "\'I\'m Really Terrified\': A Mathematician Grapples With AI\'s Recent Breakthroughs" — lede: "Steven Strogatz starts to cry when he talks about the artificial-intelligence-driven breakthroughs in his field over the past week." Strogatz: "I think the year 2026 is going to be remembered as either an annus mirabilis or annus horribilis for mathematics." https://www.wired.com/story/mathematician-steven-strogatz-grapples-with-ai-recent-breakthroughs/',
-    'THE CREDIT DISPUTE (Wikipedia, "Navier–Stokes priority controversy"): ~12 hours before OpenAI\'s announcement, Tristan Buckmaster (NYU Courant) posted a statement on behalf of himself and partly Levent Alpöge (a mathematician employed at Anthropic; both stress it was "a strictly personal collaboration"). They had spent about a year, in secret, closing the gaps toward the forced blowup using LLMs from both Anthropic and OpenAI; they obtained smooth-forcing results for Euler, IPM and Boussinesq on Aug 15, 2026 (Lean-verified a week later) and planned human-written papers first. Buckmaster says analysts told them their "progress had been passed to OpenAI" a few days before, and that it may have inspired OpenAI\'s agent prompts; he also questioned whether OpenAI could have used their Codex usage data ("Is it ethical to use customer\'s data to try to scoop their customer?" — Mastodon, Sep 8). Alpöge made a similar, more implicit accusation. OpenAI (Sébastien Bubeck; retweeted by Sam Altman) denies direct use, citing "significant" differences in proof methods, says it contacted them in good faith, and says it began large-scale work on all Millennium problems on Sep 1 after rumours that Anthropic had solved two. Both sides say OpenAI will not claim the prize. https://en.wikipedia.org/wiki/Navier%E2%80%93Stokes_priority_controversy · https://mastodon.social/@tristanbuckmaster/117236471352470303',
+    'THE CREDIT DISPUTE (verified primary source only): Tristan Buckmaster (NYU), Mastodon, Sep 8, 2026, quoting OpenAI — "Since August 28 we have been training a new internal model that has exhibited unprecedented performance in our benchmarks, including mathematics. This model’s training is ongoing and its performance continues to improve." — and adding: "Note that they are openly admitting they used training data from a period after we found our result. Is it ethical to use customer\'s data to try to scoop their customer?" i.e. he accuses OpenAI of using his team\'s data as an OpenAI customer. https://mastodon.social/@tristanbuckmaster/117236471352470303 . TechCrunch\'s headline on the slide ("OpenAI fought dirty on career-making math problem, says NYU mathematician") is the same dispute.',
+    'Do NOT go beyond this on stage: the fuller back-story (who else was involved, what OpenAI says in response) is only in the Wikipedia article "Navier–Stokes priority controversy" and has not been verified for this talk. If asked, say the details are contested and point people to the coverage (Fortune, TechCrunch). No prize has been awarded, and OpenAI says it will not claim it (Clay Institute item).',
     'Unverified (not shown): NYT "An N.Y.U. Mathematician Clashed With OpenAI Over a $1 Million Proof"; WaPo "He was close to a huge math breakthrough. Then he got scooped by AI."; Telegraph "OpenAI accused of threatening professor…" — titles known only from Wikipedia citations.',
   ].join('\n\n'));
   return s;
@@ -545,15 +582,17 @@ async function aftermathSlide(d) {
       who: 'Scott Aaronson · Shtetl-Optimized · Sep 15, 2026',
     },
     {
-      shots: [[R('buzzard-title.png'), 'buzzard-grieve-crop.png', { l: 28, t: 34, w: 565, h: 66 }, 0.36],
-        [R('buzzard-flt-title.png'), 'buzzard-flt-crop.png', { l: 28, t: 34, w: 712, h: 66 }, 0.36]],
-      quote: [['“I was given £1M to run my project over 5 years; '], ['Anthropic took only 11 days', 1], ['…”', 0, 1], ['— on formalizing Fermat’s Last Theorem in Lean', 2]],
+      shots: [[R('buzzard-flt-title.png'), 'buzzard-flt-crop.png', { l: 28, t: 34, w: 712, h: 66 }, 0.36],
+        [R('buzzard-title.png'), 'buzzard-grieve-crop.png', { l: 28, t: 34, w: 565, h: 66 }, 0.36]],
+      quote: [['“I was given £1M to run my project over 5 years; '], ['Anthropic took only 11 days', 1], [' but I do wonder if they spent more money…”', 0, 1],
+        ['“A post-doc I know told me that they were '], ['considering leaving mathematical research', 1], [' because of what it was about to become.”']],
+      size: 14,
       who: 'Kevin Buzzard · Xena blog · Sep 4 & Oct 1, 2026',
     },
     {
       shots: [[R('tao-mastodon-stripmining.png'), 'tao-header-crop.png', { l: 26, t: 26, w: 420, h: 106 }, 0.5]],
-      quote: [['“the indiscriminate automated '], ['strip-mining of open problems', 1], [' for solutions '], ['may destroy the ecosystem', 1], [' from which the next generation of mathematical techniques, problems, and practitioners would have developed”']],
-      who: 'Terence Tao on Mathstodon, quoting Hugo Duminil-Copin · Sep 3, 2026',
+      quote: [['“the indiscriminate automated '], ['strip-mining of open problems', 1], [' for solutions '], ['may destroy the ecosystem', 1], [' from which the next generation of mathematical techniques, problems, and practitioners would have developed…”']],
+      who: 'Hugo Duminil-Copin, quoted by Terence Tao on Mathstodon · Sep 3, 2026',
     },
     {
       shots: [[R('mathandai-declaration.png'), 'mathandai-title-crop.png', { l: 70, t: 96, w: 1010, h: 310 }, 0.78]],
@@ -578,7 +617,7 @@ async function aftermathSlide(d) {
     }
     const qy = sy + shotH + 0.12;
     const runs = c.quote.map(([t, em, br]) => ({ text: t, options: em === 2 ? { italic: false, fontFace: 'Calibri', fontSize: 12, color: d.S.muted } : { bold: em === 1, color: em === 1 ? d.S.red : d.S.txt, breakLine: !!br } }));
-    g.push(d.text(s, runs, { x: x + 0.22, y: qy, w: cw - 0.44, h: y + chh - 0.42 - qy, fontSize: 15, italic: true, color: d.S.txt, fontFace: 'Cambria', valign: 'middle', fit: 'shrink' }));
+    g.push(d.text(s, runs, { x: x + 0.22, y: qy, w: cw - 0.44, h: y + chh - 0.42 - qy, fontSize: c.size || 15, italic: true, color: d.S.txt, fontFace: 'Cambria', valign: 'middle', fit: 'shrink' }));
     g.push(d.text(s, c.who, { x: x + 0.22, y: y + chh - 0.38, w: cw - 0.44, h: 0.28, fontSize: 11, color: d.S.muted, valign: 'middle' }));
     groups.push(g);
   }
@@ -588,8 +627,8 @@ async function aftermathSlide(d) {
     'MESSAGE: the people at the top of the field are saying, in public, that something fundamental has changed — some with awe, many with grief.',
     'Scott Aaronson, "The Age of Wonders and Terrors", Shtetl-Optimized, Sep 15, 2026 (https://scottaaronson.blog/?p=10062). Opens with the 2006-era skeptic\'s line: "…we\'ll see major math problems getting solved by AIs—even the Clay Millennium Problems. That will be the time to panic! Wake me up when that happens!" — then: "update on the fact that the wild prophecies have come true." Also: "it seems safe to say that human mathematicians are forevermore dethroned as the main theorem-proving entities on planet earth." And: "It seems to me that the Singularity has already started; it\'s just wildly unevenly distributed." And: "By any accounting that doesn\'t stack the deck, Eliezer Yudkowsky was right about what the greatest challenge facing civilization in our lifetimes was going to be, and you and I were wrong about it."',
     'Kevin Buzzard, "FLT: Anthropic has beaten me to it", Xena, Sep 4, 2026 (https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/): an Anthropic internal model, using the prove2.me platform, formalized a complete proof of Fermat\'s Last Theorem in Lean — the last item on Freek Wiedijk\'s 20-year-old list of 100 formalization challenges; over 13.4 million lines, ~20× mathlib\'s compile time. "I was given £1M to run my project over 5 years; Anthropic took only 11 days but I do wonder if they spent more money…"',
-    'Kevin Buzzard, "To grieve, or not to grieve?", Xena, Oct 1, 2026 (NOTE: the title is not "Should we grieve?") https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/ — Buzzard himself is "extremely excited", but frames colleagues\' reactions through the stages of grief: a fluids faculty member called the Navier–Stokes news "extremely depressing"; a post-doc was "considering leaving mathematical research because of what it was about to become"; a PhD student whose lemma ChatGPT one-shotted "wonder[ed] what the point of it all was."',
-    'Terence Tao, Mathstodon, Sep 3, 2026 (https://mathstodon.xyz/@tao/117204930249967695), quoting Hugo Duminil-Copin (Proofs and Prompts, Aug 30): "the indiscriminate automated strip-mining of open problems for solutions may destroy the ecosystem…, similarly to how using excavators to dig out treasures from an archeological site destroys the rich historical context". Tao adds it may become necessary to declare some classes of problems off-limits to automated solvers. Same day he described "the unedifying spectacle of no fewer than three separate AI companies" racing to announce improvements on the bounded-prime-gaps result (https://mathstodon.xyz/@tao/117208619314517025). NOTE: the AI posts on Tao\'s blog (e.g. "After Math", Sep 12) are guest posts; Tao\'s own words are these Mathstodon posts.',
+    'Kevin Buzzard, "To grieve, or not to grieve?", Xena, Oct 1, 2026 (NOTE: the title is not "Should we grieve?") https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/ — its opening paragraph (visible in the verified title screenshot, buzzard-title.png) says: "I personally am extremely excited about the future of our field. However it is becoming clear to me that my views are not shared by everyone in the community: indeed, many of my colleagues seem to be upset." He then frames colleagues\' reactions through the stages of grief: a fluids faculty member called the Navier–Stokes news "extremely depressing"; a post-doc was "considering leaving mathematical research because of what it was about to become"; a PhD student whose lemma ChatGPT one-shotted "wonder[ed] what the point of it all was."',
+    'Terence Tao, Mathstodon, Sep 3, 2026 (https://mathstodon.xyz/@tao/117204930249967695), quoting Hugo Duminil-Copin (Proofs and Prompts, Aug 30): "the indiscriminate automated strip-mining of open problems for solutions may destroy the ecosystem…, similarly to how using excavators to dig out treasures from an archeological site destroys the rich historical context". Tao continues in the same post (visible in the verified screenshot, tao-mastodon-stripmining.png): "It may become necessary to declare certain classes of mathematical problems off-limits to automated solvers, in order to preserve their broader value to the mathematical ecosystem (for instance, through the training of future mathematicians)." On the slide the words are Duminil-Copin\'s — Fortune misattributed them to Tao, so credit him first. Same day he described "the unedifying spectacle of no fewer than three separate AI companies" racing to announce improvements on the bounded-prime-gaps result (https://mathstodon.xyz/@tao/117208619314517025). NOTE: the AI posts on Tao\'s blog (e.g. "After Math", Sep 12) are guest posts; Tao\'s own words are these Mathstodon posts.',
     '"A Severe Misalignment of AI in Mathematics", mathandai.org, Sep 11, 2026: "…the push by AI companies to solve mathematical problems as a benchmark is detrimental to the science of mathematics, and to the mathematical community. The goals of the AI companies and the goals of the mathematical community are severely misaligned." Signatory count varies by source — Tao\'s post says 25 Fields Medalists, The Economist 24, Wikipedia 28, and mathandai.org listed 27 as of Oct 4 — hence "two dozen+". Economist: "Top mathematicians are outraged by OpenAI\'s methods" (Sep 11).',
   ].join('\n\n'));
   return s;
@@ -612,7 +651,7 @@ async function vibemathedSlide(d) {
   const all = ds.series[0].values, res = ds.series[1].values;
   const box = { x: MX - 0.05, y: 3.68, w: lw + 0.05, h: 2.8 };
   const L = { x: 0.07, y: 0.12, w: 0.9, h: 0.72 };
-  const lab = label(d, s, 'AI-SOLVED PROBLEMS PER MONTH · VIBEMATHED TRACKER · *PARTIAL MONTH', MX, 3.4, lw);
+  const lab = label(d, s, 'AI-SOLVED PROBLEM ENTRIES PER MONTH · VIBEMATHED · *PARTIAL MONTH', MX, 3.4, lw);
   const ch = d.chart(s, 'bar', [
     { name: 'Fully resolved', labels: labs, values: res },
     { name: 'Partial / candidate', labels: labs, values: all.map((v, i) => v - res[i]) },
@@ -626,7 +665,10 @@ async function vibemathedSlide(d) {
   const bx = (i) => P.x + (i + 0.5) * P.w / labs.length;
   const byv = (v) => P.y + (1 - v / 250) * P.h;
   const jul = ds.labels.indexOf('2026-07');
-  const pk = d.text(s, '223 in July 2026', { x: bx(jul) - 2.25, y: byv(223) - 0.12, w: 2.05, h: 0.26, fontSize: 11, bold: true, color: d.S.txt, align: 'right', valign: 'middle' });
+  const pk = d.text(s, [
+    { text: '223 entries in July 2026 ', options: { bold: true, color: d.S.txt } },
+    { text: '(166 fully resolved)', options: { bold: true, color: d.S.red } },
+  ], { x: bx(jul) - 3.55, y: byv(223) - 0.12, w: 3.35, h: 0.26, fontSize: 11, align: 'right', valign: 'middle' });
   const pkl = line(d, s, bx(jul) - 0.18, byv(223) + 0.01, bx(jul) - 0.08, byv(223) + 0.01, { color: HEX.text, width: 1 });
 
   // right: the backlash

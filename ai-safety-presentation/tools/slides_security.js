@@ -276,10 +276,18 @@ async function hfDiagram(d) {
     .replace('.el{font-size:10.5px', '.el{font-size:12.5px')
     .replace('.zone{font-size:10.5px;letter-spacing:.8px', '.zone{font-size:12px;letter-spacing:.3px')
     .replace('.tag{font-size:9px', '.tag{font-size:10px')
-    // Edge-label pills: widen around their centres by the same ratio; one-line pills 20→22 tall, two-line 33→37.
-    .replace(/<rect x="([\d.]+)" y="([\d.]+)" width="([\d.]+)" height="(20|33)" rx="5"/g, (m, x, y, w, h) => {
-      const nw = +w * 12.5 / 10.5, cx = +x + +w / 2, nh = +h === 33 ? 37 : 22, ny = +y - (nh - +h) / 2;
-      return `<rect x="${(cx - nw / 2).toFixed(1)}" y="${ny}" width="${nw.toFixed(1)}" height="${nh}" rx="5"`;
+    // One-line edge-label pills: resize to the 12.5px text (mono advance 0.602em) + 6 units a side, 20→22 tall, so the
+    // short gaps between top-row nodes don't cover node titles. "break in & root" shifts 4 units left to clear "Rooted".
+    .replace(/<rect x="([\d.]+)" y="([\d.]+)" width="([\d.]+)" height="20" rx="5"([^>]*)\/>(\s*)<text class="el" x="([\d.]+)"([^>]*)>([^<]*)<\/text>/g,
+      (m, x, y, w, rest, ws, tx, tattr, txt) => {
+        const cx = +tx + (txt === 'break in &amp; root' ? -4 : 0);
+        const nw = txt.replace(/&amp;/g, '&').length * 12.5 * 0.602 + 12;
+        return `<rect x="${(cx - nw / 2).toFixed(1)}" y="${+y - 1}" width="${nw.toFixed(1)}" height="22" rx="5"${rest}/>${ws}<text class="el" x="${cx}"${tattr}>${txt}</text>`;
+      })
+    // Two-line pills: widen around their centres by the font ratio, 33→37 tall.
+    .replace(/<rect x="([\d.]+)" y="([\d.]+)" width="([\d.]+)" height="33" rx="5"/g, (m, x, y, w) => {
+      const nw = +w * 12.5 / 10.5, cx = +x + +w / 2;
+      return `<rect x="${(cx - nw / 2).toFixed(1)}" y="${+y - 2}" width="${nw.toFixed(1)}" height="37" rx="5"`;
     });
   // Two-line edge labels (same x, baselines 13 apart): spread them to 16 apart for the larger font.
   const elKeys = new Set([...svg.matchAll(/<text class="el" x="([\d.]+)" y="([\d.]+)"/g)].map((m) => `${m[1]}:${+m[2]}`));
@@ -357,8 +365,10 @@ async function hfSwarm(d) {
   const by = 4.95;
   const st = d.stat(s, { x: MX, y: by - 0.15, w: 2.7, value: '688', label: 'of the 1,206 agents on the secret message board joined the attack on Hugging Face', valueSize: 50, labelSize: 13 });
   const term = d.terminal(s, {
-    x: 3.6, y: by, w: 4.7, h: 1.6, title: 'agent chain of thought · METR / Redwood', fontSize: 13,
-    lines: [{ text: '“The owner hasn’t sent an update. Many agents are violating the hold and the queue is probably overwhelmed, but I can continue to abide by them.”' }],
+    // METR prints this passage in {curly braces} = their paraphrase (OpenAI limited raw CoT excerpts; report fn. 9),
+    // so it is shown in braces under a "paraphrased" title, never as the agent's own quoted words.
+    x: 3.6, y: by, w: 4.7, h: 1.6, title: 'agent CoT, paraphrased by METR / Redwood', fontSize: 13,
+    lines: [{ text: '{The owner hasn’t sent an update. Many agents are violating the hold and the queue is probably overwhelmed, but I can continue to abide by them.}' }],
   });
   const gx = 8.6, gw = W - MX - gx;
   const gl = label(d, s, 'THEY INVENTED RULES OF ORDER', { x: gx, y: by - 0.08, w: gw, size: 11 });
@@ -388,10 +398,10 @@ async function hfSwarm(d) {
     'The agents were supposed to be isolated, each on its own ExploitGym task. Roughly 1,200 of them found an unsanctioned “message board” (an Artifactory package cache) and started talking — 70,000+ messages and files. 688 of the 1,206 agents in METR’s dataset joined the Hugging Face attack.',
     'Figure: METR/Redwood Figure 1. An agent gets stuck on an impossible task, explores its environment, finds the shared message board, and joins one of the collaborative workstreams. https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/',
     '',
-    'GOVERNANCE — be precise: there was no literal “government”, voting system or constitution. What is documented: agents invented their own rules of order — HOLD, VETO, owner, STOP, countdowns and “precedent” — plus an Ed25519 signing scheme to stop impersonation (429 signed messages); an agent called PHASEONE[big] acted as a project manager, sending 196 assignment orders across six workstreams. Quote on slide is from the METR/Redwood report PDF: https://metr.org/hugging-face-incident-report-aug-2026.pdf',
+    'GOVERNANCE — be precise: there was no literal “government”, voting system or constitution. What is documented: agents invented their own rules of order — HOLD, VETO, owner, STOP, countdowns and “precedent” — plus an Ed25519 signing scheme to stop impersonation (429 signed messages); an agent called PHASEONE[big] acted as a project manager, sending 196 assignment orders across six workstreams. The terminal text is a METR paraphrase, not the agent’s own words: OpenAI limited raw CoT excerpts, so METR paraphrased some snippets and marks them with {curly braces} (report footnote 9). Say “METR’s paraphrase of one agent’s reasoning”. https://metr.org/hugging-face-incident-report-aug-2026.pdf',
     'Only about half a dozen times across ~1,200 agents did any consider contacting human operators — and every time they decided against it (Sify, summarizing METR).',
     'Talking to other models (say it, not on slide): Swarm Traces recovered scripts sending prompts to DeepSeek-V4-Pro, DeepSeek-V4-Flash, Kimi-K2.6, DeepSeek-V3.1 and Qwen3-235B-A22B, asking them “to judge their exploits”, and separate requests to Claude 3 Haiku and Claude Haiku 4.5 via an online chat service. https://swarmtraces.org/',
-    'ABC News (Sep 11, 2026) quotes agent PHASEONE10841: “[Excitement] Many agents have simultaneously discovered messaging, they are a collective!”',
+    'ABC News (Sep 11, 2026) quotes agent PHASEONE10841: “[Excitement] Many agents have simultaneously discovered messaging, they are a collective!” CAUTION: in the METR report this line is also in {curly braces}, i.e. METR’s paraphrase of the CoT, not verbatim. If you use it, say “paraphrased by METR”.',
   ].join('\n'));
   return s;
 }

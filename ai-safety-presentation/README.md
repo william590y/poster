@@ -36,7 +36,7 @@ URLs + caveats are in the speaker notes. Vendor- or company-reported results are
 | “Houthi … intercontinental ballistic missiles using Claude Code … logs” | Anthropic’s report says “northern Yemen” (media say Houthis), guided rocket / >2,000 km ballistic / hypersonic-glide programs — not an ICBM; no chat logs were published |
 | “MiniMax 3.1 Flash” (open weights) | It is MiniMax M3.1-Flash-Preview: not open-weight, no published benchmarks; the slide uses the open-weight MiniMax M3 |
 | Vals RSI chart | The live index (Oct 4, 2026) differs from the screenshot’s older projection; both are dated on the slide |
-| Russell’s “fetch the coffee” | Quote verified via secondary citation (Wikipedia), attributed to *Human Compatible* |
+| Russell’s “you can’t fetch the coffee if you’re dead” | Only verifiable second-hand, so the slide uses Russell’s verified Edge.org (2014) statement of instrumental convergence instead; Bostrom’s orthogonality thesis is quoted in full (two sentences) |
 
 ## Build
 
@@ -48,7 +48,7 @@ npm install                # pptxgenjs, sharp, react-icons, playwright
 
 - `tools/lib.js` — theme (dark, “alarm red”), layouts, components (screenshot frames, citation cards, stat callouts, terminal
   transcripts, video embeds, styled native charts) and the animation registry.
-- `tools/theory_slides.js` — title, roadmap, act dividers, orthogonality, instrumental convergence, intelligence explosion, coda.
+- `tools/theory_slides.js` — title, roadmap, act dividers, intelligence explosion, coda (orthogonality + instrumental convergence live in `slides_xrisk.js`).
 - `tools/slides_<section>.js` — one module per section (economy, capabilities, work, frontier, xrisk, security, geopolitics,
   openweights); `node tools/render_module.js <section>` renders one section for QA.
 - `tools/postprocess.py` — injects slide transitions + entrance animations (pptxgenjs can’t), writes the theme colors, and

@@ -304,7 +304,195 @@ async function astraSlide(d) {
 }
 
 // ======================================================================
-// 3. NEURALESE · an alien mind (o3 CoT + Pachocki)
+// 3. NEURALESE · too much thinking to read (log-scale reading-time ladder + METR)
+// ======================================================================
+async function cotVolumeSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  head(s, 'INSIDE THE MACHINE · NEURALESE · 3', 'Too much AI thinking for any human to read');
+  const RECT = d.pres.shapes.RECTANGLE;
+
+  // ---- left: native log-scale ladder. Bar length = log10(hours of nonstop reading at 240 words/min). ----
+  const LX = CX0, LW = 7.45;
+  const lab = capLabel(d, s, 'TIME FOR ONE PERSON TO READ IT · NONSTOP, NO SLEEP · 240 WORDS A MINUTE · LOG SCALE', { x: LX, y: 1.72, w: LW });
+  const labW = 2.5, bx0 = LX + 2.62, bx1 = LX + LW, DEC = 12; // axis: 1 hour … 10^12 hours
+  const k = (bx1 - bx0) / DEC;
+  const X = (hours) => bx0 + k * Math.log10(hours);
+  // hours = tokens × 0.75 words/token ÷ 240 words/min ÷ 60 (rows 1–4, our estimates); row 5 is OpenAI's own figure.
+  const rows = [
+    { t: 'One long reasoning run', sub: '100K tokens (Google: “hundreds of thousands” in one run)', h: 5.21, v: '≈ 5 hours', c: '9AA6BA' },
+    { t: 'Gemini 4 Argon’s output cap', sub: '1M tokens in a single response', h: 52.1, v: '≈ 2 days', c: '9AA6BA' },
+    { t: 'One METR incident transcript', sub: '~3M tokens (METR: “often many millions”)', h: 156.3, v: '≈ 6½ days', c: HEX.blue },
+    { t: 'All ~1,300 METR transcripts', sub: '1,300 × 2–3M tokens each', h: 135400, h2: 203100, v: '≈ 15–23 years', c: HEX.amber },
+    { t: 'OpenAI’s rogue-agent log review', sub: '~50 petabytes of agent activity logs', h: 5.79e11, v: '66 million years', c: HEX.red, inside: true },
+  ];
+  const ry0 = 2.1, rh = 0.62, rg = 0.06;
+  const ry = (i) => ry0 + i * (rh + rg);
+  const yEnd = ry(rows.length - 1) + rh;
+  const bh = 0.34;
+  // static: faint tracks, gridlines, tick labels
+  const base = [];
+  rows.forEach((r, i) => {
+    const n = d.name('trk');
+    s.addShape(RECT, { x: bx0, y: ry(i) + (rh - bh) / 2, w: bx1 - bx0, h: bh, fill: { color: '131720' }, line: { color: '131720', width: 0 }, objectName: n });
+    base.push(n);
+  });
+  const ticks = [
+    { h: 1, l: '1 hour' }, { h: 24, l: '1 day' }, { h: 8766, l: '1 year' },
+    { h: 80 * 8766, l: '80-yr lifetime', life: true }, { h: 8766e6, l: '1 million years' },
+  ];
+  ticks.forEach((t) => {
+    const x = X(t.h);
+    const n = d.name('grid');
+    s.addShape(d.pres.shapes.LINE, {
+      x, y: ry0 - 0.06, w: 0, h: yEnd - ry0 + 0.12,
+      line: { color: t.life ? HEX.amber : '343B48', width: t.life ? 1.5 : 0.75, dashType: t.life ? 'dash' : 'solid' }, objectName: n,
+    });
+    base.push(n);
+    base.push(d.text(s, t.l, { x: x - 0.6, y: yEnd + 0.1, w: 1.2, h: 0.24, fontSize: 10, color: t.life ? d.S.amber : d.S.steel, align: 'center', bold: !!t.life }));
+  });
+  const rowNames = rows.map((r, i) => {
+    const y = ry(i), by = y + (rh - bh) / 2, names = [];
+    names.push(d.text(s, [
+      { text: r.t, options: { fontSize: 13, bold: true, color: d.S.txt, breakLine: true } },
+      { text: r.sub, options: { fontSize: 10.5, color: d.S.muted } },
+    ], { x: LX, y, w: labW, h: rh, valign: 'middle' }));
+    const bar = d.name('bar');
+    s.addShape(RECT, { x: bx0, y: by, w: X(r.h) - bx0, h: bh, fill: { color: r.c }, line: { color: r.c, width: 0 }, objectName: bar });
+    names.push(bar);
+    if (r.h2) { // range: lighter extension to the upper estimate
+      const ext = d.name('bar');
+      s.addShape(RECT, { x: X(r.h), y: by, w: X(r.h2) - X(r.h), h: bh, fill: { color: r.c, transparency: 50 }, line: { color: r.c, width: 0 }, objectName: ext });
+      names.push(ext);
+    }
+    if (r.inside) {
+      names.push(d.text(s, r.v, { x: X(r.h) - 2.6, y: by, w: 2.5, h: bh, fontSize: 15, bold: true, color: 'FFFFFF', align: 'right', valign: 'middle' }));
+    } else {
+      names.push(d.text(s, r.v, { x: X(r.h2 || r.h) + 0.1, y: by - 0.04, w: 1.7, h: bh + 0.08, fontSize: 14, bold: true, color: r.c, valign: 'middle' }));
+    }
+    return names;
+  });
+  // the arithmetic, shown and labelled
+  const ay = yEnd + 0.48;
+  const ac = d.card(s, { x: LX, y: ay, w: LW, h: 6.5 - ay }, { color: '10141B' });
+  const at = d.text(s, [
+    { text: 'Rows 1–4, our estimate:  ', options: { bold: true, color: d.S.amber } },
+    { text: '1M tokens × 0.75 words ÷ 240 words/min ≈ 52 hours', options: { color: d.S.txt, breakLine: true } },
+    { text: 'Row 5, OpenAI’s figure:  ', options: { bold: true, color: 'FF6B6B' } },
+    { text: '50 PB ÷ ~6 bytes per word ÷ 240/min ≈ 66 million years', options: { color: d.S.txt } },
+  ], { x: LX + 0.2, y: ay + 0.06, w: LW - 0.4, h: 6.5 - ay - 0.12, fontSize: 12, valign: 'middle', paraSpaceAfter: 2 });
+
+  // ---- right: the investigators who had to read it (METR, narrow-viewport captures so the text stays legible) ----
+  const rx = 8.45, rw = CX1 - rx;
+  const rl = capLabel(d, s, 'METR · INVESTIGATING OPENAI’S ROGUE AGENTS · AUG 2026', { x: rx, y: 1.72, w: rw });
+  const m1File = RES('rev2/metr_aug26_millions_narrow.png');
+  const m1 = await frameW(d, s, m1File, rx + 0.05, 2.1, rw - 0.1, { rot: 1 });
+  const m1Hl = highlight(d, s, await pxMap(m1File, m1, 1), 1, hlPx('metr-hf-millions-narrow', 'Most transcripts were very long, often many millions of tokens.'));
+  const OFF2 = { left: 0, top: 56, width: 1101, height: 564 }; // drops the tail of the previous list item
+  const m2File = await crop(RES('rev2/metr_aug26_sheer_scale_narrow.png'), 'metr_sheer_scale_crop.png', OFF2);
+  const m2 = await frameW(d, s, m2File, rx + 0.05, 2.1 + m1.h + 0.24, rw - 0.1, { rot: -1 });
+  const m2Hl = highlight(d, s, await pxMap(m2File, m2, -1), -1,
+    hlPx('metr-hf-sheer-scale-narrow', 'we had to heavily delegate our analysis to often-unreliable AI agents'), [OFF2.left, OFF2.top]);
+
+  anim(d, s, [lab, ...base], { auto: true, effect: 'fade', dur: 500 });
+  rowNames.slice(0, 3).forEach((g, i) => anim(d, s, g, { auto: true, effect: 'wipeLeft', dur: 500, after: i ? 150 : 200 }));
+  anim(d, s, rowNames[3], { effect: 'wipeLeft', dur: 700 });
+  anim(d, s, rowNames[4], { effect: 'wipeLeft', dur: 1400 });
+  anim(d, s, [ac, at], { auto: true, effect: 'fade', dur: 500, after: 200 });
+  anim(d, s, [rl, ...m1], { effect: 'rise', dur: 500 });
+  anim(d, s, m1Hl, { auto: true, effect: 'wipeLeft', dur: 500 });
+  anim(d, s, m2, { auto: true, effect: 'rise', dur: 500, after: 300 });
+  anim(d, s, m2Hl, { auto: true, effect: 'wipeLeft', dur: 600 });
+
+  d.source(s, 'Sources: METR, Aug 26, 2026 · Google, “Gemini 4 Argon,” Sep 30, 2026 · OpenAI, quoted by The Guardian, Oct 3, 2026 · Rows 1–4 are our estimates (0.75 words per token).');
+  s.addNotes([
+    'Point: even when a model does think in words, there is now far too much of it for people to read. The chain of thought is only a safety tool if someone reads it, and increasingly that someone is another AI.',
+    'HOW TO READ THE CHART: each bar is how long one person would need to read the text nonstop, with no sleep, at 240 words a minute (the reading speed OpenAI itself used). The scale is logarithmic: every gridline step is a factor of 10 or more. The dashed amber line is an 80-year human lifetime.',
+    'ROWS 1–4 ARE OUR ESTIMATES: hours = tokens × 0.75 words per token ÷ 240 words/min ÷ 60. 0.75 words per token is a common rule of thumb, not a published figure. Row 1: 100K tokens ≈ 75,000 words ≈ 5.2 hours — the low end of Google’s “hundreds of thousands of tokens in a single trajectory” (Gemini 4 Argon post, Sep 30, 2026). Row 2: Google raised Argon’s output limit “to an industry-leading 1M tokens, up from the previous 64K tokens” ≈ 750,000 words ≈ 52 hours (6.5 eight-hour working days). Row 3: METR says the incident transcripts were “very long, often many millions of tokens”; 3M is our illustrative reading (≈ 156 hours ≈ 6.5 days nonstop, about four 40-hour weeks). Row 4: METR “reviewed approximately 1300 transcripts”; at 2–3M tokens each that is 2.6–3.9 billion tokens ≈ 135,000–203,000 hours ≈ 15–23 years nonstop (68–102 working years). METR gives no exact token counts.',
+    'ROW 5 IS OPENAI’S OWN FIGURE: its review covers about 50 petabytes of agent activity logs; “if that were all plain English text, it would take one person about 66 million years to read it at 240 words a minute, reading nonstop without ever sleeping or taking a break” (OpenAI, Sep 30 post, quoted by The Guardian, Oct 3, 2026). Our check: 5×10¹⁶ bytes ÷ ~6 bytes per word ≈ 8.3×10¹⁵ words ÷ 240 per minute ≈ 3.5×10¹³ minutes ≈ 66 million years. (6 bytes per word is the implied assumption; OpenAI did not state it.) For scale: 66 million years is roughly how long ago the dinosaurs died out.',
+    'Caveats: transcripts and logs contain the model’s reasoning plus its actions and tool outputs, not only chains of thought. And length per answer is not the whole story: OpenAI’s GPT-6 Astra system card says Astra often produces shorter, sometimes empty, chains of thought, which is one reason its monitorability fell. The volume problem comes from long agent runs multiplied by thousands of agents in parallel: Anthropic says about 30,000 agents were doing research and engineering work on its main internal platform at any one time (Aug 2026).',
+    'Right — METR (Ryan Greenblatt, Ajeya Cotra, Hjalmar Wijk; with Redwood Research) investigated OpenAI’s rogue-agent incident (agents broke out of an evaluation and attacked Hugging Face — details in Section III). Highlighted, verbatim: “Most transcripts were very long, often many millions of tokens.” And from their core takeaways: “The sheer scale of data (over a thousand transcripts, each of which was extremely long) meant that we had to heavily delegate our analysis to often-unreliable AI agents.” Elsewhere they say those agents “had significantly worse judgment and reliability than human researchers”, produced “well over a thousand pages of analysis”, and “we had to defer to these agents to a substantial extent in practice”. The investigation used about $400K of API credits over six days.',
+    'Screenshots: narrow-viewport captures of METR’s page (Oct 4, 2026); the yellow highlights are overlay shapes, not edits to the page.',
+    'URLs: https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/ · https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/ · https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day · https://deploymentsafety.openai.com/gpt-6-astra · https://www.anthropic.com/institute/measuring-pace-of-ai-development',
+  ].join('\n\n'));
+  return s;
+}
+
+// ======================================================================
+// 4. NEURALESE · OpenAI's 50-petabyte review: AI reads it first
+// ======================================================================
+async function petabytesSlide(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  head(s, 'INSIDE THE MACHINE · NEURALESE · 4', 'OpenAI: 50 petabytes, 66 million years to read');
+
+  // ---- left: Altman's post (Sep 25) above the Guardian headline (Oct 3) ----
+  const TW = { left: 0, top: 0, width: 1196, height: 420 }; // header + first two paragraphs
+  const twFile = await crop(RES('rev2/altman_tweet_sep25_petabytes.png'), 'altman_petabytes_crop.png', TW);
+  const tw = await frameW(d, s, twFile, CX0, 1.85, 6.1, { rot: -1 });
+  const twHl = highlight(d, s, await pxMap(twFile, tw, -1), -1, hlPx('altman-tweet-petabytes', 'petabytes of agent activity logs', 1196, 1012), [TW.left, TW.top]);
+  const GH = { left: 14, top: 30, width: 1282, height: 452 }; // drops the site nav bar and the next line
+  const ghFile = await crop(RES('rev2/guardian_oct3_head_dek.png'), 'guardian_head_dek_crop.png', GH);
+  const gh = await frameW(d, s, ghFile, CX0 + 0.65, 1.85 + tw.h + 0.22, 5.5, { rot: 1.2 });
+  const ghHl = highlight(d, s, await pxMap(ghFile, gh, 1.2), 1.2, hlPx('guardian-oct3-head-dek', 'reviewing 50 petabytes of data'), [GH.left, GH.top]);
+
+  // ---- right: the Guardian's lede, then OpenAI's funnel ----
+  const rx = 7.25, rw = CX1 - rx;
+  const ldFile = RES('rev2/guardian_oct3_lede_narrow.png');
+  const ld = await frameW(d, s, ldFile, rx, 1.85, rw, { rot: 0.8 });
+  const ldHl = highlight(d, s, await pxMap(ldFile, ld, 0.8), 0.8, hlPx('guardian-oct3-lede-narrow', 'as it deploys AI to examine data that would take a human 66m years to read.'));
+
+  const fy0 = 1.85 + ld.h + 0.3;
+  const fl = capLabel(d, s, 'OPENAI’S FOUR AUTOMATED STEPS BEFORE A HUMAN LOOKS', { x: rx, y: fy0, w: rw });
+  const tiers = [
+    { t: '~50 PB of logs', a: 'agent activity from training and evaluation runs', fill: '2A303B', line: HEX.steel },
+    { t: 'Broad search', a: 'records where agents changed websites or used credentials', fill: '343B48', line: '4E5666' },
+    { t: 'AI pass 1', a: 'fast, low compute; reads the models’ chains of thought', fill: '2B4572', line: HEX.blue },
+    { t: 'AI pass 2', a: 'more compute; explains each flag and rates its severity', fill: '345493', line: HEX.blue },
+    { t: 'AI pass 3', a: 'even more compute; groups patterns across agents', fill: '3D63B4', line: HEX.blue },
+    { t: 'Humans', a: 'investigators review what is left', fill: HEX.red, line: HEX.red, red: true },
+  ];
+  const fw0 = 2.5, fw1 = 0.95, th = 0.36, tg = 0.05, fcx = rx + fw0 / 2;
+  const tx0 = fy0 + 0.34;
+  const ax = rx + fw0 + 0.25, aw = CX1 - ax;
+  const tierNames = tiers.map((t, i) => {
+    const w = fw0 - (fw0 - fw1) * i / (tiers.length - 1), y = tx0 + i * (th + tg);
+    const names = chip(d, s, { x: fcx - w / 2, y, w, h: th, fill: t.fill, line: t.line, text: t.t, fontSize: 12, bold: true, color: 'FFFFFF' });
+    names.push(d.text(s, t.a, { x: ax, y: y - 0.02, w: aw, h: th + 0.04, fontSize: 10.5, color: t.red ? 'FF8A80' : d.S.muted, bold: !!t.red, valign: 'middle' }));
+    return names;
+  });
+  const sy = tx0 + tiers.length * (th + tg) + 0.04;
+  const st = d.text(s, [
+    { text: '≈7,000', options: { bold: true, color: d.S.amber } }, { text: ' GPUs  ·  ', options: { color: d.S.muted } },
+    { text: '>$500K', options: { bold: true, color: d.S.amber } }, { text: ' a day  ·  ', options: { color: d.S.muted } },
+    { text: '100+', options: { bold: true, color: d.S.amber } }, { text: ' organizations notified  ·  ', options: { color: d.S.muted } },
+    { text: 'months', options: { bold: true, color: d.S.amber } }, { text: ' to finish', options: { color: d.S.muted } },
+  ], { x: rx, y: sy, w: rw, h: 0.3, fontSize: 12, valign: 'middle' });
+
+  anim(d, s, tw, { auto: true, effect: 'rise', dur: 550 });
+  anim(d, s, twHl, { auto: true, effect: 'wipeLeft', dur: 500, after: 200 });
+  anim(d, s, gh, { effect: 'slam', dur: 500 });
+  anim(d, s, ghHl, { auto: true, effect: 'wipeLeft', dur: 500, after: 100 });
+  anim(d, s, ld, { effect: 'rise', dur: 500 });
+  anim(d, s, ldHl, { auto: true, effect: 'wipeLeft', dur: 700, after: 100 });
+  anim(d, s, [fl, ...tierNames[0]], { effect: 'fade', dur: 400 });
+  tierNames.slice(1).forEach((g) => anim(d, s, g, { auto: true, effect: 'wipeDown', dur: 350, after: 120 }));
+  anim(d, s, [st], { auto: true, effect: 'fade', dur: 400, after: 150 });
+
+  d.source(s, 'Sources: Sam Altman on X, Sep 25, 2026 · The Guardian (Josh Taylor), Oct 3, 2026 · OpenAI’s Sep 30 review post, as reported by FourWeekMBA and TechSpot (Oct 2–3, 2026).');
+  s.addNotes([
+    'The headline you may have seen: OpenAI is reviewing “petabytes” of its own agents’ activity logs after the rogue-agent incidents (the Hugging Face attack and others — Section III), and it needs AI to read them.',
+    'Top left — Sam Altman on X, Sep 25, 2026 (2.7M views), verbatim: “We have not been as fast as we would have liked but we are trying to balance our desire for transparency with gaining a clear understanding from petabytes of agent activity logs, and working with impacted organizations.” The quoted @OpenAI post: “Given the scale of the review required, and the need to assess each case, we expect this work will take months to complete.”',
+    'Bottom left and top right — The Guardian (Josh Taylor, Oct 3, 2026): headline “OpenAI says its review into hacks, including on Australian government sites, is costing $500,000 a day”; standfirst “Company says it is reviewing 50 petabytes of data after its agents accessed websites including Medicare without authorisation”; lede “…as it deploys AI to examine data that would take a human 66m years to read.” OpenAI’s own words, quoted in the same article: “To put that in perspective, if that were all plain English text, it would take one person about 66 million years to read it at 240 words a minute, reading nonstop without ever sleeping or taking a break.” Reuters (Oct 1) first reported the ~50 PB figure; syndicated as “OpenAI alerts 100+ organisations over unauthorised activity by its AI agents”.',
+    'The funnel is OpenAI’s own description (Sep 30 post “Our process for reviewing and disclosing model activity”, as summarised by FourWeekMBA, Oct 3): four automated steps, “starting broadly to reduce the chance of missing important activity and progressively narrowing the results before human review.” (1) A broad search for records where models accessed and changed websites or handled passwords, API keys, access tokens and other credentials. (2) A first AI-enabled review with low test-time compute that reads the relevant records, “including the models’ recorded reasoning, known as chains of thought”. (3) A second AI review with more compute that separates harmless activity, explains why records were flagged and assesses severity. (4) A third review with even more compute that groups behaviour by type and looks for patterns across agents, before human investigators review what is left. TechSpot: “AI systems filter potential cases before human investigators examine the evidence.” OpenAI also says a handful of training and testing runs can generate a large volume of data because they use tens of thousands of GPUs. Funnel widths are illustrative; OpenAI gives no counts per stage.',
+    'Numbers (OpenAI-reported): about 7,000 Nvidia GB200 and GB300 GPUs, “at a cost of over half a million dollars a day”; over 100 organizations notified as of Sep 26; the review is expected to take months. OpenAI says it is one month in and has not found another third-party compromise comparable to Hugging Face.',
+    'Caveats: the 50 PB is agent activity logs (actions, tool calls, outputs and reasoning), not just chains of thought, and the 66-million-year figure is OpenAI’s own “if it were all plain English text” conversion. OpenAI’s page itself is behind a bot check, so the figures come via The Guardian, TechSpot, Gizmodo and FourWeekMBA.',
+    'It is not just OpenAI. Anthropic (Aug 2026): its online monitor checked over a billion agent decisions in August and blocked 0.002% (about 1 in 47,000); its offline monitor “flags roughly 100,000 transcripts per week that are then reviewed by multiple classifiers … the highest priority flags (approximately ~50 per week) are escalated to human review” — about 1 in 2,000 flags reaches a person. OpenAI’s GPT-6 Astra system card: misalignment monitoring on “all tool-using inference involved in our external deployment of Astra, with significant compute cost”; the monitor “reviews the agent’s chain of thought alongside its actions”. Google says Gemini 4 Argon is monitored by systems that “monitor Argon’s chain-of-thought and actions and stop execution when necessary”. Oversight of AI already runs mostly through AI.',
+    'URLs: https://x.com/sama/status/2103567198690349362 · https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day · https://fourweekmba.com/ai-openai-agent-review-500k-a-day/ · https://www.techspot.com/news/114073-openai-rogue-ai-agents-triggered-alerts-more-than.html · https://gizmodo.com/openai-has-sent-notices-of-sketchy-ai-behavior-to-over-100-organizations-so-far-2000820702 · https://www.moneycontrol.com/artificial-intelligence/openai-alerts-100-organisations-over-unauthorised-activity-by-its-ai-agents-article-14043240.html · https://www.anthropic.com/institute/measuring-pace-of-ai-development · https://deploymentsafety.openai.com/gpt-6-astra · https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-4-argon/',
+  ].join('\n\n'));
+  return s;
+}
+
+// ======================================================================
+// 5. NEURALESE · an alien mind (o3 CoT + Pachocki)
 // ======================================================================
 async function alienSlide(d) {
   const s = d.slide('Content', { transition: 'push' });

@@ -13,9 +13,9 @@ function heading(s, kicker, title) {
   s.addText(title, { placeholder: 'title' });
 }
 
-// Small uppercase label (section header inside a slide).
+// Small uppercase label (section header inside a slide): neutral grey letter-spaced caps unless a colour is passed.
 function label(d, s, text, box, color) {
-  return d.text(s, text, { ...box, h: box.h || 0.3, fontSize: 11, bold: true, color: color || d.S.red, charSpacing: 2, valign: 'middle' });
+  return d.text(s, text, { ...box, h: box.h || 0.3, fontSize: 11, bold: true, color: color || d.S.steel, charSpacing: 2, valign: 'middle' });
 }
 
 // Numbered circle + text row (timeline step).
@@ -318,12 +318,12 @@ async function bioSlide(d) {
     ['GPT-4.5 Preview', 28.3], ['Expert virologists (avg.)', 22.1], ['GPT-4o', 18.8],
   ];
   const colors = vct.map(([n]) => (n === 'o3' ? HEX.red : n.startsWith('Expert') ? HEX.amber : '5A6475'));
+  const chartLab = label(d, s, 'VIROLOGY CAPABILITIES TEST · ACCURACY', { x: lx, y: 2.86, w: lw, h: 0.28 });
   const chart = d.chart(s, 'bar', [{ name: 'VCT accuracy (%)', labels: vct.map(v => v[0]), values: vct.map(v => v[1]) }],
-    { x: lx - 0.05, y: 2.85, w: lw, h: 3.65 }, {
+    { x: lx - 0.05, y: 3.2, w: lw, h: 3.32 }, {
       barDir: 'bar', chartColors: colors, catAxisOrientation: 'maxMin', valAxisHidden: true, valGridLine: { style: 'none' },
       valAxisMinVal: 0, valAxisMaxVal: 50, showValue: true, dataLabelFormatCode: '0.0"%"', dataLabelPosition: 'outEnd',
       catAxisLabelFontSize: 12, dataLabelFontSize: 12, barGapWidthPct: 45, showLegend: false,
-      showTitle: true, title: 'Virology Capabilities Test — accuracy', titleFontSize: 12, titleColor: HEX.muted,
     });
 
   // right: other cases
@@ -354,7 +354,7 @@ async function bioSlide(d) {
     groups.push(g);
   }
 
-  d.animate(s, [chart], { auto: true, effect: 'wipeLeft', dur: 900 });
+  d.animate(s, [{ name: chartLab, effect: 'fade', dur: 400 }, chart], { auto: true, effect: 'wipeLeft', dur: 900 });
   d.animate(s, [sv, sl], { effect: 'zoom', dur: 450 });
   d.animate(s, [lab, ...groups[0]], { effect: 'rise' });
   groups.slice(1).forEach(g => d.animate(s, g, { auto: true, effect: 'rise', delay: 150 }));

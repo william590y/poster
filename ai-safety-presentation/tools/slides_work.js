@@ -179,7 +179,9 @@ async function juniorSlide(d) {
   const sy = 5.2, sw = 1.87, sg = 0.18;
   const a = stat(d, s, { x: lx, y: sy, w: sw, value: '−20%', valueSize: 34, labelSize: 14, labelH: 0.75, label: 'Devs aged 22–25 since late 2022 (35+ grew)' });
   const b = stat(d, s, { x: lx + sw + sg, y: sy, w: sw, value: '−65%', valueSize: 34, labelSize: 14, labelH: 0.75, label: 'New-grad hiring at Big Tech vs 2019' });
-  const c = stat(d, s, { x: lx + 2 * (sw + sg), y: sy, w: sw, value: '−76%', valueSize: 34, labelSize: 14, labelH: 0.75, label: 'New-grad hiring at early-stage startups vs 2019' });
+  // explicit, balanced three-line wrap (the auto-wrap left “2019” orphaned on its own line)
+  const c = stat(d, s, { x: lx + 2 * (sw + sg), y: sy, w: sw, value: '−76%', valueSize: 34, labelSize: 14, labelH: 0.75,
+    label: [{ text: 'New-grad hiring', options: { breakLine: true } }, { text: 'at early-stage', options: { breakLine: true } }, { text: 'startups vs 2019' }] });
 
   // bottom-right: honest caveat
   const cav = d.text(s, [
@@ -221,24 +223,23 @@ async function codeSlide(d) {
     });
   const st = stat(d, s, { x: CX0, y: 4.95, w: lw, value: '101,743', valueSize: 36, labelSize: 14, labelH: 0.85, label: 'announced US job cuts citing AI in H1 2026 — nearly double all of 2025 (Challenger)' });
 
-  // right: collage of clippings
-  const semafor = R('swe-semafor-google75.png');
+  // right: four clippings in two pairs — code (top) and layoffs (bottom) — staggered, with clear gaps between frames.
+  // (The Semafor “75%” clipping was dropped: the chart on the left already shows that figure.)
   const bi = await crop('swe-bi-anthropic-cfo-90pct.png', 'swe-bi-90pct-head.png', { l: 0, t: 0, w: 1400, h: 462 });
   const fortune = await crop('swe-fortune-100pct-code.png', 'swe-fortune-100pct-head.png', { l: 0, t: 0, w: 1130, h: 580 });
   const cnn = await crop('swe-cnn-block.png', 'swe-cnn-block-head.png', { l: 0, t: 0, w: 2440, h: 660 });
   const cbs = await crop('swe-cbs-ai-layoffs.png', 'swe-cbs-layoffs-head.png', { l: 0, t: 0, w: 1320, h: 352 });
 
-  const c1 = await frameW(d, s, semafor, 4.45, 1.82, 3.35, { rot: -2 });
-  const c2 = await frameW(d, s, bi, 8.15, 1.8, 4.5, { rot: 1.5 });
-  const c3 = await frameW(d, s, fortune, 9.7, 3.6, 3.0, { rot: -2 });
-  const c4 = await frameW(d, s, cnn, 4.5, 4.35, 4.6, { rot: 1.2 });
-  const c5 = await frameW(d, s, cbs, 7.75, 5.3, 4.2, { rot: -1.5 });
+  const c1 = await frameW(d, s, bi, 4.45, 1.88, 4.1, { rot: -1.5 });
+  const c2 = await frameW(d, s, fortune, 8.87, 2.15, 3.83, { rot: 1.5 });
+  const c3 = await frameW(d, s, cnn, 4.5, 3.6, 4.05, { rot: 1.2 });
+  const c4 = await frameW(d, s, cbs, 7.25, 5.08, 4.85, { rot: -1.5 });
 
   d.animate(s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 800 });
-  d.animate(s, [...c1, ...c2, ...c3], { auto: true, effect: 'rise', dur: 450, after: 200 });
+  d.animate(s, [...c1, ...c2], { auto: true, effect: 'rise', dur: 450, after: 200 });
   d.anim[s._num].groups[1].effects.forEach((e, i) => { e.delay = Math.floor(i / 2) * 220; });
-  d.animate(s, c4, { effect: 'slam', dur: 350 });
-  d.animate(s, c5, { auto: true, effect: 'slam', dur: 350, after: 250 });
+  d.animate(s, c3, { effect: 'slam', dur: 350 });
+  d.animate(s, c4, { auto: true, effect: 'slam', dur: 350, after: 250 });
   d.animate(s, st, { effect: 'rise' });
 
   d.source(s, 'Sources: Google blog / Semafor (Apr 2026) · Business Insider (May 2026) · Fortune (Jan 2026) · CNN (Feb 2026) · CBS News (May 2026) · HR Dive / Challenger, Gray & Christmas (Jul 2026).');
@@ -265,30 +266,50 @@ async function arxivSlide(d) {
   // callout over the empty upper-left of the chart (image px 170–1430 × 165–740 hold no bars):
   // left = the total-submissions number, right = arXiv's own cs.AI chart from the same post
   const g = chart.geom, ppx = g.w / 1966;
-  const kx = g.x + 170 * ppx, ky = g.y + 160 * ppx, kw = 4.4, kh = 2.02;
+  const kx = g.x + 170 * ppx, ky = g.y + 160 * ppx, kw = 4.5, kh = 2.02;
   const co = [];
   co.push(d.card(s, { x: kx, y: ky, w: kw, h: kh }, { color: '10141B', line: HEX.red }));
   co.push(d.text(s, [
     { text: '40,363', options: { fontSize: 36, bold: true, color: d.S.red, fontFace: 'Arial', breakLine: true } },
     { text: 'submissions in Sept 2026 — 2× Sept 2024, 4× Sept 2016', options: { fontSize: 14, color: d.S.txt } },
-  ], { x: kx + 0.18, y: ky + 0.14, w: 2.0, h: kh - 0.28, valign: 'middle' }));
+  ], { x: kx + 0.18, y: ky + 0.14, w: 1.82, h: kh - 0.28, valign: 'middle' }));
   const dv = d.name('div');
-  s.addShape(d.pres.shapes.LINE, { x: kx + 2.36, y: ky + 0.22, w: 0, h: kh - 0.44, line: { color: HEX.line, width: 1 }, objectName: dv });
+  s.addShape(d.pres.shapes.LINE, { x: kx + 2.14, y: ky + 0.22, w: 0, h: kh - 0.44, line: { color: HEX.line, width: 1 }, objectName: dv });
   co.push(dv);
-  const csx = kx + 2.52, csw = kw - 2.52 - 0.16;
-  co.push(capLabel(d, s, 'CS.AI ALONE · MONTHLY', { x: csx, y: ky + 0.06, w: csw + 0.1, charSpacing: 0 }));
-  // inset = the plot box only (its tick labels would render at ~3–4pt); the scale is given in native text below it,
-  // from the post's own figures (~300 in Jan 2024 → ~3,300 in Aug 2026, “over 6X”)
-  const csai = await crop('acad-arxiv-csai-growth.png', 'acad-arxiv-csai-plotarea.png', { l: 330, t: 170, w: 2510, h: 1880 });
-  const csTxtH = 0.44, csTxtY = ky + kh - 0.1 - csTxtH, csImgY = ky + 0.38;
-  const csn = await imgSize(csai), csImgH = csTxtY - 0.05 - csImgY;
-  const csf = await d.frame(s, csai, { x: csx, y: csImgY, w: (csImgH - 0.08) * csn.w / csn.h + 0.08, h: csImgH }, { pad: 0.04, shadow: false });
-  co.push(...csf);
+  const csx = kx + 2.3, csw = kw - 2.3 - 0.18;
+  co.push(capLabel(d, s, 'CS.AI ALONE · MONTHLY', { x: csx, y: ky + 0.06, w: csw, charSpacing: 1 }));
+  // Native dark sparkline of arXiv's own “cs.AI submissions per month, 2024 - 2026” chart (same post).
+  // Monthly values were traced from the official chart image (acad-arxiv-csai-growth.png: red-line pixels sampled at
+  // each month tick, ±~30) — used only for the line's shape. The two labelled values are the post's figures
+  // (~300 at the start, ~3,300 at the end; “over 6X” in two years).
+  const csaiTrace = [330, 550, 510, 420, 530, 540, 620, 570, 520, 770, 570, 780, 560, 790, 730, 750, 1220, 1030, 1020, 1250,
+    1390, 1560, 1230, 1180, 1590, 1510, 1680, 2020, 2770, 2340, 2140, 2870, 3280];
+  const spY = ky + 0.36, spH = 1.06, vMax = 4400;
+  const L = { x: 0.03, y: 0.02, w: 0.94, h: 0.96 }; // manual plot-area layout (fractions of the chart box)
+  const px = { x: csx + L.x * csw, y: spY + L.y * spH, w: L.w * csw, h: L.h * spH }; // plot area, inches
+  const ptX = (i) => px.x + (i + 0.5) / csaiTrace.length * px.w; // 'between' category placement
+  const ptY = (v) => px.y + (1 - v / vMax) * px.h;
+  const base = d.name('base');
+  s.addShape(d.pres.shapes.LINE, { x: px.x, y: px.y + px.h, w: px.w, h: 0, line: { color: '3A4250', width: 0.75 }, objectName: base });
+  co.push(base);
+  co.push(d.chart(s, 'line', [{ name: 'cs.AI', labels: csaiTrace.map((_, i) => String(i)), values: csaiTrace }],
+    { x: csx, y: spY, w: csw, h: spH }, {
+      layout: L, chartColors: [HEX.red], lineSize: 2, lineDataSymbol: 'none', showLegend: false,
+      valAxisHidden: true, catAxisHidden: true, valGridLine: { style: 'none' }, valAxisMinVal: 0, valAxisMaxVal: vMax,
+    }));
+  const n = csaiTrace.length;
+  const endDot = d.name('dot');
+  s.addShape(d.pres.shapes.OVAL, { x: ptX(n - 1) - 0.045, y: ptY(csaiTrace[n - 1]) - 0.045, w: 0.09, h: 0.09, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 }, objectName: endDot });
+  co.push(endDot);
+  co.push(d.text(s, '~3,300', { x: ptX(n - 1) - 1.0, y: ptY(csaiTrace[n - 1]) - 0.3, w: 0.92, h: 0.22, fontSize: 12, bold: true, color: d.S.txt, align: 'right', valign: 'bottom' }));
+  co.push(d.text(s, '~300', { x: px.x, y: ptY(csaiTrace[0]) - 0.36, w: 0.6, h: 0.22, fontSize: 12, bold: true, color: d.S.muted, valign: 'bottom' }));
+  const axY = px.y + px.h + 0.03;
+  co.push(d.text(s, '2024', { x: px.x, y: axY, w: 0.6, h: 0.18, fontSize: 10, color: d.S.steel, valign: 'top' }));
+  co.push(d.text(s, '2026', { x: px.x + px.w - 0.6, y: axY, w: 0.6, h: 0.18, fontSize: 10, color: d.S.steel, align: 'right', valign: 'top' }));
   co.push(d.text(s, [
     { text: '>6× ', options: { bold: true, color: d.S.red } },
-    { text: 'in two years', options: { color: d.S.txt, breakLine: true } },
-    { text: '~300 → ~3,300/month', options: { color: d.S.muted } },
-  ], { x: csx, y: csTxtY, w: csw + 0.1, h: csTxtH, fontSize: 13, valign: 'top' }));
+    { text: 'in two years', options: { color: d.S.txt } },
+  ], { x: csx, y: ky + kh - 0.38, w: csw, h: 0.26, fontSize: 13, valign: 'middle' }));
 
   // right column: official post + headline + quote
   const rx = 7.95, rw = CX1 - rx;
@@ -311,7 +332,7 @@ async function arxivSlide(d) {
   s.addNotes([
     'From October 1, 2026 arXiv limits every submitter (the cap applies to the submitter, i.e. the account that uploads the paper) to two submissions per calendar month and three active submissions at any time — across ALL categories; rejected submissions count. arXiv calls it a stopgap while it works out best practice for authors using advanced AI tools.',
     'Numbers from the official post: September 2016: 9,869 submissions · September 2024: 20,569 · September 2026: 40,363 — doubled in two years, generating almost 9,000 support tickets. Total submissions as of Oct 1 2026: 3,192,873.',
-    'The small inset is arXiv’s own chart from the same post, “cs.AI submissions per month, 2024 - 2026”: from roughly 300 a month (Jan 2024) to roughly 3,300 (Aug 2026); the post says cs.AI submissions grew more than 6x in two years. Compare arXiv as a whole: 2x in two years. The AI category itself is where the flood is fastest.',
+    'The small sparkline redraws arXiv’s own chart from the same post, “cs.AI submissions per month, 2024 - 2026”: from roughly 300 a month (Jan 2024) to roughly 3,300 in the latest month shown (the final point sits on the 2026-09 tick of arXiv’s chart; our research note read it as Aug 2026). The line’s monthly values were traced from the official chart image (approximate, shape only); the two labelled values are the post’s own figures. The post says cs.AI submissions grew more than 6x in two years. Compare arXiv as a whole: 2x in two years. The AI category itself is where the flood is fastest.',
     'Rationale quote (verbatim): “There is also a marked increase in dense, AI-written papers. AI tools are making it easy for authors to flood arXiv and other repositories with these low-value papers.” They also cite “thin papers of narrow scope” and “salami” papers.',
     'Context: in Oct 2025 arXiv CS already stopped accepting un-reviewed review articles and position papers because of an “unmanageable influx”; in May 2026 it announced one-year bans for authors who submit unchecked LLM output (hallucinated references, leftover prompts) — 404 Media.',
     'Cybernews headline date is approximate (~Oct 1–2, 2026).',
@@ -395,15 +416,17 @@ async function tavusSlide(d) {
   ], { x: CX0, y: capY, w: vw, h: 6.55 - capY, fontSize: 14, valign: 'top' });
 
   const rx = 7.75, rw = CX1 - rx;
-  const page = await crop('video-tavus-griffin-page.jpg', 'video-tavus-page-hero.jpg', { l: 214, t: 365, w: 2092, h: 1395 });
-  const sw = rw - 0.4;
-  const shot = await frameW(d, s, page, rx + (rw - sw) / 2, 1.8, sw);
-  const shotBottom = 1.8 + await hFor(page, sw);
+  // official page, cropped tight to its 48% stat so the text is legible (page title/body text omitted)
+  const page = await crop('video-tavus-griffin-page.jpg', 'video-tavus-page-48.jpg', { l: 236, t: 1462, w: 620, h: 280 });
+  const sw = rw - 0.28, sx = rx + (rw - sw) / 2;
+  const pl = capLabel(d, s, 'TAVUS.IO/GRIFFIN · OFFICIAL PAGE (CROP)', { x: sx, y: 1.72, w: sw });
+  const shot = [pl, ...await frameW(d, s, page, sx, 2.02, sw)];
+  const shotBottom = 2.02 + await hFor(page, sw);
   // two-bar comparison drawn with native shapes (exact label placement)
   const bars = [];
   // value labels as the source states them (26/54 = 48.1%; Tavus says “48%”), not v.toFixed(1)
   const rowsT = [['Previous Tavus system', 2.4, HEX.steel, '2.4%'], ['Griffin-Lite', 48.0, HEX.red, '48%']];
-  const bx = rx + 2.05, perPct = 2.0 / 48, by0 = shotBottom + 0.26;
+  const bx = rx + 2.05, perPct = 2.0 / 48, by0 = shotBottom + 0.32;
   rowsT.forEach(([name, v, col, vs], i) => {
     const yy = by0 + i * 0.4;
     bars.push(d.text(s, name, { x: rx, y: yy, w: 1.95, h: 0.32, fontSize: 12, color: d.S.muted, align: 'right', valign: 'middle' }));
@@ -412,7 +435,7 @@ async function tavusSlide(d) {
     bars.push(b);
     bars.push(d.text(s, vs, { x: bx + v * perPct + 0.08, y: yy, w: 0.8, h: 0.32, fontSize: 14, bold: true, color: i ? d.S.red : d.S.txt, valign: 'middle' }));
   });
-  const cavY = by0 + 0.4 + 0.32 + 0.12;
+  const cavY = by0 + 0.4 + 0.32 + 0.16;
   const cav = d.text(s, 'Company-run study (26 of 54 vs 1 of 41, one-minute calls) — not independently verified.',
     { x: rx, y: cavY, w: rw, h: 6.55 - cavY, fontSize: 14, color: d.S.amber, valign: 'top' });
 
@@ -428,76 +451,113 @@ async function tavusSlide(d) {
     'The video still: the woman (“Vanessa”) in the main frame is the Griffin-generated persona; the man in the inset is Tavus CEO Hassaan Raza. Tavus says Griffin “generates every pixel in every frame in real time from one reference image” — face, hands, chair, shadows and background — as a single full-duplex video-to-video model rather than a cascade of transcription → LLM → voice → video. That is Tavus’s description, not an independent analysis.',
     'From the official video description: “Because it can be mistaken for a real person, Griffin is too powerful to release publicly until the safeguards are ready.” (It is available only as a Griffin-Lite research preview to select testers.)',
     'CAVEAT (say it out loud): this is a company-run study with small samples and no independent replication; an X community note flagged it as not independently verified. The page also claims #1 on NVIDIA’s independent test of face-to-face AI.',
+    'The clipping at right is a tight crop of the official tavus.io/griffin page, showing only its 48% stat and caption (the page title and body text above it are omitted).',
     'Video: official Tavus upload “48% of People Thought This AI Was a Real Human | Introducing Griffin” (1:49): https://www.youtube.com/watch?v=lHw6yoyPkpo · Alternate: BusinessWire-distributed release video https://www.youtube.com/watch?v=VcQcRRHJTyc · Page: https://www.tavus.io/griffin · Coverage: Business Today (Oct 3 2026), Cybernews.',
   ].join('\n\n'));
   return s;
 }
 
-// ========== 7. Which one is real? (DF26) ==========
-async function realSlide(d) {
-  const s = d.slide('Content', { transition: 'fade' });
-  head(s, 'THE ACCELERATION · VIDEO · 2', 'Which one is real?');
-  const hint = d.text(s, [{ text: 'Each row: one real frame, two AI-generated from a text', options: { breakLine: true } }, { text: 'description of it (Google Veo 3.1 · Kling 3.0). Vote now.' }],
-    { x: 7.1, y: 0.84, w: CX1 - 7.1, h: 0.54, fontSize: 14, color: d.S.muted, align: 'right', valign: 'middle' });
+// ========== 7. Which one is real? (DF26) — question slide, then reveal slide ==========
+const DF_ROWS = [
+  [['video-df26-ex1-fake-veo31.jpg', 'AI · VEO 3.1'], ['video-df26-ex1-real.jpg', null], ['video-df26-ex1-fake-kling30.jpg', 'AI · KLING 3.0']],
+  [['video-df26-ex2-fake-kling30.jpg', 'AI · KLING 3.0'], ['video-df26-ex2-fake-veo31.jpg', 'AI · VEO 3.1'], ['video-df26-ex2-real.jpg', null]],
+];
+const DF_SOURCE = 'Source: Shykula et al., “DF26: We Cannot Tell Fake From Real Anymore”, arXiv 2609.07369 (Sep 2026), Fig. 1 frames and human study (232 labeling sessions).';
+const DF_FRAMES_NOTE = 'The fakes are text-to-video generations (Veo 3.1, Kling 3.0) from a prompt describing the real clip (DF26: “generated from semantic prompts derived from the frames of the corresponding real video”; the four commercial systems were run in text-to-video mode only), so they show a different but matched speaker and setting; these are last frames from DF26 Fig. 1.';
 
-  const rows = [
-    [['video-df26-ex1-fake-veo31.jpg', 'AI · VEO 3.1'], ['video-df26-ex1-real.jpg', null], ['video-df26-ex1-fake-kling30.jpg', 'AI · KLING 3.0']],
-    [['video-df26-ex2-fake-kling30.jpg', 'AI · KLING 3.0'], ['video-df26-ex2-fake-veo31.jpg', 'AI · VEO 3.1'], ['video-df26-ex2-real.jpg', null]],
-  ];
-  const gap = 0.25, fw = (CW - 2 * gap) / 3, fh = fw * 9 / 16;
-  const ys = [1.78, 1.78 + fh + 0.26];
+// 2×3 grid of DF26 frames with letter badges. Returns { base, reveals:[row0, row1] } (reveals = REAL/AI labels).
+function dfGrid(d, s, { x0, y0, gw, gap, rowGap, badge, tagSize, realSize }) {
+  const fw = (gw - 2 * gap) / 3, fh = fw * 9 / 16;
   const letters = 'ABCDEF';
   const base = [], reveals = [[], []];
+  const m = badge * 0.27; // inset of badge / tags from the frame edge
   for (let r = 0; r < 2; r++) {
     for (let c = 0; c < 3; c++) {
-      const [file, tag] = rows[r][c];
-      const x = CX0 + c * (fw + gap), y = ys[r];
+      const [file, tag] = DF_ROWS[r][c];
+      const x = x0 + c * (fw + gap), y = y0 + r * (fh + rowGap);
       const im = d.name('df');
       s.addImage({ path: R(file), x, y, w: fw, h: fh, objectName: im, shadow: { type: 'outer', color: '000000', blur: 12, offset: 3, angle: 90, opacity: 0.5 } });
-      const badge = d.name('badge');
-      s.addShape(d.pres.shapes.OVAL, { x: x + 0.12, y: y + 0.12, w: 0.44, h: 0.44, fill: { color: '0A0C10', transparency: 15 }, line: { color: 'FFFFFF', width: 1.25 }, objectName: badge });
-      const bt = d.text(s, letters[r * 3 + c], { x: x + 0.12, y: y + 0.12, w: 0.44, h: 0.44, fontSize: 16, bold: true, color: d.S.txt, align: 'center', valign: 'middle' });
-      base.push(im, badge, bt);
+      const bg = d.name('badge');
+      s.addShape(d.pres.shapes.OVAL, { x: x + m, y: y + m, w: badge, h: badge, fill: { color: '0A0C10', transparency: 15 }, line: { color: 'FFFFFF', width: 1.25 }, objectName: bg });
+      const bt = d.text(s, letters[r * 3 + c], { x: x + m, y: y + m, w: badge, h: badge, fontSize: Math.round(badge * 36), bold: true, color: d.S.txt, align: 'center', valign: 'middle' });
+      base.push(im, bg, bt);
       if (tag) {
-        const t = d.text(s, tag, { x: x + 0.12, y: y + fh - 0.5, w: 1.75, h: 0.36, fontSize: 12, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle', fill: { color: '0A0C10', transparency: 20 }, charSpacing: 1 });
-        reveals[r].push(t);
+        const th = tagSize / 72 * 2.2, tw = tagSize / 72 * 10.5;
+        reveals[r].push(d.text(s, tag, { x: x + m, y: y + fh - m - th, w: tw, h: th, fontSize: tagSize, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle', fill: { color: '0A0C10', transparency: 20 }, charSpacing: 1 }));
       } else {
         const ol = d.name('ol');
         s.addShape(d.pres.shapes.RECTANGLE, { x: x - 0.04, y: y - 0.04, w: fw + 0.08, h: fh + 0.08, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 4 }, objectName: ol });
-        const t = d.text(s, 'REAL', { x: x + 0.12, y: y + fh - 0.52, w: 1.1, h: 0.4, fontSize: 16, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle', fill: { color: HEX.red }, charSpacing: 3 });
-        reveals[r].push(ol, t);
+        const th = realSize / 72 * 1.75, tw = realSize / 72 * 4.9;
+        reveals[r].push(ol, d.text(s, 'REAL', { x: x + m, y: y + fh - m - th, w: tw, h: th, fontSize: realSize, bold: true, color: 'FFFFFF', align: 'center', valign: 'middle', fill: { color: HEX.red }, charSpacing: 3 }));
       }
     }
   }
+  return { base, reveals, fw, fh };
+}
 
-  // final overlay: the human-accuracy stat + DF26 chart
-  const ox = 2.55, oy = 2.25, ow = CW - 2 * (ox - CX0), oh = 3.35;
+async function realQuestionSlide(d) {
+  const s = d.slide('Content', { transition: 'fade' });
+  head(s, 'THE ACCELERATION · VIDEO · 2', 'Which one is real?');
+  const hint = d.text(s, [
+    { text: 'Each row: one real frame, two AI-generated from a text', options: { breakLine: true } },
+    { text: 'description of it (Google Veo 3.1 · Kling 3.0). ' },
+    { text: 'Vote now.', options: { bold: true, color: d.S.txt } },
+  ], { x: 7.1, y: 0.84, w: CX1 - 7.1, h: 0.54, fontSize: 14, color: d.S.muted, align: 'right', valign: 'middle' });
+  const g = dfGrid(d, s, { x0: CX0, y0: 1.78, gw: CW, gap: 0.25, rowGap: 0.26, badge: 0.44, tagSize: 12, realSize: 16 });
+
+  d.animate(s, [hint], { auto: true, effect: 'fade' });
+  d.animate(s, g.base, { auto: true, effect: 'fade', dur: 600, after: 100 });
+
+  d.source(s, DF_SOURCE);
+  s.addNotes([
+    'Interactive: ask the audience to vote on each row — which of A, B, C is the real frame? Which of D, E, F? Show of hands. The answers and the human-study result are on the next slide.',
+    DF_FRAMES_NOTE,
+    'URL: https://arxiv.org/abs/2609.07369 · https://arxiv.org/html/2609.07369v1',
+  ].join('\n\n'));
+  return s;
+}
+
+async function realRevealSlide(d) {
+  const s = d.slide('Content', { transition: 'fade' });
+  head(s, 'THE ACCELERATION · VIDEO · 3', 'Humans spot AI fakes barely above chance');
+
+  // left: the same six frames, shrunk; the answers are click-revealed row by row
+  const gw = 7.4;
+  const g = dfGrid(d, s, { x0: CX0, y0: 1.85, gw, gap: 0.17, rowGap: 0.24, badge: 0.36, tagSize: 11, realSize: 13 });
+  const gridBottom = 1.85 + 2 * g.fh + 0.24;
+  const cap = d.text(s, [
+    { text: 'Each fake is text-to-video from a description of the real clip, ', options: { color: d.S.txt } },
+    { text: 'so the speaker and set differ but match. Stills shown here — in the study, people watched the full videos.', options: { color: d.S.muted } },
+  ], { x: CX0, y: gridBottom + 0.3, w: gw, h: 6.5 - gridBottom - 0.3, fontSize: 14, valign: 'top' });
+
+  // right: result card, beside the frames (never on top of them)
+  const ox = CX0 + gw + 0.32, oy = 1.85, ow = CX1 - ox, oh = 4.6, ip = 0.3;
   const ov = [];
   ov.push(d.card(s, { x: ox, y: oy, w: ow, h: oh }, { color: '0D1016', line: HEX.red }));
-  ov.push(d.text(s, '52.6%', { x: ox + 0.4, y: oy + 0.35, w: 3.4, h: 1.05, fontSize: 66, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' }));
+  ov.push(d.text(s, '52.6%', { x: ox + ip, y: oy + 0.18, w: ow - 2 * ip, h: 1.0, fontSize: 60, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' }));
   ov.push(d.text(s, [
     { text: 'Human accuracy at spotting fake videos from 2026 generators. ', options: { color: d.S.txt, bold: true } },
     { text: 'A coin flip scores 50%.', options: { color: d.S.muted } },
-  ], { x: ox + 0.4, y: oy + 1.5, w: 3.4, h: 1.5, fontSize: 15, valign: 'top' }));
-  ov.push(capLabel(d, s, 'HUMANS SPOTTING FAKES, % CORRECT', { x: ox + 4.15, y: oy + 0.28, w: ow - 4.45 }));
+  ], { x: ox + ip, y: oy + 1.24, w: ow - 2 * ip, h: 0.8, fontSize: 15, valign: 'top' }));
+  ov.push(capLabel(d, s, 'HUMANS SPOTTING FAKES, % CORRECT', { x: ox + ip, y: oy + 2.08, w: ow - 2 * ip, charSpacing: 1 }));
   ov.push(d.chart(s, 'bar', [{ name: 'Accuracy on fakes', labels: ['Celeb-DF v3', 'DSv2', 'DF26 (2026)'], values: [74.5, 69.8, 52.6] }],
-    { x: ox + 4.05, y: oy + 0.6, w: ow - 4.35, h: oh - 1.28 }, {
+    { x: ox + ip - 0.1, y: oy + 2.36, w: ow - 2 * ip + 0.2, h: 1.62 }, {
       barDir: 'col', chartColors: [HEX.steel, HEX.steel, HEX.red], showValue: true, dataLabelFormatCode: '0.0', dataLabelPosition: 'outEnd',
       dataLabelFontSize: 12, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 90, valAxisMinVal: 0,
       catAxisLabelFontSize: 11, barGapWidthPct: 45,
     }));
-  ov.push(d.text(s, [{ text: 'Earlier deepfake test sets vs DF26 (2026 generators).', options: { breakLine: true } }, { text: '50% = chance.' }], { x: ox + 4.15, y: oy + oh - 0.64, w: ow - 4.45, h: 0.42, fontSize: 11, color: d.S.muted, italic: true, valign: 'top' }));
+  ov.push(d.text(s, [{ text: 'Earlier deepfake test sets vs DF26 (2026 generators).', options: { breakLine: true } }, { text: '50% = chance.' }],
+    { x: ox + ip, y: oy + 4.04, w: ow - 2 * ip, h: 0.42, fontSize: 11, color: d.S.muted, italic: true, valign: 'top' }));
 
-  d.animate(s, [hint], { auto: true, effect: 'fade' });
-  d.animate(s, base, { auto: true, effect: 'fade', dur: 600, after: 100 });
-  d.animate(s, reveals[0], { effect: 'zoom', dur: 350 });
-  d.animate(s, reveals[1], { effect: 'zoom', dur: 350 });
+  d.animate(s, [...g.base, cap], { auto: true, effect: 'fade', dur: 400 });
+  d.animate(s, g.reveals[0], { effect: 'zoom', dur: 350 });
+  d.animate(s, g.reveals[1], { effect: 'zoom', dur: 350 });
   d.animate(s, ov, { effect: 'zoom', dur: 450 });
 
-  d.source(s, 'Source: Shykula et al., “DF26: We Cannot Tell Fake From Real Anymore”, arXiv 2609.07369 (Sep 2026), Fig. 1 frames and human study (232 labeling sessions).');
+  d.source(s, DF_SOURCE);
   s.addNotes([
-    'Interactive: let the audience vote on each row before clicking. Click 1 reveals row 1 (B is real), click 2 reveals row 2 (F is real), click 3 shows the human-accuracy result.',
-    'Answers: Row 1 — A = Veo 3.1 (AI), B = REAL, C = Kling 3.0 (AI). Row 2 — D = Kling 3.0 (AI), E = Veo 3.1 (AI), F = REAL. The fakes are text-to-video generations (Veo 3.1, Kling 3.0) from a prompt describing the real clip (DF26: “generated from semantic prompts derived from the frames of the corresponding real video”; the four commercial systems were run in text-to-video mode only), so they show a different but matched speaker and setting; these are last frames from DF26 Fig. 1.',
+    'Click 1 reveals row 1 (B is real), click 2 reveals row 2 (F is real), click 3 shows the human-accuracy result.',
+    'Answers: Row 1 — A = Veo 3.1 (AI), B = REAL, C = Kling 3.0 (AI). Row 2 — D = Kling 3.0 (AI), E = Veo 3.1 (AI), F = REAL. ' + DF_FRAMES_NOTE,
     'DF26 (CTU Prague et al.): “Human performance in detecting AI-generated videos, as well as state-of-the-art deepfake detectors, is close to random chance.” Human accuracy on fake videos: Celeb-DF v3 74.5%, DSv2 69.8%, DF26 52.6% — barely above chance. Accuracy on real videos was ~73–76% on all three. 232 labeling sessions.',
     'Note: these are still frames; in the study participants watched full videos. Related: a Malwarebytes survey (Help Net Security, Jun 2026) found 85% of adults say they can no longer tell real from AI-generated content (self-reported).',
     'URL: https://arxiv.org/abs/2609.07369 · https://arxiv.org/html/2609.07369v1',
@@ -511,14 +571,15 @@ async function vlaWallSlide(d) {
   head(s, 'THE ACCELERATION · ROBOTICS', 'Robots are getting foundation-model brains');
 
   const nvidia = await crop('vla-nvidia-gtc2026-physical-ai.png', 'vla-nvidia-head.png', { l: 0, t: 0, w: 1640, h: 715 });
+  // three columns with clear gaps: π0.7 + NVIDIA (left), Gemini Robotics 2 / Spirit AI / Robot Report (middle),
+  // Helix 2.5 above the numbers (right). The MIT TR “gig workers” clipping was dropped (illegible at this size).
   const items = [
-    [R('vla-techcrunch-pi07.png'), 0.65, 1.82, 4.55, -2],
-    [R('vla-deepmind-gr2-blog.png'), 5.55, 1.85, 4.15, 1.5],
-    [R('vla-figure-helix25.png'), 10.0, 1.95, 2.7, -2],
-    [R('vla-bnnbloomberg-robot-brain.png'), 5.4, 3.25, 3.95, -1.5],
-    [R('vla-robotreport-gr2.png'), 9.75, 2.78, 2.95, 2],
-    [nvidia, 0.75, 4.1, 4.3, 1.5],
-    [R('vla-mittr-humanoid-gig.png'), 5.6, 4.95, 4.1, 1],
+    [R('vla-techcrunch-pi07.png'), 0.65, 1.85, 4.3, -2],
+    [R('vla-deepmind-gr2-blog.png'), 5.3, 1.9, 4.05, 1.5],
+    [R('vla-figure-helix25.png'), 9.7, 1.9, 3.0, -2],
+    [R('vla-bnnbloomberg-robot-brain.png'), 5.35, 3.38, 3.95, -1.5],
+    [nvidia, 0.7, 4.12, 4.3, 1.5],
+    [R('vla-robotreport-gr2.png'), 5.3, 5.22, 4.0, 2],
   ];
   const fr = [];
   for (const [f, x, y, w, rot] of items) fr.push(await frameW(d, s, f, x, y, w, { rot }));
@@ -529,28 +590,28 @@ async function vlaWallSlide(d) {
     ['2', 'related episodes to run an unfamiliar air fryer (π0.7)'],
   ];
   const facts = [];
-  const fx = 10.0, vw = 0.8, tw = CX1 - fx - vw - 0.06;
-  facts.push(capLabel(d, s, 'GENERALIZATION', { x: fx, y: 3.62, w: CX1 - fx, color: d.S.red }));
+  const fx = 9.7, vw = 1.1, tw = CX1 - fx - vw - 0.06;
+  facts.push(capLabel(d, s, 'GENERALIZATION', { x: fx, y: 3.08, w: CX1 - fx, color: d.S.red }));
   const rowH = [0.5, 0.98, 0.74];
-  let fy = 3.94;
+  let fy = 3.42;
   factRows.forEach(([v, t], i) => {
     facts.push(d.text(s, v, { x: fx, y: fy - 0.02, w: vw, h: 0.42, fontSize: 24, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'top' }));
     facts.push(d.text(s, t, { x: fx + vw + 0.06, y: fy, w: tw, h: rowH[i], fontSize: 14, color: d.S.muted, valign: 'top' }));
-    fy += rowH[i] + 0.07;
+    fy += rowH[i] + 0.16;
   });
-  facts.push(d.text(s, 'Company-reported results', { x: fx, y: fy - 0.06, w: CX1 - fx, h: 0.22, fontSize: 11, italic: true, color: d.S.amber, valign: 'top' }));
+  facts.push(d.text(s, 'Company-reported results', { x: fx, y: fy - 0.06, w: CX1 - fx, h: 0.24, fontSize: 11, italic: true, color: d.S.amber, valign: 'top' }));
 
   fr.forEach((f, i) => d.animate(s, f, { auto: true, effect: i % 3 === 0 ? 'slam' : 'rise', dur: i % 3 === 0 ? 330 : 420, after: i ? 90 : 0 }));
   d.animate(s, facts, { effect: 'fade' });
   d.anim[s._num].groups[d.anim[s._num].groups.length - 1].effects.forEach((e, i) => { e.delay = i === 0 ? 0 : Math.floor((i - 1) / 2) * 250; });
 
-  d.source(s, 'Sources: TechCrunch (Apr 2026) · Google DeepMind (Jul 2026) · Figure AI (Sep 2026) · Reuters via BNN Bloomberg (Sep 2026) · The Robot Report (Aug 2026) · NVIDIA (Mar 2026) · MIT Tech Review (Apr 2026).');
+  d.source(s, 'Sources: TechCrunch (Apr 2026) · Google DeepMind (Jul 2026) · Figure AI (Sep 2026) · Reuters via BNN Bloomberg (Sep 2026) · The Robot Report (Aug 2026) · NVIDIA (Mar 2026).');
   s.addNotes([
     'Vision-language-action models (VLAs) are the robotics version of the LLM boom — and in 2026 the headlines are about generalization: doing tasks and working in places the robot was never trained on.',
     'Physical Intelligence π0.7 (TechCrunch): ran an unfamiliar air fryer after seeing only two related training episodes. Sergey Levine: “the capabilities are going up more than linearly.” Ashwin Balakrishna: “the last few months have been the first time where I’m genuinely surprised.”',
     'Google DeepMind Gemini Robotics 2: “our most advanced vision-language-action model (VLA) that converts vision and language input into motor control”; the on-device version adapts to a new robot body “with just a few hours of adaptation time, typically with less than 200 examples.” Caveat: success rates still vary — whole-body manipulation 46–76%.',
-    'Figure Helix 2.5: three long-horizon behaviors (tidying living rooms, folding towels, making beds) across 30 unseen homes with no data collection, fine-tuning or adaptation there (company claim). NVIDIA (GTC 2026): GR00T N2 succeeds at new tasks in new environments more than twice as often as leading VLAs; Jensen Huang: “Physical AI has arrived.” Reuters: Chinese “robot brain” startup Spirit AI expects humanoids to complete most general-purpose tasks from verbal instructions as soon as next year — though being useful at home will take much longer. MIT TR: gig workers in Nigeria and India record chores with head-mounted iPhones to train humanoids.',
-    'URLs: https://techcrunch.com/2026/04/16/physical-intelligence-a-hot-robotics-startup-says-its-new-robot-brain-can-figure-out-tasks-it-was-never-taught/ · https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/ · https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization · https://www.bnnbloomberg.ca/business/artificial-intelligence/2026/09/18/chinese-robot-brain-startup-sees-chatgpt-style-breakthrough-as-soon-as-next-year/ · https://www.therobotreport.com/google-deepmind-says-gemini-robotics-2-enables-full-body-control/ · https://nvidianews.nvidia.com/news/nvidia-and-global-robotics-leaders-take-physical-ai-to-the-real-world · https://www.technologyreview.com/2026/04/01/1134863/humanoid-data-training-gig-economy-2026-breakthrough-technology/',
+    'Figure Helix 2.5: three long-horizon behaviors (tidying living rooms, folding towels, making beds) across 30 unseen homes with no data collection, fine-tuning or adaptation there (company claim). NVIDIA (GTC 2026): GR00T N2 succeeds at new tasks in new environments more than twice as often as leading VLAs; Jensen Huang: “Physical AI has arrived.” Reuters: Chinese “robot brain” startup Spirit AI expects humanoids to complete most general-purpose tasks from verbal instructions as soon as next year — though being useful at home will take much longer.',
+    'URLs: https://techcrunch.com/2026/04/16/physical-intelligence-a-hot-robotics-startup-says-its-new-robot-brain-can-figure-out-tasks-it-was-never-taught/ · https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/ · https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization · https://www.bnnbloomberg.ca/business/artificial-intelligence/2026/09/18/chinese-robot-brain-startup-sees-chatgpt-style-breakthrough-as-soon-as-next-year/ · https://www.therobotreport.com/google-deepmind-says-gemini-robotics-2-enables-full-body-control/ · https://nvidianews.nvidia.com/news/nvidia-and-global-robotics-leaders-take-physical-ai-to-the-real-world',
   ].join('\n\n'));
   return s;
 }
@@ -688,7 +749,8 @@ async function build(d) {
   await arxivSlide(d);
   await reviewSlide(d);
   await tavusSlide(d);
-  await realSlide(d);
+  await realQuestionSlide(d);
+  await realRevealSlide(d);
   await vlaWallSlide(d);
   await vlaArchSlide(d);
   await vlaDemoSlide(d);

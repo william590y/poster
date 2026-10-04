@@ -181,7 +181,7 @@ async function caisSlide(d) {
       ],
     },
     {
-      badge: ['FaGlobeAmericas', HEX.blue],
+      img: 'p-guterres.jpg',
       runs: [
         { text: 'On generative AI: ', options: { fontSize: 14, color: d.S.muted } },
         { text: '“Its creators themselves have warned that much bigger, potentially catastrophic and existential risks lie ahead.”', options: { fontSize: 14, italic: true, fontFace: 'Cambria', color: d.S.txt, breakLine: true, paraSpaceAfter: 3 } },
@@ -200,14 +200,24 @@ async function caisSlide(d) {
     'p-hinton.jpg': ['portrait-hinton.jpg', { l: 190, t: 60, w: 1000, h: 1333 }],
     'p-russell.jpg': ['portrait-russell.jpg', { l: 150, t: 80, w: 1000, h: 1333 }],
   };
+  // Guterres portrait is not in the research folder: 1280-px Commons rendition of
+  // 'File:António Guterres, 23.03.23.jpg' (European Commission / Christophe Licoppe, CC BY 4.0), kept in assets/slides/xrisk/.
+  const local = { 'p-guterres.jpg': ['guterres-commons-1280.jpg', { l: 70, t: 170, w: 1140, h: 1520 }] };
   const ch = 1.34, cg = 0.1;
   const cards = [];
   for (let i = 0; i < people.length; i++) {
     const y = 2.04 + i * (ch + cg);
     const g = [d.card(s, { x: rx, y, w: rw, h: ch })];
     if (people[i].img) {
-      const [src, c] = crops[people[i].img];
-      const file = await crop(src, people[i].img, c, 600);
+      let file;
+      if (local[people[i].img]) {
+        const [src, c] = local[people[i].img];
+        file = path.join(OUT, people[i].img);
+        await sharp(path.join(OUT, src)).extract({ left: c.l, top: c.t, width: c.w, height: c.h }).resize({ width: 600 }).toFile(file);
+      } else {
+        const [src, c] = crops[people[i].img];
+        file = await crop(src, people[i].img, c, 600);
+      }
       g.push(...await d.frame(s, file, { x: rx + 0.1, y: y + 0.1, w: 0.855, h: ch - 0.2 }, { border: false, shadow: false, pad: 0 }));
     } else {
       const bs = 0.78;
@@ -216,7 +226,7 @@ async function caisSlide(d) {
     g.push(d.text(s, people[i].runs, { x: rx + 1.1, y: y + 0.08, w: rw - 1.22, h: ch - 0.16, valign: 'middle' }));
     cards.push(g);
   }
-  const credit = d.text(s, 'Photos CC BY-SA 4.0: Cmichel67, Bengt Oberger / Wikimedia', { x: rx, y: 2.04 + 3 * ch + 2 * cg + 0.05, w: rw, h: 0.24, fontSize: 10, color: d.S.steel, italic: true });
+  const credit = d.text(s, 'Photos: Cmichel67, B. Oberger (CC BY-SA 4.0) · European Commission (CC BY 4.0)', { x: rx, y: 2.04 + 3 * ch + 2 * cg + 0.05, w: rw, h: 0.24, fontSize: 10, color: d.S.steel, italic: true });
 
   d.animate(s, [quote], { auto: true, effect: 'fade', dur: 1100 });
   d.animate(s, [attr], { auto: true, effect: 'fade', after: 200 });
@@ -233,7 +243,7 @@ async function caisSlide(d) {
     'CLICK — Guterres, first UN Security Council debate on AI (Jul 18, 2023): “Generative AI has enormous potential for good and evil at scale. Its creators themselves have warned that much bigger, potentially catastrophic and existential risks lie ahead. Without action to address these risks, we are derelict in our responsibilities to present and future generations.” https://press.un.org/en/2023/sgsm21880.doc.htm',
     'CLICK — Russell, quoted on the Statement on Superintelligence page: “This is not a ban or even a moratorium in the usual sense. It’s simply a proposal to require adequate safety measures for a technology that, according to its developers, has a significant chance to cause human extinction. Is that too much to ask?” The slide shows the end of the quote. The statement itself (Future of Life Institute, Oct 22, 2025; signed by Hinton, Bengio, Russell and many others): “We call for a prohibition on the development of superintelligence, not lifted before there is 1. broad scientific consensus that it will be done safely and controllably, and 2. strong public buy-in.” https://superintelligence-statement.org/',
     'Optional extra on Bengio and Hinton: they are among the 22 co-authors (first author Alan Chan; also Andrew Barto, OpenAI’s chief scientist and an Anthropic co-founder) of the GovAI paper “What If Automating AI R&D Triggers an Intelligence Explosion?” (Sep 28, 2026), which warns of an “intelligence explosion,” “where years of AI progress are compressed into months or less.” https://www.governance.ai/research-paper/what-if-automating-ai-r-d-triggers-an-intelligence-explosion',
-    'Photo credits (Wikimedia Commons): Hinton — Cmichel67, CC BY-SA 4.0 (2026); Russell — Bengt Oberger, CC BY-SA 4.0. Portraits cropped.',
+    'Photo credits (Wikimedia Commons): Hinton — Cmichel67, CC BY-SA 4.0 (2026); Russell — Bengt Oberger, CC BY-SA 4.0; Guterres — European Commission (Christophe Licoppe), CC BY 4.0 (“© European Union”), Brussels, Mar 23, 2023 — a portrait, not a photo of the Security Council debate. https://commons.wikimedia.org/wiki/File:Ant%C3%B3nio_Guterres,_23.03.23.jpg (licence checked on the file page, Oct 4, 2026). Portraits cropped.',
     'Transition: so why would extremely capable systems be dangerous at all? Two ideas from theory.',
   ].join('\n\n'));
 }
@@ -419,7 +429,7 @@ async function orthogonalitySlide(d) {
   const ax = d.name('axis');
   s.addShape(d.pres.shapes.LINE, { x: axisX, y: py + ph + 0.05, w: pw - 1.95, h: 0, line: { color: HEX.steel, width: 1.25, endArrowType: 'triangle' }, objectName: ax });
   plot.push(ax);
-  plot.push(d.text(s, 'INTELLIGENCE  →', { x: axisX, y: py + ph + 0.12, w: pw - 1.95, h: 0.28, fontSize: 10, bold: true, color: d.S.steel, charSpacing: 3, align: 'right' }));
+  plot.push(d.text(s, 'INTELLIGENCE', { x: axisX, y: py + ph + 0.12, w: pw - 1.95, h: 0.28, fontSize: 10, bold: true, color: d.S.steel, charSpacing: 3, align: 'right' }));
   // dots: [row, xFrac, hot?]
   const pts = [[0, 0.12], [0, 0.55], [1, 0.25], [1, 0.62], [2, 0.08], [2, 0.4], [2, 0.8], [3, 0.18], [3, 0.5], [0, 0.96, true], [3, 0.96, true]];
   const dots = pts.map(([r, f, hot]) => {

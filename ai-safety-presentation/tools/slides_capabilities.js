@@ -24,6 +24,22 @@ async function crop(src, name, { l, t, w, h }) {
   return out;
 }
 
+// Transparent-to-dark gradient PNG (darkest top-left), used as an overlay above a full-bleed photo.
+async function scrim(name, wpx, hpx, { max = 0.62 } = {}) {
+  fs.mkdirSync(OUT, { recursive: true });
+  const out = path.join(OUT, name);
+  const buf = Buffer.alloc(wpx * hpx * 4);
+  for (let y = 0; y < hpx; y++) {
+    for (let x = 0; x < wpx; x++) {
+      const a = max * Math.pow(1 - y / hpx, 1.4) * (1 - 0.5 * x / wpx);
+      const i = (y * wpx + x) * 4;
+      buf[i] = 10; buf[i + 1] = 12; buf[i + 2] = 16; buf[i + 3] = Math.round(a * 255);
+    }
+  }
+  await sharp(buf, { raw: { width: wpx, height: hpx, channels: 4 } }).png().toFile(out);
+  return out;
+}
+
 function label(d, s, text, x, y, w, { color, h = 0.28, align = 'left' } = {}) {
   return d.text(s, text, { x, y, w, h, fontSize: 10, bold: true, color: color || d.S.steel, charSpacing: 2, valign: 'bottom', align });
 }
@@ -171,7 +187,7 @@ async function metrSlide(d) {
   };
   const pl = [
     lab('GPT-2', 'GPT-2 · 3 sec'), lab('GPT-3', 'GPT-3 · 9 sec'), lab('GPT-3.5', 'GPT-3.5 · 36 sec'),
-    lab('GPT-4', 'GPT-4 · 4 min', 'l'), lab('o1', 'o1 · 39 min', 'l'), lab('o3', 'o3 · 2 hrs', 'l'),
+    lab('GPT-4', 'GPT-4 · 4 min', 'l'), lab('o1', 'o1 · 39 min', 'l', -0.16), lab('o3', 'o3 · 2 hrs', 'l'),
     lab('Claude Opus 4.6', 'Claude Opus 4.6 · 12 hrs', 'l'),
     lab('Claude Mythos Preview (early)', 'Claude Mythos Preview · ~17 hrs', 'l', -0.1),
   ];
@@ -291,11 +307,12 @@ async function hleSlide(d) {
 
   // right column: the billing + official leaderboard
   const rx = 7.5, rw = 12.73 - rx;
+  // same label style and y as the chart label on the left, so the two column heads line up
+  const billLab = label(d, s, 'BILLED AT LAUNCH, JAN 2025', rx, 1.7, rw);
   const bill = d.text(s, [
-    { text: 'BILLED AT LAUNCH, JAN 2025', options: { fontSize: 10, bold: true, color: d.S.steel, charSpacing: 2, breakLine: true } },
     { text: '“designed to be the last academic exam of its kind for AI”', options: { fontSize: 19, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true } },
     { text: 'Center for AI Safety & Scale AI · frontier models then scored <10%', options: { fontSize: 11, color: d.S.muted } },
-  ], { x: rx, y: 1.72, w: rw, h: 1.45, valign: 'top' });
+  ], { x: rx, y: 2.02, w: rw, h: 0.95, valign: 'top' });
   const lbLab = label(d, s, 'OFFICIAL LEADERBOARD · TOP TWO · OCT 4, 2026', rx, 3.12, rw);
   // top two rows, full bar width (cutting the bars would make them look equal); rank badges dropped
   const lb = await d.frame(s, await crop(R('scale-hle-leaderboard.png'), 'hle-leaderboard-top2.png', { l: 100, t: 118, w: 885, h: 200 }), { x: rx, y: 3.42, w: rw, h: 1.45 }, { align: 'left' });
@@ -311,7 +328,7 @@ async function hleSlide(d) {
 
   d.animate(s, [lab, { name: ch, effect: 'wipeLeft', dur: 1400 }], { auto: true, effect: 'fade' });
   d.animate(s, [ann], { auto: true, effect: 'fade', after: 100 });
-  d.animate(s, [bill], { effect: 'fade' });
+  d.animate(s, [billLab, bill], { effect: 'fade' });
   d.animate(s, [lbLab, ...lb], { effect: 'fade' });
   d.animate(s, [ncLab, ...ncF], { effect: 'rise' });
   d.source(s, 'Data: Epoch AI Benchmarking Hub (hle_external.csv, CC-BY) · Scale AI / CAIS HLE leaderboard, labs.scale.com (accessed Oct 4, 2026; update of Sep 17, 2026).');
@@ -334,13 +351,17 @@ async function heroSlide(d) {
   const W = 13.333, h = W * nat.h / nat.w;
   const im = d.name('hero');
   s.addImage({ path: img, x: 0, y: 0, w: W, h, objectName: im });
-  const k = d.text(s, `${KICK} · CREATIVITY · 1`, { x: MX, y: 0.5, w: 7, h: 0.3, fontSize: 12, bold: true, color: 'FFFFFF', charSpacing: 4 });
-  const t = d.text(s, 'This is not a photograph', { x: MX, y: 0.82, w: 8, h: 0.75, fontSize: 40, bold: true, color: 'FFFFFF', fontFace: 'Arial', valign: 'middle' });
-  const c = d.text(s, 'San Francisco’s Palace of Fine Arts, recreated as a photoreal 3-D scene in Blender by GPT-6 Astra.', { x: MX, y: 1.62, w: 4.55, h: 0.95, fontSize: 16, color: 'E6EAF2', valign: 'top' });
-  const src = d.text(s, 'Shared on r/singularity, 2026', { x: MX, y: 2.6, w: 4.5, h: 0.3, fontSize: 11, italic: true, color: 'B8C2D6' });
+  // soft dark scrim over the sky (a separate overlay, the image itself is untouched) so the deck's red kicker reads
+  const scr = d.name('scrim');
+  s.addImage({ path: await scrim('hero-scrim.png', 1600, 400), x: 0, y: 0, w: W, h: 3.33, objectName: scr });
+  // kicker + title at exactly the Content layout's placeholder geometry (text boxes so they can be animated)
+  const k = d.text(s, `${KICK} · CREATIVITY · 1`, { x: MX, y: 0.42, w: 9, h: 0.3, fontSize: 12, bold: true, color: d.S.red, charSpacing: 4, valign: 'top' });
+  const t = d.text(s, 'This is not a photograph', { x: MX, y: 0.72, w: W - 2 * MX, h: 0.75, fontSize: 36, bold: true, color: d.S.txt, fontFace: 'Arial', valign: 'middle' });
+  const c = d.text(s, 'San Francisco’s Palace of Fine Arts, recreated as a photoreal 3-D scene in Blender by GPT-6 Astra.', { x: MX, y: 1.6, w: 4.55, h: 0.95, fontSize: 16, color: 'E6EAF2', valign: 'top' });
+  const src = d.text(s, 'Shared on r/singularity, 2026', { x: MX, y: 2.55, w: 4.5, h: 0.3, fontSize: 11, italic: true, color: 'B8C2D6' });
   d.animate(s, [im], { auto: true, effect: 'fade', dur: 1400 });
   // the image sits alone until the presenter clicks; the caption follows the title automatically
-  d.animate(s, [k, t], { effect: 'fade', dur: 700 });
+  d.animate(s, [scr, k, t], { effect: 'fade', dur: 700 });
   d.animate(s, [c, src], { auto: true, effect: 'fade', dur: 600, after: 500 });
   s.addNotes([
     'The slide opens on the image alone. Let it sit for a moment. Ask: "Photo or render?"',

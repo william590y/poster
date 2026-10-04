@@ -28,18 +28,25 @@ const CROPS = {
   'fairwater_crop.jpg': ['ms_fairwater_wisconsin_hero.jpg', { left: 150, top: 0, width: 1612, height: 1280 }],
   // drops a page-render artifact (bright-green square, bottom-right) and the white strip under the photo
   'tc_openai_852b.png': ['techcrunch_openai_122b_852b.png', { left: 0, top: 0, width: 2500, height: 1240 }],
+  // Statista infographic cropped to its headline + dek (the full infographic's mini charts are illegible at slide size
+  // and duplicate the native chart beside it)
+  'statista_head.png': ['statista_bigtech_capex_2026.jpeg', { left: 16, top: 48, width: 1046, height: 302 }],
 };
 
-// User's S&P 500 share chart (image2.png, 826×459): cropped to the plot (its footnote is on the slide's source line)
-// and with its ~6.5pt series-end labels and "ChatGPT launch" removed, because they are re-set natively at 12pt
-// (same values/words). Only greyish text pixels inside the boxes are cleared; coloured series pixels are kept and
-// gridline rows are restored. Boxes are [x0, y0, x1, y1] in source pixels.
+// User's S&P 500 share chart (image2.png, 826×459), cropped to the plot below its empty 60% band (data max is 50%):
+// the footnote goes to the slide's source line, the legend is replaced by the native series-end callouts (same series
+// names, in the series colours) and the rotated y-axis title by the native label above the chart. Its ~6.5pt in-plot
+// labels (the three series-end values, "~25%" — which the dashed Kobeissi line ran through — and "ChatGPT launch",
+// which sat above the crop) are re-set natively at 12pt (same values/words). Only greyish text pixels inside the erase
+// boxes are cleared; coloured series pixels are kept and gridline rows are restored. Boxes are [x0, y0, x1, y1] in
+// source pixels.
 const SP = {
-  file: 'sp500_ai_share.png', box: { left: 50, top: 8, width: 756, height: 394 },
-  erase: [[669, 95, 697, 109], [637, 122, 725, 138], [759, 202, 796, 216], [418, 45, 510, 59]],
+  file: 'sp500_ai_share.png', box: { left: 80, top: 60, width: 720, height: 337 },
+  erase: [[669, 95, 697, 109], [637, 122, 725, 138], [759, 202, 796, 216], [472, 219, 504, 229]],
   grid: [49, 102, 156, 209, 263, 317], gridMaxX: 778, bg: [252, 252, 251], gridRGB: [225, 224, 217],
   // marker centres (source px) used to place the native callouts
-  jpm: [705, 101], kob: [733, 128], kobLeft: 726, mag7: [753, 202], chatgptX: 463.5, chatgptY: 52,
+  jpm: [705, 101], kob: [733, 128], kobLeft: 726, mag7: [753, 202], chatgptX: 463.5, chatgptY: 72,
+  kob0: [463.5, 234], kob0Left: 455,
 };
 
 async function prepChart() {
@@ -121,9 +128,14 @@ async function marketSlide(d) {
   kicker(s, 'THE ACCELERATION · ECONOMY · 1');
   title(s, 'AI is swallowing the stock market');
 
-  // hero: user's S&P share chart (cleaned crop, see SP), with the headline clipping pinned above it
-  const chart = await d.frame(s, D(SP.file), { x: MX, y: 2.95, w: 6.5, h: 3.6 }, { pad: 0.06 });
-  const head = await d.frame(s, O('image3.png'), { x: MX + 0.05, y: 1.74, w: 6.4, h: 0.98 }, { rot: -1.2, pad: 0.08 });
+  // Two charts side by side under matching labels: the user's S&P share chart (white paper exhibit, cleaned crop — see SP)
+  // on the left, the native Nvidia chart on the right. The headline clipping is pinned under the S&P chart.
+  // vertical budget (left): label · chart · 0.24 gap · headline clipping (bottom at 6.47); the chart's width follows
+  const headH = 0.82, headY = 6.47 - headH, spTop = 2.04, spH = headY - 0.24 - spTop;
+  const lw = (spH - 0.12) * SP.box.width / SP.box.height + 0.12, rx = MX + lw + 0.42, rw = W - MX - rx;
+  const spLab = label(d, s, 'SHARE OF S&P 500 MARKET VALUE · THREE AI-STOCK BASKETS', MX, 1.72, lw);
+  const chart = await d.frame(s, D(SP.file), { x: MX, y: spTop, w: lw, h: spH }, { pad: 0.06 });
+  const head = await d.frame(s, O('image3.png'), { x: MX + 0.08, y: headY, w: lw - 0.5, h: headH }, { rot: -1.2, pad: 0.08, align: 'left' });
 
   // Native 12pt callouts at the series ends (they double as the legend). Positions come from the source-pixel
   // marker coordinates; white fill = the chart's background, so gridlines don't run through the text.
@@ -131,21 +143,23 @@ async function marketSlide(d) {
   const P = ([sx, sy]) => ({ x: cg.x + (sx - SP.box.left) * ck, y: cg.y + (sy - SP.box.top) * ck });
   const calloutH = 0.21;
   const callout = (value, desc, color, right, yMid, w) => d.text(s, [
-    { text: value, options: { bold: true } }, { text: ` · ${desc}` },
+    { text: value, options: { bold: true } }, ...(desc ? [{ text: ` · ${desc}` }] : []),
   ], { x: right - w, y: yMid - calloutH / 2, w, h: calloutH, fontSize: 12, color, align: 'right', valign: 'middle', fill: { color: 'FCFCFB' } });
   const pJ = P(SP.jpm), pK = P(SP.kob), pM = P(SP.mag7);
   const kobRight = P([SP.kobLeft, 0]).x - 0.06;
   const cJ = callout('50%', 'JPMorgan, 28 “direct AI” stocks', '1E8A57', pJ.x - 0.1, pK.y - 0.09 - calloutH, 2.6);
   const cK = callout('45%', 'Kobeissi, broad AI-linked (Apr 2026)', 'C9531C', kobRight, pK.y - 0.09, 2.92);
   const cM = callout('31.5%', 'Magnificent 7', '2F62C8', pM.x + 0.2, pM.y + 0.25, 1.56);
+  // Kobeissi starting value: above-left of its triangle, clear of the dashed line and the ChatGPT rule
+  const p0 = P(SP.kob0);
+  const c0 = callout('~25%', '', 'C9531C', P([SP.kob0Left, 0]).x, p0.y - 0.15, 0.5);
   const pC = P([SP.chatgptX, SP.chatgptY]);
   const cC = d.text(s, 'ChatGPT launch', { x: pC.x - 0.6, y: pC.y - calloutH / 2, w: 1.2, h: calloutH, fontSize: 12, color: '5F6670', align: 'center', valign: 'middle', fill: { color: 'FCFCFB' } });
 
   // Nvidia market cap (native)
-  const rx = 7.5, rw = W - MX - rx;
   const nvLab = label(d, s, 'NVIDIA MARKET VALUE (YEAR-END; 2026 = OCT 3)', rx, 1.72, rw);
   const nv = [17.73, 57.53, 117.26, 81.43, 144.0, 323.24, 735.27, 364.18, 1223, 3288, 4638, 5649].map(v => v / 1000);
-  const nvBox = { x: rx - 0.12, y: 2.0, w: rw + 0.12, h: 2.5 }, nvL = { x: 0.1, y: 0.1, w: 0.88, h: 0.74 };
+  const nvBox = { x: rx - 0.12, y: 2.0, w: rw + 0.12, h: 2.5 }, nvL = { x: 0.11, y: 0.1, w: 0.87, h: 0.74 };
   const nvChart = d.chart(s, 'bar', [{ name: 'Nvidia market cap ($T)', labels: ['2015', '’16', '’17', '’18', '’19', '’20', '’21', '’22', '’23', '’24', '’25', 'Oct ’26'], values: nv }],
     nvBox, {
       layout: nvL, barDir: 'col', chartColors: [...Array(11).fill(HEX.steel), HEX.red], barGapWidthPct: 45,
@@ -163,12 +177,13 @@ async function marketSlide(d) {
   // stat callouts
   const divider = d.name('div');
   s.addShape(d.pres.shapes.LINE, { x: rx, y: 4.72, w: rw, h: 0, line: { color: HEX.line, width: 1 }, objectName: divider });
-  const st1 = stat(d, s, { x: rx, y: 4.82, w: 2.45, value: '$96.2B', label: 'Nvidia’s revenue in one quarter, up 106% in a year (Aug 2026)', color: d.S.txt, labelH: 0.62 });
-  const st2 = stat(d, s, { x: rx + 2.7, y: 4.82, w: rw - 2.7, value: '$65B', label: 'Anthropic’s annualized revenue, Jul 2026 — up from $9B at end of 2025', color: d.S.txt, labelH: 0.62 });
+  const sw = (rw - 0.3) / 2;
+  const st1 = stat(d, s, { x: rx, y: 4.82, w: sw, value: '$96.2B', label: 'Nvidia’s revenue in one quarter, up 106% in a year (Aug 2026)', color: d.S.txt, labelH: 0.8 });
+  const st2 = stat(d, s, { x: rx + sw + 0.3, y: 4.82, w: sw, value: '$65B', label: 'Anthropic’s annualized revenue, Jul 2026 — up from $9B at end of 2025', color: d.S.txt, labelH: 0.8 });
 
   d.source(s, 'Sources: S&P 500 share chart — Mag 7 via historyofmarket.com, Kobeissi Letter, JPMorgan (definitions differ) · Nvidia: CompaniesMarketCap (2026 = Oct 3) · Guardian, Aug 26, 2026 · TechCrunch, Aug 17, 2026');
 
-  d.animate(s, [...chart, cJ, cK, cM, cC], { auto: true, effect: 'fade', dur: 600 });
+  d.animate(s, [spLab, ...chart, cJ, cK, cM, c0, cC], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, head, { effect: 'slam', dur: 450 });
   d.animate(s, [nvLab, nvChart, nvNote, nvLine], { effect: 'wipeLeft', dur: 900 });
   d.animate(s, [divider, ...st1, ...st2], { effect: 'rise', stagger: 200 });
@@ -178,7 +193,7 @@ async function marketSlide(d) {
     'Click 1 — the headline: “AI Swallows Wall Street: Stocks Hit Record 45% of S&P 500 Market Cap” (user-supplied headline image; outlet not recorded in our research manifest — matches the Kobeissi 45% figure in the chart).',
     'Click 2 — Nvidia: from about $18B at the end of 2015 to $5.65T on Oct 3, 2026 (CompaniesMarketCap). It became the first public company worth $5T on Oct 29, 2025; the Guardian noted that was more than the GDP of India, Japan or the UK (IMF). It has NOT reached $6T — don’t say it has. The chart shows year-end values, so the 2025 bar ($4.64T) sits below $5T: it crossed $5T in late October, then ended the year lower (dashed line = the $5T level).',
     'Click 3 — the money behind it: The Guardian, Aug 26, 2026 — “Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’”: $96.2B in the quarter, 106% more than a year earlier, with guidance of $108B for the next quarter. Anthropic’s annualized revenue run rate went from $9B at end-2025 to over $65B by end of July 2026 (TechCrunch citing Bloomberg, Aug 17, 2026); it also raised $65B at a $965B valuation in May 2026. (OpenAI’s $852B valuation and ~$1.4T talks are saved for the section closer.)',
-    'Chart footnote (cropped from the image; summarized on the source line): Mag 7 series from historyofmarket.com (semiannual, through Jul 24, 2026); broad AI-linked from The Kobeissi Letter via Yahoo Finance (Apr 2026, “+20 pts since ChatGPT”, i.e. from ~25%); JPMorgan Eye on the Market, Outlook 2026. The end-value labels and “ChatGPT launch” were re-set in larger type on the slide; values unchanged.',
+    'Chart footnote (cropped from the image; summarized on the source line): Mag 7 series from historyofmarket.com (semiannual, through Jul 24, 2026); broad AI-linked from The Kobeissi Letter via Yahoo Finance (Apr 2026, “+20 pts since ChatGPT”, i.e. from ~25%); JPMorgan Eye on the Market, Outlook 2026. The end-value labels, “~25%” and “ChatGPT launch” were re-set in larger type on the slide (values unchanged); the chart’s small legend and y-axis title (“% of S&P 500 market value”) were cropped — the coloured callouts name the series and the label above the chart gives the measure.',
     'URLs: https://companiesmarketcap.com/nvidia/marketcap/ · https://techcrunch.com/2025/10/29/nvidia-becomes-first-public-company-worth-5-trillion/ · https://www.theguardian.com/technology/2025/oct/29/nvidia-first-company-5-trillion · https://www.theguardian.com/technology/2026/aug/26/nvidia-quarterly-revenue · https://techcrunch.com/2026/08/17/anthropics-annualized-revenue-surges-to-65b/ · https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/',
   ].join('\n\n'));
   return s;
@@ -209,25 +224,28 @@ async function capexSlide(d) {
     catAxisLabelFontSize: 12, legendFontSize: 12,
   });
 
-  // Statista clipping + the user's construction chart (the larger of the two)
-  const stc = await d.frame(s, R('statista_bigtech_capex_2026.jpeg'), { x: 6.45, y: 1.9, w: 2.6, h: 2.6 }, { rot: -2, pad: 0.05 });
+  // Statista headline (cropped clipping) + stat column, and the user's construction chart
+  const stc = await d.frame(s, D('statista_head.png'), { x: 6.42, y: 1.86, w: 2.72, h: 1.0 }, { rot: -1.5, pad: 0.05 });
   const con = await d.frame(s, O('image1.png'), { x: 9.45, y: 1.72, w: 3.28, h: 3.69 }, { rot: 1.5, pad: 0.05 });
   const conCap = d.text(s, 'Data-center construction keeps rising while all other private construction falls', { x: 9.45, y: 5.55, w: 3.28, h: 0.5, fontSize: 11, italic: true, color: d.S.muted, valign: 'top' });
 
-  const st1 = stat(d, s, { x: 6.5, y: 4.75, w: 2.6, value: '+84%', label: 'Statista: $413B (2025) → up to $760B (2026); ~$950B projected for 2027 (Bloomberg)', valueSize: 36, labelH: 0.85 });
+  const st1 = stat(d, s, { x: 6.5, y: 3.12, w: 2.6, value: '+84%', label: 'Statista: $413B in 2025 → up to $760B in 2026', labelH: 0.5 });
+  const st2 = stat(d, s, { x: 6.5, y: 4.62, w: 2.6, value: '~$950B', color: d.S.txt, label: 'projected for 2027 (Bloomberg)', labelH: 0.5 });
 
   d.source(s, 'Sources: 2022–25 bars: Epoch AI “broad capex” from SEC filings (company-report totals differ slightly) · Statista, Jul 31, 2026 (2026 = upper limit of guidance) · Fortune/Bloomberg, Jul 26, 2026 · Commerce Dept.');
 
   d.animate(s, [lab, ch], { auto: true, effect: 'wipeLeft', dur: 1000 });
-  d.animate(s, stc, { effect: 'rise' });
-  d.animate(s, st1, { effect: 'zoom', dur: 400 });
+  d.animate(s, stc, { effect: 'slam', dur: 450 });
+  d.animate(s, st1, { auto: true, effect: 'zoom', dur: 400, after: 150 });
+  d.animate(s, st2, { effect: 'rise' });
   d.animate(s, [...con, conCap], { effect: 'rise' });
 
   s.addNotes([
     'Four companies — Amazon, Microsoft, Alphabet, Meta — went from ~$155B of capex in 2022 to ~$409B in 2025, and their own guidance points to up to $760B in 2026 (Statista: “Big Tech’s AI Spending to Reach $760 Billion in 2026”, up 84% from $413B). Bloomberg’s projection is ~$724B for 2026 and nearly $950B for 2027.',
     'CAVEATS: 2026 bars are guidance (upper limits as of Jul 30, 2026; Microsoft outlook as of Apr 29), not actuals. 2022–25 are sums of Epoch AI’s quarterly “broad capex” series (calendar years), which differ slightly from Statista’s company-report totals (e.g. 2025: $409B in the chart vs $413B per Statista — the +84% callout uses Statista’s own numbers: 760/413). That is why the bars carry no per-year totals. Capex includes some non-AI spending, but the companies say the growth is driven by AI data centers. Oracle (not shown) adds ~$40B in 2025.',
     'Epoch AI: hyperscaler capex has grown ~72%/yr since Q2 2023 — quadrupling since GPT-4. Alphabet’s free cash flow turned negative in Q2 2026 for the first time since its 2004 IPO (Fortune/Bloomberg).',
-    'Right chart (user-supplied, Commerce Dept. data): private construction relative to Dec 2023 — data centers up ~$50B annualized, everything else down ~$120B.',
+    'Click 1 — the Statista headline (clipping cropped to its headline; full CC BY-ND infographic with per-company bars at the URL below), then +84%. Click 2 — Bloomberg’s ~$950B for 2027.',
+    'Click 3 — right chart (user-supplied, Commerce Dept. data): private construction relative to Dec 2023 — data centers up ~$50B annualized, everything else down ~$120B.',
     'URLs: https://www.statista.com/chart/35046/capital-expenditure-of-meta-alphabet-amazon-and-microsoft/ · https://epoch.ai/data-insights/hyperscaler-capex-trend · https://fortune.com/2026/07/26/big-tech-earnings-meta-microsoft-apple-amazon-market-revolt-ai-spending/',
   ].join('\n\n'));
   return s;
@@ -243,7 +261,9 @@ async function gdpSlide(d) {
   const c1 = await d.frame(s, D('fortune_housing.png'), { x: MX, y: 1.76, w: 6.25, h: 2.3 }, { rot: -1.2, pad: 0.06 });
   // Furman clipping cropped to its headline/byline (narrower), with his 92% figure beside it
   const c2 = await d.frame(s, D('fortune_furman.png'), { x: MX + 0.12, y: 4.28, w: 3.75, h: 2.2 }, { rot: 1.2, pad: 0.06 });
-  const st1 = stat(d, s, { x: 4.85, y: 4.62, w: 2.1, value: '92%', labelH: 0.85,
+  // stat row: all three values share one baseline (y = statY)
+  const statY = 5.02;
+  const st1 = stat(d, s, { x: 4.8, y: statY, w: 2.2, value: '92%', labelH: 0.82,
     label: 'of H1-2025 US GDP growth came from information-processing investment — Jason Furman' });
 
   // Epoch AI: computing infrastructure share of GDP vs 2015-22 trend
@@ -262,8 +282,8 @@ async function gdpSlide(d) {
     catAxisLabelFrequency: 4, catAxisLabelFontSize: 10, catAxisLabelRotate: 0, legendPos: 'b', legendFontSize: 10,
   });
 
-  const st2 = stat(d, s, { x: rx, y: 5.02, w: 2.55, value: '~2×', label: 'computing’s share of GDP vs. the 2015–22 norm (1.5% vs ~0.7%)', labelH: 0.62 });
-  const st3 = stat(d, s, { x: rx + 2.8, y: 5.02, w: rw - 2.8, value: '~0.8%', label: 'of US GDP from AI data centers, chips and networking alone', labelH: 0.62 });
+  const st2 = stat(d, s, { x: rx, y: statY, w: 2.55, value: '~2×', label: 'computing’s share of GDP vs. the 2015–22 norm (1.5% vs ~0.7%)', labelH: 0.62 });
+  const st3 = stat(d, s, { x: rx + 2.8, y: statY, w: rw - 2.8, value: '~0.8%', label: 'of US GDP from AI data centers, chips and networking alone', labelH: 0.62 });
 
   d.source(s, 'Sources: Fortune, Sep 20, 2026 & Oct 7, 2025 (Jason Furman) · Epoch AI, “The AI boom has doubled computing infrastructure’s share of US GDP” (CC-BY; BEA via FRED, Census, SEC)');
 
@@ -333,30 +353,41 @@ async function abileneSlide(d) {
   kicker(s, 'THE ACCELERATION · INFORMATION IS PHYSICAL · 2');
   title(s, 'Stargate Abilene, 13 months apart');
 
-  const box = { x: MX, y: 1.76, w: 8.1, h: 4.56 };
-  const before = await d.frame(s, R('epoch_sat_stargate_abilene_2025-06.png'), box, { border: false });
-  const g = before.geom;
-  const t1 = tag(d, s, 'JUNE 2025', g.x + 0.15, g.y + 0.15, '1D222C');
-  const after = await d.frame(s, R('epoch_sat_stargate_abilene_2026-07.png'), box, { border: false });
-  const t2 = tag(d, s, 'JULY 2026', g.x + 0.15, g.y + 0.15, HEX.red);
+  // before | after, side by side at the same scale; the after reveals on click and both stay visible
+  const gap = 0.5, iw = (W - 2 * MX - gap) / 2, ih = iw * 720 / 1280, y0 = 1.76;
+  const before = await d.frame(s, R('epoch_sat_stargate_abilene_2025-06.png'), { x: MX, y: y0, w: iw, h: ih }, { border: false });
+  const t1 = tag(d, s, 'JUNE 2025', before.geom.x + 0.15, before.geom.y + 0.15, '1D222C');
+  const after = await d.frame(s, R('epoch_sat_stargate_abilene_2026-07.png'), { x: MX + iw + gap, y: y0, w: iw, h: ih }, { border: false });
+  const t2 = tag(d, s, 'JULY 2026', after.geom.x + 0.15, after.geom.y + 0.15, HEX.red);
+  // "+13 months" marker in the gutter between the two images
+  const arrow = d.name('arrow');
+  s.addShape(d.pres.shapes.RIGHT_ARROW, { x: MX + iw + 0.1, y: y0 + ih / 2 - 0.16, w: gap - 0.2, h: 0.32, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 }, objectName: arrow });
 
-  const rx = 9.05, rw = W - MX - rx;
-  const st1 = stat(d, s, { x: rx, y: 1.72, w: rw, value: '2 → 8', valueSize: 36, color: d.S.txt, labelH: 0.45, label: 'buildings finished: June 2025 vs. July 2026' });
-  const st2 = stat(d, s, { x: rx, y: 2.85, w: rw, value: '1.2 GW', valueSize: 36, labelH: 0.45, label: 'flagship campus for OpenAI & Oracle (Crusoe)' });
+  // bottom band: two stats + the video
+  const by = y0 + ih + 0.3, bh = 6.5 - by;
+  const st1 = stat(d, s, { x: MX, y: by, w: 3.0, value: '2 → 8', valueSize: 32, color: d.S.txt, labelH: 0.45, label: 'buildings finished: June 2025 vs. July 2026' });
+  const st2 = stat(d, s, { x: MX + 3.3, y: by, w: 3.0, value: '1.2 GW', valueSize: 32, labelH: 0.45, label: 'flagship campus for OpenAI & Oracle (Crusoe)' });
+  const vw = bh * 16 / 9, vx = MX + 6.6, cx = vx + vw + 0.2;
   const vid = await d.video(s, {
     link: 'https://www.youtube.com/watch?v=GhIJs4zbH0o', embed: 'https://www.youtube.com/embed/GhIJs4zbH0o',
-    cover: R('yt_GhIJs4zbH0o.jpg'), box: { x: rx, y: 4.1, w: rw, h: 2.1 }, label: 'Inside OpenAI’s Stargate Megafactory (Bloomberg)',
+    cover: R('yt_GhIJs4zbH0o.jpg'), box: { x: vx, y: by, w: vw, h: bh },
   });
+  const vcap = d.text(s, [
+    { text: '►  ', options: { color: d.S.red, bold: true } },
+    { text: 'Inside OpenAI’s Stargate Megafactory with Sam Altman', options: { color: d.S.txt, hyperlink: { url: 'https://www.youtube.com/watch?v=GhIJs4zbH0o' }, breakLine: true } },
+    { text: 'Bloomberg Originals · The Circuit (click to play)', options: { color: d.S.muted } },
+  ], { x: cx, y: by, w: W - MX - cx, h: bh, fontSize: 12, valign: 'middle' });
 
   d.source(s, 'Sources: Epoch AI, OpenAI Stargate Abilene (annotated satellite imagery © Airbus DS via Epoch AI) · Crusoe newsroom, Sep 30, 2025 · Bloomberg Originals, “The Circuit”');
 
   d.animate(s, [...before, ...t1], { auto: true, effect: 'fade', dur: 600 });
-  d.animate(s, [...after, ...t2], { effect: 'fade', dur: 1600 });
+  d.animate(s, [arrow], { effect: 'wipeLeft', dur: 400 });
+  d.animate(s, [...after, ...t2], { auto: true, effect: 'fade', dur: 1200 });
   d.animate(s, st1, { auto: true, effect: 'rise', after: 200 });
   d.animate(s, st2, { effect: 'rise' });
 
   s.addNotes([
-    'Same place, same scale, 13 months apart — Epoch AI’s annotated satellite views of the first Stargate site in Abilene, Texas (imagery © Airbus DS). June 2025: two buildings done, six under construction. Click — July 2026: all eight buildings complete, with cooling rows and substations.',
+    'Same place, same scale, 13 months apart — Epoch AI’s annotated satellite views of the first Stargate site in Abilene, Texas (imagery © Airbus DS). June 2025 (left): two buildings done, six under construction. Click — July 2026 (right): all eight buildings complete, with cooling rows and substations; both stay on screen for comparison.',
     'Crusoe (developer): flagship 1.2 GW campus built for Oracle/OpenAI; construction began June 2024. Epoch estimates for the site: ~509k H100-equivalents and 421 MW of IT power today (~$15.9B), projected 843 MW / $31.9B by Q4 2026. (1.2 GW is total campus power; IT power is lower — don’t conflate them.)',
     'Video (click the thumbnail to play): Bloomberg Originals, “Inside OpenAI’s Stargate Megafactory with Sam Altman | The Circuit” — Emily Chang and Sam Altman on the roof at Abilene. Title/channel verified via YouTube oEmbed; upload date not retrieved.',
     'URLs: https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene · https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live · https://www.youtube.com/watch?v=GhIJs4zbH0o',
@@ -397,8 +428,9 @@ async function supplySlide(d) {
   ].map(([v, l], i) => stat(d, s, { x: MX + i * (sw + 0.25), y: 5.2, w: sw, value: v, label: l, valueSize: 28, color: d.S.amber, labelSize: 12, labelH: 0.85 }));
 
   const rx = 7.2, rw = W - MX - rx;
-  const c1 = await d.frame(s, D('guardian_ramageddon_head.png'), { x: rx, y: 1.74, w: rw, h: 1.58 }, { rot: -1.5, pad: 0.07 });
-  const c2 = await d.frame(s, D('ars_ram.png'), { x: rx, y: 3.42, w: rw, h: 2.2 }, { rot: 1.2, pad: 0.05 });
+  // nominal gap 0.27" between the two clippings; after rotation the closest corners stay ≥ 0.17" apart
+  const c1 = await d.frame(s, D('guardian_ramageddon_head.png'), { x: rx, y: 1.72, w: rw, h: 1.55 }, { rot: -1.2, pad: 0.07 });
+  const c2 = await d.frame(s, D('ars_ram.png'), { x: rx, y: 3.54, w: rw, h: 2.12 }, { rot: 0.8, pad: 0.05 });
   const dv = d.text(s, '+93–98%', { x: rx, y: 5.83, w: 2.1, h: 0.6, fontSize: 30, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'middle' });
   const dl = d.text(s, 'jump in DRAM contract prices in a single quarter (1Q26, TrendForce)', { x: rx + 2.15, y: 5.83, w: rw - 2.15, h: 0.6, fontSize: 12, color: d.S.muted, valign: 'middle' });
 

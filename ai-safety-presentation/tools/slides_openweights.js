@@ -62,7 +62,8 @@ async function gapSlide(d) {
   const oc = DS['epoch-frontier-open-vs-closed-quarterly'];
   const uc = DS['epoch-frontier-us-vs-china-quarterly'];
   const from = 1; // 2023 Q2 (first quarter with a Chinese data point)
-  const labels = oc.labels.slice(from).map((l, i) => (i === 0 || / Q1$/.test(l) ? l.slice(0, 4) : ''));
+  // Evenly spaced tick labels: every second quarter end (Q2 / Q4), e.g. "Q2 ’23" … "Q2 ’26".
+  const labels = oc.labels.slice(from).map((l, i) => (i % 2 === 0 ? `${l.slice(5)} ’${l.slice(2, 4)}` : ''));
   const val = (ds, nm) => ds.series.find((x) => x.name === nm).values.slice(from);
   const cw = 8.3;
   const card = d.card(s, { x: MX, y: 1.72, w: cw, h: 4.2 }, { color: '10141B' });
@@ -70,8 +71,8 @@ async function gapSlide(d) {
   const ch = comboLine(d, s, [
     {
       data: [
-        { name: 'Closed-weight frontier (all US)', labels, values: val(oc, 'Closed weights') },
-        { name: 'Open-weight frontier', labels, values: val(oc, 'Open weights') },
+        { name: 'Closed weights (all US)', labels, values: val(oc, 'Closed weights') },
+        { name: 'Open weights', labels, values: val(oc, 'Open weights') },
       ],
       options: { chartColors: [LIGHT, HEX.red], lineSize: 3 },
     },
@@ -81,9 +82,10 @@ async function gapSlide(d) {
     },
   ], { x: MX + 0.1, y: 2.1, w: cw - 0.25, h: 3.75 }, { valAxisMinVal: 80, valAxisMaxVal: 170, valAxisMajorUnit: 30 });
   // The amber (China) line lies on the red (open) line from 2024 Q2 on (identical values except 2026 Q1: 149.1 vs 148.2).
+  // Arrow points at the 2024 Q2 point (x ≈ 3.75", y ≈ 4.03" in the rendered plot area); the label starts under it.
   const ovl = [
-    line(d, s, 6.05, 4.3, 6.05, 3.8, { color: HEX.amber, width: 1.25, arrow: true }),
-    d.text(s, 'Since mid-2024, best Chinese model ≈ best open model', { x: 3.55, y: 4.32, w: 5.0, h: 0.3, fontSize: 12, bold: true, color: d.S.amber, align: 'center', valign: 'top' }),
+    line(d, s, 3.75, 4.6, 3.75, 4.13, { color: HEX.amber, width: 1.25, arrow: true }),
+    d.text(s, 'Since mid-2024, best Chinese model ≈ best open model', { x: 3.6, y: 4.62, w: 4.6, h: 0.3, fontSize: 12, bold: true, color: d.S.amber, align: 'left', valign: 'top' }),
   ];
 
   // right: the two lags
@@ -140,24 +142,23 @@ async function minimaxSlide(d) {
   });
   const lw = 5.75;
   const lab1 = label(d, s, 'MINIMAX-REPORTED · % · AT LAUNCH, JUNE 2026', MX, 1.72, lw);
-  const ch = d.chart(s, 'bar', data, { x: MX, y: 2.02, w: lw, h: 2.8 }, {
+  // Every bar carries its value, so the value axis and grid are dropped (frees width for the category labels).
+  const ch = d.chart(s, 'bar', data, { x: MX - 0.1, y: 2.02, w: lw + 0.25, h: 2.8 }, {
     barDir: 'col', chartColors: [HEX.red, LIGHT, HEX.steel], barGapWidthPct: 50,
-    valAxisMinVal: 0, valAxisMaxVal: 100, valAxisMajorUnit: 25,
+    valAxisMinVal: 0, valAxisMaxVal: 100, valAxisHidden: true, valGridLine: { style: 'none' },
     showValue: true, dataLabelFormatCode: '0.0', dataLabelFontSize: 10, dataLabelPosition: 'outEnd',
     catAxisLabelFontSize: 11, legendPos: 't', legendFontSize: 12,
   });
 
   // left bottom: the point
-  const by = 5.12, bh = 1.32;
+  const by = 5.15, bh = 1.3;
   const band = [];
   band.push(d.card(s, { x: MX, y: by, w: lw, h: bh }, { color: '1A1012', line: '4A1F22' }));
   band.push(d.rect(s, { x: MX, y: by, w: 0.08, h: bh, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 } }));
   band.push(d.text(s, [
-    { text: 'Once weights are released,', options: { bold: true, color: d.S.txt, fontSize: 18, breakLine: true } },
-    { text: 'every safeguard is optional.', options: { bold: true, color: d.S.txt, fontSize: 18, breakLine: true } },
-    { text: 'Anyone with the hardware can run M3 offline,', options: { color: d.S.muted, fontSize: 14, breakLine: true } },
-    { text: 'fine-tune it — or strip out its safety training.', options: { color: d.S.muted, fontSize: 14 } },
-  ], { x: MX + 0.3, y: by, w: lw - 0.45, h: bh, valign: 'middle', paraSpaceAfter: 4 }));
+    { text: 'Once weights are released, every safeguard is optional.', options: { bold: true, color: d.S.txt, fontSize: 16, breakLine: true, paraSpaceAfter: 5 } },
+    { text: 'Anyone with the hardware can run M3 offline, fine-tune it — or strip out its safety training.', options: { color: d.S.muted, fontSize: 14 } },
+  ], { x: MX + 0.3, y: by + 0.16, w: lw - 0.45, h: bh - 0.32, valign: 'middle' }));
 
   // right: two one-shot browser games, larger, each with a label
   const gx = 6.75, fw = 3.6, fh = 2.07;
@@ -249,14 +250,14 @@ async function abliterationSlide(d) {
   s.addText('Refusal lives in one direction — delete it', { placeholder: 'title' });
 
   // paper figure
-  const fig = await d.frame(s, R('arditi2024-fig2-refusal-bypass-example.png'), { x: MX, y: 1.74, w: 6.6, h: 2.52 }, { rot: 0 });
+  const fig = await d.frame(s, R('arditi2024-fig2-refusal-bypass-example.png'), { x: MX, y: 1.74, w: 6.6, h: 2.4 }, { rot: 0 });
 
   // native diagram
   const dg = [];
-  const dy = 4.58, dh = 1.92;
+  const dy = 4.46, dh = 2.04; // ≥0.16" inner padding top and bottom
   dg.push(d.card(s, { x: MX, y: dy, w: 6.6, h: dh }, { color: '10141B' }));
-  const O = { x: 1.05, y: dy + dh - 0.32 };
-  const H = { x: 2.6, y: dy + 0.42 };
+  const O = { x: 1.05, y: dy + dh - 0.5 };
+  const H = { x: 2.6, y: dy + 0.5 };
   const vec = [];
   vec.push(line(d, s, O.x, O.y, H.x, O.y, { color: HEX.red, width: 1.25, dash: 'dash' }));            // projection (h·r) r
   vec.push(line(d, s, H.x, H.y, H.x, O.y, { color: HEX.steel, width: 1, dash: 'sysDot' }));           // drop line
@@ -271,7 +272,7 @@ async function abliterationSlide(d) {
   const eq = d.text(s, [
     { text: 'h′', options: { fontFace: 'Cambria', bold: true, fontSize: 21, color: d.S.teal } },
     { text: ' = h − (h ⋅ r̂) r̂', options: { fontFace: 'Cambria', bold: true, fontSize: 21, color: d.S.txt } },
-  ], { x: 3.35, y: dy + 0.12, w: 3.75, h: 0.45, valign: 'middle' });
+  ], { x: 3.35, y: dy + 0.14, w: 3.75, h: 0.45, valign: 'middle' });
   const steps = d.text(s, [
     { text: '1  ', options: { bold: true, color: d.S.red } },
     { text: 'Average activations on harmful minus harmless prompts → r̂', options: { color: d.S.muted, breakLine: true } },
@@ -279,7 +280,7 @@ async function abliterationSlide(d) {
     { text: 'Project r̂ out of every activation — or out of the weights', options: { color: d.S.muted, breakLine: true } },
     { text: '3  ', options: { bold: true, color: d.S.red } },
     { text: 'Refusal collapses, often to near zero', options: { color: d.S.txt, bold: true } },
-  ], { x: 3.35, y: dy + 0.62, w: 3.75, h: dh - 0.72, fontSize: 14, valign: 'top', paraSpaceAfter: 3 });
+  ], { x: 3.35, y: dy + 0.62, w: 3.75, h: dh - 0.62 - 0.16, fontSize: 14, valign: 'top', paraSpaceAfter: 3 });
 
   // right: the count
   const stat = d.stat(s, { x: 7.65, y: 1.66, w: 5.08, value: '8,310', label: 'models on Hugging Face with “abliterated” in the name: refusal surgically removed, free to download', valueSize: 72, labelSize: 15 });
@@ -312,8 +313,10 @@ async function deepfakeSlide(d) {
   s.addText('When safeguards fail: deepfake nudes in schools', { placeholder: 'title' });
 
   // clippings
-  const c1 = await d.frame(s, R('wired-deepfake-nudify-schools.png'), { x: MX, y: 1.8, w: 4.6, h: 2.95 }, { rot: -1.5 });
-  const c2 = await d.frame(s, R('pbs-grok-blocked-undressing.png'), { x: 4.85, y: 1.72, w: 2.75, h: 3.15 }, { rot: 2 });
+  const c1 = await d.frame(s, R('wired-deepfake-nudify-schools.png'), { x: MX, y: 1.8, w: 4.5, h: 2.95 }, { rot: -1.5 });
+  // AP via PBS: photo + headline + dateline only (byline sidebar, feedback box and share icons cropped off)
+  const ap = await crop('pbs-grok-blocked-undressing.png', 'pbs-grok-photo-headline.png', { left: 222, top: 0, width: 1017, height: 1490 });
+  const c2 = await d.frame(s, ap, { x: 5.35, y: 1.72, w: 2.3, h: 3.15 }, { rot: 2 });
   const tc = await crop('techcrunch-nudify-apps-purge.png', 'techcrunch-nudify-green.png', { left: 1290, top: 270, width: 1270, height: 900 });
   const c3 = await d.frame(s, tc, { x: 0.75, y: 4.88, w: 2.25, h: 1.6 }, { rot: 1.5 });
   const c4 = await d.frame(s, R('ftc-take-it-down-enforcement.png'), { x: 3.25, y: 4.98, w: 4.35, h: 1.02 }, { rot: -1.2, align: 'left' });
@@ -469,16 +472,19 @@ async function sufferSlide(d) {
 
 // ---------------------------------------------------------------- 8. finale video
 async function videoSlide(d) {
-  const s = d.slide('Blank', { transition: 'fadeBlack' });
+  const s = d.slide('Content', { transition: 'fadeBlack' });
+  s.addText('THE WORLD · FINALE', { placeholder: 'kicker' });
+  s.addText('“So you think AI is a normal technology?”', { placeholder: 'title' });
   const v = await d.video(s, {
     link: 'https://www.youtube.com/watch?v=Cq8qO-NjYIg',
     embed: 'https://www.youtube.com/embed/Cq8qO-NjYIg',
     cover: R('yt-Cq8qO-NjYIg.jpg'),
-    box: { x: MX, y: 0.5, w: CW, h: 6.05 },
-    label: '“AI is a normal technology?” — leo, Sep 24, 2026 · 5:16 · a music video its creator says Claude Opus 5.5 made, with help from Suno',
+    box: { x: MX, y: 1.72, w: CW, h: 4.4 },
+    label: '“AI is a normal technology?” — leo · YouTube · Sep 24, 2026 · 5:16',
   });
+  const who = d.source(s, 'A music video its creator says Claude Opus 5.5 made, with help from Suno (creator’s YouTube description).');
   d.animate(s, [v[0]], { auto: true, effect: 'fade', dur: 1200 });
-  d.animate(s, [v[1]], { auto: true, effect: 'fade', dur: 600, delay: 200 });
+  d.animate(s, [v[1], who], { auto: true, effect: 'fade', dur: 600, delay: 200 });
   s.addNotes([
     'FINALE before the coda. Let it play (5:16), or play the first minute and move on.',
     'Video: "AI is a normal technology?" by leo (@leos9705), YouTube, published 24 Sep 2026, 5:16, ~39k views at time of research. Description: "Cute little animated music video by Opus 5.5 with some help from suno." (the creator\'s own claim; not independently verified, hence "its creator says" on the slide) https://www.youtube.com/watch?v=Cq8qO-NjYIg',

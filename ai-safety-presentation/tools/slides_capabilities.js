@@ -985,14 +985,15 @@ async function fableSlide(d) {
   // column 3: status — Anthropic's own model list (Oct 4) has no Fable 5.5
   const sx = x2 + cw + 0.3, sw = 12.73 - sx;
   const slab = label(d, s, 'ANTHROPIC DOCS · OCT 4', sx, 1.66, sw, { color: d.S.amber });
-  const mcrop = await crop(F55('anthropic-platform-docs-models-overview-2026-10-04.png'), 'fable55-anthropic-models-sidebar.png', { l: 0, t: 0, w: 530, h: 660 });
-  const mf = await d.frame(s, mcrop, { x: sx, y: 1.98, w: sw, h: (sw - 0.1) * 660 / 530 + 0.1 }, { pad: 0.05, link: FAB.models });
+  // sidebar from just below the "Claude Platform Docs" logo row (search box + the Models list); the label above names the source
+  const mcrop = await crop(F55('anthropic-platform-docs-models-overview-2026-10-04.png'), 'fable55-anthropic-models-sidebar-list.png', { l: 0, t: 110, w: 530, h: 550 });
+  const mf = await d.frame(s, mcrop, { x: sx, y: 1.98, w: sw, h: (sw - 0.1) * 550 / 530 + 0.1 }, { pad: 0.05, link: FAB.models });
   const my = mf.geom.y + mf.geom.h + 0.16;
   const status = d.text(s, [
     { text: 'No “Fable 5.5” listed. ', options: { bold: true, color: d.S.txt } },
     { text: 'Newest Fable: Claude Fable 5.1 (Sep 1, 2026).', options: { color: d.S.txt, breakLine: true, paraSpaceAfter: 5 } },
     { text: 'One X account is “hearing of a Tuesday release” — unsourced; presumably Tue Oct 6.', options: { color: d.S.muted } },
-  ], { x: sx, y: my, w: sw, h: 6.52 - my, fontSize: 13, valign: 'top' });
+  ], { x: sx, y: my, w: sw, h: 6.52 - my, fontSize: 14, valign: 'top' });
 
   d.animate(s, [...t1, ...k1], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, [...bp, ...btab, bnote], { auto: true, effect: 'rise', dur: 450, after: 100 });
@@ -1417,19 +1418,29 @@ async function pipelineSlide(d) {
 
   // ---- left: the number (a vendor claim), who says "waiting to release", and where "hundreds" comes from (hearsay)
   const lw = 4.9;
-  const big = d.text(s, '100+', { x: MX, y: 1.72, w: 2.15, h: 0.92, fontSize: 64, bold: true, fontFace: 'Arial', color: d.S.red, valign: 'middle' });
+  const big = d.text(s, '100+', { x: MX, y: 1.70, w: 2.15, h: 0.88, fontSize: 64, bold: true, fontFace: 'Arial', color: d.S.red, valign: 'middle' });
   const bigT = d.text(s, 'long-standing open problems “resolved” by a new internal model, says OpenAI',
-    { x: MX + 2.2, y: 1.72, w: lw - 2.2, h: 0.92, fontSize: 14, color: d.S.txt, valign: 'middle' });
-  const vendor = label(d, s, 'VENDOR CLAIM · NO LIST OR PROOFS PUBLISHED', MX, 2.66, lw, { color: d.S.amber, h: 0.26 });
-  const nb = { x: MX + 0.05, y: 3.12, w: lw - 0.1, h: 1.17 };
-  const nyt = d.headlineCard(s, {
-    outlet: 'The New York Times', date: '2026-09-22', headline: 'Mathematics Isn’t Just a Game to Let A.I. Solve. History Shows Why.',
-    dek: 'Guest essay, Steven Strogatz & Alex Townsend: “…results that OpenAI was waiting to release…”',
-  }, nb, { rot: -1.2, size: 's' });
-  const ntab = outletTab(d, s, { x: nb.x + 0.06, y: nb.y + 0.06, w: nb.w - 0.12, h: nb.h - 0.12 }, 'NYT ESSAY: “WAITING TO RELEASE”', 'br', -1.2);
+    { x: MX + 2.2, y: 1.70, w: lw - 2.2, h: 0.88, fontSize: 14, color: d.S.txt, valign: 'middle' });
+  const vendor = label(d, s, 'VENDOR CLAIM · NO LIST OR PROOFS PUBLISHED', MX, 2.6, lw, { color: d.S.amber, h: 0.26 });
+  // NYT guest essay (NYT blocks our browser, so no screenshot): a neutral citation card built here rather than with
+  // d.headlineCard, so the outlet line (10.5 pt) and the dek (11.5 pt) stay legible at this small card size.
+  // Headline verbatim from manifest item nyt-strogatz-townsend-waiting-to-release; the dek quotes a fragment of its text.
+  const nb = { x: MX + 0.05, y: 3.04, w: lw - 0.1, h: 1.36 }, nrot = -1.2;
+  const ncard = d.name('hcard');
+  s.addShape(d.pres.shapes.RECTANGLE, {
+    ...nb, rotate: nrot, fill: { color: HEX.paper }, line: { color: 'D9DCE1', width: 0.5 },
+    shadow: { type: 'outer', color: '000000', blur: 14, offset: 4, angle: 90, opacity: 0.55 }, objectName: ncard,
+  });
+  const ntext = d.text(s, [
+    { text: 'THE NEW YORK TIMES   ·   Sep 22, 2026', options: { fontSize: 10.5, bold: true, color: '8A1C1F', charSpacing: 2, breakLine: true, paraSpaceAfter: 3 } },
+    { text: 'Mathematics Isn’t Just a Game to Let A.I. Solve. History Shows Why.', options: { fontFace: 'Cambria', fontSize: 14, bold: true, color: HEX.ink, breakLine: true, paraSpaceAfter: 3 } },
+    { text: 'Guest essay, Steven Strogatz & Alex Townsend: “…results that OpenAI was waiting to release…”', options: { fontSize: 11.5, color: '4A4F59' } },
+  ], { x: nb.x + 0.18, y: nb.y + 0.1, w: nb.w - 0.36, h: nb.h - 0.2, rotate: nrot, valign: 'top' });
+  const nyt = [ncard, ntext];
+  const ntab = outletTab(d, s, { x: nb.x + 0.06, y: nb.y + 0.06, w: nb.w - 0.12, h: nb.h - 0.12 }, 'NYT ESSAY: “WAITING TO RELEASE”', 'br', nrot);
   // Scott Armstrong (NYU/Courant) on X, Sep 15: header + first two paragraphs of the real post (contiguous crop)
   const acrop = await crop(MR('x-scottnarmstrong-sep15-hundreds-of-proofs-page.png'), 'math-armstrong-hundreds-head.png', { l: 572, t: 442, w: 1168, h: 362 });
-  const ay = 4.86, aw = lw - 0.05;
+  const ay = 4.92, aw = lw - 0.05;
   const af = await d.frame(s, acrop, { x: MX + 0.05, y: ay, w: aw, h: (aw - 0.12) * 362 / 1168 + 0.12 }, { rot: 0.8, align: 'left', link: MRU.armstrong });
   const ag = af.geom;
   const atab = outletTab(d, s, ag, 'X · @SCOTTNARMSTRONG (NYU) · SEP 15 · 58.9K VIEWS', 'tl', 0.8);
@@ -1503,12 +1514,17 @@ async function rumorsSlide(d) {
   // ---- left: who said what, where, when
   const lw = 6.15;
   const l1 = label(d, s, 'THE RUMOR · WHO SAID WHAT, WHERE, WHEN', MX, 1.62, lw, { color: d.S.amber });
+  // two different posts: the first (not pictured) only Hodge; the second (pictured below) adds BSD
   const early = d.text(s, [
     { text: 'Sep 9 · @Dr_Singularity on X: ', options: { bold: true, color: d.S.steel } },
-    { text: '“Rumors are emerging that OpenAI may have solved the Hodge conjecture”', options: { italic: true, color: d.S.txt } },
-  ], { x: MX, y: 1.95, w: lw, h: 0.54, fontSize: 14, valign: 'top' });
-  const sw = 5.75;
-  const sf = await d.frame(s, MR('x-synthwavedd-hodge-bsd-rumor.png'), { x: MX + 0.05, y: 2.58, w: sw, h: (sw - 0.12) * 510 / 1200 + 0.12 }, { rot: -1, link: MRU.synth });
+    { text: '“Rumors are emerging that OpenAI may have solved the Hodge conjecture”', options: { italic: true, color: d.S.txt, breakLine: true } },
+    { text: '→ Sep 10 · @synthwavedd ', options: { bold: true, color: d.S.steel } },
+    { text: '(pictured)', options: { bold: true, color: d.S.amber } },
+    { text: ' adds BSD:', options: { bold: true, color: d.S.steel } },
+  ], { x: MX, y: 1.95, w: lw, h: 0.76, fontSize: 14, valign: 'top' });
+  // post crop: drops only the empty top margin and the empty strip under the "8:54 AM · Sep 10, 2026 · 1.5M Views" line
+  const sw = 5.5, scrop = await crop(MR('x-synthwavedd-hodge-bsd-rumor.png'), 'math-synthwavedd-post.png', { l: 0, t: 10, w: 1200, h: 470 });
+  const sf = await d.frame(s, scrop, { x: MX + 0.05, y: 2.8, w: sw, h: (sw - 0.12) * 470 / 1200 + 0.12 }, { rot: -1, link: MRU.synth });
   const stab = outletTab(d, s, sf.geom, 'X · @SYNTHWAVEDD · SEP 10 · 1.5M VIEWS', 'br', -1);
   // red "unconfirmed" stamp on the empty top-right of the post (clear of its text)
   const sg = sf.geom;
@@ -1517,17 +1533,18 @@ async function rumorsSlide(d) {
   s.addShape(d.pres.shapes.RECTANGLE, { x: stX, y: stY, w: stW, h: stH, rotate: -6, fill: { color: 'FFFFFF', transparency: 100 }, line: { color: HEX.red, width: 2.5 }, objectName: stamp });
   const stampT = d.text(s, 'UNCONFIRMED', { x: stX, y: stY, w: stW, h: stH, rotate: -6, fontSize: 15, bold: true, color: d.S.red, charSpacing: 1.5, align: 'center', valign: 'middle', fontFace: 'Arial' });
 
-  const gy = sg.y + sg.h + 0.4;
+  const gy = sg.y + sg.h + 0.36;
   const gcrop = await crop(MR('gizmodo-openai-reportedly-trying-hodge.png'), 'math-gizmodo-hodge-head.png', { l: 0, t: 98, w: 980, h: 492 });
-  const gh = 6.5 - gy, gw = (gh - 0.12) * 980 / 492 + 0.12;
+  const gh = Math.min(6.5 - gy, 1.12), gw = (gh - 0.12) * 980 / 492 + 0.12;
   const gf = await d.frame(s, gcrop, { x: MX + 0.05, y: gy, w: gw, h: gh }, { rot: 1.2, link: MRU.gizmodo });
   const gtab = outletTab(d, s, gf.geom, 'GIZMODO · SEP 17', 'tl', 1.2);
   const tx = MX + gw + 0.35, tw = MX + lw - tx;
+  // the quoted words are Gizmodo's paraphrase of The Information (paywalled), so the quote is attributed to Gizmodo
   const info = d.text(s, [
-    { text: 'The Information', options: { bold: true, color: d.S.steel } },
-    { text: ' (', options: { color: d.S.txt } },
+    { text: 'Gizmodo', options: { bold: true, color: d.S.steel } },
+    { text: ', citing The Information (', options: { color: d.S.txt } },
     { text: 'one', options: { color: d.S.txt, bold: true } },
-    { text: ' OpenAI source): staff “expect to soon crack the Hodge Conjecture”', options: { color: d.S.txt, breakLine: true, paraSpaceAfter: 4 } },
+    { text: ' OpenAI source): employees “expect to soon crack the Hodge Conjecture”', options: { color: d.S.txt, breakLine: true, paraSpaceAfter: 4 } },
     { text: 'Skeptic: ', options: { bold: true, color: d.S.steel } },
     { text: '“What would close even mean for BSD?” ', options: { italic: true, color: d.S.txt } },
     { text: '— Elliot Glazer', options: { color: d.S.muted, fontSize: 12 } },
@@ -1550,7 +1567,13 @@ async function rumorsSlide(d) {
   const w1 = cH * 1400 / 315, w2 = cH * 1400 / 470, cgap = rw - w1 - w2;
   const c1 = await d.frame(s, ch1, { x: rx, y: cy, w: w1, h: cH }, { border: false, pad: 0, link: MRU.clayHodge });
   const c2 = await d.frame(s, ch2, { x: rx + w1 + cgap, y: cy, w: w2, h: cH }, { border: false, pad: 0, link: MRU.clayBsd });
-  const r3 = label(d, s, 'POLYMARKET · WHICH ONE WILL AN AI LAB ANNOUNCE NEXT? (%)', rx, cy + cH + 0.2, rw, { color: d.S.blue });
+  // the status word inside the crops is too small to read from a seat: repeat it, verbatim, in a legible caption under each
+  const capY = cy + cH + 0.05;
+  const ccap = [[rx, w1, MRU.clayHodge], [rx + w1 + cgap, w2, MRU.clayBsd]].map(([x, w, url]) => d.text(s, [
+    { text: 'Page status: ', options: { color: d.S.muted } },
+    { text: '“Unsolved”', options: { color: 'FF8A8C', bold: true, hyperlink: { url } } },
+  ], { x, y: capY, w, h: 0.24, fontSize: 11, valign: 'middle' }));
+  const r3 = label(d, s, 'POLYMARKET · WHICH ONE WILL AN AI LAB ANNOUNCE NEXT? (%)', rx, capY + 0.38, rw, { color: d.S.blue });
   const ds = DS['polymarket-hodge-bsd-daily'];
   const mon = { '09': 'Sep', '10': 'Oct' };
   // Weekly labels at indices 0, 7, 14, 21 and tickLblSkip = 7, so PowerPoint (which draws every 7th label from index 0) and
@@ -1558,7 +1581,7 @@ async function rumorsSlide(d) {
   const labs = ds.labels.map((l, i) => (i % 7 === 0 ? `${mon[l.slice(5, 7)]} ${+l.slice(8)}` : ''));
   const pick = ['Hodge Conjecture', 'Birch and Swinnerton-Dyer', 'No solution by Dec 31, 2027'];
   const series = pick.map((nm) => ({ name: nm === 'Hodge Conjecture' ? 'Hodge' : nm === 'Birch and Swinnerton-Dyer' ? 'BSD' : 'None by 2027', labels: labs, values: ds.series.find((x) => x.name === nm).values }));
-  const chartY = cy + cH + 0.48;
+  const chartY = capY + 0.66;
   const pch = d.chart(s, 'line', series, { x: rx - 0.05, y: chartY, w: rw + 0.05, h: 6.12 - chartY }, {
     chartColors: [HEX.red, HEX.blue, '6B7383'], lineSize: 2.25, lineDataSymbol: 'none', legendPos: 'r', legendFontSize: 11,
     valAxisMinVal: 0, valAxisMaxVal: 80, valAxisMajorUnit: 20, catAxisLabelFrequency: 7, catAxisLabelRotate: 0,
@@ -1573,7 +1596,7 @@ async function rumorsSlide(d) {
   d.animate(s, [...gf, ...gtab], { effect: 'slam', dur: 420 });
   d.animate(s, [info], { auto: true, effect: 'fade', dur: 500, after: 100 });
   d.animate(s, [r1, rec], { effect: 'fade', dur: 500 });
-  d.animate(s, [r2, ...c1, ...c2], { auto: true, effect: 'fade', dur: 500, after: 150 });
+  d.animate(s, [r2, ...c1, ...c2, ...ccap], { auto: true, effect: 'fade', dur: 500, after: 150 });
   d.animate(s, [r3, { name: pch, effect: 'wipeLeft', dur: 1200 }, pfoot], { effect: 'fade' });
   d.source(s, 'X posts (Sep 9–10, 2026) · OpenAI’s NYT statement via The Verge (Sep 10) · Gizmodo, reporting The Information (Sep 17) · claymath.org, Polymarket (Oct 4).');
   s.addNotes([

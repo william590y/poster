@@ -946,15 +946,15 @@ async function voiceSlide(d) {
   head(s, 'THE ACCELERATION · VIDEO · 2', 'AI voices now scream, whisper and sing');
 
   // left: the 44-s spec ad, embedded with its audio (X's 1080p H.264 + AAC rendition, stream-copied — no re-encode)
-  const vw = 6.75;
+  const vw = 6.3;
   const v = await d.localVideo(s, {
     file: R2('voicedemo-eleven-v4-spec-ad.mp4'), cover: await voiceCover(), box: { x: CX0, y: 1.78, w: vw, h: vw * 9 / 16 },
     label: 'Burak Tuyan’s spec ad for Eleven v4 · X · Oct 2, 2026 · 0:44 · click to play (sound on)', link: VOICE.post,
   });
   const capY = v.geom.y + v.geom.h + 0.46;
   const cap = d.text(s, [
-    { text: 'Scripted and pre-rendered: ', options: { bold: true, color: d.S.amber } },
-    { text: 'not a live conversation, not a voice-cloning demo — and nobody has blind-tested this clip.', options: { color: d.S.txt } },
+    { text: 'Scripted text-to-speech — not a live conversation. ', options: { bold: true, color: d.S.amber } },
+    { text: 'The picture also appears to be AI-generated (X’s “Made with AI” label; no tool named). The post doesn’t say which voice was used, and we found no blind test of this clip.', options: { color: d.S.txt } },
   ], { x: CX0, y: capY, w: vw, h: 6.55 - capY, fontSize: 14, valign: 'top' });
 
   // right: the post and the author's own disclosure (real screenshot, two crops), then what is claimed about the model
@@ -962,16 +962,16 @@ async function voiceSlide(d) {
   const lab = capLabel(d, s, 'THE POST · 1.9M VIEWS · HIS X BIO: “EX-ELEVENLABS”', { x: rx, y: 1.7, w: rw, charSpacing: 1 });
   const headCrop = await crop('rev2/voicedemo-x-post.png', 'voicedemo-x-post-head.png', { l: 0, t: 118, w: 1196, h: 450 });
   const replyCrop = await crop('rev2/voicedemo-x-post.png', 'voicedemo-x-post-reply.png', { l: 0, t: 1522, w: 1196, h: 192 });
-  const pw = rw - 0.1;
+  const pw = rw - 0.55;
   const post = await frameW(d, s, headCrop, rx + 0.02, 2.02, pw, { rot: -1, link: VOICE.post });
   const postBottom = 2.02 + await hFor(headCrop, pw);
-  const rpw = rw - 0.4;
-  const reply = await frameW(d, s, replyCrop, rx + 0.3, postBottom + 0.14, rpw, { rot: 1.2, link: VOICE.reply });
-  const replyBottom = postBottom + 0.14 + await hFor(replyCrop, rpw);
-  const fy = replyBottom + 0.2;
+  const rpw = rw - 0.85;
+  const reply = await frameW(d, s, replyCrop, rx + 0.6, postBottom + 0.12, rpw, { rot: 1.2, link: VOICE.reply });
+  const replyBottom = postBottom + 0.12 + await hFor(replyCrop, rpw);
+  const fy = replyBottom + 0.18;
   const facts = voiceFacts(d, s, [
-    ['THE MODEL · INDEPENDENT RANKING', 'ElevenLabs’ Eleven v4 (launched Sep 28) — ranked #1 in Artificial Analysis’s voice arena'],
-    ['VENDOR-REPORTED · NOT INDEPENDENTLY TESTED', 'Its Turbo version starts speaking in ~150 ms; clones a voice from 10 s of audio', d.S.amber],
+    ['THE MODEL · INDEPENDENT RANKING', 'Eleven v4 (Sep 28) ranks #1 in Artificial Analysis’s voice arena'],
+    ['VENDOR-REPORTED · NOT INDEPENDENTLY TESTED', 'ElevenLabs says its separate low-latency Eleven v4 Turbo has a ~150\u00A0ms median time to first speech (its own test; network time excluded), and that v4 can clone a voice from 10\u00A0s of audio', d.S.amber],
   ], { x: rx, y: fy, w: rw, h: 6.55 - fy });
 
   d.animate(s, [v[0]], { auto: true, effect: 'fade', dur: 800 });
@@ -983,13 +983,13 @@ async function voiceSlide(d) {
   d.source(s, 'Sources: X, @buraktuyan, post and self-reply (Oct 2, 2026; views Oct 4) · ElevenLabs, “Introducing Eleven v4, our most emotive model” (Sep 28, 2026) · Artificial Analysis, Eleven v4 page (Oct 4, 2026).');
   s.addNotes([
     'MESSAGE: after the face, the voice. Click the video and play all 44 seconds with SOUND ON. Set it up with the post\'s own line: "I wrote a script of everything an AI voice \'can\'t do.\' Then made Eleven v4 read it out loud." Then let the room react.',
-    'WHAT YOU WILL HEAR (burned-in subtitles; tagline by speech-to-text): a laugh, "AI voices? / Tell me something. / Can they scream like THIS? / And then fall apart like this? / ♪ And sing when the moment demands ♪ / Fine, some of them whisper. / But can they flirt in a whisper? / Can they talk while eating? / Or do an Italian accent? / [Italian] Impossibile!" … "Wait… Am I?" — then an Eleven V4 / ElevenLabs end card and a spoken tagline that machine transcription renders as "Eleven v4, the next frontier of human-level communication." The character (a Louis-XIV-like caricature in a Versailles-style palace) is AI-generated video too — the post carries X\'s "Made with AI" label — but the tool used for the picture is not named anywhere.',
+    'WHAT YOU WILL HEAR (burned-in subtitles; tagline by speech-to-text): a laugh, "AI voices? / Tell me something. / Can they scream like THIS? / And then fall apart like this? / ♪ And sing when the moment demands ♪ / Fine, some of them whisper. / But can they flirt in a whisper? / Can they talk while eating? / Or do an Italian accent? / [Italian] Impossibile!" … "Wait… Am I?" — then an Eleven V4 / ElevenLabs end card and a spoken tagline that machine transcription renders as "Eleven v4, the next frontier of human-level communication." The character (a Louis-XIV-like caricature in a Versailles-style palace) appears to be AI-generated video too — the post carries X\'s "Made with AI" label (said on the slide) — but the tool used for the picture is not named anywhere.',
     'WHO / WHEN: Burak Tuyan (@buraktuyan; X bio: "I tell stories. Sometimes for brands. | ex-ElevenLabs"), posted Oct 2, 2026, 13:49 UTC: "Eleven v4 is INSANE! / Here\'s my 44-sec spec ad for it. / I wrote a script of everything an AI voice "can\'t do." Then made Eleven v4 read it out loud. / Sound on". By Oct 4 (fxtwitter): 1,919,174 views, 10,035 likes, 632 reposts, 444 replies, 6,211 bookmarks, 205 quotes. ' + VOICE.post,
     'HIS DISCLOSURE (self-reply, shown on the slide): "This is a personal spec project. Not affiliated with or commissioned by ElevenLabs. Just a fan of what v4 can do, showing off something I\'ve been waiting a long time for." ' + VOICE.reply + ' — so: a fan-made ad by a FORMER ElevenLabs employee, not an official ElevenLabs video.',
-    'WHAT IT IS — AND ISN\'T: scripted, pre-rendered text-to-speech. It is NOT a real-time conversation, NOT a voice-cloning demo, and there is no blind listening test of this clip — the only realism claim is the author\'s "INSANE". Not stated anywhere: whether he used Eleven v4 or v4 Turbo, or which voice, tags or prompts. (Our own measurement of the audio, for the curious: the scream is ~12 dB louder than the whispers, −18 vs −30 dBFS RMS — a sign of dynamic range, not a quality score.)',
+    'WHAT IT IS — AND ISN\'T: scripted, pre-rendered text-to-speech over what appears to be AI-generated video (X "Made with AI" label; no video tool named) — NOT a live, real-time conversation. It is not presented as a voice-cloning demo, but the post doesn\'t say which voice was used, so a cloned voice can\'t be ruled out. We found no blind listening test of this clip — the only realism claim is the author\'s "INSANE". Not stated anywhere: whether he used Eleven v4 or v4 Turbo, or which voice, tags or prompts. So the Turbo latency figure on the slide describes the separate Turbo model, not necessarily this clip, and the 10-second cloning figure describes v4\'s capability, not how this clip was made. (Our own measurement of the audio, for the curious: the scream is ~12 dB louder than the whispers, −18 vs −30 dBFS RMS — a sign of dynamic range, not a quality score.)',
     'THE MODEL: ElevenLabs launched Eleven v4 ("our most emotive text-to-speech model yet") and the low-latency Eleven v4 Turbo on Sep 28, 2026 — blog by Mati Staniszewski and Piotr Dabkowski ' + VOICE.blog + ' · docs ' + VOICE.docs + ' · launch post on X (4.9M views) ' + VOICE.launch + ' . Independent coverage: TechCrunch, Ivan Mehta, "ElevenLabs\' new v4 speech model supports more expression control and 90 languages" — subhead "ElevenLabs v4 can clone voices with a 10 second clip" ' + VOICE.tc + ' ; Tech Times (Sep 30) ' + VOICE.techtimes,
     'INDEPENDENT RANKING: Artificial Analysis\'s crowd-voted Provider Voice Arena (read Oct 4, 2026) puts Eleven v4 first at Elo ~1321, ahead of Qwen-Audio-3.1-TTS-Plus 1292, Cartesia Sonic 3.6 1278 and Gemini 3.8 Flash TTS 1275; ElevenLabs\' previous model, Eleven v3, sits at 1174. Live leaderboard — numbers drift. ' + VOICE.aa,
-    'VENDOR-REPORTED (ElevenLabs\' own tests, not replicated): Eleven v4 Turbo has ~100 ms median inference latency and ~150 ms median time to first speech ("faster than the average pause between two people talking"), vs 262–814 ms for Cartesia Sonic 3.6, xAI TTS, Gemini 3.8 Flash-Lite TTS and OpenAI GPT-4o mini TTS in their chart. "Preferred by ~75% of listeners in blind head-to-head tests over competing models" (81% / 81% / 72% / 65% vs four rivals) — that is model-vs-model, NOT a human-vs-AI Turing test. 90+ languages; Instant Voice Clones "using just 10 seconds of audio"; inline tags like [laughs] or [said angrily in French accent].',
+    'VENDOR-REPORTED (ElevenLabs\' own tests, not replicated): Eleven v4 Turbo has ~100 ms median inference latency and ~150 ms median time to first speech ("faster than the average pause between two people talking"; ElevenLabs-run, identical scripts and default settings, Turbo over WebSocket streaming, network latency measured and removed for all systems — footnote 3), vs 262–814 ms for Cartesia Sonic 3.6, xAI TTS, Gemini 3.8 Flash-Lite TTS and OpenAI GPT-4o mini TTS in their chart. "Preferred by ~75% of listeners in blind head-to-head tests over competing models" (81% / 81% / 72% / 65% vs four rivals) — that is model-vs-model, NOT a human-vs-AI Turing test. 90+ languages; Instant Voice Clones "using just 10 seconds of audio"; inline tags like [laughs] or [said angrily in French accent].',
     'THE TURING ANGLE (independent, older model): in a Queen Mary University of London / UCL study (PLOS One, 2025), listeners judged 58% of AI voices cloned from real people to be human — vs 62% of the real human voices: "no statistical difference". Clones were made with off-the-shelf ElevenLabs software from under five minutes of speech. Live Science, "AI voices are now indistinguishable from real human voices" (Oct 4, 2025) ' + VOICE.livesci + ' · The Register, "Humans flunk the Turing test for voices as bots get chattier" — dek: "Coin toss odds for spotting a deepfake, study finds. And that\'s before the machines learn to sing" (Oct 9, 2025) ' + VOICE.register + ' . Radio Ink (Jul 7, 2026): a blind study of 1,326 radio listeners found AI and human voiceover scored nearly identically ' + VOICE.radioink,
     'WHY IT MATTERS FOR SAFETY: the same expressiveness plus 10-second cloning is the scammer\'s toolkit. CNN (May 29, 2026): "Americans lost $893 million to AI-related scams last year … according to the FBI" — AI-related scams in general, not only voice cloning ' + VOICE.cnn + ' . On Apr 16, 2026 Sen. Maggie Hassan pressed ElevenLabs, LOVO, Speechify and VEED on what they do to stop voice-clone scams ' + VOICE.hassan + ' . We found no coverage of safeguards specific to v4\'s 10-second cloning.',
     'FILE: X\'s best rendition (1920×1080, 30 fps, H.264 High + AAC-LC stereo, 44.05 s, 19.6 MB), stream-copied with faststart — no re-encode. Direct mp4: ' + VOICE.mp4 + ' · Author\'s LinkedIn copy: ' + VOICE.linkedin + ' . Cover = the clip\'s own frame at 4.6 s ("Tell me something.") with a play button added.',
@@ -1085,7 +1085,7 @@ async function realRevealSlide(d) {
   ], { x: CX0, y: gridBottom + 0.3, w: gw, h: 6.5 - gridBottom - 0.3, fontSize: 14, valign: 'top' });
 
   // right: result card, beside the clips (never on top of them)
-  const ox = CX0 + gw + 0.3, oy = 1.85, ow = CX1 - ox, oh = 4.62, ip = 0.26;
+  const ox = CX0 + gw + 0.3, oy = 1.85, ow = CX1 - ox, oh = 4.65, ip = 0.26;
   const ov = [];
   ov.push(d.card(s, { x: ox, y: oy, w: ow, h: oh }, { color: '0D1016', line: HEX.red }));
   ov.push(d.text(s, '51.9%', { x: ox + ip, y: oy + 0.14, w: ow - 2 * ip, h: 0.92, fontSize: 54, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'bottom' }));
@@ -1096,14 +1096,19 @@ async function realRevealSlide(d) {
   ov.push(capLabel(d, s, 'JUDGED “REAL” · % OF 53,550 JUDGMENTS', { x: ox + ip, y: oy + 1.9, w: ow - 2 * ip, charSpacing: 1 }));
   const jr = [['Real footage', 71.9, HEX.teal], ['Seedance 2.0', 51.9, HEX.red], ['Kling', 47.7, HEX.red], ['Runway', 34.8, HEX.steel], ['Open-source avg.', 26.3, HEX.steel]];
   ov.push(d.chart(s, 'bar', [{ name: 'Judged real', labels: jr.map(r => r[0]).reverse(), values: jr.map(r => r[1]).reverse() }],
-    { x: ox + ip - 0.1, y: oy + 2.16, w: ow - 2 * ip + 0.2, h: 1.58 }, {
+    { x: ox + ip - 0.1, y: oy + 2.16, w: ow - 2 * ip + 0.2, h: 1.35 }, {
       barDir: 'bar', chartColors: jr.map(r => r[2]).reverse(), showValue: true, dataLabelFormatCode: '0.0"%"', dataLabelPosition: 'outEnd',
       dataLabelFontSize: 11, dataLabelFontBold: true, valAxisHidden: true, valGridLine: { style: 'none' }, valAxisMaxVal: 92, valAxisMinVal: 0,
       catAxisLabelFontSize: 11, catAxisLineShow: false, barGapWidthPct: 35,
     }));
   // RA-Bench Sec. 4.3.3: mean FakeR of its five fine-tuned MLLM detector configurations (4 Skyra + BusterX++), 46.0% -> 1.4%
-  ov.push(d.text(s, 'Fine-tuned AI detectors caught 46.0% of fakes on average (RA-Bench, 5 detector set-ups) — and 1.4% after a simulated social-media re-share.',
-    { x: ox + ip, y: oy + 3.8, w: ow - 2 * ip, h: 0.78, fontSize: 12, color: d.S.muted, italic: true, valign: 'top' }));
+  ov.push(d.text(s, [
+    { text: 'Fine-tuned AI detectors caught ' },
+    { text: '46.0%', options: { bold: true } },
+    { text: ' of fakes on average (RA-Bench, 5 detector set-ups) — and ' },
+    { text: '1.4%', options: { bold: true, color: 'FF8A8C' } },
+    { text: ' after a simulated social-media re-share.' },
+  ], { x: ox + ip, y: oy + 3.6, w: ow - 2 * ip, h: 0.98, fontSize: 14, color: d.S.txt, valign: 'top' }));
 
   d.animate(s, [...g.base, cap], { auto: true, effect: 'fade', dur: 400 });
   g.reveals.forEach(r => d.animate(s, r, { effect: 'zoom', dur: 350 }));
@@ -1476,12 +1481,17 @@ async function robotWorkSlide(d) {
   // ---- bottom right: who is exposed (press clipping + two stats) ----
   const catBottom = box.y + box.h + 0.03 + 0.58;
   const yb = catBottom + 0.24; // value text is bottom-aligned in its box: the visible gap to the labels is ≥0.3in
-  const cnbc = R2('robotwork-cnbctv18-machines-have-a-type.png');
-  const cw = 2.1;
-  const c1 = await frameW(d, s, cnbc, rx + 0.05, yb + 0.12, cw, { rot: 1.5 });
-  const sx = rx + cw + 0.35, sw = CX1 - sx;
+  // CNBC-TV18 clipping cropped to its headline only (its dek is quoted in the notes) and framed wide enough for the
+  // headline to read at ~10pt effective; outlet + date as a label above it; the block is centred on the two stats
+  const cnbc = await crop('rev2/robotwork-cnbctv18-machines-have-a-type.png', 'robotwork-cnbctv18-headline.png', { l: 26, t: 30, w: 1088, h: 172 });
+  const cw = 2.78, cxp = rx + 0.05;
+  const statsH = 0.95 + 19 / 72 * 1.12 + 0.04 + 0.5; // second stat's offset + its value and label heights
+  const cy0 = yb + (statsH - (0.36 + await hFor(cnbc, cw))) / 2;
+  const c1 = [capLabel(d, s, 'CNBC-TV18 · OCT 2, 2026', { x: cxp, y: cy0, w: cw, charSpacing: 1 }),
+    ...await frameW(d, s, cnbc, cxp, cy0 + 0.36, cw, { rot: 1.5 })];
+  const sx = cxp + cw + 0.32, sw = CX1 - sx;
   const st1 = stat(d, s, { x: sx, y: yb, w: sw, value: '$22.88 vs $52.97', valueSize: 19, labelSize: 14, labelH: 0.5, color: d.S.amber, label: 'hourly pay, most-exposed fifth vs unexposed workers' });
-  const st2 = stat(d, s, { x: sx, y: yb + 0.95, w: sw, value: '9 of 10', valueSize: 19, labelSize: 14, labelH: 0.5, color: d.S.amber, label: 'most-exposed large occupations are vehicle operators' }); // large = 20K+ jobs (Fig. 4)
+  const st2 = stat(d, s, { x: sx, y: yb + 0.95, w: sw, value: '9 of 10', valueSize: 19, labelSize: 14, labelH: 0.5, color: d.S.amber, label: 'most-exposed occupations are vehicle operators' }); // Fig. 4: occupations with 20K+ jobs
 
   d.animate(s, [...t1, meth, ...kfF, kfCap], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, kfHl.slice(0, 3), { auto: true, effect: 'wipeLeft', dur: 500, stagger: 350, after: 150 });
@@ -1497,7 +1507,7 @@ async function robotWorkSlide(d) {
     'Key findings (verbatim, highlighted on the slide): “Robots, which we define as autonomous physical machines that sense and act, can perform three-quarters of physical tasks in the US, making up 34% of working hours, but mostly in limited settings. Workers exposed to robots are more likely to be male, less educated, and lower paid.” … “Overall, about 80% of job tasks by working time are exposed to either robots or LLMs. Robots do work where LLMs cannot.” LLMs alone expose about half of work; adding robots takes it to 81% (Figure 6). Transportation and moving: under 15% exposed to LLMs alone, about 90% with robots; office and admin: nearly 100%.',
     'Chart (Figure 3, all US work time): 54% cognitive and interpersonal; physical work is the other 46% — 12% that no robot can do (E0), 23% robots can do in purpose-built environments (E1), 10% in structured human facilities (E2), 1% in unstructured environments (E3). E1+E2+E3 = 34% of all work = 74% of physical work. Of physical tasks only 1.9% are E3 — robots mostly need controlled settings.',
     'Who is exposed (Figure 5, top-quintile exposed vs unexposed workers): 31.2% vs 51.2% female (−20 pp); 8.3% vs 63.2% with a bachelor’s degree (−55 pp); hourly wage $22.88 vs $52.97; unemployment 5.2% vs 2.2%. Most exposed occupations (Figure 4, ≥20,000 jobs): taxi drivers 2.2 on the 0–3 index (citing Waymo robotaxis), agricultural equipment operators 2.1, light truck drivers 2.1 — 9 of the top 10 are vehicle operators. Nursing and general repair jobs are barely exposed.',
-    'Press: CNBC-TV18 (Asmi Saxena, Oct 2, 2026): “The machines have a type: male, blue-collar and lower-paid” — dek: “A new Anthropic study finds the jobs most exposed to physical automation are held mostly by men, with fewer qualifications and smaller pay packets. But the price tag means no stampede is imminent.” (That price tag is the next slide.)',
+    'Press: CNBC-TV18 (Asmi Saxena, Oct 2, 2026): “The machines have a type: male, blue-collar and lower-paid” — dek: “A new Anthropic study finds the jobs most exposed to physical automation are held mostly by men, with fewer qualifications and smaller pay packets. But the price tag means no stampede is imminent.” (The clipping on the slide is cropped to the headline; that price tag is the next slide.)',
     'Robustness caveat (Appendix A.4, also shown on the slide): “Excluding ratings that rely on related robots decreases the share of exposed physical work from about three-quarters to a half.” Dropping demonstration-only evidence lowers it by about 1 point. So present the 74% as the report’s main estimate from Claude’s ratings, with about half on the stricter reading.',
     'URLs: ' + RW_URL + ' · PDF: https://cdn.sanity.io/files/4zrzovbb/website/401a473469db99fd39bba1ca6d9a5653a70e2f12.pdf · Appendix: https://cdn.sanity.io/files/4zrzovbb/website/d27288375b0ac486cb9da0a30a94423b36ff0443.pdf · Data release (CC BY 4.0): https://huggingface.co/datasets/Anthropic/EconomicIndex/tree/main/robot_exposure · CNBC-TV18: https://www.cnbctv18.com/technology/anthropic-study-ai-robots-blue-collar-jobs-physical-workers-automation-risk-20003393.htm',
   ].join('\n\n'));

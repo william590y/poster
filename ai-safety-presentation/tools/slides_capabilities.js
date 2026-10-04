@@ -129,6 +129,11 @@ async function metrSlide(d) {
     axis.push(line(d, s, P.x, py(v), P.x + P.w, py(v), { color: HEX.line, width: 0.75 }));
     axis.push(d.text(s, t, { x: box.x, y: py(v) - 0.13, w: P.x - box.x - 0.08, h: 0.26, fontSize: 10, color: d.S.muted, align: 'right', valign: 'middle' }));
   }
+  // legend: empty bottom-right of the plot, between the 10-sec and 1-sec gridlines
+  axis.push(d.text(s, [
+    { text: '● ', options: { color: d.S.red } }, { text: 'state of the art at release     ', options: { color: d.S.muted } },
+    { text: '● ', options: { color: '6B7383' } }, { text: 'other models', options: { color: d.S.muted } },
+  ], { x: P.x + P.w - 3.6, y: (py(10 / 60) + py(1 / 60)) / 2 - 0.13, w: 3.55, h: 0.26, fontSize: 10.5, align: 'right', valign: 'middle' }));
 
   // native scatter: frontier (red) vs other (steel)
   const xs = METR.map((m) => +decYear(m[1]).toFixed(3));
@@ -334,11 +339,12 @@ async function heroSlide(d) {
   const c = d.text(s, 'San Francisco’s Palace of Fine Arts, recreated as a photoreal 3-D scene in Blender by GPT-6 Astra.', { x: MX, y: 1.62, w: 4.55, h: 0.95, fontSize: 16, color: 'E6EAF2', valign: 'top' });
   const src = d.text(s, 'Shared on r/singularity, 2026', { x: MX, y: 2.6, w: 4.5, h: 0.3, fontSize: 11, italic: true, color: 'B8C2D6' });
   d.animate(s, [im], { auto: true, effect: 'fade', dur: 1400 });
-  d.animate(s, [k, t], { auto: true, effect: 'fade', dur: 700, after: 300 });
-  d.animate(s, [c, src], { effect: 'fade' });
+  // the image sits alone until the presenter clicks; the caption follows the title automatically
+  d.animate(s, [k, t], { effect: 'fade', dur: 700 });
+  d.animate(s, [c, src], { auto: true, effect: 'fade', dur: 600, after: 500 });
   s.addNotes([
-    'Let the image sit for a moment before clicking. Ask: "Photo or render?"',
-    'Then reveal: this is a photoreal 3-D recreation of San Francisco\'s Palace of Fine Arts built in Blender by GPT-6 Astra (OpenAI\'s model released Sep 3–4, 2026), as shared on Reddit\'s r/singularity.',
+    'The slide opens on the image alone. Let it sit for a moment. Ask: "Photo or render?"',
+    'Then CLICK to reveal the title ("This is not a photograph"; the caption follows automatically): this is a photoreal 3-D recreation of San Francisco\'s Palace of Fine Arts built in Blender by GPT-6 Astra (OpenAI\'s model released Sep 3–4, 2026), as shared on Reddit\'s r/singularity.',
     'Source: the user\'s original image (assets/original/image5.png, from r/singularity). The original Reddit post URL could not be re-located during research, so describe it as "shared on r/singularity" and avoid claiming details of the workflow beyond "built in Blender by GPT-6 Astra".',
   ].join('\n\n'));
   return s;
@@ -354,22 +360,24 @@ async function creativeSlide(d) {
   // col 1: heron progression (user original) + Register headline
   const heron = await d.frame(s, ORIG('image4.png'), { x: MX, y: top, w: colW, h: colW * 875 / 1047 }, { border: false, align: 'left' });
   const hg = heron.geom;
-  const hc = chip(d, s, 'PENCIL DRAWINGS BY A MODEL · 4 ROUNDS', hg.x, hg.y + hg.h + 0.06, hg.w, { h: 0.28, fill: '161A22', transparency: 0, fontSize: 9.5 });
+  const hc = chip(d, s, 'PENCIL DRAWINGS BY A MODEL · 4 ROUNDS', hg.x, hg.y + hg.h + 0.06, hg.w, { h: 0.28, fill: '161A22', transparency: 0, fontSize: 10 });
   const reg = await d.frame(s, await crop(R('register-genie-gamedev.png'), 'register-genie.png', { l: 28, t: 6, w: 2010, h: 348 }), { x: MX, y: 5.5, w: colW, h: 0.95 }, { rot: -1.5, align: 'left' });
 
-  // col 2: GPT Image 2.5 cow (public domain) + Genie 3 world
-  const cx = MX + colW + gap;
-  const cow = await d.frame(s, R('commons-gptimage25-cow-ufo.png'), { x: cx, y: top, w: colW, h: colW * 960 / 1280 }, { border: false, align: 'left' });
+  // col 2: GPT Image 2.5 cow (public domain) + Genie 3 world — a slightly narrower column, centred,
+  // so the Genie frame can be tall enough to read and still carry its chip underneath (like the heron)
+  const c2w = 3.27, cx = MX + colW + gap + (colW - c2w) / 2;
+  const cow = await d.frame(s, R('commons-gptimage25-cow-ufo.png'), { x: cx, y: top, w: c2w, h: c2w * 960 / 1280 }, { border: false, align: 'left' });
   const cg = cow.geom;
   const cc = d.text(s, [
     { text: 'GPT Image 2.5 · Sep 2026 · ', options: { bold: true, color: d.S.txt } },
     { text: 'prompt: “1960’s art of cow getting abducted by UFO in midwest”', options: { color: d.S.muted } },
   ], { x: cg.x, y: cg.y + cg.h + 0.05, w: cg.w, h: 0.42, fontSize: 10.5, valign: 'top' });
-  const gy = 5.2;
-  // the generated jungle/ruins above the page's wordmark — no page text or buttons in the crop
-  const genie = await d.frame(s, await crop(R('gdm-genie3-hero.png'), 'genie3-world.png', { l: 330, t: 0, w: 1700, h: 570 }), { x: cx, y: gy, w: colW, h: 6.48 - gy }, { border: false, align: 'left' });
+  // the overgrown temple ruin, vines and palms of the generated world, above the page's wordmark — no page text or buttons
+  const gfile = await crop(R('gdm-genie3-hero.png'), 'genie3-ruin.png', { l: 1270, t: 150, w: 1060, h: 425 });
+  const gy = cg.y + cg.h + 0.05 + 0.42 + 0.2;
+  const genie = await d.frame(s, gfile, { x: cx, y: gy, w: c2w, h: (c2w - 0.12) * 425 / 1060 + 0.12 }, { border: false, align: 'left' });
   const gg = genie.geom;
-  const gc = chip(d, s, 'GENIE 3 · A PROMPT BECOMES A WORLD', gg.x, gg.y + gg.h - 0.28, gg.w, { h: 0.28, fontSize: 9 });
+  const gc = chip(d, s, 'GENIE 3 · A PROMPT BECOMES A WORLD', gg.x, gg.y + gg.h + 0.04, gg.w, { h: 0.26, fill: '161A22', transparency: 0, fontSize: 10 });
 
   // col 3: Hercules fact sheet (public domain) + zoom on panel 12 (Cerberus)
   const hx = MX + 2 * (colW + gap);
@@ -387,7 +395,8 @@ async function creativeSlide(d) {
   const zw = 1.4, zh = zw * zb.h / zb.w;
   const zoom = await d.frame(s, await crop(HERC, 'hercules-cerberus.png', zb), { x: kg.x - 0.32, y: kg.y + kg.h - zh - 0.5, w: zw, h: zh }, { pad: 0.05, frameColor: HEX.red });
   const zg = zoom.geom;
-  const kc = chip(d, s, 'SPOT THE ERROR: CERBERUS HAS FOUR HEADS', zg.x - 0.05, zg.y + zg.h + 0.05, 3.5, { h: 0.3, fontSize: 10, fill: HEX.red, transparency: 0 });
+  // ends flush with the fact sheet's right edge
+  const kc = chip(d, s, 'SPOT THE ERROR: FOUR-HEADED CERBERUS', zg.x - 0.05, zg.y + zg.h + 0.05, kg.x + kg.w - (zg.x - 0.05), { h: 0.3, fontSize: 10, fill: HEX.red, transparency: 0 });
 
   d.animate(s, [...heron, ...hc], { auto: true, effect: 'fade', dur: 600 });
   d.animate(s, [...cow, cc], { effect: 'fade' });
@@ -399,8 +408,8 @@ async function creativeSlide(d) {
   s.addNotes([
     'MESSAGE: creative work — drawing, illustration, design, video, music, playable 3-D worlds — is no longer a human-only domain.',
     'Heron (user original, assets/original/image4.png): four successive pencil drawings made by a model iteratively refining its own technique ("Final 1" → "Final 4"; the labelled error falls from 6.34 to 3.37 as it adds close-up passes and tone-following pressure).',
-    'Cow: generated with GPT Image 2.5 (ChatGPT Images 2.5, released Sep 8, 2026) from the 10-word prompt "1960\'s art of cow getting abducted by UFO in midwest". Wikimedia Commons, uploaded by Karl432 to show progress in image generation; license: Public domain (AI-generated, no human author). https://commons.wikimedia.org/wiki/File:1960%27s_art_of_cow_getting_abducted_by_UFO_in_midwest_(GPT_Image_2.5_September_2026).png',
-    'Hercules fact sheet: generated from the one-line prompt "Create a fact sheet on the twelve labours of Hercules" (ChatGPT / GPT Image 2.5, Sep 2026). Fully designed, legible text — but note the error: the "three-headed Cerberus" has four heads (red inset = panel 12 enlarged from the same image). Wikimedia Commons, Public domain. https://commons.wikimedia.org/wiki/File:AI_generated_fact_sheet_on_the_Twelve_labours_of_Hercules_(ChatGPT_September_2026).png . Related: TechCrunch, Apr 21, 2026, "ChatGPT\'s new Images 2.0 model is surprisingly good at generating text."',
+    'Cow: generated with GPT Image 2.5 (ChatGPT Images 2.5, released Sep 8, 2026) from the 10-word prompt "1960\'s art of cow getting abducted by UFO in midwest". Wikimedia Commons, uploaded by Karl432 to show progress in image generation; license: public domain (CC0 + PD-algorithm tags on the Commons file page, checked Oct 4, 2026). https://commons.wikimedia.org/wiki/File:1960%27s_art_of_cow_getting_abducted_by_UFO_in_midwest_(GPT_Image_2.5_September_2026).png',
+    'Hercules fact sheet: generated from the one-line prompt "Create a fact sheet on the twelve labours of Hercules" (ChatGPT, Sep 2026; the Commons file page lists the author field as "GPT Image 2.5", but the manifest only records ChatGPT, so say "ChatGPT"). Fully designed, legible text — but note the error: the "three-headed Cerberus" has four heads (red inset = panel 12 enlarged from the same image). Wikimedia Commons, public domain (CC0 + PD-algorithm tags, checked Oct 4, 2026). https://commons.wikimedia.org/wiki/File:AI_generated_fact_sheet_on_the_Twelve_labours_of_Hercules_(ChatGPT_September_2026).png . Related: TechCrunch, Apr 21, 2026, "ChatGPT\'s new Images 2.0 model is surprisingly good at generating text."',
     'Genie 3 (Google DeepMind world model; official page hero frame, https://deepmind.google/models/genie/): turns prompts into explorable worlds; public "Project Genie" access launched Jan 29, 2026. The Register, Brandon Vigliarolo, Jan 29, 2026: "Google\'s Project Genie could put even more game developers out of work" — https://www.theregister.com/software/2026/01/29/googles-project-genie-turns-prompts-into-interactive-worlds/4186526 . (Bloomberg, Jan 30: "Unity, Video Game Stocks Fall as Google\'s AI Tool Sparks Fears" — headline via Wikipedia citation only.)',
     'Not shown (space) — music: Variety, Corbin Bolies, Sep 18, 2026: "Sony Music, Universal Music Group Sue Suno Over Label-Backed Model: \'Fruit of the Same Poisoned Tree\'" (Suno v6 released Sep 9, 2026). https://variety.com/2026/music/news/sony-music-universal-music-sue-suno-label-backed-model-1236866921/',
     'Video: Google\'s 2026 video model is Gemini Omni ("Create anything from any input – starting with video"; Gemini Omni 1.1 Flash, Aug 2026): https://deepmind.google/models/gemini-omni/ . Note OpenAI\'s Sora — the 2024 showpiece — was shut down in 2026 (app closed Apr 26, API Sep 24), so do not cite Sora as current.',
@@ -455,7 +464,7 @@ async function navierSlide(d) {
   const zoom = await d.frame(s, await crop(R('openai-navier-stokes-paper-p1.png'), 'ns-paper-title.png', zb), { x: pg.x + 0.25, y: pg.y + 0.95, w: pg.w - 0.5, h: 1.0 }, { pad: 0.05, frameColor: HEX.red });
   const zl = line(d, s, pg.x + (zb.l + zb.w / 2) * sc, pg.y + (zb.t + zb.h) * sc, pg.x + (zb.l + zb.w / 2) * sc, zoom.geom.y - 0.05, { color: HEX.red, width: 1.5 });
   const rx = pg.x + pg.w + 0.45, rw = 12.73 - rx;
-  const fig = await d.frame(s, await crop(R('openai-navier-stokes-fig1-blowup.png'), 'ns-fig1.png', { l: 50, t: 8, w: 1580, h: 690 }), { x: rx, y: 1.78, w: 5.05, h: 2.2 }, { align: 'left' });
+  const fig = await d.frame(s, await crop(R('openai-navier-stokes-fig1-blowup.png'), 'ns-fig1.png', { l: 50, t: 8, w: 1580, h: 690 }), { x: rx, y: 1.78, w: 5.05, h: 1.95 }, { align: 'left' });
   const fg = fig.geom;
   const figCap = d.text(s, 'Figure 1 of the proof: the swirling core shrinks while its speed grows without bound — a singularity in finite time', { x: fg.x, y: fg.y + fg.h + 0.06, w: fg.w, h: 0.42, fontSize: 10.5, italic: true, color: d.S.muted, valign: 'top' });
   const qx = fg.x + fg.w + 0.3, qw = 12.73 - qx;
@@ -466,15 +475,22 @@ async function navierSlide(d) {
     { text: '”', options: { fontSize: 17, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
   ], { x: qx, y: 1.78, w: qw, h: fg.h, valign: 'middle' });
 
-  // stats row — the first two are OpenAI's own figures, labelled as such
-  const sy = 4.42, sw = (rw - 0.3 * 3) / 4;
+  // stats row — OpenAI's own figures labelled as such (the 166 pages are the PDF itself; the Lean version is OpenAI's claim).
+  // Local stat (value + 2-line label box) so the label box ends before the cards below.
+  const sy = Math.max(4.4, fg.y + fg.h + 0.06 + 0.42 + 0.25), sw = (rw - 0.3 * 3) / 4, vh = 28 / 72 * 1.15;
   const stats = [
     ['10,000+', 'AI agents, per OpenAI'], ['88 hrs', 'to crack it, per OpenAI'],
-    ['166 pp', 'paper + Lean formalization, per OpenAI'], ['~$15M', 'compute burned (Aaronson’s estimate)'],
-  ].map(([v, l], i) => d.stat(s, { x: rx + i * (sw + 0.3), y: sy, w: sw, value: v, label: l, valueSize: 28, labelSize: 12, color: i === 0 ? d.S.red : d.S.txt }));
+    ['166', 'page proof (Lean version too, per OpenAI)'], ['~$15M', 'compute burned (Aaronson’s estimate)'],
+  ].map(([v, l], i) => {
+    const x = rx + i * (sw + 0.3);
+    return [
+      d.text(s, v, { x, y: sy, w: sw, h: vh, fontSize: 28, bold: true, color: i === 0 ? d.S.red : d.S.txt, fontFace: 'Arial', valign: 'bottom' }),
+      d.text(s, l, { x, y: sy + vh + 0.05, w: sw, h: 0.42, fontSize: 12, color: d.S.muted, valign: 'top' }),
+    ];
+  });
 
   // framing strip
-  const fy = 5.38, fh = 1.14, fw = (rw - 0.25) / 2;
+  const fy = sy + vh + 0.05 + 0.42 + 0.25, fh = 6.52 - fy, fw = (rw - 0.25) / 2;
   const proved = [d.card(s, { x: rx, y: fy, w: fw, h: fh })];
   proved.push(d.text(s, [
     { text: 'THE RESULT  ', options: { bold: true, color: d.S.teal, fontSize: 11, charSpacing: 2 } },
@@ -568,11 +584,11 @@ async function headlinesSlide(d) {
   return s;
 }
 
-// ---------------------------------------------------------------- 9. aftermath: blog quotes
+// ---------------------------------------------------------------- 9. mathematicians react (Sep 3 – Oct 1): blog quotes
 async function aftermathSlide(d) {
   const s = d.slide('Content', { transition: 'fade' });
   s.addText(`${KICK} · MATHEMATICS IN CRISIS · 3`, { placeholder: 'kicker' });
-  s.addText('The aftermath: “forevermore dethroned”', { placeholder: 'title' });
+  s.addText('Mathematicians react: “forevermore dethroned”', { placeholder: 'title' });
 
   const cw = (CW - 0.3) / 2, chh = 2.28, gy = 0.25;
   const cards = [
@@ -591,8 +607,8 @@ async function aftermathSlide(d) {
     },
     {
       shots: [[R('tao-mastodon-stripmining.png'), 'tao-header-crop.png', { l: 26, t: 26, w: 420, h: 106 }, 0.5]],
-      quote: [['“the indiscriminate automated '], ['strip-mining of open problems', 1], [' for solutions '], ['may destroy the ecosystem', 1], [' from which the next generation of mathematical techniques, problems, and practitioners would have developed…”']],
-      who: 'Hugo Duminil-Copin, quoted by Terence Tao on Mathstodon · Sep 3, 2026',
+      quote: [['“…the indiscriminate automated '], ['strip-mining of open problems', 1], [' for solutions '], ['may destroy the ecosystem', 1], [' from which the next generation of mathematical techniques, problems, and practitioners would have developed…”']],
+      who: 'Terence Tao on Mathstodon, after Hugo Duminil-Copin · Sep 3, 2026',
     },
     {
       shots: [[R('mathandai-declaration.png'), 'mathandai-title-crop.png', { l: 70, t: 96, w: 1010, h: 310 }, 0.78]],
@@ -624,11 +640,11 @@ async function aftermathSlide(d) {
   groups.forEach((g, i) => d.animate(s, g, i === 0 ? { auto: true, effect: 'rise', dur: 500 } : { effect: 'rise', dur: 500 }));
   d.source(s, 'Sources: scottaaronson.blog/?p=10062 · xenaproject.wordpress.com (Sep 4 & Oct 1, 2026) · mathstodon.xyz/@tao (Sep 3, 2026) · mathandai.org (Sep 11, 2026).');
   s.addNotes([
-    'MESSAGE: the people at the top of the field are saying, in public, that something fundamental has changed — some with awe, many with grief.',
+    'MESSAGE: the people at the top of the field are saying, in public, that something fundamental has changed — some with awe, many with grief. These span Sep 3 – Oct 1, 2026 (the prime-gaps race, Anthropic\'s Lean proof of FLT, then Navier–Stokes), not reactions to Navier–Stokes alone — note the dates on the cards.',
     'Scott Aaronson, "The Age of Wonders and Terrors", Shtetl-Optimized, Sep 15, 2026 (https://scottaaronson.blog/?p=10062). Opens with the 2006-era skeptic\'s line: "…we\'ll see major math problems getting solved by AIs—even the Clay Millennium Problems. That will be the time to panic! Wake me up when that happens!" — then: "update on the fact that the wild prophecies have come true." Also: "it seems safe to say that human mathematicians are forevermore dethroned as the main theorem-proving entities on planet earth." And: "It seems to me that the Singularity has already started; it\'s just wildly unevenly distributed." And: "By any accounting that doesn\'t stack the deck, Eliezer Yudkowsky was right about what the greatest challenge facing civilization in our lifetimes was going to be, and you and I were wrong about it."',
     'Kevin Buzzard, "FLT: Anthropic has beaten me to it", Xena, Sep 4, 2026 (https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/): an Anthropic internal model, using the prove2.me platform, formalized a complete proof of Fermat\'s Last Theorem in Lean — the last item on Freek Wiedijk\'s 20-year-old list of 100 formalization challenges; over 13.4 million lines, ~20× mathlib\'s compile time. "I was given £1M to run my project over 5 years; Anthropic took only 11 days but I do wonder if they spent more money…"',
     'Kevin Buzzard, "To grieve, or not to grieve?", Xena, Oct 1, 2026 (NOTE: the title is not "Should we grieve?") https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/ — its opening paragraph (visible in the verified title screenshot, buzzard-title.png) says: "I personally am extremely excited about the future of our field. However it is becoming clear to me that my views are not shared by everyone in the community: indeed, many of my colleagues seem to be upset." He then frames colleagues\' reactions through the stages of grief: a fluids faculty member called the Navier–Stokes news "extremely depressing"; a post-doc was "considering leaving mathematical research because of what it was about to become"; a PhD student whose lemma ChatGPT one-shotted "wonder[ed] what the point of it all was."',
-    'Terence Tao, Mathstodon, Sep 3, 2026 (https://mathstodon.xyz/@tao/117204930249967695), quoting Hugo Duminil-Copin (Proofs and Prompts, Aug 30): "the indiscriminate automated strip-mining of open problems for solutions may destroy the ecosystem…, similarly to how using excavators to dig out treasures from an archeological site destroys the rich historical context". Tao continues in the same post (visible in the verified screenshot, tao-mastodon-stripmining.png): "It may become necessary to declare certain classes of mathematical problems off-limits to automated solvers, in order to preserve their broader value to the mathematical ecosystem (for instance, through the training of future mathematicians)." On the slide the words are Duminil-Copin\'s — Fortune misattributed them to Tao, so credit him first. Same day he described "the unedifying spectacle of no fewer than three separate AI companies" racing to announce improvements on the bounded-prime-gaps result (https://mathstodon.xyz/@tao/117208619314517025). NOTE: the AI posts on Tao\'s blog (e.g. "After Math", Sep 12) are guest posts; Tao\'s own words are these Mathstodon posts.',
+    'Terence Tao, Mathstodon, Sep 3, 2026 (https://mathstodon.xyz/@tao/117204930249967695), relaying Hugo Duminil-Copin (Proofs and Prompts, "Care for a little more AI?", Aug 30): "As Hugo Duminil-Copin wrote recently at proofsandprompts.com/2026/08/3… , the indiscriminate automated strip-mining of open problems for solutions may destroy the ecosystem…, similarly to how using excavators to dig out treasures from an archeological site destroys the rich historical context". Tao continues in the same post (visible in the verified screenshot, tao-mastodon-stripmining.png): "It may become necessary to declare certain classes of mathematical problems off-limits to automated solvers, in order to preserve their broader value to the mathematical ecosystem (for instance, through the training of future mathematicians)." The sentence is Tao\'s, introduced with "As Hugo Duminil-Copin wrote recently at proofsandprompts.com…" (no quotation marks): credit the idea to Duminil-Copin (Proofs and Prompts, Aug 30) and the words to Tao. (Checked Oct 4, 2026: the strip-mining / excavator wording does not appear in Duminil-Copin\'s post itself — https://proofsandprompts.com/2026/08/30/care-for-a-little-more-ai/ — so do not quote it as his.) Same day he described "the unedifying spectacle of no fewer than three separate AI companies" racing to announce improvements on the bounded-prime-gaps result (https://mathstodon.xyz/@tao/117208619314517025). NOTE: the AI posts on Tao\'s blog (e.g. "After Math", Sep 12) are guest posts; Tao\'s own words are these Mathstodon posts.',
     '"A Severe Misalignment of AI in Mathematics", mathandai.org, Sep 11, 2026: "…the push by AI companies to solve mathematical problems as a benchmark is detrimental to the science of mathematics, and to the mathematical community. The goals of the AI companies and the goals of the mathematical community are severely misaligned." Signatory count varies by source — Tao\'s post says 25 Fields Medalists, The Economist 24, Wikipedia 28, and mathandai.org listed 27 as of Oct 4 — hence "two dozen+". Economist: "Top mathematicians are outraged by OpenAI\'s methods" (Sep 11).',
   ].join('\n\n'));
   return s;
@@ -641,8 +657,8 @@ async function vibemathedSlide(d) {
   s.addText('Hundreds of open problems fall — and a backlash', { placeholder: 'title' });
 
   const lw = 6.75;
-  const st1 = d.stat(s, { x: MX, y: 1.68, w: 2.6, value: '755', valueSize: 54, color: d.S.red, label: 'math problems tracked as solved with AI (514 fully resolved, 159 Lean-verified)', labelSize: 12 });
-  const st2 = d.stat(s, { x: MX + 3.05, y: 1.68, w: 3.6, value: '11,425', valueSize: 54, color: d.S.txt, label: 'combined years those problems had stood open before AI closed them', labelSize: 12 });
+  const st1 = d.stat(s, { x: MX, y: 1.68, w: 3.0, value: '755', valueSize: 54, color: d.S.red, label: 'problems tracked as solved with AI (514 fully resolved, 159 Lean-verified)', labelSize: 12 });
+  const st2 = d.stat(s, { x: MX + 3.35, y: 1.68, w: 3.35, value: '11,425', valueSize: 54, color: d.S.txt, label: 'combined years those problems had been open (VibeMathed’s tally, incl. partial results)', labelSize: 12 });
 
   // monthly chart (stacked: fully resolved + partial/candidate)
   const ds = DS['vibemathed-ai-solved-by-month'];
@@ -691,7 +707,7 @@ async function vibemathedSlide(d) {
   d.source(s, 'Data: VibeMathed public dataset (vibemathed.com, CC BY 4.0, Oct 4, 2026) · The Next Web, Sep 14, 2026 · Yahoo News, Sep 10, 2026 · Proofs and Prompts open letter, Sep 10, 2026.');
   s.addNotes([
     'MESSAGE: AI is now clearing out mathematics\' backlog of open problems at industrial scale — and mathematicians are pushing back.',
-    'VibeMathed ("Math problems solved with AI", community tracker, https://vibemathed.com/ , data via vibemathed.com/api/dataset, CC BY 4.0, generated Oct 4, 2026): 755 tracked problems, 514 fully resolved, 159 Lean-verified; the problems had been open a combined 11,425 years before AI closed them. Roughly 490 of the tracked entries are dated July–September 2026 alone. Oldest problem cracked: posed in 1849 (prime gaps). 87 of the 1,220 problems on erdosproblems.com now have a fully resolved AI entry (7.1%).',
+    'VibeMathed ("Math problems solved with AI", community tracker, https://vibemathed.com/ , data via vibemathed.com/api/dataset, CC BY 4.0, generated Oct 4, 2026): 755 tracked problems, 514 fully resolved, 159 Lean-verified; the tracker says the problems had been open a combined 11,425 years "before AI closed them" — but that tally covers all 755 entries, including the 241 partial/candidate results AI did not fully close, so the slide calls it VibeMathed\'s tally, incl. partial results. Roughly 490 of the tracked entries are dated July–September 2026 alone. Oldest problem cracked: posed in 1849 (prime gaps). 87 of the 1,220 problems on erdosproblems.com now have a fully resolved AI entry (7.1%).',
     'Chart: entries by month of solution — red = fully resolved, grey = partial or candidate results. July 2026: 223 entries (166 fully resolved). September 2026 is a partial month (submission lag). By vendor (entries can count for several): OpenAI 420, Anthropic 109, agent systems 52, Harmonic 40, Google DeepMind 36.',
     'CAVEATS: a volunteer-run tracker; "solved with AI" ranges from fully autonomous to AI-assisted; "years open" counts each problem from when it was posed. Significance varies enormously — most are modest problems, a few are major (e.g. the Navier–Stokes forced case, the Jacobian conjecture disproof).',
     'The Next Web (Sep 14): "\'Slop mathematics\': OpenAI walks away from a Caltech AI maths contest" — "An open letter signed by 771 mathematicians pushed OpenAI out of a student-run AI maths contest at Caltech. It calls the format slop mathematics. Anthropic\'s $1m is still in, and the event is going ahead. Then 25 Fields Medallists published a second letter." https://thenextweb.com/news/openai-withdraws-caltech-mathathon-slop-mathematics-fields-medallists',

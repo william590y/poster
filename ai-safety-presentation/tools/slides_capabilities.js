@@ -467,38 +467,38 @@ async function videoSlide(d) {
   const s = d.slide('Content', { transition: 'fadeBlack' });
   s.addText(`${KICK} · INTERLUDE`, { placeholder: 'kicker' });
   s.addText('“i’m upping my p(doom)”', { placeholder: 'title' });
-  // cover = the video's own YouTube thumbnail (kinetic-type "MY" from the lyric), with a play button so it reads as a video
+  // the original hand-drawn version (orange Claude creature), with a play button added so the cover reads as a video
   const cover = path.join(OUT, 'pdoom-cover.jpg');
   const play = '<svg width="1280" height="720"><circle cx="640" cy="360" r="74" fill="#0A0C10" fill-opacity="0.78" stroke="#FFFFFF" stroke-width="5"/>'
     + '<polygon points="615,320 615,400 685,360" fill="#FFFFFF"/></svg>';
-  await sharp(OW('yt-5EoO5413dBY.jpg')).composite([{ input: Buffer.from(play) }]).jpeg({ quality: 90 }).toFile(cover);
-  const link = 'https://www.youtube.com/watch?v=5EoO5413dBY';
+  await sharp(OW('yt-8j-hR4fJywU.jpg')).resize(1280, 720, { fit: 'cover' }).composite([{ input: Buffer.from(play) }]).jpeg({ quality: 90 }).toFile(cover);
+  const link = 'https://www.youtube.com/watch?v=8j-hR4fJywU';
   const vw = 8.2;
-  const v = await d.video(s, { link, embed: 'https://www.youtube.com/embed/5EoO5413dBY', cover, box: { x: MX, y: 1.8, w: vw, h: vw * 9 / 16 } });
+  const v = await d.video(s, { link, embed: 'https://www.youtube.com/embed/8j-hR4fJywU', cover, box: { x: MX, y: 1.8, w: vw, h: vw * 9 / 16 } });
   const vg = v.geom;
   // clickable citation in the source-line slot
   const cap = d.text(s, [
     { text: '►  ', options: { color: d.S.red, bold: true } },
-    { text: '“i\'m upping my p(doom)” — mexicat · YouTube · Sep 27, 2026 · 2:37', options: { color: d.S.muted, hyperlink: { url: link } } },
+    { text: '“Claude Pop – I\'m Upping My P(Doom)” — OtherReality · YouTube · 2:37', options: { color: d.S.muted, hyperlink: { url: link } } },
   ], { x: MX, y: 6.62, w: CW, h: 0.32, fontSize: 11, valign: 'bottom' });
-  // revealed after the video has played: who made it (the creator's claim, quoted verbatim from the repo README)
+  // revealed after the video has played: who made it (the creator's claim, quoted verbatim from the repo description)
   const rx = vg.x + vg.w + 0.45, rw = 12.73 - rx;
   const card = d.card(s, { x: rx, y: vg.y, w: rw, h: vg.h });
   const who = d.text(s, [
     { text: 'WHO MADE IT', options: { fontSize: 11, bold: true, color: d.S.red, charSpacing: 3, breakLine: true, paraSpaceAfter: 10 } },
-    { text: '“', options: { fontSize: 21, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
-    { text: 'Claude Opus 5.5', options: { fontSize: 21, italic: true, bold: true, color: d.S.red, fontFace: 'Cambria' } },
-    { text: ' created the concept, treatment, lyric alignment, audio analysis, renderer, and all scenes”', options: { fontSize: 21, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true, paraSpaceAfter: 10 } },
-    { text: '— the creator’s GitHub repo (mexicat/pdoom-video) for this code-rendered music video', options: { fontSize: 12, color: d.S.muted } },
+    { text: '“Source code for the ', options: { fontSize: 22, italic: true, color: d.S.txt, fontFace: 'Cambria' } },
+    { text: 'Claude Opus 5.5', options: { fontSize: 22, italic: true, bold: true, color: d.S.red, fontFace: 'Cambria' } },
+    { text: ' music video”', options: { fontSize: 22, italic: true, color: d.S.txt, fontFace: 'Cambria', breakLine: true, paraSpaceAfter: 10 } },
+    { text: '— the creator’s GitHub repo (JohnHeibel/PDoomVideo): the video is written and rendered in code', options: { fontSize: 12, color: d.S.muted } },
   ], { x: rx + 0.25, y: vg.y + 0.2, w: rw - 0.5, h: vg.h - 0.4, valign: 'middle' });
   d.animate(s, [v[0]], { auto: true, effect: 'fade', dur: 1200 });
   d.animate(s, [cap], { auto: true, effect: 'fade', dur: 600, after: 100 });
   d.animate(s, [card, who], { effect: 'fade', dur: 600 });
   s.addNotes([
-    'Play it (2:37). Let the audience sit with it — no explanation beforehand. (Cover = the video\'s own YouTube thumbnail, the word "MY" from the lyric, with a play button added.)',
-    'AFTER IT ENDS, click to reveal who made it, and say it: according to the creator\'s GitHub repo (github.com/mexicat/pdoom-video), "Claude Opus 5.5 created the concept, treatment, lyric alignment, audio analysis, renderer, and all scenes" — a whole music video, written and rendered in code by an AI model. That is why it sits in the capabilities section. Present it as the creator\'s claim (we have not independently audited the repo history).',
-    'Video: "i\'m upping my p(doom)" by mexicat, YouTube, published Sep 27, 2026, 2:37, ~89.5k views at time of research. https://www.youtube.com/watch?v=5EoO5413dBY',
-    'Background (Q&A): a code-rendered music video made with Claude Opus 5.5 in Claude Code, per the repo. The song: lyrics by osmarks on a verse/chorus by MusicPerson (Udio, Nov 2024); audio is the "Claude-Pop" Suno version posted by deckard (@slimer48484), Sep 2026. The most viral copy (on X) reportedly reached ~2.77M views.',
+    'Play it (2:37). Let the audience sit with it — no explanation beforehand. (Cover = the video\'s own YouTube thumbnail — the original hand-drawn version with the orange Claude creature — with a play button added.)',
+    'AFTER IT ENDS, click to reveal who made it, and say it: the creator\'s GitHub repo (github.com/JohnHeibel/PDoomVideo) describes itself as "Source code for the Claude Opus 5.5 music video" — a whole music video, written and rendered in code by an AI model. That is why it sits in the capabilities section. Present it as the creator\'s claim (we have not independently audited the repo history).',
+    'Video: "Claude Pop - I\'m Upping My P(Doom)" by OtherReality (@thisotherreality), YouTube, 2:37 — the original hand-drawn upload. https://www.youtube.com/watch?v=8j-hR4fJywU (title and channel confirmed via YouTube oEmbed; upload date not captured because YouTube rate-limited our requests). A later, more widely shared kinetic-type version exists: "i\'m upping my p(doom)" by mexicat (Sep 27, 2026) https://www.youtube.com/watch?v=5EoO5413dBY',
+    'Background (Q&A): the song: lyrics by osmarks on a verse/chorus by MusicPerson (Udio, Nov 2024); audio is the "Claude-Pop" Suno version posted by deckard (@slimer48484), Sep 2026. The most viral copy (on X) reportedly reached ~2.77M views.',
     'If the embed does not play (offline / no YouTube access), click the ► link in the source line at the bottom of the slide.',
   ].join('\n\n'));
   return s;

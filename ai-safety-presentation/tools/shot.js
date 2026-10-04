@@ -5,14 +5,21 @@
 const path = require('path');
 const fs = require('fs');
 const { chromium } = require(path.join(__dirname, '..', 'node_modules', 'playwright'));
-const SPKI = 'PS48cX347wDVcRynzq+DFqswl2PLNE1sG6uQvxMCOS0=,KnP1OnzHv/y42eRQmbGwoYTHcSJF448m6CU5mdngwKk=';
+// Trust the session proxy's CA by SPKI pin (computed from the CA bundle at runtime; no TLS bypass) and use the current proxy port.
+const crypto = require('crypto');
+function spkiPins(file) {
+  const pems = fs.readFileSync(file, 'utf8').match(/-----BEGIN CERTIFICATE-----[\s\S]+?-----END CERTIFICATE-----/g) || [];
+  return pems.map(pem => crypto.createHash('sha256').update(new crypto.X509Certificate(pem).publicKey.export({ type: 'spki', format: 'der' })).digest('base64')).join(',');
+}
+const SPKI = spkiPins('/root/.ccr/agent-proxy-ca.crt');
+const PROXY = process.env.HTTPS_PROXY || process.env.https_proxy || 'http://127.0.0.1:35627';
 const argv = process.argv.slice(2);
 const url = argv[0], out = argv[1];
 const opt = (k, d) => { const i = argv.indexOf('--' + k); return i < 0 ? d : (argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[i + 1] : true); };
 (async () => {
   const b = await chromium.launch({
     executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
-    proxy: { server: 'http://127.0.0.1:35627' },
+    proxy: { server: PROXY },
     args: ['--ignore-certificate-errors-spki-list=' + SPKI, '--disable-blink-features=AutomationControlled'],
   });
   const ctx = await b.newContext({

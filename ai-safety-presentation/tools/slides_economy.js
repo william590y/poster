@@ -152,7 +152,7 @@ async function marketSlide(d) {
   const cM = callout('31.5%', 'Magnificent 7', '2F62C8', pM.x + 0.2, pM.y + 0.25, 1.56);
   // Kobeissi starting value: above-left of its triangle, clear of the dashed line and the ChatGPT rule
   const p0 = P(SP.kob0);
-  const c0 = callout('~25%', '', 'C9531C', P([SP.kob0Left, 0]).x, p0.y - 0.15, 0.5);
+  const c0 = callout('~25%', '', 'C9531C', P([SP.kob0Left, 0]).x, p0.y - 0.115, 0.46);
   const pC = P([SP.chatgptX, SP.chatgptY]);
   const cC = d.text(s, 'ChatGPT launch', { x: pC.x - 0.6, y: pC.y - calloutH / 2, w: 1.2, h: calloutH, fontSize: 12, color: '5F6670', align: 'center', valign: 'middle', fill: { color: 'FCFCFB' } });
 
@@ -264,7 +264,7 @@ async function gdpSlide(d) {
   // stat row: all three values share one baseline (y = statY)
   const statY = 5.02;
   const st1 = stat(d, s, { x: 4.8, y: statY, w: 2.2, value: '92%', labelH: 0.82,
-    label: 'of H1-2025 US GDP growth came from information-processing investment — Jason Furman' });
+    label: 'of H1-2025 US GDP growth came from information-processing investment — Jason\u00A0Furman' });
 
   // Epoch AI: computing infrastructure share of GDP vs 2015-22 trend
   const qlab = [];
@@ -373,9 +373,9 @@ async function abileneSlide(d) {
     cover: R('yt_GhIJs4zbH0o.jpg'), box: { x: vx, y: by, w: vw, h: bh },
   });
   const vcap = d.text(s, [
-    { text: '►  ', options: { color: d.S.red, bold: true } },
-    { text: 'Inside OpenAI’s Stargate Megafactory with Sam Altman', options: { color: d.S.txt, hyperlink: { url: 'https://www.youtube.com/watch?v=GhIJs4zbH0o' }, breakLine: true } },
-    { text: 'Bloomberg Originals · The Circuit (click to play)', options: { color: d.S.muted } },
+    { text: '►  WATCH', options: { color: d.S.red, bold: true, fontSize: 11, charSpacing: 2, breakLine: true, paraSpaceAfter: 3 } },
+    { text: 'Inside OpenAI’s Stargate Megafactory with Sam Altman', options: { color: d.S.txt, hyperlink: { url: 'https://www.youtube.com/watch?v=GhIJs4zbH0o' }, breakLine: true, paraSpaceAfter: 3 } },
+    { text: 'Bloomberg Originals · The Circuit', options: { color: d.S.muted } },
   ], { x: cx, y: by, w: W - MX - cx, h: bh, fontSize: 12, valign: 'middle' });
 
   d.source(s, 'Sources: Epoch AI, OpenAI Stargate Abilene (annotated satellite imagery © Airbus DS via Epoch AI) · Crusoe newsroom, Sep 30, 2025 · Bloomberg Originals, “The Circuit”');

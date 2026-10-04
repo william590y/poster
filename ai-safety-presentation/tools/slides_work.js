@@ -328,7 +328,7 @@ async function arxivSlide(d) {
   d.animate(s, c2, { auto: true, effect: 'slam', dur: 350, after: 300 });
   d.animate(s, [q], { effect: 'fade' });
 
-  d.source(s, 'Sources: arXiv blog, “Fair Moderation, Equitable Access, and AI: arXiv’s Updated Rate Limit Policy” (Kat Boboris, Oct 1, 2026) incl. monthly-submissions chart · Cybernews (Oct 2026).');
+  d.source(s, 'Sources: arXiv blog, “Fair Moderation, Equitable Access, and AI: arXiv’s Updated Rate Limit Policy” (Kat Boboris, Oct 1, 2026): monthly-submissions chart; cs.AI line redrawn from its chart · Cybernews (Oct 2026).');
   s.addNotes([
     'From October 1, 2026 arXiv limits every submitter (the cap applies to the submitter, i.e. the account that uploads the paper) to two submissions per calendar month and three active submissions at any time — across ALL categories; rejected submissions count. arXiv calls it a stopgap while it works out best practice for authors using advanced AI tools.',
     'Numbers from the official post: September 2016: 9,869 submissions · September 2024: 20,569 · September 2026: 40,363 — doubled in two years, generating almost 9,000 support tickets. Total submissions as of Oct 1 2026: 3,192,873.',

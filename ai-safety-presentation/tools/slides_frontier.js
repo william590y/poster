@@ -539,7 +539,7 @@ async function rsiChartsSlide(d) {
   const o9 = (x, y) => [x - B9.left, y - B9.top];
   const o8 = (x, y) => [(x - B8.left) * K8, (y - B8.top) * K8];
   const box = (o, x0, y0, x1, y1) => [...o(x0, y0), ...o(x1, y1)];
-  const cy0 = 1.75, gap = 0.3, wv = 6.1, cw = CX1 - CX0 - gap - wv;
+  const cy0 = 1.72, gap = 0.3, wv = 5.95, cw = CX1 - CX0 - gap - wv;
   const an = await frameW(d, s, anImg, CX0, cy0, cw);
   const va = await frameW(d, s, vaImg, CX0 + cw + gap, cy0, wv);
 
@@ -569,7 +569,7 @@ async function rsiChartsSlide(d) {
     { text: 'Opus 5.5 · 37%', options: { color: HEX.amber } },
   ], { line: HEX.amber });
   const vOpusR = ring(d, s, PV(...o8(304.5, 239)), 0.06, HEX.amber);
-  const sy = cy0 + Math.max(an.h, va.h) + 0.1;
+  const sy = cy0 + Math.max(an.h, va.h) + 0.17;
   const st1 = statRow(d, s, { x: CX0, y: sy, w: cw, vw: 2.35, h: 0.75, value: '1% → 26%', valueSize: 30, labelSize: 12, label: [
     { text: 'of Anthropic’s model R&D tasks led by Claude, March → August 2026 ', options: { color: d.S.muted } },
     { text: '(Anthropic’s own index; not independently verified)', options: { color: d.S.amber } },
@@ -686,12 +686,12 @@ async function rsiLoopSlide(d) {
   // TNW: headline only (its dek is unreadable at this size), as wide as the column allows
   const tImg = await crop(TH('tnw-pachocki-slowdown.png'), 'tnw_headline.png', { left: 83, top: 98, width: 2390, height: 261 });
   const tx = gx + gw + 0.3, tw = CX1 - tx;
-  const t = await frameW(d, s, tImg, tx, 1.95, tw, { rot: -1.5 });
+  const t = await frameW(d, s, tImg, tx, 1.9, tw, { rot: -1.5 });
   // Verbatim line from Pachocki's essay (the one the TNW headline paraphrases)
   const tq = d.text(s, [
-    { text: '“…no lab has solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer.”', options: { fontFace: 'Cambria', italic: true, fontSize: 14, color: d.S.txt, breakLine: true, paraSpaceAfter: 3 } },
-    { text: '— Jakub Pachocki, “An Alien Mind”', options: { fontSize: 11, color: d.S.muted } },
-  ], { x: tx + 0.05, y: 1.95 + t.h + 0.22, w: tw - 0.05, h: 1.25, valign: 'top' });
+    { text: '“…no lab has solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer.”', options: { fontFace: 'Cambria', italic: true, fontSize: 14, color: d.S.txt } },
+    { text: '  — Jakub Pachocki', options: { fontSize: 11, color: d.S.muted } },
+  ], { x: tx + 0.05, y: 1.9 + t.h + 0.22, w: tw - 0.05, h: 1.05, valign: 'top' });
 
   // captions / stats under each; the two stats share one baseline row
   const sy = 1.9 + e.h + 0.2;

@@ -1,0 +1,533 @@
+{
+  "group": "capabilities/rev3 (post)",
+  "items": [
+    {
+      "id": "post-header-text",
+      "slide_topic": "Accelerating capabilities: release-cadence slide (the post itself)",
+      "type": "screenshot",
+      "file": "jfonsecarivera-post-header-text.png",
+      "headline": null,
+      "dek": "you're not crazy\n\nbetween anthropic and openai, a new model used to come out every ~10 weeks\n\nnow it's every ~11 days",
+      "outlet": "X (Twitter)",
+      "author": "josh :) (@jfonsecarivera)",
+      "date": "2026-09-29",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "caption": "Real render of the official X embed, cropped (pixels only) to author row (avatar, name, verified badge, handle) + post text; chart below it cropped out. 1100x450 px.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Rendered via shot.js from https://platform.twitter.com/embed/Tweet.html?id=2105002473572421827 at DPR 2. The embed shows a 'Follow' button next to the handle (part of the real embed UI). No pixels edited. Use together with the full-resolution chart file."
+    },
+    {
+      "id": "post-embed-full",
+      "slide_topic": "Accelerating capabilities: release-cadence slide (post + chart as it appears)",
+      "type": "screenshot",
+      "file": "jfonsecarivera-post-embed-full.png",
+      "headline": null,
+      "dek": "(whole embed card: author row, text, chart, timestamp, likes, 'Read 165 replies')",
+      "outlet": "X (Twitter)",
+      "author": "josh :) (@jfonsecarivera)",
+      "date": "2026-09-29",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "caption": "Whole official-embed card incl. chart thumbnail, '6:31 PM · Sep 29, 2026', 7.3K likes, 'Read 165 replies'. 1100x1356 px.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Chart inside is a downscaled thumbnail; use jfonsecarivera-model-release-cadence-chart.jpg for the chart at full resolution. Counters (7.3K, 165) are as of 2026-10-05."
+    },
+    {
+      "id": "post-footer-date-likes",
+      "slide_topic": "Accelerating capabilities: release-cadence slide (timestamp strip)",
+      "type": "screenshot",
+      "file": "jfonsecarivera-post-footer-date-likes.png",
+      "headline": null,
+      "dek": "6:31 PM · Sep 29, 2026   7.3K   Reply   Copy link to post   Read 165 replies",
+      "outlet": "X (Twitter)",
+      "author": "josh :) (@jfonsecarivera)",
+      "date": "2026-09-29",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "caption": "Timestamp + like-count strip of the real embed (pixel crop). 1100x246 px.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Time is shown in UTC (matches API created_at Tue Sep 29 18:31:13 +0000 2026)."
+    },
+    {
+      "id": "chart-original",
+      "slide_topic": "Accelerating capabilities: release-cadence slide (the chart)",
+      "type": "chart",
+      "file": "jfonsecarivera-model-release-cadence-chart.jpg",
+      "headline": "New models from Anthropic and OpenAI are arriving faster",
+      "dek": "y-axis: Days since the previous release (either lab); x-axis: Release date (2024 to 2026); black line from '70 days' to '11 days · median gap now'; 'Shaded: middle 50% of gaps'",
+      "outlet": "X (Twitter)",
+      "author": "josh :) (@jfonsecarivera)",
+      "date": "2026-09-29",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "caption": "Original 2048x1270 chart image attached to the post: orange squares = Anthropic releases, green triangles = OpenAI releases, black rolling-median line, grey band = middle 50% of gaps.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Source image https://pbs.twimg.com/media/HTZ4mB0aAAElOZE.jpg?name=orig (already saved by the parent task). Chart carries no source/credit line and no methodology note. Label says 'median gap now' for 11 days; the post text says 'every ~11 days' and some reposts say 'average'. Cite it as the author's chart, not as a measured fact about all releases."
+    },
+    {
+      "id": "neuron-coverage-honorable-mention",
+      "slide_topic": "Coverage of the chart (newsletter)",
+      "type": "screenshot",
+      "file": "theneuron-sep29-digest-honorable-mention.png",
+      "headline": "Everything That Happened in AI Today (Tuesday, September 29, 2026)",
+      "dek": "Josh Fonseca Rivera charted a striking acceleration in frontier releases, arguing in a same-day post that the OpenAI and Anthropic model cadence has compressed from roughly every 10 weeks to roughly every 11 days.",
+      "outlet": "The Neuron",
+      "author": "Grant Harvey",
+      "date": "2026-09-30",
+      "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-tuesday-september-29-2026/",
+      "caption": "Real screenshot (pixel crop) of 'Honorable Mentions' bullet in The Neuron's daily digest that links to the post.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Page header says 'SEP 30, 2026 · 40 minute read'; page JSON-LD datePublished 2026-09-30T02:42:54Z, dateModified 2026-10-02. The bullet's 'same-day post' link is https://x.com/jfonsecarivera/status/2105002473572421827. This is the only newsletter/news citation of the chart found."
+    },
+    {
+      "id": "neuron-digest-header",
+      "slide_topic": "Coverage of the chart (newsletter) - page header",
+      "type": "screenshot",
+      "file": "theneuron-sep29-digest-header.png",
+      "headline": "Everything That Happened in AI Today (Tuesday, September 29, 2026)",
+      "dek": "OpenAI turned DevDay into a platform reset, Anthropic's IPO filing exposed a $518B infrastructure bet, and the rest of AI kept shipping agents, decision models, robotics, and safety warnings.",
+      "outlet": "The Neuron",
+      "author": "Grant Harvey",
+      "date": "2026-09-30",
+      "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-tuesday-september-29-2026/",
+      "caption": "Real screenshot (pixel crop) of The Neuron article header: title, dek, byline, date.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Pair with the honorable-mention crop to show provenance. The post is only a brief mention in a 40-minute-read digest, so do not overstate it as major press coverage."
+    },
+    {
+      "id": "openrouter-launch-days-infographic",
+      "slide_topic": "Corroborating data: launch cadence per lab (OpenRouter)",
+      "type": "image",
+      "file": "peterwalker-openrouter-model-launches-accelerating.jpg",
+      "headline": "Model launches are accelerating",
+      "dek": "Average days between launch days. Multiple models on one day count once. Source: OpenRouter model catalog. Market-wide = all models, all providers.",
+      "outlet": "X (Twitter) - reply to the chart post",
+      "author": "Peter Walker (@PeterJ_Walker), 'Head of Insights @OpenRouter' per his X bio",
+      "date": "2026-09-29",
+      "url": "https://x.com/PeterJ_Walker/status/2105045354014261629",
+      "caption": "OpenRouter infographic posted as a reply to the chart: OpenAI every 41 / 15 / 13 days and Anthropic every 61 / 55 / 21 days in 2024 / 2025 / 2026-so-far; all models on OpenRouter every 3.5 / 1.9 / 1.7 days.",
+      "quality": 3,
+      "verified": true,
+      "notes": "986x986 jpg from https://pbs.twimg.com/media/HTafl7ya0AAXRDO.jpg?name=orig. Reply text (verbatim): 'If you add in open models, almost every day in a launch day.' (31 likes at fetch). Independent dataset (counts every model in the OpenRouter catalog), so it is NOT the chart's data, but it points the same direction and shows how much the answer depends on what counts as a launch. I could not find the infographic's original standalone post."
+    },
+    {
+      "id": "tedspare-days-between-major-releases-chart",
+      "slide_topic": "Precursor chart (May 2026) of the same trend, by another author",
+      "type": "chart",
+      "file": "tedspare-days-between-major-releases-2026-05-28.jpg",
+      "headline": "Days between major model releases",
+      "dek": "Happy Opus 4.8 day to those who celebrate!\n\nAt this rate, we'll get a new model every day of summer 2027",
+      "outlet": "X (Twitter)",
+      "author": "Ted Spare (@TedSpare)",
+      "date": "2026-05-28",
+      "url": "https://x.com/TedSpare/status/2060108090465268063",
+      "caption": "matplotlib scatter 2020-2026 of days since last release for Claude Opus / Claude Sonnet / GPT / Gemini with a linear best-fit that hits zero in early 2027.",
+      "quality": 2,
+      "verified": true,
+      "notes": "2580x1478. Different dataset and method (family-level 'major' releases, linear fit) - not the chart in question. Ted Spare replied to the post with 'roughly on track' linking to this older chart (https://x.com/TedSpare/status/2105041086804586969). 4,951 views / 19 likes at fetch."
+    },
+    {
+      "id": "quote-synthwavedd",
+      "slide_topic": "Reaction to the chart (most-liked quote-post)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Remember when we'd be waiting over a month for a new frontier model?\n\nNow the average gap between a release from OpenAI or Anthropic is a meager 11 days",
+      "outlet": "X (Twitter)",
+      "author": "leo (@synthwavedd), ~45.9K followers",
+      "date": "2026-09-29",
+      "url": "https://x.com/synthwavedd/status/2105042708007989532",
+      "caption": "Most-liked quote-post of the chart: 1,012 likes, 42,386 views, 28 reposts at fetch (2026-10-05).",
+      "quality": 3,
+      "verified": true,
+      "notes": "Note it paraphrases the chart's 'median gap' as 'average gap'."
+    },
+    {
+      "id": "quote-schiste-not-new-models",
+      "slide_topic": "Criticism of what counts as a 'new model'",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Non, ce ne sont pas de nouveaux modèles. Les .x sont majoritairement des changements autour du modèle pas des nouveaux entraînements complets.",
+      "outlet": "X (Twitter) - reply",
+      "author": "Christophe Henner (@schiste)",
+      "date": "2026-09-30",
+      "url": "https://x.com/schiste/status/2105233552661008526",
+      "caption": "French reply (translation, mine: 'No, these are not new models. The .x versions are mostly changes around the model, not full new trainings.').",
+      "quality": 2,
+      "verified": true,
+      "notes": "1 like; small account. Included only as an example of the 'point releases are not new models' objection. Better, more citable counterpoint is the Fast Company item."
+    },
+    {
+      "id": "quote-brovadana-definition",
+      "slide_topic": "Criticism of what counts as a 'new model'",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "\"new model\" doesnt' mean much as they distill some of their main frontier models often.  How often new frontier model that beats their old one at most all benchmarks and tasks is what matters.",
+      "outlet": "X (Twitter) - reply",
+      "author": "@Brovadana",
+      "date": "2026-09-30",
+      "url": "https://x.com/Brovadana/status/2105151147266670901",
+      "caption": "Reply questioning the 'new model' definition (verbatim incl. typos).",
+      "quality": 2,
+      "verified": true,
+      "notes": "0 likes; small account."
+    },
+    {
+      "id": "quote-milkroadai-dario",
+      "slide_topic": "Link between the chart and Amodei's 'Pace the Frontier' essay",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Dario wanted to slow AI down but model releases went from every 10 weeks to every 11 days.\n\nEarlier this month, Anthropic CEO Dario called for pacing the frontier slowing capability gains enough for safety testing, alignment research and independent evaluations to catch up.",
+      "outlet": "X (Twitter) - quote-post",
+      "author": "Milk Road AI (@MilkRoadAI), ~49K followers",
+      "date": "2026-09-30",
+      "url": "https://x.com/MilkRoadAI/status/2105318127290683576",
+      "caption": "Quote-post (3,031 views at fetch) tying the chart to the Sept 12 essay.",
+      "quality": 2,
+      "verified": true,
+      "notes": "Promotional account (ends with a portfolio link) - use only as evidence that people framed the chart this way. Another quote-post, @linasbeliunas (https://x.com/linasbeliunas/status/2105208826660093999), did the same; its extra claims (e.g. '2023: 73 days') are unverified."
+    },
+    {
+      "id": "fastcompany-why-releases-feel-nonstop",
+      "slide_topic": "Counterpoint: faster releases are not necessarily faster progress",
+      "type": "headline",
+      "file": null,
+      "headline": "Why AI model releases feel nonstop",
+      "dek": "OpenAI and Anthropic are putting out more models, but much of the acceleration comes from repackaging existing advances for new price points.",
+      "outlet": "Fast Company (read via Yahoo Finance syndication)",
+      "author": "Mark Sullivan",
+      "date": "2026-09-23",
+      "url": "https://www.fastcompany.com/91611158/why-ai-model-releases-feel-nonstop",
+      "caption": "Pre-dates the chart by 6 days and does not cite it, but gives the cleanest counterpoint with numbers.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Syndicated copy loaded: https://finance.yahoo.com/technology/ai/articles/why-ai-model-releases-feel-102100600.html. fastcompany.com itself shows a 'Verification Required' captcha to the headless browser and the Yahoo copy renders ads/video placeholder, so NO screenshot was kept. Verbatim: 'It feels like new model releases are accelerating, and they are, but many of the new releases are models that repackage (and often reprice) the capabilities of earlier flagship models.' and 'Anthropic's release cadence for frontier models has roughly doubled during 2026, from a model every 46 days in the first half to every 26 days so far in the second; OpenAI's release cadence has increased from every 46 days in the first half of the year to every 51 days so far in the second. But the time between genuinely new flagship frontier models hasn't changed much during 2026 for either company, the release dates show. This year, Anthropic has released eight flagship frontier models; OpenAI has released six.'"
+    },
+    {
+      "id": "gizmodo-ten-days-after-slowdown",
+      "slide_topic": "Context: release right after Amodei's call to slow down",
+      "type": "headline",
+      "file": null,
+      "headline": "Ten Days After CEO Calls for a Slowdown, Anthropic Is Back With Another AI Model",
+      "dek": "The company says Claude Opus 5.5 scores well on alignment measures, but that \"public policy\" will eventually need to step in to protect the world from recursively self-improving AI.",
+      "outlet": "Gizmodo",
+      "author": "Webb Wright",
+      "date": "2026-09-22",
+      "url": "https://gizmodo.com/ten-days-after-ceo-calls-for-a-slowdown-anthropic-is-back-with-another-ai-model-2000815586",
+      "caption": "Headline loaded via curl (og meta); not screenshotted.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Body text: 'Less than two weeks after Anthropic CEO Dario Amodei urged the AI industry to \"pace the frontier\" before it loses control of the technology it's currently racing to build, the company has released its most powerful model to date.' Gizmodo does not mention the chart (published a week before it). Another Gizmodo piece surfaced in search, 'Anthropic Releases Its Second New AI Model in Less Than a Week' (not loaded)."
+    },
+    {
+      "id": "zvi-we-must-pace-the-frontier",
+      "slide_topic": "Context: Amodei essay 17 days before the chart",
+      "type": "headline",
+      "file": null,
+      "headline": "We Must Pace The Frontier",
+      "dek": "Dario Amodei has a new essay that finally says the thing: We Must Pace the Frontier, naming his call after the Pacing the Frontier letter lab employees signed in July. As in, we need to slow the ra…",
+      "outlet": "Don't Worry About the Vase (Zvi Mowshowitz)",
+      "author": null,
+      "date": "2026-09-14",
+      "url": "https://thezvi.wordpress.com/2026/09/14/we-must-pace-the-frontier/",
+      "caption": "Commentary page on Amodei's essay (og:title / og:description loaded).",
+      "quality": 3,
+      "verified": true,
+      "notes": "Search snippets (not independently loaded) say the essay itself was published on 2026-09-12. The chart post is 17 days after that. The primary essay URL was not located in this task."
+    },
+    {
+      "id": "agtp-recap-post",
+      "slide_topic": "Secondary recap of the chart (low reliability)",
+      "type": "quote",
+      "file": null,
+      "headline": "AI models from OpenAI and Anthropic are now shipping every ~11 days, not months. Here's what you need to know.",
+      "dek": "A post from @jfonsecarivera early on Sep 30, 2026 went viral for pointing out that a new frontier model from OpenAI or Anthropic used to land roughly every 10 weeks. Now the average gap between releases from the two labs is down to about 11 days.",
+      "outlet": "X (Twitter) - AGTP (@AGTPinsights, a tech podcast account)",
+      "author": "AGTP",
+      "date": "2026-09-30",
+      "url": "https://x.com/AGTPinsights/status/2105100887047933962",
+      "caption": "Long-form X post + infographic recapping the chart; 2,739 views at fetch.",
+      "quality": 1,
+      "verified": true,
+      "notes": "Do NOT cite its numbers as the chart's data: its yearly counts (2023: 4, 2024: 15, 2025: 42, 2026 YTD: 39) come from unbenchmark.com, a different dataset (see datasets). It says the post had '94,000 views, 2.8K likes, 323 quote tweets within hours' (a snapshot taken early Sep 30; current figures are 344,783 / 7,352 / 146 quotes). It also says the unbenchmark data was 'shared in the replies'; I found it only as a separate standalone post by @gitghxst (see facts)."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "openrouter-launch-days",
+      "title": "Average days between launch days (multiple models on one day count once)",
+      "unit": "days between launch days",
+      "labels": [
+        "2024",
+        "2025",
+        "2026 so far"
+      ],
+      "series": [
+        {
+          "name": "OpenAI",
+          "values": [
+            41,
+            15,
+            13
+          ]
+        },
+        {
+          "name": "Anthropic",
+          "values": [
+            61,
+            55,
+            21
+          ]
+        },
+        {
+          "name": "Market-wide on OpenRouter",
+          "values": [
+            3.5,
+            1.9,
+            1.7
+          ]
+        }
+      ],
+      "source": "OpenRouter model catalog, infographic posted by Peter Walker (Head of Insights @OpenRouter per X bio)",
+      "url": "https://x.com/PeterJ_Walker/status/2105045354014261629",
+      "notes": "Also on the image: launch days (2024/2025/2026-so-far) OpenAI 9/23/20, Anthropic 5/6/12, OpenRouter market-wide 105/182/154; medians OpenAI 31.5/12.5/6 d, Anthropic 56/55/19 d, market-wide 3/1/1 d. 'So far' cut-off date not stated (axis runs Jan-Oct). Different method from the chart."
+    },
+    {
+      "id": "unbenchmark-releases-by-lab",
+      "title": "Combined Anthropic + OpenAI model releases per year (unbenchmark.com catalog)",
+      "unit": "models released",
+      "labels": [
+        "2023",
+        "2024",
+        "2025",
+        "2026 YTD"
+      ],
+      "series": [
+        {
+          "name": "Anthropic",
+          "values": [
+            2,
+            5,
+            7,
+            10
+          ]
+        },
+        {
+          "name": "OpenAI",
+          "values": [
+            2,
+            10,
+            35,
+            29
+          ]
+        },
+        {
+          "name": "Total",
+          "values": [
+            4,
+            15,
+            42,
+            39
+          ]
+        }
+      ],
+      "source": "@gitghxst (unbenchmark.com founder) post 2026-09-30 00:17 UTC, data page https://unbenchmark.com/data/ai-models/ai-models-released-over-time-by-lab",
+      "url": "https://x.com/gitghxst/status/2105089578604572746",
+      "notes": "Verbatim post: 'the pace of new models launched by Anthropic and OpenAI is accelerating'. A standalone post (not a reply), made ~6 h after the chart. unbenchmark's definition of 'release' is not stated (data page loads with no methodology text) and it counts far more releases than the chart plots (about 35 over 2024-2026), so it is NOT the chart's data. Anthropic/OpenAI figures are as stated in the post; the page's chart shows all labs."
+    },
+    {
+      "id": "chart-digitized-anthropic-approx",
+      "title": "APPROXIMATE read-off of Anthropic points in the chart (not published by the author)",
+      "unit": "days since previous release by either lab",
+      "labels": [
+        "2024-03-04",
+        "2024-06-20",
+        "2024-10-21",
+        "2025-02-24",
+        "2025-05-22",
+        "2025-08-04",
+        "2025-09-29",
+        "2025-11-23",
+        "2026-02-04",
+        "2026-02-16",
+        "2026-04-06",
+        "2026-04-15",
+        "2026-05-27",
+        "2026-06-08",
+        "2026-06-29",
+        "2026-07-23",
+        "2026-08-31",
+        "2026-09-21",
+        "2026-09-27"
+      ],
+      "series": [
+        {
+          "name": "Anthropic gap (days)",
+          "values": [
+            104,
+            38,
+            40,
+            81,
+            36,
+            75,
+            53,
+            12,
+            56,
+            12,
+            33,
+            9,
+            35,
+            12,
+            4,
+            24,
+            39,
+            19,
+            6
+          ]
+        }
+      ],
+      "source": "Reverse-measured by pixel position from jfonsecarivera-model-release-cadence-chart.jpg (axis ticks at 1 Jan 2024/25/26 and gridlines 0-100)",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "notes": "Dates are +/-1-2 days; the 2026-06-08 square is partly hidden behind the median line (~11-12). For checking against real release dates only; the author never published this data. 19 orange squares."
+    },
+    {
+      "id": "chart-digitized-openai-approx",
+      "title": "APPROXIMATE read-off of OpenAI points in the chart (not published by the author)",
+      "unit": "days since previous release by either lab",
+      "labels": [
+        "2024-05-13",
+        "2024-09-12",
+        "2024-12-04",
+        "2025-02-27",
+        "2025-04-14",
+        "2025-04-16",
+        "2025-08-07",
+        "2025-11-12",
+        "2025-12-10",
+        "2026-02-04",
+        "2026-03-05",
+        "2026-04-22",
+        "2026-06-26",
+        "2026-09-02",
+        "2026-09-21",
+        "2026-09-28"
+      ],
+      "series": [
+        {
+          "name": "OpenAI gap (days)",
+          "values": [
+            70,
+            84,
+            44,
+            3,
+            46,
+            2,
+            2,
+            44,
+            16,
+            0,
+            16,
+            7,
+            17,
+            2,
+            0,
+            1
+          ]
+        }
+      ],
+      "source": "Reverse-measured by pixel position from jfonsecarivera-model-release-cadence-chart.jpg",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "notes": "Same caveats. 16 green triangles; three sit on the 0 line (same-day or next-day releases): 2026-02-04, 2026-09-21, 2026-09-28. So the chart does include 0-day gaps. The 2024-12-04 triangle is hidden behind the median line. Total plotted = about 35 releases (19 Anthropic + 16 OpenAI)."
+    }
+  ],
+  "facts": [
+    {
+      "claim": "\"you're not crazy / between anthropic and openai, a new model used to come out every ~10 weeks / now it's every ~11 days\" - josh :) (@jfonsecarivera)",
+      "source": "X post",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "date": "2026-09-29"
+    },
+    {
+      "claim": "The chart's rolling-median line starts at 70 days (= the post's '~10 weeks') in early 2024 and ends at 11 days, labelled 'median gap now'; the y-axis is 'Days since the previous release (either lab)'; the grey band is 'Shaded: middle 50% of gaps'.",
+      "source": "Chart image attached to the post",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "date": "2026-09-29"
+    },
+    {
+      "claim": "The post reached 344,783 views, 7,352 likes, 491 reposts, 146 quote-posts, 165 replies, 916 bookmarks by 2026-10-05 (posted Tue Sep 29 2026 18:31 UTC).",
+      "source": "api.fxtwitter.com (counters as of fetch)",
+      "url": "https://api.fxtwitter.com/jfonsecarivera/status/2105002473572421827",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "Author: display name 'josh :)', handle @jfonsecarivera (formerly @joshycodes - old status URLs under /joshycodes/ resolve to this account), X bio 'safety fellow @AnthropicAI • I code silly things for 26k people on YouTube. Prev: @UChicago', Berkeley CA, ~2,454 followers, verified. An Anthropic Fellow per his own bio - do not describe him as an Anthropic employee/researcher.",
+      "source": "api.fxtwitter.com profile",
+      "url": "https://x.com/jfonsecarivera",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "Real name: Joshua Fonseca Rivera ('Josh Fonseca Rivera' in The Neuron). jfr.dev (personal site, 'Anthropic Fellow trying to figure out what's going on in language models') and github.com/jfonsecarivera ('Joshua Fonseca Rivera', Berkeley, links to YouTube @joshycodes) both state it, and he is first author of arXiv:2511.21399 'Steering Awareness: Detecting Activation Steering from Within'.",
+      "source": "jfr.dev; GitHub; arXiv; The Neuron",
+      "url": "https://jfr.dev",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "The Neuron's daily digest (Grant Harvey, Sep 30 2026) lists it under 'Honorable Mentions': 'Josh Fonseca Rivera charted a striking acceleration in frontier releases, arguing in a same-day post that the OpenAI and Anthropic model cadence has compressed from roughly every 10 weeks to roughly every 11 days.'",
+      "source": "The Neuron",
+      "url": "https://www.theneuron.ai/digest/everything-that-happened-in-ai-today-tuesday-september-29-2026/",
+      "date": "2026-09-30"
+    },
+    {
+      "claim": "Counterpoint (Fast Company, Sep 23 2026): releases are accelerating, 'but many of the new releases are models that repackage (and often reprice) the capabilities of earlier flagship models'; 'the time between genuinely new flagship frontier models hasn't changed much during 2026'; Anthropic released eight flagship models and OpenAI six this year.",
+      "source": "Fast Company (Mark Sullivan) via Yahoo Finance",
+      "url": "https://www.fastcompany.com/91611158/why-ai-model-releases-feel-nonstop",
+      "date": "2026-09-23"
+    },
+    {
+      "claim": "The chart plots about 35 releases (19 Anthropic squares, 16 OpenAI triangles) between 2024-03-04 and 2026-09-28, so it counts headline/flagship-type launches rather than every model (unbenchmark.com counts 15 + 42 + 39 = 96 combined releases over 2024-2026 YTD, OpenRouter's market-wide count is a launch day every 1.7 days). The author has not said what qualifies.",
+      "source": "Counted by me from the chart image; unbenchmark post; OpenRouter infographic",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "Same-day launches ARE in the chart as ~0-day gaps (green triangles on the 0 line, e.g. around 2026-02-04 and 2026-09-21), so the 11-day median is not inflated by dropping them.",
+      "source": "Chart image (pixel read-off)",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "Timing: the post came 17 days after Dario Amodei's 'We Must Pace the Frontier' essay (Sept 12, 2026) and a week after Claude Opus 5.5 / GPT-6 Sol / GPT-6 Luna launched on Sept 22; many reactions framed it as 'so much for slowing down' (e.g. @full_kelly_ 'so much for slowing down AI development', 15 likes).",
+      "source": "Gizmodo; Zvi; X replies",
+      "url": "https://gizmodo.com/ten-days-after-ceo-calls-for-a-slowdown-anthropic-is-back-with-another-ai-model-2000815586",
+      "date": "2026-09-22"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Author's methodology: which models count as 'a new model' (minor versions, mini/open-weight, same-day launches), rolling-window size, data source",
+      "searched": "fxtwitter conversation_id search (about 158 of 165 replies fetched, 130 quote-posts fetched), author's self-replies (none: from:jfonsecarivera in the conversation returns only the original), author's whole timeline Sep 29 - Oct 5 (no follow-up, no 'chart/data/method' post), his bio link youtube.com/@joshycodes (not readable by fetch tool), jfr.dev, github.com/jfonsecarivera (no repo listing accessible), WebSearch/DDG for the post + 'methodology'. NOT FOUND - the author never explained it. Only the chart's own labels (median gap, either lab, middle 50% shaded) are known."
+    },
+    {
+      "outline_item": "Notable criticism of the chart by major accounts or outlets (e.g. 'mostly point releases')",
+      "searched": "All fetched replies/quotes keyword-scanned. Only small accounts raise it (@schiste, @Brovadana, @k_ra_mr 'Definition of new model has to change', @chiefofautism). The substantive version is Fast Company's Sep 23 piece, which pre-dates and does not cite the chart."
+    },
+    {
+      "outline_item": "News article (not newsletter) citing the chart",
+      "searched": "WebSearch + DuckDuckGo (several phrasings incl. '11 days', '10 weeks', @jfonsecarivera, Fonseca Rivera), Neuron Sep 30/Oct 1 digests (no mention). Found only The Neuron Sep 29 digest (2026-09-30) and an X recap by @AGTPinsights; no wire/mainstream outlet. ainewscrypto.com and Gizmodo pieces on release cadence pre-date the post and do not cite it."
+    },
+    {
+      "outline_item": "Usable screenshot of Fast Company / Yahoo copy of 'Why AI model releases feel nonstop'",
+      "searched": "shot.js on fastcompany.com (captcha 'Verification Required' - discarded) and the Yahoo Finance syndication (headline visible but ad/video placeholders and broken logo; discarded). Text verified via curl instead; use a neutral citation card."
+    },
+    {
+      "outline_item": "The unbenchmark.com data page contents / definition of 'release'",
+      "searched": "WebFetch of https://unbenchmark.com/data/ai-models/ai-models-released-over-time-by-lab returned only the empty interactive shell ('Loading content')."
+    }
+  ]
+}

@@ -1,0 +1,112 @@
+{
+  "group": "capabilities-rev3-headline",
+  "items": [
+    {
+      "id": "cnbc-model-fatigue",
+      "slide_topic": "Increasing rate of model releases (accelerating capabilities)",
+      "type": "headline",
+      "file": "cnbc-model-fatigue-headline.png",
+      "headline": "‘Model fatigue’ sets in as AI labs race to roll out new versions at frenetic pace",
+      "dek": "Anthropic, OpenAI, Meta and Google all released model updates this week as the pace of new releases continues to accelerate.",
+      "outlet": "CNBC",
+      "author": "Jonathan Vanian",
+      "date": "2026-09-06",
+      "url": "https://www.cnbc.com/2026/09/06/meta-google-openai-anthropic-ai-model-fatigue.html",
+      "caption": "CNBC AI Age kicker, headline, 'Published Sun, Sep 6 2026, 8:00 AM EDT', byline Jonathan Vanian. Clean crop, headline text only (no photo).",
+      "quality": 5,
+      "verified": true,
+      "notes": "Screenshot is a crop of the Internet Archive Wayback Machine copy of the genuine CNBC page (capture 2026-09-13, https://web.archive.org/web/20260913150404/https://www.cnbc.com/2026/09/06/meta-google-openai-anthropic-ai-model-fatigue.html) because live cnbc.com returns 'Access Denied' to headless browsers; the Wayback toolbar is cropped out. HTML <title> reads '‘Model fatigue’ sets in AI labs roll out new versions at dizzying pace' but the on-page h1/og:title (shown in the screenshot) is the headline above. Dek = CNBC 'Key Points' bullet 1 / og:description is 'Anthropic, OpenAI, Meta and Google all released model updates this week, while Nvidia said it's acquiring open-source AI platform Hugging Face.' Body quotes: OpenAI CEO Sam Altman 'told CNBC on Thursday that \"we're all moving to faster cadences,\"' (attributing some of the acceleration to everyone getting 'back after summer vacation'); Zhen Lu, CEO of Runpod: \"I feel like model fatigue is a real thing.\" Body also says 'a dizzying pace of modifications and upgrades hit the market' and that Anthropic and OpenAI are pushing the pace as they head toward the public market, 'each already valued at close to $1 trillion by private investors'. Anthropic released Claude Fable 5.1 and Claude Mythos 5.1 on Tuesday that week; OpenAI released GPT-6 Astra (Sep 3)."
+    },
+    {
+      "id": "nikkei-us-china-ai-race-speeds-up",
+      "slide_topic": "Increasing rate of model releases (accelerating capabilities)",
+      "type": "headline",
+      "file": "nikkei-us-china-ai-race-speeds-up-headline.png",
+      "file_with_image": "nikkei-us-china-ai-race-speeds-up-headline-with-image.png",
+      "headline": "US-China AI race speeds up as self-improving models advance",
+      "dek": "Anthropic, DeepSeek and others rapidly upgrade models with development time cut to 1/3",
+      "outlet": "Nikkei Asia",
+      "author": "Manami Ogawa",
+      "date": "2026-09-22",
+      "url": "https://asia.nikkei.com/business/technology/artificial-intelligence/us-china-ai-race-speeds-up-as-self-improving-models-advance",
+      "caption": "Nikkei Asia 'ARTIFICIAL INTELLIGENCE' kicker, headline and dek (wide crop, text only). The '-with-image' file adds the article's own illustration (two glitching robot heads, blue/red), its caption 'AI companies are releasing new versions of their frontier models faster than before. (Illustration by Nikkei)', byline MANAMI OGAWA and 'September 22, 2026 03:21 JST'.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Live page screenshot (no archive needed); article body is paywalled, only the first sentence is visible: 'TOKYO -- Artificial intelligence development in the U.S. and China is picking up pace as AI assumes an increasingly large role in its own development, fueling concerns about the risk posed by advanced systems.' The 125-day -> 44-day survey numbers come from SECONDARY write-ups (BigGo Finance 2026-09-21, KuCoin/36Kr/ChainCatcher flash items), not from the paywalled Nikkei text: see facts. Scope of that survey is five U.S. + four Chinese labs, not just Anthropic/OpenAI. Nikkei Asia page is not labelled sponsored (an extraction tool printed a generic 'Sponsored Content' boilerplate line, but the rendered page shows a normal editorial header)."
+    },
+    {
+      "id": "fastcompany-why-model-releases-feel-nonstop",
+      "slide_topic": "Increasing rate of model releases (accelerating capabilities)",
+      "type": "headline",
+      "file": null,
+      "headline": "Why AI model releases feel nonstop",
+      "dek": "OpenAI and Anthropic are putting out more models, but much of the acceleration comes from repackaging existing advances for new price points.",
+      "outlet": "Fast Company",
+      "author": "Mark Sullivan",
+      "date": "2026-09-23",
+      "url": "https://www.fastcompany.com/91611158/why-ai-model-releases-feel-nonstop",
+      "caption": "No screenshot: fastcompany.com serves a DataDome 'Verification Required' captcha to headless browsers (also for the Wayback copy). Use d.headlineCard. A Yahoo Finance syndicated copy (https://finance.yahoo.com/technology/ai/articles/why-ai-model-releases-feel-102100600.html) loads but its video slot renders blank and the logo is a broken image, so it was not used.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Headline, dek (og:description), byline and ISO date (2026-09-23T10:21:00+00:00) verified by fetching the real page text with a content-extraction tool, and the headline/byline 'Mark Sullivan, September 23, 2026 - 4 min read' were also seen in the Yahoo Finance syndicated copy. This is the only source that QUANTIFIES cadence per lab, and it carries an important caveat: 'Anthropic’s release cadence for frontier models has roughly doubled during 2026, from a model every 46 days in the first half to every 26 days so far in the second; OpenAI’s release cadence has increased from every 46 days in the first half of the year to every 51 days so far in the second. But the time between genuinely new flagship frontier models hasn’t changed much during 2026 for either company, the release dates show. This year, Anthropic has released eight flagship frontier models; OpenAI has released six.' Also: 'It feels like new model releases are accelerating, and they are, but many of the new releases are models that repackage (and often reprice) the capabilities of earlier flagship models.' and 'A faster release cadence doesn’t necessarily mean the underlying technology is advancing faster.' NOTE the OpenAI figure went 46 -> 51 days (slower), so the headline's 'every ~11 days' (user's chart) is a two-lab combined median gap counting all releases, not flagship-only."
+    },
+    {
+      "id": "register-frontier-ai-keeps-racing",
+      "slide_topic": "Increasing rate of model releases (accelerating capabilities)",
+      "type": "headline",
+      "file": "register-frontier-ai-keeps-racing-headline.png",
+      "headline": "Frontier AI keeps racing despite calls to slow down",
+      "dek": "Anthropic and OpenAI debut Opus 5.5 and GPT-6 Sol and Luna",
+      "outlet": "The Register",
+      "author": "Thomas Claburn",
+      "date": "2026-09-23",
+      "url": "https://www.theregister.com/ai-and-ml/2026/09/23/frontier-ai-keeps-racing-despite-calls-to-slow-down/5298448",
+      "caption": "The Register 'AI AND ML' kicker, headline, dek, byline Thomas Claburn (AI and Software Reporter), 'Published Wed 23 Sept 2026 // 00:02 UTC'. Clean crop; ad banner above the headline excluded.",
+      "quality": 3,
+      "verified": true,
+      "notes": "SECONDARY pick: the headline is about the slow-down calls, but the body gives release-gap numbers: 'Anthropic's development pace has accelerated dramatically: roughly quarterly releases in 2025 shifted to nearly monthly releases in 2026. Opus 5.5 arrived 21 days after Fable 5.1 and Mythos 5.1, which themselves followed Opus 5 by 39 days.' OpenAI: 'several variants in February-March, GPT-5.5 in April, then 77 days until GPT-5.6 (July 9), followed by GPT-6 Astra (September 3) and GPT-6 Sol/Luna (19 days later).' Opening line: 'Despite a July open letter from AI company employees calling for frontier AI labs to slow their pace of development, a message echoed by Anthropic CEO Dario Amodei earlier this month, major model releases continue to appear at quite a clip.' Amodei quote (Sept 12 post): 'We must slow the pace at which we improve the capabilities of AI models.' The WebFetch text said 01:02 UTC but the live page screenshot reads 00:02 UTC; the screenshot is authoritative."
+    }
+  ],
+  "datasets": [],
+  "facts": [
+    {
+      "claim": "Anthropic's release cadence for frontier models has roughly doubled during 2026, from a model every 46 days in the first half to every 26 days so far in the second; OpenAI's went from every 46 days to every 51 days. But the time between genuinely new flagship models hasn't changed much (Anthropic 8 flagship models in 2026, OpenAI 6).",
+      "source": "Fast Company, Mark Sullivan, 'Why AI model releases feel nonstop'",
+      "url": "https://www.fastcompany.com/91611158/why-ai-model-releases-feel-nonstop",
+      "date": "2026-09-23"
+    },
+    {
+      "claim": "Sam Altman told CNBC \"we're all moving to faster cadences.\"",
+      "source": "CNBC, Jonathan Vanian, 'Model fatigue sets in as AI labs race to roll out new versions at frenetic pace' (quote from the article body, said to CNBC on Thursday Sep 3)",
+      "url": "https://www.cnbc.com/2026/09/06/meta-google-openai-anthropic-ai-model-fatigue.html",
+      "date": "2026-09-06"
+    },
+    {
+      "claim": "Opus 5.5 arrived 21 days after Fable 5.1 and Mythos 5.1, which followed Opus 5 by 39 days; GPT-6 Sol/Luna came 19 days after GPT-6 Astra (Sep 3), and GPT-5.6 (Jul 9) came 77 days after GPT-5.5 (April).",
+      "source": "The Register, Thomas Claburn",
+      "url": "https://www.theregister.com/ai-and-ml/2026/09/23/frontier-ai-keeps-racing-despite-calls-to-slow-down/5298448",
+      "date": "2026-09-23"
+    },
+    {
+      "claim": "Nikkei survey of 5 U.S. and 4 Chinese AI companies: average interval between new high-performance models was 125 days from Jan 2023 through Mar 2026 and 44 days from Apr through Sep 2026 (development time cut to 1/3).",
+      "source": "Nikkei Asia headline/dek verified ('development time cut to 1/3'); the 125 -> 44 day numbers are SECONDARY, from BigGo Finance quoting the Nikkei survey (article paywalled, primary text not read)",
+      "url": "https://finance.biggo.com/news/87a86c61-f271-4449-819e-d196241173f1",
+      "date": "2026-09-21",
+      "caveat": "Secondary source; do not put these two numbers on a slide unless the Nikkei text is confirmed. The dek 'development time cut to 1/3' is verified on the Nikkei page itself."
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "A reputable 2026 headline stating a literal 'new model every N weeks/days' for Anthropic+OpenAI",
+      "searched": "WebSearch + DuckDuckGo: AI release cadence / model every few weeks / shipping faster, plus site: searches on axios.com, theverge.com, wired.com, Reuters, Bloomberg, FT. Reputable outlets cover the pace as 'model fatigue' (CNBC), cadence stats (Fast Company, Register) and the survey (Nikkei). No outlet states anything like the tweet's '~10 weeks -> ~11 days'; that figure exists only in the @jfonsecarivera chart."
+    },
+    {
+      "outline_item": "Axios / Bloomberg / TechCrunch Sep 12-13 'pace the frontier' headlines",
+      "searched": "Found (e.g. Axios 'Anthropic, OpenAI CEOs call for slowdown in AI development', Bloomberg 'Amodei, Altman, Musk Call for Slowing AI Model Development', TechCrunch 'Anthropic CEO outlines plan to slow AI development'), but they are about calls to slow development, not about release frequency; deliberately not stretched into this slide."
+    },
+    {
+      "outline_item": "Screenshots from fastcompany.com and live cnbc.com",
+      "searched": "Both block headless browsers (DataDome captcha / Akamai 'Access Denied'); CNBC was captured via its Wayback Machine copy, Fast Company has no usable screenshot (card only)."
+    }
+  ]
+}

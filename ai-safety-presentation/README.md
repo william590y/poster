@@ -1,6 +1,6 @@
 # AI Safety and Existential Risk — presentation
 
-**Deliverable:** `AI_Safety_and_Existential_Risk.pptx` (16:9, 117 slides, with transitions, entrance animations, looping GIF
+**Deliverable:** `AI_Safety_and_Existential_Risk.pptx` (16:9, 116 slides, with transitions, entrance animations, looping GIF
 clips, embedded YouTube videos and speaker notes on every slide), plus an interactive web version for williamliaw.com/aisafety/
 (`tools/export_web.py`).
 
@@ -83,5 +83,5 @@ npm install                # pptxgenjs, sharp, react-icons, playwright
 - The GIF clips play automatically in PowerPoint. With ~1 GB of clips, give the file a minute to open and use a
   reasonably recent machine; the “Which one is real?” slide plays six clips at once.
 - Builds advance on click; collages and charts animate in automatically. Speaker notes carry the talking points and caveats.
-- At ~1.5 min/slide the full deck (117 slides) runs ~3 hours. For a shorter talk, the easiest cuts are the second slide of each multi-slide
+- At ~1.5 min/slide the full deck (116 slides) runs ~3 hours. For a shorter talk, the easiest cuts are the second slide of each multi-slide
   topic (e.g. economy 3, maths 3, robotics 1, rogue agents 2, open weights 2/3).

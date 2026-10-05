@@ -1,6 +1,6 @@
 # AI Safety and Existential Risk — presentation
 
-**Deliverable:** `AI_Safety_and_Existential_Risk.pptx` (16:9, 116 slides, with transitions, entrance animations, looping GIF
+**Deliverable:** `AI_Safety_and_Existential_Risk.pptx` (16:9, 117 slides, with transitions, entrance animations, looping GIF
 clips, embedded YouTube videos and speaker notes on every slide), plus an interactive web version for williamliaw.com/aisafety/
 (`tools/export_web.py`).
 
@@ -14,7 +14,7 @@ Built from William Liaw's one-page outline (`assets/original/outline.pptx`), exp
 | Act | Sections |
 |---|---|
 | Opening | Title · roadmap (along an exponential curve) |
-| I · The Acceleration | AI dominates the economy · information is physical (data centers, supply, environment) · capabilities (METR horizon, benchmark graveyard, Humanity's Last Exam) · creative capabilities (stroke-by-stroke and tool-built work, @anabology's 18-hour film, clips credited to an unannounced “Fable 5.5”) · *“i'm upping my p(doom)”* video · mathematics in crisis (Navier–Stokes, aftermath, VibeMathed, 100+ unreleased results, Hodge/BSD rumors) · engineering & hardware design · labor benchmarks · jobs · academia · video & voice Turing tests · robotics (VLA, humanoid factories, Anthropic's “What work can robots do?”) |
+| I · The Acceleration | AI dominates the economy · information is physical (data centers, supply, environment) · capabilities (model releases now ~11 days apart, METR horizon, benchmark graveyard, Humanity's Last Exam) · creative capabilities (stroke-by-stroke and tool-built work, @anabology's 18-hour film, clips credited to an unannounced “Fable 5.5”) · *“i'm upping my p(doom)”* video · mathematics in crisis (Navier–Stokes, aftermath, VibeMathed, 100+ unreleased results, Hodge/BSD rumors) · engineering & hardware design · labor benchmarks · jobs · academia · video & voice Turing tests · robotics (VLA, humanoid factories, Anthropic's “What work can robots do?”) |
 | II · Inside the Machine | Neuralese / latent reasoning · reasoning too long for humans to read (OpenAI's 50 PB review) · “an alien mind” · continual learning & test-time training (TTT-E2E) · the intelligence explosion · recursive self-improvement |
 | III · The Alignment Problem | Expert alarm (wall of headlines, OpenAI's firing of three safety staff, warnings and exits since 2024, CAIS statement) · orthogonality thesis · instrumental convergence · specification gaming · cybersecurity · *“Ignore Previous Instructions”* interlude · the Hugging Face intrusion · rogue agents (compaction-note jailbreak, the collusion.wiki message board and shutdown heartbeats) · *“We found other agents”* video · alignment & control · how often incidents happen |
 | IV · The World | AI and the military · geopolitical rivalry · use by bad actors · open weights · abliteration & deepfakes · model welfare & “pain” directions · *“I really felt the AGI profoundly this time”* video (“Escape Velocity”, @anabology) |
@@ -83,5 +83,5 @@ npm install                # pptxgenjs, sharp, react-icons, playwright
 - The GIF clips play automatically in PowerPoint. With ~1 GB of clips, give the file a minute to open and use a
   reasonably recent machine; the “Which one is real?” slide plays six clips at once.
 - Builds advance on click; collages and charts animate in automatically. Speaker notes carry the talking points and caveats.
-- At ~1.5 min/slide the full deck (116 slides) runs ~3 hours. For a shorter talk, the easiest cuts are the second slide of each multi-slide
+- At ~1.5 min/slide the full deck (117 slides) runs ~3 hours. For a shorter talk, the easiest cuts are the second slide of each multi-slide
   topic (e.g. economy 3, maths 3, robotics 1, rogue agents 2, open weights 2/3).

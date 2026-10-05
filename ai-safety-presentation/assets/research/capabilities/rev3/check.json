@@ -1,0 +1,932 @@
+{
+  "group": "capabilities/rev3/check",
+  "items": [
+    {
+      "id": "jfonsecarivera-model-release-cadence-chart",
+      "slide_topic": "Accelerating capabilities: rate of model releases",
+      "type": "chart",
+      "file": "jfonsecarivera-model-release-cadence-chart.jpg",
+      "headline": "New models from Anthropic and OpenAI are arriving faster",
+      "dek": "you're not crazy\n\nbetween anthropic and openai, a new model used to come out every ~10 weeks\n\nnow it's every ~11 days",
+      "outlet": "X (Twitter)",
+      "author": "josh :) (@jfonsecarivera)",
+      "date": "2026-09-29",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "caption": "Scatter of each Anthropic (orange square) and OpenAI (green triangle) launch, 2024-2026: days since the previous launch by either lab, with a black rolling-median line from 70 days to 11 days and a grey middle-50% band.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Image is the original (2048x1270) from pbs.twimg.com/media/HTZ4mB0aAAElOZE.jpg?name=orig. No data-source footnote on the chart. I reproduced its 35 markers from vendor pages (see datasets 'chart-marker-decode-vs-vendor-dates'); definition = major launches, see facts. Post: 344,785 views / 7,352 likes / 491 reposts / 146 quotes / 165 replies as of 2026-10-05. Author is an Anthropic safety fellow (bio) - disclose if citing."
+    },
+    {
+      "id": "jfonsecarivera-post-text",
+      "slide_topic": "Accelerating capabilities: rate of model releases",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "you're not crazy\n\nbetween anthropic and openai, a new model used to come out every ~10 weeks\n\nnow it's every ~11 days",
+      "outlet": "X (Twitter)",
+      "author": "josh :) (@jfonsecarivera, verified; bio: 'safety fellow @AnthropicAI • I code silly things for 26k people on YouTube. Prev: @UChicago')",
+      "date": "2026-09-29",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "caption": "Verbatim post text (posted Tue Sep 29 2026 18:31 UTC).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Fetched via api.fxtwitter.com; x.com itself shows a login wall."
+    },
+    {
+      "id": "anthropic-system-cards-index",
+      "slide_topic": "Accelerating capabilities: rate of model releases",
+      "type": "headline",
+      "file": null,
+      "headline": "Model system cards",
+      "dek": "System cards document the capabilities, safety evaluations, and responsible deployment decisions for Claude models.",
+      "outlet": "Anthropic",
+      "date": "2026-10-05",
+      "url": "https://www.anthropic.com/system-cards",
+      "caption": "Vendor index listing every Claude release from Claude 3 (Mar 2024) through Claude Opus 5.5 (Sep 2026); useful primary cross-check of Anthropic's launch list.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Page is undated; date = date loaded. Lists 'Claude Opus 5.5 September 2026', 'Claude Fable 5.1 and Mythos 5.1 September 2026', ... 'Claude 3 March 2024'."
+    },
+    {
+      "id": "anthropic-sonnet-5-5",
+      "slide_topic": "Accelerating capabilities: rate of model releases",
+      "type": "headline",
+      "file": null,
+      "headline": "Introducing Claude Sonnet 5.5",
+      "dek": "A clear upgrade over Sonnet 5 that runs 30% faster and costs up to 30% less for most work.",
+      "outlet": "Anthropic",
+      "date": "2026-09-28",
+      "url": "https://www.anthropic.com/claude-sonnet-5-5",
+      "caption": "Vendor launch announcement title and standfirst, verbatim.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Newsroom listing text (anthropic.com/news, loaded 2026-10-05)."
+    },
+    {
+      "id": "anthropic-opus-5-5",
+      "slide_topic": "Accelerating capabilities: rate of model releases",
+      "type": "headline",
+      "file": null,
+      "headline": "Introducing Claude Opus 5.5",
+      "dek": "Opus 5.5 performs at the level of Claude Fable 5.1 on most work and costs 40% less to run than Opus 5.",
+      "outlet": "Anthropic",
+      "date": "2026-09-22",
+      "url": "https://www.anthropic.com/claude-opus-5-5",
+      "caption": "Vendor launch announcement title and standfirst, verbatim.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Newsroom listing text."
+    },
+    {
+      "id": "anthropic-fable-5-1",
+      "slide_topic": "Accelerating capabilities: rate of model releases",
+      "type": "headline",
+      "file": null,
+      "headline": "Introducing Claude Fable 5.1 and Claude Mythos 5.1",
+      "dek": "Our most advanced models for coding and knowledge work. Their research capabilities also offer an early glimpse of how AI models will contribute to scientific progress.",
+      "outlet": "Anthropic",
+      "date": "2026-09-01",
+      "url": "https://www.anthropic.com/claude-fable-and-mythos-5-1",
+      "caption": "Vendor launch announcement title and standfirst, verbatim.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Newsroom listing text."
+    },
+    {
+      "id": "openai-gpt-6-1-sol",
+      "slide_topic": "Accelerating capabilities: rate of model releases",
+      "type": "headline",
+      "file": null,
+      "headline": "Introducing GPT-6.1 Sol",
+      "dek": "Near-Astra intelligence for a fifth of the price",
+      "outlet": "OpenAI",
+      "date": "2026-09-29",
+      "url": "https://openai.com/index/introducing-gpt-6-1-sol/",
+      "caption": "Vendor launch announcement title and standfirst, verbatim.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Loaded via Wayback copy (openai.com returns 403 to bots); date from openai.com/news listing and the page body."
+    },
+    {
+      "id": "openai-gpt-6-sol-luna",
+      "slide_topic": "Accelerating capabilities: rate of model releases",
+      "type": "headline",
+      "file": null,
+      "headline": "Introducing GPT-6 Sol and Luna",
+      "dek": "More ways to bring frontier intelligence into the work you do every day.",
+      "outlet": "OpenAI",
+      "date": "2026-09-22",
+      "url": "https://openai.com/index/introducing-gpt-6-sol-and-luna/",
+      "caption": "Vendor launch announcement title and standfirst, verbatim.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Loaded via Wayback copy; date from openai.com/news listing (Sep 22, 2026 18:00Z)."
+    },
+    {
+      "id": "openai-gpt-6-astra",
+      "slide_topic": "Accelerating capabilities: rate of model releases",
+      "type": "headline",
+      "file": null,
+      "headline": "GPT-6 Astra: A new generation of intelligence",
+      "dek": "We’re introducing GPT‑6 Astra, the world’s most intelligent and aligned model.",
+      "outlet": "OpenAI",
+      "date": "2026-09-03",
+      "url": "https://openai.com/index/gpt-6-astra/",
+      "caption": "Vendor launch announcement title and standfirst, verbatim.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Loaded via Wayback copy captured 2026-09-03 19:39 UTC; page date 'September 3, 2026'."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "release-cadence-chart-set-35-launches",
+      "title": "The 35 'major' launches behind the chart (Anthropic + OpenAI), Mar 2024 - Sep 2026, with days since the previous launch by either lab",
+      "unit": "days since previous release (either lab)",
+      "labels": [
+        "2024-03-04",
+        "2024-05-13",
+        "2024-06-20",
+        "2024-09-12",
+        "2024-10-22",
+        "2024-12-05",
+        "2025-02-24",
+        "2025-02-27",
+        "2025-04-14",
+        "2025-04-16",
+        "2025-05-22",
+        "2025-08-05",
+        "2025-08-07",
+        "2025-09-29",
+        "2025-11-12",
+        "2025-11-24",
+        "2025-12-11",
+        "2026-02-05",
+        "2026-02-05",
+        "2026-02-17",
+        "2026-03-05",
+        "2026-04-07",
+        "2026-04-16",
+        "2026-04-23",
+        "2026-05-28",
+        "2026-06-09",
+        "2026-06-26",
+        "2026-06-30",
+        "2026-07-24",
+        "2026-09-01",
+        "2026-09-03",
+        "2026-09-22",
+        "2026-09-22",
+        "2026-09-28",
+        "2026-09-29"
+      ],
+      "series": [
+        {
+          "name": "Days since previous launch (either lab)",
+          "values": [
+            104,
+            70,
+            38,
+            84,
+            40,
+            44,
+            81,
+            3,
+            46,
+            2,
+            36,
+            75,
+            2,
+            53,
+            44,
+            12,
+            17,
+            56,
+            0,
+            12,
+            16,
+            33,
+            9,
+            7,
+            35,
+            12,
+            17,
+            4,
+            24,
+            39,
+            2,
+            19,
+            0,
+            6,
+            1
+          ]
+        }
+      ],
+      "point_labels": [
+        "Claude 3 Opus + Claude 3 Sonnet",
+        "GPT-4o",
+        "Claude 3.5 Sonnet",
+        "OpenAI o1-preview + OpenAI o1-mini",
+        "Claude 3.5 Sonnet (upgraded) + Claude 3.5 Haiku",
+        "OpenAI o1 + o1 pro mode",
+        "Claude 3.7 Sonnet",
+        "GPT-4.5",
+        "GPT-4.1 + GPT-4.1 mini + GPT-4.1 nano",
+        "OpenAI o3 + OpenAI o4-mini",
+        "Claude Opus 4 + Claude Sonnet 4",
+        "Claude Opus 4.1",
+        "GPT-5 + GPT-5 mini + GPT-5 nano",
+        "Claude Sonnet 4.5",
+        "GPT-5.1 Instant + GPT-5.1 Thinking",
+        "Claude Opus 4.5",
+        "GPT-5.2 Instant + GPT-5.2 Thinking + GPT-5.2 Pro",
+        "Claude Opus 4.6",
+        "GPT-5.3-Codex",
+        "Claude Sonnet 4.6",
+        "GPT-5.4 + GPT-5.4 Pro",
+        "Claude Mythos Preview",
+        "Claude Opus 4.7",
+        "GPT-5.5 + GPT-5.5 Pro",
+        "Claude Opus 4.8",
+        "Claude Fable 5 + Claude Mythos 5",
+        "GPT-5.6 Sol (limited preview)",
+        "Claude Sonnet 5",
+        "Claude Opus 5",
+        "Claude Fable 5.1 + Claude Mythos 5.1",
+        "GPT-6 Astra",
+        "Claude Opus 5.5",
+        "GPT-6 Sol + GPT-6 Luna",
+        "Claude Sonnet 5.5",
+        "GPT-6.1 Sol"
+      ],
+      "point_labs": [
+        "Anthropic",
+        "OpenAI",
+        "Anthropic",
+        "OpenAI",
+        "Anthropic",
+        "OpenAI",
+        "Anthropic",
+        "OpenAI",
+        "OpenAI",
+        "OpenAI",
+        "Anthropic",
+        "Anthropic",
+        "OpenAI",
+        "Anthropic",
+        "OpenAI",
+        "Anthropic",
+        "OpenAI",
+        "Anthropic",
+        "OpenAI",
+        "Anthropic",
+        "OpenAI",
+        "Anthropic",
+        "Anthropic",
+        "OpenAI",
+        "Anthropic",
+        "Anthropic",
+        "OpenAI",
+        "Anthropic",
+        "Anthropic",
+        "Anthropic",
+        "OpenAI",
+        "Anthropic",
+        "OpenAI",
+        "Anthropic",
+        "OpenAI"
+      ],
+      "source": "Vendor announcement pages (anthropic.com newsroom pages loaded directly; openai.com pages loaded via Wayback copies; OpenAI API changelog), cross-checked with Wikipedia and Epoch AI; membership of the set decoded from the chart image's markers (35 of 35 matched within 1 day)",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "notes": "The first gap (104 days, Claude 3 on 2024-03-04) is measured from Claude 2.1 (2023-11-21, https://www.anthropic.com/news/claude-2-1). Same-day launches by the two labs give gap 0 (2026-02-05 Opus 4.6 + GPT-5.3-Codex; 2026-09-22 Opus 5.5 + GPT-6 Sol/Luna). The late-June 2026 OpenAI dot is the GPT-5.6 Sol LIMITED PREVIEW (2026-06-26); public release was 2026-07-09. 2026-04-07 Mythos Preview was invitation-only."
+    },
+    {
+      "id": "median-gap-by-definition",
+      "title": "Median days between consecutive Anthropic/OpenAI model launches: Jan-Jun 2024 vs last 6 months (Apr 5 - Oct 5, 2026), by definition of 'release'",
+      "unit": "days (median gap to previous launch by either lab)",
+      "labels": [
+        "Chart's own set (35 major launches)",
+        "Flagship only (announce-date basis)",
+        "Flagship only, public access only",
+        "General-purpose LLMs (flagship + mini/Haiku/Instant/Pro/open-weight)",
+        "All named model launches (incl. Codex, cyber, image, audio, video)",
+        "All named model launches, public access only",
+        "Maximally inclusive (adds snapshots, previews, Epoch research models)"
+      ],
+      "series": [
+        {
+          "name": "Median gap, launches dated Jan 1 - Jun 30 2024",
+          "values": [
+            70,
+            70,
+            70,
+            49.5,
+            39,
+            39,
+            19.5
+          ]
+        },
+        {
+          "name": "Median gap, launches dated Apr 5 - Oct 5 2026",
+          "values": [
+            10.5,
+            14.5,
+            15,
+            12,
+            5.0,
+            5,
+            5.0
+          ]
+        },
+        {
+          "name": "n gaps, Jan-Jun 2024",
+          "values": [
+            3,
+            3,
+            3,
+            4,
+            5,
+            5,
+            10
+          ]
+        },
+        {
+          "name": "n gaps, Apr 5 - Oct 5 2026",
+          "values": [
+            14,
+            12,
+            11,
+            15,
+            26,
+            21,
+            26
+          ]
+        },
+        {
+          "name": "Speed-up (H1 2024 median / last-6-month median)",
+          "values": [
+            6.7,
+            4.8,
+            4.7,
+            4.1,
+            7.8,
+            7.8,
+            3.9
+          ]
+        }
+      ],
+      "source": "Computed from releases_2024_2026.csv (this folder)",
+      "url": "https://www.anthropic.com/news",
+      "notes": "Gap = calendar days between a launch and the previous launch by either lab; a launch belongs to a window by its own date; same-day launches give 0. H1-2024 medians rest on only 3-10 gaps depending on definition."
+    },
+    {
+      "id": "median-gap-epoch-crosscheck",
+      "title": "Independent cross-check from Epoch AI's model database (distinct publication dates, Anthropic + OpenAI)",
+      "unit": "days",
+      "labels": [
+        "Epoch AI database: Anthropic+OpenAI language models",
+        "Epoch AI database: all Anthropic+OpenAI models (incl. image/speech/video)"
+      ],
+      "series": [
+        {
+          "name": "Median gap, Jan-Jun 2024",
+          "values": [
+            36,
+            21
+          ]
+        },
+        {
+          "name": "Median gap, Apr 5 - Oct 5 2026",
+          "values": [
+            12,
+            6.0
+          ]
+        },
+        {
+          "name": "n gaps, Jan-Jun 2024",
+          "values": [
+            7,
+            9
+          ]
+        },
+        {
+          "name": "n gaps, Apr 5 - Oct 5 2026",
+          "values": [
+            16,
+            21
+          ]
+        }
+      ],
+      "source": "Epoch AI, all_ai_models.csv (https://epoch.ai/data/all_ai_models.csv, downloaded 2026-10-05)",
+      "url": "https://epoch.ai/data/all_ai_models.csv",
+      "notes": "Epoch dates differ from vendor launch dates by a day in a few cases (e.g. GPT-5.1 2025-11-13 = API day) and Epoch omits some launches (GPT-5.3 Instant, GPT-5.6 limited preview, GPT-Rosalind). Gap counts: a re-download of all_ai_models.csv later on 2026-10-05 gives 7 and 16 gaps (language models) and 9 and 21 gaps (all models) instead of the 17 and 22 recorded first; the medians (36 -> 12, 21 -> 6) are unchanged. Epoch updates the database continuously, so the counts can shift by one between downloads."
+    },
+    {
+      "id": "median-gap-by-half-year",
+      "title": "Median gap between consecutive launches, by half-year of the later launch",
+      "unit": "days",
+      "labels": [
+        "2024 H1",
+        "2024 H2",
+        "2025 H1",
+        "2025 H2",
+        "2026 H1",
+        "2026 H2 (to Oct 5)"
+      ],
+      "series": [
+        {
+          "name": "Chart's own set (major launches)",
+          "values": [
+            70,
+            44,
+            36,
+            30.5,
+            12,
+            6
+          ]
+        },
+        {
+          "name": "Flagship only",
+          "values": [
+            70,
+            44,
+            42.0,
+            30.5,
+            17,
+            13.0
+          ]
+        },
+        {
+          "name": "General-purpose LLMs",
+          "values": [
+            49.5,
+            42.0,
+            22.0,
+            12,
+            12.0,
+            6
+          ]
+        },
+        {
+          "name": "All named model launches",
+          "values": [
+            39,
+            15.0,
+            8.0,
+            9,
+            5.5,
+            5.5
+          ]
+        }
+      ],
+      "source": "Computed from releases_2024_2026.csv",
+      "url": "https://www.anthropic.com/news",
+      "notes": "2026 H2 covers Jul 1 - Oct 5 only (97 days)."
+    },
+    {
+      "id": "releases-per-half-year",
+      "title": "Anthropic + OpenAI launch events per half-year (2026 H2 = Jul 1 - Oct 5 only, 97 days)",
+      "unit": "launch events (one per announcement; several models may be named in one launch)",
+      "labels": [
+        "2024 H1",
+        "2024 H2",
+        "2025 H1",
+        "2025 H2",
+        "2026 H1",
+        "2026 H2 (to Oct 5)"
+      ],
+      "series": [
+        {
+          "name": "Major launches (chart set) - Anthropic",
+          "values": [
+            2,
+            1,
+            2,
+            3,
+            7,
+            4
+          ]
+        },
+        {
+          "name": "Major launches (chart set) - OpenAI",
+          "values": [
+            1,
+            2,
+            3,
+            3,
+            4,
+            3
+          ]
+        },
+        {
+          "name": "Major launches (chart set) - total",
+          "values": [
+            3,
+            3,
+            5,
+            6,
+            11,
+            7
+          ]
+        },
+        {
+          "name": "Flagship only - total",
+          "values": [
+            3,
+            3,
+            4,
+            6,
+            9,
+            6
+          ]
+        },
+        {
+          "name": "General-purpose LLMs - total",
+          "values": [
+            4,
+            4,
+            8,
+            9,
+            14,
+            7
+          ]
+        },
+        {
+          "name": "All named model launches - Anthropic",
+          "values": [
+            3,
+            1,
+            3,
+            4,
+            7,
+            4
+          ]
+        },
+        {
+          "name": "All named model launches - OpenAI",
+          "values": [
+            2,
+            7,
+            13,
+            13,
+            15,
+            8
+          ]
+        },
+        {
+          "name": "All named model launches - total",
+          "values": [
+            5,
+            8,
+            16,
+            17,
+            22,
+            12
+          ]
+        },
+        {
+          "name": "All named model launches - total, per 30 days",
+          "values": [
+            0.82,
+            1.3,
+            2.65,
+            2.77,
+            3.65,
+            3.71
+          ]
+        },
+        {
+          "name": "Major launches (chart set) - per 30 days",
+          "values": [
+            0.49,
+            0.49,
+            0.83,
+            0.98,
+            1.82,
+            2.16
+          ]
+        },
+        {
+          "name": "Named models in all launches (approx.)",
+          "values": [
+            7,
+            11,
+            26,
+            26,
+            29,
+            17
+          ]
+        }
+      ],
+      "source": "Computed from releases_2024_2026.csv",
+      "url": "https://www.anthropic.com/news",
+      "notes": "Counts are lower bounds on the 'all launches' definition (API-only snapshots and minor audio/embedding models are not exhaustively listed). Per-30-day rates normalise the partial 2026 H2."
+    },
+    {
+      "id": "chart-marker-decode-vs-vendor-dates",
+      "title": "Verification: pixel positions of the chart's 34 visible markers (35th hidden under the median line) vs vendor-sourced launch dates and gaps",
+      "unit": "days",
+      "labels": [
+        "2024-03-04",
+        "2024-05-13",
+        "2024-06-20",
+        "2024-09-12",
+        "2024-10-22",
+        "2025-02-24",
+        "2025-02-27",
+        "2025-04-14",
+        "2025-04-16",
+        "2025-05-22",
+        "2025-08-05",
+        "2025-08-07",
+        "2025-09-29",
+        "2025-11-12",
+        "2025-11-24",
+        "2025-12-11",
+        "2026-02-05",
+        "2026-02-05",
+        "2026-02-17",
+        "2026-03-05",
+        "2026-04-07",
+        "2026-04-16",
+        "2026-04-23",
+        "2026-05-28",
+        "2026-06-09",
+        "2026-06-26",
+        "2026-06-30",
+        "2026-07-24",
+        "2026-09-01",
+        "2026-09-03",
+        "2026-09-22",
+        "2026-09-22",
+        "2026-09-28",
+        "2026-09-29"
+      ],
+      "series": [
+        {
+          "name": "Gap read from chart marker (y position)",
+          "values": [
+            104.1,
+            69.7,
+            38.1,
+            83.9,
+            40.1,
+            81.1,
+            2.8,
+            45.9,
+            1.8,
+            36.0,
+            75.2,
+            1.8,
+            53.1,
+            43.8,
+            12.0,
+            16.5,
+            56.1,
+            -0.2,
+            12.0,
+            16.0,
+            33.1,
+            9.0,
+            6.8,
+            35.0,
+            11.6,
+            16.8,
+            4.0,
+            24.1,
+            39.1,
+            1.9,
+            19.1,
+            -0.2,
+            6.1,
+            0.8
+          ]
+        },
+        {
+          "name": "Gap computed from vendor launch dates",
+          "values": [
+            104,
+            70,
+            38,
+            84,
+            40,
+            81,
+            3,
+            46,
+            2,
+            36,
+            75,
+            2,
+            53,
+            44,
+            12,
+            17,
+            56,
+            0,
+            12,
+            16,
+            33,
+            9,
+            7,
+            35,
+            12,
+            17,
+            4,
+            24,
+            39,
+            2,
+            19,
+            0,
+            6,
+            1
+          ]
+        }
+      ],
+      "point_labels": [
+        "Claude 3 Opus; Claude 3 Sonnet",
+        "GPT-4o",
+        "Claude 3.5 Sonnet",
+        "OpenAI o1-preview; OpenAI o1-mini",
+        "Claude 3.5 Sonnet (upgraded); Claude 3.5 Haiku",
+        "Claude 3.7 Sonnet",
+        "GPT-4.5",
+        "GPT-4.1; GPT-4.1 mini; GPT-4.1 nano",
+        "OpenAI o3; OpenAI o4-mini",
+        "Claude Opus 4; Claude Sonnet 4",
+        "Claude Opus 4.1",
+        "GPT-5; GPT-5 mini; GPT-5 nano",
+        "Claude Sonnet 4.5",
+        "GPT-5.1 Instant; GPT-5.1 Thinking",
+        "Claude Opus 4.5",
+        "GPT-5.2 Instant; GPT-5.2 Thinking; GPT-5.2 Pro",
+        "Claude Opus 4.6",
+        "GPT-5.3-Codex",
+        "Claude Sonnet 4.6",
+        "GPT-5.4; GPT-5.4 Pro",
+        "Claude Mythos Preview",
+        "Claude Opus 4.7",
+        "GPT-5.5; GPT-5.5 Pro",
+        "Claude Opus 4.8",
+        "Claude Fable 5; Claude Mythos 5",
+        "GPT-5.6 Sol (limited preview)",
+        "Claude Sonnet 5",
+        "Claude Opus 5",
+        "Claude Fable 5.1; Claude Mythos 5.1",
+        "GPT-6 Astra",
+        "Claude Opus 5.5",
+        "GPT-6 Sol; GPT-6 Luna",
+        "Claude Sonnet 5.5",
+        "GPT-6.1 Sol"
+      ],
+      "source": "Image analysis (PIL/numpy) of jfonsecarivera-model-release-cadence-chart.jpg; axis calibration from the 2024/2025/2026 x ticks and the 0/25/50/75/100 gridlines",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "notes": "All 34 detected markers agree within 0.5 day on gap and 1 day on date. The Dec 5 2024 (o1, gap 44) triangle sits under the black median line and was confirmed by eye in a crop."
+    },
+    {
+      "id": "unbenchmark-models-released-per-year",
+      "title": "Third-party count of distinct models released per year (unbenchmark.com 'AI Models Released Over Time by Lab', loaded 2026-10-05)",
+      "unit": "models (snapshots grouped into one identity)",
+      "labels": [
+        "2024",
+        "2025",
+        "2026 (to Oct 5)"
+      ],
+      "series": [
+        {
+          "name": "Anthropic",
+          "values": [
+            5,
+            7,
+            10
+          ]
+        },
+        {
+          "name": "OpenAI",
+          "values": [
+            10,
+            35,
+            29
+          ]
+        },
+        {
+          "name": "Combined",
+          "values": [
+            15,
+            42,
+            39
+          ]
+        }
+      ],
+      "source": "unbenchmark.com (embedded monthly chart data)",
+      "url": "https://unbenchmark.com/data/ai-models/ai-models-released-over-time-by-lab",
+      "notes": "AGTPinsights' post (https://x.com/AGTPinsights/status/2105100887047933962) quotes exactly these totals (15 / 42 / 39) and says the data was 'shared in the replies' to the original post; I could not read the replies, so I cannot confirm the chart author used this dataset (his chart plots gaps for only 35 major launches, not these 96 models)."
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Reproduced from primary sources, the chart's numbers hold for its own definition: median gap between consecutive major Anthropic/OpenAI launches was 70 days (10 weeks) for launches dated Jan-Jun 2024 and 10.5 days (the chart's '11') over Apr 5 - Oct 5 2026.",
+      "source": "Computed from vendor launch dates (anthropic.com pages; openai.com pages via Wayback; OpenAI API changelog). Arithmetic: Jan-Jun 2024 gaps = [104 (Claude 2.1 Nov 21 2023 -> Claude 3 Mar 4), 70 (-> GPT-4o May 13), 38 (-> Claude 3.5 Sonnet Jun 20)] -> median 70. Apr 5-Oct 5 2026 gaps = [33, 9, 7, 35, 12, 17, 4, 24, 39, 2, 19, 0, 6, 1] -> sorted [0, 1, 2, 4, 6, 7, 9, 12, 17, 19, 24, 33, 35, 39] -> median of 14 = (9+12)/2 = 10.5.",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "I could match all 35 launch markers in the chart image to vendor-announced launches: 34 detected by image analysis agree with the vendor dates within 1 day and the plotted gaps within 0.5 day; the 35th (o1, 2024-12-05, gap 44) is hidden under the median line. The chart's line starts at 70.0 and ends at 10.8 on my pixel read.",
+      "source": "Image analysis of the chart; vendor dates in releases_2024_2026.csv",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "The chart's set is 'major launches', not every model: it includes Sonnet-tier releases (Sonnet 4.6, 5, 5.5), GPT-4.1, GPT-5.3-Codex, the invitation-only Claude Mythos Preview and the GPT-5.6 limited preview (Jun 26), but omits Haiku, mini/nano, Instant, Pro, gpt-oss, Codex variants, image/audio/video models and cyber models.",
+      "source": "Chart marker decode vs vendor lists (releases_2024_2026.csv column in_chart_dots)",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "Flagship-only (the lab's headline model line at launch): median gap fell from 70 days (Jan-Jun 2024; gaps 104, 70, 38) to 14.5 days (Apr 5 - Oct 5 2026; 12 gaps), about 4.8x faster - roughly 10 weeks to 2 weeks, not 11 days. Public-access-only flagships: 70 -> 15 days.",
+      "source": "Computed. Last-6-month flagship gaps = [33, 9, 7, 35, 12, 17, 28, 39, 2, 19, 0, 7] -> sorted [0, 2, 7, 7, 9, 12, 17, 19, 28, 33, 35, 39] -> median of 12 = (12+17)/2 = 14.5.",
+      "url": "https://www.anthropic.com/system-cards",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "Counting every named model launch (including mini/Haiku, Codex, cyber, image, audio, video and open-weight models), the median gap fell from 39 days (Jan-Jun 2024, 5 gaps) to 5 days (Apr 5 - Oct 5 2026, 26 gaps): about 8x faster. Adding dated snapshots, announced-only previews and Epoch research models gives 19.5 -> 5 days.",
+      "source": "Computed. Jan-Jun 2024 all-launch gaps = [65, 39, 9, 61, 38] -> median 39. Last-6-month gaps (26) -> median 5.",
+      "url": "https://epoch.ai/data/all_ai_models.csv",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "Epoch AI's independent model database gives the same direction: median gap between Anthropic/OpenAI language-model publications 36 days (Jan-Jun 2024) -> 12 days (Apr 5 - Oct 5 2026); counting all Epoch-tracked Anthropic/OpenAI models (incl. image, speech, video) 21 -> 6 days.",
+      "source": "Epoch AI all_ai_models.csv, distinct publication dates, computed.",
+      "url": "https://epoch.ai/data/all_ai_models.csv",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "Within a single lab the cadence is slower than the headline: over Apr 5 - Oct 5 2026 the median gap between Anthropic's major launches was 21 days (9 gaps) and between OpenAI's was 49 days (5 gaps); the combined '11 days' comes from interleaving two labs.",
+      "source": "Computed from the chart set. Anthropic gaps [49, 9, 42, 12, 21, 24, 39, 21, 6]; OpenAI gaps [49, 64, 69, 19, 7].",
+      "url": "https://www.anthropic.com/news",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "The '10 weeks' start is fragile: it rests on only three gaps. Adding OpenAI's GPT-4 Turbo with Vision general-availability release (2024-04-09) to the chart's set changes the Jan-Jun 2024 median from 70 to 37 days (gaps 104, 36, 34, 38).",
+      "source": "Computed; OpenAI API changelog 'Apr 9: Released GPT-4 Turbo with Vision in general availability in the API'",
+      "url": "https://developers.openai.com/api/docs/changelog",
+      "date": "2024-04-09"
+    },
+    {
+      "claim": "The '11 days' end is moderately robust: using GPT-5.6's public date (Jul 9) instead of the Jun 26 limited preview leaves the median at 10.5; also dropping the invitation-only Mythos Preview gives 12; dropping the two Sonnet launches in the window (Sonnet 5 and 5.5) gives 14.5; the median over the last 90 days (Jul 7 - Oct 5) is 6 days.",
+      "source": "Computed (sensitivity runs on the chart set)",
+      "url": "https://techcrunch.com/2026/07/09/openai-launches-its-new-family-of-models-with-gpt-5-6/",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "Same-day and near-simultaneous launches are common: Claude Opus 4.6 and GPT-5.3-Codex both launched 2026-02-05; Claude Opus 5.5 and GPT-6 Sol/Luna both 2026-09-22; Claude Opus 4.1 and gpt-oss 2025-08-05; Sonnet 5.5 (Sep 28) and GPT-6.1 Sol (Sep 29) were one day apart.",
+      "source": "anthropic.com/news (Sep 22 and Sep 28 2026 items); OpenAI API changelog (Sep 22, Sep 29 2026)",
+      "url": "https://www.anthropic.com/news",
+      "date": "2026-09-29"
+    },
+    {
+      "claim": "Launches per half-year (chart's major-launch set, 2024 H1 ... 2026 H1): 3, 3, 5, 6, 11, then 7 in the 97 days of 2026 H2 so far (a pace of about 13 per 184 days). All named model launches: 5, 8, 16, 17, 22, then 12 in 97 days (a pace of about 23 per 184 days).",
+      "source": "Computed (releases-per-half-year dataset)",
+      "url": "https://www.anthropic.com/news",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "Anthropic's own system-card index lists 19 release entries from 'Claude 3, March 2024' to 'Claude Opus 5.5, September 2026' (it omits Claude 3 Haiku, Claude Gov and the newest Sonnet 5.5, which I list from the newsroom); the newsroom shows Claude Sonnet 5.5 on Sep 28, Claude Opus 5.5 on Sep 22 and Claude Fable 5.1 / Mythos 5.1 on Sep 1, 2026.",
+      "source": "anthropic.com/system-cards; anthropic.com/news (loaded 2026-10-05)",
+      "url": "https://www.anthropic.com/system-cards",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "Post by josh :) (@jfonsecarivera, 'safety fellow @AnthropicAI'), Sep 29 2026: \"you're not crazy\\n\\nbetween anthropic and openai, a new model used to come out every ~10 weeks\\n\\nnow it's every ~11 days\" - 344,785 views, 7,352 likes as of Oct 5 2026.",
+      "source": "X via api.fxtwitter.com",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "date": "2026-09-29"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "The chart author's underlying dataset or methodology (exact rolling-median window; which launches counted)",
+      "searched": "api.fxtwitter.com status + thread endpoints (no replies returned); post text; AGTPinsights summary; unbenchmark.com data pages. AGTPinsights says data from unbenchmark.com was 'shared in the replies' but replies were not readable. I instead reconstructed the 35-launch set by decoding the chart's markers (all matched vendor dates)."
+    },
+    {
+      "outline_item": "Direct fetch of openai.com pages",
+      "searched": "openai.com/index/* returns Cloudflare 403/'Just a moment' to curl, WebFetch and the headless browser; dates were read from Wayback (web.archive.org id_ copies) of the vendor pages instead, plus the OpenAI API changelog. GPT-5.6 (openai.com/index/gpt-5-6/) and GPT-5.5 pages could not be re-read in the last attempts; their dates rest on the changelog, TechCrunch, Wikipedia, Epoch and (GPT-5.5) an earlier successful Wayback read ('April 23, 2026')."
+    },
+    {
+      "outline_item": "OpenAI ChatGPT release notes / model release notes (help.openai.com)",
+      "searched": "help.openai.com/en/articles/9624314-model-release-notes returns 403; dates for o3-pro, o1-pro, GPT-5 Pro, GPT-Realtime-*, GPT Transcribe come from the API changelog (API dates, which can lag ChatGPT launches by a day or more) and Epoch."
+    },
+    {
+      "outline_item": "Exact public-launch date for some edge cases",
+      "searched": "GPT-6 Astra (Sep 3 limited preview / Sep 4 stable public per Wikipedia; OpenAI page and Fortune dated Sep 3 - Sep 3 used); GPT-5.1 (ChatGPT Nov 12, API Nov 13); GPT-5.5 (ChatGPT Apr 23, API Apr 24); Claude 3.5 Sonnet (Jun 20 US vs page metadata Jun 21 UTC); Claude 3.5 Haiku (announced Oct 22 2024, shipped later)."
+    },
+    {
+      "outline_item": "A complete census of 'all models' (every API-only snapshot, audio/embedding/moderation model)",
+      "searched": "OpenAI API changelog, Epoch AI database, Wikipedia, unbenchmark.com. The 'all launches' set is comprehensive for named models but not exhaustive of dated snapshots; extra items would only raise counts. unbenchmark.com's count (Anthropic 5/7/10, OpenAI 10/35/29 for 2024/2025/2026-YTD) is a third-party per-model tally that differs in definition."
+    },
+    {
+      "outline_item": "Google, xAI, Meta, DeepSeek releases",
+      "searched": "Out of scope: the chart and claim concern Anthropic and OpenAI only; no check made of other labs."
+    }
+  ]
+}

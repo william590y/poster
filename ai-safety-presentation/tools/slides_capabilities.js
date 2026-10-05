@@ -1,7 +1,7 @@
-// THE ACCELERATION · capabilities: METR horizon, benchmark graveyard, HLE, creative work (incl. @anabology's 18-hour Claude film
+// THE ACCELERATION · capabilities: release cadence (the user's @jfonsecarivera chart + our re-count), METR horizon, benchmark graveyard, HLE, creative work (incl. @anabology's 18-hour Claude film
 // and clips credited to an unannounced "Fable 5.5", incl. @cherry_mx_reds' 30-style animation), video, mathematics in crisis (incl. OpenAI's 100+ held-back results and the
 // unconfirmed Hodge/BSD rumors).
-// Sources: assets/research/capabilities/manifest.json (verified items, datasets, facts),
+// Sources: assets/research/capabilities/manifest.json (verified items, datasets, facts; rev2/ and rev3/ research rounds merged in),
 //          assets/research/openweights/manifest.json (video item), user originals image4.png / image5.png.
 const path = require('path');
 const fs = require('fs');
@@ -67,7 +67,7 @@ function chip(d, s, text, x, y, w, { h = 0.3, color = 'FFFFFF', fill = '0A0C10',
 
 // Outlet tab pinned to a (rotated) clipping: sits just outside the given edge, overlapping only the white frame border.
 // g = image geometry from d.frame (frame = g grown by pad); corner: 'tl' | 'tr' | 'bl' | 'br'.
-function outletTab(d, s, g, text, corner, rot = 0, { pad = 0.06, h = 0.24, inset = 0.14 } = {}) {
+function outletTab(d, s, g, text, corner, rot = 0, { pad = 0.06, h = 0.24, inset = 0.14, link } = {}) {
   const w = text.length * 0.083 + 0.24;
   const FW = g.w + 2 * pad, FH = g.h + 2 * pad;
   const cx = g.x + g.w / 2, cy = g.y + g.h / 2;
@@ -78,7 +78,8 @@ function outletTab(d, s, g, text, corner, rot = 0, { pad = 0.06, h = 0.24, inset
   const box = { x: px - w / 2, y: py - h / 2, w, h };
   const b = d.name('tab');
   s.addShape(d.pres.shapes.RECTANGLE, { ...box, rotate: rot, fill: { color: '2F3644' }, line: { color: '2F3644', width: 0 }, objectName: b });
-  const t = d.text(s, text, { ...box, rotate: rot, fontSize: 10, bold: true, color: 'FFFFFF', charSpacing: 1, align: 'center', valign: 'middle' });
+  const body = link ? [{ text, options: { hyperlink: { url: link } } }] : text;
+  const t = d.text(s, body, { ...box, rotate: rot, fontSize: 10, bold: true, color: 'FFFFFF', charSpacing: 1, align: 'center', valign: 'middle' });
   return [b, t];
 }
 
@@ -119,6 +120,89 @@ function quarters(from, to) { // [y,q] inclusive
   return out;
 }
 
+// ---------------------------------------------------------------- 0. release cadence (the user's chart)
+// @jfonsecarivera's chart (X, Sep 29, 2026) shown in full, plus our own re-count from vendor launch dates
+// (rev3/check.json datasets 'median-gap-by-definition', 'median-gap-epoch-crosscheck'; rev3/releases_2024_2026.csv).
+const CAD = {
+  post: 'https://x.com/jfonsecarivera/status/2105002473572421827',
+  img: 'https://pbs.twimg.com/media/HTZ4mB0aAAElOZE.jpg?name=orig',
+};
+async function cadenceSlide(d) {
+  const s = d.slide('Content', { transition: 'fade' });
+  s.addText(`${KICK} · CAPABILITIES · 1`, { placeholder: 'kicker' });
+  s.addText('OpenAI/Anthropic models: a median 11 days apart', { placeholder: 'title' });
+
+  // left: the chart, in full (paper-white figure → white frame, no rotation), sized to the full content height
+  const file = R('rev3/jfonsecarivera-model-release-cadence-chart.jpg');
+  const nat = await imgSize(file);
+  const ih = 4.62, iw = ih * nat.w / nat.h;
+  // no hyperlink on the big chart: this slide has an on-click build, and a click on a linked picture opens x.com instead of
+  // advancing; the small tab carries the link (URL also in the notes)
+  const chart = await d.frame(s, file, { x: MX, y: 1.8, w: iw + 0.12, h: ih + 0.12 });
+  const tab = outletTab(d, s, chart.geom, '@JFONSECARIVERA ON X · SEP 29, 2026', 'tl', 0, { link: CAD.post });
+
+  // right column: the big contrast, the post verbatim, who made it, then our check
+  const rx = MX + iw + 0.12 + 0.36, rw = 12.73 - rx;
+  const sLab = label(d, s, 'MEDIAN GAP BETWEEN RELEASES · EITHER LAB', rx, 1.7, rw);
+  const big = d.text(s, [
+    { text: '70', options: { color: d.S.muted } },
+    { text: ' → ', options: { color: d.S.steel, fontSize: 32 } },
+    { text: '11', options: { color: d.S.red } },
+    { text: ' days', options: { color: d.S.red, fontSize: 26 } },
+  ], { x: rx, y: 1.98, w: rw, h: 0.76, fontSize: 48, bold: true, fontFace: 'Arial', valign: 'middle' });
+  const bigSub = d.text(s, 'early 2024 → late Sep 2026 · as charted, method not stated',
+    { x: rx, y: 2.74, w: rw, h: 0.26, fontSize: 12, color: d.S.muted, valign: 'top' });
+
+  const qy = 3.12, qh = 1.16;
+  const qBar = d.name('qbar');
+  s.addShape(d.pres.shapes.RECTANGLE, { x: rx, y: qy + 0.04, w: 0.05, h: qh - 0.08, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 }, objectName: qBar });
+  const quote = d.text(s, [
+    { text: '“you’re not crazy', options: { breakLine: true } },
+    { text: 'between anthropic and openai, a new model used to come out every ~10 weeks', options: { breakLine: true } },
+    { text: 'now it’s every ~11 days”' },
+  ], { x: rx + 0.2, y: qy, w: rw - 0.2, h: qh, fontFace: 'Cambria', italic: true, fontSize: 15, color: d.S.txt, paraSpaceAfter: 3, valign: 'middle' });
+  const who = d.text(s, [
+    { text: '— Joshua Fonseca Rivera, an Anthropic safety fellow', options: { color: LIGHT, breakLine: true } },
+    { text: 'One researcher’s chart, not an official statistic', options: { color: d.S.amber, italic: true } },
+  ], { x: rx + 0.2, y: qy + qh + 0.08, w: rw - 0.2, h: 0.42, fontSize: 11, valign: 'top' });
+
+  // our check: same median, recomputed from vendor launch dates (Jan–Jun 2024 vs Apr 5 – Oct 5, 2026)
+  const cy = 4.78, rh = 0.31;
+  const cLab = label(d, s, 'OUR CHECK · JAN–JUN 2024 → LAST 6 MONTHS', rx, cy, rw);
+  const rows = [['70 → 10.5', 'the chart’s 35 major launches'], ['70 → 14.5', 'flagship models only'], ['36 → 12', 'Epoch AI, language models']];
+  const vw = 1.42;
+  const chk = rows.flatMap(([v, t], i) => {
+    const y = cy + 0.32 + i * rh;
+    const [a, b] = v.split(' → ');
+    return [
+      d.text(s, [{ text: a, options: { color: d.S.muted } }, { text: ' → ', options: { color: d.S.steel } }, { text: b, options: { color: d.S.txt } }],
+        { x: rx, y, w: vw, h: rh, fontSize: 18, bold: true, fontFace: 'Arial', valign: 'middle' }),
+      d.text(s, t, { x: rx + vw, y, w: rw - vw, h: rh, fontSize: 14, color: d.S.txt, valign: 'middle' }),
+    ];
+  });
+  const cNote = d.text(s, [
+    { text: 'median days apart · the 70 rests on just 3 launches in 2024', options: { breakLine: true } },
+    { text: 'each lab alone is slower: Anthropic 21, OpenAI 49' },
+  ], { x: rx, y: cy + 0.32 + 3 * rh + 0.04, w: rw, h: 0.42, fontSize: 12, color: LIGHT, valign: 'top' });
+
+  d.animate(s, [...chart, ...tab], { auto: true, effect: 'fade', dur: 700 });
+  d.animate(s, [sLab, big, bigSub], { auto: true, effect: 'zoom', dur: 450, after: 250 });
+  d.animate(s, [qBar, quote, who], { auto: true, effect: 'fade', dur: 500, after: 150 });
+  d.animate(s, [cLab, ...chk, cNote], { effect: 'rise', stagger: 60, dur: 400 });
+  d.source(s, 'Chart and post: Joshua Fonseca Rivera (@jfonsecarivera) on X, Sep 29, 2026 · Our check: Anthropic and OpenAI launch pages, OpenAI API changelog, Epoch AI model database (Oct 5, 2026).');
+  s.addNotes([
+    'MESSAGE: "you\'re not crazy." If it feels like something new from OpenAI or Anthropic lands every week or two, that is about right: by this chart the median gap between their major launches used to be about 10 weeks and is now about 11 days (about 2 weeks if you count only flagship models: our check below gives 14.5 days). It is a median, not a schedule: launches come in bursts. In our decode of the chart\'s launches there was a 39-day gap (Jul 24 to Sep 1), then six launches between Sep 1 and Sep 29, two of them on the same day (Sep 22). And "model" here is broader than new frontier models: it includes Sonnet-tier releases, the invitation-only Mythos Preview and the GPT-5.6 limited preview. The on-screen quote uses typographic apostrophes; the exact post text is below.',
+    'THE POST (verbatim) — josh :) (@jfonsecarivera, verified; bio "safety fellow @AnthropicAI"), X, Tue Sep 29, 2026, 18:31 UTC: "you\'re not crazy\n\nbetween anthropic and openai, a new model used to come out every ~10 weeks\n\nnow it\'s every ~11 days". Chart title: "New models from Anthropic and OpenAI are arriving faster". 344,783 views, 7,352 likes, 491 reposts, 146 quotes, 165 replies as of Oct 5, 2026 (api.fxtwitter.com). ' + CAD.post + ' · full-resolution image: ' + CAD.img,
+    'WHAT THE CHART MEASURES: each marker is one release (orange squares = Anthropic, green triangles = OpenAI); its height is the number of days since the previous release from EITHER lab. The black line is a rolling median of those gaps (70 days in early 2024 → "11 days · median gap now"); the grey band is the middle 50% of gaps. Because two labs are interleaved, two racing labs shrink the gaps by themselves, and same-day launches count as 0 days (triangles on the zero line, e.g. Feb 5 and Sep 22, 2026).',
+    'METHOD CAVEATS: the post and the chart do not state the data source, the definition of "a new model" or the rolling-window size, and we found no published method or data (checked ~158 of 165 replies, 130 quote-posts, his timeline Sep 29 - Oct 5 and jfr.dev; his GitHub repo listing and YouTube could not be read). Our decode of the markers (not the author\'s stated method): the chart plots 35 "major" launches — Opus/Sonnet-tier, Mythos/Fable and OpenAI\'s GPT/o-series, including Sonnet 4.6, 5 and 5.5, GPT-4.1, GPT-5.3-Codex, the invitation-only Claude Mythos Preview (Apr 7) and the GPT-5.6 limited preview (Jun 26). It leaves out Haiku, mini/nano, Instant, Pro, gpt-oss, Codex variants and image/audio/video/cyber models. Small accounts on X objected that ".x" point releases are not new models (@schiste) and that labs distill their flagships (@Brovadana); @PeterJ_Walker (OpenRouter) replied "If you add in open models, almost every day in a launch day." Fast Company (Mark Sullivan, Sep 23, 2026, "Why AI model releases feel nonstop"): releases are accelerating "but many of the new releases are models that repackage (and often reprice) the capabilities of earlier flagship models", and the time between genuinely new flagship models "hasn\'t changed much during 2026". https://www.fastcompany.com/91611158/why-ai-model-releases-feel-nonstop',
+    'OUR CHECK (rebuilt from vendor launch pages: anthropic.com/news and system cards, openai.com pages via Wayback, the OpenAI API changelog https://developers.openai.com/api/docs/changelog ; cross-checked with Wikipedia and Epoch AI). Gap = calendar days since the previous launch by either lab; a launch belongs to a window by its own date. (1) The chart\'s own 35 launches: Jan–Jun 2024 gaps 104 (Claude 2.1 → Claude 3, Mar 4), 70 (→ GPT-4o, May 13), 38 (→ Claude 3.5 Sonnet, Jun 20) → median 70 days = 10 weeks. Apr 5 – Oct 5, 2026: 14 gaps, sorted 0, 1, 2, 4, 6, 7, 9, 12, 17, 19, 24, 33, 35, 39 → median (9 + 12) / 2 = 10.5 days. That is 3 major launches in the first half of 2024 versus 14 in the last six months. 34 of the 35 chart markers match vendor dates within a day (the 35th, o1 on Dec 5, 2024, is hidden under the line). (2) Flagship models only: 70 → 14.5 days (12 gaps: 0, 2, 7, 7, 9, 12, 17, 19, 28, 33, 35, 39) — about 10 weeks → 2 weeks. (3) Epoch AI\'s independent database (Anthropic + OpenAI language models, distinct publication dates): 36 → 12 days; Epoch\'s all-model series for the two labs (incl. image, speech, video) gives 21 → 6. https://epoch.ai/data/all_ai_models.csv (Epoch updates its database continuously, so the number of gaps can shift by one between downloads; the medians reproduced on a re-download on Oct 5.) (4) Every named model launch (incl. mini/Haiku, Codex, image, audio, video, open-weight): 39 → 5 days. Faster under every definition we tried: about 3× to 8×.',
+    'HOW FRAGILE: the "10 weeks" start rests on just three gaps; adding GPT-4 Turbo with Vision\'s general-availability release (Apr 9, 2024) would make it 37 days. The "11 days" end holds up better: using GPT-5.6\'s public date (Jul 9) still gives 10.5; also dropping the invitation-only Mythos Preview gives 12; dropping the two Sonnet launches in the window (Sonnet 5 and 5.5) gives 14.5; the last 90 days alone give 6. EACH LAB ALONE IS SLOWER: over the last six months the median gap between Anthropic\'s own major launches was 21 days and OpenAI\'s 49 days. The 11 days comes from two labs leapfrogging each other — which is the race. Google, xAI, Meta and Chinese labs are not counted at all.',
+    'CONTEXT: CNBC (Jonathan Vanian, Sep 6, 2026), "\'Model fatigue\' sets in as AI labs race to roll out new versions at frenetic pace" — Sam Altman: "we\'re all moving to faster cadences." https://www.cnbc.com/2026/09/06/meta-google-openai-anthropic-ai-model-fatigue.html · The Register (Thomas Claburn, Sep 23, 2026), "Frontier AI keeps racing despite calls to slow down" — "Anthropic\'s development pace has accelerated dramatically: roughly quarterly releases in 2025 shifted to nearly monthly releases in 2026." https://www.theregister.com/ai-and-ml/2026/09/23/frontier-ai-keeps-racing-despite-calls-to-slow-down/5298448 · The post came 17 days after Dario Amodei\'s "We Must Pace the Frontier" essay (Sep 12) and a week after Claude Opus 5.5 and GPT-6 Sol/Luna launched on the same day (Sep 22). The Neuron\'s daily digest for Sep 29 (Grant Harvey) listed it under "Honorable Mentions".',
+    'WHO MADE IT: Joshua Fonseca Rivera (jfr.dev; first author of arXiv:2511.21399), X display name "josh :)"; The Neuron calls him "Josh Fonseca Rivera". We describe him only as his own bio does (\'safety fellow @AnthropicAI\'; jfr.dev: \'Anthropic Fellow\'); we have not verified his employment status, so do not call him an Anthropic employee or researcher. This is one researcher\'s chart, not an official statistic. Worth saying out loud since he is affiliated with one of the two labs he is charting.',
+  ].join('\n\n'));
+  return s;
+}
+
 // ---------------------------------------------------------------- 1. METR time horizon
 // Precise p50 values from METR's benchmark_results_1_1.yaml (the manifest dataset's source; manifest rounds to 0.1 min).
 const METR = [
@@ -134,8 +218,8 @@ const METR = [
 ];
 
 async function metrSlide(d) {
-  const s = d.slide('Content');
-  s.addText(`${KICK} · CAPABILITIES · 1`, { placeholder: 'kicker' });
+  const s = d.slide('Content', { transition: 'push' });
+  s.addText(`${KICK} · CAPABILITIES · 2`, { placeholder: 'kicker' });
   s.addText('AI’s task horizon doubles every ~4 months', { placeholder: 'title' });
 
   // chart geometry (manual inner plot area so overlays line up with the data)
@@ -281,7 +365,7 @@ async function metrSlide(d) {
 // ---------------------------------------------------------------- 1b. METR can't measure any more: the evidence
 async function metrEvidenceSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  s.addText(`${KICK} · CAPABILITIES · 2`, { placeholder: 'kicker' });
+  s.addText(`${KICK} · CAPABILITIES · 3`, { placeholder: 'kicker' });
   s.addText('The frontier has outgrown METR’s yardstick', { placeholder: 'title' });
 
   // left: METR's own thread post with its chart (real screenshot)
@@ -345,7 +429,7 @@ async function metrEvidenceSlide(d) {
 // ---------------------------------------------------------------- 2. benchmark graveyard
 async function graveyardSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  s.addText(`${KICK} · CAPABILITIES · 3`, { placeholder: 'kicker' });
+  s.addText(`${KICK} · CAPABILITIES · 4`, { placeholder: 'kicker' });
   s.addText('Benchmarks built to last years now die in months', { placeholder: 'title' });
 
   const tiles = [
@@ -415,7 +499,7 @@ async function graveyardSlide(d) {
 // full 2,500-question set and are NOT mixed in (different question sets; e.g. Fable 5.1 59.1 on AA vs 46.5 on Scale).
 async function hleSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
-  s.addText(`${KICK} · CAPABILITIES · 4`, { placeholder: 'kicker' });
+  s.addText(`${KICK} · CAPABILITIES · 5`, { placeholder: 'kicker' });
   s.addText('Humanity’s Last Exam: 7% → 61% in under 2 years', { placeholder: 'title' });
 
   // best AA score to date by model release quarter (OpenAI/Anthropic/Google series), Q4 '24 (o1) → Q3 '26 (Claude Opus 5.5).
@@ -1686,6 +1770,7 @@ async function rumorsSlide(d) {
 }
 
 async function build(d) {
+  await cadenceSlide(d);
   await metrSlide(d);
   await metrEvidenceSlide(d);
   await graveyardSlide(d);

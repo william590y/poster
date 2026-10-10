@@ -163,11 +163,12 @@ const BEATS = {
   hands: ['FaHandPaper', 'HANDS UP'], guess: ['FaQuestionCircle', 'GUESS FIRST'], pair: ['FaComments', 'TURN TO A NEIGHBOR'],
   think: ['FaLightbulb', 'THINK ABOUT IT'], stand: ['FaUsers', 'VOTE'],
 };
+const tagWidth = (kind, time) => 0.66 + (time ? `${BEATS[kind][1]} · ${time}` : BEATS[kind][1]).length * 0.128;
 // Red chip with an icon and caps text, e.g. HANDS UP · 30 SEC. Returns names (+ .w).
 async function beatTag(d, s, kind, x, y, { time, h = 0.36 } = {}) {
   const [ic, word] = BEATS[kind];
   const text = time ? `${word} · ${time}` : word;
-  const w = 0.62 + text.length * 0.104;
+  const w = tagWidth(kind, time);
   const b = d.rect(s, { x, y, w, h, rounded: true, rectRadius: 0.06, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 } });
   const i = await ico(d, s, ic, 'FFFFFF', { x: x + 0.13, y: y + (h - 0.22) / 2, w: 0.22, h: 0.22 });
   const t = d.text(s, text, { x: x + 0.42, y, w: w - 0.5, h, fontSize: 12, bold: true, color: 'FFFFFF', charSpacing: 1.5, valign: 'middle' });
@@ -181,23 +182,37 @@ async function beatLine(d, s, { kind, time, q, x, y, w, h = 0.62, qSize = 18 }) 
   const t = d.text(s, q, { x: x + tag.w + 0.25, y, w: w - tag.w - 0.25, h, fontSize: qSize, bold: true, color: d.S.txt, valign: 'middle' });
   return [...tag, t];
 }
-// Poll card: beat tag, question, lettered option tiles. layout 'row' (tiles side by side) or 'col' (stacked).
-// Returns { all, tiles: [[names]…], ans: [names] (ring + tick around the answer, for a later click), box }.
-async function poll(d, s, box, { kind = 'hands', time, q, options = [], layout = 'row', answer, qSize = 20, oSize = 16, tileH, qH, card = true, letters = 'ABCDEFG' }) {
+// Poll card: beat tag, question, lettered option tiles. layout 'row' (tiles side by side) or 'col' (stacked);
+// inline: the question sits beside the tag. The card grows to fit (box.h is a minimum).
+// Returns { all, tiles: [[names]…], ans: [names] (ring + tick around the answer, for a later click), geo, bottom }.
+async function poll(d, s, box, { kind = 'hands', time, q, options = [], layout = 'row', answer, qSize = 20, oSize = 16, tileH, qH, card = true, inline = false, letters = 'ABCDEFG' }) {
   const all = [];
   const { x, y, w } = box;
-  if (card) all.push(d.card(s, box, { color: '120D10', line: HEX.red }));
-  const tag = await beatTag(d, s, kind, x + 0.2, y + 0.16, { time });
-  all.push(...tag);
   const iw = w - 0.4;
-  const lines = Math.max(1, Math.ceil(flat(q).length * qSize / 72 * 0.5 / iw));
-  const qh = qH ?? lines * qSize / 72 * 1.22 + 0.06;
-  const qy = y + 0.62;
-  all.push(d.text(s, q, { x: x + 0.2, y: qy, w: iw, h: qh, fontSize: qSize, bold: true, color: d.S.txt, valign: 'top', fontFace: 'Arial' }));
-  const oy = qy + qh + 0.12;
+  const est = (t, size, width) => Math.max(1, Math.ceil(flat(t).length * size / 72 * 0.48 / width));
+  const tagW = tagWidth(kind, time);
+  let qx, qy, qw, qh, tagY, afterQ;
+  if (inline) {
+    qx = x + 0.2 + tagW + 0.25; qw = x + w - 0.2 - qx;
+    qh = qH ?? est(q, qSize, qw) * qSize / 72 * 1.2 + 0.04;
+    const rowH = Math.max(0.4, qh);
+    tagY = y + 0.16 + (rowH - 0.36) / 2; qy = y + 0.16; qh = rowH; afterQ = qy + rowH;
+  } else {
+    tagY = y + 0.16; qx = x + 0.2; qw = iw; qy = y + 0.62;
+    qh = q ? (qH ?? est(q, qSize, qw) * qSize / 72 * 1.22 + 0.06) : 0;
+    afterQ = q ? qy + qh : y + 0.52;
+  }
   const n = options.length;
   const gap = 0.14;
-  const th = tileH ?? (layout === 'row' ? Math.max(0.5, Math.ceil(Math.max(...options.map((t) => t.length)) * oSize / 72 * 0.5 / ((iw - (n - 1) * gap) / n - 0.62)) * oSize / 72 * 1.2 + 0.16) : oSize / 72 * 1.2 + 0.18);
+  const oy = afterQ + (n ? 0.12 : 0);
+  const th = n ? (tileH ?? (layout === 'row'
+    ? Math.max(0.5, Math.ceil(Math.max(...options.map((t) => t.length)) * oSize / 72 * 0.5 / ((iw - (n - 1) * gap) / n - 0.62)) * oSize / 72 * 1.2 + 0.16)
+    : oSize / 72 * 1.2 + 0.18)) : 0;
+  const bottom = n ? (layout === 'row' ? oy + th : oy + n * (th + 0.08) - 0.08) : afterQ;
+  const H = Math.max(box.h || 0, bottom - y + 0.16);
+  if (card) all.push(d.card(s, { x, y, w, h: H }, { color: '120D10', line: HEX.red }));
+  all.push(...await beatTag(d, s, kind, x + 0.2, tagY, { time }));
+  if (q) all.push(d.text(s, q, { x: qx, y: qy, w: qw, h: qh, fontSize: qSize, bold: true, color: d.S.txt, valign: inline ? 'middle' : 'top', fontFace: 'Arial' }));
   const tiles = [];
   const geo = [];
   options.forEach((t, i) => {
@@ -205,9 +220,9 @@ async function poll(d, s, box, { kind = 'hands', time, q, options = [], layout =
     const tx = layout === 'row' ? x + 0.2 + i * (tw + gap) : x + 0.2;
     const ty = layout === 'row' ? oy : oy + i * (th + 0.08);
     const r = d.rect(s, { x: tx, y: ty, w: tw, h: th, rounded: true, rectRadius: 0.05, fill: { color: '1D222C' }, line: { color: '3A4250', width: 0.75 } });
-    const cs = Math.min(0.4, th - 0.1);
+    const cs = Math.min(0.38, th - 0.1);
     const c = shape(d, s, 'OVAL', { x: tx + 0.1, y: ty + (th - cs) / 2, w: cs, h: cs, fill: { color: '2A0C0E' }, line: { color: HEX.red, width: 1 } });
-    const l = d.text(s, letters[i], { x: tx + 0.1, y: ty + (th - cs) / 2, w: cs, h: cs, fontSize: 15, bold: true, color: d.S.txt, align: 'center', valign: 'middle' });
+    const l = d.text(s, letters[i], { x: tx + 0.1, y: ty + (th - cs) / 2, w: cs, h: cs, fontSize: 14, bold: true, color: d.S.txt, align: 'center', valign: 'middle' });
     const tt = d.text(s, t, { x: tx + 0.2 + cs, y: ty, w: tw - 0.3 - cs, h: th, fontSize: oSize, color: d.S.txt, valign: 'middle' });
     tiles.push([r, c, l, tt]);
     geo.push({ x: tx, y: ty, w: tw, h: th });
@@ -217,10 +232,16 @@ async function poll(d, s, box, { kind = 'hands', time, q, options = [], layout =
   if (answer !== undefined) {
     const g = geo[answer];
     ans.push(d.rect(s, { x: g.x - 0.04, y: g.y - 0.04, w: g.w + 0.08, h: g.h + 0.08, rounded: true, rectRadius: 0.06, fill: { color: TEAL, transparency: 82 }, line: { color: TEAL, width: 2.5 } }));
-    ans.push(await ico(d, s, 'FaCheckCircle', TEAL, { x: g.x + g.w - 0.36, y: g.y + (g.h - 0.26) / 2, w: 0.26, h: 0.26 }));
+    ans.push(await ico(d, s, 'FaCheckCircle', TEAL, { x: g.x + g.w - 0.34, y: g.y + (g.h - 0.24) / 2, w: 0.24, h: 0.24 }));
   }
-  const bottom = layout === 'row' ? oy + th : oy + n * (th + 0.08) - 0.08;
-  return { all, tiles, ans, geo, bottom: bottom + 0.16 };
+  return { all, tiles, ans, geo, bottom: y + H };
+}
+// Set a text object's font size after it was added (e.g. the 11 pt caption lib.video() draws).
+function setFont(s, name, size) {
+  const o = s._slideObjects.find((x) => x.options && x.options.objectName === name);
+  if (!o) return;
+  o.options.fontSize = size;
+  if (Array.isArray(o.text)) o.text.forEach((r) => { if (r.options) r.options.fontSize = size; });
 }
 
 // ------------------------------------------------------------------------------------------------ OPENING

@@ -1,0 +1,139 @@
+Model,Organization,Publication date,Training compute (FLOP),Training compute lower bound,Training compute upper bound,Training hardware,Hardware quantity,Training time (hours),Training power draw (W),Training compute cost (2023 USD),Confidence,Last modified,Link,Training compute notes
+Grok 4.7,xAI,2026-09-21,,,,,,,,,Likely,2026-09-22 00:35:41+00:00,https://x.ai/news/grok-4-7,
+GPT-6 Astra,OpenAI,2026-09-03,1.0001e+27,,,NVIDIA GB200,100000.0,,232668778.57984325,,Likely,2026-09-23 17:19:16+00:00,,"per OpenAI and affiliates (e.g. Nvidia), 6 Astra was trained on at least 100,000 GB200s in Abilene, Texas (so 100,000 in ""Hardware quantity"" is a lower bound/underestimate).
+
+This suggests around 1e27 FLOP (corresponding to ~100k GB200s over 90 days at 25% FP8 MFU). See more detailed estimate in this notebook, yielding a CI of ~[5e26, 2e27] FLOP.
+https://colab.research.google.com/drive/1DRlugIQs-_zoV66AJT1gQg6I1-NX7NqN "
+Grok 4.6,xAI,2026-08-12,,,,,,,,,Confident,2026-09-15 16:37:46+00:00,https://x.ai/news/grok-4-6,
+GPT-5.6 Cyber,OpenAI,2026-08-11,,,,,,,,,Confident,2026-08-11 17:07:23+00:00,https://openai.com/index/expanding-daybreak-as-the-cyber-defense-window-narrows/,
+Inkling-Small,Thinking Machines,2026-07-30,,,,NVIDIA GB300 (Blackwell Ultra),,,,,Confident,2026-09-03 19:49:49+00:00,"https://thinkingmachines.ai/news/introducing-inkling/
+
+https://thinkingmachines.ai/model-card/inkling-small/ ",
+Kimi K3,Moonshot,2026-07-16,2.0001e+25,,,,,,,,Speculative,2026-09-03 19:49:59+00:00,https://huggingface.co/moonshotai/Kimi-K3,"Based on peer models such as Kimi K2.6 and DeepSeek V4 Pro, plausibly was trained on roughly 30T tokens (likely between 15T and 60T). Using the heuristic that C = 6ND, 30T pretraining tokens would imply ~1.9e25 FLOP. This is a somewhat uncertain estimate (more uncertain than estimates based on disclosed active params and token counts, but comparable to estimates based on disclosed GPU-hours).
+
+K3 was likely pretrained on over 1e25 FLOP. Speculatively, K3's relatively large size compared to other Chinese models may have reduced the training token budget vs smaller models."
+Inkling,Thinking Machines,2026-07-15,1.1e+25,,,NVIDIA GB300 (Blackwell Ultra),,,,,Likely,2026-10-08 19:19:01+00:00,https://thinkingmachines.ai/news/introducing-inkling/,6ND = 6 * 41e9 active parameters * 45e12 tokens = 1.1e25 FLOP
+GPT-5.6 Sol,OpenAI,2026-07-09,,,,,,,,,Confident,2026-08-25 19:31:32+00:00,https://openai.com/index/gpt-5-6/,
+GPT-5.6 Terra,OpenAI,2026-07-09,,,,,,,,,Confident,2026-08-03 19:24:44+00:00,https://openai.com/index/gpt-5-6/,
+GPT-5.6 Luna,OpenAI,2026-07-09,,,,,,,,,Confident,2026-08-03 19:24:44+00:00,https://openai.com/index/gpt-5-6/,
+Grok 4.5,xAI,2026-07-08,,,,,,,,,Likely,2026-09-15 16:34:51+00:00,https://x.ai/news/grok-4-5,
+LongCat-2.0,Meituan Inc,2026-06-29,1.008e+25,,,,50000.0,,,,Likely,2026-09-03 19:45:59+00:00,https://longcat.chat/blog/longcat-2.0/,"6 * 48e9 active parameters * 35e12 tokens = 1.008e25 FLOP. 
+
+Confidence between Likely and Speculative because the 35T is a lower bound and 48B is an aggregate metric since expert size isn't consistently 48B.
+
+Hardware quantity of 50k is also a lower bound - ""LongCat-2.0 is pre-trained on over 50K AI ASICs, """
+Composer 2.5,Cursor,2026-05-18,3.87e+25,,,NVIDIA B300 (Blackwell Ultra),,,,,Likely,2026-09-03 19:51:08+00:00,https://cursor.com/blog/composer-2-5,"Said by Cursor that 85% of the total compute was performed by their team (from figure following ""Composer 2.5 is built on the same open-source checkpoint as Composer 2, Moonshot's Kimi K2.5."" here https://cursor.com/blog/composer-2-5) - 5.8e24 / 0.15 = 3.8666666667E25 FLOP"
+GPT-5.5 Cyber,OpenAI,2026-05-07,,,,,,,,,Confident,2026-09-09 19:33:48+00:00,https://openai.com/index/gpt-5-5-with-trusted-access-for-cyber/,
+GPT-5.5 Instant,OpenAI,2026-05-05,,,,,,,,,Confident,2026-08-18 18:18:06+00:00,https://openai.com/index/gpt-5-5-instant/,
+GPT-5.5 Pro,OpenAI,2026-04-23,,,,,,,,,Likely,2026-04-29 15:04:34+00:00,https://openai.com/index/introducing-gpt-5-5/,
+GPT-5.5,OpenAI,2026-04-23,,,,"NVIDIA GB200,NVIDIA GB300 (Blackwell Ultra)",,,,,Likely,2026-05-04 15:08:07+00:00,https://openai.com/index/introducing-gpt-5-5/,
+Grok 4.3 Beta,xAI,2026-04-17,,,,,,,,,Likely,2026-09-02 19:06:46+00:00,"https://grok.com/release-notes#:~:text=Apr%2017%2C%202026-,Grok%204.3%20Beta,-Grok%204.3%20is",
+GPT-5.4-Cyber,OpenAI,2026-04-14,,,,,,,,,Unknown,2026-09-17 16:44:01+00:00,https://openai.com/index/scaling-trusted-access-for-cyber-defense/,Not disclosed; fine-tune of GPT-5.4.
+Composer 2,Cursor,2026-03-19,2.32e+25,,,NVIDIA B300 (Blackwell Ultra),,,,,Confident,2026-09-03 19:51:17+00:00,https://arxiv.org/abs/2603.24477,"Said by Lee Robinson on X - https://x.com/leerob/status/2035035355364081694 - to be 4x the training compute of the base model, Kimi K2.5; 4 x 5.8e24 = 2.32e25.
+
+B300 speculated based on Colossus 2 confirmation (https://x.com/elonmusk/status/2056422097237283295)."
+GPT-5.4 Mini,OpenAI,2026-03-17,,,,,,,,,Likely,2026-06-22 16:51:07+00:00,https://openai.com/index/introducing-gpt-5-4-mini-and-nano/,
+GPT-5.4 Nano,OpenAI,2026-03-17,,,,,,,,,Likely,2026-06-22 16:50:01+00:00,https://openai.com/index/introducing-gpt-5-4-mini-and-nano/,
+GPT-5.4,OpenAI,2026-03-05,,,,,,,,,Likely,2026-04-24 19:32:18+00:00,https://openai.com/index/introducing-gpt-5-4/,
+GPT-5.4 Pro,OpenAI,2026-03-05,,,,,,,,,Likely,2026-04-24 19:32:20+00:00,https://openai.com/index/introducing-gpt-5-4/,
+Grok 4.20,xAI,2026-02-17,,,,,,,,,Likely,2026-07-13 17:18:33+00:00,https://docs.x.ai/developers/models,
+GPT-5.3-Codex-Spark,OpenAI,2026-02-12,,,,,,,,,Confident,2026-09-16 13:11:45+00:00,https://openai.com/index/introducing-gpt-5-3-codex-spark/,
+GPT-5.3 Codex,OpenAI,2026-02-05,,,,,,,,,Likely,2026-04-29 12:07:35+00:00,https://openai.com/index/introducing-gpt-5-3-codex/,
+GPT-5.2 Codex,OpenAI,2025-12-18,,,,,,,,,Likely,2026-04-24 19:31:35+00:00,https://openai.com/index/introducing-gpt-5-2-codex/,
+GPT-5.2,OpenAI,2025-12-11,,,,,,,,,Unknown,2026-04-24 19:44:42+00:00,,
+GPT-5.2 Pro,OpenAI,2025-12-11,,,,,,,,,Likely,2026-04-24 19:31:32+00:00,https://openai.com/index/introducing-gpt-5-2/,
+Grok 4.1 Fast,xAI,2025-11-19,,,,,,,,,Unknown,2026-04-24 19:26:17+00:00,https://x.ai/news/grok-4-1-fast,
+GPT-5.1-Codex-Max,OpenAI,2025-11-19,,,,,,,,,Unknown,2026-04-24 19:35:08+00:00,https://openai.com/index/gpt-5-1-codex-max/,
+Grok 4.1,xAI,2025-11-17,,,,,,,,,Unknown,2026-04-24 19:26:19+00:00,https://x.ai/news/grok-4-1,
+GPT-5.1,OpenAI,2025-11-13,,,,,,,,,Unknown,2026-04-24 19:35:08+00:00,https://openai.com/index/gpt-5-1/,"Almost certainly > 1e25
+"
+GPT-5.1 Instant,OpenAI,2025-11-13,,,,,,,,,Unknown,2026-04-24 19:35:08+00:00,https://openai.com/index/gpt-5-1/,"Almost certainly > 1e25
+"
+GPT-5.1-Codex-mini,OpenAI,2025-11-12,,,,,,,,,Unknown,2026-04-24 19:44:38+00:00,,
+GPT-5.1-Codex,OpenAI,2025-11-12,,,,,,,,,Unknown,2026-04-24 19:35:08+00:00,,
+GPT-5 Pro,OpenAI,2025-10-07,,,,,,,,,Unknown,2026-06-09 00:02:39+00:00,https://cdn.openai.com/gpt-5-system-card.pdf,
+Grok 4 Fast,xAI,2025-09-19,,,,,,,,,Unknown,2025-12-18 02:43:51+00:00,https://x.ai/news/grok-4-fast,
+GPT-5-Codex,OpenAI,2025-09-15,,,,,,,,,Unknown,2026-08-12 21:27:51+00:00,https://openai.com/index/introducing-upgrades-to-codex/,"OpenAI says this is a version of GPT-5. The meaning of this is not completely clear, but likely means a shared base model and a similar/overlapping post-training history. But it is not clear whether 5-codex was produced via additional fine-tuning of a published GPT-5 checkpoint."
+Qwen3-Max,Alibaba,2025-09-05,1.512e+25,,,,,,,,Speculative,2025-12-18 05:45:14+00:00,"https://modelstudio.console.alibabacloud.com/?tab=doc#/doc/?type=model&url=2840914_2&modelId=qwen3-max-preview
+
+https://qwen.ai/blog?id=87dc93fc8a590dc718c77e1f6e84c07b474f6c5a&from=home.latest-research-list","6ND with:
+36T tokens is taken from the qwen3 technical report
+70B active params is based on it having >1T params, and the architectures of Qwen3-235B-A22B and Qwen3-Coder-480B-A35B"
+GPT-5,OpenAI,2025-08-07,6.6e+25,,,,,,,,Speculative,2026-07-21 22:25:39+00:00,"https://cdn.openai.com/gpt-5-system-card.pdf
+https://openai.com/index/introducing-gpt-5/ ","Fairly speculative, possibly around 6e25 [CI: 2e25 to 2e26] FLOP. See document below for details
+
+https://docs.google.com/document/d/1V2jIk365LnhH4WDoCw5dYJjZr1Htw8IHaK1noMf5Y48/edit?tab=t.z871imftkus"
+GPT-5 mini,OpenAI,2025-08-07,,,,,,,,,Unknown,2026-04-24 19:44:28+00:00,https://cdn.openai.com/gpt-5-system-card.pdf,
+GPT-5 nano,OpenAI,2025-08-07,,,,,,,,,Unknown,2026-04-24 19:44:28+00:00,https://cdn.openai.com/gpt-5-system-card.pdf,
+Grok 4 Heavy,xAI,2025-07-10,,,,,,,,,Unknown,2026-02-19 19:38:11+00:00,https://x.ai/news/grok-4,
+Grok 4,xAI,2025-07-09,5.0000000000001e+26,,,,200000.0,,,387842678.08636147,Speculative,2026-02-11 19:20:31+00:00,https://x.ai/news/grok-4,"We think that RL relative to pre-compute is between our estimate for o3 (10% of pre-training) and the 100% implied by this slide in the launch ( https://archive.is/f0vJU ). Assuming the same pre-training as Grok 3 (also implied by that slide, and much more consistent) and that Grok 3 used a tenth as much RL, we get:
+
+2 * (grok3/1.1) in the high case (rl is 10% of grok 3, so grok3/1.1 is grok3 precompute, and in this case twice that is grok 4)
+1.1 * (grok3/1.01) in the low case
+The geometric mean is (rounded to one sig fig): 5e26
+"
+GPT-4.1,OpenAI,2025-04-14,,,,,,,,,Unknown,2025-11-28 11:52:13+00:00,https://openai.com/index/gpt-4-1/,Flagship model from a leading developer in mid-2025; very likely it used >1e25 FLOP.
+GPT-4.1 mini,OpenAI,2025-04-14,,,,,,,,,Unknown,2025-11-28 11:52:13+00:00,https://openai.com/index/gpt-4-1/,
+GPT-4.1 nano,OpenAI,2025-04-14,,,,,,,,,Unknown,2025-11-28 11:52:13+00:00,https://openai.com/index/gpt-4-1/,
+Pangu Ultra,Huawei,2025-04-10,1.0692e+25,,,Huawei Ascend 910B,8192.0,,6426121.277196856,,Confident,2026-05-25 12:16:35+00:00,https://arxiv.org/abs/2504.07866,"When compared to Llama 3.1 405B, Pangu Ultra achieves better scores on most of the challenging benchmarks, while utilizing only about 29% of the training FLOPs required by Llama 405B.
+
+Compute = 6 FLOP/token/param *  135e9 params *13.2e12 tokens = 1.069200e+25 FLOP
+This is consistent with 29% of Llama 405B's compute: 3.8e25*0.29=1.1e25."
+Llama 4 Behemoth (preview),Meta AI,2025-04-05,5.18400000000001e+25,,,NVIDIA H100 SXM5 80GB,32000.0,,43933454.99810563,44588963.624007165,Likely,2026-09-03 19:53:54+00:00,https://ai.meta.com/blog/llama-4-multimodal-intelligence/,"Behemoth's training dataset is at least 30T tokens:
+https://ai.meta.com/blog/llama-4-multimodal-intelligence/ 
+
+6 FLOP / parameter / token * 288 * 10^9 activated parameters * 30 * 10^12 tokens = 5.184e+25 FLOP"
+Llama Nemotron Ultra 253B,Nvidia,2025-03-18,3.911001e+25,,,,,,,,Likely,2026-07-21 22:25:28+00:00,https://arxiv.org/abs/2505.00949,"*Training compute figure is total lifetime (Meta + Nvidia) compute, not incremental Nvidia training compute*
+
+Total training compute: 3.8e+25 FLOP (base model) + 1.11e+24 FLOP (fine-tuning) = 3.9e25 FLOP
+See calculation in the finetune compute notes."
+GPT-4.5,OpenAI,2025-02-27,3.8e+26,,,,,3000.0,,366010627.6281514,Likely,2026-06-08 15:06:05+00:00,https://openai.com/index/introducing-gpt-4-5/,"Analysis of GPT-4.5's training cluster yields a median estimate of 187M H100-hours of training. The utilization assumptions we used for the Grok 3 estimate (maybe worth revisiting) were 20 to 40% under the H100 FP8 spec of 2000 teraflop/s. This leads to an estimate of 2.7e26 to 5.4e26 FLOP, or a geomean of 3.8e26
+
+Alternatively, using a plausible range of 20 to 50% utilization, given the possibility of FP8 training, yields a median estimate of ~2e25 FLOP. See notebook below for details.
+
+https://colab.research.google.com/drive/1QBmVPm64Ti0xucN0EsZTgSz_I7Mj9hAZ#scrollTo=NYH1ABJuLJlw 
+
+This is consistent with OpenAI's statement that GPT-4.5 was a “new order of magnitude in compute” compared to previous models (e.g. GPT-4, which was ~2e25), suggesting around 2e26 FLOP. But they could have meant this somewhat loosely. 
+
+In the ""Pretraining GPT-4.5"" interview, they state they used multi-cluster training: https://youtu.be/6nJZopACRuQ?si=FFJC-gEmGPZjvoPM&t=617 "
+Claude 3.7 Sonnet,Anthropic,2025-02-24,3.35e+25,1.0000000001e+25,1.0000000001e+26,,,,,,Likely,2026-04-24 19:32:50+00:00,https://www.anthropic.com/news/claude-3-7-sonnet,https://docs.google.com/spreadsheets/d/10bhwdVrfHI8tysVIz62ZxtvQ30L-HojYvmU18_b-WIM/edit?gid=0#gid=0
+Grok 3,xAI,2025-02-17,3.5e+26,2.1e+26,1.13e+27,NVIDIA H100 SXM5 80GB,80000.0,2160.0,109948656.20196915,217835545.5267339,Likely,2026-06-03 15:53:16+00:00,https://x.ai/blog/grok-3,"Estimate based on a cluster of 80,000 H100s per the xai website and an estimated training time of approximately three months.
+
+Full estimate here: https://docs.google.com/document/d/1MIUFviULJ3YI_XjyzL8cwG0cBRANKNxVEB4DrUcFiNs/edit?usp=sharing"
+Llama 3.1-405B,Meta AI,2024-07-23,3.8e+25,,,NVIDIA H100 SXM5 80GB,16384.0,2142.0,22622532.159299146,52885433.95402246,Confident,2025-11-28 11:53:44+00:00,https://ai.meta.com/research/publications/the-llama-3-herd-of-models/,"Stated in paper.
+
+Also, 6 * 405B * 15.6T training tokens = 3.8e25"
+GPT-4 Turbo (Apr 2024),OpenAI,2024-04-09,,,,,,,,,Unknown,2026-02-11 19:35:05+00:00,https://x.com/OpenAI/status/1778574613813006610,Training compute estimated to be 2.2e25 FLOP using benchmark imputation. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing
+Gemini 1.0 Ultra,Google DeepMind,2023-12-06,5.0000000001e+25,,,Google TPU v4,57000.0,2400.0,38423900.11232233,30719419.93534952,Speculative,2025-12-16 18:01:50+00:00,https://storage.googleapis.com/deepmind-media/gemini/gemini_1_report.pdf,"This number is an estimate based on limited evidence. In particular, we combine information about the performance of Gemini Ultra on various benchmarks compared to other models, and guesstimates about the hardware setup used for training to arrive at our estimate. Our reasoning and calculations are detailed in this Colab notebook.
+https://colab.research.google.com/drive/1sfG91UfiYpEYnj_xB5YRy07T5dv-9O_c"
+GPT-4 Turbo (Nov 2023),OpenAI,2023-11-06,,,,,,,,,Unknown,2026-02-11 19:35:05+00:00,https://openai.com/blog/new-models-and-developer-products-announced-at-devday,Training compute estimated to be 2.2e25 FLOP using benchmark imputation. https://colab.research.google.com/drive/1r3pUMhB7Kh0Gls9eG-v_XefWrye9fVQR?usp=sharing
+GPT-3.5 Turbo Instruct,OpenAI,2023-09-28,,,,,,,,,Likely,2026-04-08 02:18:33+00:00,https://platform.openai.com/docs/models/gpt-3.5-turbo,
+GPT-4 (Jun 2023),OpenAI,2023-06-13,2.1e+25,,,NVIDIA A100 SXM4 40 GB,25000.0,2280.0,19904434.788947295,,Likely,2026-06-24 17:08:51+00:00,https://arxiv.org/abs/2303.08774,"90% CI: 8.2E+24 to 4.4E+25
+
+NOTE: this is a rough estimate based on public information, much less information than most other systems in the database.
+
+Calculation and confidence intervals here: https://colab.research.google.com/drive/1O99z9b1I5O66bT78r9ScslE_nOj5irN9?usp=sharing"
+GPT-3.5 Turbo,OpenAI,2023-06-13,,,,,,,,,Likely,2026-04-08 02:18:32+00:00,https://platform.openai.com/docs/models/gpt-3.5-turbo,
+GPT-4 (Mar 2023),OpenAI,2023-03-15,2.1e+25,,,NVIDIA A100 SXM4 40 GB,25000.0,2280.0,19944368.12599428,37334304.976625234,Likely,2026-05-25 12:21:28+00:00,https://arxiv.org/abs/2303.08774,"90% CI: 8.2E+24 to 4.4E+25
+
+NOTE: this is a rough estimate based on public information, much less information than most other systems in the database.
+
+Calculation and confidence intervals here: https://colab.research.google.com/drive/1O99z9b1I5O66bT78r9ScslE_nOj5irN9?usp=sharing"
+GPT-3.5 (davinci-003),OpenAI,2022-11-28,,,,,,,,,Likely,2026-09-04 01:34:28+00:00,,
+GPT-3.5 (davinci-002),OpenAI,2022-03-15,2.578e+24,,9.9e+24,NVIDIA A100 SXM4 40 GB,,,,4897551.634095244,Speculative,2026-08-04 19:52:13+00:00,https://platform.openai.com/docs/models/gpt-3-5,https://colab.research.google.com/drive/1QSxa8YCWjEBQU7mrXLhw6TP1VX5oqgdW#scrollTo=Gt6Z6oZ26clI
+GPT-3 6.7B,OpenAI,2020-06-22,1.2e+22,,,NVIDIA Tesla V100 DGXS 32 GB,,,,,Confident,2026-05-25 12:12:07+00:00,https://arxiv.org/abs/2005.14165,"Table D.1
+https://arxiv.org/abs/2005.14165"
+GPT-3 XL,OpenAI,2020-06-22,2.38e+21,,,NVIDIA Tesla V100 DGXS 32 GB,,,,,Confident,2026-05-25 12:12:05+00:00,https://arxiv.org/abs/2005.14165,"Table D.1
+https://arxiv.org/abs/2005.14165"
+GPT-3 Small,OpenAI,2020-06-22,2.25e+20,,,NVIDIA Tesla V100 DGXS 32 GB,,,,,Confident,2026-05-25 12:12:05+00:00,https://arxiv.org/abs/2005.14165,"Table D.1
+https://arxiv.org/abs/2005.14165"
+GPT-3 Medium,OpenAI,2020-06-22,6.41e+20,,,NVIDIA Tesla V100 DGXS 32 GB,,,,,Confident,2026-05-25 12:12:06+00:00,https://arxiv.org/abs/2005.14165,"Table D.1
+https://arxiv.org/abs/2005.14165"
+GPT-3 Large,OpenAI,2020-06-22,1.37e+21,,,NVIDIA Tesla V100 DGXS 32 GB,,,,,Confident,2026-05-25 12:12:05+00:00,https://arxiv.org/abs/2005.14165,"Table D.1
+https://arxiv.org/abs/2005.14165"
+GPT-3 2.7B,OpenAI,2020-06-22,4.77e+21,,,NVIDIA Tesla V100 DGXS 32 GB,,,,,Confident,2026-05-25 12:12:06+00:00,https://arxiv.org/abs/2005.14165,"Table D.1
+https://arxiv.org/abs/2005.14165"
+GPT-3 13B,OpenAI,2020-06-22,2.31e+22,,,NVIDIA Tesla V100 DGXS 32 GB,,,,,Confident,2026-05-25 12:12:05+00:00,https://arxiv.org/abs/2005.14165,"Table D.1
+https://arxiv.org/abs/2005.14165"
+GPT-3 175B (davinci),OpenAI,2020-05-28,3.14e+23,,,NVIDIA Tesla V100 DGXS 32 GB,10000.0,355.2,5100759.605963441,2116866.2428390156,Confident,2026-05-25 12:12:05+00:00,https://arxiv.org/abs/2005.14165,"Table D.1
+https://arxiv.org/abs/2005.14165"

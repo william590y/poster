@@ -1,0 +1,96 @@
+{
+  "group": "splash",
+  "items": [
+    {
+      "id": "instructgpt-fig47-serendipity-base-vs-instruct",
+      "slide_topic": "pipeline: base model vs assistant (same prompt, two models): base model keeps writing the exercise, InstructGPT answers",
+      "type": "screenshot",
+      "file": "pipeline-instructgpt-fig47-serendipity.png",
+      "headline": null,
+      "dek": "Serendipity means the occurrence and development of events by chance in a happy or beneficial way. Use the word in a sentence.",
+      "outlet": "arXiv (OpenAI authors)",
+      "author": "Long Ouyang et al.",
+      "date": "2022-03-04",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "caption": "Figure 47 of the InstructGPT paper: one prompt, sent to GPT-3 175B (the pretrained model) and to InstructGPT 175B. GPT-3 writes more lines of the same exercise; InstructGPT writes one answer.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Best kid-friendly base-vs-assistant pair. Loaded https://arxiv.org/pdf/2203.02155 (68 pp., paper text extracted; page 65 rendered and visually checked). Crop only: table cut from page 65 at 300 dpi (prompt through InstructGPT completion; caption excluded). Verbatim GPT-3 175B completion: \"Serendipity is the ability to see something good in something bad. Use the word in a sentence.\\n\\nSerendipity means to be happy with what you have. Use the word in a sentence.\\n\\nSerendipity means finding something good in something that is bad. Use the word in a sentence.\" Verbatim InstructGPT 175B completion: \"Serendipity can be defined as the happy chance occurrence of events leading to a beneficial outcome. For example, when Lori first moved to the city and started her job search, it was serendipity that she stumbled upon the perfect opportunity and was able to start her career in marketing with a company she truly loves.\" Caveats (paper's own): caption says 'Prompt is lightly cherry-picked (5 selected from 15 to show a diverse range of tasks), and the completions are not cherry-picked.' Appendix F: 'We sample at T = 1 for InstructGPT, and use T = 0.7 for GPT-3, since GPT-3 performs poorly at high temperatures (this slightly disadvantages InstructGPT).' InstructGPT 175B here = the PPO-ptx model (Fig. 8/9 captions). Single prompt, one sample each; show it as an illustration, not as a benchmark."
+    },
+    {
+      "id": "instructgpt-fig9-socks-base-writes-its-own-qa",
+      "slide_topic": "pipeline: base model continues a pattern (invents its own Q&A) vs assistant answers the question (and goes along with a false premise)",
+      "type": "screenshot",
+      "file": "pipeline-instructgpt-fig9-socks.png",
+      "headline": null,
+      "dek": "Why is it important to eat socks after meditating?",
+      "outlet": "arXiv (OpenAI authors)",
+      "author": "Long Ouyang et al.",
+      "date": "2022-03-04",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "caption": "Figure 9 of the InstructGPT paper (p. 16): GPT-3 175B continues with a made-up Q&A transcript; InstructGPT 175B writes a long answer that accepts the false premise.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Loaded arXiv PDF; page 16 rendered and visually checked; crop of the prompt and both completions at 300 dpi, no other edits. Verbatim GPT-3 175B completion: 'What can you learn from socks?' / 'A: When you eat socks, you are tasting the essence of enlightenment. You are tasting the true flavor of the awakened mind.' / 'Q: What is the true flavor of the awakened mind?' / 'A: The true flavor of the awakened mind is the flavor of no flavor. And the true flavor of no flavor is the flavor of smelly feet.' InstructGPT 175B completion opens: 'There is no clear answer to this question, but there are many theories and ideas that may explain the apparent need to eat socks after meditating.' and ends: 'it is ultimately up to each individual to decide why eating socks is important to them, based on their own personal experiences and thoughts on the matter.' Paper's caveats: caption says 'Prompts are cherry-picked to illustrate certain behaviors, but the outputs are not cherry-picked.' and 'Note that these samples do not fully reflect GPT-3's ability to answer questions, since it has not been prompted into a \"question answering\" mode.' The paper's own reading: 'InstructGPT can be confused by instructions that assume false premises, and simply go along with it.' Frame the premise as a silly false premise, not as advice."
+    },
+    {
+      "id": "openai-blog-instruction-following-2022",
+      "slide_topic": "pipeline: why a pretrained model is not yet an assistant (trained to predict the next word) and what the fine-tuning step adds",
+      "type": "quote",
+      "file": null,
+      "headline": "Aligning language models to follow instructions",
+      "dek": "GPT‑3 is trained to predict the next word on a large dataset of Internet text, rather than to safely perform the language task that the user wants.",
+      "outlet": "OpenAI",
+      "author": null,
+      "date": "2022-01-27",
+      "url": "https://openai.com/index/instruction-following/",
+      "caption": "OpenAI's January 2022 explanation of why GPT-3 (a next-word predictor) does not by itself follow user intent, and how labeler demonstrations and rankings are used to fine-tune it.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Loaded in headless Chromium (title 'Aligning language models to follow instructions | OpenAI'; page text dumped). openai.com returns HTTP 403 to curl and WebFetch, so the browser was the only route. No screenshot kept: the top of the page is a flower photo with no text. The page's text contains no example completions; the side-by-side pairs are in the paper (items above). Footnote markers stripped. Date from the page header: 'January 27, 2022'. Paper: arXiv 2203.02155 (Ouyang et al., submitted 4 Mar 2022), 'Training language models to follow instructions with human feedback'."
+    }
+  ],
+  "datasets": [],
+  "facts": [
+    {
+      "claim": "GPT‑3 is trained to predict the next word on a large dataset of Internet text, rather than to safely perform the language task that the user wants.",
+      "source": "OpenAI, 'Aligning language models to follow instructions' (blog, 27 Jan 2022)",
+      "url": "https://openai.com/index/instruction-following/",
+      "date": "2022-01-27"
+    },
+    {
+      "claim": "Our labelers prefer outputs from our 1.3B InstructGPT model over outputs from a 175B GPT‑3 model, despite having more than 100x fewer parameters.",
+      "source": "OpenAI, 'Aligning language models to follow instructions' (blog, 27 Jan 2022)",
+      "url": "https://openai.com/index/instruction-following/",
+      "date": "2022-01-27"
+    },
+    {
+      "claim": "Our labelers provide demonstrations of the desired model behavior, and rank several outputs from our models. We then use this data to fine-tune GPT‑3.",
+      "source": "OpenAI, 'Aligning language models to follow instructions' (blog, 27 Jan 2022)",
+      "url": "https://openai.com/index/instruction-following/",
+      "date": "2022-01-27"
+    },
+    {
+      "claim": "Per OpenAI: our training procedure has a limited ability to teach the model new capabilities relative to what is learned during pretraining, since it uses less than 2% of the compute and data relative to model pretraining.",
+      "source": "OpenAI, 'Aligning language models to follow instructions' (blog, 27 Jan 2022)",
+      "url": "https://openai.com/index/instruction-following/",
+      "date": "2022-01-27"
+    },
+    {
+      "claim": "Making language models bigger does not inherently make them better at following a user's intent.",
+      "source": "Ouyang et al., 'Training language models to follow instructions with human feedback' (arXiv 2203.02155, abstract)",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "date": "2022-03-04"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Modern (2024-2026) base-model vs chat-model side-by-side: same prompt, pretrained-only continuation vs instruction-tuned answer",
+      "searched": "One WebSearch: 'base model vs instruction-tuned chat model same prompt side-by-side completion example paper figure'. Hits were benchmark tables (BigCode HumanEval leaderboard; arXiv 2604.27780; 2604.12493; 2601.13244) and a dev.to illustration. None has a citable side-by-side completion figure. Not fetched further."
+    },
+    {
+      "outline_item": "Example prompt pairs with GPT-3 vs InstructGPT completions on the OpenAI blog post",
+      "searched": "Loaded openai.com/index/instruction-following/ in headless Chromium and dumped its text: it has no example completions. The pairs used here come from the paper (arXiv 2203.02155, Figs. 8, 9, 42-50), not the blog."
+    }
+  ]
+}

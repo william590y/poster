@@ -1,0 +1,202 @@
+{
+  "group": "splash/pipeline-constitution",
+  "items": [
+    {
+      "id": "cai-2022-abstract",
+      "slide_topic": "Pipeline/constitution: Constitutional AI defined in one sentence (2022 paper)",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "The only human oversight is provided through a list of rules or principles, and so we refer to the method as 'Constitutional AI'.",
+      "outlet": "arXiv (Anthropic authors)",
+      "author": "Yuntao Bai et al. (51 authors)",
+      "date": "2022-12-15",
+      "url": "https://arxiv.org/abs/2212.08073",
+      "caption": "Abstract of the Constitutional AI paper (Bai et al., submitted 15 Dec 2022)",
+      "quality": 5,
+      "verified": true,
+      "notes": "Loaded via export.arxiv.org API (published 2022-12-15T06:19:23Z) and the arxiv.org abs page via WebFetch. The ar5iv HTML lists 'Affiliation: Anthropic'. Simple one-sentence version for slides: Anthropic's 2022 Constitutional AI method trained a harmless AI assistant with no human labels for harmful outputs; the only human input was a written list of rules or principles, and the AI critiqued, revised and judged its own answers. The abstract's phrase 'without any human labels identifying harmful outputs' is also verbatim."
+    },
+    {
+      "id": "cai-fig1-pipeline",
+      "slide_topic": "Pipeline/constitution: how Constitutional AI works (two stages)",
+      "type": "image",
+      "file": "cai-fig1-overview.png",
+      "headline": "",
+      "dek": "Both the critiques and the AI feedback are steered by a small set of principles drawn from a ‘constitution’.",
+      "outlet": "arXiv (Anthropic authors)",
+      "author": "Bai et al.",
+      "date": "2022-12-15",
+      "url": "https://arxiv.org/abs/2212.08073",
+      "caption": "Figure 1 of the Constitutional AI paper: supervised stage (red-team prompts, response, self-critique, revision, finetune SL-CAI model) then RL stage (AI-feedback preference model, RLAIF training, final RL-CAI model)",
+      "quality": 5,
+      "verified": true,
+      "notes": "Source image: ar5iv.labs.arxiv.org/html/2212.08073/assets/CAI-Overview.png (2025x844, unaltered copy). Viewed with Read. The figure is the paper's own diagram, not a mock-up. Dek is the verbatim caption sentence."
+    },
+    {
+      "id": "claude-constitution-page",
+      "slide_topic": "Pipeline/constitution: Claude's constitution, the document itself",
+      "type": "screenshot",
+      "file": "constitution-screenshot.png",
+      "headline": "Claude’s Constitution",
+      "dek": "Our vision for Claude's character",
+      "outlet": "Anthropic",
+      "author": null,
+      "date": null,
+      "url": "https://www.anthropic.com/constitution",
+      "caption": "Top of anthropic.com/constitution: title, subhead and opening paragraph",
+      "quality": 4,
+      "verified": true,
+      "notes": "Captured with tools/shot.js at 1280x800 viewport (saved at 2560x1600) and viewed with Read. The page shows no publication or version date; the release date comes from the announcement post. Page footer: '© 2026 Anthropic PBC'."
+    },
+    {
+      "id": "claude-new-constitution-post",
+      "slide_topic": "Pipeline/constitution: date and release of the latest constitution",
+      "type": "quote",
+      "file": null,
+      "headline": "Claude's new constitution",
+      "dek": "We’re publishing a new constitution for our AI model, Claude.",
+      "outlet": "Anthropic",
+      "author": null,
+      "date": "2026-01-22",
+      "url": "https://www.anthropic.com/news/claude-new-constitution",
+      "caption": "Anthropic announcement 'Claude's new constitution' (dated Jan 22, 2026)",
+      "quality": 5,
+      "verified": true,
+      "notes": "Loaded with curl; HTML meta article:published_time 2026-01-22T04:15:00.000Z and visible text 'Jan 22, 2026'. Press coverage (e.g. TechCrunch, 21 Jan 2026) dates the release one day earlier; use Anthropic's date. The post says the document is released in full under CC0 1.0."
+    },
+    {
+      "id": "constitution-teen-line",
+      "slide_topic": "Pipeline/constitution: one line a teenager can follow",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "Claude’s constitution is a detailed description of Anthropic’s intentions for Claude’s values and behavior.",
+      "outlet": "Anthropic",
+      "author": null,
+      "date": null,
+      "url": "https://www.anthropic.com/constitution",
+      "caption": "Opening sentence of Claude's Constitution",
+      "quality": 5,
+      "verified": true,
+      "notes": "Verbatim first sentence of the constitution page. Second line that also carries the 'why it matters' point: 'It plays a crucial role in our training process, and its content directly shapes Claude’s behavior.'"
+    },
+    {
+      "id": "constitution-priorities",
+      "slide_topic": "Pipeline/constitution: the four priorities, in order",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "In cases of apparent conflict, Claude should generally prioritize these properties in the order in which they’re listed.",
+      "outlet": "Anthropic",
+      "author": null,
+      "date": "2026-01-22",
+      "url": "https://www.anthropic.com/news/claude-new-constitution",
+      "caption": "Ranking rule for conflicts between Claude's four priorities",
+      "quality": 5,
+      "verified": true,
+      "notes": "Verbatim from the announcement post's summary. The four priorities in listed order are: Broadly safe (not undermining appropriate human mechanisms to oversee AI during the current phase of development); Broadly ethical (being honest, acting according to good values, and avoiding actions that are inappropriate, dangerous, or harmful); Compliant with Anthropic's guidelines; Genuinely helpful (benefiting the operators and users they interact with). Same wording on constitution page."
+    },
+    {
+      "id": "constitution-uncertainty",
+      "slide_topic": "Pipeline/constitution: honest about uncertainty",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "This document is likely to change in important ways in the future. It is best thought of as a perpetual work in progress.",
+      "outlet": "Anthropic",
+      "author": null,
+      "date": null,
+      "url": "https://www.anthropic.com/constitution",
+      "caption": "Anthropic's own statement that the constitution may change and is a work in progress",
+      "quality": 4,
+      "verified": true,
+      "notes": "Two verbatim sentences from the constitution page's opening section (the second follows several sentences later in the same paragraph; the middle sentences are omitted here: 'It represents our current thinking... It is likely that aspects of our current thinking will later look misguided and perhaps even deeply wrong in retrospect, but our intention is to revise it as the situation progresses and our understanding improves.'). Good for teen discussion of uncertainty."
+    },
+    {
+      "id": "blog-previous-vs-new",
+      "slide_topic": "Pipeline/constitution: from rules to reasons",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "Our previous Constitution was composed of a list of standalone principles. we need to explain this to them rather than merely specify",
+      "outlet": "Anthropic",
+      "author": null,
+      "date": "2026-01-22",
+      "url": "https://www.anthropic.com/news/claude-new-constitution",
+      "caption": "Why the new constitution explains reasons instead of listing rules",
+      "quality": 4,
+      "verified": true,
+      "notes": "Verbatim from the announcement post. The 'why' sentence is shown as a fragment: 'we need to explain this to them rather than merely specify what we want them to do' context. Ready for the rules-vs-reasons slide."
+    }
+  ],
+  "datasets": [],
+  "facts": [
+    {
+      "claim": "In 2022, Anthropic's Constitutional AI method trained a harmless AI assistant with no human labels identifying harmful outputs; the only human oversight was a written list of rules or principles.",
+      "source": "Bai et al., 'Constitutional AI: Harmlessness from AI Feedback' (arXiv 2212.08073), abstract",
+      "url": "https://arxiv.org/abs/2212.08073",
+      "date": "2022-12-15"
+    },
+    {
+      "claim": "In Constitutional AI, the model critiques and revises its own answers, a model judges which of two answers is better, and those AI preferences train a reward model for reinforcement learning (RLAIF, 'RL from AI Feedback').",
+      "source": "Bai et al. (arXiv 2212.08073), abstract",
+      "url": "https://arxiv.org/abs/2212.08073",
+      "date": "2022-12-15"
+    },
+    {
+      "claim": "Anthropic published the new Claude constitution on Jan 22, 2026.",
+      "source": "Anthropic, 'Claude's new constitution' (page date and article:published_time 2026-01-22)",
+      "url": "https://www.anthropic.com/news/claude-new-constitution",
+      "date": "2026-01-22"
+    },
+    {
+      "claim": "Anthropic released Claude's constitution in full under a Creative Commons CC0 1.0 Deed, so anyone can use it for any purpose without asking permission.",
+      "source": "Anthropic, 'Claude's Constitution' page and announcement post",
+      "url": "https://www.anthropic.com/constitution",
+      "date": "2026-01-22"
+    },
+    {
+      "claim": "Anthropic says the constitution 'plays a crucial role in our training process, and its content directly shapes Claude's behavior'.",
+      "source": "Anthropic, 'Claude's Constitution' page (opening paragraph)",
+      "url": "https://www.anthropic.com/constitution",
+      "date": null
+    },
+    {
+      "claim": "Claude's constitution ranks four properties for conflicts, in order: broadly safe, broadly ethical, compliant with Anthropic's guidelines, genuinely helpful.",
+      "source": "Anthropic, 'Claude's new constitution' summary",
+      "url": "https://www.anthropic.com/news/claude-new-constitution",
+      "date": "2026-01-22"
+    },
+    {
+      "claim": "Anthropic has used Constitutional AI in training Claude models since 2023; the 2023 version was 'a list of standalone principles', and the 2026 version explains reasons.",
+      "source": "Anthropic, 'Claude's new constitution' (background section)",
+      "url": "https://www.anthropic.com/news/claude-new-constitution",
+      "date": "2026-01-22"
+    },
+    {
+      "claim": "Anthropic says its constitution 'is likely to change in important ways in the future' and is 'a perpetual work in progress'.",
+      "source": "Anthropic, 'Claude's Constitution' page (opening section)",
+      "url": "https://www.anthropic.com/constitution",
+      "date": null
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Constitutional AI: a sentence from Anthropic's own 2023 announcement of the method",
+      "searched": "Relied on the arXiv abstract (primary). Anthropic's 2023 blog post was not located or loaded; the 2026 post only says 'since 2023'."
+    },
+    {
+      "outline_item": "Date of the first Claude constitution (May 2023) on a primary page",
+      "searched": "WebSearch found secondary coverage saying the original was published in May 2023; not verified on an Anthropic page, so not used as a fact."
+    },
+    {
+      "outline_item": "Any constitution revision after Jan 22, 2026",
+      "searched": "WebSearch for 2026 updates (Feb-Sep 2026) and the constitution page itself; no later version found. The constitution page shows no version or changelog. Treat Jan 22, 2026 as the latest found."
+    },
+    {
+      "outline_item": "Constitution word or page count for the slide",
+      "searched": "Press coverage gave 23,000 words and 57 or 80 pages (disagreeing); not verified on the page, and a page-text count is unreliable (includes navigation and acknowledgements). Not used."
+    }
+  ]
+}

@@ -1,0 +1,308 @@
+{
+  "group": "splash-pipeline-compute-cost",
+  "items": [
+    {
+      "id": "pcgamer-astra-100k-gpus",
+      "slide_topic": "GPT-6 Astra training scale: 100,000 GPUs",
+      "type": "headline",
+      "file": "pcgamer-astra-top.png",
+      "headline": "Jensen Huang says 100,000 Nvidia GPUs were used to train OpenAI's latest model, GPT-6 Astra, and there's already plans to bring quadruple that amount of hardware online",
+      "dek": "That's a whole lot of compute, and apparently a big chunk of that went into 'safety and alignment'",
+      "outlet": "PC Gamer",
+      "author": "Jess Kinghorn",
+      "date": "2026-09-07",
+      "url": "https://www.pcgamer.com/software/ai/jensen-huang-says-100-000-nvidia-gpus-were-used-to-train-openais-latest-model-gpt-6-astra-and-theres-already-plans-to-bring-quadruple-that-amount-of-hardware-online/",
+      "caption": "PC Gamer headline, byline, date and dek (full-width page capture)",
+      "quality": 5,
+      "verified": true,
+      "notes": "Headline, byline, date and dek verified on the screenshot. The article body was not readable (WebFetch returned a truncated page), so the Huang quote '~100K+ Nvidia Grace Blackwell NVLink72' is NOT verified here. Same article as manifest item gw-pcgamer-astra-100k-gpus."
+    },
+    {
+      "id": "fortune-astra-launch-pretrain-100k",
+      "slide_topic": "GPT-6 Astra: largest training run, pretrained on more than 100,000 GPUs",
+      "type": "headline",
+      "file": "fortune-astra-launch-top.png",
+      "headline": "OpenAI launches GPT-6 Astra, its most powerful model yet, and touts its ability to use your computer",
+      "dek": "Astra's development also involved the company's largest training run \"by far,\" OpenAI vice president of research Aidan Clark told reporters today. \"It's the first time we've pretrained on more than 100,000 GPUs at our Stargate site in Texas.\"",
+      "outlet": "Fortune",
+      "author": "Emily Forlini",
+      "date": "2026-09-03",
+      "url": "https://fortune.com/2026/09/03/openai-debuts-gpt-6-astra-computer-use-greg-brockman-says-start-of-agi/",
+      "caption": "Fortune headline, byline (Emily Forlini, Senior AI Reporter) and timestamp (Sept 3, 2026, 2:44 PM ET)",
+      "quality": 5,
+      "verified": true,
+      "notes": "Byline, date and headline verified on the screenshot. Dek quote verified in the fetched article body (WebFetch, no paywall at fetch time). Same article as manifest item gw-fortune-astra-launch."
+    },
+    {
+      "id": "anthropic-amazon-compute-2026",
+      "slide_topic": "Anthropic compute scale: over one million Trainium2 chips",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "we currently use over one million Trainium2 chips to train and serve Claude",
+      "outlet": "Anthropic",
+      "author": "",
+      "date": "2026-04-20",
+      "url": "https://www.anthropic.com/news/anthropic-amazon-compute",
+      "caption": "Anthropic company post on the Amazon compute expansion (dated Apr 20, 2026; updated Apr 21)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Other sentences in the post: 'secure up to 5 gigawatts (GW) of capacity for training and deploying Claude'; 'nearly 1GW total of Trainium2 and Trainium3 capacity coming online by the end of 2026'; 'We are committing more than $100 billion over the next ten years to AWS technologies'. Quotes were extracted with WebFetch, so re-check the exact wording before putting it on a slide. Manifest item gw-anthropic-amazon-5gw."
+    },
+    {
+      "id": "microsoft-fairwater-hundreds-of-thousands-gpus",
+      "slide_topic": "Microsoft Fairwater (Wisconsin): hundreds of thousands of Nvidia GPUs",
+      "type": "quote",
+      "file": null,
+      "headline": "Inside the world's most powerful AI datacenter",
+      "dek": "using a single flat networking interconnecting hundreds of thousands of the latest NVIDIA GPUs",
+      "outlet": "Microsoft (official blog)",
+      "author": "",
+      "date": "2025-09-18",
+      "url": "https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/",
+      "caption": "Microsoft official blog post announcing Fairwater",
+      "quality": 5,
+      "verified": true,
+      "notes": "Same post: 'covering 315 acres and housing three massive buildings with a combined 1.2 million square feet under roofs'; 'hundreds of thousands of cutting-edge AI chips'; 'it will deliver 10X the performance of the world's fastest supercomputer today'; 'Each rack packs 72 NVIDIA Blackwell GPUs'. Microsoft gives no exact GPU count. Analyst estimates of 500k+ are not verified and are not used."
+    },
+    {
+      "id": "amazon-project-rainier-trainium2",
+      "slide_topic": "Project Rainier (Anthropic/AWS): nearly half a million Trainium2 chips",
+      "type": "headline",
+      "file": null,
+      "headline": "AWS activates Project Rainier: One of the world's largest AI compute clusters comes online",
+      "dek": "The collaborative infrastructure innovation delivered nearly half a million Trainium2 chips in record time.",
+      "outlet": "About Amazon",
+      "author": "",
+      "date": null,
+      "url": "https://www.aboutamazon.com/news/aws/aws-project-rainier-ai-trainium-chips-compute-cluster",
+      "caption": "Text-only Amazon news page",
+      "quality": 4,
+      "verified": true,
+      "notes": "The fetched page has no publication date. Manifest item gw-amazon-project-rainier gives 2025-10-29 as an update date. Body also says 'Claude is expected to be on more than 1 million Trainium2 chips—for workloads including training and inference—by the end of the year' (a projection)."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "epoch-largest-runs-flop",
+      "title": "Largest AI training runs by compute (Epoch AI estimates)",
+      "unit": "FLOP",
+      "labels": [
+        "GPT-6 Astra (2026-09-03)",
+        "Grok 4 (2025-07-09)",
+        "GPT-4.5 (2025-02-27)",
+        "Grok 3 (2025-02-17)",
+        "GPT-5 (2025-08-07)",
+        "Llama 4 Behemoth preview (2025-04-05)",
+        "Gemini 1.0 Ultra (2023-12-06)",
+        "Llama 3.1-405B (2024-07-23)",
+        "GPT-4 (Mar 2023)"
+      ],
+      "series": [
+        {
+          "name": "Training compute (FLOP, Epoch estimate)",
+          "values": [
+            1.0001e+27,
+            5e+26,
+            3.8e+26,
+            3.5e+26,
+            6.6e+25,
+            5.184e+25,
+            5e+25,
+            3.8e+25,
+            2.1e+25
+          ]
+        }
+      ],
+      "source": "Epoch AI, all_ai_models.csv, fetched 2026-10-10 (3,626 rows; latest Last-modified 2026-10-08). Confidence: Astra 'Likely', GPT-5 and Grok 4 'Speculative'. Astra notes: ~1e27 FLOP from at least 100,000 GB200s over ~90 days at 25% FP8 MFU, CI ~[5e26, 2e27].",
+      "url": "https://epoch.ai/data/all_ai_models.csv",
+      "file": "epoch-all-ai-models-subset.csv",
+      "notes": "Epoch estimates, not company disclosures. Astra's 90-day duration is Epoch's assumption; OpenAI has not disclosed it. Manifest economy dataset gw-epoch-frontier-training-power matches the CSV power values (GPT-3 5.1, GPT-4 19.9, Gemini Ultra 38.4, Llama 3.1 22.6, Grok 3 110.0, Astra 232.7 MW)."
+    },
+    {
+      "id": "epoch-training-cost-2023usd",
+      "title": "Estimated training compute cost of frontier runs (Epoch AI, 2023 USD)",
+      "unit": "USD millions",
+      "labels": [
+        "Grok 4 (2025-07)",
+        "GPT-4.5 (2025-02)",
+        "Grok 3 (2025-02)",
+        "Llama 4 Behemoth preview (2025-04)",
+        "Llama 3.1-405B (2024-07)",
+        "Gemini 1.0 Ultra (2023-12)",
+        "GPT-4 (Mar 2023)"
+      ],
+      "series": [
+        {
+          "name": "Training compute cost (USD M, 2023)",
+          "values": [
+            387.8,
+            366.0,
+            217.8,
+            44.6,
+            52.9,
+            30.7,
+            37.3
+          ]
+        }
+      ],
+      "source": "Epoch AI, all_ai_models.csv, column 'Training compute cost (2023 USD)', fetched 2026-10-10",
+      "url": "https://epoch.ai/data/all_ai_models.csv",
+      "file": "epoch-all-ai-models-subset.csv",
+      "notes": "Estimates, not disclosures. GPT-6 Astra has NO cost estimate in the CSV (the field is blank). A WebFetch summary misread Astra's power field (232,668,778 W) as cost; the value here comes from a direct parse of the CSV. Epoch's 2024 paper gave GPT-4 about $40M (search snippet only, not loaded); the CSV's GPT-4 (Mar 2023) value is $37.3M."
+    },
+    {
+      "id": "named-cluster-accelerators",
+      "title": "Accelerators at named AI training sites (latest Epoch figures, Oct 2026)",
+      "unit": "chips (physical count)",
+      "labels": [
+        "xAI/SpaceX Colossus 2, Memphis (Jun 2026 imagery)",
+        "OpenAI/Oracle Stargate Abilene, TX (Oct 5 2026 update)",
+        "Meta Prometheus, New Albany OH (Aug 31 2026 est.)"
+      ],
+      "series": [
+        {
+          "name": "Accelerator chips",
+          "values": [
+            440000,
+            201600,
+            166000
+          ]
+        }
+      ],
+      "source": "Epoch AI data center directory pages: colossus-2, openai-stargate-abilene, meta-prometheus (fetched 2026-10-10). Colossus 2 = 110k B200 + 330k B300; Abilene = 100.8k B200 + 100.8k B300; Prometheus = 166k B300.",
+      "url": "https://epoch.ai/data/ai-data-centers",
+      "notes": "Epoch estimates. Colossus 2 differs from SpaceX's S-1 (manifest item gw-spacex-s1-colossus2: 'first cluster of approximately 110,000 GB200 processors'), which mentions GB200 not B200/B300. Abilene projected 403.2k chips for Q4 2026. Prometheus: 536k H100-equivalents. Amazon Rainier (~500k Trainium2, 'nearly half a million') is excluded from this numeric series because it is not an Nvidia chip count."
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Epoch AI estimates GPT-6 Astra's training compute at about 1e27 FLOP, based on at least 100,000 GB200 GPUs in Abilene, Texas (per OpenAI and affiliates such as Nvidia); Epoch's notes give a confidence interval of roughly 5e26 to 2e27 FLOP.",
+      "source": "Epoch AI, all_ai_models.csv (row 'GPT-6 Astra', Training compute notes; Confidence 'Likely')",
+      "url": "https://epoch.ai/data/all_ai_models.csv",
+      "date": "2026-09-23"
+    },
+    {
+      "claim": "Epoch AI estimates the training power draw of GPT-6 Astra at about 233 MW (232,668,778 W).",
+      "source": "Epoch AI, all_ai_models.csv (row 'GPT-6 Astra', Training power draw (W))",
+      "url": "https://epoch.ai/data/all_ai_models.csv",
+      "date": "2026-09-23"
+    },
+    {
+      "claim": "OpenAI VP of research Aidan Clark: \"It's the first time we've pretrained on more than 100,000 GPUs at our Stargate site in Texas.\"",
+      "source": "Fortune (Emily Forlini), reporting the Astra launch",
+      "url": "https://fortune.com/2026/09/03/openai-debuts-gpt-6-astra-computer-use-greg-brockman-says-start-of-agi/",
+      "date": "2026-09-03"
+    },
+    {
+      "claim": "Epoch AI estimates the training cost of Grok 4 at $387.8M, GPT-4.5 at $366.0M and Grok 3 at $217.8M (2023 USD).",
+      "source": "Epoch AI, all_ai_models.csv, 'Training compute cost (2023 USD)' column (estimates, not disclosures)",
+      "url": "https://epoch.ai/data/all_ai_models.csv",
+      "date": null
+    },
+    {
+      "claim": "The cost of training frontier AI models has grown by a factor of 2 to 3x per year for the past eight years; amortized hardware and energy cost for the final run grew about 2.4x per year since 2016.",
+      "source": "Epoch AI, 'How much does it cost to train frontier AI models?' (paper and blog; updated Jan 13 2025)",
+      "url": "https://epoch.ai/blog/how-much-does-it-cost-to-train-frontier-ai-models",
+      "date": "2024-06-03"
+    },
+    {
+      "claim": "Epoch AI projects that the largest models will cost over a billion dollars by 2027, if the cost trend continues. In its cost breakdown, hardware is 47-67% of development cost, R&D staff 29-49%, energy 2-6%.",
+      "source": "Epoch AI, 'How much does it cost to train frontier AI models?'",
+      "url": "https://epoch.ai/blog/how-much-does-it-cost-to-train-frontier-ai-models",
+      "date": "2024-06-03"
+    },
+    {
+      "claim": "Frontier AI training compute has grown about 5.3x per year (90% CI 4.9x to 5.7x) from 2010 to May 2024. Epoch estimated GPT-4 at 2e25 FLOP and Gemini Ultra at 5e25 FLOP.",
+      "source": "Epoch AI, 'Training compute of frontier AI models grows by 4-5x per year'",
+      "url": "https://epoch.ai/blog/training-compute-of-frontier-ai-models-grows-by-4-5x-per-year",
+      "date": "2024-05-28"
+    },
+    {
+      "claim": "The largest individual frontier training runs in 2030 will likely draw 4-16 gigawatts (GW) of power; power demand has historically grown about 2.2x per year.",
+      "source": "Epoch AI, 'Power demands of frontier AI training' (Josh You, David Owen)",
+      "url": "https://epoch.ai/publications/power-demands-of-frontier-ai-training",
+      "date": "2025-08-11"
+    },
+    {
+      "claim": "Epoch AI's xAI Colossus 2 (Memphis) page: about 440k accelerators (110k B200 + 330k B300), 946 MW IT power, estimated cost $35.8B, operational; users listed as Anthropic, Cursor and SpaceXAI.",
+      "source": "Epoch AI data center directory",
+      "url": "https://epoch.ai/data/ai-data-centers/directory/colossus-2",
+      "date": "2026-06-15"
+    },
+    {
+      "claim": "Epoch AI's OpenAI Stargate Abilene page: about 201.6k Nvidia chips (100.8k B200 + 100.8k B300), 421 MW IT power and estimated cost $15.9B (current); projected 843 MW and $31.9B by Q4 2026.",
+      "source": "Epoch AI data center directory",
+      "url": "https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "Epoch AI's Meta Prometheus page: about 166k Nvidia B300 (physical count), 471 MW IT power and $17.8B capital cost (Aug 31 2026 estimate).",
+      "source": "Epoch AI data center directory",
+      "url": "https://epoch.ai/data/ai-data-centers/directory/meta-prometheus",
+      "date": "2026-10-05"
+    },
+    {
+      "claim": "Anthropic: \"we currently use over one million Trainium2 chips to train and serve Claude.\"",
+      "source": "Anthropic news post 'Anthropic and Amazon expand collaboration for up to 5 gigawatts'",
+      "url": "https://www.anthropic.com/news/anthropic-amazon-compute",
+      "date": "2026-04-20"
+    },
+    {
+      "claim": "Anthropic is \"committing more than $100 billion over the next ten years to AWS technologies\".",
+      "source": "Anthropic news post (same)",
+      "url": "https://www.anthropic.com/news/anthropic-amazon-compute",
+      "date": "2026-04-20"
+    },
+    {
+      "claim": "Amazon: Project Rainier \"delivered nearly half a million Trainium2 chips in record time.\"",
+      "source": "About Amazon, 'AWS activates Project Rainier'",
+      "url": "https://www.aboutamazon.com/news/aws/aws-project-rainier-ai-trainium-chips-compute-cluster",
+      "date": null
+    },
+    {
+      "claim": "Microsoft's Fairwater (Wisconsin) datacenter is \"interconnecting hundreds of thousands of the latest NVIDIA GPUs\" across 315 acres and 1.2 million square feet.",
+      "source": "Microsoft Official Blog, 'Inside the world's most powerful AI datacenter'",
+      "url": "https://blogs.microsoft.com/blog/2025/09/18/inside-the-worlds-most-powerful-ai-datacenter/",
+      "date": "2025-09-18"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Official training cost of GPT-6 Astra (USD)",
+      "searched": "WebSearch 'GPT-6 Astra training cost billion dollars compute estimate'. No OpenAI or Nvidia figure. Only third-party numbers: a technews.tw estimate of about $500M to $1B (search snippet, page not loaded) and a social-post rental back-of-envelope of about $1.86B (not loaded). Both excluded. Epoch's CSV cost field for Astra is blank."
+    },
+    {
+      "outline_item": "Epoch cost estimates for 2025-2026 models (GPT-5.x, Gemini 3.x, Claude Opus 5.x)",
+      "searched": "WebSearch 'Epoch AI frontier training cost 2026 estimate GPT-5 Gemini 3'; parsed all_ai_models.csv. Epoch has cost values only for older runs (GPT-4 Mar 2023, Gemini 1.0 Ultra, Llama 3.1-405B, Llama 4 Behemoth preview, Grok 3, GPT-4.5, Grok 4). A Capital & Compute blog quoting GPT-5 at $1.5B-$3B is unsourced and not used."
+    },
+    {
+      "outline_item": "Exact GPU count for Microsoft Fairwater (Wisconsin)",
+      "searched": "WebSearch 'Microsoft Fairwater Wisconsin number of GPUs'; Microsoft blog loaded. Only 'hundreds of thousands'. Analyst estimate of 500k+ is from a search snippet, not verified."
+    },
+    {
+      "outline_item": "Jensen Huang '~100K+ Nvidia Grace Blackwell NVLink72' quote and the 400,000-GPU plan (article body)",
+      "searched": "WebFetch on the PC Gamer article returned a truncated body; screenshot shows headline/dek only. Quote is from search snippet and manifest item gw-pcgamer-astra-100k-gpus, not verified by me."
+    },
+    {
+      "outline_item": "Stratechery Brockman interview quote (manifest item gw-stratechery-brockman-quote)",
+      "searched": "Not re-loaded in this pass; not verified."
+    },
+    {
+      "outline_item": "Google Colossus 1 at 1e26 FLOP (Epoch claim via DEV Community repost)",
+      "searched": "WebSearch result only. Conflicts with Epoch's CSV for Grok 4 (5e26). Excluded as unverified."
+    },
+    {
+      "outline_item": "Epoch estimate of GPU/chip count and cost for Microsoft Fairwater Wisconsin",
+      "searched": "Not loaded. Only manifest item (economy) data, not re-verified."
+    },
+    {
+      "outline_item": "Dollar cost of frontier runs in 2030",
+      "searched": "Epoch 'power demands' publication (Aug 11 2025) gives 4-16 GW and no dollar figure; Epoch 2024 paper gives only the 'over a billion dollars by 2027' projection."
+    },
+    {
+      "outline_item": "Date of the Amazon Project Rainier page",
+      "searched": "Fetched page; no visible publication date. Manifest's 2025-10-29 is an update date."
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+{
+  "group": "splash",
+  "items": [
+    {
+      "id": "instructgpt-fig2-three-steps",
+      "slide_topic": "pipeline/instructgpt-fig: the three-step InstructGPT training pipeline (SFT, reward model, PPO)",
+      "type": "image",
+      "file": "instructgpt-fig2.png",
+      "headline": "",
+      "dek": "A diagram illustrating the three steps of our method: (1) supervised fine-tuning (SFT), (2) reward model (RM) training, and (3) reinforcement learning via proximal policy optimization (PPO) on this reward model.",
+      "outlet": "OpenAI (arXiv preprint)",
+      "author": "Long Ouyang et al.",
+      "date": "2022-03-04",
+      "url": "https://arxiv.org/pdf/2203.02155",
+      "caption": "Figure 2 of Ouyang et al. (2022): Step 1 demonstrations and supervised fine-tuning (SFT); Step 2 labelers rank model outputs A-D to train a reward model (RM); Step 3 PPO reinforcement learning against the reward model.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Cropped from page 3 of the arXiv v1 PDF (arXiv:2203.02155v1, submitted 4 Mar 2022; page rendered with pdftoppm -r 200 to 1700x2200, crop box 290,180,1400,835) to a 1110x655 PNG. The figure sits at the top of page 3, not page 2; the caption is excluded from the crop. Text inside the figure: Step 1 'Collect demonstration data, and train a supervised policy.'; Step 2 'Collect comparison data, and train a reward model.'; Step 3 'Optimize a policy against the reward model using reinforcement learning.' Example prompts shown: 'Explain the moon landing to a 6 year old' (Steps 1-2) and 'Write a story about frogs' (Step 3). Blue arrows mark data used to train one of the models. Step 2 shows the ranking D > C > A = B. Credit the paper when used on a slide."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "instructgpt-175b-preference-vs-gpt3",
+      "title": "Labeler preference: 175B InstructGPT outputs vs 175B GPT-3 outputs (reported as 85 ± 3% and 71 ± 4%)",
+      "unit": "% of comparisons where labelers preferred InstructGPT",
+      "labels": ["vs. GPT-3 (175B)", "vs. few-shot GPT-3 (175B)"],
+      "series": [{"name": "175B InstructGPT preferred", "values": [85, 71]}],
+      "source": "Ouyang et al. 2022, arXiv:2203.02155v1, p. 3 ('Our main findings')",
+      "url": "https://arxiv.org/pdf/2203.02155"
+    },
+    {
+      "id": "instructgpt-closed-domain-hallucination",
+      "title": "Hallucination rate on closed-domain tasks (summarization, closed-domain QA): InstructGPT vs GPT-3",
+      "unit": "% hallucination rate",
+      "labels": ["InstructGPT", "GPT-3"],
+      "series": [{"name": "hallucination rate", "values": [21, 41]}],
+      "source": "Ouyang et al. 2022, arXiv:2203.02155v1, p. 3 ('a 21% vs. 41% hallucination rate, respectively')",
+      "url": "https://arxiv.org/pdf/2203.02155"
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Step 1 of InstructGPT: a labeler demonstrates the desired output behavior, and that data is used to fine-tune GPT-3 with supervised learning (SFT).",
+      "source": "Ouyang et al. 2022 (OpenAI), Figure 2, Step 1, p. 3",
+      "url": "https://arxiv.org/pdf/2203.02155",
+      "date": "2022-03-04"
+    },
+    {
+      "claim": "Step 2 of InstructGPT: several model outputs are sampled for one prompt, a labeler ranks them from best to worst, and that ranking is used to train a reward model (RM).",
+      "source": "Ouyang et al. 2022 (OpenAI), Figure 2, Step 2, p. 3",
+      "url": "https://arxiv.org/pdf/2203.02155",
+      "date": "2022-03-04"
+    },
+    {
+      "claim": "Step 3 of InstructGPT: the model writes an output for a new prompt, the reward model calculates a reward for that output, and the reward is used to update the model with reinforcement learning (PPO).",
+      "source": "Ouyang et al. 2022 (OpenAI), Figure 2, Step 3, p. 3",
+      "url": "https://arxiv.org/pdf/2203.02155",
+      "date": "2022-03-04"
+    },
+    {
+      "claim": "\"On our test set, outputs from the 1.3B parameter InstructGPT model are preferred to outputs from the 175B GPT-3, despite having over 100x fewer parameters.\"",
+      "source": "Ouyang et al. 2022 (OpenAI), arXiv:2203.02155v1, p. 3",
+      "url": "https://arxiv.org/pdf/2203.02155",
+      "date": "2022-03-04"
+    },
+    {
+      "claim": "\"Outputs from our 175B InstructGPT are preferred to 175B GPT-3 outputs 85 ± 3% of the time, and preferred 71 ± 4% of the time to few-shot 175B GPT-3.\"",
+      "source": "Ouyang et al. 2022 (OpenAI), arXiv:2203.02155v1, p. 3",
+      "url": "https://arxiv.org/pdf/2203.02155",
+      "date": "2022-03-04"
+    },
+    {
+      "claim": "On closed-domain tasks such as summarization and closed-domain QA, InstructGPT made up information not present in the input about half as often as GPT-3 (a 21% vs. 41% hallucination rate, respectively).",
+      "source": "Ouyang et al. 2022 (OpenAI), arXiv:2203.02155v1, p. 3",
+      "url": "https://arxiv.org/pdf/2203.02155",
+      "date": "2022-03-04"
+    },
+    {
+      "claim": "The trade-off is real: the authors observed performance regressions on some public NLP datasets, and call this “an example of an “alignment tax” since our alignment procedure comes at the cost of lower performance on certain tasks that we may care about.”",
+      "source": "Ouyang et al. 2022 (OpenAI), arXiv:2203.02155v1, pp. 3-4",
+      "url": "https://arxiv.org/pdf/2203.02155",
+      "date": "2022-03-04"
+    },
+    {
+      "claim": "The authors' own caveat: \"more work is needed to study how these models perform on broader groups of users, and how they perform on inputs where humans disagree about the desired behavior.\"",
+      "source": "Ouyang et al. 2022 (OpenAI), arXiv:2203.02155v1, p. 4",
+      "url": "https://arxiv.org/pdf/2203.02155",
+      "date": "2022-03-04"
+    }
+  ],
+  "not_found": []
+}

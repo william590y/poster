@@ -919,4 +919,23 @@ async function build(d) {
   await stakesSlide(d);
 }
 
-module.exports = { build };
+// Slide functions by name (for other decks, e.g. tools/build_splash.js). Each runs prep() (image crops) once first.
+let prepped = null;
+const withPrep = (fn) => async (d, ...a) => { prepped = prepped || prep(); await prepped; return fn(d, ...a); };
+module.exports = {
+  build,
+  slides: {
+    prep,
+    marketSlide: withPrep(marketSlide),
+    capexSlide: withPrep(capexSlide),
+    gdpSlide: withPrep(gdpSlide),
+    scaleSlide: withPrep(scaleSlide),
+    abileneSlide: withPrep(abileneSlide),
+    gigawattSlide: withPrep(gigawattSlide),
+    trainingSlide: withPrep(trainingSlide),
+    supplySlide: withPrep(supplySlide),
+    nuclearSlide: withPrep(nuclearSlide),
+    envSlide: withPrep(envSlide),
+    stakesSlide: withPrep(stakesSlide),
+  },
+};

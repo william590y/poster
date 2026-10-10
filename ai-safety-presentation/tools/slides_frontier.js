@@ -1022,4 +1022,19 @@ async function build(d) {
   await rsiLoopSlide(d);
 }
 
-module.exports = { build };
+// Slide functions by name (for other decks, e.g. tools/build_splash.js); build() above is unchanged.
+module.exports = {
+  build,
+  slides: {
+    alienSlide,
+    latentSlide,
+    astraSlide,
+    cotVolumeSlide,
+    petabytesSlide,
+    tttConceptSlide,
+    tttChartSlide,
+    rsiChartsSlide,
+    rsiAnthropicSlide,
+    rsiLoopSlide,
+  },
+};

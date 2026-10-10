@@ -850,8 +850,9 @@ async function rewardsSlide(d) {
   L.push(d.text(s, 'The revised answers train the model. (Constitutional AI, Anthropic, 2022)', { x: lx + 0.2, y: by + 1.08, w: cw - 0.4, h: 0.6, fontSize: 16, color: HEX.muted, valign: 'top' }));
   L.push(d.text(s, [
     { text: 'TODAY · CLAUDE’S CONSTITUTION (2026) RANKS ITS PRIORITIES', options: { fontSize: 12, bold: true, color: HEX.blue, charSpacing: 1, breakLine: true, paraSpaceAfter: 4 } },
-    { text: 'broadly safe → broadly ethical → follows Anthropic’s guidelines → genuinely helpful', options: { fontSize: 16, color: HEX.text } },
-  ], { x: lx + 0.2, y: y + 3.25, w: cw - 0.4, h: 1.3, valign: 'top' }));
+    { text: 'broadly safe → broadly ethical → follows Anthropic’s guidelines → genuinely helpful', options: { fontSize: 16, color: HEX.text, breakLine: true, paraSpaceAfter: 6 } },
+    { text: 'Anthropic calls it “a perpetual work in progress.”', options: { fontSize: 16, color: HEX.muted, italic: true } },
+  ], { x: lx + 0.2, y: y + 3.25, w: cw - 0.4, h: 1.38, valign: 'top' }));
 
   // right: verifiable rewards
   const rx = MX + cw + 0.35;

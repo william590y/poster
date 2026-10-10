@@ -9,6 +9,10 @@ clips, embedded YouTube videos and speaker notes on every slide), plus an intera
 > here. **Download the full deck from the [`ai-safety-deck` release](https://github.com/william590y/poster/releases/tag/ai-safety-deck).**
 > The web version re-encodes every clip as H.264/VP9 video (~2 MB each).
 
+> **Cornell Splash version.** A 110-minute, grades 7–12 deck built from this one (class M1237 “AI Alignment and Safety”,
+> Nov 21, 2026): `./build_splash.sh` → `AI_Alignment_and_Safety_Splash.pptx`. Presenter guide, run of show and what to cut:
+> [`SPLASH.md`](SPLASH.md).
+
 Built from William Liaw's one-page outline (`assets/original/outline.pptx`), expanded into five acts:
 
 | Act | Sections |

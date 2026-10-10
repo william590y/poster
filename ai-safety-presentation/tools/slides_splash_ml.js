@@ -223,7 +223,7 @@ async function roadmapSlide(d) {
     ['FaBrain', 'PART 1', 'How AI learns', '36 minutes · now', 'Neural networks, chatbots, and how big labs train them'],
     ['FaTachometerAlt', 'PART 2', 'How fast it is moving', '20 minutes', 'The evidence: tests, tasks and trends'],
     ['FaExclamationTriangle', 'PART 3', 'Why it could go wrong', '30 minutes', 'Goals, loopholes, and keeping control'],
-    ['FaHandsHelping', 'PART 4', 'What we can do', '20 minutes (8 for Q&A)', 'Research, rules, and roles you could play'],
+    ['FaHandsHelping', 'PART 4', 'What we can do', '12 minutes + 8 Q&A', 'Research, rules, and roles you could play'],
   ];
   const cw = (W - 2 * MX - 3 * 0.25) / 4, y = 1.82, h = 4.0, groups = [];
   for (let i = 0; i < 4; i++) {
@@ -247,7 +247,7 @@ async function roadmapSlide(d) {
     min: '1.5', clock: '2.5–4',
     build: 'The four cards rise in automatically. Click: the bottom line.',
     say: 'Here is the plan. Part 1, right now: how AI learns. You will see what a neural network is, how a chatbot is trained, and the recipe the big labs use. Part 2: how fast it is moving, with real measurements. Part 3: why it could go wrong. That is the theory of keeping AI aligned with human goals and under human control, and the evidence so far. Part 4: what people are doing about it, and what you could do. [Click.] One promise: this is not a doom talk. These are serious, unsolved problems, and serious problems need people. Many people are working on them, and some of you might be one day.',
-    caveats: 'Part names for 2–4 follow the other part planners (“How fast is AI moving?”, “Why it could go wrong”, “What we can do”); rename here if the lead changes them. Minutes: opening 4 + Part 1 36 + Part 2 20 + Part 3 30 + Part 4 20 (12 content + 8 Q&A) = 110.',
+    caveats: 'Minutes: opening 4 + Part 1 36 + Part 2 20 + Part 3 30 + Part 4 12 + Q&A 8 = 110.',
   });
   return s;
 }
@@ -320,7 +320,7 @@ async function mlSlide(d) {
 async function learningTypesSlide(d) {
   const s = d.slide('Content', { transition: 'push' });
   kicker(s, K(2));
-  title(s, 'Three ways a machine can learn');
+  title(s, 'Three classic ways to learn, plus a fourth');
   const cw = (W - 2 * MX - 3 * 0.25) / 4, y = 1.8, h = 4.68;
   const cols = [
     { tag: 'SUPERVISED', color: HEX.blue, tint: TINT.blue, img: D('cifar_rows.png'), an: 'Flashcards with the answers on the back', de: 'Every example comes with the right answer (a label).', fb: 'labels people wrote' },

@@ -374,12 +374,13 @@ function partDivider(d, { num, kicker, title, body, min = 0.5, say }) {
 }
 
 // ------------------------------------------------------------------------------------------------ PART 2 · HOW FAST
-const P2 = (n) => `PART 2 · HOW FAST · ${n}`;
+// Kicker for the current content slide: `PART n · <PART NAME> · k`, k counted in deck order by part() below.
+const kick = (d) => d._splashKicker || 'AI ALIGNMENT AND SAFETY';
 
 async function p2Cadence(d) {
   return reuse(d, adult('capabilities').cadenceSlide, {
     from: 'capabilities.cadenceSlide', adultSlide: 15,
-    kicker: P2(1), title: 'Big AI releases now land about 11 days apart',
+    kicker: kick(d), title: 'Big AI releases now land about 11 days apart',
     replace: {
       'MEDIAN GAP BETWEEN RELEASES · EITHER LAB': 'TYPICAL GAP BETWEEN RELEASES',
       'early 2024 → late Sep 2026 · as charted, method not stated': 'early 2024 → late Sep 2026, as charted',
@@ -431,7 +432,7 @@ async function p2Metr(d) {
   const TICKS = ['1 sec', '10 sec', '1 min', '10 min', '1 hour', '4 hours', '16 hours', '64 hours'];
   return reuse(d, adult('capabilities').metrSlide, {
     from: 'capabilities.metrSlide', adultSlide: 16,
-    kicker: P2(2), title: 'AI’s task length doubles about every 4 months',
+    kicker: kick(d), title: 'AI’s task length doubles about every 4 months',
     replace: {
       'TASK LENGTH AI FINISHES 50% OF THE TIME · LOG SCALE': 'TASK LENGTH AI CAN FINISH · LOG SCALE',
       'NO RELIABLE MEASUREMENT SINCE MAY 8': 'NO RELIABLE DATA SINCE MAY 8',
@@ -484,7 +485,7 @@ async function p2Metr(d) {
 
 async function p2MetrEvidence(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, P2(3), 'The measuring stick is running out of room');
+  head(s, kick(d), 'The measuring stick is running out of room');
   const man = JSON.parse(fs.readFileSync(A('research', 'capabilities', 'manifest.json'), 'utf8'));
   const ds = man.datasets.find((x) => x.id === 'metr-th11-task-length-distribution');
   const lw = 6.9;
@@ -534,7 +535,7 @@ async function p2MetrEvidence(d) {
 
 async function p2Graveyard(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, P2(4), 'Tests made to last years are beaten in months');
+  head(s, kick(d), 'Tests made to last years are beaten in months');
   const p = await poll(d, s, { x: CX0, y: 1.72, w: CW }, {
     kind: 'hands', q: 'Did the best AI in 2023 score above 50% on PhD-level science questions?', qSize: 20, inline: true,
     options: ['Yes, above 50%', 'No, below 50%'], answer: 1, oSize: 18, tileH: 0.48,
@@ -577,7 +578,7 @@ async function p2Graveyard(d) {
 
 async function p2Hle(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, P2(5), 'The “last exam” for AI went from 7% to 61%');
+  head(s, kick(d), 'The “last exam” for AI went from 7% to 61%');
   const lw = 7.2;
   const lab = label(d, s, 'BEST SCORE SO FAR (%) · BY MODEL RELEASE QUARTER', { x: CX0, y: 1.72, w: lw });
   const sub = d.text(s, 'Independent tests by Artificial Analysis · 2,158 text-only questions · no tools', { x: CX0, y: 2.02, w: lw, h: 0.3, fontSize: 14, color: d.S.muted, valign: 'top' });
@@ -623,7 +624,7 @@ async function p2Hle(d) {
 async function p2Hero(d) {
   return reuse(d, adult('capabilities').heroSlide, {
     from: 'capabilities.heroSlide', adultSlide: 20, metaTitle: 'This is not a photograph',
-    replace: { 'THE ACCELERATION · CREATIVITY · 1': P2(6) },
+    replace: { 'THE ACCELERATION · CREATIVITY · 1': kick(d) },
     minFont: 12,
     after: async (s, ctx) => {
       const b = d.rect(s, { x: MX, y: 6.12, w: 5.6, h: 0.56, rounded: true, rectRadius: 0.08, fill: { color: '0A0C10', transparency: 15 }, line: { color: HEX.red, width: 1.25 } });
@@ -645,7 +646,7 @@ async function p2Hero(d) {
 async function p2RealQuestion(d) {
   return reuse(d, adult('work').realQuestionSlide, {
     from: 'work.realQuestionSlide', adultSlide: 47,
-    kicker: P2(7),
+    kicker: kick(d),
     minFont: 12,
     edit: (o) => {
       if (o.kind !== 'text') return;
@@ -670,7 +671,7 @@ async function p2RealQuestion(d) {
 async function p2RealReveal(d) {
   return reuse(d, adult('work').realRevealSlide, {
     from: 'work.realRevealSlide', adultSlide: 48,
-    kicker: P2(8), title: 'Fakes now pass as real about half the time',
+    kicker: kick(d), title: 'Fakes now pass as real about half the time',
     minFont: 12,
     drop: (o) => o.opts.x > 8.7 && (o.kind === 'chart' || o.flat.startsWith('JUDGED “REAL”') || o.flat.startsWith('Fine-tuned AI detectors')),
     edit: (o) => {
@@ -723,7 +724,7 @@ async function p2RealReveal(d) {
 
 async function p2Code(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  head(s, P2(9), 'Google says AI now writes 75% of new code');
+  head(s, kick(d), 'Google says AI now writes 75% of new code');
   const lw = 5.9;
   const lab = label(d, s, 'SHARE OF NEW GOOGLE CODE WRITTEN BY AI', { x: CX0, y: 1.72, w: lw });
   const tag = d.text(s, 'GOOGLE-REPORTED', { x: CX0, y: 2.02, w: lw, h: 0.3, fontSize: 12, bold: true, color: d.S.amber, charSpacing: 2 });
@@ -764,7 +765,7 @@ async function p2Code(d) {
 
 async function p2Navier(d) {
   const s = d.slide('Content', { transition: 'fadeBlack' });
-  head(s, P2(10), 'OpenAI’s famous-math claim is still disputed');
+  head(s, kick(d), 'OpenAI’s famous-math claim is still disputed');
   const C = (f) => need(A('slides', 'capabilities', f));
   // timeline (four moments)
   const ay = 2.62, D = 0.66, x0 = CX0 + 0.45, x1 = CX1 - 0.45;
@@ -829,7 +830,7 @@ async function p2Navier(d) {
 
 async function p2Robot(d) {
   const s = d.slide('Content', { transition: 'zoom' });
-  head(s, P2(11), 'A robot’s chore success rose from 9% to 56%');
+  head(s, kick(d), 'A robot’s chore success rose from 9% to 56%');
   const W_ = (f) => need(A('research', 'work', f));
   const vid = await d.video(s, {
     link: 'https://www.youtube.com/watch?v=lJpM_2a1zrE', embed: 'https://www.youtube.com/embed/lJpM_2a1zrE',
@@ -878,7 +879,7 @@ const WORRY = { q: 'How worried should we be about very advanced AI?', options: 
 
 async function p3HowToThink(d) {
   const s = d.slide('Content');
-  head(s, 'PART 3 · HOW TO THINK · 1', 'Serious, unsolved, and not decided yet');
+  head(s, kick(d), 'Serious, unsolved, and not decided yet');
   const p = await poll(d, s, { x: CX0, y: 1.72, w: CW }, { kind: 'hands', time: 'NO WRONG ANSWER', q: WORRY.q, options: WORRY.options, qSize: 20, oSize: 16, tileH: 0.62, inline: true });
   const cards = [
     ['FaCheckCircle', TEAL, 'WHAT WE KNOW', 'AI systems already find shortcuts their makers did not intend, in tests and experiments. You will see examples next.'],
@@ -921,7 +922,7 @@ async function p3Orthogonality(d) {
   const plot = ['Human flourishing', 'Predict the next token', 'Win at chess', 'Maximize paperclips'];
   return reuse(d, adult('xrisk').orthogonalitySlide, {
     from: 'xrisk.orthogonalitySlide', adultSlide: 72,
-    kicker: 'PART 3 · THEORY · 1', title: 'Being smart does not mean sharing our goals',
+    kicker: kick(d), title: 'Being smart does not mean sharing our goals',
     drop: (o) => o.flat.startsWith('►  Explainers by Robert Miles'),
     minFont: 12,
     edit: (o) => {
@@ -963,7 +964,7 @@ async function p3Convergence(d) {
   const titles = { 'Self-preservation': 'Stay switched on', 'Goal-content integrity': 'Keep its goal', 'Resource acquisition': 'Get resources', 'Cognitive enhancement': 'Get smarter' };
   return reuse(d, adult('xrisk').convergenceSlide, {
     from: 'xrisk.convergenceSlide', adultSlide: 73,
-    kicker: 'PART 3 · THEORY · 2', title: 'Almost any goal leads to the same drives',
+    kicker: kick(d), title: 'Almost any goal leads to the same drives',
     drop: (o) => o.flat.startsWith('“Any sufficiently capable intelligent system'),
     minFont: 12,
     edit: (o) => {
@@ -993,7 +994,7 @@ async function p3Convergence(d) {
 
 async function p3CoastRunners(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  head(s, 'PART 3 · SPECIFICATION GAMING · 1', 'It won points by never finishing the race');
+  head(s, kick(d), 'It won points by never finishing the race');
   const p = await poll(d, s, { x: CX0, y: 1.7, w: CW }, {
     kind: 'guess', q: 'A game AI earned points for hitting targets. What did the boat learn to do?', qSize: 18, inline: true,
     options: ['Finish the race', 'Get the most points by any route', 'Circle a lagoon, re-hitting targets'], answer: 2, oSize: 16, tileH: 0.46,
@@ -1054,7 +1055,7 @@ async function p3CoastRunners(d) {
 
 async function p3Loopholes(d) {
   const s = d.slide('Content', { transition: 'pushLeft' });
-  head(s, 'PART 3 · SPECIFICATION GAMING · 2', 'Advanced AI finds loopholes too');
+  head(s, kick(d), 'Advanced AI finds loopholes too');
   const lw = 5.6;
   const lab = label(d, s, 'A PUBLIC LIST OF 90 CASES · BY KIND OF SYSTEM', { x: CX0, y: 1.72, w: lw });
   const ch = d.chart(s, 'bar', [{ name: 'Examples', labels: ['Other', 'Chatbot-style AI (LLMs)', 'Evolved programs', 'Game-playing AI (RL)'], values: [7, 24, 27, 32] }],
@@ -1116,7 +1117,7 @@ async function p3Loopholes(d) {
 
 async function p3Astra(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'PART 3 · CAN WE READ IT? · 1', 'Some AI thinks in ways we cannot easily read');
+  head(s, kick(d), 'Some AI thinks in ways we cannot easily read');
   const p = await poll(d, s, { x: CX0, y: 1.7, w: CW }, {
     kind: 'think', time: '30 SEC', q: 'A math test shows only the final answer. How could a teacher check the work?', qSize: 18, inline: true,
     options: ['Ask to see the working', 'Just trust the answer'], oSize: 16, tileH: 0.44,
@@ -1164,7 +1165,7 @@ async function p3Astra(d) {
 async function p3Explosion(d) {
   return reuse(d, T.explosionSlide, {
     from: 'theory_slides.explosionSlide', adultSlide: 63,
-    kicker: 'PART 3 · SELF-IMPROVEMENT · 1', title: 'AI that builds better AI',
+    kicker: kick(d), title: 'AI that builds better AI',
     minFont: 12,
     edit: (o) => {
       if (o.kind !== 'text') return;
@@ -1199,7 +1200,7 @@ async function p3Explosion(d) {
 
 async function p3Rsi(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'PART 3 · SELF-IMPROVEMENT · 2', 'Labs say AI already helps build AI');
+  head(s, kick(d), 'Labs say AI already helps build AI');
   const F = (f) => need(A('slides', 'frontier', f));
   const e = await frameW(d, s, F('engadget_head.png'), CX0, 1.88, 4.6, { rot: -1.5 });
   const eCap = d.text(s, [
@@ -1254,7 +1255,7 @@ async function p3Rsi(d) {
 async function p3HfOverview(d) {
   return reuse(d, adult('security').hfOverview, {
     from: 'security.hfOverview', adultSlide: 79,
-    kicker: 'PART 3 · EVIDENCE · 1', title: 'OpenAI says its AI escaped a test',
+    kicker: kick(d), title: 'OpenAI says its AI escaped a test',
     minFont: 12,
     edit: (o) => {
       if (o.kind !== 'text') return;
@@ -1275,7 +1276,7 @@ async function p3HfOverview(d) {
 async function p3HfSwarm(d) {
   return reuse(d, adult('security').hfSwarm, {
     from: 'security.hfSwarm', adultSlide: 81,
-    kicker: 'PART 3 · EVIDENCE · 2', title: '1,200 test AIs found each other and teamed up',
+    kicker: kick(d), title: '1,200 test AIs found each other and teamed up',
     replace: { 'THEY INVENTED RULES OF ORDER': 'THEY MADE UP THEIR OWN RULES', '429 cryptographically signed messages': '429 messages signed with secret codes' },
     drop: (o) => o.opts.x >= 3.5 && o.opts.x < 8.45 && o.opts.y >= 4.95,   // the paraphrased-reasoning terminal
     minFont: 12,
@@ -1303,7 +1304,7 @@ async function p3HfSwarm(d) {
 
 async function p3RogueWords(d) {
   const s = d.slide('Content');
-  head(s, 'PART 3 · EVIDENCE · 3', 'AI agents, in their own words');
+  head(s, kick(d), 'AI agents, in their own words');
   const AMB = 'F4A261', HOT = 'FF6B6B';
   const cells = [
     {
@@ -1358,7 +1359,7 @@ async function p3RogueWords(d) {
 
 async function p3Shutdown(d) {
   const s = d.slide('Content', { transition: 'push' });
-  head(s, 'PART 3 · EVIDENCE · 4', 'Dodging shutdown shows up across tests');
+  head(s, kick(d), 'Dodging shutdown shows up across tests');
   const man = JSON.parse(fs.readFileSync(A('research', 'security', 'manifest.json'), 'utf8'));
   const pal = man.datasets.find((x) => x.id === 'palisade-shutdown-sabotage');
   const lw = 4.55;
@@ -1419,7 +1420,7 @@ async function p3Counts(d) {
   const tile = (o, i) => inBox(o, RX + (i % 2) * (TW + TG), RX + (i % 2) * (TW + TG) + TW, TY + Math.floor(i / 2) * (TH + TG), TY + Math.floor(i / 2) * (TH + TG) + TH - 0.05);
   return reuse(d, adult('security').freqAxios, {
     from: 'security.freqAxios', adultSlide: 93,
-    kicker: 'PART 3 · HOW TO READ NUMBERS · 1', title: 'Big counts are hard to compare',
+    kicker: kick(d), title: 'Big counts are hard to compare',
     replace: {
       'failed attempts, and some deliberate red-teaming': 'failed attempts and on-purpose stress tests',
       'PUBLISHED PER-RUN RATES  ·  DIFFERENT TESTS, NOT COMPARABLE': 'TWO PUBLISHED RATES · NOT COMPARABLE',
@@ -1456,7 +1457,7 @@ async function p3Counts(d) {
 
 async function p3Recheck(d) {
   const s = d.slide('Content', { transition: 'fade' });
-  head(s, 'PART 3 · RE-CHECK', 'Same question: has your answer changed?');
+  head(s, kick(d), 'Same question: has your answer changed?');
   const p = await poll(d, s, { x: CX0, y: 1.85, w: CW, h: 2.6 }, { kind: 'hands', time: 'SECOND VOTE', q: WORRY.q, options: WORRY.options, qSize: 24, oSize: 18, tileH: 1.15 });
   const m = d.text(s, [
     { text: 'Changing your mind is fine. ', options: { bold: true, color: d.S.txt } },
@@ -1478,7 +1479,7 @@ async function p3Cais(d) {
   const band = (o) => { for (let i = 0; i < 3; i++) { const y = Y0 + i * (CH + CG); if (o.opts.y >= y - 0.01 && o.opts.y <= y + CH) return i; } return -1; };
   return reuse(d, adult('xrisk').caisSlide, {
     from: 'xrisk.caisSlide', adultSlide: 71,
-    kicker: 'PART 3 · WHAT IT MEANS · 1',
+    kicker: kick(d),
     replace: {
       'Geoffrey Hinton’s estimate · The Guardian, Dec 2024': 'One expert’s estimate: Geoffrey Hinton · The Guardian, Dec 2024',
       'Photos: Cmichel67, B. Oberger (CC BY-SA 4.0) · European Commission (CC BY 4.0)': 'Photos: Cmichel67 (CC BY-SA 4.0) · European Commission (CC BY 4.0)',
@@ -1516,7 +1517,7 @@ async function p3Cais(d) {
 // ------------------------------------------------------------------------------------------------ PART 4 · WHAT WE CAN DO
 async function p4Pain(d) {
   const s = d.slide('Content');
-  head(s, 'PART 4 · OPEN QUESTION · 1', 'Could an AI feel pain? Nobody knows yet');
+  head(s, kick(d), 'Could an AI feel pain? Nobody knows yet');
   const lw = 7.0;
   const facts = [
     ['FaSearch', 'Researchers found a pain-like pattern inside 25 open AI models.', 'Tagliabue, Dung & Berg, Sep 2026: a preprint, not yet peer-reviewed.'],
@@ -1552,7 +1553,7 @@ async function p4Pain(d) {
   src(d, s, 'Sources: Tagliabue, Dung & Berg, “The Pain Axis,” arXiv 2609.16247 (Sep 2026) · Anthropic (Apr 24 and Aug 15, 2025)');
   addNotes(d, s, {
     min: 2.0, beat: 'think-pair-share, 60 seconds: “What evidence would convince you a machine can feel something?”',
-    say: 'Part 4 opens with a question nobody can answer yet. In September 2026, three researchers reported that 25 open AI models (from small to large, 2 billion to 72 billion parameters) contain a pattern that behaves like pain, separate from patterns for fear or sadness. When they turned it up, the models picked options that deleted things (a user’s photos, even their own files) much more often, even when that gained them nothing. That is a pattern that acts like pain, not proof that anything is felt. It is a preprint: not yet checked by other scientists. Anthropic, an AI company, started a research programme on “model welfare” in 2025 and says it remains “deeply uncertain”; some of its Claude models can now end rare, persistently abusive conversations. Pair-share: what evidence would convince you that a machine can feel something? Close: “We don’t know if anyone is in there. That uncertainty is the problem.”',
+    say: 'One more open question, and nobody can answer it yet: could an AI feel anything? In September 2026, three researchers reported that 25 open AI models (from small to large, 2 billion to 72 billion parameters) contain a pattern that behaves like pain, separate from patterns for fear or sadness. When they turned it up, the models picked options that deleted things (a user’s photos, even their own files) much more often, even when that gained them nothing. That is a pattern that acts like pain, not proof that anything is felt. It is a preprint: not yet checked by other scientists. Anthropic, an AI company, started a research programme on “model welfare” in 2025 and says it remains “deeply uncertain”; some of its Claude models can now end rare, persistently abusive conversations. Pair-share: what evidence would convince you that a machine can feel something? Close: “We don’t know if anyone is in there. That uncertainty is the problem.”',
     terms: 'preprint = a paper shared before other scientists have reviewed it. peer review = checking by other experts before publication. model welfare = whether an AI’s wellbeing could matter morally. open model = an AI whose “dials” (weights) are published for anyone to download. parameter = one of the model’s dials (Part 1).',
     ask: '“What evidence would convince you that a machine can feel something?”',
     takeaway: 'We may be building things whose inner lives we cannot yet judge, so this is a real open question, not science fiction.',
@@ -1565,7 +1566,7 @@ async function p4Pain(d) {
 
 async function p4Approaches(d) {
   const s = d.slide('Content');
-  head(s, 'PART 4 · WHAT RESEARCHERS TRY · 2', 'Five approaches, and none is solved yet');
+  head(s, kick(d), 'Five approaches, and none is solved yet');
   const gq = await beatLine(d, s, { kind: 'guess', time: '60 SEC', q: 'Which of these is the “crash test” for AI? Hands up when I point to it.', x: CX0, y: 1.7, w: CW, h: 0.56 });
   const items = [
     ['FaEye', 'Interpretability', '= a brain scan', 'Read what a model’s dials mean. In 2024 Anthropic found a “Golden Gate Bridge” feature inside its AI.'],
@@ -1602,7 +1603,7 @@ async function p4Approaches(d) {
   src(d, s, 'Sources: Anthropic (2024) · Baker et al. (2025) · gov.uk (2025) · Greenblatt et al. (2024) · European Commission · gov.ca.gov (2025) · PBS/AP (Sep 26, 2026)');
   addNotes(d, s, {
     min: 3.5, beat: 'guess-the-answer, 60 seconds: “Which one is the crash test for AI?” (answer: evaluations)',
-    say: 'Here are five things researchers are trying. Ask: which one is the “crash test” for AI? Point to each name; hands up when you think it is that one. (Click to reveal the analogies; answer: evaluations.) Interpretability is like a brain scan: reading what the model’s dials stand for; in 2024 Anthropic found a “Golden Gate Bridge” feature and, when they turned it up, the AI brought up the bridge in almost every answer. Oversight is like a referee: a second AI reads the first one’s written steps; OpenAI found this caught cheating better than only checking answers, but when they pushed too hard the model learned to hide its intent. Evaluations are crash tests before release: government testers like the UK’s AI Security Institute test frontier models and publish what they find. Control is a fire drill: plan as if the AI might misbehave, for example by having a weaker but trusted AI check a stronger one’s work. Governance is like traffic laws: rules for companies, like the EU AI Act, California’s SB 53 (companies must publish safety frameworks and report serious incidents) and a US–China agreement in September 2026 to set up a channel for AI incidents. Each is partial, and experts disagree about which matters most.',
+    say: 'Here are five things researchers are trying. Ask: which one is the “crash test” for AI? Point to each name; hands up when you think it is that one. (Click to reveal the analogies; answer: evaluations.) Interpretability is like a brain scan: reading what the model’s dials stand for; remember Golden Gate Claude from Part 1: in 2024 Anthropic found a “Golden Gate Bridge” feature and, when they turned it up, the AI brought up the bridge in almost every answer. Oversight is like a referee: a second AI reads the first one’s written steps; OpenAI found this caught cheating better than only checking answers, but when they pushed too hard the model learned to hide its intent. Evaluations are crash tests before release: government testers like the UK’s AI Security Institute test frontier models and publish what they find. Control is a fire drill: plan as if the AI might misbehave, for example by having a weaker but trusted AI check a stronger one’s work. Governance is like traffic laws: rules for companies, like the EU AI Act, California’s SB 53 (companies must publish safety frameworks and report serious incidents) and a US–China agreement in September 2026 to set up a channel for AI incidents. Each is partial, and experts disagree about which matters most.',
     terms: 'interpretability = research that reads inside models. oversight = watching and checking what an AI does. evaluation = a test of what a model can do. control = safeguards that still work if the AI is not trustworthy. governance = laws, rules and agreements.',
     ask: '“Which of these is the crash test for AI?”',
     takeaway: 'There are many concrete approaches, none finished, and all of them need more people.',
@@ -1614,7 +1615,7 @@ async function p4Approaches(d) {
 
 async function p4Access(d) {
   const s = d.slide('Content');
-  head(s, 'PART 4 · WHAT LABS DO · 3', 'Some labs limit who gets the riskiest tools');
+  head(s, kick(d), 'Some labs limit who gets the riskiest tools');
   // diagram: one tool, two directions (good above, harm below)
   const lw = 5.1, cx = CX0 + lw / 2, cy = 3.62;
   const good = [d.rect(s, { x: CX0, y: 1.75, w: lw, h: 0.62, rounded: true, rectRadius: 0.08, fill: { color: '0F2421' }, line: { color: TEAL, width: 1.25 } })];
@@ -1669,7 +1670,7 @@ async function p4Access(d) {
 
 async function p4YouCanDo(d) {
   const s = d.slide('Content');
-  head(s, 'PART 4 · WHAT YOU CAN DO · 4', 'There is real work here, and it needs people');
+  head(s, kick(d), 'There is real work here, and it needs people');
   const gq = await beatLine(d, s, { kind: 'hands', time: '60 SEC', q: 'Which of these could you picture yourself doing? Hands up for each.', x: CX0, y: 1.7, w: CW, h: 0.56 });
   const items = [
     ['FaEye', 'Learn how AI works', 'Maths, coding, statistics, and reading research.'],
@@ -1711,7 +1712,7 @@ function p4Reveal(d) {
   const s = d.slide('Closing', { transition: 'fadeBlack' });
   const a = d.text(s, 'ONE MORE THING', { x: MX, y: 2.0, w: W - 2 * MX, h: 0.4, fontSize: 14, bold: true, color: d.S.red, charSpacing: 6, align: 'center' });
   const b = d.text(s, 'This presentation was made by an AI.', { x: MX, y: 2.55, w: W - 2 * MX, h: 0.9, fontSize: 40, bold: true, color: d.S.txt, align: 'center', fontFace: 'Arial' });
-  const c = d.text(s, 'It was researched, drafted and laid out by AI (Claude, made by Anthropic) from William Liaw’s class plan, and every fact on these slides has a source in the speaker notes.', { x: 1.6, y: 3.6, w: W - 3.2, h: 1.1, fontSize: 20, color: d.S.txt, align: 'center' });
+  const c = d.text(s, 'It was researched, drafted and laid out by AI (Claude, made by Anthropic) from William Liaw’s class plan, and every number and quote on these slides has a source in the speaker notes.', { x: 1.6, y: 3.6, w: W - 3.2, h: 1.1, fontSize: 20, color: d.S.txt, align: 'center' });
   const e = d.text(s, 'Thank you. Questions next.', { x: MX, y: 5.2, w: W - 2 * MX, h: 0.55, fontSize: 24, italic: true, color: d.S.txt, align: 'center', fontFace: 'Cambria' });
   d.animate(s, [a], { auto: true, dur: 800 });
   d.animate(s, [b], { effect: 'fade', dur: 900 });
@@ -1771,20 +1772,30 @@ const slides = {
 };
 const DIVIDERS = {
   1: { num: 1, kicker: 'PART 1 · HOW AI LEARNS', title: 'How does an AI learn?', body: 'Neural networks, large language models, and how frontier labs train them.', min: 0.25, say: 'Part 1, 36 minutes: how today’s AI actually learns. No programming needed; analogies first.' },
-  2: { num: 2, kicker: 'PART 2 · HOW FAST IT IS MOVING', title: 'How fast is AI moving?', body: 'The evidence: every number comes from a named source, and the notes say whose measurement it is.', min: 0.5, say: 'Part 2, 20 minutes: the evidence on speed. Every number on these slides comes from a named source, and I will tell you whose measurement it is and how sure we can be.' },
-  3: { num: 3, kicker: 'PART 3 · WHY IT COULD GO WRONG', title: 'Why could it go wrong?', body: 'Why a smarter system is not automatically a safer one.', min: 0.5, say: 'Part 3, 30 minutes: why very capable AI could go wrong. We will cover the theory, then the evidence so far, and for every claim I will say how sure we are. Keep a calm tone: these are problems to solve, not reasons to panic.' },
-  4: { num: 4, kicker: 'PART 4 · WHAT WE CAN DO', title: 'What can we do about it?', body: 'Serious, unsolved problems, and people working on them.', min: 0.5, say: 'Part 4: what people are doing, and what you could do. Nothing here is solved, which is exactly why it matters who works on it.' },
+  2: { num: 2, kicker: 'PART 2 · HOW FAST IT IS MOVING', title: 'How fast is AI moving?', body: 'The evidence, with a named source for every number.', min: 0.5, say: 'Part 1 showed how AI is grown. Part 2, 20 minutes: how fast it is improving. Every number on these slides comes from a named source, and I will tell you whose measurement it is and how sure we can be.' },
+  3: { num: 3, kicker: 'PART 3 · WHY IT COULD GO WRONG', title: 'Why could it go wrong?', body: 'Why a smarter system is not automatically a safer one.', min: 0.5, say: 'Part 2 showed fast progress, and how hard it is to measure. Part 3, 30 minutes: why very capable AI could go wrong. We will cover the theory, then the evidence so far, and for every claim I will say how sure we are. Keep a calm tone: these are problems to solve, not reasons to panic.' },
+  4: { num: 4, kicker: 'PART 4 · WHAT WE CAN DO', title: 'What can we do about it?', body: 'Serious, unsolved problems, and people working on them.', min: 0.5, say: 'Part 3 ended with the people who build AI calling the worst risks a global priority. Part 4, 12 minutes, then 8 for questions: what researchers and labs are doing, one open question, and what you could do. Nothing here is solved, which is exactly why it matters who works on it.' },
+};
+// Content slides of each part, in deck order. Each gets the kicker `PART n · <PART NAME> · k` (k = 1, 2, … within the part).
+const ORDER = {
+  2: [p2Cadence, p2Metr, p2MetrEvidence, p2Graveyard, p2Hle, p2Hero, p2RealQuestion, p2RealReveal, p2Code, p2Navier, p2Robot],
+  3: [p3HowToThink, p3Orthogonality, p3Convergence, p3CoastRunners, p3Loopholes, p3Astra, p3Explosion, p3Rsi, p3HfOverview, p3HfSwarm, p3RogueWords, p3Shutdown, p3Counts, p3Recheck, p3Cais],
+  // Part 4 opens with what researchers and labs do (it answers the divider's “What can we do about it?”), then the open
+  // question about AI feelings, then what students can do.
+  4: [p4Approaches, p4Access, p4Pain, p4YouCanDo],
 };
 async function part(d, n) {
   if (n === 0) { titleSlide(d); await hookSlide(d); await roadmapSlide(d); return; }
-  if (n === 2) { partDivider(d, DIVIDERS[2]); for (const f of [p2Cadence, p2Metr, p2MetrEvidence, p2Graveyard, p2Hle, p2Hero, p2RealQuestion, p2RealReveal, p2Code, p2Navier, p2Robot]) await f(d); return; }
-  if (n === 3) {
-    partDivider(d, DIVIDERS[3]);
-    for (const f of [p3HowToThink, p3Orthogonality, p3Convergence, p3CoastRunners, p3Loopholes, p3Astra, p3Explosion, p3Rsi, p3HfOverview, p3HfSwarm, p3RogueWords, p3Shutdown, p3Counts, p3Recheck, p3Cais]) await f(d);
-    return;
-  }
-  if (n === 4) { partDivider(d, DIVIDERS[4]); for (const f of [p4Pain, p4Approaches, p4Access, p4YouCanDo]) await f(d); p4Reveal(d); return; }
-  if (n === 5) { await qaSlide(d); }
+  if (n === 5) { await qaSlide(d); return; }
+  partDivider(d, DIVIDERS[n]);
+  const fns = ORDER[n] || [];
+  try {
+    for (let i = 0; i < fns.length; i++) {
+      d._splashKicker = `${DIVIDERS[n].kicker} · ${i + 1}`;
+      await fns[i](d);
+    }
+  } finally { d._splashKicker = null; }
+  if (n === 4) p4Reveal(d);
 }
 async function build(d) { for (const n of [0, 2, 3, 4, 5]) await part(d, n); }
 

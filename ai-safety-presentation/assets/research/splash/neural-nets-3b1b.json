@@ -1,0 +1,127 @@
+{
+  "group": "neural-nets-3b1b",
+  "items": [
+    {
+      "id": "nn-ch1-but-what-is-a-neural-network",
+      "slide_topic": "Deep learning intro: what a neural network is (handwritten-digit example)",
+      "type": "video",
+      "file": "nn-3b1b-aircAruvnKk-maxresdefault.jpg",
+      "headline": "But what is a neural network? | Deep learning chapter 1",
+      "dek": "An overview of what a neural network is, introduced in the context of recognizing hand-written digits.",
+      "outlet": "3Blue1Brown (YouTube)",
+      "author": "Grant Sanderson",
+      "date": null,
+      "url": "https://www.youtube.com/watch?v=aircAruvnKk",
+      "caption": "Thumbnail: a handwritten 3 on the left feeds a layered network of glowing connections; the output digit 3 is lit on the right.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Title: YouTube oEmbed endpoint (https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=aircAruvnKk&format=json), loaded. Dek: 3blue1brown.com/lessons/neural-networks, loaded (lesson page is titled 'But what is a Neural Network?'; it is a written companion). Thumbnail: i.ytimg.com maxresdefault, 1280x720, viewed. CLIP (timestamps NOT verified; the video itself could not be loaded): candidate window 0:00-1:45 inside the 0:00 chapter 'Neural networks: the intuition and the challenge' (next chapter starts 2:56, 'The layered structure of a neural network'). Chapter list is from bibigpt.co, an AI video summary that says it is not YouTube's own chapters. Teacher should check the player before using. Author 'Grant Sanderson' per podwise.ai search snippet, not loaded. Upload date not verified: thetvdb.com episode 6410263 shows 2017-10-05 but its page title is the placeholder 'Unknown Title'."
+    },
+    {
+      "id": "nn-ch2-gradient-descent",
+      "slide_topic": "How a network learns: gradient descent (walking downhill on the cost function)",
+      "type": "video",
+      "file": "nn-3b1b-IHZwWFHWa-w-maxresdefault.jpg",
+      "headline": "Gradient descent, how neural networks learn | Deep Learning Chapter 2",
+      "dek": "Gradient descent just means walking in the downhill direction to minimize the cost function.",
+      "outlet": "3Blue1Brown (YouTube)",
+      "author": "Grant Sanderson",
+      "date": null,
+      "url": "https://www.youtube.com/watch?v=IHZwWFHWa-w",
+      "caption": "Thumbnail: a red 3D cost landscape with contour lines; a yellow dashed path runs downhill toward a low point.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Title: YouTube oEmbed endpoint, loaded. Dek: 3blue1brown.com/lessons/gradient-descent, loaded (the lesson page is titled 'Gradient descent, how neural networks learn'). Thumbnail: maxresdefault, 1280x720, viewed. CLIP (timestamps NOT verified): candidate window 5:12-7:12 at chapter '5m12s Gradient descent: the art of finding the minimum' (next chapter 9:23). Chapter list from bibigpt.co AI summary; the page says these are not YouTube's own chapters. Uploader 'Grant Sanderson' per podwise.ai snippet, not loaded. Upload date not verified: a search snippet (Wellesley course page, not loaded) gives Oct 16, 2017."
+    },
+    {
+      "id": "nn-ch3-backpropagation-intuitively",
+      "slide_topic": "How a network learns: backpropagation (sending the error backwards)",
+      "type": "video",
+      "file": "nn-3b1b-Ilg3gGewQ5U-maxresdefault.jpg",
+      "headline": "Backpropagation, intuitively | Deep Learning Chapter 3",
+      "dek": "An overview of backpropagation, the algorithm behind how neural networks learn.",
+      "outlet": "3Blue1Brown (YouTube)",
+      "author": "Grant Sanderson",
+      "date": "2017-11-03",
+      "url": "https://www.youtube.com/watch?v=Ilg3gGewQ5U",
+      "caption": "Thumbnail: arrows run backwards through a network, from the output toward the input, marking how each connection should change.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Title: YouTube oEmbed endpoint, loaded. Title variants: 3blue1brown.com lesson is 'What is backpropagation really doing?' (loaded; dek from its page); podwise.ai lists 'What is backpropagation really doing? | Chapter 3, Deep learning', 03 Nov 2017 (loaded). Use the oEmbed title on slides. Thumbnail: maxresdefault, 1280x720, viewed. CLIP (timestamps NOT verified): candidate window 4:41-6:41 at the podwise.ai outline entry '04:41 Intuitive Explanation of Backpropagation Mechanics' (AI-generated outline, not YouTube's own chapters; next entry 09:27). The thetvdb.com page (episode 6410266, 2017-11-03, runtime 15 min) has a placeholder title. Video not watched; content of the window is unverified."
+    },
+    {
+      "id": "nn-ch4-backpropagation-calculus",
+      "slide_topic": "Optional, math-heavy: backpropagation calculus (skip in class)",
+      "type": "video",
+      "file": "nn-3b1b-tIeHLnjs5U8-maxresdefault.jpg",
+      "headline": "Backpropagation calculus | Deep Learning Chapter 4",
+      "dek": "",
+      "outlet": "3Blue1Brown (YouTube)",
+      "author": "Grant Sanderson",
+      "date": "2017-11-03",
+      "url": "https://www.youtube.com/watch?v=tIeHLnjs5U8",
+      "caption": "Thumbnail: a grid of partial-derivative symbols with coloured arrows between layers.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Title: YouTube oEmbed endpoint, loaded. Date: podwise.ai listing 'Backpropagation calculus | Chapter 4, Deep learning', 03 Nov 2017 (loaded). Thumbnail viewed. Outline is from podwise.ai and is AI-generated, not verified: 00:03 'Introduction to the Calculus of Backpropagation'; 03:57 'Computing Derivatives and Propagating Backwards'; 06:51 'Scaling to Multilayer Networks with Multiple Neurons'. Included because the task asked for the backpropagation videos; the calculus is not for a grade 7-12 room without a math-optional slide."
+    },
+    {
+      "id": "nn-ch5-transformers-llm",
+      "slide_topic": "Bridge to LLMs: what is inside a large language model (extra, not requested)",
+      "type": "video",
+      "file": "nn-3b1b-wjZofJX0v4M-maxresdefault.jpg",
+      "headline": "Transformers, the tech behind LLMs | Deep Learning Chapter 5",
+      "dek": "",
+      "outlet": "3Blue1Brown (YouTube)",
+      "author": "Grant Sanderson",
+      "date": null,
+      "url": "https://www.youtube.com/watch?v=wjZofJX0v4M",
+      "caption": "Thumbnail: stacked layers of number grids with the title card 'Inside an LLM'.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Title: YouTube oEmbed endpoint, loaded. Thumbnail viewed; its on-image text ('Inside an LLM') differs from the video title. Not requested in the task; included as an LLM bridge. Video not watched and no timestamps were checked. Upload date not verified."
+    }
+  ],
+  "datasets": [],
+  "facts": [
+    {
+      "claim": "The handwritten-digit network has 13,002 weights and biases that we can adjust (2 hidden layers of 16 neurons each).",
+      "source": "3Blue1Brown, 'Gradient descent, how neural networks learn' lesson page",
+      "url": "https://www.3blue1brown.com/lessons/gradient-descent",
+      "date": null,
+      "notes": "Verbatim: 'In total, given the somewhat arbitrary choice of 2 hidden layers with 16 neurons each, this network has 13,002 weights and biases that we can adjust, and it's these values that determine what exactly the network does.' Arithmetic check (mine, not from the page): 784x16+16 + 16x16+16 + 16x10+10 = 13,002, where 784 = 28x28 input pixels and 10 = digit outputs."
+    },
+    {
+      "claim": "Gradient descent just means walking in the downhill direction to minimize the cost function.",
+      "source": "3Blue1Brown, 'Gradient descent, how neural networks learn' lesson page",
+      "url": "https://www.3blue1brown.com/lessons/gradient-descent",
+      "date": null,
+      "notes": "Verbatim from the lesson page."
+    },
+    {
+      "claim": "Gradient descent is a method used widely throughout machine learning for optimizing how a computer performs on certain tasks.",
+      "source": "3Blue1Brown, 'Gradient descent, how neural networks learn' lesson page",
+      "url": "https://www.3blue1brown.com/lessons/gradient-descent",
+      "date": null,
+      "notes": "Lesson-page description, quoted nearly verbatim: 'This is a method used widely throughout machine learning for optimizing how a computer performs on certain tasks.'"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Official YouTube chapter markers or verified timestamps for the best 1-2 minute clip in ch1, ch2 and ch3",
+      "searched": "WebFetch of youtube.com/watch pages (returned only YouTube footer, no description); shot.js screenshot of the ch1 watch page (landed on Google's bot-check page, discarded); public YouTube mirrors inv.nadeko.net, yewtu.be (HTTP 403) and invidious.nerdvpn.de (HTTP 401) refused; iv.ggtyler.dev unreachable. Only unofficial outlines found: bibigpt.co AI summaries for ch1 and ch2, podwise.ai outlines for ch3 and ch4."
+    },
+    {
+      "outline_item": "What is actually on screen in the suggested clip windows (video content)",
+      "searched": "YouTube downloads are blocked per the brief and the watch pages do not load, so no video was watched or screen-grabbed."
+    },
+    {
+      "outline_item": "Full list of the 3Blue1Brown neural-networks series beyond the five videos above",
+      "searched": "3blue1brown.com/topics/neural-networks and 3blue1brown.com/neural-networks: neither rendered a series list (only a 'Neural Networks' filter button and an unrelated featured video). 3blue1brown.com/lessons/neural-networks lists only the next lesson."
+    },
+    {
+      "outline_item": "Upload dates for ch1 and ch2",
+      "searched": "thetvdb.com episode 6410263 shows 2017-10-05 but its title is the placeholder 'Unknown Title', so it is not tied to the video on the page; ch2 Oct 16, 2017 comes from a search snippet of a Wellesley course page (not loaded). Both left as null."
+    }
+  ]
+}

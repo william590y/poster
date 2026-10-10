@@ -27,7 +27,7 @@ const CROPS = {
   // hide-and-seek Fig. 1, panels (a) and (b) with their titles
   'hideseek_ab.png': [R('hide-seek-fig1-six-stages.png'), { left: 40, top: 0, width: 1060, height: 575 }],
   // MAE Fig. 2: one column of three triplets (masked | reconstruction | original)
-  'mae_column.png': [R('selfsup-mae-masked-reconstruction-fig2.png'), { left: 1010, top: 10, width: 486, height: 512 }],
+  'mae_column.png': [R('selfsup-mae-masked-reconstruction-fig2.png'), { left: 1046, top: 12, width: 500, height: 528 }],
   // DeepSeek-R1 Table 3: the "Wait, wait. Wait." lines
   'r1_aha.png': [R('r1-aha-moment-table3.png'), { left: 222, top: 412, width: 1160, height: 136 }],
   // Golden Gate Claude announcement: label, headline, date and the top of the page art
@@ -223,24 +223,24 @@ async function roadmapSlide(d) {
     ['FaBrain', 'PART 1', 'How AI learns', '36 minutes · now', 'Neural networks, chatbots, and how big labs train them'],
     ['FaTachometerAlt', 'PART 2', 'How fast it is moving', '20 minutes', 'The evidence: tests, tasks and trends'],
     ['FaExclamationTriangle', 'PART 3', 'Why it could go wrong', '30 minutes', 'Goals, loopholes, and keeping control'],
-    ['FaHandsHelping', 'PART 4', 'What we can do', '12 minutes + 8 for your questions', 'Research, rules, and roles you could play'],
+    ['FaHandsHelping', 'PART 4', 'What we can do', '20 minutes (8 for Q&A)', 'Research, rules, and roles you could play'],
   ];
-  const cw = (W - 2 * MX - 3 * 0.25) / 4, y = 1.85, h = 3.75, groups = [];
+  const cw = (W - 2 * MX - 3 * 0.25) / 4, y = 1.82, h = 4.0, groups = [];
   for (let i = 0; i < 4; i++) {
     const x = MX + i * (cw + 0.25), now = i === 0;
     const g = [box(d, s, x, y, cw, h, { fill: now ? TINT.red : HEX.card, line: now ? HEX.red : HEX.line, lw: now ? 1.5 : 0.75 })];
-    g.push(...await iconDisc(d, s, parts[i][0], x + 0.75, y + 0.75, 0.95, now ? HEX.red : HEX.steel, now ? '3A1416' : HEX.card2));
+    g.push(...await iconDisc(d, s, parts[i][0], x + 0.75, y + 0.72, 0.95, now ? HEX.red : HEX.steel, now ? '3A1416' : HEX.card2));
     if (now) g.push(...chip(d, s, 'NOW', x + cw - 1.05, y + 0.3, 0.8, HEX.red, { fontSize: 13 }));
-    g.push(d.text(s, parts[i][1], { x: x + 0.3, y: y + 1.4, w: cw - 0.5, h: 0.3, fontSize: 13, bold: true, color: now ? d.S.red : d.S.steel, charSpacing: 3 }));
-    g.push(d.text(s, parts[i][2], { x: x + 0.3, y: y + 1.72, w: cw - 0.45, h: 0.85, fontSize: 22, bold: true, color: HEX.text, fontFace: 'Arial', valign: 'top' }));
-    g.push(d.text(s, parts[i][3], { x: x + 0.3, y: y + 2.55, w: cw - 0.45, h: 0.5, fontSize: 16, bold: true, color: now ? HEX.red : HEX.amber, valign: 'top' }));
-    g.push(d.text(s, parts[i][4], { x: x + 0.3, y: y + 3.0 - (i === 3 ? 0 : 0), w: cw - 0.45, h: 0.7, fontSize: 16, color: HEX.muted, valign: 'top' }));
+    g.push(d.text(s, parts[i][1], { x: x + 0.3, y: y + 1.32, w: cw - 0.5, h: 0.3, fontSize: 13, bold: true, color: now ? d.S.red : d.S.steel, charSpacing: 3 }));
+    g.push(d.text(s, parts[i][2], { x: x + 0.3, y: y + 1.62, w: cw - 0.45, h: 0.82, fontSize: 22, bold: true, color: HEX.text, fontFace: 'Arial', valign: 'top' }));
+    g.push(d.text(s, parts[i][3], { x: x + 0.3, y: y + 2.47, w: cw - 0.45, h: 0.36, fontSize: 16, bold: true, color: now ? HEX.red : HEX.amber, valign: 'top' }));
+    g.push(d.text(s, parts[i][4], { x: x + 0.3, y: y + 2.88, w: cw - 0.45, h: 1.05, fontSize: 16, color: HEX.muted, valign: 'top' }));
     groups.push(g);
   }
   const bottom = d.text(s, [
-    { text: 'Not doom. ', options: { bold: true, color: HEX.text } },
-    { text: 'These are serious, unsolved problems, and many people (maybe some of you, one day) are working on them.', options: { color: HEX.muted } },
-  ], { x: MX, y: 5.85, w: W - 2 * MX, h: 0.6, fontSize: 18, valign: 'middle' });
+    { text: 'Not doom: ', options: { bold: true, color: HEX.text } },
+    { text: 'these are serious, unsolved problems, and many people are working on them.', options: { color: HEX.muted } },
+  ], { x: MX, y: 5.98, w: W - 2 * MX, h: 0.5, fontSize: 18, valign: 'middle' });
   groups.forEach((g, i) => d.animate(s, g, { auto: true, effect: 'rise', after: i ? 120 : 200 }));
   d.animate(s, [bottom], { effect: 'fade' });
   notes(s, {
@@ -333,13 +333,13 @@ async function learningTypesSlide(d) {
     const c = cols[i], x = MX + i * (cw + 0.25);
     const g = [box(d, s, x, y, cw, h, { fill: i === 3 ? c.tint : HEX.card, line: i === 3 ? c.color : HEX.line, lw: i === 3 ? 1.25 : 0.75, dash: i === 3 ? 'dash' : undefined })];
     g.push(...chip(d, s, c.tag, x + 0.15, y + 0.15, cw - 0.3, c.color, { fontSize: 14, color: c.color === HEX.amber ? HEX.ink : 'FFFFFF', charSpacing: 2 }));
-    g.push(...await d.frame(s, c.img, { x: x + 0.12, y: y + 0.62, w: cw - 0.24, h: 1.85 }, { pad: 0.04 }));
-    g.push(d.text(s, c.an, { x: x + 0.18, y: y + 2.6, w: cw - 0.3, h: 0.62, fontSize: 17, bold: true, color: HEX.text, valign: 'top' }));
-    g.push(d.text(s, c.de, { x: x + 0.18, y: y + 3.22, w: cw - 0.3, h: 0.85, fontSize: 16, color: HEX.muted, valign: 'top' }));
+    g.push(...await d.frame(s, c.img, { x: x + 0.12, y: y + 0.62, w: cw - 0.24, h: 1.66 }, { pad: 0.04 }));
+    g.push(d.text(s, c.an, { x: x + 0.18, y: y + 2.38, w: cw - 0.3, h: 0.62, fontSize: 17, bold: true, color: HEX.text, valign: 'top' }));
+    g.push(d.text(s, c.de, { x: x + 0.18, y: y + 3.0, w: cw - 0.3, h: 0.86, fontSize: 16, color: HEX.muted, valign: 'top' }));
     g.push(d.text(s, [
       { text: 'FEEDBACK COMES FROM', options: { fontSize: 12, bold: true, color: HEX.steel, charSpacing: 1, breakLine: true } },
       { text: c.fb, options: { fontSize: 16, bold: true, color: c.color } },
-    ], { x: x + 0.18, y: y + 4.04, w: cw - 0.3, h: 0.58, valign: 'top' }));
+    ], { x: x + 0.18, y: y + 3.98, w: cw - 0.3, h: 0.6, valign: 'top' }));
     groups.push(g);
   }
   src(d, s, 'Images: CIFAR-10 (A. Krizhevsky) · k-means GIF: Chire, Wikimedia Commons, CC BY-SA 4.0 · Baker et al. 2019 (OpenAI) · He et al. 2021 (MAE)');
@@ -374,10 +374,10 @@ async function quizSlide(d) {
   });
   const ins = label(d, s, 'SHOW YOUR FINGERS (OR STAND IN THAT CORNER) FOR EACH MADE-UP SCENARIO', MX, 2.36, W - 2 * MX, { color: d.S.amber });
   const sc = [
-    ['A', 'A program practises with flashcards and checks each guess against an answer key.', 0, 'SUPERVISED · the answer key holds the labels'],
-    ['B', 'A program sorts thousands of unlabelled photos into groups.', 1, 'UNSUPERVISED · no labels; it finds the groups'],
-    ['C', 'A game bot earns points for winning and changes its moves.', 2, 'REINFORCEMENT · the points are the reward'],
-    ['D', 'A program hides one word in a sentence and learns to guess it from the words around it.', 3, 'SELF-SUPERVISED · the hidden word is the key'],
+    ['A', 'A program practises with flashcards and checks each guess against an answer key.', 0, 'SUPERVISED: the answer key = labels'],
+    ['B', 'A program sorts thousands of unlabelled photos into groups.', 1, 'UNSUPERVISED: no labels, it finds groups'],
+    ['C', 'A game bot earns points for winning and changes its moves.', 2, 'REINFORCEMENT: points = the reward'],
+    ['D', 'A program hides one word in a sentence and learns to guess it from the words around it.', 3, 'SELF-SUPERVISED: the hidden word = key'],
   ];
   const cw = (W - 2 * MX - 0.3) / 2, ch = 1.8, cards = [], answers = [];
   sc.forEach(([L, text, ti, ans], i) => {
@@ -387,7 +387,7 @@ async function quizSlide(d) {
     g.push(d.text(s, text, { x: x + 1.25, y: y + 0.12, w: cw - 1.45, h: 1.05, fontSize: 18, color: HEX.text, valign: 'middle' }));
     cards.push(g);
     const c = types[ti][2];
-    answers.push(chip(d, s, ans, x + 1.25, y + 1.27, cw - 1.45, c, { h: 0.42, fontSize: 15, color: c === HEX.amber ? HEX.ink : 'FFFFFF', align: 'left' }));
+    answers.push(chip(d, s, ans, x + 1.25, y + 1.25, cw - 1.45, c, { h: 0.44, fontSize: 16, color: c === HEX.amber ? HEX.ink : 'FFFFFF', align: 'left', charSpacing: 0 }));
   });
   d.animate(s, [...legend, ins, ...cards.flat()], { auto: true, effect: 'fade' });
   d.animate(s, bt, { auto: true, effect: 'zoom', dur: 400 });
@@ -439,13 +439,13 @@ async function networkSlide(d) {
     { text: 'Layer: ', options: { bold: true, color: HEX.text } }, { text: 'one column of neurons.', options: { color: HEX.muted, breakLine: true, paraSpaceAfter: 6 } },
     { text: 'Parameters: ', options: { bold: true, color: HEX.text } }, { text: 'all the dials together.', options: { color: HEX.muted } },
   ], { x: rx + 0.22, y: 1.92, w: rw - 0.4, h: 2.45, fontSize: 16, valign: 'top' });
-  const howLab = label(d, s, 'HOW MANY DIALS?', rx + 0.22, 4.3, rw - 0.4, { color: d.S.amber });
-  const rows = [['13,002', 'digit-reading network (3Blue1Brown)'], ['175 billion', 'GPT-3 (2020)'], ['1.04 trillion', 'Kimi K2.5 (2026, open model)'], ['not disclosed', 'the biggest closed models']];
+  const howLab = label(d, s, 'HOW MANY DIALS?', rx + 0.22, 4.12, rw - 0.4, { color: d.S.amber });
+  const rows = [['13,002', 'a digit-reading network'], ['175 billion', 'GPT-3 (2020)'], ['1.04 trillion', 'Kimi K2.5 (open, 2026)'], ['not disclosed', 'the biggest closed models']];
   const how = [howLab];
   rows.forEach(([v, l], i) => {
-    const y = 4.65 + i * 0.44;
-    how.push(d.text(s, v, { x: rx + 0.22, y, w: 1.65, h: 0.4, fontSize: 16, bold: true, color: i === 3 ? d.S.steel : HEX.amber, valign: 'middle' }));
-    how.push(d.text(s, l, { x: rx + 1.9, y, w: rw - 2.05, h: 0.4, fontSize: 16, color: HEX.muted, valign: 'middle' }));
+    const y = 4.5 + i * 0.47;
+    how.push(d.text(s, v, { x: rx + 0.22, y, w: 1.5, h: 0.42, fontSize: 16, bold: true, color: i === 3 ? d.S.steel : HEX.amber, valign: 'middle' }));
+    how.push(d.text(s, l, { x: rx + 1.75, y, w: rw - 1.9, h: 0.42, fontSize: 16, color: HEX.muted, valign: 'middle' }));
   });
 
   d.animate(s, [...img, imgLab, inArrow, ...net.lines, ...net.nodes.flat(), ...layLab], { auto: true, effect: 'fade', dur: 700 });
@@ -486,7 +486,7 @@ async function gradientSlide(d) {
   const xLab = d.text(s, 'one dial’s setting  →', { x: gx + gw - 3.0, y: 6.08, w: 2.9, h: 0.3, fontSize: 12, color: d.S.steel, align: 'right' });
   const fog = [[0.7, 2.25, 3.4, 1.45], [2.7, 2.8, 2.9, 1.25], [0.6, 3.5, 2.3, 0.95]].map(([x, y, w, h]) => {
     const n = d.name('fog');
-    s.addShape(d.pres.shapes.OVAL, { x, y, w, h, fill: { color: 'B8C0CC', transparency: 86 }, line: { color: 'B8C0CC', width: 0, transparency: 100 }, objectName: n });
+    s.addShape(d.pres.shapes.OVAL, { x, y, w, h, fill: { color: 'B8C0CC', transparency: 89 }, line: { color: 'B8C0CC', width: 0, transparency: 100 }, objectName: n });
     return n;
   });
   const fogLab = d.text(s, 'thick fog: you can only feel the slope under your feet', { x: 2.35, y: 2.3, w: 3.4, h: 0.5, fontSize: 13, italic: true, color: d.S.muted });
@@ -555,20 +555,20 @@ async function backpropSlide(d) {
   back.push(d.text(s, 'trace the defect back: how much did each station add to it?', { x: x0, y: by + bh + 0.36, w: 4 * bw + 3 * gap, h: 0.36, fontSize: 16, bold: true, color: HEX.red, align: 'center' }));
 
   // network version
-  const nl = label(d, s, 'IN A NEURAL NETWORK', MX, 3.88, 6, { color: d.S.amber });
+  const nl = label(d, s, 'IN A NEURAL NETWORK', MX, 3.8, 6, { color: d.S.amber });
   const xs = [1.25, 2.85, 4.45, 6.05], dia = 0.28;
-  const net = drawNet(d, s, { xs, cy: 5.02, gap: 0.42, layers: [3, 4, 4, 2], dia, lw: [0.5, 1.5] });
+  const net = drawNet(d, s, { xs, cy: 5.14, gap: 0.42, layers: [3, 4, 4, 2], dia, lw: [0.5, 1.5] });
   const wrong = oval(d, s, xs[3] - dia / 2, net.pos[3][0].y - dia / 2, dia, dia, HEX.red, HEX.red);
-  const outT = d.text(s, [{ text: 'said “dog”', options: { bold: true, color: HEX.red, breakLine: true } }, { text: 'answer: “cat”', options: { color: HEX.muted } }], { x: xs[3] + 0.3, y: 4.62, w: 1.6, h: 0.75, fontSize: 16, valign: 'middle' });
+  const outT = d.text(s, [{ text: 'said “dog”', options: { bold: true, color: HEX.red, breakLine: true } }, { text: 'answer: “cat”', options: { color: HEX.muted } }], { x: xs[3] + 0.3, y: net.pos[3][0].y - 0.38, w: 1.6, h: 0.75, fontSize: 16, valign: 'middle' });
   const arrows = [];
-  for (let i = 3; i > 0; i--) arrows.push(seg(d, s, xs[i] - 0.15, 4.2, xs[i - 1] + 0.15, 4.2, { color: HEX.red, width: 3.5, arrow: true }));
-  const blame = d.text(s, 'blame flows backward, layer by layer', { x: xs[0], y: 5.95, w: xs[3] - xs[0], h: 0.32, fontSize: 14, italic: true, color: d.S.red, align: 'center' });
+  for (let i = 3; i > 0; i--) arrows.push(seg(d, s, xs[i] - 0.15, 4.26, xs[i - 1] + 0.15, 4.26, { color: HEX.red, width: 3.5, arrow: true }));
+  const blame = d.text(s, 'blame flows backward, layer by layer', { x: xs[0], y: 6.0, w: xs[3] - xs[0], h: 0.32, fontSize: 14, italic: true, color: d.S.red, align: 'center' });
   const rx = 8.0, rw = W - MX - rx;
   const expl = d.text(s, [
     { text: 'Backpropagation: ', options: { bold: true, color: HEX.text } },
     { text: 'after a wrong answer, the error is traced backward through each layer to find how much each dial added to it. Then gradient descent nudges every dial a little.', options: { color: HEX.muted, breakLine: true, paraSpaceAfter: 8 } },
     { text: 'It works out the blame for billions of dials at once, fast enough to train huge networks.', options: { color: HEX.text } },
-  ], { x: rx, y: 3.95, w: rw, h: 2.0, fontSize: 16, valign: 'top' });
+  ], { x: rx, y: 4.0, w: rw, h: 1.95, fontSize: 16, valign: 'top' });
   const hist = [await ic(d, s, 'FaBookOpen', HEX.steel, rx, 6.06, 0.36),
     d.text(s, 'Popularised in 1986 by Rumelhart, Hinton and Williams (Nature).', { x: rx + 0.48, y: 5.98, w: rw - 0.48, h: 0.52, fontSize: 14, color: d.S.steel, valign: 'middle' })];
 
@@ -623,23 +623,23 @@ async function nextWordSlide(d) {
   const loopL = label(d, s, 'THEN IT REPEATS, ONE WORD AT A TIME', rx, 1.7, rw, { color: d.S.amber });
   const loop = [loopL];
   ['Score every possible next word', 'Pick one (usually a high scorer)', 'Add it to the text', 'Repeat from step 1'].forEach((t, i) => {
-    const y = 2.08 + i * 0.5;
+    const y = 2.02 + i * 0.45;
     loop.push(...numDisc(d, s, i + 1, rx + 0.2, y + 0.2, 0.38, i === 3 ? HEX.red : HEX.card2, { color: HEX.text, fontSize: 14 }));
     loop.push(d.text(s, t, { x: rx + 0.55, y, w: rw - 0.55, h: 0.4, fontSize: 16, color: HEX.text, valign: 'middle' }));
   });
-  const defCard = d.card(s, { x: rx, y: 4.15, w: rw, h: 1.62 });
+  const defCard = d.card(s, { x: rx, y: 3.92, w: rw, h: 1.98 });
   const defs = d.text(s, [
     { text: 'LLM ', options: { bold: true, color: HEX.text } }, { text: '(large language model): a neural network trained on huge amounts of text to predict the next token.', options: { color: HEX.muted, breakLine: true, paraSpaceAfter: 5 } },
     { text: 'Token: ', options: { bold: true, color: HEX.text } }, { text: 'a chunk of text, often a word or part of one:', options: { color: HEX.muted } },
-  ], { x: rx + 0.18, y: 4.22, w: rw - 0.3, h: 1.08, fontSize: 16, valign: 'top' });
+  ], { x: rx + 0.18, y: 3.98, w: rw - 0.3, h: 1.45, fontSize: 16, valign: 'top' });
   const tok = [];
   ['un', 'believ', 'able'].forEach((t, i) => {
     const x = rx + 0.18 + [0, 0.62, 1.55][i], w = [0.55, 0.86, 0.72][i];
-    tok.push(box(d, s, x, 5.3, w, 0.38, { fill: ['1E3A5F', '3A2A12', '2A1416'][i], line: [HEX.blue, HEX.amber, HEX.red][i], radius: 0.05 }));
-    tok.push(d.text(s, t, { x, y: 5.3, w, h: 0.38, fontSize: 16, bold: true, color: HEX.text, align: 'center', valign: 'middle', fontFace: 'Courier New' }));
+    tok.push(box(d, s, x, 5.44, w, 0.38, { fill: ['1E3A5F', '3A2A12', '2A1416'][i], line: [HEX.blue, HEX.amber, HEX.red][i], radius: 0.05 }));
+    tok.push(d.text(s, t, { x, y: 5.44, w, h: 0.38, fontSize: 16, bold: true, color: HEX.text, align: 'center', valign: 'middle', fontFace: 'Courier New' }));
   });
-  tok.push(d.text(s, '(one possible split)', { x: rx + 2.4, y: 5.3, w: rw - 2.5, h: 0.38, fontSize: 12, color: d.S.steel, valign: 'middle' }));
-  const honest = d.text(s, [{ text: 'Surprise: ', options: { bold: true, color: HEX.amber } }, { text: 'this simple goal gives surprisingly capable results. Nobody fully knows why yet.', options: { color: HEX.text } }], { x: rx, y: 5.86, w: rw, h: 0.62, fontSize: 16, valign: 'middle' });
+  tok.push(d.text(s, '(one possible split)', { x: rx + 2.58, y: 5.44, w: rw - 2.62, h: 0.38, fontSize: 12, color: d.S.steel, valign: 'middle' }));
+  const honest = d.text(s, [{ text: 'Surprise: ', options: { bold: true, color: HEX.amber } }, { text: 'this simple goal gives surprisingly capable results. Nobody fully knows why yet.', options: { color: HEX.text } }], { x: rx, y: 5.96, w: rw, h: 0.54, fontSize: 16, valign: 'middle' });
 
   d.animate(s, [...prompt, ...opts], { auto: true, effect: 'fade' });
   d.animate(s, bt, { auto: true, effect: 'zoom', dur: 400 });
@@ -679,10 +679,10 @@ async function pretrainSlide(d) {
     if (i < 3) loop.push(seg(d, s, x + sw + 0.03, y + 0.55, x + sw + 0.21, y + 0.55, { color: HEX.steel, width: 1.75, arrow: true }));
   }
   loop.push(d.text(s, 'nudge = gradient descent + backpropagation', { x: MX, y: 3.22, w: lw, h: 0.3, fontSize: 13, color: d.S.muted, italic: true }));
-  const st1 = [d.text(s, '15 trillion+', { x: MX, y: 3.62, w: 2.9, h: 0.6, fontSize: 34, bold: true, color: HEX.amber, fontFace: 'Arial', valign: 'bottom' }),
-    d.text(s, 'tokens read by Meta’s Llama 3 (2024)', { x: MX, y: 4.24, w: 2.8, h: 0.6, fontSize: 16, color: HEX.muted, valign: 'top' })];
-  const st2 = [d.text(s, '≈ 90,000 years', { x: MX + 3.0, y: 3.62, w: 3.1, h: 0.6, fontSize: 34, bold: true, color: HEX.text, fontFace: 'Arial', valign: 'bottom' }),
-    d.text(s, 'for one person reading nonstop (our arithmetic)', { x: MX + 3.0, y: 4.24, w: 2.95, h: 0.6, fontSize: 16, color: HEX.muted, valign: 'top' })];
+  const st1 = [d.text(s, '15 trillion+', { x: MX, y: 3.6, w: 2.8, h: 0.6, fontSize: 30, bold: true, color: HEX.amber, fontFace: 'Arial', valign: 'bottom' }),
+    d.text(s, 'tokens read by Meta’s Llama 3 (2024)', { x: MX, y: 4.24, w: 2.7, h: 0.6, fontSize: 16, color: HEX.muted, valign: 'top' })];
+  const st2 = [d.text(s, [{ text: '≈ ', options: { fontSize: 24 } }, { text: '90,000 years', options: { fontSize: 30 } }], { x: MX + 2.85, y: 3.6, w: 3.15, h: 0.6, bold: true, color: HEX.text, fontFace: 'Arial', valign: 'bottom' }),
+    d.text(s, 'for one person reading nonstop (our arithmetic)', { x: MX + 2.85, y: 4.24, w: 3.1, h: 0.6, fontSize: 16, color: HEX.muted, valign: 'top' })];
   const gy = 5.05;
   const gpu = [d.card(s, { x: MX, y: gy, w: lw, h: 1.42 })];
   gpu.push(await ic(d, s, 'FaMicrochip', HEX.red, MX + 0.2, gy + 0.22, 0.5));
@@ -739,7 +739,7 @@ async function baseModelSlide(d) {
   pr.push(...chip(d, s, 'PROMPT', MX + 0.15, 1.92, 1.1, HEX.steel, { fontSize: 13, color: HEX.ink }));
   pr.push(d.text(s, 'How do I fold a paper plane?', { x: MX + 1.45, y: 1.8, w: 6, h: 0.6, fontSize: 22, bold: true, color: HEX.text, valign: 'middle' }));
   pr.push(d.text(s, 'MADE-UP EXAMPLE · NOT A REAL MODEL’S OUTPUT', { x: W - MX - 5.3, y: 1.8, w: 5.15, h: 0.6, fontSize: 12, bold: true, color: d.S.amber, align: 'right', valign: 'middle', charSpacing: 1 }));
-  const cw = (W - 2 * MX - 0.3) / 2, cy = 2.55, ch = 2.62;
+  const cw = (W - 2 * MX - 0.3) / 2, cy = 2.55, ch = 2.45;
   const card = (x, head, sub, color, tint, runs) => [
     box(d, s, x, cy, cw, ch, { fill: tint, line: color, lw: 1.25 }),
     d.text(s, [{ text: head, options: { bold: true, color, charSpacing: 2 } }, { text: '  ·  ' + sub, options: { color: HEX.muted } }], { x: x + 0.22, y: cy + 0.1, w: cw - 0.4, h: 0.4, fontSize: 14, valign: 'middle' }),
@@ -758,7 +758,7 @@ async function baseModelSlide(d) {
     { text: '3. Fold the new slanted edges to the middle again.', options: { color: HEX.text, breakLine: true, paraSpaceAfter: 3 } },
     { text: '4. Fold it in half, then fold each wing down.', options: { color: HEX.text } },
   ]);
-  const ry = 5.32;
+  const ry = 5.22;
   const real = [label(d, s, 'A REAL EXAMPLE (OPENAI, 2022): ASKED TO USE “SERENDIPITY” IN A SENTENCE', MX, ry - 0.02, W - 2 * MX, { color: d.S.amber })];
   real.push(d.text(s, [{ text: 'GPT-3 (base): ', options: { bold: true, color: HEX.text } }, { text: '“Serendipity is the ability to see something good in something bad. Use the word in a sentence.” …and more of the same.', options: { color: HEX.muted, italic: true } }], { x: MX, y: ry + 0.33, w: cw, h: 0.82, fontSize: 16, valign: 'top' }));
   real.push(d.text(s, [{ text: 'InstructGPT (assistant): ', options: { bold: true, color: HEX.text } }, { text: '“Serendipity can be defined as the happy chance occurrence of events leading to a beneficial outcome. For example, …”', options: { color: HEX.muted, italic: true } }], { x: MX + cw + 0.3, y: ry + 0.33, w: cw, h: 0.82, fontSize: 16, valign: 'top' }));
@@ -788,7 +788,7 @@ async function postTrainSlide(d) {
   title(s, 'Post-training makes it an assistant');
   const bt = await beat(d, s, 'HANDS UP');
   const lw = 5.55;
-  const top = [label(d, s, 'WHICH ANSWER IS BETTER? HANDS UP: A OR B', MX, 1.7, lw - 1.9, { color: d.S.amber }), label(d, s, 'MADE-UP EXAMPLE', MX + lw - 2.0, 1.7, 2.0, { color: d.S.steel, align: 'right' })];
+  const top = [label(d, s, 'WHICH IS BETTER: A OR B?', MX, 1.7, lw - 2.2, { color: d.S.amber }), label(d, s, 'MADE-UP EXAMPLE', MX + lw - 2.2, 1.7, 2.2, { color: d.S.steel, align: 'right' })];
   top.push(box(d, s, MX, 2.08, lw, 0.6, { fill: HEX.card2, line: HEX.steel }));
   top.push(d.text(s, 'Why is the sky blue?', { x: MX + 0.2, y: 2.08, w: lw - 0.3, h: 0.6, fontSize: 20, bold: true, color: HEX.text, valign: 'middle' }));
   const ans = (y, h, L, text) => [box(d, s, MX, y, lw, h, { fill: HEX.card, line: HEX.line }),
@@ -801,13 +801,13 @@ async function postTrainSlide(d) {
 
   // right: OpenAI's own three-step diagram
   const rx = 6.5, rw = W - MX - rx;
-  const fig = await d.frame(s, R('instructgpt-fig2.png'), { x: rx, y: 1.72, w: rw, h: 3.85 }, { pad: 0.06 });
+  const fig = await d.frame(s, R('instructgpt-fig2.png'), { x: rx, y: 1.72, w: rw, h: 3.7 }, { pad: 0.06 });
   const g = fig.geom, tw = g.w / 3;
-  const steps = [['1 · SFT', 'Imitate example answers people wrote', HEX.blue], ['2 · REWARD MODEL', 'Learns which answers people prefer', HEX.amber], ['3 · RLHF', 'Practise to earn a higher score', HEX.red]];
+  const steps = [['1 · SFT', 'Copy answers people wrote', HEX.blue], ['2 · REWARD MODEL', 'Learns what people prefer', HEX.amber], ['3 · RLHF', 'Practise to earn a higher score', HEX.red]];
   const cap = [];
   steps.forEach(([t, txt, c], i) => {
     const x = g.x + i * tw;
-    cap.push(d.text(s, [{ text: t, options: { bold: true, color: c, fontSize: 14, charSpacing: 1, breakLine: true } }, { text: txt, options: { color: HEX.text, fontSize: 16 } }], { x: x + 0.05, y: g.y + g.h + 0.14, w: tw - 0.12, h: 0.85, valign: 'top' }));
+    cap.push(d.text(s, [{ text: t, options: { bold: true, color: c, fontSize: 14, charSpacing: 1, breakLine: true } }, { text: txt, options: { color: HEX.text, fontSize: 16 } }], { x: x + 0.05, y: g.y + g.h + 0.12, w: tw - 0.12, h: 0.8, valign: 'top' }));
   });
   src(d, s, 'Diagram: Ouyang et al. (2022), “Training language models to follow instructions with human feedback”, Fig. 2 (OpenAI)');
   d.animate(s, [...top, ...a, ...b], { auto: true, effect: 'fade' });
@@ -818,7 +818,7 @@ async function postTrainSlide(d) {
   notes(s, {
     min: '2.0', clock: '22–24 (beat at about minute 23)',
     build: 'The question and both answers show automatically. Click 1: “your vote is the training signal”. Click 2: OpenAI’s diagram. Clicks 3–5: the three steps.',
-    say: 'Here is one question with two made-up answers. Both are correct. A is short and a bit cold. B is clear and friendly. Hands up for A! Hands up for B! [Count roughly.] [Click.] Congratulations: you just did the job of an AI rater. Votes like yours become the training signal. Real raters compare many pairs of answers like this. [Click.] This is OpenAI’s own diagram from 2022, the recipe that led to ChatGPT. [Click.] Step 1 is SFT, supervised fine-tuning: people write example conversations and the model copies them. That is the supervised learning from earlier, flashcards with answers. [Click.] Step 2: people rank several answers from best to worst, and a second model, the reward model, learns to predict which answers people prefer. [Click.] Step 3 is RLHF, reinforcement learning from human feedback: the chatbot practises answering, the reward model scores each answer, and the chatbot is tuned to earn higher scores. That is the reinforcement learning from earlier, with points as treats. All of this is called post-training, because it comes after pretraining.',
+    say: 'Here is one question with two made-up answers. Both are correct. A is short and a bit cold. B is clear and friendly. Hands up for A! Hands up for B! [Count roughly.] [Click.] Congratulations: you just did the job of an AI rater. Votes like yours become the training signal. Real raters compare many pairs of answers like this. [Click.] This is OpenAI’s own diagram from 2022, showing how it trained InstructGPT, an early assistant model. [Click.] Step 1 is SFT, supervised fine-tuning: people write example conversations and the model copies them. That is the supervised learning from earlier, flashcards with answers. [Click.] Step 2: people rank several answers from best to worst, and a second model, the reward model, learns to predict which answers people prefer. [Click.] Step 3 is RLHF, reinforcement learning from human feedback: the chatbot practises answering, the reward model scores each answer, and the chatbot is tuned to earn higher scores. That is the reinforcement learning from earlier, with points as treats. All of this is called post-training, because it comes after pretraining.',
     analogy: 'Pretraining is reading the whole library. Post-training is a coach: first showing good examples (SFT), then scoring your practice answers (RLHF).',
     ask: '“A or B?” Expected: most pick B. Follow-up: “Who might a rater disagree with?” Expected: people from other places, ages or opinions; some prefer short answers.',
     advanced: 'In the InstructGPT paper, raters preferred the 1.3-billion-parameter InstructGPT over the 175-billion-parameter GPT-3, “despite having over 100x fewer parameters”. OpenAI said this post-training used “less than 2% of the compute and data relative to model pretraining”. The paper also reports an “alignment tax”: some tasks got slightly worse.',
@@ -893,15 +893,15 @@ async function pipelineSlide(d) {
   kicker(s, K(12));
   title(s, 'How a frontier model is made, step by step');
   const bt = await beat(d, s, 'TURN & TALK', 'FaUserFriends');
-  const top = label(d, s, 'FRONTIER MODEL = ONE OF THE MOST CAPABLE MODELS, FROM A FEW TOP LABS · A GENERIC RECIPE: LABS DON’T PUBLISH THEIRS', MX, 1.68, W - 2 * MX, { color: d.S.steel });
-  const n = 6, gap = 0.16, cw = (W - 2 * MX - (n - 1) * gap) / n, y = 2.08, h = 3.22;
+  const top = d.text(s, 'FRONTIER MODEL = ONE OF THE MOST CAPABLE MODELS · THESE STEPS ARE GENERIC: LABS DON’T PUBLISH RECIPES', { x: MX, y: 1.66, w: W - 2 * MX, h: 0.3, fontSize: 12, bold: true, color: d.S.steel, charSpacing: 1, valign: 'bottom' });
+  const n = 6, gap = 0.16, cw = (W - 2 * MX - (n - 1) * gap) / n, y = 2.06, h = 3.4;
   const st = [
     ['FaDatabase', 'Collect and filter data', 'Books, websites, code; remove junk', 'Llama 4: more than 30 trillion tokens', HEX.steel],
     ['FaBookOpen', 'Pretraining', 'Guess the next word, trillions of times', 'GPT-6 Astra: 100,000+ GPUs', HEX.steel],
     ['FaChalkboardTeacher', 'SFT', 'Copy example answers people wrote', 'InstructGPT’s post-training: under 2% of pretraining’s compute', HEX.amber],
     ['FaThumbsUp', 'Preference training', 'RLHF and constitutions', 'Raters compare answer pairs', HEX.amber],
     ['FaCheckDouble', 'RL on checkable tasks', 'Maths and code with answer checkers', 'R1-Zero: 15.6% → 71% on AIME 2024', HEX.amber],
-    ['FaShieldAlt', 'Safety testing and release', 'Red-teaming, danger tests, careful release, monitoring', 'GPT-5: 5,000+ hours of red-teaming', HEX.red],
+    ['FaShieldAlt', 'Safety testing and release', 'Red-teaming, danger tests, staged release, monitoring', 'GPT-5: 5,000+ hours of red-teaming', HEX.red],
   ];
   const cols = [];
   for (let i = 0; i < n; i++) {
@@ -911,17 +911,17 @@ async function pipelineSlide(d) {
     g.push(await ic(d, s, nm, c, x + cw - 0.6, y + 0.17, 0.42));
     g.push(d.text(s, name, { x: x + 0.12, y: y + 0.72, w: cw - 0.2, h: 0.62, fontSize: 16, bold: true, color: HEX.text, valign: 'top' }));
     g.push(d.text(s, what, { x: x + 0.12, y: y + 1.36, w: cw - 0.2, h: 1.05, fontSize: 16, color: HEX.muted, valign: 'top' }));
-    g.push(d.text(s, big, { x: x + 0.12, y: y + 2.42, w: cw - 0.2, h: 0.75, fontSize: 12, bold: true, color: c === HEX.steel ? HEX.muted : c, valign: 'top' }));
+    g.push(d.text(s, big, { x: x + 0.12, y: y + 2.6, w: cw - 0.2, h: 0.75, fontSize: 12, bold: true, color: c === HEX.steel ? HEX.muted : c, valign: 'top' }));
     if (i < n - 1) g.push(seg(d, s, x + cw - 0.02, y + 0.38, x + cw + gap + 0.02, y + 0.38, { color: HEX.steel, width: 1.5, arrow: true }));
     cols.push(g);
   }
   const bk = (i0, i1, text, color) => {
-    const x0 = MX + i0 * (cw + gap), x1 = MX + i1 * (cw + gap) + cw, yy = y + h + 0.14;
+    const x0 = MX + i0 * (cw + gap), x1 = MX + i1 * (cw + gap) + cw, yy = y + h + 0.12;
     return [seg(d, s, x0 + 0.05, yy, x1 - 0.05, yy, { color, width: 2 }),
       d.text(s, text, { x: x0, y: yy + 0.04, w: x1 - x0, h: 0.3, fontSize: 12, bold: true, color, align: 'center', charSpacing: 2 })];
   };
   const brackets = [...bk(0, 1, 'PRETRAINING', HEX.steel), ...bk(2, 4, 'POST-TRAINING', HEX.amber), ...bk(5, 5, 'TESTING', HEX.red)];
-  const by = 5.95;
+  const by = 5.98;
   const bar = [box(d, s, MX, by, W - 2 * MX, 0.52, { fill: TINT.amber, line: HEX.amber, lw: 1.25 })];
   bar.push(await ic(d, s, 'FaUserFriends', HEX.amber, MX + 0.18, by + 0.09, 0.34));
   bar.push(d.text(s, [{ text: 'Turn to a neighbour (30 s): ', options: { bold: true, color: HEX.amber } }, { text: 'at which step would you test for dangerous behaviour? Why?', options: { bold: true, color: HEX.text } }], { x: MX + 0.65, y: by, w: W - 2 * MX - 0.8, h: 0.52, fontSize: 18, valign: 'middle' }));
@@ -964,11 +964,11 @@ async function ingredientsSlide(d) {
   }
   // right: compute of landmark models, log scale (bar height = number of zeros)
   const rx = 6.6, rw = W - MX - rx;
-  const chL = label(d, s, 'TRAINING COMPUTE OF LANDMARK MODELS · EPOCH AI ESTIMATES', rx, 1.7, rw, { color: d.S.steel });
+  const chL = label(d, s, 'TRAINING COMPUTE · EPOCH AI ESTIMATES', rx, 1.7, rw, { color: d.S.steel });
   const sub = d.text(s, 'Each gridline = 10× more maths', { x: rx, y: 2.0, w: rw, h: 0.3, fontSize: 13, color: d.S.muted, italic: true });
   const pts = [['AlexNet', '2012', 4.7e17, '1×'], ['Transformer', '2017', 7.4245248e18, '16×'], ['GPT-3', '2020', 3.14e23, '670,000×'], ['GPT-4', '2023', 2.1e25, '45 million×'], ['GPT-6 Astra', '2026', 1.0001e27, '≈ 2 billion×']];
   const vals = pts.map((p) => +(Math.log10(p[2]) - 16).toFixed(3));
-  const cbox = { x: rx, y: 2.35, w: rw, h: 3.35 }, layout = { x: 0.04, y: 0.13, w: 0.94, h: 0.84 }, maxV = 12;
+  const cbox = { x: rx, y: 2.3, w: rw, h: 3.2 }, layout = { x: 0.04, y: 0.12, w: 0.94, h: 0.82 }, maxV = 12;
   const chart = d.chart(s, 'bar', [{ name: 'log10(FLOP) − 16', labels: pts.map((p) => p[0]), values: vals }], cbox, {
     barDir: 'col', valAxisHidden: true, catAxisHidden: true, valAxisMinVal: 0, valAxisMaxVal: maxV, valAxisMajorUnit: 1,
     chartColors: [HEX.steel, HEX.steel, HEX.steel, HEX.steel, HEX.red], barGapWidthPct: 55, layout, showLegend: false,
@@ -979,7 +979,7 @@ async function ingredientsSlide(d) {
     labs.push(d.text(s, t, { x: g.cx(i) - 0.75, y: g.vy(vals[i]) - 0.36, w: 1.5, h: 0.32, fontSize: 14, bold: true, color: i === 4 ? d.S.red : HEX.text, align: 'center', valign: 'bottom' }));
     labs.push(d.text(s, [{ text: nm, options: { bold: true, color: HEX.text, breakLine: true } }, { text: yr, options: { color: HEX.muted } }], { x: g.cx(i) - 0.65, y: g.py + g.ph + 0.04, w: 1.3, h: 0.5, fontSize: 12, align: 'center', valign: 'top' }));
   });
-  const note = d.text(s, [{ text: 'Frontier training compute has grown about 5× per year since 2020 ', options: { color: HEX.text } }, { text: '(Epoch AI estimate).', options: { color: HEX.muted } }], { x: rx, y: 6.0, w: rw, h: 0.5, fontSize: 16, valign: 'middle' });
+  const note = d.text(s, [{ text: 'Frontier training compute has grown about 5× per year since 2020 ', options: { color: HEX.text } }, { text: '(Epoch AI estimate).', options: { color: HEX.muted } }], { x: rx, y: 5.96, w: rw, h: 0.54, fontSize: 16, valign: 'middle' });
   src(d, s, 'Data: Epoch AI, AI models database (estimates; GPT-6 Astra ≈ 1e27 FLOP, OpenAI has not disclosed) · Epoch AI Trends, Feb 2026 · ratios are our division');
   d.animate(s, rows[0], { auto: true, effect: 'rise' });
   d.animate(s, rows[1], { effect: 'rise' });
@@ -1081,7 +1081,7 @@ async function trainingEnergySlide(d) {
   const rx = 5.15, rw = W - MX - rx;
   const lab1 = label(d, s, 'OPENAI HAS NOT DISCLOSED THE ENERGY · EPOCH AI ESTIMATES', rx, 1.7, rw, { color: d.S.steel });
   const lab2 = label(d, s, 'ONE WEEK OF NEW YORK CITY’S ELECTRICITY  =  961 GWh', rx, 2.05, rw, { color: d.S.amber });
-  const by = 2.42, bh = 0.72, gap = 0.05, bw = (rw - 6 * gap) / 7, dx = (i) => rx + i * (bw + gap);
+  const by = 2.42, bh = 0.68, gap = 0.05, bw = (rw - 6 * gap) / 7, dx = (i) => rx + i * (bw + gap);
   const week = [];
   for (let i = 0; i < 7; i++) {
     const n = d.name('day');
@@ -1094,29 +1094,29 @@ async function trainingEnergySlide(d) {
     s.addShape(d.pres.shapes.RECTANGLE, { x: dx(i), y: by, w: f * bw, h: bh, fill: { color: HEX.red }, line: { color: HEX.red, width: 0.75 }, objectName: n });
     segs.push(n);
   }
-  const fillT = d.text(s, [{ text: '← GPT-6 Astra’s training run', options: { bold: true, color: HEX.text, breakLine: true } }, { text: '≈ 3.7 days of NYC’s electricity', options: { color: HEX.muted } }],
-    { x: dx(4) + 0.08, y: by, w: 3 * bw + 2 * gap - 0.12, h: bh, fontSize: 15, valign: 'middle' });
-  const wy = by + bh + 0.48, w0 = rx + 2.16 * (bw + gap), w1 = rx + 6.14 * (bw + gap);
+  const fillT = d.text(s, [{ text: '▲ GPT-6 Astra’s training run ≈ 3.7 days ', options: { bold: true, color: HEX.red } }, { text: 'of NYC’s electricity', options: { color: HEX.text } }],
+    { x: rx, y: by + bh + 0.32, w: rw, h: 0.34, fontSize: 16, valign: 'middle' });
+  const wy = by + bh + 0.86, w0 = rx + 2.16 * (bw + gap), w1 = rx + 6.14 * (bw + gap);
   const whisk = [seg(d, s, w0, wy, w1, wy, { color: HEX.muted, width: 1.25 }), seg(d, s, w0, wy - 0.07, w0, wy + 0.07, { color: HEX.muted, width: 1.25 }), seg(d, s, w1, wy - 0.07, w1, wy + 0.07, { color: HEX.muted, width: 1.25 })];
   whisk.push(d.text(s, 'plausible range ≈ 2–6 days', { x: w0, y: wy + 0.06, w: w1 - w0, h: 0.28, fontSize: 12, color: d.S.muted, align: 'center', valign: 'top' }));
 
-  const lab3 = label(d, s, 'SAME YARDSTICK, EARLIER RECORD RUNS', rx, 4.08, rw);
-  const ty = 4.45, th = 1.32, ag = 0.17, cw = 1.4;
+  const lab3 = label(d, s, 'SAME YARDSTICK, EARLIER RECORD RUNS', rx, 4.36, rw);
+  const ty = 4.72, th = 1.18, ag = 0.12, cw = 1.38;
   const trend = [['GPT-3 · 2020', '~19 min'], ['GPT-4 · 2023', '~8 hours'], ['Grok 3 · 2025', '~1.7 days'], ['GPT-6 Astra · 2026', '~3.7 days']];
   const tgroups = [];
   trend.forEach(([m, v], i) => {
     const x = rx + i * (cw + ag), g = [d.card(s, { x, y: ty, w: cw, h: th })];
     g.push(d.text(s, m, { x: x + 0.1, y: ty + 0.08, w: cw - 0.16, h: 0.5, fontSize: 13, color: d.S.muted, valign: 'top' }));
-    g.push(d.text(s, v, { x: x + 0.1, y: ty + 0.7, w: cw - 0.12, h: 0.5, fontSize: 19, bold: true, color: i === 3 ? d.S.red : HEX.text, fontFace: 'Arial', valign: 'middle' }));
+    g.push(d.text(s, v, { x: x + 0.1, y: ty + 0.62, w: cw - 0.12, h: 0.48, fontSize: 18, bold: true, color: i === 3 ? d.S.red : HEX.text, fontFace: 'Arial', valign: 'middle' }));
     if (i < 3) g.push(d.text(s, '›', { x: x + cw, y: ty, w: ag, h: th, fontSize: 20, color: d.S.steel, align: 'center', valign: 'middle' }));
     tgroups.push(g);
   });
   const fx = rx + 4 * (cw + ag), fw = W - MX - fx;
   const fut = [d.card(s, { x: fx, y: ty, w: fw, h: th }, { color: '2A1416', line: HEX.red })];
   fut.push(d.text(s, '2030 · FORECAST', { x: fx + 0.1, y: ty + 0.08, w: fw - 0.2, h: 0.28, fontSize: 12, bold: true, color: d.S.red, charSpacing: 1, valign: 'top' }));
-  fut.push(d.text(s, '4–16 GW', { x: fx + 0.1, y: ty + 0.38, w: fw - 0.2, h: 0.46, fontSize: 22, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'middle' }));
-  fut.push(d.text(s, 'for one run (Epoch AI)', { x: fx + 0.1, y: ty + 0.86, w: fw - 0.16, h: 0.4, fontSize: 12, color: HEX.text, valign: 'top' }));
-  const caveat = d.text(s, 'Each tile: how long NYC takes to use that run’s electricity, not how long the run took.', { x: rx, y: 5.9, w: rw, h: 0.58, fontSize: 16, color: d.S.muted, valign: 'middle' });
+  fut.push(d.text(s, '4–16 GW', { x: fx + 0.1, y: ty + 0.36, w: fw - 0.2, h: 0.42, fontSize: 20, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'middle' }));
+  fut.push(d.text(s, 'for one run', { x: fx + 0.1, y: ty + 0.8, w: fw - 0.16, h: 0.3, fontSize: 12, color: HEX.text, valign: 'top' }));
+  const caveat = d.text(s, 'Each tile: how long NYC takes to use that run’s electricity, not how long the run took.', { x: rx, y: 5.95, w: rw, h: 0.55, fontSize: 16, color: d.S.muted, valign: 'middle' });
   src(d, s, 'Sources: PC Gamer, Sep 7, 2026 · Fortune, Sep 3 · Epoch AI model database & Epoch AI/EPRI (Aug 2025) · NYISO 2026 Gold Book (Zone J) · arithmetic in notes');
 
   d.animate(s, clip, { auto: true, effect: 'slam', dur: 450 });
@@ -1305,7 +1305,7 @@ async function grownSlide(d) {
   const bar = [box(d, s, MX, by, W - 2 * MX, 0.75, { fill: TINT.amber, line: HEX.amber, lw: 1.25 })];
   bar.push(await ic(d, s, 'FaUserFriends', HEX.amber, MX + 0.2, by + 0.18, 0.4));
   bar.push(d.text(s, [{ text: 'Think, pair, share (45 s): ', options: { bold: true, color: HEX.amber } }, { text: 'if you can’t read a model’s rules, how would you check that it’s safe?', options: { bold: true, color: HEX.text } }], { x: MX + 0.75, y: by, w: W - 2 * MX - 0.9, h: 0.75, fontSize: 18, valign: 'middle' }));
-  src(d, s, 'Sources: D. Amodei, darioamodei.com (Apr 2025) · Anthropic, “Golden Gate Claude” (May 23, 2024) · Bricken et al., “Towards Monosemanticity” (Oct 4, 2023)');
+  src(d, s, 'Sources: D. Amodei, “The Urgency of Interpretability” (Apr 2025) · Anthropic, “Golden Gate Claude” (May 23, 2024) · Bricken et al., “Towards Monosemanticity” (Oct 4, 2023)');
   d.animate(s, [...clip, clipL], { auto: true, effect: 'fade' });
   d.animate(s, hl, { auto: true, effect: 'wipeLeft', after: 300, dur: 700 });
   d.animate(s, [body], { effect: 'fade' });
@@ -1344,7 +1344,7 @@ async function recapSlide(d) {
     const g = [box(d, s, MX, y, W - 2 * MX, 0.74, { fill: last ? TINT.red : HEX.card, line: last ? HEX.red : HEX.line })];
     g.push(...numDisc(d, s, i + 1, MX + 0.45, y + 0.37, 0.52, last ? HEX.red : HEX.card2, { color: HEX.text, fontSize: 18 }));
     g.push(await ic(d, s, items[i][0], last ? HEX.red : HEX.amber, MX + 0.95, y + 0.17, 0.4));
-    g.push(d.text(s, items[i][1], { x: MX + 1.55, y, w: W - 2 * MX - 1.75, h: 0.74, fontSize: 20, color: HEX.text, valign: 'middle' }));
+    g.push(d.text(s, items[i][1], { x: MX + 1.55, y, w: W - 2 * MX - 1.7, h: 0.74, fontSize: 19, color: HEX.text, valign: 'middle' }));
     groups.push(g);
   }
   const next = d.text(s, [{ text: 'One question, then Part 2: ', options: { bold: true, color: HEX.amber } }, { text: 'how fast is AI moving?', options: { color: HEX.text } }], { x: MX, y: 6.12, w: W - 2 * MX, h: 0.38, fontSize: 18, valign: 'middle' });

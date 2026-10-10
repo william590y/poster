@@ -1,0 +1,370 @@
+{
+  "group": "splash",
+  "items": [
+    {
+      "id": "chinchilla-quote-equal-scaling",
+      "slide_topic": "Scaling laws: model size and training data must grow together",
+      "type": "quote",
+      "file": null,
+      "headline": "Training Compute-Optimal Large Language Models",
+      "dek": "for compute-optimal training, the model size and the number of training tokens should be scaled equally: for every doubling of model size the number of training tokens should also be doubled.",
+      "outlet": "arXiv",
+      "author": "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, et al.",
+      "date": "2022-03-29",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "caption": "Abstract (p.1) of Hoffmann et al. 2022: the compute-optimal scaling rule.",
+      "quality": 5,
+      "verified": true,
+      "notes": "arXiv:2203.15556v1 (29 Mar 2022). Text pulled from the PDF (pdftotext), page 1. The paper's own wording."
+    },
+    {
+      "id": "chinchilla-quote-undertrained",
+      "slide_topic": "Scaling laws: big models were under-trained",
+      "type": "quote",
+      "file": null,
+      "headline": "Training Compute-Optimal Large Language Models",
+      "dek": "We find that current large language models are significantly under-trained, a consequence of the recent focus on scaling language models whilst keeping the amount of training data constant.",
+      "outlet": "arXiv",
+      "author": "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, et al.",
+      "date": "2022-03-29",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "caption": "Abstract (p.1): the paper's headline finding.",
+      "quality": 4,
+      "verified": true,
+      "notes": "PDF hyphenates 'under-trained' across a line break; shown here as printed in the PDF."
+    },
+    {
+      "id": "chinchilla-quote-4x-smaller",
+      "slide_topic": "Scaling laws: Gopher was too big for its compute",
+      "type": "quote",
+      "file": null,
+      "headline": "Training Compute-Optimal Large Language Models",
+      "dek": "Based on our estimated compute-optimal frontier, we predict that for the compute budget used to train Gopher, an optimal model should be 4 times smaller, while being training on 4 times more tokens.",
+      "outlet": "arXiv",
+      "author": "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, et al.",
+      "date": "2022-03-29",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "caption": "Introduction (p.2).",
+      "quality": 5,
+      "verified": true,
+      "notes": "Verbatim, including the paper's wording 'while being training on'. Next sentence: 'We verify this by training a more compute-optimal 70B model, called Chinchilla, on 1.4 trillion tokens.'"
+    },
+    {
+      "id": "chinchilla-quote-equal-proportions",
+      "slide_topic": "Scaling laws: three fitting methods agree",
+      "type": "quote",
+      "file": null,
+      "headline": "Training Compute-Optimal Large Language Models",
+      "dek": "All three approaches suggest that as compute budget increases, model size and the amount of training data should be increased in approximately equal proportions.",
+      "outlet": "arXiv",
+      "author": "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, et al.",
+      "date": "2022-03-29",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "caption": "Section 3.4 'Optimal model scaling' (p.7).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Next sentence on p.7: 'The third approach predicts even smaller models being optimal at larger compute budgets.'"
+    },
+    {
+      "id": "chinchilla-quote-more-tokens-not-params",
+      "slide_topic": "Scaling laws: smaller models trained on more tokens",
+      "type": "quote",
+      "file": null,
+      "headline": "Training Compute-Optimal Large Language Models",
+      "dek": "our analysis clearly suggests that given the training compute budget for many current LLMs, smaller models should have been trained on more tokens to achieve the most performant model.",
+      "outlet": "arXiv",
+      "author": "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, et al.",
+      "date": "2022-03-29",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "caption": "Section 3.4 (p.8), after Table 3.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Preceded on p.8 by: 'a 175 billion parameter model should be trained with a compute budget of 4.41 × 10^24 FLOPs and on over 4.2 trillion tokens.' See the facts list: the table and text disagree on token counts."
+    },
+    {
+      "id": "chinchilla-quote-outperforms",
+      "slide_topic": "Chinchilla: 70B beats 280B Gopher",
+      "type": "quote",
+      "file": null,
+      "headline": "Training Compute-Optimal Large Language Models",
+      "dek": "Chinchilla uniformly and significantly outperforms Gopher (280B), GPT-3 (175B), Jurassic-1 (178B), and Megatron-Turing NLG (530B) on a large range of downstream evaluation tasks.",
+      "outlet": "arXiv",
+      "author": "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, et al.",
+      "date": "2022-03-29",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "caption": "Abstract (p.1).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Abstract also says: 'Chinchilla reaches a state-of-the-art average accuracy of 67.5% on the MMLU benchmark, greater than a 7% improvement over Gopher.'"
+    },
+    {
+      "id": "chinchilla-fig1-overlaid-predictions",
+      "slide_topic": "Scaling laws: where today's models sit vs the predicted optimal frontier",
+      "type": "image",
+      "file": "scaling-chinchilla-fig1-overlaid-predictions.png",
+      "headline": "Figure 1 | Overlaid predictions.",
+      "dek": "We find that all three methods predict that current large models should be substantially smaller and therefore trained much longer than is currently done.",
+      "outlet": "arXiv",
+      "author": "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, et al.",
+      "date": "2022-03-29",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "caption": "Figure 1 (p.2), cropped from the arXiv PDF render: parameters vs FLOPs for the three fitting approaches, the Kaplan et al. (2020) line (dashed), and Chinchilla (70B), Gopher (280B), GPT-3 (175B), Megatron-Turing NLG (530B) as stars.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Crop only (no edits). Rendered from the PDF page at 250 dpi. Figure caption is the paper's own."
+    },
+    {
+      "id": "chinchilla-table3-tokens",
+      "slide_topic": "Scaling laws: tokens needed per model size (about 20 per parameter)",
+      "type": "image",
+      "file": "scaling-chinchilla-table3-tokens.png",
+      "headline": "Table 3 | Estimated optimal training FLOPs and training tokens for various model sizes.",
+      "dek": null,
+      "outlet": "arXiv",
+      "author": "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, et al.",
+      "date": "2022-03-29",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "caption": "Table 3 (p.8), cropped from the arXiv PDF render, Approach 1: 1 Billion parameters -> 20.2 Billion tokens; 67 Billion -> 1.5 Trillion; 280 Billion -> 5.9 Trillion.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Crop only. The paper does not write '20 tokens per parameter'; the ratio is our division of the table's columns (see datasets)."
+    },
+    {
+      "id": "chinchilla-deepmind-blog-1-3T",
+      "slide_topic": "Chinchilla: DeepMind's own announcement",
+      "type": "quote",
+      "file": null,
+      "headline": "An empirical analysis of compute-optimal large language model training",
+      "dek": "We test our data scaling hypothesis by training Chinchilla, a 70-billion parameter model trained for 1.3 trillion tokens.",
+      "outlet": "Google DeepMind (blog)",
+      "author": "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Laurent Sifre",
+      "date": "2022-04-12",
+      "url": "https://deepmind.google/discover/blog/an-empirical-analysis-of-compute-optimal-large-language-model-training/",
+      "caption": "DeepMind blog post dated April 12, 2022.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Raw HTML fetched with curl and text grepped. DISCREPANCY: the blog says 1.3 trillion tokens; the arXiv paper (p.2, Table 1 p.3, Section 4 p.9) says 1.4 trillion. Use 1.4T for the paper and flag the blog if quoted. Blog also says: 'In fact, we find that for the number of training FLOPs used to train Gopher, a 4x smaller model trained on 4x more data would have been preferable.'"
+    },
+    {
+      "id": "chinchilla-epoch-replication",
+      "slide_topic": "Honest uncertainty: experts dispute the third fitting method",
+      "type": "quote",
+      "file": null,
+      "headline": "Chinchilla Scaling: A replication attempt",
+      "dek": "We find that the reported estimates are inconsistent with their first two estimation methods, fail at fitting the extracted data, and report implausibly narrow confidence intervals--intervals this narrow would require over 600,000 experiments, while they likely only ran fewer than 500.",
+      "outlet": "arXiv",
+      "author": "Tamay Besiroglu, Ege Erdil, Matthew Barnett, Josh You",
+      "date": "2024-04-15",
+      "url": "https://arxiv.org/abs/2404.10102",
+      "caption": "Abstract of arXiv:2404.10102 (v1 submitted 15 Apr 2024).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Raw HTML fetched with curl. Critique is of Approach 3 (parametric loss fit) only. The same abstract says their 'rederivation of the scaling law using the third approach yields results that are compatible with the findings from the first two estimation procedures'. Use to show disagreement on detail, not the headline."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "chinchilla-table3-approach1",
+      "title": "Compute-optimal training tokens by model size (Approach 1)",
+      "unit": "billions of training tokens; tokens-per-parameter series is derived (tokens / parameters)",
+      "labels": [
+        "400M",
+        "1B",
+        "10B",
+        "67B",
+        "175B",
+        "280B",
+        "520B",
+        "1T",
+        "10T"
+      ],
+      "series": [
+        {
+          "name": "Optimal training tokens, Approach 1 (billions)",
+          "values": [
+            8.0,
+            20.2,
+            205.1,
+            1500,
+            3700,
+            5900,
+            11000,
+            21200,
+            216200
+          ]
+        },
+        {
+          "name": "Tokens per parameter (derived by us, not in paper)",
+          "values": [
+            20.0,
+            20.2,
+            20.51,
+            22.39,
+            21.14,
+            21.07,
+            21.15,
+            21.2,
+            21.62
+          ]
+        }
+      ],
+      "source": "Hoffmann et al. 2022, Table 3 (p.8), Approach 1. Derived ratio = tokens / parameters, our arithmetic.",
+      "url": "https://arxiv.org/abs/2203.15556"
+    },
+    {
+      "id": "chinchilla-table1-models",
+      "title": "Current LLMs: parameters and training tokens (paper Table 1)",
+      "unit": "billions (parameters, tokens); tokens-per-parameter series is derived (tokens / parameters)",
+      "labels": [
+        "LaMDA (137B)",
+        "GPT-3 (175B)",
+        "Jurassic (178B)",
+        "Gopher (280B)",
+        "MT-NLG 530B (530B)",
+        "Chinchilla (70B)"
+      ],
+      "series": [
+        {
+          "name": "Parameters (billions)",
+          "values": [
+            137,
+            175,
+            178,
+            280,
+            530,
+            70
+          ]
+        },
+        {
+          "name": "Training tokens (billions)",
+          "values": [
+            168,
+            300,
+            300,
+            300,
+            270,
+            1400
+          ]
+        },
+        {
+          "name": "Tokens per parameter (derived by us, not in paper)",
+          "values": [
+            1.23,
+            1.71,
+            1.69,
+            1.07,
+            0.51,
+            20.0
+          ]
+        }
+      ],
+      "source": "Hoffmann et al. 2022, Table 1 (p.3). Chinchilla 1.4 Trillion per paper (DeepMind blog says 1.3T).",
+      "url": "https://arxiv.org/abs/2203.15556"
+    },
+    {
+      "id": "chinchilla-table2-exponents",
+      "title": "Estimated exponents for optimal parameters and tokens vs compute",
+      "unit": "exponent (unitless): N_opt ~ C^a, D_opt ~ C^b",
+      "labels": [
+        "Approach 1: min over training curves",
+        "Approach 2: IsoFLOP profiles",
+        "Approach 3: parametric loss",
+        "Kaplan et al. 2020"
+      ],
+      "series": [
+        {
+          "name": "Exponent a (parameters ~ compute^a)",
+          "values": [
+            0.5,
+            0.49,
+            0.46,
+            0.73
+          ]
+        },
+        {
+          "name": "Exponent b (tokens ~ compute^b)",
+          "values": [
+            0.5,
+            0.51,
+            0.54,
+            0.27
+          ]
+        }
+      ],
+      "source": "Hoffmann et al. 2022, Table 2 (p.8). Bootstrap 10th-90th percentile intervals are in the paper (e.g. Approach 1 a: 0.488-0.502).",
+      "url": "https://arxiv.org/abs/2203.15556"
+    }
+  ],
+  "facts": [
+    {
+      "claim": "For compute-optimal training, model size and training tokens should be scaled equally: every doubling of model size should come with a doubling of training tokens.",
+      "source": "Hoffmann et al. 2022, abstract (p.1)",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "date": "2022-03-29"
+    },
+    {
+      "claim": "Chinchilla has 70 billion parameters and was trained on 1.4 trillion tokens; Gopher has 280 billion parameters and was trained on 300 billion tokens (paper Table 1). Both used the same compute budget.",
+      "source": "Hoffmann et al. 2022, abstract (p.1), Introduction (p.2), Table 1 (p.3)",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "date": "2022-03-29"
+    },
+    {
+      "claim": "The paper predicts that, for Gopher's compute budget, an optimal model should be 4 times smaller and trained on 4 times more tokens.",
+      "source": "Hoffmann et al. 2022, Introduction (p.2)",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "date": "2022-03-29"
+    },
+    {
+      "claim": "Chinchilla's ratio is 1.4 trillion tokens / 70 billion parameters = 20 tokens per parameter. The paper never writes the phrase '20 tokens per parameter'; this is our arithmetic on its Table 1 numbers.",
+      "source": "Hoffmann et al. 2022, Table 1 (p.3); derived by us",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "date": "2022-03-29"
+    },
+    {
+      "claim": "Across Table 3 (Approach 1), tokens divided by parameters is about 20 to 22 at every size from 400 million to 10 trillion parameters (derived by us: 20.0 at 400M, 20.2 at 1B, 22.4 at 67B, 21.6 at 10T). Gopher's ratio is about 1.1 (300B / 280B).",
+      "source": "Hoffmann et al. 2022, Table 3 (p.8); ratios derived by us",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "date": "2022-03-29"
+    },
+    {
+      "claim": "Across three fitting methods, the estimated exponent for parameters is 0.46 to 0.50 and for training tokens 0.50 to 0.54; Kaplan et al. (2020) had 0.73 and 0.27.",
+      "source": "Hoffmann et al. 2022, Table 2 (p.8)",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "date": "2022-03-29"
+    },
+    {
+      "claim": "Chinchilla reaches a state-of-the-art average accuracy of 67.5% on the MMLU benchmark, greater than a 7% improvement over Gopher.",
+      "source": "Hoffmann et al. 2022, abstract (p.1)",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "date": "2022-03-29"
+    },
+    {
+      "claim": "CAVEAT: the paper's text (p.8) says a 175B model should be trained on over 4.2 trillion tokens and a 280B Gopher-like model on 6.8 trillion; Table 3 (Approach 1) gives 3.7 trillion and 5.9 trillion. Quote one source consistently.",
+      "source": "Hoffmann et al. 2022, Section 3.4 text and Table 3 (p.8)",
+      "url": "https://arxiv.org/abs/2203.15556",
+      "date": "2022-03-29"
+    },
+    {
+      "claim": "CAVEAT: DeepMind's April 12, 2022 blog says Chinchilla was trained on 1.3 trillion tokens; the arXiv paper says 1.4 trillion.",
+      "source": "DeepMind blog vs Hoffmann et al. 2022 (p.2, Table 1)",
+      "url": "https://deepmind.google/discover/blog/an-empirical-analysis-of-compute-optimal-large-language-model-training/",
+      "date": "2022-04-12"
+    },
+    {
+      "claim": "CAVEAT: a 2024 replication attempt says the paper's third fitting method (parametric loss) is inconsistent with its first two, and its confidence intervals are implausibly narrow (intervals that narrow would need over 600,000 experiments; the authors think fewer than 500 were run). Their own rederivation of the third method agrees with the first two.",
+      "source": "Besiroglu, Erdil, Barnett, You 2024, arXiv:2404.10102 abstract",
+      "url": "https://arxiv.org/abs/2404.10102",
+      "date": "2024-04-15"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "The compute-optimal rule stated as 'approximately 20 tokens per parameter' in the Chinchilla paper itself",
+      "searched": "Text-extracted arXiv:2203.15556v1 PDF (36 pages) with pdftotext and grep for 'per param', 'tokens per', '20 tokens', '20x', '20×', 'twenty': zero matches. Also grepped the DeepMind blog HTML and the Epoch replication abstract for 'per param': zero matches. The ~20 ratio is derived from Table 1 and Table 3 (see datasets and facts)."
+    },
+    {
+      "outline_item": "Published (peer-reviewed) version of the Chinchilla paper, to check whether numbers differ from arXiv v1",
+      "searched": "Not searched. Only the arXiv v1 PDF (29 Mar 2022) was loaded and checked. The arXiv PDF I fetched carries the v1 stamp on page 1."
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+model,organization,date,training_flop,confidence
+AlexNet,University of Toronto,2012-09-30,4.7e+17,Confident
+VGG16,University of Oxford,2014-09-04,1.2291e+19,Confident
+AlphaGo Lee,DeepMind,2016-01-27,1.9e+21,Speculative
+Transformer,Google Research,2017-06-12,7.4245248e+18,Confident
+AlphaGo Zero,DeepMind,2017-10-18,6.49439910290227e+20,Confident
+GPT-1,OpenAI,2018-06-01,1.7578125e+19,Likely
+BERT-Large,Google,2018-10-11,2.85e+20,Confident
+GPT-2 (1.5B),OpenAI,2019-02-14,1.920000000001e+21,Speculative
+Megatron-LM (8.3B),Nvidia,2019-09-17,9.1e+21,Likely
+Turing-NLG,Microsoft,2020-02-13,1.57e+22,Likely
+GPT-3 175B (davinci),OpenAI,2020-05-28,3.14e+23,Confident
+GPT-4 (Mar 2023),OpenAI,2023-03-15,2.1e+25,Likely
+PaLM 2,Google,2023-05-10,7.34e+24,Likely
+Llama 2-70B,Meta AI,2023-07-18,8.1e+23,Confident
+Gemini 1.0 Ultra,Google DeepMind,2023-12-06,5.0000000001e+25,Speculative
+Claude 3.5 Sonnet,Anthropic,2024-06-20,2.700000000000001e+25,Speculative
+Llama 3.1-405B,Meta AI,2024-07-23,3.8e+25,Confident
+Grok-2,xAI,2024-08-13,2.96e+25,Confident
+DeepSeek-V3,DeepSeek,2024-12-24,3.3e+24,Confident
+Grok 3,xAI,2025-02-17,3.5e+26,Likely
+GPT-4.5,OpenAI,2025-02-27,3.8e+26,Likely
+Grok 4,xAI,2025-07-09,5.0000000000001e+26,Speculative
+DeepSeek-V4-Pro,DeepSeek,2026-04-24,9.702e+24,Likely
+Kimi K3,Moonshot,2026-07-16,2.0001e+25,Speculative

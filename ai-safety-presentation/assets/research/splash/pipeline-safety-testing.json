@@ -1,0 +1,377 @@
+{
+  "group": "splash-pipeline-safety-testing",
+  "items": [
+    {
+      "id": "rsp-page-screenshot",
+      "slide_topic": "How labs test models before release: Anthropic Responsible Scaling Policy",
+      "type": "screenshot",
+      "file": "pipeline-safety-testing-rsp-top.png",
+      "headline": "Anthropic's Responsible Scaling Policy",
+      "dek": "Anticipating and securing against emerging threats that accompany increasingly powerful models",
+      "outlet": "Anthropic",
+      "author": null,
+      "date": "2026-08-14",
+      "url": "https://www.anthropic.com/responsible-scaling-policy",
+      "caption": "Real screenshot of Anthropic's Responsible Scaling Policy page (Last updated Aug 14, 2026)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Browser final URL after redirect from anthropic.com/rsp. Page lists Version 3.4 effective July 8, 2026 as current. Captured with tools/shot.js at 2560x1600. The page itself does not use the phrase 'pre-deployment'."
+    },
+    {
+      "id": "fsf-page-screenshot",
+      "slide_topic": "How labs test models before release: Google DeepMind Frontier Safety Framework",
+      "type": "screenshot",
+      "file": "pipeline-safety-testing-fsf-top.png",
+      "headline": "Learn how we're proactively ensuring our most advanced foundation models are developed responsibly, with safety at the forefront.",
+      "dek": "Frontier safety",
+      "outlet": "Google DeepMind",
+      "author": null,
+      "date": "2026-04-17",
+      "url": "https://deepmind.google/frontier-safety/",
+      "caption": "Real screenshot of Google DeepMind's frontier safety page (headline and section links)",
+      "quality": 4,
+      "verified": true,
+      "notes": "The page shows no publication date of its own. The date given is the Version 3.1 date (17 Apr 2026) listed further down the same page. Page also lists versions 3.0 (22 Sep 2025), 2.0 (4 Feb 2025) and 1.0 (17 May 2024)."
+    },
+    {
+      "id": "pf-v2-cover",
+      "slide_topic": "How labs test models before release: OpenAI Preparedness Framework",
+      "type": "screenshot",
+      "file": "pipeline-safety-testing-pf-v2-cover.png",
+      "headline": "Preparedness Framework",
+      "dek": "Version 2. Last updated: 15th April, 2025",
+      "outlet": "OpenAI",
+      "author": null,
+      "date": "2025-04-15",
+      "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
+      "caption": "Cover page of OpenAI's Preparedness Framework Version 2 (rendered from the official PDF)",
+      "quality": 3,
+      "verified": true,
+      "notes": "Page 1 of the downloaded PDF rendered with pdftoppm at 150 dpi, no edits. Body text of the same PDF was extracted and quoted in the facts list."
+    },
+    {
+      "id": "rsp-v3-zone-of-ambiguity",
+      "slide_topic": "Honesty about uncertainty: capability thresholds are hard to judge",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "We found pre-set capability levels to be far more ambiguous than we anticipated: in some cases, model capabilities have clearly approached the RSP thresholds, but we have had substantial uncertainty about whether they have definitively passed those thresholds. The science of model evaluation isn't well-developed enough to provide dispositive answers.",
+      "outlet": "Anthropic",
+      "author": null,
+      "date": "2026-02-24",
+      "url": "https://anthropic.com/news/responsible-scaling-policy-v3",
+      "caption": "Anthropic's own admission in its RSP version 3 announcement",
+      "quality": 5,
+      "verified": true,
+      "notes": "Fetched with curl and text extracted; the sentences match the page. Source uses curly apostrophes, normalised here to straight ones. The same post says 'We activated ASL-3 safeguards for relevant models in May 2025 and have been working to improve them ever since.'"
+    },
+    {
+      "id": "opus46-caisi-one-week",
+      "slide_topic": "How long pre-release testing takes: a one-week government red-team window",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "We worked with the US Center for AI Standards and Innovation to red-team Claude Opus 4.6 over a one-week window.",
+      "outlet": "Anthropic",
+      "author": null,
+      "date": "2026-02",
+      "url": "https://www-cdn.anthropic.com/c788cbc0a3da9135112f97cdf6dcd06f2c16cee2.pdf",
+      "caption": "Claude Opus 4.6 system card, section 8.2.4.7 'ASL-4 red teaming with the CAISI'",
+      "quality": 5,
+      "verified": true,
+      "notes": "Read from the downloaded PDF (cover: 'February 2026', no day given, so date is month only). The same section says CAISI assessed how well the model could suggest accurate protocols for biology experts in a national security context."
+    },
+    {
+      "id": "opus46-expert-red-team",
+      "slide_topic": "Red teaming: expert testers probe for dangerous biology help",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Based on these findings and quantitative risk modeling, we estimate that the model's uplift to relevant threat actors remains below the ASL-4 capability threshold, though it may reduce certain tacit-knowledge barriers and help speed up biological research workflows.",
+      "outlet": "Anthropic",
+      "author": null,
+      "date": "2026-02",
+      "url": "https://www-cdn.anthropic.com/c788cbc0a3da9135112f97cdf6dcd06f2c16cee2.pdf",
+      "caption": "Claude Opus 4.6 system card, section 8.2.4.6 'Expert red teaming'",
+      "quality": 4,
+      "verified": true,
+      "notes": "The section opens: 'We conducted an expert red-teaming evaluation with over a dozen experts...'. Experts included virologists, immunologists, synthetic biologists and biosecurity researchers. Red-teamers also reported sycophancy, overconfidence, hallucinated citations and poor strategic judgment. The conclusion is Anthropic's own estimate."
+    },
+    {
+      "id": "opus46-earlier-snapshot",
+      "slide_topic": "How long pre-release testing takes: slow tests run on an earlier snapshot",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Due to their longer time requirement, red-teaming and uplift trials were conducted on a helpful-only version obtained from an earlier snapshot.",
+      "outlet": "Anthropic",
+      "author": null,
+      "date": "2026-02",
+      "url": "https://www-cdn.anthropic.com/c788cbc0a3da9135112f97cdf6dcd06f2c16cee2.pdf",
+      "caption": "Claude Opus 4.6 system card, CBRN evaluations section",
+      "quality": 4,
+      "verified": true,
+      "notes": "Shows that some tests take longer than automated checks, so testers used an earlier model version. The card says 'Comparison of performance on automated evaluations give us confidence that this earlier snapshot had comparable risk-relevant capabilities to the released model.'"
+    },
+    {
+      "id": "gpt5-external-red-teamers",
+      "slide_topic": "Red teaming: outside testers before release",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "OpenAI worked with groups of external red teamers to assess key risks associated with the capabilities of gpt-5-thinking.",
+      "outlet": "OpenAI",
+      "author": null,
+      "date": "2025-08-13",
+      "url": "https://cdn.openai.com/gpt-5-system-card.pdf",
+      "caption": "GPT-5 system card, section 4 'Red Teaming & External Assessments'",
+      "quality": 5,
+      "verified": true,
+      "notes": "Same section: 'Across all our red teaming campaigns, this work comprised more than 5,000 hours of work from over 400 external testers and experts.' Campaigns were grouped as Pre-Deployment Research, API Safeguards Testing and In-Product Safeguards Testing. PDF cover date is August 13, 2025; the landing page is dated August 7, 2025."
+    },
+    {
+      "id": "gpt5-microsoft-several-weeks",
+      "slide_topic": "How long pre-release testing takes: weeks of red teaming",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "The Microsoft AI Red Team spent several weeks red-teaming gpt-5-thinking across multiple checkpoints.",
+      "outlet": "OpenAI",
+      "author": null,
+      "date": "2025-08-13",
+      "url": "https://cdn.openai.com/gpt-5-system-card.pdf",
+      "caption": "GPT-5 system card, section 4.2 'Expert and Automated Red Teaming for Prompt Injections'",
+      "quality": 4,
+      "verified": true,
+      "notes": "The same section says two external red-teaming groups 'conducted a two-week prompt-injection assessment targeting system-level vulnerabilities across ChatGPT's connectors and mitigations'. Microsoft used more than 70 internal security and safety experts."
+    },
+    {
+      "id": "gpt5-landing-high-capability",
+      "slide_topic": "Preparedness Framework in action: a precautionary High rating",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "we have decided to treat gpt-5-thinking as High capability in the Biological and Chemical domain under our Preparedness Framework, activating the associated safeguards.",
+      "outlet": "OpenAI",
+      "author": null,
+      "date": "2025-08-07",
+      "url": "https://openai.com/index/gpt-5-system-card/",
+      "caption": "OpenAI GPT-5 announcement page, system card summary",
+      "quality": 4,
+      "verified": true,
+      "notes": "Full sentence continues: 'While we do not have definitive evidence that this model could meaningfully help a novice to create severe biological harm—our defined threshold for High capability—we have chosen to take a precautionary approach.' Loaded in a headless browser (page text)."
+    },
+    {
+      "id": "gpt55-predeployment-evals",
+      "slide_topic": "How long pre-release testing takes: GPT-5.5 release checks",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "We subjected the model to our full suite of predeployment safety evaluations and our Preparedness Framework, including targeted red-teaming for advanced cybersecurity and biology capabilities, and collected feedback on real use cases from nearly 200 early-access partners before release.",
+      "outlet": "OpenAI",
+      "author": null,
+      "date": "2026-04-23",
+      "url": "https://openai.com/index/gpt-5-5-system-card/",
+      "caption": "OpenAI GPT-5.5 system card landing page",
+      "quality": 4,
+      "verified": true,
+      "notes": "Page says it was published April 23, 2026 and the card was updated April 24, 2026 to add API safeguard details. The full PDF was not found or loaded, so no GPT-5.5 red-team findings or scores are recorded here."
+    },
+    {
+      "id": "ft-days-not-months-2025",
+      "slide_topic": "How long pre-release testing takes: testing windows shrank (2025 report)",
+      "type": "quote",
+      "file": null,
+      "headline": "Concerns raised as OpenAI cuts AI safety testing time",
+      "dek": "Testers are now given days, rather than months, to evaluate the risks and performance of new large language models (LLMs).",
+      "outlet": "Financial Times (via freevacy.com copy)",
+      "author": null,
+      "date": "2025-04-11",
+      "url": "https://www.freevacy.com/news/financial-times/concerns-raised-as-openai-cuts-ai-safety-testing-time/6301",
+      "caption": "Secondary copy of a Financial Times report on OpenAI testing windows",
+      "quality": 3,
+      "verified": true,
+      "notes": "Secondary aggregator page loaded, not the FT original (paywalled, not loaded). Aggregator lists the date as 11/04/2025. Same copy says: 'OpenAI previously allowed much longer testing periods, such as the six months allocated for GPT-4.' Search snippets named Cristina Criddle as author, which this page did not confirm. Situation is from 2025 and may have changed."
+    }
+  ],
+  "datasets": [],
+  "facts": [
+    {
+      "claim": "Anthropic's Responsible Scaling Policy says that when a model reaches certain capability thresholds, Anthropic must upgrade its safety protections.",
+      "source": "Anthropic, Responsible Scaling Policy page (planned ASL-3 safeguards section)",
+      "url": "https://www.anthropic.com/responsible-scaling-policy",
+      "date": "2026-08-14",
+      "notes": "Verbatim: 'In our Responsible Scaling Policy, reaching certain Capability Thresholds requires us to upgrade our safeguards to the ASL-3 Security Standard or the ASL-3 Deployment Standard.' Page last updated Aug 14, 2026; the section text is older. Loaded with curl and text checked."
+    },
+    {
+      "claim": "Anthropic released the first version of its Responsible Scaling Policy in September 2023.",
+      "source": "Anthropic, Responsible Scaling Policy page",
+      "url": "https://www.anthropic.com/responsible-scaling-policy",
+      "date": "2023-09-19",
+      "notes": "Verbatim: 'In September 2023, we released the first version of our Responsible Scaling Policy (RSP).' Version list on the page gives Version 1.0 effective September 19, 2023."
+    },
+    {
+      "claim": "In February 2026 Anthropic rewrote its Responsible Scaling Policy, adding Frontier Safety Roadmaps and Risk Reports on its models.",
+      "source": "Anthropic, Responsible Scaling Policy page (version history)",
+      "url": "https://www.anthropic.com/responsible-scaling-policy",
+      "date": "2026-02-24",
+      "notes": "Verbatim: 'Version 3.0 is a comprehensive rewrite of the RSP.' and 'This new version of the RSP involves the publication of Frontier Safety Roadmaps with detailed safety goals, and Risk Reports that quantify risk across all our deployed models.'"
+    },
+    {
+      "claim": "Anthropic admits its pre-set capability thresholds were far more ambiguous than it expected: models sometimes clearly approached them, but it was often unsure whether they had passed them.",
+      "source": "Anthropic, 'Responsible Scaling Policy v3' announcement",
+      "url": "https://anthropic.com/news/responsible-scaling-policy-v3",
+      "date": "2026-02-24",
+      "notes": "Verbatim: 'We found pre-set capability levels to be far more ambiguous than we anticipated: in some cases, model capabilities have clearly approached the RSP thresholds, but we have had substantial uncertainty about whether they have definitively passed those thresholds.' Also: 'The science of model evaluation isn't well-developed enough to provide dispositive answers.'"
+    },
+    {
+      "claim": "Anthropic says it activated ASL-3 safeguards for relevant models in May 2025.",
+      "source": "Anthropic, 'Responsible Scaling Policy v3' announcement",
+      "url": "https://anthropic.com/news/responsible-scaling-policy-v3",
+      "date": "2026-02-24",
+      "notes": "Verbatim: 'We activated ASL-3 safeguards for relevant models in May 2025 and have been working to improve them ever since.'"
+    },
+    {
+      "claim": "OpenAI's Preparedness Framework (Version 2, April 2025) tracks three areas where AI could create new risks of severe harm: biological and chemical, cybersecurity, and AI self-improvement.",
+      "source": "OpenAI, Preparedness Framework Version 2",
+      "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
+      "date": "2025-04-15",
+      "notes": "Verbatim: 'We currently focus this work on three areas of frontier capability, which we call Tracked Categories.' The document says it is 'Last updated: 15th April, 2025'. Persuasion is no longer a tracked category; research categories are a separate list."
+    },
+    {
+      "claim": "OpenAI says it does not deploy a model that reaches a 'High capability' threshold until the risks it poses are sufficiently minimized.",
+      "source": "OpenAI, Preparedness Framework Version 2",
+      "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
+      "date": "2025-04-15",
+      "notes": "Verbatim: 'We do not deploy models that reach a High capability threshold until the associated risks that they pose are sufficiently minimized.'"
+    },
+    {
+      "claim": "Under OpenAI's framework, a 'Critical' capability level means safeguards are needed even during development, not only before release.",
+      "source": "OpenAI, Preparedness Framework Version 2",
+      "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
+      "date": "2025-04-15",
+      "notes": "Verbatim: 'Critical capabilities require safeguards even during the development of the covered system, irrespective of deployment plans.'"
+    },
+    {
+      "claim": "Before OpenAI releases a covered model, the model runs through a suite of capability tests called 'Scalable Evaluations', and the results go to an internal safety group.",
+      "source": "OpenAI, Preparedness Framework Version 2 (section 3.3)",
+      "url": "https://cdn.openai.com/pdf/18a02b5d-6b67-4cec-ab64-68cdfbddebcd/preparedness-framework-v2.pdf",
+      "date": "2025-04-15",
+      "notes": "Verbatim: 'Prior to deployment, every covered model undergoes the suite of Scalable Evaluations. The results of these evaluations ... are compiled into a Capabilities Report that is submitted to the SAG.' SAG is the Safety Advisory Group. Also: 'we run in–scope models through frontier capability evaluations to measure the full extent of model capabilities before we deploy our models and during development.'"
+    },
+    {
+      "claim": "Google DeepMind's Frontier Safety Framework (Version 3.1, April 17, 2026) is built around Critical Capability Levels: capability levels at which, without mitigations, frontier AI models may pose heightened risk of severe harm.",
+      "source": "Google DeepMind, Frontier Safety Framework Version 3.1",
+      "url": "https://storage.googleapis.com/deepmind-media/DeepMind.com/Blog/strengthening-our-frontier-safety-framework/frontier-safety-framework_3-1.pdf",
+      "date": "2026-04-17",
+      "notes": "Section 1.2: 'The Framework is built primarily around capability thresholds called Critical Capability Levels (CCLs).' and 'These are capability levels at which, absent mitigation measures, frontier AI models or systems may pose heightened risk of severe harm.' Tracked Capability Levels are the lower-risk tier. PDF downloaded and text extracted."
+    },
+    {
+      "claim": "Google DeepMind says its Frontier Safety Framework is a set of protocols meant to keep its most advanced AI models reliable, thoroughly tested and aligned with human values.",
+      "source": "Google DeepMind, Frontier Safety landing page",
+      "url": "https://deepmind.google/frontier-safety/",
+      "date": "2026-04-17",
+      "notes": "Verbatim: 'The Frontier Safety Framework is a set of protocols that ensure our most advanced AI models remain reliable, thoroughly tested, and aligned with human values.' Page shows no date of its own; date is that of Version 3.1 listed on the page. Page also says: 'Our frontier models undergo rigorous evaluations.'"
+    },
+    {
+      "claim": "A system card is the long public report a lab publishes with a new model, describing its capability assessments and safety evaluations.",
+      "source": "Anthropic, Claude Opus 4.6 system card (abstract)",
+      "url": "https://www-cdn.anthropic.com/c788cbc0a3da9135112f97cdf6dcd06f2c16cee2.pdf",
+      "date": "2026-02",
+      "notes": "Verbatim: 'This system card provides a detailed assessment of the model's capabilities. It then describes a wide range of safety evaluations...' Cover dated February 2026."
+    },
+    {
+      "claim": "For GPT-5, OpenAI says more than 400 external testers and experts did over 5,000 hours of red-team work before release.",
+      "source": "OpenAI, GPT-5 system card (section 4)",
+      "url": "https://cdn.openai.com/gpt-5-system-card.pdf",
+      "date": "2025-08-13",
+      "notes": "Verbatim: 'Across all our red teaming campaigns, this work comprised more than 5,000 hours of work from over 400 external testers and experts.'"
+    },
+    {
+      "claim": "Microsoft's AI Red Team spent several weeks trying to break GPT-5's gpt-5-thinking model before release, across several development checkpoints.",
+      "source": "OpenAI, GPT-5 system card (section 4.2)",
+      "url": "https://cdn.openai.com/gpt-5-system-card.pdf",
+      "date": "2025-08-13",
+      "notes": "Verbatim: 'The Microsoft AI Red Team spent several weeks red-teaming gpt-5-thinking across multiple checkpoints.' Checkpoints are saved versions of a model during training or development."
+    },
+    {
+      "claim": "For Claude Opus 4.6, the US government's Center for AI Standards and Innovation red-teamed the model over a one-week window.",
+      "source": "Anthropic, Claude Opus 4.6 system card (section 8.2.4.7)",
+      "url": "https://www-cdn.anthropic.com/c788cbc0a3da9135112f97cdf6dcd06f2c16cee2.pdf",
+      "date": "2026-02",
+      "notes": "Verbatim: 'We worked with the US Center for AI Standards and Innovation to red-team Claude Opus 4.6 over a one-week window.' Only a one-week window is stated; no total testing time for the whole release is given."
+    },
+    {
+      "claim": "Some dangerous-capability tests take longer than automated checks, so Anthropic ran them on an earlier, helper-only version of the model.",
+      "source": "Anthropic, Claude Opus 4.6 system card (CBRN evaluations section)",
+      "url": "https://www-cdn.anthropic.com/c788cbc0a3da9135112f97cdf6dcd06f2c16cee2.pdf",
+      "date": "2026-02",
+      "notes": "Verbatim: 'Due to their longer time requirement, red-teaming and uplift trials were conducted on a helpful-only version obtained from an earlier snapshot.' 'Helpful-only' means a version with fewer safety limits, used for testing."
+    },
+    {
+      "claim": "Anthropic shared a pre-release version of Claude Opus 4.6 with the UK AI Security Institute for open-ended testing of misalignment-related risks.",
+      "source": "Anthropic, Claude Opus 4.6 system card (section 6.2.6)",
+      "url": "https://www-cdn.anthropic.com/c788cbc0a3da9135112f97cdf6dcd06f2c16cee2.pdf",
+      "date": "2026-02",
+      "notes": "Verbatim: 'As in our audits of other recent models, we shared a pre-release snapshot of Claude Opus 4.6 with the UK AI Security Institute for open-ended testing, at their discretion, of behaviors or risk factors related to misalignment.'"
+    },
+    {
+      "claim": "Anthropic says its testing of Claude Opus 4.6 informed a decision to deploy it under its AI Safety Level 3 Deployment and Security Standard.",
+      "source": "Anthropic, Claude Opus 4.6 system card (summary)",
+      "url": "https://www-cdn.anthropic.com/c788cbc0a3da9135112f97cdf6dcd06f2c16cee2.pdf",
+      "date": "2026-02",
+      "notes": "Verbatim: 'Informed by the testing described here, we have deployed Claude Opus 4.6 under the AI Safety Level 3 Deployment and Security Standard.'"
+    },
+    {
+      "claim": "Over a dozen experts red-teamed Claude Opus 4.6 on biology knowledge, and Anthropic estimated its uplift to threat actors stayed below its ASL-4 threshold.",
+      "source": "Anthropic, Claude Opus 4.6 system card (section 8.2.4.6)",
+      "url": "https://www-cdn.anthropic.com/c788cbc0a3da9135112f97cdf6dcd06f2c16cee2.pdf",
+      "date": "2026-02",
+      "notes": "Verbatim: 'We conducted an expert red-teaming evaluation with over a dozen experts...' Conclusion: 'we estimate that the model's uplift to relevant threat actors remains below the ASL-4 capability threshold.' The same passage notes sycophancy, overconfidence and hallucinated citations as limits."
+    },
+    {
+      "claim": "Before releasing GPT-5.5 in April 2026, OpenAI ran its full set of pre-release safety tests and got feedback from nearly 200 early-access partners.",
+      "source": "OpenAI, GPT-5.5 system card landing page",
+      "url": "https://openai.com/index/gpt-5-5-system-card/",
+      "date": "2026-04-23",
+      "notes": "Verbatim: 'We subjected the model to our full suite of predeployment safety evaluations and our Preparedness Framework ... and collected feedback on real use cases from nearly 200 early-access partners before release.'"
+    },
+    {
+      "claim": "In 2025 the Financial Times reported that OpenAI gave testers days, not months, to evaluate new models; GPT-4 testers had had six months.",
+      "source": "Financial Times report (April 2025), via freevacy.com copy",
+      "url": "https://www.freevacy.com/news/financial-times/concerns-raised-as-openai-cuts-ai-safety-testing-time/6301",
+      "date": "2025-04-11",
+      "notes": "Verbatim (secondary copy): 'Testers are now given days, rather than months, to evaluate the risks and performance of new large language models (LLMs).' and 'OpenAI previously allowed much longer testing periods, such as the six months allocated for GPT-4.' FT original paywalled, not loaded. Reflects 2025 practice; no later figures found."
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Google Gemini 3 Pro (or later Gemini) Frontier Safety Framework report: what its dangerous-capability tests found and which Critical Capability Levels were reached",
+      "searched": "WebSearch 'Gemini 3 Pro Frontier Safety Framework report critical capability level evaluation'; loaded deepmind.google/frontier-safety (landing page and FSF v3.1 PDF only). Only secondary commentary (thezvi.substack, LessWrong, Vorp Labs) surfaced, so none of its claims are used as facts."
+    },
+    {
+      "outline_item": "Typical total length of pre-release testing for 2026 frontier models across labs",
+      "searched": "WebSearch on pre-release testing duration; only dated examples found (Claude Opus 4.6 CAISI one-week window, GPT-5 Microsoft several-week red team, GPT-5 two-week prompt-injection assessment, 2025 FT days-vs-months report). No lab-wide figure found in a source."
+    },
+    {
+      "outline_item": "Full text of the Financial Times April 2025 article on OpenAI testing windows",
+      "searched": "WebSearch for the FT piece; paywalled. Only aggregator copies loaded (freevacy.com, getcoai.com). Search snippets naming the author (Cristina Criddle) could not be confirmed on a loaded page."
+    },
+    {
+      "outline_item": "GPT-5.5 full system card PDF: red-team findings, Preparedness Framework category ratings and scores",
+      "searched": "Loaded openai.com/index/gpt-5-5-system-card landing page only (text via headless browser). Full PDF URL not found. A ConductAtlas summary says the card does not disclose specific Preparedness thresholds or scores; that is secondary and not used as a fact."
+    },
+    {
+      "outline_item": "Anthropic's capability assessment methodology (how dangerous-capability tests are designed and scored)",
+      "searched": "RSP page says 'We plan to publish additional details on our capability assessment methodology in the near future.' No methodology document found."
+    },
+    {
+      "outline_item": "OpenAI 'Frontier Governance Framework' (reported May 28, 2026) and GPT-5.6 system card",
+      "searched": "Only a secondary site (Vorp Labs) mentioned these. Not verified on any OpenAI page, so not used."
+    },
+    {
+      "outline_item": "Source for Anthropic Risk Reports publication schedule (every 3 to 6 months) as stated on the RSP page",
+      "searched": "Seen only in a WebFetch summary of the RSP page; the raw page text was checked for 'Risk Reports' and the cadence sentence was not found verbatim, so it is not used."
+    }
+  ]
+}

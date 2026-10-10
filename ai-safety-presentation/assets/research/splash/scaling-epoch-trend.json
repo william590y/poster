@@ -1,0 +1,275 @@
+{
+  "group": "splash-scaling-epoch-trend",
+  "items": [
+    {
+      "id": "epoch-trends-page-screenshot",
+      "slide_topic": "scaling laws: how fast training compute grows",
+      "type": "screenshot",
+      "file": "epoch-trends-page.png",
+      "headline": null,
+      "dek": "Training compute for frontier language models has been growing at 5x per year since 2020.",
+      "outlet": "Epoch AI",
+      "author": null,
+      "date": "2026-02-05",
+      "url": "https://epoch.ai/trends",
+      "caption": "Epoch AI 'Trends in AI' dashboard: Training compute card reads '5x/year', 90% CI 4x to 6x, 'Updated Feb. 5, 2026'.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Real screenshot via tools/shot.js (1280x900 viewport, 2560x1800 device pixels, page title 'Trends in AI | Epoch AI'). Viewed with Read; no captcha or overlay."
+    },
+    {
+      "id": "epoch-trends-quote-5x-since-2020",
+      "slide_topic": "scaling laws: how fast training compute grows",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Training compute for frontier language models has been growing at 5× per year since 2020.",
+      "outlet": "Epoch AI",
+      "author": null,
+      "date": "2026-02-05",
+      "url": "https://epoch.ai/trends",
+      "caption": "Epoch AI headline growth figure for frontier language-model training compute.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Verbatim sentence from the Trends page ('Updated Feb. 5, 2026'). Same page also states: 'doubling every 5.2 months since 2020'."
+    },
+    {
+      "id": "epoch-blog-4-5x-summary",
+      "slide_topic": "scaling laws: how fast training compute grows",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Our expanded AI model database shows that the compute used to train recent models grew 4-5x yearly from 2010 to May 2024.",
+      "outlet": "Epoch AI",
+      "author": null,
+      "date": "2024-05-28",
+      "url": "https://epoch.ai/blog/training-compute-of-frontier-ai-models-grows-by-4-5x-per-year",
+      "caption": "Epoch AI blog summary sentence, 2010 to May 2024 growth.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Verbatim summary sentence as returned by WebFetch. The post body gives the more precise figures (4.1x/yr notable, 5.3x/yr frontier, with 90% CIs). Use the 4-5x wording only with the 2010-May 2024 window."
+    },
+    {
+      "id": "epoch-pcd-8-orders-of-magnitude",
+      "slide_topic": "scaling laws: how fast training compute grows",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "How training compute has increased by nearly 8 orders of magnitude from 2012's AlexNet to 2023's GPT-4.",
+      "outlet": "Epoch AI",
+      "author": null,
+      "date": "2023-10-23",
+      "url": "https://epoch.ai/blog/announcing-updated-pcd-database",
+      "caption": "Epoch AI announcement of its updated parameter, compute and data trends database.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Sentence quoted from the page's text by WebFetch; announcement dated Oct. 23, 2023 on the page. Good anchor for a 2012-to-2023 AlexNet/GPT-4 bridge slide."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "epoch-training-compute-landmarks",
+      "title": "Training compute of landmark AI models, 2012-2026 (log scale)",
+      "unit": "training compute, FLOP (log scale; values rounded to 3 significant figures)",
+      "labels": [
+        "AlexNet",
+        "VGG16",
+        "AlphaGo Lee",
+        "Transformer",
+        "AlphaGo Zero",
+        "GPT-1",
+        "BERT-Large",
+        "GPT-2 (1.5B)",
+        "Megatron-LM (8.3B)",
+        "Turing-NLG",
+        "GPT-3 175B (davinci)",
+        "GPT-4 (Mar 2023)",
+        "PaLM 2",
+        "Llama 2-70B",
+        "Gemini 1.0 Ultra",
+        "Claude 3.5 Sonnet",
+        "Llama 3.1-405B",
+        "Grok-2",
+        "DeepSeek-V3",
+        "Grok 3",
+        "GPT-4.5",
+        "Grok 4",
+        "DeepSeek-V4-Pro",
+        "Kimi K3"
+      ],
+      "dates": [
+        "2012-09-30",
+        "2014-09-04",
+        "2016-01-27",
+        "2017-06-12",
+        "2017-10-18",
+        "2018-06-01",
+        "2018-10-11",
+        "2019-02-14",
+        "2019-09-17",
+        "2020-02-13",
+        "2020-05-28",
+        "2023-03-15",
+        "2023-05-10",
+        "2023-07-18",
+        "2023-12-06",
+        "2024-06-20",
+        "2024-07-23",
+        "2024-08-13",
+        "2024-12-24",
+        "2025-02-17",
+        "2025-02-27",
+        "2025-07-09",
+        "2026-04-24",
+        "2026-07-16"
+      ],
+      "confidence": [
+        "Confident",
+        "Confident",
+        "Speculative",
+        "Confident",
+        "Confident",
+        "Likely",
+        "Confident",
+        "Speculative",
+        "Likely",
+        "Likely",
+        "Confident",
+        "Likely",
+        "Likely",
+        "Confident",
+        "Speculative",
+        "Speculative",
+        "Confident",
+        "Confident",
+        "Confident",
+        "Likely",
+        "Likely",
+        "Speculative",
+        "Likely",
+        "Speculative"
+      ],
+      "series": [
+        {
+          "name": "Training compute (FLOP)",
+          "values": [
+            4.7e+17,
+            1.23e+19,
+            1.9e+21,
+            7.42e+18,
+            6.49e+20,
+            1.76e+19,
+            2.85e+20,
+            1.92e+21,
+            9.1e+21,
+            1.57e+22,
+            3.14e+23,
+            2.1e+25,
+            7.34e+24,
+            8.1e+23,
+            5e+25,
+            2.7e+25,
+            3.8e+25,
+            2.96e+25,
+            3.3e+24,
+            3.5e+26,
+            3.8e+26,
+            5e+26,
+            9.7e+24,
+            2e+25
+          ]
+        }
+      ],
+      "source": "Epoch AI, all_ai_models.csv (downloaded 2026-10-10; Epoch 'Data on AI models' page, updated Oct. 8, 2026). Data licensed CC BY 4.0. Confidence: Confident = within 3x, Likely = within 10x, Speculative = within 30x. Closed frontier models released in 2026 have no compute estimate in the database and are not plotted.",
+      "url": "https://epoch.ai/data/all_ai_models.csv",
+      "file": "epoch_compute_trend.csv"
+    },
+    {
+      "id": "epoch-growth-rate-estimates",
+      "title": "Epoch AI training-compute growth-rate estimates",
+      "unit": "x per year (multiplicative growth in training compute per year)",
+      "labels": [
+        "Notable models, 2010 to May 2024",
+        "Frontier models, 2010 to May 2024",
+        "Recent frontier models, after 2018",
+        "Notable language models, Jun 2017 to May 2024",
+        "Notable models, since Feb 2022",
+        "Frontier language models, since 2020 (Trends page, Feb 2026)"
+      ],
+      "series": [
+        {
+          "name": "Growth per year (x)",
+          "values": [
+            4.1,
+            5.3,
+            4.2,
+            9.5,
+            4.4,
+            5
+          ]
+        }
+      ],
+      "source": "Epoch AI blog 'Training compute of frontier AI models' (May 28, 2024): notable 4.1x/yr (90% CI 3.7-4.6), frontier 5.3x/yr (90% CI 4.9-5.7), recent frontier 4.2x/yr (90% CI 3.6-4.9), notable LMs 9.5x/yr (90% CI 7.4-12.2), since Feb 2022 4.4x/yr (90% CI 1.5-11.8). Epoch AI 'Trends in AI' page (updated Feb. 5, 2026): frontier LMs 5x/yr since 2020 (90% CI 4x-6x), doubling every 5.2 months.",
+      "url": "https://epoch.ai/blog/training-compute-of-frontier-ai-models",
+      "notes": "The 'Trends' page value (5x/yr since 2020) and the 2024 blog values cover different windows and sample definitions; do not average them. Last row is the most recent Epoch figure; the rest are from the May 2024 post."
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Training compute for frontier language models has been growing at 5× per year since 2020 (doubling every 5.2 months).",
+      "source": "Epoch AI, 'Trends in AI' (updated Feb. 5, 2026); 90% CI 4x to 6x per the page card",
+      "url": "https://epoch.ai/trends",
+      "date": "2026-02-05"
+    },
+    {
+      "claim": "Training compute of notable AI models grew about 4.1x per year (90% CI 3.7x to 4.6x) between 2010 and May 2024; frontier models grew 5.3x per year (90% CI 4.9x to 5.7x) over the same period.",
+      "source": "Epoch AI, 'Training compute of frontier AI models' (May 28, 2024)",
+      "url": "https://epoch.ai/blog/training-compute-of-frontier-ai-models",
+      "date": "2024-05-28"
+    },
+    {
+      "claim": "Compute used to train recent models grew 4-5x yearly from 2010 to May 2024 (headline summary of the same study).",
+      "source": "Epoch AI, 'Training compute of frontier AI models grows by 4-5x per year' (May 28, 2024)",
+      "url": "https://epoch.ai/blog/training-compute-of-frontier-ai-models-grows-by-4-5x-per-year",
+      "date": "2024-05-28"
+    },
+    {
+      "claim": "Since the last update in Feb 2022, training compute has grown about 4.4x per year (90% CI 1.5x to 11.8x), a very wide interval.",
+      "source": "Epoch AI, 'Training compute of frontier AI models' (May 28, 2024)",
+      "url": "https://epoch.ai/blog/training-compute-of-frontier-ai-models",
+      "date": "2024-05-28"
+    },
+    {
+      "claim": "Training compute increased by nearly 8 orders of magnitude from 2012's AlexNet to 2023's GPT-4.",
+      "source": "Epoch AI, 'Announcing Epoch AI's updated parameter, compute and data trends database' (Oct. 23, 2023)",
+      "url": "https://epoch.ai/blog/announcing-updated-pcd-database",
+      "date": "2023-10-23"
+    },
+    {
+      "claim": "Epoch's AI models database lists over 3,600 models, from 1950 to the present, each tagged with training compute where estimated; data is CC BY 4.0.",
+      "source": "Epoch AI, 'Data on AI models' page (page shows 'Updated Oct. 8, 2026')",
+      "url": "https://epoch.ai/data/ai-models",
+      "date": "2026-10-08"
+    },
+    {
+      "claim": "AlexNet (2012) is estimated at 4.7e17 FLOP and GPT-3 (2020) at 3.14e23 FLOP, a gap of about 6 orders of magnitude in the Epoch database.",
+      "source": "Epoch AI all_ai_models.csv (downloaded 2026-10-10); computed from the 'Training compute (FLOP)' column",
+      "url": "https://epoch.ai/data/all_ai_models.csv",
+      "date": "2026-10-10"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Training-compute estimates for 2026 frontier closed models (e.g. Claude Opus 5, Claude Fable 5, Gemini 4 Argon, Claude Sonnet 5.5)",
+      "searched": "Epoch notable_ai_models.csv and all_ai_models.csv (downloaded 2026-10-10): these 2026 rows exist but 'Training compute (FLOP)' is blank. Only open-weight or disclosed models such as DeepSeek-V4-Pro and Kimi K3 carry 2026 estimates in the trimmed set."
+    },
+    {
+      "outline_item": "Epoch growth-rate update newer than the Feb. 5, 2026 Trends page",
+      "searched": "WebSearch for 2026 Epoch training-compute trend updates; no newer headline growth figure found. The Trends page (Feb 5, 2026) is the most recent Epoch growth statement loaded."
+    },
+    {
+      "outline_item": "Epoch's own stated 'x per year' figure for notable models on its current data page",
+      "searched": "epoch.ai/data/epochdb and epoch.ai/data/ai-models were loaded; neither states a growth rate. Search snippets cited 4.5x (Jan 2025) and 4.4x (Sept 2025) versions of a notable-models headline, but those pages were not loaded and are not used here."
+    }
+  ]
+}

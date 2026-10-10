@@ -1,0 +1,225 @@
+{
+ "group": "splash",
+ "items": [
+  {
+   "id": "o1-announcement",
+   "slide_topic": "pipeline/rlvr: OpenAI o1 announcement (reasoning models trained with RL)",
+   "type": "headline",
+   "file": null,
+   "headline": "Learning to reason with LLMs",
+   "dek": "We are introducing OpenAI o1, a new large language model trained with reinforcement learning to perform complex reasoning. o1 thinks before it answers—it can produce a long internal chain of thought before responding to the user.",
+   "outlet": "OpenAI",
+   "author": "OpenAI",
+   "date": "2024-09-12",
+   "url": "https://openai.com/index/learning-to-reason-with-llms/",
+   "caption": "OpenAI's own announcement post for o1 (page dated September 12, 2024; category Release).",
+   "quality": 3,
+   "verified": true,
+   "notes": "Loaded in headless Chromium: title 'Learning to reason with LLMs | OpenAI'; date and dek read from page text. The page now carries a 2026 notice: 'o1‑preview and o1‑mini have been retired from the API; o1 is deprecated.' Use the 2024 framing, not current availability. No headline screenshot kept: the crop picked up the page's chart overlay, so it was discarded."
+  },
+  {
+   "id": "o1-train-test-compute-chart",
+   "slide_topic": "pipeline/rlvr: train-time vs test-time compute scaling (o1)",
+   "type": "chart",
+   "file": "o1-train-test-compute-chart.png",
+   "headline": null,
+   "dek": "o1 performance smoothly improves with both train-time and test-time compute",
+   "outlet": "OpenAI",
+   "author": null,
+   "date": "2024-09-12",
+   "url": "https://openai.com/index/learning-to-reason-with-llms/",
+   "caption": "Two scatter plots: 'o1 AIME accuracy during training' (x: train-time compute, log scale) and 'o1 AIME accuracy at test time' (x: test-time compute, log scale); y: pass@1 accuracy 0-100. Dots rise left to right in both panels.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Clean element screenshot of the chart (img[src*=compute.png]) on the loaded OpenAI page, scrolled into view, downsized to 1920px wide. The first element capture came back blank and was discarded. The x-axes are log-scale with NO numeric tick labels, so do not put exact compute values on the slide. The y-axis is 0-100 and the points are read visually only. Alt text on the page: 'The image shows two scatter plots comparing \"o1 AIME accuracy\" during training and at test time.'"
+  },
+  {
+   "id": "o1-thinks-before-it-answers",
+   "slide_topic": "pipeline/rlvr: what 'reasoning model' means (chain of thought before answering)",
+   "type": "quote",
+   "file": null,
+   "headline": null,
+   "dek": "Our large-scale reinforcement learning algorithm teaches the model how to think productively using its chain of thought in a highly data-efficient training process. We have found that the performance of o1 consistently improves with more reinforcement learning (train-time compute) and with more time spent thinking (test-time compute).",
+   "outlet": "OpenAI",
+   "author": null,
+   "date": "2024-09-12",
+   "url": "https://openai.com/index/learning-to-reason-with-llms/",
+   "caption": "OpenAI's own description of how o1 is trained and why it scales.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Verbatim from the loaded page's body text. OpenAI also says: 'Through reinforcement learning, o1 learns to hone its chain of thought and refine the strategies it uses. It learns to recognize and correct its mistakes.' Company claims, not independently verified. The page also shows an example where the reasoning in the chain of thought is visible."
+  },
+  {
+   "id": "r1-paper-title-abstract",
+   "slide_topic": "pipeline/rlvr: DeepSeek-R1 paper (pure RL on a base model, no human reasoning examples)",
+   "type": "quote",
+   "file": null,
+   "headline": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+   "dek": "Here we show that the reasoning abilities of LLMs can be incentivized through pure reinforcement learning (RL), obviating the need for human-labeled reasoning trajectories.",
+   "outlet": "arXiv",
+   "author": "DeepSeek-AI",
+   "date": "2025-01-22",
+   "url": "https://arxiv.org/abs/2501.12948",
+   "caption": "arXiv:2501.12948 title and abstract (first submitted 22 January 2025).",
+   "quality": 4,
+   "verified": true,
+   "notes": "Loaded arXiv abs page (curl); 'Submitted on 22 Jan 2025' read from that page. Full abstract also says: 'The proposed RL framework facilitates the emergent development of advanced reasoning patterns, such as self-reflection, verification, and dynamic strategy adaptation.' The Nature journal version (Nature 645, 633-638, 2025) appeared only in a search snippet and was not loaded, so it is not verified."
+  },
+  {
+   "id": "r1-aha-moment-table3",
+   "slide_topic": "pipeline/rlvr: the 'aha moment' of DeepSeek-R1-Zero (self-reflection emerging from RL)",
+   "type": "screenshot",
+   "file": "r1-aha-moment-table3.png",
+   "headline": null,
+   "dek": "Wait, wait. Wait. That’s an aha moment I can flag here",
+   "outlet": "arXiv",
+   "author": "DeepSeek-AI",
+   "date": "2025-01-22",
+   "url": "https://arxiv.org/html/2501.12948v1",
+   "caption": "Table 3 from the arXiv HTML (v1): a math problem (if a > 1, the sum of the real solutions of sqrt(a - sqrt(a + x)) = x) and the model's own mid-solution 'Wait, wait. Wait.' self-correction in red.",
+   "quality": 5,
+   "verified": true,
+   "notes": "Clean element screenshot (figure with caption 'aha moment') from the loaded arXiv HTML v1 page, 1600px wide. Caption text in the paper: 'An interesting “aha moment” of an intermediate version of DeepSeek-R1-Zero. The model learns to rethink using an anthropomorphic tone. This is also an aha moment for us, allowing us to witness the power and beauty of reinforcement learning.' The caption's right edge is slightly clipped in the crop. The paper's 'aha moment' is a single transcript and is not a measured result."
+  },
+  {
+   "id": "r1-accuracy-reward-quote",
+   "slide_topic": "pipeline/rlvr: verifiable rewards (rule-based checking of answers)",
+   "type": "quote",
+   "file": null,
+   "headline": null,
+   "dek": "For example, in the case of math problems with deterministic results, the model is required to provide the final answer in a specified format (e.g., within a box), enabling reliable rule-based verification of correctness. Similarly, for LeetCode problems, a compiler can be used to generate feedback based on predefined test cases.",
+   "outlet": "arXiv",
+   "author": "DeepSeek-AI",
+   "date": "2025-01-22",
+   "url": "https://arxiv.org/html/2501.12948v1",
+   "caption": "DeepSeek-R1 paper, section 2.2 Reward Modeling (the accuracy reward).",
+   "quality": 5,
+   "verified": true,
+   "notes": "Verbatim from the loaded arXiv HTML v1 (whitespace normalized). The same section says the format reward 'enforces the model to put its thinking process between ‘<think>’ and ‘</think>’ tags' and that a neural reward model was not used for R1-Zero 'because we find that the neural reward model may suffer from reward hacking'. This is the core of 'verifiable rewards'."
+  }
+ ],
+ "datasets": [
+  {
+   "id": "o1-aime-2024-average",
+   "title": "OpenAI o1 vs GPT-4o on the 2024 AIME (average share of problems solved)",
+   "unit": "% of 2024 AIME problems (15 per exam)",
+   "labels": [
+    "GPT-4o",
+    "o1 (1 sample)",
+    "o1 (64-sample consensus)",
+    "o1 (re-rank 1000 samples)"
+   ],
+   "series": [
+    {
+     "name": "2024 AIME average",
+     "values": [
+      12,
+      74,
+      83,
+      93
+     ]
+    }
+   ],
+   "source": "OpenAI, 'Learning to reason with LLMs' (2024-09-12). Text: GPT-4o 12% (1.8/15); o1 74% (11.1/15); 83% (12.5/15); 93% (13.9/15).",
+   "url": "https://openai.com/index/learning-to-reason-with-llms/"
+  },
+  {
+   "id": "r1-zero-aime-2024-pass1",
+   "title": "DeepSeek-R1-Zero pass@1 on AIME 2024 during RL training",
+   "unit": "% (pass@1 unless noted)",
+   "labels": [
+    "start of RL",
+    "after thousands of RL steps (pass@1)",
+    "after RL, with majority voting"
+   ],
+   "series": [
+    {
+     "name": "AIME 2024",
+     "values": [
+      15.6,
+      71.0,
+      86.7
+     ]
+    }
+   ],
+   "source": "DeepSeek-AI, arXiv:2501.12948 (v1 text: 'increases from 15.6% to 71.0%, and with majority voting ... 86.7%'). The paper says the 71.0% level is 'comparable to OpenAI-o1-0912'.",
+   "url": "https://arxiv.org/html/2501.12948v1"
+  }
+ ],
+ "facts": [
+  {
+   "claim": "OpenAI o1 'thinks before it answers': it can produce a long internal chain of thought before responding to the user.",
+   "source": "OpenAI, 'Learning to reason with LLMs'",
+   "url": "https://openai.com/index/learning-to-reason-with-llms/",
+   "date": "2024-09-12"
+  },
+  {
+   "claim": "OpenAI reports o1's performance consistently improves with more reinforcement learning (train-time compute) and with more time spent thinking (test-time compute).",
+   "source": "OpenAI, 'Learning to reason with LLMs'",
+   "url": "https://openai.com/index/learning-to-reason-with-llms/",
+   "date": "2024-09-12"
+  },
+  {
+   "claim": "On the 2024 AIME, GPT-4o solved on average 12% (1.8/15) of problems; o1 averaged 74% (11.1/15) with one sample per problem and 93% (13.9/15) when re-ranking 1000 samples.",
+   "source": "OpenAI, 'Learning to reason with LLMs' (company-reported)",
+   "url": "https://openai.com/index/learning-to-reason-with-llms/",
+   "date": "2024-09-12"
+  },
+  {
+   "claim": "OpenAI says o1 ranks in the 89th percentile on Codeforces competitive programming, places among the top 500 US students in an AIME qualifier, and exceeds human PhD-level accuracy on GPQA (physics, biology, chemistry).",
+   "source": "OpenAI, 'Learning to reason with LLMs' (company-reported)",
+   "url": "https://openai.com/index/learning-to-reason-with-llms/",
+   "date": "2024-09-12"
+  },
+  {
+   "claim": "The OpenAI page now carries this notice: o1-preview and o1-mini have been retired from the API; o1 is deprecated.",
+   "source": "OpenAI, 'Learning to reason with LLMs' (page notice as loaded)",
+   "url": "https://openai.com/index/learning-to-reason-with-llms/",
+   "date": "2026-10-10"
+  },
+  {
+   "claim": "DeepSeek-R1-Zero, trained with pure RL on a base model, raised pass@1 on AIME 2024 from 15.6% to 71.0%; with majority voting the score reached 86.7%.",
+   "source": "DeepSeek-AI, arXiv:2501.12948 v1",
+   "url": "https://arxiv.org/html/2501.12948v1",
+   "date": "2025-01-22"
+  },
+  {
+   "claim": "DeepSeek-R1 achieves performance comparable to OpenAI-o1-1217 on reasoning tasks (paper's own statement).",
+   "source": "DeepSeek-AI, arXiv:2501.12948",
+   "url": "https://arxiv.org/abs/2501.12948",
+   "date": "2025-01-22"
+  },
+  {
+   "claim": "The reasoning abilities of LLMs can be incentivized through pure reinforcement learning (RL), obviating the need for human-labeled reasoning trajectories.",
+   "source": "DeepSeek-AI, arXiv:2501.12948 abstract",
+   "url": "https://arxiv.org/abs/2501.12948",
+   "date": "2025-01-22"
+  },
+  {
+   "claim": "Verifiable reward: for math problems with deterministic answers, the model must give the final answer in a specified format (e.g., within a box), enabling reliable rule-based verification of correctness; for LeetCode problems a compiler checks predefined test cases.",
+   "source": "DeepSeek-AI, arXiv:2501.12948, section 2.2 Reward Modeling",
+   "url": "https://arxiv.org/html/2501.12948v1",
+   "date": "2025-01-22"
+  },
+  {
+   "claim": "During training, an intermediate DeepSeek-R1-Zero wrote: 'Wait, wait. Wait. That’s an aha moment I can flag here' and then re-checked its own work, which the authors call an 'aha moment' for them too.",
+   "source": "DeepSeek-AI, arXiv:2501.12948, Table 3",
+   "url": "https://arxiv.org/html/2501.12948v1",
+   "date": "2025-01-22"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "o1 train-time / test-time compute chart: exact compute values on the x-axes",
+   "searched": "Read the chart on the loaded OpenAI page and its alt text. Both x-axes are log-scale compute with no numeric tick labels, so no exact values exist to cite. Not estimated."
+  },
+  {
+   "outline_item": "DeepSeek-R1 journal version (Nature 645, 633-638, 2025)",
+   "searched": "WebSearch snippet only. The journal page was not loaded, so this is unverified and not used in the facts."
+  },
+  {
+   "outline_item": "OpenAI o1-0912 AIME 2024 score used as R1 comparison",
+   "searched": "Read the arXiv v1 text: R1-Zero's 71.0% (86.7% with majority voting) is said to match o1-0912, but no o1-0912 number is given in the text. Not recorded."
+  }
+ ]
+}

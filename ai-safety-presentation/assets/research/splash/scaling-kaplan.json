@@ -1,0 +1,141 @@
+{
+  "group": "scaling-kaplan",
+  "items": [
+    {
+      "id": "kaplan-fig1-scaling-laws",
+      "slide_topic": "Scaling laws: how language-model test loss falls as model size, data and compute grow (Kaplan et al. 2020, Figure 1)",
+      "type": "chart",
+      "file": "kaplan-fig1.png",
+      "headline": null,
+      "dek": "For optimal performance all three factors must be scaled up in tandem. Empirical performance has a power-law relationship with each individual factor when not bottlenecked by the other two.",
+      "outlet": "arXiv",
+      "author": "Jared Kaplan, Sam McCandlish, Tom Henighan, Tom B. Brown, Benjamin Chess, Rewon Child, Scott Gray, Alec Radford, Jeffrey Wu, Dario Amodei",
+      "date": "2020-01-23",
+      "url": "https://arxiv.org/abs/2001.08361",
+      "caption": "Kaplan et al. 2020, Figure 1 (cropped from PDF page 3): three log-log panels of test loss vs. training compute (PF-days, non-embedding), dataset size (tokens) and parameters (non-embedding), each with a power-law fit line.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Cropped from page 3 of https://arxiv.org/pdf/2001.08361 (arXiv v1, 30 pages) rendered at 200 dpi with pdftoppm; crop is 1215x380 px and includes the three panels and their axis titles. The caption is copied in full in the paper, but its typo 'datasetset' is not reproduced in dek. Fit legends as shown in the figure: L = (N/8.8e13)^-0.076; L = (D/5.4e13)^-0.095; L = (Cmin/2.3e8)^-0.050. Eq. 1.3 in the text gives Ccmin ~ 3.1e8 PF-days, so the compute constant differs between the figure legend (2.3e8) and the equation (3.1e8); quote the exponent (0.050), not the constant, on slides. The paper is dense (log-log axes, three panels), so for a grade 7-12 room show a simplified version or only the parameter panel. Body text on p.3 says trends span 'more than six orders of magnitude' while the abstract says 'more than seven orders of magnitude'."
+    },
+    {
+      "id": "kaplan-abstract-power-law-quote",
+      "slide_topic": "Scaling laws: the core finding in the paper's own words",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "The loss scales as a power-law with model size, dataset size, and the amount of compute used for training, with some trends spanning more than seven orders of magnitude. Other architectural details such as network width or depth have minimal effects within a wide range.",
+      "outlet": "arXiv",
+      "author": "Jared Kaplan et al. (OpenAI and Johns Hopkins University)",
+      "date": "2020-01-23",
+      "url": "https://arxiv.org/abs/2001.08361",
+      "caption": "Abstract of Kaplan et al. 2020, 'Scaling Laws for Neural Language Models' (p.1).",
+      "quality": 5,
+      "verified": true,
+      "notes": "Verbatim from the abstract on PDF page 1. The body text (p.2-3) says 'more than six orders of magnitude' for the same claim, so cite the abstract wording only with the abstract attribution, or use the body wording instead."
+    },
+    {
+      "id": "kaplan-bigger-models-quote",
+      "slide_topic": "Scaling laws: why the paper says the best strategy is big models trained on modest data, stopped early",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Larger models are significantly more sample-efficient, such that optimally compute-efficient training involves training very large models on a relatively modest amount of data and stopping significantly before convergence.",
+      "outlet": "arXiv",
+      "author": "Jared Kaplan et al. (OpenAI and Johns Hopkins University)",
+      "date": "2020-01-23",
+      "url": "https://arxiv.org/abs/2001.08361",
+      "caption": "Abstract of Kaplan et al. 2020 (p.1), the paper's main compute-allocation finding.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Verbatim from the abstract on PDF page 1. Later text (p.4, Figure 14 caption p.16) adds that optimal model size grows about 5x for each 10x increase in compute."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "kaplan-fit-exponents",
+      "title": "Power-law exponents for test loss vs. N, D and compute (Kaplan et al. 2020, Eqs. 1.1-1.3)",
+      "unit": "power-law exponent alpha (unitless)",
+      "labels": ["Non-embedding parameters N", "Dataset size D (tokens)", "Training compute Cmin (PF-days)"],
+      "series": [{"name": "alpha", "values": [0.076, 0.095, 0.050]}],
+      "source": "Kaplan et al. 2020, Section 1, Eqs. 1.1-1.3 (PDF page 4); same exponents in the Figure 1 legend",
+      "url": "https://arxiv.org/abs/2001.08361"
+    },
+    {
+      "id": "kaplan-fit-constants",
+      "title": "Power-law reference constants for test loss (Kaplan et al. 2020, Eqs. 1.1-1.3)",
+      "unit": "Nc and Dc in parameters or tokens; Ccmin in PF-days (mixed units, one value per label)",
+      "labels": ["Nc (non-embedding parameters)", "Dc (tokens)", "Ccmin (PF-days)"],
+      "series": [{"name": "constant", "values": [8.8e13, 5.4e13, 3.1e8]}],
+      "source": "Kaplan et al. 2020, Section 1, Eqs. 1.1-1.3 (PDF page 4). Figure 1 legend gives 2.3e8 for the compute constant, which differs from Eq. 1.3.",
+      "url": "https://arxiv.org/abs/2001.08361"
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Test loss follows a power law with model size, dataset size and training compute, with some trends spanning more than seven orders of magnitude.",
+      "source": "Kaplan, McCandlish, Henighan, Brown, Chess, Child, Gray, Radford, Wu, Amodei (2020), 'Scaling Laws for Neural Language Models', abstract (p.1)",
+      "url": "https://arxiv.org/abs/2001.08361",
+      "date": "2020-01-23"
+    },
+    {
+      "claim": "For optimal performance all three factors (model size, dataset size, compute) must be scaled up in tandem.",
+      "source": "Kaplan et al. 2020, Figure 1 caption (p.3)",
+      "url": "https://arxiv.org/abs/2001.08361",
+      "date": "2020-01-23"
+    },
+    {
+      "claim": "Every time we increase the model size 8x, we only need to increase the data by roughly 5x to avoid a penalty.",
+      "source": "Kaplan et al. 2020, 'Universality of overfitting' (p.3)",
+      "url": "https://arxiv.org/abs/2001.08361",
+      "date": "2020-01-23"
+    },
+    {
+      "claim": "Larger models are significantly more sample-efficient; optimally compute-efficient training involves training very large models on a relatively modest amount of data and stopping significantly before convergence.",
+      "source": "Kaplan et al. 2020, abstract (p.1)",
+      "url": "https://arxiv.org/abs/2001.08361",
+      "date": "2020-01-23"
+    },
+    {
+      "claim": "Optimal model size grows very rapidly with compute, increasing by 5x for each 10x increase in compute.",
+      "source": "Kaplan et al. 2020, Figure 14 caption (p.16)",
+      "url": "https://arxiv.org/abs/2001.08361",
+      "date": "2020-01-23"
+    },
+    {
+      "claim": "Data requirements grow very slowly with training compute, as D ~ C^0.27 when training is compute-efficient.",
+      "source": "Kaplan et al. 2020, 'Convergence is inefficient' (p.3)",
+      "url": "https://arxiv.org/abs/2001.08361",
+      "date": "2020-01-23"
+    },
+    {
+      "claim": "The ideal batch size for training these models is roughly 1-2 million tokens at convergence for the largest models the authors could train.",
+      "source": "Kaplan et al. 2020, 'Optimal batch size' (p.3)",
+      "url": "https://arxiv.org/abs/2001.08361",
+      "date": "2020-01-23"
+    },
+    {
+      "claim": "Taken together, these results show that language modeling performance improves smoothly and predictably as we appropriately scale up model size, data, and compute.",
+      "source": "Kaplan et al. 2020, summary paragraph (p.3)",
+      "url": "https://arxiv.org/abs/2001.08361",
+      "date": "2020-01-23"
+    },
+    {
+      "claim": "Test loss vs. non-embedding parameters N: L(N) = (Nc/N)^alpha_N with alpha_N ~ 0.076 and Nc ~ 8.8 x 10^13.",
+      "source": "Kaplan et al. 2020, Eq. 1.1 (p.4)",
+      "url": "https://arxiv.org/abs/2001.08361",
+      "date": "2020-01-23"
+    },
+    {
+      "claim": "These relations hold across eight orders of magnitude in compute Cmin, six orders of magnitude in N, and over two orders of magnitude in D.",
+      "source": "Kaplan et al. 2020, Section 1 (p.5)",
+      "url": "https://arxiv.org/abs/2001.08361",
+      "date": "2020-01-23"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Figure 1 point-level data for a native chart (values read off each plotted point)",
+      "searched": "Read the paper text and rendered page 3 at 200 dpi. Only the fitted power-law equations (Eqs. 1.1-1.3 and the Figure 1 legends) are stated numerically. Per-point values were not extracted from the plot, so no point-level dataset was built; the exponents and constants are in datasets instead."
+    }
+  ]
+}

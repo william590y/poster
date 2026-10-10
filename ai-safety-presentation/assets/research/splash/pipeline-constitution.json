@@ -63,7 +63,7 @@
       "caption": "Anthropic announcement 'Claude's new constitution' (dated Jan 22, 2026)",
       "quality": 5,
       "verified": true,
-      "notes": "Loaded with curl; HTML meta article:published_time 2026-01-22T04:15:00.000Z and visible text 'Jan 22, 2026'. Press coverage (e.g. TechCrunch, 21 Jan 2026) dates the release one day earlier; use Anthropic's date. The post says the document is released in full under CC0 1.0."
+      "notes": "Loaded with curl; HTML meta article:published_time 2026-01-22T04:15:00.000Z and visible text 'Jan 22, 2026'. Search-result press coverage dated 21 Jan 2026 was not loaded; use Anthropic's date. The post says the document is released in full under CC0 1.0."
     },
     {
       "id": "constitution-teen-line",
@@ -79,7 +79,7 @@
       "caption": "Opening sentence of Claude's Constitution",
       "quality": 5,
       "verified": true,
-      "notes": "Verbatim first sentence of the constitution page. Second line that also carries the 'why it matters' point: 'It plays a crucial role in our training process, and its content directly shapes Claude’s behavior.'"
+      "notes": "Verbatim first sentence of the constitution page. Companion 'why it matters' sentence, verbatim: 'It plays a crucial role in our training process, and its content directly shapes Claude’s behavior.'"
     },
     {
       "id": "constitution-priorities",
@@ -103,7 +103,7 @@
       "type": "quote",
       "file": null,
       "headline": "",
-      "dek": "This document is likely to change in important ways in the future. It is best thought of as a perpetual work in progress.",
+      "dek": "This document is likely to change in important ways in the future. … It is best thought of as a perpetual work in progress.",
       "outlet": "Anthropic",
       "author": null,
       "date": null,
@@ -111,7 +111,7 @@
       "caption": "Anthropic's own statement that the constitution may change and is a work in progress",
       "quality": 4,
       "verified": true,
-      "notes": "Two verbatim sentences from the constitution page's opening section (the second follows several sentences later in the same paragraph; the middle sentences are omitted here: 'It represents our current thinking... It is likely that aspects of our current thinking will later look misguided and perhaps even deeply wrong in retrospect, but our intention is to revise it as the situation progresses and our understanding improves.'). Good for teen discussion of uncertainty."
+      "notes": "Two verbatim sentences from the constitution page's opening section, joined by an ellipsis where the middle sentences are omitted. Good for teen discussion of uncertainty."
     },
     {
       "id": "blog-previous-vs-new",
@@ -119,7 +119,7 @@
       "type": "quote",
       "file": null,
       "headline": "",
-      "dek": "Our previous Constitution was composed of a list of standalone principles. we need to explain this to them rather than merely specify",
+      "dek": "Our previous Constitution was composed of a list of standalone principles.",
       "outlet": "Anthropic",
       "author": null,
       "date": "2026-01-22",
@@ -127,7 +127,7 @@
       "caption": "Why the new constitution explains reasons instead of listing rules",
       "quality": 4,
       "verified": true,
-      "notes": "Verbatim from the announcement post. The 'why' sentence is shown as a fragment: 'we need to explain this to them rather than merely specify what we want them to do' context. Ready for the rules-vs-reasons slide."
+      "notes": "Verbatim from the announcement post. Reasons sentence (verbatim, same post): 'AI models like Claude need to understand why we want them to behave in certain ways'. Use for the rules-vs-reasons slide."
     }
   ],
   "datasets": [],
@@ -169,7 +169,7 @@
       "date": "2026-01-22"
     },
     {
-      "claim": "Anthropic has used Constitutional AI in training Claude models since 2023; the 2023 version was 'a list of standalone principles', and the 2026 version explains reasons.",
+      "claim": "Anthropic has used Constitutional AI in training Claude models since 2023; the previous constitution was 'a list of standalone principles', and the new one explains reasons.",
       "source": "Anthropic, 'Claude's new constitution' (background section)",
       "url": "https://www.anthropic.com/news/claude-new-constitution",
       "date": "2026-01-22"

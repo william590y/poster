@@ -1,0 +1,377 @@
+{
+  "group": "splash",
+  "items": [
+    {
+      "id": "meta-llama3-blog-15t",
+      "slide_topic": "Pipeline: how much text a frontier model trains on (Llama 3 = 15T tokens)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Llama 3 is pretrained on over 15T tokens that were all collected from publicly available sources. Our training dataset is seven times larger than that used for Llama 2, and it includes four times more code.",
+      "outlet": "Meta AI (official blog)",
+      "author": null,
+      "date": "2024-04-18",
+      "url": "https://ai.meta.com/blog/meta-llama-3/",
+      "caption": "Meta's own statement of Llama 3's pretraining token count (over 15T).",
+      "quality": 5,
+      "verified": true,
+      "notes": "Page loaded with WebFetch 2026-10-10. Same page: over 5% of the pretraining dataset is non-English, covering over 30 languages; Chinchilla-optimal for 8B is ~200B tokens; models improved log-linearly up to 15T tokens."
+    },
+    {
+      "id": "llama3-paper-15-6t",
+      "slide_topic": "Pipeline: Llama 3 technical report token count",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "we pre-train a model with 405B parameters on 15.6T tokens using a context window of 8K tokens.",
+      "outlet": "arXiv (Llama 3 Herd of Models)",
+      "author": "Meta AI",
+      "date": "2024-07-31",
+      "url": "https://arxiv.org/abs/2407.21783",
+      "caption": "Paper figure for the flagship 405B model: 15.6T tokens (intro also says 'about 15T multilingual tokens').",
+      "quality": 4,
+      "verified": true,
+      "notes": "Read via arxiv.org/html/2407.21783 (WebFetch). The paper's intro says 'about 15T multilingual tokens' and 'flagship model with 405B trainable parameters on 15.6T text tokens'. Blog says 'over 15T'. Use 'about 15T' on slides, cite both. arXiv v1 submitted 31 Jul 2024; the abs page's listed date is the v3 revision (23 Nov 2024)."
+    },
+    {
+      "id": "llama4-blog-30t",
+      "slide_topic": "Pipeline: 2025 frontier-scale open model data (Llama 4)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "The overall data mixture for training consisted of more than 30 trillion tokens",
+      "outlet": "Meta AI (official blog)",
+      "author": null,
+      "date": "2025-04-05",
+      "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+      "caption": "Meta's own statement: Llama 4 training mix over 30T tokens, about 2x Llama 3's 15T.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Page loaded with WebFetch 2026-10-10. Same page: pre-training on 200 languages, including over 100 with over 1 billion tokens each; 10x more multilingual tokens than Llama 3; natively multimodal (text, image, video)."
+    },
+    {
+      "id": "qwen3-blog-36t",
+      "slide_topic": "Pipeline: 2025 frontier-scale open model data (Qwen3)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Qwen3 uses nearly twice that amount, with approximately 36 trillion tokens covering 119 languages and dialects.",
+      "outlet": "Qwen (Alibaba) official blog",
+      "author": null,
+      "date": "2025-04-29",
+      "url": "https://qwenlm.github.io/blog/qwen3/",
+      "caption": "Alibaba's own statement: Qwen3 pretrained on approximately 36T tokens.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Page loaded with WebFetch 2026-10-10. 'Nearly twice that amount' refers to Qwen2.5's 18T tokens as stated on the same page. Date as extracted by WebFetch."
+    },
+    {
+      "id": "deepseek-v3-arxiv-14-8t",
+      "slide_topic": "Pipeline: DeepSeek-V3 token count (2024)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "We pre-train DeepSeek-V3 on 14.8 trillion diverse and high-quality tokens",
+      "outlet": "arXiv (DeepSeek-V3 Technical Report)",
+      "author": "DeepSeek-AI",
+      "date": "2024-12-27",
+      "url": "https://arxiv.org/abs/2412.19437",
+      "caption": "DeepSeek's own statement: DeepSeek-V3 pretrained on 14.8T tokens.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Abstract/intro page loaded 2026-10-10. Model: 671B total parameters, 37B activated per token. arXiv v1 submitted 27 Dec 2024."
+    },
+    {
+      "id": "kimi-k2-arxiv-15-5t",
+      "slide_topic": "Pipeline: 2025 open-weight trillion-parameter model data (Kimi K2)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "K2 was pre-trained on 15.5 trillion tokens with zero loss spike",
+      "outlet": "arXiv (Kimi K2: Open Agentic Intelligence)",
+      "author": "Kimi Team (Moonshot AI)",
+      "date": "2025-07-28",
+      "url": "https://arxiv.org/abs/2507.20534",
+      "caption": "Moonshot's own statement: Kimi K2 pretrained on 15.5T tokens (1T total, 32B activated parameters).",
+      "quality": 5,
+      "verified": true,
+      "notes": "Abstract page loaded 2026-10-10 (v1 submitted 28 Jul 2025; v2 revised 3 Feb 2026 per arXiv page). Shows that the 2025 trillion-parameter model used a 15.5T-token budget, less than Llama 4 or Qwen3. Secondary sources (NVIDIA model card) list training data as undisclosed; only the token total is disclosed."
+    },
+    {
+      "id": "deepseek-v4-pro-32t",
+      "slide_topic": "Pipeline: 2026 frontier open model data (DeepSeek-V4-Pro)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "We pre-train both models on more than 32T diverse and high-quality tokens",
+      "outlet": "Hugging Face (DeepSeek model card)",
+      "author": "DeepSeek-AI",
+      "date": null,
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+      "caption": "DeepSeek's own model card: DeepSeek-V4 pretrained on more than 32T tokens; model is a preview.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Model card loaded 2026-10-10; the card itself shows no release or last-updated date (listing shows 'Published Apr 26' for the paper, unclear whether that refers to the same release). Also: 1.6T total parameters, 49B activated. Preview release, so figures may change. A PixVerse comparison table lists 33T for V4-Pro (not verified, not used)."
+    },
+    {
+      "id": "epoch-tokens-per-parameter",
+      "slide_topic": "Pipeline: how training data per parameter has grown",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "the average tokens per parameter was approximately 10 in 2022 and climbed to around 300 by 2025.",
+      "outlet": "Epoch AI (data insight)",
+      "author": null,
+      "date": "2025-08-01",
+      "url": "https://epoch.ai/data-insights/training-tokens-per-parameter",
+      "caption": "Epoch AI: tokens-per-parameter ratio for open-weight LLMs rose from ~10 (2022) to ~300 (2025).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Page loaded 2026-10-10. Epoch's own estimate, open-weight models only; the page warns the trend 'may not hold for closed models' because their ratios are not public. Also states: data-to-active-parameter ratio grew 3.1x per year since 2022."
+    },
+    {
+      "id": "epoch-human-text-stock",
+      "slide_topic": "Pipeline: how much human text exists in total",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "on the order of 300 trillion tokens, with a 90% confidence interval of 100T to 1000T",
+      "outlet": "Epoch AI (blog)",
+      "author": null,
+      "date": "2024-06-06",
+      "url": "https://epoch.ai/blog/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data",
+      "caption": "Epoch AI estimate of the usable stock of public human-written text: ~300T tokens (90% CI 100T to 1000T).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Page loaded 2026-10-10 (published Jun 6, 2024). Epoch's estimate, not a measurement. Same page: language models will fully utilize the stock 'between 2026 and 2032' (the 80% confidence interval). Fully utilizing the stock is a modelled window, not a deadline."
+    },
+    {
+      "id": "epoch-gpt5-token-estimate",
+      "slide_topic": "Pipeline: closed frontier model (GPT-5) data scale, an estimate",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "GPT-5 was likely trained on at least 30T tokens, possibly several times more.",
+      "outlet": "Epoch AI (Substack)",
+      "author": null,
+      "date": "2025-10-13",
+      "url": "https://epochai.substack.com/p/notes-on-gpt-5-training-compute",
+      "caption": "Epoch AI's inference (not an OpenAI disclosure) that GPT-5 used at least ~30T pretraining tokens.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Page loaded 2026-10-10. Epoch explicitly says GPT-5's pretraining token count is unconfirmed and this is an estimate. Same post: 'Our best guess: GPT-5 was trained on ~5e25 FLOP total, including both pre-training and reinforcement learning.' Label as estimate on any slide."
+    },
+    {
+      "id": "openai-token-ratio-screenshot",
+      "slide_topic": "Pipeline: converting tokens to words for the reading-time calculation",
+      "type": "screenshot",
+      "file": "pipeline-openai-token-ratio.png",
+      "headline": null,
+      "dek": "1 token is approximately three-quarters of a word. / 100 tokens are approximately 75 words.",
+      "outlet": "OpenAI Help Center",
+      "author": null,
+      "date": "2026-10-10",
+      "url": "https://help.openai.com/en/articles/4936856-understanding-and-counting-tokens",
+      "caption": "OpenAI help page (captured 2026-10-10, 'Updated: 9 days ago'): the English rule of thumb 1 token ~ 3/4 word.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Real headless-browser capture via tools/shot.js, cropped only (no edits). The page says these are rough estimates for English and that token counts differ by model, encoding and language. Meta's Llama 3 tokenizer is different, so the 0.75 ratio is an assumption for the calculation, not a Llama-specific figure."
+    },
+    {
+      "id": "brysbaert-2019-reading-rate",
+      "slide_topic": "Pipeline: reading-time calculation (reading speed assumption)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Based on the analysis of 190 studies (18,573 participants), we estimate that the average silent reading rate for adults in English is 238 words per minute (wpm) for non-fiction and 260 wpm for fiction.",
+      "outlet": "Journal of Memory and Language",
+      "author": "Marc Brysbaert",
+      "date": null,
+      "url": "https://linkinghub.elsevier.com/retrieve/pii/S0749596X19300786",
+      "caption": "Meta-analysis: average adult silent reading speed in English, non-fiction 238 wpm (most adults 175-300 wpm).",
+      "quality": 5,
+      "verified": true,
+      "notes": "Abstract text read from the published PDF (JML vol. 109, 2019, article 104047; PDF copy at the DOI redirect) on 2026-10-10. Journal-year 2019 is from the PDF header; exact month not shown. Used 238 wpm (non-fiction) as the default reading speed. OpenAI's own figure of 240 words/min (quoted in the frontier manifest) is nearly identical."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "pretraining-tokens-disclosed",
+      "title": "Disclosed pretraining token counts for recent open-weight models",
+      "unit": "trillion tokens",
+      "labels": [
+        "Llama 3 (Apr 2024)",
+        "DeepSeek-V3 (Dec 2024)",
+        "Llama 4 (Apr 2025)",
+        "Qwen3 (Apr 2025)",
+        "Kimi K2 (Jul 2025)",
+        "DeepSeek-V4-Pro (2026, preview)"
+      ],
+      "series": [
+        {
+          "name": "Pretraining tokens (T), as disclosed by the developer",
+          "values": [
+            15,
+            14.8,
+            30,
+            36,
+            15.5,
+            32
+          ]
+        }
+      ],
+      "source": "Developer disclosures: Meta blog (Llama 3, over 15T; Llama 4, over 30T), arXiv 2407.21783 (Llama 3 flagship 15.6T), arXiv 2412.19437 (DeepSeek-V3, 14.8T), Qwen blog (Qwen3, ~36T), arXiv 2507.20534 (Kimi K2, 15.5T), Hugging Face DeepSeek-V4-Pro card (more than 32T). Values are as stated: 'over 15T' and 'more than 32T' are lower bounds; Llama 3 uses 15 (blog) not 15.6 (paper).",
+      "url": "https://ai.meta.com/blog/meta-llama-3/"
+    },
+    {
+      "id": "reading-time-15T-tokens",
+      "title": "Years to read 15 trillion tokens (one person, nonstop vs. a normal day)",
+      "unit": "years",
+      "labels": [
+        "Nonstop (24 h/day)",
+        "16 h/day",
+        "8 h/day"
+      ],
+      "series": [
+        {
+          "name": "Years at 238 words/min, 0.75 words per token",
+          "values": [
+            89872,
+            134808,
+            269615
+          ]
+        }
+      ],
+      "source": "Derived calculation: 15e12 tokens x 0.75 words/token = 11.25 trillion words; / 238 words per minute = 7.88e8 hours; / (24, 16, 8 h/day) / 365.25 days. Inputs: Brysbaert 2019 (238 wpm), OpenAI help page (3/4 word per token, English rule of thumb).",
+      "url": "https://linkinghub.elsevier.com/retrieve/pii/S0749596X19300786"
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Meta says Llama 3 is pretrained on over 15T tokens, all collected from publicly available sources, seven times the dataset used for Llama 2.",
+      "source": "Meta AI, Llama 3 blog post",
+      "url": "https://ai.meta.com/blog/meta-llama-3/",
+      "date": "2024-04-18",
+      "estimate": false,
+      "verified": true
+    },
+    {
+      "claim": "Meta's Llama 3 technical report gives 15.6T tokens for the 405B flagship model (intro: 'about 15T multilingual tokens').",
+      "source": "Llama 3 Herd of Models (arXiv:2407.21783)",
+      "url": "https://arxiv.org/abs/2407.21783",
+      "date": "2024-07-31",
+      "estimate": false,
+      "verified": true
+    },
+    {
+      "claim": "Meta says the Llama 4 training data mixture consisted of more than 30 trillion tokens, about twice Llama 3's 15T.",
+      "source": "Meta AI, Llama 4 blog post",
+      "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+      "date": "2025-04-05",
+      "estimate": false,
+      "verified": true
+    },
+    {
+      "claim": "Alibaba says Qwen3 was pretrained on approximately 36 trillion tokens covering 119 languages and dialects.",
+      "source": "Qwen3 blog (Alibaba Qwen team)",
+      "url": "https://qwenlm.github.io/blog/qwen3/",
+      "date": "2025-04-29",
+      "estimate": false,
+      "verified": true
+    },
+    {
+      "claim": "DeepSeek says DeepSeek-V3 (671B total, 37B activated parameters) was pretrained on 14.8 trillion tokens.",
+      "source": "DeepSeek-V3 Technical Report (arXiv:2412.19437)",
+      "url": "https://arxiv.org/abs/2412.19437",
+      "date": "2024-12-27",
+      "estimate": false,
+      "verified": true
+    },
+    {
+      "claim": "Moonshot says Kimi K2 (1 trillion total, 32 billion activated parameters) was pretrained on 15.5 trillion tokens.",
+      "source": "Kimi K2 technical report (arXiv:2507.20534)",
+      "url": "https://arxiv.org/abs/2507.20534",
+      "date": "2025-07-28",
+      "estimate": false,
+      "verified": true
+    },
+    {
+      "claim": "DeepSeek's model card says the V4 preview models were pretrained on more than 32 trillion tokens.",
+      "source": "Hugging Face model card, DeepSeek-V4-Pro (preview)",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+      "date": null,
+      "estimate": false,
+      "verified": true
+    },
+    {
+      "claim": "Epoch AI estimates the average tokens per parameter in open-weight LLMs rose from about 10 in 2022 to about 300 in 2025; Epoch warns the trend may not hold for closed models.",
+      "source": "Epoch AI data insight (training-tokens-per-parameter)",
+      "url": "https://epoch.ai/data-insights/training-tokens-per-parameter",
+      "date": "2025-08-01",
+      "estimate": true,
+      "verified": true
+    },
+    {
+      "claim": "Epoch AI estimates the usable stock of public human-written text at about 300 trillion tokens (90% CI 100 trillion to 1,000 trillion).",
+      "source": "Epoch AI blog post (June 2024)",
+      "url": "https://epoch.ai/blog/will-we-run-out-of-data-limits-of-llm-scaling-based-on-human-generated-data",
+      "date": "2024-06-06",
+      "estimate": true,
+      "verified": true
+    },
+    {
+      "claim": "Epoch AI estimates GPT-5 was likely trained on at least 30 trillion tokens, possibly several times more. OpenAI has not disclosed the figure.",
+      "source": "Epoch AI Substack post on GPT-5 training compute",
+      "url": "https://epochai.substack.com/p/notes-on-gpt-5-training-compute",
+      "date": "2025-10-13",
+      "estimate": true,
+      "verified": true
+    },
+    {
+      "claim": "OpenAI's help page gives the English rule of thumb: 1 token is approximately three-quarters of a word; 100 tokens are approximately 75 words.",
+      "source": "OpenAI Help Center, 'Understanding and counting tokens'",
+      "url": "https://help.openai.com/en/articles/4936856-understanding-and-counting-tokens",
+      "date": "2026-10-10",
+      "estimate": false,
+      "verified": true
+    },
+    {
+      "claim": "Brysbaert's meta-analysis (190 studies, 18,573 participants) finds the average adult silent reading rate in English is 238 words per minute for non-fiction and 260 for fiction.",
+      "source": "Brysbaert, 'How many words do we read per minute?', Journal of Memory and Language 109 (2019) 104047",
+      "url": "https://linkinghub.elsevier.com/retrieve/pii/S0749596X19300786",
+      "date": null,
+      "estimate": false,
+      "verified": true
+    },
+    {
+      "claim": "Reading all 15 trillion tokens of Llama 3's data at 238 words per minute, nonstop, would take one person about 90,000 years (about 270,000 years at 8 hours a day).",
+      "source": "Derived calculation from Brysbaert 2019 (238 wpm) and OpenAI's 3/4 word-per-token rule; assumes English text, Llama-3-tokenizer ratio equals OpenAI's ratio, and no pauses beyond the stated hours.",
+      "url": "https://linkinghub.elsevier.com/retrieve/pii/S0749596X19300786",
+      "date": "2026-10-10",
+      "estimate": true,
+      "verified": false
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Pretraining token counts for closed frontier models (OpenAI GPT-5, Google Gemini 2.5/3, Anthropic Claude) from the labs",
+      "searched": "WebSearch for lab disclosures and Epoch estimates; only Epoch's GPT-5 inference (>=30T, unconfirmed) and secondary tables (Capital & Compute 20-30T for GPT-5, not verified) were found. No lab disclosed a token count."
+    },
+    {
+      "outline_item": "Official pretraining token count for Qwen3.5 (Feb 2026) or Qwen3.6 (Apr 2026)",
+      "searched": "WebSearch 'Qwen3.5/3.6 pretraining tokens'; results were third-party listings giving parameter counts only; official Qwen blog for 3.5 not located."
+    },
+    {
+      "outline_item": "DeepSeek-V4 technical report with exact token count and release date",
+      "searched": "WebSearch 'DeepSeek V4 pretraining trillion tokens technical report 2026'; only the model card (more than 32T, preview) verified. A 33T figure in a PixVerse table is unconfirmed."
+    },
+    {
+      "outline_item": "Epoch AI Notable Models per-model training dataset sizes for 2025-2026 frontier models (database download)",
+      "searched": "WebSearch for Epoch dataset size fields; the database itself was not loaded, so no per-model Epoch token table is included."
+    },
+    {
+      "outline_item": "Llama 3 tokenizer words-per-token ratio",
+      "searched": "Only OpenAI's English rule of thumb (3/4 word per token) was loaded; the Llama 3 tokenizer ratio was not verified, so the reading-time calc states it as an assumption."
+    }
+  ]
+}

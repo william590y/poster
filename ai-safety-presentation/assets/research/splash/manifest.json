@@ -1312,7 +1312,7 @@
    "caption": "DeepSeek-V4-Pro (2026): 1.6T parameters, 49B activated",
    "quality": 4,
    "verified": true,
-   "notes": "Text from the loaded model-card page. Epoch cites a PDF at .../blob/main/DeepSeek_V4.pdf, which returned HTTP 404 when fetched; the model card was used instead. Epoch date 2026-04-24, label Likely.",
+   "notes": "Text from the loaded model-card page. Epoch cites a PDF at .../blob/main/DeepSeek_V4.pdf, which returned HTTP 404 when fetched; the model card was used instead. Epoch date 2026-04-24, label Likely. License: the model card states 'This repository and the model weights are licensed under the MIT License' (see the facts entry from the fix-round1 check, page loaded 2026-10-10).",
    "source_file": "neural-nets-param-history.json"
   },
   {
@@ -2856,6 +2856,91 @@
    "verified": true,
    "notes": "Verbatim from the abstract on PDF page 1. Later text (p.4, Figure 14 caption p.16) adds that optimal model size grows about 5x for each 10x increase in compute.",
    "source_file": "scaling-kaplan.json"
+  },
+  {
+   "id": "crusoe-abilene-aerial",
+   "slide_topic": "Information is Physical",
+   "type": "image",
+   "file": "../economy/crusoe_stargate_abilene_aerial.jpg",
+   "headline": "Crusoe Announces Flagship Abilene Data Center is Live",
+   "dek": "",
+   "outlet": "Crusoe (press release image)",
+   "author": "",
+   "date": "2025-09-30",
+   "url": "https://www.crusoe.ai/resources/newsroom/crusoe-announces-flagship-abilene-data-center-is-live",
+   "caption": "Aerial photo of the Stargate flagship campus in Abilene, Texas under construction (1200x900)",
+   "quality": 5,
+   "verified": true,
+   "notes": "Header image of the Crusoe newsroom post. Campus is 1.2 GW, 8 buildings, built for Oracle/OpenAI; construction began June 2024.",
+   "source_file": "copied from assets/research/economy/manifest.json (splash fix round 2, 2026-10-10)"
+  },
+  {
+   "id": "epoch-sat-abilene-2025-06",
+   "slide_topic": "Information is Physical",
+   "type": "image",
+   "file": "../economy/epoch_sat_stargate_abilene_2025-06.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Epoch AI (imagery © Airbus DS)",
+   "author": "",
+   "date": "2025-06-28",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene",
+   "caption": "Annotated satellite view of Stargate Abilene, June 2025 (Epoch AI's outlines). Our count from the image: 2 roofed buildings (the two northern ones). Epoch's own text for that date: 'Building 1 looks close to finishing construction'.",
+   "quality": 4,
+   "verified": true,
+   "notes": "Pair with 2026-07 image for before/after. Epoch: 509k H100e, 421 MW IT power, $15.9B now; projected 843 MW / $31.9B by Q4 2026. SPLASH NOTE: the caption's '2 buildings done' is a research reading of the image, not Epoch's text. Epoch's Jun 28, 2025 entry says only 'Building 1 looks close to finishing construction'. The slide's '2 roofed' is our own count from this image (the two northern buildings show complete roofs) and is labelled 'our count from the images'.",
+   "source_file": "copied from assets/research/economy/manifest.json (splash fix round 2, 2026-10-10)"
+  },
+  {
+   "id": "epoch-sat-abilene-2026-07",
+   "slide_topic": "Information is Physical",
+   "type": "image",
+   "file": "../economy/epoch_sat_stargate_abilene_2026-07.png",
+   "headline": "",
+   "dek": "",
+   "outlet": "Epoch AI (imagery © Airbus DS)",
+   "author": "",
+   "date": "2026-07-28",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene",
+   "caption": "Annotated satellite view of Stargate Abilene, July 2026: all 8 buildings complete with cooling rows and substations",
+   "quality": 4,
+   "verified": true,
+   "notes": "",
+   "source_file": "copied from assets/research/economy/manifest.json (splash fix round 2, 2026-10-10)"
+  },
+  {
+   "id": "gw-crusoe-abilene-p19",
+   "slide_topic": "Stargate Abilene: 50,000 GB200 per building, 1.2 GW, 206 MW in 2025",
+   "type": "screenshot",
+   "file": "../economy/rev2/gw_crusoe_impact2024_abilene_p19.png",
+   "headline": "Crusoe's Abilene, Texas Data Center Campus (Crusoe 2024 Impact Report, p.19)",
+   "dek": "The data center campus will support AI workloads with 1.2 GW of power capacity with more than 200 MWs slated to be energized in 2025. ... Each building has been designed to operate up to 50,000 NVIDIA GB200 NVL72s, representing a major step forward in high-density GPU cluster design.",
+   "outlet": "Crusoe (company report)",
+   "date": "2025",
+   "url": "https://cdn.prod.website-files.com/6855c1aa175582ee23e0aa19/68710273a71bb7c11049ba28_Crusoe_Impact_Report_2024.pdf#page=19",
+   "caption": "Full page render (3556x2000) of the official PDF: case study text, aerial construction photo, '206 MW of data center capacity coming online in 2025'",
+   "quality": 4,
+   "verified": true,
+   "notes": "Same report p.18: 'Crusoe designs its data centers for power usage effectiveness (PUE) of an average of 1.2 to 1.3'. Two buildings x 50,000 GB200 = the ~100k-GPU phase that matches Astra's '100,000+ GPUs'. SPLASH NOTE: an NVL72 is a 72-GPU rack, so Crusoe's literal 'up to 50,000 NVIDIA GB200 NVL72s' per building would be 3.6 million GPUs; read it as about 50,000 GPUs per building, as Epoch does ('enough time to ram to 50,000 GB200s in Building 1', Sep 26, 2025 entry).",
+   "rev2_task": "gigawatt",
+   "source_file": "copied from assets/research/economy/manifest.json (splash fix round 2, 2026-10-10)"
+  },
+  {
+   "id": "gw-epoch-abilene-specs",
+   "slide_topic": "Stargate Abilene power today (Epoch)",
+   "type": "screenshot",
+   "file": "../economy/rev2/gw_epoch_abilene_specs.png",
+   "headline": "OpenAI Stargate Abilene (Epoch AI data center directory, updated Oct. 2, 2026)",
+   "dek": "It hosts an estimated 509k H100-equivalents of AI compute, supported by 421 MW of IT power at a capital cost of $15.9 B. In Q4 2026, we project it to rise to 1,019k H100-eq AI compute, 843 MW IT power and a cost of $31.9 B.",
+   "outlet": "Epoch AI",
+   "date": "2026-10-02",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene",
+   "caption": "Epoch page header with annotated satellite image (Jul 27, 2026) and Scale & specifications panel (421 MW -> 843 MW IT)",
+   "quality": 4,
+   "verified": true,
+   "notes": "CC-BY Epoch AI. Timeline: Bldg 1 operational ~Sep 26 2025 (105 MW IT); Bldg 2 Dec 24 2025 (211 MW IT, 295 MW facility); Bldg 3-4 May 23 2026 (421 MW IT, 590 MW facility); Bldg 5-8 projected Nov 1 2026 (843 MW IT, 1,180 MW facility).",
+   "rev2_task": "gigawatt",
+   "source_file": "copied from assets/research/economy/manifest.json (splash fix round 2, 2026-10-10)"
   }
  ],
  "datasets": [
@@ -4853,8 +4938,15 @@
    "url": "https://linkinghub.elsevier.com/retrieve/pii/S0749596X19300786",
    "date": "2026-10-10",
    "estimate": true,
-   "verified": false,
-   "source_file": "pipeline-data-scale.json"
+   "verified": true,
+   "source_file": "pipeline-data-scale.json",
+   "derived": true,
+   "inputs": [
+    "Brysbaert 2019: 238 words per minute (fact verified: true; item brysbaert-2019-reading-rate)",
+    "OpenAI Help Center: 1 token is approximately three-quarters of a word (fact verified: true; item openai-token-ratio-screenshot)",
+    "Meta: Llama 3 pretrained on over 15 trillion tokens (verified)"
+   ],
+   "notes": "DERIVED (our arithmetic, not a published figure): 15e12 tokens x 0.75 words/token = 11.25e12 words; / 238 wpm = 4.73e10 min = 7.88e8 h; / 24 / 365.25 = 89,872 years (nonstop); / 8 / 365.25 = 269,615 years (8 h a day). Re-derived 2026-10-10 (splash fix round 3). Marked verified because both inputs are verified and the arithmetic was checked; the slide labels it 'our arithmetic' and states the 24-hours-a-day assumption."
   },
   {
    "claim": "Step 1 of InstructGPT: a labeler demonstrates the desired output behavior, and that data is used to fine-tune GPT-3 with supervised learning (SFT).",
@@ -5504,6 +5596,69 @@
    "url": "https://arxiv.org/abs/2001.08361",
    "date": "2020-01-23",
    "source_file": "scaling-kaplan.json"
+  },
+  {
+   "claim": "The average U.S. residential electricity customer used 863 kWh per month in 2024 (U.S. Total row: 143,144,185 customers, 863 kWh, 16.48 cents/kWh, $142.26 average monthly bill).",
+   "source": "U.S. EIA, '2024 Average Monthly Bill- Residential' (Table 5A, forms EIA-861/861S/861U)",
+   "url": "https://www.eia.gov/electricity/sales_revenue_price/pdf/table_5A.pdf",
+   "date": "2024",
+   "verified": true,
+   "source_file": "fix-round1 check (PDF fetched and text-extracted 2026-10-10)",
+   "notes": "Supports the gigawatt slide: 863 kWh/month = 10,356 kWh/yr = 1.18 kW average draw; 1 GW / 1.18 kW = about 846,000 homes (our arithmetic)."
+  },
+  {
+   "claim": "Hoover Dam: 'The plant has a nameplate capacity of about 2,080 megawatts.' 'The average annual net generation for Hoover Powerplant for 1947 through 2008 was about 4.2 billion kilowatt-hours.'",
+   "source": "U.S. Bureau of Reclamation, Hoover Dam power FAQ",
+   "url": "https://www.usbr.gov/lc/hooverdam/faqs/powerfaq.html",
+   "date": null,
+   "verified": true,
+   "source_file": "fix-round1 check (page loaded 2026-10-10)",
+   "notes": "4.2 billion kWh / 8,760 h = about 480 MW average (our arithmetic). Used on the gigawatt slide."
+  },
+  {
+   "claim": "DeepSeek-V4-Pro's Hugging Face model card states: 'This repository and the model weights are licensed under the MIT License', lists download links, and gives 'DeepSeek-V4-Pro with 1.6T parameters (49B activated)'.",
+   "source": "Hugging Face model card, deepseek-ai/DeepSeek-V4-Pro",
+   "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+   "date": null,
+   "verified": true,
+   "source_file": "fix-round1 check (page loaded 2026-10-10)",
+   "notes": "Developer's own figures; used in the network slide's notes as an open model larger than Kimi K2.5."
+  },
+  {
+   "claim": "Epoch AI's Stargate Abilene timeline: Jun 28, 2025 'Building 1 looks close to finishing construction'; Sep 26, 2025 'Building 1 is fully operational around this date'; Dec 24, 2025 'Building 2 is fully operational'; May 23, 2026 'Buildings 3 and 4 are estimated to be operational'; Jul 28, 2026 'Buildings 5-8 are structurally complete and roofed but not yet confirmed operational (fit-out ongoing)'; Nov 1, 2026 (projected) 'Buildings 5-8 are estimated to be operational'. The page gives no legend for the colored outlines on its satellite images.",
+   "source": "Epoch AI data center directory, OpenAI Stargate Abilene",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene",
+   "date": "2026-10-10",
+   "verified": true,
+   "source_file": "fix-round1 check (page loaded 2026-10-10)",
+   "notes": "So the satellite pair shows 2 roofed buildings (Jun 2025) becoming 8 roofed buildings (Jul 2026), of which Epoch estimates 4 were operating; 'finished' overstated it."
+  },
+  {
+   "claim": "OpenAI's gpt-oss-120b model card: 'gpt-oss-120b, which consists of 36 layers (116.8B total parameters and 5.1B “active” parameters per token per forward pass), and gpt-oss-20b with 24 layers (20.9B total and 3.6B active parameters).' Weights released under Apache 2.0.",
+   "source": "OpenAI, 'gpt-oss-120b & gpt-oss-20b Model Card', arXiv 2508.10925 (submitted Aug 8, 2025)",
+   "url": "https://arxiv.org/abs/2508.10925",
+   "date": "2025-08-08",
+   "verified": true,
+   "source_file": "splash fix round 2 check (abstract and PDF p.2-3 loaded 2026-10-10)",
+   "notes": "Shows that OpenAI does publish parameter counts for its open-weight models; the 'not published' claim on the network slide is limited to closed flagships."
+  },
+  {
+   "claim": "Epoch AI's Abilene page: 'Abilene is the first of several planned Stargate sites across the U.S. and globally, expected to host OpenAI’s largest compute cluster.' The page does not mention GPT-6 Astra or any model's training.",
+   "source": "Epoch AI data center directory, OpenAI Stargate Abilene",
+   "url": "https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene",
+   "date": "2026-10-10",
+   "verified": true,
+   "source_file": "splash fix round 2 check (page loaded with curl 2026-10-10)",
+   "notes": "Also Sep 26, 2025 entry: 'we think 3 months is enough time to ram to 50,000 GB200s in Building 1'. Use for the Abilene slide; do not tie a specific model to the site."
+  },
+  {
+   "claim": "Training-electricity range for GPT-6 Astra on the NYC yardstick: Epoch's compute interval (about 5e26 to 2e27 FLOP around 1e27) is 0.5x to 2x the central estimate, so at the same 232.7 MW the 3.66 days of NYC electricity becomes about 1.8 to 7.3 days.",
+   "source": "Our arithmetic from datasets epoch-largest-runs-flop and epoch-training-energy-nyc-time",
+   "url": "https://epoch.ai/data/all_ai_models.csv",
+   "date": "2026-10-10",
+   "verified": true,
+   "source_file": "splash fix round 2 (derived)",
+   "notes": "Assumes energy scales with compute (a shorter or longer run on the same chips). Replaces the earlier '2-6 days' range, whose 206 MW and 292.7 MW inputs had no source in this manifest."
   }
  ],
  "not_found": [

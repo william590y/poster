@@ -349,7 +349,14 @@
       "url": "https://linkinghub.elsevier.com/retrieve/pii/S0749596X19300786",
       "date": "2026-10-10",
       "estimate": true,
-      "verified": false
+      "verified": true,
+      "derived": true,
+      "inputs": [
+        "Brysbaert 2019: 238 words per minute (fact verified: true; item brysbaert-2019-reading-rate)",
+        "OpenAI Help Center: 1 token is approximately three-quarters of a word (fact verified: true; item openai-token-ratio-screenshot)",
+        "Meta: Llama 3 pretrained on over 15 trillion tokens (verified)"
+      ],
+      "notes": "DERIVED (our arithmetic, not a published figure): 15e12 tokens x 0.75 words/token = 11.25e12 words; / 238 wpm = 4.73e10 min = 7.88e8 h; / 24 / 365.25 = 89,872 years (nonstop); / 8 / 365.25 = 269,615 years (8 h a day). Re-derived 2026-10-10 (splash fix round 3). Marked verified because both inputs are verified and the arithmetic was checked; the slide labels it 'our arithmetic' and states the 24-hours-a-day assumption."
     }
   ],
   "not_found": [

@@ -11,6 +11,7 @@ const { Deck } = require('./lib');
 const X = require('./slides_splash_extra');
 
 const FOOTER = 'AI ALIGNMENT & SAFETY · CORNELL SPLASH M1237';
+const FOOTER_PT = 12;
 const ML = path.join(__dirname, 'slides_splash_ml.js');
 const OPENING = ['titleSlide', 'hookSlide', 'roadmapSlide'];
 
@@ -18,10 +19,17 @@ function brand(d) {
   d.pres.title = 'AI Alignment and Safety';
   d.pres.subject = 'Cornell Splash Fall 2026 · M1237 · grades 7–12';
   d.pres.company = 'Cornell Splash';
+  // Footer and slide number at 12 pt (the adult layouts use 9 pt), so they read from the back of a big room. The footer
+  // box is widened from 5 in to 8 in so the 12 pt caps (charSpacing 3) stay on one line. lib.js is left unchanged.
   for (const l of d.pres._slideLayouts) {
     for (const o of l._slideObjects) {
-      if (o._type === 'text' && Array.isArray(o.text) && o.text[0] && o.text[0].text === 'AI SAFETY & EXISTENTIAL RISK') o.text[0].text = FOOTER;
+      if (o._type === 'text' && Array.isArray(o.text) && o.text[0] && o.text[0].text === 'AI SAFETY & EXISTENTIAL RISK') {
+        o.text[0].text = FOOTER;
+        o.options = { ...o.options, fontSize: FOOTER_PT, w: 8 };
+        if (o.text[0].options) o.text[0].options = { ...o.text[0].options, fontSize: FOOTER_PT };
+      }
     }
+    if (l._slideNumberProps) l._slideNumberProps = { ...l._slideNumberProps, fontSize: FOOTER_PT };
   }
 }
 
@@ -56,7 +64,9 @@ async function openingAndPart1(d) {
   if (firstP1) {
     ml.slides[firstP1] = async (dd, ...a) => {
       dd.sectionStart('Part 1 · How AI learns');
-      X.slides.partDivider(dd, { ...X.DIVIDERS[1], min: 0, say: 'Quick transition (inside the roadmap’s time): Part 1, 36 minutes, how today’s AI actually learns.' });
+      // 0 minutes: the roadmap has just introduced Part 1, so this is a one-line, few-second transition. (The LLM and
+      // frontier-model definitions it used to carry are said where the words first come up, on slides 11 and 16.)
+      X.slides.partDivider(dd, { ...X.DIVIDERS[1], min: 0, say: 'Let’s start. Part 1, 36 minutes: how today’s AI actually learns. (A few seconds, with no minutes of its own in the plan: click straight on. The terms LLM and frontier model are defined where they first come up, on slides 11 and 16.)' });
       return fn(dd, ...a);
     };
   } else {
@@ -73,6 +83,23 @@ async function openingAndPart1(d) {
 
 function fmt(min) { const t = Math.round(min * 60); return `${Math.floor(t / 60)}:${String(t % 60).padStart(2, '0')}`; }
 
+// One notes format for the whole deck: the Part 1 module's section labels are renamed to the ones slides_splash_extra.js
+// uses, and its "(class minute a–b)" aside is dropped because the SLIDE · CLASS CLOCK line above gives the same clock.
+const LABELS = [[/^SAY:/gm, 'SAY (plain words):'], [/^ASK THE CLASS:/gm, 'ASK THE ROOM:'], [/^TERMS DEFINED HERE:/gm, 'TERMS TO DEFINE:'], [/^HONEST CAVEATS:/gm, 'BE HONEST ABOUT:']];
+function unifyNotes(t) {
+  let u = t.replace(/^(TIME: [\d.]+ min)\s+\(class minute [^)]*\)/m, '$1');
+  for (const [re, to] of LABELS) u = u.replace(re, to);
+  return u;
+}
+// What the CLICKS line promises, as a number of clicks (null when it cannot tell, e.g. "each click adds …").
+function promisedClicks(line) {
+  if (/\bno clicks\b/i.test(line)) return 0;
+  if (/\beach click\b|\blast click\b/i.test(line)) return null;
+  const nums = [...line.matchAll(/\bClicks? (\d+)(?:\s*[–-]\s*(\d+))?/g)].map((m) => +(m[2] || m[1]));
+  if (nums.length) return Math.max(...nums);
+  return /\b(one click|click:)/i.test(line) ? 1 : null;
+}
+
 function runOfShow(d, out) {
   const meta = new Map(((d.splash && d.splash.meta) || []).map((m) => [m.num, m]));
   const rows = [];
@@ -82,12 +109,25 @@ function runOfShow(d, out) {
     const num = i + 1;
     const m = meta.get(num) || {};
     const n = notesOf(s);
-    const noteText = n ? n.text.map((r) => r.text).join('') : '';
+    if (n) n.text[0].text = unifyNotes(n.text[0].text);
+    let noteText = n ? n.text.map((r) => r.text).join('') : '';
     let min = m.min;
     if (min === undefined) { const mm = /TIME:\s*([\d.]+)/.exec(noteText); min = mm ? parseFloat(mm[1]) : null; }
-    // beats on slides from other modules: a beat chip on the slide (HANDS UP, TURN TO A NEIGHBOR, …)
+    // every note says what each click does; check it against the slide's click-triggered build steps
+    const clicks = ((d.anim[num] && d.anim[num].groups) || []).filter((g) => !g.auto).length;
+    const cl = /^CLICKS:(.*)$/m.exec(noteText);
+    if (!cl && n) {
+      if (clicks === 0) { n.text[0].text = n.text[0].text.replace(/^(TIME:[^\n]*)/m, '$1\n\nCLICKS: No clicks: everything appears on its own.'); noteText = n.text[0].text; }
+      else warn.push(`slide ${num}: ${clicks} click(s) but no CLICKS line in the notes`);
+    } else if (cl) {
+      const want = promisedClicks(cl[1]);
+      if (want !== null && want !== clicks) warn.push(`slide ${num}: CLICKS line describes ${want} click(s), the slide has ${clicks}`);
+    }
+    // beats on slides from other modules: a beat chip on the slide (HANDS UP, TURN TO A NEIGHBOR, …), plus the question
+    // when the notes' ASK line opens with it in quotes
     const chip = s._slideObjects.find((o) => o._type === 'text' && Array.isArray(o.text) && /^(HANDS UP|TURN TO|THINK|GUESS|VOTE|QUIZ|PAIR|STAND|SHOW)/.test((o.text[0] && o.text[0].text) || ''));
-    const beat = m.beat || (chip ? chip.text.map((r) => r.text).join('') : '');
+    const askQ = (/^ASK THE ROOM:\s*(?:On the slide[^:“\n]*:\s*)?(“[^”]+”)/m.exec(noteText) || [])[1];
+    const beat = m.beat || (chip ? chip.text.map((r) => r.text).join('') + (askQ ? `: ${askQ}` : '') : '');
     const title = m.title || titleOf(s) || '(no title placeholder)';
     const start = clock, end = clock + (min || 0);
     clock = end;

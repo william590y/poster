@@ -3,6 +3,9 @@
 #   ./build_splash.sh            build build/splash/AI_Alignment_and_Safety_Splash.pptx -> ./AI_Alignment_and_Safety_Splash.pptx
 #   ./build_splash.sh --render   also render a PDF + slide JPGs in build/splash/ (needs LibreOffice Impress + poppler)
 # Run of show (slide numbers, class clock, beats): build/splash/run_of_show.md · presenter guide: SPLASH.md
+# The first build also writes the Splash-only derived images (smaller copies of the slide 31–32 clips, headline crops,
+# a re-ordered copy of the slide 41 GIF) to
+# assets/slides/splash_extra/; that takes a few minutes once, later builds reuse them.
 set -euo pipefail
 cd "$(dirname "$0")"
 OUT=build/splash/AI_Alignment_and_Safety_Splash.pptx

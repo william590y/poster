@@ -85,7 +85,9 @@ function runOfShow(d, out) {
     const noteText = n ? n.text.map((r) => r.text).join('') : '';
     let min = m.min;
     if (min === undefined) { const mm = /TIME:\s*([\d.]+)/.exec(noteText); min = mm ? parseFloat(mm[1]) : null; }
-    const beat = m.beat || ((/(BEAT|HANDS UP|TURN TO|PAIR|GUESS|QUIZ|VOTE)/i.test(noteText.split('\n')[0] || '')) ? 'yes (see notes)' : '');
+    // beats on slides from other modules: a beat chip on the slide (HANDS UP, TURN TO A NEIGHBOR, …)
+    const chip = s._slideObjects.find((o) => o._type === 'text' && Array.isArray(o.text) && /^(HANDS UP|TURN TO|THINK|GUESS|VOTE|QUIZ|PAIR|STAND|SHOW)/.test((o.text[0] && o.text[0].text) || ''));
+    const beat = m.beat || (chip ? chip.text.map((r) => r.text).join('') : '');
     const title = m.title || titleOf(s) || '(no title placeholder)';
     const start = clock, end = clock + (min || 0);
     clock = end;

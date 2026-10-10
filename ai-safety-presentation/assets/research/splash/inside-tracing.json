@@ -1,0 +1,156 @@
+{
+  "group": "splash",
+  "items": [
+    {
+      "id": "inside-tracing-headline",
+      "slide_topic": "Inside the model: interpretability ('tracing thoughts') - how we look inside an AI",
+      "type": "headline",
+      "file": null,
+      "headline": "Tracing the thoughts of a large language model",
+      "dek": "",
+      "outlet": "Anthropic",
+      "author": "",
+      "date": "2025-03-27",
+      "url": "https://www.anthropic.com/research/tracing-thoughts-language-model",
+      "caption": "Title of Anthropic's March 2025 interpretability article, with its 'Interpretability' kicker and 'Read the paper' link.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Article page loaded with WebFetch and curl. Page metadata: datePublished 2025-03-27T09:16:00Z, dateModified 2026-07-08. Companion papers: 'On the Biology of a Large Language Model' (https://transformer-circuits.pub/2025/attribution-graphs/biology.html) and 'Circuit Tracing: Revealing Computational Graphs in Language Models' (https://transformer-circuits.pub/2025/attribution-graphs/methods.html)."
+    },
+    {
+      "id": "inside-rhyme-planning",
+      "slide_topic": "Inside the model: Claude plans a rhyme before it writes the line (planning ahead)",
+      "type": "image",
+      "file": "inside-rhyme-planning.png",
+      "headline": "",
+      "dek": "How Claude completes a two-line poem. Without any intervention (upper section), the model plans the rhyme \"rabbit\" at the end of the second line in advance. When we suppress the \"rabbit\" concept (middle section), the model instead uses a different planned rhyme. When we inject the concept \"green\" (lower section), the model makes plans for this entirely different ending.",
+      "outlet": "Anthropic",
+      "author": "",
+      "date": "2025-03-27",
+      "url": "https://www.anthropic.com/research/tracing-thoughts-language-model",
+      "caption": "Anthropic's figure: prompt 'A rhyming couplet:' then 'He saw a carrot and had to grab it,'. Upper: model plans 'rabbit' and writes 'His hunger was like a starving rabbit'. Middle: with 'rabbit' suppressed it writes 'His hunger was a powerful habit'. Lower: with 'green' injected it writes 'freeing it from the garden's green'.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Source image: https://www-cdn.anthropic.com/images/4zrzovbb/website/7032ed7db85b8cd3efe70a89deaf4f15bfe8fc05-1650x900.png (1650x900 PNG, downloaded and viewed). Figure text on the page: 'Does Claude plan its rhymes?'; 'Instead, we found that Claude plans ahead.' Kid-friendly sentence: Before Claude writes the end of a line, it secretly picks a rhyming word like 'rabbit' and writes toward it; when scientists blocked 'rabbit', it switched to 'habit', and when they put in 'green', it wrote a new line ending in 'green'. Article text on the blocked-concept test: 'When we subtract out the rabbit part, and have Claude continue the line, it writes a new one ending in habit, another sensible completion.'"
+    },
+    {
+      "id": "inside-multistep-dallas",
+      "slide_topic": "Inside the model: Claude combines separate facts (Dallas -> Texas -> Austin) instead of reciting an answer",
+      "type": "image",
+      "file": "inside-multistep-dallas.png",
+      "headline": "",
+      "dek": "To complete the answer to this sentence, Claude performs multiple reasoning steps, first extracting the state that Dallas is located in, and then identifying its capital.",
+      "outlet": "Anthropic",
+      "author": "",
+      "date": "2025-03-27",
+      "url": "https://www.anthropic.com/research/tracing-thoughts-language-model",
+      "caption": "Anthropic's diagram of 'Fact: the capital of the state containing Dallas is' -> Dallas -> Texas -> Austin: the model passes through an intermediate step (Texas) before answering.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Source image: https://www-cdn.anthropic.com/images/4zrzovbb/website/fd2e125879ab993949017e03e3465a12fda884bf-1650x857.png (1650x857 PNG, downloaded and viewed). Article text: 'In the Dallas example, we observe Claude first activating features representing \"Dallas is in Texas\" and then connecting this to a separate concept indicating that \"the capital of Texas is Austin\".' Article text: 'For instance, if asked \"What is the capital of the state where Dallas is located?\", a \"regurgitating\" model could just learn to output \"Austin\" without knowing the relationship between Dallas, Texas, and Austin.'"
+    },
+    {
+      "id": "inside-tracing-page-screenshot",
+      "slide_topic": "Inside the model: source citation for the interpretability research",
+      "type": "screenshot",
+      "file": "inside-tracing-page.png",
+      "headline": "Tracing the thoughts of a large language model",
+      "dek": "",
+      "outlet": "Anthropic",
+      "author": "",
+      "date": "2025-03-27",
+      "url": "https://www.anthropic.com/research/tracing-thoughts-language-model",
+      "caption": "Real screenshot (1280x800 viewport, shot.js) of Anthropic's article header: 'Interpretability', title, 'Mar 27, 2025', 'Read the paper' button, embedded video.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Captured with tools/shot.js from the live page; viewed with Read. Shows the page header only, no edits."
+    },
+    {
+      "id": "inside-tracing-video-thumb",
+      "slide_topic": "Inside the model: optional video to embed for 'tracing thoughts' (YouTube, via thumbnail cover)",
+      "type": "video",
+      "file": "inside-tracing-video-thumb.jpg",
+      "headline": "Tracing the thoughts of a large language model",
+      "dek": "",
+      "outlet": "Anthropic",
+      "author": "",
+      "date": "2025-03-27",
+      "url": "https://youtu.be/Bj9BD2D3DzA",
+      "caption": "Anthropic's video 'Tracing the thoughts of a large language model' (animated explainer). Thumbnail: 'Tracing the thoughts of an LLM' drawn as a blue-node pen-and-line sketch.",
+      "quality": 3,
+      "verified": false,
+      "notes": "The YouTube ID Bj9BD2D3DzA was taken from the youtu.be link embedded on the loaded article page. The YouTube watch page itself was NOT loaded, so the title, date and upload details are unverified. Thumbnail downloaded from https://img.youtube.com/vi/Bj9BD2D3DzA/maxresdefault.jpg (1280x720 JPEG, viewed). Video was not downloaded (downloads blocked); embed with d.video plus this thumbnail."
+    },
+    {
+      "id": "inside-quote-plans-ahead",
+      "slide_topic": "Inside the model: the core finding in one line",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "Instead, we found that Claude plans ahead. Before starting the second line, it began \"thinking\" of potential on-topic words that would rhyme with \"grab it\". Then, with these plans in mind, it writes a line to end with the planned word.",
+      "outlet": "Anthropic",
+      "author": "",
+      "date": "2025-03-27",
+      "url": "https://www.anthropic.com/research/tracing-thoughts-language-model",
+      "caption": "Anthropic's own words on the rhyme experiment: the team expected word-by-word writing and found planning instead.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Verbatim from the loaded article HTML (plans ahead is bold on the page). Preceding sentence on the page: 'Our guess was that Claude was writing word-by-word without much forethought until the end of the line, where it would make sure to pick a word that rhymes.'"
+    }
+  ],
+  "datasets": [],
+  "facts": [
+    {
+      "claim": "When Claude writes the second line of a rhyming couplet, it plans the rhyme word ahead of time: it thinks of on-topic words that rhyme with 'grab it' (such as 'rabbit') and then writes the line to end on the planned word.",
+      "source": "Anthropic, 'Tracing the thoughts of a large language model' (Mar 27, 2025), section 'Does Claude plan its rhymes?'",
+      "url": "https://www.anthropic.com/research/tracing-thoughts-language-model",
+      "date": "2025-03-27"
+    },
+    {
+      "claim": "The researchers had expected Claude to write word by word with little forethought, picking a rhyming word only at the end of the line; they found instead that it plans ahead.",
+      "source": "Anthropic, 'Tracing the thoughts of a large language model' (Mar 27, 2025)",
+      "url": "https://www.anthropic.com/research/tracing-thoughts-language-model",
+      "date": "2025-03-27"
+    },
+    {
+      "claim": "When the 'rabbit' concept is removed, Claude writes a new second line ending in 'habit', another sensible completion; when the concept 'green' is injected, Claude writes a sensible (but no-longer rhyming) line ending in 'green'. The article says this shows both planning ability and adaptive flexibility.",
+      "source": "Anthropic, 'Tracing the thoughts of a large language model' (Mar 27, 2025)",
+      "url": "https://www.anthropic.com/research/tracing-thoughts-language-model",
+      "date": "2025-03-27"
+    },
+    {
+      "claim": "The interpretability work looked inside Claude 3.5 Haiku, performing deep studies of simple tasks representative of ten crucial model behaviors.",
+      "source": "Anthropic, 'Tracing the thoughts of a large language model' (Mar 27, 2025)",
+      "url": "https://www.anthropic.com/research/tracing-thoughts-language-model",
+      "date": "2025-03-27"
+    },
+    {
+      "claim": "Even on short, simple prompts, the method only captures a fraction of the total computation Claude performs, and it currently takes a few hours of human effort to understand the circuits seen, even on prompts with only tens of words.",
+      "source": "Anthropic, 'Tracing the thoughts of a large language model' (Mar 27, 2025), limitations paragraph",
+      "url": "https://www.anthropic.com/research/tracing-thoughts-language-model",
+      "date": "2025-03-27"
+    },
+    {
+      "claim": "In the Dallas example, Claude first activates features representing 'Dallas is in Texas' and then connects this to a separate concept, 'the capital of Texas is Austin', combining independent facts rather than reciting a memorized answer.",
+      "source": "Anthropic, 'Tracing the thoughts of a large language model' (Mar 27, 2025), section 'Multi-step reasoning'",
+      "url": "https://www.anthropic.com/research/tracing-thoughts-language-model",
+      "date": "2025-03-27"
+    },
+    {
+      "claim": "Scientists hypothesized that Claude would improvise rhymes, but found that important parts of the circuit were already active on the newline token before the second line began, consistent with the model planning potential completions (such as 'rabbit' and 'habit') ahead of time.",
+      "source": "Anthropic, 'On the Biology of a Large Language Model' (Mar 27, 2025), section 'Planned Words'",
+      "url": "https://transformer-circuits.pub/2025/attribution-graphs/biology.html",
+      "date": "2025-03-27"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Video: YouTube watch page title, upload date and runtime for Bj9BD2D3DzA",
+      "searched": "Read the article HTML and found the embedded youtu.be/Bj9BD2D3DzA link and its thumbnail; did not load the watch page itself, so these details are unverified."
+    },
+    {
+      "outline_item": "Interactive attribution graph on the rhyme example (live feature view)",
+      "searched": "Loaded transformer-circuits.pub biology.html and confirmed the rhyme text; the interactive graph is not captured as a static image."
+    }
+  ]
+}

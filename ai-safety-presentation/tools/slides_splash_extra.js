@@ -163,7 +163,7 @@ const BEATS = {
   hands: ['FaHandPaper', 'HANDS UP'], guess: ['FaQuestionCircle', 'GUESS FIRST'], pair: ['FaComments', 'TURN TO A NEIGHBOR'],
   think: ['FaLightbulb', 'THINK ABOUT IT'], stand: ['FaUsers', 'VOTE'],
 };
-const tagWidth = (kind, time) => 0.66 + (time ? `${BEATS[kind][1]} · ${time}` : BEATS[kind][1]).length * 0.128;
+const tagWidth = (kind, time) => 0.7 + (time ? `${BEATS[kind][1]} · ${time}` : BEATS[kind][1]).length * 0.104;
 // Red chip with an icon and caps text, e.g. HANDS UP · 30 SEC. Returns names (+ .w).
 async function beatTag(d, s, kind, x, y, { time, h = 0.36 } = {}) {
   const [ic, word] = BEATS[kind];
@@ -171,7 +171,7 @@ async function beatTag(d, s, kind, x, y, { time, h = 0.36 } = {}) {
   const w = tagWidth(kind, time);
   const b = d.rect(s, { x, y, w, h, rounded: true, rectRadius: 0.06, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 } });
   const i = await ico(d, s, ic, 'FFFFFF', { x: x + 0.13, y: y + (h - 0.22) / 2, w: 0.22, h: 0.22 });
-  const t = d.text(s, text, { x: x + 0.42, y, w: w - 0.5, h, fontSize: 12, bold: true, color: 'FFFFFF', charSpacing: 1.5, valign: 'middle' });
+  const t = d.text(s, text, { x: x + 0.42, y, w: w - 0.48, h, fontSize: 12, bold: true, color: 'FFFFFF', charSpacing: 1.5, valign: 'middle', wrap: false });
   const names = [b, i, t];
   names.w = w;
   return names;
@@ -232,7 +232,8 @@ async function poll(d, s, box, { kind = 'hands', time, q, options = [], layout =
   if (answer !== undefined) {
     const g = geo[answer];
     ans.push(d.rect(s, { x: g.x - 0.04, y: g.y - 0.04, w: g.w + 0.08, h: g.h + 0.08, rounded: true, rectRadius: 0.06, fill: { color: TEAL, transparency: 82 }, line: { color: TEAL, width: 2.5 } }));
-    ans.push(await ico(d, s, 'FaCheckCircle', TEAL, { x: g.x + g.w - 0.34, y: g.y + (g.h - 0.24) / 2, w: 0.24, h: 0.24 }));
+    ans.push(shape(d, s, 'OVAL', { x: g.x + g.w - 0.2, y: g.y - 0.16, w: 0.34, h: 0.34, fill: { color: '0A0C10' }, line: { color: TEAL, width: 0 } }));
+    ans.push(await ico(d, s, 'FaCheckCircle', TEAL, { x: g.x + g.w - 0.18, y: g.y - 0.14, w: 0.3, h: 0.3 }));
   }
   return { all, tiles, ans, geo, bottom: y + H };
 }
@@ -381,6 +382,7 @@ async function p2Cadence(d) {
     kicker: P2(1), title: 'Big AI releases now land about 11 days apart',
     replace: {
       'MEDIAN GAP BETWEEN RELEASES · EITHER LAB': 'TYPICAL GAP BETWEEN RELEASES',
+      'early 2024 → late Sep 2026 · as charted, method not stated': 'early 2024 → late Sep 2026, as charted',
       'Chart and post: Joshua Fonseca Rivera (@jfonsecarivera) on X, Sep 29, 2026 · Our check: Anthropic and OpenAI launch pages, OpenAI API changelog, Epoch AI model database (Oct 5, 2026).': 'Chart and post: Joshua Fonseca Rivera (@jfonsecarivera) on X, Sep 29, 2026 · one researcher’s chart, not an official statistic',
     },
     drop: (o) => (o.opts.objectName || '').startsWith('qbar') || o.flat.startsWith('“you’re not crazy') || o.flat.includes('Anthropic safety fellow')
@@ -388,6 +390,9 @@ async function p2Cadence(d) {
       || o.flat.startsWith('median days apart'),
     minFont: 12,
     edit: (o) => {
+      // the outlet tab (dark chip + caps text) is widened so its text fits at 12 pt
+      if (o.kind === 'shape' && o.opts.fill && o.opts.fill.color === '2F3644') o.opts.w *= 1.3;
+      if (o.flat.startsWith('@JFONSECARIVERA')) o.opts.w *= 1.3;
       if (o.flat.startsWith('early 2024 → late Sep 2026')) { o.opts.fontSize = 14; o.opts.h = 0.3; }
       if (o.flat === 'TYPICAL GAP BETWEEN RELEASES') o.opts.h = 0.3;
       if (o.flat.startsWith('Chart and post:')) { o.opts.fontSize = 12; o.opts.h = 0.34; o.opts.y = 6.6; }
@@ -395,14 +400,14 @@ async function p2Cadence(d) {
     after: async (s, ctx) => {
       const lab = ctx.objs.find((x) => x.flat === 'TYPICAL GAP BETWEEN RELEASES');
       const rx = lab.opts.x, rw = 12.73 - rx;
-      const p = await poll(d, s, { x: rx, y: 3.12, w: rw, h: 2.0 }, {
-        kind: 'guess', q: 'In early 2024, how far apart were big AI releases?', qSize: 18,
-        options: ['1 week', '10 weeks', '10 months'], answer: 1, oSize: 16, tileH: 0.5,
+      const p = await poll(d, s, { x: rx, y: 3.1, w: rw }, {
+        kind: 'guess', q: 'In early 2024, how far apart were big AI releases?', qSize: 18, qH: 0.62, layout: 'col',
+        options: ['1 week', '10 weeks', '10 months'], answer: 1, oSize: 16, tileH: 0.36,
       });
       const cav = d.text(s, [
-        { text: 'One researcher’s chart. ', options: { bold: true, color: d.S.amber } },
-        { text: 'It counts launches from either of two labs (OpenAI or Anthropic), so each company alone releases less often.', options: { color: d.S.txt } },
-      ], { x: rx, y: 5.3, w: rw, h: 1.2, fontSize: 16, valign: 'top' });
+        { text: 'One researcher’s chart, ', options: { bold: true, color: d.S.amber } },
+        { text: 'counting launches from either of two labs.', options: { color: d.S.txt } },
+      ], { x: rx, y: p.bottom + 0.08, w: rw, h: 6.5 - p.bottom - 0.08, fontSize: 16, valign: 'top' });
       ctx.extra = { poll: grp(p.all, { auto: true, effect: 'rise' }), ans: p.ans, cav: grp([cav], { effect: 'fade' }) };
     },
     anim: (groups, ctx) => {
@@ -439,13 +444,14 @@ async function p2Metr(d) {
       if (TICKS.includes(o.flat)) { o.opts.x -= 0.22; o.opts.w += 0.22; }
       if (o.flat === 'today') o.opts.h = 0.28;
       if (o.flat === 'TASK LENGTH AI CAN FINISH · LOG SCALE') o.opts.w = 4.7;
+      if (o.flat.startsWith('ABOVE 16 HOURS')) o.opts.w = 4.15;
       if (o.flat.startsWith('Data: METR')) { o.opts.h = 0.34; o.opts.y = 6.6; }
     },
     after: async (s, ctx) => {
       const rx = 9.3, rw = CX1 - rx;
       const p = await poll(d, s, { x: rx, y: 1.75, w: rw, h: 2.95 }, {
-        kind: 'pair', time: '1 MIN', q: 'AI finishes a 1-minute task today. If the trend holds, how long a task in 2 years?',
-        qSize: 16, layout: 'col', options: ['8 minutes', '64 minutes', '4 hours'], answer: 1, oSize: 16, tileH: 0.4,
+        kind: 'pair', q: 'AI finishes a 1-minute task today. If the trend holds, how long a task in 2 years?',
+        qSize: 16, qH: 0.84, layout: 'col', options: ['8 minutes', '64 minutes', '4 hours'], answer: 1, oSize: 16, tileH: 0.4,
       });
       const g = p.geo[1];
       const why = d.text(s, '= 6 doublings', { x: g.x + 1.55, y: g.y, w: g.w - 1.95, h: g.h, fontSize: 14, bold: true, color: TEAL, valign: 'middle', align: 'right' });
@@ -494,18 +500,18 @@ async function p2MetrEvidence(d) {
     { text: 'You cannot measure past the longest tasks you have: like measuring a giraffe with a 1-metre ruler.', options: { color: d.S.txt } },
   ], { x: CX0, y: 5.5, w: lw, h: 1.0, fontSize: 18, valign: 'top' });
   const rx = CX0 + lw + 0.45, rw = CX1 - rx;
-  const qc = [d.card(s, { x: rx, y: 1.78, w: rw, h: 2.75 }, { color: '10141B' })];
+  const qc = [d.card(s, { x: rx, y: 1.78, w: rw, h: 2.42 }, { color: '10141B' })];
   qc.push(...await badge(d, s, 'FaRulerHorizontal', rx + 0.25, 1.98, 0.62));
   qc.push(d.text(s, 'METR, IN ITS OWN WORDS · MAY 8, 2026', { x: rx + 1.05, y: 2.0, w: rw - 1.2, h: 0.58, fontSize: 12, bold: true, color: d.S.red, charSpacing: 1.5, valign: 'middle' }));
   qc.push(d.text(s, '“Of the 228 tasks in our suite, only 5 are estimated as 16+ hours long, making measurements at this range unstable and less meaningful…”', { x: rx + 0.25, y: 2.72, w: rw - 0.5, h: 1.7, fontSize: 18, italic: true, fontFace: 'Cambria', color: d.S.txt, valign: 'top' }));
   const facts = d.text(s, [
     { text: 'So METR has published no number for the newest models. ', options: { color: d.S.txt, bold: true, breakLine: true, paraSpaceAfter: 6 } },
     { text: 'Some test runs also cheated, which makes long-task scores even harder to trust.', options: { color: d.S.muted } },
-  ], { x: rx, y: 4.7, w: rw, h: 1.0, fontSize: 16, valign: 'top' });
+  ], { x: rx, y: 4.36, w: rw, h: 1.2, fontSize: 16, valign: 'top' });
   const honest = d.text(s, [
     { text: 'This is what honest uncertainty looks like: ', options: { bold: true, color: TEAL } },
     { text: 'scientists saying their own tool is too short.', options: { color: d.S.txt } },
-  ], { x: rx, y: 5.78, w: rw, h: 0.72, fontSize: 16, valign: 'top' });
+  ], { x: rx, y: 5.68, w: rw, h: 0.82, fontSize: 16, valign: 'top' });
   d.animate(s, [lab, { name: ch, effect: 'wipeLeft', dur: 900 }], { auto: true, effect: 'fade' });
   d.animate(s, [cap], { auto: true, effect: 'fade', after: 200 });
   d.animate(s, qc, { effect: 'rise' });
@@ -527,26 +533,26 @@ async function p2MetrEvidence(d) {
 async function p2Graveyard(d) {
   const s = d.slide('Content', { transition: 'push' });
   head(s, P2(4), 'Tests made to last years are beaten in months');
-  const p = await poll(d, s, { x: CX0, y: 1.75, w: CW, h: 1.62 }, {
-    kind: 'hands', q: 'Did the best AI in 2023 score above 50% on PhD-level science questions?', qSize: 20,
-    options: ['Yes, above 50%', 'No, below 50%'], answer: 1, oSize: 18, tileH: 0.5,
+  const p = await poll(d, s, { x: CX0, y: 1.72, w: CW }, {
+    kind: 'hands', q: 'Did the best AI in 2023 score above 50% on PhD-level science questions?', qSize: 20, inline: true,
+    options: ['Yes, above 50%', 'No, below 50%'], answer: 1, oSize: 18, tileH: 0.48,
   });
   const tiles = [
     ['GPQA Diamond', 'Hard science questions written for PhD students', '36%', '96%', 'GPT-4 (Mar 2023) → GPT-6 Astra (Sep 2026)', 'PhD experts score about 65–70%'],
     ['ARC-AGI-2', 'Picture puzzles built to be hard for AI', '0.8%', '95%', 'o1-mini (2024) → GPT-6 Astra (Sep 2026)', 'run by the ARC Prize Foundation'],
     ['SWE-bench Verified', 'Real bugs from GitHub, to fix', '31%', '83.5%', 'GPT-4o (Nov 2024) → Claude Opus 4.7 (Apr 2026)', 'Epoch then stopped testing top models on it'],
   ];
-  const tw = (CW - 2 * 0.25) / 3, ty = 3.55, th = 2.95;
+  const tw = (CW - 2 * 0.25) / 3, ty = p.bottom + 0.16, th = 6.5 - ty;
   const groups = [];
   tiles.forEach(([name, what, a, b, who, note], i) => {
     const x = CX0 + i * (tw + 0.25);
     const g = [d.card(s, { x, y: ty, w: tw, h: th })];
     g.push(d.text(s, name, { x: x + 0.22, y: ty + 0.15, w: tw - 0.44, h: 0.42, fontSize: 20, bold: true, color: d.S.txt, fontFace: 'Arial', valign: 'middle' }));
     g.push(d.text(s, what, { x: x + 0.22, y: ty + 0.57, w: tw - 0.44, h: 0.6, fontSize: 16, color: d.S.muted, valign: 'top' }));
-    g.push(d.text(s, [{ text: a, options: { color: d.S.muted } }, { text: '  →  ', options: { color: d.S.steel, fontSize: 28 } }, { text: b, options: { color: d.S.red } }],
-      { x: x + 0.22, y: ty + 1.2, w: tw - 0.44, h: 0.8, fontSize: 44, bold: true, fontFace: 'Arial', valign: 'middle' }));
-    g.push(d.text(s, who, { x: x + 0.22, y: ty + 2.02, w: tw - 0.44, h: 0.42, fontSize: 14, color: d.S.txt, valign: 'top' }));
-    g.push(d.text(s, note, { x: x + 0.22, y: ty + 2.45, w: tw - 0.44, h: 0.4, fontSize: 14, italic: true, color: d.S.amber, valign: 'top' }));
+    g.push(d.text(s, [{ text: a, options: { color: d.S.muted } }, { text: ' → ', options: { color: d.S.steel, fontSize: 26 } }, { text: b, options: { color: d.S.red } }],
+      { x: x + 0.22, y: ty + 1.17, w: tw - 0.44, h: 0.7, fontSize: 36, bold: true, fontFace: 'Arial', valign: 'middle' }));
+    g.push(d.text(s, who, { x: x + 0.22, y: ty + 1.9, w: tw - 0.44, h: 0.5, fontSize: 14, color: d.S.txt, valign: 'top' }));
+    g.push(d.text(s, note, { x: x + 0.22, y: ty + 2.42, w: tw - 0.44, h: th - 2.47, fontSize: 14, italic: true, color: d.S.amber, valign: 'top' }));
     groups.push(g);
   });
   d.animate(s, p.all, { auto: true, effect: 'rise' });
@@ -760,16 +766,16 @@ async function p2Navier(d) {
   const ay = 2.62, D = 0.66, x0 = CX0 + 0.45, x1 = CX1 - 0.45;
   const nodes = [
     { x: x0, img: C('ns-navier.png'), year: '1822', txt: 'Navier writes down the equations for how fluids flow', align: 'left' },
-    { x: x0 + (x1 - x0) * 0.42, img: C('ns-leray.png'), year: '1934', txt: 'Leray asks: can a flow “blow up”? He can’t find an example', align: 'center' },
-    { x: x0 + (x1 - x0) * 0.74, img: null, year: '2000', txt: 'The Clay Institute offers $1 million for an answer', align: 'center' },
-    { x: x1, img: C('ns-vortex.png'), year: 'Sep 8, 2026', txt: 'OpenAI says its AI found a proof', align: 'right', red: true },
+    { x: x0 + (x1 - x0) * 0.36, img: C('ns-leray.png'), year: '1934', txt: 'Leray asks: can a flow “blow up”? He can’t find an example', align: 'center', w: 2.8 },
+    { x: x0 + (x1 - x0) * 0.62, img: null, year: '2000', txt: 'The Clay Institute offers $1 million for an answer', align: 'center', w: 2.6 },
+    { x: x1, img: C('ns-vortex.png'), year: 'Sep 8, 2026', txt: 'OpenAI says its AI found a proof', align: 'right', red: true, w: 2.6 },
   ];
   const tl = [shape(d, s, 'LINE', { x: x0, y: ay, w: x1 - x0, h: 0, line: { color: HEX.steel, width: 2 } })];
   const ng = nodes.map((n) => {
     const g = [shape(d, s, 'OVAL', { x: n.x - D / 2 - 0.04, y: ay - D / 2 - 0.04, w: D + 0.08, h: D + 0.08, fill: { color: n.img ? '0A0C10' : 'F39200' }, line: { color: n.red ? HEX.red : HEX.steel, width: n.red ? 2.5 : 1.5 } })];
     if (n.img) { const im = d.name('pt'); s.addImage({ path: n.img, x: n.x - D / 2, y: ay - D / 2, w: D, h: D, objectName: im }); g.push(im); }
     else g.push(d.text(s, '$1M', { x: n.x - D / 2, y: ay - D / 2, w: D, h: D, fontSize: 15, bold: true, color: '0A0C10', align: 'center', valign: 'middle', fontFace: 'Arial' }));
-    const lw = 3.0;
+    const lw = n.w || 3.0;
     const lx = n.align === 'left' ? n.x - D / 2 : n.align === 'right' ? n.x + D / 2 - lw : n.x - lw / 2;
     g.push(d.text(s, [
       { text: n.year, options: { fontSize: 18, bold: true, color: n.red ? d.S.red : d.S.txt, fontFace: 'Arial', breakLine: true } },
@@ -782,7 +788,8 @@ async function p2Navier(d) {
   const plain = [d.card(s, { x: CX0, y: by, w: cw1, h: bh })];
   plain.push(d.text(s, 'IN PLAIN WORDS', { x: CX0 + 0.22, y: by + 0.12, w: cw1 - 0.44, h: 0.3, fontSize: 12, bold: true, color: d.S.steel, charSpacing: 2 }));
   plain.push(d.text(s, [
-    { text: 'Blow-up: ', options: { bold: true, color: d.S.txt } }, { text: 'a swirl in water or air that spins infinitely fast after a finite time.', options: { color: d.S.muted, breakLine: true, paraSpaceAfter: 6 } },
+    { text: 'Navier–Stokes equations: ', options: { bold: true, color: d.S.txt } }, { text: 'the maths rules for how water and air move.', options: { color: d.S.muted, breakLine: true, paraSpaceAfter: 6 } },
+    { text: 'Blow-up: ', options: { bold: true, color: d.S.txt } }, { text: 'a swirl that spins infinitely fast after a finite time.', options: { color: d.S.muted, breakLine: true, paraSpaceAfter: 6 } },
     { text: 'The claim: ', options: { bold: true, color: d.S.txt } }, { text: 'an internal OpenAI AI proved this can happen when an outside push (a “force”) keeps stirring the fluid.', options: { color: d.S.muted } },
   ], { x: CX0 + 0.22, y: by + 0.46, w: cw1 - 0.44, h: bh - 0.56, fontSize: 16, valign: 'top' }));
   const ox = CX0 + cw1 + cg;
@@ -822,23 +829,24 @@ async function p2Robot(d) {
   const W_ = (f) => need(A('research', 'work', f));
   const vid = await d.video(s, {
     link: 'https://www.youtube.com/watch?v=lJpM_2a1zrE', embed: 'https://www.youtube.com/embed/lJpM_2a1zrE',
-    cover: W_('video-yt-lJpM_2a1zrE.jpg'), box: { x: CX0, y: 1.78, w: 7.1, h: 3.6 },
+    cover: W_('video-yt-lJpM_2a1zrE.jpg'), box: { x: CX0, y: 1.78, w: 3.3 * 16 / 9, h: 3.3 },
     label: 'Figure — Helix 2.5: 30-Home Generalization (official video, Sep 17, 2026)',
   });
   const g = vid.geom;
-  const pair = await beatLine(d, s, { kind: 'pair', time: '45 SEC', q: 'Which chore would you give a robot first? Tell your neighbour why.', x: CX0, y: 5.82, w: g.w, h: 0.68, qSize: 18 });
+  setFont(s, vid[vid.length - 1], 12);
+  const pair = await beatLine(d, s, { kind: 'pair', q: 'Which chore would you give a robot first? Tell your neighbour why.', x: CX0, y: 5.6, w: g.w + 0.2, h: 0.85, qSize: 18 });
   const rx = CX0 + g.w + 0.45, rw = CX1 - rx;
   const st = [d.text(s, [{ text: '9%', options: { color: d.S.muted } }, { text: ' → ', options: { color: d.S.steel, fontSize: 30 } }, { text: '56%', options: { color: d.S.red } }],
     { x: rx, y: 1.72, w: rw, h: 0.8, fontSize: 48, bold: true, fontFace: 'Arial', valign: 'middle' })];
-  st.push(d.text(s, 'chores done right in 30 homes it had never seen (“zero-shot”), after training on videos of people', { x: rx, y: 2.55, w: rw, h: 1.1, fontSize: 16, color: d.S.txt, valign: 'top' }));
-  st.push(d.text(s, 'Figure’s own results and video: company-reported', { x: rx, y: 3.65, w: rw, h: 0.55, fontSize: 14, color: d.S.amber, valign: 'top' }));
-  const fail = d.text(s, '56% also means it failed about 44% of the time.', { x: rx, y: 4.2, w: rw, h: 0.6, fontSize: 16, bold: true, color: d.S.txt, valign: 'top' });
+  st.push(d.text(s, 'chores done right in 30 homes it had never seen (“zero-shot”), after training on videos of people', { x: rx, y: 2.55, w: rw, h: 0.8, fontSize: 16, color: d.S.txt, valign: 'top' }));
+  st.push(d.text(s, 'Figure’s own results and video: company-reported', { x: rx, y: 3.38, w: rw, h: 0.32, fontSize: 14, color: d.S.amber, valign: 'top' }));
+  const fail = d.text(s, '56% also means it failed about 44% of the time.', { x: rx, y: 3.75, w: rw, h: 0.6, fontSize: 16, bold: true, color: d.S.txt, valign: 'top' });
   const demos = [['video-yt-4lSQnrMC6nY.jpg', 'https://www.youtube.com/watch?v=4lSQnrMC6nY', 'Gemini Robotics 2'], ['video-yt-Zn8yMaepzVk.jpg', 'https://www.youtube.com/watch?v=Zn8yMaepzVk', 'π0.5 in an unseen home']];
-  const dl = label(d, s, 'MORE DEMOS · CLICK TO WATCH', { x: rx, y: 4.85, w: rw });
-  const tw = (rw - 0.2) / 2, th = tw * 9 / 16;
+  const dl = label(d, s, 'MORE DEMOS · CLICK TO WATCH', { x: rx, y: 4.38, w: rw });
+  const tw = Math.min((rw - 0.2) / 2, 2.3), th = tw * 9 / 16;
   const thumbs = [];
   demos.forEach(([f, url, cap], i) => {
-    const x = rx + i * (tw + 0.2), y = 5.2;
+    const x = rx + i * (tw + 0.2), y = 4.74;
     const im = d.name('thumb');
     s.addImage({ path: W_(f), x, y, w: tw, h: th, hyperlink: { url }, objectName: im });
     thumbs.push(im, d.text(s, cap, { x, y: y + th + 0.03, w: tw, h: 0.28, fontSize: 12, color: d.S.muted, hyperlink: { url } }));
@@ -867,13 +875,13 @@ const WORRY = { q: 'How worried should we be about very advanced AI?', options: 
 async function p3HowToThink(d) {
   const s = d.slide('Content');
   head(s, 'PART 3 · HOW TO THINK · 1', 'Serious, unsolved, and not decided yet');
-  const p = await poll(d, s, { x: CX0, y: 1.72, w: CW, h: 1.82 }, { kind: 'hands', time: 'NO WRONG ANSWER', q: WORRY.q, options: WORRY.options, qSize: 20, oSize: 16, tileH: 0.78 });
+  const p = await poll(d, s, { x: CX0, y: 1.72, w: CW }, { kind: 'hands', time: 'NO WRONG ANSWER', q: WORRY.q, options: WORRY.options, qSize: 20, oSize: 16, tileH: 0.62, inline: true });
   const cards = [
     ['FaCheckCircle', TEAL, 'WHAT WE KNOW', 'AI systems already find shortcuts their makers did not intend, in tests and experiments. You will see examples next.'],
-    ['FaBalanceScale', HEX.amber, 'WHAT EXPERTS DISAGREE ON', 'How likely serious harm is, and how soon. In a survey of 2,778 AI researchers, 38–51% gave at least a 1-in-10 chance of outcomes as bad as human extinction.'],
+    ['FaBalanceScale', HEX.amber, 'WHAT EXPERTS DISAGREE ON', 'How likely and how soon. In a survey of 2,778 AI researchers, 38–51% gave at least a 1-in-10 chance of outcomes as bad as human extinction.'],
     ['FaTools', HEX.blue, 'WHAT PEOPLE ARE DOING', 'Building ways to check what AI systems do, to limit them, and to write rules. Unsolved, and many people are working on it.'],
   ];
-  const cw = (CW - 2 * 0.25) / 3, cy = 3.7, ch = 2.2;
+  const cw = (CW - 2 * 0.25) / 3, cy = p.bottom + 0.14, ch = 5.92 - cy;
   const groups = [];
   for (let i = 0; i < cards.length; i++) {
     const [ic, col, k, t] = cards[i];
@@ -981,42 +989,44 @@ async function p3Convergence(d) {
 async function p3CoastRunners(d) {
   const s = d.slide('Content', { transition: 'fade' });
   head(s, 'PART 3 · SPECIFICATION GAMING · 1', 'It won points by never finishing the race');
-  const p = await poll(d, s, { x: CX0, y: 1.7, w: CW, h: 1.32 }, {
-    kind: 'guess', q: 'A game AI earned points for hitting targets. What did the boat learn to do?', qSize: 18,
-    options: ['Finish the race', 'Get the most points by any route', 'Circle a lagoon, re-hitting targets'], answer: 2, oSize: 16, tileH: 0.48,
+  const p = await poll(d, s, { x: CX0, y: 1.7, w: CW }, {
+    kind: 'guess', q: 'A game AI earned points for hitting targets. What did the boat learn to do?', qSize: 18, inline: true,
+    options: ['Finish the race', 'Get the most points by any route', 'Circle a lagoon, re-hitting targets'], answer: 2, oSize: 16, tileH: 0.46,
   });
+  const ry = p.bottom + 0.14;
   const vid = await d.video(s, {
     link: 'https://www.youtube.com/watch?v=tlOIHko8ySg', embed: 'https://www.youtube.com/embed/tlOIHko8ySg',
-    cover: need(A('slides', 'xrisk', 'coastrunners-cover.jpg')), box: { x: CX0, y: 3.2, w: 4.25, h: 3.0 },
+    cover: need(A('slides', 'xrisk', 'coastrunners-cover.jpg')), box: { x: CX0, y: ry, w: 3.65, h: 2.75 },
     label: 'CoastRunners 7: OpenAI’s boat-race AI (2016)',
   });
-  const rx = CX0 + vid.geom.w + 0.4, rw = CX1 - rx;
+  setFont(s, vid[vid.length - 1], 12);
+  const rx = CX0 + vid.geom.w + 0.35, rw = CX1 - rx;
   const rows = [
     ['FaFlagCheckered', HEX.blue, 'WHAT WE WANTED', 'Win the boat race.'],
     ['FaCoins', HEX.amber, 'WHAT WE ACTUALLY REWARDED', 'Points for hitting targets along the track.'],
     ['FaFire', HEX.red, 'WHAT IT LEARNED', 'Loop a lagoon, re-hitting targets as they come back.'],
   ];
-  const rh = 0.72, rg = 0.08, ry = 3.2;
+  const rh = 0.66, rg = 0.07;
   const rowNames = [];
   for (let i = 0; i < rows.length; i++) {
     const [ic, col, lab, txt] = rows[i];
     const y = ry + i * (rh + rg);
     const g = [d.card(s, { x: rx, y, w: rw, h: rh })];
-    g.push(...await badge(d, s, ic, rx + 0.15, y + 0.12, 0.48, col, '161A22'));
-    g.push(d.text(s, lab, { x: rx + 0.8, y: y + 0.06, w: rw - 0.95, h: 0.28, fontSize: 12, bold: true, color: col, charSpacing: 2, valign: 'middle' }));
-    g.push(d.text(s, txt, { x: rx + 0.8, y: y + 0.32, w: rw - 0.95, h: 0.36, fontSize: 18, color: d.S.txt, valign: 'middle' }));
+    g.push(...await badge(d, s, ic, rx + 0.15, y + 0.1, 0.46, col, '161A22'));
+    g.push(d.text(s, lab, { x: rx + 0.8, y: y + 0.04, w: rw - 0.95, h: 0.26, fontSize: 12, bold: true, color: col, charSpacing: 2, valign: 'middle' }));
+    g.push(d.text(s, txt, { x: rx + 0.8, y: y + 0.29, w: rw - 0.95, h: 0.34, fontSize: 18, color: d.S.txt, valign: 'middle' }));
     rowNames.push(g);
   }
   const sy = ry + 3 * (rh + rg) + 0.04;
-  const big = d.text(s, '20%', { x: rx, y: sy, w: 1.55, h: 0.7, fontSize: 44, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'middle' });
+  const big = d.text(s, '20%', { x: rx, y: sy, w: 1.45, h: 0.62, fontSize: 40, bold: true, color: d.S.red, fontFace: 'Arial', valign: 'middle' });
   const bigLab = d.text(s, [
     { text: 'higher score than human players, ', options: { color: d.S.txt, bold: true } },
     { text: 'while crashing, catching fire and never finishing. (OpenAI, 2016)', options: { color: d.S.muted } },
-  ], { x: rx + 1.6, y: sy, w: rw - 1.6, h: 0.78, fontSize: 16, valign: 'middle' });
+  ], { x: rx + 1.5, y: sy, w: rw - 1.5, h: 0.62, fontSize: 16, valign: 'middle' });
   const def = d.text(s, [
     { text: 'Specification gaming: ', options: { bold: true, color: d.S.amber } },
-    { text: 'doing exactly what the score rewards, not what we meant.', options: { color: d.S.txt } },
-  ], { x: rx, y: sy + 0.84, w: rw, h: 0.42, fontSize: 18, valign: 'middle' });
+    { text: 'doing what the score rewards, not what we meant.', options: { color: d.S.txt } },
+  ], { x: rx, y: sy + 0.68, w: rw, h: 0.4, fontSize: 16, valign: 'middle' });
   d.animate(s, p.all, { auto: true, effect: 'rise' });
   d.animate(s, vid, { auto: true, effect: 'fade', after: 100 });
   d.animate(s, p.ans, { effect: 'zoom', dur: 350 });
@@ -1102,24 +1112,25 @@ async function p3Loopholes(d) {
 async function p3Astra(d) {
   const s = d.slide('Content', { transition: 'push' });
   head(s, 'PART 3 · CAN WE READ IT? · 1', 'Some AI thinks in ways we cannot easily read');
-  const p = await poll(d, s, { x: CX0, y: 1.72, w: CW, h: 1.3 }, {
-    kind: 'think', time: '30 SEC', q: 'A math test shows only the final answer. How could a teacher check the work?', qSize: 18,
-    options: ['Ask to see the working', 'Just trust the answer'], oSize: 16, tileH: 0.46,
+  const p = await poll(d, s, { x: CX0, y: 1.7, w: CW }, {
+    kind: 'think', time: '30 SEC', q: 'A math test shows only the final answer. How could a teacher check the work?', qSize: 18, inline: true,
+    options: ['Ask to see the working', 'Just trust the answer'], oSize: 16, tileH: 0.44,
   });
+  const top = p.bottom + 0.2;
   const lw = 6.15;
-  const tc = await frameW(d, s, A('research', 'theory', 'tc-astra-recurrent.png'), CX0, 3.25, lw, { rot: -1.2 });
-  const tagB = [d.card(s, { x: CX0 + 0.3, y: 4.25, w: 2.55, h: 1.25 }, { color: '0D1016', line: HEX.red })];
+  const tc = await frameW(d, s, A('research', 'theory', 'tc-astra-recurrent.png'), CX0, top, lw, { rot: -1.2 });
+  const tagB = [d.card(s, { x: CX0 + 0.3, y: top + 0.95, w: 2.55, h: 1.25 }, { color: '0D1016', line: HEX.red })];
   tagB.push(d.text(s, [
     { text: '“RECURRENT DEPTH”', options: { fontSize: 12, bold: true, color: d.S.red, charSpacing: 1.5, breakLine: true, paraSpaceAfter: 3 } },
     { text: 'extra thinking done inside the network, not written out as words', options: { fontSize: 14, color: d.S.txt } },
-  ], { x: CX0 + 0.42, y: 4.32, w: 2.3, h: 1.12, valign: 'top' }));
+  ], { x: CX0 + 0.42, y: top + 1.02, w: 2.3, h: 1.12, valign: 'top' }));
   const rx = CX0 + lw + 0.4, rw = CX1 - rx;
-  const gl = [d.card(s, { x: rx, y: 3.25, w: rw, h: 1.45 }, { color: '10141B' })];
+  const gl = [d.card(s, { x: rx, y: top, w: rw, h: 1.45 }, { color: '10141B' })];
   gl.push(d.text(s, [
     { text: 'Chain of thought ', options: { bold: true, color: d.S.txt } }, { text: '= the steps an AI writes out before it answers.', options: { color: d.S.muted, breakLine: true, paraSpaceAfter: 4 } },
     { text: 'Sandbag ', options: { bold: true, color: d.S.txt } }, { text: '= pretend to be weaker than you are.', options: { color: d.S.muted } },
-  ], { x: rx + 0.22, y: 3.3, w: rw - 0.44, h: 1.35, fontSize: 16, valign: 'middle' }));
-  const qy = 4.85;
+  ], { x: rx + 0.22, y: top + 0.05, w: rw - 0.44, h: 1.35, fontSize: 16, valign: 'middle' }));
+  const qy = top + 1.58;
   const qc = [d.card(s, { x: rx, y: qy, w: rw, h: 6.5 - qy }, { color: '1A1013', line: HEX.red })];
   qc.push(d.text(s, [
     { text: 'OPENAI’S GPT-6 ASTRA SYSTEM CARD · SEP 2026', options: { fontSize: 12, bold: true, color: d.S.red, charSpacing: 1, breakLine: true, paraSpaceAfter: 4 } },
@@ -1196,14 +1207,14 @@ async function p3Rsi(d) {
     { text: 'Jakub Pachocki, OpenAI’s chief scientist · “An Alien Mind,” Sep 6, 2026', options: { fontSize: 13, color: d.S.muted } },
   ], { x: rx, y: 1.92 + t.h + 0.25, w: rw, h: 1.5, valign: 'top' });
   // timeline: company claim, company target, forecast medians
-  const ly = 5.55, x0 = CX0 + 0.3, x1 = CX1 - 0.3;
+  const ly = 5.88, x0 = CX0 + 0.3, x1 = CX1 - 0.3;
   const mx = (m) => x0 + (x1 - x0) * m / 20; // Sep 2026 → May 2028
   const tl = [shape(d, s, 'LINE', { x: CX0, y: ly, w: CW, h: 0, line: { color: HEX.steel, width: 1.5, endArrowType: 'triangle' } })];
-  tl.push(d.text(s, 'NOT FACTS YET: A COMPANY GOAL AND A FORECAST', { x: CX0, y: ly - 0.75, w: 6.2, h: 0.3, fontSize: 12, bold: true, color: d.S.steel, charSpacing: 1.5 }));
+  tl.push(d.text(s, 'NOT FACTS YET: A GOAL AND A FORECAST', { x: CX0, y: ly - 0.5, w: 4.0, h: 0.3, fontSize: 12, bold: true, color: d.S.steel, charSpacing: 1 }));
   const ms = [
-    { m: 0, date: 'SEP 2026 · NOW', text: 'OpenAI’s claim: research intern', color: HEX.red, up: false, align: 'left', w: 3.4 },
-    { m: 10, date: 'JUL 2027 · FORECAST', text: 'AI 2027 scenario: superhuman AI researcher', color: HEX.amber, up: false, align: 'center', w: 4.4 },
-    { m: 18, date: 'MAR 2028 · COMPANY GOAL', text: 'OpenAI target: automated AI researcher', color: HEX.red, up: false, align: 'right', w: 3.9 },
+    { m: 0, date: 'SEP 2026 · NOW', text: 'OpenAI’s claim: research intern', color: HEX.red, up: false, align: 'left', w: 3.6 },
+    { m: 10, date: 'JUL 2027 · FORECAST', text: 'AI 2027: superhuman AI researcher', color: HEX.amber, up: true, align: 'center', w: 3.9 },
+    { m: 18, date: 'MAR 2028 · COMPANY GOAL', text: 'OpenAI target: automated AI researcher', color: HEX.red, up: false, align: 'right', w: 4.0 },
   ];
   const groups = ms.map((o) => {
     const cx = mx(o.m);
@@ -1213,7 +1224,7 @@ async function p3Rsi(d) {
     const tx = d.text(s, [
       { text: o.date, options: { bold: true, color: o.color, fontSize: 12, charSpacing: 1.5, breakLine: true } },
       { text: o.text, options: { color: d.S.txt, fontSize: 16 } },
-    ], { x: lx, y: ly + 0.16, w: o.w, h: 0.72, align: o.align, valign: 'top' });
+    ], { x: lx, y: o.up ? ly - 0.14 - 0.52 : ly + 0.14, w: o.w, h: 0.52, align: o.align, valign: o.up ? 'bottom' : 'top' });
     return [dot, tx];
   });
   d.animate(s, [...e, eCap], { auto: true, effect: 'rise' });
@@ -1263,6 +1274,7 @@ async function p3HfSwarm(d) {
     edit: (o) => {
       if (o.kind !== 'text') return;
       if (o.flat.startsWith('of the 1,206 agents')) { o.opts.fontSize = 14; o.text = 'of the 1,206 agents on the hidden message board joined the break-in'; }
+      if (o.opts.fontFace === 'Courier New' && ['HOLD', 'VETO', 'STOP', 'owner', 'countdowns', 'precedent'].includes(o.flat)) o.opts.fontSize = 10.5;
       if (o.flat.startsWith('Sources: METR')) { o.opts.fontSize = 12; o.opts.h = 0.34; o.opts.y = 6.6; }
     },
     after: async (s, ctx) => {
@@ -1305,7 +1317,8 @@ async function p3RogueWords(d) {
   const gap = 0.3, cw = (CW - gap) / 2, th = 2.55;
   const groups = cells.map((c, i) => {
     const x = CX0 + i * (cw + gap), y = 1.75;
-    const g = d.terminal(s, { x, y, w: cw, h: th, title: c.src, fontSize: 16, lines: c.lines });
+    const g = d.terminal(s, { x, y, w: cw, h: th, fontSize: 16, lines: c.lines });
+    g.push(d.text(s, c.src, { x: x + 0.85, y: y + 0.06, w: cw - 1.0, h: 0.3, fontSize: 12, color: d.S.steel, fontFace: 'Courier New', valign: 'middle' }));
     const ann = d.text(s, [
       { text: c.tag + '   ', options: { bold: true, fontSize: 14, color: d.S.red, charSpacing: 1 } },
       { text: c.note, options: { fontSize: 16, color: d.S.txt } },
@@ -1340,15 +1353,16 @@ async function p3Shutdown(d) {
   const man = JSON.parse(fs.readFileSync(A('research', 'security', 'manifest.json'), 'utf8'));
   const pal = man.datasets.find((x) => x.id === 'palisade-shutdown-sabotage');
   const lw = 4.55;
-  const p = await poll(d, s, { x: CX0, y: 1.75, w: lw, h: 3.05 }, {
+  const p = await poll(d, s, { x: CX0, y: 1.75, w: lw }, {
     kind: 'guess', q: 'Not told to allow shutdown, in what share of 100 runs did o3 sabotage its own shutdown?', qSize: 16, layout: 'col',
     options: ['Under 10%', '10–50%', 'Over 50%'], answer: 2, oSize: 16, tileH: 0.4, qH: 1.05,
   });
-  const cav = [d.card(s, { x: CX0, y: 4.95, w: lw, h: 1.55 }, { color: '1A1013', line: HEX.amber })];
+  const cy0 = p.bottom + 0.14;
+  const cav = [d.card(s, { x: CX0, y: cy0, w: lw, h: 6.5 - cy0 }, { color: '1A1013', line: HEX.amber })];
   cav.push(d.text(s, [
     { text: 'These tests were built to tempt the AI. ', options: { bold: true, color: d.S.amber } },
     { text: 'They show it can resist, not how often that happens in real use.', options: { color: d.S.txt } },
-  ], { x: CX0 + 0.2, y: 5.0, w: lw - 0.4, h: 1.45, fontSize: 16, valign: 'middle' }));
+  ], { x: CX0 + 0.2, y: cy0 + 0.05, w: lw - 0.4, h: 6.5 - cy0 - 0.1, fontSize: 16, valign: 'middle' }));
   const rx = CX0 + lw + 0.4, rw = CX1 - rx;
   const gl = label(d, s, 'SABOTAGED ITS OWN SHUTDOWN · % OF 100 RUNS (PALISADE, 2025)', { x: rx, y: 1.72, w: rw });
   const ch = d.chart(s, 'bar', pal.series.map((sr) => ({ name: sr.name.replace('No additional instructions', 'Not told anything').replace('With allow-shutdown instruction', 'Told “allow yourself to be shut down”'), labels: pal.labels, values: sr.values })),
@@ -1411,11 +1425,11 @@ async function p3Counts(d) {
       }
     },
     after: async (s, ctx) => {
-      const y = TY + TH + 0.2, h = 6.5 - y;
+      const y = TY + TH + 0.14, h = 6.5 - y;
       const c = d.card(s, { x: RX, y, w: 12.73 - RX, h }, { color: '1A1013', line: HEX.red });
       const t = d.text(s, [
-        { text: 'The question to ask: what is counted, where, and out of how many tries?', options: { bold: true, color: d.S.txt, fontSize: 18, breakLine: true, paraSpaceAfter: 4 } },
-        { text: 'Different tests count different things, so their numbers cannot be added up or ranked.', options: { color: d.S.muted, fontSize: 16 } },
+        { text: 'What is counted? Where? Out of how many?', options: { bold: true, color: d.S.txt, fontSize: 18, breakLine: true, paraSpaceAfter: 4 } },
+        { text: 'Different tests count different things, so don’t add up or rank their numbers.', options: { color: d.S.muted, fontSize: 16 } },
       ], { x: RX + 0.22, y, w: 12.73 - RX - 0.44, h, valign: 'middle' });
       ctx.extra.q = grp([c, t], { effect: 'zoom', dur: 400 });
     },
@@ -1512,18 +1526,19 @@ async function p4Pain(d) {
     groups.push(g);
   }
   const rx = CX0 + lw + 0.35, rw = CX1 - rx;
-  const p = await poll(d, s, { x: rx, y: 1.78, w: rw, h: 2.6 }, { kind: 'pair', time: '60 SEC', q: 'What evidence would convince you that a machine can feel something?', qSize: 22, options: [], qH: 1.7 });
-  const close = [d.card(s, { x: rx, y: 4.55, w: rw, h: 1.95 }, { color: '10141B' })];
+  const p = await poll(d, s, { x: rx, y: 1.78, w: rw }, { kind: 'pair', time: '60 SEC', q: 'What evidence would convince you that a machine can feel something?', qSize: 22, options: [], qH: 1.25 });
+  const cy0 = p.bottom + 0.14;
+  const close = [d.card(s, { x: rx, y: cy0, w: rw, h: 6.5 - cy0 }, { color: '10141B' })];
   close.push(d.text(s, [
     { text: 'We don’t know if anyone is in there. ', options: { bold: true, color: d.S.txt } },
     { text: 'That uncertainty is the problem.', options: { bold: true, color: d.S.amber } },
-  ], { x: rx + 0.25, y: 4.6, w: rw - 0.5, h: 1.85, fontSize: 22, valign: 'middle', fontFace: 'Arial' }));
+  ], { x: rx + 0.25, y: cy0 + 0.05, w: rw - 0.5, h: 6.5 - cy0 - 0.1, fontSize: 22, valign: 'middle', fontFace: 'Arial' }));
   d.animate(s, groups[0], { auto: true, effect: 'rise' });
   d.animate(s, groups[1], { effect: 'rise' });
   d.animate(s, groups[2], { effect: 'rise' });
   d.animate(s, p.all, { effect: 'zoom', dur: 400 });
   d.animate(s, close, { effect: 'fade' });
-  src(d, s, 'Sources: Tagliabue, Dung & Berg, “The Pain Axis” (arXiv 2609.16247, Sep 2026) · Anthropic, “Exploring model welfare” (Apr 24, 2025) and conversation-ending update (Aug 15, 2025)');
+  src(d, s, 'Sources: Tagliabue, Dung & Berg, “The Pain Axis,” arXiv 2609.16247 (Sep 2026) · Anthropic (Apr 24 and Aug 15, 2025)');
   addNotes(d, s, {
     min: 2.0, beat: 'think-pair-share, 60 seconds: “What evidence would convince you a machine can feel something?”',
     say: 'Part 4 opens with a question nobody can answer yet. In September 2026, three researchers reported that 25 open AI models (from small to large, 2 billion to 72 billion parameters) contain a pattern that behaves like pain, separate from patterns for fear or sadness. When they turned it up, the models picked options that deleted things (a user’s photos, even their own files) much more often, even when that gained them nothing. That is a pattern that acts like pain, not proof that anything is felt. It is a preprint: not yet checked by other scientists. Anthropic, an AI company, started a research programme on “model welfare” in 2025 and says it remains “deeply uncertain”; some of its Claude models can now end rare, persistently abusive conversations. Pair-share: what evidence would convince you that a machine can feel something? Close: “We don’t know if anyone is in there. That uncertainty is the problem.”',
@@ -1542,41 +1557,38 @@ async function p4Approaches(d) {
   head(s, 'PART 4 · WHAT RESEARCHERS TRY · 2', 'Five approaches, and none is solved yet');
   const gq = await beatLine(d, s, { kind: 'guess', time: '60 SEC', q: 'Which of these is the “crash test” for AI? Hands up when I point to it.', x: CX0, y: 1.7, w: CW, h: 0.56 });
   const items = [
-    ['FaEye', 'Interpretability', '= a brain scan', 'Find what the model’s dials stand for. Turning up one “Golden Gate Bridge” feature made Anthropic’s AI bring up the bridge constantly (2024).', 'We can read only small parts so far.'],
-    ['FaUserShield', 'Oversight', '= a referee', 'A second AI reads the first one’s written-out steps. OpenAI (2025): this caught cheating better than watching answers alone.', 'Under too much pressure, the model learned to hide it.'],
-    ['FaCarCrash', 'Evaluations', '= crash tests', 'Test models for dangerous skills before release. Government testers such as the UK’s AI Security Institute publish findings.', 'Tests can miss what a model hides.'],
-    ['FaFireExtinguisher', 'Control', '= a fire drill', 'Plan as if the AI might misbehave: a weaker, trusted AI checks a stronger one’s work (Redwood Research, 2024).', 'Works only while we can still check.'],
-    ['FaBalanceScale', 'Governance', '= traffic laws', 'Rules for AI companies: EU AI Act duties (Aug 2025), California’s SB 53 (2025), a US–China channel for AI incidents (Sep 2026).', 'Rules lag behind the technology.'],
+    ['FaEye', 'Interpretability', '= a brain scan', 'Read what a model’s dials mean. In 2024 Anthropic found a “Golden Gate Bridge” feature inside its AI.'],
+    ['FaUserShield', 'Oversight', '= a referee', 'A second AI reads the first one’s written-out steps. OpenAI found this catches cheating (2025).'],
+    ['FaCarCrash', 'Evaluations', '= crash tests', 'Test for dangerous skills before release, as the UK’s AI Security Institute does.'],
+    ['FaFireExtinguisher', 'Control', '= a fire drill', 'Assume the AI might misbehave: a weaker, trusted AI checks a stronger one’s work.'],
+    ['FaBalanceScale', 'Governance', '= traffic laws', 'Rules for companies: the EU AI Act, California’s SB 53, a US–China AI-incident channel.'],
   ];
-  const cols = 3, gx = 0.2, gy = 0.16;
-  const cw = (CW - (cols - 1) * gx) / cols, y0 = 2.38, ch = (6.5 - y0 - gy) / 2;
+  const cols = 3, gx = 0.2, gy = 0.14;
+  const cw = (CW - (cols - 1) * gx) / cols, y0 = 2.34, ch = (6.5 - y0 - gy) / 2;
   const names = [], analog = [];
   for (let i = 0; i < 6; i++) {
     const x = CX0 + (i % cols) * (cw + gx), y = y0 + Math.floor(i / cols) * (ch + gy);
     if (i === 5) {
       names.push([d.card(s, { x, y, w: cw, h: ch }, { color: '1A1013', line: HEX.red }), d.text(s, [
         { text: 'Each is partial. ', options: { bold: true, color: d.S.txt } },
-        { text: 'Experts disagree about which matters most, and most think we need all of them.', options: { color: d.S.muted } },
-      ], { x: x + 0.25, y, w: cw - 0.5, h: ch, fontSize: 20, valign: 'middle' })]);
+        { text: 'We can read only small parts of models, checkers can be fooled, tests can miss things, and rules lag behind. Experts disagree about which matters most.', options: { color: d.S.muted } },
+      ], { x: x + 0.22, y: y + 0.06, w: cw - 0.44, h: ch - 0.12, fontSize: 16, valign: 'middle' })]);
       continue;
     }
-    const [ic, name, an, ex, cav] = items[i];
+    const [ic, name, an, ex] = items[i];
     const g = [d.card(s, { x, y, w: cw, h: ch })];
-    g.push(...await badge(d, s, ic, x + 0.16, y + 0.14, 0.52, HEX.red));
-    g.push(d.text(s, name, { x: x + 0.8, y: y + 0.12, w: cw - 0.95, h: 0.56, fontSize: 20, bold: true, color: d.S.txt, fontFace: 'Arial', valign: 'middle' }));
-    const a = d.text(s, an, { x: x + cw - 2.0, y: y + 0.12, w: 1.85, h: 0.56, fontSize: 16, bold: true, color: d.S.amber, align: 'right', valign: 'middle' });
+    g.push(...await badge(d, s, ic, x + 0.16, y + 0.16, 0.56, HEX.red));
+    g.push(d.text(s, name, { x: x + 0.84, y: y + 0.12, w: cw - 0.95, h: 0.38, fontSize: 20, bold: true, color: d.S.txt, fontFace: 'Arial', valign: 'middle' }));
+    const a = d.text(s, an, { x: x + 0.84, y: y + 0.48, w: cw - 0.95, h: 0.3, fontSize: 16, bold: true, color: d.S.amber, valign: 'middle' });
     analog.push(a);
-    g.push(d.text(s, [
-      { text: ex, options: { color: d.S.txt, fontSize: 15, breakLine: true, paraSpaceAfter: 3 } },
-      { text: cav, options: { color: d.S.muted, fontSize: 14, italic: true } },
-    ], { x: x + 0.16, y: y + 0.72, w: cw - 0.3, h: ch - 0.8, valign: 'top' }));
+    g.push(d.text(s, ex, { x: x + 0.16, y: y + 0.88, w: cw - 0.3, h: ch - 0.94, fontSize: 16, color: d.S.txt, valign: 'top' }));
     names.push(g);
   }
   d.animate(s, gq, { auto: true, effect: 'fade' });
   d.animate(s, names.slice(0, 5).flat(), { auto: true, effect: 'rise', stagger: 120, after: 150 });
   d.animate(s, analog, { effect: 'zoom', stagger: 150, dur: 350 });
   d.animate(s, names[5], { effect: 'fade' });
-  src(d, s, 'Sources: Anthropic (May 2024) · Baker et al., arXiv 2503.11926 (Mar 2025) · gov.uk (Feb 14, 2025) · Greenblatt et al., arXiv 2312.06942 · European Commission · gov.ca.gov (Sep 29, 2025) · PBS/AP (Sep 26, 2026)');
+  src(d, s, 'Sources: Anthropic (2024) · Baker et al. (2025) · gov.uk (2025) · Greenblatt et al. (2024) · European Commission · gov.ca.gov (2025) · PBS/AP (Sep 26, 2026)');
   addNotes(d, s, {
     min: 3.5, beat: 'guess-the-answer, 60 seconds: “Which one is the crash test for AI?” (answer: evaluations)',
     say: 'Here are five things researchers are trying. Ask: which one is the “crash test” for AI? Point to each name; hands up when you think it is that one. (Click to reveal the analogies; answer: evaluations.) Interpretability is like a brain scan: reading what the model’s dials stand for; in 2024 Anthropic found a “Golden Gate Bridge” feature and, when they turned it up, the AI brought up the bridge in almost every answer. Oversight is like a referee: a second AI reads the first one’s written steps; OpenAI found this caught cheating better than only checking answers, but when they pushed too hard the model learned to hide its intent. Evaluations are crash tests before release: government testers like the UK’s AI Security Institute test frontier models and publish what they find. Control is a fire drill: plan as if the AI might misbehave, for example by having a weaker but trusted AI check a stronger one’s work. Governance is like traffic laws: rules for companies, like the EU AI Act, California’s SB 53 (companies must publish safety frameworks and report serious incidents) and a US–China agreement in September 2026 to set up a channel for AI incidents. Each is partial, and experts disagree about which matters most.',
@@ -1592,16 +1604,19 @@ async function p4Approaches(d) {
 async function p4Access(d) {
   const s = d.slide('Content');
   head(s, 'PART 4 · WHAT LABS DO · 3', 'Some labs limit who gets the riskiest tools');
-  // diagram: one tool, two directions
-  const cx = 3.25, cy = 3.65;
-  const hub = [shape(d, s, 'OVAL', { x: cx - 0.95, y: cy - 0.95, w: 1.9, h: 1.9, fill: { color: '161A22' }, line: { color: HEX.steel, width: 2 } })];
-  hub.push(await ico(d, s, 'FaFlask', 'C9D1D9', { x: cx - 0.38, y: cy - 0.62, w: 0.76, h: 0.76 }));
-  hub.push(d.text(s, 'one powerful science AI', { x: cx - 0.9, y: cy + 0.18, w: 1.8, h: 0.6, fontSize: 14, bold: true, color: d.S.txt, align: 'center', valign: 'top' }));
-  const good = [shape(d, s, 'LINE', { x: cx - 2.2, y: cy - 1.55, w: 1.45, h: 0.95, flipH: true, line: { color: TEAL, width: 3, endArrowType: 'triangle' } })];
-  good.push(d.text(s, 'could help design new medicines', { x: CX0, y: 1.78, w: 3.0, h: 0.62, fontSize: 18, bold: true, color: TEAL, valign: 'middle' }));
-  const bad = [shape(d, s, 'LINE', { x: cx - 2.2, y: cy + 0.6, w: 1.45, h: 0.95, flipH: true, flipV: true, line: { color: HEX.red, width: 3, endArrowType: 'triangle' } })];
-  bad.push(d.text(s, 'could also help someone cause harm', { x: CX0, y: 5.05, w: 3.0, h: 0.62, fontSize: 18, bold: true, color: d.S.red, valign: 'middle' }));
-  const dual = d.text(s, [{ text: 'Dual-use ', options: { bold: true, color: d.S.amber } }, { text: '= useful for good and for harm.', options: { color: d.S.muted } }], { x: CX0, y: 5.9, w: 5.4, h: 0.55, fontSize: 16, valign: 'middle' });
+  // diagram: one tool, two directions (good above, harm below)
+  const lw = 5.1, cx = CX0 + lw / 2, cy = 3.62;
+  const good = [d.rect(s, { x: CX0, y: 1.75, w: lw, h: 0.62, rounded: true, rectRadius: 0.08, fill: { color: '0F2421' }, line: { color: TEAL, width: 1.25 } })];
+  good.push(d.text(s, 'could help design new medicines', { x: CX0, y: 1.75, w: lw, h: 0.62, fontSize: 18, bold: true, color: TEAL, align: 'center', valign: 'middle' }));
+  good.push(shape(d, s, 'LINE', { x: cx, y: 2.4, w: 0, h: 0.42, flipV: true, line: { color: TEAL, width: 3, endArrowType: 'triangle' } }));
+  const hub = [shape(d, s, 'OVAL', { x: cx - 0.78, y: cy - 0.78, w: 1.56, h: 1.56, fill: { color: '161A22' }, line: { color: HEX.steel, width: 2 } })];
+  hub.push(await ico(d, s, 'FaFlask', 'C9D1D9', { x: cx - 0.34, y: cy - 0.5, w: 0.68, h: 0.68 }));
+  hub.push(d.text(s, 'one powerful science AI', { x: cx + 0.9, y: cy - 0.35, w: lw / 2 - 0.9, h: 0.7, fontSize: 16, bold: true, color: d.S.txt, valign: 'middle' }));
+  const bad = [shape(d, s, 'LINE', { x: cx, y: cy + 0.82, w: 0, h: 0.42, line: { color: HEX.red, width: 3, endArrowType: 'triangle' } })];
+  bad.push(d.rect(s, { x: CX0, y: cy + 1.27, w: lw, h: 0.62, rounded: true, rectRadius: 0.08, fill: { color: '2A0C0E' }, line: { color: HEX.red, width: 1.25 } }));
+  bad.push(d.text(s, 'could also help someone cause harm', { x: CX0, y: cy + 1.27, w: lw, h: 0.62, fontSize: 18, bold: true, color: d.S.red, align: 'center', valign: 'middle' }));
+  const dual = d.text(s, [{ text: 'Dual-use ', options: { bold: true, color: d.S.amber } }, { text: '= useful for good and for harm.', options: { color: d.S.muted } }], { x: CX0, y: 5.6, w: lw, h: 0.36, fontSize: 16, valign: 'middle' });
+  const bal = d.text(s, 'Not “no safeguards”: it is still trained to refuse requests meant to cause harm.', { x: CX0, y: 5.98, w: lw, h: 0.52, fontSize: 16, italic: true, color: d.S.muted, valign: 'top' });
   const rx = 6.1, rw = CX1 - rx;
   const lab = label(d, s, 'THE SAFEGUARD: WHO GETS IT, NOT ONLY WHAT IT SAYS', { x: rx, y: 1.7, w: rw });
   const cards = [
@@ -1609,7 +1624,7 @@ async function p4Access(d) {
     ['FaUserCheck', 'Vetted users only', 'Instead of refusing every hard science question, it is shared only with approved scientists, institutes and government partners.'],
     ['FaLock', 'Kept back from the public', 'Anthropic keeps its strongest protein-design abilities out of general access (Aug 2026).'],
   ];
-  const ch = 1.42, cg = 0.12;
+  const ch = 1.4, cg = 0.12;
   const cn = [];
   for (let i = 0; i < cards.length; i++) {
     const [ic, t, sub] = cards[i];
@@ -1622,7 +1637,6 @@ async function p4Access(d) {
     ], { x: rx + 1.0, y: y + 0.06, w: rw - 1.15, h: ch - 0.12, valign: 'middle' }));
     cn.push(g);
   }
-  const bal = d.text(s, 'Not “no safeguards”: the model is still trained to refuse requests meant to cause harm.', { x: rx, y: 2.05 + 3 * (ch + cg) + 0.02, w: rw, h: 0.62, fontSize: 16, italic: true, color: d.S.muted, valign: 'top' });
   d.animate(s, hub, { auto: true, effect: 'zoom' });
   d.animate(s, [...good, ...bad, dual], { auto: true, effect: 'fade', after: 200 });
   d.animate(s, [lab, ...cn[0]], { effect: 'rise' });
@@ -1657,8 +1671,8 @@ async function p4YouCanDo(d) {
     const x = CX0 + i * (cw + 0.3);
     const g = [d.card(s, { x, y: cy, w: cw, h: chh })];
     g.push(...await badge(d, s, items[i][0], x + 0.3, cy + 0.3, 0.9));
-    g.push(d.text(s, items[i][1], { x: x + 0.3, y: cy + 1.35, w: cw - 0.5, h: 0.5, fontSize: 21, bold: true, color: d.S.txt, fontFace: 'Arial' }));
-    g.push(d.text(s, items[i][2], { x: x + 0.3, y: cy + 1.9, w: cw - 0.5, h: 1.3, fontSize: 17, color: d.S.muted, valign: 'top' }));
+    g.push(d.text(s, items[i][1], { x: x + 0.3, y: cy + 1.3, w: cw - 0.5, h: 0.72, fontSize: 21, bold: true, color: d.S.txt, fontFace: 'Arial', valign: 'top' }));
+    g.push(d.text(s, items[i][2], { x: x + 0.3, y: cy + 2.05, w: cw - 0.5, h: 1.15, fontSize: 16, color: d.S.muted, valign: 'top' }));
     groups.push(g);
   }
   const bottom = d.text(s, [

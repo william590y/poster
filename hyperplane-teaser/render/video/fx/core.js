@@ -353,6 +353,10 @@ class Item {
     this.theme = d.theme || themeAt(this.t0);
     if (this.theme === 'light') this.el.classList.add('light');
     if (d.z !== undefined) this.el.style.zIndex = d.z;
+    // fixer r2 (opt-in): "alpha" multiplies the layer's opacity (a ghosted footage layer), "blend" its mix-blend-mode (e.g.
+    // "multiply": footage printed into the cream paper), "mask" a CSS mask-image on the layer (e.g. a soft gradient band)
+    if (d.blend) this.el.style.mixBlendMode = d.blend;
+    if (d.mask) { this.el.style.maskImage = d.mask; this.el.style.webkitMaskImage = d.mask; }
     // secondary mono lines (attribution, role, source, labels) and stamp names: px, from the item or EDL.layout (meta 38, name 40)
     const meta = d.meta ?? LAYOUT.meta, name = d.name_px ?? LAYOUT.name;
     if (meta) this.el.style.setProperty('--meta', meta + 'px');
@@ -379,7 +383,7 @@ class Item {
     if (!this.shown) { this.el.style.display = 'block'; this.shown = true; if (this._att) for (const n of this._att) n.style.display = ''; }
     // items with frames/bands animate their own parts (morph, pop, fly, collapse...): the whole layer only fades
     const e = this.ownMotion ? { op: 1, sc: 1, tx: 0, ty: 0 } : envelope(this, t);
-    this.el.style.opacity = e.op;
+    this.el.style.opacity = this.d.alpha !== undefined ? e.op * this.d.alpha : e.op;
     if (this.kicks) {   // r6: the strongest beat kick in progress multiplies the layer's scale
       let k = 1;
       for (const q of this.kicks) { if (t < q.t - EPS) continue; const u = pr(t, q.t, q.dur); if (u < 1) k = Math.max(k, lerp(q.s, 1, ease.oCub(u))); }

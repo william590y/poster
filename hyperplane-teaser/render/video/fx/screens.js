@@ -555,6 +555,7 @@ HP.register('panel', {
     if (it.en.style === 'iris') sc *= E.oBack(ue, 1.8);
     else if (it.en.style === 'pop') sc *= lerp(0.3, 1, E.oBack(ue, 2.4));
     else if (it.en.style === 'slam') { sc *= lerp(1.5, 1, E.oCub(ue)); op *= clamp(ue * 5); }
+    else if (it.en.style === 'fade') op *= E.ioSine(ue);   // fixer r2: a ghosted full-frame layer fades in
     const ux = pr(t, it.ex.at, it.ex.dur);
     if (ux > 0) { if (it.ex.style === 'iris' || it.ex.style === 'collapse') { sc *= 1 - E.iCub(ux); if (it.ex.style === 'collapse') rot += 60 * ux; } else if (it.ex.style === 'fade') op *= 1 - ux; }
     if (it.pulse) for (const b of it.pulse) { if (t < b - EPS) break; const a = Math.exp(-(t - b) / 0.1); if (a > 0.01) sc *= 1 + (d.pulseAmt ?? 0.035) * a; }

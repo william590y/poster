@@ -184,7 +184,10 @@ const EFFECTS = {
     const big = !small, R = (big ? lerp(150, 190, HP.rand(o.key, 'R')) : lerp(60, 100, HP.rand(o.key, 'R'))) * Math.min(1.1, o.amp), [x, y] = spot(o.key, o.zones, o.avoid, R * .8);
     const cols = palette(t, big ? 'splat' : 'small').filter(c => c !== o.lastCol), color = HP.pick(cols, o.key, 'c'); o.lastCol = color;
     const dir = Math.atan2(y - 960, x - 540) + (HP.rand(o.key, 'd') - .5) * .8;
-    const S = { key: 'bfx|' + o.key, x, y, r: R, color, dir, sats: big ? 56 : 28, spikes: big ? 10 : 8, drips: big ? 3 : 1, spread: .8, satMax: .15 };
+    // fixer r2: the silhouette varies per splat (spiky flick, round dripping blot, wide spray), so no two read as the same stamp
+    const v = HP.rand(o.key, 'shape'), sk = v < .33 ? 'flick' : v < .66 ? 'blot' : 'spray';
+    const S = { key: 'bfx|' + o.key, x, y, r: R * (sk === 'spray' ? .8 : 1), color, dir, sats: (big ? 56 : 28) * (sk === 'spray' ? 1.6 : 1), spikes: sk === 'flick' ? (big ? 14 : 11) : sk === 'blot' ? 5 : 8,
+      drips: sk === 'blot' ? (big ? 5 : 2) : sk === 'flick' ? 1 : 0, spread: sk === 'spray' ? 1.25 : sk === 'flick' ? .55 : .8, satMax: sk === 'spray' ? .2 : .15 };
     const life = (big ? 4 : 2.5) * BP();
     DRAW.push({ t0: t, t1: t + life + .75, layer: o.layer, draw: (ctx, x2) => PL().splat(ctx, S, x2 - t, { cull: PL().residueAt(x2, t + life), alpha: fadeHold(x2) }) });
     return true;
@@ -314,8 +317,24 @@ function grainTile(k, dk) {   // speckle: white and ink grains with alpha (norma
     for (let i = 0; i < im.data.length; i += 4) { const v = (r() + r() - 1); const w = v > 0; im.data[i] = im.data[i + 1] = im.data[i + 2] = w ? 255 : 21; im.data[i + 3] = Math.round(255 * Math.min(1, Math.abs(v) * (dk ? (w ? .55 : .1) : (w ? .45 : .6)))); }
     x.putImageData(im, 0, 0); return c; });
 }
+// fixer r2: EDL "paintMask": [{layer ('paint'), from, to, rect: [x, y, w, h], feather (px, 60)}]: after everything has painted into
+// a shared paint canvas (items, then the beat tracks), the rect is erased from it with soft top/bottom edges, so splats and stamps
+// never sit under the type of that band (e.g. the riff's wordmark, kicker and credit line on clean cream)
+let MASKS = null;
+function paintMasks(t) {
+  if (!MASKS) MASKS = (HP.EDL.paintMask || []).map(m => ({ ...m, a: HP.T(m.from ?? 0), b: HP.T(m.to ?? 1e9), layer: m.layer || 'paint' }));
+  for (const m of MASKS) {
+    if (t < m.a - EPS || t >= m.b - EPS) continue;
+    const L = HP.shared(m.layer); if (!L || !L.ctx) continue;
+    const c = L.ctx, [x, y, w, h] = m.rect, f = m.feather ?? 60, g = c.createLinearGradient(0, y - f, 0, y + h + f);
+    const k0 = f / (h + 2 * f), k1 = 1 - k0;
+    g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(k0, 'rgba(0,0,0,1)'); g.addColorStop(k1, 'rgba(0,0,0,1)'); g.addColorStop(1, 'rgba(0,0,0,0)');
+    c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = 1; c.globalCompositeOperation = 'destination-out'; c.fillStyle = g; c.fillRect(x, y - f, w, h + 2 * f); c.restore();
+  }
+}
 HP.on('post', t => {
   for (const d of DRAW) if (t >= d.t0 - EPS && t < d.t1) d.draw(HP.shared(d.layer).ctx, t);
+  paintMasks(t);
   if (!OVER.length) return;
   const O = overlays();
   let ta = 0, tc = '', iv = false;

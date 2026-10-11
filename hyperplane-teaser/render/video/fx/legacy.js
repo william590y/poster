@@ -40,7 +40,7 @@ function buildStamp(parent, s, L) {
   const who = el('div', 'who', st);
   if (s.w) who.style.maxWidth = s.w + 'px';   // r5: a long role line wraps under the name instead of running off the frame
   if (s.name) el('div', 'nm', who).textContent = s.name;
-  if (s.role) el('div', 'rl', who).textContent = s.role;
+  if (s.role) { const r = el('div', 'rl', who); r.textContent = s.role; if (s.roleColor) r.style.color = s.roleColor; }   // fixer r2: roleColor (opt-in)
   return st;
 }
 // words: [{"w": "NO", "t": local s} | {"w": ..., "s": source s}]; hl: substring(s) to mark red; reveal: "words" | "all"

@@ -145,10 +145,10 @@
    "alpha": 0.3,
    "blend": "multiply",
    "grade": {
-    "sat": 0.35,
-    "contrast": 0.95,
-    "brightness": 0.05,
-    "gamma": 1.35,
+    "sat": 0.3,
+    "contrast": 0.88,
+    "brightness": 0.06,
+    "gamma": 1.5,
     "grain": 0
    },
    "mask": "linear-gradient(to bottom, #000 0%, #000 52%, rgba(0,0,0,0.22) 58%, rgba(0,0,0,0.22) 82%, #000 90%, #000 100%)",
@@ -2027,6 +2027,47 @@
    "color": "#F2EBDD"
   },
   {
+   "id": "ghost-loop-s",
+   "type": "panel",
+   "t0": "song:65.188",
+   "t1": "hb:100.6",
+   "prep": "clip",
+   "broll": "galaxy-helios-datacenter",
+   "in": 25.2,
+   "speed": 0.9,
+   "shape": "rect",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 1080,
+    "h": 1920
+   },
+   "entry": {
+    "style": "fade",
+    "at": "song:65.188",
+    "dur": 0.3
+   },
+   "out": "cut",
+   "border": "none",
+   "kb": {
+    "z": [
+     1.0,
+     1.1
+    ]
+   },
+   "alpha": 0.3,
+   "blend": "multiply",
+   "grade": {
+    "sat": 0.3,
+    "contrast": 0.85,
+    "brightness": 0.07,
+    "gamma": 1.55,
+    "grain": 0
+   },
+   "theme": "light",
+   "_note": "FIXER r2: MUTED ghost b-roll under the short's loop (Galaxy's Helios AI data centre going up, 2026), multiply 30 %"
+  },
+  {
    "id": "hole",
    "type": "blackhole",
    "t0": "hb:100",
@@ -2075,7 +2116,7 @@
        "pile-gone",
        "disc-credit-1"
       ],
-      "at": "hb:104",
+      "at": "hb:103.6",
       "dur": 0.9,
       "turns": 1.2
      },
@@ -2083,7 +2124,7 @@
       "items": [
        "pile-rsi"
       ],
-      "at": "hb:105",
+      "at": "hb:104.6",
       "dur": 0.9,
       "turns": 1.2
      },
@@ -2092,7 +2133,7 @@
        "pile-ego-lo",
        "disc-credit-2"
       ],
-      "at": "hb:106",
+      "at": "hb:105.6",
       "dur": 0.9,
       "turns": 1.2
      },
@@ -2100,7 +2141,7 @@
       "items": [
        "pile-ego-hi"
       ],
-      "at": "hb:107",
+      "at": "hb:106.6",
       "dur": 0.9,
       "turns": 1.2
      }
@@ -2130,7 +2171,7 @@
     "at": "hb:112",
     "rings": 3,
     "debris": 80,
-    "flash": 0.4,
+    "flash": 0.2,
     "shake": 16
    },
    "shakes": [
@@ -2268,13 +2309,13 @@
    "border": "paint",
    "color": "yellow",
    "borderW": 22,
-   "credit": "ORACLE · STARGATE · 2025",
+   "credit": "STARGATE 2025 · BEHIND: GALAXY HELIOS 2026",
    "creditAt": [
     64,
-    1046
+    1160
    ],
    "prep": "clip",
-   "creditSize": 24,
+   "creditSize": 26,
    "frames": "short-cp-golden"
   },
   {
@@ -3221,10 +3262,10 @@
    "alpha": 0.3,
    "blend": "multiply",
    "grade": {
-    "sat": 0.35,
-    "contrast": 0.95,
-    "brightness": 0.05,
-    "gamma": 1.35,
+    "sat": 0.3,
+    "contrast": 0.88,
+    "brightness": 0.06,
+    "gamma": 1.5,
     "grain": 0
    },
    "mask": "linear-gradient(to bottom, transparent 0%, transparent 28%, #000 37%, #000 55%, rgba(0,0,0,0.22) 60%, rgba(0,0,0,0.22) 75%, #000 81%, #000 100%)",
@@ -3732,7 +3773,8 @@
    "dur": 1.25,
    "mode": "away",
    "shake": 6,
-   "ground": "#0E0D12"
+   "ground": "#0E0D12",
+   "back": "#F2EBDD"
   },
   {
    "id": "tr-shatter",
@@ -3785,7 +3827,8 @@
     "g-cream-s",
     "kand-a-s",
     "cp-golden",
-    "loop-a-s"
+    "loop-a-s",
+    "ghost-loop-s"
    ],
    "flash": {
     "opacity": 0.35,
@@ -3821,7 +3864,8 @@
    "out": [
     "kand-a-s",
     "loop-a-s",
-    "cp-golden"
+    "cp-golden",
+    "ghost-loop-s"
    ],
    "in": [
     "kand-b",

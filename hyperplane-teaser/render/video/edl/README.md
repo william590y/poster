@@ -976,3 +976,22 @@ opt-in fields except the screens fixes (every rev2 pile gets them; the r1-r7 EDL
 - **Generators**: `early_emph` moves each late pile emphasis to the latest 8th that completes >= 0.5 s before the pile's outgoing
   transition (never before its card lands; the push moves with it); both cuts hold the cover 0.45 s past the music (long 74.75 s,
   short 36.039 s; the song still ends at 80.40 + 0.35 s fade, `hold_past` extends the items that ran to the old end).
+
+## Fixer r2 (11 Oct 2026): the critics' notes on the r1 cuts
+William's feedback log still had no note, so the director and "william" critic lists were the brief. EDL changes live in
+`edl/rev2_parts.py` (`fixer_r2`, `fixer_r2_fx`, `r2_bfx`, `r2_prelude_tr`, `prelude_kicks`, `SKETCH_DOTS`, `PAINT_MASK_RIFF`) and the
+two generators (transition retimings, the riff break, the short's splice iris and loop). Engine changes are opt-in fields:
+- **core.js** (any item): `alpha` (multiplies the layer opacity), `blend` (mix-blend-mode, e.g. `multiply`), `mask` (a CSS mask-image on
+  the layer). Used for the ghost b-roll layers printed into the cream (`ghost-riff`, `ghost-out`, the short's `ghost-loop-s`).
+- **legacy.js** stamp `roleColor`. **screens.js** panel `entry: "fade"`.
+- **kandinsky.js** moves `thicken {at, back, k, dur}` (the band widens across its own axis; the river keeps its vectors' shape and
+  spreads its lanes; `geom` reports the thickness, so a frame morphing out of the band starts wide) and `grow {pieces, from, to, scale,
+  dx, dy, dur}`; `superpose` takes `reach` (vectors past the circle), `flash` (2-frame colour-cycling flash on every beat), `wK`.
+- **beatfx.js** EDL top-level `paintMask: [{layer, from, to, rect, feather}]` (erased from a shared paint canvas after everything has
+  painted: no splat under the title band); splat silhouettes vary per key (flick / blot / spray); pencil weight and alpha vary per mark.
+- **transitions.js** fold: the flap stays a lifted, lit quad (168 deg) until the packet flies, with a light-to-shadow gradient, paper
+  grain and a stronger cast shadow; paintwipe `matteAlpha`.
+- **singularity.js** `swallow.seq: [{items, at, dur (beats, 0.9), turns (1.2), ghosts (2)}]`: a group of items spirals in on its own
+  window (quadratic ease, to ~5 %), with ghost copies trailing (motion blur).
+- **netviz.js** tower `beatGlow` (0..1): the blocks bloom on every beat, one after another up the residual river.
+- **check/coverage.py** `--min-area` default 0.12 (was 0.02).

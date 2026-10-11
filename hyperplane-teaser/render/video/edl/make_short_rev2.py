@@ -67,6 +67,19 @@ def build():
     pg['emph'] = [{'style': 'circle', 'at': 'hb:102', 'shot': 0, 'color': '#B31B1B'}]
     gi['cp-golden']['frame'] = {**gi['cp-golden']['frame'], 'r': 165}
     gi['cp-golden']['frames'] = 'short-cp-golden'      # its own cache folder (the long's disc is r 140)
+    # (william, medium) the short's loop world had only the centre disc as footage: Galaxy's Helios campus going up (aerial of two
+    # long halls with chillers, 2026) printed into the cream under the loop (multiply 30 %), as under the riff and the reassembly
+    k = next(i for i, x in enumerate(items) if x['id'] == 'g-cream-s')
+    items.insert(k + 1, {
+        'id': 'ghost-loop-s', 'type': 'panel', 't0': 'song:65.188', 't1': 'hb:100.6', 'prep': 'clip', 'broll': 'galaxy-helios-datacenter', 'in': 25.2,
+        'speed': 0.9, 'shape': 'rect', 'frame': {'x': 0, 'y': 0, 'w': 1080, 'h': 1920}, 'entry': {'style': 'fade', 'at': 'song:65.188', 'dur': 0.3},
+        'out': 'cut', 'border': 'none', 'kb': {'z': [1.0, 1.1]}, 'alpha': 0.3, 'blend': 'multiply',
+        'grade': {'sat': 0.3, 'contrast': 0.85, 'brightness': 0.07, 'gamma': 1.55, 'grain': 0}, 'theme': 'light',
+        '_note': "FIXER r2: MUTED ghost b-roll under the short's loop (Galaxy's Helios AI data centre going up, 2026), multiply 30 %"})
+    gi = {x['id']: x for x in items}
+    gi['cp-golden']['credit'] = 'STARGATE 2025 · BEHIND: GALAXY HELIOS 2026'
+    gi['cp-golden']['creditAt'] = [64, 1160]      # under the loop (the chart card is gone), clear of the bottom node's label
+    gi['cp-golden']['creditSize'] = 26
     # FIXER r1 (critic: the short's loop could not read as accelerating): the laps run 1 bar (hb:96-100, the small loop), then
     # 2 beats x2, 1 beat x2 and 8ths x4 in the big loop (hb:100-108, into the collapse): each lap twice as fast as the last
     g2 = {x['id']: x for x in items}
@@ -80,6 +93,7 @@ def build():
     for t in rt:
         if t['id'] == 'tr-entrance-short':
             t['out'] = riff_out
+            t['in'] = t['in'] + ['ghost-loop-s']
             # FIXER r2 (director, medium: the splice at edit 20.377 was not punctuated, the riff logo held to hb:96): an iris out of
             # the loop's centre opens ON the splice (window 20.377-20.861 = hb:95 - 0.025 beat to hb:96), so picture and music cut
             # together, and the loop world is whole on the bar-24 downbeat (hb:96) where its first lap starts
@@ -91,6 +105,9 @@ def build():
                           "with a flash and a hit; the riff's logo stays round it until the iris passes the frame edge (hb:95.85)")
         t['in'] = [i for i in ('chart-gw' if i == 'chart-dc' else i for i in t.get('in', [])) if i not in ('chart-gw', 'pile-golden')]
         t['out'] = [i for i in ('chart-gw' if i == 'chart-dc' else i for i in t.get('out', [])) if i not in ('chart-gw', 'pile-golden')]
+    for t in rt:
+        if t['id'] == 'tr-dive-s':
+            t['out'] = t['out'] + ['ghost-loop-s']
     for t in tr:
         if t['id'] == 'tr-fold':
             t['mode'] = 'away'      # FIXER r2: the HF pile is already under the folding flap (no flat slab)

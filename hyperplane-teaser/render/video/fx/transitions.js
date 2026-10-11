@@ -607,7 +607,7 @@ register('paintwipe', {
         const pts = S2.C.slice(0, n1).map((c, i) => [c[0], c[1], S2.pr[i]]); const o = HP.lib.freehand.getStroke(pts, { size: S2.size, thinning: S2.o.thinning, smoothing: S2.o.smoothing, streamline: S2.o.streamline, simulatePressure: false, last: q >= 1 });
         if (o.length > 2) polys.push(polyPath(o)); }
       for (const e of X.ins) { if (!polys.length) setStyle(e, 'visibility', 'hidden'); else if (v < 1) clipPathD(e, polys.join(''), false); }
-      ctx.save(); ctx.globalAlpha = .55 * (1 - clamp((u - .8) / .2)); PL().wipe(ctx, spec, v, { out: 0 }); ctx.restore();
+      ctx.save(); ctx.globalAlpha = (p.matteAlpha ?? .55) * (1 - clamp((u - .8) / .2)); PL().wipe(ctx, spec, v, { out: 0 }); ctx.restore();   // fixer r2: matteAlpha
       return;
     }
     for (const e of X.outs) if (u >= h) setStyle(e, 'visibility', 'hidden');

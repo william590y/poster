@@ -215,13 +215,13 @@ const EFFECTS = {
       x0: x - Math.cos(a) * s / 2, y0: y - Math.sin(a) * s / 2, x1: x + Math.cos(a) * s / 2, y1: y + Math.sin(a) * s / 2, gap: 20, angle: 60, sag: 10 };
     if (kind === 'underline') { sh.x0 = x - s / 2; sh.x1 = x + s / 2; sh.y = y; }
     const life = 2 * BP(), dur = Math.min(.24, BP() / 2);
-    DRAW.push({ t0: t - 1 / HP.FPS, t1: t + life, layer: o.layer, draw: (ctx, x2) => PL().pencil(ctx, [{ ...sh, p: E.oQuad(pr(x2, t - 1 / HP.FPS, dur)) }], { key: 'bfxp|' + o.key, t: x2, color: dark(x2) ? '#F2EBDD' : '#2A2832', width: 6, alpha: .92 * fadeHold(x2) }) });
+    DRAW.push({ t0: t - 1 / HP.FPS, t1: t + life, layer: o.layer, draw: (ctx, x2) => PL().pencil(ctx, [{ ...sh, p: E.oQuad(pr(x2, t - 1 / HP.FPS, dur)) }], { key: 'bfxp|' + o.key, t: x2, color: dark(x2) ? '#F2EBDD' : '#2A2832', width: lerp(3.5, 10, HP.rand(o.key, 'pw')), alpha: lerp(.7, .95, HP.rand(o.key, 'pa')) * fadeHold(x2) }) });
     return true;
   },
   tick(t, o) {
     const [x, y] = spot(o.key, o.zones, o.avoid), kind = HP.pick(['star', 'cross', 'check', 'underline'], o.key, 'k'), s = lerp(56, 88, HP.rand(o.key, 's'));   // polisher: was 34-56 px
     const sh = { kind, cx: x, cy: y, r: s / 2, n: 3, x0: x - s, x1: x + s, y };
-    DRAW.push({ t0: t - 1 / HP.FPS, t1: t + BP(), layer: o.layer, draw: (ctx, x2) => PL().pencil(ctx, [{ ...sh, p: E.oQuad(pr(x2, t - 1 / HP.FPS, .12)) }], { key: 'bfxt|' + o.key, t: x2, color: dark(x2) ? '#F2EBDD' : '#2A2832', width: 8, alpha: .92 * fadeHold(x2) }) });
+    DRAW.push({ t0: t - 1 / HP.FPS, t1: t + BP(), layer: o.layer, draw: (ctx, x2) => PL().pencil(ctx, [{ ...sh, p: E.oQuad(pr(x2, t - 1 / HP.FPS, .12)) }], { key: 'bfxt|' + o.key, t: x2, color: dark(x2) ? '#F2EBDD' : '#2A2832', width: lerp(4.5, 12, HP.rand(o.key, 'pw')), alpha: lerp(.72, .95, HP.rand(o.key, 'pa')) * fadeHold(x2) }) });
     return true;
   },
   // the Kandinsky pieces themselves (fx/kandinsky.js); without an active kand item: a camera jolt / punch (and not counted visible)

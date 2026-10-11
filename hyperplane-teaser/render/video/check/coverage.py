@@ -1,6 +1,6 @@
 """Coverage check (BUILD.md REVISION 2): footage in every frame, text rolled out, no lyrics on screen, text in the safe zone.
 
-  python3 render/video/check/coverage.py long [--from S --to S] [--step 1] [--min-area 0.02] [--min-frames 4]
+  python3 render/video/check/coverage.py long [--from S --to S] [--step 1] [--min-area 0.12] [--min-frames 4]
 
 Per frame (render(t) in the page; DOM-level, no screenshots):
   imagery   is some footage/image visible? Elements declared with HP.markImagery(el) / item.imagery(el) (legacy: clip canvases,
@@ -48,7 +48,7 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("edl"); ap.add_argument("--from", dest="t_from", type=float, default=0.0); ap.add_argument("--to", dest="t_to", type=float)
     ap.add_argument("--step", type=int, default=1, help="check every Nth frame")
-    ap.add_argument("--min-area", type=float, default=0.02); ap.add_argument("--min-op", type=float, default=0.3)
+    ap.add_argument("--min-area", type=float, default=0.12); ap.add_argument("--min-op", type=float, default=0.3)   # fixer r2: min-area 12 % (was 2 %): a corner thumbnail is not "footage in the frame"
     ap.add_argument("--min-frames", type=int, default=4); ap.add_argument("--out")
     ap.add_argument("--read", type=float, default=0.5, help="payoff check: seconds a completed text/mark must stay before the item ends")
     a = ap.parse_args()

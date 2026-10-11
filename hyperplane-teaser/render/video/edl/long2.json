@@ -169,10 +169,10 @@
    "alpha": 0.3,
    "blend": "multiply",
    "grade": {
-    "sat": 0.35,
-    "contrast": 0.95,
-    "brightness": 0.05,
-    "gamma": 1.35,
+    "sat": 0.3,
+    "contrast": 0.88,
+    "brightness": 0.06,
+    "gamma": 1.5,
     "grain": 0
    },
    "mask": "linear-gradient(to bottom, #000 0%, #000 52%, rgba(0,0,0,0.22) 58%, rgba(0,0,0,0.22) 82%, #000 90%, #000 100%)",
@@ -5000,7 +5000,7 @@
        "pile-gone",
        "disc-credit-1"
       ],
-      "at": "hb:104",
+      "at": "hb:103.6",
       "dur": 0.9,
       "turns": 1.2
      },
@@ -5008,7 +5008,7 @@
       "items": [
        "pile-rsi"
       ],
-      "at": "hb:105",
+      "at": "hb:104.6",
       "dur": 0.9,
       "turns": 1.2
      },
@@ -5017,7 +5017,7 @@
        "pile-ego-lo",
        "disc-credit-2"
       ],
-      "at": "hb:106",
+      "at": "hb:105.6",
       "dur": 0.9,
       "turns": 1.2
      },
@@ -5025,7 +5025,7 @@
       "items": [
        "pile-ego-hi"
       ],
-      "at": "hb:107",
+      "at": "hb:106.6",
       "dur": 0.9,
       "turns": 1.2
      }
@@ -5055,7 +5055,7 @@
     "at": "hb:112",
     "rings": 3,
     "debris": 80,
-    "flash": 0.4,
+    "flash": 0.2,
     "shake": 16
    },
    "shakes": [
@@ -5777,7 +5777,7 @@
    "id": "pile-golden",
    "type": "screens",
    "t0": "hb:97.1",
-   "t1": "hb:100.6",
+   "t1": "hb:99.5",
    "shots": [
     {
      "id": "economy-guardian_nvidia_revenue_100bn",
@@ -5805,7 +5805,7 @@
      ],
      "hlAt": "hb:98",
      "x": 600,
-     "y": 318,
+     "y": 300,
      "rot": -3,
      "w0": 780
     }
@@ -5814,13 +5814,16 @@
    "emph": [
     {
      "style": "circle",
-     "at": "hb:98.5",
+     "at": "hb:98",
      "shot": 0,
      "color": "#B31B1B",
      "dur": 0.226
     }
    ],
-   "out": "cut",
+   "out": {
+    "style": "scatter",
+    "dur": 0.2
+   },
    "theme": "light"
   },
   {
@@ -6734,10 +6737,10 @@
    "alpha": 0.3,
    "blend": "multiply",
    "grade": {
-    "sat": 0.35,
-    "contrast": 0.95,
-    "brightness": 0.05,
-    "gamma": 1.35,
+    "sat": 0.3,
+    "contrast": 0.88,
+    "brightness": 0.06,
+    "gamma": 1.5,
     "grain": 0
    },
    "mask": "linear-gradient(to bottom, transparent 0%, transparent 28%, #000 37%, #000 55%, rgba(0,0,0,0.22) 60%, rgba(0,0,0,0.22) 75%, #000 81%, #000 100%)",
@@ -7245,7 +7248,8 @@
    "dur": 1.25,
    "mode": "away",
    "shake": 6,
-   "ground": "#0E0D12"
+   "ground": "#0E0D12",
+   "back": "#F2EBDD"
   },
   {
    "id": "tr-shatter",
@@ -7411,7 +7415,8 @@
    "in": [
     "pile-exploit"
    ],
-   "_note": "bristle bands paint over the pulled-back tower, the cut hides under them on hb:44 (line 8 'Cause' at 40.40), the bands tear away onto the exploit pile; the triangle irises open just after (hb:44.25)"
+   "_note": "bristle bands paint over the pulled-back tower, the cut hides under them on hb:44 (line 8 'Cause' at 40.40), the bands tear away onto the exploit pile; the triangle irises open just after (hb:44.25)",
+   "matteAlpha": 0.38
   },
   {
    "id": "tr-v1-illum",
@@ -7485,7 +7490,8 @@
    "mode": "away",
    "shake": 7,
    "ground": "#F2EBDD",
-   "_note": "lead 0.3 so the lifted '3 in 4 teens' reads hb:51.25-51.78 before the crease moves"
+   "_note": "lead 0.3 so the lifted '3 in 4 teens' reads hb:51.25-51.78 before the crease moves",
+   "back": "#FBF6EC"
   },
   {
    "id": "tr-ch-page54",
@@ -7583,7 +7589,8 @@
    ],
    "shake": 8,
    "ground": false,
-   "_note": "bars from hb:63.55 (Cooper's voice starts 49.955, a 0.2 s J-cut), the cut hides under them ON the bar 16 downbeat, they tear away onto the hero chart"
+   "_note": "bars from hb:63.55 (Cooper's voice starts 49.955, a 0.2 s J-cut), the cut hides under them ON the bar 16 downbeat, they tear away onto the hero chart",
+   "matteAlpha": 0.38
   },
   {
    "id": "tr-ch-zoom72",
@@ -7776,8 +7783,7 @@
     "kand-a",
     "loop-a",
     "cp-golden",
-    "chart-gw",
-    "pile-golden"
+    "chart-gw"
    ],
    "in": [
     "kand-b",

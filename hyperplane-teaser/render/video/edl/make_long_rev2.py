@@ -74,10 +74,10 @@ def build():
     # (director, low; william, medium) folds landed as a flat slab with nothing behind: the incoming frame is already under the
     # flap (mode 'away'), and the flap is a lit, lifted quad with a crease, grain and a cast shadow (transitions.js)
     T['tr-fold']['mode'] = 'away'
-    T['tr-ch-fold52']['mode'] = 'away'
+    T['tr-ch-fold52'].update({'mode': 'away', 'back': '#FBF6EC'})
     # (william, medium) paint wipes were pure-paint frames on bar downbeats: the incoming frame is painted in through the strokes
-    T['tr-v1-wipe']['style'] = 'matte'
-    T['tr-ch-wipe64']['style'] = 'matte'
+    T['tr-v1-wipe'].update({'style': 'matte', 'matteAlpha': 0.38})
+    T['tr-ch-wipe64'].update({'style': 'matte', 'matteAlpha': 0.38})
     # (director, medium) the hb:48 bloom peaked ON the bar with nothing under it: it peaks 0.1 s earlier, the teens pile lands on it
     T['tr-v1-illum']['at'] = 'hb:47.8'
     # (director + william, medium) hb:56 was a near-empty cream frame mid-whip: the whip runs half a beat earlier, so the CBS
@@ -85,6 +85,7 @@ def build():
     T['tr-ch-whip56']['at'] = 'hb:55.6'
     # (director, low) Hinton's portrait is not revealed under the page turn any more (it pops in with his own card, hb:21.5)
     T['tr-v1-turn']['in'] = [i for i in T['tr-v1-turn']['in'] if i != 'p-hinton']
+    T['tr-dive']['out'] = [i for i in T['tr-dive']['out'] if i != 'pile-golden']   # it scatters out before the dive (hb:99.5)
     transitions.append({'id': 'tr-riff-break', 'type': 'shatter', 'at': 'hb:16', 'dur': 1.5, 'lead': 0.12, 'n': 22, 'impact': [540, 1236],
                         'out': ['g-cream-riff', 'ghost-riff', 'kand-riff', 'eq-superpose'], 'in': ['g-dark-v1'],
                         '_note': "FIXER r2: the cover page (wordmark, kicker, discs, the river) cracks from the wordmark and shatters into the dark verse; the pink disc and the band morph into the verse's frames on top"})

@@ -957,7 +957,7 @@ def fixer_r2(items, cut):
             'id': 'ghost-riff', 'type': 'panel', 't0': 'hb:1.25', 't1': 'hb:16', 'prep': 'clip', 'broll': 'galaxy-helios-datacenter', 'in': 43.6,
             'speed': 0.4, 'shape': 'rect', 'frame': {'x': 0, 'y': 0, 'w': 1080, 'h': 1920}, 'entry': {'style': 'fade', 'at': 'hb:1.25', 'dur': 0.45},
             'out': {'style': 'fade', 'dur': 0.2}, 'border': 'none', 'kb': {'z': [1.0, 1.12]}, 'alpha': 0.3, 'blend': 'multiply',
-            'grade': {'sat': 0.35, 'contrast': 0.95, 'brightness': 0.05, 'gamma': 1.35, 'grain': 0},
+            'grade': {'sat': 0.3, 'contrast': 0.88, 'brightness': 0.06, 'gamma': 1.5, 'grain': 0},
             'mask': 'linear-gradient(to bottom, #000 0%, #000 52%, rgba(0,0,0,0.22) 58%, rgba(0,0,0,0.22) 82%, #000 90%, #000 100%)',
             'theme': 'light', '_note': "FIXER r2: MUTED ghost b-roll under the riff (Galaxy's Helios AI data centre, 2026; aerial of the halls), multiply 34 %"})
     for k in ('credit-coxon', 'riff-credit'):
@@ -992,15 +992,23 @@ def fixer_r2(items, cut):
     # ---- REFRAIN / BLACK HOLE / GOD / OUTRO ----------------------------------------------------------------------------------
     if has('chart-gw'):   # (director, low) ticks 32 px, the final value 60 px
         g['chart-gw'].update({'metaPx': 32, 'valuePx': 60})
+    if has('pile-golden'):   # (director, low) the Guardian card sat by the top node: higher, and it leaves before the dive (hb:99.5)
+        pgd = g['pile-golden']
+        pgd['t1'] = 'hb:99.5'
+        pgd['out'] = {'style': 'scatter', 'dur': 0.2}
+        for sh in pgd['shots']:
+            sh['y'] = 300
     if has('hole'):
         h = g['hole']
         # (director, medium) the swallow read as fade-and-stack: the cards go one pile per beat along a 1.2-turn spiral to 5 %, with
         # ghost trails; a stronger lens (Einstein radius x1.35) bends more of the page round the hole
-        seq = [(['pile-gone', 'disc-credit-1'], 'hb:104'), (['pile-rsi'], 'hb:105'), (['pile-ego-lo', 'disc-credit-2'], 'hb:106'), (['pile-ego-hi'], 'hb:107')]
+        # each group starts 0.4 beat before its beat, so the beat frame catches it mid-turn
+        seq = [(['pile-gone', 'disc-credit-1'], 'hb:103.6'), (['pile-rsi'], 'hb:104.6'), (['pile-ego-lo', 'disc-credit-2'], 'hb:105.6'), (['pile-ego-hi'], 'hb:106.6')]
         h['swallow'] = {**h['swallow'], 'seq': [{'items': [i for i in its if has(i)], 'at': at, 'dur': 0.9, 'turns': 1.2} for its, at in seq]}
         h['lens'] = {'k': 2.3, 'extent': 9.5}
-        # (director, low) 'here' had 0.33 s of clean read: the burst's white flash is lower (0.75 -> 0.4)
-        h['burst'] = {**h['burst'], 'flash': 0.4}
+        # (director, low) 'here' had 0.33 s of clean read: the burst's white flash is much lower (0.75 -> 0.2); the rings, debris and
+        # the 16 px shake still hit the downbeat
+        h['burst'] = {**h['burst'], 'flash': 0.2}
     if has('brutal'):   # 'here' held at full contrast to song 73.67 (hb:112.5); the spit cards fly in 0.15 s later
         g['brutal']['t1'] = 'hb:112.5'
         g['brutal']['exit'] = {'style': 'fade', 'dur': 0.12}
@@ -1021,7 +1029,7 @@ def fixer_r2(items, cut):
             'id': 'ghost-out', 'type': 'panel', 't0': 'hb:112.5', 't1': 'hb:123.38', 'prep': 'clip', 'broll': 'stargate-abilene-oracle', 'in': 26.0,
             'speed': 0.5, 'shape': 'rect', 'frame': {'x': 0, 'y': 0, 'w': 1080, 'h': 1920}, 'entry': {'style': 'fade', 'at': 'hb:112.5', 'dur': 0.5},
             'out': {'style': 'fade', 'at': 'hb:122.6', 'dur': 0.35}, 'border': 'none', 'kb': {'z': [1.0, 1.1]}, 'alpha': 0.3, 'blend': 'multiply',
-            'grade': {'sat': 0.35, 'contrast': 0.95, 'brightness': 0.05, 'gamma': 1.35, 'grain': 0},
+            'grade': {'sat': 0.3, 'contrast': 0.88, 'brightness': 0.06, 'gamma': 1.5, 'grain': 0},
             'mask': 'linear-gradient(to bottom, transparent 0%, transparent 28%, #000 37%, #000 55%, rgba(0,0,0,0.22) 60%, rgba(0,0,0,0.22) 75%, #000 81%, #000 100%)',
             'theme': 'light', '_note': "FIXER r2: MUTED ghost b-roll under the reassembly (Oracle's Stargate Abilene campus aerial, 2025), multiply 34 %, clear of the karaoke strip"})
         insert_after('ghost-out', {
@@ -1054,6 +1062,8 @@ def r2_prelude_tr(tr):
     for t in tr:
         if t['id'] == 'tr-shatter':
             t['out'] = t['out'] + ['r2-stamp-breath']
+        if t['id'] == 'tr-fold':   # (director, low) the flap's back is lit paper, not a vermilion slab
+            t['back'] = '#F2EBDD'
     return tr
 
 

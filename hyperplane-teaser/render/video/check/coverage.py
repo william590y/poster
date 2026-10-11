@@ -128,9 +128,11 @@ def main():
     late = []
     for it in items:
         if it["t1"] < t0 or it["t0"] > t1: continue
+        # assembler (rev2): an item that leaves through a transition is readable until that transition's impact (readEnd)
+        end = it.get("readEnd", it["t1"])
         for p in it.get("payoffs") or []:
-            if p["at"] + a.read > it["t1"] + 1e-3:
-                late.append({"id": it["id"], "type": it["type"], "what": p["what"], "at": p["at"], "t1": it["t1"], "short_by": round(p["at"] + a.read - it["t1"], 3)})
+            if p["at"] + a.read > end + 1e-3:
+                late.append({"id": it["id"], "type": it["type"], "what": p["what"], "at": p["at"], "t1": end, "short_by": round(p["at"] + a.read - end, 3)})
     rep = {"edl": a.edl, "range": [t0, t1], "fps": fps, "step": a.step, "finalHold": hold, "frames_checked": len(F), "frames_held": held,
            "imagery": {"uncovered_frames": len(uncovered), "coverage": round(1 - len(uncovered) / max(1, len(F) - held), 4), "gaps": gaps,
                        "min_area": a.min_area, "min_op": a.min_op},

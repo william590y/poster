@@ -1006,28 +1006,28 @@
      {
       "at": 5,
       "zoom": 1.6,
-      "focus": "pink",
+      "focus": "blue",
       "to": [
        560,
-       820
+       900
       ]
      },
      {
       "at": 6,
       "zoom": 1.45,
-      "focus": "blue",
+      "focus": "pink",
       "to": [
        560,
-       960
+       820
       ]
      },
      {
       "at": 7,
       "zoom": 1.3,
-      "focus": "pink",
+      "focus": "blue",
       "to": [
        560,
-       820
+       900
       ],
       "rot": -3
      },
@@ -1037,7 +1037,7 @@
      },
      {
       "at": 13,
-      "zoom": 1.15,
+      "zoom": 1.08,
       "focus": [
        722,
        500
@@ -1050,7 +1050,7 @@
      },
      {
       "at": 14,
-      "zoom": 1.12,
+      "zoom": 1.08,
       "focus": [
        764,
        583
@@ -1175,89 +1175,16 @@
    "_note": "builder A's riff preset: shattered prelude above it, painted on piece by piece, Coxon in the orbiting pink disc (upright), the wordmark on hb:8, the band a river of vectors from hb:8, the whole art whips 360 into the superposition burst on hb:12; breaks on verse 1 (hb:16): the pink disc and the band become the verse's frames"
   },
   {
-   "id": "kc-pink-agents-a",
+   "id": "kc-pink-agents",
    "type": "kandclip",
    "t0": "hb:1.25",
-   "t1": "hb:3.75",
-   "item": "kand-riff",
-   "piece": "pink",
-   "prep": "clip",
-   "broll": "ale-agent-wall",
-   "in": 72.0,
-   "speed": 1.0,
-   "srcFocus": [
-    0.5,
-    0.58
-   ],
-   "srcZoom": 1.35,
-   "frame": {
-    "cx": 540,
-    "cy": 960,
-    "r": 173
-   },
-   "oversample": 1.25,
-   "zoom": [
-    1.0,
-    1.1
-   ],
-   "grade": {
-    "sat": 0.7,
-    "contrast": 1.06,
-    "grain": 0
-   },
-   "tintK": 0.35,
-   "fadeIn": 0.12,
-   "fadeOut": 0.15
-  },
-  {
-   "id": "kc-pink-coxon",
-   "type": "kandclip",
-   "t0": "hb:3.75",
-   "t1": "hb:8",
-   "item": "kand-riff",
-   "piece": "pink",
-   "prep": "clip",
-   "src": "clips/coxon-daily-show.mp4",
-   "in": 452.267,
-   "crop": {
-    "x": 250,
-    "y": 20,
-    "w": 540,
-    "h": 540
-   },
-   "frame": {
-    "cx": 540,
-    "cy": 960,
-    "r": 173
-   },
-   "oversample": 1.6,
-   "zoom": [
-    1.0,
-    1.06
-   ],
-   "grade": {
-    "sat": 0.85,
-    "contrast": 1.08,
-    "sharpen": 0.5,
-    "grain": 0
-   },
-   "tintK": 0.22,
-   "fadeIn": 0.12,
-   "fadeOut": 0.1,
-   "freeze": "song:22.98",
-   "_note": "Coxon's own picture in sync with voice-coxon (song = source - 431.22); frozen on source 454.20 (song 22.98), before the show's camera cut"
-  },
-  {
-   "id": "kc-pink-agents-b",
-   "type": "kandclip",
-   "t0": "hb:8",
    "t1": "hb:16.05",
    "item": "kand-riff",
    "piece": "pink",
    "prep": "clip",
    "broll": "ale-agent-wall",
-   "in": 73.262,
-   "speed": 0.5,
+   "in": 72.0,
+   "speed": 0.4482,
    "srcFocus": [
     0.5,
     0.58
@@ -1279,19 +1206,58 @@
     "grain": 0
    },
    "tintK": 0.35,
-   "fadeIn": 0.12
+   "fadeIn": 0.12,
+   "_note": "agents' wall (ale-agent-wall 72.0 -> 75.21, Agents' Last Exam 2026) in the orbiting pink disc for the whole riff"
+  },
+  {
+   "id": "kc-blue-coxon",
+   "type": "kandclip",
+   "t0": "hb:3",
+   "t1": "hb:8",
+   "item": "kand-riff",
+   "piece": "blue",
+   "prep": "clip",
+   "src": "clips/coxon-daily-show.mp4",
+   "in": 451.904,
+   "crop": {
+    "x": 250,
+    "y": 20,
+    "w": 540,
+    "h": 540
+   },
+   "frame": {
+    "cx": 540,
+    "cy": 960,
+    "r": 122
+   },
+   "oversample": 2.0,
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "grade": {
+    "sat": 0.85,
+    "contrast": 1.08,
+    "sharpen": 0.5,
+    "grain": 0
+   },
+   "tintK": 0.22,
+   "fadeIn": 0.12,
+   "fadeOut": 0.1,
+   "freeze": "song:22.98",
+   "_note": "Coxon's own picture in sync with voice-coxon (song = source - 431.22), in the blue disc; frozen on source 454.20 (song 22.98), before the show's camera cut at 454.22, so his face holds through 'again.' to the title downbeat (ENGINE REQUEST: kandclip freeze)"
   },
   {
    "id": "kc-blue-dc",
    "type": "kandclip",
-   "t0": "hb:3",
+   "t0": "hb:8",
    "t1": "hb:16.35",
    "item": "kand-riff",
    "piece": "blue",
    "prep": "clip",
    "broll": "nvidia-nvl72-factory",
    "in": 39.8,
-   "speed": 0.37,
+   "speed": 0.5816,
    "frame": {
     "cx": 540,
     "cy": 960,
@@ -1309,7 +1275,7 @@
    },
    "tintK": 0.35,
    "fadeIn": 0.12,
-   "_note": "broll nvidia-nvl72-factory 39.8-42.2 'rows of racks in a data hall' (NVIDIA, 2025), 0.37x so the 6.5 s in the disc stay in the window"
+   "_note": "broll nvidia-nvl72-factory 39.8-42.15 'rows of racks in a data hall' (NVIDIA, 2025) in the blue disc from the title downbeat"
   },
   {
    "id": "fluid-riff",

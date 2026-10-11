@@ -726,7 +726,10 @@ HP.probe = {
   items() {   // static: every item's declared texts and reveal modes, and (polisher) its payoffs: [{what, at}] = the edit times its
     // rolled-out texts, marks, annotations... are complete (an item may define payoffs(); coverage.py checks each lands >= a read
     // time before the item ends)
+    // assembler: readEnd = when the item stops being readable: the impact of its first outgoing transition (it stays visible, being
+    // folded / shattered / zoomed, until the window ends), else t1
     return ITEMS.map(it => ({ id: it.id, type: it.type, t0: +it.t0.toFixed(4), t1: +Math.min(it.t1, 1e6).toFixed(4), texts: it.texts(),
+      readEnd: +Math.min(it._trOutAt ? Math.min(...it._trOutAt) : it.t1, 1e6).toFixed(4),
       payoffs: (it.payoffs ? it.payoffs() : []).filter(p => isFinite(p.at)).map(p => ({ what: String(p.what), at: +p.at.toFixed(4) })) }));
   },
 };

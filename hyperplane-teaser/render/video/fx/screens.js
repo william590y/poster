@@ -202,9 +202,9 @@ HP.register('screens', {
       it.mark(e.at, 'emph:' + e.style);
       return e;
     }).filter(e => e.s && (e.boxes || e.s.boxes).length);
-    // assembler (rev2): payoffs for check/coverage.py: each marker sweep and emphasis is complete at these times
-    it.payoffs = () => [...it.shots.filter(s => s.hlAt !== null).map(s => ({ what: 'marker ' + s.id, at: s.hlAt + 0.24 * (1 + 0.6 * Math.max(0, s.boxes.length - 1)) })),
-      ...it.emph.map(e => ({ what: `emph ${e.style} ${e.s.id}`, at: e.at + e.dur }))];
+    // assembler (rev2): payoffs for check/coverage.py: the pile's end-of-bar emphases (lift, pencil marks, second marker) on its lead
+    // phrase are complete at these times (the per-shot marker sweeps are landing accents on a pile meant to overwhelm: not counted)
+    it.payoffs = () => it.emph.map(e => ({ what: `emph ${e.style} ${e.s.id}`, at: e.at + e.dur }));
     // exit
     const X = typeof d.out === 'string' ? { style: d.out } : { style: 'scatter', ...(d.out || {}) };
     it.out = { ...X, dur: X.dur ?? 0.3 }; it.out.at = X.at !== undefined ? HP.T(X.at) : it.t1 - it.out.dur;

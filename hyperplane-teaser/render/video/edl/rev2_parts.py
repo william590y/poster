@@ -131,25 +131,39 @@ def prelude_riff():
                   "the wordmark on hb:8, the band a river of vectors from hb:8, the whole art whips 360 into the superposition burst on hb:12; "
                   "breaks on verse 1 (hb:16): the pink disc and the band become the verse's frames")
 
-    # ENGINE REQUEST (kandclip freeze, implemented): Coxon's face holds past the source's camera cut (454.22) until the title downbeat
+    # ASSEMBLY (seen on the first strip): in the cover the black disc and the orange core sit on top of most of the pink disc, so
+    # Coxon's face in the pink disc was hidden for most of his line. His picture goes into the BLUE disc instead (unoccluded but for
+    # the small teal moon at its rim, and it never turns, so he stays upright); the pink disc carries the agents wall the whole riff,
+    # timed to reach source 75.21 at hb:16.05, where verse 1's v1-agents picks the same footage up (continuity through the morph);
+    # the blue disc then carries the NVIDIA data hall (broll nvidia-nvl72-factory 39.8-42.2) from the title downbeat. The xAI
+    # Colossus corridor the plan had in the blue disc is the chorus's full-frame footage (hb:71-80), so it is not shown twice.
+    ag = g['kc-pink-agents-a']
+    pink = {**ag, 'id': 'kc-pink-agents', 't0': 'hb:1.25', 't1': 'hb:16.05', 'in': 72.0,
+            'speed': round((75.21 - 72.0) / (hb_song(16.05) - hb_song(1.25)), 4), 'zoom': [1.0, 1.15],
+            '_note': "agents' wall (ale-agent-wall 72.0 -> 75.21, Agents' Last Exam 2026) in the orbiting pink disc for the whole riff"}
+    for k in ('fadeOut', 'out'):
+        pink.pop(k, None)
     cx = g['kc-pink-coxon']
-    cx['t1'] = 'hb:8'
-    cx['freeze'] = 'song:22.98'
-    cx['fadeOut'] = 0.1
-    cx['_note'] = "Coxon's own picture in sync with voice-coxon (song = source - 431.22); frozen on source 454.20 (song 22.98), before the show's camera cut"
-    # the agents wall returns on the title downbeat; its in-point is chosen so it reaches 75.21 at hb:16.05, where verse 1's v1-agents
-    # picks the same footage up (continuity through the morph)
-    ab = g['kc-pink-agents-b']
-    ab['t0'] = 'hb:8'
-    ab['in'] = round(75.21 - (hb_song(16.05) - hb_song(8)) * ab['speed'], 3)
-
-    # ASSEMBLY: the xAI Colossus corridor (broll 34.0-37.0) is the chorus's full-frame footage at hb:71-80; the blue disc takes the
-    # NVIDIA data-hall rows instead (broll nvidia-nvl72-factory window 39.8-42.2), so the same shot is not seen twice
-    br = g.pop('kc-blue-racks')
-    nv = {**br, 'id': 'kc-blue-dc', 'broll': 'nvidia-nvl72-factory', 'in': 39.8, 'speed': 0.37,
-          '_note': "broll nvidia-nvl72-factory 39.8-42.2 'rows of racks in a data hall' (NVIDIA, 2025), 0.37x so the 6.5 s in the disc stay in the window"}
-    out = [nv if x['id'] == 'kc-blue-racks' else x for x in out]
-    g['kc-blue-dc'] = nv
+    cox = {**cx, 'id': 'kc-blue-coxon', 'piece': 'blue', 't0': 'hb:3', 't1': 'hb:8', 'in': round(hb_song(3) + 431.22, 3),
+           'frame': {'cx': 540, 'cy': 960, 'r': 122}, 'oversample': 2.0, 'zoom': [1.0, 1.06], 'freeze': 'song:22.98', 'fadeOut': 0.1,
+           '_note': ("Coxon's own picture in sync with voice-coxon (song = source - 431.22), in the blue disc; frozen on source 454.20 (song 22.98), "
+                     "before the show's camera cut at 454.22, so his face holds through 'again.' to the title downbeat (ENGINE REQUEST: kandclip freeze)")}
+    br = g['kc-blue-racks']
+    dc = {**br, 'id': 'kc-blue-dc', 't0': 'hb:8', 't1': 'hb:16.35', 'broll': 'nvidia-nvl72-factory', 'in': 39.8,
+          'speed': round(2.35 / (hb_song(16.35) - hb_song(8)), 4),
+          '_note': "broll nvidia-nvl72-factory 39.8-42.15 'rows of racks in a data hall' (NVIDIA, 2025) in the blue disc from the title downbeat"}
+    rep = {'kc-pink-agents-a': pink, 'kc-pink-coxon': cox, 'kc-blue-racks': dc}
+    out = [rep.get(x['id'], x) for x in out if x['id'] not in ('kc-pink-agents-b',)]
+    g = {x['id']: x for x in out}
+    # beat-cut close-ups follow: Coxon's disc (hb:5, hb:7), the agents disc (hb:6); the title close-ups capped at 1.08 so the
+    # wordmark stays in frame (the first strip showed the 'e' cut at 1.15)
+    rf = g['kand-riff']['preset']['reframe']
+    rf[0].update({'focus': 'blue', 'to': [560, 900]})
+    rf[1].update({'focus': 'pink', 'to': [560, 820]})
+    rf[2].update({'focus': 'blue', 'to': [560, 900]})
+    for x in rf:
+        if x['at'] in (13, 14):
+            x['zoom'] = 1.08
     g['riff-credit']['text'] = "IN THE DISCS: AGENTS' LAST EXAM, 2026 · NVIDIA NVL72 DATA HALL, 2025"
 
     # ENGINE REQUEST (fluid fadeIn, implemented): the colour floods in over ~0.18 s from the title downbeat

@@ -185,7 +185,7 @@ function compile(spec, k) {
   if (tr.p.flash) HP.flash(at, tr.p.flash.opacity ?? tr.p.flash, tr.p.flash.decay ?? .1, tr.p.flash.color || '#FFFFFF');
   if (tr.p.punch) camPunch(at, tr.p.punch, .14);
   if (tr.p.shake) HP.cam.hit(at, tr.p.shake, .1);
-  for (const it of outs) { (it._trOut || (it._trOut = [])).push(b); if (!tr.p.keepEnv) it.exit = { style: 'cut', dur: null }; }
+  for (const it of outs) { (it._trOut || (it._trOut = [])).push(b); (it._trOutAt || (it._trOutAt = [])).push(at); if (!tr.p.keepEnv) it.exit = { style: 'cut', dur: null }; }
   for (const it of ins) { (it._trIn || (it._trIn = [])).push(a); if (!tr.p.keepEnv) it.enter = { style: 'cut', dur: null }; }
   if (type.build) type.build(tr);
   return tr;

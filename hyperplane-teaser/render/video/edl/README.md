@@ -946,3 +946,7 @@ the riff Coxon 12.6 dB, the refrain Amodei 13.8 dB, the closer 12.5 dB).
   short and the long swap loops inside the zoom-through as the refrain plan designed).
 `rev2_parts.fit_emph` draws a pile's last pencil emphasis faster when it would still be drawing at its transition's impact (its start
 beat is unchanged); `rev2_parts.bad_refs` lists any hb:/song: reference that falls in the short's cut.
+Final checks (11 Oct, on the encoded MP4s and the final EDLs; reports in `out/rev2/sheets/`): beatcheck long 151/154, short 71/74
+beats with visible change (the misses are hb:124-126, the exempt cover hold); coverage 100% imagery, 0 gaps, 0 texts without a
+reveal, 0 lyric overlaps, safe-zone flags only on motion transients (longest 0.57 s), late payoffs long 26 / short 3 (end-of-bar
+emphases landing as their pile leaves); coverdiff 0.47/255 on the last frame. Deliverables and ear checks: `out/NOTES.md` (top).

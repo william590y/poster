@@ -208,7 +208,7 @@ A({"id": "chart-dc", "type": "chart", "graph": "dc-record-mw", "t0": HB92, "t1":
    "grow": [B(92.5), B(92.75), B(93), B(93.25), B(93.5), B(94)], "labels": "all", "valuePx": 44, "valueFmt": {"dec": 0}, "color": "#FF2E88",
    "yAxis": {"label": "MW", "labelIn": "bottom", "labelPx": 30},
    "annotate": [{"at": B(94.5), "i": 5, "text": g["highlight"]["label"], "dx": -500, "dy": 96, "w": 420, "px": 62, "lines": 2, "hl": "946 MW", "lead": 0, "per": 0.06}],
-   "sourceAt": B(94.75), "sourcePer": 0.05, "sourceY": 1500, "sourcePx": 24, "sourceW": 900, "splatColor": "#F2C300",
+   "sourceAt": B(94.75), "sourcePer": 0.05, "sourceY": 1494, "sourcePx": 24, "sourceW": 740, "splatColor": "#F2C300",
    "_note": "research/rev2/graphs.json dc-record-mw (Epoch observed records only, no projections); the records land on 8ths and 16ths, the 946 MW record on the beat"})
 A({"id": "eq-grpo", "type": "equation", "ref": "grpo", "t0": B(97.5), "t1": B(100), "drop": B(97.5), "mode": "pencil", "cx": 540, "cy": 640, "px": 40, "maxW": 960,
    "label": {"text": "GRPO: the RL objective behind DeepSeek-R1", "at": B(97.5), "gap": 60}, "cite": {"at": B(98.75)},

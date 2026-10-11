@@ -1297,9 +1297,9 @@
    ],
    "sourceAt": "hb:94.75",
    "sourcePer": 0.05,
-   "sourceY": 1500,
+   "sourceY": 1494,
    "sourcePx": 24,
-   "sourceW": 900,
+   "sourceW": 740,
    "splatColor": "#F2C300",
    "_note": "research/rev2/graphs.json dc-record-mw (Epoch observed records only, no projections); the records land on 8ths and 16ths, the 946 MW record on the beat"
   },

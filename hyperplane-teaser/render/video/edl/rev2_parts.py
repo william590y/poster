@@ -519,19 +519,19 @@ def safe_nudges(items):
     """text that sat on the safe zone's edge and crossed it under the camera shakes (coverage.py, first pass): moved inside"""
     g = {x['id']: x for x in items}
     def has(k): return k in g
-    if has('v1-agents-credit'): g['v1-agents-credit']['y'] = 274
+    if has('v1-agents-credit'): g['v1-agents-credit']['y'] = 276; g['v1-agents-credit']['x'] = 76
     if has('coxon-stamp'): g['coxon-stamp']['stamp']['y'] = 262
     if has('loop-a'): g['loop-a']['title']['y'] = 270
     if has('loop-a-s'): g['loop-a-s']['title']['y'] = 270
-    if has('chart-gw'): g['chart-gw']['sourceY'] = 1515
+    if has('chart-gw'): g['chart-gw']['sourceY'] = 1498
     if has('fog-credit'): g['fog-credit']['y'] = 1512
-    if has('credit-racks'): g['credit-racks']['y'] = 1512
+    if has('credit-racks'): g['credit-racks']['y'] = 1490
     for k in ('disc-credit-1', 'disc-credit-2'):
         if has(k): g[k]['x'] = 74
     if has('eq-ntp'): g['eq-ntp']['y'] = 400
     if has('eq-upd'): g['eq-upd']['y'] = 770
     if has('eq-adv'):
-        g['eq-adv']['cy'] = 1385
+        g['eq-adv']['cy'] = 1345                         # its cite line sat on the safe zone's bottom edge (coverage)
         g['eq-adv']['px'] = 72
         g['eq-adv']['cite']['px'] = 20
         g['eq-adv']['label']['font']['size'] = 33       # two lines, clear of the centre panel's credit
@@ -549,6 +549,10 @@ def safe_nudges(items):
     if has('chart-gw'):
         a = g['chart-gw']['annotate'][0]; a['dx'] = -300; a['dy'] = 90; a['px'] = 34; a['w'] = 300
     if has('p-60'): g['p-60']['creditAt'] = [610, 712]      # was over the karaoke's name line (the long chip clamps left)
+    # credit chips too long for the safe zone (they clamped onto its left edge or into the right rail): shorter, same facts
+    if has('cp-try'): g['cp-try']['credit'] = '@MECAGENT · GPT-6 ASTRA, SOLIDWORKS · 2026'
+    if has('p-protein'): g['p-protein']['credit'] = 'ANTHROPIC · PROTEIN BINDERS BY CLAUDE · 2026'
+    if has('p-pause'): g['p-pause']['credit'] = 'PAUSEAI UK · PROTEST FOOTAGE · 2026'   # the verifier's alternative wording
     for x in items:
         if x['type'] == 'panel' and x.get('creditAt') == [64, 262]:
             x['creditAt'] = [74, 274]

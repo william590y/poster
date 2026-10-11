@@ -1581,8 +1581,8 @@
    "type": "words",
    "t0": "hb:16.5",
    "t1": "hb:20",
-   "x": 64,
-   "y": 274,
+   "x": 76,
+   "y": 276,
    "w": 700,
    "text": "AGENTS' LAST EXAM · AI AGENT SESSIONS · 2026",
    "font": {
@@ -2241,7 +2241,7 @@
     "hb:31"
    ],
    "pulseAmt": 0.03,
-   "credit": "PAUSEAI UK · MARCH FOR AI SAFETY PROMO · FEB 2026",
+   "credit": "PAUSEAI UK · PROTEST FOOTAGE · 2026",
    "creditAt": [
     74,
     274
@@ -3179,7 +3179,7 @@
     "hb:55"
    ],
    "pulseAmt": 0.035,
-   "credit": "ANTHROPIC · CLAUDE-DESIGNED PROTEIN BINDERS · 2026",
+   "credit": "ANTHROPIC · PROTEIN BINDERS BY CLAUDE · 2026",
    "creditAt": [
     74,
     274
@@ -4086,7 +4086,7 @@
    "t0": "hb:72.5",
    "t1": "hb:80",
    "x": 64,
-   "y": 1512,
+   "y": 1490,
    "w": 900,
    "text": "XAI COLOSSUS (2024 SITE), MEMPHIS · SERVETHEHOME TOUR · 2024",
    "font": {
@@ -4573,7 +4573,7 @@
    "border": "paint",
    "color": "teal",
    "borderW": 22,
-   "credit": "@MECAGENT · GPT-6 ASTRA IN SOLIDWORKS · 2026",
+   "credit": "@MECAGENT · GPT-6 ASTRA, SOLIDWORKS · 2026",
    "creditAt": [
     64,
     1088
@@ -4867,7 +4867,7 @@
    "mode": "drop",
    "per": 0.02,
    "cx": 540,
-   "cy": 1385,
+   "cy": 1345,
    "px": 72,
    "maxW": 780,
    "label": {
@@ -5120,7 +5120,7 @@
    ],
    "sourceAt": "hb:98.5",
    "sourcePer": 0.03,
-   "sourceY": 1515,
+   "sourceY": 1498,
    "sourcePx": 22,
    "sourceW": 760,
    "splatColor": "#F2C300",

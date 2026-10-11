@@ -1,0 +1,3253 @@
+{
+ "key": "verse1",
+ "span": [
+  26.97,
+  42.46
+ ],
+ "span_beats": "hb:16 .. hb:48 (hb:48 = 42.458 is the chorus crash; only its outgoing side is planned here)",
+ "time_base": "all refs are hits.json beats (hb:i, song = 19.232 + i * 60/124) or song seconds (song:s); they resolve in any EDL through song.segments / audio.songStart (README Time references)",
+ "beats": [
+  {
+   "i": 16,
+   "song": 26.974,
+   "bar": 4,
+   "beat_in_bar": 1,
+   "sung_line": "\"I'm so insecure\" (sung from 26.92)",
+   "events": [
+    "BAR 4 DOWNBEAT / THE BREAK: kand-riff blows apart from the art's middle (riff planner's break move at hb:16; wordmark and kicker fly first, ink pieces fade)",
+    "the pink disc MORPHS (0.3 s) into the footage circle v1-agents (top right): a wall of real AI-agent desktop sessions",
+    "the yellow plane band MORPHS into a 230 px band at 22 degrees (v1-band)",
+    "ground: cream -> #0E0D12 under the flying pieces; cream flash 0.3, 9 px shake, beatfx bar splat/stamp",
+    "pink splat r 180 bursts bottom right (v1-splat-break)",
+    "[+0.5 beat, song 27.216] footage of NVIDIA's copper NVLink spine PAINTED into the band (p-nvlink, three bristle passes)",
+    "[+0.5 beat, song 27.216] credit 'AGENTS' LAST EXAM · AI AGENT SESSIONS · 2026' rolls on 16ths",
+    "[+0.5 beat, song 27.216] beatfx 8th tick"
+   ]
+  },
+  {
+   "i": 17,
+   "song": 27.458,
+   "bar": 4,
+   "beat_in_bar": 2,
+   "events": [
+    "The Guardian 'Google says its Gemini AI model hacked three other companies' SLAMS onto the pile (camera punch + shake); its outlet · date chip types on",
+    "the copper band kicks (pulse)",
+    "sung 'in-'",
+    "[+0.5 beat, song 27.700] BBC 'Rogue OpenAI agent 'infiltrated' Australian government website in world first' DROPS in (jolt)",
+    "[+0.5 beat, song 27.700] Guardian marker sweeps 'Gemini AI model hacked three other companies'"
+   ]
+  },
+  {
+   "i": 18,
+   "song": 27.942,
+   "bar": 4,
+   "beat_in_bar": 3,
+   "events": [
+    "NBC 'OpenAI releases new model that it says triggered internal security measures' FLIPS in (spin) on the held 'insecure'",
+    "the agent-wall circle kicks 3%",
+    "beatfx scribble",
+    "camera kick (pulse)",
+    "[+0.5 beat, song 28.184] Business Standard / NYT 'OpenAI ignored employees who warned it wasn't doing enough about security' is PAINTED in (3 bristle passes, colour rim stays)",
+    "[+0.5 beat, song 28.184] BBC and NBC markers land"
+   ]
+  },
+  {
+   "i": 19,
+   "song": 28.426,
+   "bar": 4,
+   "beat_in_bar": 4,
+   "events": [
+    "PUSH (z 1.38) into the NYT headline: the older cards blur and dim; band and circle kick",
+    "[+0.25 beat, song 28.547] yellow highlighter sweeps 'OpenAI ignored employees who warned it wasn't doing enough about security'",
+    "[+0.5 beat, song 28.667] LIFT: the phrase's own pixels lift off the page on a paper slip with a shadow (bold without retyping)",
+    "[+0.5 beat, song 28.667] PAGE TURN starts (hb:19.475): the whole bar-4 frame curls up from its right edge"
+   ]
+  },
+  {
+   "i": 20,
+   "song": 28.909,
+   "bar": 5,
+   "beat_in_bar": 1,
+   "sung_line": "\"I think that I'll die before I drink\" (from 28.88)",
+   "events": [
+    "BAR 5 DOWNBEAT: the PAGE TURN lands on 'I think' (28.88): bar 4's violet paper back sweeps past, casting its shadow on the page beneath",
+    "underneath: BBC 'more than 10% chance AI 'could kill all humans'' SLAMS; the Hinton square (60 Minutes, 2023) is revealed and its teal ring paints on",
+    "flash 0.2, 8 px shake; beatfx bar splat",
+    "[+0.5 beat, song 29.151] The Guardian 'If Anyone Builds it, Everyone Dies' DROPS",
+    "[+0.5 beat, song 29.151] Hinton credit chip types on",
+    "[+0.75 beat, song 29.272] red ink CROSS stamped in the top margin on the sung 'die' (song 29.27)"
+   ]
+  },
+  {
+   "i": 21,
+   "song": 29.393,
+   "bar": 5,
+   "beat_in_bar": 2,
+   "events": [
+    "Euronews 'AI chatbots chose nuclear escalation in 95% of simulated war games, study finds' FLIPS in",
+    "Hinton square pulses",
+    "[+0.5 beat, song 29.635] The Guardian 'Godfather of AI shortens odds…' is PAINTED in (its 3-line headline only)",
+    "[+0.5 beat, song 29.635] markers on BBC / Euronews"
+   ]
+  },
+  {
+   "i": 22,
+   "song": 29.877,
+   "bar": 5,
+   "beat_in_bar": 3,
+   "events": [
+    "PUSH (z 1.4) into 'shortens odds of the technology wiping out humanity' on the accent (0.98, sung 'before'); camera spin 1.4 deg",
+    "Hinton square pulses",
+    "[+0.25 beat, song 29.998] a graphite ARROW draws from Hinton's face to his headline (boils on twos)",
+    "[+0.5 beat, song 30.119] LIFT of the Hinton phrase",
+    "[+0.5 beat, song 30.119] the zoom-through starts pushing into it (window from hb:22.57)",
+    "[+0.83 beat, song 30.279] AUDIO: Amodei's voice starts under the end of 'drink' (song 30.283, music ducked 9 dB)"
+   ]
+  },
+  {
+   "i": 23,
+   "song": 30.361,
+   "bar": 5,
+   "beat_in_bar": 4,
+   "events": [
+    "pencil CIRCLE boils round the lifted phrase; the camera is deep inside it; speed lines",
+    "beatfx tick",
+    "[+0.5 beat, song 30.603] ZOOM-THROUGH impact (line 3 pickup 30.64): Amodei's blue-ringed circle opens out of the phrase; karaoke 'IT'S A' already lit, 'WARNING' lights on the 8th"
+   ]
+  },
+  {
+   "i": 24,
+   "song": 30.845,
+   "bar": 6,
+   "beat_in_bar": 1,
+   "sung_line": "\"And I'm so caught up in the news\" (pickup 30.64)",
+   "events": [
+    "BAR 6 DOWNBEAT: Vox 'The week the AI freakout went mainstream' SLAMS into the lower pile (shake)",
+    "Amodei circle kicks; 'SIGN' lights",
+    "beatfx bar splat",
+    "[+0.5 beat, song 31.087] CNN 'Trump dismisses AI alarms as a 'HOAX'' DROPS",
+    "[+0.5 beat, song 31.087] Amodei's name line types on (DARIO AMODEI, ANTHROPIC CEO · 2026)"
+   ]
+  },
+  {
+   "i": 25,
+   "song": 31.329,
+   "bar": 6,
+   "beat_in_bar": 2,
+   "events": [
+    "CNBC ''Model fatigue' sets in as AI labs race to roll out new versions at frenetic pace' SLAMS on the accent (1.0, sung 'caught'); 'THAT' lights; camera spin",
+    "Amodei circle pulse",
+    "[+0.5 beat, song 31.571] Guardian TechScape 'The AI agents are spiraling out of control' SLIDES in",
+    "[+0.5 beat, song 31.571] 'WE' lights"
+   ]
+  },
+  {
+   "i": 26,
+   "song": 31.813,
+   "bar": 6,
+   "beat_in_bar": 3,
+   "events": [
+    "CBS News 'Anthropic CEO Dario Amodei says…' SLAMS on top on the accent (0.98); 'NEED' lights",
+    "Amodei circle pulse",
+    "beatfx backbeat stamp",
+    "[+0.5 beat, song 32.055] CNBC / TechScape markers sweep",
+    "[+0.5 beat, song 32.055] 'TO' lights",
+    "[+0.75 beat, song 32.176] CBS marker sweeps '\"warning sign that we need to slow down\"' while he says 'need to slow down'"
+   ]
+  },
+  {
+   "i": 27,
+   "song": 32.297,
+   "bar": 6,
+   "beat_in_bar": 4,
+   "events": [
+    "PUSH (z 1.32) into the CBS phrase on the sung 'news'; 'SLOW' lights; Amodei circle pulse",
+    "[+0.5 beat, song 32.538] LIFT of '\"warning sign that we need to slow down\"' at the instant he says 'down.' (32.52): the spoken words and the headline are the same words"
+   ]
+  },
+  {
+   "i": 28,
+   "song": 32.78,
+   "bar": 7,
+   "beat_in_bar": 1,
+   "sung_line": "\"Of who likes me and who hates you\" (from 32.71)",
+   "events": [
+    "BAR 7 DOWNBEAT: pencil CIRCLE on the lifted CBS phrase; yellow underline under 'SLOW DOWN.' in the karaoke (song 32.62)",
+    "9 px shake",
+    "sung 'Of who'",
+    "[+0.5 beat, song 33.022] FOLD impact on the sung 'likes': the news pile folds in half (violet paper back, crease, cast shadow) and the DPO card unfolds out of it",
+    "[+0.5 beat, song 33.022] DPO row 1 chalked in"
+   ]
+  },
+  {
+   "i": 29,
+   "song": 33.264,
+   "bar": 7,
+   "beat_in_bar": 2,
+   "events": [
+    "accent 1.0: DPO row 2 (the y_w term) chalked; camera spin",
+    "Amodei's circle starts to iris shut",
+    "[+0.5 beat, song 33.506] Amodei's circle closes; PauseAI protest footage PAINTED into a violet-ringed blob in its place",
+    "[+0.5 beat, song 33.506] DPO row 3 (the y_l term) chalked",
+    "[+0.75 beat, song 33.627] yellow highlighter behind the y_w term (the preferred answer) on 'me and'"
+   ]
+  },
+  {
+   "i": 30,
+   "song": 33.748,
+   "bar": 7,
+   "beat_in_bar": 3,
+   "events": [
+    "TechCrunch 'OpenAI explains why ChatGPT became too sycophantic' SLAMS at the bottom on 'who hates'",
+    "DPO cite rolls on",
+    "PauseAI blob pulses",
+    "[+0.25 beat, song 33.869] pink pencil CIRCLE on the y_l term (the rejected answer) on the sung 'hates' (33.87)",
+    "[+0.5 beat, song 33.990] marker on 'too sycophantic'; DPO pulse (jump + walking flash)"
+   ]
+  },
+  {
+   "i": 31,
+   "song": 34.232,
+   "bar": 7,
+   "beat_in_bar": 4,
+   "events": [
+    "PUSH into 'too sycophantic' (accent 0.53, sung 'you'); DPO pulse; PauseAI pulse",
+    "[+0.25 beat, song 34.353] LIFT of 'too sycophantic'",
+    "[+0.5 beat, song 34.474] PARTICLES start on line 5's pickup (34.51): bar 7 breaks into a halftone of paint dots that swirl round the middle"
+   ]
+  },
+  {
+   "i": 32,
+   "song": 34.716,
+   "bar": 8,
+   "beat_in_bar": 1,
+   "sung_line": "\"And I'm so tired that I might\" (pickup 34.51)",
+   "events": [
+    "BAR 8 DOWNBEAT: the dots land on the 3D TOWER, which fills in; token columns 'AI that builds better' light (embed stage); 9 px shake; tower splat on the downbeat",
+    "[+0.5 beat, song 34.958] attention block 1 FIRES (heads fan out like cards, camera swings right)",
+    "[+0.5 beat, song 34.958] attention equation SLAMS in on a dark card at the top (6 px hit, yellow ink flash)"
+   ]
+  },
+  {
+   "i": 33,
+   "song": 35.2,
+   "bar": 8,
+   "beat_in_bar": 2,
+   "events": [
+    "MLP block 1 fires (camera swings left) on the sung 'tired'",
+    "Redwood FPGA footage POPS into a pencil-bordered square bottom left",
+    "attention label rolled",
+    "[+0.5 beat, song 35.442] attention block 2 fires; equation pulse; cite rolls on"
+   ]
+  },
+  {
+   "i": 34,
+   "song": 35.684,
+   "bar": 8,
+   "beat_in_bar": 3,
+   "events": [
+    "MLP block 2 fires on the accent (1.0); camera spin; FPGA square pulses",
+    "beatfx stamp",
+    "[+0.5 beat, song 35.926] attention block 3 fires; pink pencil CIRCLE on QK^T/sqrt(d_k)"
+   ]
+  },
+  {
+   "i": 35,
+   "song": 36.167,
+   "bar": 8,
+   "beat_in_bar": 4,
+   "events": [
+    "MLP block 3 fires (sung 'might'); the camera flies on down the yellow residual river; FPGA pulses",
+    "[+0.5 beat, song 36.409] the wavefront reaches the logits; skip arcs pulse",
+    "[+0.5 beat, song 36.409] beatfx 8th tick",
+    "[+0.75 beat, song 36.530] attention card fades; FPGA square collapses (spins to a point)"
+   ]
+  },
+  {
+   "i": 36,
+   "song": 36.651,
+   "bar": 9,
+   "beat_in_bar": 1,
+   "sung_line": "\"Quit my job, start a new life\" (from 36.65)",
+   "events": [
+    "BAR 9 DOWNBEAT on the sung 'Quit': the tower's OUTPUT lands, logits stand up, predicted token 'AI' pops in pink (1.7 -> 1)",
+    "Coxon's X post 'I resigned from Anthropic today. …' SLAMS at the bottom",
+    "cream flash 0.3, 9 px shake, tower downbeat splat",
+    "[+0.5 beat, song 36.893] marker sweeps 'I resigned from Anthropic today.' (sung 'my job')"
+   ]
+  },
+  {
+   "i": 37,
+   "song": 37.135,
+   "bar": 9,
+   "beat_in_bar": 2,
+   "events": [
+    "The Guardian 'Jack Dorsey to cut 4,000 jobs due to AI advances…' DROPS onto the post",
+    "AUDIO: Coxon's voice at song 37.159 ('There', music ducked 9 dB)",
+    "[+0.42 beat, song 37.338] Coxon's circle IRISES open on the show's own cut to his close-up (song 37.339), orange ring painting on; 'THERE WON'T BE' lit"
+   ]
+  },
+  {
+   "i": 38,
+   "song": 37.619,
+   "bar": 9,
+   "beat_in_bar": 3,
+   "events": [
+    "'JOBS' lights ON the beat, exactly as he says it; Coxon circle pulse; tower orbits",
+    "[+0.1 beat, song 37.667] orange pencil UNDERLINE under 'JOBS'",
+    "[+0.5 beat, song 37.861] marker sweeps 'cut 4,000 jobs due to AI advances' ('IN THIS' lit)"
+   ]
+  },
+  {
+   "i": 39,
+   "song": 38.103,
+   "bar": 9,
+   "beat_in_bar": 4,
+   "events": [
+    "'WORLD.' lit; PUSH (z 1.35) into the Guardian phrase on the sung 'life'; Coxon circle pulse",
+    "[+0.5 beat, song 38.345] LIFT of 'cut 4,000 jobs due to AI advances'",
+    "[+0.5 beat, song 38.345] beatfx tick",
+    "[+0.75 beat, song 38.466] WHIP pan starts (song 38.44, after 'world.' and on the sung 'And they'd'): Coxon, his caption and the jobs pile streak off left with ghost copies"
+   ]
+  },
+  {
+   "i": 40,
+   "song": 38.587,
+   "bar": 10,
+   "beat_in_bar": 1,
+   "sung_line": "\"And they'd all be so disappointed\" (pickup 38.49)",
+   "events": [
+    "BAR 10 DOWNBEAT: whip impact; BACKPROP starts: the residual river turns orange and flows up, the output block flashes orange",
+    "next-token loss equation chalks in on a dark card at the top",
+    "cream flash 0.3",
+    "[+0.5 beat, song 38.829] gradient reaches MLP 3 (orange flash); TechCrunch 'OpenAI safety employee resigns, claiming the company's 'culture is broken'' SLAMS at the bottom",
+    "[+0.5 beat, song 38.829] loss cite rolls"
+   ]
+  },
+  {
+   "i": 41,
+   "song": 39.071,
+   "bar": 10,
+   "beat_in_bar": 2,
+   "events": [
+    "accent 0.58: update rule SLAMS under the loss (8 px hit, orange flash); gradient at attention 3",
+    "[+0.5 beat, song 39.313] gradient at MLP 2; orange underline on log P(x_{t+1}|x_{t:1}); marker 'culture is broken'"
+   ]
+  },
+  {
+   "i": 42,
+   "song": 39.555,
+   "bar": 10,
+   "beat_in_bar": 3,
+   "events": [
+    "accent 0.73 on the sung 'disappointed': gradient at attention 2; yellow underline on eta dC/dw_k; Common Dreams 'Looks Like They're Firing Whistleblowers…' DROPS; update-rule pulse",
+    "[+0.5 beat, song 39.797] gradient at MLP 1; marker on 'Firing Whistleblowers'"
+   ]
+  },
+  {
+   "i": 43,
+   "song": 40.038,
+   "bar": 10,
+   "beat_in_bar": 4,
+   "events": [
+    "gradient reaches attention 1 (last block, weights updated); PUSH back into 'culture is broken'; update-rule pulse",
+    "[+0.25 beat, song 40.159] the camera PULLS BACK over the whole orange-lit tower (wideAt)",
+    "[+0.5 beat, song 40.280] LIFT 'culture is broken'",
+    "[+0.5 beat, song 40.280] PAINT WIPE begins: red and violet bristle bands sweep across (line 8 pickup 'Cause' 40.40)"
+   ]
+  },
+  {
+   "i": 44,
+   "song": 40.522,
+   "bar": 11,
+   "beat_in_bar": 1,
+   "sung_line": "\"'Cause who am I if not exploited\" (pickup 40.40)",
+   "events": [
+    "BAR 11 DOWNBEAT: the cut hides under the bands; Anthropic 'Disrupting the first reported AI-orchestrated cyber espionage campaign' SLAMS under them; 9 px shake; beatfx bar splat",
+    "[+0.25 beat, song 40.643] bands tear away; the CoastRunners boat (an RL agent exploiting its reward) IRISES open in the downward red triangle",
+    "[+0.5 beat, song 40.764] TIME 'Exclusive: OpenAI Used Kenyan Workers on Less Than $2 Per Hour to Make ChatGPT Less Toxic' DROPS"
+   ]
+  },
+  {
+   "i": 45,
+   "song": 41.006,
+   "bar": 11,
+   "beat_in_bar": 2,
+   "events": [
+    "Susman Godfrey '$1.5 Billion Settlement in Landmark AI Piracy Case' SLAMS; triangle pulse",
+    "[+0.5 beat, song 41.248] Variety 'Sony Music, Universal Music Group Sue Suno…' is PAINTED in"
+   ]
+  },
+  {
+   "i": 46,
+   "song": 41.49,
+   "bar": 11,
+   "beat_in_bar": 3,
+   "events": [
+    "PUSH (z 1.4) into TIME's 'Used Kenyan Workers on Less Than $2 Per Hour'; triangle pulse",
+    "[+0.5 beat, song 41.732] LIFT of the TIME phrase exactly on the sung 'exploited' (41.68)"
+   ]
+  },
+  {
+   "i": 47,
+   "song": 41.974,
+   "bar": 11,
+   "beat_in_bar": 4,
+   "events": [
+    "accent 1.0: pencil CIRCLE on the lifted phrase; red splat r 160 bursts bottom right; camera spin; triangle pulse; beatfx zoom anticipation",
+    "[+0.5 beat, song 42.216] ILLUMINATE starts on the chorus pickup: a band of light sweeps along the plane's 22 degrees, warm light leaks bloom from the corners"
+   ]
+  },
+  {
+   "i": 48,
+   "song": 42.458,
+   "bar": 12,
+   "beat_in_bar": 1,
+   "sung_line": "chorus \"And I'm so sick of seventeen\" (pickup ~42.0-42.3)",
+   "events": [
+    "HANDOFF (chorus crash, shared with the chorus planner): the frame blows out to paper white ON the beat and clears onto the full-colour chorus; the verse items end here"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "g-dark-v1",
+   "type": "color",
+   "t0": "hb:16",
+   "t1": "hb:48",
+   "content": {
+    "color": "#0E0D12"
+   },
+   "reveal": "none",
+   "highlight": "none",
+   "transition_in": "kand-riff break (hb:16)",
+   "transition_out": "tr-v1-illum (hb:48, handoff to the chorus)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "BUILD.md UPDATE: darker for the verse; style.md 2 (ground #0E0D12)",
+   "lyric_link": "the whole verse: dark, tense",
+   "engine": {
+    "id": "g-dark-v1",
+    "type": "color",
+    "t0": "hb:16",
+    "t1": "hb:48",
+    "color": "#0E0D12",
+    "_note": "the dark verse ground; hard under the riff's cream on hb:16 while the logo blows apart (the break hides the cut)"
+   }
+  },
+  {
+   "id": "v1-agents",
+   "type": "clip",
+   "t0": "hb:16",
+   "t1": "hb:20",
+   "content": {
+    "broll": "ale-agent-wall",
+    "source_window": [
+     75.21,
+     76.18
+    ],
+    "speed": 0.5,
+    "catalog_window": [
+     72.0,
+     75.0
+    ],
+    "note": "past the catalogued window but checked by eye: the wall of sessions keeps zooming out until the cut at 76.375",
+    "shows": "Agents Last Exam intro: a grid of real AI-agent desktop sessions (CAD, DAW, X-ray viewer, spreadsheets) zooming out into a wall of screens"
+   },
+   "reveal": "none (footage)",
+   "highlight": "none",
+   "transition_in": "morph from kand-riff:pink on hb:16 (0.3 s)",
+   "transition_out": "tr-v1-turn (hb:20)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/broll.json ale-agent-wall; research/rev2/plan/prelude-riff.json kc-pink-agents-b (continuity)",
+   "lyric_link": "'I'm so insecure': real AI agents loose on real desktops, the actors in the security headlines below",
+   "engine": {
+    "id": "v1-agents",
+    "type": "clip",
+    "t0": "hb:16",
+    "t1": "hb:20",
+    "prep": "clip",
+    "src": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/labor-ale-intro.mp4",
+    "in": 75.21,
+    "speed": 0.5,
+    "srcFocus": [
+     0.5,
+     0.58
+    ],
+    "srcZoom": 1.35,
+    "frame": {
+     "shape": "circle",
+     "cx": 760,
+     "cy": 560,
+     "r": 230,
+     "ring": "#FF2E88",
+     "ringW": 10
+    },
+    "enter": {
+     "style": "morph",
+     "from": "kand-riff:pink",
+     "dur": 0.3
+    },
+    "zoom": [
+     1.05,
+     1.22
+    ],
+    "zoomEase": "out",
+    "grade": {
+     "sat": 0.5,
+     "contrast": 1.1,
+     "brightness": -0.02,
+     "grain": 3
+    },
+    "theme": "dark",
+    "kicks": [
+     {
+      "at": "hb:18",
+      "s": 1.03,
+      "dur": 0.16
+     },
+     {
+      "at": "hb:19",
+      "s": 1.035,
+      "dur": 0.16
+     }
+    ],
+    "kickOrigin": [
+     760,
+     560
+    ],
+    "_note": "MUTED b-roll (no audio window). Continues the riff planner's kc-pink-agents-b (ale-agent-wall 73.2 at 0.5x, which reaches 75.21 at hb:16.05), so the footage carries straight through the morph; at 0.5x it ends at 76.18, before the file cuts to its QR end card at 76.375 (ffmpeg scene check, frames looked at). The logo's pink disc becomes this footage frame on the break (legacy morph enter: the only footage type that can grow out of a kand piece today, see engine_requests[0])"
+   }
+  },
+  {
+   "id": "v1-agents-credit",
+   "type": "words",
+   "t0": "hb:16.5",
+   "t1": "hb:20",
+   "content": {
+    "text": "AGENTS' LAST EXAM · AI AGENT SESSIONS · 2026"
+   },
+   "reveal": "words on 16ths from hb:16.5",
+   "highlight": "none",
+   "transition_in": "rolls on",
+   "transition_out": "turns over with the page",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/broll.json ale-agent-wall (credit agents-last-exam.org, year 2026; 'a grid of real AI-agent desktop sessions')",
+   "lyric_link": "credit line",
+   "engine": {
+    "id": "v1-agents-credit",
+    "type": "words",
+    "t0": "hb:16.5",
+    "t1": "hb:20",
+    "x": 64,
+    "y": 262,
+    "w": 700,
+    "text": "AGENTS' LAST EXAM · AI AGENT SESSIONS · 2026",
+    "font": {
+     "family": "'IBM Plex Mono', monospace",
+     "weight": 600,
+     "size": 26
+    },
+    "color": "#C2BDCE",
+    "roll": {
+     "mode": "words",
+     "rate": 4,
+     "from": "hb:16.5"
+    },
+    "exit": {
+     "style": "fade",
+     "dur": 0.12
+    }
+   }
+  },
+  {
+   "id": "v1-band",
+   "type": "band",
+   "t0": "hb:16",
+   "t1": "hb:17",
+   "content": {
+    "shape": "yellow plane band, 22 degrees"
+   },
+   "reveal": "none",
+   "highlight": "none",
+   "transition_in": "morph from kand-riff:band on hb:16",
+   "transition_out": "fades under p-nvlink (hb:16.85-17)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "BUILD.md UPDATE (the yellow plane band becomes a container)",
+   "lyric_link": "the plane breaking apart into the news frames",
+   "engine": {
+    "id": "v1-band",
+    "type": "band",
+    "t0": "hb:16",
+    "t1": "hb:17",
+    "band": {
+     "cx": 540,
+     "cy": 960,
+     "h": 230,
+     "angle": -22,
+     "len": 1500,
+     "color": "#F2C300"
+    },
+    "enter": {
+     "style": "morph",
+     "from": "kand-riff:band",
+     "dur": 0.3
+    },
+    "exit": {
+     "style": "fade",
+     "dur": 0.15
+    },
+    "_note": "the cover's thin plane band thickens into a 230 px band on the break; footage is painted into it from hb:16.5"
+   }
+  },
+  {
+   "id": "p-nvlink",
+   "type": "panel",
+   "t0": "hb:16.5",
+   "t1": "hb:20",
+   "content": {
+    "broll": "nvidia-nvl72-factory",
+    "window": [
+     26.5,
+     29.5
+    ],
+    "shows": "NVLink spine: a fan of copper cables (inside the yellow band)"
+   },
+   "reveal": "painted in stroke by stroke (3 bristle passes, 0.36 s)",
+   "highlight": "none",
+   "transition_in": "paint entry hb:16.5",
+   "transition_out": "tr-v1-turn (hb:20)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/broll.json nvidia-nvl72-factory (window 26.5-29.5, inside the 20-32 s segment, no splice cut)",
+   "lyric_link": "the machines the agents run on; warm copper cables in the yellow plane band",
+   "engine": {
+    "id": "p-nvlink",
+    "type": "panel",
+    "t0": "hb:16.5",
+    "t1": "hb:20",
+    "prep": "clip",
+    "broll": "nvidia-nvl72-factory",
+    "in": 26.5,
+    "speed": 1,
+    "prepBox": {
+     "w": 1500,
+     "h": 1080
+    },
+    "oversample": 1.2,
+    "shape": "band",
+    "frame": {
+     "cx": 540,
+     "cy": 960,
+     "w": 1500,
+     "h": 230
+    },
+    "rot": -22,
+    "entry": {
+     "style": "paint",
+     "at": "hb:16.5"
+    },
+    "out": "cut",
+    "border": "none",
+    "pulse": "hb:17..19",
+    "pulseAmt": 0.015,
+    "kb": {
+     "z": [
+      1.0,
+      1.12
+     ],
+     "pan": [
+      80,
+      0
+     ]
+    },
+    "grade": {
+     "sat": 0.55,
+     "contrast": 1.12,
+     "grain": 0
+    },
+    "credit": "NVIDIA · GB200 NVL72 · 2025",
+    "creditAt": [
+     64,
+     1528
+    ]
+   }
+  },
+  {
+   "id": "pile-insecure",
+   "type": "screens",
+   "t0": "hb:16.75",
+   "t1": "hb:20",
+   "content": {
+    "shots": [
+     {
+      "screenshot": "guardian-2026-09-18-gemini-hacked-three",
+      "file": "/home/user/hyperplane-teaser/research/rev2/captures/guardian-2026-09-18-gemini-hacked-three.png",
+      "outlet": "The Guardian",
+      "date": "2026-09-18",
+      "verbatim_text": "Google says its Gemini AI model hacked three other companies",
+      "highlight_phrase": "Gemini AI model hacked three other companies",
+      "crop": [
+       380,
+       442,
+       1700,
+       820
+      ],
+      "lands": "hb:17",
+      "entry": "slam"
+     },
+     {
+      "screenshot": "security-hl-bbc-medicare",
+      "file": "/home/user/poster/ai-safety-presentation/assets/research/security/hl-bbc-medicare.png",
+      "outlet": "BBC News",
+      "date": "2026-09-24",
+      "verbatim_text": "Rogue OpenAI agent 'infiltrated' Australian government website in world first",
+      "highlight_phrase": "Rogue OpenAI agent 'infiltrated' Australian government website in world first",
+      "crop": null,
+      "lands": "hb:17.5",
+      "entry": "drop"
+     },
+     {
+      "screenshot": "capabilities-nbc-gpt6-astra",
+      "file": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/nbc-gpt6-astra.png",
+      "outlet": "NBC News",
+      "date": "2026-09-04",
+      "verbatim_text": "OpenAI releases new model that it says triggered internal security measures",
+      "highlight_phrase": "triggered internal security measures",
+      "crop": [
+       380,
+       150,
+       2560,
+       640
+      ],
+      "lands": "hb:18",
+      "entry": "flip"
+     },
+     {
+      "screenshot": "xrisk-nyt-ignored-warnings",
+      "file": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/nyt-ignored-warnings.png",
+      "outlet": "Business Standard (syndicating The New York Times)",
+      "date": "2026-09-29",
+      "verbatim_text": "OpenAI ignored employees who warned it wasn't doing enough about security",
+      "highlight_phrase": "OpenAI ignored employees who warned it wasn't doing enough about security",
+      "crop": null,
+      "lands": "hb:18.5",
+      "entry": "paint"
+     }
+    ]
+   },
+   "reveal": "cards land on 8ths (slam, drop, flip, paint); outlet · date chips type on",
+   "highlight": "OCR marker on each card's phrase; pushed into 'OpenAI ignored employees who warned it wasn't doing enough about security' (hb:19), marker hb:19.25, phrase lifted on a paper slip hb:19.5",
+   "transition_in": "first card slams hb:17",
+   "transition_out": "tr-v1-turn (hb:20: the page turns over just as the phrase lifts)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/captures.json guardian-2026-09-18-gemini-hacked-three (focus_crop); research/rev2/screens.json security-hl-bbc-medicare, capabilities-nbc-gpt6-astra (cropped to headline + dek), xrisk-nyt-ignored-warnings (none of the prelude's six Hugging Face shots repeat)",
+   "lyric_link": "'I'm so insecure': AI hacking companies and governments; the lead phrase 'wasn't doing enough about security' is the literal echo of in-SECURE",
+   "engine": {
+    "id": "pile-insecure",
+    "type": "screens",
+    "t0": "hb:16.75",
+    "t1": "hb:20",
+    "layout": "scatter",
+    "center": [
+     540,
+     1270
+    ],
+    "w": 820,
+    "jitter": {
+     "x": 44,
+     "y": 36,
+     "rot": 5
+    },
+    "shots": [
+     {
+      "id": "guardian-2026-09-18-gemini-hacked-three",
+      "at": "hb:17",
+      "entry": "slam"
+     },
+     {
+      "id": "security-hl-bbc-medicare",
+      "at": "hb:17.5",
+      "entry": "drop"
+     },
+     {
+      "id": "capabilities-nbc-gpt6-astra",
+      "at": "hb:18",
+      "entry": "flip",
+      "crop": [
+       380,
+       150,
+       2560,
+       640
+      ]
+     },
+     {
+      "id": "xrisk-nyt-ignored-warnings",
+      "at": "hb:18.5",
+      "entry": "paint",
+      "hlAt": "hb:19.25"
+     }
+    ],
+    "push": {
+     "at": "hb:19",
+     "z": 1.38,
+     "dur": 0.4,
+     "shot": 3,
+     "to": [
+      540,
+      1180
+     ]
+    },
+    "emph": [
+     {
+      "style": "lift",
+      "at": "hb:19.5",
+      "shot": 3
+     }
+    ],
+    "pulse": [
+     "hb:18",
+     "hb:19"
+    ],
+    "drift": 0.04,
+    "out": "cut"
+   }
+  },
+  {
+   "id": "p-hinton",
+   "type": "panel",
+   "t0": "hb:20",
+   "t1": "hb:23.5",
+   "content": {
+    "broll": "hinton-60min-2023",
+    "window": [
+     1.0,
+     3.5
+    ],
+    "shows": "Geoffrey Hinton in close-up in his 60 Minutes interview with Scott Pelley"
+   },
+   "reveal": "none (footage); credit chip typed on",
+   "highlight": "teal bristle ring painted on",
+   "transition_in": "tr-v1-turn (the page beneath)",
+   "transition_out": "tr-v1-zoom (hb:23.5)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/broll.json hinton-60min-2023 (clips/hinton-escape-control-2023.mp4, 60 Minutes, CBS, Oct 2023); research/long/hinton-2023.json",
+   "lyric_link": "the face of the headline he sits beside: the 'Godfather of AI' shortening the odds",
+   "engine": {
+    "id": "p-hinton",
+    "type": "panel",
+    "t0": "hb:20",
+    "t1": "hb:23.5",
+    "prep": "clip",
+    "broll": "hinton-60min-2023",
+    "in": 1.0,
+    "speed": 1,
+    "oversample": 1.2,
+    "shape": "square",
+    "frame": {
+     "cx": 310,
+     "cy": 560,
+     "w": 400,
+     "h": 400
+    },
+    "rot": 12,
+    "spin": -6,
+    "entry": "cut",
+    "out": "cut",
+    "border": "paint",
+    "color": "#00B8A9",
+    "borderW": 24,
+    "kb": {
+     "z": [
+      1.05,
+      1.25
+     ],
+     "pan": [
+      -20,
+      0
+     ]
+    },
+    "grade": {
+     "sat": 0.35,
+     "contrast": 1.15,
+     "grain": 0
+    },
+    "pulse": "hb:21..23",
+    "pulseAmt": 0.03,
+    "credit": "GEOFFREY HINTON · 60 MINUTES · 2023",
+    "_note": "MUTED. Revealed on the page beneath the page turn; its teal bristle ring paints on as the page lands"
+   }
+  },
+  {
+   "id": "pile-die",
+   "type": "screens",
+   "t0": "hb:20",
+   "t1": "hb:23.5",
+   "content": {
+    "shots": [
+     {
+      "screenshot": "xrisk-bbc-hubinger",
+      "file": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/bbc-hubinger.png",
+      "outlet": "BBC News",
+      "date": "2026-09-09",
+      "verbatim_text": "Anthropic researcher believes more than 10% chance AI 'could kill all humans'",
+      "highlight_phrase": "more than 10% chance AI 'could kill all humans'",
+      "crop": null,
+      "lands": "hb:20",
+      "entry": "slam"
+     },
+     {
+      "screenshot": "xrisk-guardian-iabied",
+      "file": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/guardian-iabied.png",
+      "outlet": "The Guardian",
+      "date": "2025-09-22",
+      "verbatim_text": "If Anyone Builds it, Everyone Dies review – how AI could kill us all",
+      "highlight_phrase": "If Anyone Builds it, Everyone Dies",
+      "crop": null,
+      "lands": "hb:20.5",
+      "entry": "drop"
+     },
+     {
+      "screenshot": "geopolitics-euronews-wargames",
+      "file": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/euronews-wargames.png",
+      "outlet": "Euronews",
+      "date": "2026-02-27",
+      "verbatim_text": "AI chatbots chose nuclear escalation in 95% of simulated war games, study finds",
+      "highlight_phrase": "AI chatbots chose nuclear escalation in 95% of simulated war games",
+      "crop": null,
+      "lands": "hb:21",
+      "entry": "flip"
+     },
+     {
+      "screenshot": "theory-guardian-hinton-odds",
+      "file": "/home/user/poster/ai-safety-presentation/assets/research/theory/guardian-hinton-odds.png",
+      "outlet": "The Guardian",
+      "date": "2024-12-27",
+      "verbatim_text": "‘Godfather of AI’ shortens odds of the technology wiping out humanity over next 30 years",
+      "highlight_phrase": "shortens odds of the technology wiping out humanity",
+      "crop": [
+       0,
+       0,
+       1280,
+       260
+      ],
+      "lands": "hb:21.5",
+      "entry": "paint"
+     }
+    ]
+   },
+   "reveal": "cards land on 8ths as the page lands and after",
+   "highlight": "markers per card; push hb:22 (accent 0.98) into the Guardian's 'shortens odds of the technology wiping out humanity', lift hb:22.5, pencil circle hb:23",
+   "transition_in": "tr-v1-turn (first card on the page beneath, hb:20)",
+   "transition_out": "tr-v1-zoom (hb:23.5: the camera dives into the lifted phrase)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/screens.json xrisk-bbc-hubinger, xrisk-guardian-iabied, geopolitics-euronews-wargames, theory-guardian-hinton-odds (crop to its 3-line headline)",
+   "lyric_link": "'die before I drink' (dead before 21): p(doom), 'everyone dies', nuclear escalation in war games, the odds of humanity being wiped out",
+   "engine": {
+    "id": "pile-die",
+    "type": "screens",
+    "t0": "hb:20",
+    "t1": "hb:23.5",
+    "region": {
+     "x0": 60,
+     "y0": 820,
+     "x1": 1020,
+     "y1": 1500
+    },
+    "w": 900,
+    "shots": [
+     {
+      "id": "xrisk-bbc-hubinger",
+      "at": "hb:20",
+      "entry": "slam"
+     },
+     {
+      "id": "xrisk-guardian-iabied",
+      "at": "hb:20.5",
+      "entry": "drop"
+     },
+     {
+      "id": "geopolitics-euronews-wargames",
+      "at": "hb:21",
+      "entry": "flip"
+     },
+     {
+      "id": "theory-guardian-hinton-odds",
+      "at": "hb:21.5",
+      "entry": "paint",
+      "crop": [
+       0,
+       0,
+       1280,
+       260
+      ]
+     }
+    ],
+    "push": {
+     "at": "hb:22",
+     "z": 1.4,
+     "dur": 0.42,
+     "shot": 3,
+     "to": [
+      540,
+      1000
+     ]
+    },
+    "emph": [
+     {
+      "style": "lift",
+      "at": "hb:22.5",
+      "shot": 3
+     },
+     {
+      "style": "circle",
+      "at": "hb:23",
+      "shot": 3
+     }
+    ],
+    "out": "cut"
+   }
+  },
+  {
+   "id": "v1-arrow-hinton",
+   "type": "pencil",
+   "t0": "hb:22.25",
+   "t1": "hb:23.5",
+   "content": {
+    "shape": "pencil arrow, footage -> headline"
+   },
+   "reveal": "drawn on in 0.18 s",
+   "highlight": "leads the eye from the face to the pushed phrase",
+   "transition_in": "drawn on hb:22.25",
+   "transition_out": "goes with the zoom-through",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js pencil (arrow)",
+   "lyric_link": "ties the face to the 'wiping out humanity' headline",
+   "engine": {
+    "id": "v1-arrow-hinton",
+    "type": "pencil",
+    "t0": "hb:22.25",
+    "t1": "hb:23.5",
+    "shapes": [
+     {
+      "kind": "arrow",
+      "pts": [
+       [
+        420,
+        790
+       ],
+       [
+        520,
+        900
+       ]
+      ],
+      "at": "hb:22.25",
+      "dur": 0.18
+     }
+    ],
+    "color": "#F2EBDD",
+    "width": 7,
+    "boil": 2,
+    "layer": "paint",
+    "_note": "graphite arrow from the Hinton footage to his headline, boiling on twos (style.md 4.2)"
+   }
+  },
+  {
+   "id": "v1-stamp-die",
+   "type": "inkstamp",
+   "t0": "song:29.272",
+   "t1": "hb:23",
+   "content": {
+    "glyph": "cross"
+   },
+   "reveal": "rubber-stamp landing (2-frame squash)",
+   "highlight": "none",
+   "transition_in": "lands on the sung 'die' (song 29.27)",
+   "transition_out": "culls",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js inkstamp",
+   "lyric_link": "the sung word 'die' (whisper 29.28) gets a red ink cross in the margin",
+   "engine": {
+    "id": "v1-stamp-die",
+    "type": "inkstamp",
+    "t0": "song:29.272",
+    "t1": "hb:23",
+    "at": "hb:20.75",
+    "x": 980,
+    "y": 196,
+    "size": 120,
+    "glyph": "cross",
+    "color": "#B31B1B",
+    "rot": -12,
+    "layer": "paint"
+   }
+  },
+  {
+   "id": "p-amodei",
+   "type": "panel",
+   "t0": "hb:23.5",
+   "t1": "hb:29.5",
+   "content": {
+    "clip": "clips/amodei-cbs-sunday-2026-09.mp4",
+    "picture_in": 192.74,
+    "picture_out": 195.64,
+    "shows": "Dario Amodei to camera, CBS Sunday Morning study set (sun bug bottom-left, real scene)"
+   },
+   "reveal": "none (footage)",
+   "highlight": "blue bristle ring painted on",
+   "transition_in": "tr-v1-zoom (inside the portal ring, opens to full on hb:24)",
+   "transition_out": "iris close hb:29.25-29.5 (PauseAI paints in where he was)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/broll.json amodei-cbs-sunday-2026 (clips/amodei-cbs-sunday-2026-09.mp4)",
+   "lyric_link": "'caught up in the news': the CEO on the news, his words becoming the CBS headline that lands under him",
+   "engine": {
+    "id": "p-amodei",
+    "type": "panel",
+    "t0": "hb:23.5",
+    "t1": "hb:29.5",
+    "prep": "clip",
+    "src": "clips/amodei-cbs-sunday-2026-09.mp4",
+    "in": 192.74,
+    "speed": 1,
+    "oversample": 1.2,
+    "shape": "circle",
+    "frame": {
+     "cx": 540,
+     "cy": 540,
+     "r": 220
+    },
+    "srcFocus": [
+     0.45,
+     0.4
+    ],
+    "entry": "cut",
+    "out": {
+     "style": "iris",
+     "dur": 0.24
+    },
+    "border": "paint",
+    "color": "#2346FF",
+    "borderDelay": 0.1,
+    "kb": {
+     "z": [
+      1.0,
+      1.12
+     ],
+     "pan": [
+      10,
+      0
+     ]
+    },
+    "grade": {
+     "sat": 0.75,
+     "contrast": 1.06,
+     "brightness": -0.02,
+     "grain": 0
+    },
+    "pulse": [
+     "hb:24",
+     "hb:25",
+     "hb:26",
+     "hb:27"
+    ],
+    "pulseAmt": 0.025,
+    "credit": "DARIO AMODEI · CBS SUNDAY MORNING · 2026",
+    "creditAt": [
+     64,
+     262
+    ],
+    "_note": "picture in-point 192.74 at hb:23.5 keeps lip sync with voice-amodei (audio.in 192.42 at song 30.283); one continuous shot of Amodei 188-197 s (ffmpeg scene check, no cutaway)"
+   }
+  },
+  {
+   "id": "voice-amodei",
+   "type": "voice",
+   "t0": "song:30.283",
+   "t1": "song:32.983",
+   "content": {
+    "clip": "clips/amodei-cbs-sunday-2026-09.mp4",
+    "in": 192.42,
+    "out": 195.12,
+    "song_window": [
+     30.283,
+     32.983
+    ],
+    "verbatim": "It's a warning sign that we need to slow down.",
+    "speaker": "Dario Amodei",
+    "year": 2026,
+    "verification": {
+     "small_en_10oct": [
+      [
+       "It's",
+       192.48
+      ],
+      [
+       "a",
+       192.62
+      ],
+      [
+       "warning",
+       192.74
+      ],
+      [
+       "sign",
+       193.06
+      ],
+      [
+       "that",
+       193.48
+      ],
+      [
+       "we",
+       193.7
+      ],
+      [
+       "need",
+       193.84
+      ],
+      [
+       "to",
+       194.12
+      ],
+      [
+       "slow",
+       194.36
+      ],
+      [
+       "down.",
+       194.66
+      ]
+     ],
+     "base_en": "clips/transcripts/amodei-cbs-sunday-2026-09-base.json 192.46-194.96 'It's a warning sign that we need to slow down.'",
+     "context": "preceded by 'It doesn't mean we need to panic today. It doesn't mean we need to shut it all down. ... It's a warning sign.' and followed by 'We need to make this technology carefully': the full sentence is used, so the meaning (slow down, not shut down) is unchanged"
+    }
+   },
+   "reveal": "karaoke (kar-amodei)",
+   "highlight": "n/a",
+   "transition_in": "J-cut: audio from song 30.283, 0.32 s before the picture opens",
+   "transition_out": "ends song 32.983 (fade 40 ms)",
+   "audio": {
+    "audible": true,
+    "duck_db": 9
+   },
+   "source": "clips/amodei-cbs-sunday-2026-09.mp4 192.42-195.12 (small.en re-transcribed 10 Oct 186-198 s, base.en agrees); CBS News screenshot xrisk-cbs-amodei quotes the same words",
+   "lyric_link": "'caught up in the news': heard under the line, the news itself talking",
+   "engine": {
+    "id": "voice-amodei",
+    "type": "voice",
+    "t0": "song:30.283",
+    "t1": "song:32.983",
+    "src": "clips/amodei-cbs-sunday-2026-09.mp4",
+    "at": "song:30.283",
+    "audio": {
+     "in": 192.42,
+     "out": 195.12,
+     "fade_ms": 40,
+     "duck_db": 9
+    },
+    "verified": true,
+    "_note": "AUDIBLE over the sung line (verse 1 is sung continuously 28.87-50.48): 'It's a' falls in the gap after 'drink' (30.3-30.64), 'warning' on hb:23.5, 'that' on hb:25, 'slow' on hb:27, 'down.' 32.52-32.92 mostly in the 32.5-32.71 gap before 'Of who'. Song ducked a fixed 9 dB (mix.py duck_db)."
+   }
+  },
+  {
+   "id": "kar-amodei",
+   "type": "karaoke",
+   "t0": "hb:23.5",
+   "t1": "hb:29.5",
+   "content": {
+    "text": "It's a warning sign that we need to slow down.",
+    "words_song_s": [
+     [
+      "It's",
+      30.343
+     ],
+     [
+      "a",
+      30.483
+     ],
+     [
+      "warning",
+      30.603
+     ],
+     [
+      "sign",
+      30.923
+     ],
+     [
+      "that",
+      31.343
+     ],
+     [
+      "we",
+      31.563
+     ],
+     [
+      "need",
+      31.703
+     ],
+     [
+      "to",
+      31.983
+     ],
+     [
+      "slow",
+      32.223
+     ],
+     [
+      "down.",
+      32.523
+     ]
+    ],
+    "meta": "DARIO AMODEI, ANTHROPIC CEO · 2026"
+   },
+   "reveal": "karaoke: every word faint (0.3), lit yellow as spoken",
+   "highlight": "yellow pencil underline on 'slow down.' at song 32.62 (just after it is said)",
+   "transition_in": "flies in with the zoom-through (listed in its in)",
+   "transition_out": "fades hb:29.25-29.5",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "clips/amodei-cbs-sunday-2026-09.mp4 (word times small.en, 10 Oct)",
+   "lyric_link": "the karaoke of the audible snippet",
+   "engine": {
+    "id": "kar-amodei",
+    "type": "karaoke",
+    "t0": "hb:23.5",
+    "t1": "hb:29.5",
+    "x": 72,
+    "y": 790,
+    "w": 940,
+    "size": 52,
+    "speech": {
+     "in": 192.42,
+     "at": "song:30.283",
+     "words": [
+      {
+       "w": "It's",
+       "s": 192.48
+      },
+      {
+       "w": "a",
+       "s": 192.62
+      },
+      {
+       "w": "warning",
+       "s": 192.74
+      },
+      {
+       "w": "sign",
+       "s": 193.06
+      },
+      {
+       "w": "that",
+       "s": 193.48
+      },
+      {
+       "w": "we",
+       "s": 193.7
+      },
+      {
+       "w": "need",
+       "s": 193.84
+      },
+      {
+       "w": "to",
+       "s": 194.12
+      },
+      {
+       "w": "slow",
+       "s": 194.36
+      },
+      {
+       "w": "down.",
+       "s": 194.66
+      }
+     ]
+    },
+    "name": "Dario Amodei, Anthropic CEO",
+    "year": "2026",
+    "metaAt": "hb:24.5",
+    "metaPx": 28,
+    "metaGap": 14,
+    "roll": {
+     "dim": 0.3
+    },
+    "marks": [
+     {
+      "phrase": "slow down.",
+      "style": "underline",
+      "at": "song:32.62",
+      "color": "#F2C300",
+      "dur": 0.3,
+      "width": 7
+     }
+    ],
+    "exit": {
+     "style": "fade",
+     "dur": 0.2
+    },
+    "theme": "dark"
+   }
+  },
+  {
+   "id": "pile-news",
+   "type": "screens",
+   "t0": "hb:23.75",
+   "t1": "hb:28.5",
+   "content": {
+    "shots": [
+     {
+      "screenshot": "xrisk-vox-freakout",
+      "file": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/vox-freakout.png",
+      "outlet": "Vox",
+      "date": "2026-09-14",
+      "verbatim_text": "The week the AI freakout went mainstream",
+      "highlight_phrase": "The week the AI freakout went mainstream",
+      "crop": null,
+      "lands": "hb:24",
+      "entry": "slam"
+     },
+     {
+      "screenshot": "geopolitics-cnn-hoax-head",
+      "file": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/cnn-hoax-head.png",
+      "outlet": "CNN",
+      "date": "2026-09-14",
+      "verbatim_text": "Trump dismisses AI alarms as a ‘HOAX’ — worrying White House officials",
+      "highlight_phrase": "Trump dismisses AI alarms as a ‘HOAX’",
+      "crop": null,
+      "lands": "hb:24.5",
+      "entry": "drop"
+     },
+     {
+      "screenshot": "capabilities-rev3-cnbc-model-fatigue-headline",
+      "file": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev3/cnbc-model-fatigue-headline.png",
+      "outlet": "CNBC",
+      "date": "2026-09-06",
+      "verbatim_text": "‘Model fatigue’ sets in as AI labs race to roll out new versions at frenetic pace",
+      "highlight_phrase": "‘Model fatigue’ sets in",
+      "crop": null,
+      "lands": "hb:25",
+      "entry": "slam"
+     },
+     {
+      "screenshot": "frontier-rev2-guardian_techscape_sep29_headline",
+      "file": "/home/user/poster/ai-safety-presentation/assets/research/frontier/rev2/guardian_techscape_sep29_headline.png",
+      "outlet": "The Guardian (TechScape)",
+      "date": "2026-09-29",
+      "verbatim_text": "The AI agents are spiraling out of control",
+      "highlight_phrase": "The AI agents are spiraling out of control",
+      "crop": null,
+      "lands": "hb:25.5",
+      "entry": "slide"
+     },
+     {
+      "screenshot": "xrisk-cbs-amodei",
+      "file": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/cbs-amodei.png",
+      "outlet": "CBS News",
+      "date": "2026-09-12",
+      "verbatim_text": "Anthropic CEO Dario Amodei says \"exponential\" growth of AI is a \"warning sign that we need to slow down\"",
+      "highlight_phrase": "\"warning sign that we need to slow down\"",
+      "crop": null,
+      "lands": "hb:26",
+      "entry": "slam"
+     }
+    ]
+   },
+   "reveal": "five cards on 8ths (hb:24-26), the AI news piling up",
+   "highlight": "CBS's '\"warning sign that we need to slow down\"' marker swept at hb:26.75 as he says 'need to slow down'; pushed hb:27; LIFTED hb:27.5 = the instant he says 'down.' (32.52); pencil circle hb:28",
+   "transition_in": "lands under the opening zoom-through portal",
+   "transition_out": "tr-v1-fold (hb:28.5)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/screens.json xrisk-vox-freakout, geopolitics-cnn-hoax-head, capabilities-rev3-cnbc-model-fatigue-headline, frontier-rev2-guardian_techscape_sep29_headline, xrisk-cbs-amodei",
+   "lyric_link": "'so caught up in the news': the week the AI freakout went mainstream, 'model fatigue' at a frenetic pace; his spoken words become the headline",
+   "engine": {
+    "id": "pile-news",
+    "type": "screens",
+    "t0": "hb:23.75",
+    "t1": "hb:28.5",
+    "layout": "scatter",
+    "center": [
+     540,
+     1270
+    ],
+    "w": 860,
+    "jitter": {
+     "x": 50,
+     "y": 36,
+     "rot": 6
+    },
+    "shots": [
+     {
+      "id": "xrisk-vox-freakout",
+      "at": "hb:24",
+      "entry": "slam"
+     },
+     {
+      "id": "geopolitics-cnn-hoax-head",
+      "at": "hb:24.5",
+      "entry": "drop"
+     },
+     {
+      "id": "capabilities-rev3-cnbc-model-fatigue-headline",
+      "at": "hb:25",
+      "entry": "slam"
+     },
+     {
+      "id": "frontier-rev2-guardian_techscape_sep29_headline",
+      "at": "hb:25.5",
+      "entry": "slide"
+     },
+     {
+      "id": "xrisk-cbs-amodei",
+      "at": "hb:26",
+      "entry": "slam",
+      "hl": 0,
+      "hlAt": "hb:26.75"
+     }
+    ],
+    "push": {
+     "at": "hb:27",
+     "z": 1.32,
+     "dur": 0.42,
+     "shot": 4,
+     "to": [
+      540,
+      1230
+     ]
+    },
+    "emph": [
+     {
+      "style": "lift",
+      "at": "hb:27.5",
+      "shot": 4
+     },
+     {
+      "style": "circle",
+      "at": "hb:28",
+      "shot": 4
+     }
+    ],
+    "pulse": [
+     "hb:25",
+     "hb:26"
+    ],
+    "out": "cut"
+   }
+  },
+  {
+   "id": "eq-dpo",
+   "type": "equation",
+   "t0": "hb:28.5",
+   "t1": "hb:32",
+   "content": {
+    "equation": "dpo (stacked 3-row form, research field `tex`)",
+    "highlight_terms": [
+     "highlight_latex (the preferred answer y_w)",
+     "\\beta \\log \\frac{\\pi_{\\theta}(y_l\\mid x)}{\\pi_\\text{ref}(y_l\\mid x)} (the rejected answer y_l)"
+    ],
+    "cite": "Rafailov et al. 2023, DPO (arXiv:2305.18290), eq. 7",
+    "label": "DPO: learn from which answer people preferred"
+   },
+   "reveal": "chalk drawn glyph by glyph, one row per 8th (hb:28.5, 29, 29.5); label words 0.06 s apart; cite rolled from hb:30",
+   "highlight": "yellow highlighter behind the y_w term on hb:29.75 ('me and'); pink pencil circle on the y_l term on hb:30.25 (the sung 'hates', 33.87)",
+   "transition_in": "tr-v1-fold (unfolds out of the news pile's back on hb:28.5, the sung 'likes')",
+   "transition_out": "tr-v1-particles (hb:32)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/equations.json dpo (tex, highlight_latex)",
+   "lyric_link": "'who likes me and who hates you' = the preferred (y_w) and rejected (y_l) answers a model is trained on",
+   "engine": {
+    "id": "eq-dpo",
+    "type": "equation",
+    "t0": "hb:28.5",
+    "t1": "hb:32",
+    "ref": "dpo",
+    "drop": "hb:28.5",
+    "mode": "chalk",
+    "rows": [
+     "hb:28.5",
+     "hb:29",
+     "hb:29.5"
+    ],
+    "cx": 540,
+    "cy": 960,
+    "px": 44,
+    "maxW": 960,
+    "label": {
+     "text": "DPO: learn from which answer people preferred",
+     "at": "hb:28.75",
+     "per": 0.06,
+     "font": {
+      "size": 38
+     }
+    },
+    "cite": {
+     "at": "hb:30",
+     "px": 24
+    },
+    "hl": [
+     {
+      "from": "highlight",
+      "at": "hb:29.75",
+      "style": "marker",
+      "color": "#F2C300"
+     },
+     {
+      "tex": "\\beta \\log \\frac{\\pi_{\\theta}(y_l\\mid x)}{\\pi_\\text{ref}(y_l\\mid x)}",
+      "at": "hb:30.25",
+      "style": "circle",
+      "color": "#FF2E88"
+     }
+    ],
+    "pulse": [
+     "hb:30.5",
+     "hb:31"
+    ],
+    "card": {
+     "color": "#15131F",
+     "pad": 34,
+     "rot": -1.0
+    },
+    "theme": "dark"
+   }
+  },
+  {
+   "id": "p-pause",
+   "type": "panel",
+   "t0": "hb:29.5",
+   "t1": "hb:32",
+   "content": {
+    "broll": "pauseai-march-2026",
+    "window": [
+     20.0,
+     23.0
+    ],
+    "shows": "PauseAI protesters with signs and banner (London, 28 Feb 2026)"
+   },
+   "reveal": "none (footage)",
+   "highlight": "violet bristle ring",
+   "transition_in": "painted in where Amodei's circle closed (hb:29.5)",
+   "transition_out": "tr-v1-particles (hb:32)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/broll.json pauseai-march-2026 (window 20.0-23.0)",
+   "lyric_link": "'who hates you': the public turning on the labs",
+   "engine": {
+    "id": "p-pause",
+    "type": "panel",
+    "t0": "hb:29.5",
+    "t1": "hb:32",
+    "prep": "clip",
+    "broll": "pauseai-march-2026",
+    "in": 20.0,
+    "speed": 1,
+    "oversample": 1.2,
+    "shape": "blob",
+    "frame": {
+     "cx": 540,
+     "cy": 540,
+     "r": 220
+    },
+    "entry": {
+     "style": "paint",
+     "at": "hb:29.5"
+    },
+    "out": "cut",
+    "border": "paint",
+    "color": "#7B3FF2",
+    "kb": {
+     "z": [
+      1.05,
+      1.2
+     ],
+     "pan": [
+      -30,
+      0
+     ]
+    },
+    "grade": {
+     "sat": 0.45,
+     "contrast": 1.1,
+     "grain": 0
+    },
+    "pulse": [
+     "hb:30",
+     "hb:31"
+    ],
+    "pulseAmt": 0.03,
+    "credit": "PAUSEAI UK · MARCH FOR AI SAFETY · FEB 2026",
+    "creditAt": [
+     64,
+     262
+    ]
+   }
+  },
+  {
+   "id": "pile-syco",
+   "type": "screens",
+   "t0": "hb:29.75",
+   "t1": "hb:32",
+   "content": {
+    "shots": [
+     {
+      "screenshot": "techcrunch-2025-04-29-sycophantic",
+      "file": "/home/user/hyperplane-teaser/research/rev2/captures/techcrunch-2025-04-29-sycophantic.png",
+      "outlet": "TechCrunch",
+      "date": "2025-04-29",
+      "verbatim_text": "OpenAI explains why ChatGPT became too sycophantic",
+      "highlight_phrase": "too sycophantic",
+      "crop": [
+       1212,
+       738,
+       2392,
+       1010
+      ],
+      "lands": "hb:30",
+      "entry": "slam"
+     }
+    ]
+   },
+   "reveal": "slams on hb:30 (the sung 'who hates')",
+   "highlight": "marker on 'too sycophantic' hb:30.5; push hb:31 (accent 0.53); lift hb:31.25",
+   "transition_in": "slam",
+   "transition_out": "tr-v1-particles (hb:32)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/captures.json techcrunch-2025-04-29-sycophantic (cropped to its two-line headline)",
+   "lyric_link": "'who likes me': a model trained on likes turns into a flatterer",
+   "engine": {
+    "id": "pile-syco",
+    "type": "screens",
+    "t0": "hb:29.75",
+    "t1": "hb:32",
+    "region": {
+     "x0": 60,
+     "y0": 1200,
+     "x1": 1020,
+     "y1": 1500
+    },
+    "w": 880,
+    "shots": [
+     {
+      "id": "techcrunch-2025-04-29-sycophantic",
+      "at": "hb:30",
+      "entry": "slam",
+      "hlAt": "hb:30.5",
+      "crop": [
+       1212,
+       738,
+       2392,
+       1010
+      ]
+     }
+    ],
+    "push": {
+     "at": "hb:31",
+     "z": 1.25,
+     "dur": 0.36,
+     "to": [
+      540,
+      1330
+     ]
+    },
+    "emph": [
+     {
+      "style": "lift",
+      "at": "hb:31.25"
+     }
+    ],
+    "out": "cut"
+   }
+  },
+  {
+   "id": "v1-tower",
+   "type": "net",
+   "t0": "hb:32",
+   "t1": "hb:44",
+   "content": {
+    "tokens": [
+     "AI",
+     "that",
+     "builds",
+     "better"
+    ],
+    "predicts": "AI",
+    "token_source": "the Splash deck's title 'AI that builds better AI' (also the refrain loop's title)",
+    "infer_beats": [
+     "hb:32",
+     "hb:32.5",
+     "hb:33",
+     "hb:33.5",
+     "hb:34",
+     "hb:34.5",
+     "hb:35",
+     "hb:36"
+    ],
+    "backprop_beats": "hb:40, 40.5, 41, 41.5, 42, 42.5, 43",
+    "tags": [
+     "attention · 4 heads",
+     "MLP",
+     "residual stream"
+    ]
+   },
+   "reveal": "3D: blocks light up stage by stage on 8ths; DOM tags fade in per block",
+   "highlight": "each firing block flashes; predicted token 'AI' pops in pink (scale 1.7->1) on hb:36; orange gradient sweep hb:40-43",
+   "transition_in": "tr-v1-particles (paint particles from bar 7 land on its halftone, hb:31.5-33)",
+   "transition_out": "tr-v1-wipe (hb:44)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/netviz.js kind tower (README Builder B); deck title via edl/make_showcase.py loop title",
+   "lyric_link": "'so tired that I might / quit my job': the machine never tires; its forward pass finishes exactly on 'Quit', the AI answering for us; 'disappointed' = the loss flowing back",
+   "engine": {
+    "id": "v1-tower",
+    "type": "net",
+    "t0": "hb:32",
+    "t1": "hb:44",
+    "kind": "tower",
+    "tokens": [
+     "AI",
+     "that",
+     "builds",
+     "better"
+    ],
+    "next": "AI",
+    "blocks": 3,
+    "nHeads": 4,
+    "infer": [
+     "hb:32",
+     "hb:32.5",
+     "hb:33",
+     "hb:33.5",
+     "hb:34",
+     "hb:34.5",
+     "hb:35",
+     "hb:36"
+    ],
+    "backprop": {
+     "from": "hb:40",
+     "to": "hb:43",
+     "every": 0.5
+    },
+    "wideAt": "hb:43.25",
+    "glScale": 0.5,
+    "ground": "none",
+    "labels": true,
+    "splats": true,
+    "cam": {
+     "orbit": 30,
+     "roll": -4,
+     "wideDur": 0.6
+    },
+    "_note": "builder B's 3D hero. Forward pass one stage per 8th (embed, attn/MLP x3) with the output token landing on hb:36 = the sung 'Quit' (36.65); the camera holds on the output through Coxon's line (orbiting), then backprop on 8ths hb:40-43 (river turns orange and flows up, each block flashes as the gradient passes), pull-back over the whole tower on hb:43.25 as the paint wipe arrives"
+   }
+  },
+  {
+   "id": "eq-attn",
+   "type": "equation",
+   "t0": "hb:32.5",
+   "t1": "hb:35.75",
+   "content": {
+    "equation": "attention",
+    "cite": "Vaswani et al. 2017, Attention Is All You Need (arXiv:1706.03762), eq. 1",
+    "highlight_term": "\\frac{QK^T}{\\sqrt{d_k}}",
+    "label": "each word decides which earlier words matter"
+   },
+   "reveal": "slams in on the first attention stage (hb:32.5); label words 0.06 s apart; cite from hb:33.5",
+   "highlight": "pink pencil circle on QK^T/sqrt(d_k) on hb:34.5 (third attention block fires)",
+   "transition_in": "slam + 6 px hit + yellow ink flash",
+   "transition_out": "fades hb:35.6-35.75 before the output lands",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/equations.json attention (wins over equations-extra.json's copy)",
+   "lyric_link": "'tired': the forward pass drawn while she sings it",
+   "engine": {
+    "id": "eq-attn",
+    "type": "equation",
+    "t0": "hb:32.5",
+    "t1": "hb:35.75",
+    "ref": "attention",
+    "drop": "hb:32.5",
+    "mode": "slam",
+    "cx": 540,
+    "y": 290,
+    "px": 54,
+    "maxW": 900,
+    "hit": 6,
+    "flash": {
+     "opacity": 0.25,
+     "decay": 0.1,
+     "color": "#F2C300"
+    },
+    "label": {
+     "text": "each word decides which earlier words matter",
+     "at": "hb:32.75",
+     "per": 0.06,
+     "font": {
+      "size": 36
+     }
+    },
+    "cite": {
+     "at": "hb:33.5",
+     "px": 24
+    },
+    "hl": [
+     {
+      "from": "highlight",
+      "at": "hb:34.5",
+      "style": "circle",
+      "color": "#FF2E88"
+     }
+    ],
+    "pulse": [
+     "hb:33.5",
+     "hb:34.5"
+    ],
+    "card": {
+     "color": "#0E0D12",
+     "pad": 30,
+     "rot": 0
+    },
+    "exit": {
+     "style": "fade",
+     "dur": 0.15
+    }
+   }
+  },
+  {
+   "id": "p-fpga",
+   "type": "panel",
+   "t0": "hb:33",
+   "t1": "hb:36",
+   "content": {
+    "broll": "redwood-fpga-llm-inference",
+    "window": [
+     1.5,
+     4.5
+    ],
+    "shows": "Architect Labs Redwood FPGA board next to a monitor streaming an LLM answer token by token (1X speed label)"
+   },
+   "reveal": "none (footage)",
+   "highlight": "boiling pencil border",
+   "transition_in": "pops on hb:33 (the sung 'tired')",
+   "transition_out": "collapses hb:35.75",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/broll.json redwood-fpga-llm-inference (vendor promo)",
+   "lyric_link": "real inference hardware streaming an answer token by token while the tower infers",
+   "engine": {
+    "id": "p-fpga",
+    "type": "panel",
+    "t0": "hb:33",
+    "t1": "hb:36",
+    "prep": "clip",
+    "broll": "redwood-fpga-llm-inference",
+    "in": 1.5,
+    "speed": 1,
+    "oversample": 1.2,
+    "shape": "square",
+    "frame": {
+     "cx": 270,
+     "cy": 1380,
+     "w": 330,
+     "h": 330
+    },
+    "rot": -8,
+    "entry": {
+     "style": "pop",
+     "at": "hb:33"
+    },
+    "out": {
+     "style": "collapse",
+     "at": "hb:35.75",
+     "dur": 0.22
+    },
+    "border": "pencil",
+    "kb": {
+     "z": [
+      1.0,
+      1.15
+     ]
+    },
+    "grade": {
+     "sat": 0.6,
+     "contrast": 1.08,
+     "grain": 0
+    },
+    "pulse": [
+     "hb:34",
+     "hb:35"
+    ],
+    "credit": "ARCHITECT LABS · REDWOOD FPGA · 2026"
+   }
+  },
+  {
+   "id": "pile-jobs",
+   "type": "screens",
+   "t0": "hb:35.75",
+   "t1": "hb:40.5",
+   "content": {
+    "shots": [
+     {
+      "screenshot": "xrisk-rev2-x-coxon-2026-09-08-resigned-anthropic",
+      "file": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/x-coxon-2026-09-08-resigned-anthropic.png",
+      "outlet": "X (@hilbertspaess)",
+      "date": "2026-09-09",
+      "verbatim_text": "I resigned from Anthropic today. I spent the last three years doing pretraining research at both OpenAI and Anthropic. Neither company is acting responsibly. They are racing straight to self-improving superintelligence and gambling with our lives. More thoughts below.",
+      "highlight_phrase": "I resigned from Anthropic today.",
+      "crop": null,
+      "lands": "hb:36",
+      "entry": "slam"
+     },
+     {
+      "screenshot": "economy-guardian_block_4000_jobs_ai",
+      "file": "/home/user/poster/ai-safety-presentation/assets/research/economy/guardian_block_4000_jobs_ai.png",
+      "outlet": "The Guardian",
+      "date": "2026-02-27",
+      "verbatim_text": "Jack Dorsey to cut 4,000 jobs due to AI advances at Square parent Block",
+      "highlight_phrase": "cut 4,000 jobs due to AI advances",
+      "crop": [
+       20,
+       530,
+       1260,
+       875
+      ],
+      "lands": "hb:37",
+      "entry": "drop"
+     }
+    ]
+   },
+   "reveal": "Coxon's X post slams on hb:36 (the sung 'Quit'); the Guardian drops on hb:37 ('job')",
+   "highlight": "marker on 'I resigned from Anthropic today.' hb:36.5; marker on 'cut 4,000 jobs due to AI advances' hb:38.5; push hb:39 into it; lift hb:39.5",
+   "transition_in": "slam",
+   "transition_out": "tr-v1-whip (hb:40)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/screens.json xrisk-rev2-x-coxon-2026-09-08-resigned-anthropic, economy-guardian_block_4000_jobs_ai (crop as edl/test-screens.json)",
+   "lyric_link": "'quit my job': the researcher who quit, and the jobs AI is cutting",
+   "engine": {
+    "id": "pile-jobs",
+    "type": "screens",
+    "t0": "hb:35.75",
+    "t1": "hb:40.5",
+    "region": {
+     "x0": 60,
+     "y0": 1020,
+     "x1": 1020,
+     "y1": 1500
+    },
+    "w": 860,
+    "shots": [
+     {
+      "id": "xrisk-rev2-x-coxon-2026-09-08-resigned-anthropic",
+      "at": "hb:36",
+      "entry": "slam",
+      "hlAt": "hb:36.5"
+     },
+     {
+      "id": "economy-guardian_block_4000_jobs_ai",
+      "at": "hb:37",
+      "entry": "drop",
+      "hlAt": "hb:38.5",
+      "crop": [
+       20,
+       530,
+       1260,
+       875
+      ]
+     }
+    ],
+    "push": {
+     "at": "hb:39",
+     "z": 1.35,
+     "dur": 0.42,
+     "shot": 1,
+     "to": [
+      540,
+      1240
+     ]
+    },
+    "emph": [
+     {
+      "style": "lift",
+      "at": "hb:39.5",
+      "shot": 1
+     }
+    ],
+    "pulse": [
+     "hb:37",
+     "hb:38"
+    ],
+    "out": "cut"
+   }
+  },
+  {
+   "id": "p-coxon-v1",
+   "type": "panel",
+   "t0": "song:37.339",
+   "t1": "hb:40.5",
+   "content": {
+    "clip": "clips/coxon-daily-show.mp4",
+    "picture_in": 529.0,
+    "picture_out": 530.49,
+    "shows": "Jacob Coxon close-up, The Daily Show set"
+   },
+   "reveal": "none (footage)",
+   "highlight": "orange bristle ring (the cover's orange disc)",
+   "transition_in": "iris open song 37.339",
+   "transition_out": "tr-v1-whip (hb:40)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/broll.json coxon-daily-show window 528.8-530.1; research/verify/SUMMARY.md (air date Oct 5, 2026; role)",
+   "lyric_link": "'quit my job': the man who quit Anthropic, on TV",
+   "engine": {
+    "id": "p-coxon-v1",
+    "type": "panel",
+    "t0": "song:37.339",
+    "t1": "hb:40.5",
+    "prep": "clip",
+    "src": "clips/coxon-daily-show.mp4",
+    "in": 529.0,
+    "speed": 1,
+    "oversample": 1.2,
+    "shape": "circle",
+    "frame": {
+     "cx": 760,
+     "cy": 500,
+     "r": 215
+    },
+    "srcFocus": [
+     0.4,
+     0.45
+    ],
+    "entry": {
+     "style": "iris",
+     "at": "song:37.339",
+     "dur": 0.16
+    },
+    "out": "cut",
+    "border": "paint",
+    "color": "#FF4A1C",
+    "kb": {
+     "z": [
+      1.05,
+      1.18
+     ]
+    },
+    "grade": {
+     "sat": 0.5,
+     "contrast": 1.1,
+     "grain": 0
+    },
+    "pulse": [
+     "hb:38",
+     "hb:39"
+    ],
+    "pulseAmt": 0.03,
+    "credit": "THE DAILY SHOW · OCT 5, 2026",
+    "creditAt": [
+     64,
+     262
+    ],
+    "_note": "opens on the show's own cut to his close-up (src 529.00 = song 37.339); audio leads by 0.18 s (J-cut, as the short did in r5)"
+   }
+  },
+  {
+   "id": "voice-coxon-v1",
+   "type": "voice",
+   "t0": "song:37.159",
+   "t1": "song:38.459",
+   "content": {
+    "clip": "clips/coxon-daily-show.mp4",
+    "in": 528.82,
+    "out": 530.12,
+    "song_window": [
+     37.159,
+     38.459
+    ],
+    "verbatim": "There won't be jobs in this world.",
+    "speaker": "Jacob Coxon",
+    "year": 2026,
+    "verification": {
+     "words": [
+      [
+       "There",
+       528.82
+      ],
+      [
+       "won't",
+       528.88
+      ],
+      [
+       "be",
+       529.22
+      ],
+      [
+       "jobs",
+       529.28
+      ],
+      [
+       "in",
+       529.67
+      ],
+      [
+       "this",
+       529.74
+      ],
+      [
+       "world.",
+       529.84
+      ]
+     ],
+     "files": "clips/transcripts/coxon.json 528.34-530.02; out/NOTES.md 'Rejected or kept' table (heard exactly as captioned in the final short, both files)",
+     "context": "the 'Yeah,' before it is trimmed (528.34-528.70); Stewart's question was about jobs; the next sentence ('This is the world that is being envisioned by the people building the technology.') is not used"
+    }
+   },
+   "reveal": "karaoke (kar-coxon-v1)",
+   "highlight": "n/a",
+   "transition_in": "audio from song 37.159, right after the sung 'job,'",
+   "transition_out": "ends song 38.459",
+   "audio": {
+    "audible": true,
+    "duck_db": 9
+   },
+   "source": "clips/coxon-daily-show.mp4 528.82-530.12",
+   "lyric_link": "call and response: she sings 'quit my job', he answers 'There won't be jobs in this world.'",
+   "engine": {
+    "id": "voice-coxon-v1",
+    "type": "voice",
+    "t0": "song:37.159",
+    "t1": "song:38.459",
+    "src": "clips/coxon-daily-show.mp4",
+    "at": "song:37.159",
+    "audio": {
+     "in": 528.82,
+     "out": 530.12,
+     "fade_ms": 30,
+     "duck_db": 9
+    },
+    "verified": true,
+    "_note": "AUDIBLE: 'jobs' (src 529.28) lands on hb:38 (37.619) under the sung 'start a new life'; the take and in-point are the ones verified for the short (out/NOTES.md: 528.82 is heard as 'There', not 'That')"
+   }
+  },
+  {
+   "id": "kar-coxon-v1",
+   "type": "karaoke",
+   "t0": "song:37.1",
+   "t1": "hb:40.5",
+   "content": {
+    "text": "There won't be jobs in this world.",
+    "words_song_s": [
+     [
+      "There",
+      37.159
+     ],
+     [
+      "won't",
+      37.219
+     ],
+     [
+      "be",
+      37.559
+     ],
+     [
+      "jobs",
+      37.619
+     ],
+     [
+      "in",
+      38.009
+     ],
+     [
+      "this",
+      38.079
+     ],
+     [
+      "world.",
+      38.179
+     ]
+    ],
+    "meta": "JACOB COXON, FORMER ANTHROPIC & OPENAI RESEARCHER · 2026"
+   },
+   "reveal": "karaoke: faint words lit as spoken",
+   "highlight": "orange pencil underline on 'JOBS' right after hb:38",
+   "transition_in": "rule draws song 37.10",
+   "transition_out": "tr-v1-whip (hb:40)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "clips/transcripts/coxon.json; research/verify/SUMMARY.md (role 'Former Anthropic & OpenAI researcher')",
+   "lyric_link": "karaoke of the audible snippet",
+   "engine": {
+    "id": "kar-coxon-v1",
+    "type": "karaoke",
+    "t0": "song:37.1",
+    "t1": "hb:40.5",
+    "x": 72,
+    "y": 752,
+    "w": 940,
+    "size": 52,
+    "speech": {
+     "in": 528.82,
+     "at": "song:37.159",
+     "words": [
+      {
+       "w": "There",
+       "s": 528.82
+      },
+      {
+       "w": "won't",
+       "s": 528.88
+      },
+      {
+       "w": "be",
+       "s": 529.22
+      },
+      {
+       "w": "jobs",
+       "s": 529.28
+      },
+      {
+       "w": "in",
+       "s": 529.67
+      },
+      {
+       "w": "this",
+       "s": 529.74
+      },
+      {
+       "w": "world.",
+       "s": 529.84
+      }
+     ]
+    },
+    "name": "Jacob Coxon, former Anthropic & OpenAI researcher",
+    "year": "2026",
+    "metaAt": "song:37.25",
+    "metaPx": 26,
+    "metaGap": 14,
+    "roll": {
+     "dim": 0.3
+    },
+    "marks": [
+     {
+      "phrase": "jobs",
+      "style": "underline",
+      "at": "hb:38.1",
+      "color": "#FF4A1C",
+      "dur": 0.22,
+      "width": 7
+     }
+    ],
+    "theme": "dark"
+   }
+  },
+  {
+   "id": "eq-ntp",
+   "type": "equation",
+   "t0": "hb:40",
+   "t1": "hb:44",
+   "content": {
+    "equation": "ntp-ce",
+    "cite": "Gloeckle et al. 2024 (arXiv:2404.19737), eq. 1",
+    "highlight_term": "\\log P_\\theta(x_{t+1} \\mid x_{t:1})",
+    "label": "the loss: the guess scored against the true next word"
+   },
+   "reveal": "chalk drawn glyph by glyph in 0.6 s from hb:40; label and cite rolled",
+   "highlight": "orange pencil underline on log P(x_{t+1}|x_{t:1}) on hb:41.5",
+   "transition_in": "tr-v1-whip (whips in from the right on hb:40)",
+   "transition_out": "tr-v1-wipe (hb:44)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/equations.json ntp-ce",
+   "lyric_link": "'they'd all be so disappointed': the model scored against the truth; the error is what flows back",
+   "engine": {
+    "id": "eq-ntp",
+    "type": "equation",
+    "t0": "hb:40",
+    "t1": "hb:44",
+    "ref": "ntp-ce",
+    "drop": "hb:40",
+    "mode": "chalk",
+    "dur": 0.6,
+    "cx": 540,
+    "y": 290,
+    "px": 54,
+    "maxW": 900,
+    "label": {
+     "text": "the loss: the guess scored against the true next word",
+     "at": "hb:40.25",
+     "per": 0.06,
+     "font": {
+      "size": 36
+     }
+    },
+    "cite": {
+     "at": "hb:40.5",
+     "px": 24
+    },
+    "hl": [
+     {
+      "from": "highlight",
+      "at": "hb:41.5",
+      "style": "underline",
+      "color": "#FF4A1C"
+     }
+    ],
+    "card": {
+     "color": "#0E0D12",
+     "pad": 30,
+     "rot": 0
+    },
+    "exit": "cut"
+   }
+  },
+  {
+   "id": "eq-upd",
+   "type": "equation",
+   "t0": "hb:41",
+   "t1": "hb:44",
+   "content": {
+    "equation": "gd-update",
+    "cite": "Nielsen 2015, ch. 1, eq. 16",
+    "highlight_term": "\\eta \\frac{\\partial C}{\\partial w_k}",
+    "label": "backprop: every weight nudged downhill"
+   },
+   "reveal": "slams on hb:41 (accent 0.58) with an 8 px hit and an orange flash",
+   "highlight": "yellow underline on eta dC/dw_k on hb:42 (accent 0.73, the sung 'disappointed')",
+   "transition_in": "slam",
+   "transition_out": "tr-v1-wipe (hb:44)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/equations-extra.json gd-update (Nielsen 2015 ch. 1 eq. 16)",
+   "lyric_link": "'disappointed': the update that answers the disappointment",
+   "engine": {
+    "id": "eq-upd",
+    "type": "equation",
+    "t0": "hb:41",
+    "t1": "hb:44",
+    "ref": "gd-update",
+    "drop": "hb:41",
+    "mode": "slam",
+    "cx": 540,
+    "y": 500,
+    "px": 56,
+    "maxW": 900,
+    "hit": 8,
+    "flash": {
+     "opacity": 0.3,
+     "decay": 0.1,
+     "color": "#FF4A1C"
+    },
+    "label": {
+     "text": "backprop: every weight nudged downhill",
+     "at": "hb:41",
+     "per": 0.05,
+     "font": {
+      "size": 36
+     }
+    },
+    "cite": {
+     "at": "hb:41.25",
+     "px": 24
+    },
+    "hl": [
+     {
+      "tex": "\\eta \\frac{\\partial C}{\\partial w_k}",
+      "at": "hb:42",
+      "style": "underline",
+      "color": "#F2C300"
+     }
+    ],
+    "pulse": [
+     "hb:42",
+     "hb:43"
+    ],
+    "card": {
+     "color": "#0E0D12",
+     "pad": 30,
+     "rot": 0
+    },
+    "exit": "cut"
+   }
+  },
+  {
+   "id": "pile-disappoint",
+   "type": "screens",
+   "t0": "hb:40.25",
+   "t1": "hb:44",
+   "content": {
+    "shots": [
+     {
+      "screenshot": "xrisk-techcrunch-robinson",
+      "file": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/techcrunch-robinson.png",
+      "outlet": "TechCrunch",
+      "date": "2026-10-03",
+      "verbatim_text": "OpenAI safety employee resigns, claiming the company’s ‘culture is broken’",
+      "highlight_phrase": "culture is broken",
+      "crop": null,
+      "lands": "hb:40.5",
+      "entry": "slam"
+     },
+     {
+      "screenshot": "xrisk-commondreams-whistleblowers",
+      "file": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/commondreams-whistleblowers.png",
+      "outlet": "Common Dreams",
+      "date": "2026-10-01",
+      "verbatim_text": "‘Looks Like They’re Firing Whistleblowers’: Alarm as OpenAI Reportedly Ousts Safety Experts",
+      "highlight_phrase": "Firing Whistleblowers",
+      "crop": null,
+      "lands": "hb:42",
+      "entry": "drop"
+     }
+    ]
+   },
+   "reveal": "TechCrunch slams hb:40.5; Common Dreams drops hb:42 (the sung 'disappointed')",
+   "highlight": "markers hb:41.5 ('culture is broken') and hb:42.5 ('Firing Whistleblowers'); push back into 'culture is broken' hb:43; lift hb:43.5",
+   "transition_in": "slam",
+   "transition_out": "tr-v1-wipe (hb:44)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/screens.json xrisk-techcrunch-robinson, xrisk-commondreams-whistleblowers",
+   "lyric_link": "'they'd all be so disappointed': the people inside, disappointed in their labs",
+   "engine": {
+    "id": "pile-disappoint",
+    "type": "screens",
+    "t0": "hb:40.25",
+    "t1": "hb:44",
+    "region": {
+     "x0": 60,
+     "y0": 1120,
+     "x1": 1020,
+     "y1": 1500
+    },
+    "w": 880,
+    "shots": [
+     {
+      "id": "xrisk-techcrunch-robinson",
+      "at": "hb:40.5",
+      "entry": "slam",
+      "hlAt": "hb:41.5"
+     },
+     {
+      "id": "xrisk-commondreams-whistleblowers",
+      "at": "hb:42",
+      "entry": "drop",
+      "hlAt": "hb:42.5"
+     }
+    ],
+    "push": {
+     "at": "hb:43",
+     "z": 1.3,
+     "dur": 0.4,
+     "shot": 0,
+     "to": [
+      540,
+      1260
+     ]
+    },
+    "emph": [
+     {
+      "style": "lift",
+      "at": "hb:43.5",
+      "shot": 0
+     }
+    ],
+    "out": "cut"
+   }
+  },
+  {
+   "id": "p-coast",
+   "type": "panel",
+   "t0": "hb:44.25",
+   "t1": "hb:48",
+   "content": {
+    "broll": "coastrunners-specification-gaming",
+    "window": [
+     0.4,
+     3.4
+    ],
+    "shows": "CoastRunners: a reinforcement-learning boat loops through green targets and crashes in a lagoon instead of finishing the race (specification gaming)"
+   },
+   "reveal": "none (footage)",
+   "highlight": "red bristle ring",
+   "transition_in": "iris open hb:44.25 as the paint bands tear away",
+   "transition_out": "tr-v1-illum (hb:48)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/broll.json coastrunners-specification-gaming (older, used once)",
+   "lyric_link": "'if not exploited': an AI exploiting its own reward",
+   "engine": {
+    "id": "p-coast",
+    "type": "panel",
+    "t0": "hb:44.25",
+    "t1": "hb:48",
+    "prep": "clip",
+    "broll": "coastrunners-specification-gaming",
+    "in": 0.4,
+    "speed": 1,
+    "oversample": 1.25,
+    "shape": "triangle",
+    "frame": {
+     "cx": 540,
+     "cy": 500,
+     "w": 440,
+     "h": 380
+    },
+    "rot": 180,
+    "entry": {
+     "style": "iris",
+     "at": "hb:44.25",
+     "dur": 0.24
+    },
+    "out": "cut",
+    "border": "paint",
+    "color": "#B31B1B",
+    "kb": {
+     "z": [
+      1.1,
+      1.3
+     ]
+    },
+    "grade": {
+     "sat": 0.7,
+     "contrast": 1.1,
+     "grain": 0
+    },
+    "pulse": [
+     "hb:45",
+     "hb:46",
+     "hb:47"
+    ],
+    "pulseAmt": 0.035,
+    "credit": "SPECIFICATION GAMING · DEEPMIND BLOG · 2020",
+    "creditAt": [
+     64,
+     262
+    ],
+    "_note": "rot 180 = the cover's downward red triangle (nabla); footage stays upright"
+   }
+  },
+  {
+   "id": "pile-exploit",
+   "type": "screens",
+   "t0": "hb:43.75",
+   "t1": "hb:48",
+   "content": {
+    "shots": [
+     {
+      "screenshot": "geopolitics-anthropic-gtg1002-headline",
+      "file": "/home/user/poster/ai-safety-presentation/assets/research/geopolitics/anthropic-gtg1002-headline.png",
+      "outlet": "Anthropic",
+      "date": "2025-11-13",
+      "verbatim_text": "Disrupting the first reported AI-orchestrated cyber espionage campaign",
+      "highlight_phrase": "first reported AI-orchestrated cyber espionage campaign",
+      "crop": null,
+      "lands": "hb:44",
+      "entry": "slam"
+     },
+     {
+      "screenshot": "time-2023-01-18-kenyan-workers",
+      "file": "/home/user/hyperplane-teaser/research/rev2/captures/time-2023-01-18-kenyan-workers.png",
+      "outlet": "TIME",
+      "date": "2023-01-18",
+      "verbatim_text": "Exclusive: OpenAI Used Kenyan Workers on Less Than $2 Per Hour to Make ChatGPT Less Toxic",
+      "highlight_phrase": "Used Kenyan Workers on Less Than $2 Per Hour",
+      "crop": [
+       120,
+       250,
+       920,
+       790
+      ],
+      "lands": "hb:44.5",
+      "entry": "drop"
+     },
+     {
+      "screenshot": "susmangodfrey-2025-09-25-piracy-settlement",
+      "file": "/home/user/hyperplane-teaser/research/rev2/captures/susmangodfrey-2025-09-25-piracy-settlement.png",
+      "outlet": "Susman Godfrey",
+      "date": "2025-09-25",
+      "verbatim_text": "Susman Godfrey Secures $1.5 Billion Settlement in Landmark AI Piracy Case",
+      "highlight_phrase": "$1.5 Billion Settlement",
+      "crop": [
+       821,
+       360,
+       2351,
+       1112
+      ],
+      "lands": "hb:45",
+      "entry": "slam"
+     },
+     {
+      "screenshot": "capabilities-variety-suno-v6",
+      "file": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/variety-suno-v6.png",
+      "outlet": "Variety",
+      "date": "2026-09-18",
+      "verbatim_text": "Sony Music, Universal Music Group Sue Suno Over Label-Backed Model: ‘Fruit of the Same Poisoned Tree’",
+      "highlight_phrase": "Sony Music, Universal Music Group Sue Suno",
+      "crop": [
+       0,
+       0,
+       1350,
+       330
+      ],
+      "lands": "hb:45.5",
+      "entry": "paint"
+     }
+    ]
+   },
+   "reveal": "four cards on 8ths hb:44-45.5 (both sides of 'exploited': AI used by attackers, people's work and labour used by AI)",
+   "highlight": "markers per card; push hb:46 into TIME's 'Used Kenyan Workers on Less Than $2 Per Hour'; LIFT hb:46.5 = the sung 'exploited' (41.68); pencil circle hb:47 (accent 1.0)",
+   "transition_in": "first card under the tearing paint bands (hb:44)",
+   "transition_out": "tr-v1-illum (hb:48)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/screens.json geopolitics-anthropic-gtg1002-headline, capabilities-variety-suno-v6; research/rev2/captures.json time-2023-01-18-kenyan-workers, susmangodfrey-2025-09-25-piracy-settlement",
+   "lyric_link": "'who am I if not exploited': the exploited labellers who made ChatGPT safer, artists' and authors' work, an AI-orchestrated attack",
+   "engine": {
+    "id": "pile-exploit",
+    "type": "screens",
+    "t0": "hb:43.75",
+    "t1": "hb:48",
+    "region": {
+     "x0": 60,
+     "y0": 800,
+     "x1": 1020,
+     "y1": 1500
+    },
+    "w": 860,
+    "shots": [
+     {
+      "id": "geopolitics-anthropic-gtg1002-headline",
+      "at": "hb:44",
+      "entry": "slam"
+     },
+     {
+      "id": "time-2023-01-18-kenyan-workers",
+      "at": "hb:44.5",
+      "entry": "drop",
+      "crop": [
+       120,
+       250,
+       920,
+       790
+      ]
+     },
+     {
+      "id": "susmangodfrey-2025-09-25-piracy-settlement",
+      "at": "hb:45",
+      "entry": "slam",
+      "hl": 0
+     },
+     {
+      "id": "capabilities-variety-suno-v6",
+      "at": "hb:45.5",
+      "entry": "paint",
+      "crop": [
+       0,
+       0,
+       1350,
+       330
+      ]
+     }
+    ],
+    "push": {
+     "at": "hb:46",
+     "z": 1.4,
+     "dur": 0.42,
+     "shot": 1,
+     "to": [
+      540,
+      1080
+     ]
+    },
+    "emph": [
+     {
+      "style": "lift",
+      "at": "hb:46.5",
+      "shot": 1
+     },
+     {
+      "style": "circle",
+      "at": "hb:47",
+      "shot": 1
+     }
+    ],
+    "pulse": [
+     "hb:46",
+     "hb:47"
+    ],
+    "out": "cut"
+   }
+  },
+  {
+   "id": "v1-splat-exploit",
+   "type": "splat",
+   "t0": "hb:47",
+   "t1": "hb:48",
+   "content": {
+    "splat": "red, r 160, bottom margin"
+   },
+   "reveal": "3-frame burst, satellites, drips",
+   "highlight": "none",
+   "transition_in": "hb:47 (accent 1.0)",
+   "transition_out": "culls by hb:48",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js splat (style.md 4.3)",
+   "lyric_link": "the last word of the verse, 'exploited', hits",
+   "engine": {
+    "id": "v1-splat-exploit",
+    "type": "splat",
+    "t0": "hb:47",
+    "t1": "hb:48",
+    "at": "hb:47",
+    "x": 880,
+    "y": 1680,
+    "r": 160,
+    "color": "#B31B1B",
+    "dir": -110,
+    "layer": "paint",
+    "cullDur": 0.4
+   }
+  },
+  {
+   "id": "v1-splat-break",
+   "type": "splat",
+   "t0": "hb:16",
+   "t1": "hb:18",
+   "content": {
+    "splat": "pink, r 180"
+   },
+   "reveal": "burst",
+   "highlight": "none",
+   "transition_in": "hb:16 with the break",
+   "transition_out": "culls",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js splat",
+   "lyric_link": "verse downbeat: the logo's paint flies off with its pieces",
+   "engine": {
+    "id": "v1-splat-break",
+    "type": "splat",
+    "t0": "hb:16",
+    "t1": "hb:18",
+    "at": "hb:16",
+    "x": 920,
+    "y": 1690,
+    "r": 180,
+    "color": "#FF2E88",
+    "dir": -100,
+    "layer": "paint"
+   }
+  },
+  {
+   "id": "v1-paper",
+   "type": "paper",
+   "t0": "hb:16",
+   "t1": "hb:48",
+   "content": {
+    "paper": "dark"
+   },
+   "reveal": "none",
+   "highlight": "none",
+   "transition_in": "-",
+   "transition_out": "-",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js paper",
+   "lyric_link": "handmade texture",
+   "engine": {
+    "id": "v1-paper",
+    "type": "paper",
+    "t0": "hb:16",
+    "t1": "hb:48",
+    "mode": "dark",
+    "_note": "builder A's paper tooth over the verse (boils on twos)"
+   }
+  }
+ ],
+ "transitions": [
+  {
+   "id": "tr-v1-turn",
+   "at": "hb:20",
+   "type": "pageturn",
+   "dur": 1.5,
+   "lead": 0.35,
+   "hinge": "left",
+   "strips": 6,
+   "curl": 55,
+   "back": "#7B3FF2",
+   "flash": 0.2,
+   "shake": 8,
+   "ground": "#0E0D12",
+   "out": [
+    "v1-agents",
+    "v1-agents-credit",
+    "p-nvlink",
+    "pile-insecure"
+   ],
+   "in": [
+    "p-hinton",
+    "pile-die"
+   ],
+   "_note": "the whole bar-4 frame (agents circle, band, pile) turns over like a page from hb:19.475 (as the security phrase lifts), its violet paper back passing 90 degrees, and lands on hb:20 = 'I think' (28.88); bar 5 is the page beneath (the riff planner uses the shatter on the drop, so it is not repeated here)"
+  },
+  {
+   "id": "tr-v1-zoom",
+   "at": "hb:23.5",
+   "type": "zoomthrough",
+   "dur": 1.5,
+   "lead": 0.62,
+   "focus": [
+    540,
+    1000
+   ],
+   "r": 120,
+   "rim": "#2346FF",
+   "ground": "#0E0D12",
+   "out": [
+    "p-hinton",
+    "pile-die",
+    "v1-arrow-hinton"
+   ],
+   "in": [
+    "p-amodei",
+    "kar-amodei"
+   ],
+   "_note": "the camera dives into the lifted 'wiping out humanity' phrase; Amodei is inside it behind a blue painted portal ring; impact on the 8th where line 3 starts (30.64)"
+  },
+  {
+   "id": "tr-v1-fold",
+   "at": "hb:28.5",
+   "type": "fold",
+   "dur": 1.25,
+   "lead": 0.5,
+   "axis": "h",
+   "mode": "both",
+   "rect": "item",
+   "ground": false,
+   "back": "#7B3FF2",
+   "out": [
+    "pile-news"
+   ],
+   "in": [
+    "eq-dpo"
+   ],
+   "_note": "origami (horizontal crease, unlike the prelude's fold): the news pile folds in half on the sung 'likes' and the DPO card unfolds out of its back; rect 'item' and no ground so Amodei's circle and karaoke above stay untouched"
+  },
+  {
+   "id": "tr-v1-particles",
+   "at": "hb:32",
+   "type": "particles",
+   "dur": 1.5,
+   "lead": 0.33,
+   "grid": 44,
+   "swirl": 0.6,
+   "ground": "#0E0D12",
+   "out": [
+    "eq-dpo",
+    "p-pause",
+    "pile-syco"
+   ],
+   "in": [
+    "v1-tower"
+   ],
+   "_note": "bar 7 breaks into halftone paint dots that swirl and land on the tower, which fills in as its embedding lights (line 5 'And I'm so tired' starts 34.51)"
+  },
+  {
+   "id": "tr-v1-whip",
+   "at": "hb:40",
+   "type": "whip",
+   "mode": "pan",
+   "dir": -1,
+   "dur": 1.0,
+   "lead": 0.2,
+   "ghosts": 3,
+   "ground": false,
+   "out": [
+    "pile-jobs",
+    "p-coxon-v1",
+    "kar-coxon-v1"
+   ],
+   "in": [
+    "eq-ntp"
+   ],
+   "_note": "lead 0.2: the pan starts at 38.44, after Coxon's 'world.' (ends 38.46 incl. fade) and on line 7's 'And they'd' (38.49); the tower underneath is not moved and starts backprop on the impact"
+  },
+  {
+   "id": "tr-v1-wipe",
+   "at": "hb:44",
+   "type": "paintwipe",
+   "style": "cover",
+   "dur": 1.0,
+   "lead": 0.45,
+   "n": 4,
+   "angle": -8,
+   "colors": [
+    "red",
+    "violet"
+   ],
+   "ground": "#0E0D12",
+   "out": [
+    "v1-tower",
+    "eq-ntp",
+    "eq-upd",
+    "pile-disappoint"
+   ],
+   "in": [
+    "pile-exploit"
+   ],
+   "_note": "bristle bands paint over the pulled-back tower, the cut hides under them on hb:44 (line 8 'Cause' at 40.40), the bands tear away onto the exploit pile; the triangle irises open just after (hb:44.25)"
+  },
+  {
+   "id": "tr-v1-illum",
+   "at": "hb:48",
+   "type": "illuminate",
+   "dur": 1.0,
+   "lead": 0.5,
+   "colors": [
+    "orange",
+    "pink",
+    "yellow"
+   ],
+   "angle": 22,
+   "flash": 0.5,
+   "ground": false,
+   "out": [
+    "p-coast",
+    "pile-exploit",
+    "g-dark-v1",
+    "v1-paper"
+   ],
+   "in": [],
+   "_note": "HANDOFF to the chorus planner: the light band sweeps along the plane's 22 degrees from hb:47.5 (the pickup 'And I'm so sick' ~42.0-42.3), the frame blows out to paper white ON the chorus crash hb:48 and clears onto the full-colour chorus. The chorus planner lists its first items in 'in'."
+  }
+ ],
+ "beatfx": [
+  {
+   "id": "fx-verse1",
+   "from": "hb:16",
+   "to": "hb:47.5",
+   "pattern": "verse",
+   "intensity": 0.85,
+   "eighths": true,
+   "layer": "paint",
+   "zones": [
+    [
+     40,
+     140,
+     1000,
+     110
+    ],
+    [
+     40,
+     1590,
+     1000,
+     290
+    ],
+    [
+     0,
+     300,
+     56,
+     1250
+    ]
+   ],
+   "avoid": [
+    [
+     60,
+     750,
+     960,
+     240
+    ]
+   ],
+   "_note": "one visible paint effect + one camera move on every beat and 8th (verse roles: bar = splat/stamp/flash, beat = scribble/tick/grain/droplets, off = tick/droplets); kept to the top strip, the bottom strip and the left edge, out of the karaoke strip (y 750-990); calm auto keeps it to grain/ticks for 0.4 s after each fact lands"
+  }
+ ],
+ "fx": [
+  {
+   "id": "fx-v1-spin",
+   "fx": "spin",
+   "on": [
+    "hb:22",
+    "hb:25",
+    "hb:29",
+    "hb:34",
+    "hb:47"
+   ],
+   "deg": 1.4,
+   "decay": 0.15,
+   "_note": "camera spin kicks on the hits.json accents near 1.0 (no drums in verse 1, these are the band's stabs)"
+  },
+  {
+   "id": "fx-v1-flash",
+   "fx": "flash",
+   "on": [
+    "hb:16",
+    "hb:36",
+    "hb:40"
+   ],
+   "opacity": 0.3,
+   "decay": 0.08,
+   "color": "#F2EBDD",
+   "_note": "the break, the predicted token on 'Quit', the start of backprop"
+  },
+  {
+   "id": "fx-v1-shake",
+   "fx": "shake",
+   "on": [
+    "hb:16",
+    "hb:24",
+    "hb:28",
+    "hb:32",
+    "hb:36",
+    "hb:44"
+   ],
+   "amp": 9,
+   "decay": 0.11,
+   "_note": "translation-only camera hits on the bar downbeats (deterministic; README Builder D notes)"
+  }
+ ],
+ "audible_snippets": [
+  {
+   "item": "voice-amodei",
+   "speaker": "Dario Amodei",
+   "year": 2026,
+   "words": "It's a warning sign that we need to slow down.",
+   "src": "clips/amodei-cbs-sunday-2026-09.mp4",
+   "in": 192.42,
+   "out": 195.12,
+   "song": [
+    30.283,
+    32.983
+   ],
+   "duck_db": 9,
+   "caption": "kar-amodei (karaoke)"
+  },
+  {
+   "item": "voice-coxon-v1",
+   "speaker": "Jacob Coxon",
+   "year": 2026,
+   "words": "There won't be jobs in this world.",
+   "src": "clips/coxon-daily-show.mp4",
+   "in": 528.82,
+   "out": 530.12,
+   "song": [
+    37.159,
+    38.459
+   ],
+   "duck_db": 9,
+   "caption": "kar-coxon-v1 (karaoke)"
+  }
+ ],
+ "engine_requests": [
+  {
+   "module": "fx/screens.js (panel)",
+   "request": "panel entry {style: 'morph', from: '<kand id>:<piece>', dur, delay} and out {style: 'morph', to}",
+   "spec": "Start the mask at the piece's pose from HP.lib.kandinsky.geom(id, piece, breakAt) (centre, radius or w/h, rotation, fill colour), interpolate centre/size/rotation to the panel frame over dur with oBack(1.4), fade the piece colour off over the last 60% so the footage shows through, then let the painted border start (borderDelay after the morph ends). Same contract as legacy framed items' morph.",
+   "why": "so every footage mask of the verse (Hinton's teal square, Amodei's blue circle, Coxon's orange circle, the red triangle) can be born from its logo piece with a painted border; today only legacy clip/image/shape frames can morph, so v1-agents is a legacy clip and the other panels iris/paint in instead"
+  },
+  {
+   "module": "fx/screens.js (panel)",
+   "request": "panel `freeze` (time ref), as the legacy clip's r5 freeze",
+   "spec": "from `freeze` on, seq.frameAt uses the frame at freeze (Ken Burns, pulses and border keep moving)",
+   "why": "p-coxon-v1 plays src 530.12-530.49 after his last word (frames looked at: still his close-up, lips parted at 530.45); a freeze at song 38.46 would rule out a silent mouth"
+  },
+  {
+   "module": "fx/netviz.js (net tower)",
+   "request": "tower `view: {dx, dy}` (px): shift the principal point of the 3D camera",
+   "spec": "cam3.setViewOffset(W, H, -dx, -dy, W, H) on every frame (and on the splat camera camS), so the tower and its projected pencil lines/tags move together; default {0, 0} = today",
+   "why": "to sit the tower ~+140 px lower so the equation cards at y 250-650 never cover the firing block; today the tower is centred on the frame"
+  },
+  {
+   "module": "fx/transitions.js",
+   "request": "confirm that a transition with `in: []` (tr-v1-illum) still flashes and clears, and that the chorus planner can append its items to that `in` list",
+   "spec": "no change if it already works; otherwise treat an empty `in` as 'whatever is under the outgoing layers'",
+   "why": "the verse -> chorus handoff on hb:48 is shared by two planners"
+  }
+ ],
+ "interfaces": {
+  "riff planner (hb:0-16, research/rev2/plan/prelude-riff.json)": "its kand-riff (t1 hb:17) gets one more move from this plan: {'move': 'break', 'at': 'hb:16', 'dur': 0.4, 'hide': ['pink', 'band'], 'hideAt': 'hb:16', 'stagger': 0.006} (the pink disc and the band stay behind as the frames v1-agents and v1-band morph out of; every other piece blows out from the art's middle, the blue disc with the riff's racks footage in it). Its kc-pink-agents-b (ale-agent-wall at 0.5x) ends hb:16.05 at source 75.21, where v1-agents picks the same footage up at the same speed, so the agents wall carries through the morph. Its cream ground, paper and paint layer end at hb:16 (this plan's g-dark-v1 / v1-paper start there; keep one shared paint layer). Its tr-shatter (hb:0) and tr-fold (hb:-7) are why bar 5 uses a page turn and bar 7's fold has a horizontal crease. No screenshot of the prelude's pile repeats here. Its Coxon ids (voice-coxon, kar-coxon) are taken, so this plan's are suffixed -v1.",
+  "chorus planner (hb:48-)": "tr-v1-illum (type illuminate, at hb:48, lead 0.5) is the outgoing side; add your first items to its `in`. Every verse item ends by hb:48 (the illuminate window keeps them visible to hb:48.5). Nothing of the verse is audible after song 38.459.",
+  "shared EDL items": "one {'type': 'layer', 'id': 'paint', 'kind': 'canvas'} above the grounds (beatfx, splats, pencil, stamps draw there); paper/grain may be one EDL-wide item instead of v1-paper."
+ },
+ "notes": [
+  "SHAPE OF THE VERSE (8 bars, no drums): each sung line gets its own bar and its own transition, timed to the line's measured start (vocal-band onsets: 26.92, 28.88, 30.64, 32.71, 34.51, 36.65, 38.49, 40.40): break (hb:16) -> page turn (hb:20) -> zoom-through (hb:23.5) -> fold (hb:28.5) -> particles (hb:31.5-33) -> [tower holds through bar 9] -> whip (hb:40) -> paint wipe (hb:44) -> illuminate (hb:48). Inside a bar the cards land on 8ths, then push, highlight, lift and circle on the following 8ths, so every beat and most 8ths have an item event on top of the beat track.",
+  "THE EYE: one lead phrase per bar, always the last thing highlighted: 'secretly broke out of a secure test environment' (bar 4), 'shortens odds of the technology wiping out humanity' (5), the karaoke then '\"warning sign that we need to slow down\"' (6), y_w / y_l and 'too sycophantic' (7), the tower's firing block and the attention term (8), 'I resigned from Anthropic today.' -> 'JOBS' -> 'cut 4,000 jobs due to AI advances' (9), the loss and update terms, 'culture is broken' (10), 'Used Kenyan Workers on Less Than $2 Per Hour' (11).",
+  "LAYOUT (safe zone x 60-1014, y 250-1574): footage masks live in the top third (circles/squares at y 300-780, credits at y 262), karaoke strips at y 750-990, screenshot piles in y 800-1500, equation cards at y 280-650 over the tower; beat-track paint stays in the top strip, bottom strip and left edge. The right rail (x > 930, y 1000-1600) carries no text: pile cards are images, their chips are kept inside by screens.js.",
+  "LAYERING (EDL order, bottom to top): g-dark-v1, paint layer, v1-band, p-nvlink, v1-tower, pile-* (screens), panels, karaoke, equations, pencil/stamps/splats on their own layers as listed, v1-paper. Footage or an image is on screen in every frame (masks, screenshot piles, the WebGL tower; the transitions use the frames' own pixels).",
+  "AUDIO: two short snippets over the sung verse (it has no real vocal gaps: vocal_intervals 28.87-50.48). Both are placed so their first and last words fall in the short breaths between lines (Amodei's 'It's a' after 'drink', 'down.' before 'Of who'; Coxon right after 'job,') and the song is ducked a fixed 9 dB (mix.py duck_db) with 120 ms ramps; the words are always on screen as karaoke. Total speech 4.0 s; they never overlap each other.",
+  "VERBATIM CHECKS (scratchpad verify script, 10 Oct): every screenshot id exists in screens.json / captures.json and its highlighted phrase is the record's OCR highlight; every equation ref exists and every hl tex occurs verbatim in the TeX the engine typesets; every b-roll id and in-point lies inside a catalogued window; the karaoke words join to exactly the verbatim lines (Amodei: small.en today + base.en; Coxon: coxon.json + the short's final-pass ear/ASR checks); no on-screen text shares a 3-gram with the song lyrics (song/full-map.json). Labels on equation cards are explanatory (as in the showcase), not quotes.",
+  "MEANING: Amodei's whole sentence is kept (he also says the curve does not mean 'shut it all down'; 'slow down' is his claim); Coxon's 'There won't be jobs in this world.' is his full restatement (the 'Yeah,' is trimmed only); the BBC Hubinger headline is shown whole (it refers to near-future systems, not current ones); TIME 2023 and CoastRunners 2020 are the only pre-2024 items, Hinton's 60 Minutes footage is 2023.",
+  "PERFORMANCE: the tower costs ~90-130 ms a frame at glScale 0.5 (bars 8-10, 5.8 s), screens 20-35 ms, the page turn 6 strip clones for 1.5 beats; expect 0.4-0.6 s/frame in bars 8-10 on this box. Prep: python3 render/video/prep_clips.py <edl> extracts every panel/clip (frame-sized) and copies the screenshots.",
+  "COXON'S ARC (deliberate): the riff's audible 'and it did it again' (song 21.2, about the hack) -> his X post 'I resigned from Anthropic today.' (hb:36, the sung 'Quit') -> his audible 'There won't be jobs in this world.' (hb:37-39). He is the one recurring face across riff and verse; if the assembler wants less of him, swap bar 9's X post for xrisk-techcrunch-robinson and keep only the audible line.",
+  "RISKS TO CHECK ON THE FIRST STRIP: (1) the zoom-through focus [540, 1000] must sit on the lifted Hinton phrase (screens push.to); (2) fold rect 'item' must not fold Amodei's circle; (3) the tower's predicted-token tag position on hb:36 is set by the camera (it may sit behind pile-jobs: move pile-jobs region down if so); (4) Coxon's mouth after 530.12 (see engine_requests[1]); (5) the CBS lift on hb:27.5 against 'down.' at 32.52 (one frame of slack)."
+ ]
+}

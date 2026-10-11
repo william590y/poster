@@ -171,6 +171,36 @@ def prelude_riff():
     # ENGINE REQUEST (fluid fadeIn, implemented): the colour floods in over ~0.18 s from the title downbeat
     g['fluid-riff']['fadeIn'] = 0.18
 
+    # FIXER r1 (director, prelude): the talking heads were ~35 % of the frame height and sat still for ~5 s each, and the weakest
+    # beats of the cut were here (hb:-25, -14, -13, -11). The footage box is now 1080x900 (47 %: LAYOUT below; tighter source crops,
+    # Altman's still above his talk's burned-in subtitles), and every bar downbeat gets a push-in snap on the speaker (clip punch,
+    # they step in and stay, replacing the slow push), the off-beats a pencil mark on the word just spoken or a smaller snap. Both
+    # cuts open with a paint dab behind the red '2015' tag on frame 0 (a scroll-stopping first second). The Altman -> Amodei swap
+    # already is a transition (tr-wipe, a paint wipe between his last word and Amodei's first: it stays on the speech, not on hb:-16).
+    al, am = g['altman'], g['amodei']
+    al['crop'] = {'x': 340, 'y': 50, 'w': 540}         # source 920x720: rows 50-500, clear of the burned-in subtitles (y > 520)
+    al['zoom'] = [1.0, 1.03]
+    al['punch'] = [{'at': 'hb:-24', 'z': 1.04, 'dur': 0.1}, {'at': 'hb:-20', 'z': 1.04, 'dur': 0.1}, {'at': 'song:10.04', 'z': 1.06, 'dur': 0.12}]
+    al['shakes'] = [{'at': 'hb:-24', 'amp': 6, 'decay': 0.08}, {'at': 'hb:-20', 'amp': 6, 'decay': 0.08}, {'at': 'song:10.04', 'amp': 11, 'decay': 0.1}]
+    al['caption']['marks'] = [{'phrase': 'probably', 'style': 'underline', 'at': 'hb:-25', 'dur': 0.16, 'color': '#F2C300', 'width': 7},
+                              {'phrase': 'most likely', 'style': 'underline', 'at': 'song:8.42', 'dur': 0.28, 'color': '#F2C300', 'width': 7}]
+    am['crop'] = {'x': 240, 'y': 120, 'w': 540}        # source 1280x720: rows 120-570 (Amodei, VandeHei's knee, the Axios wall)
+    am['zoom'] = [1.0, 1.0]
+    am['box'] = {'x': 0, 'y': 360, 'w': 1080, 'h': 840}   # 60 px shorter: his caption, the unheard '75%' line and the source fit the safe zone
+    am['sub']['size'] = 40
+    am['punch'] = [{'at': 'hb:-16', 'z': 1.05, 'dur': 0.12}, {'at': 'hb:-13', 'z': 1.02, 'dur': 0.1}, {'at': 'hb:-12', 'z': 1.035, 'dur': 0.1},
+                   {'at': 'song:13.51', 'z': 1.02, 'dur': 0.1}, {'at': 'hb:-11', 'z': 1.02, 'dur': 0.1}, {'at': 'song:14.23', 'z': 1.04, 'dur': 0.12},
+                   {'at': 'hb:-8', 'z': 1.02, 'dur': 0.1}]
+    am['shakes'] = [{'at': 'hb:-16', 'amp': 7, 'decay': 0.07}, {'at': 'hb:-13', 'amp': 4, 'decay': 0.07}, {'at': 'hb:-12', 'amp': 6, 'decay': 0.08},
+                    {'at': 'hb:-11', 'amp': 4, 'decay': 0.07}, {'at': 'song:14.23', 'amp': 6, 'decay': 0.08}]
+    fp = g['frame-pencil']
+    fp['shapes'][0].update({'y': 352, 'h': 916})
+    fp['shapes'][1].update({'y0': 1282, 'y1': 1282})
+    ix = next(i for i, x in enumerate(out) if x['id'] == 'altman')
+    out.insert(ix, {'id': 'splat-open', 'type': 'splat', 't0': 0, 'at': 0.0, 't1': 'hb:-20', 'x': 118, 'y': 318, 'r': 92, 'color': '#FF2E88',
+                    'dir': -20, 'layer': 'paint', 'cullDur': 0.6, 'hit': 8,
+                    '_note': "FIXER r1: a paint dab bursts behind the red '2015' tag on frame 0 (the short's first second)"})
+
     # FIXES (verify "voice-coxon"): keep the whole of 'again' (vowel + nasal to 454.36): out 454.37, a 25 ms fade
     vc = g['voice-coxon']
     vc['audio'] = {'in': 452.42, 'out': 454.37, 'fade_ms': 25}   # duck: mix.py's rule (>= 10 LU over the loud riff, max 15 dB)
@@ -448,6 +478,10 @@ THEMES_TAIL = [{'t0': 'hb:80', 't1': 'hb:108', 'theme': 'light'}, {'t0': 'hb:108
 
 # the prelude's layout (the showcase's: taller footage box, caption sizes)
 LAYOUT = json.loads(json.dumps(json.load(open(EDLDIR / 'showcase.json'))['layout']))
+# FIXER r1: the prelude's talking heads at 1080x900 (47 % of the frame, was 740); the caption a little smaller so it and its source
+# line stay inside the safe zone under the taller box and clear of the right rail
+LAYOUT['clipBox'] = {'x': 0, 'y': 360, 'w': 1080, 'h': 900}
+LAYOUT['caption'] = {**LAYOUT['caption'], 'size': 50, 'w': 860, 'gap': 34}
 
 
 def bad_refs(edl):
@@ -512,6 +546,60 @@ def fit_emph(edl):
                 nd = round(end - 1 / 30 - a, 3)
                 e['dur'] = nd
                 done.append((x['id'], e['style'], d, nd))
+    return done
+
+
+def early_emph(edl, read=0.5):
+    """FIXER r1 (critic 'late payoffs'): a pile's end-of-bar emphases (lift, circle, underline, box, marker) finished as the pile
+    was already leaving (folded / zoomed / shattered at its outgoing transition's impact), so the finished highlight was seen for
+    1-2 frames. Every emphasis that would complete less than `read` s before that impact (else before t1) now starts on the
+    latest 8th of the hits grid that lets it finish in time (its duration trimmed to fit, never below 0.14 s), never before its
+    card has landed (+0.06 s: pre-lit as it slams in); the push-in moves up with it. Returns [(item, style, old at, new ref)]."""
+    import math, sys
+    sp = str(ROOT / 'render/video')
+    if sp not in sys.path:
+        sys.path.insert(0, sp)
+    from timeref import TimeRef
+    TR = TimeRef(edl)
+    imp = {}
+    for t in edl.get('transitions', []):
+        for i in t.get('out', []):
+            imp[i] = min(imp.get(i, 1e9), TR(t['at']))
+    done = []
+    for x in edl['items']:
+        if x['type'] != 'screens' or not isinstance(x.get('emph'), list) or not x['emph']:
+            continue
+        end = imp.get(x['id'], TR(x['t1']))
+        D = end - read
+        shots = x['shots']
+        lands = [TR(s['at']) if isinstance(s, dict) and 'at' in s else None for s in shots]
+        P = x.get('push') if isinstance(x.get('push'), dict) else None
+        for e in x['emph']:
+            if 'at' not in e:
+                continue
+            a, d = TR(e['at']), e.get('dur', DEF_DUR.get(e['style'], 0.3))
+            if a + d <= D + 1e-3:
+                continue
+            k = e.get('shot', len(shots) - 1)
+            k = k if k >= 0 else len(shots) + k
+            floor = (lands[k] if k < len(lands) and lands[k] is not None else TR(x['t0'])) + 0.06
+            # latest 8th with room for at least min(d, 0.2) s
+            hb = (TR.song_at(D - min(d, 0.2)) - 19.232) / BEAT
+            cand = math.floor(hb * 2 + 1e-6) / 2
+            ref = f'hb:{cand:g}'
+            try:
+                na = TR(ref)
+            except Exception:
+                na = None
+            if na is None or na < floor:
+                na, ref = floor, round(floor, 4)
+            nd = max(0.14, min(d, D - na))
+            e['at'] = ref
+            if nd < d - 1e-3:
+                e['dur'] = round(nd, 3)
+            done.append((x['id'], e['style'], round(a, 3), ref))
+            if P and 'at' in P and TR(P['at']) > na + 1e-3:
+                P['at'] = ref
     return done
 
 

@@ -323,7 +323,7 @@ function build2(it) {
   const meta = d.metaPx ?? 30;
   if (g.title) it.title = K.roll(it, { text: g.title, x: d.titleX ?? P.x - 30, y: d.titleY ?? P.y - (d.titleGap ?? 210), w: d.titleW ?? Math.min(960, P.w + 60), parent: it.wrap,
     font: { family: "'Newsreader', serif", weight: 600, size: d.titlePx ?? 60 }, lh: (d.titlePx ?? 60) * 1.08, color: ink, at: d.titleAt ?? it.t0, per: d.titlePer ?? EIGHTH, style: 'drop', hl: d.titleHl, hlAt: d.titleHlAt, hlColor: d.titleHlColor });
-  if (g.subtitle || g.unit) it.sub = K.roll(it, { text: g.subtitle || g.unit, x: d.titleX ?? P.x - 30, y: (d.titleY ?? P.y - (d.titleGap ?? 210)) + (it.title ? it.title.height + 8 : 0), w: P.w + 60, parent: it.wrap,
+  if (g.subtitle || g.unit) it.sub = K.roll(it, { text: g.subtitle || g.unit, x: d.titleX ?? P.x - 30, y: (d.titleY ?? P.y - (d.titleGap ?? 210)) + (it.title ? it.title.height + 8 : 0), w: d.subW ?? P.w + 60, parent: it.wrap,   // fixer r1: subW
     font: { weight: 500, size: d.subPx ?? 32 }, upper: true, tracking: 1, color: ink, at: d.subAt ?? (it.title ? it.title.end + EIGHTH : it.t0), per: d.subPer ?? EIGHTH / 2, style: 'rise', markAs: 'meta' });
   const lab = (txt, css) => { const s = el('div', '', it.wrap, { position: 'absolute', font: `500 ${meta}px 'IBM Plex Mono', monospace`, color: ink, whiteSpace: 'nowrap', opacity: 0, zIndex: 2, ...css }); K.setNum(s, txt); return s; };
   it.ytl = it.yt.map(v => lab(K.fmt(v, ya.fmt || {}), { left: (P.x - 16) + 'px', top: (it.Y(v) - meta * 0.62) + 'px', transform: 'translateX(-100%)' }));

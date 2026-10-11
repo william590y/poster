@@ -49,15 +49,15 @@
  "layout": {
   "clipBox": {
    "x": 0,
-   "y": 380,
+   "y": 360,
    "w": 1080,
-   "h": 740
+   "h": 900
   },
   "caption": {
    "x": 60,
-   "w": 900,
-   "gap": 40,
-   "size": 56,
+   "w": 860,
+   "gap": 34,
+   "size": 50,
    "lh": 1.16,
    "reveal": "words"
   },
@@ -123,6 +123,22 @@
    "kind": "canvas"
   },
   {
+   "id": "splat-open",
+   "type": "splat",
+   "t0": 0,
+   "at": 0.0,
+   "t1": "hb:-20",
+   "x": 118,
+   "y": 318,
+   "r": 92,
+   "color": "#FF2E88",
+   "dir": -20,
+   "layer": "paint",
+   "cullDur": 0.6,
+   "hit": 8,
+   "_note": "FIXER r1: a paint dab bursts behind the red '2015' tag on frame 0 (the short's first second)"
+  },
+  {
    "id": "altman",
    "type": "clip",
    "t0": "song:6.1",
@@ -131,9 +147,9 @@
    "in": 1.84,
    "frames": "plan-altman",
    "crop": {
-    "x": 320,
-    "y": 80,
-    "w": 600
+    "x": 340,
+    "y": 50,
+    "w": 540
    },
    "focus": [
     0.72,
@@ -141,7 +157,7 @@
    ],
    "zoom": [
     1.0,
-    1.1
+    1.03
    ],
    "zoomEase": "out",
    "snap": {
@@ -241,8 +257,16 @@
     ],
     "marks": [
      {
+      "phrase": "probably",
+      "style": "underline",
+      "at": "hb:-25",
+      "dur": 0.16,
+      "color": "#F2C300",
+      "width": 7
+     },
+     {
       "phrase": "most likely",
-      "style": "circle",
+      "style": "underline",
       "at": "song:8.42",
       "dur": 0.28,
       "color": "#F2C300",
@@ -253,12 +277,32 @@
    "source": "Airbnb fireside chat · 2015",
    "punch": [
     {
+     "at": "hb:-24",
+     "z": 1.04,
+     "dur": 0.1
+    },
+    {
+     "at": "hb:-20",
+     "z": 1.04,
+     "dur": 0.1
+    },
+    {
      "at": "song:10.04",
-     "z": 1.08,
+     "z": 1.06,
      "dur": 0.12
     }
    ],
    "shakes": [
+    {
+     "at": "hb:-24",
+     "amp": 6,
+     "decay": 0.08
+    },
+    {
+     "at": "hb:-20",
+     "amp": 6,
+     "decay": 0.08
+    },
     {
      "at": "song:10.04",
      "amp": 11,
@@ -285,9 +329,9 @@
    "in": 1065.64,
    "frames": "plan-amodei",
    "crop": {
-    "x": 210,
-    "y": 100,
-    "w": 600
+    "x": 240,
+    "y": 120,
+    "w": 540
    },
    "focus": [
     0.5,
@@ -295,7 +339,7 @@
    ],
    "zoom": [
     1.0,
-    1.1
+    1.0
    ],
    "grade": {
     "sat": 0,
@@ -384,7 +428,7 @@
    },
    "sub": {
     "text": "“…and a 75% chance that things go really, really well…”",
-    "size": 44,
+    "size": 40,
     "gap": 20,
     "color": "#C2BDCE",
     "roll": {
@@ -404,23 +448,38 @@
    "punch": [
     {
      "at": "hb:-16",
-     "z": 1.06,
-     "dur": 0.12
-    },
-    {
-     "at": "song:13.51",
-     "z": 1.035,
-     "dur": 0.12
-    },
-    {
-     "at": "song:14.23",
      "z": 1.05,
      "dur": 0.12
     },
     {
-     "at": "hb:-8",
-     "z": 1.03,
+     "at": "hb:-13",
+     "z": 1.02,
+     "dur": 0.1
+    },
+    {
+     "at": "hb:-12",
+     "z": 1.035,
+     "dur": 0.1
+    },
+    {
+     "at": "song:13.51",
+     "z": 1.02,
+     "dur": 0.1
+    },
+    {
+     "at": "hb:-11",
+     "z": 1.02,
+     "dur": 0.1
+    },
+    {
+     "at": "song:14.23",
+     "z": 1.04,
      "dur": 0.12
+    },
+    {
+     "at": "hb:-8",
+     "z": 1.02,
+     "dur": 0.1
     }
    ],
    "shakes": [
@@ -430,13 +489,23 @@
      "decay": 0.07
     },
     {
-     "at": "song:14.23",
+     "at": "hb:-13",
+     "amp": 4,
+     "decay": 0.07
+    },
+    {
+     "at": "hb:-12",
      "amp": 6,
      "decay": 0.08
     },
     {
-     "at": "hb:-12",
-     "amp": 5,
+     "at": "hb:-11",
+     "amp": 4,
+     "decay": 0.07
+    },
+    {
+     "at": "song:14.23",
+     "amp": 6,
      "decay": 0.08
     }
    ],
@@ -448,7 +517,13 @@
     "duck_db": 5
    },
    "verified": true,
-   "_note": "Amodei 2025 (Axios AI+ DC Summit, Sep 17 2025), footage as filmed (Axios wall kept). Heard: '…there's a 25% chance that things go really, really badly…' (audio 1065.67-1069.50, the whole of 'badly'); the sub line is the baseline he says next ('…and a 75% chance…'), set as unheard words, never word-lit"
+   "_note": "Amodei 2025 (Axios AI+ DC Summit, Sep 17 2025), footage as filmed (Axios wall kept). Heard: '…there's a 25% chance that things go really, really badly…' (audio 1065.67-1069.50, the whole of 'badly'); the sub line is the baseline he says next ('…and a 75% chance…'), set as unheard words, never word-lit",
+   "box": {
+    "x": 0,
+    "y": 360,
+    "w": 1080,
+    "h": 840
+   }
   },
   {
    "id": "frame-pencil",
@@ -464,18 +539,18 @@
     {
      "kind": "rect",
      "x": 12,
-     "y": 372,
+     "y": 352,
      "w": 1056,
-     "h": 756,
+     "h": 916,
      "at": "hb:-27",
      "dur": 0.5
     },
     {
      "kind": "line",
      "x0": 12,
-     "y0": 1140,
+     "y0": 1282,
      "x1": 150,
-     "y1": 1140,
+     "y1": 1282,
      "at": "hb:-26",
      "dur": 0.2
     }
@@ -914,9 +989,10 @@
     },
     {
      "style": "marker",
-     "at": "hb:-1",
+     "at": "hb:-1.5",
      "shot": 5,
-     "color": "#FF2E88"
+     "color": "#FF2E88",
+     "dur": 0.226
     }
    ],
    "pulse": [
@@ -1847,7 +1923,8 @@
      "style": "circle",
      "at": "hb:98.5",
      "shot": 0,
-     "color": "#B31B1B"
+     "color": "#B31B1B",
+     "dur": 0.226
     }
    ],
    "out": "cut",

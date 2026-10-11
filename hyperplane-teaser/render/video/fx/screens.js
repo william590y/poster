@@ -66,6 +66,33 @@ function hlBoxes(rec, hl) {
   if (typeof hl === 'string') { const f = H_.find(h => h.phrase === hl) || H_.find(h => h.phrase && h.phrase.toLowerCase().includes(hl.toLowerCase())); return f ? f.boxes : null; }
   const f = H_[typeof hl === 'number' ? hl : 0]; return f ? f.boxes : null;
 }
+// fixer r1: the ink-free room around an OCR box (record px), measured on the screenshot's own pixels: how far a lifted slip, an
+// underline or a marker may reach before it covers a neighbouring word (or leaves the crop). {l, r, t, b} in record px.
+function inkRoom(s, b) {
+  return HP.memo(`scr|room|${s.id}|${s.crop.x},${s.crop.y},${s.crop.w},${s.crop.h}|${b.x},${b.y},${b.w},${b.h}`, () => {
+    const M = 140, X0 = Math.max(s.crop.x, Math.floor(b.x - M)), X1 = Math.min(s.crop.x + s.crop.w, Math.ceil(b.x + b.w + M));
+    const Y0 = Math.max(s.crop.y, Math.floor(b.y - M)), Y1 = Math.min(s.crop.y + s.crop.h, Math.ceil(b.y + b.h + M));
+    const w = Math.max(1, X1 - X0), h = Math.max(1, Y1 - Y0), c = HP.offscreen(w, h), x = c.getContext('2d', { willReadFrequently: true });
+    x.fillStyle = '#ffffff'; x.fillRect(0, 0, w, h);
+    x.drawImage(s.img, X0 * s.fk, Y0 * s.fk, w * s.fk, h * s.fk, 0, 0, w, h);
+    const D = x.getImageData(0, 0, w, h).data, L = new Float32Array(w * h);
+    for (let i = 0; i < w * h; i++) L[i] = 0.299 * D[4 * i] + 0.587 * D[4 * i + 1] + 0.114 * D[4 * i + 2];
+    const hist = new Uint32Array(256); for (let i = 0; i < L.length; i++) hist[L[i] | 0]++;
+    let acc = 0, bg = 255; for (let v = 0; v < 256; v++) { acc += hist[v]; if (acc >= L.length / 2) { bg = v; break; } }
+    const ink = (px, py) => Math.abs(L[py * w + px] - bg) > 70;
+    const bx0 = Math.round(b.x - X0), bx1 = Math.round(b.x + b.w - X0), by0 = Math.round(b.y - Y0), by1 = Math.round(b.y + b.h - Y0);
+    const ry0 = Math.max(0, Math.round(by0 + 0.2 * b.h)), ry1 = Math.min(h - 1, Math.round(by0 + 0.8 * b.h));
+    const rx0 = Math.max(0, Math.round(bx0 + 0.04 * b.w)), rx1 = Math.min(w - 1, Math.round(bx0 + 0.96 * b.w));
+    const colInk = px => { let n = 0; for (let py = ry0; py <= ry1; py++) if (ink(px, py) && ++n >= 2) return true; return false; };
+    const rowInk = py => { let n = 0; for (let px = rx0; px <= rx1; px++) if (ink(px, py) && ++n >= 3) return true; return false; };
+    let l = bx0, r = w - bx1, t = by0, bo = h - by1;
+    for (let px = bx0 - 1; px >= 0; px--) if (colInk(px)) { l = bx0 - 1 - px; break; }
+    for (let px = bx1; px < w; px++) if (colInk(px)) { r = px - bx1; break; }
+    for (let py = by0 - 1; py >= 0; py--) if (rowInk(py)) { t = by0 - 1 - py; break; }
+    for (let py = by1; py < h; py++) if (rowInk(py)) { bo = py - by1; break; }
+    return { l: Math.max(0, l), r: Math.max(0, r), t: Math.max(0, t), b: Math.max(0, bo) };
+  });
+}
 // high-quality downscale once (progressive halving), memoised: the card bitmap at bake width bw
 function bake(key, img, crop, bw, bh) {
   return HP.memo('scr|bake|' + key + '|' + bw, () => {
@@ -239,8 +266,11 @@ HP.register('screens', {
       if (s.entry === 'paint' && s.plan && P) P.drawReveal(c, s.plan, t - s.start, drawCard, { alpha: 0.9 });   // the colour passes stay as a painted rim
       else drawCard(c);
       // the marker over this shot's phrase (multiply: the paper turns yellow, the ink stays)
+      c.save(); c.beginPath(); c.rect(-s.w / 2, -s.h / 2, s.w, s.h); c.clip();   // fixer r1: markers never run off the card
       if (s.hlAt !== null && t >= s.hlAt - EPS && P) markBoxes(c, s, t, s.hlAt, { color: s.hlColor || COL.yellow, dur: 0.24, key: `${it.id}|${s.id}|hl` });
-      for (const e of it.emph) if (e.s === s && e.style === 'marker' && t >= e.at - EPS && P) markBoxes(c, emphShot(s, e), t, e.at, { color: e.color, dur: e.dur, key: e.key, h: e.boxes ? 1.18 : 0.5, yK: e.boxes ? 0.55 : 0.86 });
+      const lifted = it.emph.some(m => m.s === s && m.style === 'lift' && !m.boxes && t >= m.at - EPS);
+      for (const e of it.emph) if (e.s === s && e.style === 'marker' && t >= e.at - EPS && P && !(lifted && !e.boxes)) markBoxes(c, emphShot(s, e), t, e.at, { color: e.color, dur: e.dur, key: e.key, h: e.boxes ? 1.18 : 0.5, yK: e.boxes ? 0.55 : 0.86 });
+      c.restore();
       if (ep.shade > 0.01) { c.fillStyle = `rgba(14,13,18,${ep.shade.toFixed(3)})`; c.fill(paperPath(s.id, s.w, s.h, s.pad)); }
       // dim + blur when buried
       const nb = clamp(newer);
@@ -256,7 +286,10 @@ HP.register('screens', {
       if (s.chip) {
         const keep = s === top || (it.emph.length && it.emph[0].s === s && t >= it.emph[0].at - EPS);
         if (!keep || t < s.land - EPS) { s.chip.style.display = 'none'; continue; }
-        const CM = M.multiply(new DOMMatrix().translate(-s.w / 2 - s.pad, s.h / 2 + s.pad + 10).scale(1 / Math.max(0.5, ep.sc * ex.sc)));
+        let CM = M.multiply(new DOMMatrix().translate(-s.w / 2 - s.pad, s.h / 2 + s.pad + 10).scale(1 / Math.max(0.5, ep.sc * ex.sc)));
+        // fixer r1: when the slot under the card is below the safe zone (safeFit would push the chip up over the headline), it
+        // goes above the card's top-left corner instead
+        if (chipBox(CM, s.chipW, s.chipH)[3] > 1570) { const CT = M.multiply(new DOMMatrix().translate(-s.w / 2 - s.pad, -s.h / 2 - s.pad - 10).scale(1 / Math.max(0.5, ep.sc * ex.sc)).translate(0, -s.chipH)); if (chipBox(CT, s.chipW, s.chipH)[1] >= 254) CM = CT; }
         safeFit(CM, s.chipW, s.chipH);
         Object.assign(s.chip.style, { display: 'block', transform: mat(CM) });
         const tx = TX().typed(s.chipTxt, t, s.land + 0.06, 60);
@@ -269,6 +302,7 @@ HP.register('screens', {
 });
 // the shot as an emphasis sees it: its own boxes, or the emph entry's second phrase (assembler, rev2)
 const emphShot = (s, e) => e.boxes ? Object.assign(Object.create(s), { boxes: e.boxes }) : s;
+const chipBox = (M, w, h) => { const P = [[0, 0], [w, 0], [0, h], [w, h]].map(([x, y]) => M.transformPoint(new DOMPoint(x, y))); return [Math.min(...P.map(p => p.x)), Math.min(...P.map(p => p.y)), Math.max(...P.map(p => p.x)), Math.max(...P.map(p => p.y))]; };
 // keep a w x h box drawn with matrix M inside the text-safe zone (x 64-1010, y 254-1570; x <= 926 where it reaches below y 1000,
 // the Reels/TikTok button rail): shrink it if needed, then shift it (edits M in place)
 function safeFit(M, w, h) {
@@ -287,7 +321,7 @@ function markBoxes(c, s, t, at, o) {
   s.boxes.forEach((b, i) => {
     const u = pr(t, at + i * o.dur * 0.6, o.dur); if (u <= 0) return;
     const x0 = (b.x - s.crop.x) * s.ks - s.w / 2, x1 = (b.x + b.w - s.crop.x) * s.ks - s.w / 2, yc = (b.y + b.h * (o.yK ?? 0.55) - s.crop.y) * s.ks - s.h / 2;
-    P.highlight(c, { key: `${o.key}|${i}|${Math.round(s.ks * 1000)}`, x0, x1, y: yc, h: b.h * s.ks * (o.h ?? 1.18), angle: -0.8, color: o.color, alpha: 0.85, over: 12, blend: 'multiply' }, E.oQuad(u));
+    P.highlight(c, { key: `${o.key}|${i}|${Math.round(s.ks * 1000)}`, x0, x1, y: yc, h: b.h * s.ks * (o.h ?? 1.12), angle: -0.6, color: o.color, alpha: 0.85, over: 6, blend: 'multiply' }, E.oQuad(u));
   });
 }
 function phraseRect(s) {   // union of the boxes, card-local
@@ -295,22 +329,61 @@ function phraseRect(s) {   // union of the boxes, card-local
   const ys0 = s.boxes.map(b => (b.y - s.crop.y) * s.ks - s.h / 2), ys1 = s.boxes.map(b => (b.y + b.h - s.crop.y) * s.ks - s.h / 2);
   return { x0: Math.min(...xs0), x1: Math.max(...xs1), y0: Math.min(...ys0), y1: Math.max(...ys1) };
 }
+// fixer r1: per-phrase lift geometry (card-local px): one scale for every line of the phrase, limited by the ink-free room (and the
+// card's edge) around each line; each slip shifts off its nearer neighbour. kmax = the room, kb = the resting lift (pulse kicks to kmax)
+function liftGeom(s, e) {
+  return HP.memo(`scr|liftg|${e.key}|${s.id}|${Math.round(s.ks * 1e4)}|${s.boxes.map(b => [b.x, b.y, b.w, b.h].join(',')).join(';')}`, () => {
+    const rows = s.boxes.map(b => {
+      const R = inkRoom(s, b), w = b.w * s.ks, h = b.h * s.ks;
+      const cardL = (b.x - s.crop.x) * s.ks, cardR = (s.crop.x + s.crop.w - b.x - b.w) * s.ks + s.pad - 4;
+      const cardT = (b.y - s.crop.y) * s.ks + s.pad - 4, cardB = (s.crop.y + s.crop.h - b.y - b.h) * s.ks + s.pad - 4;
+      const aL = Math.min(R.l * s.ks - 2, cardL + s.pad - 4), aR = Math.min(R.r * s.ks - 2, cardR), aT = Math.min(R.t * s.ks - 2, cardT), aB = Math.min(R.b * s.ks - 2, cardB);
+      const p = clamp(Math.min(aL, aR, aT, aB), 2, 8);
+      const x0 = (b.x - s.crop.x) * s.ks - s.w / 2, y0 = (b.y - s.crop.y) * s.ks - s.h / 2;
+      return { b, w, h, p, aL, aR, aT, aB, cx: x0 + w / 2, cy: y0 + h / 2,
+        kx: (w + Math.max(0, aL) + Math.max(0, aR)) / (w + 2 * p), ky: (h + Math.max(0, aT) + Math.max(0, aB)) / (h + 2 * p) };
+    });
+    const kmax = Math.max(1, Math.min(e.scale ?? 1.14, ...rows.map(r => Math.min(r.kx, r.ky))));
+    for (const r of rows) {
+      const fit = (k, half, aLo, aHi, len) => { const ext = k * (len / 2 + r.p) - len / 2, oLo = ext - aLo, oHi = ext - aHi; return oLo > 0 && oHi <= 0 ? Math.min(oLo, -oHi) : oHi > 0 && oLo <= 0 ? -Math.min(oHi, -oLo) : 0; };
+      r.dx = k => fit(k, 0, r.aL, r.aR, r.w);
+      r.dy = k => fit(k, 0, r.aT, r.aB, r.h);
+    }
+    return { rows, kmax, kb: 1 + (kmax - 1) * 0.8 };
+  });
+}
+// the y of a pencil underline under a box: in the gap to the next line of ink, never through it
+function underY(s, b) {
+  const R = inkRoom(s, b), gap = R.b * s.ks;
+  return (b.y + b.h - s.crop.y) * s.ks - s.h / 2 + clamp(gap * 0.45, 3, 10);
+}
 function drawEmph(c, it, s, e, t, M) {
   const P = paint(), R = phraseRect(s), u = pr(t, e.at, e.dur);
   if (e.style === 'lift') {   // the phrase's own pixels lifted off the page (scaled copy on a paper slip, shadow): bold without retyping
-    const k = lerp(1, e.scale ?? 1.14, E.oBack(u, 2.2)) * (1 + (e.kick ?? 0.07) * pulseAmp(it, t)), pad = 8;   // the lifted phrase kicks on every pulse beat
+    // fixer r1: the slips grow only into the ink-free room around each line (inkRoom), with one scale for the whole phrase, shifted
+    // off a near neighbour, clipped to the card: they never cover a word outside the phrase ('of', 'So') or leave the card. The rest
+    // of the card dims a little under them, so the phrase reads as lifted even where there is little room to grow.
+    const G = liftGeom(s, e), kick = (e.kick ?? 0.5) * pulseAmp(it, t);
+    const k = lerp(1, G.kb, E.oCub(u)) + (G.kmax - G.kb) * kick;
     c.save();
-    s.boxes.forEach((b, i) => {
-      const x0 = (b.x - s.crop.x) * s.ks - s.w / 2, y0 = (b.y - s.crop.y) * s.ks - s.h / 2, w = b.w * s.ks, h = b.h * s.ks, cx = x0 + w / 2, cy = y0 + h / 2;
-      c.save(); c.translate(cx, cy); c.scale(k, k); c.rotate((HP.rand(e.key, i) - 0.5) * 0.03 * u);
-      const sh = shadowSprite(w + 2 * pad, h + 2 * pad, 14, 0.38 * u);
-      c.drawImage(sh.c, -w / 2 - pad - sh.b + 3, -h / 2 - pad - sh.b + 6);
-      c.fillStyle = '#ffffff'; c.fillRect(-w / 2 - pad, -h / 2 - pad, w + 2 * pad, h + 2 * pad);
+    c.beginPath(); c.rect(-s.w / 2 - s.pad, -s.h / 2 - s.pad, s.w + 2 * s.pad, s.h + 2 * s.pad); c.clip();
+    c.fillStyle = `rgba(14,13,18,${(0.18 * E.oQuad(u)).toFixed(3)})`; c.fill(paperPath(s.id, s.w, s.h, s.pad));
+    const marks = it.emph.filter(m => m.s && m.s.id === s.id && m.style === 'marker' && !m.boxes && t >= m.at - EPS);
+    G.rows.forEach((g, i) => {
+      const { b, w, h, p, cx, cy } = g, ox = lerp(0, g.dx(k), 1), oy = g.dy(k) - 3 * E.oCub(u);
+      c.save(); c.translate(cx + ox, cy + oy); c.scale(k, k); c.rotate((HP.rand(e.key, i) - 0.5) * 0.008 * u);
+      const sh = shadowSprite(w + 2 * p, h + 2 * p, 12, 0.36 * u);
+      c.drawImage(sh.c, -w / 2 - p - sh.b + 2, -h / 2 - p - sh.b + 5);
+      c.fillStyle = '#ffffff'; c.fillRect(-w / 2 - p, -h / 2 - p, w + 2 * p, h + 2 * p);
       const fk = s.fk, img = s.img;
-      c.drawImage(img, b.x * fk - pad / s.ks * fk, b.y * fk - pad / s.ks * fk, (b.w + 2 * pad / s.ks) * fk, (b.h + 2 * pad / s.ks) * fk, -w / 2 - pad, -h / 2 - pad, w + 2 * pad, h + 2 * pad);
-      if (s.hlAt !== null) {   // keep the marker on the lifted copy
-        const P2 = paint(); P2.highlight(c, { key: `${e.key}|lift${i}|${Math.round(s.ks * 1000)}`, x0: -w / 2, x1: w / 2, y: h * 0.05, h: h * 1.18, angle: -0.8, color: s.hlColor || COL.yellow, alpha: 0.85, over: 12, blend: 'multiply' }, 1);
+      c.drawImage(img, b.x * fk - p / s.ks * fk, b.y * fk - p / s.ks * fk, (b.w + 2 * p / s.ks) * fk, (b.h + 2 * p / s.ks) * fk, -w / 2 - p, -h / 2 - p, w + 2 * p, h + 2 * p);
+      c.save(); c.beginPath(); c.rect(-w / 2 - p, -h / 2 - p, w + 2 * p, h + 2 * p); c.clip();   // markers stay on the slip
+      if (s.hlAt !== null) paint().highlight(c, { key: `${e.key}|lift${i}|${Math.round(s.ks * 1000)}`, x0: -w / 2, x1: w / 2, y: h * 0.05, h: h * 1.12, angle: -0.5, color: s.hlColor || COL.yellow, alpha: 0.85, over: 6, blend: 'multiply' }, 1);
+      for (const m of marks) {   // a later marker pass (e.g. the pink second pass) lands on the lifted copy, not under it
+        const um = pr(t, m.at + i * m.dur * 0.6, m.dur); if (um <= 0) continue;
+        paint().highlight(c, { key: `${m.key}|lift${i}|${Math.round(s.ks * 1000)}`, x0: -w / 2, x1: w / 2, y: h * 0.1, h: h * 0.62, angle: -0.5, color: m.color, alpha: 0.8, over: 6, blend: 'multiply' }, E.oQuad(um));
       }
+      c.restore();
       c.restore();
     });
     c.restore();
@@ -318,8 +391,9 @@ function drawEmph(c, it, s, e, t, M) {
   }
   if (!P) return;
   const p = E.ioQuad(u), sh = [];
-  if (e.style === 'circle') sh.push({ kind: 'ellipse', cx: (R.x0 + R.x1) / 2, cy: (R.y0 + R.y1) / 2, w: (R.x1 - R.x0) * 1.1 + 70, h: (R.y1 - R.y0) * 1.35 + 40, p });
-  else if (e.style === 'underline') s.boxes.forEach((b, i) => { const x0 = (b.x - s.crop.x) * s.ks - s.w / 2, x1 = x0 + b.w * s.ks, y = (b.y + b.h - s.crop.y) * s.ks - s.h / 2 + 8; sh.push({ kind: 'underline', x0: x0 - 6, x1: x1 + 10, y, sag: 8, p: clamp(p * s.boxes.length - i) }); });
+  const multi = s.boxes.length > 1 || (R.x1 - R.x0) > 0.8 * s.w;   // fixer r1: an ellipse round two full lines cuts through the words beside them
+  if (e.style === 'circle' && !multi) sh.push({ kind: 'ellipse', cx: (R.x0 + R.x1) / 2, cy: (R.y0 + R.y1) / 2, w: (R.x1 - R.x0) * 1.06 + 48, h: (R.y1 - R.y0) * 1.25 + 30, p });
+  else if (e.style === 'underline' || e.style === 'circle') s.boxes.forEach((b, i) => { const x0 = (b.x - s.crop.x) * s.ks - s.w / 2, x1 = x0 + b.w * s.ks, y = underY(s, b); sh.push({ kind: 'underline', x0: Math.max(x0 - 6, -s.w / 2), x1: Math.min(x1 + 8, s.w / 2), y, sag: 5, p: clamp(p * s.boxes.length - i) }); });
   else if (e.style === 'box') sh.push({ kind: 'rect', x: R.x0 - 18, y: R.y0 - 12, w: R.x1 - R.x0 + 36, h: R.y1 - R.y0 + 24, p });
   else return;
   P.pencil(c, sh, { key: e.key, t, color: e.color, width: e.width ?? 7, alpha: 0.95 });
@@ -370,8 +444,12 @@ function pileMatrix(it, t) {
     const u = E.ioCub(pr(t, P.at, P.dur)), s = P.s, R = phraseRect(s);
     const pt = new DOMMatrix().translate(s.cx, s.cy).rotate(s.rot).transformPoint(new DOMPoint((R.x0 + R.x1) / 2, (R.y0 + R.y1) / 2));
     // keep the zoomed card inside the frame: cap the zoom so the phrase (plus margin) fits 960 px
-    const pw = (R.x1 - R.x0) + 80, zmax = Math.max(1, Math.min(P.z, 940 / pw));
-    const zz = lerp(1, zmax, u), ax = lerp(pt.x, P.to[0], u), ay = lerp(pt.y, P.to[1], u);
+    const pw = (R.x1 - R.x0) + 80;
+    // fixer r1: and the whole card (plus a margin for the drift) fits the frame width, shifted sideways so neither edge leaves it
+    const rr = Math.abs(s.rot) * Math.PI / 180, hw = (s.w / 2 + s.pad) * Math.cos(rr) + (s.h / 2 + s.pad) * Math.sin(rr);
+    const zmax = it.d.push && it.d.push.overflow ? Math.max(1, Math.min(P.z, 940 / pw)) : Math.max(1, Math.min(P.z, 940 / pw, 960 / (2 * hw)));
+    const zf = zmax, cxF = P.to[0] + zf * (s.cx - pt.x), fixX = cxF - zf * hw < 60 ? 60 - (cxF - zf * hw) : cxF + zf * hw > 1020 ? 1020 - (cxF + zf * hw) : 0;
+    const zz = lerp(1, zmax, u), ax = lerp(pt.x, P.to[0] + fixX, u), ay = lerp(pt.y, P.to[1], u);
     m = m.multiply(new DOMMatrix().translate(ax, ay).scale(zz).translate(-pt.x, -pt.y));
   }
   return m;

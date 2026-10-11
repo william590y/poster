@@ -133,7 +133,13 @@ HP.register('loop', {
       const a = -Math.PI / 2 + j * TAU / it.nodes.length, nx = it.c[0] + it.r * Math.cos(a), ny = it.c[1] + it.r * Math.sin(a);
       const wr = HP.text.wrap(n.label, lab, 300, { balance: true }), w = Math.ceil(wr.width) + 34, h = wr.lines.length * lab.size * 1.12 + 22;
       let x, y; const side = Math.round(Math.cos(a) * 2) / 2, vert = Math.round(Math.sin(a));
-      if (vert < 0) { x = nx - w / 2; y = ny - it.nr - 26 - h; } else if (vert > 0) { x = nx - w / 2; y = ny + it.nr + 26; }
+      // fixer r1: a node's label may sit on a chosen side (labelSide: [per node] 'left' | 'right' | 'above' | 'below' | null = auto),
+      // e.g. beside the bottom node instead of under the ring, where the facts below need the room
+      const ls = (d.labelSide || [])[j] || n.labelSide;
+      if (ls === 'left' || ls === 'right') { x = ls === 'left' ? Math.max(66, nx - it.nr - 22 - w) : Math.min(1014 - w, nx + it.nr + 22); y = ny - h / 2; }
+      else if (ls === 'above') { x = nx - w / 2; y = ny - it.nr - 26 - h; }
+      else if (ls === 'below') { x = nx - w / 2; y = ny + it.nr + 26; }
+      else if (vert < 0) { x = nx - w / 2; y = ny - it.nr - 26 - h; } else if (vert > 0) { x = nx - w / 2; y = ny + it.nr + 26; }
       else if (side > 0) { x = Math.min(1014 - w, nx - w / 2 + 40); y = ny - it.nr - 26 - h; } else { x = Math.max(66, nx - w / 2 - 40); y = ny + it.nr + 26; }
       const R = rollText(it.el, { text: n.label, x, y, w, font: lab, color: INK, chip: d.labelChip ?? '#FBF7EE', align: 'center', times: beatTimes(it.nodeAt[j] + .01, HP.text.words(n.label).length, .25) });
       R.node = [nx, ny]; it.text.push({ text: n.label, reveal: 'words', role: 'main' }); return R;
@@ -185,7 +191,7 @@ function drawLoop(it, t) {
   }
   // the comet: head on the ring, a tail that grows with the speed; glow; when it laps in 8ths the whole ring burns
   if (st && cu < .98) {
-    const a = st.a + spin * D2R - Math.PI / 2, tail = Math.min(5.6, .6 + 1.1 * Math.pow(speed, .85)), N = 56, cols = [COL.orange, COL.red];
+    const a = st.a + spin * D2R - Math.PI / 2, tail = Math.min(5.6, (d.tailBase ?? .6) + (d.tailK ?? 1.1) * Math.pow(speed, .85)), N = 56, cols = [COL.orange, COL.red];   // fixer r1: tailBase/tailK (a third of the ring at the slowest lap)
     const cw = it.d.cometW ?? 34;
     ctx.save(); ctx.lineCap = 'round';
     for (let k = N - 1; k >= 0; k--) {   // the tail: ink edge, red -> orange body, a white-hot core line
@@ -200,6 +206,21 @@ function drawLoop(it, t) {
     ctx.globalAlpha = 1; ctx.fillStyle = g; ctx.fillRect(hx - gr, hy - gr, 2 * gr, 2 * gr);
     ctx.fillStyle = '#FFFDF6'; ctx.beginPath(); ctx.arc(hx, hy, 13, 0, TAU); ctx.fill();
     ctx.restore();
+  }
+  // fixer r1 (lapShock): every lap (the comet passing the top node) sends a shock ring out from the loop and a tick mark flashes
+  // on the ring, so each faster lap is counted by the eye, not only by the gauge
+  if (d.lapShock && cu < .9) {
+    const laps = it.plan.passes.filter(p => p.node === 0 && p.t <= t + EPS);
+    laps.slice(-3).forEach(p => {
+      const u = (t - p.t) / (d.lapShockDur ?? .38); if (u < 0 || u >= 1) return;
+      const k = laps.indexOf(p) + 1, R = rr * (1 + .55 * E.oCub(u)), al = Math.pow(1 - u, 1.4);
+      ctx.save(); ctx.lineCap = 'round';
+      ctx.strokeStyle = INK; ctx.globalAlpha = al * .5; ctx.lineWidth = 14 * (1 - u) + 3; ctx.beginPath(); ctx.arc(c[0], c[1], R, 0, TAU); ctx.stroke();
+      ctx.strokeStyle = P.mix(COL.orange, COL.yellow, Math.min(1, k / 10)); ctx.globalAlpha = al; ctx.lineWidth = 9 * (1 - u) + 2; ctx.beginPath(); ctx.arc(c[0], c[1], R, 0, TAU); ctx.stroke();
+      const ty = c[1] - rr; ctx.strokeStyle = INK; ctx.globalAlpha = Math.min(1, al * 1.5); ctx.lineWidth = 8;   // the tick at the top
+      ctx.beginPath(); ctx.moveTo(c[0], ty - 34 - 30 * E.oCub(u)); ctx.lineTo(c[0], ty - 70 - 30 * E.oCub(u)); ctx.stroke();
+      ctx.restore();
+    });
   }
   // nodes: painted discs (baked), a hand-drawn icon, a bump + ring burst + label flash when the comet passes
   const rc = HP.lib.rough.canvas(it.cv.cv, it.id + '|icon|' + HP.boil(t));

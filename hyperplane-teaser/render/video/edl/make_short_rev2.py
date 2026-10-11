@@ -107,6 +107,8 @@ SPLICE_NOTE = ("Splice riff beat 15 -> refrain bar 23 beat 4 (the r4-r7 short's 
 
 if __name__ == '__main__':
     edl = build()
+    for r in P.early_emph(edl):
+        print('  emph moved earlier (fixer r1, late payoffs):', r)
     for r in P.fit_emph(edl):
         print('  emph drawn faster to finish before its transition:', r)
     bad = [b for b in P.bad_refs(edl) if '..' not in b[1]]

@@ -233,6 +233,7 @@ so three builders can work in parallel. Style reference: `research/rev2/style.md
 | `edl/test-<module>.json` | the module's builder | a minimal EDL per module (song time via `audio.songStart` + `hb:` beats) |
 | `fx/kandclip.js` | integrator | footage inside a `kand` piece (fill hook); see **Integrator** at the end |
 | `edl/make_showcase.py`, `edl/showcase.json` | integrator | the showcase cut that uses every module |
+| (polish pass) | polisher | opt-in fields in legacy.js, text.js, beatfx.js, kandinsky.js, charts.js, singularity.js, paint.js, the payoff probe in core.js and coverage.py; see **Polisher** at the end |
 | `vendor/` | architect | rough.js 4.6.6, perfect-freehand 1.2.3, MathJax 3.2.1 (tex-svg-full); see `vendor/README.md` |
 | `timeref.py` | architect | the same time references for the Python tools (prep_clips, mix, render cues) |
 
@@ -804,3 +805,83 @@ kand kicker in two riff frames, the glyph raster cache; every other frame <= 0.0
 this box (0.27-0.34 in the prelude and riff, 0.7-1.0 in verse 1b (two screenshot piles, a 1500 px band panel, the 16-shard
 shatter) and around the black hole's lens), i.e. about 17-18 min for a 74 s cut with one worker.
 
+## Polisher (11 Oct 2026): fixes from the showcase critique
+Every change is opt-in or rev2-only: `regress.py compare` on `long` and `short` stays 0.0000, and all 18 EDLs load and render
+with no page error or warning. New fields, by module:
+
+- **legacy.js, clip/caption `caption.reveal: "sweep"`**: unspoken words at `dimOp` (default 0.14), highlighted words at `dimHl`
+  (0.3) with no red chip yet; each word ramps up as it is spoken, and a highlighted word's red chip is swept on left to right from
+  its spoken time (0.12 s, or up to the next word). The old `"dim"` mode is unchanged. Use it instead of `"dim"` wherever the hook
+  phrase must not be lit before it is said.
+- **text.js**:
+  - a clip's `caption.marks` (the usual mark list: underline, circle, marker...) are drawn on the caption at their own `at`
+    (a marks-only run: the caption keeps its own reveal);
+  - the r7 `sub` line takes `sub.roll` (e.g. `{"rate": 8}` = 32nds; default 16ths) and `sub.marks`;
+  - `karaoke` takes `metaPx` / `metaGap` for its name/year line;
+  - every rolled-out legacy item now declares **payoffs** (below).
+- **core.js**: `HP.probe.items()` also returns each item's `payoffs()`, as `[{what, at}]`: the time a rolled-out text, mark,
+  annotation or source line is complete. An item type may define `payoffs()`; text.js and charts.js do.
+- **check/coverage.py**: new **payoff** check. Every payoff must land at least `--read` seconds (0.5) before its item's `t1`; a
+  late one prints `LATE <id>: <what> complete at X, item ends Y`. Example: the pre-fix Amodei clip (t1 8.3) failed with its sub
+  line complete at 8.88. The report carries `payoff.late` and `summary.late_payoffs`.
+- **beatfx.js**:
+  - the `prelude` pattern draws pencil scribbles and ink stamps (110-190 px) as well as ticks; it used to be grain, flash and
+    34-56 px ticks only;
+  - ticks are 56-88 px with an 8 px pencil;
+  - stamps are at least 0.75x size even at low intensity, always land whole inside the frame, and never use the plain `disc`
+    glyph, which read as a stray logo piece beside the chart.
+- **kandinsky.js, `river`**: `size` (vector scale), `trail` (comet trail, in vector lengths), `stagger` (beats between vector
+  entries; 0.5 = one joins per 8th), `lanes` (spread across the band), `flowK` (flow-line weight), `ripple` (sine ripple lines
+  that travel with the current). The `riff` preset takes `river` / `superpose` override objects and a `reframe` shot array
+  (numeric `at` / `from` / `to` = beats from the preset start).
+- **charts.js**:
+  - a value label next to the y axis is kept inside the plot, so it no longer prints over the tick labels;
+  - `yAxis.labelIn` (+ `labelPx`) puts the unit inside the plot at the axis top;
+  - `subPer` / `sourcePer` set the roll speed of the subtitle and source line;
+  - charts declare payoffs: the last point, each annotation, the source.
+- **singularity.js, `blackhole.collapse.pinch`** `{glow (s), ring (s), flecks (n), colors}`: the hole pinches to a white-hot
+  point that cools to orange, a shockwave ring runs out to the frame edge, and paint flecks spray out. Use it with
+  `collapse.flash` / `flashDecay` / `shake`.
+- **paint.js, `brushtext`**:
+  - `place[i].lead` / `place[i].dur` set one word's anticipation and paint time;
+  - `under` `{color, k}` (per word or item-wide) lays a darker, wider stroke under each stroke, so the word stays legible
+    over the splat;
+  - `splat.dimTo` / `dimAfter` let the burst drop to e.g. 45 % once it has landed;
+  - with `"overlay": true` the item sits in `#fx`, above everything but `#flash`, so the burst (rings, debris, iris, cards,
+    logo pieces) paints behind the letters.
+
+**Showcase changes (`edl/make_showcase.py`):**
+- **Prelude.**
+  - Footage box 1080x740 from y 380 (was 1080x640 from y 400). The tighter crops leave Altman's banner as a strip and start
+    Amodei's crop between two rows of Axios wordmarks.
+  - The prelude clips use their own cache folders (`frames: showcase-altman | showcase-amodei`). They used to share
+    cache/altman and cache/amodei with the short, so re-prepping one cut silently re-cropped the other.
+  - Captions use `"sweep"`, with a yellow pencil underline and a circle as the words land, and small camera punches on
+    "really, really badly".
+  - Amodei is held to hb:-7 (edit 9.745). His sub line rolls out on 32nds from "BADLY" (complete by 8.88), and "75%" gets a
+    paint mark at 8.95. The fold follows at hb:-7. The HF pile lands on hb:-7, hb:-6 and song 16.823 (= hb:-5).
+  - The prelude beat tracks draw in the strips above the speaker stamp and under the caption.
+- **Riff.**
+  - River from hb:8 to 16: 16 vectors at 2.3x, joining on 8ths, with trails, ripples and heavier flow lines.
+  - Superposition r 380. Its reframes cap at 1.15x about a point that keeps the whole wordmark in frame (was 1.5x / 1.25x,
+    which cut the title for hb:13-15).
+- **Verse.** eq-fwd is slammed in cream ink on hb:16, with a 6 px hit and a yellow ink flash, and sigma is circled on hb:18.
+  It had taken the light theme from its old t0, hb:15.9, so it was dark ink on the dark verse.
+- **Refrain.**
+  - Chart: points on 8ths/16ths with the 946 MW record on hb:94, the annotation slammed at 62 px on hb:94.5, the source from
+    hb:94.75, and the unit inside the plot.
+  - Card 970 px wide, with 44 px values.
+  - Particles exit moved to hb:97.5 and shortened to 1 beat, so the chart is whole until hb:97.
+  - GRPO and the DeepSeek/Nvidia pile start at hb:97.5, still landing "golden" on "golden years".
+- **God clearing.**
+  - The hole pinches shut on "God," with a flash of 0.85, a 14 px shake, a shockwave and 56 flecks.
+  - The fog footage fades up over 36.38-37.08, graded to read (brightness +0.03, gamma 1.25).
+  - A brush flick lands on hb:108.5, and the footage credit is 30 px.
+  - "it's brutal out here" (overlay):
+    - "brutal" is 256 px, so every glyph keeps 60 px or more of margin;
+    - the yellow words are thicker, and every word has an ink under-stroke;
+    - the pink burst dims to 45 % after landing;
+    - "here" is painted 37.94-38.10 and the line is held to 38.60, so it reads through the downbeat burst.
+- **Outro.**
+  - The Bengio karaoke is 60 px bold in the clear cream strip above the logo, with unspoken words at 0.62 (4.6:1 on the cream).
+  - The outro's splats and stamps are zoned out of that strip.

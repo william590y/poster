@@ -63,6 +63,9 @@ William: "This is quite good but I think it can be improved." His points, as dir
   - The music is out before verse 2 (80.68).
   - Loudness ≈ −12 LUFS, TP ≤ −1 dBTP on the encoded file.
 
+## WILLIAM FEEDBACK LOG (newest last; every planner, assembler and fixer re-reads this before each round)
+- (11 Oct) Showcase style test sent: out/rev2/showcase-preview.mp4 (edl/make_showcase.py is the reference implementation of the new vocabulary). No feedback on it yet.
+
 ## UPDATE (William, latest; overrides the "short/long" notes below)
 Both versions END in the instrumental after the first refrain (song 73.64 → 80.68; verse 2's first vocal is at 80.68, so the music must be out by ≈80.4), and they differ only by where they START:
 - **Intro cut** (≈72–74 s): starts at song 6.10. Quiet-intro montage → the breath ("it's brutal out here") → the drop.

@@ -51,7 +51,22 @@ def build():
     eq['pulse'] = ['hb:13', 'hb:14']                  # hb:15 is in the cut
     eq['exit'] = 'cut'
     g['riff-credit']['exit'] = 'cut'
-    items = P.fixer_r1(P.safe_nudges(P.ensure_prep(pre + ref)), 'short')
+    items = P.fixer_r2(P.fixer_r1(P.safe_nudges(P.ensure_prep(pre + ref)), 'short'), 'short')
+    gi = {x['id']: x for x in items}
+    # FIXER r2: the ghost b-roll under the riff ends with the riff (hb:16 is in the cut of the song)
+    gi['ghost-riff']['t1'] = RIFF_OUT
+    gi['ghost-riff']['frames'] = 'short-ghost-riff'   # its own cache folder (a shorter life than the long's)
+    riff_out.append('ghost-riff')
+    # FIXER r2 (director, medium: the loop's 2 s were cluttered by an empty chart card and the Guardian card over the top node):
+    # the short drops the build-out chart and the 'golden age' card; the loop has the frame, its comet lighting the four nodes one
+    # per beat (hb:96-100), then laps twice as fast in the big loop; only Palisade's shutdown-resistance card lands on hb:100.5
+    items = [x for x in items if x['id'] not in ('chart-gw', 'pile-golden')]
+    gi = {x['id']: x for x in items}
+    pg = gi['pile-gone']
+    pg['shots'] = [s for s in pg['shots'] if s['id'].startswith('palisade')]
+    pg['emph'] = [{'style': 'circle', 'at': 'hb:102', 'shot': 0, 'color': '#B31B1B'}]
+    gi['cp-golden']['frame'] = {**gi['cp-golden']['frame'], 'r': 165}
+    gi['cp-golden']['frames'] = 'short-cp-golden'      # its own cache folder (the long's disc is r 140)
     # FIXER r1 (critic: the short's loop could not read as accelerating): the laps run 1 bar (hb:96-100, the small loop), then
     # 2 beats x2, 1 beat x2 and 8ths x4 in the big loop (hb:100-108, into the collapse): each lap twice as fast as the last
     g2 = {x['id']: x for x in items}
@@ -60,25 +75,30 @@ def build():
     g2['loop-b']['laps'] = {'from': 'hb:100', 'plan': [[2, 2], [1, 2], [0.5, 4]]}
 
     # ---- transitions
-    tr = P.transitions_of(P.load('prelude-riff'))
+    tr = P.r2_prelude_tr(P.transitions_of(P.load('prelude-riff')))
     rt = P.transitions_of(R, 'short')
     for t in rt:
         if t['id'] == 'tr-entrance-short':
             t['out'] = riff_out
-            # FIXER r1 (critic: the dot-field covered the first bar after the splice, the hb:96 downbeat was a near-empty dark frame,
-            # and the loop got ~2.3 s): the particles take 0.39 s (hb:95.06-95.86, impact on the 8th after the splice) and the loop
-            # world is whole on the bar-24 downbeat (hb:96), where its first lap starts
-            t.update({'at': 'hb:95.5', 'dur': 0.8, 'lead': 0.55})
-            t['_note'] = ("THE SHORT'S ENTRANCE (refrain plan short_entrance): window hb:95-97 = song 65.200-66.167, 12 ms after the splice; the "
-                          "riff's logo breaks into a halftone, its dots swirl round the middle and land on the cream loop world; impact on the "
-                          "bar-24 downbeat (65.684)")
-        t['in'] = ['chart-gw' if i == 'chart-dc' else i for i in t.get('in', [])]
-        t['out'] = ['chart-gw' if i == 'chart-dc' else i for i in t.get('out', [])]
+            # FIXER r2 (director, medium: the splice at edit 20.377 was not punctuated, the riff logo held to hb:96): an iris out of
+            # the loop's centre opens ON the splice (window 20.377-20.861 = hb:95 - 0.025 beat to hb:96), so picture and music cut
+            # together, and the loop world is whole on the bar-24 downbeat (hb:96) where its first lap starts
+            for k in ('grid', 'swirl', 'colors', 'trail'):
+                t.pop(k, None)
+            t.update({'type': 'iris', 'at': 'hb:95', 'dur': 1.0, 'lead': 0.025, 'shape': 'circle', 'mode': 'open', 'c': [540, 760], 'rim': 'yellow',
+                      'spin': 120, 'flash': {'opacity': 0.35, 'decay': 0.06, 'color': '#FFF8EA'}, 'shake': 10})
+            t['_note'] = ("THE SHORT'S ENTRANCE (fixer r2): an iris out of the loop centre opens on the splice (edit 20.377, song 26.477 | 65.188) "
+                          "with a flash and a hit; the riff's logo stays round it until the iris passes the frame edge (hb:95.85)")
+        t['in'] = [i for i in ('chart-gw' if i == 'chart-dc' else i for i in t.get('in', [])) if i not in ('chart-gw', 'pile-golden')]
+        t['out'] = [i for i in ('chart-gw' if i == 'chart-dc' else i for i in t.get('out', [])) if i not in ('chart-gw', 'pile-golden')]
+    for t in tr:
+        if t['id'] == 'tr-fold':
+            t['mode'] = 'away'      # FIXER r2: the HF pile is already under the folding flap (no flat slab)
     transitions = tr + rt
 
-    bfx = P.beatfx_of(P.load('prelude-riff'), layer=lambda b: 'paint')
+    bfx = P.r2_prelude_bfx(P.beatfx_of(P.load('prelude-riff'), layer=lambda b: 'paint'))
     for b in bfx:
-        if b['id'] == 'fx-riff':
+        if b['id'] == 'fx-riff-b':
             b['to'] = 'hb:14.5'                       # hb:15.5 is in the cut
     bfx += P.beatfx_of(R, 'short', layer=lambda b: {'fx-god': 'paint-god', 'fx-outro': 'paint-out'}.get(b['id'], 'paint-rf'))
 
@@ -105,7 +125,8 @@ def build():
         'items': items,
         'transitions': transitions,
         'beatfx': bfx,
-        'fx': P.fixer_fx('short'),
+        'fx': [f for f in P.fixer_fx('short') if f['id'] != 'fx-cover-bloom'] + P.fixer_r2_fx('short'),
+        'paintMask': [{**P.PAINT_MASK_RIFF, 'to': RIFF_OUT}],
     }
     return edl
 

@@ -35,10 +35,17 @@ def build():
         if x['id'] == 'v-racks':
             out.append({'id': 'paint-racks', 'type': 'layer', 'kind': 'canvas', '_note': "the chorus's last two bars: paint over the racks footage"})
     cho = out
-    items = P.fixer_r1(P.safe_nudges(P.ensure_prep(pre + ver + cho + ref)), 'long')
+    items = P.fixer_r2(P.fixer_r1(P.safe_nudges(P.ensure_prep(pre + ver + cho + ref)), 'long'), 'long')
+    gi = {x['id']: x for x in items}
+    # FIXER r2 (william, medium: 'the 20.87 cut does not read as the logo breaking apart'): the riff's logo no longer blows out
+    # under a hard cut to the dark verse; the pink disc and the band stay behind as the verse's frames (hidden on hb:16, the
+    # frames morph out of them) and the rest of the cover page, wordmark included, shatters into shards (tr-riff-break below)
+    for m in gi['kand-riff']['moves']:
+        if m.get('move') == 'break':
+            m.update({'at': 'hb:99', 'hideAt': 'hb:16'})
 
     # ---- transitions
-    tr = P.transitions_of(load_pre())
+    tr = P.r2_prelude_tr(P.transitions_of(load_pre()))
     vt = P.transitions_of(V)
     ill = next(t for t in vt if t['id'] == 'tr-v1-illum')
     ill['in'] = [x for x in next(t for t in C['transitions'] if t['id'] == 'tr-v1-illum')['_in_add']]   # chorus interface
@@ -62,12 +69,32 @@ def build():
         t['in'] = ['chart-gw' if i == 'chart-dc' else i for i in t.get('in', [])]
         t['out'] = ['chart-gw' if i == 'chart-dc' else i for i in t.get('out', [])]
     transitions = tr + vt + ct + rt
+    # ---- FIXER r2 transitions
+    T = {t['id']: t for t in transitions}
+    # (director, low; william, medium) folds landed as a flat slab with nothing behind: the incoming frame is already under the
+    # flap (mode 'away'), and the flap is a lit, lifted quad with a crease, grain and a cast shadow (transitions.js)
+    T['tr-fold']['mode'] = 'away'
+    T['tr-ch-fold52']['mode'] = 'away'
+    # (william, medium) paint wipes were pure-paint frames on bar downbeats: the incoming frame is painted in through the strokes
+    T['tr-v1-wipe']['style'] = 'matte'
+    T['tr-ch-wipe64']['style'] = 'matte'
+    # (director, medium) the hb:48 bloom peaked ON the bar with nothing under it: it peaks 0.1 s earlier, the teens pile lands on it
+    T['tr-v1-illum']['at'] = 'hb:47.8'
+    # (director + william, medium) hb:56 was a near-empty cream frame mid-whip: the whip runs half a beat earlier, so the CBS
+    # circle and the count decelerate in and land ON the bar (with a shake, fixer_r2_fx)
+    T['tr-ch-whip56']['at'] = 'hb:55.6'
+    # (director, low) Hinton's portrait is not revealed under the page turn any more (it pops in with his own card, hb:21.5)
+    T['tr-v1-turn']['in'] = [i for i in T['tr-v1-turn']['in'] if i != 'p-hinton']
+    transitions.append({'id': 'tr-riff-break', 'type': 'shatter', 'at': 'hb:16', 'dur': 1.5, 'lead': 0.12, 'n': 22, 'impact': [540, 1236],
+                        'out': ['g-cream-riff', 'ghost-riff', 'kand-riff', 'eq-superpose'], 'in': ['g-dark-v1'],
+                        '_note': "FIXER r2: the cover page (wordmark, kicker, discs, the river) cracks from the wordmark and shatters into the dark verse; the pink disc and the band morph into the verse's frames on top"})
 
     # ---- beat tracks (each section's canvas) and fx events
-    beatfx = (P.beatfx_of(load_pre(), layer=lambda b: 'paint') + P.beatfx_of(V, layer=lambda b: 'paint')
+    beatfx = (P.r2_prelude_bfx(P.beatfx_of(load_pre(), layer=lambda b: 'paint')) + P.beatfx_of(V, layer=lambda b: 'paint')
               + P.beatfx_of(C, layer=lambda b: 'paint-racks' if b['id'] == 'fx-ch-b' else 'paint-ch')
               + P.beatfx_of(R, 'long', layer=lambda b: {'fx-god': 'paint-god', 'fx-outro': 'paint-out'}.get(b['id'], 'paint-rf')))
-    fx = [dict(f) for f in V.get('fx', [])] + [dict(f) for f in R.get('fx', [])] + P.fixer_fx('long')
+    fx = ([dict(f) for f in V.get('fx', [])] + [dict(f) for f in R.get('fx', [])] + [f for f in P.fixer_fx('long') if f['id'] != 'fx-cover-bloom']
+          + P.fixer_r2_fx('long'))
 
     themes = ([{'t0': 0, 't1': 'hb:0', 'theme': 'dark'}, {'t0': 'hb:0', 't1': 'hb:16', 'theme': 'light'}, {'t0': 'hb:16', 't1': 'hb:48', 'theme': 'dark'}]
               + C['themes'] + P.THEMES_TAIL)
@@ -97,6 +124,7 @@ def build():
         'transitions': transitions,
         'beatfx': beatfx,
         'fx': fx,
+        'paintMask': [P.PAINT_MASK_RIFF],
     }
     return edl
 

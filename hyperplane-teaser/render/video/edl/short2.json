@@ -111,6 +111,52 @@
    "color": "#F2EBDD"
   },
   {
+   "id": "ghost-riff",
+   "type": "panel",
+   "t0": "hb:1.25",
+   "t1": 20.923,
+   "prep": "clip",
+   "broll": "galaxy-helios-datacenter",
+   "in": 43.6,
+   "speed": 0.4,
+   "shape": "rect",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 1080,
+    "h": 1920
+   },
+   "entry": {
+    "style": "fade",
+    "at": "hb:1.25",
+    "dur": 0.45
+   },
+   "out": {
+    "style": "fade",
+    "dur": 0.2
+   },
+   "border": "none",
+   "kb": {
+    "z": [
+     1.0,
+     1.12
+    ]
+   },
+   "alpha": 0.3,
+   "blend": "multiply",
+   "grade": {
+    "sat": 0.35,
+    "contrast": 0.95,
+    "brightness": 0.05,
+    "gamma": 1.35,
+    "grain": 0
+   },
+   "mask": "linear-gradient(to bottom, #000 0%, #000 52%, rgba(0,0,0,0.22) 58%, rgba(0,0,0,0.22) 82%, #000 90%, #000 100%)",
+   "theme": "light",
+   "_note": "FIXER r2: MUTED ghost b-roll under the riff (Galaxy's Helios AI data centre, 2026; aerial of the halls), multiply 34 %",
+   "frames": "short-ghost-riff"
+  },
+  {
    "id": "paint",
    "type": "layer",
    "kind": "canvas"
@@ -173,18 +219,19 @@
     "grain": 4
    },
    "stamp": {
-    "y": 300,
+    "y": 262,
     "yrPx": 52,
     "year": "2015",
     "name": "Sam Altman",
-    "role": "Then president, Y Combinator"
+    "role": "Then president, Y Combinator",
+    "roleColor": "#D8D8E0"
    },
    "caption": {
     "text": "…I think AI will probably like most likely sort of lead to the end of the world…",
     "hl": "the end of the world",
     "reveal": "sweep",
-    "dimOp": 0.14,
-    "dimHl": 0.3,
+    "dimOp": 0.5,
+    "dimHl": 0.58,
     "words": [
      {
       "w": "…I",
@@ -321,10 +368,61 @@
    "_note": "Altman 2015 (Airbnb fireside chat), footage as filmed; caption verbatim of the heard window 1.86-6.34 (small.en), word times re-measured by the prelude verifier (LEAD after its pause)",
    "box": {
     "x": 0,
-    "y": 360,
+    "y": 376,
     "w": 1080,
-    "h": 850
-   }
+    "h": 834
+   },
+   "kicks": [
+    {
+     "at": "song:6.551",
+     "s": 1.032,
+     "dur": 0.16
+    },
+    {
+     "at": "song:7.376",
+     "s": 1.0275,
+     "dur": 0.16
+    },
+    {
+     "at": "song:7.619",
+     "s": 1.032,
+     "dur": 0.2
+    },
+    {
+     "at": "song:7.898",
+     "s": 1.0185,
+     "dur": 0.16
+    },
+    {
+     "at": "song:8.351",
+     "s": 1.0172,
+     "dur": 0.16
+    },
+    {
+     "at": "song:9.123",
+     "s": 1.0172,
+     "dur": 0.16
+    },
+    {
+     "at": "song:9.555",
+     "s": 1.032,
+     "dur": 0.2
+    },
+    {
+     "at": "song:10.040",
+     "s": 1.0158,
+     "dur": 0.16
+    },
+    {
+     "at": "song:10.499",
+     "s": 1.0165,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    793
+   ]
   },
   {
    "id": "amodei",
@@ -356,11 +454,12 @@
     "grain": 4
    },
    "stamp": {
-    "y": 300,
+    "y": 262,
     "yrPx": 52,
     "year": "2025",
     "name": "Dario Amodei",
-    "role": "CEO, Anthropic"
+    "role": "CEO, Anthropic",
+    "roleColor": "#D8D8E0"
    },
    "caption": {
     "text": "…there’s a 25% chance that things go really, really badly…",
@@ -369,8 +468,8 @@
      "really, really badly"
     ],
     "reveal": "sweep",
-    "dimOp": 0.14,
-    "dimHl": 0.3,
+    "dimOp": 0.5,
+    "dimHl": 0.58,
     "words": [
      {
       "w": "…THERE’S",
@@ -526,10 +625,66 @@
    "_note": "Amodei 2025 (Axios AI+ DC Summit, Sep 17 2025), footage as filmed (Axios wall kept). Heard: '…there's a 25% chance that things go really, really badly…' (audio 1065.67-1069.50, the whole of 'badly'); the sub line is the baseline he says next ('…and a 75% chance…'), set as unheard words, never word-lit",
    "box": {
     "x": 0,
-    "y": 360,
+    "y": 376,
     "w": 1080,
-    "h": 840
-   }
+    "h": 824
+   },
+   "kicks": [
+    {
+     "at": "song:11.490",
+     "s": 1.032,
+     "dur": 0.2
+    },
+    {
+     "at": "song:11.880",
+     "s": 1.0248,
+     "dur": 0.16
+    },
+    {
+     "at": "song:12.484",
+     "s": 1.0246,
+     "dur": 0.16
+    },
+    {
+     "at": "song:13.059",
+     "s": 1.0196,
+     "dur": 0.16
+    },
+    {
+     "at": "song:13.426",
+     "s": 1.032,
+     "dur": 0.2
+    },
+    {
+     "at": "song:13.628",
+     "s": 1.0302,
+     "dur": 0.16
+    },
+    {
+     "at": "song:14.214",
+     "s": 1.0293,
+     "dur": 0.16
+    },
+    {
+     "at": "song:14.858",
+     "s": 1.0189,
+     "dur": 0.16
+    },
+    {
+     "at": "song:15.361",
+     "s": 1.032,
+     "dur": 0.2
+    },
+    {
+     "at": "song:15.660",
+     "s": 1.018,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    788
+   ]
   },
   {
    "id": "frame-pencil",
@@ -545,9 +700,9 @@
     {
      "kind": "rect",
      "x": 12,
-     "y": 352,
+     "y": 368,
      "w": 1056,
-     "h": 916,
+     "h": 900,
      "at": "hb:-27",
      "dur": 0.5
     },
@@ -570,45 +725,63 @@
    "layer": "sketch",
    "color": "#E9E2D2",
    "width": 4,
-   "alpha": 0.78,
+   "alpha": 0.85,
    "boil": 2,
    "shapes": [
     {
      "kind": "line",
-     "x0": 300,
-     "y0": 1840,
-     "x1": 880,
-     "y1": 1606,
+     "x0": 772,
+     "y0": 1372.0,
+     "x1": 1008,
+     "y1": 1277.01,
      "at": "hb:-24",
      "dur": 0.35
     },
     {
      "kind": "line",
-     "x0": 409,
-     "y0": 1840,
-     "x1": 930,
-     "y1": 1630,
+     "x0": 772,
+     "y0": 1406.0,
+     "x1": 832,
+     "y1": 1381.85,
      "at": "hb:-23.5",
-     "dur": 0.3
-    },
-    {
-     "kind": "arrow",
-     "x0": 600,
-     "y0": 1765,
-     "x1": 626,
-     "y1": 1830,
-     "head": 18,
-     "at": "hb:-20",
-     "dur": 0.3
+     "dur": 0.2
     },
     {
      "kind": "line",
-     "x0": 720,
-     "y0": 1735,
-     "x1": 820,
-     "y1": 1695,
-     "at": "hb:-4",
+     "x0": 832,
+     "y0": 1381.85,
+     "x1": 892,
+     "y1": 1357.7,
+     "at": "hb:-20",
      "dur": 0.2
+    },
+    {
+     "kind": "line",
+     "x0": 892,
+     "y0": 1357.7,
+     "x1": 952,
+     "y1": 1333.55,
+     "at": "hb:-16",
+     "dur": 0.2
+    },
+    {
+     "kind": "line",
+     "x0": 952,
+     "y0": 1333.55,
+     "x1": 1008,
+     "y1": 1311.01,
+     "at": "hb:-12",
+     "dur": 0.2
+    },
+    {
+     "kind": "arrow",
+     "x0": 880,
+     "y0": 1330.53,
+     "x1": 894,
+     "y1": 1368.53,
+     "head": 12,
+     "at": "hb:-19.5",
+     "dur": 0.25
     }
    ]
   },
@@ -618,9 +791,9 @@
    "at": "hb:-26",
    "t0": "hb:-26",
    "t1": "hb:1.45",
-   "x": 110,
-   "y": 1700,
-   "size": 36,
+   "x": 788,
+   "y": 1346,
+   "size": 28,
    "glyph": "disc",
    "color": "orange",
    "rot": 0,
@@ -632,9 +805,9 @@
    "at": "hb:-25",
    "t0": "hb:-25",
    "t1": "hb:1.45",
-   "x": 760,
-   "y": 1790,
-   "size": 36,
+   "x": 800,
+   "y": 1432,
+   "size": 28,
    "glyph": "disc",
    "color": "blue",
    "rot": 0,
@@ -646,9 +819,9 @@
    "at": "hb:-23",
    "t0": "hb:-23",
    "t1": "hb:1.45",
-   "x": 200,
-   "y": 1650,
-   "size": 36,
+   "x": 802,
+   "y": 1298,
+   "size": 28,
    "glyph": "disc",
    "color": "orange",
    "rot": 0,
@@ -660,9 +833,9 @@
    "at": "hb:-22",
    "t0": "hb:-22",
    "t1": "hb:1.45",
-   "x": 880,
-   "y": 1720,
-   "size": 36,
+   "x": 848,
+   "y": 1416,
+   "size": 28,
    "glyph": "disc",
    "color": "blue",
    "rot": 0,
@@ -674,9 +847,9 @@
    "at": "hb:-21",
    "t0": "hb:-21",
    "t1": "hb:1.45",
-   "x": 320,
-   "y": 1700,
-   "size": 36,
+   "x": 840,
+   "y": 1270,
+   "size": 28,
    "glyph": "disc",
    "color": "orange",
    "rot": 0,
@@ -688,9 +861,9 @@
    "at": "hb:-19",
    "t0": "hb:-19",
    "t1": "hb:1.45",
-   "x": 970,
-   "y": 1660,
-   "size": 36,
+   "x": 898,
+   "y": 1398,
+   "size": 28,
    "glyph": "disc",
    "color": "blue",
    "rot": 0,
@@ -702,9 +875,9 @@
    "at": "hb:-18",
    "t0": "hb:-18",
    "t1": "hb:1.45",
-   "x": 150,
-   "y": 1780,
-   "size": 36,
+   "x": 828,
+   "y": 1318,
+   "size": 28,
    "glyph": "disc",
    "color": "orange",
    "rot": 0,
@@ -716,9 +889,9 @@
    "at": "hb:-17",
    "t0": "hb:-17",
    "t1": "hb:1.45",
-   "x": 660,
-   "y": 1820,
-   "size": 36,
+   "x": 930,
+   "y": 1438,
+   "size": 28,
    "glyph": "disc",
    "color": "blue",
    "rot": 0,
@@ -730,9 +903,9 @@
    "at": "hb:-15",
    "t0": "hb:-15",
    "t1": "hb:1.45",
-   "x": 440,
-   "y": 1650,
-   "size": 36,
+   "x": 876,
+   "y": 1292,
+   "size": 28,
    "glyph": "disc",
    "color": "orange",
    "rot": 0,
@@ -744,9 +917,9 @@
    "at": "hb:-14",
    "t0": "hb:-14",
    "t1": "hb:1.45",
-   "x": 840,
-   "y": 1820,
-   "size": 36,
+   "x": 952,
+   "y": 1370,
+   "size": 28,
    "glyph": "disc",
    "color": "blue",
    "rot": 0,
@@ -758,9 +931,9 @@
    "at": "hb:-13",
    "t0": "hb:-13",
    "t1": "hb:1.45",
-   "x": 560,
-   "y": 1630,
-   "size": 36,
+   "x": 920,
+   "y": 1266,
+   "size": 28,
    "glyph": "disc",
    "color": "orange",
    "rot": 0,
@@ -772,9 +945,9 @@
    "at": "hb:-11",
    "t0": "hb:-11",
    "t1": "hb:1.45",
-   "x": 960,
-   "y": 1780,
-   "size": 36,
+   "x": 992,
+   "y": 1410,
+   "size": 28,
    "glyph": "disc",
    "color": "blue",
    "rot": 0,
@@ -786,9 +959,9 @@
    "at": "hb:-10",
    "t0": "hb:-10",
    "t1": "hb:1.45",
-   "x": 300,
-   "y": 1632,
-   "size": 36,
+   "x": 964,
+   "y": 1262,
+   "size": 26,
    "glyph": "disc",
    "color": "orange",
    "rot": 0,
@@ -800,9 +973,9 @@
    "at": "hb:-9",
    "t0": "hb:-9",
    "t1": "hb:1.45",
-   "x": 720,
-   "y": 1832,
-   "size": 36,
+   "x": 996,
+   "y": 1344,
+   "size": 26,
    "glyph": "disc",
    "color": "blue",
    "rot": 0,
@@ -814,9 +987,9 @@
    "at": "hb:-7",
    "t0": "hb:-7",
    "t1": "hb:1.45",
-   "x": 1000,
-   "y": 1830,
-   "size": 36,
+   "x": 962,
+   "y": 1436,
+   "size": 26,
    "glyph": "disc",
    "color": "blue",
    "rot": 0,
@@ -828,9 +1001,9 @@
    "at": "hb:-16",
    "t0": "hb:-16",
    "t1": "hb:1.45",
-   "x": 900,
-   "y": 1585,
-   "size": 56,
+   "x": 994,
+   "y": 1290,
+   "size": 34,
    "glyph": "nabla",
    "color": "red",
    "rot": 0,
@@ -842,9 +1015,9 @@
    "at": "hb:-12",
    "t0": "hb:-12",
    "t1": "hb:1.45",
-   "x": 105,
-   "y": 1640,
-   "size": 64,
+   "x": 776,
+   "y": 1258,
+   "size": 34,
    "glyph": "checker",
    "color": "cream",
    "rot": -22,
@@ -856,9 +1029,9 @@
    "at": "hb:-8",
    "t0": "hb:-8",
    "t1": "hb:1.45",
-   "x": 640,
-   "y": 1725,
-   "size": 58,
+   "x": 872,
+   "y": 1352,
+   "size": 30,
    "glyph": "ring",
    "color": "violet",
    "rot": 0,
@@ -870,9 +1043,9 @@
    "at": "hb:-4",
    "t0": "hb:-4",
    "t1": "hb:1.45",
-   "x": 780,
-   "y": 1745,
-   "size": 44,
+   "x": 880,
+   "y": 1444,
+   "size": 28,
    "glyph": "square",
    "color": "teal",
    "rot": 15,
@@ -892,9 +1065,25 @@
      "entry": "slam",
      "hl": 1,
      "x": 470,
-     "y": 640,
+     "y": 470,
      "w0": 820,
      "rot": -3
+    },
+    {
+     "id": "xrisk-rev2-time-2026-08-27-models-went-rogue-required-more-ai",
+     "at": "hb:-6.5",
+     "entry": "slam",
+     "hl": 0,
+     "crop": [
+      140,
+      60,
+      2420,
+      830
+     ],
+     "x": 600,
+     "y": 1300,
+     "w0": 860,
+     "rot": 2.5
     },
     {
      "id": "time-2026-07-24-lost-control",
@@ -921,9 +1110,25 @@
       ]
      ],
      "x": 650,
-     "y": 930,
+     "y": 870,
      "w0": 700,
      "rot": 3.5
+    },
+    {
+     "id": "security-hl-cso-pause",
+     "at": "hb:-5.5",
+     "entry": "drop",
+     "hl": 0,
+     "crop": [
+      0,
+      0,
+      1720,
+      560
+     ],
+     "x": 450,
+     "y": 1130,
+     "w0": 820,
+     "rot": -2
     },
     {
      "id": "security-hf-header",
@@ -931,7 +1136,7 @@
      "entry": "paint",
      "hl": 0,
      "x": 520,
-     "y": 560,
+     "y": 660,
      "w0": 860,
      "rot": -2
     },
@@ -941,7 +1146,7 @@
      "entry": "slam",
      "hl": 0,
      "x": 560,
-     "y": 1230,
+     "y": 1450,
      "w0": 900,
      "rot": 2
     },
@@ -951,7 +1156,7 @@
      "entry": "flip",
      "hl": 0,
      "x": 500,
-     "y": 800,
+     "y": 780,
      "w0": 820,
      "rot": -3.5
     },
@@ -976,7 +1181,7 @@
     "at": "hb:-3",
     "z": 1.42,
     "dur": 0.42,
-    "shot": 5,
+    "shot": 7,
     "to": [
      540,
      880
@@ -986,19 +1191,19 @@
     {
      "style": "lift",
      "at": "hb:-2.5",
-     "shot": 5
+     "shot": 7
     },
     {
      "style": "circle",
      "at": "hb:-2",
-     "shot": 5
+     "shot": 7
     },
     {
      "style": "marker",
      "at": "hb:-1.5",
-     "shot": 5,
+     "shot": 7,
      "color": "#FF2E88",
-     "dur": 0.226
+     "dur": 0.2
     }
    ],
    "pulse": [
@@ -1006,11 +1211,27 @@
     "song:16.823",
     "song:17.233",
     "song:17.784",
-    "song:18.138"
+    "song:18.138",
+    "song:18.748"
    ],
    "drift": 0.05,
    "out": "cut",
    "label": true
+  },
+  {
+   "id": "r2-stamp-breath",
+   "type": "inkstamp",
+   "at": "hb:-1",
+   "t0": "hb:-1",
+   "t1": "hb:0",
+   "x": 958,
+   "y": 1188,
+   "size": 120,
+   "glyph": "nabla",
+   "color": "red",
+   "rot": 8,
+   "layer": "own",
+   "_note": "FIXER r2 (william): the two breath beats were the same frame"
   },
   {
    "id": "kand-riff",
@@ -1027,13 +1248,13 @@
     "river": {
      "from": 8,
      "to": 16,
-     "vectors": 16,
+     "vectors": 26,
      "size": 2.3,
      "trail": 1.6,
-     "stagger": 0.5,
-     "lanes": 110,
+     "stagger": 0.25,
+     "lanes": 100,
      "flowK": 1.6,
-     "ripple": 6,
+     "ripple": 8,
      "colors": [
       "ink",
       "pink",
@@ -1048,7 +1269,10 @@
     "superpose": {
      "at": 12,
      "to": 15.75,
-     "r": 380
+     "r": 500,
+     "reach": 1.22,
+     "flash": true,
+     "wK": 1.3
     },
     "reframe": [
      {
@@ -1206,6 +1430,48 @@
      "at": "hb:11.5",
      "deg": 360,
      "dur": 0.5
+    },
+    {
+     "move": "thicken",
+     "at": "hb:12",
+     "k": 2.5,
+     "dur": 0.3
+    },
+    {
+     "move": "bump",
+     "pieces": [
+      "blue"
+     ],
+     "on": [
+      "hb:3"
+     ],
+     "scale": 1.28,
+     "dur": 0.24
+    },
+    {
+     "move": "bump",
+     "pieces": [
+      "black",
+      "core"
+     ],
+     "on": [
+      "hb:1",
+      "hb:2"
+     ],
+     "scale": 1.18,
+     "dur": 0.2
+    },
+    {
+     "move": "grow",
+     "pieces": [
+      "blue"
+     ],
+     "from": "hb:3.25",
+     "to": "hb:7.75",
+     "scale": 1.6,
+     "dx": -60,
+     "dy": -40,
+     "dur": 0.25
     }
    ],
    "dotScale": 3.0,
@@ -1334,12 +1600,212 @@
    "t0": "hb:0",
    "t1": 20.923,
    "at": "hb:0",
-   "x": 880,
-   "y": 1580,
-   "r": 200,
+   "x": 860,
+   "y": 1660,
+   "r": 180,
    "color": "pink",
-   "dir": -125,
-   "layer": "paint"
+   "dir": 70,
+   "layer": "paint",
+   "drips": 4,
+   "cull": {
+    "at": "hb:6.75",
+    "dur": 0.6
+   }
+  },
+  {
+   "id": "r2-spray-1",
+   "type": "splat",
+   "at": "hb:1",
+   "t1": "hb:6",
+   "x": 170,
+   "y": 1440,
+   "r": 110,
+   "color": "orange",
+   "dir": 200,
+   "sats": 80,
+   "spikes": 6,
+   "drips": 0,
+   "spread": 1.3,
+   "satMax": 0.2,
+   "cull": {
+    "at": "hb:5",
+    "dur": 0.5
+   },
+   "layer": "paint",
+   "_note": "FIXER r2: the black disc lands with an orange spray (the riff opening was one lone shape per beat)"
+  },
+  {
+   "id": "r2-spray-2",
+   "type": "splat",
+   "at": "hb:2",
+   "t1": "hb:7.5",
+   "x": 860,
+   "y": 1330,
+   "r": 150,
+   "color": "pink",
+   "dir": -25,
+   "sats": 110,
+   "spikes": 7,
+   "drips": 2,
+   "spread": 1.35,
+   "satMax": 0.22,
+   "cull": {
+    "at": "hb:6.5",
+    "dur": 0.6
+   },
+   "layer": "paint",
+   "_note": "FIXER r2: a pink spray with droplets across the frame on hb:2 (with the 3-stroke yellow plane sweep)"
+  },
+  {
+   "id": "r2-burst-3",
+   "type": "splat",
+   "at": "hb:3",
+   "t1": "hb:7.5",
+   "x": 245,
+   "y": 616,
+   "r": 95,
+   "color": "#15131F",
+   "dir": -150,
+   "sats": 70,
+   "spikes": 9,
+   "drips": 1,
+   "spread": 3.0,
+   "satMax": 0.2,
+   "cull": {
+    "at": "hb:6.5",
+    "dur": 0.5
+   },
+   "layer": "paint",
+   "_note": "FIXER r2: ink droplets burst out of the black disc on hb:3 (with the blue pop and a 5 % camera punch)"
+  },
+  {
+   "id": "r2-plane-0",
+   "type": "stroke",
+   "t0": "hb:1.75",
+   "t1": "hb:12.3",
+   "at": "hb:1.75",
+   "dur": 0.16,
+   "points": [
+    [
+     -60,
+     1027.6
+    ],
+    [
+     300,
+     878.2
+    ],
+    [
+     700,
+     715.6
+    ],
+    [
+     1140,
+     542.8
+    ]
+   ],
+   "width": 64,
+   "color": "#F2C300",
+   "dry": 0.55,
+   "gaps": 0.45,
+   "wet": 0.3,
+   "pressure": [
+    0.7,
+    1,
+    0.8
+   ],
+   "ease": "oQuad",
+   "out": {
+    "at": "hb:12",
+    "dur": 0.25
+   },
+   "layer": "paint",
+   "_note": "FIXER r2: the plane swept across the frame on hb:2 (three dry-brush passes)"
+  },
+  {
+   "id": "r2-plane-1",
+   "type": "stroke",
+   "t0": "hb:1.875",
+   "t1": "hb:12.3",
+   "at": "hb:1.875",
+   "dur": 0.16,
+   "points": [
+    [
+     -60,
+     1171.6
+    ],
+    [
+     300,
+     1032.2
+    ],
+    [
+     700,
+     859.6
+    ],
+    [
+     1140,
+     686.8
+    ]
+   ],
+   "width": 58,
+   "color": "#F2C300",
+   "dry": 0.55,
+   "gaps": 0.45,
+   "wet": 0.3,
+   "pressure": [
+    0.7,
+    1,
+    0.8
+   ],
+   "ease": "oQuad",
+   "out": {
+    "at": "hb:12",
+    "dur": 0.25
+   },
+   "layer": "paint",
+   "_note": "FIXER r2: the plane swept across the frame on hb:2 (three dry-brush passes)"
+  },
+  {
+   "id": "r2-plane-2",
+   "type": "stroke",
+   "t0": "hb:2",
+   "t1": "hb:12.3",
+   "at": "hb:2",
+   "dur": 0.16,
+   "points": [
+    [
+     -60,
+     1097.6
+    ],
+    [
+     300,
+     958.2
+    ],
+    [
+     700,
+     785.6
+    ],
+    [
+     1140,
+     612.8
+    ]
+   ],
+   "width": 120,
+   "color": "#F2C300",
+   "dry": 0.55,
+   "gaps": 0.45,
+   "wet": 0.3,
+   "pressure": [
+    0.7,
+    1,
+    0.8
+   ],
+   "ease": "oQuad",
+   "out": {
+    "at": "hb:12",
+    "dur": 0.25
+   },
+   "layer": "paint",
+   "_note": "FIXER r2: the plane swept across the frame on hb:2 (three dry-brush passes)"
   },
   {
    "id": "voice-coxon",
@@ -1370,8 +1836,8 @@
     "role": "on OpenAI's escaped agent",
     "w": 900
    },
-   "meta": 24,
-   "name_px": 26
+   "meta": 28,
+   "name_px": 30
   },
   {
    "id": "kar-coxon",
@@ -1425,7 +1891,7 @@
     ]
    },
    "roll": {
-    "dim": 0.35,
+    "dim": 0.55,
     "out": {
      "at": "hb:8.75",
      "per": 0.03,
@@ -1450,12 +1916,12 @@
    "t1": "hb:9.25",
    "text": "FORMER ANTHROPIC & OPENAI RESEARCHER · THE DAILY SHOW, OCT 5, 2026",
    "x": 64,
-   "y": 1500,
+   "y": 1468,
    "w": 900,
    "font": {
     "family": "'IBM Plex Mono', monospace",
     "weight": 600,
-    "size": 24
+    "size": 28
    },
    "color": "#15131F",
    "roll": {
@@ -1519,14 +1985,14 @@
    "type": "words",
    "t0": "hb:9.5",
    "t1": 20.923,
-   "text": "IN THE DISCS: AGENTS' LAST EXAM, 2026 · NVIDIA NVL72 DATA HALL, 2025",
+   "text": "IN THE DISCS: AGENTS' LAST EXAM, 2026 · NVIDIA NVL72 DATA HALL, 2025 · BEHIND: GALAXY HELIOS DATA CENTRE, 2026",
    "x": 64,
-   "y": 1500,
-   "w": 900,
+   "y": 1468,
+   "w": 940,
    "font": {
     "family": "'IBM Plex Mono', monospace",
     "weight": 600,
-    "size": 24
+    "size": 28
    },
    "color": "#15131F",
    "roll": {
@@ -1602,7 +2068,43 @@
     "keep": [
      "fog"
     ],
-    "turns": 1.15
+    "turns": 1.15,
+    "seq": [
+     {
+      "items": [
+       "pile-gone",
+       "disc-credit-1"
+      ],
+      "at": "hb:104",
+      "dur": 0.9,
+      "turns": 1.2
+     },
+     {
+      "items": [
+       "pile-rsi"
+      ],
+      "at": "hb:105",
+      "dur": 0.9,
+      "turns": 1.2
+     },
+     {
+      "items": [
+       "pile-ego-lo",
+       "disc-credit-2"
+      ],
+      "at": "hb:106",
+      "dur": 0.9,
+      "turns": 1.2
+     },
+     {
+      "items": [
+       "pile-ego-hi"
+      ],
+      "at": "hb:107",
+      "dur": 0.9,
+      "turns": 1.2
+     }
+    ]
    },
    "collapse": {
     "at": "song:71.35",
@@ -1628,7 +2130,7 @@
     "at": "hb:112",
     "rings": 3,
     "debris": 80,
-    "flash": 0.75,
+    "flash": 0.4,
     "shake": 16
    },
    "shakes": [
@@ -1645,7 +2147,11 @@
      "amp": 8
     }
    ],
-   "_note": "opens on 'disappear' (r 36 at hb:102 = song 68.587, sung 68.58), swallows from 'Ego' (hb:104), snaps shut 71.35+0.14 = 71.49 = hb:108 ('God,' 71.456 + the bar-27 kick), bursts on the instrumental crash hb:112 (73.426)"
+   "_note": "opens on 'disappear' (r 36 at hb:102 = song 68.587, sung 68.58), swallows from 'Ego' (hb:104), snaps shut 71.35+0.14 = 71.49 = hb:108 ('God,' 71.456 + the bar-27 kick), bursts on the instrumental crash hb:112 (73.426)",
+   "lens": {
+    "k": 2.3,
+    "extent": 9.5
+   }
   },
   {
    "id": "paint-rf",
@@ -1743,7 +2249,7 @@
    "frame": {
     "cx": 540,
     "cy": 760,
-    "r": 140
+    "r": 165
    },
    "broll": "stargate-abilene-oracle",
    "in": 26.0,
@@ -1768,7 +2274,8 @@
     1046
    ],
    "prep": "clip",
-   "creditSize": 24
+   "creditSize": 24,
+   "frames": "short-cp-golden"
   },
   {
    "id": "loop-a-s",
@@ -1811,133 +2318,6 @@
    "tailBase": 1.9,
    "tailK": 1.5,
    "lapShock": true
-  },
-  {
-   "id": "chart-gw",
-   "type": "chart",
-   "graph": "dc-total-gw",
-   "t0": "hb:96",
-   "t1": "hb:100.6",
-   "x": 175,
-   "y": 1300,
-   "w": 660,
-   "h": 178,
-   "card": {
-    "x": 70,
-    "y": 1090,
-    "w": 940,
-    "h": 482,
-    "color": "#FBF6EC",
-    "rot": -0.6
-   },
-   "axesAt": "hb:96",
-   "titleAt": "hb:96",
-   "titlePx": 50,
-   "titleGap": 196,
-   "subAt": "hb:96.25",
-   "subPx": 23,
-   "subPer": 0.03,
-   "grow": [
-    "hb:96.25",
-    "hb:96.375",
-    "hb:96.5",
-    "hb:96.625",
-    "hb:96.75",
-    "hb:96.875",
-    "hb:97",
-    "hb:97.25",
-    "hb:97.5",
-    "hb:97.625",
-    "hb:97.75",
-    "hb:98"
-   ],
-   "labels": "last",
-   "valuePx": 56,
-   "valueFmt": {
-    "dec": 1
-   },
-   "color": "#2346FF",
-   "lineW": 6,
-   "yAxis": {
-    "label": "GW",
-    "labelIn": "top",
-    "labelPx": 28
-   },
-   "annotate": [
-    {
-     "at": "hb:98.125",
-     "i": 11,
-     "text": "13.8 GW across 93 sites",
-     "dx": -330,
-     "dy": 70,
-     "w": 330,
-     "px": 38,
-     "lines": 2,
-     "hl": "13.8 GW",
-     "lead": 0,
-     "per": 0.03
-    }
-   ],
-   "sourceAt": "hb:97.25",
-   "sourcePer": 0.02,
-   "sourceY": 1538,
-   "sourcePx": 21,
-   "sourceW": 760,
-   "splatColor": "#F2C300",
-   "theme": "light",
-   "_note": "plot right edge at x 870 so the last value label stays off the right UI rail (x > 930, y 1000-1600)",
-   "subW": 600,
-   "sourceX": 140
-  },
-  {
-   "id": "pile-golden",
-   "type": "screens",
-   "t0": "hb:97.1",
-   "t1": "hb:100.6",
-   "shots": [
-    {
-     "id": "economy-guardian_nvidia_revenue_100bn",
-     "at": "hb:97.25",
-     "entry": "slam",
-     "crop": [
-      330,
-      425,
-      1600,
-      695
-     ],
-     "hl": [
-      [
-       1299,
-       520,
-       1526,
-       593
-      ],
-      [
-       357,
-       614,
-       480,
-       671
-      ]
-     ],
-     "hlAt": "hb:98",
-     "x": 600,
-     "y": 318,
-     "rot": -3,
-     "w0": 780
-    }
-   ],
-   "push": false,
-   "emph": [
-    {
-     "style": "circle",
-     "at": "hb:98.5",
-     "shot": 0,
-     "color": "#B31B1B",
-     "dur": 0.226
-    }
-   ],
-   "out": "cut",
-   "theme": "light"
   },
   {
    "id": "kand-b",
@@ -2401,19 +2781,6 @@
      ],
      "hl": 0,
      "w0": 700
-    },
-    {
-     "id": "dawn-2026-10-02-rogue-agents-covered-tracks",
-     "at": "hb:101",
-     "entry": "drop",
-     "crop": [
-      280,
-      315,
-      1640,
-      445
-     ],
-     "hl": 0,
-     "hlAt": "hb:102"
     }
    ],
    "hlDelay": 0.5,
@@ -2421,8 +2788,8 @@
    "emph": [
     {
      "style": "circle",
-     "at": "hb:102.5",
-     "shot": 1,
+     "at": "hb:102",
+     "shot": 0,
      "color": "#B31B1B"
     }
    ],
@@ -2732,13 +3099,13 @@
    "id": "brutal",
    "type": "brushtext",
    "t0": "song:71.95",
-   "t1": "hb:112.4",
+   "t1": "hb:112.5",
    "text": "it's brutal out here",
    "words": "hits",
    "overlay": true,
    "exit": {
     "style": "fade",
-    "dur": 0.14
+    "dur": 0.12
    },
    "drift": 0.02,
    "place": [
@@ -2817,6 +3184,78 @@
     "rim": "yellow",
     "ground": false
    }
+  },
+  {
+   "id": "ghost-out",
+   "type": "panel",
+   "t0": "hb:112.5",
+   "t1": "hb:123.38",
+   "prep": "clip",
+   "broll": "stargate-abilene-oracle",
+   "in": 26.0,
+   "speed": 0.5,
+   "shape": "rect",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 1080,
+    "h": 1920
+   },
+   "entry": {
+    "style": "fade",
+    "at": "hb:112.5",
+    "dur": 0.5
+   },
+   "out": {
+    "style": "fade",
+    "at": "hb:122.6",
+    "dur": 0.35
+   },
+   "border": "none",
+   "kb": {
+    "z": [
+     1.0,
+     1.1
+    ]
+   },
+   "alpha": 0.3,
+   "blend": "multiply",
+   "grade": {
+    "sat": 0.35,
+    "contrast": 0.95,
+    "brightness": 0.05,
+    "gamma": 1.35,
+    "grain": 0
+   },
+   "mask": "linear-gradient(to bottom, transparent 0%, transparent 28%, #000 37%, #000 55%, rgba(0,0,0,0.22) 60%, rgba(0,0,0,0.22) 75%, #000 81%, #000 100%)",
+   "theme": "light",
+   "_note": "FIXER r2: MUTED ghost b-roll under the reassembly (Oracle's Stargate Abilene campus aerial, 2025), multiply 34 %, clear of the karaoke strip"
+  },
+  {
+   "id": "ghost-out-credit",
+   "type": "words",
+   "t0": "hb:113",
+   "t1": "hb:122.9",
+   "x": 64,
+   "y": 1488,
+   "w": 900,
+   "text": "BEHIND: STARGATE ABILENE · ORACLE · 2025",
+   "font": {
+    "family": "'IBM Plex Mono', monospace",
+    "weight": 600,
+    "size": 28
+   },
+   "color": "#15131F",
+   "roll": {
+    "mode": "words",
+    "rate": 4,
+    "from": "hb:113"
+   },
+   "exit": {
+    "style": "fade",
+    "dur": 0.2
+   },
+   "theme": "light"
   },
   {
    "id": "paint-out",
@@ -2904,25 +3343,16 @@
      "stepDeg": 45
     },
     {
-     "move": "bump",
+     "move": "grow",
      "pieces": [
-      "pink",
-      "black",
-      "core",
-      "blue",
-      "teal",
-      "square",
-      "target",
-      "band",
-      "smallO",
-      "nabla",
-      "chk"
+      "blue"
      ],
-     "on": [
-      "hb:124"
-     ],
-     "scale": 1.035,
-     "dur": 0.2
+     "from": "hb:113.5",
+     "to": "hb:122.6",
+     "scale": 1.5,
+     "dx": -30,
+     "dy": -40,
+     "dur": 0.3
     }
    ]
   },
@@ -2941,7 +3371,7 @@
     "cy": 960,
     "r": 124
    },
-   "oversample": 1.3,
+   "oversample": 2.0,
    "srcFocus": [
     0.45,
     0.33
@@ -2967,8 +3397,8 @@
   {
    "id": "spit0",
    "type": "image",
-   "t0": "hb:112",
-   "t1": "hb:113.4",
+   "t0": "hb:112.3",
+   "t1": "hb:113.6",
    "src": "/home/user/hyperplane-teaser/research/rev2/captures/dawn-2026-10-02-rogue-agents-covered-tracks.png",
    "fit": "cover",
    "crop": {
@@ -3013,8 +3443,8 @@
   {
    "id": "spit1",
    "type": "image",
-   "t0": "hb:112",
-   "t1": "hb:113.4",
+   "t0": "hb:112.3",
+   "t1": "hb:113.6",
    "src": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/govai_head.png",
    "fit": "cover",
    "crop": {
@@ -3059,8 +3489,8 @@
   {
    "id": "spit2",
    "type": "image",
-   "t0": "hb:112",
-   "t1": "hb:113.4",
+   "t0": "hb:112.3",
+   "t1": "hb:113.6",
    "src": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/afp-malaymail-header.png",
    "fit": "cover",
    "frame": {
@@ -3099,8 +3529,8 @@
   {
    "id": "spit3",
    "type": "image",
-   "t0": "hb:112",
-   "t1": "hb:113.4",
+   "t0": "hb:112.3",
+   "t1": "hb:113.6",
    "src": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/buzzard-grieve-header.png",
    "fit": "cover",
    "frame": {
@@ -3300,7 +3730,7 @@
     "pile-hf"
    ],
    "dur": 1.25,
-   "mode": "both",
+   "mode": "away",
    "shake": 6,
    "ground": "#0E0D12"
   },
@@ -3311,7 +3741,8 @@
    "out": [
     "g-dark-prelude",
     "pile-hf",
-    "sketch"
+    "sketch",
+    "r2-stamp-breath"
    ],
    "in": [
     "g-cream-riff",
@@ -3335,12 +3766,10 @@
   },
   {
    "id": "tr-entrance-short",
-   "at": "hb:95.5",
-   "type": "particles",
-   "dur": 0.8,
-   "lead": 0.55,
-   "grid": 40,
-   "swirl": 0.7,
+   "at": "hb:95",
+   "type": "iris",
+   "dur": 1.0,
+   "lead": 0.025,
    "out": [
     "kand-riff",
     "kc-pink-agents",
@@ -3349,19 +3778,31 @@
     "g-cream-riff",
     "splat-drop",
     "eq-superpose",
-    "riff-credit"
+    "riff-credit",
+    "ghost-riff"
    ],
    "in": [
     "g-cream-s",
     "kand-a-s",
     "cp-golden",
-    "loop-a-s",
-    "chart-gw"
+    "loop-a-s"
    ],
-   "flash": 0.25,
+   "flash": {
+    "opacity": 0.35,
+    "decay": 0.06,
+    "color": "#FFF8EA"
+   },
    "shake": 10,
    "ground": "#F2EBDD",
-   "_note": "THE SHORT'S ENTRANCE (refrain plan short_entrance): window hb:95-97 = song 65.200-66.167, 12 ms after the splice; the riff's logo breaks into a halftone, its dots swirl round the middle and land on the cream loop world; impact on the bar-24 downbeat (65.684)"
+   "_note": "THE SHORT'S ENTRANCE (fixer r2): an iris out of the loop centre opens on the splice (edit 20.377, song 26.477 | 65.188) with a flash and a hit; the riff's logo stays round it until the iris passes the frame edge (hb:95.85)",
+   "shape": "circle",
+   "mode": "open",
+   "c": [
+    540,
+    760
+   ],
+   "rim": "yellow",
+   "spin": 120
   },
   {
    "id": "tr-dive-s",
@@ -3380,9 +3821,7 @@
    "out": [
     "kand-a-s",
     "loop-a-s",
-    "cp-golden",
-    "chart-gw",
-    "pile-golden"
+    "cp-golden"
    ],
    "in": [
     "kand-b",
@@ -3403,14 +3842,21 @@
    "intensity": 0.8,
    "zones": [
     [
-     60,
+     872,
      150,
-     960,
-     120
+     136,
+     84
     ]
    ],
    "_note": "soft blooms/grain/ticks on hits.json prelude_pulse (21 swells 6.551-18.138), in the strip above the speaker stamp only (the bottom strip belongs to the sketch)",
-   "layer": "paint"
+   "layer": "paint",
+   "no": [
+    "droplets",
+    "scribble",
+    "splat",
+    "splatS",
+    "stamp"
+   ]
   },
   {
    "id": "fx-prelude-grid",
@@ -3420,19 +3866,26 @@
    "intensity": 0.75,
    "zones": [
     [
-     60,
+     872,
      150,
-     960,
-     120
+     136,
+     84
     ]
    ],
    "_note": "pencil scribbles, stamps, ticks + camera punch/zoom on every prelude grid beat (top strip)",
-   "layer": "paint"
+   "layer": "paint",
+   "no": [
+    "droplets",
+    "scribble",
+    "splat",
+    "splatS",
+    "stamp"
+   ]
   },
   {
    "id": "fx-riff",
    "from": "hb:0",
-   "to": "hb:14.5",
+   "to": "hb:7.5",
    "pattern": "riff",
    "intensity": 1,
    "eighths": true,
@@ -3452,6 +3905,56 @@
     ]
    ],
    "_note": "splats on downbeats, stamps/jumps on the backbeat, droplets on 8ths; away from the top text strip (Coxon, the equation) and the credit line; beatfx already keeps off the kand pieces"
+  },
+  {
+   "id": "fx-riff-b",
+   "from": "hb:8",
+   "to": "hb:14.5",
+   "pattern": "riff",
+   "intensity": 1,
+   "eighths": true,
+   "layer": "paint",
+   "avoid": [
+    [
+     40,
+     236,
+     1000,
+     230
+    ],
+    [
+     40,
+     1490,
+     1000,
+     100
+    ],
+    [
+     0,
+     1100,
+     1080,
+     500
+    ]
+   ],
+   "_note": "FIXER r2: the riff track after the title lands: above the wordmark band only",
+   "zones": [
+    [
+     40,
+     150,
+     1000,
+     100
+    ],
+    [
+     10,
+     440,
+     150,
+     600
+    ],
+    [
+     920,
+     440,
+     150,
+     600
+    ]
+   ]
   },
   {
    "id": "fx-rf-a-s",
@@ -3560,15 +4063,51 @@
  ],
  "fx": [
   {
-   "id": "fx-cover-bloom",
+   "id": "fx-cover-flash",
    "fx": "flash",
    "on": [
     "hb:124"
    ],
-   "opacity": 0.42,
-   "decay": 0.12,
-   "color": "#FFF8EA",
-   "_note": "FIXER r1: the cover lands on the final downbeat with a bloom flash (and a 3.5 % bump of every piece, kand-re)"
+   "opacity": 0.92,
+   "decay": 0.03,
+   "color": "#FFFFFF",
+   "_note": "FIXER r2: white-hot 2-frame flash on the cover landing"
+  },
+  {
+   "id": "fx-cover-punch",
+   "fx": "punch",
+   "on": [
+    "hb:124"
+   ],
+   "amount": 0.03,
+   "bar": 0.03,
+   "decay": 0.045,
+   "_note": "FIXER r2: the cover lands with a 3 % overshoot that settles in ~0.2 s"
+  },
+  {
+   "id": "fx-riff-punch3",
+   "fx": "punch",
+   "on": [
+    "hb:3"
+   ],
+   "amount": 0.05,
+   "decay": 0.1,
+   "_note": "FIXER r2: the blue pop on hb:3"
+  }
+ ],
+ "paintMask": [
+  {
+   "layer": "paint",
+   "from": "hb:7.75",
+   "to": 20.923,
+   "rect": [
+    0,
+    1140,
+    1080,
+    400
+   ],
+   "feather": 110,
+   "_note": "FIXER r2 (director): no splat or stamp under the wordmark, the kicker and the credit line (y 1125-1575) once the title paints on"
   }
  ]
 }

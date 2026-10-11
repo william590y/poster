@@ -49,7 +49,7 @@ function lapAngle(plan, b) {
 // ============================================================ the spiral-in (shared by DOM layers, kand pieces and the loop)
 // p: a point (frame px) of the thing falling in, Hc: the hole, v: 0..1 progress -> {M: DOMMatrix (frame px), op}
 function spiral(Hc, p, v, o = {}) {
-  const w = E.iCub(clamp(v)), s = Math.pow(1 - w, 1.25), th = (o.turns ?? 1.1) * 360 * Math.pow(w, 1.15) * (o.dir ?? 1);
+  const w = (o.ease === 'quad' ? E.iQuad : E.iCub)(clamp(v)), s = Math.pow(1 - w, o.sPow ?? 1.25), th = (o.turns ?? 1.1) * 360 * Math.pow(w, 1.15) * (o.dir ?? 1);
   const phi = Math.atan2(p[1] - Hc[1], p[0] - Hc[0]) / D2R, k = (o.stretch ?? .9) * 4 * w * (1 - w);
   const M = new DOMMatrix().translate(Hc[0], Hc[1]).rotate(th).scale(Math.max(1e-4, s)).translate(-Hc[0], -Hc[1])
     .translate(p[0], p[1]).rotate(phi).scale(1 + k, 1 - k * .45).rotate(-phi).translate(-p[0], -p[1]);
@@ -316,6 +316,11 @@ HP.register('blackhole', {
     if (it.burst) { it.burst.at = ST(d.burst.at); it.mark(it.burst.at, 'burst'); if (d.burst.flash !== false) HP.flash(it.burst.at, d.burst.flash ?? .9, d.burst.flashDecay ?? .045, '#FFF8EC'); if (d.burst.punch) HP.lib.transitions.camPunch(it.burst.at, d.burst.punch, .18); HP.cam.hit(it.burst.at, d.burst.shake ?? 14, .16); }
     if (it.collapse) { it.mark(it.collapse.at, 'collapse'); if (d.collapse.flash !== false) HP.flash(it.collapse.at + it.collapse.dur, d.collapse.flash ?? .6, d.collapse.flashDecay ?? .04, '#FFF3E0'); if (d.collapse.punch) HP.lib.transitions.camPunch(it.collapse.at + it.collapse.dur, d.collapse.punch, .2); HP.cam.hit(it.collapse.at + it.collapse.dur, d.collapse.shake ?? 10, .12); }
     it.sw = d.swallow ? { a: ST(d.swallow.from), b: ST(d.swallow.to), items: d.swallow.items || 'all', keep: d.swallow.keep || [], turns: d.swallow.turns ?? 1.1, dir: d.swallow.dir ?? 1 } : null;
+    // fixer r2: swallow.seq [{items: [ids], at, dur (beats, 0.9), turns (1.2)}]: these items fall in one group at a time (a card per
+    // beat) along an inward spiral to ~5 % scale (quadratic ease: they visibly turn from the first frames), with two ghost copies
+    // trailing on the spiral (motion blur); every other item keeps the distance rule
+    if (it.sw) { it.sw.seq = (d.swallow.seq || []).map(g => ({ items: g.items, a: ST(g.at), d: (g.dur ?? .9) * BP(), turns: g.turns ?? 1.2, ghosts: g.ghosts ?? 2 })).filter(g => isFinite(g.a));
+      it.sw.grp = id => it.sw.seq.find(g => g.items.includes(id)) || null; for (const g of it.sw.seq) it.mark(g.a, 'swallow-card'); }
     if (it.sw) { it.mark(it.sw.a, 'swallow'); }
     // the disk surges on every beat while the hole is open (marked for beatcheck)
     { const K = (d.r || []).map(k => ST(k[0])).filter(isFinite); if (K.length) for (const x of HP.beatsIn(Math.min(...K), it.collapse ? it.collapse.at : it.t1)) it.mark(x.t, 'disk'); }
@@ -369,14 +374,22 @@ HP.on('post', t => {
     if (it.sw && t >= it.sw.a - EPS) {
       for (const [o, c] of it.anchor) {
         if (!o.shown || o.t0 >= it.sw.b - EPS || it.sw.keep.includes(o.id) || (it.sw.items !== 'all' && !it.sw.items.includes(o.id))) continue;
-        const v = swallowU(it, c, t); if (v <= 0) continue;
-        const S = spiral(it.c, c, v, { turns: it.sw.turns, dir: it.sw.dir });
+        const G = it.sw.grp(o.id), v = G ? clamp((t - G.a) / G.d) : swallowU(it, c, t); if (v <= 0) continue;
+        const so = G ? { turns: G.turns, dir: it.sw.dir, ease: 'quad', sPow: 1.6 } : { turns: it.sw.turns, dir: it.sw.dir };
+        const S = spiral(it.c, c, v, so);
         // a fresh copy of the layer takes the spiral (see transitions.js: no raster state carried between frames)
         const e = HP.lib.transitions.swapLayer(o.el);
         const T0 = (() => { const m = (e.style.transformOrigin || '').match(/(-?[\d.]+)px\s+(-?[\d.]+)px/); return m ? [+m[1], +m[2]] : [540, 960]; })();
-        const Q = new DOMMatrix().translate(-T0[0], -T0[1]).multiply(S.M).translate(T0[0], T0[1]);
-        e.style.transform = `matrix(${[Q.a, Q.b, Q.c, Q.d, Q.e, Q.f].map(x => +x.toFixed(5)).join(',')}) ` + (e.style.transform || '');
-        e.style.opacity = String(clamp((e.style.opacity === '' ? 1 : parseFloat(e.style.opacity)) * S.op));
+        const css = M => { const Q = new DOMMatrix().translate(-T0[0], -T0[1]).multiply(M).translate(T0[0], T0[1]); return `matrix(${[Q.a, Q.b, Q.c, Q.d, Q.e, Q.f].map(x => +x.toFixed(5)).join(',')}) `; };
+        const base = e.style.transform || '', op0 = e.style.opacity === '' ? 1 : parseFloat(e.style.opacity);
+        // ghosts (fixer r2): earlier positions on the spiral, fading (deterministic motion blur), under the card
+        if (G && v < 1) for (let k = G.ghosts; k >= 1; k--) {
+          const vg = v - k * .07; if (vg <= 0) continue;
+          const Sg = spiral(it.c, c, vg, so), gc = HP.lib.transitions.cloneLayer(e, e.previousSibling || e);
+          gc.style.transform = css(Sg.M) + base; gc.style.opacity = String(clamp(op0 * Sg.op * .3 / k));
+        }
+        e.style.transform = css(S.M) + base;
+        e.style.opacity = String(clamp(op0 * S.op));
       }
     }
     // the lens: on while the hole is open

@@ -324,11 +324,15 @@ register('fold', {
       ctx.save(); ctx.globalAlpha = alpha;
       const path = () => { ctx.beginPath(); qq.forEach((z, i) => i ? ctx.lineTo(z[0], z[1]) : ctx.moveTo(z[0], z[1])); ctx.closePath(); };
       if (th > 90) {   // the back of the paper, on top of the kept half
-        ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.35)'; ctx.shadowBlur = 30 * Math.sin(th * D2R) + 6; ctx.shadowOffsetX = V ? -10 : 0; ctx.shadowOffsetY = V ? 6 : -10;
+        ctx.save(); ctx.shadowColor = 'rgba(0,0,0,.42)'; ctx.shadowBlur = 18 + 26 * Math.sin(th * D2R); ctx.shadowOffsetX = V ? -14 : 0; ctx.shadowOffsetY = V ? 10 : -14;
         path(); ctx.fillStyle = back; ctx.fill(); ctx.restore();
-        const g = ctx.createLinearGradient(qq[0][0], qq[0][1], qq[2][0], qq[2][1]); const sh = .45 * Math.sin(th * D2R);
-        g.addColorStop(0, `rgba(21,19,31,${(sh * .4).toFixed(3)})`); g.addColorStop(1, `rgba(21,19,31,${sh.toFixed(3)})`);
+        // fixer r2: lit paper even when it lies nearly flat: light at the crease, falling to shadow at the far edge (was flat at 180)
+        const g = ctx.createLinearGradient(qq[0][0], qq[0][1], qq[1][0], qq[1][1]); const sh = .2 + .3 * Math.sin(th * D2R);
+        g.addColorStop(0, `rgba(255,250,236,${(.32 - sh * .3).toFixed(3)})`); g.addColorStop(.18, 'rgba(255,250,236,0)'); g.addColorStop(.55, `rgba(21,19,31,${(sh * .35).toFixed(3)})`); g.addColorStop(1, `rgba(21,19,31,${(sh * .9).toFixed(3)})`);
         path(); ctx.fillStyle = g; ctx.fill();
+        // paper grain on the back (speckle, boiling on twos)
+        { const rg = HP.rng('foldgrain', tr.id, HP.boil(t, 2)); ctx.save(); path(); ctx.clip(); const x0 = Math.min(...qq.map(z => z[0])), x1 = Math.max(...qq.map(z => z[0])), y0 = Math.min(...qq.map(z => z[1])), y1 = Math.max(...qq.map(z => z[1]));
+          for (let i = 0; i < 260; i++) { ctx.fillStyle = i % 3 ? 'rgba(21,19,31,.10)' : 'rgba(255,250,236,.16)'; ctx.fillRect(lerp(x0, x1, rg()), lerp(y0, y1, rg()), 1.5 + rg() * 2.5, 1.5 + rg() * 2.5); } ctx.restore(); }
         // paper fibre lines on the back (boil on twos)
         const r = HP.rng('fold', tr.id, HP.boil(t, 2)); ctx.save(); path(); ctx.clip(); ctx.strokeStyle = 'rgba(21,19,31,.07)'; ctx.lineWidth = 2;
         for (let i = 0; i < 14; i++) { const y = lerp(qq[0][1], qq[3][1], r()), x = lerp(qq[0][0], qq[1][0], r()); ctx.beginPath(); ctx.moveTo(x - 200, y); ctx.lineTo(x + 200, y + (r() - .5) * 10); ctx.stroke(); }
@@ -355,8 +359,9 @@ register('fold', {
     const mode = p.mode;
     if (mode === 'away' || mode === 'both') {
       // out: the flap folds over (0 -> 180) up to the impact; then the half-size packet flies off (both: over the ground)
-      const v = E.ioCub(clamp(u / (mode === 'both' ? h * .78 : .7))), th = 180 * v;
+      const v = E.ioCub(clamp(u / (mode === 'both' ? h * .78 : .7)));
       const f = p.fly ? E.iCub(clamp((u - (mode === 'both' ? h * .62 : .62)) / (mode === 'both' ? h * .45 : .3))) : 0;
+      const th = 168 * v + 12 * f;   // fixer r2: the flap stays a lifted, lit quad (168 deg) until the packet flies
       const off = V ? [-f * (cr - R[0] + 260), -f * 140] : [-f * 160, -f * (cr - R[1] + 300)], rot = -f * 24;
       if (X.outs.length && f < 1) fold(X.outs, th, off, rot, 1, false);
       else for (const e of X.outs) setStyle(e, 'visibility', 'hidden');

@@ -532,6 +532,12 @@ async function loadTower(it) {
   it.predTag = el('div', '', it.el, { position: 'absolute', font: "700 96px 'Unbounded', sans-serif", color: C.pink, opacity: 0, zIndex: 4, transform: 'translate(-50%, -50%)' });
   it.predTag.textContent = d.next || 'AI';
 }
+// fixer r2: the strongest decaying kick of the beats (song/hits.json) inside the item's life, delayed by `lag` s
+function beatKick(it, t, lag) {
+  if (!it._gb) it._gb = HP.beatsIn(it.t0, it.t1).map(b => b.t);
+  let k = 0; for (const b of it._gb) { const x = t - b - lag; if (x < -HP.EPS) break; if (x < 0.5) k = Math.max(k, Math.exp(-x / 0.14)); }
+  return k;
+}
 function glowTex(THREE) {
   return HP.memo('glowTex', () => { const n = 128, c = HP.offscreen(n, n), x = c.getContext('2d'), g = x.createRadialGradient(n / 2, n / 2, 0, n / 2, n / 2, n / 2); g.addColorStop(0, 'rgba(255,255,255,1)'); g.addColorStop(0.25, 'rgba(255,255,255,0.45)'); g.addColorStop(1, 'rgba(255,255,255,0)'); x.fillStyle = g; x.fillRect(0, 0, n, n); const t = new THREE.CanvasTexture(c); return t; });
 }
@@ -581,6 +587,7 @@ function drawTower(it, t) {
   const cam = it.cam3;
   // ---- river: stripes flow down (forward) or up, orange during backprop
   it.stripe.offset.y = (back ? -1 : 1) * t * 0.9;
+  if (d.beatGlow) it.river.material.opacity = 0.55 + 0.35 * d.beatGlow * beatKick(it, t, 0);   // fixer r2: the river pulses on the beat
   it.river.material.color.set(back ? new THREE.Color(0xffffff).lerp(new THREE.Color(C.orange), 0.55) : new THREE.Color(0xffffff));
   // particles: vectors swimming with the flow
   const m4 = new THREE.Matrix4(), span = it.top - it.bot;
@@ -637,7 +644,11 @@ function drawTower(it, t) {
       sk.head.material.opacity = u > 0.02 && u < 0.98 ? 1 : 0; sk.head.material.color.set(new THREE.Color(back ? C.orange : C.yellow));
     }
     const hot = Math.max(hotA, hotM);
-    o.glow.material.opacity = 0.75 * hot; o.glow.material.color.set(new THREE.Color(back ? C.orange : C.yellow));
+    // fixer r2 "beatGlow" (opt-in, 0..1): on every beat each block's glow blooms and its attention box lights, block by block up
+    // the residual river (0.05 s apart), so activations visibly travel up the tower on the beat
+    const bgk = d.beatGlow ? d.beatGlow * beatKick(it, t, l * 0.05) : 0;
+    o.glow.material.opacity = Math.max(0.75 * hot, bgk); o.glow.material.color.set(new THREE.Color(back ? C.orange : C.yellow));
+    if (bgk > 0.01) o.attnOut.material.opacity = Math.min(0.8, o.attnOut.material.opacity + 0.45 * bgk);
   });
   // output logits: lit at the last stage; the prediction tag
   const onO = back ? 1 : clamp((t - (it.Ti[L2] ?? 1e9)) / 0.3);

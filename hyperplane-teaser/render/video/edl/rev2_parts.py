@@ -803,3 +803,281 @@ def safe_nudges(items):
         if x['type'] == 'panel' and x.get('creditAt') == [64, 262]:
             x['creditAt'] = [74, 274]
     return items
+
+
+# ============================================================================================ FIXER r2 (critics on the r1 cuts, 11 Oct)
+def _hits():
+    return json.load(open(ROOT / 'song/hits.json'))
+
+
+def prelude_kicks(t0_song, t1_song):
+    """the prelude's ~0.49 s pulse as a 1.5-3 % push of the whole footage box (critic: the pulse accents sat in the phone-UI strip):
+    every hits.json prelude_pulse swell (scaled by its strength) plus the grid's bar downbeats"""
+    ks = []
+    bars = [hb_song(i) for i in (-24, -20, -16, -12, -8)]
+    for b in bars:
+        if t0_song + 0.05 <= b < t1_song - 0.1:
+            ks.append({'at': f'song:{b:.3f}', 's': 1.032, 'dur': 0.2})
+    for p in _hits().get('prelude_pulse', []):
+        s = p['t']
+        if t0_song + 0.05 <= s < t1_song - 0.1 and all(abs(s - b) > 0.15 for b in bars):
+            ks.append({'at': f'song:{s:.3f}', 's': round(1.014 + 0.018 * min(1, p.get('s', 0.5)), 4), 'dur': 0.16})
+    return sorted(ks, key=lambda k: float(k['at'][5:]))
+
+
+# the classifier sketch, redrawn inside the safe zone beside the caption (x 772-1008, y 1255-1450; critic: it sat under the phone UI)
+SKETCH_DOTS = {   # beat -> (x, y, size, glyph, color): orange above the plane, blue below the margin, the cover's glyphs on it
+    -26: (788, 1346, 28, 'disc', 'orange'), -25: (800, 1432, 28, 'disc', 'blue'), -23: (802, 1298, 28, 'disc', 'orange'),
+    -22: (848, 1416, 28, 'disc', 'blue'), -21: (840, 1270, 28, 'disc', 'orange'), -19: (898, 1398, 28, 'disc', 'blue'),
+    -18: (828, 1318, 28, 'disc', 'orange'), -17: (930, 1438, 28, 'disc', 'blue'), -15: (876, 1292, 28, 'disc', 'orange'),
+    -14: (952, 1370, 28, 'disc', 'blue'), -13: (920, 1266, 28, 'disc', 'orange'), -11: (992, 1410, 28, 'disc', 'blue'),
+    -10: (964, 1262, 26, 'disc', 'orange'), -9: (996, 1344, 26, 'disc', 'blue'), -7: (962, 1436, 26, 'disc', 'blue'),
+    -16: (994, 1290, 34, 'nabla', 'red'), -12: (776, 1258, 34, 'checker', 'cream'), -8: (872, 1352, 30, 'ring', 'violet'),
+    -4: (880, 1444, 28, 'square', 'teal'),
+}
+
+
+def fixer_r2(items, cut):
+    """FIXER r2 (critics on the r1 cuts, 11 Oct; William's feedback log had no note on them): shared by both cuts. Each block
+    names the critic issue it answers."""
+    g = {x['id']: x for x in items}
+    def has(k): return k in g
+    out = list(items)
+    def insert_after(ref, new):
+        i = next(k for k, x in enumerate(out) if x['id'] == ref)
+        out.insert(i + 1, new)
+        g[new['id']] = new
+    # ---- PRELUDE -----------------------------------------------------------------------------------------------------------
+    # (william, medium) the role line straddled the footage's top edge in dim grey: the stamp rises 38 px, the footage box starts
+    # 16 px lower (same bottom), so the role line ends ~32 px clear of the picture; role text #D8D8E0
+    # (director, low) unlit caption words at 14 %: 50 % (highlighted words 58 %), still lit word by word as spoken
+    # (director, medium) the pulse accents sat in the phone-UI strip: the footage box itself pushes 1.5-3 % on every pulse swell
+    for k, (s0, s1) in (('altman', (6.10, 10.833)), ('amodei', (10.833, hb_song(-7)))):
+        if not has(k):
+            continue
+        c = g[k]
+        c['stamp'] = {**c['stamp'], 'y': 262, 'roleColor': '#D8D8E0'}
+        c['box'] = {**c['box'], 'y': c['box']['y'] + 16, 'h': c['box']['h'] - 16}
+        c['caption'] = {**c['caption'], 'dimOp': 0.5, 'dimHl': 0.58}
+        c['kicks'] = prelude_kicks(s0, s1)
+        c['kickOrigin'] = [540, c['box']['y'] + c['box']['h'] // 2]
+    if has('frame-pencil'):
+        g['frame-pencil']['shapes'][0].update({'y': 368, 'h': 900})
+    # (director, medium) the classifier sketch sat at y > 1580 under the phone UI with 14 px dots: redrawn beside the caption
+    # (x 772-1008, y 1255-1450, inside the safe zone), 26-34 px ink-bled dots one per beat, the plane and its margin drawn on the
+    # bars in pencil segments (the margin grows a segment per bar)
+    for x in out:
+        if x['id'].startswith('sketch-dot-'):
+            b = -int(x['id'].split('-m')[-1]) if '-m' in x['id'] else int(x['id'].split('-')[-1])
+            if b in SKETCH_DOTS:
+                X, Y, S, gl, col = SKETCH_DOTS[b]
+                x.update({'x': X, 'y': Y, 'size': S, 'glyph': gl, 'color': col})
+    if has('sketch-plane'):
+        L1 = lambda x: 1372 - 0.4025 * (x - 772)
+        L2 = lambda x: 1406 - 0.4025 * (x - 772)
+        sh = [{'kind': 'line', 'x0': 772, 'y0': L1(772), 'x1': 1008, 'y1': L1(1008), 'at': 'hb:-24', 'dur': 0.35}]
+        segs = [(772, 832), (832, 892), (892, 952), (952, 1008)]
+        for (a, b), at in zip(segs, ('hb:-23.5', 'hb:-20', 'hb:-16', 'hb:-12')):
+            sh.append({'kind': 'line', 'x0': a, 'y0': L2(a), 'x1': b, 'y1': L2(b), 'at': at, 'dur': 0.2})
+        sh.append({'kind': 'arrow', 'x0': 880, 'y0': L1(880) + 2, 'x1': 894, 'y1': L1(880) + 40, 'head': 12, 'at': 'hb:-19.5', 'dur': 0.25})
+        g['sketch-plane'].update({'shapes': sh, 'width': 4, 'alpha': 0.85})
+    # (william, medium) the prelude pile was 2-3 cards in the top 60 % and its breath beats were the same frame: 8 real headline
+    # screenshots land on beats and 8ths (two more of the same incident: TIME Aug 27 2026, CSO Sep 28 2026) over the full height,
+    # then the push, the lift, the circle and (on the second breath beat) the pink marker pass and a kick
+    if has('pile-hf'):
+        ph = g['pile-hf']
+        sh = {s['id']: s for s in ph['shots']}
+        pos = {'fortune-2026-07-21-openai-hf-escape': (470, 470), 'time-2026-07-24-lost-control': (650, 870),
+               'security-hf-header': (520, 660), 'bbc-2026-07-29-rogue-ai-hack-other-companies': (560, 1450),
+               'frontier-rev2-wired_aug18_headline': (500, 780), 'frontier-rev2-gizmodo_oct2_headline': (540, 1010)}
+        for k, (x, y) in pos.items():
+            sh[k].update({'x': x, 'y': y})
+        new = [{'id': 'xrisk-rev2-time-2026-08-27-models-went-rogue-required-more-ai', 'at': 'hb:-6.5', 'entry': 'slam', 'hl': 0,
+                'crop': [140, 60, 2420, 830], 'x': 600, 'y': 1300, 'w0': 860, 'rot': 2.5},
+               {'id': 'security-hl-cso-pause', 'at': 'hb:-5.5', 'entry': 'drop', 'hl': 0, 'crop': [0, 0, 1720, 560], 'x': 450,
+                'y': 1130, 'w0': 820, 'rot': -2}]
+        order = ['fortune-2026-07-21-openai-hf-escape', None, 'time-2026-07-24-lost-control', None, 'security-hf-header',
+                 'bbc-2026-07-29-rogue-ai-hack-other-companies', 'frontier-rev2-wired_aug18_headline', 'frontier-rev2-gizmodo_oct2_headline']
+        shots, ni = [], iter(new)
+        for k in order:
+            shots.append(sh[k] if k else next(ni))
+        ph['shots'] = shots
+        ph['push'] = {**ph['push'], 'shot': 7}
+        ph['emph'] = [{'style': 'lift', 'at': 'hb:-2.5', 'shot': 7}, {'style': 'circle', 'at': 'hb:-2', 'shot': 7},
+                      {'style': 'marker', 'at': 'hb:-1', 'shot': 7, 'color': '#FF2E88', 'dur': 0.2}]
+        ph['pulse'] = ph['pulse'] + [f'song:{hb_song(-1):.3f}']
+        # the second breath beat (hb:-1) gets its own event: a red ink nabla stamped onto the pushed card (the pile's emphases
+        # must finish 0.5 s before the shatter, so the marker stays on hb:-1.5)
+        insert_after('pile-hf', {'id': 'r2-stamp-breath', 'type': 'inkstamp', 'at': 'hb:-1', 't0': 'hb:-1', 't1': 'hb:0', 'x': 958, 'y': 1188,
+                                 'size': 120, 'glyph': 'nabla', 'color': 'red', 'rot': 8, 'layer': 'own',
+                                 '_note': 'FIXER r2 (william): the two breath beats were the same frame'})
+    # ---- RIFF --------------------------------------------------------------------------------------------------------------
+    if has('kand-riff'):
+        k = g['kand-riff']
+        pre = k['preset']
+        # (director, medium) river and superposition under-scaled: the plane thickens to the verse band's width on the bar-4
+        # downbeat (hb:12) with 26 swimmers on 16ths; the superposition is 500 units (was 380) with vectors fanning past the
+        # circle toward the frame edges, thicker, and a 2-frame colour-cycling flash on every beat
+        pre['river'] = {**pre['river'], 'vectors': 26, 'stagger': 0.25, 'lanes': 100, 'ripple': 8}
+        pre['superpose'] = {**pre['superpose'], 'r': 500, 'reach': 1.22, 'flash': True, 'wK': 1.3}
+        k['moves'] = k['moves'] + [
+            {'move': 'thicken', 'at': 'hb:12', 'k': 2.5, 'dur': 0.3},
+            # (director, medium) the riff's opening beats each added one lone shape: hb:3 pops the blue disc with a ripple
+            {'move': 'bump', 'pieces': ['blue'], 'on': ['hb:3'], 'scale': 1.28, 'dur': 0.24},
+            {'move': 'bump', 'pieces': ['black', 'core'], 'on': ['hb:1', 'hb:2'], 'scale': 1.18, 'dur': 0.2},
+            # (william, medium) footage at 15 % of the frame: Coxon's disc grows to ~390 px while he speaks (back for the title)
+            {'move': 'grow', 'pieces': ['blue'], 'from': 'hb:3.25', 'to': 'hb:7.75', 'scale': 1.6, 'dx': -60, 'dy': -40, 'dur': 0.25}]
+    riff_paint = [
+        {'id': 'r2-spray-1', 'type': 'splat', 'at': 'hb:1', 't1': 'hb:6', 'x': 170, 'y': 1440, 'r': 110, 'color': 'orange', 'dir': 200,
+         'sats': 80, 'spikes': 6, 'drips': 0, 'spread': 1.3, 'satMax': 0.2, 'cull': {'at': 'hb:5', 'dur': 0.5}, 'layer': 'paint',
+         '_note': 'FIXER r2: the black disc lands with an orange spray (the riff opening was one lone shape per beat)'},
+        {'id': 'r2-spray-2', 'type': 'splat', 'at': 'hb:2', 't1': 'hb:7.5', 'x': 860, 'y': 1330, 'r': 150, 'color': 'pink', 'dir': -25,
+         'sats': 110, 'spikes': 7, 'drips': 2, 'spread': 1.35, 'satMax': 0.22, 'cull': {'at': 'hb:6.5', 'dur': 0.6}, 'layer': 'paint',
+         '_note': 'FIXER r2: a pink spray with droplets across the frame on hb:2 (with the 3-stroke yellow plane sweep)'},
+        {'id': 'r2-burst-3', 'type': 'splat', 'at': 'hb:3', 't1': 'hb:7.5', 'x': 245, 'y': 616, 'r': 95, 'color': '#15131F', 'dir': -150,
+         'sats': 70, 'spikes': 9, 'drips': 1, 'spread': 3.0, 'satMax': 0.2, 'cull': {'at': 'hb:6.5', 'dur': 0.5}, 'layer': 'paint',
+         '_note': 'FIXER r2: ink droplets burst out of the black disc on hb:3 (with the blue pop and a 5 % camera punch)'},
+    ]
+    # the yellow plane swept across the full width as three dry-brush strokes (hb:1.75, 1.875, 2): along the band, above, below
+    BY = lambda X, off: round(1073.4 - 0.404 * X + off, 1)
+    for i, (at, off, w) in enumerate((('hb:1.75', -70, 64), ('hb:1.875', 74, 58), ('hb:2', 0, 120))):
+        pts = [[-60, BY(-60, off)], [300, BY(300, off) + (6 if i else -4)], [700, BY(700, off) - 5], [1140, BY(1140, off)]]
+        riff_paint.append({'id': f'r2-plane-{i}', 'type': 'stroke', 't0': at, 't1': 'hb:12.3', 'at': at, 'dur': 0.16, 'points': pts, 'width': w,
+                           'color': '#F2C300', 'dry': 0.55, 'gaps': 0.45, 'wet': 0.3, 'pressure': [0.7, 1, 0.8], 'ease': 'oQuad',
+                           'out': {'at': 'hb:12', 'dur': 0.25}, 'layer': 'paint', '_note': 'FIXER r2: the plane swept across the frame on hb:2 (three dry-brush passes)'})
+    if has('splat-drop'):
+        # (director, medium) the drop's pink splat climbed into the kicker/credit band: it now bursts low and drips down-right
+        g['splat-drop'].update({'x': 860, 'y': 1660, 'r': 180, 'dir': 70, 'drips': 4, 'cull': {'at': 'hb:6.75', 'dur': 0.6}})
+        for x in reversed(riff_paint):
+            insert_after('splat-drop', x)
+    # (william, medium) footage under 15 % of the frame in the riff: the Galaxy Helios data-centre build-out (2026) printed into the
+    # cream paper (multiply, 34 %), lighter behind the wordmark band so the title and kicker keep their contrast
+    if has('g-cream-riff'):
+        insert_after('g-cream-riff', {
+            'id': 'ghost-riff', 'type': 'panel', 't0': 'hb:1.25', 't1': 'hb:16', 'prep': 'clip', 'broll': 'galaxy-helios-datacenter', 'in': 43.6,
+            'speed': 0.4, 'shape': 'rect', 'frame': {'x': 0, 'y': 0, 'w': 1080, 'h': 1920}, 'entry': {'style': 'fade', 'at': 'hb:1.25', 'dur': 0.45},
+            'out': {'style': 'fade', 'dur': 0.2}, 'border': 'none', 'kb': {'z': [1.0, 1.12]}, 'alpha': 0.3, 'blend': 'multiply',
+            'grade': {'sat': 0.35, 'contrast': 0.95, 'brightness': 0.05, 'gamma': 1.35, 'grain': 0},
+            'mask': 'linear-gradient(to bottom, #000 0%, #000 52%, rgba(0,0,0,0.22) 58%, rgba(0,0,0,0.22) 82%, #000 90%, #000 100%)',
+            'theme': 'light', '_note': "FIXER r2: MUTED ghost b-roll under the riff (Galaxy's Helios AI data centre, 2026; aerial of the halls), multiply 34 %"})
+    for k in ('credit-coxon', 'riff-credit'):
+        if has(k):
+            g[k]['font'] = {**g[k]['font'], 'size': 28}
+            g[k]['y'] = 1468
+    if has('riff-credit'):
+        g['riff-credit']['text'] = "IN THE DISCS: AGENTS' LAST EXAM, 2026 · NVIDIA NVL72 DATA HALL, 2025 · BEHIND: GALAXY HELIOS DATA CENTRE, 2026"
+        g['riff-credit']['w'] = 940
+    if has('coxon-stamp'):
+        g['coxon-stamp']['meta'] = 28; g['coxon-stamp']['name_px'] = 30
+    if has('kar-coxon'):
+        g['kar-coxon']['roll'] = {**g['kar-coxon']['roll'], 'dim': 0.55}
+    # ---- VERSE / CHORUS (long) -----------------------------------------------------------------------------------------
+    # (director, low) Hinton's portrait arrived over the 'Anthropic researcher ... 10%' card: it now pops in with his own Guardian
+    # card (hb:21.5), so his face never sits on another speaker's claim
+    if has('p-hinton'):
+        g['p-hinton'].update({'t0': 'hb:21.5', 'entry': {'style': 'pop', 'at': 'hb:21.5', 'dur': 0.25}})
+    # (director, medium) the 3D tower was covered by the news piles from hb:37: the jobs pile keeps below y 1310 until it leaves
+    # (hb:40.5); every block blooms on the beat, one after another up the residual river
+    if has('pile-jobs'):
+        pj = g['pile-jobs']
+        pj['region'] = {'x0': 60, 'y0': 1310, 'x1': 1020, 'y1': 1566}
+        pj['push'] = {**pj['push'], 'to': [540, 1440]}
+    if has('v1-tower'):
+        g['v1-tower']['beatGlow'] = 0.85
+    if has('cp-try'):   # (william, medium) the hb:80 iris landed on an empty ring: the centre footage is already popping in
+        g['cp-try']['entry'] = {'style': 'pop', 'at': 'hb:79.7', 'dur': 0.28}
+    for k in ('kar-amodei', 'kar-coxon-v1', 'kar-count', 'kar-cooper', 'kar-amodei-60', 'kar-amodei-a'):
+        if has(k):   # (director, low) unlit karaoke words 30-35 %: 55 %
+            g[k]['roll'] = {**g[k].get('roll', {}), 'dim': max(0.55, g[k].get('roll', {}).get('dim', 0.3))}
+    # ---- REFRAIN / BLACK HOLE / GOD / OUTRO ----------------------------------------------------------------------------------
+    if has('chart-gw'):   # (director, low) ticks 32 px, the final value 60 px
+        g['chart-gw'].update({'metaPx': 32, 'valuePx': 60})
+    if has('hole'):
+        h = g['hole']
+        # (director, medium) the swallow read as fade-and-stack: the cards go one pile per beat along a 1.2-turn spiral to 5 %, with
+        # ghost trails; a stronger lens (Einstein radius x1.35) bends more of the page round the hole
+        seq = [(['pile-gone', 'disc-credit-1'], 'hb:104'), (['pile-rsi'], 'hb:105'), (['pile-ego-lo', 'disc-credit-2'], 'hb:106'), (['pile-ego-hi'], 'hb:107')]
+        h['swallow'] = {**h['swallow'], 'seq': [{'items': [i for i in its if has(i)], 'at': at, 'dur': 0.9, 'turns': 1.2} for its, at in seq]}
+        h['lens'] = {'k': 2.3, 'extent': 9.5}
+        # (director, low) 'here' had 0.33 s of clean read: the burst's white flash is lower (0.75 -> 0.4)
+        h['burst'] = {**h['burst'], 'flash': 0.4}
+    if has('brutal'):   # 'here' held at full contrast to song 73.67 (hb:112.5); the spit cards fly in 0.15 s later
+        g['brutal']['t1'] = 'hb:112.5'
+        g['brutal']['exit'] = {'style': 'fade', 'dur': 0.12}
+    for k in ('spit0', 'spit1', 'spit2', 'spit3'):
+        if has(k):
+            g[k]['t0'] = 'hb:112.3'
+            g[k]['t1'] = 'hb:113.6'
+    if has('kand-re'):
+        kr = g['kand-re']
+        # the 3.5 % bump on hb:124 never showed (the settle overrides it): the landing is the flash + camera punch (fixer_fx)
+        kr['moves'] = [m for m in kr['moves'] if not (m.get('move') == 'bump' and m.get('on') == ['hb:124'])]
+        # (william, medium) Dario's disc ~250 px: it grows to ~370 px while he speaks, back home before the settle
+        kr['moves'].append({'move': 'grow', 'pieces': ['blue'], 'from': 'hb:113.5', 'to': 'hb:122.6', 'scale': 1.5, 'dx': -30, 'dy': -40, 'dur': 0.3})
+    if has('kc-blue-amodei'):
+        g['kc-blue-amodei']['oversample'] = 2.0
+    if has('g-cream-b'):   # (william, medium) the instrumental: the Stargate Abilene build-out printed into the cream (multiply 34 %)
+        insert_after('g-cream-b', {
+            'id': 'ghost-out', 'type': 'panel', 't0': 'hb:112.5', 't1': 'hb:123.38', 'prep': 'clip', 'broll': 'stargate-abilene-oracle', 'in': 26.0,
+            'speed': 0.5, 'shape': 'rect', 'frame': {'x': 0, 'y': 0, 'w': 1080, 'h': 1920}, 'entry': {'style': 'fade', 'at': 'hb:112.5', 'dur': 0.5},
+            'out': {'style': 'fade', 'at': 'hb:122.6', 'dur': 0.35}, 'border': 'none', 'kb': {'z': [1.0, 1.1]}, 'alpha': 0.3, 'blend': 'multiply',
+            'grade': {'sat': 0.35, 'contrast': 0.95, 'brightness': 0.05, 'gamma': 1.35, 'grain': 0},
+            'mask': 'linear-gradient(to bottom, transparent 0%, transparent 28%, #000 37%, #000 55%, rgba(0,0,0,0.22) 60%, rgba(0,0,0,0.22) 75%, #000 81%, #000 100%)',
+            'theme': 'light', '_note': "FIXER r2: MUTED ghost b-roll under the reassembly (Oracle's Stargate Abilene campus aerial, 2025), multiply 34 %, clear of the karaoke strip"})
+        insert_after('ghost-out', {
+            'id': 'ghost-out-credit', 'type': 'words', 't0': 'hb:113', 't1': 'hb:122.9', 'x': 64, 'y': 1488, 'w': 900,
+            'text': 'BEHIND: STARGATE ABILENE · ORACLE · 2025', 'font': {'family': "'IBM Plex Mono', monospace", 'weight': 600, 'size': 28},
+            'color': '#15131F', 'roll': {'mode': 'words', 'rate': 4, 'from': 'hb:113'}, 'exit': {'style': 'fade', 'dur': 0.2}, 'theme': 'light'})
+    return out
+
+
+def fixer_r2_fx(cut):
+    """FIXER r2: (director, low) the cover landed as a pale cream bloom: a 2-frame white flash and a 3 % camera punch that settles
+    within ~0.2 s (the frame is the exact cover from ~73.3 s); the riff's hb:3 punch; the whip impact on the bar (long)"""
+    fx = [{'id': 'fx-cover-flash', 'fx': 'flash', 'on': ['hb:124'], 'opacity': 0.92, 'decay': 0.03, 'color': '#FFFFFF',
+           '_note': 'FIXER r2: white-hot 2-frame flash on the cover landing'},
+          {'id': 'fx-cover-punch', 'fx': 'punch', 'on': ['hb:124'], 'amount': 0.03, 'bar': 0.03, 'decay': 0.045,
+           '_note': 'FIXER r2: the cover lands with a 3 % overshoot that settles in ~0.2 s'},
+          {'id': 'fx-riff-punch3', 'fx': 'punch', 'on': ['hb:3'], 'amount': 0.05, 'decay': 0.1, '_note': 'FIXER r2: the blue pop on hb:3'}]
+    if cut == 'long':
+        fx.append({'id': 'fx-ch-whip-land', 'fx': 'shake', 'on': ['hb:56'], 'amp': 12, 'barK': 1, 'decay': 0.1,
+                   '_note': 'FIXER r2: the CBS circle and the count land on the bar downbeat'})
+    return fx
+
+
+PAINT_MASK_RIFF = {'layer': 'paint', 'from': 'hb:7.75', 'to': 'hb:16', 'rect': [0, 1140, 1080, 400], 'feather': 110,
+                   '_note': 'FIXER r2 (director): no splat or stamp under the wordmark, the kicker and the credit line (y 1125-1575) once the title paints on'}
+
+
+def r2_prelude_tr(tr):
+    """FIXER r2: the breath stamp leaves with the prelude (it is shattered with the pile)"""
+    for t in tr:
+        if t['id'] == 'tr-shatter':
+            t['out'] = t['out'] + ['r2-stamp-breath']
+    return tr
+
+
+def r2_prelude_bfx(bfx):
+    """(see r2_bfx)"""
+    return r2_bfx(bfx)
+
+
+def r2_bfx(bfx):
+    """FIXER r2 (director, medium): the prelude tracks' drawn accents sat in the top strip that the phone UI covers (and now the
+    lifted stamp's row): they keep their camera moves, grain and flashes, and draw only small pencil ticks in the top-right
+    corner beside the stamp; the pulse itself is the footage box's push (prelude_kicks) and the sketch's dot per beat"""
+    for b in bfx:
+        if b['id'] in ('fx-prelude', 'fx-prelude-grid'):
+            b['zones'] = [[872, 150, 136, 84]]
+            b['no'] = sorted(set(b.get('no', []) + ['scribble', 'stamp', 'splat', 'splatS', 'droplets']))
+    # (director, medium) splats and stamps under the title band: from the wordmark's bar (hb:8) the riff track paints only in the
+    # top strip and the side margins above the wordmark (the paint mask is the safety net for a splat's fingers)
+    out = []
+    for b in bfx:
+        out.append(b)
+        if b['id'] == 'fx-riff':
+            b2 = {**b, 'id': 'fx-riff-b', 'from': 'hb:8', 'zones': [[40, 150, 1000, 100], [10, 440, 150, 600], [920, 440, 150, 600]],
+                  'avoid': b.get('avoid', []) + [[0, 1100, 1080, 500]], '_note': 'FIXER r2: the riff track after the title lands: above the wordmark band only'}
+            b['to'] = 'hb:7.5'
+            out.append(b2)
+    return out

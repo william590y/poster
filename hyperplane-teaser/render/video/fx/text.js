@@ -403,8 +403,9 @@ class Run {
 class DomRun {
   constructor(it, o) {
     this.it = it; this.key = o.key || it.id; this.root = o.root; this.hostEl = o.host || null;
+    this.marksOnly = !!o.marksOnly;   // polisher: draw only the marks; the host type reveals its own words (e.g. a clip caption's sweep)
     this.words = o.toks ? o.toks.map(tk => ({ el: tk.el, w: tk.el.textContent.trim(), lt: tk.lt })) : DomRun.split(o.root);
-    for (const w of this.words) { w.el.style.display = 'inline-block'; w.el.style.transformOrigin = '50% 60%'; }
+    if (!this.marksOnly) for (const w of this.words) { w.el.style.display = 'inline-block'; w.el.style.transformOrigin = '50% 60%'; }
     this.words.forEach((w, i) => { w.i = i; });
     const R = this.R = { ...(o.roll || {}) };
     this.mode = R.mode || 'words'; this.entryStyle = R.entry || 'pop'; this.edur = R.dur ?? ENTRY_DUR[this.entryStyle] ?? 0.16;
@@ -423,7 +424,7 @@ class DomRun {
       const m = { ...markDefaults(it, m0), ...m0 }, r = resolvePhrase(this.words.map(w => w.w), m, this.key);
       if (!r) return null;
       m.i0 = r[0]; m.i1 = r[1]; m.style = m.style || 'marker'; m.key = `${this.key}|dm${mi}`;
-      m.at = Math.max(m.at !== undefined ? HP.T(m.at) : this.words[m.i1].at + 0.24, this.words[m.i1].at + this.edur * 0.6); m.until = m.until !== undefined ? HP.T(m.until) : 1e9;
+      m.at = this.marksOnly && m.at !== undefined ? HP.T(m.at) : Math.max(m.at !== undefined ? HP.T(m.at) : this.words[m.i1].at + 0.24, this.words[m.i1].at + this.edur * 0.6); m.until = m.until !== undefined ? HP.T(m.until) : 1e9;
       it.mark(m.at, 'mark:' + m.style);
       return m;
     }).filter(Boolean);
@@ -474,7 +475,7 @@ class DomRun {
     }
   }
   draw(t) {
-    for (const w of this.words) {
+    for (const w of (this.marksOnly ? [] : this.words)) {
       const e = w.el;
       if (this.mode === 'karaoke') {
         const lit = t >= w.at - EPS, u = pr(t, w.at, 0.14);
@@ -491,7 +492,7 @@ class DomRun {
       if (r.blur > 0.05 && w.col0) { e.style.color = 'transparent'; e.style.textShadow = `0 0 ${(r.blur * 1.6).toFixed(1)}px ${w.col0}`; }   // no CSS filter (see Run)
       else if (w.col0 && e.style.color === 'transparent') { e.style.color = ''; e.style.textShadow = ''; }
     }
-    for (const c of this.chips) {
+    for (const c of (this.marksOnly ? [] : this.chips)) {
       if (!c.perWord) { c.el.style.opacity = t >= c.at - EPS ? 1 : 0; continue; }
       for (const w of c.words) {
         const on = t >= w.at - EPS || this.mode === 'karaoke', nx = w.chipNext && (t >= w.chipNext.at - EPS || this.mode === 'karaoke');
@@ -635,10 +636,13 @@ function retro(it, G) {
     case 'caption': { if (it.toks && it.toks.length) add({ toks: it.toks, host: it.cap, roll: { ...R0, mode: R0.mode === 'none' ? 'none' : 'karaoke', ...(d.roll && typeof d.roll === 'object' ? d.roll : {}) } }); meta([it.srcEl], it.t0 + 0.1); break; }
     case 'stamp': meta($$('.stamp .nm, .stamp .rl'), it.t0); break;
     case 'clip': {   // integrator: a clip's r7 "sub" line (the words NOT heard) rolls out on 16ths once the last heard word is in
+      // polisher: caption "marks" (pencil underline / circle / marker on the spoken words, at their own times; the caption's own
+      // reveal still lights the words); sub "roll" ({rate: 8} = 32nds) and "marks" (e.g. a marker on the baseline's number)
+      if (d.caption && d.caption.marks && it.toks && it.toks.length) add({ toks: it.toks, host: it.cap, marksOnly: true, roll: { mode: 'karaoke' }, marks: d.caption.marks });
       if (it.subEl) {
         const W = (d.caption && d.caption.words) || [], last = W.length ? W[W.length - 1] : null;
         const tl = last ? (last.s !== undefined ? (last.s - (d.in || 0)) / (d.speed || 1) : (last.t ?? 0)) : 0;
-        add({ root: it.subEl, t0: it.t0 + tl + 0.12, roll: { ...R0, rate: 4, fit: undefined } });
+        add({ root: it.subEl, t0: it.t0 + tl + 0.12, roll: { ...R0, rate: 4, fit: undefined, ...((d.sub && d.sub.roll) || {}) }, marks: (d.sub && d.sub.marks) || [] });
       }
       break;
     }
@@ -646,6 +650,10 @@ function retro(it, G) {
   }
   if (!runs.length && !types.length) return;
   it._rollRuns = runs; it._rollTypes = types;
+  // polisher: when each rolled-out text and each mark is complete (coverage.py "payoff": a clip's sub line, a caption's marks...)
+  const pay0 = it.payoffs ? it.payoffs.bind(it) : () => [];
+  it.payoffs = () => [...pay0(), ...runs.flatMap(r => [...(r.marksOnly ? [] : [{ what: `${it.type} roll "${r.text.slice(0, 48)}"`, at: r.end }]),
+    ...r.marks.map(m => ({ what: `${m.style} mark on "${r.words.slice(m.i0, m.i1 + 1).map(w => w.w).join(' ').slice(0, 40)}"`, at: m.at + (m.dur || 0) }))])];
   const draw0 = it.draw.bind(it), layout0 = it.layout.bind(it), texts0 = it.texts.bind(it);
   it.layout = function () { layout0(); for (const r of runs) r.measure(); };
   it.draw = function (t, lt) { draw0(t, lt); for (const r of runs) r.draw(t); for (const y of types) y.draw(t); };

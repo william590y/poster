@@ -68,7 +68,25 @@ function buildWords(box, text, words, hl, hlKeep) {
 }
 // mode "dim": every word is on screen from the start at 0.22 and lights up as it is spoken; dimHl (r4) sets the not-yet-spoken
 // level of highlighted words (e.g. 0.8, so a hook phrase reads on the first frame); dimOp (r5) that of the other words
+// mode "sweep" (rev2 polisher, opt-in): like "dim" (unspoken words at dimOp, default 0.14; highlighted ones at dimHl, default 0.3,
+// with NO red chip yet), but each spoken word ramps up over 0.07 s and a highlighted word's red chip is swept on left to right
+// across it from the moment it is spoken (over 0.12 s, or up to the next word), so the marker fires with the voice
 function revealWords(toks, lt, mode, dimHl, dimOp) {
+  if (mode === 'sweep') {
+    toks.forEach((tk, i) => {
+      const on = tk.lt === undefined || lt >= tk.lt - EPS, hl = tk.el.classList.contains('hl');
+      tk.el.style.opacity = on ? lerp(0.45, 1, pr(lt, tk.lt ?? -1, 0.07)).toFixed(3) : (hl ? (dimHl ?? 0.3) : (dimOp ?? 0.14));
+      if (!hl) return;
+      const nx = toks[i + 1] && toks[i + 1].lt !== undefined ? toks[i + 1].lt - (tk.lt ?? 0) : 0.12;
+      const u = on ? HP.ease.oQuad(pr(lt, tk.lt ?? -1, clamp(nx, 0.05, 0.12))) : 0, P = (u * 100).toFixed(1);
+      tk.el.style.background = u <= 0 ? 'transparent' : u >= 1 ? '' : `linear-gradient(90deg, var(--red) ${P}%, transparent ${P}%)`;
+      const cl = tk.el.classList, sh = [];
+      if ((cl.contains('first') || cl.contains('solo')) && u > 0) sh.push('-0.14em 0 0 var(--red)');
+      if ((cl.contains('last') || cl.contains('solo')) && u >= 1) sh.push('0.14em 0 0 var(--red)');
+      tk.el.style.boxShadow = sh.join(', ') || 'none';
+    });
+    return;
+  }
   for (const tk of toks) {
     const on = mode === 'all' || tk.lt === undefined || lt >= tk.lt - EPS;
     if (mode === 'dim') { tk.el.style.opacity = on ? 1 : (dimHl !== undefined && tk.el.classList.contains('hl') ? dimHl : (dimOp ?? 0.22)); continue; }

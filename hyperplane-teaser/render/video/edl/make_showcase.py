@@ -80,19 +80,42 @@ A({"id": "hole", "type": "blackhole", "t0": B(100), "t1": B(113.5), "c": [540, 8
 A({"id": "paint", "type": "layer", "kind": "canvas", "_note": "the beat track's paint (splats, stamps, ticks, grain): above the grounds, under the facts"})
 
 # ---------------------------------------------------------------- PRELUDE (edit 0 - 13.132): Altman 2015, Amodei 2025, the HF pile
+# polisher: a taller footage box (1080x740 from y 380, was 1080x640 from y 400) with tighter crops, so the speakers fill the frame,
+# Altman's stage banner is a strip rather than half the picture, Amodei's crop starts between two rows of Axios wordmarks, and
+# the captions sit lower (no empty dark third under them). Captions "sweep": unspoken words at 0.14, the hook phrases at 0.3
+# with no chip until spoken, the red chip swept on with the voice, a pencil underline / circle drawn as the words land.
+PRELUDE = {
+  "altman": {"crop": {"x": 320, "y": 80, "w": 600}, "focus": [0.72, 0.3],
+             "marks": [{"phrase": "the end of the world…", "style": "underline", "at": 3.88, "dur": 0.34, "color": "#F2C300", "width": 7}]},
+  "amodei": {"crop": {"x": 210, "y": 100, "w": 600}, "focus": [0.5, 0.42],
+             "marks": [{"phrase": "25%", "style": "circle", "at": 5.2, "dur": 0.3, "color": "#F2C300", "width": 7},
+                       {"phrase": "really, really badly…", "style": "underline", "at": 7.1, "dur": 0.95, "color": "#F2C300", "width": 7}]},
+}
+AMODEI_T1 = B(-7)                                # song 15.845 = edit 9.745: the 75% baseline is read before the fold (was 8.3)
 for k in ("altman", "amodei"):
     it = json.loads(json.dumps(SHORT[k]))
     it["zoom"] = [1.0, 1.1]   # showcase: a stronger slow push than the short (beatcheck flagged the prelude's slow push as near-static)
+    it["crop"] = PRELUDE[k]["crop"]; it["focus"] = PRELUDE[k]["focus"]
+    it["caption"].update({"reveal": "sweep", "dimOp": 0.14, "dimHl": 0.3, "marks": PRELUDE[k]["marks"]})
+    it["caption"].pop("dimHl_", None)
     it["_note"] = "copied from edl/short.json (verified words, timing and audio; footage as filmed, no keying). " + it.get("_note", "")[:300]
     A(it)
-P = {"fortune": E(14.214), "time": E(15.66), "bbc": E(16.646), "push": E(17.233), "lift": E(17.784), "circle": E(18.138)}
-A({"id": "pile-hf", "type": "screens", "t0": 8.3, "t1": B(1.75), "region": {"x0": 60, "y0": 330, "x1": 1020, "y1": 1500}, "w": 900,
-   "shots": [shot("fortune-2026-07-21-openai-hf-escape", 8.3, "slam", hl=1),
+amo = items[-1]
+amo["t1"] = AMODEI_T1
+amo["punch"] += [{"at": 7.1, "z": 1.035, "dur": 0.12}, {"at": 7.963, "z": 1.05, "dur": 0.12}]
+amo["shakes"] += [{"at": 7.963, "amp": 6, "decay": 0.08}]
+amo["sub"].update({"size": 44, "gap": 20, "roll": {"rate": 8}, "marks": [{"phrase": "75%", "style": "paint", "color": "#F2C300", "at": 8.95, "dur": 0.22}]})
+amo["_note"] = ("polisher: held to hb:-7 (edit 9.745) so the baseline is never dropped: his audio still ends at clip 1069.34 (edit 8.43), the "
+                "picture plays on (he is saying exactly the sub line, muted) while the sub rolls out on 32nds from 'BADLY' (8.17-8.88) and "
+                "the marker hits '75%' at 8.95; the fold starts at 9.44. ") + amo["_note"]
+P = {"fortune": AMODEI_T1, "time": B(-6), "bbc": E(16.823), "push": E(17.233), "lift": E(17.784), "circle": E(18.138)}
+A({"id": "pile-hf", "type": "screens", "t0": AMODEI_T1, "t1": B(1.75), "region": {"x0": 60, "y0": 330, "x1": 1020, "y1": 1500}, "w": 900,
+   "shots": [shot("fortune-2026-07-21-openai-hf-escape", P["fortune"], "slam", hl=1),
              shot("time-2026-07-24-lost-control", P["time"], "drop"),
              shot("bbc-2026-07-29-rogue-ai-hack-other-companies", P["bbc"], "paint")],
    "push": {"at": P["push"], "z": 1.4, "dur": 0.6}, "emph": [{"style": "lift", "at": P["lift"]}, {"style": "circle", "at": P["circle"]}],
-   "pulse": [E(16.823), E(17.233), E(17.784), E(18.138)], "out": {"style": "scatter", "at": B(0), "dur": 0.8}, "drift": 0.05,
-   "_note": "real captures (research/rev2/captures.json, focus crops): Fortune Jul 21, TIME Jul 24, BBC Jul 29 2026, landing on the prelude's pulse swells (hits.json prelude_pulse); pushed into the BBC phrase, lifted and circled through the breath (song 18.25-19.05, visual only)"})
+   "pulse": [E(16.646), E(17.233), E(17.784), E(18.138)], "out": {"style": "scatter", "at": B(0), "dur": 0.8}, "drift": 0.05,
+   "_note": "real captures (research/rev2/captures.json, focus crops): Fortune Jul 21, TIME Jul 24, BBC Jul 29 2026, dumped on the prelude's beats and pulse swells (hb:-7, hb:-6, song 16.823 = hb:-5; hits.json prelude_pulse); pushed into the BBC phrase, lifted and circled through the breath (song 18.25-19.05, visual only)"})
 
 # ---------------------------------------------------------------- RIFF (hb:0 - 16): the kand riff, footage inside the discs
 A({"id": "kand-riff", "type": "kand", "t0": B(0), "t1": B(17), "layout": {"y": 400, "scale": 0.72}, "preset": {"name": "riff", "from": "hb:0"},
@@ -259,9 +282,11 @@ A({"id": "kar-bengio", "type": "karaoke", "t0": round(V_AT - 0.1, 3), "t1": B(12
 A({"id": "grain", "type": "grain", "t0": 0, "t1": B(0), "opacity": 0.035, "size": 2, "hold": 3})
 A({"id": "paper", "type": "paper", "t0": 0, "t1": END, "mode": "auto", "_note": "builder A's paper tooth over everything (boils on twos); gone by the final hold"})
 
+PRELUDE_ZONES = [[60, 150, 960, 120], [60, 1610, 960, 230]]   # above the speaker stamp (y 300) and under the caption block
+
 transitions = [
   {"id": "tr-wipe", "at": 4.7333, "type": "paintwipe", "out": ["altman"], "in": ["amodei"], "dur": 1.0, "colors": ["pink", "violet"], "ground": DARK},
-  {"id": "tr-fold", "at": 8.3, "type": "fold", "out": ["amodei"], "in": ["pile-hf"], "dur": 1.25, "mode": "both", "shake": 6, "ground": DARK},
+  {"id": "tr-fold", "at": AMODEI_T1, "type": "fold", "out": ["amodei"], "in": ["pile-hf"], "dur": 1.25, "mode": "both", "shake": 6, "ground": DARK},
   {"id": "tr-light", "at": B(0), "type": "illuminate", "out": [], "in": ["g-cream-riff", "kand-riff"], "dur": 1.0, "flash": 0.5, "ground": False},
   {"id": "tr-zoom", "at": B(24), "type": "zoomthrough", "out": ["mlp", "eq-bp1", "eq-bp2", "eq-bp4", "eq-upd", "v-unitree", "v-unitree-credit"], "in": ["pile-a", "p-band"],
    "dur": 1.5, "focus": [905, 790], "r": 110, "ground": DARK},
@@ -289,8 +314,9 @@ edl = {
   "items": items,
   "transitions": transitions,
   "beatfx": [
-    {"id": "fx-prelude", "from": 0, "to": 12.9, "pattern": "prelude", "grid": "pulse", "intensity": 0.7},
-    {"id": "fx-prelude-grid", "from": "hb:-27", "to": "hb:-1.5", "pattern": "calm", "intensity": 0.6},
+    {"id": "fx-prelude", "from": 0, "to": 12.9, "pattern": "prelude", "grid": "pulse", "intensity": 0.8, "zones": PRELUDE_ZONES},
+    {"id": "fx-prelude-grid", "from": "hb:-27", "to": "hb:-1.5", "pattern": "prelude", "intensity": 0.7, "zones": PRELUDE_ZONES,
+     "_note": "polisher: the prelude pattern (pencil scribbles, stamps, ticks; no splats) on every prelude beat, in the strips above the stamp and under the caption"},
     {"id": "fx-riff", "from": "hb:0", "to": "hb:15.5", "pattern": "riff", "intensity": 1, "eighths": True, "layer": "paint"},
     {"id": "fx-verse", "from": "hb:16", "to": "hb:31.5", "pattern": "verse", "intensity": 0.85, "eighths": True, "layer": "paint"},
     {"id": "fx-refrain", "from": "hb:92", "to": "hb:107.5", "pattern": "refrain", "eighths": False, "layer": "paint"},
@@ -301,6 +327,7 @@ edl = {
 # the short's layout for its prelude clips (caption/stamp sizes), so the copied Altman/Amodei items set exactly as there
 sh = json.load(open(EDL / 'short.json'))
 edl["layout"] = json.loads(json.dumps(sh.get("layout", {})))
+edl["layout"]["clipBox"] = {"x": 0, "y": 380, "w": 1080, "h": 740}   # polisher: the prelude's taller footage box (see PRELUDE)
 # the splice check grid: song/bars.json (librosa, 123.05 BPM) runs ~60 ms late by bar 23; hits.json's 124-BPM regression grid
 # matches the measured attacks there (research/rev2/hits-extra.json onset_offsets_ms: 0 ms at hb:32 and hb:92), so mix.py checks
 # the splice against a bars.json-format copy of the hits.json grid

@@ -13,6 +13,9 @@ Per frame (render(t) in the page; DOM-level, no screenshots):
             (song 71.5-74.2).
 Static, per item (HP.probe.items(): each item's texts() with its reveal mode):
   reveal    every main text of more than 4 words needs a reveal mode (words, chars, highlight, stroke, ...; not "none").
+  payoff    (polisher) every payoff an item declares (the time its rolled-out text, mark, chart annotation or source line is
+            complete: a clip's r7 "sub" line, a caption's marks, ...) must land at least --read seconds (0.5) before the item ends;
+            a payoff that the item's end cuts off (e.g. the Amodei 75% baseline before rev2's fix) is a violation.
 Writes check/out/<edl>-coverage[-from-to].json and prints a summary. Exit status 0 always (it is a report).
 """
 import sys, re, json, math, argparse, pathlib
@@ -47,6 +50,7 @@ def main():
     ap.add_argument("--step", type=int, default=1, help="check every Nth frame")
     ap.add_argument("--min-area", type=float, default=0.02); ap.add_argument("--min-op", type=float, default=0.3)
     ap.add_argument("--min-frames", type=int, default=4); ap.add_argument("--out")
+    ap.add_argument("--read", type=float, default=0.5, help="payoff check: seconds a completed text/mark must stay before the item ends")
     a = ap.parse_args()
     edl = load_edl(a.edl)
     LG, ALLOWED_G = lyric_grams()
@@ -120,22 +124,32 @@ def main():
             n = len((tx.get("text") or "").split())
             if n > 4 and (tx.get("reveal") or "none") in ("none", "all", ""):
                 reveal.append({"id": it["id"], "type": it["type"], "words": n, "reveal": tx.get("reveal") or "none", "text": (tx.get("text") or "")[:100]})
+    # ---- payoffs (polisher): rolled-out texts, marks, annotations complete >= --read s before their item ends
+    late = []
+    for it in items:
+        if it["t1"] < t0 or it["t0"] > t1: continue
+        for p in it.get("payoffs") or []:
+            if p["at"] + a.read > it["t1"] + 1e-3:
+                late.append({"id": it["id"], "type": it["type"], "what": p["what"], "at": p["at"], "t1": it["t1"], "short_by": round(p["at"] + a.read - it["t1"], 3)})
     rep = {"edl": a.edl, "range": [t0, t1], "fps": fps, "step": a.step, "finalHold": hold, "frames_checked": len(F), "frames_held": held,
            "imagery": {"uncovered_frames": len(uncovered), "coverage": round(1 - len(uncovered) / max(1, len(F) - held), 4), "gaps": gaps,
                        "min_area": a.min_area, "min_op": a.min_op},
-           "reveal": reveal, "lyrics": lyr, "safe_zone": safe,
-           "summary": {"uncovered_frames": len(uncovered), "gaps": len(gaps), "reveal_violations": len(reveal), "lyric_hits": len(lyr), "safe_violations": len(safe)}}
+           "reveal": reveal, "lyrics": lyr, "safe_zone": safe, "payoff": {"read_s": a.read, "late": late},
+           "summary": {"uncovered_frames": len(uncovered), "gaps": len(gaps), "reveal_violations": len(reveal), "lyric_hits": len(lyr), "safe_violations": len(safe),
+                       "late_payoffs": len(late)}}
     OUT.mkdir(parents=True, exist_ok=True)
     stem = a.out or str(OUT / (f"{a.edl}-coverage" + ("" if (t0 == 0 and t1 == dur) else f"-{t0:.2f}-{t1:.2f}")))
     pathlib.Path(stem + ".json").write_text(json.dumps(rep, indent=1))
     s = rep["summary"]
     print(f"{a.edl} edit {t0:.2f}-{t1:.2f}: imagery {rep['imagery']['coverage'] * 100:.1f}% of {len(F) - held} frames"
           f"{' (finalHold %.2f-%.2f exempt)' % tuple(hold) if hold else ' (no finalHold declared)'}; {s['gaps']} gaps; "
-          f"{s['reveal_violations']} texts without a reveal; {s['lyric_hits']} lyric overlaps; {s['safe_violations']} safe-zone violations")
+          f"{s['reveal_violations']} texts without a reveal; {s['lyric_hits']} lyric overlaps; {s['safe_violations']} safe-zone violations; "
+          f"{s['late_payoffs']} late payoffs")
     for g in gaps[:20]: print(f"  NO IMAGERY edit {g['t0']:.3f}-{g['t1']:.3f} ({g['frames']} frames)")
     for r in reveal[:20]: print(f"  NO REVEAL {r['id']} ({r['type']}, {r['words']} words): {r['text'][:70]}")
     for r in lyr[:20]: print(f"  LYRIC {r['id']} {r['grams']} song {r['song']}: {r['text'][:70]}")
     for r in safe[:20]: print(f"  SAFE {r['id']} [{r['where']}] edit {r['t0']:.2f}-{r['t1']:.2f}: {r['text']}")
+    for r in late[:20]: print(f"  LATE {r['id']} ({r['type']}): {r['what']} complete at {r['at']:.2f}, item ends {r['t1']:.2f} (short by {r['short_by']:.2f} s)")
     print(f"wrote {stem}.json")
 
 

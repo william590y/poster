@@ -723,8 +723,11 @@ HP.probe = {
     }
     return { t, img, txt };
   },
-  items() {   // static: every item's declared texts and reveal modes
-    return ITEMS.map(it => ({ id: it.id, type: it.type, t0: +it.t0.toFixed(4), t1: +Math.min(it.t1, 1e6).toFixed(4), texts: it.texts() }));
+  items() {   // static: every item's declared texts and reveal modes, and (polisher) its payoffs: [{what, at}] = the edit times its
+    // rolled-out texts, marks, annotations... are complete (an item may define payoffs(); coverage.py checks each lands >= a read
+    // time before the item ends)
+    return ITEMS.map(it => ({ id: it.id, type: it.type, t0: +it.t0.toFixed(4), t1: +Math.min(it.t1, 1e6).toFixed(4), texts: it.texts(),
+      payoffs: (it.payoffs ? it.payoffs() : []).filter(p => isFinite(p.at)).map(p => ({ what: String(p.what), at: +p.at.toFixed(4) })) }));
   },
 };
 window.__probe = HP.probe;

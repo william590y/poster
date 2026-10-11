@@ -76,12 +76,13 @@ const PATTERNS = {
     off: P([['droplets', 2], ['tick', 1]], []),
     vocalOn: P([['flash', 1]], []),
   },
-  prelude: {   // the gentle intro pulse (~0.49 s, swelling from ~15 s): soft blooms, grain, pencil ticks, tiny zoom pulses; no shake/splat
-    crash: P([['flash', 2], ['grain', 1]], [['punch', 1]]),
-    bar: P([['flash', 2], ['grain', 2], ['tick', 1]], [['punch', 2], ['zoom', 1]]),
-    backbeat: P([['grain', 2], ['tick', 2]], [['punch', 2]]),
-    beat: P([['tick', 2], ['grain', 2]], [['zoom', 1], ['punch', 1]]),
-    fill: P([['grain', 2], ['tick', 1]], [['zoom', 1]]),
+  prelude: {   // the gentle intro pulse (~0.49 s, swelling from ~15 s): soft blooms, grain, pencil marks, ink stamps, tiny zoom pulses;
+    // no shake/splat. Polisher: the drawn accents are pencil scribbles and stamps (110-190 px), not only 1-2 px-looking ticks
+    crash: P([['flash', 2], ['stamp', 1], ['scribble', 1]], [['punch', 1]]),
+    bar: P([['flash', 2], ['scribble', 2], ['stamp', 1]], [['punch', 2], ['zoom', 1]]),
+    backbeat: P([['scribble', 2], ['stamp', 1], ['tick', 1]], [['punch', 2]]),
+    beat: P([['tick', 2], ['scribble', 2], ['grain', 1]], [['zoom', 1], ['punch', 1]]),
+    fill: P([['scribble', 2], ['grain', 1]], [['zoom', 1]]),
     off: P([['tick', 1]], []),
   },
   god: {   // "God, it's brutal out here": sparse, dramatic
@@ -197,7 +198,7 @@ const EFFECTS = {
   },
   stamp(t, o) {
     const [x, y] = spot(o.key, o.zones, o.avoid), g = HP.pick(['nabla', 'ring', 'checker', 'cross', 'triangle', 'star', 'arrow', 'square', 'disc'], o.key, 'g');
-    const color = HP.pick(palette(t, 'ink'), o.key, 'c'), size = lerp(90, 150, HP.rand(o.key, 's')) * Math.min(1.2, o.amp), rot = (HP.rand(o.key, 'r') - .5) * 26;
+    const color = HP.pick(palette(t, 'ink'), o.key, 'c'), size = lerp(90, 150, HP.rand(o.key, 's')) * clamp(o.amp, .75, 1.2), rot = (HP.rand(o.key, 'r') - .5) * 26;
     const S = { key: 'bfxs|' + o.key, x, y, glyph: g, size: Math.round(size), color, rot }, life = 3 * BP();
     DRAW.push({ t0: t, t1: t + life + .12, layer: o.layer, draw: (ctx, x2) => PL().stamp(ctx, S, x2 - t, { cull: pr(x2, t + life, .1), alpha: .92 * fadeHold(x2) }) });
     return true;
@@ -212,9 +213,9 @@ const EFFECTS = {
     return true;
   },
   tick(t, o) {
-    const [x, y] = spot(o.key, o.zones, o.avoid), kind = HP.pick(['star', 'cross', 'check', 'underline'], o.key, 'k'), s = lerp(34, 56, HP.rand(o.key, 's'));
+    const [x, y] = spot(o.key, o.zones, o.avoid), kind = HP.pick(['star', 'cross', 'check', 'underline'], o.key, 'k'), s = lerp(56, 88, HP.rand(o.key, 's'));   // polisher: was 34-56 px
     const sh = { kind, cx: x, cy: y, r: s / 2, n: 3, x0: x - s, x1: x + s, y };
-    DRAW.push({ t0: t - 1 / HP.FPS, t1: t + BP(), layer: o.layer, draw: (ctx, x2) => PL().pencil(ctx, [{ ...sh, p: E.oQuad(pr(x2, t - 1 / HP.FPS, .12)) }], { key: 'bfxt|' + o.key, t: x2, color: dark(x2) ? '#F2EBDD' : '#2A2832', width: 5.5, alpha: .9 * fadeHold(x2) }) });
+    DRAW.push({ t0: t - 1 / HP.FPS, t1: t + BP(), layer: o.layer, draw: (ctx, x2) => PL().pencil(ctx, [{ ...sh, p: E.oQuad(pr(x2, t - 1 / HP.FPS, .12)) }], { key: 'bfxt|' + o.key, t: x2, color: dark(x2) ? '#F2EBDD' : '#2A2832', width: 8, alpha: .92 * fadeHold(x2) }) });
     return true;
   },
   // the Kandinsky pieces themselves (fx/kandinsky.js); without an active kand item: a camera jolt / punch (and not counted visible)

@@ -45,9 +45,9 @@
  "layout": {
   "clipBox": {
    "x": 0,
-   "y": 400,
+   "y": 380,
    "w": 1080,
-   "h": 640
+   "h": 740
   },
   "caption": {
    "x": 60,
@@ -224,9 +224,9 @@
    "src": "clips/altman-2015-short.mp4",
    "in": 1.84,
    "crop": {
-    "x": 280,
-    "y": 6,
-    "w": 640
+    "x": 320,
+    "y": 80,
+    "w": 600
    },
    "grade": {
     "sat": 0,
@@ -271,11 +271,11 @@
     "role": "Then president, Y Combinator"
    },
    "caption": {
-    "reveal": "dim",
-    "dimOp": 0.6,
+    "reveal": "sweep",
+    "dimOp": 0.14,
     "text": "…I think AI will probably like most likely sort of lead to the end of the world…",
     "hl": "the end of the world",
-    "dimHl": 0.85,
+    "dimHl": 0.3,
     "words": [
      {
       "w": "…I",
@@ -345,6 +345,16 @@
       "w": "WORLD…",
       "s": 6.12
      }
+    ],
+    "marks": [
+     {
+      "phrase": "the end of the world…",
+      "style": "underline",
+      "at": 3.88,
+      "dur": 0.34,
+      "color": "#F2C300",
+      "width": 7
+     }
     ]
    },
    "source": "Airbnb fireside chat · 2015",
@@ -362,13 +372,13 @@
    "id": "amodei",
    "type": "clip",
    "t0": 4.7333,
-   "t1": 8.3,
+   "t1": "hb:-7",
    "src": "clips/amodei-axios-2025.mp4",
    "in": 1065.64,
    "crop": {
-    "x": 195,
-    "y": 150,
-    "w": 640
+    "x": 210,
+    "y": 100,
+    "w": 600
    },
    "grade": {
     "sat": 0,
@@ -384,12 +394,22 @@
    ],
    "focus": [
     0.5,
-    0.35
+    0.42
    ],
    "punch": [
     {
      "at": 5.1,
      "z": 1.06,
+     "dur": 0.12
+    },
+    {
+     "at": 7.1,
+     "z": 1.035,
+     "dur": 0.12
+    },
+    {
+     "at": 7.963,
+     "z": 1.05,
      "dur": 0.12
     }
    ],
@@ -398,6 +418,11 @@
      "at": 5.1,
      "amp": 7,
      "decay": 0.07
+    },
+    {
+     "at": 7.963,
+     "amp": 6,
+     "decay": 0.08
     }
    ],
    "stamp": {
@@ -408,8 +433,8 @@
     "role": "CEO, Anthropic"
    },
    "caption": {
-    "reveal": "dim",
-    "dimOp": 0.6,
+    "reveal": "sweep",
+    "dimOp": 0.14,
     "text": "…there’s a 25% chance that things go really, really badly…",
     "hl": [
      "25%",
@@ -456,13 +481,44 @@
       "w": "BADLY…",
       "s": 1068.87
      }
+    ],
+    "dimHl": 0.3,
+    "marks": [
+     {
+      "phrase": "25%",
+      "style": "circle",
+      "at": 5.2,
+      "dur": 0.3,
+      "color": "#F2C300",
+      "width": 7
+     },
+     {
+      "phrase": "really, really badly…",
+      "style": "underline",
+      "at": 7.1,
+      "dur": 0.95,
+      "color": "#F2C300",
+      "width": 7
+     }
     ]
    },
    "sub": {
     "text": "“…and a 75% chance that things go really, really well…”",
-    "size": 40,
-    "gap": 22,
-    "color": "#C2BDCE"
+    "size": 44,
+    "gap": 20,
+    "color": "#C2BDCE",
+    "roll": {
+     "rate": 8
+    },
+    "marks": [
+     {
+      "phrase": "75%",
+      "style": "paint",
+      "color": "#F2C300",
+      "at": 8.95,
+      "dur": 0.22
+     }
+    ]
    },
    "source": "Axios AI+ DC Summit · Sep 17, 2025",
    "audio": {
@@ -473,12 +529,12 @@
    "verified": true,
    "meta": 32,
    "name_px": 36,
-   "_note": "copied from edl/short.json (verified words, timing and audio; footage as filmed, no keying). Footage per research/verify/amodei-video.json (Axios upload nvXj4HTiYqA). Full sentence: 'I'm relatively an optimist, so I think there's a 25% chance that things go really, really badly and a 75% chance that things go really, really well'. r4 (editorial critic): the caption now ENDS with … (it went "
+   "_note": "polisher: held to hb:-7 (edit 9.745) so the baseline is never dropped: his audio still ends at clip 1069.34 (edit 8.43), the picture plays on (he is saying exactly the sub line, muted) while the sub rolls out on 32nds from 'BADLY' (8.17-8.88) and the marker hits '75%' at 8.95; the fold starts at 9.44. copied from edl/short.json (verified words, timing and audio; footage as filmed, no keying). Footage per research/verify/amodei-video.json (Axios upload nvXj4HTiYqA). Full sentence: 'I'm relatively an optimist, so I think there's a 25% chance that things go really, really badly and a 75% chance that things go really, really well'. r4 (editorial critic): the caption now ENDS with … (it went "
   },
   {
    "id": "pile-hf",
    "type": "screens",
-   "t0": 8.3,
+   "t0": "hb:-7",
    "t1": "hb:1.75",
    "region": {
     "x0": 60,
@@ -490,18 +546,18 @@
    "shots": [
     {
      "id": "fortune-2026-07-21-openai-hf-escape",
-     "at": 8.3,
+     "at": "hb:-7",
      "entry": "slam",
      "hl": 1
     },
     {
      "id": "time-2026-07-24-lost-control",
-     "at": 9.56,
+     "at": "hb:-6",
      "entry": "drop"
     },
     {
      "id": "bbc-2026-07-29-rogue-ai-hack-other-companies",
-     "at": 10.546,
+     "at": 10.723,
      "entry": "paint"
     }
    ],
@@ -521,7 +577,7 @@
     }
    ],
    "pulse": [
-    10.723,
+    10.546,
     11.133,
     11.684,
     12.038
@@ -532,7 +588,7 @@
     "dur": 0.8
    },
    "drift": 0.05,
-   "_note": "real captures (research/rev2/captures.json, focus crops): Fortune Jul 21, TIME Jul 24, BBC Jul 29 2026, landing on the prelude's pulse swells (hits.json prelude_pulse); pushed into the BBC phrase, lifted and circled through the breath (song 18.25-19.05, visual only)"
+   "_note": "real captures (research/rev2/captures.json, focus crops): Fortune Jul 21, TIME Jul 24, BBC Jul 29 2026, dumped on the prelude's beats and pulse swells (hb:-7, hb:-6, song 16.823 = hb:-5; hits.json prelude_pulse); pushed into the BBC phrase, lifted and circled through the breath (song 18.25-19.05, visual only)"
   },
   {
    "id": "kand-riff",
@@ -2288,7 +2344,7 @@
   },
   {
    "id": "tr-fold",
-   "at": 8.3,
+   "at": "hb:-7",
    "type": "fold",
    "out": [
     "amodei"
@@ -2418,14 +2474,43 @@
    "to": 12.9,
    "pattern": "prelude",
    "grid": "pulse",
-   "intensity": 0.7
+   "intensity": 0.8,
+   "zones": [
+    [
+     60,
+     150,
+     960,
+     120
+    ],
+    [
+     60,
+     1610,
+     960,
+     230
+    ]
+   ]
   },
   {
    "id": "fx-prelude-grid",
    "from": "hb:-27",
    "to": "hb:-1.5",
-   "pattern": "calm",
-   "intensity": 0.6
+   "pattern": "prelude",
+   "intensity": 0.7,
+   "zones": [
+    [
+     60,
+     150,
+     960,
+     120
+    ],
+    [
+     60,
+     1610,
+     960,
+     230
+    ]
+   ],
+   "_note": "polisher: the prelude pattern (pencil scribbles, stamps, ticks; no splats) on every prelude beat, in the strips above the stamp and under the caption"
   },
   {
    "id": "fx-riff",

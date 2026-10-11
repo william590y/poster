@@ -199,14 +199,15 @@ g = GRA["dc-record-mw"]
 # hb:94, the annotation slammed big on hb:94.5, the source line from hb:94.75, and the particles exit moved from hb:96 to hb:97.5
 # (1 beat long: the chart is whole until hb:97.25, 3.25 beats after the record lands; was: annotation 30.30 and source 30.40, both
 # under the exit that started at 30.3).
-# A bigger card (970 px wide, values 44 px), the first value label kept clear of the y ticks, the unit inside the plot.
+# A bigger card (890 px wide, values 44 px; the last point at x 870 keeps its label out of the right-hand UI rail), the first value
+# label kept clear of the y ticks, the unit inside the plot.
 A({"id": "chart-dc", "type": "chart", "graph": "dc-record-mw", "t0": HB92, "t1": B(97.5), "prep": "image", "src": g["image"],
    "frame": {"x": 70, "y": 262, "w": 940, "h": 440, "rot": -1.2}, "fit": "cover", "srcFocus": [0.5, 0.5], "zoom": [1.0, 1.12],
    "imgCaption": {"text": "xAI Colossus 2 · Epoch AI satellite view, 15 Jun 2026 · imagery (c) Airbus DS", "at": B(92.5), "x": 90},
-   "x": 200, "y": 1060, "w": 760, "h": 380, "titleGap": 230, "titlePx": 54, "subPx": 26, "axesAt": B(92), "titleAt": B(92), "titlePer": 0.121, "subAt": B(93),
+   "x": 190, "y": 1060, "w": 680, "h": 380, "titleGap": 230, "titlePx": 54, "subPx": 26, "axesAt": B(92), "titleAt": B(92), "titlePer": 0.121, "subAt": B(93),
    "grow": [B(92.5), B(92.75), B(93), B(93.25), B(93.5), B(94)], "labels": "all", "valuePx": 44, "valueFmt": {"dec": 0}, "color": "#FF2E88",
-   "yAxis": {"label": "MW", "labelIn": True, "labelPx": 30},
-   "annotate": [{"at": B(94.5), "i": 5, "text": g["highlight"]["label"], "dx": -560, "dy": 128, "w": 420, "px": 62, "lines": 2, "hl": "946 MW", "lead": 0, "per": 0.06}],
+   "yAxis": {"label": "MW", "labelIn": "bottom", "labelPx": 30},
+   "annotate": [{"at": B(94.5), "i": 5, "text": g["highlight"]["label"], "dx": -500, "dy": 96, "w": 420, "px": 62, "lines": 2, "hl": "946 MW", "lead": 0, "per": 0.06}],
    "sourceAt": B(94.75), "sourcePer": 0.05, "sourceY": 1500, "sourcePx": 24, "sourceW": 900, "splatColor": "#F2C300",
    "_note": "research/rev2/graphs.json dc-record-mw (Epoch observed records only, no projections); the records land on 8ths and 16ths, the 946 MW record on the beat"})
 A({"id": "eq-grpo", "type": "equation", "ref": "grpo", "t0": B(97.5), "t1": B(100), "drop": B(97.5), "mode": "pencil", "cx": 540, "cy": 640, "px": 40, "maxW": 960,
@@ -239,11 +240,11 @@ A({"id": "loop", "type": "loop", "t0": B(100), "t1": B(109), "c": [540, 861], "r
    "laps": {"from": B(100), "plan": [[2, 1], [1, 2], [0.5, 8]]}, "title": {"text": "AI that builds better AI", "y": 262, "at": B(100), "px": 76},
    "collapse": {"at": B(105.9), "dur": 0.92, "turns": 1.6},
    "_note": "the deck's self-improvement loop (theory_slides.explosionSlide; Splash title 'AI that builds better AI'), compressed to laps of 2 beats, 1 beat x2, 8ths x8 = hb:100-108"})
-FOG_T0 = 36.38                       # polisher: just after the hole pinches shut (collapse ends edit 36.35)
+FOG_T0 = 35.9                        # polisher: up behind the accretion disk as the hole swallows the last cards, so footage stays in frame
 A({"id": "fog", "type": "clip", "prep": "clip", "t0": FOG_T0, "t1": B(112.2), "src": "clips/bengio-fog-loss-of-control-ted2025.mp4", "in": round(10.9 + FOG_T0 - E(HB(106.5)), 3),
    "box": {"x": 0, "y": 0, "w": 1080, "h": 1920}, "srcFocus": [0.62, 0.5], "zoom": [1.0, 1.12], "zoomEase": "lin", "punch": [{"at": B(109), "z": 1.06, "dur": 0.14}, {"at": B(110), "z": 1.05, "dur": 0.12}, {"at": B(111), "z": 1.05, "dur": 0.12}],
-   "grade": {"sat": 0, "contrast": 1.1, "brightness": 0.03, "gamma": 1.25, "grain": 4}, "enter": {"style": "fade", "dur": 0.7}, "theme": "dark",
-   "_note": "the clearing (polisher): fades up over 36.38-37.08 right after the hole pinches shut, graded so the fog and the car's headlights read as footage (was brightness -0.16 / gamma 0.75: two grey blobs on black); b-roll from Bengio's TED2025 talk, muted, under the painted words"})
+   "grade": {"sat": 0, "contrast": 1.1, "brightness": 0.03, "gamma": 1.25, "grain": 4}, "enter": {"style": "fade", "dur": 0.25}, "theme": "dark",
+   "_note": "the clearing (polisher): fades up from 35.9 behind the accretion disk (the disk and ring are drawn above #cam) as the hole swallows the last cards, and is the picture once the hole pinches shut at 36.35; graded so the fog and the car's headlights read as footage (was brightness -0.16 / gamma 0.75: two grey blobs on black); b-roll from Bengio's TED2025 talk, muted, under the painted words"})
 A({"id": "god-ink", "type": "stroke", "t0": B(108.5), "t1": B(110), "at": B(108.5), "dur": 0.2, "layer": "own", "width": 44, "color": "#F2EBDD",
    "points": [[120, 430], [380, 372], [700, 338], [990, 262]], "dry": 0.3, "gaps": 0.25, "out": {"at": B(109.5), "dur": 0.25},
    "_note": "polisher: a half-beat brush flick (hb:108.5) so something moves between the pinch and the first painted word"})

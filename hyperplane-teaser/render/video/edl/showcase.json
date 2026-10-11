@@ -1250,9 +1250,9 @@
     "at": "hb:92.5",
     "x": 90
    },
-   "x": 200,
+   "x": 190,
    "y": 1060,
-   "w": 760,
+   "w": 680,
    "h": 380,
    "titleGap": 230,
    "titlePx": 54,
@@ -1277,7 +1277,7 @@
    "color": "#FF2E88",
    "yAxis": {
     "label": "MW",
-    "labelIn": true,
+    "labelIn": "bottom",
     "labelPx": 30
    },
    "annotate": [
@@ -1285,8 +1285,8 @@
      "at": "hb:94.5",
      "i": 5,
      "text": "Colossus 2: 946 MW",
-     "dx": -560,
-     "dy": 128,
+     "dx": -500,
+     "dy": 96,
      "w": 420,
      "px": 62,
      "lines": 2,
@@ -1697,10 +1697,10 @@
    "id": "fog",
    "type": "clip",
    "prep": "clip",
-   "t0": 36.38,
+   "t0": 35.9,
    "t1": "hb:112.2",
    "src": "clips/bengio-fog-loss-of-control-ted2025.mp4",
-   "in": 11.648,
+   "in": 11.168,
    "box": {
     "x": 0,
     "y": 0,
@@ -1742,10 +1742,10 @@
    },
    "enter": {
     "style": "fade",
-    "dur": 0.7
+    "dur": 0.25
    },
    "theme": "dark",
-   "_note": "the clearing (polisher): fades up over 36.38-37.08 right after the hole pinches shut, graded so the fog and the car's headlights read as footage (was brightness -0.16 / gamma 0.75: two grey blobs on black); b-roll from Bengio's TED2025 talk, muted, under the painted words"
+   "_note": "the clearing (polisher): fades up from 35.9 behind the accretion disk (the disk and ring are drawn above #cam) as the hole swallows the last cards, and is the picture once the hole pinches shut at 36.35; graded so the fog and the car's headlights read as footage (was brightness -0.16 / gamma 0.75: two grey blobs on black); b-roll from Bengio's TED2025 talk, muted, under the painted words"
   },
   {
    "id": "god-ink",

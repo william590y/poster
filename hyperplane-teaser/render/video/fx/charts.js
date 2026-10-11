@@ -330,7 +330,8 @@ function build2(it) {
   it.xtl = it.xt.map(v => lab(xa.fmt ? K.fmt(v, xa.fmt) : String(Math.round(v)), { left: it.X(v) + 'px', top: (P.y + P.h + 18) + 'px', transform: 'translateX(-50%)' }));
   if (it.cat) it.ctl = it.cats.map((c, k) => lab(c, { left: it.X(k) + 'px', top: (P.y + P.h + 18) + 'px', transform: 'translateX(-50%)', textAlign: 'center' }));
   // yAxis.labelIn (polisher): the unit sits inside the plot, just right of the axis top, instead of above it (clear of a subtitle)
-  if (ya.label) it.ylab = ya.labelIn ? lab(ya.label, { left: (P.x + 16) + 'px', top: (P.y - meta * 0.4) + 'px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', fontSize: (ya.labelPx ?? meta) + 'px' })
+  // (labelIn "bottom": just above the x axis, right of the y axis)
+  if (ya.label) it.ylab = ya.labelIn ? lab(ya.label, { left: (P.x + 16) + 'px', top: (ya.labelIn === 'bottom' ? P.y + P.h - (ya.labelPx ?? meta) * 1.5 : P.y - meta * 0.4) + 'px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', fontSize: (ya.labelPx ?? meta) + 'px' })
     : lab(ya.label, { left: (P.x - 16) + 'px', top: (P.y - meta * 2.1) + 'px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', transform: 'translateX(-30%)' });
   // value labels (bars: all; line: d.labels "all" | "last" | [indices]) and the big counter
   const lv = d.labels ?? (kind === 'bar' ? 'all' : 'last');

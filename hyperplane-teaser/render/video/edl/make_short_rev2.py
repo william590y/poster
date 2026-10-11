@@ -41,6 +41,8 @@ def build():
     kp['speed'] = round((75.21 - 72.0) / (RIFF_OUT - HB(1.25)), 4)
     kd = g['kc-blue-dc']
     kd['speed'] = round(2.35 / (RIFF_OUT - HB(8)), 4)
+    for x in (kp, kd):                                 # own cache folders: the long's copies play at other speeds
+        x['frames'] = 'short-' + x['id']
     eq = g['eq-superpose']
     eq['pulse'] = ['hb:13', 'hb:14']                  # hb:15 is in the cut
     eq['exit'] = 'cut'

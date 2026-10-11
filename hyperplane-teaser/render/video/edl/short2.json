@@ -1164,7 +1164,8 @@
    },
    "tintK": 0.35,
    "fadeIn": 0.12,
-   "_note": "agents' wall (ale-agent-wall 72.0 -> 75.21, Agents' Last Exam 2026) in the orbiting pink disc for the whole riff"
+   "_note": "agents' wall (ale-agent-wall 72.0 -> 75.21, Agents' Last Exam 2026) in the orbiting pink disc for the whole riff",
+   "frames": "short-kc-pink-agents"
   },
   {
    "id": "kc-blue-coxon",
@@ -1232,7 +1233,8 @@
    },
    "tintK": 0.35,
    "fadeIn": 0.12,
-   "_note": "broll nvidia-nvl72-factory 39.8-42.15 'rows of racks in a data hall' (NVIDIA, 2025) in the blue disc from the title downbeat"
+   "_note": "broll nvidia-nvl72-factory 39.8-42.15 'rows of racks in a data hall' (NVIDIA, 2025) in the blue disc from the title downbeat",
+   "frames": "short-kc-blue-dc"
   },
   {
    "id": "fluid-riff",

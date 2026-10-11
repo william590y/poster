@@ -18,10 +18,11 @@ import rev2_parts as P
 SONG0, SPL_A, SPL_B, SONG_END = 6.10, 26.477, 65.188, 80.40
 SPLICE = round(SPL_A - SONG0, 3)                     # edit 20.377
 OFF2 = SPL_B - SPLICE                                # edit = song - 44.811 after the splice
-END = round(SONG_END - OFF2, 3)                      # 35.589
+HOLD_PAST = 0.45                                     # FIXER r1: the cover holds 0.45 s past the music
+END = round(SONG_END - OFF2 + HOLD_PAST, 3)          # 36.039
 E = lambda s: round(s - SONG0, 4) if s <= SPL_A else round(s - OFF2, 4)
 HB = lambda i: E(P.hb_song(i))
-RIFF_OUT = round(HB(97) + 0.05, 3)                   # the riff items' end: just past tr-entrance-short's window (hb:95 - hb:97)
+RIFF_OUT = round(HB(96) + 0.05, 3)                   # the riff items' end: just past tr-entrance-short's window (FIXER r1: hb:95.06 - 95.86)
 
 
 def build():
@@ -50,7 +51,13 @@ def build():
     eq['pulse'] = ['hb:13', 'hb:14']                  # hb:15 is in the cut
     eq['exit'] = 'cut'
     g['riff-credit']['exit'] = 'cut'
-    items = P.safe_nudges(P.ensure_prep(pre + ref))
+    items = P.fixer_r1(P.safe_nudges(P.ensure_prep(pre + ref)), 'short')
+    # FIXER r1 (critic: the short's loop could not read as accelerating): the laps run 1 bar (hb:96-100, the small loop), then
+    # 2 beats x2, 1 beat x2 and 8ths x4 in the big loop (hb:100-108, into the collapse): each lap twice as fast as the last
+    g2 = {x['id']: x for x in items}
+    g2['loop-a-s']['build'] = 'hb:95.25'
+    g2['loop-a-s']['laps'] = {'from': 'hb:96', 'plan': [[4, 1]]}
+    g2['loop-b']['laps'] = {'from': 'hb:100', 'plan': [[2, 2], [1, 2], [0.5, 4]]}
 
     # ---- transitions
     tr = P.transitions_of(P.load('prelude-riff'))
@@ -58,6 +65,10 @@ def build():
     for t in rt:
         if t['id'] == 'tr-entrance-short':
             t['out'] = riff_out
+            # FIXER r1 (critic: the dot-field covered the first bar after the splice, the hb:96 downbeat was a near-empty dark frame,
+            # and the loop got ~2.3 s): the particles take 0.39 s (hb:95.06-95.86, impact on the 8th after the splice) and the loop
+            # world is whole on the bar-24 downbeat (hb:96), where its first lap starts
+            t.update({'at': 'hb:95.5', 'dur': 0.8, 'lead': 0.55})
             t['_note'] = ("THE SHORT'S ENTRANCE (refrain plan short_entrance): window hb:95-97 = song 65.200-66.167, 12 ms after the splice; the "
                           "riff's logo breaks into a halftone, its dots swirl round the middle and land on the cream loop world; impact on the "
                           "bar-24 downbeat (65.684)")
@@ -94,7 +105,7 @@ def build():
         'items': items,
         'transitions': transitions,
         'beatfx': bfx,
-        'fx': [],
+        'fx': P.fixer_fx('short'),
     }
     return edl
 
@@ -107,6 +118,7 @@ SPLICE_NOTE = ("Splice riff beat 15 -> refrain bar 23 beat 4 (the r4-r7 short's 
 
 if __name__ == '__main__':
     edl = build()
+    print('  items held past the music (fixer r1):', P.hold_past(edl, round(SONG_END - OFF2, 3)))
     for r in P.early_emph(edl):
         print('  emph moved earlier (fixer r1, late payoffs):', r)
     for r in P.fit_emph(edl):

@@ -6,7 +6,7 @@
  "fps": 30,
  "width": 1080,
  "height": 1920,
- "duration": 74.3,
+ "duration": 74.75,
  "audio": {
   "song": "song/brutal.mp3",
   "songStart": 6.1,
@@ -117,7 +117,7 @@
  ],
  "finalHold": [
   "hb:124",
-  74.3
+  74.75
  ],
  "items": [
   {
@@ -1229,9 +1229,9 @@
     },
     {
      "move": "whip",
-     "at": "hb:11",
+     "at": "hb:11.5",
      "deg": 360,
-     "dur": 1
+     "dur": 0.5
     },
     {
      "move": "break",
@@ -2235,7 +2235,7 @@
     "hb:29.5"
    ],
    "cx": 540,
-   "cy": 1160,
+   "cy": 1075,
    "px": 44,
    "maxW": 960,
    "label": {
@@ -2273,12 +2273,17 @@
     "pad": 34,
     "rot": -1.0
    },
-   "theme": "dark"
+   "theme": "dark",
+   "color": "#FFF8EA",
+   "penColor": "#FFF8EA",
+   "rowDur": 0.3,
+   "fillDur": 0.16,
+   "glyphDur": 0.05
   },
   {
    "id": "p-pause",
    "type": "panel",
-   "t0": "hb:29.5",
+   "t0": "hb:28.9",
    "t1": "hb:32",
    "prep": "clip",
    "broll": "pauseai-march-2026",
@@ -2289,11 +2294,11 @@
    "frame": {
     "cx": 540,
     "cy": 540,
-    "r": 220
+    "r": 250
    },
    "entry": {
     "style": "paint",
-    "at": "hb:29.5"
+    "at": "hb:28.9"
    },
    "out": "cut",
    "border": "paint",
@@ -2384,12 +2389,12 @@
    "nHeads": 4,
    "infer": [
     "hb:32",
-    "hb:32.5",
     "hb:33",
     "hb:33.5",
     "hb:34",
     "hb:34.5",
     "hb:35",
+    "hb:35.5",
     "hb:36"
    ],
    "backprop": {
@@ -2405,12 +2410,17 @@
    "cam": {
     "orbit": 30,
     "roll": -4,
-    "wideDur": 0.6
+    "wideDur": 0.6,
+    "dist": 34,
+    "fov": 40,
+    "attnX": 1.0,
+    "mlpX": -1.2,
+    "lead": 0.4
    },
    "_note": "builder B's 3D hero. Forward pass one stage per 8th (embed, attn/MLP x3) with the output token landing on hb:36 = the sung 'Quit' (36.65); the camera holds on the output through Coxon's line (orbiting), then backprop on 8ths hb:40-43 (river turns orange and flows up, each block flashes as the gradient passes), pull-back over the whole tower on hb:43.25 as the paint wipe arrives",
    "view": {
     "dx": 0,
-    "dy": 140
+    "dy": 170
    }
   },
   {
@@ -2508,7 +2518,8 @@
     "hb:34",
     "hb:35"
    ],
-   "credit": "ARCHITECT LABS · REDWOOD FPGA · 2026"
+   "credit": "ARCHITECT LABS · REDWOOD FPGA · 2026",
+   "enabled": false
   },
   {
    "id": "pile-jobs",
@@ -2517,21 +2528,28 @@
    "t1": "hb:40.5",
    "region": {
     "x0": 60,
-    "y0": 1020,
+    "y0": 1150,
     "x1": 1020,
-    "y1": 1500
+    "y1": 1560
    },
-   "w": 860,
+   "w": 700,
    "shots": [
     {
      "id": "xrisk-rev2-x-coxon-2026-09-08-resigned-anthropic",
-     "at": "hb:36",
+     "at": "hb:36.75",
      "entry": "slam",
-     "hlAt": "hb:36.5"
+     "hlAt": "hb:37.25",
+     "crop": [
+      20,
+      20,
+      610,
+      214
+     ],
+     "w0": 520
     },
     {
      "id": "economy-guardian_block_4000_jobs_ai",
-     "at": "hb:37",
+     "at": "hb:37.75",
      "entry": "drop",
      "hlAt": "hb:38.5",
      "crop": [
@@ -2539,17 +2557,18 @@
       530,
       1260,
       875
-     ]
+     ],
+     "w0": 700
     }
    ],
    "push": {
     "at": "hb:38.5",
-    "z": 1.35,
+    "z": 1.25,
     "dur": 0.42,
     "shot": 1,
     "to": [
      540,
-     1240
+     1380
     ]
    },
    "emph": [
@@ -2560,10 +2579,11 @@
     }
    ],
    "pulse": [
-    "hb:37",
+    "hb:37.75",
     "hb:38"
    ],
-   "out": "cut"
+   "out": "cut",
+   "overlap": 0.0
   },
   {
    "id": "p-coxon-v1",
@@ -2577,9 +2597,9 @@
    "oversample": 1.2,
    "shape": "circle",
    "frame": {
-    "cx": 760,
-    "cy": 500,
-    "r": 215
+    "cx": 790,
+    "cy": 480,
+    "r": 175
    },
    "srcFocus": [
     0.4,
@@ -2678,7 +2698,7 @@
    },
    "name": "Jacob Coxon, former Anthropic & OpenAI researcher",
    "year": "2026",
-   "metaAt": "song:37.190",
+   "metaAt": "song:37.040",
    "metaPx": 26,
    "metaGap": 14,
    "roll": {
@@ -2694,7 +2714,14 @@
      "width": 7
     }
    ],
-   "theme": "dark"
+   "theme": "dark",
+   "lead": 0.08,
+   "metaCps": 110,
+   "metaWrap": true,
+   "plate": {
+    "color": "rgba(14,13,18,0.88)",
+    "pad": 22
+   }
   },
   {
    "id": "eq-ntp",
@@ -2936,28 +2963,28 @@
      ]
     },
     {
-     "id": "susmangodfrey-2025-09-25-piracy-settlement",
+     "id": "capabilities-variety-suno-v6",
      "at": "hb:45",
      "entry": "slam",
-     "hl": 0
-    },
-    {
-     "id": "capabilities-variety-suno-v6",
-     "at": "hb:45.5",
-     "entry": "paint",
      "crop": [
       0,
       0,
       1350,
       330
      ]
+    },
+    {
+     "id": "susmangodfrey-2025-09-25-piracy-settlement",
+     "at": "hb:45.5",
+     "entry": "paint",
+     "hl": 0
     }
    ],
    "push": {
-    "at": "hb:46",
-    "z": 1.4,
+    "at": "hb:46.5",
+    "z": 1.3,
     "dur": 0.42,
-    "shot": 1,
+    "shot": 3,
     "to": [
      540,
      1080
@@ -2967,12 +2994,12 @@
     {
      "style": "lift",
      "at": "hb:46.5",
-     "shot": 1
+     "shot": 3
     },
     {
      "style": "circle",
      "at": "hb:46.5",
-     "shot": 1,
+     "shot": 3,
      "dur": 0.226
     }
    ],
@@ -4189,7 +4216,7 @@
    "t1": "hb:80",
    "ref": "grpo",
    "drop": "hb:72",
-   "mode": "chalk",
+   "mode": "pencil",
    "rows": [
     "hb:72",
     "hb:72.75",
@@ -4197,11 +4224,11 @@
    ],
    "cx": 540,
    "cy": 580,
-   "px": 40,
-   "maxW": 940,
+   "px": 48,
+   "maxW": 1000,
    "card": {
-    "color": "#2346FF",
-    "pad": 40,
+    "color": "#FBF6EC",
+    "pad": 26,
     "rot": -1.2,
     "lead": 0.12
    },
@@ -4212,18 +4239,31 @@
     "font": {
      "size": 40
     },
-    "gap": 50
+    "gap": 50,
+    "color": "#FBF6EC",
+    "bg": {
+     "color": "#0E0D12",
+     "pad": 12
+    }
    },
    "cite": {
     "at": "hb:74.25",
-    "px": 24
+    "px": 24,
+    "color": "#FBF6EC",
+    "bg": {
+     "color": "#0E0D12",
+     "pad": 10
+    }
    },
    "hl": [
     {
      "from": "highlight",
      "at": "hb:75",
      "style": "circle",
-     "color": "#F2C300"
+     "color": "#B31B1B",
+     "width": 9,
+     "padX": 24,
+     "padY": 28
     },
     {
      "from": "extra:1",
@@ -4236,7 +4276,10 @@
      "from": "extra:0",
      "at": "hb:77.5",
      "style": "circle",
-     "color": "#FF2E88"
+     "color": "#FF2E88",
+     "width": 9,
+     "padX": 34,
+     "padY": 28
     }
    ],
    "pulse": {
@@ -4246,7 +4289,9 @@
    },
    "theme": "dark",
    "exit": "cut",
-   "_note": "the portrait-stacked `tex` (3 rows), cream chalk on a cover-blue card over the dark racks (the label and cite sit outside the card, so the dark theme keeps them legible on the footage); rows drawn on hb:72 / 72.75 / 73.5, whole from ~hb:74.3 to hb:79.7 (5.4 beats, 2.6 s) plus the advantage below"
+   "_note": "the portrait-stacked `tex` (3 rows), cream chalk on a cover-blue card over the dark racks (the label and cite sit outside the card, so the dark theme keeps them legible on the footage); rows drawn on hb:72 / 72.75 / 73.5, whole from ~hb:74.3 to hb:79.7 (5.4 beats, 2.6 s) plus the advantage below",
+   "color": "#15131F",
+   "penColor": "#2A2832"
   },
   {
    "id": "pile-before",
@@ -4823,12 +4868,13 @@
    "border": "paint",
    "color": "yellow",
    "borderW": 22,
-   "credit": "ORACLE · STARGATE ABILENE, TX · 2025",
+   "credit": "ORACLE · STARGATE · 2025",
    "creditAt": [
     64,
-    1088
+    1046
    ],
-   "prep": "clip"
+   "prep": "clip",
+   "creditSize": 24
   },
   {
    "id": "loop-a",
@@ -4839,7 +4885,7 @@
     540,
     760
    ],
-   "r": 210,
+   "r": 250,
    "build": "hb:80",
    "laps": {
     "from": "hb:80",
@@ -4870,7 +4916,16 @@
    "ringW": 24,
    "cometW": 30,
    "center": false,
-   "_note": "smaller loop in the upper two thirds (c 540,760 r 210) so the bottom zone y 1130-1580 can carry the facts; laps 2 bars (passes hb:80,82,84,86), 1 bar x2 (every beat hb:88-95), 2 beats x2 (every 8th hb:96-99.5)"
+   "_note": "smaller loop in the upper two thirds (c 540,760 r 210) so the bottom zone y 1130-1580 can carry the facts; laps 2 bars (passes hb:80,82,84,86), 1 bar x2 (every beat hb:88-95), 2 beats x2 (every 8th hb:96-99.5)",
+   "labelSide": [
+    "right",
+    null,
+    "right",
+    null
+   ],
+   "tailBase": 1.9,
+   "tailK": 1.5,
+   "lapShock": true
   },
   {
    "id": "pile-try",
@@ -5129,24 +5184,24 @@
    "graph": "dc-total-gw",
    "t0": "hb:96",
    "t1": "hb:100.6",
-   "x": 140,
-   "y": 1268,
-   "w": 730,
-   "h": 210,
+   "x": 175,
+   "y": 1300,
+   "w": 660,
+   "h": 178,
    "card": {
-    "x": 90,
-    "y": 1140,
-    "w": 880,
-    "h": 435,
+    "x": 70,
+    "y": 1090,
+    "w": 940,
+    "h": 482,
     "color": "#FBF6EC",
-    "rot": -0.8
+    "rot": -0.6
    },
    "axesAt": "hb:96",
    "titleAt": "hb:96",
-   "titlePx": 46,
-   "titleGap": 110,
+   "titlePx": 50,
+   "titleGap": 196,
    "subAt": "hb:96.25",
-   "subPx": 24,
+   "subPx": 23,
    "subPer": 0.03,
    "grow": [
     "hb:96.25",
@@ -5163,7 +5218,7 @@
     "hb:98"
    ],
    "labels": "last",
-   "valuePx": 40,
+   "valuePx": 56,
    "valueFmt": {
     "dec": 1
    },
@@ -5171,41 +5226,34 @@
    "lineW": 6,
    "yAxis": {
     "label": "GW",
-    "labelIn": "bottom",
-    "labelPx": 26
-   },
-   "counter": {
-    "x": 170,
-    "y": 1290,
-    "size": 92,
-    "label": "GW",
-    "fmt": {
-     "dec": 1
-    }
+    "labelIn": "top",
+    "labelPx": 28
    },
    "annotate": [
     {
-     "at": "hb:98.25",
+     "at": "hb:98.125",
      "i": 11,
      "text": "13.8 GW across 93 sites",
-     "dx": -300,
-     "dy": 90,
-     "w": 300,
-     "px": 34,
+     "dx": -330,
+     "dy": 70,
+     "w": 330,
+     "px": 38,
      "lines": 2,
      "hl": "13.8 GW",
      "lead": 0,
-     "per": 0.04
+     "per": 0.03
     }
    ],
-   "sourceAt": "hb:98.5",
-   "sourcePer": 0.03,
-   "sourceY": 1498,
-   "sourcePx": 22,
+   "sourceAt": "hb:97.25",
+   "sourcePer": 0.02,
+   "sourceY": 1538,
+   "sourcePx": 21,
    "sourceW": 760,
    "splatColor": "#F2C300",
    "theme": "light",
-   "_note": "plot right edge at x 870 so the last value label stays off the right UI rail (x > 930, y 1000-1600)"
+   "_note": "plot right edge at x 870 so the last value label stays off the right UI rail (x > 930, y 1000-1600)",
+   "subW": 600,
+   "sourceX": 140
   },
   {
    "id": "pile-golden",
@@ -5239,7 +5287,7 @@
      ],
      "hlAt": "hb:98",
      "x": 600,
-     "y": 340,
+     "y": 318,
      "rot": -3,
      "w0": 780
     }
@@ -5685,7 +5733,10 @@
     "at": "hb:105.9",
     "dur": 0.92,
     "turns": 1.6
-   }
+   },
+   "tailBase": 1.9,
+   "tailK": 1.5,
+   "lapShock": true
   },
   {
    "id": "pile-gone",
@@ -6043,13 +6094,13 @@
    "id": "brutal",
    "type": "brushtext",
    "t0": "song:71.95",
-   "t1": "hb:112.65",
+   "t1": "hb:112.4",
    "text": "it's brutal out here",
    "words": "hits",
    "overlay": true,
    "exit": {
     "style": "fade",
-    "dur": 0.12
+    "dur": 0.14
    },
    "drift": 0.02,
    "place": [
@@ -6063,7 +6114,8 @@
      "under": {
       "color": "#15131F",
       "k": 1.5
-     }
+     },
+     "dur": 0.22
     },
     {
      "x": 87,
@@ -6087,7 +6139,8 @@
       "color": "#15131F",
       "k": 1.5
      },
-     "dur": 0.3
+     "dur": 0.3,
+     "lead": 0.2
     },
     {
      "x": 300,
@@ -6112,7 +6165,7 @@
    "id": "g-cream-b",
    "type": "color",
    "t0": "hb:112",
-   "t1": "song:80.4",
+   "t1": 74.75,
    "color": "#F2EBDD",
    "enterFx": {
     "type": "iris",
@@ -6137,7 +6190,7 @@
    "id": "kand-re",
    "type": "kand",
    "t0": "hb:111.6",
-   "t1": "song:80.4",
+   "t1": 74.75,
    "layout": {
     "y": 400,
     "scale": 0.72
@@ -6202,6 +6255,36 @@
      "move": "river",
      "from": "hb:116",
      "to": "hb:123"
+    },
+    {
+     "move": "orbit",
+     "pieces": [
+      "pink",
+      "black"
+     ],
+     "on": "hb:116..123",
+     "stepDeg": 45
+    },
+    {
+     "move": "bump",
+     "pieces": [
+      "pink",
+      "black",
+      "core",
+      "blue",
+      "teal",
+      "square",
+      "target",
+      "band",
+      "smallO",
+      "nabla",
+      "chk"
+     ],
+     "on": [
+      "hb:124"
+     ],
+     "scale": 1.035,
+     "dur": 0.2
     }
    ]
   },
@@ -6211,7 +6294,7 @@
    "item": "kand-re",
    "piece": "blue",
    "t0": "hb:112.75",
-   "t1": "song:80.4",
+   "t1": 74.75,
    "prep": "clip",
    "src": "clips/amodei-axios-2025.mp4",
    "in": 686.05,
@@ -6240,7 +6323,7 @@
    "id": "fluid-re",
    "type": "fluid",
    "t0": "hb:112",
-   "t1": "song:80.4",
+   "t1": 74.75,
    "item": "kand-re"
   },
   {
@@ -6516,7 +6599,7 @@
    "metaPx": 28,
    "metaGap": 12,
    "roll": {
-    "dim": 0.55
+    "dim": 0.62
    },
    "marks": [
     {
@@ -6544,7 +6627,7 @@
    "id": "paper-rf",
    "type": "paper",
    "t0": "hb:80",
-   "t1": "song:80.4",
+   "t1": 74.75,
    "mode": "auto"
   }
  ],
@@ -7565,6 +7648,17 @@
    "amp": 9,
    "decay": 0.11,
    "_note": "translation-only camera hits on the bar downbeats (deterministic; README Builder D notes)"
+  },
+  {
+   "id": "fx-cover-bloom",
+   "fx": "flash",
+   "on": [
+    "hb:124"
+   ],
+   "opacity": 0.42,
+   "decay": 0.12,
+   "color": "#FFF8EA",
+   "_note": "FIXER r1: the cover lands on the final downbeat with a bloom flash (and a 3.5 % bump of every piece, kand-re)"
   }
  ]
 }

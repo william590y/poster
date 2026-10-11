@@ -213,13 +213,13 @@ HP.register('equation', {
       const L = it.labO, F = { family: "'Newsreader', serif", weight: 600, size: 54, style: 'italic', ...(L.font || {}) };
       const tw = Math.min(880, Math.max(w, 700));
       it.lab = K().roll(it, { text: L.text, x: L.x ?? (d.cx !== undefined ? d.cx - tw / 2 : x), y: L.y ?? (y - (L.gap ?? 40) - F.size * 1.1 * (L.lines ?? 1)), w: L.w ?? tw, align: L.align ?? (d.cx !== undefined ? 'center' : 'left'),
-        font: F, color: L.color || ink, at: L.at ?? it.drop, per: L.per ?? EIGHTH, style: L.style || 'drop', parent: it.wrap, hl: L.hl, hlAt: L.hlAt, hlColor: L.hlColor });
+        font: F, color: L.color || ink, at: L.at ?? it.drop, per: L.per ?? EIGHTH, style: L.style || 'drop', parent: it.wrap, hl: L.hl, hlAt: L.hlAt, hlColor: L.hlColor, bg: L.bg });   // fixer r1: label.bg
       if (L.y === undefined && it.lab.height > F.size * 1.2 * (L.lines ?? 1)) for (const q of it.lab.words) q.el.style.top = (parseFloat(q.el.style.top) - (it.lab.height - F.size * 1.18 * (L.lines ?? 1))) + 'px';
     }
     if (it.citeO) {
       const C = it.citeO, tw = Math.min(860, Math.max(w, 700));   // narrower than the frame: the drift/jump must not push it out of the safe zone
       it.cite = K().roll(it, { text: C.text, x: C.x ?? (d.cx !== undefined ? d.cx - tw / 2 : x), y: C.y ?? (y + h + (C.gap ?? 44)), w: C.w ?? tw, align: C.align ?? (d.cx !== undefined ? 'center' : 'left'),
-        font: { weight: 500, size: C.px ?? 30 }, upper: true, tracking: 0.5, lh: (C.px ?? 30) * 1.3, color: C.color || ink, at: C.at ?? (it.drawEnd), per: C.per ?? EIGHTH / 2, style: 'rise', parent: it.wrap, markAs: 'meta' });
+        font: { weight: 500, size: C.px ?? 30 }, upper: true, tracking: 0.5, lh: (C.px ?? 30) * 1.3, color: C.color || ink, at: C.at ?? (it.drawEnd), per: C.per ?? EIGHTH / 2, style: 'rise', parent: it.wrap, markAs: 'meta', bg: C.bg });   // fixer r1: cite.bg (a chip)
     }
     it.nChunk = Math.max(3, Math.min(8, Math.round(it.G.length / 8)));
     it.pulses = !d.pulse ? [] : Array.isArray(d.pulse) ? d.pulse.map(x => HP.T(x)) : HP.fxTimes({ on: d.pulse }).times;
@@ -310,9 +310,9 @@ HP.register('equation', {
       if (!H0.box) continue;
       const B = H0.box, st = H0.style || 'circle', col = H0.color || (st === 'marker' ? HP.COL.yellow : HP.COL.red);
       if (st === 'marker') { const em = it.pxNow * 1.05, mh = Math.min(B.h * 1.05, em), my = B.h > em ? B.y + B.h / 2 : B.y + B.h / 2; K().marker(cu, B.x - 14, my, B.x + B.w + 14, mh, E.oCub(pr(t, H0.at, EIGHTH)), col, it.id + ':mk' + H0.cls); }
-      else if (st === 'underline') { const u = pr(t, H0.at, 0.2); if (u > 0) rc.line(B.x - 10, B.y + B.h + 12, B.x + B.w + 10, B.y + B.h + 8, K().drawOn({ ...K().pencil(col, 6) }, (B.w + 20) * 1.15, u)); }
+      else if (st === 'underline') { const u = pr(t, H0.at, 0.2); if (u > 0) rc.line(B.x - 10, B.y + B.h + 12, B.x + B.w + 10, B.y + B.h + 8, K().drawOn({ ...K().pencil(col, H0.width ?? 6) }, (B.w + 20) * 1.15, u)); }
       else if (st === 'box') { const u = pr(t, H0.at, 0.35); if (u > 0) rc.rectangle(B.x - 16, B.y - 14, B.w + 32, B.h + 28, K().drawOn({ ...K().pencil(col, 5.5), roughness: 1.5 }, 2 * (B.w + B.h + 60) * 1.1, u)); }
-      else { const u = pr(t, H0.at, 0.4), rx = B.w / 2 + 30, ry = B.h / 2 + 26; if (u > 0) rc.ellipse(B.x + B.w / 2, B.y + B.h / 2, 2 * rx, 2 * ry, K().drawOn({ ...K().pencil(col, 6), roughness: 1.5, bowing: 1.2 }, K().ellipseLen(rx, ry) * 1.3, u)); }
+      else { const u = pr(t, H0.at, 0.4), rx = B.w / 2 + (H0.padX ?? 30), ry = B.h / 2 + (H0.padY ?? 26); if (u > 0) rc.ellipse(B.x + B.w / 2, B.y + B.h / 2, 2 * rx, 2 * ry, K().drawOn({ ...K().pencil(col, H0.width ?? 6), roughness: 1.5, bowing: 1.2 }, K().ellipseLen(rx, ry) * 1.3, u)); }   // fixer r1: width, padX/padY
       // the term's ink turns to the emphasis colour on the beat
     }
     {

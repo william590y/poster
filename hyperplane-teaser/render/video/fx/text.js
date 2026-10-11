@@ -590,21 +590,25 @@ HP.register('karaoke', {
   build(it) {
     const d = it.d, dark = isDark(it), box = { ...(HP.LAYOUT.clipBox || { x: 0, y: 330, w: 1080, h: 940 }), ...(d.box || {}) };
     let toks = d.words;
-    if (!toks && d.speech) { const S = d.speech, at = HP.T(S.at, it.t0); toks = S.words.map(w => ({ w: w.w, at: at + (w.s - S.in) })); }
+    if (!toks && d.speech) { const S = d.speech, at = HP.T(S.at, it.t0) - (d.lead ?? 0); toks = S.words.map(w => ({ w: w.w, at: at + (w.s - S.in) })); }   // fixer r1: lead (s) lights each word a little ahead of the audio
     const text = toks ? toks.map(w => String(w.w).trim()).join(' ') : d.text;
     const serif = d.style && d.style.serif;
     const F = fontObj(d.font, serif ? { family: "'Newsreader', serif", style: 'italic', weight: 400, size: d.size ?? 62 } : { family: "'IBM Plex Mono', monospace", weight: 600, size: d.size ?? 54 });
     const x = d.x ?? 60, y = d.y ?? (box.y + box.h + 40), w = d.w ?? 900;
+    // fixer r1: plate {color, pad}: a dark plate behind the caption block (legible over 3D slabs and paint splats)
+    if (d.plate) { const Pl = typeof d.plate === 'string' ? { color: d.plate } : d.plate; it.plate = el('div', '', it.el, { position: 'absolute', left: (x - (Pl.pad ?? 20)) + 'px', top: (y - (Pl.pad ?? 20)) + 'px', width: (w + 2 * (Pl.pad ?? 20)) + 'px', height: '10px', background: Pl.color || 'rgba(14,13,18,0.86)', transformOrigin: '0 0' }); }
     it.rule = el('div', '', it.el, { position: 'absolute', left: x + 'px', top: y + 'px', width: '72px', height: '8px', background: COL.red, transformOrigin: '0 50%' });
     const R = typeof d.roll === 'string' ? { mode: d.roll } : { mode: 'karaoke', ...(d.roll || {}) };
     it.run = new Run(it, { ...d, text, font: F, x, y: y + 30, w, upper: !serif, tracking: serif ? 0 : 1, wordsAt: toks ? toks.map(q => HP.T(q.at)) : undefined, roll: R }, { key: it.id });
     if (d.name || d.year) {
       it.meta = el('div', '', it.el, { position: 'absolute', left: x + 'px', top: (y + 30 + it.run.H + (d.metaGap ?? 22)) + 'px', font: `600 ${d.metaPx ?? 38}px/1.15 'IBM Plex Mono', monospace`, letterSpacing: '0.05em', textTransform: 'uppercase', color: dark ? '#9A96A8' : '#4F4A5C', whiteSpace: 'nowrap' });
       it.meta.textContent = [d.name, d.year].filter(Boolean).join(' · ');
-      it.typer = new TypeRun([it.meta], HP.T(d.metaAt, it.t0 + 0.05), { cps: 40 });
+      if (d.metaWrap) Object.assign(it.meta.style, { whiteSpace: 'normal', width: w + 'px' });   // fixer r1: the attribution wraps in the caption's column
+      it.typer = new TypeRun([it.meta], HP.T(d.metaAt, it.t0 + 0.05), { cps: d.metaCps ?? 40 });
     }
+    if (it.plate) { const Pl = typeof d.plate === 'string' ? {} : d.plate, pad = Pl.pad ?? 20, mp = d.metaPx ?? 38, metaW0 = it.meta ? it.meta.textContent.length * mp * 0.65 : 0, metaW = d.metaWrap ? Math.min(w, metaW0) : metaW0, metaH = it.meta ? (d.metaGap ?? 22) + mp * 1.15 * (d.metaWrap ? Math.ceil(metaW0 / w) : 1) : 0; it.plate.style.height = (30 + it.run.H + metaH + 2 * pad) + 'px'; it.plate.style.width = (Math.max(w, metaW) + 2 * pad) + 'px'; }
   },
-  draw(it, t) { it.rule.style.transform = `scaleX(${E.oCub(pr(t, it.t0, 0.2)).toFixed(4)})`; it.run.draw(t); if (it.typer) it.typer.draw(t); },
+  draw(it, t) { if (it.plate) { const u = E.oCub(pr(t, it.t0, 0.14)); it.plate.style.transform = `scaleY(${u.toFixed(4)})`; } it.rule.style.transform = `scaleX(${E.oCub(pr(t, it.t0, 0.2)).toFixed(4)})`; it.run.draw(t); if (it.typer) it.typer.draw(t); },
   texts(it) { const r = it.run.texts(); if (it.meta) r.push({ text: it.meta.textContent, reveal: 'chars', role: 'meta' }); return r; },
 });
 

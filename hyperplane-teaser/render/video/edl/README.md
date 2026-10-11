@@ -950,3 +950,29 @@ Final checks (11 Oct, on the encoded MP4s and the final EDLs; reports in `out/re
 beats with visible change (the misses are hb:124-126, the exempt cover hold); coverage 100% imagery, 0 gaps, 0 texts without a
 reveal, 0 lyric overlaps, safe-zone flags only on motion transients (longest 0.57 s), late payoffs long 26 / short 3 (end-of-bar
 emphases landing as their pile leaves); coverdiff 0.47/255 on the last frame. Deliverables and ear checks: `out/NOTES.md` (top).
+
+## Fixer r1 (11 Oct 2026): the critics' notes on the assembled long2 / short2
+William's feedback log had no note on the showcase yet, so the critics' list was the brief. Changes live in `edl/rev2_parts.py`
+(`prelude_riff` FIXER block, `LAYOUT`, `early_emph`, `fixer_r1`, `fixer_fx`, `hold_past`) and the generators; engine changes are
+opt-in fields except the screens fixes (every rev2 pile gets them; the r1-r7 EDLs use no `screens`).
+- **screens.js**:
+  - `lift` slips grow only into the ink-free room around each OCR line (`inkRoom`: measured on the screenshot's own pixels; one
+    scale for the whole phrase, each slip shifted off its nearer neighbour, clipped to the card), so they no longer cover words
+    outside the phrase ('of', 'So' on the Gizmodo card, the 's' of 'admits'); the rest of the card dims a little under them; a
+    later `marker` emphasis is drawn on the lifted slips (it was hidden under them).
+  - A `circle` on a multi-line or card-wide phrase is drawn as underlines in the gaps under each line (an ellipse round two full
+    lines cut through the words beside them). Underlines sit in the measured gap to the next line.
+  - Card markers are clipped to the card; the outlet chip moves above the card when the slot under it is below the safe zone
+    (`safeFit` used to push it up over the headline).
+  - The push-in also keeps the whole card inside the frame (zoom capped at 960 px of card width, shifted sideways); `push.overflow:
+    true` restores the old phrase-only cap.
+  - `panel.creditSize` (chip px, 30).
+- **singularity.js** `loop`: `labelSide` (per node: left | right | above | below), `tailBase` / `tailK` (comet tail in radians:
+  base + k * speed^0.85), `lapShock` (a shock ring and a tick on every lap).
+- **charts.js**: `subW` (subtitle column width); the kit's `roll` takes `bg` {color, pad} (a chip behind the block).
+- **equations.js**: `label.bg`, `cite.bg` (chips), `hl[].width`, `hl[].padX`, `hl[].padY`.
+- **text.js** `karaoke`: `plate` {color, pad} (a dark plate under caption and attribution), `lead` (s the words light ahead of
+  the audio), `metaCps`, `metaWrap` (the attribution wraps in the caption's column).
+- **Generators**: `early_emph` moves each late pile emphasis to the latest 8th that completes >= 0.5 s before the pile's outgoing
+  transition (never before its card lands; the push moves with it); both cuts hold the cover 0.45 s past the music (long 74.75 s,
+  short 36.039 s; the song still ends at 80.40 + 0.35 s fade, `hold_past` extends the items that ran to the old end).

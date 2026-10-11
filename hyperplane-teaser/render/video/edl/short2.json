@@ -6,7 +6,7 @@
  "fps": 30,
  "width": 1080,
  "height": 1920,
- "duration": 35.589,
+ "duration": 36.039,
  "audio": {
   "song": "song/brutal.mp3",
   "songStart": 6.1,
@@ -93,7 +93,7 @@
  ],
  "finalHold": [
   "hb:124",
-  35.589
+  36.039
  ],
  "items": [
   {
@@ -107,7 +107,7 @@
    "id": "g-cream-riff",
    "type": "color",
    "t0": "hb:0",
-   "t1": 21.407,
+   "t1": 20.923,
    "color": "#F2EBDD"
   },
   {
@@ -1010,7 +1010,7 @@
    "id": "kand-riff",
    "type": "kand",
    "t0": "hb:0",
-   "t1": 21.407,
+   "t1": 20.923,
    "layout": {
     "y": 400,
     "scale": 0.72
@@ -1197,9 +1197,9 @@
     },
     {
      "move": "whip",
-     "at": "hb:11",
+     "at": "hb:11.5",
      "deg": 360,
-     "dur": 1
+     "dur": 0.5
     }
    ],
    "dotScale": 3.0,
@@ -1209,13 +1209,13 @@
    "id": "kc-pink-agents",
    "type": "kandclip",
    "t0": "hb:1.25",
-   "t1": 21.407,
+   "t1": 20.923,
    "item": "kand-riff",
    "piece": "pink",
    "prep": "clip",
    "broll": "ale-agent-wall",
    "in": 72.0,
-   "speed": 0.4185,
+   "speed": 0.4467,
    "srcFocus": [
     0.5,
     0.58
@@ -1283,13 +1283,13 @@
    "id": "kc-blue-dc",
    "type": "kandclip",
    "t0": "hb:8",
-   "t1": 21.407,
+   "t1": 20.923,
    "item": "kand-riff",
    "piece": "blue",
    "prep": "clip",
    "broll": "nvidia-nvl72-factory",
    "in": 39.8,
-   "speed": 0.5336,
+   "speed": 0.5995,
    "frame": {
     "cx": 540,
     "cy": 960,
@@ -1314,7 +1314,7 @@
    "id": "fluid-riff",
    "type": "fluid",
    "t0": "hb:8",
-   "t1": 21.407,
+   "t1": 20.923,
    "item": "kand-riff",
    "flow": 1.2,
    "swirl": 1.2,
@@ -1326,7 +1326,7 @@
    "id": "splat-drop",
    "type": "splat",
    "t0": "hb:0",
-   "t1": 21.407,
+   "t1": 20.923,
    "at": "hb:0",
    "x": 880,
    "y": 1580,
@@ -1467,7 +1467,7 @@
    "id": "eq-superpose",
    "type": "equation",
    "t0": "hb:12",
-   "t1": 21.407,
+   "t1": 20.923,
    "ref": "superposition",
    "form": "latex",
    "cx": 540,
@@ -1512,7 +1512,7 @@
    "id": "riff-credit",
    "type": "words",
    "t0": "hb:9.5",
-   "t1": 21.407,
+   "t1": 20.923,
    "text": "IN THE DISCS: AGENTS' LAST EXAM, 2026 · NVIDIA NVL72 DATA HALL, 2025",
    "x": 64,
    "y": 1500,
@@ -1756,12 +1756,13 @@
    "border": "paint",
    "color": "yellow",
    "borderW": 22,
-   "credit": "ORACLE · STARGATE ABILENE, TX · 2025",
+   "credit": "ORACLE · STARGATE · 2025",
    "creditAt": [
     64,
-    1088
+    1046
    ],
-   "prep": "clip"
+   "prep": "clip",
+   "creditSize": 24
   },
   {
    "id": "loop-a-s",
@@ -1772,14 +1773,14 @@
     540,
     760
    ],
-   "r": 210,
-   "build": "hb:95.5",
+   "r": 250,
+   "build": "hb:95.25",
    "laps": {
     "from": "hb:96",
     "plan": [
      [
-      2,
-      2
+      4,
+      1
      ]
     ]
    },
@@ -1794,7 +1795,16 @@
    "ring": "pink",
    "ringW": 24,
    "cometW": 30,
-   "center": false
+   "center": false,
+   "labelSide": [
+    "right",
+    null,
+    "right",
+    null
+   ],
+   "tailBase": 1.9,
+   "tailK": 1.5,
+   "lapShock": true
   },
   {
    "id": "chart-gw",
@@ -1802,24 +1812,24 @@
    "graph": "dc-total-gw",
    "t0": "hb:96",
    "t1": "hb:100.6",
-   "x": 140,
-   "y": 1268,
-   "w": 730,
-   "h": 210,
+   "x": 175,
+   "y": 1300,
+   "w": 660,
+   "h": 178,
    "card": {
-    "x": 90,
-    "y": 1140,
-    "w": 880,
-    "h": 435,
+    "x": 70,
+    "y": 1090,
+    "w": 940,
+    "h": 482,
     "color": "#FBF6EC",
-    "rot": -0.8
+    "rot": -0.6
    },
    "axesAt": "hb:96",
    "titleAt": "hb:96",
-   "titlePx": 46,
-   "titleGap": 110,
+   "titlePx": 50,
+   "titleGap": 196,
    "subAt": "hb:96.25",
-   "subPx": 24,
+   "subPx": 23,
    "subPer": 0.03,
    "grow": [
     "hb:96.25",
@@ -1836,7 +1846,7 @@
     "hb:98"
    ],
    "labels": "last",
-   "valuePx": 40,
+   "valuePx": 56,
    "valueFmt": {
     "dec": 1
    },
@@ -1844,41 +1854,34 @@
    "lineW": 6,
    "yAxis": {
     "label": "GW",
-    "labelIn": "bottom",
-    "labelPx": 26
-   },
-   "counter": {
-    "x": 170,
-    "y": 1290,
-    "size": 92,
-    "label": "GW",
-    "fmt": {
-     "dec": 1
-    }
+    "labelIn": "top",
+    "labelPx": 28
    },
    "annotate": [
     {
-     "at": "hb:98.25",
+     "at": "hb:98.125",
      "i": 11,
      "text": "13.8 GW across 93 sites",
-     "dx": -300,
-     "dy": 90,
-     "w": 300,
-     "px": 34,
+     "dx": -330,
+     "dy": 70,
+     "w": 330,
+     "px": 38,
      "lines": 2,
      "hl": "13.8 GW",
      "lead": 0,
-     "per": 0.04
+     "per": 0.03
     }
    ],
-   "sourceAt": "hb:98.5",
-   "sourcePer": 0.03,
-   "sourceY": 1498,
-   "sourcePx": 22,
+   "sourceAt": "hb:97.25",
+   "sourcePer": 0.02,
+   "sourceY": 1538,
+   "sourcePx": 21,
    "sourceW": 760,
    "splatColor": "#F2C300",
    "theme": "light",
-   "_note": "plot right edge at x 870 so the last value label stays off the right UI rail (x > 930, y 1000-1600)"
+   "_note": "plot right edge at x 870 so the last value label stays off the right UI rail (x > 930, y 1000-1600)",
+   "subW": 600,
+   "sourceX": 140
   },
   {
    "id": "pile-golden",
@@ -1912,7 +1915,7 @@
      ],
      "hlAt": "hb:98",
      "x": 600,
-     "y": 340,
+     "y": 318,
      "rot": -3,
      "w0": 780
     }
@@ -2340,12 +2343,16 @@
     "from": "hb:100",
     "plan": [
      [
+      2,
+      2
+     ],
+     [
       1,
-      4
+      2
      ],
      [
       0.5,
-      8
+      4
      ]
     ]
    },
@@ -2358,7 +2365,10 @@
     "at": "hb:105.9",
     "dur": 0.92,
     "turns": 1.6
-   }
+   },
+   "tailBase": 1.9,
+   "tailK": 1.5,
+   "lapShock": true
   },
   {
    "id": "pile-gone",
@@ -2716,13 +2726,13 @@
    "id": "brutal",
    "type": "brushtext",
    "t0": "song:71.95",
-   "t1": "hb:112.65",
+   "t1": "hb:112.4",
    "text": "it's brutal out here",
    "words": "hits",
    "overlay": true,
    "exit": {
     "style": "fade",
-    "dur": 0.12
+    "dur": 0.14
    },
    "drift": 0.02,
    "place": [
@@ -2736,7 +2746,8 @@
      "under": {
       "color": "#15131F",
       "k": 1.5
-     }
+     },
+     "dur": 0.22
     },
     {
      "x": 87,
@@ -2760,7 +2771,8 @@
       "color": "#15131F",
       "k": 1.5
      },
-     "dur": 0.3
+     "dur": 0.3,
+     "lead": 0.2
     },
     {
      "x": 300,
@@ -2785,7 +2797,7 @@
    "id": "g-cream-b",
    "type": "color",
    "t0": "hb:112",
-   "t1": "song:80.4",
+   "t1": 36.039,
    "color": "#F2EBDD",
    "enterFx": {
     "type": "iris",
@@ -2810,7 +2822,7 @@
    "id": "kand-re",
    "type": "kand",
    "t0": "hb:111.6",
-   "t1": "song:80.4",
+   "t1": 36.039,
    "layout": {
     "y": 400,
     "scale": 0.72
@@ -2875,6 +2887,36 @@
      "move": "river",
      "from": "hb:116",
      "to": "hb:123"
+    },
+    {
+     "move": "orbit",
+     "pieces": [
+      "pink",
+      "black"
+     ],
+     "on": "hb:116..123",
+     "stepDeg": 45
+    },
+    {
+     "move": "bump",
+     "pieces": [
+      "pink",
+      "black",
+      "core",
+      "blue",
+      "teal",
+      "square",
+      "target",
+      "band",
+      "smallO",
+      "nabla",
+      "chk"
+     ],
+     "on": [
+      "hb:124"
+     ],
+     "scale": 1.035,
+     "dur": 0.2
     }
    ]
   },
@@ -2884,7 +2926,7 @@
    "item": "kand-re",
    "piece": "blue",
    "t0": "hb:112.75",
-   "t1": "song:80.4",
+   "t1": 36.039,
    "prep": "clip",
    "src": "clips/amodei-axios-2025.mp4",
    "in": 686.05,
@@ -2913,7 +2955,7 @@
    "id": "fluid-re",
    "type": "fluid",
    "t0": "hb:112",
-   "t1": "song:80.4",
+   "t1": 36.039,
    "item": "kand-re"
   },
   {
@@ -3189,7 +3231,7 @@
    "metaPx": 28,
    "metaGap": 12,
    "roll": {
-    "dim": 0.55
+    "dim": 0.62
    },
    "marks": [
     {
@@ -3217,7 +3259,7 @@
    "id": "paper-rf",
    "type": "paper",
    "t0": "song:65.188",
-   "t1": "song:80.4",
+   "t1": 36.039,
    "mode": "auto"
   }
  ],
@@ -3287,10 +3329,10 @@
   },
   {
    "id": "tr-entrance-short",
-   "at": "hb:96",
+   "at": "hb:95.5",
    "type": "particles",
-   "dur": 2.0,
-   "lead": 0.5,
+   "dur": 0.8,
+   "lead": 0.55,
    "grid": 40,
    "swirl": 0.7,
    "out": [
@@ -3510,5 +3552,17 @@
    "_note": "keeps out of the karaoke strip y 220-540"
   }
  ],
- "fx": []
+ "fx": [
+  {
+   "id": "fx-cover-bloom",
+   "fx": "flash",
+   "on": [
+    "hb:124"
+   ],
+   "opacity": 0.42,
+   "decay": 0.12,
+   "color": "#FFF8EA",
+   "_note": "FIXER r1: the cover lands on the final downbeat with a bloom flash (and a 3.5 % bump of every piece, kand-re)"
+  }
+ ]
 }

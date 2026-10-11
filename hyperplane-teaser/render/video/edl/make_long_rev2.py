@@ -11,7 +11,8 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import rev2_parts as P
 
 SONG0, SONG_END = 6.10, 80.40
-END = round(SONG_END - SONG0, 3)                    # 74.30
+HOLD_PAST = 0.45                                   # FIXER r1: the cover holds 0.45 s past the music (critic: a 1.17 s hold was too short)
+END = round(SONG_END - SONG0 + HOLD_PAST, 3)        # 74.75 (the music ends at 74.30 + its 0.35 s fade)
 
 
 def build():
@@ -34,7 +35,7 @@ def build():
         if x['id'] == 'v-racks':
             out.append({'id': 'paint-racks', 'type': 'layer', 'kind': 'canvas', '_note': "the chorus's last two bars: paint over the racks footage"})
     cho = out
-    items = P.safe_nudges(P.ensure_prep(pre + ver + cho + ref))
+    items = P.fixer_r1(P.safe_nudges(P.ensure_prep(pre + ver + cho + ref)), 'long')
 
     # ---- transitions
     tr = P.transitions_of(load_pre())
@@ -66,7 +67,7 @@ def build():
     beatfx = (P.beatfx_of(load_pre(), layer=lambda b: 'paint') + P.beatfx_of(V, layer=lambda b: 'paint')
               + P.beatfx_of(C, layer=lambda b: 'paint-racks' if b['id'] == 'fx-ch-b' else 'paint-ch')
               + P.beatfx_of(R, 'long', layer=lambda b: {'fx-god': 'paint-god', 'fx-outro': 'paint-out'}.get(b['id'], 'paint-rf')))
-    fx = [dict(f) for f in V.get('fx', [])] + [dict(f) for f in R.get('fx', [])]
+    fx = [dict(f) for f in V.get('fx', [])] + [dict(f) for f in R.get('fx', [])] + P.fixer_fx('long')
 
     themes = ([{'t0': 0, 't1': 'hb:0', 'theme': 'dark'}, {'t0': 'hb:0', 't1': 'hb:16', 'theme': 'light'}, {'t0': 'hb:16', 't1': 'hb:48', 'theme': 'dark'}]
               + C['themes'] + P.THEMES_TAIL)
@@ -112,6 +113,7 @@ def load_pre():
 
 if __name__ == '__main__':
     edl = build()
+    print('  items held past the music (fixer r1):', P.hold_past(edl, round(SONG_END - SONG0, 3)))
     for r in P.early_emph(edl):
         print('  emph moved earlier (fixer r1, late payoffs):', r)
     for r in P.fit_emph(edl):

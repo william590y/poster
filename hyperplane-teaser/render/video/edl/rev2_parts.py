@@ -603,6 +603,159 @@ def early_emph(edl, read=0.5):
     return done
 
 
+def fixer_r1(items, cut):
+    """FIXER r1 (critics on the assembled cuts, 11 Oct): layout and craft changes applied after safe_nudges, shared by both cuts.
+    Each block names the critic issue it answers."""
+    g = {x['id']: x for x in items}
+    def has(k): return k in g
+    # ---- the self-improvement loop (critic 'the acceleration does not read'): bigger ring (r 210 -> 250, ~60 % of the frame width
+    # with its nodes), a comet tail a third of the ring at the slowest lap that grows with each faster lap, a shock ring and a
+    # tick on every lap; the top and bottom labels sit beside their nodes (the title above and the facts below need the room)
+    for k in ('loop-a', 'loop-a-s'):
+        if has(k):
+            L = g[k]
+            L['r'] = 250
+            L['labelSide'] = ['right', None, 'right', None]
+            L['tailBase'], L['tailK'], L['lapShock'] = 1.9, 1.5, True
+    if has('loop-b'):
+        g['loop-b'].update({'tailBase': 1.9, 'tailK': 1.5, 'lapShock': True})
+    # ---- the refrain's data-centre chart (critic: small, colliding): the card is 940 x 482 (87 % x 25 % of the frame), the plot
+    # 670 x 200 with the unit inside it; no big counter (its 'GW' doubled the axis unit and it printed over the subtitle): the
+    # value label at the line's head counts up instead, at 56 px; the subtitle wraps in a narrower column so the head's label is
+    # clear of it; the source line rolls out while the last points land (complete before the dive), under the x labels
+    if has('chart-gw'):
+        c = g['chart-gw']
+        c.update({'x': 175, 'y': 1300, 'w': 660, 'h': 178, 'titlePx': 50, 'titleGap': 196, 'subPx': 23, 'subW': 600, 'valuePx': 56,
+                  'card': {'x': 70, 'y': 1090, 'w': 940, 'h': 482, 'color': '#FBF6EC', 'rot': -0.6},
+                  'sourceAt': 'hb:97.25', 'sourcePer': 0.02, 'sourceY': 1538, 'sourcePx': 21, 'sourceW': 760, 'sourceX': 140})
+        c.pop('counter', None)
+        c['yAxis'] = {**c.get('yAxis', {}), 'labelPx': 28, 'labelIn': 'top'}   # the unit top-left inside the plot (the first point sat on it)
+        a = c['annotate'][0]
+        a.update({'dx': -330, 'dy': 70, 'px': 38, 'w': 330, 'at': 'hb:98.125', 'per': 0.03})
+    if has('pile-golden'):   # the Guardian card and its chip a little higher: the chip sat on the top node's label
+        for sh in g['pile-golden']['shots']:
+            sh['y'] = 318
+    if has('cp-golden'):   # its credit sat under the 'Faster research' label: shorter, smaller, clear of the bottom node and the chart
+        g['cp-golden']['credit'] = 'ORACLE · STARGATE · 2025'
+        g['cp-golden']['creditSize'] = 24
+        g['cp-golden']['creditAt'] = [64, 1046]
+    # ---- verse 1, the DPO beat (critic: grey on near-black, an almost empty frame at 27.3-27.5): white chalk drawn fast, the
+    # PauseAI footage painted in 0.3 s earlier and larger, over Amodei's closing iris
+    if has('eq-dpo'):
+        g['eq-dpo'].update({'color': '#FFF8EA', 'penColor': '#FFF8EA', 'rowDur': 0.3, 'fillDur': 0.16, 'glyphDur': 0.05, 'cy': 1075})   # 85 px up: the TechCrunch card covered its last row
+    if has('p-pause'):
+        pp = g['p-pause']
+        pp['t0'] = 'hb:28.9'
+        pp['entry'] = {'style': 'paint', 'at': 'hb:28.9'}
+        pp['frame'] = {**pp['frame'], 'r': 250}
+    # ---- verse 1, the 3D net (critic: a yellow slab cropped by the frame edges, buried under five other things): the tower has its
+    # first bar to itself with the attention equation (the FPGA panel is gone), the camera stands back so the blocks stay inside
+    # the frame, and the heads fan out on beats 2, 3, 4 (attention of blocks 1-3) with the output token on the next downbeat;
+    # Coxon's portrait, the tweet and the Guardian card come in smaller on the second bar, around the tower
+    if has('p-fpga'):
+        g['p-fpga']['enabled'] = False
+    if has('v1-tower'):
+        vt = g['v1-tower']
+        vt['infer'] = ['hb:32', 'hb:33', 'hb:33.5', 'hb:34', 'hb:34.5', 'hb:35', 'hb:35.5', 'hb:36']
+        vt['cam'] = {**vt.get('cam', {}), 'dist': 34, 'fov': 40, 'attnX': 1.0, 'mlpX': -1.2, 'lead': 0.4}
+        vt['view'] = {'dx': 0, 'dy': 170}
+    if has('p-coxon-v1'):
+        g['p-coxon-v1']['frame'] = {'cx': 790, 'cy': 480, 'r': 175}
+    if has('kar-coxon-v1'):
+        k = g['kar-coxon-v1']
+        k.update({'lead': 0.08, 'metaAt': k['t0'], 'metaCps': 110, 'metaWrap': True, 'plate': {'color': 'rgba(14,13,18,0.88)', 'pad': 22}})
+    if has('pile-jobs'):
+        pj = g['pile-jobs']
+        pj['region'] = {'x0': 60, 'y0': 1150, 'x1': 1020, 'y1': 1560}
+        pj['w'] = 700
+        pj['overlap'] = 0.0
+        for sh in pj['shots']:
+            if sh['id'] == 'xrisk-rev2-x-coxon-2026-09-08-resigned-anthropic':
+                # the post's header and its first sentence only (the paragraph read as a dumped block); its marker lands on it
+                sh.update({'crop': [20, 20, 610, 214], 'w0': 520, 'at': 'hb:36.75', 'hlAt': 'hb:37.25'})
+            else:
+                sh.update({'at': 'hb:37.75', 'w0': 700})
+        pj['pulse'] = ['hb:37.75', 'hb:38']
+        pj['push'] = {**pj['push'], 'z': 1.25, 'to': [540, 1380]}
+    # ---- the chorus's GRPO objective over the racks (critic: pale lavender on cornflower, ~3:1, illegible on a phone; a green smudge
+    # over 1/G Σ; the source line weak on the purple footage): ink on a cream card, 20 % larger, the markers yellow on cream (the
+    # green was yellow multiplied on blue), red and pink circles drawn heavier, label and source line on dark chips
+    if has('eq-grpo'):
+        q = g['eq-grpo']
+        q.update({'mode': 'pencil', 'color': '#15131F', 'penColor': '#2A2832', 'px': 48, 'maxW': 1000,
+                  'card': {**q['card'], 'color': '#FBF6EC', 'pad': 26}})
+        q['label'] = {**q['label'], 'color': '#FBF6EC', 'bg': {'color': '#0E0D12', 'pad': 12}}
+        q['cite'] = {**(q.get('cite') or {}), 'color': '#FBF6EC', 'px': 24, 'bg': {'color': '#0E0D12', 'pad': 10}}
+        for h in q['hl']:
+            if h.get('from') == 'highlight':
+                h.update({'color': '#B31B1B', 'width': 9, 'padX': 24, 'padY': 28})
+            elif h.get('from') == 'extra:0':
+                h.update({'color': '#FF2E88', 'width': 9, 'padX': 34, 'padY': 28})
+    # ---- low-severity, cheap (critics): -------------------------------------------------------------------------------------
+    # 'exploit' pile: the emphasis was on TIME's 2023 Kenyan-workers card (unstamped under newer cards); it now lands on Susman
+    # Godfrey's $1.5 billion piracy settlement (Sep 2025), which lands last and on top; TIME 2023 stays in the pile, behind
+    if has('pile-exploit'):
+        pe = g['pile-exploit']
+        sh = {x['id']: x for x in pe['shots']}
+        sg, va = sh['susmangodfrey-2025-09-25-piracy-settlement'], sh['capabilities-variety-suno-v6']
+        va.update({'at': 'hb:45', 'entry': 'slam'})
+        sg.update({'at': 'hb:45.5', 'entry': 'paint', 'hl': 0})
+        pe['shots'] = [x for x in pe['shots'] if x['id'] not in (sg['id'], va['id'])] + [va, sg]
+        pe['push'] = {**pe['push'], 'shot': 3, 'at': 'hb:46.5', 'z': 1.3}
+        pe['emph'] = [{'style': 'lift', 'at': 'hb:46.5', 'shot': 3}, {'style': 'circle', 'at': 'hb:46.5', 'shot': 3, 'dur': 0.3}]
+    # riff: the whole-art whip turns the fresh title upside down for a shorter moment (360 deg in half a beat into hb:12)
+    if has('kand-riff'):
+        for m in g['kand-riff']['moves']:
+            if m.get('move') == 'whip':
+                m.update({'at': 'hb:11.5', 'dur': 0.5})
+    # 'it's brutal out here' (critic: 'it's' completes 0.4 s after its onset, 'out' starts ~0.1 s late, the ghost text overlaps the
+    # burst's flying cards for ~0.3 s): 'it's' painted in 0.22 s, 'out' leads by 0.2 s, the line fades out over the burst's first 8th
+    if has('brutal'):
+        b = g['brutal']
+        b['place'][0]['dur'] = 0.22
+        b['place'][2]['lead'] = 0.2
+        b['t1'] = 'hb:112.4'
+        b['exit'] = {'style': 'fade', 'dur': 0.14}
+    # the instrumental (critic: soft last bars, unlit quote words faint, no visible orbit, no impact on the cover): the pink and
+    # black discs orbit each other once over the last two bars (eight 45-degree steps, home on hb:123), every piece bumps and the
+    # frame blooms on the final downbeat; Amodei's unspoken words at 62 %
+    if has('kand-re'):
+        kr = g['kand-re']
+        kr['moves'] = kr['moves'] + [{'move': 'orbit', 'pieces': ['pink', 'black'], 'on': 'hb:116..123', 'stepDeg': 45},
+                                     {'move': 'bump', 'pieces': ['pink', 'black', 'core', 'blue', 'teal', 'square', 'target', 'band', 'smallO', 'nabla', 'chk'],
+                                      'on': ['hb:124'], 'scale': 1.035, 'dur': 0.2}]
+    if has('kar-amodei-b'):
+        g['kar-amodei-b']['roll'] = {**g['kar-amodei-b'].get('roll', {}), 'dim': 0.62}
+    return items
+
+
+def fixer_fx(cut):
+    """FIXER r1: the bloom flash on the cover's final downbeat (both cuts)"""
+    return [{'id': 'fx-cover-bloom', 'fx': 'flash', 'on': ['hb:124'], 'opacity': 0.42, 'decay': 0.12, 'color': '#FFF8EA',
+             '_note': 'FIXER r1: the cover lands on the final downbeat with a bloom flash (and a 3.5 % bump of every piece, kand-re)'}]
+
+
+def hold_past(edl, old_end):
+    """FIXER r1: every item (and theme) that ran to the old end of the cut runs to the new one (the cover holds past the music)"""
+    import sys
+    sp = str(ROOT / 'render/video')
+    if sp not in sys.path:
+        sys.path.insert(0, sp)
+    from timeref import TimeRef
+    TR = TimeRef(edl)
+    n = 0
+    for x in edl['items']:
+        if 't1' in x:
+            try:
+                v = TR(x['t1'])
+            except Exception:
+                continue
+            if v >= old_end - 1e-3:
+                x['t1'] = edl['duration']
+                n += 1
+    return n
+
+
 def safe_nudges(items):
     """text that sat on the safe zone's edge and crossed it under the camera shakes (coverage.py, first pass): moved inside"""
     g = {x['id']: x for x in items}

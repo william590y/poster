@@ -524,7 +524,7 @@ HP.register('panel', {
     it.border = d.border ?? 'paint';
     it.bcol = d.color || (it.theme === 'light' ? INK : COL.yellow);
     if (d.credit) {
-      it.creditO = { size: 30, bg: it.theme === 'light' ? INK : CREAM, color: it.theme === 'light' ? CREAM : INK };
+      it.creditO = { size: d.creditSize ?? 30, bg: it.theme === 'light' ? INK : CREAM, color: it.theme === 'light' ? CREAM : INK };   // fixer r1: creditSize
       it.credit = TX().chip(it.el, d.credit, { ...it.creditO, ghost: true });
       it.creditCv = el('canvas', '', it.el, { position: 'absolute' }); it.creditX = it.creditCv.getContext('2d');
     }

@@ -138,9 +138,17 @@ K.roll = (it, o) => {
     }
   }
   const st = o.style || 'drop';
+  // fixer r1: o.bg {color, pad}: a solid chip behind the block (a source line legible over footage); shows with the first word
+  let bgEl = null;
+  if (o.bg) {
+    const B = typeof o.bg === 'string' ? { color: o.bg } : o.bg, pad = B.pad ?? 10;
+    const x0 = Math.min(...words.map(w => w.x)), x1 = Math.max(...words.map(w => w.x + w.width)), y0 = Math.min(...words.map(w => w.y)), y1 = Math.max(...words.map(w => w.y)) + lh;
+    bgEl = el('div', '', par, { position: 'absolute', left: (x0 - pad) + 'px', top: (y0 - pad * 0.6) + 'px', width: (x1 - x0 + 2 * pad) + 'px', height: (y1 - y0 + pad * 1.2) + 'px', background: B.color || '#0E0D12', opacity: 0, zIndex: (o.z ?? 2) - 1 });
+  }
   return {
     words, height: L.height, width: L.width, lh, hlAt, end: times[times.length - 1] ?? it.t0,
     draw(t, op = 1) {
+      if (bgEl) bgEl.style.opacity = t >= (times[0] ?? it.t0) - HP.EPS ? String(op) : '0';
       for (const w of words) {
         if (t < w.at - HP.EPS) { w.el.style.opacity = 0; continue; }
         const u = pr(t, w.at, st === 'slam' ? 0.16 : 0.14);

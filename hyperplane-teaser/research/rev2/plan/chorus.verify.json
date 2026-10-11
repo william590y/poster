@@ -1,0 +1,234 @@
+{
+ "key": "chorus",
+ "items": [
+  {
+   "id": "g-ch-cream",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "ch-paper",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "p-sora",
+   "ok": false,
+   "problem": "SHOWN FOOTAGE DOES NOT MATCH ITS DESCRIPTION AND HAS A STRAY CUT. The panel plays clips/broll/sora2-sample-reel.mp4 16.5 -> 18.68, but the broll window note ('AI-generated anime eyes with sparks') only holds from 18.04: frames 16.3-17.5 are an anime boy in profile with firework bokeh, and a hard scene cut at src 18.043 (frame diff 69) jumps to the extreme close-up of the eyes. That cut lands at hb~50.7 (song 43.76), off the beat. The AI-generated credit chip and year are right (published 2025-09-30, OpenAI).",
+   "fix": "Use in 16.833 so the source cut (18.043) lands on the hb:50 crash/shatter (src at hb:52 = 19.01, inside the 16.5-19.5 window), and set content.shows to 'AI-generated anime character in profile, then close-up of eyes with sparks'. Alternative: in 18.05 with speed 0.7 to show only the eyes."
+  },
+  {
+   "id": "pile-teens-a",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "pile-teens-b",
+   "ok": true,
+   "problem": "",
+   "fix": "optional: Thorn headline visibly reads '...after online sexual interactions' (and UNICEF's subhead 'sexualised images of children' in pile-teens-a): real, correctly cropped and verbatim, but editorially the heaviest text in the cut; William should know. Engine uses captures.json focus_crop for Thorn automatically (screens.js line 157), which equals the plan crop [80,452,2320,1206]; Common Sense crop [80,200,2320,560] stops above the body paragraph as claimed."
+  },
+  {
+   "id": "splat-ch-48",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "splat-ch-50",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "p-protein",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "scr-dataconomy",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "scr-molg",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "scr-adol",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "p-cbs",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "voice-count",
+   "ok": false,
+   "problem": "AUDIO WINDOW CUTS THE LAST WORD. out 161.58 lands mid-vowel of 'two' in 'thirty-two' (small.en's end of '32.' at 161.48 is wrong). Waveform/spectrogram of clips/amodei-cbs-sunday-2026-09.mp4: 'thirty' voiced 161.15-161.43, /t/ burst of 'two' 161.45-161.50, the 'oo' vowel 161.51-161.73, then room silence until 'But' at ~161.97. mix.py applies a 30 ms raised-cosine fade-out ending at 161.58, so the viewer hears 'thirty-tu-' chopped (about 70 ms of a 220 ms vowel survives). Start edge is fine: 'have' ends ~158.12, gap 158.14-158.21, 'one' onset ~158.22 (small.en 158.16 is 60 ms early; the fade-in hides the 158.12-158.14 tail). Whisper re-run on 157.62-162.58 reads 'It's like you have one, then two, then four, then eight, then 16, then 32.' so the caption words are right.",
+   "fix": "Set audio.out 161.76 (30 ms fade then sits in silence 161.73-161.76; nothing of 'But' at 161.97). Update t1 / song_window / engine t1 from song:49.749 to song:49.929 (161.76 - 111.831); gap to voice-elected (49.955) becomes 0.026 s, still no overlap (its fade-in starts 49.955). Update checks.snippet_gap_s to 0.026 and the audible_snippets entry (out 161.76, song [46.289, 49.929]). Optional: in 158.17 with at song:46.339 (same lip-sync offset 111.831) so no 'have' tail is passed at all."
+  },
+  {
+   "id": "kar-count",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "stamp-one",
+   "ok": true,
+   "problem": "",
+   "fix": "optional: 'ONE' is stamped on the beat where the vocalist also sings 'one' (46.329); it is Amodei's spoken number, not a lyric caption, so rule 5 holds, but keep it from reading as lyric echo (it is the only stamp that coincides with a sung word)."
+  },
+  {
+   "id": "stamp-two",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "stamp-four",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "stamp-eight",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "stamp-16",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "stamp-32",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "pile-cadence",
+   "ok": true,
+   "problem": "",
+   "fix": "optional: the lifted/circled phrase 'now it's every ~11 days' (hb:59) drops its antecedent ('a new model used to come out every ~10 weeks' between Anthropic and OpenAI); the chart title and SiliconANGLE card above it carry the scope, so acceptable. Keep the rest of the post visible under the lift, or also mark 'every ~10 weeks' (highlights[0]) so the baseline is on screen with the new rate. Text, outlet (X, @jfonsecarivera), date 2026-09-29, OCR boxes and `hl: 1` index verified."
+  },
+  {
+   "id": "pile-youth",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "p-60",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "voice-elected",
+   "ok": false,
+   "problem": "AUDIO WINDOW END PASSES THE ONSET OF THE NEXT WORD. out 808.30: Amodei's last 'no one.' ends ~807.88 (spectrogram), then pure silence 807.90-808.24, and a loud new word starts at 808.25 (small.en hears 'um/uh'). The 40 ms raised-cosine fade-out (808.26-808.30) therefore lets through about 30 ms of that attack, roughly 17 dB under speech peak: a faint click/blip after 'no one.' Start edge is acceptable: 'Like,' voicing ends ~804.04, closure 804.07-804.11, 'who' bursts at ~804.12, and the 40 ms fade-in hides the tail. Words verified: small.en 'Like who elected you and Sam Altman no one no one honestly no one'; CBS transcript page (fetched 11 Oct) 'Like, who elected you and Sam Altman?' / 'No one, no one. Honestly, no one.', 16 Nov 2025. kar word times match the signal within ~50 ms.",
+   "fix": "Set audio.out 808.20 (silence 807.90-808.24; 40 ms fade 808.16-808.20 is in silence). song/engine t1 song:54.115 (808.20 - 754.085), still just past hb:72 (54.071). Fix the beat-72 note 'Amodei's last one. ends 54.175' to 'ends ~53.80 (807.88)'; the music is unducked from ~54.2. Update audible_snippets.out and song window."
+  },
+  {
+   "id": "kar-cooper",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "kar-amodei",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "chart-dc",
+   "ok": true,
+   "problem": "",
+   "fix": "optional: graphs.json carries caption 'Observed records only (Epoch estimates)' but the chart item never shows it (charts.js does not draw `caption`), so 946 MW reads as exact; Epoch itself says 'an estimated 950 MW'. Source line is correct and attributes Epoch. Values 237/278/398/626/910/946, dates and the title/subtitle/callout were re-checked against graphs.json and the Epoch page (insight 4 Sep 2026). Add '(Epoch estimates)' to the subtitle or the source line."
+  },
+  {
+   "id": "splat-ch-67",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "splat-ch-70",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "v-racks",
+   "ok": true,
+   "problem": "",
+   "fix": "optional: the footage is the 2024 ServeTheHome tour of xAI's original Colossus site, while the zoom-through dives out of the 'Colossus 2: 946 MW' chart point (Epoch: Colossus 1 = Feb 2025 record, Colossus 2 = Jun 2026). The credit is truthful (2024), but the dive implies the same hall. Keep the 2024 credit prominent; avoid a caption that says this is Colossus 2."
+  },
+  {
+   "id": "credit-racks",
+   "ok": true,
+   "problem": "",
+   "fix": "optional: consider 'XAI COLOSSUS (2024 SITE), MEMPHIS · SERVETHEHOME TOUR · 2024' so it is not read as the 946 MW Colossus 2 hall."
+  },
+  {
+   "id": "eq-grpo",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "eq-grpo-adv",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "pile-before",
+   "ok": true,
+   "problem": "",
+   "fix": "optional: FLI card is quality 2/5 at w0 700 (sentence is ~21 px tall at 1080 wide); raise w0 to ~880 or push in on it. The NYT/Business Standard headline shown with its dek is verbatim and correctly credited as a Business Standard syndication of the NYT piece (2026-09-29)."
+  },
+  {
+   "id": "scr-gallup",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "stroke-ch-fill",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "beat-56-note",
+   "ok": false,
+   "problem": "Beat 56 event text '[+0.5, 46.571] ... karaoke \\'THEN\\' (49.189)' is wrong: 49.189 is the 'then' before '32.'. The 'then' after '…one,' is song 46.769 (158.6 in the clip). Also beat 56 says Amodei 'is on camera for the whole count', but the clip cuts to the correspondent's over-the-shoulder shot at src 161.23 (song 49.40), 0.35 s into 'thirty-two'; his voice runs over the cutaway (acceptable, as p-cbs already says).",
+   "fix": "Change to 'karaoke THEN (46.769)' and 'on camera until song 49.40, then the correspondent listening while \\'32.\\' finishes'."
+  },
+  {
+   "id": "tr-ch-zoom72",
+   "ok": true,
+   "problem": "",
+   "fix": "optional: focus [865,1030] is computed from the chart box and an assumed 1000 MW axis; verify on the strip that the dive ends on the 946 MW point (plan already lists it as engine request 1)."
+  }
+ ],
+ "beats_missing": []
+}

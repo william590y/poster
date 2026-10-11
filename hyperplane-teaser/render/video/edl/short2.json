@@ -1743,7 +1743,7 @@
    "titleAt": "hb:96",
    "titlePx": 46,
    "titleGap": 110,
-   "subAt": "hb:96.5",
+   "subAt": "hb:96.25",
    "subPx": 24,
    "subPer": 0.03,
    "grow": [
@@ -1803,8 +1803,7 @@
    "sourceW": 760,
    "splatColor": "#F2C300",
    "theme": "light",
-   "_note": "plot right edge at x 870 so the last value label stays off the right UI rail (x > 930, y 1000-1600)",
-   "title": "AI data centres Epoch tracks: total power"
+   "_note": "plot right edge at x 870 so the last value label stays off the right UI rail (x > 930, y 1000-1600)"
   },
   {
    "id": "pile-golden",

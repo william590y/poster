@@ -1994,6 +1994,79 @@
    "_note": "AUDIBLE over the sung line (verse 1 is sung continuously 28.87-50.48): 'It's a' falls in the gap after 'drink' (30.3-30.64), 'warning' on hb:23.5, 'that' on hb:25, 'slow' on hb:27, 'down.' 32.52-32.92 mostly in the 32.5-32.71 gap before 'Of who'. Song ducked a fixed 9 dB (mix.py duck_db)."
   },
   {
+   "id": "pile-news",
+   "type": "screens",
+   "t0": "hb:23.75",
+   "t1": "hb:28.5",
+   "layout": "scatter",
+   "center": [
+    540,
+    1330
+   ],
+   "w": 860,
+   "jitter": {
+    "x": 50,
+    "y": 20,
+    "rot": 6
+   },
+   "shots": [
+    {
+     "id": "xrisk-vox-freakout",
+     "at": "hb:24",
+     "entry": "slam"
+    },
+    {
+     "id": "geopolitics-cnn-hoax-head",
+     "at": "hb:24.5",
+     "entry": "drop"
+    },
+    {
+     "id": "capabilities-rev3-cnbc-model-fatigue-headline",
+     "at": "hb:25",
+     "entry": "slam"
+    },
+    {
+     "id": "frontier-rev2-guardian_techscape_sep29_headline",
+     "at": "hb:25.5",
+     "entry": "slide"
+    },
+    {
+     "id": "xrisk-cbs-amodei",
+     "at": "hb:26",
+     "entry": "slam",
+     "hl": 0,
+     "hlAt": "hb:26.75"
+    }
+   ],
+   "push": {
+    "at": "hb:27",
+    "z": 1.32,
+    "dur": 0.42,
+    "shot": 4,
+    "to": [
+     540,
+     1300
+    ]
+   },
+   "emph": [
+    {
+     "style": "lift",
+     "at": "song:32.67",
+     "shot": 4
+    },
+    {
+     "style": "circle",
+     "at": "hb:28",
+     "shot": 4
+    }
+   ],
+   "pulse": [
+    "hb:25",
+    "hb:26"
+   ],
+   "out": "cut"
+  },
+  {
    "id": "kar-amodei",
    "type": "karaoke",
    "t0": "hb:23.5",
@@ -2073,79 +2146,6 @@
    "theme": "dark"
   },
   {
-   "id": "pile-news",
-   "type": "screens",
-   "t0": "hb:23.75",
-   "t1": "hb:28.5",
-   "layout": "scatter",
-   "center": [
-    540,
-    1270
-   ],
-   "w": 860,
-   "jitter": {
-    "x": 50,
-    "y": 36,
-    "rot": 6
-   },
-   "shots": [
-    {
-     "id": "xrisk-vox-freakout",
-     "at": "hb:24",
-     "entry": "slam"
-    },
-    {
-     "id": "geopolitics-cnn-hoax-head",
-     "at": "hb:24.5",
-     "entry": "drop"
-    },
-    {
-     "id": "capabilities-rev3-cnbc-model-fatigue-headline",
-     "at": "hb:25",
-     "entry": "slam"
-    },
-    {
-     "id": "frontier-rev2-guardian_techscape_sep29_headline",
-     "at": "hb:25.5",
-     "entry": "slide"
-    },
-    {
-     "id": "xrisk-cbs-amodei",
-     "at": "hb:26",
-     "entry": "slam",
-     "hl": 0,
-     "hlAt": "hb:26.75"
-    }
-   ],
-   "push": {
-    "at": "hb:27",
-    "z": 1.32,
-    "dur": 0.42,
-    "shot": 4,
-    "to": [
-     540,
-     1230
-    ]
-   },
-   "emph": [
-    {
-     "style": "lift",
-     "at": "song:32.67",
-     "shot": 4
-    },
-    {
-     "style": "circle",
-     "at": "hb:28",
-     "shot": 4
-    }
-   ],
-   "pulse": [
-    "hb:25",
-    "hb:26"
-   ],
-   "out": "cut"
-  },
-  {
    "id": "eq-dpo",
    "type": "equation",
    "t0": "hb:28.5",
@@ -2159,7 +2159,7 @@
     "hb:29.5"
    ],
    "cx": 540,
-   "cy": 960,
+   "cy": 1160,
    "px": 44,
    "maxW": 960,
    "label": {
@@ -2255,9 +2255,9 @@
    "t1": "hb:32",
    "region": {
     "x0": 60,
-    "y0": 1200,
+    "y0": 1350,
     "x1": 1020,
-    "y1": 1500
+    "y1": 1560
    },
    "w": 880,
    "shots": [
@@ -2280,7 +2280,7 @@
     "dur": 0.36,
     "to": [
      540,
-     1330
+     1450
     ]
    },
    "emph": [
@@ -2346,7 +2346,7 @@
    "drop": "hb:32.5",
    "mode": "slam",
    "cx": 540,
-   "y": 290,
+   "y": 360,
    "px": 54,
    "maxW": 900,
    "hit": 6,
@@ -2630,7 +2630,7 @@
    "mode": "chalk",
    "dur": 0.6,
    "cx": 540,
-   "y": 290,
+   "y": 360,
    "px": 54,
    "maxW": 900,
    "label": {
@@ -2669,7 +2669,7 @@
    "drop": "hb:41",
    "mode": "slam",
    "cx": 540,
-   "y": 500,
+   "y": 660,
    "px": 56,
    "maxW": 900,
    "hit": 8,
@@ -2797,7 +2797,7 @@
     "hb:47"
    ],
    "pulseAmt": 0.035,
-   "credit": "COASTRUNNERS RL AGENT · OPENAI 2016 (VIA DEEPMIND BLOG)",
+   "credit": "COASTRUNNERS · OPENAI 2016 (VIA DEEPMIND BLOG)",
    "creditAt": [
     64,
     262
@@ -5062,7 +5062,7 @@
    "titleAt": "hb:96",
    "titlePx": 46,
    "titleGap": 110,
-   "subAt": "hb:96.5",
+   "subAt": "hb:96.25",
    "subPx": 24,
    "subPer": 0.03,
    "grow": [
@@ -5122,8 +5122,7 @@
    "sourceW": 760,
    "splatColor": "#F2C300",
    "theme": "light",
-   "_note": "plot right edge at x 870 so the last value label stays off the right UI rail (x > 930, y 1000-1600)",
-   "title": "AI data centres Epoch tracks: total power"
+   "_note": "plot right edge at x 870 so the last value label stays off the right UI rail (x > 930, y 1000-1600)"
   },
   {
    "id": "pile-golden",
@@ -6587,7 +6586,12 @@
    "lead": 0.5,
    "axis": "h",
    "mode": "both",
-   "rect": "item",
+   "rect": [
+    40,
+    960,
+    1000,
+    620
+   ],
    "ground": false,
    "back": "#7B3FF2",
    "out": [

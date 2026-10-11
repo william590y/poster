@@ -232,7 +232,6 @@ def verse1():
     g['eq-attn']['label']['text'] = 'each word decides which words matter'
     g['eq-upd']['label']['text'] = 'gradient descent: every weight nudged downhill'
     # FIXES (verify "p-coast", optional): the boat clip is OpenAI's (Clark & Amodei, Dec 2016), shown on DeepMind's 2020 blog
-    g['p-coast']['credit'] = 'COASTRUNNERS RL AGENT · OPENAI 2016 (VIA DEEPMIND BLOG)'
     # FIXES (verify "pile-exploit", optional): the TIME fragment keeps its actor ('OpenAI Used Kenyan Workers...'; tesseract box of
     # 'OpenAI' 511-776 x 282-366) and the crop no longer touches the ink of 'Toxic'
     for s in g['pile-exploit']['shots']:
@@ -241,6 +240,29 @@ def verse1():
             s['hl'] = [[506, 280, 780, 368], [157, 367, 604, 458], [158, 455, 716, 529], [159, 540, 782, 623]]
     # ENGINE REQUEST (tower view, implemented): the tower sits 140 px lower so the equation cards (y 250-650) never cover it
     g['v1-tower']['view'] = {'dx': 0, 'dy': 140}
+    # ASSEMBLY (first strip): bar 6's news pile covered Amodei's karaoke (y 790-960): the pile sits lower and the karaoke is drawn
+    # above it; bar 7's DPO card and the TechCrunch card move down so the karaoke reads until it leaves, and the fold's flap is
+    # confined to the pile's zone (rect 'item' meant the whole frame for a pile, so its violet back covered everything)
+    pn = g['pile-news']
+    pn['center'] = [540, 1330]
+    pn['jitter'] = {'x': 50, 'y': 20, 'rot': 6}
+    pn['push']['to'] = [540, 1300]
+    ka = g['kar-amodei']
+    out.remove(ka)
+    out.insert(out.index(pn) + 1, ka)
+    g['eq-dpo']['cy'] = 1160
+    ps = g['pile-syco']
+    ps['region'] = {'x0': 60, 'y0': 1350, 'x1': 1020, 'y1': 1560}
+    ps['push']['to'] = [540, 1450]
+    for t in V['transitions']:
+        if t['id'] == 'tr-v1-fold':
+            t['rect'] = [40, 960, 1000, 620]
+    # the equation cards' labels sit above the cards: the cards start lower so every label stays in the safe zone (y >= 250), and
+    # the update rule clears the loss's cite line
+    g['eq-attn']['y'] = 360
+    g['eq-ntp']['y'] = 360
+    g['eq-upd']['y'] = 660
+    g['p-coast']['credit'] = 'COASTRUNNERS · OPENAI 2016 (VIA DEEPMIND BLOG)'
     return out, V
 
 
@@ -355,8 +377,9 @@ def refrain(cut):
     for m in g['kar-amodei-b']['marks']:
         if m['phrase'] == 'positive feedback loop':
             m['at'] = 'song:74.74'
-    # FIXES (verify "chart-dc" -> chart-gw, optional): Epoch's tracked sites, never a world total
-    g['chart-gw']['title'] = 'AI data centres Epoch tracks: total power'
+    # FIXES (verify "chart-dc" -> chart-gw, optional): Epoch's tracked sites, never a world total: the subtitle ('Combined IT power of
+    # the 93 AI data centres Epoch tracks') rolls out right behind the title (a longer title wrapped onto the subtitle on the strip)
+    g['chart-gw']['subAt'] = 'hb:96.25'
     # FIXES (verify "pile-golden", optional): the marker covers the closing quote of 'golden age'
     for s in g['pile-golden']['shots']:
         s['hl'] = [[1299, 520, 1526, 593], [357, 614, 480, 671]]

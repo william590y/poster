@@ -599,7 +599,7 @@ HP.register('karaoke', {
     const R = typeof d.roll === 'string' ? { mode: d.roll } : { mode: 'karaoke', ...(d.roll || {}) };
     it.run = new Run(it, { ...d, text, font: F, x, y: y + 30, w, upper: !serif, tracking: serif ? 0 : 1, wordsAt: toks ? toks.map(q => HP.T(q.at)) : undefined, roll: R }, { key: it.id });
     if (d.name || d.year) {
-      it.meta = el('div', '', it.el, { position: 'absolute', left: x + 'px', top: (y + 30 + it.run.H + 22) + 'px', font: "600 38px/1.15 'IBM Plex Mono', monospace", letterSpacing: '0.05em', textTransform: 'uppercase', color: dark ? '#9A96A8' : '#4F4A5C', whiteSpace: 'nowrap' });
+      it.meta = el('div', '', it.el, { position: 'absolute', left: x + 'px', top: (y + 30 + it.run.H + (d.metaGap ?? 22)) + 'px', font: `600 ${d.metaPx ?? 38}px/1.15 'IBM Plex Mono', monospace`, letterSpacing: '0.05em', textTransform: 'uppercase', color: dark ? '#9A96A8' : '#4F4A5C', whiteSpace: 'nowrap' });
       it.meta.textContent = [d.name, d.year].filter(Boolean).join(' · ');
       it.typer = new TypeRun([it.meta], HP.T(d.metaAt, it.t0 + 0.05), { cps: 40 });
     }

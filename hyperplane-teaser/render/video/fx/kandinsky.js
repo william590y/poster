@@ -271,6 +271,8 @@ function applyImpulses(it, t, P) {
 
 // ============================================================ presets: ready beat choreographies (cues + moves) from a beat index
 function bref(b0, x) { return 'hb:' + +(b0 + x).toFixed(4); }
+// polisher: an EDL override object for a preset move: numeric from / to / at are beats from the preset's start
+function rel(o, B) { if (!o || typeof o !== 'object') return {}; const r = { ...o }; for (const k of ['from', 'to', 'at']) if (typeof r[k] === 'number') r[k] = B(r[k]); return r; }
 const PRESETS = {
   // the drop riff (16 beats): painted on piece by piece on beats and 8ths, then orbits, jumps, spins, the wordmark painted on bar 3,
   // the river on beats 10-15, the superposition burst on bar 4, every beat carrying a pose change
@@ -296,13 +298,14 @@ const PRESETS = {
       { move: 'spin', pieces: ['nabla'], on: [B(8), B(12)], deg: 120 },
       { move: 'bump', pieces: ['arc', 'normal', 'margin'], on: [B(9), B(13)], scale: 1.25 },
       { move: 'swing', pieces: ['band'], from: B(6), to: B(16), amp: 3, period: 8 },
-      { move: 'river', from: B(10), to: B(16) },
-      { move: 'superpose', at: B(12), to: B(15.75), n: 7 },
+      // polisher: o.river / o.superpose override the move's fields (from / to / at as beats from the preset's start)
+      { move: 'river', from: B(10), to: B(16), ...rel(o.river, B) },
+      { move: 'superpose', at: B(12), to: B(15.75), n: 7, ...rel(o.superpose, B) },
       { move: 'artpulse', on: `hb:${b}..${b + 15}`, amp: .012, accents: { [b]: 3, [b + 4]: 2, [b + 8]: 2.4, [b + 12]: 2 } },
       { move: 'breathe', from: B(0), to: B(16), amp: .03, period: 4 },
       { move: 'bump', pieces: ['d0', 'd2', 'd4', 'smallO'], on: [B(4.5), B(5.5), B(8.5), B(10.5), B(12.5)], scale: 1.6, dur: .16 },
       { move: 'bump', pieces: ['d1', 'd3', 'd5', 'teal'], on: [B(6.5), B(7.5), B(9.5), B(11.5), B(13.5)], scale: 1.6, dur: .16 },
-      { move: 'reframe', shots: o.reframe === false ? [] : [
+      { move: 'reframe', shots: o.reframe === false ? [] : Array.isArray(o.reframe) ? o.reframe.map(x => rel(x, B)) : [
         { at: B(5), zoom: 1.55, focus: 'black', to: [470, 760] }, { at: B(6), zoom: 1.4, focus: 'blue', to: [620, 980] }, { at: B(7), zoom: 1 },
         { at: B(13), zoom: 1.5, focus: [430, 360], to: [540, 820], rot: -4 }, { at: B(14), zoom: 1.25, focus: [900, 700], to: [560, 900], rot: 3 }, { at: B(15), zoom: 1 }] },
     ];
@@ -600,11 +603,15 @@ function drawBandExtras(it, ctx, P, t, s, look, ink, p) {
   }
   for (const ov of it.overlays) if (ov.kind === 'river' && t >= ov.a - EPS && t < ov.b + .3) drawRiver(it, ctx, ov, t, s, ink);
 }
+// river fields (move "river"): from, to, flow (140 cover units a beat), streaks (54), vectors (7), colors, and (polisher, opt-in)
+// size (1: vector length/width/head multiplier), trail (0: comet trail length in vector lengths, fading), stagger (0: beats
+// between vector entries, e.g. 0.5 = one vector joins the school on every 8th), lanes (70: spread across the band), flowK (1:
+// streak width/alpha multiplier), ripple (0: number of sine ripple lines flowing along the band, so it reads as water)
 function drawRiver(it, ctx, ov, t, s, ink) {
   const m = ov.m, env = smooth(pr(t, ov.a, .25)) * (1 - smooth(pr(t, ov.b, .3))) * (1 - s); if (env <= 0) return;
   const b = HP.beatAt(t), fb = Math.floor(b), fr = b - fb, per = m.flow ?? 140;
   const F = per * (fb + .55 * E.oExpo(fr) + .45 * fr);            // surges on every beat, keeps gliding between
-  const U = BAND_U, N = BAND_N, C = BAND_C, Lh = 1050;
+  const U = BAND_U, N = BAND_N, C = BAND_C, Lh = 1050, fk = m.flowK ?? 1;
   const at = (sAl, q) => [C[0] + U[0] * sAl + N[0] * q, C[1] + U[1] * sAl + N[1] * q];
   const wrap = x => ((x + Lh) % (2 * Lh) + 2 * Lh) % (2 * Lh) - Lh;
   ctx.save(); ctx.clip(outlineOf(it, 'band'));
@@ -612,24 +619,46 @@ function drawRiver(it, ctx, ov, t, s, ink) {
   ctx.lineCap = 'round';
   for (let i = 0; i < n; i++) {
     const q = (R() - .5) * 108, len = 40 + R() * 200, k = .7 + R() * .8, x0 = R() * 2 * Lh, kind = R();
-    const sA = wrap(x0 + F * k), col = kind < .45 ? 'rgba(242,235,221,.75)' : kind < .8 ? PL().rgba(PL().shade(COL.yellow, .28), .55) : PL().rgba(COL.orange, .35);
-    ctx.strokeStyle = col; ctx.globalAlpha = env * (s < 1 ? 1 : 0); ctx.lineWidth = kind < .45 ? 2.5 + R() * 2 : 3 + R() * 4;
+    const sA = wrap(x0 + F * k), col = kind < .45 ? `rgba(242,235,221,${Math.min(1, .75 * fk)})` : kind < .8 ? PL().rgba(PL().shade(COL.yellow, .28), Math.min(1, .55 * fk)) : PL().rgba(COL.orange, Math.min(1, .35 * fk));
+    ctx.strokeStyle = col; ctx.globalAlpha = env * (s < 1 ? 1 : 0); ctx.lineWidth = (kind < .45 ? 2.5 + R() * 2 : 3 + R() * 4) * fk;
     ctx.beginPath(); for (let j = 0; j <= 6; j++) { const sj = sA - len * j / 6, qq = q + 4 * Math.sin(sj / 55 + b * Math.PI); const pt = at(sj, qq); j ? ctx.lineTo(pt[0], pt[1]) : ctx.moveTo(pt[0], pt[1]); } ctx.stroke();
+  }
+  // ripples: long sine lines across the band's width that travel with the current (water, not a stripe)
+  const nr = m.ripple ?? 0;
+  for (let i = 0; i < nr; i++) {
+    const q0 = -44 + 88 * (i + .5) / nr, ph = F * (.9 + .25 * (i % 3)) / 60, amp = 7 + 3 * (i % 2);
+    ctx.globalAlpha = env * (s < 1 ? 1 : 0) * (i % 2 ? .5 : .7); ctx.strokeStyle = i % 2 ? PL().rgba(PL().shade(COL.yellow, .35), .9) : 'rgba(250,246,236,.95)'; ctx.lineWidth = 3.2 * fk;
+    ctx.beginPath(); for (let j = 0; j <= 84; j++) { const sj = -Lh + j * 2 * Lh / 84, qq = q0 + amp * Math.sin(sj / 38 - ph + i * 1.7); const pt = at(sj, qq); j ? ctx.lineTo(pt[0], pt[1]) : ctx.moveTo(pt[0], pt[1]); } ctx.stroke();
   }
   ctx.restore();
   // swimming vectors: arrows riding the current (tails wiggling on 8ths); one leaps out of the river on each beat
-  const nv = m.vectors ?? 7, cols = m.colors || ['ink', 'pink', 'blue', 'cream', 'violet', 'orange', 'ink'];
+  const nv = m.vectors ?? 7, cols = m.colors || ['ink', 'pink', 'blue', 'cream', 'violet', 'orange', 'ink'], sz = m.size ?? 1, lanes = m.lanes ?? 70, trail = m.trail ?? 0, stg = (m.stagger ?? 0) * BP();
   for (let j = 0; j < nv; j++) {
-    const r = HP.rng(it.id, 'vec', j), lane = (r() - .5) * 70, len = 80 + r() * 50, k = 1.15 + r() * .6, x0 = r() * 2 * Lh, w = 9 + r() * 4;
+    const r = HP.rng(it.id, 'vec', j), lane = (r() - .5) * lanes, len = (80 + r() * 50) * sz, k = 1.15 + r() * .6, x0 = r() * 2 * Lh, w = (9 + r() * 4) * sz;
+    const ja = ov.a + j * stg, pop = stg > 0 ? E.oBack(pr(t, ja, .16), 2.2) : 1; if (pop <= 0) continue;
     let sA = wrap(x0 + F * k), q = lane, tilt = 0;
     const leapB = j + nv * Math.floor((fb - j) / nv);   // vector j leaps on beats j, j + nv, ... (one per beat across the school)
-    if (fb === leapB) { const g = fr; q -= 150 * 4 * g * (1 - g); tilt = -40 * (1 - 2 * g); }
+    if (fb === leapB) { const g = fr; q -= 150 * sz * 4 * g * (1 - g); tilt = -40 * (1 - 2 * g); }
     const col = COL[cols[j % cols.length]] || cols[j % cols.length], c2 = col === COL.cream && ink === COL.cream ? COL.ink : col;
     const pts = []; const segs = 8;
-    for (let i = 0; i <= segs; i++) { const f = i / segs, wig = 10 * Math.sin(2 * Math.PI * (2 * b) - i * .9) * f; const a = tilt * D2R; const ds = -len * f; pts.push(at(sA + ds * Math.cos(a), q + ds * Math.sin(a) + wig)); }
-    ctx.globalAlpha = env; ctx.strokeStyle = c2; ctx.fillStyle = c2; ctx.lineWidth = w; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    for (let i = 0; i <= segs; i++) { const f = i / segs, wig = 10 * sz * Math.sin(2 * Math.PI * (2 * b) - i * .9) * f; const a = tilt * D2R; const ds = -len * f * pop; pts.push(at(sA + ds * Math.cos(a), q + ds * Math.sin(a) + wig)); }
+    if (trail > 0 && fb !== leapB) {   // comet trail: the path just swum, thinning and fading behind the tail
+      const tl = trail * len, nseg = 10, tail = pts[segs];
+      ctx.lineCap = 'round';
+      for (let i = 0; i < nseg; i++) {
+        const f0 = i / nseg, f1 = (i + 1) / nseg, p0 = at(sA - len * pop - tl * f0, q + 6 * sz * Math.sin(2 * Math.PI * b - f0 * 3)), p1 = at(sA - len * pop - tl * f1, q + 6 * sz * Math.sin(2 * Math.PI * b - f1 * 3));
+        ctx.globalAlpha = env * pop * .55 * (1 - f0); ctx.strokeStyle = c2; ctx.lineWidth = w * (1 - .85 * f0);
+        ctx.beginPath(); ctx.moveTo(i ? p0[0] : tail[0], i ? p0[1] : tail[1]); ctx.lineTo(p1[0], p1[1]); ctx.stroke();
+      }
+    }
+    ctx.globalAlpha = env; ctx.strokeStyle = c2; ctx.fillStyle = c2; ctx.lineWidth = w * pop; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
     ctx.beginPath(); pts.forEach((pt, i) => i ? ctx.lineTo(pt[0], pt[1]) : ctx.moveTo(pt[0], pt[1])); ctx.stroke();
-    const h0 = pts[0], h1 = pts[1], ang = Math.atan2(h0[1] - h1[1], h0[0] - h1[0]), hs = w * 2.6;
+    const h0 = pts[0], h1 = pts[1], ang = Math.atan2(h0[1] - h1[1], h0[0] - h1[0]), hs = w * 2.6 * pop;
+    if (sz > 1.2) {   // an ink keyline under big heads, so pink/orange heads read on the yellow band
+      ctx.save(); ctx.globalAlpha = env * .9; ctx.strokeStyle = c2 === COL.ink ? '#F7F1E3' : COL.ink; ctx.lineWidth = 5 * sz / 2; ctx.lineJoin = 'round';
+      ctx.beginPath(); ctx.moveTo(h0[0] + Math.cos(ang) * hs * .9, h0[1] + Math.sin(ang) * hs * .9); ctx.lineTo(h0[0] + Math.cos(ang + 2.4) * hs, h0[1] + Math.sin(ang + 2.4) * hs); ctx.lineTo(h0[0] + Math.cos(ang - 2.4) * hs, h0[1] + Math.sin(ang - 2.4) * hs); ctx.closePath(); ctx.stroke(); ctx.restore();
+      ctx.fillStyle = c2;
+    }
     ctx.beginPath(); ctx.moveTo(h0[0] + Math.cos(ang) * hs * .9, h0[1] + Math.sin(ang) * hs * .9); ctx.lineTo(h0[0] + Math.cos(ang + 2.4) * hs, h0[1] + Math.sin(ang + 2.4) * hs); ctx.lineTo(h0[0] + Math.cos(ang - 2.4) * hs, h0[1] + Math.sin(ang - 2.4) * hs); ctx.closePath(); ctx.fill();
   }
   ctx.globalAlpha = 1;

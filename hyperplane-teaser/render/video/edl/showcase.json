@@ -191,7 +191,22 @@
    },
    "collapse": {
     "at": "hb:107.78",
-    "dur": 0.14
+    "dur": 0.14,
+    "flash": 0.85,
+    "flashDecay": 0.06,
+    "shake": 14,
+    "pinch": {
+     "glow": 0.6,
+     "ring": 0.55,
+     "flecks": 56,
+     "colors": [
+      "cream",
+      "yellow",
+      "pink",
+      "orange",
+      "teal"
+     ]
+    }
    },
    "burst": {
     "at": "hb:112",
@@ -366,7 +381,8 @@
    "verified": true,
    "meta": 32,
    "name_px": 36,
-   "_note": "copied from edl/short.json (verified words, timing and audio; footage as filmed, no keying). r4: footage + his own voice replace the silent quote card (all three short critics). r6: verbatim (small.en and base.en on the exact window, 3/3 each): 'I think AI will probably like most likely sort of lead to the end of the world'; the leading … marks the cut 'You know,', the trailing … the senten"
+   "_note": "copied from edl/short.json (verified words, timing and audio; footage as filmed, no keying). r4: footage + his own voice replace the silent quote card (all three short critics). r6: verbatim (small.en and base.en on the exact window, 3/3 each): 'I think AI will probably like most likely sort of lead to the end of the world'; the leading … marks the cut 'You know,', the trailing … the senten",
+   "frames": "showcase-altman"
   },
   {
    "id": "amodei",
@@ -529,7 +545,8 @@
    "verified": true,
    "meta": 32,
    "name_px": 36,
-   "_note": "polisher: held to hb:-7 (edit 9.745) so the baseline is never dropped: his audio still ends at clip 1069.34 (edit 8.43), the picture plays on (he is saying exactly the sub line, muted) while the sub rolls out on 32nds from 'BADLY' (8.17-8.88) and the marker hits '75%' at 8.95; the fold starts at 9.44. copied from edl/short.json (verified words, timing and audio; footage as filmed, no keying). Footage per research/verify/amodei-video.json (Axios upload nvXj4HTiYqA). Full sentence: 'I'm relatively an optimist, so I think there's a 25% chance that things go really, really badly and a 75% chance that things go really, really well'. r4 (editorial critic): the caption now ENDS with … (it went "
+   "_note": "polisher: held to hb:-7 (edit 9.745) so the baseline is never dropped: his audio still ends at clip 1069.34 (edit 8.43), the picture plays on (he is saying exactly the sub line, muted) while the sub rolls out on 32nds from 'BADLY' (8.17-8.88) and the marker hits '75%' at 8.95; the fold starts at 9.44. copied from edl/short.json (verified words, timing and audio; footage as filmed, no keying). Footage per research/verify/amodei-video.json (Axios upload nvXj4HTiYqA). Full sentence: 'I'm relatively an optimist, so I think there's a 25% chance that things go really, really badly and a 75% chance that things go really, really well'. r4 (editorial critic): the caption now ENDS with … (it went ",
+   "frames": "showcase-amodei"
   },
   {
    "id": "pile-hf",
@@ -601,7 +618,85 @@
    },
    "preset": {
     "name": "riff",
-    "from": "hb:0"
+    "from": "hb:0",
+    "river": {
+     "from": 8,
+     "to": 16,
+     "vectors": 16,
+     "size": 2.3,
+     "trail": 1.6,
+     "stagger": 0.5,
+     "lanes": 110,
+     "flowK": 1.6,
+     "ripple": 6,
+     "colors": [
+      "ink",
+      "pink",
+      "blue",
+      "violet",
+      "orange",
+      "teal",
+      "red",
+      "ink"
+     ]
+    },
+    "superpose": {
+     "r": 380
+    },
+    "reframe": [
+     {
+      "at": 5,
+      "zoom": 1.55,
+      "focus": "black",
+      "to": [
+       470,
+       760
+      ]
+     },
+     {
+      "at": 6,
+      "zoom": 1.4,
+      "focus": "blue",
+      "to": [
+       620,
+       980
+      ]
+     },
+     {
+      "at": 7,
+      "zoom": 1
+     },
+     {
+      "at": 13,
+      "zoom": 1.15,
+      "focus": [
+       722,
+       500
+      ],
+      "to": [
+       528,
+       760
+      ],
+      "rot": -2.5
+     },
+     {
+      "at": 14,
+      "zoom": 1.12,
+      "focus": [
+       764,
+       583
+      ],
+      "to": [
+       550,
+       820
+      ],
+      "rot": 2.5
+     },
+     {
+      "at": 15,
+      "zoom": 1
+     }
+    ]
    },
    "moves": [
     {
@@ -798,14 +893,20 @@
    "id": "eq-fwd",
    "type": "equation",
    "ref": "nn-forward",
-   "t0": "hb:15.9",
+   "t0": "hb:16",
    "t1": "hb:20",
    "drop": "hb:16",
-   "mode": "pencil",
-   "dur": 0.9,
+   "mode": "slam",
    "x": 90,
    "y": 360,
-   "px": 64,
+   "px": 68,
+   "theme": "dark",
+   "hit": 6,
+   "flash": {
+    "opacity": 0.3,
+    "decay": 0.1,
+    "color": "#F2C300"
+   },
    "label": {
     "text": "inference: each layer feeds the next",
     "at": "hb:16.5",
@@ -814,13 +915,22 @@
     }
    },
    "cite": {
-    "at": "hb:18"
+    "at": "hb:18.5"
    },
    "exit": {
     "style": "fade",
     "dur": 0.15
    },
-   "pulse": "hb:17..19"
+   "pulse": "hb:17..19",
+   "hl": [
+    {
+     "tex": "\\sigma",
+     "at": "hb:18",
+     "style": "circle",
+     "color": "#FF2E88"
+    }
+   ],
+   "_note": "polisher: slammed in full cream ink on the verse downbeat (it took the light theme from its old t0 hb:15.9, so it was set in dark ink on the dark verse: 15-20% visible), a 6 px hit and a yellow ink flash; sigma circled on hb:18"
   },
   {
    "id": "eq-bp1",
@@ -1116,14 +1226,14 @@
    "type": "chart",
    "graph": "dc-record-mw",
    "t0": 28.6161,
-   "t1": "hb:96",
+   "t1": "hb:97.5",
    "prep": "image",
    "src": "/home/user/poster/ai-safety-presentation/assets/research/economy/epoch_sat_xai_colossus2_2026-06.png",
    "frame": {
     "x": 70,
     "y": 262,
     "w": 940,
-    "h": 470,
+    "h": 440,
     "rot": -1.2
    },
    "fit": "cover",
@@ -1140,49 +1250,66 @@
     "at": "hb:92.5",
     "x": 90
    },
-   "x": 230,
-   "y": 1080,
-   "w": 650,
-   "h": 360,
-   "titleGap": 205,
+   "x": 200,
+   "y": 1060,
+   "w": 760,
+   "h": 380,
+   "titleGap": 230,
    "titlePx": 54,
+   "subPx": 26,
    "axesAt": "hb:92",
    "titleAt": "hb:92",
-   "grow": {
-    "from": "hb:92.5",
-    "to": "hb:95",
-    "every": 0.5
-   },
+   "titlePer": 0.121,
+   "subAt": "hb:93",
+   "grow": [
+    "hb:92.5",
+    "hb:92.75",
+    "hb:93",
+    "hb:93.25",
+    "hb:93.5",
+    "hb:94"
+   ],
    "labels": "all",
-   "valuePx": 30,
+   "valuePx": 44,
    "valueFmt": {
     "dec": 0
    },
    "color": "#FF2E88",
+   "yAxis": {
+    "label": "MW",
+    "labelIn": true,
+    "labelPx": 30
+   },
    "annotate": [
     {
-     "at": "hb:95.25",
+     "at": "hb:94.5",
      "i": 5,
      "text": "Colossus 2: 946 MW",
-     "dx": -330,
-     "dy": 40,
-     "w": 300,
-     "px": 38,
+     "dx": -560,
+     "dy": 128,
+     "w": 420,
+     "px": 62,
      "lines": 2,
-     "hl": "946 MW"
+     "hl": "946 MW",
+     "lead": 0,
+     "per": 0.06
     }
    ],
-   "sourceAt": "hb:95.5",
+   "sourceAt": "hb:94.75",
+   "sourcePer": 0.05,
+   "sourceY": 1500,
+   "sourcePx": 24,
+   "sourceW": 900,
    "splatColor": "#F2C300",
-   "_note": "research/rev2/graphs.json dc-record-mw (Epoch observed records only, no projections); a record lands on every 8th"
+   "_note": "research/rev2/graphs.json dc-record-mw (Epoch observed records only, no projections); the records land on 8ths and 16ths, the 946 MW record on the beat"
   },
   {
    "id": "eq-grpo",
    "type": "equation",
    "ref": "grpo",
-   "t0": "hb:96",
+   "t0": "hb:97.5",
    "t1": "hb:100",
-   "drop": "hb:96",
+   "drop": "hb:97.5",
    "mode": "pencil",
    "cx": 540,
    "cy": 640,
@@ -1190,16 +1317,16 @@
    "maxW": 960,
    "label": {
     "text": "GRPO: the RL objective behind DeepSeek-R1",
-    "at": "hb:96",
+    "at": "hb:97.5",
     "gap": 60
    },
    "cite": {
-    "at": "hb:98"
+    "at": "hb:98.75"
    },
    "hl": [
     {
      "from": "highlight",
-     "at": "hb:98.5",
+     "at": "hb:99.25",
      "style": "circle",
      "ink": "#B31B1B"
     }
@@ -1210,20 +1337,20 @@
     "color": "#FBF6EC"
    },
    "pulse": {
-    "from": "hb:97.5",
-    "to": "hb:99.5"
+    "from": "hb:98.75",
+    "to": "hb:99.75"
    },
    "rows": [
-    "hb:96",
-    "hb:96.5",
-    "hb:97"
+    "hb:97.5",
+    "hb:98",
+    "hb:98.5"
    ],
-   "_note": "research/rev2/equations.json grpo (Shao et al. 2024, DeepSeekMath eq. 3), portrait-stacked form, rows drawn on beats"
+   "_note": "research/rev2/equations.json grpo (Shao et al. 2024, DeepSeekMath eq. 3), portrait-stacked form, rows drawn on beats (polisher: from hb:97.5, 1.5 beats later, so the chart before it keeps its payoff)"
   },
   {
    "id": "pile-c",
    "type": "screens",
-   "t0": "hb:96",
+   "t0": "hb:97.5",
    "t1": "hb:100",
    "region": {
     "x0": 60,
@@ -1235,7 +1362,7 @@
    "shots": [
     {
      "id": "geopolitics-toms-deepseek",
-     "at": "hb:96",
+     "at": "hb:97.75",
      "entry": "slide"
     },
     {
@@ -1570,10 +1697,10 @@
    "id": "fog",
    "type": "clip",
    "prep": "clip",
-   "t0": "hb:106.5",
+   "t0": 36.38,
    "t1": "hb:112.2",
    "src": "clips/bengio-fog-loss-of-control-ted2025.mp4",
-   "in": 10.9,
+   "in": 11.648,
    "box": {
     "x": 0,
     "y": 0,
@@ -1581,12 +1708,12 @@
     "h": 1920
    },
    "srcFocus": [
-    0.56,
+    0.62,
     0.5
    ],
    "zoom": [
     1.0,
-    1.1
+    1.12
    ],
    "zoomEase": "lin",
    "punch": [
@@ -1608,17 +1735,53 @@
    ],
    "grade": {
     "sat": 0,
-    "contrast": 1.2,
-    "brightness": -0.16,
-    "gamma": 0.75,
+    "contrast": 1.1,
+    "brightness": 0.03,
+    "gamma": 1.25,
     "grain": 4
    },
    "enter": {
     "style": "fade",
-    "dur": 0.6
+    "dur": 0.7
    },
    "theme": "dark",
-   "_note": "the clearing: while the hole swallows the frame (under the spiralling screenshots) and after it snaps shut, night fog with a car's headlights (b-roll from Bengio's TED2025 talk, muted, graded dark) under the painted words"
+   "_note": "the clearing (polisher): fades up over 36.38-37.08 right after the hole pinches shut, graded so the fog and the car's headlights read as footage (was brightness -0.16 / gamma 0.75: two grey blobs on black); b-roll from Bengio's TED2025 talk, muted, under the painted words"
+  },
+  {
+   "id": "god-ink",
+   "type": "stroke",
+   "t0": "hb:108.5",
+   "t1": "hb:110",
+   "at": "hb:108.5",
+   "dur": 0.2,
+   "layer": "own",
+   "width": 44,
+   "color": "#F2EBDD",
+   "points": [
+    [
+     120,
+     430
+    ],
+    [
+     380,
+     372
+    ],
+    [
+     700,
+     338
+    ],
+    [
+     990,
+     262
+    ]
+   ],
+   "dry": 0.3,
+   "gaps": 0.25,
+   "out": {
+    "at": "hb:109.5",
+    "dur": 0.25
+   },
+   "_note": "polisher: a half-beat brush flick (hb:108.5) so something moves between the pinch and the first painted word"
   },
   {
    "id": "sc-s00",
@@ -1915,9 +2078,9 @@
    "type": "splat",
    "at": "hb:109",
    "t1": "hb:112",
-   "x": 830,
-   "y": 1330,
-   "r": 120,
+   "x": 900,
+   "y": 1730,
+   "r": 110,
    "color": "#FF2E88",
    "dir": -60,
    "layer": "own",
@@ -1929,15 +2092,15 @@
    "t0": "hb:108.5",
    "t1": "hb:112",
    "x": 64,
-   "y": 1520,
+   "y": 1534,
    "w": 900,
    "text": "FOOTAGE: YOSHUA BENGIO, TED2025",
    "font": {
     "family": "'IBM Plex Mono', monospace",
     "weight": 600,
-    "size": 24
+    "size": 30
    },
-   "color": "#9A96A8",
+   "color": "#C9C4D6",
    "roll": {
     "mode": "words",
     "rate": 4,
@@ -1948,10 +2111,71 @@
    "id": "brutal",
    "type": "brushtext",
    "t0": "song:71.95",
-   "t1": "hb:112.4",
+   "t1": "hb:112.65",
    "text": "it's brutal out here",
    "words": "hits",
-   "_note": "builder A: painted word by word on the sung words (song/hits.json words.brutal_out_here), the one lyric allowed on screen"
+   "overlay": true,
+   "exit": {
+    "style": "fade",
+    "dur": 0.12
+   },
+   "drift": 0.02,
+   "place": [
+    {
+     "x": 150,
+     "y": 640,
+     "size": 190,
+     "rot": -8,
+     "color": "yellow",
+     "width": 30,
+     "under": {
+      "color": "#15131F",
+      "k": 1.5
+     }
+    },
+    {
+     "x": 87,
+     "y": 960,
+     "size": 256,
+     "rot": -8,
+     "color": "cream",
+     "under": {
+      "color": "#15131F",
+      "k": 1.5
+     }
+    },
+    {
+     "x": 330,
+     "y": 1190,
+     "size": 210,
+     "rot": -8,
+     "color": "yellow",
+     "width": 34,
+     "under": {
+      "color": "#15131F",
+      "k": 1.5
+     },
+     "dur": 0.3
+    },
+    {
+     "x": 300,
+     "y": 1450,
+     "size": 250,
+     "rot": -8,
+     "color": "cream",
+     "under": {
+      "color": "#15131F",
+      "k": 1.5
+     },
+     "lead": 0.03,
+     "dur": 0.16
+    }
+   ],
+   "splat": {
+    "dimTo": 0.45,
+    "dimAfter": 0.25
+   },
+   "_note": "builder A: painted word by word on the sung words (song/hits.json words.brutal_out_here), the one lyric allowed on screen. Polisher: in the unshaken overlay layer (#fx) so the burst (rings, debris, the iris, the spat cards, the logo pieces) paints BEHIND the letters; 'brutal' scaled to 256 px so every glyph keeps >= 60 px of margin; ink under-strokes; the pink burst drops to 45% after landing; 'here' painted 37.94-38.10 (was 37.97-38.31) and held to 38.60, so the whole line reads for ~0.4 s past the downbeat burst"
   },
   {
    "id": "kand-re",
@@ -2252,9 +2476,17 @@
    "t0": 38.798,
    "t1": "hb:123.5",
    "x": 72,
-   "y": 262,
-   "w": 930,
-   "size": 46,
+   "y": 255,
+   "w": 940,
+   "size": 60,
+   "font": {
+    "weight": 700
+   },
+   "roll": {
+    "dim": 0.62
+   },
+   "metaPx": 30,
+   "metaGap": 14,
    "speech": {
     "in": 3.62,
     "at": 38.8984,
@@ -2304,7 +2536,8 @@
     "style": "fade",
     "dur": 0.25
    },
-   "theme": "light"
+   "theme": "light",
+   "_note": "polisher: 60 px bold in the clear cream strip above the logo (y 255-475; the outro's paint is kept out of it), unspoken words at 0.62 (4.6:1 on the cream; was 0.3 of a 46 px mono line under blue/orange splats)"
   },
   {
    "id": "grain",
@@ -2433,7 +2666,7 @@
   },
   {
    "id": "tr-particles",
-   "at": "hb:96",
+   "at": "hb:97.5",
    "type": "particles",
    "out": [
     "chart-dc"
@@ -2442,7 +2675,7 @@
     "eq-grpo",
     "pile-c"
    ],
-   "dur": 1.25,
+   "dur": 1.0,
    "ground": "#F2EBDD"
   },
   {
@@ -2552,7 +2785,36 @@
    "to": "hb:123.5",
    "pattern": "outro",
    "eighths": true,
-   "layer": "paint"
+   "layer": "paint",
+   "zones": [
+    [
+     40,
+     1590,
+     1000,
+     260
+    ],
+    [
+     10,
+     560,
+     110,
+     820
+    ],
+    [
+     960,
+     600,
+     110,
+     780
+    ]
+   ],
+   "avoid": [
+    [
+     40,
+     220,
+     1000,
+     280
+    ]
+   ],
+   "_note": "polisher: the outro's splats and stamps stay out of the Bengio caption strip (y 220-500)"
   }
  ]
 }

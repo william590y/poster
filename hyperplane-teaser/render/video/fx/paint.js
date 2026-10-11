@@ -740,13 +740,17 @@ HP.register('brushtext', {
     it.W = words.map((w, i) => {
       const P = { ...(BT_PLACE[i] || BT_PLACE[BT_PLACE.length - 1]), ...((d.place || [])[i] || {}) }, tm = timing[i] || timing[timing.length - 1];
       const last = !timing[i + 1], next = last ? (tm.end ?? tm.at + .5) : timing[i + 1].at;
-      const dur = tm.dur ?? clamp((next - tm.at) + (last ? 0 : .14), .24, .55), at = tm.at - lead;   // the last word is finished when its singing ends
+      // polisher: place[i].lead / place[i].dur override one word's anticipation and painting time (e.g. "here" finished early
+      // enough to be read before the burst)
+      const dur = P.dur ?? tm.dur ?? clamp((next - tm.at) + (last ? 0 : .14), .24, .55), at = tm.at - (P.lead ?? lead);   // the last word is finished when its singing ends
       const g = hershey(w, { font: d.font || 'scripts', size: P.size, x: 0, y: 0, order: d.order });
       const width = P.width ?? P.size * (B.k ?? .12), total = g.strokes.reduce((a, s) => a + s.len + 18, 0);
       let acc = 0;
       const strokes = g.strokes.map((s, k) => {
         const a = acc / total; acc += s.len + 18; const b = (acc - 18) / total;
-        return { S: makeStroke(s.pts, { width: s.len < P.size * .25 ? width * .8 : width, color: P.color, seed: `${it.id}|${i}|${k}`, dry: B.dry ?? .22, gaps: B.gaps ?? .28, wet: B.wet ?? .35, pressure: [.75, 1, .45], thinning: .45, jitter: .9 }), a, b, key: `${it.id}|${i}|${k}` };
+        const sw = s.len < P.size * .25 ? width * .8 : width, U = P.under || d.under;   // polisher: under {color, k}: a darker, wider stroke under each stroke (legible on a splat)
+        return { S: makeStroke(s.pts, { width: sw, color: P.color, seed: `${it.id}|${i}|${k}`, dry: B.dry ?? .22, gaps: B.gaps ?? .28, wet: B.wet ?? .35, pressure: [.75, 1, .45], thinning: .45, jitter: .9 }), a, b, key: `${it.id}|${i}|${k}`,
+          U: U ? makeStroke(s.pts, { width: sw * (U.k ?? 1.5), color: U.color || 'ink', seed: `${it.id}|${i}|${k}|u`, dry: .06, gaps: .05, wet: .2, pressure: [.75, 1, .45], thinning: .4, jitter: .9 }) : null };
       });
       it.mark(at, 'word');
       return { w, P, at, dur, strokes, width: g.width };
@@ -767,12 +771,17 @@ HP.register('brushtext', {
     const d = it.d, A = HP.envelope(it, t).op * finalFade(t); if (A <= 0) return;
     const z = 1 + (d.drift ?? .035) * E.ioSine(it.life(t)), O = d.origin || [540, 1000];
     ctx.setTransform(z, 0, 0, z, O[0] * (1 - z), O[1] * (1 - z)); ctx.globalAlpha = A;
-    if (it.sp) { drawSplat(ctx, makeSplat(it.sp.s), t - it.sp.at); if (it.sp.s2) drawSplat(ctx, makeSplat(it.sp.s2), t - it.sp.at - .07); }
+    if (it.sp) {   // polisher: splat.dimTo (1) / dimAfter (s, .25): the burst drops to dimTo once it has landed, so the words read over it
+      const sp = d.splat || {}, ka = lerp(1, sp.dimTo ?? 1, smooth(pr(t, it.sp.at + (sp.dimAfter ?? .25), .3)));
+      drawSplat(ctx, makeSplat(it.sp.s), t - it.sp.at, { alpha: ka }); if (it.sp.s2) drawSplat(ctx, makeSplat(it.sp.s2), t - it.sp.at - .07, { alpha: ka });
+      ctx.globalAlpha = A;
+    }
     it.W.forEach((Wd, i) => {
       const u = pr(t, Wd.at, Wd.dur); it.dom[i].style.display = u > 0 ? '' : 'none'; if (u <= 0) return;
       const land = t - (Wd.at + Wd.dur), bump = land >= 0 ? 1 + .05 * Math.exp(-land / .07) : 1;
       ctx.save(); ctx.translate(Wd.P.x, Wd.P.y); ctx.rotate(Wd.P.rot * Math.PI / 180);
       if (bump !== 1) { ctx.translate(Wd.width / 2, -Wd.P.size * .3); ctx.scale(bump, bump); ctx.translate(-Wd.width / 2, Wd.P.size * .3); }
+      for (const s of Wd.strokes) { const p = clamp((u - s.a) / Math.max(1e-3, s.b - s.a)); if (p > 0 && s.U) strokeAt(ctx, s.U, E.ioQuad(p), s.key + '|u'); }
       for (const s of Wd.strokes) { const p = clamp((u - s.a) / Math.max(1e-3, s.b - s.a)); if (p > 0) strokeAt(ctx, s.S, E.ioQuad(p), s.key); }
       ctx.restore();
     });

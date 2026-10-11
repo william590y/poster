@@ -290,7 +290,7 @@ HP.register('blackhole', {
     it.disk = { scale: 3.4, arms: 8, spin: 1.6, colors: ['violet', 'blue', 'pink', 'orange', 'violet', 'yellow', 'blue', 'pink'], ...(d.disk || {}) };
     it.lens = d.lens === false ? null : { k: 1.7, extent: 7, ...(d.lens || {}) };
     it.darken = d.darken ? { a: ST(d.darken.from), b: ST(d.darken.to) } : null;
-    it.collapse = d.collapse ? { at: ST(d.collapse.at), dur: d.collapse.dur ?? .16 } : null;
+    it.collapse = d.collapse ? { at: ST(d.collapse.at), dur: d.collapse.dur ?? .16, pinch: d.collapse.pinch || null } : null;
     it.burst = d.burst ? { at: ST(d.burst.at), rings: 3, debris: 70, colors: ['cream', 'yellow', 'pink', 'orange', 'teal', 'blue'], ...d.burst } : null;
     if (it.burst) { it.burst.at = ST(d.burst.at); it.mark(it.burst.at, 'burst'); if (d.burst.flash !== false) HP.flash(it.burst.at, d.burst.flash ?? .9, d.burst.flashDecay ?? .045, '#FFF8EC'); if (d.burst.punch) HP.lib.transitions.camPunch(it.burst.at, d.burst.punch, .18); HP.cam.hit(it.burst.at, d.burst.shake ?? 14, .16); }
     if (it.collapse) { it.mark(it.collapse.at, 'collapse'); if (d.collapse.flash !== false) HP.flash(it.collapse.at + it.collapse.dur, d.collapse.flash ?? .6, d.collapse.flashDecay ?? .04, '#FFF3E0'); if (d.collapse.punch) HP.lib.transitions.camPunch(it.collapse.at + it.collapse.dur, d.collapse.punch, .2); HP.cam.hit(it.collapse.at + it.collapse.dur, d.collapse.shake ?? 10, .12); }
@@ -464,6 +464,32 @@ function drawHole(it, t) {
   if (it.collapse) {
     const u = pr(t, it.collapse.at, it.collapse.dur + .25);
     if (u > 0 && u < 1) { const rr = lerp(it.rAt(it.collapse.at) * 2.2, 2, E.oExpo(u)); T.save(); T.strokeStyle = '#FFF4DE'; T.globalAlpha = 1 - u; T.lineWidth = 18 * (1 - u) + 2; T.beginPath(); T.arc(c[0], c[1], rr, 0, TAU); T.stroke(); T.restore(); }
+    // polisher: collapse.pinch {glow (s), ring (s), flecks (n), colors}: the hole pinches to a white-hot point (a glow that flares
+    // and cools to orange), a shockwave ring runs out to the frame edge, and a spray of paint flecks flies out of the point
+    const Pn = it.collapse.pinch, pt = t - (it.collapse.at + it.collapse.dur);
+    if (Pn && pt >= -EPS) {
+      T.save();
+      const gl = Pn.glow ?? .55, ga = Math.exp(-pt / (gl * .45));
+      if (pt < gl * 3 && ga > .01) {
+        const R1 = lerp(220, 70, E.oCub(pr(pt, 0, gl))), g = T.createRadialGradient(c[0], c[1], 0, c[0], c[1], R1);
+        g.addColorStop(0, `rgba(255,255,255,${ga})`); g.addColorStop(.18, `rgba(255,246,214,${ga})`); g.addColorStop(.45, `rgba(255,190,90,${.6 * ga})`); g.addColorStop(1, 'rgba(255,74,28,0)');
+        T.fillStyle = g; T.fillRect(c[0] - R1, c[1] - R1, 2 * R1, 2 * R1);
+      }
+      const rd = Pn.ring ?? .5;
+      if (pt < rd) { const q = pr(pt, 0, rd), rr = lerp(10, 1400, E.oCub(q)); T.strokeStyle = '#FFF4DE'; T.globalAlpha = (1 - q) * .95; T.lineWidth = lerp(34, 3, q); T.beginPath(); T.arc(c[0], c[1], rr, 0, TAU); T.stroke();
+        T.strokeStyle = COL.orange; T.globalAlpha = (1 - q) * .6; T.lineWidth = lerp(14, 2, q); T.beginPath(); T.arc(c[0], c[1], rr * .86, 0, TAU); T.stroke(); }
+      const nf = Pn.flecks ?? 48, cols = (Pn.colors || ['cream', 'yellow', 'pink', 'orange']).map(colOf), rg = HP.rng('pinch', it.id);
+      T.lineCap = 'round';
+      for (let k = 0; k < nf; k++) {
+        const a = rg() * TAU, v = 500 + 1300 * rg(), sz = 4 + 12 * rg(), life = .45 + .55 * rg(), col = cols[k % cols.length];
+        if (pt > life) continue;
+        const dist = v * .4 * (1 - Math.exp(-pt / .4)), x = c[0] + Math.cos(a) * dist, y = c[1] + Math.sin(a) * dist + 420 * pt * pt;
+        T.globalAlpha = clamp((life - pt) / .15); T.fillStyle = col; T.strokeStyle = col; T.lineWidth = sz * .7;
+        T.beginPath(); T.moveTo(c[0] + Math.cos(a) * dist * .86, c[1] + Math.sin(a) * dist * .86); T.lineTo(x, y); T.stroke();
+        T.beginPath(); T.ellipse(x, y, sz * .75, sz * .5, a, 0, TAU); T.fill();
+      }
+      T.restore();
+    }
   }
   // the burst: shockwave rings and paint debris flying out of the point
   if (it.burst && t >= burstAt - EPS) {

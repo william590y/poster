@@ -197,9 +197,12 @@ const EFFECTS = {
     return true;
   },
   stamp(t, o) {
-    const [x, y] = spot(o.key, o.zones, o.avoid), g = HP.pick(['nabla', 'ring', 'checker', 'cross', 'triangle', 'star', 'arrow', 'square', 'disc'], o.key, 'g');
+    // polisher: no plain 'disc' (a grey ink disc beside a chart or card read as a stray logo piece / a glitch)
+    const [x, y] = spot(o.key, o.zones, o.avoid), g = HP.pick(['nabla', 'ring', 'checker', 'cross', 'triangle', 'star', 'arrow', 'square'], o.key, 'g');
     const color = HP.pick(palette(t, 'ink'), o.key, 'c'), size = lerp(90, 150, HP.rand(o.key, 's')) * clamp(o.amp, .75, 1.2), rot = (HP.rand(o.key, 'r') - .5) * 26;
-    const S = { key: 'bfxs|' + o.key, x, y, glyph: g, size: Math.round(size), color, rot }, life = 3 * BP();
+    // polisher: a stamp lands whole inside the frame (a disc stamp cut in half at the edge read as a glitch)
+    const m = size * .75, xs = clamp(x, m, W - m), ys = clamp(y, m, H - m);
+    const S = { key: 'bfxs|' + o.key, x: xs, y: ys, glyph: g, size: Math.round(size), color, rot }, life = 3 * BP();
     DRAW.push({ t0: t, t1: t + life + .12, layer: o.layer, draw: (ctx, x2) => PL().stamp(ctx, S, x2 - t, { cull: pr(x2, t + life, .1), alpha: .92 * fadeHold(x2) }) });
     return true;
   },

@@ -74,7 +74,9 @@ A({"id": "hole", "type": "blackhole", "t0": B(100), "t1": B(113.5), "c": [540, 8
    "r": [[B(101), 0], [B(102.5), 30], [B(104.5), 70], [B(106.5), 120], [B(107.6), 160]],
    "darken": {"from": B(104.5), "to": B(107.7)},
    "swallow": {"from": B(104.5), "to": B(107.8), "items": "all", "keep": ["fog", "brutal", "fog-credit"], "turns": 1.15},
-   "collapse": {"at": B(107.78), "dur": 0.14}, "burst": {"at": B(112), "rings": 3, "debris": 80},
+   "collapse": {"at": B(107.78), "dur": 0.14, "flash": 0.85, "flashDecay": 0.06, "shake": 14,
+                "pinch": {"glow": 0.6, "ring": 0.55, "flecks": 56, "colors": ["cream", "yellow", "pink", "orange", "teal"]}},
+   "burst": {"at": B(112), "rings": 3, "debris": 80},
    "shakes": [{"at": B(104), "amp": 10}, {"at": B(106), "amp": 8}],
    "_note": "builder D's singularity: opens as the laps reach a beat (hb:101), swallows everything from hb:104.5, snaps shut on 'God,' (song 71.456 = hb:107.93), bursts on the instrumental's downbeat hb:112"})
 A({"id": "paint", "type": "layer", "kind": "canvas", "_note": "the beat track's paint (splats, stamps, ticks, grain): above the grounds, under the facts"})
@@ -96,6 +98,7 @@ for k in ("altman", "amodei"):
     it = json.loads(json.dumps(SHORT[k]))
     it["zoom"] = [1.0, 1.1]   # showcase: a stronger slow push than the short (beatcheck flagged the prelude's slow push as near-static)
     it["crop"] = PRELUDE[k]["crop"]; it["focus"] = PRELUDE[k]["focus"]
+    it["frames"] = f"showcase-{k}"   # its own cache folder: the short's cache/altman, cache/amodei keep the short's crop and box
     it["caption"].update({"reveal": "sweep", "dimOp": 0.14, "dimHl": 0.3, "marks": PRELUDE[k]["marks"]})
     it["caption"].pop("dimHl_", None)
     it["_note"] = "copied from edl/short.json (verified words, timing and audio; footage as filmed, no keying). " + it.get("_note", "")[:300]
@@ -118,7 +121,17 @@ A({"id": "pile-hf", "type": "screens", "t0": AMODEI_T1, "t1": B(1.75), "region":
    "_note": "real captures (research/rev2/captures.json, focus crops): Fortune Jul 21, TIME Jul 24, BBC Jul 29 2026, dumped on the prelude's beats and pulse swells (hb:-7, hb:-6, song 16.823 = hb:-5; hits.json prelude_pulse); pushed into the BBC phrase, lifted and circled through the breath (song 18.25-19.05, visual only)"})
 
 # ---------------------------------------------------------------- RIFF (hb:0 - 16): the kand riff, footage inside the discs
-A({"id": "kand-riff", "type": "kand", "t0": B(0), "t1": B(17), "layout": {"y": 400, "scale": 0.72}, "preset": {"name": "riff", "from": "hb:0"},
+# polisher: the river runs hb:8-16 (was 10-16) with 16 vectors 2.3x the size, joining on 8ths, comet trails, water ripples and
+# brighter flow lines; the superposition is bigger (r 380) and its reframes cap at 1.15x about a point that keeps the whole wordmark
+# in frame (was 1.5x / 1.25x pushes that cut the title to "Hyperp" for hb:13-15)
+RIFF_PRESET = {"name": "riff", "from": "hb:0",
+  "river": {"from": 8, "to": 16, "vectors": 16, "size": 2.3, "trail": 1.6, "stagger": 0.5, "lanes": 110, "flowK": 1.6, "ripple": 6,
+            "colors": ["ink", "pink", "blue", "violet", "orange", "teal", "red", "ink"]},
+  "superpose": {"r": 380},
+  "reframe": [{"at": 5, "zoom": 1.55, "focus": "black", "to": [470, 760]}, {"at": 6, "zoom": 1.4, "focus": "blue", "to": [620, 980]}, {"at": 7, "zoom": 1},
+              {"at": 13, "zoom": 1.15, "focus": [722, 500], "to": [528, 760], "rot": -2.5}, {"at": 14, "zoom": 1.12, "focus": [764, 583], "to": [550, 820], "rot": 2.5},
+              {"at": 15, "zoom": 1}]}
+A({"id": "kand-riff", "type": "kand", "t0": B(0), "t1": B(17), "layout": {"y": 400, "scale": 0.72}, "preset": RIFF_PRESET,
    "moves": [{"move": "break", "at": B(16), "dur": 0.4, "hide": ["pink"], "stagger": 0.006}],
    "_note": "builder A's riff preset: painted on piece by piece, orbits, jumps, the river on beats 10-15, the superposition on bar 4; breaks apart on verse 1 (hb:16), the pink disc stays behind as the footage frame"})
 A({"id": "kc-pink-riff", "type": "kandclip", "item": "kand-riff", "piece": "pink", "t0": B(1.5), "t1": B(16.05), "prep": "clip",
@@ -144,8 +157,11 @@ A({"id": "mlp", "type": "net", "kind": "mlp", "t0": B(16.25), "t1": B(24), "ente
    "update": B(22.5), "infer2": {"from": "hb:23", "to": "hb:23.75", "every": 0.25},
    "cam": {"dist": 27, "cy": 1260, "cx": 455, "orbit": 18, "step": 1.4, "target": [-0.9, 0, 0]},
    "_note": "builder B's real sigmoid MLP (144-16-16-10): one layer per beat, the wrong answer (8), the error flows back on beats, one gradient step, the corrected pass on 16ths says 3"})
-A({"id": "eq-fwd", "type": "equation", "ref": "nn-forward", "t0": B(15.9), "t1": B(20), "drop": B(16), "mode": "pencil", "dur": 0.9, "x": 90, "y": 360, "px": 64,
-   "label": {"text": "inference: each layer feeds the next", "at": B(16.5), "font": {"size": 44}}, "cite": {"at": B(18)}, "exit": {"style": "fade", "dur": 0.15}, "pulse": "hb:17..19"})
+A({"id": "eq-fwd", "type": "equation", "ref": "nn-forward", "t0": B(16), "t1": B(20), "drop": B(16), "mode": "slam", "x": 90, "y": 360, "px": 68, "theme": "dark",
+   "hit": 6, "flash": {"opacity": 0.3, "decay": 0.1, "color": "#F2C300"},
+   "label": {"text": "inference: each layer feeds the next", "at": B(16.5), "font": {"size": 44}}, "cite": {"at": B(18.5)}, "exit": {"style": "fade", "dur": 0.15}, "pulse": "hb:17..19",
+   "hl": [{"tex": "\\sigma", "at": B(18), "style": "circle", "color": "#FF2E88"}],
+   "_note": "polisher: slammed in full cream ink on the verse downbeat (it took the light theme from its old t0 hb:15.9, so it was set in dark ink on the dark verse: 15-20% visible), a 6 px hit and a yellow ink flash; sigma circled on hb:18"})
 A({"id": "eq-bp1", "type": "equation", "ref": "bp1", "t0": B(20), "t1": B(24), "drop": B(20), "mode": "pencil", "dur": 0.42, "x": 90, "y": 330, "px": 52, "cite": False,
    "flash": {"opacity": 0.32, "decay": 0.09, "color": "#FF4A1C"}, "hit": 12,
    "label": {"text": "backprop: the error at the output", "at": B(20), "font": {"size": 36}, "gap": 18}})
@@ -179,21 +195,27 @@ A({"id": "pile-b", "type": "screens", "t0": B(28), "t1": HB92, "layout": "scatte
 
 # ---------------------------------------------------------------- REFRAIN (hb:92 - 100): the record data centre, GRPO, "golden age"
 g = GRA["dc-record-mw"]
-A({"id": "chart-dc", "type": "chart", "graph": "dc-record-mw", "t0": HB92, "t1": B(96), "prep": "image", "src": g["image"],
-   "frame": {"x": 70, "y": 262, "w": 940, "h": 470, "rot": -1.2}, "fit": "cover", "srcFocus": [0.5, 0.5], "zoom": [1.0, 1.12],
+# polisher: the chart's payoff lands and holds. Points on 8ths/16ths from hb:92.5 with the record (Colossus 2, 946 MW) on the beat
+# hb:94, the annotation slammed big on hb:94.5, the source line from hb:94.75, and the particles exit moved from hb:96 to hb:97.5
+# (1 beat long: the chart is whole until hb:97.25, 3.25 beats after the record lands; was: annotation 30.30 and source 30.40, both
+# under the exit that started at 30.3).
+# A bigger card (970 px wide, values 44 px), the first value label kept clear of the y ticks, the unit inside the plot.
+A({"id": "chart-dc", "type": "chart", "graph": "dc-record-mw", "t0": HB92, "t1": B(97.5), "prep": "image", "src": g["image"],
+   "frame": {"x": 70, "y": 262, "w": 940, "h": 440, "rot": -1.2}, "fit": "cover", "srcFocus": [0.5, 0.5], "zoom": [1.0, 1.12],
    "imgCaption": {"text": "xAI Colossus 2 · Epoch AI satellite view, 15 Jun 2026 · imagery (c) Airbus DS", "at": B(92.5), "x": 90},
-   "x": 230, "y": 1080, "w": 650, "h": 360, "titleGap": 205, "titlePx": 54, "axesAt": B(92), "titleAt": B(92),
-   "grow": {"from": B(92.5), "to": B(95), "every": 0.5}, "labels": "all", "valuePx": 30, "valueFmt": {"dec": 0}, "color": "#FF2E88",
-   "annotate": [{"at": B(95.25), "i": 5, "text": g["highlight"]["label"], "dx": -330, "dy": 40, "w": 300, "px": 38, "lines": 2, "hl": "946 MW"}],
-   "sourceAt": B(95.5), "splatColor": "#F2C300",
-   "_note": "research/rev2/graphs.json dc-record-mw (Epoch observed records only, no projections); a record lands on every 8th"})
-A({"id": "eq-grpo", "type": "equation", "ref": "grpo", "t0": B(96), "t1": B(100), "drop": B(96), "mode": "pencil", "cx": 540, "cy": 640, "px": 40, "maxW": 960,
-   "label": {"text": "GRPO: the RL objective behind DeepSeek-R1", "at": B(96), "gap": 60}, "cite": {"at": B(98)},
-   "hl": [{"from": "highlight", "at": B(98.5), "style": "circle", "ink": "#B31B1B"}], "card": {"pad": 40, "rot": -1.0, "color": "#FBF6EC"},
-   "pulse": {"from": B(97.5), "to": B(99.5)}, "rows": [B(96), B(96.5), B(97)],
-   "_note": "research/rev2/equations.json grpo (Shao et al. 2024, DeepSeekMath eq. 3), portrait-stacked form, rows drawn on beats"})
-A({"id": "pile-c", "type": "screens", "t0": B(96), "t1": B(100), "region": {"x0": 60, "y0": 1040, "x1": 1020, "y1": 1500}, "w": 900,
-   "shots": [shot("geopolitics-toms-deepseek", B(96), "slide"), shot("economy-guardian_nvidia_revenue_100bn", B(98.25), "slam", hl=1, crop=[330, 425, 1600, 695])],
+   "x": 200, "y": 1060, "w": 760, "h": 380, "titleGap": 230, "titlePx": 54, "subPx": 26, "axesAt": B(92), "titleAt": B(92), "titlePer": 0.121, "subAt": B(93),
+   "grow": [B(92.5), B(92.75), B(93), B(93.25), B(93.5), B(94)], "labels": "all", "valuePx": 44, "valueFmt": {"dec": 0}, "color": "#FF2E88",
+   "yAxis": {"label": "MW", "labelIn": True, "labelPx": 30},
+   "annotate": [{"at": B(94.5), "i": 5, "text": g["highlight"]["label"], "dx": -560, "dy": 128, "w": 420, "px": 62, "lines": 2, "hl": "946 MW", "lead": 0, "per": 0.06}],
+   "sourceAt": B(94.75), "sourcePer": 0.05, "sourceY": 1500, "sourcePx": 24, "sourceW": 900, "splatColor": "#F2C300",
+   "_note": "research/rev2/graphs.json dc-record-mw (Epoch observed records only, no projections); the records land on 8ths and 16ths, the 946 MW record on the beat"})
+A({"id": "eq-grpo", "type": "equation", "ref": "grpo", "t0": B(97.5), "t1": B(100), "drop": B(97.5), "mode": "pencil", "cx": 540, "cy": 640, "px": 40, "maxW": 960,
+   "label": {"text": "GRPO: the RL objective behind DeepSeek-R1", "at": B(97.5), "gap": 60}, "cite": {"at": B(98.75)},
+   "hl": [{"from": "highlight", "at": B(99.25), "style": "circle", "ink": "#B31B1B"}], "card": {"pad": 40, "rot": -1.0, "color": "#FBF6EC"},
+   "pulse": {"from": B(98.75), "to": B(99.75)}, "rows": [B(97.5), B(98), B(98.5)],
+   "_note": "research/rev2/equations.json grpo (Shao et al. 2024, DeepSeekMath eq. 3), portrait-stacked form, rows drawn on beats (polisher: from hb:97.5, 1.5 beats later, so the chart before it keeps its payoff)"})
+A({"id": "pile-c", "type": "screens", "t0": B(97.5), "t1": B(100), "region": {"x0": 60, "y0": 1040, "x1": 1020, "y1": 1500}, "w": 900,
+   "shots": [shot("geopolitics-toms-deepseek", B(97.75), "slide"), shot("economy-guardian_nvidia_revenue_100bn", B(98.25), "slam", hl=1, crop=[330, 425, 1600, 695])],
    "push": False, "emph": [{"style": "circle", "at": B(99), "shot": 1}], "out": "cut",
    "_note": "the market side of the RL race: DeepSeek's release (Jan 2025) and Nvidia's 'golden age' (Aug 2026), whose highlight lands on 'golden years' (song 66.56-67.44)"})
 
@@ -217,10 +239,14 @@ A({"id": "loop", "type": "loop", "t0": B(100), "t1": B(109), "c": [540, 861], "r
    "laps": {"from": B(100), "plan": [[2, 1], [1, 2], [0.5, 8]]}, "title": {"text": "AI that builds better AI", "y": 262, "at": B(100), "px": 76},
    "collapse": {"at": B(105.9), "dur": 0.92, "turns": 1.6},
    "_note": "the deck's self-improvement loop (theory_slides.explosionSlide; Splash title 'AI that builds better AI'), compressed to laps of 2 beats, 1 beat x2, 8ths x8 = hb:100-108"})
-A({"id": "fog", "type": "clip", "prep": "clip", "t0": B(106.5), "t1": B(112.2), "src": "clips/bengio-fog-loss-of-control-ted2025.mp4", "in": 10.9,
-   "box": {"x": 0, "y": 0, "w": 1080, "h": 1920}, "srcFocus": [0.56, 0.5], "zoom": [1.0, 1.1], "zoomEase": "lin", "punch": [{"at": B(109), "z": 1.06, "dur": 0.14}, {"at": B(110), "z": 1.05, "dur": 0.12}, {"at": B(111), "z": 1.05, "dur": 0.12}],
-   "grade": {"sat": 0, "contrast": 1.2, "brightness": -0.16, "gamma": 0.75, "grain": 4}, "enter": {"style": "fade", "dur": 0.6}, "theme": "dark",
-   "_note": "the clearing: while the hole swallows the frame (under the spiralling screenshots) and after it snaps shut, night fog with a car's headlights (b-roll from Bengio's TED2025 talk, muted, graded dark) under the painted words"})
+FOG_T0 = 36.38                       # polisher: just after the hole pinches shut (collapse ends edit 36.35)
+A({"id": "fog", "type": "clip", "prep": "clip", "t0": FOG_T0, "t1": B(112.2), "src": "clips/bengio-fog-loss-of-control-ted2025.mp4", "in": round(10.9 + FOG_T0 - E(HB(106.5)), 3),
+   "box": {"x": 0, "y": 0, "w": 1080, "h": 1920}, "srcFocus": [0.62, 0.5], "zoom": [1.0, 1.12], "zoomEase": "lin", "punch": [{"at": B(109), "z": 1.06, "dur": 0.14}, {"at": B(110), "z": 1.05, "dur": 0.12}, {"at": B(111), "z": 1.05, "dur": 0.12}],
+   "grade": {"sat": 0, "contrast": 1.1, "brightness": 0.03, "gamma": 1.25, "grain": 4}, "enter": {"style": "fade", "dur": 0.7}, "theme": "dark",
+   "_note": "the clearing (polisher): fades up over 36.38-37.08 right after the hole pinches shut, graded so the fog and the car's headlights read as footage (was brightness -0.16 / gamma 0.75: two grey blobs on black); b-roll from Bengio's TED2025 talk, muted, under the painted words"})
+A({"id": "god-ink", "type": "stroke", "t0": B(108.5), "t1": B(110), "at": B(108.5), "dur": 0.2, "layer": "own", "width": 44, "color": "#F2EBDD",
+   "points": [[120, 430], [380, 372], [700, 338], [990, 262]], "dry": 0.3, "gaps": 0.25, "out": {"at": B(109.5), "dur": 0.25},
+   "_note": "polisher: a half-beat brush flick (hb:108.5) so something moves between the pinch and the first painted word"})
 pile = [("frontier-anthropic_rsi_head", 100.5, "bottom", -3, 760), ("frontier-govai_head", 101, "top", 2.5, 800),
         ("capabilities-rev3-nikkei-us-china-ai-race-speeds-up-headline", 101.5, "bottom2", 2, 860), ("frontier-engadget_head", 102, "top2", -2, 820),
         ("frontier-anthropic_rdai_chart", 102.5, "bottom", -2.5, 760), ("xrisk-rev2-cnn-2026-02-11-researchers-alarm-on-way-out", 103, "top", 3, 820),
@@ -239,12 +265,19 @@ for k, (sid, b, where, rot, w) in enumerate(pile):
        "_note": f"real screenshot {sid}: {x['text'][:80]}"})
 
 # ---------------------------------------------------------------- "GOD, IT'S BRUTAL OUT HERE" (hb:108 - 112): painted over the fog
-A({"id": "god-splat", "type": "splat", "at": B(109), "t1": B(112), "x": 830, "y": 1330, "r": 120, "color": "#FF2E88", "dir": -60, "layer": "own",
+A({"id": "god-splat", "type": "splat", "at": B(109), "t1": B(112), "x": 900, "y": 1730, "r": 110, "color": "#FF2E88", "dir": -60, "layer": "own",
    "_note": "a beat event on 'It's' (hb:109) over the dark fog: on its own layer so the footage does not hide it"})
-A({"id": "fog-credit", "type": "words", "t0": B(108.5), "t1": B(112), "x": 64, "y": 1520, "w": 900, "text": "FOOTAGE: YOSHUA BENGIO, TED2025",
-   "font": {"family": "'IBM Plex Mono', monospace", "weight": 600, "size": 24}, "color": "#9A96A8", "roll": {"mode": "words", "rate": 4, "from": B(108.5)}})
-A({"id": "brutal", "type": "brushtext", "t0": "song:71.95", "t1": B(112.4), "text": "it's brutal out here", "words": "hits",
-   "_note": "builder A: painted word by word on the sung words (song/hits.json words.brutal_out_here), the one lyric allowed on screen"})
+A({"id": "fog-credit", "type": "words", "t0": B(108.5), "t1": B(112), "x": 64, "y": 1534, "w": 900, "text": "FOOTAGE: YOSHUA BENGIO, TED2025",
+   "font": {"family": "'IBM Plex Mono', monospace", "weight": 600, "size": 30}, "color": "#C9C4D6", "roll": {"mode": "words", "rate": 4, "from": B(108.5)}})
+BT_UNDER = {"color": "#15131F", "k": 1.5}   # polisher: a dark ink under-stroke so cream and yellow read where they cross the pink splat
+A({"id": "brutal", "type": "brushtext", "t0": "song:71.95", "t1": B(112.65), "text": "it's brutal out here", "words": "hits", "overlay": True,
+   "exit": {"style": "fade", "dur": 0.12}, "drift": 0.02,
+   "place": [{"x": 150, "y": 640, "size": 190, "rot": -8, "color": "yellow", "width": 30, "under": BT_UNDER},
+             {"x": 87, "y": 960, "size": 256, "rot": -8, "color": "cream", "under": BT_UNDER},
+             {"x": 330, "y": 1190, "size": 210, "rot": -8, "color": "yellow", "width": 34, "under": BT_UNDER, "dur": 0.3},
+             {"x": 300, "y": 1450, "size": 250, "rot": -8, "color": "cream", "under": BT_UNDER, "lead": 0.03, "dur": 0.16}],
+   "splat": {"dimTo": 0.45, "dimAfter": 0.25},
+   "_note": "builder A: painted word by word on the sung words (song/hits.json words.brutal_out_here), the one lyric allowed on screen. Polisher: in the unshaken overlay layer (#fx) so the burst (rings, debris, the iris, the spat cards, the logo pieces) paints BEHIND the letters; 'brutal' scaled to 256 px so every glyph keeps >= 60 px of margin; ink under-strokes; the pink burst drops to 45% after landing; 'here' painted 37.94-38.10 (was 37.97-38.31) and held to 38.60, so the whole line reads for ~0.4 s past the downbeat burst"})
 
 # ---------------------------------------------------------------- INSTRUMENTAL (hb:112 - end): the burst, the reassembly, Bengio
 V_AT = E(HB(113.25))                 # edit time Bengio's audio.in (clip 3.62 s) plays at
@@ -273,10 +306,12 @@ words = [("We", 3.76), ("are", 4.48), ("blindly", 5.12), ("driving", 6.36), ("in
 A({"id": "voice-bengio", "type": "voice", "t0": V_AT, "t1": round(V_AT + V_OUT - V_IN, 3), "src": "clips/bengio-fog-loss-of-control-ted2025.mp4", "at": V_AT,
    "audio": {"in": V_IN, "out": V_OUT, "fade_ms": 60}, "verified": True,
    "_note": "AUDIBLE over the instrumental (vocal-free; the song ducks under it): 'We are blindly driving into a fog' (research/long/bengio-2025.json rank 2, base.en and small.en agree; word times re-measured with small.en, clip 3.76-7.82). The sentence goes on ('despite the warnings...'), hence the trailing ellipsis."})
-A({"id": "kar-bengio", "type": "karaoke", "t0": round(V_AT - 0.1, 3), "t1": B(123.5), "x": 72, "y": 262, "w": 930, "size": 46,
+A({"id": "kar-bengio", "type": "karaoke", "t0": round(V_AT - 0.1, 3), "t1": B(123.5), "x": 72, "y": 255, "w": 940, "size": 60, "font": {"weight": 700},
+   "roll": {"dim": 0.62}, "metaPx": 30, "metaGap": 14,
    "speech": {"in": V_IN, "at": V_AT, "words": [{"w": w, "s": s} for w, s in words]}, "name": "Yoshua Bengio", "year": "TED2025", "metaAt": round(V_AT + 0.3, 3),
    "marks": [{"phrase": "blindly driving into a fog", "style": "underline", "at": round(V_AT + (7.82 - V_IN) + 0.1, 3), "color": "#FF2E88"}],
-   "exit": {"style": "fade", "dur": 0.25}, "theme": "light"})
+   "exit": {"style": "fade", "dur": 0.25}, "theme": "light",
+   "_note": "polisher: 60 px bold in the clear cream strip above the logo (y 255-475; the outro's paint is kept out of it), unspoken words at 0.62 (4.6:1 on the cream; was 0.3 of a 46 px mono line under blue/orange splats)"})
 
 # ---------------------------------------------------------------- surface
 A({"id": "grain", "type": "grain", "t0": 0, "t1": B(0), "opacity": 0.035, "size": 2, "hold": 3})
@@ -292,7 +327,7 @@ transitions = [
    "dur": 1.5, "focus": [905, 790], "r": 110, "ground": DARK},
   {"id": "tr-shatter", "at": B(28), "type": "shatter", "out": ["pile-a", "p-band"], "in": ["pile-b", "p-agents"], "dur": 1.5, "n": 16, "flash": 0.25, "shake": 6, "ground": DARK},
   {"id": "tr-whip", "at": HB92, "type": "whip", "mode": "spin", "dir": 1, "out": ["g-dark-verse", "pile-b", "p-agents"], "in": ["g-cream-2", "chart-dc"], "dur": 1.0, "ground": False},
-  {"id": "tr-particles", "at": B(96), "type": "particles", "out": ["chart-dc"], "in": ["eq-grpo", "pile-c"], "dur": 1.25, "ground": CREAM},
+  {"id": "tr-particles", "at": B(97.5), "type": "particles", "out": ["chart-dc"], "in": ["eq-grpo", "pile-c"], "dur": 1.0, "ground": CREAM},
   {"id": "tr-iris", "at": B(100), "type": "iris", "shape": "circle", "c": [540, 861], "out": ["eq-grpo", "pile-c"], "in": ["kand-loop", "loop"], "dur": 1.0, "ground": CREAM, "shake": 6},
 ]
 
@@ -321,7 +356,9 @@ edl = {
     {"id": "fx-verse", "from": "hb:16", "to": "hb:31.5", "pattern": "verse", "intensity": 0.85, "eighths": True, "layer": "paint"},
     {"id": "fx-refrain", "from": "hb:92", "to": "hb:107.5", "pattern": "refrain", "eighths": False, "layer": "paint"},
     {"id": "fx-god", "from": "hb:108", "to": "hb:111.5", "pattern": "god", "eighths": False, "layer": "paint"},
-    {"id": "fx-outro", "from": "hb:112.5", "to": "hb:123.5", "pattern": "outro", "eighths": True, "layer": "paint"},
+    {"id": "fx-outro", "from": "hb:112.5", "to": "hb:123.5", "pattern": "outro", "eighths": True, "layer": "paint",
+     "zones": [[40, 1590, 1000, 260], [10, 560, 110, 820], [960, 600, 110, 780]], "avoid": [[40, 220, 1000, 280]],
+     "_note": "polisher: the outro's splats and stamps stay out of the Bengio caption strip (y 220-500)"},
   ],
 }
 # the short's layout for its prelude clips (caption/stamp sizes), so the copied Altman/Amodei items set exactly as there

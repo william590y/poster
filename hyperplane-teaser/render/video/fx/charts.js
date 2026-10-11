@@ -324,12 +324,14 @@ function build2(it) {
   if (g.title) it.title = K.roll(it, { text: g.title, x: d.titleX ?? P.x - 30, y: d.titleY ?? P.y - (d.titleGap ?? 210), w: d.titleW ?? Math.min(960, P.w + 60), parent: it.wrap,
     font: { family: "'Newsreader', serif", weight: 600, size: d.titlePx ?? 60 }, lh: (d.titlePx ?? 60) * 1.08, color: ink, at: d.titleAt ?? it.t0, per: d.titlePer ?? EIGHTH, style: 'drop', hl: d.titleHl, hlAt: d.titleHlAt, hlColor: d.titleHlColor });
   if (g.subtitle || g.unit) it.sub = K.roll(it, { text: g.subtitle || g.unit, x: d.titleX ?? P.x - 30, y: (d.titleY ?? P.y - (d.titleGap ?? 210)) + (it.title ? it.title.height + 8 : 0), w: P.w + 60, parent: it.wrap,
-    font: { weight: 500, size: d.subPx ?? 32 }, upper: true, tracking: 1, color: ink, at: d.subAt ?? (it.title ? it.title.end + EIGHTH : it.t0), per: EIGHTH / 2, style: 'rise', markAs: 'meta' });
+    font: { weight: 500, size: d.subPx ?? 32 }, upper: true, tracking: 1, color: ink, at: d.subAt ?? (it.title ? it.title.end + EIGHTH : it.t0), per: d.subPer ?? EIGHTH / 2, style: 'rise', markAs: 'meta' });
   const lab = (txt, css) => { const s = el('div', '', it.wrap, { position: 'absolute', font: `500 ${meta}px 'IBM Plex Mono', monospace`, color: ink, whiteSpace: 'nowrap', opacity: 0, zIndex: 2, ...css }); K.setNum(s, txt); return s; };
   it.ytl = it.yt.map(v => lab(K.fmt(v, ya.fmt || {}), { left: (P.x - 16) + 'px', top: (it.Y(v) - meta * 0.62) + 'px', transform: 'translateX(-100%)' }));
   it.xtl = it.xt.map(v => lab(xa.fmt ? K.fmt(v, xa.fmt) : String(Math.round(v)), { left: it.X(v) + 'px', top: (P.y + P.h + 18) + 'px', transform: 'translateX(-50%)' }));
   if (it.cat) it.ctl = it.cats.map((c, k) => lab(c, { left: it.X(k) + 'px', top: (P.y + P.h + 18) + 'px', transform: 'translateX(-50%)', textAlign: 'center' }));
-  if (ya.label) it.ylab = lab(ya.label, { left: (P.x - 16) + 'px', top: (P.y - meta * 2.1) + 'px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', transform: 'translateX(-30%)' });
+  // yAxis.labelIn (polisher): the unit sits inside the plot, just right of the axis top, instead of above it (clear of a subtitle)
+  if (ya.label) it.ylab = ya.labelIn ? lab(ya.label, { left: (P.x + 16) + 'px', top: (P.y - meta * 0.4) + 'px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', fontSize: (ya.labelPx ?? meta) + 'px' })
+    : lab(ya.label, { left: (P.x - 16) + 'px', top: (P.y - meta * 2.1) + 'px', fontWeight: 600, textTransform: 'uppercase', letterSpacing: '1px', transform: 'translateX(-30%)' });
   // value labels (bars: all; line: d.labels "all" | "last" | [indices]) and the big counter
   const lv = d.labels ?? (kind === 'bar' ? 'all' : 'last');
   it.vlab = S[0].pts.map((p, k) => (lv === 'all' || (Array.isArray(lv) && lv.includes(k)) || (lv === 'last' && k === S[0].pts.length - 1))
@@ -358,7 +360,7 @@ function build2(it) {
   }
   if (g.source) it.src = K.roll(it, { text: g.source, x: d.sourceX ?? P.x - 30, y: d.sourceY ?? P.y + P.h + 90, w: d.sourceW ?? Math.min(960, P.w + 60), parent: it.wrap,
     font: { weight: 500, size: d.sourcePx ?? 28 }, upper: true, tracking: 0.5, lh: (d.sourcePx ?? 28) * 1.3, color: d.sourceColor || ink,
-    at: d.sourceAt ?? (it.grow[n - 1] + BEAT), per: EIGHTH / 2, style: 'rise', markAs: 'meta' });
+    at: d.sourceAt ?? (it.grow[n - 1] + BEAT), per: d.sourcePer ?? EIGHTH / 2, style: 'rise', markAs: 'meta' });
   // named-point labels: greedy placement (above, below, left, right of the point) avoiding every label placed before
   it.lblBelow = []; it.lblPos = [];
   if (d.labelText) {
@@ -375,6 +377,9 @@ function build2(it) {
   }
   it.splatAt = d.splats === false ? [] : it.grow.map((x, k) => ({ x, k })).filter(({ x }) => { const bi = HP.beatAt(x), r = Math.round(bi); return Math.abs(bi - r) < 0.05 && ((r % 4 + 4) % 4 === 0); });
   it.kickT = it.grow.slice();
+  // polisher: payoffs for check/coverage.py (the last data point, each annotation, the source line must land >= a read before t1)
+  it.payoffs = () => [{ what: 'last data point', at: it.grow[n - 1] + 0.2 }, ...it.ann.map(A => ({ what: `annotation "${A.a.text}"`, at: A.R.end + 0.16 })),
+    ...(it.src ? [{ what: 'source line', at: it.src.end + 0.14 }] : [])];
 }
 
 function draw(it, t) {
@@ -486,7 +491,10 @@ function drawLine(it, t, rc, ctx, s, si) {
     if (r > 0.5) rc.circle(x, y, 2 * r, { fill: hi ? HP.COL.yellow : col, fillStyle: 'solid', stroke: ink, strokeWidth: 3, roughness: 0.8, seed: K.seed(it.id, 'pt', si, k, HP.boil(t) % 3) });
     const L = it.vlab[k];
     if (si === 0 && L) {
-      L.style.left = x + 'px'; L.style.top = (y - 26) + 'px'; L.style.opacity = clamp(lt / 0.06);
+      // polisher: a value label centred over a point at the y axis would print over the tick labels ("40(237"): keep its left
+      // edge inside the plot (Plex Mono advance 0.6 em; the final value's width)
+      const hw = String(K.fmt(s.pts[k].y, d.valueFmt || it.ya.fmt || {})).length * (d.valuePx ?? 38) * 0.31;
+      L.style.left = (d.labelText ? x : Math.max(x, it.P.x + 10 + hw)) + 'px'; L.style.top = (y - 26) + 'px'; L.style.opacity = clamp(lt / 0.06);
       const v0 = k > 0 ? s.pts[k - 1].y : 0;
       K.setNum(L, d.labelText ? String(s.pts[k].label ?? '') : K.fmt(lerp(v0, s.pts[k].y, E.oCub(pr(lt, 0, 0.2))), d.valueFmt || it.ya.fmt || {}));
       if (d.labelText) {

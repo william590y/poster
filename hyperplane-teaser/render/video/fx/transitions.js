@@ -508,7 +508,8 @@ register('shatter', {
       return;
     }
     // shards: clones of the out layer clipped to each cell, flying out from the impact with spin, tumble and gravity
-    const lt = (u - h) * tr.D;
+    // fixer r3 "head" (s): the shards' flight has already run this long at the impact (the stack is blown open ON the beat)
+    const lt = (u - h) * tr.D + (p.head || 0);
     // assembler (rev2): the shards ARE the outgoing frames' footage/screenshots: when an out layer carries declared imagery the
     // overlay is declared too (coverage.py), as particles does; the clones keep their own data-hp-img markers as well
     if (X.outs.some(e => e.querySelector('[data-hp-img]'))) HP.markImagery(ctx.canvas, tr.id);
@@ -525,7 +526,10 @@ register('shatter', {
         c.style.transform = about(c, cl.c, `translate(${dx.toFixed(1)}px,${dy.toFixed(1)}px) rotateX(${rx.toFixed(1)}deg) rotateY(${ry.toFixed(1)}deg) rotate(${rz.toFixed(1)}deg)`, p.persp) + ' ' + (c.style.transform || '');
         // shading: a face turned away from the light darkens; an edge catches it
         const tilt = Math.abs(Math.sin(rx * D2R)) * .5 + Math.abs(Math.sin(ry * D2R)) * .5;
-        const sh = el('div', '', c, { position: 'absolute', inset: 0, clipPath: polyStr(cl.poly), background: `rgba(40,24,30,${(tilt * .34).toFixed(3)})` });
+        // fixer r3 "back" (colour): a shard turned past 90 deg shows its paper back, not its picture mirrored
+        const flipped = p.back && Math.cos(rx * D2R) * Math.cos(ry * D2R) < 0;
+        const sh = el('div', '', c, { position: 'absolute', inset: 0, clipPath: polyStr(cl.poly), background: flipped ? p.back : `rgba(40,24,30,${(tilt * .34).toFixed(3)})` });
+        if (flipped) el('div', '', c, { position: 'absolute', inset: 0, clipPath: polyStr(cl.poly), background: `rgba(40,24,30,${(tilt * .3).toFixed(3)})` });
         if (p.edge !== false) { const s = HP.u.sv('svg', { width: W, height: H, style: 'position:absolute;left:0;top:0;overflow:visible' }, c); HP.u.sv('polygon', { points: cl.poly.map(q => q.join(',')).join(' '), fill: 'none', stroke: '#FBF7EE', 'stroke-width': 3, 'stroke-opacity': (.4 + .5 * (1 - tilt)).toFixed(2) }, s); }
         void sh;
       }

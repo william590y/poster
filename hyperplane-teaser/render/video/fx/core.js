@@ -734,6 +734,7 @@ HP.probe = {
     // folded / shattered / zoomed, until the window ends), else t1
     return ITEMS.map(it => ({ id: it.id, type: it.type, t0: +it.t0.toFixed(4), t1: +Math.min(it.t1, 1e6).toFixed(4), texts: it.texts(),
       readEnd: +Math.min(it._trOutAt ? Math.min(...it._trOutAt) : it.t1, 1e6).toFixed(4),
+      stamps: it.stamps ? it.stamps() : [],   // fixer r3: screens chips (land, typed-complete, next card's landing) for coverage.py
       payoffs: (it.payoffs ? it.payoffs() : []).filter(p => isFinite(p.at)).map(p => ({ what: String(p.what), at: +p.at.toFixed(4) })) }));
   },
 };

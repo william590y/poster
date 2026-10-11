@@ -207,6 +207,17 @@ HP.register('screens', {
       }
       if (s.entry === 'paint' && paint()) s.plan = paint().revealPlan([-s.w / 2, -s.h / 2, s.w, s.h], { key: `${it.id}|${s.id}|rv`, color: s.revealColor || (it.dark ? 'pink' : 'yellow'), width: 92 });
     });
+    // fixer r3 "chipFit": on a pile faster than a card a beat, each chip types fast enough to be complete (year included) well
+    // before the next card lands (>= 60 cps; done within 60 % of the gap, at most 0.3 s); "chips": "all" keeps every landed card's
+    // chip (under the cards above it), not only the newest one's, so no card is left without its outlet and date
+    { const lands = it.shots.map(s => s.land).sort((a, b) => a - b);
+      for (const s of it.shots) {
+        if (!s.chipTxt) continue;
+        const nx = lands.find(x => x > s.land + 1e-3), gap = nx !== undefined ? nx - s.land : 0.6;
+        s.chipCps = d.chipFit === false ? 60 : Math.max(60, s.chipTxt.length / Math.max(0.08, Math.min(0.3, 0.6 * gap) - 0.06));
+        s.chipDone = s.land + 0.06 + s.chipTxt.length / s.chipCps; s.chipNext = nx;
+      } }
+    it.stamps = () => it.shots.filter(s => s.chipTxt).map(s => ({ shot: s.id, text: s.chipTxt, land: s.land, done: s.chipDone, next: s.chipNext ?? null, all: d.chips === 'all' }));
     // push-in and emphasis (default: on the last shot's phrase, the beat after the last landing)
     const last = it.shots[it.shots.length - 1];
     const ref = (o, k) => it.shots[(o && o.shot !== undefined) ? (o.shot < 0 ? it.shots.length + o.shot : o.shot) : k] || last;
@@ -246,6 +257,8 @@ HP.register('screens', {
     const d = it.d, PM = pileMatrix(it, t), P = paint();
     const ground = it.dark ? NIGHT : CREAM;
     const top = it.shots.filter(s => t >= s.land - EPS).pop();
+    // fixer r3 (coverage.py): the pile's canvas counts as imagery only once a card has landed
+    if (top) it.cv.dataset.hpImg = it.id; else delete it.cv.dataset.hpImg;
     const outU = it.out.style === 'cut' ? 0 : pr(t, it.out.at, it.out.dur);
     for (const s of it.shots) {
       const ep = entryPose(s, t);
@@ -284,7 +297,7 @@ HP.register('screens', {
       c.globalAlpha = 1;
       // chip at the card's lower-left corner, for the newest shot (and the emphasised one at the end)
       if (s.chip) {
-        const keep = s === top || (it.emph.length && it.emph[0].s === s && t >= it.emph[0].at - EPS);
+        const keep = s === top || d.chips === 'all' || (it.emph.length && it.emph[0].s === s && t >= it.emph[0].at - EPS);
         if (!keep || t < s.land - EPS) { s.chip.style.display = 'none'; continue; }
         let CM = M.multiply(new DOMMatrix().translate(-s.w / 2 - s.pad, s.h / 2 + s.pad + 10).scale(1 / Math.max(0.5, ep.sc * ex.sc)));
         // fixer r1: when the slot under the card is below the safe zone (safeFit would push the chip up over the headline), it
@@ -292,7 +305,7 @@ HP.register('screens', {
         if (chipBox(CM, s.chipW, s.chipH)[3] > 1570) { const CT = M.multiply(new DOMMatrix().translate(-s.w / 2 - s.pad, -s.h / 2 - s.pad - 10).scale(1 / Math.max(0.5, ep.sc * ex.sc)).translate(0, -s.chipH)); if (chipBox(CT, s.chipW, s.chipH)[1] >= 254) CM = CT; }
         safeFit(CM, s.chipW, s.chipH);
         Object.assign(s.chip.style, { display: 'block', transform: mat(CM) });
-        const tx = TX().typed(s.chipTxt, t, s.land + 0.06, 60);
+        const tx = TX().typed(s.chipTxt, t, s.land + 0.06, s.chipCps || 60);
         if (tx) { c.setTransform(CM); c.globalAlpha = op * (1 - outU); c.drawImage(TX().chipBitmap(tx, s.chipO).cv, 0, 0); c.globalAlpha = 1; }
       }
     }
@@ -601,7 +614,7 @@ HP.register('panel', {
       const on = t >= it.en.at + 0.2 - EPS && (1 - ux) * op > 0.01, x = it.creditX;
       Object.assign(it.credit.style, { display: on ? 'block' : 'none', left: it.creditPos[0] + 'px', top: it.creditPos[1] + 'px' });
       x.setTransform(1, 0, 0, 1, 0, 0); x.clearRect(0, 0, it.creditCv.width, it.creditCv.height);
-      const tx = on ? TX().typed(d0(it), t, it.en.at + 0.2, 50) : '';
+      const tx = on ? TX().typed(d0(it), t, it.en.at + 0.2, it.d.creditCps ?? 50) : '';   // fixer r3: creditCps
       if (tx) { x.globalAlpha = op * (1 - ux); x.drawImage(TX().chipBitmap(tx, it.creditO).cv, 0, 0); x.globalAlpha = 1; }
     }
   },

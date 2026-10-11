@@ -329,7 +329,9 @@ function paintMasks(t) {
     const c = L.ctx, [x, y, w, h] = m.rect, f = m.feather ?? 60, g = c.createLinearGradient(0, y - f, 0, y + h + f);
     const k0 = f / (h + 2 * f), k1 = 1 - k0;
     g.addColorStop(0, 'rgba(0,0,0,0)'); g.addColorStop(k0, 'rgba(0,0,0,1)'); g.addColorStop(k1, 'rgba(0,0,0,1)'); g.addColorStop(1, 'rgba(0,0,0,0)');
-    c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = 1; c.globalCompositeOperation = 'destination-out'; c.fillStyle = g; c.fillRect(x, y - f, w, h + 2 * f); c.restore();
+    // fixer r3 "fade" (s): the erase ramps in from "from" (the paint washes out instead of vanishing in one frame)
+    const ga = m.fade ? Math.min(1, Math.max(0, (t - m.a) / m.fade)) : 1;
+    c.save(); c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = ga; c.globalCompositeOperation = 'destination-out'; c.fillStyle = g; c.fillRect(x, y - f, w, h + 2 * f); c.restore();
   }
 }
 HP.on('post', t => {

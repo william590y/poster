@@ -477,6 +477,7 @@ async function loadTower(it) {
     // heads: H slabs hinged at their lower-left corner, fanned like a hand of cards (rotation in their own plane), a little
     // apart in depth, turned toward the camera
     o.headRoot = add(new THREE.Group()); o.headRoot.position.set(Lo.wR / 2 + 0.7, b.attnY - 1.0, 0.2); o.headRoot.rotation.y = -0.5;
+    if (d.headScale) o.headRoot.scale.setScalar(d.headScale);   // fixer r3: bigger head slabs (the fan reads at phone size)
     o.heads = Array.from({ length: Lo.H }, (_, h) => {
       const tex = cellTexture(THREE, 8, 8), g = new THREE.Group();
       const slab = new THREE.Mesh(new THREE.BoxGeometry(2.6, 2.0, 0.05), basic({ map: tex, opacity: 0.9 }));
@@ -524,10 +525,22 @@ async function loadTower(it) {
   it.parts = add(new THREE.InstancedMesh(new THREE.BoxGeometry(0.08, 0.34, 0.08), basic({ color: new THREE.Color(C.cream), opacity: 0.9 }), NP));
   it.partSeed = Array.from({ length: NP }, (_, k) => { const r = HP.rng(it.id, 'p', k); return { x: (r() - 0.5) * (Lo.wR + 0.3), z: (r() - 0.5) * 0.6 + 0.15, ph: r(), sp: 0.6 + r() * 0.8 }; });
   it.mats = mats; it.THREE = THREE;
+  // fixer r3 "emissive" (0..1): the blocks glow (Bycroft's lit tensor blocks): the cell faces add light instead of covering, the
+  // weight boxes' faces and edges are brighter, and every block keeps a soft bloom sprite on (it still flares on its beat)
+  if (d.emissive) {
+    const k = d.emissive;
+    for (const o of it.blk) {
+      for (const m of [].concat(o.mlp.material)) { if (m.map) m.blending = THREE.AdditiveBlending; else m.opacity = Math.min(0.6, m.opacity + 0.22 * k); }
+      for (const hd of o.heads) { hd.slab.material.blending = THREE.AdditiveBlending; hd.edges.material.color.lerp(new THREE.Color('#FFFFFF'), 0.25 * k); }
+      o.mlpE.material.opacity = Math.min(1, 0.45 + 0.45 * k); o.attnOutE.material.opacity = Math.min(1, 0.35 + 0.45 * k);
+      o.glow.scale.set(9 + 5 * k, 9 + 5 * k, 1);
+    }
+    for (const m of [].concat(emb.material)) if (m.map) m.blending = THREE.AdditiveBlending;
+  }
   it.top = top; it.bot = bot;
   // DOM tags (Bycroft-style labels, our palette): token words above the columns, block tags, the prediction
-  const tag = (txt, css) => { const s = el('div', '', it.el, { position: 'absolute', font: "600 26px 'IBM Plex Mono', monospace", color: NIGHT, background: C.cream, padding: '3px 10px', textTransform: 'uppercase', letterSpacing: '1px', whiteSpace: 'nowrap', opacity: 0, zIndex: 3, transform: 'translate(-50%, -50%)', ...css }); s.textContent = txt; return s; };
-  it.tokTags = (d.tokens || ['AI', 'that', 'builds', 'better']).map(s => tag(s, { font: "600 44px 'Newsreader', serif", textTransform: 'none', background: 'transparent', color: C.cream, letterSpacing: '0' }));
+  const tag = (txt, css) => { const s = el('div', '', it.el, { position: 'absolute', font: `600 ${d.tagPx ?? 26}px 'IBM Plex Mono', monospace`, color: NIGHT, background: C.cream, padding: '3px 10px', textTransform: 'uppercase', letterSpacing: '1px', whiteSpace: 'nowrap', opacity: 0, zIndex: 3, transform: 'translate(-50%, -50%)', ...css }); s.textContent = txt; return s; };
+  it.tokTags = (d.tokens || ['AI', 'that', 'builds', 'better']).map(s => tag(s, { font: `600 ${d.tokPx ?? 44}px 'Newsreader', serif`, textTransform: 'none', background: 'transparent', color: C.cream, letterSpacing: '0' }));
   it.blkTags = it.blk.map((o, l) => ({ attn: tag(`attention · ${Lo.H} heads`), mlp: tag('MLP'), res: tag('residual stream', { background: C.yellow }) }));
   it.predTag = el('div', '', it.el, { position: 'absolute', font: "700 96px 'Unbounded', sans-serif", color: C.pink, opacity: 0, zIndex: 4, transform: 'translate(-50%, -50%)' });
   it.predTag.textContent = d.next || 'AI';
@@ -647,7 +660,7 @@ function drawTower(it, t) {
     // fixer r2 "beatGlow" (opt-in, 0..1): on every beat each block's glow blooms and its attention box lights, block by block up
     // the residual river (0.05 s apart), so activations visibly travel up the tower on the beat
     const bgk = d.beatGlow ? d.beatGlow * beatKick(it, t, l * 0.05) : 0;
-    o.glow.material.opacity = Math.max(0.75 * hot, bgk); o.glow.material.color.set(new THREE.Color(back ? C.orange : C.yellow));
+    o.glow.material.opacity = Math.max(0.75 * hot, bgk, (d.emissive || 0) * 0.38); o.glow.material.color.set(new THREE.Color(back ? C.orange : C.yellow));
     if (bgk > 0.01) o.attnOut.material.opacity = Math.min(0.8, o.attnOut.material.opacity + 0.45 * bgk);
   });
   // output logits: lit at the last stage; the prediction tag
@@ -691,8 +704,17 @@ function drawTower(it, t) {
   };
   const lo = clamp((t - it.t0) / 0.2) * (d.labels === false ? 0 : 1) * (1 - wide);
   it.tokTags.forEach((n, i) => place(n, prj((i - (Lo.T - 1) / 2) * Lo.cell, Lo.Y.embed + 0.9, 1.6), lo));
+  // fixer r3 "tokGap" (px): the token words never overprint each other (at a distance their columns project closer than the words
+  // are wide): spread them apart about their mean, keeping their order
+  if (d.tokGap !== undefined) {
+    const N = it.tokTags.map(n => ({ n, x: parseFloat(n.style.left) || 0, w: n.offsetWidth })), x0 = N.reduce((a, q) => a + q.x, 0) / N.length;
+    for (let i = 1; i < N.length; i++) { const m = N[i - 1].x + (N[i - 1].w + N[i].w) / 2 + d.tokGap; if (N[i].x < m) N[i].x = m; }
+    const sh = x0 - N.reduce((a, q) => a + q.x, 0) / N.length;
+    for (const q of N) q.n.style.left = (q.x + sh).toFixed(1) + 'px';
+  }
   it.blkTags.forEach((tg, l) => {
     const b = Lo.blocks[l];
+    if (d.tagBlocks !== undefined && l >= d.tagBlocks) { tg.attn.style.opacity = 0; tg.mlp.style.opacity = 0; tg.res.style.opacity = 0; return; }   // fixer r3
     { const q = prj(Lo.wR / 2 + 1.6, b.attnY + 1.5, 0); q.x = Math.min(q.x, 860); place(tg.attn, q, lo * (fi >= 2 * l + 0.5 || back ? 1 : 0.0)); }
     place(tg.mlp, prj(-(Lo.wR / 2 + 2.8), b.mlpY + 1.15, 1.0), lo * (fi >= 2 * l + 1.5 || back ? 1 : 0.0));
     place(tg.res, prj(0, b.attnY + 2.4, 0.3), l === 0 ? clamp((t - it.t0) / 0.2) : 0);

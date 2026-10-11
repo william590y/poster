@@ -885,3 +885,19 @@ with no page error or warning. New fields, by module:
 - **Outro.**
   - The Bengio karaoke is 60 px bold in the clear cream strip above the logo, with unspoken words at 0.62 (4.6:1 on the cream).
   - The outro's splats and stamps are zoned out of that strip.
+
+**Checks (polisher, final render 11 Oct):**
+- **coverage.py:** imagery 100 % of the non-hold frames; 0 texts without a reveal; 0 lyric overlaps; 0 late payoffs.
+- **coverage.py, safe zone:** 36 runs, all motion transients: the zoom-through's flying MLP labels, the screens push on
+  pile-a's CBS chip, and the spiral.
+- **beatcheck.py on the render:** every beat from the drop to hb:123 passes. The only weak beats are five gentle prelude beats,
+  each with a scheduled scribble or tick and a punch, plus the exempt cover hold.
+- **coverdiff.py:** 0.467/255 at the last frame (unchanged).
+- **Speed:** 0.28 s/frame wall with 3 workers (6.3 min for the 45.27 s cut).
+- **Determinism:** frames rendered in sequence are stable. A residual history effect remains on DOM text inside the promoted
+  `#cam`, the only one found:
+  - glyph-edge antialiasing differs, worst mean 0.37/255 in vs. reverse order, on text pixels only;
+  - it shows when a frame follows the page load, or a frame whose camera scale differs;
+  - it is pre-existing: it reproduces with the integrator's caption mode, and is unaffected by `?camreset=0` or a forced
+    non-identity transform.
+  The canvas-drawn content (footage, paint, cards) is unaffected.

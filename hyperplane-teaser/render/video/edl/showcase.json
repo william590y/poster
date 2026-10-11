@@ -2764,8 +2764,20 @@
    "layer": "paint"
   },
   {
-   "id": "fx-refrain",
+   "id": "fx-refrain-chart",
    "from": "hb:92",
+   "to": "hb:96",
+   "pattern": "refrain",
+   "eighths": false,
+   "layer": "paint",
+   "no": [
+    "stamp"
+   ],
+   "_note": "polisher: no ink stamps beside the data-centre chart (a grey ink disc / square at the card's edge read as a stray block)"
+  },
+  {
+   "id": "fx-refrain",
+   "from": "hb:97",
    "to": "hb:107.5",
    "pattern": "refrain",
    "eighths": false,

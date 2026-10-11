@@ -197,7 +197,7 @@ def prelude_riff():
     fp['shapes'][0].update({'y': 352, 'h': 916})
     fp['shapes'][1].update({'y0': 1282, 'y1': 1282})
     ix = next(i for i, x in enumerate(out) if x['id'] == 'altman')
-    out.insert(ix, {'id': 'splat-open', 'type': 'splat', 't0': 0, 'at': 0.0, 't1': 'hb:-20', 'x': 118, 'y': 318, 'r': 92, 'color': '#FF2E88',
+    out.insert(ix, {'id': 'splat-open', 'type': 'splat', 't0': 0, 'at': 0.0, 't1': 'hb:-20', 'x': 124, 'y': 296, 'r': 96, 'color': '#FF2E88',
                     'dir': -20, 'layer': 'paint', 'cullDur': 0.6, 'hit': 8,
                     '_note': "FIXER r1: a paint dab bursts behind the red '2015' tag on frame 0 (the short's first second)"})
 

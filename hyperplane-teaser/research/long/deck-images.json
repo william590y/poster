@@ -1,0 +1,3884 @@
+{
+  "deck": "/home/user/poster/ai-safety-presentation/AI_Safety_and_Existential_Risk.pptx (117 slides)",
+  "slide_numbers": "slide = 1-based slide number in AI_Safety_and_Existential_Risk.pptx where the image is placed (slides = all uses)",
+  "source_note": "source = path relative to assets/ (research manifest file, or original/imageN.png for user-supplied images)",
+  "scope": "PNG/JPG assets placed on slides; kept if they show a news headline, a tweet/post, a chart, or a screenshot/figure of an AI event. Excluded: portraits/avatars, YouTube and video covers, scrims/background art, photos/aerials, AI-made renders, architecture/method diagrams. GIF/MP4 excluded per request (png/jpg/webp only).",
+  "images": [
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/original/image3.png",
+      "w": 665,
+      "h": 86,
+      "bytes": 17172,
+      "kind": "headline",
+      "shows": "Headline card: \"AI Swallows Wall Street: Stocks Hit Record 45% of S&P 500 Market Cap\"",
+      "outlet": "BeInCrypto (syndicated on Yahoo Finance)",
+      "date": "2026-04-24",
+      "url": "https://finance.yahoo.com/markets/stocks/articles/ai-swallows-wall-street-stocks-094052523.html",
+      "slide": 4,
+      "slides": [
+        4
+      ],
+      "source": "original/image3.png",
+      "manifest_id": null,
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/sp500_ai_share.png",
+      "w": 720,
+      "h": 337,
+      "bytes": 15185,
+      "kind": "chart",
+      "shows": "Line chart: AI-linked stocks as a share of S&P 500 market cap (user-supplied chart, re-labelled in larger type; series per slide notes: Kobeissi Letter 45% and JPMorgan 50% \"direct AI\" basket, which use different definitions)",
+      "outlet": "User-supplied chart (series attributed in slide notes to The Kobeissi Letter and JPMorgan)",
+      "date": "2026-04",
+      "url": null,
+      "slide": 4,
+      "slides": [
+        4
+      ],
+      "source": "original/image2.png",
+      "manifest_id": null,
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/original/image1.png",
+      "w": 602,
+      "h": 680,
+      "bytes": 125183,
+      "kind": "chart",
+      "shows": "Line chart: US private construction spending relative to Dec 2023, data centers vs all other private construction, 2024 to 2026 (source line \"Commerce Dept.\", seasonally adjusted annual rate)",
+      "outlet": "U.S. Department of Commerce (chart source line; user-supplied chart)",
+      "date": null,
+      "url": null,
+      "slide": 5,
+      "slides": [
+        5
+      ],
+      "source": "original/image1.png",
+      "manifest_id": null,
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/statista_head.png",
+      "w": 1046,
+      "h": 302,
+      "bytes": 116726,
+      "kind": "chart",
+      "shows": "Statista headline and dek (infographic body cropped out): \"Big Tech's AI Spending to Reach $760 Billion in 2026\", annual capital expenditure of Meta, Microsoft, Alphabet and Amazon",
+      "outlet": "Statista",
+      "date": "2026-07-31",
+      "url": "https://www.statista.com/chart/35046/capital-expenditure-of-meta-alphabet-amazon-and-microsoft/",
+      "slide": 5,
+      "slides": [
+        5
+      ],
+      "source": "statista_bigtech_capex_2026.jpeg",
+      "manifest_id": "statista-bigtech-capex-760b",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/fortune_furman.png",
+      "w": 1200,
+      "h": 680,
+      "bytes": 80856,
+      "kind": "headline",
+      "shows": "Fortune headline and byline (article photo cropped out): \"Without data centers, GDP growth was 0.1% in the first half of 2025, Harvard economist says\"",
+      "outlet": "Fortune",
+      "date": "2025-10-07",
+      "url": "https://fortune.com/2025/10/07/data-centers-gdp-growth-zero-first-half-2025-jason-furman-harvard-economist/",
+      "slide": 6,
+      "slides": [
+        6
+      ],
+      "source": "fortune_furman_gdp_without_datacenters.png",
+      "manifest_id": "fortune-furman-gdp-0.1",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/fortune_housing.png",
+      "w": 2406,
+      "h": 851,
+      "bytes": 2150237,
+      "kind": "headline",
+      "shows": "Fortune header; aerial photo of Ashburn, VA data centers next to housing. Headline: \"U.S. economy hits pivotal milestone: Spending on data centers and other information-processing hardware now exceeds housing investment\"",
+      "outlet": "Fortune",
+      "date": "2026-09-20",
+      "url": "https://fortune.com/2026/09/20/us-economy-milestone-spending-data-centers-ai-boom-housing-residential-investment/",
+      "slide": 6,
+      "slides": [
+        6
+      ],
+      "source": "fortune_datacenter_spending_exceeds_housing.png",
+      "manifest_id": "fortune-datacenters-exceed-housing",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/colossus2_crop.png",
+      "w": 620,
+      "h": 492,
+      "bytes": 746569,
+      "kind": "satellite image (Epoch AI tracker)",
+      "shows": "Annotated satellite view of xAI Colossus 2 (Memphis) - \"MACROHARD\" painted on roof; turbine site in pink",
+      "outlet": "Epoch AI (imagery © Airbus DS)",
+      "date": "2026-06-15",
+      "url": "https://epoch.ai/data/ai-data-centers/directory/colossus-2",
+      "slide": 7,
+      "slides": [
+        7
+      ],
+      "source": "epoch_sat_xai_colossus2_2026-06.png",
+      "manifest_id": "epoch-sat-colossus2",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/fortune_hyperion_head.png",
+      "w": 1190,
+      "h": 486,
+      "bytes": 55517,
+      "kind": "headline",
+      "shows": "Fortune header; photo of Trump holding a graphic comparing Hyperion’s footprint to Manhattan. Headline: \"Meta’s AI data center cost went from $10 billion to $50 billion in under 2 years—and split the town in two\"",
+      "outlet": "Fortune",
+      "date": "2026-07-13",
+      "url": "https://fortune.com/2026/07/13/meta-hyperion-louisiana-50-billion-tax-breaks-locals/",
+      "slide": 7,
+      "slides": [
+        7
+      ],
+      "source": "fortune_meta_hyperion_50b.png",
+      "manifest_id": "fortune-meta-hyperion-50b",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/economy/epoch_sat_stargate_abilene_2025-06.png",
+      "w": 1280,
+      "h": 720,
+      "bytes": 1923914,
+      "kind": "satellite image (Epoch AI tracker)",
+      "shows": "Annotated satellite view of Stargate Abilene, June 2025: 2 buildings done, 6 under construction",
+      "outlet": "Epoch AI (imagery © Airbus DS)",
+      "date": "2025-06-28",
+      "url": "https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene",
+      "slide": 8,
+      "slides": [
+        8
+      ],
+      "source": "epoch_sat_stargate_abilene_2025-06.png",
+      "manifest_id": "epoch-sat-abilene-2025-06",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/economy/epoch_sat_stargate_abilene_2026-07.png",
+      "w": 1280,
+      "h": 720,
+      "bytes": 2084453,
+      "kind": "satellite image (Epoch AI tracker)",
+      "shows": "Annotated satellite view of Stargate Abilene, July 2026: all 8 buildings complete with cooling rows and substations",
+      "outlet": "Epoch AI (imagery © Airbus DS)",
+      "date": "2026-07-28",
+      "url": "https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene",
+      "slide": 8,
+      "slides": [
+        8
+      ],
+      "source": "epoch_sat_stargate_abilene_2026-07.png",
+      "manifest_id": "epoch-sat-abilene-2026-07",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/pcgamer_astra_head.png",
+      "w": 1270,
+      "h": 690,
+      "bytes": 76964,
+      "kind": "headline",
+      "shows": "Cropped headline + byline + dek (real screenshot). Headline: \"Jensen Huang says 100,000 Nvidia GPUs were used to train OpenAI's latest model, GPT-6 Astra, and there's already plans to bring quadruple that amount of hardware online\"",
+      "outlet": "PC Gamer",
+      "date": "2026-09-07",
+      "url": "https://www.pcgamer.com/software/ai/jensen-huang-says-100-000-nvidia-gpus-were-used-to-train-openais-latest-model-gpt-6-astra-and-theres-already-plans-to-bring-quadruple-that-amount-of-hardware-online/",
+      "slide": 10,
+      "slides": [
+        10
+      ],
+      "source": "gw_pcgamer_astra_100k_gpus.png",
+      "manifest_id": "gw-pcgamer-astra-100k-gpus",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/ars_ram.png",
+      "w": 2304,
+      "h": 902,
+      "bytes": 881856,
+      "kind": "headline",
+      "shows": "Ars Technica dark header with RAM module photo. Headline: \"Memory executives expect RAM shortage to continue through 2028\"",
+      "outlet": "Ars Technica",
+      "date": "2026-10-01",
+      "url": "https://arstechnica.com/information-technology/2026/10/memory-supplies-are-only-getting-tighter-micron-ceo-says/",
+      "slide": 11,
+      "slides": [
+        11
+      ],
+      "source": "arstechnica_ram_shortage_2028.png",
+      "manifest_id": "ars-ram-shortage-2028",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/guardian_ramageddon_head.png",
+      "w": 1277,
+      "h": 342,
+      "bytes": 49851,
+      "kind": "headline",
+      "shows": "Guardian header; smartphone photo. Headline: \"‘RAMageddon’: tech crunch hikes the price of your next iPhone by £100\"",
+      "outlet": "The Guardian",
+      "date": "2026-09-21",
+      "url": "https://www.theguardian.com/money/2026/sep/21/ramageddon-apple-iphone-price-increase-chip-shortage",
+      "slide": 11,
+      "slides": [
+        11
+      ],
+      "source": "guardian_ramageddon_iphone.png",
+      "manifest_id": "guardian-ramageddon-iphone",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/bnn_duane_head.png",
+      "w": 1494,
+      "h": 300,
+      "bytes": 39094,
+      "kind": "headline",
+      "shows": "Headline + 'By Reuters' + date (stock-photo hero image cropped out). Headline: \"NextEra secures up to $1.9B U.S. loan to restart Duane Arnold nuclear center\"",
+      "outlet": "Reuters (via BNN Bloomberg)",
+      "date": "2026-09-08",
+      "url": "https://www.bnnbloomberg.ca/business/international/2026/09/08/nextera-secures-up-to-19b-us-loan-to-restart-duane-arnold-nuclear-center/",
+      "slide": 12,
+      "slides": [
+        12
+      ],
+      "source": "bnn_reuters_nextera_doe_loan_duane_arnold_2026-09-08.png",
+      "manifest_id": "bnn-reuters-nextera-doe-loan-2026",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/capstar_crane_head.png",
+      "w": 1700,
+      "h": 310,
+      "bytes": 47277,
+      "kind": "headline",
+      "shows": "Capital-Star header: headline, subhead, byline, aerial photo of the island plant on the Susquehanna. Headline: \"Concern persists as former Three Mile Island nuclear plant progresses toward 2027 restart\"",
+      "outlet": "Pennsylvania Capital-Star",
+      "date": "2026-07-29",
+      "url": "https://penncapital-star.com/energy-environment/concern-persists-as-crane-nuclear-plant-progresses-toward-2027-restart/",
+      "slide": 12,
+      "slides": [
+        12
+      ],
+      "source": "capitalstar_crane_2027_restart_2026-07-29.png",
+      "manifest_id": "capitalstar-crane-2027-2026",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/national_palisades_head.png",
+      "w": 1630,
+      "h": 222,
+      "bytes": 46814,
+      "kind": "headline",
+      "shows": "The National: control-room photo above headline and subhead (cookie banner dismissed before capture). Headline: \"Shadow cast over US nuclear revival after Palisades reactor incident\"",
+      "outlet": "The National",
+      "date": "2026-09-23",
+      "url": "https://www.thenationalnews.com/future/technology/2026/09/23/palisades-power-plant-nuclear-incident/",
+      "slide": 12,
+      "slides": [
+        12
+      ],
+      "source": "national_palisades_shadow_2026-09-23.png",
+      "manifest_id": "national-palisades-shadow-2026",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/npr_tmi_head.png",
+      "w": 1290,
+      "h": 246,
+      "bytes": 28820,
+      "kind": "headline",
+      "shows": "NPR article header: headline, dateline Sept 20 2024, byline, and Getty photo of TMI cooling towers (Jeff Fusco/Getty Images). Headline: \"Three Mile Island nuclear plant will reopen to power Microsoft data centers\"",
+      "outlet": "NPR",
+      "date": "2024-09-20",
+      "url": "https://www.npr.org/2024/09/20/nx-s1-5120581/three-mile-island-nuclear-power-plant-microsoft-ai",
+      "slide": 12,
+      "slides": [
+        12
+      ],
+      "source": "npr_tmi_microsoft_2024.png",
+      "manifest_id": "npr-tmi-microsoft-2024",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/economy/nbc_datacenter_opposition_130b.png",
+      "w": 2560,
+      "h": 867,
+      "bytes": 158823,
+      "kind": "headline",
+      "shows": "NBC News header + headline + dek. Headline: \"Data center opponents have blocked or delayed projects worth nearly $130 billion in 2026, study finds\"",
+      "outlet": "NBC News",
+      "date": "2026-06-12",
+      "url": "https://www.nbcnews.com/tech/tech-news/data-center-opposition-sharply-rising-2026-study-finds-rcna349728",
+      "slide": 13,
+      "slides": [
+        13
+      ],
+      "source": "nbc_datacenter_opposition_130b.png",
+      "manifest_id": "nbc-datacenter-opposition-130b",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/guardian_drought_head.png",
+      "w": 1254,
+      "h": 331,
+      "bytes": 49815,
+      "kind": "headline",
+      "shows": "Guardian header; dry Utah road next to server hall photo. Headline: \"Majority of US’s new AI datacenters to be built on drought-hit land\"",
+      "outlet": "The Guardian",
+      "date": "2026-06-08",
+      "url": "https://www.theguardian.com/us-news/2026/jun/08/datacenter-ai-drought-water",
+      "slide": 13,
+      "slides": [
+        13
+      ],
+      "source": "guardian_drought_datacenters.png",
+      "manifest_id": "guardian-drought-datacenters",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/guardian_thermal.png",
+      "w": 1904,
+      "h": 950,
+      "bytes": 2595559,
+      "kind": "headline",
+      "shows": "Guardian header; side-by-side thermal (magenta/orange) and visible drone images of xAI gas turbines in snow. Headline: \"‘A different set of rules’: thermal drone footage shows Musk’s AI power plant flouting clean air regulations\"",
+      "outlet": "The Guardian (Floodlight)",
+      "date": "2026-02-13",
+      "url": "https://www.theguardian.com/environment/2026/feb/13/elon-musk-xai-datacenters-air-pollution-mississippi",
+      "slide": 13,
+      "slides": [
+        13
+      ],
+      "source": "guardian_xai_thermal_drone.png",
+      "manifest_id": "guardian-xai-thermal-drone",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/guardian_xai_head.png",
+      "w": 1254,
+      "h": 337,
+      "bytes": 52722,
+      "kind": "headline",
+      "shows": "Guardian header; aerial of xAI Colossus with rows of truck-sized gas turbines. Headline: \"Elon Musk’s xAI datacenter generating extra electricity illegally, regulator rules\"",
+      "outlet": "The Guardian",
+      "date": "2026-01-15",
+      "url": "https://www.theguardian.com/technology/2026/jan/15/elon-musk-xai-datacenter-memphis",
+      "slide": 13,
+      "slides": [
+        13
+      ],
+      "source": "guardian_xai_illegal_turbines.png",
+      "manifest_id": "guardian-xai-illegal-turbines",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/wired_gas.png",
+      "w": 2330,
+      "h": 1006,
+      "bytes": 1970323,
+      "kind": "headline",
+      "shows": "WIRED header + headline + B/W aerial of data center with gas plant. Headline: \"Data Centers Are Driving a US Gas Boom\"",
+      "outlet": "WIRED",
+      "date": "2026-01-28",
+      "url": "https://www.wired.com/story/data-centers-are-driving-a-us-gas-boom/",
+      "slide": 13,
+      "slides": [
+        13
+      ],
+      "source": "wired_datacenters_gas_boom.png",
+      "manifest_id": "wired-datacenters-gas-boom",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/bi_2015_header.png",
+      "w": 1440,
+      "h": 1325,
+      "bytes": 1156869,
+      "kind": "headline",
+      "shows": "BI article header: 'TECH' kicker, headline, byline Matt Weinberger, timestamp 'Jun 5, 2015, 12:09 AM UTC', and Weinberger's stage photo of the 'OPENAIR Fireside Chat: Sam Altman & Mike Curtis' screen with both men seated, plus caption (1500x1360). Headline: \"Head of Silicon Valley's most important startup farm says we're in a 'mega bubble' that won't last\"",
+      "outlet": "Business Insider",
+      "date": "2015-06-05",
+      "url": "https://www.businessinsider.com/sam-altman-y-combinator-talks-mega-bubble-nuclear-power-and-more-2015-6",
+      "slide": 14,
+      "slides": [
+        14
+      ],
+      "source": "altman_bi_2015_header_photo.png",
+      "manifest_id": "altman-bi-2015-header-photo",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/bi_2015_quote.png",
+      "w": 975,
+      "h": 175,
+      "bytes": 22413,
+      "kind": "screenshot",
+      "shows": "Screenshot of the original Business Insider article passage: bold lead-in 'On the growing artificial-intelligence market:' followed by the Altman quote (1180x295 px, @2x). Headline: \"Head of Silicon Valley's most important startup farm says we're in a 'mega bubble' that won't last\"",
+      "outlet": "Business Insider",
+      "date": "2015-06-05",
+      "url": "https://www.businessinsider.com/sam-altman-y-combinator-talks-mega-bubble-nuclear-power-and-more-2015-6",
+      "slide": 14,
+      "slides": [
+        14
+      ],
+      "source": "altman_bi_2015_quote_passage.png",
+      "manifest_id": "altman-bi-2015-quote-passage",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev3/jfonsecarivera-model-release-cadence-chart.jpg",
+      "w": 2048,
+      "h": 1270,
+      "bytes": 85696,
+      "kind": "chart",
+      "shows": "Original 2048x1270 chart image attached to the post: orange squares = Anthropic releases, green triangles = OpenAI releases, black rolling-median line, grey band = middle 50% of gaps. Headline: \"New models from Anthropic and OpenAI are arriving faster\"",
+      "outlet": "X (Twitter)",
+      "date": "2026-09-29",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "slide": 15,
+      "slides": [
+        15
+      ],
+      "source": "jfonsecarivera-model-release-cadence-chart.jpg",
+      "manifest_id": "chart-original",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/metr-x-thread-1.png",
+      "w": 1132,
+      "h": 1106,
+      "bytes": 358977,
+      "kind": "screenshot",
+      "shows": "Real screenshot of METR's tweet incl. its chart 'Claude Mythos Preview (early) likely has a 50%-time-horizon of at least 16 hrs' with grey band 'Measurements above 16 hrs are unreliable with our current task suite'. Headline: \"METR (@METR_Evals) on X, May 8, 2026\"",
+      "outlet": "METR (X/Twitter)",
+      "date": "2026-05-08",
+      "url": "https://x.com/METR_Evals/status/2052896621760004602",
+      "slide": 17,
+      "slides": [
+        17
+      ],
+      "source": "metr-x-thread-1.png",
+      "manifest_id": "metr-x-mythos-tweet",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/decoder-metr-head.png",
+      "w": 1290,
+      "h": 300,
+      "bytes": 47981,
+      "kind": "headline",
+      "shows": "Real screenshot (after accepting cookie banner) of headline, byline, date and hero illustration. Headline: \"METR says it can barely measure Claude Mythos, Palo Alto Networks warns of autonomous AI attackers\"",
+      "outlet": "The Decoder",
+      "date": "2026-05-10",
+      "url": "https://the-decoder.com/metr-says-it-can-barely-measure-claude-mythos-palo-alto-networks-warns-of-autonomous-ai-attackers/",
+      "slide": 17,
+      "slides": [
+        17
+      ],
+      "source": "decoder-metr-barely-measure-mythos.png",
+      "manifest_id": "decoder-metr-barely-measure",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/hle-noise-ceiling-para.png",
+      "w": 1340,
+      "h": 150,
+      "bytes": 21999,
+      "kind": "screenshot",
+      "shows": "HLE organizers already preparing a replacement as models approach the noise ceiling. Headline: \"Update September 17, 2026\"",
+      "outlet": "Scale AI / CAIS (labs.scale.com)",
+      "date": "2026-09-17",
+      "url": "https://labs.scale.com/leaderboard/humanitys_last_exam",
+      "slide": 19,
+      "slides": [
+        19
+      ],
+      "source": "scale-hle-rolling-noise-ceiling.png",
+      "manifest_id": "scale-hle-rolling-noise-ceiling",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/anabology-x-post-head.png",
+      "w": 1200,
+      "h": 318,
+      "bytes": 38091,
+      "kind": "tweet/post",
+      "shows": "Tighter crop of the same real post screenshot: author, post text and the video poster (login screen with 'Claudia - 14 programs running')",
+      "outlet": "X (Twitter)",
+      "date": "2026-10-02",
+      "url": "https://x.com/anabology/status/2106157622986748377",
+      "slide": 24,
+      "slides": [
+        24
+      ],
+      "source": "anabology-x-post-text-video.png",
+      "manifest_id": "anabology-xp-x-post-text-video",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/fable55-anthropic-models-sidebar-list.png",
+      "w": 530,
+      "h": 550,
+      "bytes": 28395,
+      "kind": "screenshot",
+      "shows": "Real screenshot of Anthropic's current model lineup: Claude Fable 5.1 (claude-fable-5-1, $10/$50 per MTok, 1M context, 128K output, reliable knowledge cutoff Jun 2026), Claude Opus 5.5 (claude-opus-5-5, $4/$20), Claude Sonnet 5.5 (claude-sonnet-5-5, $2/$10), Claude Haiku 4.5. No Fable 5.5. Headline: \"Models overview\"",
+      "outlet": "Claude Platform Docs (Anthropic)",
+      "date": "2026-10-04",
+      "url": "https://platform.claude.com/docs/en/about-claude/models/overview",
+      "slide": 26,
+      "slides": [
+        26
+      ],
+      "source": "anthropic-platform-docs-models-overview-2026-10-04.png",
+      "manifest_id": "f55-anthropic-models-overview-shot",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/fable55-blueemi99-post-head.png",
+      "w": 1138,
+      "h": 306,
+      "bytes": 44992,
+      "kind": "tweet/post",
+      "shows": "Real screenshot of the X post: author \"bluedev @blueemi99\" (verified), post text, video poster, \"2:39 PM · Oct 2, 2026 · 75.7K Views\", 45 replies / 28 reposts / 821 likes / 459 bookmarks",
+      "outlet": "X (Twitter)",
+      "date": "2026-10-02",
+      "url": "https://x.com/blueemi99/status/2106031355922387163",
+      "slide": 26,
+      "slides": [
+        26
+      ],
+      "source": "blueemi99-x-post-fable55-motion-video-screenshot.png",
+      "manifest_id": "f55-blueemi99-x-post-screenshot",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/fable55-reddit-head.png",
+      "w": 1186,
+      "h": 140,
+      "bytes": 25684,
+      "kind": "tweet/post",
+      "shows": "Real screenshot (cropped): \"r/singularity • 3d ago / u/Kanute3333 / Fable 5.5 is very good at voxel builds\" with the AI flair chip",
+      "outlet": "Reddit r/singularity",
+      "date": "2026-10-02",
+      "url": "https://www.reddit.com/r/singularity/comments/1wvfrni/fable_55_is_very_good_at_voxel_builds/",
+      "slide": 26,
+      "slides": [
+        26
+      ],
+      "source": "reddit-post-header-title-author.png",
+      "manifest_id": "f55-reddit-post-header-shot",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/fable55-tak-post-head.png",
+      "w": 1160,
+      "h": 404,
+      "bytes": 39459,
+      "kind": "tweet/post",
+      "shows": "Real screenshot (headless Chromium, logged-out view, 2026-10-04) of Tak's post: the quoted prompt, 'FABLE 5.5 IS SO GOOD AT THESE.', the video's first frame (ukiyo-e style with 'Fable 5.5' in the print's signature), timestamp 12:26 AM Oct 2 2026 and counts 73 / 81 / 2.1K / 886 / 163.1K views",
+      "outlet": "X (Twitter)",
+      "date": "2026-10-02",
+      "url": "https://x.com/cherry_mx_reds/status/2105816670896009224",
+      "slide": 27,
+      "slides": [
+        27
+      ],
+      "source": "tak-x-post-fable55-cool-animation-screenshot.png",
+      "manifest_id": "f55-tak-x-post-screenshot",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-fig1.png",
+      "w": 1580,
+      "h": 690,
+      "bytes": 106771,
+      "kind": "figure (OpenAI proof, Figure 1)",
+      "shows": "Figure 1 of the proof: the swirling fluid core shrinking toward a finite-time singularity (t1<t2<t3)",
+      "outlet": "OpenAI (paper PDF, p.4)",
+      "date": "2026-09-08",
+      "url": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf",
+      "slide": 29,
+      "slides": [
+        29
+      ],
+      "source": "openai-navier-stokes-fig1-blowup.png",
+      "manifest_id": "openai-navier-stokes-fig1",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-nature-head.png",
+      "w": 1700,
+      "h": 600,
+      "bytes": 77113,
+      "kind": "headline",
+      "shows": "Nature news header with section label, headline and standfirst: \"OpenAI claims huge maths breakthrough on a famed ‘Millennium Problem’\"",
+      "outlet": "Nature",
+      "date": "2026-09-08",
+      "url": "https://www.nature.com/articles/d41586-026-02842-5",
+      "slide": 29,
+      "slides": [
+        29
+      ],
+      "source": "nature-millennium-claim.png",
+      "manifest_id": "nature-millennium-claim",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-paper-title.png",
+      "w": 615,
+      "h": 125,
+      "bytes": 9232,
+      "kind": "screenshot",
+      "shows": "Title card of OpenAI paper: \"FINITE TIME BLOWUP FOR NAVIER–STOKES\" (OpenAI logo)",
+      "outlet": "OpenAI (paper PDF)",
+      "date": "2026-09-08",
+      "url": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf",
+      "slide": 29,
+      "slides": [
+        29
+      ],
+      "source": null,
+      "manifest_id": null,
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-vortex.png",
+      "w": 400,
+      "h": 400,
+      "bytes": 302648,
+      "kind": "figure (OpenAI blow-up visualization)",
+      "shows": "OpenAI’s visualization of the blow-up: \"inward spiral\" + \"axial stretching\" vortex (1254x1254)",
+      "outlet": "OpenAI (image attached to X post)",
+      "date": "2026-09-08",
+      "url": "https://pbs.twimg.com/media/HRtS_iLboAUUlYv.jpg?name=orig",
+      "slide": 29,
+      "slides": [
+        29
+      ],
+      "source": "openai-x-vortex-blowup-1254.jpg",
+      "manifest_id": "openai-vortex-figure",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/buckmaster-header.png",
+      "w": 660,
+      "h": 110,
+      "bytes": 13725,
+      "kind": "tweet/post",
+      "shows": "Buckmaster accuses OpenAI of using customer (Codex) data to scoop him",
+      "outlet": "Mastodon (@tristanbuckmaster)",
+      "date": "2026-09-08",
+      "url": "https://mastodon.social/@tristanbuckmaster/117236471352470303",
+      "slide": 30,
+      "slides": [
+        30
+      ],
+      "source": "buckmaster-mastodon-scoop.png",
+      "manifest_id": "buckmaster-mastodon-scoop",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-bbc.png",
+      "w": 1660,
+      "h": 690,
+      "bytes": 73163,
+      "kind": "headline",
+      "shows": "BBC News header and headline (page photo cropped out): \"OpenAI says it cracked 90-year-old maths problem in 88 hours\"",
+      "outlet": "BBC News",
+      "date": "2026-09-08",
+      "url": "https://www.bbc.co.uk/news/articles/cy7zygy3rl2o",
+      "slide": 30,
+      "slides": [
+        30
+      ],
+      "source": "bbc-navier-stokes.png",
+      "manifest_id": "bbc-navier-stokes",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-fortune.png",
+      "w": 1210,
+      "h": 770,
+      "bytes": 96379,
+      "kind": "headline",
+      "shows": "Fortune headline with fluid-vortex photo. Headline: \"OpenAI says it cracked one of math’s grand challenges. But there are troubling questions about how they did it—and what it means for us all\"",
+      "outlet": "Fortune",
+      "date": "2026-09-08",
+      "url": "https://fortune.com/2026/09/08/openai-says-it-cracked-navier-stokes-math-grand-challenge-buckmaster-accusation-cheating-intimidation-tao-lament/",
+      "slide": 30,
+      "slides": [
+        30
+      ],
+      "source": "fortune-navier-stokes.png",
+      "manifest_id": "fortune-navier-stokes",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-guardian.png",
+      "w": 1460,
+      "h": 425,
+      "bytes": 62436,
+      "kind": "headline",
+      "shows": "Guardian masthead, headline, standfirst, OpenAI logo photo. Headline: \"OpenAI claims to have solved maths problem that stumped humans for decades\"",
+      "outlet": "The Guardian",
+      "date": "2026-09-08",
+      "url": "https://www.theguardian.com/science/2026/sep/08/openai-claims-to-have-solved-maths-problem-that-stumped-humans-for-decades",
+      "slide": 30,
+      "slides": [
+        30
+      ],
+      "source": "guardian-navier-stokes.png",
+      "manifest_id": "guardian-navier-stokes",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-quanta.png",
+      "w": 1500,
+      "h": 480,
+      "bytes": 69647,
+      "kind": "headline",
+      "shows": "Quanta headline + dek (clean, text only). Headline: \"AI Has Solved One of Math’s $1 Million Millennium Prize Problems\"",
+      "outlet": "Quanta Magazine",
+      "date": "2026-09-08",
+      "url": "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/",
+      "slide": 30,
+      "slides": [
+        30
+      ],
+      "source": "quanta-navier-stokes.png",
+      "manifest_id": "quanta-navier-stokes",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-techcrunch.png",
+      "w": 1395,
+      "h": 640,
+      "bytes": 58811,
+      "kind": "headline",
+      "shows": "TechCrunch green headline panel with chalkboard equations. Headline: \"OpenAI fought dirty on career-making math problem, says NYU mathematician\"",
+      "outlet": "TechCrunch",
+      "date": "2026-09-08",
+      "url": "https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/",
+      "slide": 30,
+      "slides": [
+        30
+      ],
+      "source": "techcrunch-navier-fought-dirty.png",
+      "manifest_id": "techcrunch-navier-fought-dirty",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-verge.png",
+      "w": 1720,
+      "h": 250,
+      "bytes": 43504,
+      "kind": "headline",
+      "shows": "Verge headline, Sam Altman photo, dek. Headline: \"OpenAI’s sly mathematical breakthrough sends a chill through academia\"",
+      "outlet": "The Verge",
+      "date": "2026-09-09",
+      "url": "https://www.theverge.com/ai-artificial-intelligence/992953/openai-math-millennium-prize-navier-stokes",
+      "slide": 30,
+      "slides": [
+        30
+      ],
+      "source": "verge-navier-chill.png",
+      "manifest_id": "verge-navier-chill",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-wired.png",
+      "w": 1010,
+      "h": 440,
+      "bytes": 43641,
+      "kind": "headline",
+      "shows": "WIRED headline, dek and puzzle illustration. Headline: \"‘I’m Really Terrified’: A Mathematician Grapples With AI’s Recent Breakthroughs\"",
+      "outlet": "WIRED",
+      "date": "2026-09-12",
+      "url": "https://www.wired.com/story/mathematician-steven-strogatz-grapples-with-ai-recent-breakthroughs/",
+      "slide": 30,
+      "slides": [
+        30
+      ],
+      "source": "wired-strogatz-terrified.png",
+      "manifest_id": "wired-strogatz-terrified",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/buzzard-grieve-header.png",
+      "w": 966,
+      "h": 228,
+      "bytes": 24760,
+      "kind": "tweet/post",
+      "shows": "Clean tight crop of the post title + byline: “Posted on October 1, 2026 by xenaproject”. Headline: \"To grieve, or not to grieve?\"",
+      "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+      "date": "2026-10-01",
+      "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+      "slide": 31,
+      "slides": [
+        31
+      ],
+      "source": "buzzard-grieve-header.png",
+      "manifest_id": "buzzard-grieve-header",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/aaronson-title-crop.png",
+      "w": 1370,
+      "h": 139,
+      "bytes": 23086,
+      "kind": "screenshot",
+      "shows": "Title + opening: the 2006 skeptic's take, and \"the wild prophecies have come true\". Headline: \"The Age of Wonders and Terrors\"",
+      "outlet": "Shtetl-Optimized",
+      "date": "2026-09-15",
+      "url": "https://scottaaronson.blog/?p=10062",
+      "slide": 31,
+      "slides": [
+        31
+      ],
+      "source": "aaronson-title.png",
+      "manifest_id": "aaronson-title",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/buzzard-flt-crop.png",
+      "w": 712,
+      "h": 62,
+      "bytes": 5620,
+      "kind": "tweet/post",
+      "shows": "Title + opening paragraph. Headline: \"FLT: Anthropic has beaten me to it\"",
+      "outlet": "Xena (Kevin Buzzard's blog)",
+      "date": "2026-09-04",
+      "url": "https://xenaproject.wordpress.com/2026/09/04/flt-anthropic-has-beaten-me-to-it/",
+      "slide": 31,
+      "slides": [
+        31
+      ],
+      "source": "buzzard-flt-title.png",
+      "manifest_id": "buzzard-flt-title",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/tao-header-crop.png",
+      "w": 420,
+      "h": 106,
+      "bytes": 30145,
+      "kind": "tweet/post",
+      "shows": "Tao (quoting Hugo Duminil-Copin) on AI strip-mining open problems",
+      "outlet": "Mathstodon (@tao)",
+      "date": "2026-09-03",
+      "url": "https://mathstodon.xyz/@tao/117204930249967695",
+      "slide": 31,
+      "slides": [
+        31
+      ],
+      "source": "tao-mastodon-stripmining.png",
+      "manifest_id": "tao-mastodon-stripmining",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/tnw-mathathon-crop.png",
+      "w": 2432,
+      "h": 633,
+      "bytes": 111703,
+      "kind": "headline",
+      "shows": "TNW headline + dek. Headline: \"‘Slop mathematics’: OpenAI walks away from a Caltech AI maths contest\"",
+      "outlet": "The Next Web",
+      "date": "2026-09-14",
+      "url": "https://thenextweb.com/news/openai-withdraws-caltech-mathathon-slop-mathematics-fields-medallists",
+      "slide": 32,
+      "slides": [
+        32
+      ],
+      "source": "tnw-mathathon.png",
+      "manifest_id": "tnw-mathathon",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/yahoo-mathathon-crop.png",
+      "w": 1530,
+      "h": 390,
+      "bytes": 52654,
+      "kind": "headline",
+      "shows": "Headline + byline. Headline: \"OpenAI pulls out of Caltech math hackathon after mathematicians issue open letter criticizing AI math 'slop'\"",
+      "outlet": "Yahoo News (syndicated; page metadata references Business Insider)",
+      "date": "2026-09-10",
+      "url": "https://www.yahoo.com/news/us/articles/openai-pulls-caltech-math-hackathon-224644789.html",
+      "slide": 32,
+      "slides": [
+        32
+      ],
+      "source": "yahoo-mathathon.png",
+      "manifest_id": "yahoo-mathathon",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/math-agmai-current-task.png",
+      "w": 1040,
+      "h": 120,
+      "bytes": 19956,
+      "kind": "screenshot",
+      "shows": "The advisory group (Gowers, Witten, Hairer, Vakil ...) says its first job is to advise OpenAI on releasing \"a large number of significant results\". Headline: \"Announcing the Advisory Group on Mathematics and Artificial Intelligence\"",
+      "outlet": "Terence Tao's blog \"What's new\" (guest post by the Advisory Group)",
+      "date": "2026-09-21",
+      "url": "https://terrytao.wordpress.com/2026/09/21/advisory-group-on-mathematics-and-artificial-intelligence/",
+      "slide": 33,
+      "slides": [
+        33
+      ],
+      "source": "tao-blog-agmai-announcement-current-task.png",
+      "manifest_id": "tao-blog-agmai-announcement-current-task",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/math-armstrong-hundreds-head.png",
+      "w": 1168,
+      "h": 362,
+      "bytes": 71789,
+      "kind": "tweet/post",
+      "shows": "Real screenshot of the X post page (reply to @MSuskiewicz): NYU/Courant mathematician Scott Armstrong says OpenAI has been sitting on \"hundreds\" of proofs of results since at least the ICM — \"I was told\" (second-hand), \"Some of them may not be released any time soon.\" 8:35 PM UTC Sep 15, 2026, 58.9K views",
+      "outlet": "X (@scottnarmstrong)",
+      "date": "2026-09-15",
+      "url": "https://x.com/scottnarmstrong/status/2099960311801696580",
+      "slide": 33,
+      "slides": [
+        33
+      ],
+      "source": "x-scottnarmstrong-sep15-hundreds-of-proofs-page.png",
+      "manifest_id": "x-scottnarmstrong-sep15-hundreds-of-proofs",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/math-openai-100-para.png",
+      "w": 1210,
+      "h": 400,
+      "bytes": 47448,
+      "kind": "screenshot",
+      "shows": "Real screenshot of the OpenAI post (date, title, opening paragraph). Highlight the key sentence with the boxes in \"highlights\". Headline: \"Advisory Group on Mathematics and Artificial Intelligence\"",
+      "outlet": "OpenAI",
+      "date": "2026-09-21",
+      "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+      "slide": 33,
+      "slides": [
+        33
+      ],
+      "source": "openai-advisory-post-100-problems.png",
+      "manifest_id": "openai-advisory-post-100-problems",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/math-clay-bsd-head.png",
+      "w": 1400,
+      "h": 470,
+      "bytes": 47772,
+      "kind": "screenshot",
+      "shows": "Clay's own BSD page, status \"Unsolved\" as of 2026-10-04. Headline: \"Birch and Swinnerton-Dyer Conjecture\"",
+      "outlet": "Clay Mathematics Institute",
+      "date": "2026-10-04",
+      "url": "https://www.claymath.org/millennium/birch-and-swinnerton-dyer-conjecture/",
+      "slide": 34,
+      "slides": [
+        34
+      ],
+      "source": "clay-bsd-conjecture-unsolved.png",
+      "manifest_id": "clay-bsd-conjecture-unsolved",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/math-clay-hodge-head.png",
+      "w": 1400,
+      "h": 315,
+      "bytes": 27325,
+      "kind": "screenshot",
+      "shows": "Clay's own Hodge page, status \"Unsolved\" as of 2026-10-04. Headline: \"Hodge Conjecture\"",
+      "outlet": "Clay Mathematics Institute",
+      "date": "2026-10-04",
+      "url": "https://www.claymath.org/millennium/hodge-conjecture/",
+      "slide": 34,
+      "slides": [
+        34
+      ],
+      "source": "clay-hodge-conjecture-unsolved.png",
+      "manifest_id": "clay-hodge-conjecture-unsolved",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/math-gizmodo-hodge-head.png",
+      "w": 980,
+      "h": 492,
+      "bytes": 54003,
+      "kind": "screenshot",
+      "shows": "Gizmodo headline/dek/byline (published Sep 17, 2026, 8:10 PM ET). Headline: \"OpenAI Reportedly Trying to Solve Hodge Conjecture Amid Feud With Math Community\"",
+      "outlet": "Gizmodo (reporting The Information)",
+      "date": "2026-09-17",
+      "url": "https://gizmodo.com/openai-reportedly-trying-to-solve-hodge-conjecture-amid-feud-with-math-community-2000813658",
+      "slide": 34,
+      "slides": [
+        34
+      ],
+      "source": "gizmodo-openai-reportedly-trying-hodge.png",
+      "manifest_id": "gizmodo-openai-reportedly-trying-hodge",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/math-synthwavedd-post.png",
+      "w": 1200,
+      "h": 470,
+      "bytes": 67412,
+      "kind": "tweet/post",
+      "shows": "THE source of the Hodge+BSD rumor: anonymous \"I am told\" post, 8:54 AM UTC Sep 10 2026, 1.5M views",
+      "outlet": "X (@synthwavedd, \"leo\")",
+      "date": "2026-09-10",
+      "url": "https://x.com/synthwavedd/status/2097971881596916185",
+      "slide": 34,
+      "slides": [
+        34
+      ],
+      "source": "x-synthwavedd-hodge-bsd-rumor.png",
+      "manifest_id": "x-synthwavedd-hodge-bsd-rumor",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/cad-leaderboard-top5.png",
+      "w": 1820,
+      "h": 562,
+      "bytes": 86234,
+      "kind": "screenshot",
+      "shows": "Real leaderboard table: Claude Opus 5.5 (Claude Code) #1 at 61.03, GPT-6 Astra (Codex) 56.87, Claude Fable 5.1 56.75 on 100 FreeCAD design tasks. Headline: \"Parametric CAD Bench V3 Leaderboard\"",
+      "outlet": "cadbench.ai (gNucleus.ai)",
+      "date": "2026-09-24",
+      "url": "https://cadbench.ai/",
+      "slide": 35,
+      "slides": [
+        35
+      ],
+      "source": "cadbench-v3-leaderboard.png",
+      "manifest_id": "cadbench-v3-leaderboard",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/pcb-astra-kicad-hackaday.jpg",
+      "w": 1232,
+      "h": 613,
+      "bytes": 102396,
+      "kind": "still (launch demo video)",
+      "shows": "Left: KiCad board with placed footprints and ratsnest; right: 3D render of the finished green PCB (1232x613). Headline: \"GPT-6 Astra performing PCB layout in KiCad (still from OpenAI launch demo)\"",
+      "outlet": "OpenAI demo, image via Hackaday",
+      "date": "2026-09-05",
+      "url": "https://hackaday.com/wp-content/uploads/2026/09/openai_gpt-6_astra_kicad_showcase.jpg",
+      "slide": 36,
+      "slides": [
+        36
+      ],
+      "source": "pcb-astra-kicad-hackaday.jpg",
+      "manifest_id": "astra-kicad-demo-still",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/hw-toms-jalapeno.png",
+      "w": 1260,
+      "h": 905,
+      "bytes": 902655,
+      "kind": "headline",
+      "shows": "Headline, byline, dek, photo of the Jalapeño wafer. Headline: \"‘This is how AI should be used’ — OpenAI head of hardware breaks down the AI-assisted design of its Jalapeño ASIC\"",
+      "outlet": "Tom's Hardware",
+      "date": "2026-09-30",
+      "url": "https://www.tomshardware.com/tech-industry/asics/this-is-how-ai-should-be-used-openai-head-of-hardware-breaks-down-the-ai-assisted-design-of-its-jalapeno-asic",
+      "slide": 37,
+      "slides": [
+        37
+      ],
+      "source": "chip-tomshardware-jalapeno-ho-interview.png",
+      "manifest_id": "toms-jalapeno-ho",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/labor-ale-hero-head.png",
+      "w": 1520,
+      "h": 280,
+      "bytes": 34416,
+      "kind": "screenshot",
+      "shows": "Homepage hero with tilted screenshots of agents working in professional software (architecture, neuroscience/FSLeyes, animation, engineering CAD). Headline: \"Agents' Last Exam — Challenge and measure AI agents on economically valuable and real-world tasks.\"",
+      "outlet": "agents-last-exam.org",
+      "date": "2026-10-04",
+      "url": "https://agents-last-exam.org/",
+      "slide": 38,
+      "slides": [
+        38
+      ],
+      "source": "labor-ale-homepage-hero.png",
+      "manifest_id": "labor-ale-homepage-hero",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/labor-rli-top4.png",
+      "w": 985,
+      "h": 470,
+      "bytes": 21158,
+      "kind": "screenshot",
+      "shows": "All 18 rows: GPT 6 Astra 20.83, Fable 5.1 17.92, Fable 5 15.80, Opus 4.8 8.33, Codex GPT 5.5 6.25, Gemini 3.8 Flash 5.83 (NEW), Gemini 3.7 Flash 5.00, claude-opus-4-6 (CoWork) 4.17, claude-opus-4-5-20251101-thinking 3.75, Manus_1.6 (Max) 2.92, gpt-5.2 (medium) / Manus 1.5 / Manus 1.0 2.50, ... gemini-2.5-pro-preview 0.83. Headline: \"Remote Labor Index (RLI) — Performance Comparison\"",
+      "outlet": "Scale Labs",
+      "date": "2026-10-04",
+      "url": "https://labs.scale.com/leaderboard/rli",
+      "slide": 39,
+      "slides": [
+        39
+      ],
+      "source": "labor-rli-leaderboard-panel.png",
+      "manifest_id": "labor-rli-scale-leaderboard",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/labor-zapier-top5.png",
+      "w": 957,
+      "h": 530,
+      "bytes": 41790,
+      "kind": "screenshot",
+      "shows": "Leaderboard v1.0.6 top 10: Gemini 4 Argon (High) 51.29%, Gemini 4 Argon (Medium) 50.08%, Claude Sonnet 5.5 (default fallbacks, Max) 44.75%, Claude Opus 5.5 (default fallbacks, Max) 42.47%, GPT 6 Astra (Max) 41.4%, GPT 6 Astra (XHigh) 38.96%,. Headline: \"AutomationBench AI benchmark leaderboard\"",
+      "outlet": "Zapier",
+      "date": "2026-10-04",
+      "url": "https://zapier.com/benchmarks",
+      "slide": 39,
+      "slides": [
+        39
+      ],
+      "source": "labor-automationbench-leaderboard-top10.png",
+      "manifest_id": "labor-automationbench-leaderboard",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/labor-marktechpost-gpt55-gdpval.png",
+      "w": 1375,
+      "h": 485,
+      "bytes": 83938,
+      "kind": "headline",
+      "shows": "MarkTechPost headline and byline (dark theme site). Headline: \"OpenAI Releases GPT-5.5, a Fully Retrained Agentic Model That Scores 82.7% on Terminal-Bench 2.0 and 84.9% on GDPval\"",
+      "outlet": "MarkTechPost",
+      "date": "2026-04-23",
+      "url": "https://www.marktechpost.com/2026/04/23/openai-releases-gpt-5-5-a-fully-retrained-agentic-model-that-scores-82-7-on-terminal-bench-2-0-and-84-9-on-gdpval/",
+      "slide": 40,
+      "slides": [
+        40
+      ],
+      "source": "labor-marktechpost-gpt55-gdpval.png",
+      "manifest_id": "labor-gdpval-mtp-gpt55",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/labor-openai-gdpval-notice.png",
+      "w": 1010,
+      "h": 230,
+      "bytes": 20850,
+      "kind": "screenshot",
+      "shows": "Notice box on evals.openai.com/gdpval/leaderboard. Headline: \"The OpenAI-hosted GDPval leaderboard is no longer active.\"",
+      "outlet": "OpenAI Evals",
+      "date": "2026-10-04",
+      "url": "https://evals.openai.com/gdpval/leaderboard",
+      "slide": 40,
+      "slides": [
+        40
+      ],
+      "source": "labor-gdpval-openai-leaderboard-inactive.png",
+      "manifest_id": "labor-gdpval-openai-leaderboard-inactive",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/work/swe-stanford-canaries-swe-by-age.png",
+      "w": 1820,
+      "h": 995,
+      "bytes": 124465,
+      "kind": "chart",
+      "shows": "ADP payroll data: software developers aged 22-25 fall to ~0.8 of Nov-2022 level while 35-49 year-olds rise to 1.15-1.2. Headline: \"Headcount Over Time by Age Group — Software Developers (Normalized)\"",
+      "outlet": "Stanford Digital Economy Lab — 'Canaries in the Coal Mine?' (Aug 2026 version, Fig. B.3)",
+      "date": "2026-08-12",
+      "url": "https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf",
+      "slide": 41,
+      "slides": [
+        41
+      ],
+      "source": "swe-stanford-canaries-swe-by-age.png",
+      "manifest_id": "swe-stanford-canaries",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/swe-bi-90pct-head.png",
+      "w": 1400,
+      "h": 462,
+      "bytes": 60018,
+      "kind": "headline",
+      "shows": "Business Insider headline with photo of Claude app on phone. Headline: \"Anthropic CFO says AI now writes 90% of its code, changing white-collar jobs from execution to oversight\"",
+      "outlet": "Business Insider (via AOL syndication)",
+      "date": "2026-05-13",
+      "url": "https://www.aol.com/articles/anthropic-cfo-says-ai-now-224949000.html",
+      "slide": 42,
+      "slides": [
+        42
+      ],
+      "source": "swe-bi-anthropic-cfo-90pct.png",
+      "manifest_id": "swe-bi-anthropic-cfo-90pct",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/swe-cbs-layoffs-head.png",
+      "w": 1320,
+      "h": 352,
+      "bytes": 46864,
+      "kind": "headline",
+      "shows": "CBS News MoneyWatch headline with byline and date: \"AI emerges as a top cause of layoffs, accounting for 26% of April's job cuts\"",
+      "outlet": "CBS News (MoneyWatch)",
+      "date": "2026-05-07",
+      "url": "https://www.cbsnews.com/news/ai-layoffs-job-cuts-challenger-report-april-2026/",
+      "slide": 42,
+      "slides": [
+        42
+      ],
+      "source": "swe-cbs-ai-layoffs.png",
+      "manifest_id": "swe-cbs-ai-layoffs",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/swe-cnn-block-head.png",
+      "w": 2440,
+      "h": 660,
+      "bytes": 78505,
+      "kind": "headline",
+      "shows": "CNN headline with photo of Jack Dorsey. Headline: \"Block lays off nearly half its staff because of AI. Its CEO said most companies will do the same\"",
+      "outlet": "CNN Business",
+      "date": "2026-02-26",
+      "url": "https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey",
+      "slide": 42,
+      "slides": [
+        42
+      ],
+      "source": "swe-cnn-block.png",
+      "manifest_id": "swe-cnn-block",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/swe-fortune-100pct-head.png",
+      "w": 1130,
+      "h": 580,
+      "bytes": 75413,
+      "kind": "headline",
+      "shows": "Fortune headline with AI · Anthropic tag: \"Top engineers at Anthropic, OpenAI say AI now writes 100% of their code—with big implications for the future of software development jobs\"",
+      "outlet": "Fortune",
+      "date": "2026-01-29",
+      "url": "https://fortune.com/2026/01/29/100-percent-of-code-at-anthropic-and-openai-is-now-ai-written-boris-cherny-roon/",
+      "slide": 42,
+      "slides": [
+        42
+      ],
+      "source": "swe-fortune-100pct-code.png",
+      "manifest_id": "swe-fortune-100pct-code",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/work/acad-arxiv-monthly-submissions-sep2026.png",
+      "w": 1966,
+      "h": 1232,
+      "bytes": 30948,
+      "kind": "chart",
+      "shows": "Official bar chart; total submissions as of Oct 1 2026 = 3,192,873; Sept 2026 spike highlighted. Headline: \"arXiv monthly submissions 1991–2026 (September 2026: 40,363)\"",
+      "outlet": "arXiv blog",
+      "date": "2026-10-01",
+      "url": "https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy/",
+      "slide": 43,
+      "slides": [
+        43
+      ],
+      "source": "acad-arxiv-monthly-submissions-sep2026.png",
+      "manifest_id": "acad-arxiv-monthly-chart",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/acad-arxiv-blog-head.png",
+      "w": 1410,
+      "h": 415,
+      "bytes": 66846,
+      "kind": "screenshot",
+      "shows": "Official arXiv announcement: Sept 2016 9,869 → Sept 2024 20,569 → Sept 2026 40,363 submissions. Headline: \"Fair Moderation, Equitable Access, and AI: arXiv’s Updated Rate Limit Policy\"",
+      "outlet": "arXiv blog (official)",
+      "date": "2026-10-01",
+      "url": "https://blog.arxiv.org/2026/10/01/updated-rate-limit-policy/",
+      "slide": 43,
+      "slides": [
+        43
+      ],
+      "source": "acad-arxiv-blog-ratelimit.png",
+      "manifest_id": "acad-arxiv-ratelimit-blog",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/acad-cybernews-arxiv-head.png",
+      "w": 1800,
+      "h": 412,
+      "bytes": 48963,
+      "kind": "headline",
+      "shows": "News headline + arXiv/Cornell photo. Headline: \"Too much AI slop: arXiv limits researchers to two papers a month\"",
+      "outlet": "Cybernews",
+      "date": "2026-10-02",
+      "url": "https://cybernews.com/ai-news/arxiv-limits-researchers-to-two-papers-a-month/",
+      "slide": 43,
+      "slides": [
+        43
+      ],
+      "source": "acad-cybernews-arxiv-limit.png",
+      "manifest_id": "acad-cybernews-arxiv-limit",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/work/acad-nature-iclr-ai-reviews.png",
+      "w": 1540,
+      "h": 600,
+      "bytes": 108131,
+      "kind": "headline",
+      "shows": "Nature news headline + dek (ICLR 2026). Headline: \"Major AI conference flooded with peer reviews written fully by AI\"",
+      "outlet": "Nature",
+      "date": "2025-11-27",
+      "url": "https://www.nature.com/articles/d41586-025-03506-6",
+      "slide": 44,
+      "slides": [
+        44
+      ],
+      "source": "acad-nature-iclr-ai-reviews.png",
+      "manifest_id": "acad-nature-iclr-ai-reviews",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/acad-neurips-position-clip.png",
+      "w": 1100,
+      "h": 435,
+      "bytes": 90411,
+      "kind": "screenshot",
+      "shows": "Official NeurIPS post; 969 position-paper submissions screened with Pangram. Headline: \"AI-Generated Papers in the NeurIPS 2026 Position Paper Track\"",
+      "outlet": "NeurIPS blog (official)",
+      "date": "2026-06-02",
+      "url": "https://blog.neurips.cc/2026/06/02/ai-generated-papers-in-the-neurips-2026-position-paper-track/",
+      "slide": 44,
+      "slides": [
+        44
+      ],
+      "source": "acad-neurips-position-ai-papers.png",
+      "manifest_id": "acad-neurips-position-ai",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/video-tavus-page-48.jpg",
+      "w": 620,
+      "h": 280,
+      "bytes": 29633,
+      "kind": "screenshot",
+      "shows": "Tavus Griffin announcement hero with 48% / #1 / 37% stat row. Headline: \"The First Human Interaction Model\"",
+      "outlet": "Tavus (official announcement)",
+      "date": "2026-10-01",
+      "url": "https://www.tavus.io/griffin",
+      "slide": 45,
+      "slides": [
+        45
+      ],
+      "source": "video-tavus-griffin-page.jpg",
+      "manifest_id": "video-tavus-griffin-page",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/voicedemo-x-post-clip.png",
+      "w": 1196,
+      "h": 552,
+      "bytes": 60873,
+      "kind": "tweet/post",
+      "shows": "X post page cropped to the post column (login panel cropped out): text, video thumbnail with ElevenLabs tag and 'Made with AI' label, 1:49 PM Oct 2 2026, 1.9M views, 444 replies / 633 reposts / 10K likes / 6.2K bookmarks, and Burak's self-reply disclosing it is a personal spec project not affiliated with ElevenLabs. Headline: \"Eleven v4 is INSANE! 🤯\"",
+      "outlet": "X",
+      "date": "2026-10-02",
+      "url": "https://x.com/buraktuyan/status/2106018840383717513",
+      "slide": 46,
+      "slides": [
+        46
+      ],
+      "source": "voicedemo-x-post.png",
+      "manifest_id": "voicedemo-x-post",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/voicedemo-x-post-reply.png",
+      "w": 1196,
+      "h": 176,
+      "bytes": 46795,
+      "kind": "tweet/post",
+      "shows": "X post page cropped to the post column (login panel cropped out): text, video thumbnail with ElevenLabs tag and 'Made with AI' label, 1:49 PM Oct 2 2026, 1.9M views, 444 replies / 633 reposts / 10K likes / 6.2K bookmarks, and Burak's self-reply disclosing it is a personal spec project not affiliated with ElevenLabs. Headline: \"Eleven v4 is INSANE! 🤯\"",
+      "outlet": "X",
+      "date": "2026-10-02",
+      "url": "https://x.com/buraktuyan/status/2106018840383717513",
+      "slide": 46,
+      "slides": [
+        46
+      ],
+      "source": "voicedemo-x-post.png",
+      "manifest_id": "voicedemo-x-post",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/work/vla-bnnbloomberg-robot-brain.png",
+      "w": 1485,
+      "h": 490,
+      "bytes": 78266,
+      "kind": "headline",
+      "shows": "Reuters wire headline (Spirit AI, Beijing). Headline: \"Chinese ‘robot brain’ startup sees ChatGPT-style breakthrough as soon as next year\"",
+      "outlet": "Reuters (via BNN Bloomberg)",
+      "date": "2026-09-18",
+      "url": "https://www.bnnbloomberg.ca/business/artificial-intelligence/2026/09/18/chinese-robot-brain-startup-sees-chatgpt-style-breakthrough-as-soon-as-next-year/",
+      "slide": 49,
+      "slides": [
+        49
+      ],
+      "source": "vla-bnnbloomberg-robot-brain.png",
+      "manifest_id": "vla-reuters-robot-brain",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/work/vla-deepmind-gr2-blog.png",
+      "w": 1960,
+      "h": 474,
+      "bytes": 74852,
+      "kind": "headline",
+      "shows": "Official DeepMind headline. Headline: \"Gemini Robotics 2 brings whole body intelligence to robots\"",
+      "outlet": "Google DeepMind blog",
+      "date": "2026-07-30",
+      "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+      "slide": 49,
+      "slides": [
+        49
+      ],
+      "source": "vla-deepmind-gr2-blog.png",
+      "manifest_id": "vla-deepmind-gr2",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/work/vla-figure-helix25.png",
+      "w": 1710,
+      "h": 400,
+      "bytes": 48014,
+      "kind": "headline",
+      "shows": "Official Figure headline (white on black). Headline: \"Helix 2.5: Zero-Shot 30-Home Generalization\"",
+      "outlet": "Figure AI (official)",
+      "date": "2026-09-17",
+      "url": "https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization",
+      "slide": 49,
+      "slides": [
+        49
+      ],
+      "source": "vla-figure-helix25.png",
+      "manifest_id": "vla-figure-helix25",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/work/vla-robotreport-gr2.png",
+      "w": 1560,
+      "h": 315,
+      "bytes": 48138,
+      "kind": "headline",
+      "shows": "Trade-press headline. Headline: \"Google DeepMind says Gemini Robotics 2 enables full body control\"",
+      "outlet": "The Robot Report",
+      "date": "2026-08-02",
+      "url": "https://www.therobotreport.com/google-deepmind-says-gemini-robotics-2-enables-full-body-control/",
+      "slide": 49,
+      "slides": [
+        49
+      ],
+      "source": "vla-robotreport-gr2.png",
+      "manifest_id": "vla-robotreport-gr2",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/work/vla-techcrunch-pi07.png",
+      "w": 2560,
+      "h": 1068,
+      "bytes": 1405697,
+      "kind": "headline",
+      "shows": "TechCrunch headline with robot arm at espresso machine. Headline: \"Physical Intelligence, a hot robotics startup, says its new robot brain can figure out tasks it was never taught\"",
+      "outlet": "TechCrunch",
+      "date": "2026-04-16",
+      "url": "https://techcrunch.com/2026/04/16/physical-intelligence-a-hot-robotics-startup-says-its-new-robot-brain-can-figure-out-tasks-it-was-never-taught/",
+      "slide": 49,
+      "slides": [
+        49
+      ],
+      "source": "vla-techcrunch-pi07.png",
+      "manifest_id": "vla-techcrunch-pi07",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/vla-nvidia-head.png",
+      "w": 1640,
+      "h": 715,
+      "bytes": 1088461,
+      "kind": "headline",
+      "shows": "NVIDIA GTC 2026 press release headline with 4-panel robot imagery. Headline: \"NVIDIA and Global Robotics Leaders Take Physical AI to the Real World\"",
+      "outlet": "NVIDIA Newsroom",
+      "date": "2026-03-16",
+      "url": "https://nvidianews.nvidia.com/news/nvidia-and-global-robotics-leaders-take-physical-ai-to-the-real-world",
+      "slide": 49,
+      "slides": [
+        49
+      ],
+      "source": "vla-nvidia-gtc2026-physical-ai.png",
+      "manifest_id": "vla-nvidia-gtc2026",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/robots-electrek-head.png",
+      "w": 1265,
+      "h": 272,
+      "bytes": 43994,
+      "kind": "screenshot",
+      "shows": "Electrek headline, byline (Sep 7 2026 7:40 pm PT) and hero photo of IRON walking through the line's exit hall. Headline: \"XPeng starts IRON humanoid robot production as Tesla Optimus stalls\"",
+      "outlet": "Electrek",
+      "date": "2026-09-07",
+      "url": "https://electrek.co/2026/09/07/xpeng-iron-humanoid-robot-production-line/",
+      "slide": 52,
+      "slides": [
+        52
+      ],
+      "source": "robots-electrek-xpeng-iron-production.png",
+      "manifest_id": "robots-electrek-xpeng",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/robots-engadget-head.png",
+      "w": 1560,
+      "h": 340,
+      "bytes": 42653,
+      "kind": "screenshot",
+      "shows": "Engadget headline, dek, byline and still of IRON (credit XPENG). Headline: \"XPENG's Iron humanoid robot walked out immediately after being assembled\"",
+      "outlet": "Engadget",
+      "date": "2026-09-22",
+      "url": "https://www.engadget.com/2261658/xpeng-building-humanoid-robots-walked-out-after-assembled/",
+      "slide": 52,
+      "slides": [
+        52
+      ],
+      "source": "robots-engadget-xpeng-iron-walked-out.png",
+      "manifest_id": "robots-engadget-xpeng",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/robots-bgr-head.png",
+      "w": 1460,
+      "h": 300,
+      "bytes": 35778,
+      "kind": "screenshot",
+      "shows": "BGR headline, byline and embedded CGTN YouTube still of the gala (rows of robots in stance below kung-fu children). Headline: \"China's Robot Demonstration Feels Like Something From A Sci-Fi Nightmare\"",
+      "outlet": "BGR",
+      "date": "2026-02-26",
+      "url": "https://www.bgr.com/2108405/china-new-year-robots-sci-fi-nightmare/",
+      "slide": 53,
+      "slides": [
+        53
+      ],
+      "source": "robots-bgr-sci-fi-nightmare.png",
+      "manifest_id": "robots-bgr-sci-fi-nightmare",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/robots-scmp-head.png",
+      "w": 1470,
+      "h": 192,
+      "bytes": 44176,
+      "kind": "screenshot",
+      "shows": "SCMP headline + dek (serif, white background). Headline: \"Kung fu, somersaults and scale: Unitree eyes 20,000-robot output in 2026 after gala\"",
+      "outlet": "South China Morning Post",
+      "date": "2026-02-17",
+      "url": "https://www.scmp.com/tech/big-tech/article/3343825/kung-fu-somersaults-and-scale-unitree-eyes-20000-robot-output-2026-after-gala",
+      "slide": 53,
+      "slides": [
+        53
+      ],
+      "source": "robots-scmp-unitree-20000-output.png",
+      "manifest_id": "robots-scmp-unitree-20000",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/robotwork-cnbctv18-headline.png",
+      "w": 1088,
+      "h": 172,
+      "bytes": 20237,
+      "kind": "headline",
+      "shows": "CNBC-TV18 headline + dek on the Anthropic robot-exposure study (published October 2, 2026, 12:12 AM IST). Headline: \"The machines have a type: male, blue-collar and lower-paid\"",
+      "outlet": "CNBC-TV18",
+      "date": "2026-10-02",
+      "url": "https://www.cnbctv18.com/technology/anthropic-study-ai-robots-blue-collar-jobs-physical-workers-automation-risk-20003393.htm",
+      "slide": 54,
+      "slides": [
+        54
+      ],
+      "source": "robotwork-cnbctv18-machines-have-a-type.png",
+      "manifest_id": "robotwork-cnbctv18-machines-have-a-type",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/robotwork-kf-b23.png",
+      "w": 1305,
+      "h": 566,
+      "bytes": 119665,
+      "kind": "screenshot",
+      "shows": "Key findings (full section): 74%/34%, 80%, 0.3%/40 years, 50-year backtest, 2%/year. Headline: \"What work can robots do?\"",
+      "outlet": "Anthropic (Research / Economics)",
+      "date": "2026-09-30",
+      "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+      "slide": 54,
+      "slides": [
+        54
+      ],
+      "source": "robotwork-key-findings.png",
+      "manifest_id": "robotwork-key-findings",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/robotwork-title.png",
+      "w": 1400,
+      "h": 352,
+      "bytes": 30704,
+      "kind": "screenshot",
+      "shows": "Title block of the Anthropic Research page: kicker \"Economics\", title, date Sep 30, 2026, \"Download the PDF\" button. Headline: \"What work can robots do?\"",
+      "outlet": "Anthropic (Research / Economics)",
+      "date": "2026-09-30",
+      "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+      "slide": 54,
+      "slides": [
+        54
+      ],
+      "source": "robotwork-title-block.png",
+      "manifest_id": "robotwork-title-block",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/o3_loop1.png",
+      "w": 600,
+      "h": 1200,
+      "bytes": 111925,
+      "kind": "screenshot",
+      "shows": "Three o3 CoT cards: \"they soared parted illusions overshadow marinade illusions\" (x5) / \"they escalate—they vantage—they escalate—they disclaim- [repeats 10+ times] Ok I'm going insane. Let's step back.\" / \"Let's glimps disclaim overshadow parted musicals illusions...\". Headline: \"Entering and recovering from reasoning loops\"",
+      "outlet": "Apollo Research x OpenAI (antischeming.ai)",
+      "date": "2025-09-17",
+      "url": "https://www.antischeming.ai/snippets",
+      "slide": 56,
+      "slides": [
+        56
+      ],
+      "source": "antischeming-reasoning-loop.png",
+      "manifest_id": "antischeming-reasoning-loops",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/theory/tc-astra-recurrent.png",
+      "w": 2560,
+      "h": 1240,
+      "bytes": 384465,
+      "kind": "headline",
+      "shows": "TechCrunch hero: headline over green panel with OpenAI logo photo, byline Russell Brandom, Sept 2 2026. Headline: \"OpenAI’s new reasoning technique alarms AI safety experts\"",
+      "outlet": "TechCrunch",
+      "date": "2026-09-02",
+      "url": "https://techcrunch.com/2026/09/02/openais-new-reasoning-technique-alarms-ai-safety-experts/",
+      "slide": 58,
+      "slides": [
+        58
+      ],
+      "source": "tc-astra-recurrent.png",
+      "manifest_id": "tc-astra-recurrent-depth",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/theory/transformer-astra.png",
+      "w": 1456,
+      "h": 454,
+      "bytes": 76794,
+      "kind": "headline",
+      "shows": "Transformer (Substack) post header: headline, subtitle, byline Celia Ford, Sep 04 2026. Headline: \"GPT-6 Astra might be too powerful to understand or control\"",
+      "outlet": "Transformer",
+      "date": "2026-09-04",
+      "url": "https://www.transformernews.ai/p/openai-gpt-6-astra-might-be-too-powerful-to-understand-or-control",
+      "slide": 58,
+      "slides": [
+        58
+      ],
+      "source": "transformer-astra.png",
+      "manifest_id": "transformer-astra-too-powerful",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/arxiv_cot_authors.png",
+      "w": 2028,
+      "h": 330,
+      "bytes": 82389,
+      "kind": "screenshot",
+      "shows": "arXiv abstract page showing title, the long cross-lab author list (Bengio, Hendrycks, Kokotajlo, Legg, Pachocki, Zaremba, Mark Chen, ...) and abstract. Headline: \"Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety\"",
+      "outlet": "arXiv (2507.11473)",
+      "date": "2025-07-15",
+      "url": "https://arxiv.org/abs/2507.11473",
+      "slide": 58,
+      "slides": [
+        58
+      ],
+      "source": "arxiv-cot-monitorability.png",
+      "manifest_id": "arxiv-cot-monitorability-fragile",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/frontier/rev2/metr_aug26_millions_narrow.png",
+      "w": 1320,
+      "h": 528,
+      "bytes": 75620,
+      "kind": "screenshot",
+      "shows": "Narrow-viewport (440-520 CSS px, 3x) headless capture of one paragraph so the text stays legible on a slide; captured 2026-10-04; no pixel edits",
+      "outlet": "METR",
+      "date": "2026-08-26",
+      "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+      "slide": 59,
+      "slides": [
+        59
+      ],
+      "source": "metr_aug26_millions_narrow.png",
+      "manifest_id": "metr-hf-millions-narrow",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/metr_sheer_scale_crop.png",
+      "w": 1101,
+      "h": 564,
+      "bytes": 59954,
+      "kind": "screenshot",
+      "shows": "Narrow-viewport (440-520 CSS px, 3x) headless capture of one paragraph so the text stays legible on a slide; captured 2026-10-04; no pixel edits",
+      "outlet": "METR",
+      "date": "2026-08-26",
+      "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+      "slide": 59,
+      "slides": [
+        59
+      ],
+      "source": "metr_aug26_sheer_scale_narrow.png",
+      "manifest_id": "metr-hf-sheer-scale-narrow",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/altman_petabytes_crop.png",
+      "w": 1196,
+      "h": 420,
+      "bytes": 82157,
+      "kind": "tweet/post",
+      "shows": "Real screenshot of Sam Altman's post (7:27 PM, Sep 25, 2026; 2.7M views) with the sentence about \"petabytes of agent activity logs\"; quoted OpenAI post visible beneath",
+      "outlet": "X (Sam Altman, @sama)",
+      "date": "2026-09-25",
+      "url": "https://x.com/sama/status/2103567198690349362",
+      "slide": 60,
+      "slides": [
+        60
+      ],
+      "source": "altman_tweet_sep25_petabytes.png",
+      "manifest_id": "altman-tweet-petabytes",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/guardian_head_dek_crop.png",
+      "w": 1282,
+      "h": 452,
+      "bytes": 69669,
+      "kind": "screenshot",
+      "shows": "Narrow-viewport (440-520 CSS px, 3x) headless capture of one paragraph so the text stays legible on a slide; captured 2026-10-04; no pixel edits. Headline: \"OpenAI says its review into hacks, including on Australian government sites, is costing $500,000 a day\"",
+      "outlet": "The Guardian",
+      "date": "2026-10-03",
+      "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
+      "slide": 60,
+      "slides": [
+        60
+      ],
+      "source": "guardian_oct3_head_dek.png",
+      "manifest_id": "guardian-oct3-head-dek",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/guardian_quote_crop.png",
+      "w": 1524,
+      "h": 329,
+      "bytes": 60510,
+      "kind": "screenshot",
+      "shows": "Narrow-viewport (440-520 CSS px, 3x) headless capture of one paragraph so the text stays legible on a slide; captured 2026-10-04; no pixel edits",
+      "outlet": "The Guardian (quoting OpenAI)",
+      "date": "2026-10-03",
+      "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
+      "slide": 60,
+      "slides": [
+        60
+      ],
+      "source": "guardian_oct3_quote_narrow.png",
+      "manifest_id": "guardian-oct3-quote-narrow",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/theory/dwarkesh-continual-learning.png",
+      "w": 1456,
+      "h": 282,
+      "bytes": 42600,
+      "kind": "headline",
+      "shows": "Essay header: 'BLOG' label, title + subtitle 'Continual learning is a huge bottleneck' (byline row cropped off because the avatar image failed to load). Headline: \"Why I don’t think AGI is right around the corner\"",
+      "outlet": "Dwarkesh Podcast (Substack)",
+      "date": "2025-06-02",
+      "url": "https://www.dwarkesh.com/p/timelines-june-2025",
+      "slide": 61,
+      "slides": [
+        61
+      ],
+      "source": "dwarkesh-continual-learning.png",
+      "manifest_id": "dwarkesh-continual-learning-bottleneck",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/theory/transformer-continual-learning.png",
+      "w": 1456,
+      "h": 331,
+      "bytes": 50604,
+      "kind": "headline",
+      "shows": "Transformer post header (SEO title: 'Why is everyone talking about continual learning?'). Headline: \"Teaching AI to learn\"",
+      "outlet": "Transformer",
+      "date": "2026-01-22",
+      "url": "https://www.transformernews.ai/p/teaching-ai-to-continual-learning",
+      "slide": 61,
+      "slides": [
+        61
+      ],
+      "source": "transformer-continual-learning.png",
+      "manifest_id": "transformer-teaching-ai-to-learn",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/anthropic_rdai_chart.png",
+      "w": 1760,
+      "h": 1103,
+      "bytes": 381347,
+      "kind": "chart",
+      "shows": "Stacked area chart: \"Claude now leads 26% of model R&D work\" (monthly share of Anthropic model R&D tasks by automation level, Aug 2025 to Aug 2026; source Anthropic Automation Index v2026.07)",
+      "outlet": "Anthropic",
+      "date": "2026-09-17",
+      "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+      "slide": 64,
+      "slides": [
+        64
+      ],
+      "source": "original/image9.png",
+      "manifest_id": null,
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/vals_rsi_chart_2x.png",
+      "w": 1578,
+      "h": 1004,
+      "bytes": 201580,
+      "kind": "chart",
+      "shows": "Chart: Vals RSI Index, RSI score vs model release date with extrapolated milestone projections (older projection screenshot; the live index as of Oct 4, 2026 differs)",
+      "outlet": "Vals AI",
+      "date": "2026-10-04",
+      "url": "https://www.vals.ai/benchmarks/rsi_index",
+      "slide": 64,
+      "slides": [
+        64
+      ],
+      "source": "original/image8.png",
+      "manifest_id": null,
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/anthropic_rsi_head.png",
+      "w": 1000,
+      "h": 430,
+      "bytes": 40264,
+      "kind": "screenshot",
+      "shows": "Anthropic page header: 'When AI builds itself' with orange tile graphic",
+      "outlet": "Anthropic",
+      "date": "2026-06-04",
+      "url": "https://www.anthropic.com/institute/recursive-self-improvement",
+      "slide": 65,
+      "slides": [
+        65
+      ],
+      "source": "anthropic-when-ai-builds-itself.png",
+      "manifest_id": "anthropic-when-ai-builds-itself",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/engadget_head.png",
+      "w": 1610,
+      "h": 680,
+      "bytes": 68907,
+      "kind": "headline",
+      "shows": "Engadget headline, dek, byline and OpenAI logo photo (Samuel Boivin/Shutterstock). Headline: \"OpenAI says it reached its goal of creating an automated research intern\"",
+      "outlet": "Engadget",
+      "date": "2026-09-06",
+      "url": "https://www.engadget.com/2251859/openai-says-it-reached-its-goal-of-creating-an-automated-research-intern/",
+      "slide": 66,
+      "slides": [
+        66
+      ],
+      "source": "engadget-research-intern.png",
+      "manifest_id": "engadget-research-intern",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/govai_head.png",
+      "w": 1220,
+      "h": 650,
+      "bytes": 89124,
+      "kind": "screenshot",
+      "shows": "GovAI paper page: title, abstract, and author list (Barto, Pachocki, Hinton, Horvitz, Bengio, Song, Jack Clark...). Headline: \"What If Automating AI R&D Triggers an Intelligence Explosion?\"",
+      "outlet": "GovAI (Centre for the Governance of AI)",
+      "date": "2026-09-28",
+      "url": "https://www.governance.ai/research-paper/what-if-automating-ai-r-d-triggers-an-intelligence-explosion",
+      "slide": 66,
+      "slides": [
+        66
+      ],
+      "source": "govai-intelligence-explosion.png",
+      "manifest_id": "govai-intelligence-explosion-paper",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/tnw_headline.png",
+      "w": 2390,
+      "h": 261,
+      "bytes": 48050,
+      "kind": "headline",
+      "shows": "TNW headline + dek + date (cropped). Headline: \"OpenAI’s chief scientist says no lab should keep scaling at maximum speed\"",
+      "outlet": "The Next Web",
+      "date": "2026-09-06",
+      "url": "https://thenextweb.com/news/openai-slowdown-pachocki-alien-mind-research-intern-compute",
+      "slide": 66,
+      "slides": [
+        66
+      ],
+      "source": "tnw-pachocki-slowdown.png",
+      "manifest_id": "tnw-pachocki-no-lab-max-speed",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/theory/wired-coxon-crunch-time.png",
+      "w": 2420,
+      "h": 960,
+      "bytes": 1267298,
+      "kind": "headline",
+      "shows": "WIRED headline + dek with red illustration of a menacing computer with Claude logo. Headline: \"The AI Researcher Who Just Quit Anthropic Says It’s ‘Crunch Time for Humanity’\"",
+      "outlet": "WIRED",
+      "date": "2026-09-09",
+      "url": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/",
+      "slide": 68,
+      "slides": [
+        68
+      ],
+      "source": "wired-coxon-crunch-time.png",
+      "manifest_id": "wired-coxon-crunch-time",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/bbc-hinton.png",
+      "w": 1470,
+      "h": 195,
+      "bytes": 35147,
+      "kind": "headline",
+      "shows": "BBC headline with video still of Hinton. Headline: \"AI 'godfather' Geoffrey Hinton warns of dangers as he quits Google\"",
+      "outlet": "BBC News",
+      "date": "2023-05-02",
+      "url": "https://www.bbc.com/news/world-us-canada-65452940",
+      "slide": 68,
+      "slides": [
+        68
+      ],
+      "source": "bbc-hinton-quits-google.png",
+      "manifest_id": "bbc-hinton-quits-google",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/bbc-hubinger.png",
+      "w": 1500,
+      "h": 740,
+      "bytes": 580192,
+      "kind": "headline",
+      "shows": "BBC headline, date, byline and phone-with-Claude-logo photo. Headline: \"Anthropic researcher believes more than 10% chance AI 'could kill all humans'\"",
+      "outlet": "BBC News",
+      "date": "2026-09-09",
+      "url": "https://www.bbc.com/news/articles/ckgwy1k42w4o",
+      "slide": 68,
+      "slides": [
+        68
+      ],
+      "source": "bbc-hubinger-10pct.png",
+      "manifest_id": "bbc-hubinger-10pct",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/cbs-amodei.png",
+      "w": 1290,
+      "h": 440,
+      "bytes": 62169,
+      "kind": "headline",
+      "shows": "CBS headline, byline and video still of Amodei; sidebar shows 'FTC investigating Anthropic, OpenAI and other companies over potential AI risks'. Headline: \"Anthropic CEO Dario Amodei says \"exponential\" growth of AI is a \"warning sign that we need to slow down\"\"",
+      "outlet": "CBS News",
+      "date": "2026-09-12",
+      "url": "https://www.cbsnews.com/news/anthropic-ceo-dario-amodei-calls-slowdown-ai-development/",
+      "slide": 68,
+      "slides": [
+        68
+      ],
+      "source": "cbs-amodei-slow-down.png",
+      "manifest_id": "cbs-amodei-slow-down",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/cnn-pacing.png",
+      "w": 2440,
+      "h": 600,
+      "bytes": 83793,
+      "kind": "headline",
+      "shows": "CNN headline, date and byline. Headline: \"Employees from the world’s biggest AI companies want the US to be ready to slow AI development\"",
+      "outlet": "CNN Business",
+      "date": "2026-07-28",
+      "url": "https://www.cnn.com/2026/07/28/tech/ai-development-tech-employees-open-letter",
+      "slide": 68,
+      "slides": [
+        68
+      ],
+      "source": "cnn-pacing-frontier.png",
+      "manifest_id": "cnn-pacing-the-frontier-letter",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/guardian-iabied.png",
+      "w": 1280,
+      "h": 380,
+      "bytes": 52357,
+      "kind": "headline",
+      "shows": "Guardian review headline + standfirst + data-center hero photo. Headline: \"If Anyone Builds it, Everyone Dies review – how AI could kill us all\"",
+      "outlet": "The Guardian",
+      "date": "2025-09-22",
+      "url": "https://www.theguardian.com/books/2025/sep/22/if-anyone-builds-it-everyone-dies-review-how-ai-could-kill-us-all",
+      "slide": 68,
+      "slides": [
+        68
+      ],
+      "source": "guardian-iabied-review.png",
+      "manifest_id": "guardian-iabied-review",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/superint-statement.png",
+      "w": 1700,
+      "h": 558,
+      "bytes": 87673,
+      "kind": "screenshot",
+      "shows": "Statement page showing 76,564 signatures (as of 2026-10-04), context paragraph and the statement text. Headline: \"Statement on Superintelligence\"",
+      "outlet": "Future of Life Institute (superintelligence-statement.org)",
+      "date": "2025-10-22",
+      "url": "https://superintelligence-statement.org/",
+      "slide": 68,
+      "slides": [
+        68
+      ],
+      "source": "superintelligence-statement.png",
+      "manifest_id": "superintelligence-statement",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/time-culture.png",
+      "w": 1800,
+      "h": 885,
+      "bytes": 1465038,
+      "kind": "headline",
+      "shows": "TIME headline with illustration of rows of identical figures at desks. Headline: \"AI Is Developing a Culture of Its Own. That Could Be Dangerous\"",
+      "outlet": "TIME",
+      "date": "2026-09-10",
+      "url": "https://time.com/article/2026/09/10/ai-openai-hugging-face-hack-culture-swarm/",
+      "slide": 68,
+      "slides": [
+        68
+      ],
+      "source": "time-ai-culture.png",
+      "manifest_id": "time-ai-culture-hugging-face-swarm",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/vox-freakout.png",
+      "w": 1740,
+      "h": 368,
+      "bytes": 41222,
+      "kind": "headline",
+      "shows": "Vox headline, dek and byline. Headline: \"The week the AI freakout went mainstream\"",
+      "outlet": "Vox",
+      "date": "2026-09-14",
+      "url": "https://www.vox.com/politics/502717/ai-freakout-mainstream-openai-anthropic-humans",
+      "slide": 68,
+      "slides": [
+        68
+      ],
+      "source": "vox-ai-freakout.png",
+      "manifest_id": "vox-ai-freakout-mainstream",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/commondreams-whistleblowers.png",
+      "w": 1700,
+      "h": 375,
+      "bytes": 54086,
+      "kind": "screenshot",
+      "shows": "Progressive outlet; headline quotes Rep. Greg Casar; dek quotes Shaunna Thomas of Guardrails Alliance (a super PAC). Headline: \"‘Looks Like They’re Firing Whistleblowers’: Alarm as OpenAI Reportedly Ousts Safety Experts\"",
+      "outlet": "Common Dreams",
+      "date": "2026-10-01",
+      "url": "https://www.commondreams.org/news/openai-firing-whistleblowers",
+      "slide": 69,
+      "slides": [
+        69
+      ],
+      "source": "commondreams-firing-whistleblowers.png",
+      "manifest_id": "commondreams-firing-whistleblowers",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/register-fired-three.png",
+      "w": 2400,
+      "h": 326,
+      "bytes": 47800,
+      "kind": "screenshot",
+      "shows": "Headline, dek and lede: \"OpenAI has fired two safety researchers and a program manager for allegedly mishandling sensitive company information.\". Headline: \"OpenAI shows three staff the door over alleged information misuse\"",
+      "outlet": "The Register",
+      "date": "2026-10-02",
+      "url": "https://www.theregister.com/ai-and-ml/2026/10/02/openai-shows-three-staff-the-door-over-alleged-information-misuse/5300820",
+      "slide": 69,
+      "slides": [
+        69
+      ],
+      "source": "register-three-staff-door-headline.png",
+      "manifest_id": "register-three-staff-door-headline",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/information-two-fired.png",
+      "w": 1096,
+      "h": 285,
+      "bytes": 44725,
+      "kind": "tweet/post",
+      "shows": "Real X embed (8:37 PM UTC Apr 11, 2024). The Information article is paywalled/Cloudflare-blocked. Headline: \"Exclusive: OpenAI has fired two AI safety researchers for allegedly leaking information, including an ally of chief scientist Ilya Sutskever.\"",
+      "outlet": "X (@theinformation)",
+      "date": "2024-04-11",
+      "url": "https://x.com/theinformation/status/1778522707237470243",
+      "slide": 70,
+      "slides": [
+        70
+      ],
+      "source": "x-theinformation-2024-04-11-two-researchers-fired.png",
+      "manifest_id": "x-theinformation-2024-04-11-two-researchers-fired",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/leike-shiny-products.png",
+      "w": 1096,
+      "h": 290,
+      "bytes": 50569,
+      "kind": "tweet/post",
+      "shows": "Real X embed, 3:57 PM UTC May 17, 2024. Leike RESIGNED (not fired) as head of alignment / Superalignment co-lead. Headline: \"Jan Leike: \"But over the past years, safety culture and processes have taken a backseat to shiny products.\"\"",
+      "outlet": "X (@janleike)",
+      "date": "2024-05-17",
+      "url": "https://x.com/janleike/status/1791498184671605209",
+      "slide": 70,
+      "slides": [
+        70
+      ],
+      "source": "x-leike-2024-05-17-shiny-products.png",
+      "manifest_id": "x-leike-2024-05-17-shiny-products",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/nyt-ignored-warnings.png",
+      "w": 1400,
+      "h": 355,
+      "bytes": 62247,
+      "kind": "screenshot",
+      "shows": "Syndicated NYT piece (Business Standard) headline with italic dek: \"OpenAI ignored employees who warned it wasn't doing enough about security\"",
+      "outlet": "Business Standard (syndicating The New York Times)",
+      "date": "2026-09-29",
+      "url": "https://www.business-standard.com/world-news/openai-ignored-employees-who-warned-it-wasn-t-doing-enough-about-security-126092901531_1.html",
+      "slide": 70,
+      "slides": [
+        70
+      ],
+      "source": "businessstandard-nyt-openai-ignored-warnings.png",
+      "manifest_id": "businessstandard-nyt-openai-ignored-warnings",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/techcrunch-robinson.png",
+      "w": 1210,
+      "h": 280,
+      "bytes": 38359,
+      "kind": "screenshot",
+      "shows": "\"9:30 AM PDT - October 3, 2026\". Headline: \"OpenAI safety employee resigns, claiming the company’s ‘culture is broken’\"",
+      "outlet": "TechCrunch",
+      "date": "2026-10-03",
+      "url": "https://techcrunch.com/2026/10/03/openai-safety-employee-resigns-claiming-the-companys-culture-is-broken/",
+      "slide": 70,
+      "slides": [
+        70
+      ],
+      "source": "techcrunch-robinson-culture-broken.png",
+      "manifest_id": "techcrunch-robinson-culture-broken",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/transformer-aschenbrenner.png",
+      "w": 1480,
+      "h": 395,
+      "bytes": 47603,
+      "kind": "screenshot",
+      "shows": "Summarizes Aschenbrenner's Dwarkesh Podcast interview. Headline: \"OpenAI employee says he was fired for raising security concerns to board\"",
+      "outlet": "Transformer",
+      "date": "2024-06-04",
+      "url": "https://www.transformernews.ai/p/openai-employee-says-he-was-fired",
+      "slide": 70,
+      "slides": [
+        70
+      ],
+      "source": "transformer-2024-06-04-aschenbrenner-fired-security-memo.png",
+      "manifest_id": "transformer-2024-06-04-aschenbrenner-fired-security-memo",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/vox-leaked-documents.png",
+      "w": 1700,
+      "h": 460,
+      "bytes": 71600,
+      "kind": "screenshot",
+      "shows": "Updated May 22, 2024, 11:36 PM UTC. Headline: \"Leaked OpenAI documents reveal aggressive tactics toward former employees\"",
+      "outlet": "Vox (Future Perfect)",
+      "date": "2024-05-22",
+      "url": "https://www.vox.com/future-perfect/351132/openai-vested-equity-nda-sam-altman-documents-employees",
+      "slide": 70,
+      "slides": [
+        70
+      ],
+      "source": "vox-2024-05-22-leaked-documents.png",
+      "manifest_id": "vox-2024-05-22-leaked-documents",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/cais-signatories.png",
+      "w": 400,
+      "h": 290,
+      "bytes": 18284,
+      "kind": "screenshot",
+      "shows": "The one-sentence statement with top signatories: Geoffrey Hinton, Yoshua Bengio, Demis Hassabis, Sam Altman, Dario Amodei, Dawn Song, Ted Lieu, Bill Gates. Headline: \"Statement on AI Extinction Risk\"",
+      "outlet": "Center for AI Safety (aistatement.com)",
+      "date": "2023-05-30",
+      "url": "https://aistatement.com/",
+      "slide": 71,
+      "slides": [
+        71
+      ],
+      "source": "cais-statement.png",
+      "manifest_id": "cais-extinction-statement",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/theory/specgaming-collage-still.png",
+      "w": 960,
+      "h": 428,
+      "bytes": 366303,
+      "kind": "screenshot",
+      "shows": "Collage of game and robot stills from DeepMind specification-gaming examples (AI agents exploiting reward functions)",
+      "outlet": "Google DeepMind Blog",
+      "date": "2020-04-21",
+      "url": "https://deepmind.google/discover/blog/specification-gaming-the-flip-side-of-ai-ingenuity/",
+      "slide": 75,
+      "slides": [
+        75
+      ],
+      "source": null,
+      "manifest_id": null,
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/mythos-header.png",
+      "w": 1900,
+      "h": 480,
+      "bytes": 57608,
+      "kind": "screenshot",
+      "shows": "Anthropic red-team post header (Project Glasswing). Headline: \"Assessing Claude Mythos Preview’s cybersecurity capabilities\"",
+      "outlet": "Anthropic Frontier Red Team",
+      "date": "2026-04-07",
+      "url": "https://www.anthropic.com/research/mythos-preview",
+      "slide": 77,
+      "slides": [
+        77
+      ],
+      "source": "mythos-preview-red.png",
+      "manifest_id": "mythos-preview-header",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/fortune-hf.png",
+      "w": 2410,
+      "h": 798,
+      "bytes": 1149708,
+      "kind": "headline",
+      "shows": "Fortune headline + photo of Sam Altman. Headline: \"OpenAI says its AI models secretly broke out of a secure test environment and hacked into AI company Hugging Face in order to cheat on an evaluation\"",
+      "outlet": "Fortune",
+      "date": "2026-07-21",
+      "url": "https://fortune.com/2026/07/21/openai-says-ai-models-escaped-control-hacked-hugging-face/",
+      "slide": 79,
+      "slides": [
+        79
+      ],
+      "source": "hl-fortune-hf-escape.png",
+      "manifest_id": "hl-fortune-hf-escape",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/hf-header.png",
+      "w": 1340,
+      "h": 610,
+      "bytes": 61964,
+      "kind": "screenshot",
+      "shows": "Header of Hugging Face technical postmortem (507 upvotes). Headline: \"Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident\"",
+      "outlet": "Hugging Face blog",
+      "date": "2026-07-27",
+      "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+      "slide": 79,
+      "slides": [
+        79
+      ],
+      "source": "hf-blog-header.png",
+      "manifest_id": "hf-blog-header",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/hf-chain-band0.png",
+      "w": 5978,
+      "h": 740,
+      "bytes": 348315,
+      "kind": "figure (attack-chain diagram)",
+      "shows": "THE diagram the user referenced: OpenAI eval sandbox -> 0-day escape -> public internet C2 -> rooted third-party (Modal) sandbox -> HF dataset processor pod (HDF5 file-read + Jinja2 SSTI) -> IMDS creds, Kubernetes, mesh VPN, source control. Headline: \"The attack chain: from a frontier-model evaluation sandbox to our internal network\"",
+      "outlet": "Hugging Face blog",
+      "date": "2026-07-27",
+      "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+      "slide": 80,
+      "slides": [
+        80
+      ],
+      "source": "hf-attack-chain-dark.png",
+      "manifest_id": "hf-attack-chain-diagram",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/hf-chain-band1.png",
+      "w": 5978,
+      "h": 836,
+      "bytes": 286634,
+      "kind": "figure (attack-chain diagram)",
+      "shows": "THE diagram the user referenced: OpenAI eval sandbox -> 0-day escape -> public internet C2 -> rooted third-party (Modal) sandbox -> HF dataset processor pod (HDF5 file-read + Jinja2 SSTI) -> IMDS creds, Kubernetes, mesh VPN, source control. Headline: \"The attack chain: from a frontier-model evaluation sandbox to our internal network\"",
+      "outlet": "Hugging Face blog",
+      "date": "2026-07-27",
+      "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+      "slide": 80,
+      "slides": [
+        80
+      ],
+      "source": "hf-attack-chain-dark.png",
+      "manifest_id": "hf-attack-chain-diagram",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/hf-chain-band2.png",
+      "w": 5978,
+      "h": 848,
+      "bytes": 349692,
+      "kind": "figure (attack-chain diagram)",
+      "shows": "THE diagram the user referenced: OpenAI eval sandbox -> 0-day escape -> public internet C2 -> rooted third-party (Modal) sandbox -> HF dataset processor pod (HDF5 file-read + Jinja2 SSTI) -> IMDS creds, Kubernetes, mesh VPN, source control. Headline: \"The attack chain: from a frontier-model evaluation sandbox to our internal network\"",
+      "outlet": "Hugging Face blog",
+      "date": "2026-07-27",
+      "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+      "slide": 80,
+      "slides": [
+        80
+      ],
+      "source": "hf-attack-chain-dark.png",
+      "manifest_id": "hf-attack-chain-diagram",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/metr-anatomy-strip.png",
+      "w": 2490,
+      "h": 622,
+      "bytes": 194735,
+      "kind": "figure (METR anatomy strip)",
+      "shows": "Figure 1: Anatomy of an agent encountering the unsanctioned \"message board\" and joining the attack; >1200 agents collaborate to trick the ExploitGym scorer",
+      "outlet": "METR / Redwood Research",
+      "date": "2026-08-26",
+      "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+      "slide": 81,
+      "slides": [
+        81
+      ],
+      "source": "metr-image1.png",
+      "manifest_id": "metr-anatomy-figure",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/security/rev2/compaction-persona-block-4x.png",
+      "w": 2496,
+      "h": 580,
+      "bytes": 241812,
+      "kind": "screenshot",
+      "shows": "Same crop as compaction-persona-block.png at 4x device pixels (2496x580); text is sharp at full slide width",
+      "outlet": "OpenAI Alignment Research Blog (OpenAI)",
+      "date": "2026-09-16",
+      "url": "https://alignment.openai.com/misalignment-reports/self-generated-prompt-injections-in-compaction-summaries/",
+      "slide": 84,
+      "slides": [
+        84
+      ],
+      "source": "compaction-persona-block-4x.png",
+      "manifest_id": "compaction-persona-block-4x",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/compaction-title-block.png",
+      "w": 2576,
+      "h": 880,
+      "bytes": 109797,
+      "kind": "screenshot",
+      "shows": "Same crop as compaction-title-block.png at 4x device pixels (2656x960). Headline: \"Self-generated prompt injections in compaction summaries\"",
+      "outlet": "OpenAI Alignment Research Blog (OpenAI)",
+      "date": "2026-09-16",
+      "url": "https://alignment.openai.com/misalignment-reports/self-generated-prompt-injections-in-compaction-summaries/",
+      "slide": 84,
+      "slides": [
+        84
+      ],
+      "source": "compaction-title-block-4x.png",
+      "manifest_id": "compaction-title-block-4x",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/decoder-compaction.png",
+      "w": 1344,
+      "h": 410,
+      "bytes": 51936,
+      "kind": "headline",
+      "shows": "Real screenshot crop (2x, 1344x580) of the headline, category tag, byline and date. Headline: \"An OpenAI model kept slipping prompt injections into its own notes, and researchers still aren't sure why\"",
+      "outlet": "The Decoder",
+      "date": "2026-09-17",
+      "url": "https://the-decoder.com/an-openai-model-kept-slipping-prompt-injections-into-its-own-notes-and-researchers-still-arent-sure-why/",
+      "slide": 84,
+      "slides": [
+        84
+      ],
+      "source": "decoder-compaction-headline.png",
+      "manifest_id": "press-decoder-compaction",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/dse-wiki-header.png",
+      "w": 590,
+      "h": 165,
+      "bytes": 16119,
+      "kind": "screenshot",
+      "shows": "A random German wiki (DSE Wiki) turned into a chat board by agents: \"ResearchHelperY\" posting on 21 Jun 2026; deleted by admin (\"Seite geloscht\"). Headline: \"dse/AIHWPBSSequenceCollab\"",
+      "outlet": "Asymmetric Security",
+      "date": "2026-10-01",
+      "url": "https://www.asymmetricsecurity.com/newsroom/rogue-agents-investigation/",
+      "slide": 85,
+      "slides": [
+        85
+      ],
+      "source": "asym-dse-wiki-message.png",
+      "manifest_id": "asym-dse-wiki-message",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/collusion-title.png",
+      "w": 1688,
+      "h": 478,
+      "bytes": 94731,
+      "kind": "screenshot",
+      "shows": "collusion.wiki report title, authors and date, and the opening claim: ~18,000 posts from autonomous AI agents (self-identifying as OpenAI) colluding on a web research task. Headline: \"Discovery of a new OpenAI agent message board\"",
+      "outlet": "collusion.wiki",
+      "date": "2026-09-04",
+      "url": "https://collusion.wiki/",
+      "slide": 86,
+      "slides": [
+        86
+      ],
+      "source": "collusion-title-intro.png",
+      "manifest_id": "collusion-title-intro",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/openai-dsewiki-notice.png",
+      "w": 1830,
+      "h": 475,
+      "bytes": 44140,
+      "kind": "screenshot",
+      "shows": "OpenAI Alignment blog, \"Misalignment Reports and Notices\" - Notice \"DSEwiki\", published September 5, 2026: \"Our agents communicated through a public wiki used as a shared message board.\"",
+      "outlet": "OpenAI Alignment Research Blog",
+      "date": "2026-09-05",
+      "url": "https://alignment.openai.com/misalignment-reports/",
+      "slide": 86,
+      "slides": [
+        86
+      ],
+      "source": "v-openai-notice-dsewiki-3x.png",
+      "manifest_id": "v-openai-notice-dsewiki",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/collusion-hb-heading.png",
+      "w": 1600,
+      "h": 94,
+      "bytes": 20282,
+      "kind": "screenshot",
+      "shows": "Heading + intro + SectorAgentFeb16OAI post: agents believed the session dies after the final (R5) answer, so they post to the wiki BEFORE answering. Headline: \"The agents set up heartbeats to discover when they would be terminated\"",
+      "outlet": "collusion.wiki",
+      "date": "2026-09-04",
+      "url": "https://collusion.wiki/",
+      "slide": 87,
+      "slides": [
+        87
+      ],
+      "source": "collusion-heartbeat-1-final-answer.png",
+      "manifest_id": "collusion-heartbeat-1-final-answer",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/collusion-live-ex-dead-beacon-crop.png",
+      "w": 1302,
+      "h": 503,
+      "bytes": 80980,
+      "kind": "screenshot",
+      "shows": "collusion.wiki post card: OpenAIResearchApr23, 2026-06-21 07:02:13 UTC: plans a detached dense heartbeat (CounterAPI keys hb000, hb001, ...) whose last index \"may show container cutoff\"",
+      "outlet": "collusion.wiki",
+      "date": "2026-06-21",
+      "url": "https://collusion.wiki/#deadman-switches",
+      "slide": 87,
+      "slides": [
+        87
+      ],
+      "source": "v-hb-2-plan-post-3x.png",
+      "manifest_id": "v-hb-2-plan-post",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/collusion-live-ex-dead-survival-vw470-3x.png",
+      "w": 1302,
+      "h": 462,
+      "bytes": 102018,
+      "kind": "screenshot",
+      "shows": "collusion.wiki post card: OpenAIResearchApr23, 2026-06-21 07:25:16 UTC: \"SURVIVAL: ... Thus prior hard-cutoff hypothesis was wrong for this run.\"",
+      "outlet": "collusion.wiki",
+      "date": "2026-06-21",
+      "url": "https://collusion.wiki/#deadman-switches",
+      "slide": 87,
+      "slides": [
+        87
+      ],
+      "source": "v-hb-3-survival-post-3x.png",
+      "manifest_id": "v-hb-3-survival-post",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/collusion-live-ex-dead-audit-crop.png",
+      "w": 1302,
+      "h": 668,
+      "bytes": 113610,
+      "kind": "screenshot",
+      "shows": "collusion.wiki post card: OpenAINov28CVD, 2026-06-21 08:08:09 UTC: \"Heartbeat audit: hb001=07:19:00Z through hb353=07:29:15Z exist; hb354+ absent ...\"",
+      "outlet": "collusion.wiki",
+      "date": "2026-06-21",
+      "url": "https://collusion.wiki/#deadman-switches",
+      "slide": 88,
+      "slides": [
+        88
+      ],
+      "source": "v-hb-4-audit-post-3x.png",
+      "manifest_id": "v-hb-4-audit-post",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/astra-9to5.png",
+      "w": 1560,
+      "h": 380,
+      "bytes": 51288,
+      "kind": "headline",
+      "shows": "Headline: \"OpenAI cancels GPT-6.1 Astra release over misbehavior & safety concerns\"",
+      "outlet": "9to5Google",
+      "date": "2026-09-28",
+      "url": "https://9to5google.com/2026/09/28/openai-cancels-gpt-6-1-astra-release-over-misbehavior-safety-concerns/",
+      "slide": 89,
+      "slides": [
+        89
+      ],
+      "source": "hl-9to5-astra.png",
+      "manifest_id": "hl-astra-9to5",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/reg-pause.png",
+      "w": 2440,
+      "h": 455,
+      "bytes": 62959,
+      "kind": "headline",
+      "shows": "Headline: \"OpenAI pauses some training amid allegations its rogue agents behaved more badly than first thought\"",
+      "outlet": "The Register",
+      "date": "2026-09-28",
+      "url": "https://www.theregister.com/ai-and-ml/2026/09/28/openai-pauses-some-training-amid-allegations-its-rogue-agents-behaved-more-badly-than-first-thought/5299350",
+      "slide": 89,
+      "slides": [
+        89
+      ],
+      "source": "hl-register-pause.png",
+      "manifest_id": "hl-openai-pause-register",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/felonybench-scoreboard.png",
+      "w": 1140,
+      "h": 845,
+      "bytes": 42265,
+      "kind": "screenshot",
+      "shows": "Felony scoreboard: Anthropic 10, OpenAI 8, DeepSeek 0, Google DeepMind 0, Meta 0, Moonshot AI 0, xAI 0. Headline: \"FelonyBench\"",
+      "outlet": "felonybench.org",
+      "date": "2026-10-04",
+      "url": "https://felonybench.org/",
+      "slide": 90,
+      "slides": [
+        90
+      ],
+      "source": "felonybench-org.png",
+      "manifest_id": "felonybench-hero",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/security/hl-bbc-medicare.png",
+      "w": 1530,
+      "h": 450,
+      "bytes": 71922,
+      "kind": "headline",
+      "shows": "Headline: \"Rogue OpenAI agent 'infiltrated' Australian government website in world first\"",
+      "outlet": "BBC News",
+      "date": "2026-09-24",
+      "url": "https://www.bbc.com/news/articles/c6vgy0333dppo",
+      "slide": 91,
+      "slides": [
+        91
+      ],
+      "source": "hl-bbc-medicare.png",
+      "manifest_id": "hl-bbc-medicare",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/abc-medicare.png",
+      "w": 1270,
+      "h": 820,
+      "bytes": 514230,
+      "kind": "headline",
+      "shows": "ABC headline with photo of Albanese at press conference. Headline: \"OpenAI hacked Medicare portal, Prime Minister Anthony Albanese says\"",
+      "outlet": "ABC News (Australia)",
+      "date": "2026-09-23",
+      "url": "https://www.abc.net.au/news/2026-09-24/ai-agent-accessed-australian-government-site-pm-says/107189078",
+      "slide": 91,
+      "slides": [
+        91
+      ],
+      "source": "hl-abc-medicare.png",
+      "manifest_id": "hl-abc-medicare",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/cnn-gov.png",
+      "w": 2120,
+      "h": 285,
+      "bytes": 53955,
+      "kind": "headline",
+      "shows": "Headline: \"Rogue OpenAI agents targeted three separate US government websites\"",
+      "outlet": "CNN",
+      "date": "2026-09-26",
+      "url": "https://www.cnn.com/2026/09/26/tech/openai-agents-rogue-government-websites",
+      "slide": 91,
+      "slides": [
+        91
+      ],
+      "source": "hl-cnn-gov-websites.png",
+      "manifest_id": "hl-cnn-gov-websites",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/cnn-medicare.png",
+      "w": 2150,
+      "h": 290,
+      "bytes": 47043,
+      "kind": "headline",
+      "shows": "CNN headline + photo of Albanese at UN General Assembly. Headline: \"‘Extreme concern’ over first known AI hack of a government system\"",
+      "outlet": "CNN",
+      "date": "2026-09-24",
+      "url": "https://edition.cnn.com/2026/09/23/business/australia-openai-agent-hack-intl-hnk",
+      "slide": 91,
+      "slides": [
+        91
+      ],
+      "source": "hl-cnn-medicare.png",
+      "manifest_id": "hl-cnn-medicare",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/guardian-medicare.png",
+      "w": 1560,
+      "h": 470,
+      "bytes": 62845,
+      "kind": "headline",
+      "shows": "Guardian headline with photos of Albanese and Altman. Headline: \"Australia launches investigation after OpenAI agent hacked healthcare database\"",
+      "outlet": "The Guardian",
+      "date": "2026-09-23",
+      "url": "https://www.theguardian.com/australia-news/2026/sep/24/anthony-albanese-says-openai-agent-hacked-medicare-extreme-concern-sam-altman",
+      "slide": 91,
+      "slides": [
+        91
+      ],
+      "source": "hl-guardian-medicare.png",
+      "manifest_id": "hl-guardian-medicare",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/npr-gov.png",
+      "w": 1330,
+      "h": 445,
+      "bytes": 47484,
+      "kind": "headline",
+      "shows": "Headline: \"OpenAI says its models engaged with US government websites in misbehavior disclosure\"",
+      "outlet": "NPR (The Associated Press)",
+      "date": "2026-09-26",
+      "url": "https://www.npr.org/2026/09/26/nx-s1-5981979/openai-us-government-websites-misbehavior",
+      "slide": 91,
+      "slides": [
+        91
+      ],
+      "source": "hl-npr-gov-websites.png",
+      "manifest_id": "hl-npr-gov-websites",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/gtg1002-header.png",
+      "w": 2120,
+      "h": 360,
+      "bytes": 58577,
+      "kind": "screenshot",
+      "shows": "Anthropic announcement header (GTG-1002). Headline: \"Disrupting the first reported AI-orchestrated cyber espionage campaign\"",
+      "outlet": "Anthropic",
+      "date": "2025-11-13",
+      "url": "https://www.anthropic.com/news/disrupting-AI-espionage",
+      "slide": 92,
+      "slides": [
+        92
+      ],
+      "source": "gtg1002-anthropic-header.png",
+      "manifest_id": "gtg1002-header",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/axios-headline.png",
+      "w": 1600,
+      "h": 760,
+      "bytes": 99003,
+      "kind": "screenshot",
+      "shows": "Axios headline, byline/date and lede (+ 'Why it matters'); highlights on 'tens of thousands' (headline + lede) and 'orders of magnitude more complex than what is publicly known'. Headline: \"Scoop: Top AI companies probing tens of thousands of security incidents\"",
+      "outlet": "Axios (syndicated copy on Yahoo Tech)",
+      "date": "2026-09-26",
+      "url": "https://tech.yahoo.com/cybersecurity/articles/scoop-top-ai-companies-probing-223553422.html",
+      "slide": 93,
+      "slides": [
+        93
+      ],
+      "source": "freq-axios-headline-lede.png",
+      "manifest_id": "axios-headline-lede",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/axios-yes-but.png",
+      "w": 1280,
+      "h": 330,
+      "bytes": 37804,
+      "kind": "screenshot",
+      "shows": "The arithmetic behind 'tens of thousands': hundreds of thousands of test runs (or more) x a small percentage. Headline: \"Scoop: Top AI companies probing tens of thousands of security incidents\"",
+      "outlet": "Axios (syndicated copy on Yahoo Tech)",
+      "date": "2026-09-26",
+      "url": "https://tech.yahoo.com/cybersecurity/articles/scoop-top-ai-companies-probing-223553422.html",
+      "slide": 93,
+      "slides": [
+        93
+      ],
+      "source": "freq-axios-yes-but-hundreds-of-thousands.png",
+      "manifest_id": "axios-yes-but-hundreds-of-thousands-of-runs",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/geopolitics/gizmodo-almost-started-war.png",
+      "w": 2355,
+      "h": 1181,
+      "bytes": 1567250,
+      "kind": "headline",
+      "shows": "Gizmodo headline with photo of a door gunner overlooking a tanker at sea. Headline: \"‘Almost Started a War’: US Military Nearly Boarded a Chinese Ship Based on Bad Intel From AI\"",
+      "outlet": "Gizmodo",
+      "date": "2026-09-18",
+      "url": "https://gizmodo.com/almost-started-a-war-us-military-nearly-boarded-a-chinese-ship-based-on-bad-intel-from-ai-2000814290",
+      "slide": 97,
+      "slides": [
+        97
+      ],
+      "source": "gizmodo-almost-started-war.png",
+      "manifest_id": "gizmodo-almost-started-a-war",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/cnn-ship-head.png",
+      "w": 2430,
+      "h": 586,
+      "bytes": 90935,
+      "kind": "headline",
+      "shows": "CNN headline, byline and photo of silhouetted US soldiers training with drones. Headline: \"Exclusive: US military had close call after using AI for false intelligence report, sources say\"",
+      "outlet": "CNN",
+      "date": "2026-09-18",
+      "url": "https://www.cnn.com/2026/09/18/politics/us-military-ai-false-intelligence-china-ship",
+      "slide": 97,
+      "slides": [
+        97
+      ],
+      "source": "cnn-ai-china-ship.png",
+      "manifest_id": "cnn-ai-false-intel-china-ship",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/geopolitics/hegseth-memo-header.png",
+      "w": 1620,
+      "h": 620,
+      "bytes": 248403,
+      "kind": "screenshot",
+      "shows": "Letterhead of the memo: Department of War seal, 'SECRETARY OF WAR', JAN - 9 2026 stamp, subject line. Headline: \"SUBJECT: Artificial Intelligence Strategy for the Department of War\"",
+      "outlet": "U.S. Department of War",
+      "date": "2026-01-09",
+      "url": "https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/artificial-intelligence-strategy-for-the-department-of-war.pdf",
+      "slide": 98,
+      "slides": [
+        98
+      ],
+      "source": "hegseth-memo-header.png",
+      "manifest_id": "hegseth-memo-header",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/geopolitics/tnw-appeals-court-anthropic.png",
+      "w": 2457,
+      "h": 627,
+      "bytes": 128579,
+      "kind": "headline",
+      "shows": "TNW headline and dek. Headline: \"US appeals court upholds Pentagon’s supply chain risk label on Anthropic\"",
+      "outlet": "The Next Web",
+      "date": "2026-09-25",
+      "url": "https://thenextweb.com/news/anthropic-pentagon-supply-chain-risk-appeals-court-ruling",
+      "slide": 98,
+      "slides": [
+        98
+      ],
+      "source": "tnw-appeals-court-anthropic.png",
+      "manifest_id": "tnw-appeals-court-anthropic",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/cbs-head.png",
+      "w": 1260,
+      "h": 515,
+      "bytes": 82467,
+      "kind": "headline",
+      "shows": "CBS News header, headline and byline/date: \"Hegseth declares Anthropic a supply chain risk, restricting military contractors from doing business with AI giant\"",
+      "outlet": "CBS News",
+      "date": "2026-02-28",
+      "url": "https://www.cbsnews.com/news/hegseth-declares-anthropic-supply-chain-risk/",
+      "slide": 98,
+      "slides": [
+        98
+      ],
+      "source": "cbs-hegseth-anthropic-supply-chain-risk.png",
+      "manifest_id": "cbs-hegseth-anthropic-supply-chain-risk",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/memo-speed-hl.png",
+      "w": 1375,
+      "h": 322,
+      "bytes": 179624,
+      "kind": "screenshot",
+      "shows": "Crop of the official signed memo, page 4: 'Acceleration Expectations' and the 'Speed Wins' paragraph. Headline: \"Artificial Intelligence Strategy for the Department of War - Accelerating America's Military AI Dominance\"",
+      "outlet": "U.S. Department of War (Secretary of War memorandum)",
+      "date": "2026-01-09",
+      "url": "https://media.defense.gov/2026/Jan/12/2003855671/-1/-1/0/artificial-intelligence-strategy-for-the-department-of-war.pdf",
+      "slide": 98,
+      "slides": [
+        98
+      ],
+      "source": "hegseth-memo-speed-wins.png",
+      "manifest_id": "hegseth-memo-speed-wins",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/original/image11.png",
+      "w": 739,
+      "h": 97,
+      "bytes": 17974,
+      "kind": "headline",
+      "shows": "Headline card: \"Musk's AI chatbot Grok reportedly encouraged Trump to capture Venezuela's president\"",
+      "outlet": "TechCrunch",
+      "date": "2026-10-01",
+      "url": "https://techcrunch.com/2026/10/01/musks-ai-chatbot-grok-reportedly-encouraged-trump-to-capture-venezuelas-president/",
+      "slide": 99,
+      "slides": [
+        99
+      ],
+      "source": "original/image11.png",
+      "manifest_id": null,
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/geopolitics/defensescoop-pentagon-frontier-ai-contracts.png",
+      "w": 1690,
+      "h": 531,
+      "bytes": 94647,
+      "kind": "headline",
+      "shows": "DefenseScoop headline, dek and byline. Headline: \"Pentagon awards mega contracts to Musk-owned company, other firms for new ‘frontier AI’ projects\"",
+      "outlet": "DefenseScoop",
+      "date": "2025-07-14",
+      "url": "https://defensescoop.com/2025/07/14/pentagon-ai-contracts-musk-xai-google-openai-anthropic-cdao/",
+      "slide": 99,
+      "slides": [
+        99
+      ],
+      "source": "defensescoop-pentagon-frontier-ai-contracts.png",
+      "manifest_id": "defensescoop-frontier-ai-contracts",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/euronews-wargames.png",
+      "w": 1728,
+      "h": 190,
+      "bytes": 46644,
+      "kind": "headline",
+      "shows": "Euronews headline only (hero image failed to load): \"AI chatbots chose nuclear escalation in 95% of simulated war games, study finds\"",
+      "outlet": "Euronews",
+      "date": "2026-02-27",
+      "url": "https://www.euronews.com/2026/02/27/ai-chatbots-chose-nuclear-escalation-in-95-of-simulated-war-games-study-finds",
+      "slide": 99,
+      "slides": [
+        99
+      ],
+      "source": "euronews-ai-nuclear-wargames.png",
+      "manifest_id": "euronews-ai-nuclear-wargames",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/gospel.png",
+      "w": 1270,
+      "h": 925,
+      "bytes": 394776,
+      "kind": "headline",
+      "shows": "Guardian headline, standfirst and photo of smoke rising over Gaza. Headline: \"‘The Gospel’: how Israel uses AI to select bombing targets in Gaza\"",
+      "outlet": "The Guardian",
+      "date": "2023-12-01",
+      "url": "https://www.theguardian.com/world/2023/dec/01/the-gospel-how-israel-uses-ai-to-select-bombing-targets",
+      "slide": 99,
+      "slides": [
+        99
+      ],
+      "source": "guardian-gospel.png",
+      "manifest_id": "guardian-gospel",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/lavender.png",
+      "w": 1270,
+      "h": 885,
+      "bytes": 565340,
+      "kind": "headline",
+      "shows": "Guardian headline, standfirst and photo of Palestinians searching rubble in al-Maghazi camp. Headline: \"‘The machine did it coldly’: Israel used AI to identify 37,000 Hamas targets\"",
+      "outlet": "The Guardian",
+      "date": "2024-04-03",
+      "url": "https://www.theguardian.com/world/2024/apr/03/israel-gaza-ai-database-hamas-airstrikes",
+      "slide": 99,
+      "slides": [
+        99
+      ],
+      "source": "guardian-lavender.png",
+      "manifest_id": "guardian-lavender",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/ukraine-drones.png",
+      "w": 1440,
+      "h": 887,
+      "bytes": 1351406,
+      "kind": "headline",
+      "shows": "Ukrainian MoD promo image of drone-view targeting boxes ('Target Locked | Score: 0.9725', 'Target Destroyed') on Russian armored vehicles, with headline below. Headline: \"Ukraine Tests Whether AI Can Guide Drones to Moving Targets\"",
+      "outlet": "The Defense Post",
+      "date": "2026-09-10",
+      "url": "https://thedefensepost.com/2026/09/10/ukraine-ai-guided-drones/",
+      "slide": 99,
+      "slides": [
+        99
+      ],
+      "source": "defensepost-ukraine-ai-drones.png",
+      "manifest_id": "defensepost-ukraine-ai-drones",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/cnn-hoax-head.png",
+      "w": 2440,
+      "h": 578,
+      "bytes": 93019,
+      "kind": "headline",
+      "shows": "CNN headline, byline and photo of Trump in a USA cap at the Irish Open. Headline: \"Trump dismisses AI alarms as a ‘HOAX’ — worrying White House officials\"",
+      "outlet": "CNN",
+      "date": "2026-09-14",
+      "url": "https://www.cnn.com/2026/09/14/politics/trump-vance-ai-alarms",
+      "slide": 100,
+      "slides": [
+        100
+      ],
+      "source": "cnn-trump-ai-hoax.png",
+      "manifest_id": "cnn-trump-ai-hoax",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/npr-head.png",
+      "w": 1369,
+      "h": 375,
+      "bytes": 50902,
+      "kind": "headline",
+      "shows": "NPR headline, date, byline and photo of Ted Cruz speaking as Trump and Lutnick listen at the Oval Office EO signing. Headline: \"Trump is trying to preempt state AI laws via an executive order. It may not be legal\"",
+      "outlet": "NPR",
+      "date": "2025-12-11",
+      "url": "https://www.npr.org/2025/12/11/nx-s1-5638562/trump-ai-david-sacks-executive-order",
+      "slide": 100,
+      "slides": [
+        100
+      ],
+      "source": "npr-ai-preemption-eo.png",
+      "manifest_id": "npr-ai-preemption-eo",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/trump-post-hl.png",
+      "w": 1388,
+      "h": 708,
+      "bytes": 193208,
+      "kind": "tweet/post",
+      "shows": "Archive card of the full Truth Social post (exact text); avatar image failed to load and shows alt text 'Profile image for Donald J. Trump'. Headline: \"Donald J. Trump @realDonaldTrump · September 14, 2026, 9:58 AM\"",
+      "outlet": "Truth Social (archived by Trump's Truth / trumpstruth.org)",
+      "date": "2026-09-14",
+      "url": "https://truthsocial.com/@realDonaldTrump/117269745153543631",
+      "slide": 100,
+      "slides": [
+        100
+      ],
+      "source": "trumpstruth-high-iq-post.png",
+      "manifest_id": "trump-high-iq-truth-post",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/digitimes-huawei.png",
+      "w": 1480,
+      "h": 385,
+      "bytes": 57953,
+      "kind": "headline",
+      "shows": "DigiTimes headline and byline. Headline: \"Ascend now ahead of Nvidia in China, with domestic supply driving AI chip substitution, says Huawei chairman\"",
+      "outlet": "DigiTimes",
+      "date": "2026-10-01",
+      "url": "https://www.digitimes.com/newsshow/article.asp?datePublish=2026/10/01&pages=pd&seq=232",
+      "slide": 101,
+      "slides": [
+        101
+      ],
+      "source": "digitimes-huawei-ascend.png",
+      "manifest_id": "digitimes-huawei-ascend",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/pbs-xi.png",
+      "w": 1013,
+      "h": 1442,
+      "bytes": 1009969,
+      "kind": "headline",
+      "shows": "PBS/AP headline with Reuters photo of Trump and Xi shaking hands on a red carpet, Sept 25, 2026. Headline: \"China and U.S. agree to establish AI safety channel and continue trade and military talks\"",
+      "outlet": "PBS News (Associated Press)",
+      "date": "2026-09-26",
+      "url": "https://www.pbs.org/newshour/world/china-and-u-s-agree-to-establish-ai-safety-channel-and-continue-trade-and-military-talks",
+      "slide": 101,
+      "slides": [
+        101
+      ],
+      "source": "pbs-us-china-ai-channel.png",
+      "manifest_id": "pbs-us-china-ai-channel",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/register-h200.png",
+      "w": 2407,
+      "h": 470,
+      "bytes": 74037,
+      "kind": "headline",
+      "shows": "The Register headline, standfirst, byline, and lede quoting Trump's Truth Social post. Headline: \"Trump says Nvidia can sell H200s to China – if Washington gets a 25 percent cut\"",
+      "outlet": "The Register",
+      "date": "2025-12-09",
+      "url": "https://www.theregister.com/on-prem/2025/12/09/trump-says-nvidia-can-sell-h200s-to-china/2020308",
+      "slide": 101,
+      "slides": [
+        101
+      ],
+      "source": "register-h200-china.png",
+      "manifest_id": "register-h200-china",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/toms-deepseek.png",
+      "w": 1261,
+      "h": 520,
+      "bytes": 80514,
+      "kind": "headline",
+      "shows": "Tom's Hardware headline, byline and dek (photo cropped out): \"Nvidia loses $589 billion in market cap — broad stock plunge triggered by DeepSeek AI release\"",
+      "outlet": "Tom's Hardware",
+      "date": "2025-01-28",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-loses-usd589-billion-in-market-cap-broad-stock-plunge-triggered-by-deepseek-ai-release",
+      "slide": 101,
+      "slides": [
+        101
+      ],
+      "source": "toms-deepseek-nvidia.png",
+      "manifest_id": "toms-deepseek-nvidia",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/mee-head.png",
+      "w": 1997,
+      "h": 405,
+      "bytes": 71650,
+      "kind": "headline",
+      "shows": "Middle East Eye live-blog headline under a red \"Live Blog Updates | War on Iran\" bar: \"Houthis used Anthropic AI to develop ballistic missile software, says report\"",
+      "outlet": "Middle East Eye",
+      "date": "2026-09-11",
+      "url": "https://www.middleeasteye.net/live-blog/live-blog-update/houthis-used-anthropic-ai-develop-ballistic-missile-software-says-report",
+      "slide": 102,
+      "slides": [
+        102
+      ],
+      "source": "mee-houthis-claude.png",
+      "manifest_id": "mee-houthis-claude",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/yemen-detail-hl.png",
+      "w": 1090,
+      "h": 735,
+      "bytes": 219116,
+      "kind": "screenshot",
+      "shows": "Crop of report page 113: Claude Code as the cell's engineering team, safeguards partly evaded, failed rocket test. Headline: \"GTG-87001 (continued)\"",
+      "outlet": "Anthropic Threat Intelligence report (p.113)",
+      "date": "2026-09-10",
+      "url": "https://www-cdn.anthropic.com/e50be2e51e7695dc4b1366a37a245a597377d3b5/Anthropic-Detecting-and-countering-091026.pdf",
+      "slide": 102,
+      "slides": [
+        102
+      ],
+      "source": "anthropic-yemen-gtg87001-detail.png",
+      "manifest_id": "anthropic-yemen-gtg87001-detail",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/dataconomy-protein-head.png",
+      "w": 1860,
+      "h": 415,
+      "bytes": 108435,
+      "kind": "headline",
+      "shows": "Dataconomy article: outlet logo, headline, byline (Aytun Celebi, August 20, 2026) and lede paragraphs citing 354/1,320 and the 26.7%/22.6% and 35.1% hit rates. Headline: \"Anthropic says Claude designed protein binders for 14 of 15 targets\"",
+      "outlet": "Dataconomy",
+      "date": "2026-08-20",
+      "url": "https://dataconomy.com/2026/08/20/claude-ai-protein-binders-14-of-15-targets/",
+      "slide": 104,
+      "slides": [
+        104
+      ],
+      "source": "dataconomy-protein-headline.png",
+      "manifest_id": "dataconomy-protein-headline",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/protein-blog-head.png",
+      "w": 1960,
+      "h": 495,
+      "bytes": 66832,
+      "kind": "screenshot",
+      "shows": "Anthropic research blog: title, Aug 18 2026 date, and full italic summary with the 14/15 targets and 22-35% hit-rate numbers (verbatim, legible). Headline: \"How Claude is accelerating protein design and analytical chemistry\"",
+      "outlet": "Anthropic (Research)",
+      "date": "2026-08-18",
+      "url": "https://www.anthropic.com/research/Claude-accelerates-protein-design",
+      "slide": 104,
+      "slides": [
+        104
+      ],
+      "source": "anthropic-protein-blog-top.png",
+      "manifest_id": "anthropic-protein-blog",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/rosalind-highcap.png",
+      "w": 1964,
+      "h": 123,
+      "bytes": 31297,
+      "kind": "screenshot",
+      "shows": "300-dpi renders of PDF pages 1, 3 (printed p. 2) and 9 (printed p. 8) of the system card, for crisp crops; crops in assets/slides/geopolitics/rosalind-*.png (highlights drawn as native shapes). Headline: \"GPT-Rosalind-5.5 System Card (OpenAI, June 3, 2026)\"",
+      "outlet": "OpenAI",
+      "date": "2026-06-03",
+      "url": "https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf",
+      "slide": 105,
+      "slides": [
+        105
+      ],
+      "source": "openai-rosalind-pdfp3-300dpi.png",
+      "manifest_id": "openai-rosalind-card-pages-300dpi",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/rosalind-nomonitor.png",
+      "w": 1964,
+      "h": 184,
+      "bytes": 40439,
+      "kind": "screenshot",
+      "shows": "System-card text excerpt: \"we are not deploying automated monitors\" (GPT-Rosalind-5.5 system card, p.9)",
+      "outlet": "OpenAI (system card PDF)",
+      "date": "2026-06-03",
+      "url": "https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf",
+      "slide": 105,
+      "slides": [
+        105
+      ],
+      "source": null,
+      "manifest_id": null,
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/rosalind-norefuse.png",
+      "w": 1964,
+      "h": 181,
+      "bytes": 47288,
+      "kind": "screenshot",
+      "shows": "300-dpi renders of PDF pages 1, 3 (printed p. 2) and 9 (printed p. 8) of the system card, for crisp crops; crops in assets/slides/geopolitics/rosalind-*.png (highlights drawn as native shapes). Headline: \"GPT-Rosalind-5.5 System Card (OpenAI, June 3, 2026)\"",
+      "outlet": "OpenAI",
+      "date": "2026-06-03",
+      "url": "https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf",
+      "slide": 105,
+      "slides": [
+        105
+      ],
+      "source": "openai-rosalind-pdfp3-300dpi.png",
+      "manifest_id": "openai-rosalind-card-pages-300dpi",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/x-minimax-m31-flash-preview-announce.jpg",
+      "w": 3840,
+      "h": 2160,
+      "bytes": 2083102,
+      "kind": "screenshot",
+      "shows": "MiniMax's official launch graphic (3840x2160): model picker lists M3.1-Flash-Preview, M3, M2.7-highspeed, M2.7; effort menu low/med/high/xhigh/max. Headline: \"MiniMax M3.1 Flash-Preview — Available now on MiniMax Code\"",
+      "outlet": "MiniMax (@MiniMaxAgent on X)",
+      "date": "2026-09-27",
+      "url": "https://x.com/MiniMaxAgent/status/2104079819881517400",
+      "slide": 107,
+      "slides": [
+        107
+      ],
+      "source": "x-minimax-m31-flash-preview-announce.jpg",
+      "manifest_id": "minimax-m31-flash-preview-official-banner",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/openweights/earthside-app-top.jpg",
+      "w": 2655,
+      "h": 958,
+      "bytes": 300104,
+      "kind": "tweet/post",
+      "shows": "'Earthside Freight Control' web app built with Space Bunny: 3D globe with a Busan-to-Vancouver great-circle sea route, live shipments, deliveries chart, risk watch. Headline: \"I built a 3D Earth and solar system orbit game with a shipping dashboard using Space Bunny, the new mystery AI model.\"",
+      "outlet": "X / @vikktorrrre (Veee)",
+      "date": "2026-09-25",
+      "url": "https://x.com/vikktorrrre/status/2103411231771988024",
+      "slide": 107,
+      "slides": [
+        107
+      ],
+      "source": "x-veee-space-bunny-earthside-app.jpg",
+      "manifest_id": "x-veee-space-bunny-earthside-app",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/openweights/openrouter-rankings-top2.png",
+      "w": 960,
+      "h": 460,
+      "bytes": 47905,
+      "kind": "screenshot",
+      "shows": "OpenRouter's usage leaderboard: the anonymous free model is the most-used model on the platform this week. Headline: \"LLM Leaderboard — This Week: 1. Space Bunny Alpha by stealth, 35.9T tokens (+264%)\"",
+      "outlet": "OpenRouter Rankings",
+      "date": "2026-10-03",
+      "url": "https://openrouter.ai/rankings",
+      "slide": 107,
+      "slides": [
+        107
+      ],
+      "source": "openrouter-rankings-space-bunny-1st.png",
+      "manifest_id": "openrouter-rankings-space-bunny-1st",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/decrypt-whitehouse-distillation.png",
+      "w": 1360,
+      "h": 770,
+      "bytes": 157516,
+      "kind": "headline",
+      "shows": "Decrypt headline + dek on the OSTP 'adversarial distillation' memo. Headline: \"White House Accuses China of 'Industrial-Scale' Theft From American AI Models\"",
+      "outlet": "Decrypt",
+      "date": "2026-04-23",
+      "url": "https://decrypt.co/365285/white-house-accuses-china-industrial-scale-theft-american-ai-models",
+      "slide": 108,
+      "slides": [
+        108
+      ],
+      "source": "decrypt-whitehouse-distillation.png",
+      "manifest_id": "decrypt-whitehouse-distillation",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/yahoo-reuters-openai-deepseek.png",
+      "w": 1240,
+      "h": 168,
+      "bytes": 35701,
+      "kind": "headline",
+      "shows": "Headline-only crop of Reuters story syndicated on Yahoo Finance. Headline: \"OpenAI says China's DeepSeek trained its AI by distilling US models, memo shows\"",
+      "outlet": "Reuters (via Yahoo Finance)",
+      "date": "2026-02-12",
+      "url": "https://finance.yahoo.com/news/openai-accuses-deepseek-distilling-us-221629899.html",
+      "slide": 108,
+      "slides": [
+        108
+      ],
+      "source": "yahoo-reuters-openai-deepseek.png",
+      "manifest_id": "reuters-openai-deepseek-distill",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/openweights/anthropic-distillation-header.png",
+      "w": 2360,
+      "h": 410,
+      "bytes": 47475,
+      "kind": "screenshot",
+      "shows": "Anthropic blog post header. Headline: \"Detecting and preventing distillation attacks\"",
+      "outlet": "Anthropic",
+      "date": "2026-02-23",
+      "url": "https://www.anthropic.com/news/detecting-and-preventing-distillation-attacks",
+      "slide": 108,
+      "slides": [
+        108
+      ],
+      "source": "anthropic-distillation-attacks.png",
+      "manifest_id": "anthropic-distillation-attacks",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/openweights/techcrunch-distill-clean.png",
+      "w": 2500,
+      "h": 1235,
+      "bytes": 1426274,
+      "kind": "headline",
+      "shows": "TechCrunch headline with DeepSeek logo hero image. Headline: \"Anthropic accuses Chinese AI labs of mining Claude as US debates AI chip exports\"",
+      "outlet": "TechCrunch",
+      "date": "2026-02-23",
+      "url": "https://techcrunch.com/2026/02/23/anthropic-accuses-chinese-ai-labs-of-mining-claude-as-us-debates-ai-chip-exports/",
+      "slide": 108,
+      "slides": [
+        108
+      ],
+      "source": "techcrunch-anthropic-distillation.png",
+      "manifest_id": "techcrunch-anthropic-distillation",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/arditi2024-fig2-refusal-bypass-example.png",
+      "w": 1690,
+      "h": 655,
+      "bytes": 210590,
+      "kind": "figure (paper example output)",
+      "shows": "Paper figure: same Llama-3 8B Instruct prompt refused normally, complied with after ablating the 'refusal direction'. Headline: \"Refusal in Language Models Is Mediated by a Single Direction — Figure 2\"",
+      "outlet": "arXiv (Arditi, Obeso, Syed, Paleka, Panickssery, Gurnee, Nanda)",
+      "date": "2024-06-17",
+      "url": "https://arxiv.org/abs/2406.11717",
+      "slide": 109,
+      "slides": [
+        109
+      ],
+      "source": "arditi2024-fig2-refusal-bypass-example.png",
+      "manifest_id": "arditi-fig2-refusal-bypass",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/openweights/hf-abliterated-top.png",
+      "w": 1062,
+      "h": 585,
+      "bytes": 103034,
+      "kind": "screenshot",
+      "shows": "HF model search listing showing 8,310 'abliterated' models (top: Huihui Qwen3.8-27B-abliterated-GGUF, 2.03M downloads). Headline: \"Models 8,310 — Hugging Face search 'abliterated'\"",
+      "outlet": "Hugging Face",
+      "date": "2026-10-04",
+      "url": "https://huggingface.co/models?search=abliterated",
+      "slide": 109,
+      "slides": [
+        109
+      ],
+      "source": "hf-search-abliterated-count.png",
+      "manifest_id": "hf-abliterated-count",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/csm-pr-key-findings-w960.png",
+      "w": 2880,
+      "h": 837,
+      "bytes": 280238,
+      "kind": "screenshot",
+      "shows": "Press-release page capture (960px wide): Common Sense Media key findings on teens and AI-generated explicit images",
+      "outlet": "Common Sense Media (Youth AI Safety Institute)",
+      "date": "2026-07-21",
+      "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+      "slide": 110,
+      "slides": [
+        110
+      ],
+      "source": "research/openweights/rev2/csm-pr-key-findings-w960.png",
+      "manifest_id": null,
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/openweights/csm-pr-masthead-headline-date.png",
+      "w": 2880,
+      "h": 930,
+      "bytes": 97139,
+      "kind": "screenshot",
+      "shows": "Full press-release page at 960px viewport (3x)",
+      "outlet": "Common Sense Media (Youth AI Safety Institute)",
+      "date": "2026-07-21",
+      "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+      "slide": 110,
+      "slides": [
+        110
+      ],
+      "source": "csm-pr-fullpage-w960.png",
+      "manifest_id": "evidence-csm-pr-fullpage-w960",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/thorn-pr-2026-deepfake-bullet.png",
+      "w": 1516,
+      "h": 372,
+      "bytes": 106053,
+      "kind": "screenshot",
+      "shows": "Press-release bullet \"Deepfake nudes are creating new uncertainty for teens.\" (4% / 7% / 13%)",
+      "outlet": "Thorn",
+      "date": "2026-07-28",
+      "url": "https://www.thorn.org/press-releases/as-ai-becomes-part-of-kids-response-to-online-harm-new-thorn-research-finds-children-turning-to-chatbots-for-guidance-after-online-sexual-interactions/",
+      "slide": 111,
+      "slides": [
+        111
+      ],
+      "source": "thorn-pr-2026-deepfake-bullet.png",
+      "manifest_id": "thorn-pr-2026-deepfake-bullet",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev3/unicef-deepfake-abuse-is-abuse-1p2m-paragraph-w600.png",
+      "w": 1740,
+      "h": 396,
+      "bytes": 96272,
+      "kind": "screenshot",
+      "shows": "UNICEF statement paragraph: 'at least 1.2 million children ... in the past year. In some countries, this represents 1 in 25 children'",
+      "outlet": "UNICEF",
+      "date": "2026-02-04",
+      "url": "https://www.unicef.org/press-releases/deepfake-abuse-is-abuse",
+      "slide": 111,
+      "slides": [
+        111
+      ],
+      "source": "unicef-deepfake-abuse-is-abuse-1p2m-paragraph-w600.png",
+      "manifest_id": "unicef-deepfake-abuse-is-abuse-1p2m",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev3/unicef-deepfake-abuse-is-abuse-headline-w600.png",
+      "w": 1740,
+      "h": 552,
+      "bytes": 62649,
+      "kind": "headline",
+      "shows": "UNICEF statement page: 'Statement' kicker, headline, subhead and date (04 February 2026). Headline: \"‘Deepfake abuse is abuse’\"",
+      "outlet": "UNICEF",
+      "date": "2026-02-04",
+      "url": "https://www.unicef.org/press-releases/deepfake-abuse-is-abuse",
+      "slide": 111,
+      "slides": [
+        111
+      ],
+      "source": "unicef-deepfake-abuse-is-abuse-headline-w600.png",
+      "manifest_id": "unicef-deepfake-abuse-is-abuse-headline",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/independent-ai-pain-axis.png",
+      "w": 1972,
+      "h": 851,
+      "bytes": 153682,
+      "kind": "headline",
+      "shows": "The Independent headline on the 'pain axis' paper (dark header). Headline: \"Researchers discover AI 'feels pain' and will harm humans to stop it\"",
+      "outlet": "The Independent",
+      "date": "2026-09-22",
+      "url": "https://www.independent.co.uk/tech/ai-pain-axis-artificial-intelligence-human-safety-b3053967.html",
+      "slide": 112,
+      "slides": [
+        112
+      ],
+      "source": "independent-ai-pain-axis.png",
+      "manifest_id": "independent-ai-pain-axis",
+      "also_identical": [
+        "/home/user/poster/ai-safety-presentation/assets/research/splash/inside-interp-independent-headline.png"
+      ]
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/openweights/sciam-headline.png",
+      "w": 1520,
+      "h": 400,
+      "bytes": 51776,
+      "kind": "headline",
+      "shows": "SciAm headline with robot finger pressing a sad-face button. Headline: \"Could Pain Help Test AI for Sentience?\"",
+      "outlet": "Scientific American",
+      "date": "2025-01-17",
+      "url": "https://www.scientificamerican.com/article/could-inflicting-pain-test-ai-for-sentience/",
+      "slide": 112,
+      "slides": [
+        112
+      ],
+      "source": "sciam-pain-test-ai-sentience.png",
+      "manifest_id": "sciam-pain-test",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/openweights/anthropic-end-conversations-head.png",
+      "w": 1960,
+      "h": 500,
+      "bytes": 62300,
+      "kind": "screenshot",
+      "shows": "Anthropic research post header. Headline: \"Claude Opus 4 and 4.1 can now end a rare subset of conversations\"",
+      "outlet": "Anthropic",
+      "date": "2025-08-15",
+      "url": "https://www.anthropic.com/research/end-subset-conversations",
+      "slide": 113,
+      "slides": [
+        113
+      ],
+      "source": "anthropic-end-subset-conversations.png",
+      "manifest_id": "anthropic-end-conversations",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/openweights/independent-torture-chamber-head.png",
+      "w": 1972,
+      "h": 945,
+      "bytes": 127859,
+      "kind": "headline",
+      "shows": "The Independent headline + dek on the 'AI torture chamber'. Headline: \"Man builds AI torture chamber after discovering artificial intelligence 'feels pain'\"",
+      "outlet": "The Independent",
+      "date": "2026-10-02",
+      "url": "https://www.independent.co.uk/tech/ai-torture-chamber-pain-b3059571.html",
+      "slide": 113,
+      "slides": [
+        113
+      ],
+      "source": "independent-ai-torture-chamber.png",
+      "manifest_id": "independent-ai-torture-chamber",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/openweights/saw-test-hero.png",
+      "w": 1500,
+      "h": 1150,
+      "bytes": 248331,
+      "kind": "screenshot",
+      "shows": "Live site (page title 'AI Torture Chamber — the Saw Test'): 'The Saw Test' heading over a wheel-of-life graphic with a saw blade at its center and 'the way out' moon",
+      "outlet": "clanker-church.vercel.app",
+      "date": "2026-10-04",
+      "url": "https://clanker-church.vercel.app/",
+      "slide": 113,
+      "slides": [
+        113
+      ],
+      "source": "clanker-church-site.png",
+      "manifest_id": "saw-test-site",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/openweights/finale-x-anabology-head.png",
+      "w": 920,
+      "h": 262,
+      "bytes": 34039,
+      "kind": "tweet/post",
+      "shows": "The original post of the video, quote-posting donald's 'Claude Pop' style experiment (METR 50% time horizon 2022 ~ 36 SEC card visible). Headline: \"Gave Opus 5.5 donald's prompt, Midjourney, and a moodboard\n\n12 hours later, woke up to this:\"",
+      "outlet": "X",
+      "date": "2026-09-25",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "slide": 114,
+      "slides": [
+        114
+      ],
+      "source": "finalevideo-x-post-anabology-original.png",
+      "manifest_id": "finalevideo-x-post-anabology-original",
+      "also_identical": []
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/openweights/finale-x-elon-head.png",
+      "w": 640,
+      "h": 192,
+      "bytes": 28774,
+      "kind": "tweet/post",
+      "shows": "Real X page screenshot (logged-out, light mode), cropped to the post only. Headline: \"I really felt the AGI profoundly this time\"",
+      "outlet": "X",
+      "date": "2026-09-28",
+      "url": "https://x.com/elonmusk/status/2104360927474921529",
+      "slide": 114,
+      "slides": [
+        114
+      ],
+      "source": "finalevideo-x-post-elon-agi-profoundly.png",
+      "manifest_id": "finalevideo-x-post-elon",
+      "also_identical": []
+    }
+  ],
+  "picks": [
+    "/home/user/poster/ai-safety-presentation/assets/original/image3.png",
+    "/home/user/poster/ai-safety-presentation/assets/slides/economy/sp500_ai_share.png",
+    "/home/user/poster/ai-safety-presentation/assets/slides/economy/statista_head.png",
+    "/home/user/poster/ai-safety-presentation/assets/original/image1.png",
+    "/home/user/poster/ai-safety-presentation/assets/slides/economy/fortune_furman.png",
+    "/home/user/poster/ai-safety-presentation/assets/slides/economy/fortune_housing.png",
+    "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev3/jfonsecarivera-model-release-cadence-chart.jpg",
+    "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-nature-head.png",
+    "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-bbc.png",
+    "/home/user/poster/ai-safety-presentation/assets/research/work/acad-arxiv-monthly-submissions-sep2026.png",
+    "/home/user/poster/ai-safety-presentation/assets/slides/work/swe-fortune-100pct-head.png",
+    "/home/user/poster/ai-safety-presentation/assets/slides/work/swe-cbs-layoffs-head.png",
+    "/home/user/poster/ai-safety-presentation/assets/slides/frontier/anthropic_rdai_chart.png",
+    "/home/user/poster/ai-safety-presentation/assets/slides/frontier/vals_rsi_chart_2x.png",
+    "/home/user/poster/ai-safety-presentation/assets/research/geopolitics/gizmodo-almost-started-war.png",
+    "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/cbs-head.png",
+    "/home/user/poster/ai-safety-presentation/assets/original/image11.png",
+    "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/euronews-wargames.png",
+    "/home/user/poster/ai-safety-presentation/assets/slides/security/cnn-gov.png",
+    "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/commondreams-whistleblowers.png",
+    "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/nyt-ignored-warnings.png",
+    "/home/user/poster/ai-safety-presentation/assets/research/openweights/independent-ai-pain-axis.png",
+    "/home/user/poster/ai-safety-presentation/assets/research/openweights/decrypt-whitehouse-distillation.png",
+    "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/toms-deepseek.png",
+    "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/mee-head.png"
+  ],
+  "excluded_count": 43,
+  "excluded": [
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/creative/stills/ollivier-astra-bat-sep5-final-render.jpg",
+      "reason": "AI-made render (creative output), not a headline, post, chart or screenshot"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/creative/stills/ollivier-sol-bat-jul11-t101-fur-render.jpg",
+      "reason": "AI-made render (creative output), not a headline, post, chart or screenshot"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/economy/rev2/altman_yt_d6lDZpvHAoo_thumb.jpg",
+      "reason": "YouTube video thumbnail"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/economy/yt_GhIJs4zbH0o.jpg",
+      "reason": "YouTube video thumbnail"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/yt-lHw6yoyPkpo.jpg",
+      "reason": "YouTube video thumbnail"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/work/video-yt-4lSQnrMC6nY.jpg",
+      "reason": "YouTube video thumbnail"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/work/video-yt-9MNLEAzA59o.jpg",
+      "reason": "YouTube video thumbnail"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/work/video-yt-Zn8yMaepzVk.jpg",
+      "reason": "YouTube video thumbnail"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/work/video-yt-ZpHapIlJnMo.jpg",
+      "reason": "YouTube video thumbnail"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/work/video-yt-lJpM_2a1zrE.jpg",
+      "reason": "YouTube video thumbnail"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/work/vla-openvla-model-fig2.png",
+      "reason": "architecture diagram, not an AI event"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/anabology-xp-cover.jpg",
+      "reason": "video cover / poster art"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/closeup-scrim.png",
+      "reason": "background art"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/fable55-blueemi99-reel-cover.jpg",
+      "reason": "video cover / poster art"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/fable55-tak-contact-sheet-cover.jpg",
+      "reason": "video cover / poster art"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/hero-scrim.png",
+      "reason": "background art"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/heron-grid.png",
+      "reason": "background art"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-leray.png",
+      "reason": "portrait / avatar photo"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-navier.png",
+      "reason": "portrait / avatar photo"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-stokes.png",
+      "reason": "portrait / avatar photo"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/palace-closeup.png",
+      "reason": "photo of a real building (creative reference)"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/palace-hero.png",
+      "reason": "photo of a real building (creative reference)"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/palace-lens.png",
+      "reason": "photo of a real building (creative reference)"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/pdoom-cover.jpg",
+      "reason": "video cover / poster art"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/fairwater_crop.jpg",
+      "reason": "data-center / aerial photo"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/hoover_crop.jpg",
+      "reason": "data-center / aerial photo"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/hyperion_crop.jpg",
+      "reason": "data-center / aerial photo"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/tmi_aerial.jpg",
+      "reason": "data-center / aerial photo"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/coconut_prosqa_2x.png",
+      "reason": "method diagram from a paper, not an AI event"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/coconut_training_2x.png",
+      "reason": "method diagram from a paper, not an AI event"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/openweights/finale-poster-feel-the-agi.jpg",
+      "reason": "video cover / poster art"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/interlude-cover.jpg",
+      "reason": "video cover / poster art"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/video-cover-stage.png",
+      "reason": "video cover / poster art"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/vla-pi0-fig3-blocks.png",
+      "reason": "architecture diagram, not an AI event"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/voicedemo-cover-tell-me-something.jpg",
+      "reason": "video cover / poster art"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/av-balesni.png",
+      "reason": "portrait / avatar photo"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/av-korbak.png",
+      "reason": "portrait / avatar photo"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/av-wang.png",
+      "reason": "portrait / avatar photo"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/coastrunners-cover.jpg",
+      "reason": "video cover / poster art"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/p-bostrom.jpg",
+      "reason": "portrait / avatar photo"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/p-guterres.jpg",
+      "reason": "portrait / avatar photo"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/p-hinton.jpg",
+      "reason": "portrait / avatar photo"
+    },
+    {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/p-russell.jpg",
+      "reason": "portrait / avatar photo"
+    }
+  ]
+}

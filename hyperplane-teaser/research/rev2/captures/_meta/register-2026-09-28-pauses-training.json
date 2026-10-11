@@ -1,0 +1,217 @@
+{
+ "id": "register-2026-09-28-pauses-training",
+ "url": "https://www.theregister.com/ai-and-ml/2026/09/28/openai-pauses-some-training-amid-allegations-its-rogue-agents-behaved-more-badly-than-first-thought/5299350",
+ "expected": "OpenAI pauses some training amid allegations its rogue agents behaved more badly than first thought",
+ "notes": [
+  "hid 16 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://www.theregister.com/ai-and-ml/2026/09/28/openai-pauses-some-training-amid-allegations-its-rogue-agents-behaved-more-badly-than-first-thought/5299350",
+ "title0": "OpenAI pauses some training amid allegations its rogue agents behaved more badly than first thought",
+ "hidden_detail": [
+  [
+   "DIV",
+   "",
+   "column google-ad small-12 large-12 small-abs-12 large-abs-12",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "labrador/thereg/article/desktop/a",
+   "adunit",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "google_ads_iframe_/6978/labrador/thereg/",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "google_ads_iframe_/6978/labrador/thereg/",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "column google-ad widthFull",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "labrador/thereg/article/desktop/b",
+   "adunit",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "google_ads_iframe_/6978/labrador/thereg/",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "google_ads_iframe_/6978/labrador/thereg/",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "column google-ad floatRight widthAuto",
+   "sticky",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "labrador/thereg/article/desktop/c",
+   "adunit",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "google_ads_iframe_/6978/labrador/thereg/",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "google_ads_iframe_/6978/labrador/thereg/",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "column google-ad widthFull",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "labrador/thereg/article/desktop/d",
+   "adunit",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "google_ads_iframe_/6978/labrador/thereg/",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "google_ads_iframe_/6978/labrador/thereg/",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "OpenAI pauses some training amid allegations its rogue agents behaved more badly than first thought",
+ "og_title": "OpenAI pauses some training amid allegations its rogue agents behaved more badly than first thought",
+ "twitter_title": "OpenAI pauses some training amid allegations its rogue agents behaved more badly than first thought",
+ "og_site": "theregister",
+ "published": "2026-09-28T05:30:50.000Z",
+ "author_meta": "Simon Sharwood",
+ "canonical": "https://www.theregister.com/ai-and-ml/2026/09/28/openai-pauses-some-training-amid-allegations-its-rogue-agents-behaved-more-badly-than-first-thought/5299350",
+ "h1_count": 1,
+ "h1": "OpenAI pauses some training amid allegations its rogue agents behaved more badly than first thought",
+ "h1_box": [
+  11.1875,
+  182.1875,
+  1188.8125,
+  280.5625
+ ],
+ "h1_font": "41px",
+ "below_bottom": 663.3125,
+ "below_text": [
+  "Amid allegations that agents may have gone off the rails thousands of times, Chi",
+  "Simon",
+  "Sharwood",
+  "APAC Editor",
+  "21",
+  "Published",
+  "Mon 28 Sept 2026",
+  "//",
+  "05:30 UTC",
+  "Make us preferred on Google",
+  "The AI safety debate advanced at high speed over the weekend, amid new allegatio",
+  "READ MORE"
+ ],
+ "hero_top": 2741.078125,
+ "header_bottom": 125,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  598.5625
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/register-2026-09-28-pauses-training.png",
+ "trimmed": 0
+}

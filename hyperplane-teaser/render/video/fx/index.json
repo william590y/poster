@@ -1,0 +1,37 @@
+{
+  "_note": "Loaded by fx/core.js in this order. 'vendor' libs are loaded on demand with HP.lib.load(name) (eager ones before any module). Builders edit only their own module file(s).",
+  "vendor": {
+    "rough": {
+      "src": "vendor/rough/rough.js",
+      "eager": true
+    },
+    "freehand": {
+      "src": "vendor/perfect-freehand/perfect-freehand.js",
+      "eager": true
+    },
+    "mathjax": {
+      "src": "vendor/mathjax/tex-svg-full.js",
+      "eager": false
+    },
+    "three": {
+      "src": "vendor/three/three.js",
+      "eager": false
+    }
+  },
+  "modules": [
+    "legacy.css",
+    "legacy.js",
+    "paint.js",
+    "kandinsky.js",
+    "beatfx.js",
+    "charts.js",
+    "equations.js",
+    "netviz.js",
+    "text.js",
+    "screens.js",
+    "transitions.js",
+    "singularity.js",
+    "fluid.js",
+    "kandclip.js"
+  ]
+}

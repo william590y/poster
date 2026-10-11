@@ -1,0 +1,114 @@
+{
+  "key": "altman-2015",
+  "claim": "Sam Altman: \"AI will probably most likely lead to the end of the world, but in the meantime, there'll be great companies\" (variant: \"I think AI will probably, most likely, sort of lead to the end of the world. But in the meantime, there will be great companies created with serious machine learning.\")",
+  "as_of": "2026-10-10",
+  "event": {
+    "name": "Airbnb Open Air 2015 conference: onstage interview with Sam Altman (then president of Y Combinator), prompted by Airbnb's Mike Curtis",
+    "date": "Thursday. Most likely Thursday 4 June 2015 (inference, not stated in any source read): Business Insider says Altman spoke 'Thursday at Airbnb's Open Air 2015 conference'; the article is datelined June 4, 2015 (Yahoo Finance copy); 4 June 2015 was a Thursday. BI also says Thursday was the 10th anniversary of YC's investment in Altman's first company, Loopt.",
+    "place": "not found. The Airbnb OpenAir page (http://nerds.airbnb.com/openair-tech-conference-2015/) returned a Cloudflare challenge and could not be read; a search snippet of it mentions CityView Metreon, June 8, but the page is headed 'Announcing OpenAir 2016', so it is unresolved and may not refer to this event. An Inc. article (search summary claimed it says 'Thursday in San Francisco') was behind a captcha and was not read.",
+    "curtis_title_note": "Business Insider body: 'Mike Curtis, Airbnb's vice president of engineering'. BI/Yahoo photo caption: 'Airbnb CTO Mike Curtis'. TechRadar: 'then-Airbnb CTO Mike Curtis'. Sources conflict.",
+    "sources": [
+      "https://www.businessinsider.com/sam-altman-y-combinator-talks-mega-bubble-nuclear-power-and-more-2015-6",
+      "https://finance.yahoo.com/news/head-silicon-valleys-most-important-000927584.html",
+      "https://malaysia.news.yahoo.com/head-silicon-valley-most-important-000927144.html",
+      "https://futureoflife.org/ai/sam-altman-investing-in-ai-safety-research/"
+    ]
+  },
+  "first_report": {
+    "outlet": "Business Insider",
+    "title": "Head of Silicon Valley's most important startup farm says we're in a 'mega bubble' that won't last",
+    "author": "Matt Weinberger",
+    "date": "June 4, 2015 (Yahoo Finance copy dateline). Business Insider page timestamp: 2015-06-05T00:09:00.000Z.",
+    "url": "https://www.businessinsider.com/sam-altman-y-combinator-talks-mega-bubble-nuclear-power-and-more-2015-6",
+    "url_cited_by_future_of_life": "http://uk.businessinsider.com/sam-altman-y-combinator-talks-mega-bubble-nuclear-power-and-more-2015-6?r=US",
+    "syndicated_copies": [
+      "https://finance.yahoo.com/news/head-silicon-valleys-most-important-000927584.html (dateline June 4, 2015)",
+      "https://malaysia.news.yahoo.com/head-silicon-valley-most-important-000927144.html (says 'Updated Fri, 5 June 2015 at 12:09 am UTC'; credits Business Insider)"
+    ],
+    "exact_wording": "AI will probably most likely lead to the end of the world, but in the meantime, there'll be great companies.",
+    "exact_context": "Under the lead-in \"Here are some of his thoughts:\" the article gives: \"On the growing artificial-intelligence market: 'AI will probably most likely lead to the end of the world, but in the meantime, there'll be great companies.'\"",
+    "event_sentences_verbatim": [
+      "According to Altman, speaking Thursday at Airbnb's Open Air 2015 conference, so much risk-free, low-interest capital is being lent by the US government that vast overinflation is present across the board...",
+      "Altman, with the prompting of Mike Curtis, Airbnb's vice president of engineering, in an onstage interview was on fire. He had thoughts on everything from how the world is going to end to why people would rather live next to a coal plant than a nuclear power plant."
+    ],
+    "caveats": [
+      "The quote is a bullet in a reporter's summary, not a labelled verbatim transcript. The article does not contain 'I think' or 'like' or 'sort of' or 'machine learning'.",
+      "Business Insider page is partly paywalled ('available exclusively to Business Insider subscribers'), but the fetched HTML contained the full body including the quote.",
+      "No earlier report than June 4, 2015 was found in several searches."
+    ]
+  },
+  "other_versions": [
+    {
+      "outlet": "Future of Life Institute",
+      "date": "June 6, 2015",
+      "author": "not stated in fetched text",
+      "url": "https://futureoflife.org/ai/sam-altman-investing-in-ai-safety-research/",
+      "wording": "AI will probably most likely lead to the end of the world, but in the meantime, there’ll be great companies.",
+      "source_cited": "Business Insider (uk.businessinsider.com URL above)"
+    },
+    {
+      "outlet": "Yahoo News Malaysia (Business Insider syndication)",
+      "date": "Updated 5 June 2015 at 12:09 am UTC",
+      "url": "https://malaysia.news.yahoo.com/head-silicon-valley-most-important-000927144.html",
+      "wording": "AI will probably most likely lead to the end of the world, but in the meantime, there'll be great companies.",
+      "source_cited": "Business Insider"
+    },
+    {
+      "outlet": "Tom's Guide",
+      "author": "Amanda Caswell",
+      "date": "8 January 2026",
+      "url": "https://www.tomsguide.com/ai/i-think-ai-will-probably-most-likely-lead-to-the-end-of-the-world-everyone-is-sharing-sam-altmans-doomsday-quote-but-almost-no-one-notices-the-date",
+      "wording": "\"I think AI will probably, most likely, sort of lead to the end of the world.\" ... \"But in the meantime, there will be great companies created with serious machine learning.\"",
+      "source_cited": "none stated in fetched text; says the remark was made in 2015"
+    },
+    {
+      "outlet": "Yahoo (syndicated Tom's Guide piece)",
+      "date": "Thu, January 8, 2026 at 7:05 PM UTC",
+      "url": "https://www.yahoo.com/news/articles/think-ai-probably-lead-end-190517676.html",
+      "wording": "\"I think AI will probably, most likely, sort of lead to the end of the world.\" ... \"But in the meantime, there will be great companies created with serious machine learning.\"",
+      "source_cited": "none stated"
+    },
+    {
+      "outlet": "TechRadar",
+      "author": "Keumars Afifi-Sabet (opinion)",
+      "date": "15 June 2026",
+      "url": "https://www.techradar.com/pro/quote-of-the-day-by-sam-altman-ai-will-probably-most-likely-lead-to-the-end-of-the-world-but-in-the-meantime-therell-be-great-companies-the-dichotomy-between-grave-existential-risks-and-economic-nirvana",
+      "wording": "\"I think that AI will probably, most likely, sort of lead to the end of the world. But in the meantime, there will be great companies created with serious machine learning.\" — Sam Altman, June 2015",
+      "source_cited": "none stated; says 'Open Air 2015 conference' and 'then-Airbnb CTO Mike Curtis'"
+    },
+    {
+      "outlet": "ControlAI (YouTube short)",
+      "date": "2025-06-06 (upload date)",
+      "url": "https://www.youtube.com/watch?v=YE5adUeTe_I",
+      "wording": "\"AI will probably, like, most likely sort of lead to the end of the world, but in the meantime there will be great companies created with serious machine learning.\"",
+      "source_cited": "none in description. Says 'Just over 10 years ago, Sam Altman said this statement'."
+    }
+  ],
+  "variant_wording_status": "The 'I think ... sort of ... serious machine learning' wording appears only in 2026 secondary pieces and a 2025 YouTube short, none of which cites a source. It is not in the 2015 Business Insider or Future of Life text. Whether Altman said it on the recording is unverified (see recording_url).",
+  "background_pages_checked": {
+    "longtermwiki": {
+      "url": "https://www.longtermwiki.com/knowledge-base/people/track-records/sam-altman-predictions/",
+      "says": "Date 2015; event type 'Conference (the page does not name the event)'; place not stated; source cited: Tom's Guide. Secondary only."
+    },
+    "tomsguide_background": "https://www.tomsguide.com/ai/i-think-ai-will-probably-most-likely-lead-to-the-end-of-the-world-everyone-is-sharing-sam-altmans-doomsday-quote-but-almost-no-one-notices-the-date (secondary, 8 Jan 2026)"
+  },
+  "recording_url": {
+    "found": true,
+    "url": "https://www.youtube.com/watch?v=d6lDZpvHAoo",
+    "title": "Fireside Chat - Sam Altman President, YCombinator and Mike Curtis, VP of Engineering, Airbnb - 2015",
+    "uploader": "nova clave (re-upload), uploaded 2024-02-21 per yt-dlp",
+    "duration_s": 2399,
+    "description_excerpt": "This video was originally available on Airbnb's YouTube channel. Originally published July 31 2015. ... A conversation with Airbnb's Mike Curtis and Sam Altman, president of Y Combinator ... 'great products win' ... building for what's next.",
+    "is_open_air_2015_session": "not verified. The description does not name Open Air. Its topics differ from the BI report, which mentions bubble, nuclear and AI safety.",
+    "quote_present_in_recording": "NOT VERIFIED. Download via y2mate.gs failed twice (the helper clicked a disabled 'Download' button; a patched copy waited 15 min and timed out). A third attempt started 07:13 UTC and had not produced a file when this was written, so no transcript exists.",
+    "other_recordings_found": "None. Other hits were the ControlAI short (YE5adUeTe_I, cites no source) and an internetpipes 18 s clip (g70KUszkNvQ, yt-dlp blocked by bot check, source not read). Neither is a primary source."
+  },
+  "verification_status": {
+    "event_and_date": "partly verified (event name from BI and FLI; date inferred from 'Thursday' + June 4, 2015 dateline)",
+    "place": "not found",
+    "first_report": "verified from BI body text (fetched HTML) and Yahoo Finance copy; both contain the exact wording",
+    "recording_quote_check": "not done (download failed; transcript not produced)"
+  },
+  "recommended_card_text": "\"AI will probably most likely lead to the end of the world, but in the meantime, there'll be great companies.\" (Sam Altman, Airbnb Open Air 2015)",
+  "recommended_attribution": "Sam Altman, onstage interview at Airbnb Open Air 2015 (with Airbnb's Mike Curtis), as reported by Matt Weinberger, Business Insider, June 4, 2015. Wording is BI's published text; not checked against a recording."
+}

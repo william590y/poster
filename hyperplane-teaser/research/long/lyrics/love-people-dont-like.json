@@ -1,0 +1,63 @@
+{
+  "key": "love-people-dont-like",
+  "lyric": "Verse 2: \"'Cause I love people I don't like / And I hate every song I write\"",
+  "lyric_idea": "AI-generated music: AI bands, AI-made songs and videos, Spotify AI labeling, the Suno lawsuits. The lyric itself is never shown on screen.",
+  "research_date": "2026-10-10",
+  "candidates": [
+    {
+      "rank": 1,
+      "type": "headline",
+      "text": "AI ‘Band’ the Velvet Sundown Officially Confirm They’re AI — and a ‘Provocation’",
+      "trimmed_option": "AI ‘Band’ the Velvet Sundown Officially Confirm They’re AI…",
+      "speaker_or_outlet": "Rolling Stone (Australian edition), byline Brian Hiatt",
+      "date": "2025-07-06",
+      "url": "https://au.rollingstone.com/music/music-news/ai-band-the-velvet-sundown-confirm-ai-79519",
+      "local_path": null,
+      "verified_how": "Page opened via WebFetch. Headline, byline and date (6 Jul 2025, 5:38 PM) read from the page. The article quotes the band's revised Spotify bio: \"The Velvet Sundown is a synthetic music project guided by human creative direction\". WebFetch returns model-extracted text, so re-check the curly quotes against the page before burning. Not in the deck. The 2025 date is older than the others.",
+      "why_it_fits": "The most literal match: a music act whose songs were AI-made, confirmed as AI. Reads as 'the songs are made by a machine' in about 3 s when trimmed."
+    },
+    {
+      "rank": 2,
+      "type": "headline",
+      "text": "Spotify will label ‘AI Persona’ profiles and exclude their music from recommendations",
+      "trimmed_option": "Spotify will label ‘AI Persona’ profiles…",
+      "speaker_or_outlet": "TechCrunch, byline Sarah Perez",
+      "date": "2026-08-11",
+      "url": "https://techcrunch.com/2026/08/11/spotify-will-label-ai-persona-profiles-and-exclude-their-music-from-recommendations/",
+      "local_path": null,
+      "verified_how": "Page opened via WebFetch. Headline, byline and date (11 Aug 2026, 6:00 AM PDT) read from the page. Not in the deck. Curly quotes are model-extracted, so check them against the page.",
+      "why_it_fits": "A live 2026 platform policy about AI-generated artists. The 'AI Persona' tag is a short on-screen label that reads at a glance on a phone."
+    },
+    {
+      "rank": 3,
+      "type": "clip",
+      "text": "ESCAPE VELOCITY · SS27 (title card at ~5 s: \"ESCAPE VELOCITY - MODEL 01 - SHELL: OPTIMISM - SIZE: AGI - MIC: ON\"). Alternate frame at ~140 s, \"Not AI. SI.\"",
+      "speaker_or_outlet": "@anabology (X); the same film is on YouTube as \"SLOPCORE: ESCAPE VELOCITY\" (channel anabology)",
+      "date": "2026-09-25",
+      "url": "https://x.com/anabology/status/2103534482930491441",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/finalevideo-escape-velocity-720p.mp4",
+      "local_stills": [
+        "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/finalevideo-frame-t005s-title-card-escape-velocity.jpg",
+        "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/finalevideo-frame-t140s-look10-not-ai-si.jpg"
+      ],
+      "verified_how": "Deck source: openweights finalevideo.json entry (headline: \"ESCAPE VELOCITY (SS27) - 5-minute runway-style music video by @anabology (Claude Opus 5.5 + Midjourney + Suno song)\"). Local 720p mp4 (306.5 s, 1280x720) and both stills confirmed present with find/ls. The Suno link (https://suno.com/s/d1oGqZucN3h7GsI1, song 'Escape Velocity', creator 'anabologyco') appears only in a search snippet recorded in the deck; the Suno page was not opened. The 'Suno song' credit and the tool credits are the creator's claims. The clip was not re-checked live and was not downloaded again.",
+      "why_it_fits": "A runway-style AI music video whose song is credited to Suno. The title card and 'Not AI. SI.' frame show the AI-made-everything idea on screen. Use a short excerpt, and label the credits as creator-reported."
+    },
+    {
+      "rank": 4,
+      "type": "headline",
+      "text": "Sony Music, Universal Music Group Sue Suno Over Label-Backed Model: ‘Fruit of the Same Poisoned Tree’",
+      "trimmed_option": "Sony Music, Universal Music Group Sue Suno Over Label-Backed Model…",
+      "speaker_or_outlet": "Variety, byline Corbin Bolies",
+      "date": "2026-09-18",
+      "url": "https://variety.com/2026/music/news/sony-music-universal-music-sue-suno-label-backed-model-1236866921/",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/variety-suno-v6.png",
+      "verified_how": "Local screenshot of the Variety page, read with the Read tool. Headline, byline and \"Sep 18, 2026 9:42am PT\" are visible; the deck manifest entry is verified: true. The live Variety URL returned HTTP 402 to WebFetch (tollbit redirect), so it was not re-opened live. Corroborated by Digital Music News, 18 Sep 2026, byline Dylan Smith, which reports the second suit filed \"to a Massachusetts federal court today\". Its headline text differs from Variety's, so quote Variety's.",
+      "why_it_fits": "Suno (the AI music generator) is sued by two majors over its newest model. This is the 'AI music is a mess' frustration in headline form. The full headline is long, so use the trimmed option."
+    }
+  ],
+  "not_used": [
+    "Deck image commons-gptimage25-cow-ufo.png (Wikimedia Commons, GPT Image 2.5, Sep 2026; local file at /home/user/poster/ai-safety-presentation/assets/research/capabilities/commons-gptimage25-cow-ufo.png) is a usable AI-art image. It is a weaker echo of a line about songs, and its license needs checking on the Commons page first.",
+    "Billboard/Variety AI-chart coverage: Variety pages returned 402 via redirect, Billboard redirected and was not followed, CBC returned 403. No AI-chart item was opened, so none is included."
+  ]
+}

@@ -1,0 +1,33 @@
+#!/bin/bash
+# Autosave (approved by William, 11 Oct 2026): mirror the Hyperplane project (no song, clips, renders or caches) and this
+# session's working files into the poster repo on the session branch, then commit and push if anything changed.
+set -u
+SP=/tmp/claude-0/-home-user/a99e0376-0534-5e3e-8b47-ccbc03821dfd/scratchpad
+REPO=/home/user/poster
+BR=claude/busy-thompson-44fmqz
+EXC=/home/user/wf/autosave-exclude.txt
+cd "$REPO" || exit 1
+git rev-parse --abbrev-ref HEAD | grep -qx "$BR" || { echo "not on $BR"; exit 1; }
+rm -rf "$REPO/hyperplane-teaser" "$REPO/_session"
+mkdir -p "$REPO/hyperplane-teaser" "$REPO/_session/workflows" "$REPO/_session/hyperplane-helpers"
+tar -C /home/user/hyperplane-teaser -c --exclude-from="$EXC" -f - . | tar -C "$REPO/hyperplane-teaser" -x
+cp /home/user/wf/*.js /home/user/wf/*.sh /home/user/wf/*.txt "$REPO/_session/workflows/" 2>/dev/null
+cp -r /home/user/minds-and-machines "$REPO/_session/" 2>/dev/null
+cp "$SP"/hyperplane/*.py "$REPO/_session/hyperplane-helpers/" 2>/dev/null
+cat > "$REPO/_session/README.md" <<'MD'
+# Session working files (autosaved)
+- `../hyperplane-teaser/`: the Hyperplane x "brutal" video project (engine, EDLs, research, brief). The song, clips, b-roll,
+  render caches and rendered videos are NOT included (copyright and size); see hyperplane-teaser/README.md and BUILD.md to rebuild.
+- `workflows/`: the multi-agent workflow scripts used in this session, and this autosave script.
+- `hyperplane-helpers/`: transcription and download helpers (transcribe.py, y2dl.py, ...).
+- `minds-and-machines/`: the H1239 lecture notes (LaTeX + PDF).
+MD
+git add -A hyperplane-teaser _session
+git diff --cached --name-only --diff-filter=AM | while read -r f; do [ -f "$f" ] && [ "$(stat -c %s "$f")" -gt 45000000 ] && git rm -q --cached "$f" && echo "skipped large $f"; done
+if git diff --cached --quiet; then echo "autosave: nothing new ($(date -u +%H:%MZ))"; exit 0; fi
+git commit -q -m "Autosave: Hyperplane project and session files ($(date -u +%Y-%m-%dT%H:%MZ))
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01Gs6nrmAXs29Kx7ERy8wBV7"
+for d in 0 2 4 8 16; do sleep $d; timeout 900 git push -q origin "$BR" && { echo "autosave: pushed $(git rev-parse --short HEAD) ($(date -u +%H:%MZ))"; exit 0; }; done
+echo "autosave: push failed"; exit 1

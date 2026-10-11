@@ -1,0 +1,79 @@
+{
+  "key": "two-real-friends",
+  "lyric": "I only have two real friends / And lately, I'm a nervous wreck",
+  "idea": "AI companions replacing friends; AI-linked anxiety and distress",
+  "checked": "2026-10-10",
+  "candidates": [
+    {
+      "rank": 1,
+      "type": "stat",
+      "text": "67% of minors surveyed have reported using an AI chatbot or companion.",
+      "speaker_or_outlet": "Thorn, press release on 'Youth Perspectives on Online Safety, 2025'",
+      "date": "2026-07-28",
+      "url": "https://www.thorn.org/press-releases/as-ai-becomes-part-of-kids-response-to-online-harm-new-thorn-research-finds-children-turning-to-chatbots-for-guidance-after-online-sexual-interactions/",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/thorn-pr-2026-chatbot-findings.png",
+      "other_local_paths": [
+        "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/thorn-pr-2026-headline.png",
+        "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/thorn-pr-2026-fullpage.png",
+        "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/thorn-youth-perspectives-2025-report.pdf"
+      ],
+      "verified_how": "Deck source: the Thorn slide in /home/user/poster/ai-safety-presentation/tools/slides_openweights.js (sources line and notes), and the entry thorn-pr-2026-chatbots in assets/research/openweights/rev2/deepfake.json (verified: true, screenshot captured). Viewed thorn-pr-2026-chatbot-findings.png: the sentence is legible and verbatim. Live: opened the Thorn press release URL with WebFetch; the headline 'As AI becomes part of kids' response to online harm, new Thorn research finds children turning to chatbots for guidance after online sexual interactions' (July 28, 2026) and the 67% sentence both match.",
+      "why_it_fits": "Hits 'two real friends' directly: two-thirds of minors using AI companions. Reads in about 2-3 s as a single line. Caveat: the stat measures use, not replacement of friends, so the caption should say 'used', not 'replaced friends'. The same release says 15% of minors who had an online sexual interaction sought guidance from an AI chatbot or companion (more than twice the 7% bullying rate); that sentence is too long for a phone read, so use it only in a longer card.",
+      "notes": "Deck-first source. Minor (9-17) sample, US, from the deck's sourcing."
+    },
+    {
+      "rank": 2,
+      "type": "headline",
+      "text": "Nearly 3 in 4 Teens Have Used AI Companions, New National Survey Finds",
+      "speaker_or_outlet": "Common Sense Media (press release)",
+      "date": "2025-07-16",
+      "url": "https://www.commonsensemedia.org/press-releases/nearly-3-in-4-teens-have-used-ai-companions-new-national-survey-finds",
+      "local_path": null,
+      "verified_how": "Live: opened the page with WebFetch. Headline verbatim as above; date 'Wednesday, July 16, 2025'. Body quotes: 'Seventy-two percent of teens have used AI companions at least once.' and 'Over half use these platforms at least a few times a month.' Not in the deck, so this is a live-web source.",
+      "why_it_fits": "Teen-specific (ages 13-17), and a clean headline that reads in about 2-3 s. It maps to 'two real friends' as AI companions filling a social role. Caveats: the survey is from 2025, so the caption must carry the year. The page says 'national' but does not say 'US' in the text, so do not write 'US' unless a second source confirms it. A search summary cited '80% put genuine friendships first' from the same report; I did not verify that on the page, so do not use it.",
+      "notes": "Strong pairing with the Thorn stat as a second beat."
+    },
+    {
+      "rank": 3,
+      "type": "headline",
+      "text": "AI companions can comfort lonely users but may deepen distress over time",
+      "speaker_or_outlet": "Tech Xplore (republished from Aalto University); study by Yunhao Yuan et al., CHI 2026",
+      "date": "2026-04-04",
+      "url": "https://techxplore.com/news/2026-03-ai-companions-comfort-lonely-users.html",
+      "local_path": null,
+      "verified_how": "Live: opened the page with WebFetch. Headline verbatim as above; publication date April 4, 2026; study 'Mental Health Impacts of AI Companions: Triangulating Social Media Quasi-Experiments, User Perspectives, and Relational Theory' (arXiv DOI 10.48550/arxiv.2509.22505), to be presented at CHI 2026. The article's first sentence: 'AI companions are always available, never judge, never tire and never demand anything in return.' Not in the deck.",
+      "why_it_fits": "Covers both halves of the verse: the 'lonely' and 'two real friends' part (over-reliance on a companion can pull users away from human relationships) and the 'nervous wreck' part (distress deepening over time). Reads in about 3 s. This is the best match for the 'AI-induced anxiety' half of the verse, though the article says distress, not anxiety.",
+      "notes": "The URL slug says 2026-03; the page's own date is April 4, 2026. Use the page date."
+    },
+    {
+      "rank": 4,
+      "type": "headline",
+      "text": "Woman Marries ChatGPT AI Character After He Proposed",
+      "speaker_or_outlet": "Metropolis Japan",
+      "date": "2026-07-03 (per page); ceremony date disputed",
+      "url": "https://metropolisjapan.com/woman-marries-chatgpt/",
+      "local_path": null,
+      "verified_how": "Live: opened the page with WebFetch. Headline verbatim as above; the page is dated July 3, 2026. It names Yurina Noguchi (32, call-center operator), an AI persona 'Klaus' built with ChatGPT, in Okayama. Second source: a search summary cites Reuters photo captions dating the ceremony to October 27, 2025 at the Magritte venue, while Primetimer says July. Malay Mail returned 403 and NewsNation returned 403, so the date is not resolved.",
+      "why_it_fits": "The literal 'marrying an AI' beat from the idea list, but the lyric is about friends and nerves, not romance, so the fit is looser than the Thorn and Tech Xplore items. Use only as a third beat, and do not show a date on screen until the ceremony date is resolved.",
+      "notes": "Date conflict open (see verified_how). Headline could be trimmed to 'Woman Marries ChatGPT AI Character'."
+    }
+  ],
+  "rejected_or_unverified": [
+    {
+      "item": "Character.AI / Kentucky AG lawsuit: 'Character.AI Chatbots Encouraged Self-Harm and Starvation, Kentucky Lawsuit Alleges' (androidheadlines, Oct 9, 2026)",
+      "reason": "Live and verified as a headline, but it is secondary coverage of an allegation and about self-harm, not friendship or anxiety; the headline is long (about 90 characters). Kept as an alternate for a 'companion harms' card."
+    },
+    {
+      "item": "Character.AI and Google settlements (CNN, Jan 7, 2026)",
+      "reason": "CNN returned HTTP 451 and could not be opened, so this is not verified on the page."
+    },
+    {
+      "item": "'Artificial Love I Married an AI - Music Video Opus 5.5' (YouTube, Seguramente)",
+      "reason": "In the deck's security intermission assets (assets/research/security/rev2/intermission.json, sibling video). It is a fan-made music video with an unknown exact date, so it is not a real-world event."
+    },
+    {
+      "item": "Llama 3.3 'anxious, depressed...' completion (deck openweights manifest)",
+      "reason": "A model-completion experiment, not an AI-induced anxiety event in people; it is not safe to echo the lyric with it."
+    }
+  ]
+}

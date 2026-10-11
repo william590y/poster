@@ -1,0 +1,251 @@
+{
+ "id": "time-2023-01-18-kenyan-workers",
+ "url": "https://time.com/6247678/openai-chatgpt-kenya-workers/",
+ "expected": "Exclusive: OpenAI Used Kenyan Workers on Less Than $2 Per Hour to Make ChatGPT Less Toxic",
+ "notes": [
+  "clicked:Accept All|Reject All",
+  "hid 20 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://time.com/6247678/openai-chatgpt-kenya-workers/",
+ "title0": "OpenAI Used Kenyan Workers on Less Than $2 Per Hour: Exclusive",
+ "hidden_detail": [
+  [
+   "DIV",
+   "leaderboard-container",
+   "flex min-h-[4.125rem] w-full items-center justify-center bg-",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-1",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "jwplayer-_R_1a4dcjaslfiv5udb__ad",
+   "jw-ads-view",
+   "absolute",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-2",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "branded-content-inline-ad",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "jwplayer-_R_1aedcjaslfiv5udb__ad",
+   "jw-ads-view",
+   "absolute",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-3",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-4",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-5",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-6",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-7",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-8",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-9",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-10",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-11",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-12",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-13",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "fixed bottom-0 z-[9998] flex max-h-14 w-full items-center ju",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "grecaptcha-badge",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "OpenAI Used Kenyan Workers on Less Than $2 Per Hour: Exclusive",
+ "og_title": "Exclusive: The $2 Per Hour Workers Who Made ChatGPT Safer",
+ "twitter_title": "Exclusive: The $2 Per Hour Workers Who Made ChatGPT Safer",
+ "og_site": "TIME",
+ "published": "2023-01-18T12:00:58.000Z",
+ "author_meta": "Billy Perrigo",
+ "canonical": "https://time.com/6247678/openai-chatgpt-kenya-workers/",
+ "h1_count": 1,
+ "h1": "Exclusive: OpenAI Used Kenyan Workers on Less Than $2 Per Hour to Make ChatGPT Less Toxic",
+ "h1_box": [
+  80,
+  140,
+  440,
+  404
+ ],
+ "h1_font": "40px",
+ "below_bottom": 525.796875,
+ "below_text": [
+  "ADD TIME ON GOOGLE",
+  "by",
+  "Billy Perrigo",
+  "Open follow modal",
+  "Correspondent"
+ ],
+ "hero_top": 1535.875,
+ "header_bottom": 0,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  543.796875
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/time-2023-01-18-kenyan-workers.png",
+ "trimmed": 0
+}

@@ -1,0 +1,7 @@
+[{"name":"reveal","args":[0.05],"out":"reveal_0.png"},{"name":"reveal","args":[0.12],"out":"reveal_1.png"},{"name":"reveal","args":[0.2],"out":"reveal_2.png"},{"name":"reveal","args":[0.3],"out":"reveal_3.png"},{"name":"reveal","args":[0.5],"out":"reveal_4.png"},
+{"name":"brush","args":[],"out":"brush.png"},{"name":"brushmotion","args":[],"out":"brushmotion.png"},
+{"name":"splat","args":[0.0],"out":"splat_0.png"},{"name":"splat","args":[0.033],"out":"splat_1.png"},{"name":"splat","args":[0.067],"out":"splat_2.png"},{"name":"splat","args":[0.133],"out":"splat_4.png"},{"name":"splat","args":[0.5],"out":"splat_15.png"},{"name":"splat","args":[1.5],"out":"splat_45.png"},{"name":"splat","args":[1.5,{"cull":0.6}],"out":"splat_cull.png"},
+{"name":"chart","args":[0,{"grow":1}],"out":"chart_f0.png"},{"name":"chart","args":[2,{"grow":1}],"out":"chart_f2.png"},{"name":"chart","args":[4,{"grow":1}],"out":"chart_f4.png"},{"name":"chart","args":[6,{"grow":0.4}],"out":"chart_grow.png"},
+{"name":"pencil","args":[0,0.3],"out":"pencil_0.png"},{"name":"pencil","args":[2,0.65],"out":"pencil_1.png"},{"name":"pencil","args":[4,1.0],"out":"pencil_2.png"},
+{"name":"kand","args":[0.0],"out":"kand_0.png"},{"name":"kand","args":[0.2],"out":"kand_1.png"},{"name":"kand","args":[0.5],"out":"kand_2.png"},{"name":"kand","args":[1.0],"out":"kand_3.png"},
+{"name":"bleed","args":[1],"out":"bleed_1.png"},{"name":"papertest","args":[],"out":"papertest.png"},{"name":"frame","args":[0.9],"out":"frame.png"}]

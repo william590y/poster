@@ -1,0 +1,428 @@
+{
+ "id": "wired-2026-08-05-message-board",
+ "url": "https://www.wired.com/story/openai-didnt-notice-its-ai-agents-using-a-message-board-to-plan-their-hacking-spree/",
+ "expected": "OpenAI Didn’t Notice Its AI Agents Using a Message Board to Plan Their Hacking Spree",
+ "notes": [
+  "hid 38 overlay element(s)",
+  "crop starts at css y=532 (the area above it, masthead, hero image, empty ad slot or video player, is not included)",
+  "captured beyond the first viewport (CDP captureBeyondViewport)"
+ ],
+ "status": 200,
+ "final_url": "https://www.wired.com/story/openai-didnt-notice-its-ai-agents-using-a-message-board-to-plan-their-hacking-spree/",
+ "title0": "OpenAI Didn’t Notice Its AI Agents Using a Message Board to Plan Their Hacking Spree | WIRED",
+ "hidden_detail": [
+  [
+   "DIV",
+   "fides-overlay",
+   "fides-overlay",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "fides-modal-overlay",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "fides-modal-content",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "InterstitialWrapper-hkIVaq ezgzgI",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "ASIDE",
+   "",
+   "PaywallModalWrapper-itMFEN fkdbJh paywall-modal paywall-moda",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "HEADER",
+   "",
+   "OneNavContainer-kolMaZ gMEKPr one-nav",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "StickyHeroAdWrapper-kurarC gSpllZ ad-stickyhero ad-stickyher",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "AdWrapper-fGiLaV dnFWcD ad ad--hero should-hold-space",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad__slot ad__slot--hero",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "cns-ads-slot-type-hero-0",
+   "cns-ads-stage cns-ads-slot-type-hero cns-ads-slot-type-hero-",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "hero_0",
+   "cns-ads-container",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "google_ads_iframe_3379/conde.wired/hero/",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "google_ads_iframe_3379/conde.wired/hero/",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "Overlay-fPsXzV cczGCj",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "TriggerableContainerContent-hvARID eGNGkA",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "RolloverWrapper-gKGuJT jTtppM",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "Overlay-fPsXzV cczGCj",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "IdentityDropdownGrid-cROceS kxYAme",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "PersistentBottomWrapper-byvUWq jfahCN persistent-bottom",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "ASIDE",
+   "",
+   "PaywallBarWrapper-gFBZnd jdPepy paywall-bar",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "InContentBarrierFloatingBar-kqVauO bezocV",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "AdWrapper-fGiLaV iGDxYx ad ad--rail",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad__slot ad__slot--rail",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "cns-ads-slot-type-rail-0",
+   "cns-ads-stage cns-ads-slot-type-rail cns-ads-slot-type-rail-",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "rail_0",
+   "cns-ads-container",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "google_ads_iframe_3379/conde.wired/rail/",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "google_ads_iframe_3379/conde.wired/rail/",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "BaseWrap-sc-SkJtP RowWrapper-efRjVu dZoWtJ dNXSll full-bleed",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "StickyMidContentAdWrapper-gsQpUH dPPAJq ad-stickymidcontent",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "AdWrapper-fGiLaV iGDxYx ad ad--mid-content should-hold-space",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "BaseWrap-sc-SkJtP RowWrapper-efRjVu dZoWtJ dNXSll full-bleed",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "StickyMidContentAdWrapper-gsQpUH dPPAJq ad-stickymidcontent",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "AdWrapper-fGiLaV iGDxYx ad ad--mid-content should-hold-space",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "SummaryCollectionGridItems-dygJmn mALEF hide-read-more-ad",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "AdWrapper-fGiLaV iGDxYx ad ad--footer should-hold-space",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad__slot ad__slot--footer",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "cns-ads-slot-type-footer-0",
+   "cns-ads-stage cns-ads-slot-type-footer cns-ads-slot-type-foo",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "gladlyChat_container",
+   "cleanslate preload browser",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "OpenAI Didn’t Notice Its AI Agents Using a Message Board to Plan Their Hacking Spree | WIRED",
+ "og_title": "OpenAI Didn’t Notice Its AI Agents Using a Message Board to Plan Their Hacking Spree",
+ "twitter_title": "OpenAI Didn’t Notice Its AI Agents Using a Message Board to Plan Their Hacking Spree",
+ "og_site": "WIRED",
+ "published": "2026-08-06T00:15:04.344Z",
+ "author_meta": "Lily Hay Newman",
+ "canonical": "https://www.wired.com/story/openai-didnt-notice-its-ai-agents-using-a-message-board-to-plan-their-hacking-spree/",
+ "h1_count": 1,
+ "h1": "OpenAI Didn’t Notice Its AI Agents Using a Message Board to Plan Their Hacking Spree",
+ "h1_box": [
+  50,
+  682,
+  550,
+  906
+ ],
+ "h1_font": "54px",
+ "below_bottom": 1030,
+ "below_text": [
+  "At the Black Hat security conference, the AI giant revealed new details about ho"
+ ],
+ "hero_top": null,
+ "header_bottom": 0,
+ "doc_w": 1200,
+ "masthead_included": false,
+ "crop_css": [
+  0,
+  532,
+  1200,
+  516
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/wired-2026-08-05-message-board.png",
+ "trimmed": 0
+}

@@ -1,0 +1,100 @@
+{
+  "_note": "Builder B (charts-equations-net), 10 Oct 2026. Equations for the neural-net candy (fx/netviz.js) that research/rev2/equations.json may lack: the forward pass, the four backpropagation equations, the gradient-descent update and scaled dot-product attention. Schema guessed to match equations.json (that file did not exist yet when this was written): {equations: [{id, name, tex, source: {authors, title, year, where, eq, url}, verified: {how, date}, terms, notes}]}. fx/equations.js reads both files (EDL item field \"ref\": \"<id>\"). TeX is copied verbatim from the cited source (MathJax/LaTeX source), apart from removing the trailing full stop or comma that ends the sentence in the source; nothing was retyped from memory.",
+  "verification_method": "Nielsen: downloaded http://neuralnetworksanddeeplearning.com/chap1.html and chap2.html (10 Oct 2026; the https endpoint serves a mismatched certificate, http was used) and extracted the MathJax TeX source of each tagged eqnarray with a regular expression; the strings below are those sources with the \\tag removed. Vaswani: downloaded the arXiv LaTeX source https://arxiv.org/e-print/1706.03762v7 and copied equation (1) from model_architecture.tex line 41. Rumelhart, Hinton & Williams (1986) is the original backpropagation paper (Nature 323, 533-536); its notation differs (E, x_j, y_j, w_ji, Delta w = -epsilon dE/dw, its eqs. 4-8); the forms used here are Nielsen's matrix/Hadamard restatement, so every equation is cited to Nielsen, with RHW 1986 named as the origin in 'origin'.",
+  "equations": [
+    {
+      "id": "nn-forward",
+      "name": "Forward pass (one layer)",
+      "tex": "a^{l} = \\sigma(w^l a^{l-1}+b^l)",
+      "source": {"authors": "Michael A. Nielsen", "title": "Neural Networks and Deep Learning, chapter 2: How the backpropagation algorithm works", "year": 2015, "where": "Determination Press (online book)", "eq": "(25)", "url": "http://neuralnetworksanddeeplearning.com/chap2.html"},
+      "cite": "Nielsen 2015, Neural Networks and Deep Learning, ch. 2, eq. 25",
+      "verified": {"how": "MathJax TeX source of the \\tag{25} eqnarray in chap2.html, verbatim (trailing '.' dropped)", "date": "2026-10-10"},
+      "terms": {"weights": "w^l", "input": "a^{l-1}", "bias": "b^l", "activation": "\\sigma"},
+      "notes": "Nielsen writes the weight matrix lowercase (w^l); the brief's 'a = sigma(Wx + b)' is the same equation in other notation. z^l is defined inline in the same chapter as z^l \\equiv w^l a^{l-1}+b^l.",
+      "origin": "Rumelhart, Hinton & Williams 1986, eqs. 1-2 (logistic units)"
+    },
+    {
+      "id": "nn-delta-def",
+      "name": "Error of neuron j in layer l (definition)",
+      "tex": "\\delta^l_j \\equiv \\frac{\\partial C}{\\partial z^l_j}",
+      "source": {"authors": "Michael A. Nielsen", "title": "Neural Networks and Deep Learning, chapter 2", "year": 2015, "where": "online book", "eq": "(29)", "url": "http://neuralnetworksanddeeplearning.com/chap2.html"},
+      "cite": "Nielsen 2015, ch. 2, eq. 29",
+      "verified": {"how": "MathJax TeX source of \\tag{29}, verbatim (trailing '.' dropped)", "date": "2026-10-10"}
+    },
+    {
+      "id": "bp1",
+      "name": "BP1: error in the output layer (matrix form)",
+      "tex": "\\delta^L = \\nabla_a C \\odot \\sigma'(z^L)",
+      "source": {"authors": "Michael A. Nielsen", "title": "Neural Networks and Deep Learning, chapter 2", "year": 2015, "where": "online book", "eq": "(BP1a)", "url": "http://neuralnetworksanddeeplearning.com/chap2.html"},
+      "cite": "Nielsen 2015, ch. 2, eq. BP1a",
+      "verified": {"how": "MathJax TeX source of \\tag{BP1a}, verbatim (trailing '.' dropped). The component form BP1 is \\delta^L_j = \\frac{\\partial C}{\\partial a^L_j} \\sigma'(z^L_j)", "date": "2026-10-10"},
+      "terms": {"output_error": "\\delta^L", "hadamard": "\\odot"},
+      "origin": "Rumelhart, Hinton & Williams 1986, eqs. 4-5"
+    },
+    {
+      "id": "bp1-component",
+      "name": "BP1 (component form)",
+      "tex": "\\delta^L_j = \\frac{\\partial C}{\\partial a^L_j} \\sigma'(z^L_j)",
+      "source": {"authors": "Michael A. Nielsen", "title": "Neural Networks and Deep Learning, chapter 2", "year": 2015, "where": "online book", "eq": "(BP1)", "url": "http://neuralnetworksanddeeplearning.com/chap2.html"},
+      "cite": "Nielsen 2015, ch. 2, eq. BP1",
+      "verified": {"how": "MathJax TeX source of \\tag{BP1}, verbatim (trailing '.' dropped)", "date": "2026-10-10"}
+    },
+    {
+      "id": "bp2",
+      "name": "BP2: the error propagated back one layer",
+      "tex": "\\delta^l = ((w^{l+1})^T \\delta^{l+1}) \\odot \\sigma'(z^l)",
+      "source": {"authors": "Michael A. Nielsen", "title": "Neural Networks and Deep Learning, chapter 2", "year": 2015, "where": "online book", "eq": "(BP2)", "url": "http://neuralnetworksanddeeplearning.com/chap2.html"},
+      "cite": "Nielsen 2015, ch. 2, eq. BP2",
+      "verified": {"how": "MathJax TeX source of \\tag{BP2}, verbatim (trailing ',' dropped)", "date": "2026-10-10"},
+      "terms": {"transpose": "(w^{l+1})^T", "next_error": "\\delta^{l+1}", "hadamard": "\\odot"},
+      "notes": "The brief wrote (W^{l+1})^T with a capital W; Nielsen's source uses lowercase w. Keep Nielsen's.",
+      "origin": "Rumelhart, Hinton & Williams 1986, eq. 7 with eq. 5"
+    },
+    {
+      "id": "bp3",
+      "name": "BP3: rate of change of the cost with respect to a bias",
+      "tex": "\\frac{\\partial C}{\\partial b^l_j} = \\delta^l_j",
+      "source": {"authors": "Michael A. Nielsen", "title": "Neural Networks and Deep Learning, chapter 2", "year": 2015, "where": "online book", "eq": "(BP3)", "url": "http://neuralnetworksanddeeplearning.com/chap2.html"},
+      "cite": "Nielsen 2015, ch. 2, eq. BP3",
+      "verified": {"how": "MathJax TeX source of \\tag{BP3}, verbatim (whitespace normalised, trailing '.' dropped)", "date": "2026-10-10"}
+    },
+    {
+      "id": "bp4",
+      "name": "BP4: rate of change of the cost with respect to a weight",
+      "tex": "\\frac{\\partial C}{\\partial w^l_{jk}} = a^{l-1}_k \\delta^l_j",
+      "source": {"authors": "Michael A. Nielsen", "title": "Neural Networks and Deep Learning, chapter 2", "year": 2015, "where": "online book", "eq": "(BP4)", "url": "http://neuralnetworksanddeeplearning.com/chap2.html"},
+      "cite": "Nielsen 2015, ch. 2, eq. BP4",
+      "verified": {"how": "MathJax TeX source of \\tag{BP4}, verbatim (trailing '.' dropped)", "date": "2026-10-10"},
+      "terms": {"gradient": "\\frac{\\partial C}{\\partial w^l_{jk}}", "input_activation": "a^{l-1}_k", "error": "\\delta^l_j"},
+      "origin": "Rumelhart, Hinton & Williams 1986, eq. 6"
+    },
+    {
+      "id": "gd-update",
+      "name": "Gradient-descent update of a weight",
+      "tex": "w_k \\rightarrow w_k' = w_k-\\eta \\frac{\\partial C}{\\partial w_k}",
+      "source": {"authors": "Michael A. Nielsen", "title": "Neural Networks and Deep Learning, chapter 1: Using neural nets to recognize handwritten digits", "year": 2015, "where": "online book", "eq": "(16)", "url": "http://neuralnetworksanddeeplearning.com/chap1.html"},
+      "cite": "Nielsen 2015, ch. 1, eq. 16",
+      "verified": {"how": "MathJax TeX source of the \\tag{16} row of the (16)-(17) eqnarray in chap1.html; the '& \\rightarrow &' alignment markers were replaced by plain \\rightarrow (same symbols, no alignment)", "date": "2026-10-10"},
+      "terms": {"learning_rate": "\\eta", "gradient": "\\frac{\\partial C}{\\partial w_k}"},
+      "notes": "The brief wrote 'w <- w - eta dC/dw'; Nielsen's exact form is the arrow form here. The bias update is eq. (17): b_l \\rightarrow b_l' = b_l-\\eta \\frac{\\partial C}{\\partial b_l}.",
+      "origin": "Rumelhart, Hinton & Williams 1986, eq. 8 (Delta w = -epsilon dE/dw)"
+    },
+    {
+      "id": "gd-update-bias",
+      "name": "Gradient-descent update of a bias",
+      "tex": "b_l \\rightarrow b_l' = b_l-\\eta \\frac{\\partial C}{\\partial b_l}",
+      "source": {"authors": "Michael A. Nielsen", "title": "Neural Networks and Deep Learning, chapter 1", "year": 2015, "where": "online book", "eq": "(17)", "url": "http://neuralnetworksanddeeplearning.com/chap1.html"},
+      "cite": "Nielsen 2015, ch. 1, eq. 17",
+      "verified": {"how": "as gd-update (row \\tag{17}; trailing '.' dropped)", "date": "2026-10-10"}
+    },
+    {
+      "id": "attention",
+      "name": "Scaled dot-product attention",
+      "tex": "\\mathrm{Attention}(Q, K, V) = \\mathrm{softmax}(\\frac{QK^T}{\\sqrt{d_k}})V",
+      "source": {"authors": "Vaswani, Shazeer, Parmar, Uszkoreit, Jones, Gomez, Kaiser, Polosukhin", "title": "Attention Is All You Need", "year": 2017, "where": "NeurIPS 2017; arXiv:1706.03762", "eq": "(1)", "url": "https://arxiv.org/abs/1706.03762"},
+      "cite": "Vaswani et al. 2017, Attention Is All You Need, eq. 1",
+      "verified": {"how": "arXiv LaTeX source (e-print 1706.03762v7), model_architecture.tex line 41, verbatim", "date": "2026-10-10"},
+      "terms": {"scores": "QK^T", "scale": "\\sqrt{d_k}", "softmax": "\\mathrm{softmax}"}
+    }
+  ]
+}

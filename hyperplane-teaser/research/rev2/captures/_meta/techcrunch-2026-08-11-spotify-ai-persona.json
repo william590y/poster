@@ -1,0 +1,227 @@
+{
+ "id": "techcrunch-2026-08-11-spotify-ai-persona",
+ "url": "https://techcrunch.com/2026/08/11/spotify-will-label-ai-persona-profiles-and-exclude-their-music-from-recommendations/",
+ "expected": "Spotify will label ‘AI Persona’ profiles and exclude their music from recommendations",
+ "notes": [
+  "clicked:Close",
+  "hid 17 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://techcrunch.com/2026/08/11/spotify-will-label-ai-persona-profiles-and-exclude-their-music-from-recommendations/",
+ "title0": "Spotify will label 'AI Persona' profiles and exclude their music from recommendations | TechCrunch",
+ "hidden_detail": [
+  [
+   "DIV",
+   "",
+   "wp-block-group has-gray-100-background-color has-background ",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-unit ad-unit--desktop ad-unit--edge-to-edge ad-unit--disp",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "us-tc-ros-dt-top-center-1-1",
+   "ad-unit__ad",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "google_ads_iframe_/23293943471/us/tc/ros",
+   "",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "google_ads_iframe_/23293943471/us/tc/ros",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-unit ad-unit--desktop ad-unit--has-placeholder ad-unit--d",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "us-tc-ros-dt-mid-center-1-1",
+   "ad-unit__ad",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-unit ad-unit--desktop ad-unit--top-right ad-unit--display",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "us-tc-ros-dt-top-right-1-1",
+   "ad-unit__ad",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "google_ads_iframe_/23293943471/us/tc/ros",
+   "",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "google_ads_iframe_/23293943471/us/tc/ros",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-unit ad-unit--desktop ad-unit--has-placeholder ad-unit--d",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "us-tc-ros-dt-mid-right-1-1",
+   "ad-unit__ad",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "wp-block-group wp-block-group--ads-footer alignfull has-gray",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-unit ad-unit--desktop ad-unit--has-placeholder ad-unit--d",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "us-tc-ros-dt-btm-center-1-1",
+   "ad-unit__ad",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "grecaptcha-badge",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "Spotify will label 'AI Persona' profiles and exclude their music from recommendations | TechCrunch",
+ "og_title": "Spotify will label 'AI Persona' profiles and exclude their music from recommendations | TechCrunch",
+ "twitter_title": null,
+ "og_site": "TechCrunch",
+ "published": "2026-08-11T13:00:00+00:00",
+ "author_meta": "Sarah Perez",
+ "canonical": "https://techcrunch.com/2026/08/11/spotify-will-label-ai-persona-profiles-and-exclude-their-music-from-recommendations/",
+ "h1_count": 1,
+ "h1": "Spotify will label ‘AI Persona’ profiles and exclude their music from recommendations",
+ "h1_box": [
+  626,
+  363.53125,
+  1176,
+  489.0625
+ ],
+ "h1_font": "38.0516px",
+ "below_bottom": 771.671875,
+ "below_text": [
+  "Partner Content",
+  "Security",
+  "TechCrunch Brand Studio",
+  "Social",
+  "Contact Us",
+  "Space",
+  "Sarah Perez",
+  "6:00 AM PDT · August 11, 2026",
+  "Startups",
+  "TikTok",
+  "Transportation"
+ ],
+ "hero_top": 1068.75,
+ "header_bottom": 68,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  736.671875
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/techcrunch-2026-08-11-spotify-ai-persona.png",
+ "trimmed": 106
+}

@@ -1,0 +1,59 @@
+{
+  "key": "ego-crush",
+  "lyric": "Ego crush is so severe",
+  "lyric_idea": "AI beating humans at their best. Four candidates, deck sources first. Strongest: the Lee Sedol retirement quote. Alternates not used on the list: WIRED 'The Sadness and Beauty of Watching Google's AI Play Go' (Cade Metz, 2016-03-11, deck screenshot alphago-wired-sadness-beauty-header.png, verified in deck manifest); Humanity's Last Exam best score 61.4% (Artificial Analysis, text-only; deck slide 'Humanity's Last Exam: 7% -> 61%'). HLE fits the 'last exam' idea weakly, and the deck's own slide title is not a source headline, so it can only go on screen as a stat with its source line.",
+  "candidates": [
+    {
+      "type": "quote",
+      "text": "Even if I become the number one, there is an entity that cannot be defeated.",
+      "trimmed_option": "...there is an entity that cannot be defeated.",
+      "speaker_or_outlet": "Lee Sedol, as reported by Yonhap News Agency (translated from Korean)",
+      "date": "2019-11-27 (TNW); 2019-11-28 (Irish News). Resignation notice received 2019-11-19 per TNW.",
+      "url": "https://thenextweb.com/artificial-intelligence/2019/11/27/world-champion-go-player-retires-ai-cannot-be-defeated/ (redirects to http://thenextweb.com/news/world-champion-go-player-retires-ai-cannot-be-defeated); also https://www.irishnews.com/magazine/technology/2019/11/28/news/champion-go-player-quits-because-ai-cannot-be-defeated--1777577/",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/splash/alphago-lee-sedol-thinking.png",
+      "local_path_note": "Optional pairing image: DeepMind official photo of Lee Sedol head in hand during the March 2016 match (1440x810, deck manifest id alphago-lee-sedol-thinking, verified). It shows the 2016 match, not the 2019 retirement, so caption it that way.",
+      "verified_how": "Opened TNW (after its 301 redirect) and the Irish News article live. Both carry the identical sentence. TNW names Yonhap as the source. Irish News ties the quote to 'he said' and names Yonhap in the preceding paragraph. The Korean-to-English translation may differ slightly between outlets, so quote the TNW wording.",
+      "why_it_fits": "Closest match to 'ego crush': the best human Go player quits because the machine cannot be beaten. The sentence is about 14 words; the trimmed version reads in about 2-3 s as a plain card.",
+      "caveat": "The word 'AI' is not in the quote. Put 'AI' in the card's frame or caption so the entity is clear. Do not use Irish News's headline casing without checking it: the search result only showed a lowercase title. Lee Sedol lost 4-1 to AlphaGo in 2016 (deck source: Wikipedia table; DeepMind page)."
+    },
+    {
+      "type": "headline",
+      "text": "Advanced version of Gemini with Deep Think officially achieves gold-medal standard at the International Mathematical Olympiad",
+      "trimmed_option": "Advanced version of Gemini with Deep Think officially achieves gold-medal standard...",
+      "speaker_or_outlet": "Google DeepMind blog (authors Thang Luong and Edward Lockhart)",
+      "date": "2025-07-21",
+      "url": "https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/deepmind-imo-gold.png",
+      "local_path_note": "Deck headline card, deck manifest id deepmind-imo-gold, quality 4, verified.",
+      "verified_how": "Opened the DeepMind blog live. Verbatim: headline, authors, date 2025-07-21, 'solved five out of the six IMO problems perfectly, earning 35 total points, and achieving gold-medal level performance', and 'we were amongst an inaugural cohort to have our model results officially graded and certified by IMO coordinators'. Deck entry deepmind-imo-gold also lists it verified.",
+      "why_it_fits": "Gold-medal result on the world's hardest school maths olympiad, which is the 'at their best' half of the lyric. Stat option from the same post: '35 of 42 points'. The full headline is about 19 words, so use the trimmed version or the stat for a 1.5-3 s read.",
+      "caveat": "Use DeepMind's result, not OpenAI's. Business Insider's headline 'OpenAI just won gold at the world's most prestigious math competition' reports OpenAI's self-published claim, which was not officially vetted by the IMO and is disputed. Do not put that headline on screen as fact. Gemini and OpenAI both reported 35/42 (Simon Willison, 2025-07-21)."
+    },
+    {
+      "type": "headline",
+      "text": "OpenAI outperforms humans and Google at the world's top collegiate programming contest",
+      "trimmed_option": "OpenAI outperforms humans and Google at the world's top collegiate...",
+      "speaker_or_outlet": "The Decoder (author Maximilian Schreiner)",
+      "date": "2025-09-17",
+      "url": "https://the-decoder.com/openai-outperforms-humans-and-google-at-the-worlds-top-collegiate-programming-contest/",
+      "local_path": null,
+      "local_path_note": "No file. The deck has no ICPC material (grep of tools/ and assets/research/ found none), and no image was downloaded.",
+      "verified_how": "Opened The Decoder article live. Verbatim headline, author and date. Verbatim: 'OpenAI's system achieved a perfect score by solving all 12 tasks.'; 'Gemini solved 10 out of 12 problems, including Problem C, which no human team managed to solve.'; 'that performance would have been enough to secure first place if it had been competing as a human team.'",
+      "why_it_fits": "Coding contests are where programmers feel the ego crush. The result is AI first place against top students at the ICPC World Finals (Baku, 2025). The full headline is about 14 words; the trimmed version works as a single card.",
+      "caveat": "OpenAI's 12/12 is company-reported. The Decoder says the run used the same five-hour window and an official ICPC judge, but a Russian-language report describes it as a separate online experiment, which the search could not resolve. Label the claim as OpenAI's own. The more conservative figure is Gemini's 10 of 12 (DeepMind). The top human team solved 11 (The Decoder)."
+    },
+    {
+      "type": "headline",
+      "text": "In Two Moves, AlphaGo and Lee Sedol Redefined the Future",
+      "trimmed_option": null,
+      "speaker_or_outlet": "WIRED (author Cade Metz)",
+      "date": "2016-03-16",
+      "url": "https://www.wired.com/2016/03/two-moves-alphago-lee-sedol-redefined-future/",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/splash/alphago-wired-two-moves-header.png",
+      "local_path_note": "Real screenshot cropped to the headline strip, 57 KB, deck manifest id alphago-wired-two-moves-headline, quality 5, verified true.",
+      "verified_how": "Deck source: assets/research/splash/manifest.json, entry alphago-wired-two-moves-headline (real screenshot, verified; notes quote the dek and the Move 37 and Move 78 passages). The wired.com page could not be fetched from this session (blocked). Title, author and March 2016 date are confirmed by secondary listings (HPCwire link, Globe and Mail podcast page).",
+      "why_it_fits": "About 11 words, so it reads in about 3 s. It names both sides of the match, which fits the 'ego crush' idea: the machine's move and the human who lost. The deck already has the screenshot, so no new asset is needed.",
+      "caveat": "It names the match rather than a loss. Pair it with the DeepMind photo (alphago-lee-sedol-thinking.png) or the Lee Sedol quote for the ego-crush beat."
+    }
+  ]
+}

@@ -1,0 +1,716 @@
+{
+ "_note": "STAND-IN for research/rev2/screens.json made by builder C (fx/screens.js) from the OCR boxes; highlights auto-located, unverified. The engine prefers screens.json as soon as it exists.",
+ "items": [
+  {
+   "id": "capabilities-nbc-gpt6-astra",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/nbc-gpt6-astra.png",
+   "w": 2560,
+   "h": 1060,
+   "kind": "headline",
+   "outlet": "NBC News",
+   "date": "2026-09-04",
+   "url": "https://www.nbcnews.com/tech/tech-news/openai-debuts-gpt-6-astra-security-measures-rcna595940",
+   "text": "OpenAl releases new model that it says triggered internal security measures OpenAI President Greg Brockman said the model could qualify as artificial general intelligence, or AI technology that performs just as well as humans on various tasks. >) Listen to this article with a free profile 00:00 05:4",
+   "ocr_text": "OpenAl releases new model that it says triggered internal security measures OpenAI President Greg Brockman said the model could qualify as artificial general intelligence, or AI technology that performs just as well as humans on various tasks. >) Listen to this article with a free profile 00:00 05:48 @ | wy, —_ a ee * A i |",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "triggered internal security measures",
+     "boxes": [
+      [
+       520,
+       353,
+       2065,
+       448
+      ]
+     ],
+     "ocr": "triggered internal security measures",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "capabilities-ns-bbc",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-bbc.png",
+   "w": 1660,
+   "h": 690,
+   "kind": "headline",
+   "outlet": "BBC News",
+   "date": "2026-09-08",
+   "url": "https://www.bbc.co.uk/news/articles/cy7zygy3rl2o",
+   "text": "BBC News header and headline (page photo cropped out): \"OpenAI says it cracked 90-year-old maths problem in 88 hours\"",
+   "ocr_text": "EJ EJ Home News Sport Earth Reel OpenAI says it cracked 90-year-old maths problem in 88 hours",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "cracked 90-year-old maths problem in 88 hours",
+     "boxes": [
+      [
+       687,
+       493,
+       1534,
+       581
+      ],
+      [
+       35,
+       589,
+       1178,
+       676
+      ]
+     ],
+     "ocr": "cracked 90-year-old maths problem in 88 hours",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "capabilities-ns-fortune",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-fortune.png",
+   "w": 1210,
+   "h": 770,
+   "kind": "headline",
+   "outlet": "Fortune",
+   "date": "2026-09-08",
+   "url": "https://fortune.com/2026/09/08/openai-says-it-cracked-navier-stokes-math-grand-challenge-buckmaster-accusation-cheating-intimidation-tao-lament/",
+   "text": "Fortune headline with fluid-vortex photo. Headline: \"OpenAI says it cracked one of math’s grand challenges. But there are troubling questions about how they did it—and what it means for us all\"",
+   "ocr_text": "OpenAlI says it cracked one of math’s grand challenges. But there are troubling questions about how they did it—and what it means for us all Be saw An <",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "troubling questions",
+     "boxes": [
+      [
+       378,
+       308,
+       1104,
+       384
+      ]
+     ],
+     "ocr": "troubling questions",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "capabilities-ns-guardian",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-guardian.png",
+   "w": 1460,
+   "h": 425,
+   "kind": "headline",
+   "outlet": "The Guardian",
+   "date": "2026-09-08",
+   "url": "https://www.theguardian.com/science/2026/sep/08/openai-claims-to-have-solved-maths-problem-that-stumped-humans-for-decades",
+   "text": "Guardian masthead, headline, standfirst, OpenAI logo photo. Headline: \"OpenAI claims to have solved maths problem that stumped humans for decades\"",
+   "ocr_text": "Mathematics OpenAI claims to have solved maths problem that stumped humans for decades Company behind ChatGPT says 10,000 of its AI systems cracked the Navier-Stokes problem in 88 hours",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "stumped humans for decades",
+     "boxes": [
+      [
+       743,
+       99,
+       1384,
+       166
+      ],
+      [
+       328,
+       177,
+       577,
+       232
+      ]
+     ],
+     "ocr": "stumped humans for decades",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "capabilities-ns-quanta",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-quanta.png",
+   "w": 1500,
+   "h": 480,
+   "kind": "headline",
+   "outlet": "Quanta Magazine",
+   "date": "2026-09-08",
+   "url": "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/",
+   "text": "Quanta headline + dek (clean, text only). Headline: \"AI Has Solved One of Math’s $1 Million Millennium Prize Problems\"",
+   "ocr_text": "ARTIFICIAL INTELLIGENCE AI Has Solved One of Math’s $1 Million Millennium Prize Problems @2a im Mathematicians at OpenAI showed that the Navier-Stokes equations, which describe how fluids flow, can sometimes “blow up.” But the massive result is not without controversy.",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "$1 Million Millennium Prize Problems",
+     "boxes": [
+      [
+       1031,
+       70,
+       1383,
+       141
+      ],
+      [
+       20,
+       167,
+       1019,
+       226
+      ]
+     ],
+     "ocr": "$1 Million Millennium Prize Problems",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "capabilities-ns-techcrunch",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-techcrunch.png",
+   "w": 1395,
+   "h": 640,
+   "kind": "headline",
+   "outlet": "TechCrunch",
+   "date": "2026-09-08",
+   "url": "https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/",
+   "text": "TechCrunch green headline panel with chalkboard equations. Headline: \"OpenAI fought dirty on career-making math problem, says NYU mathematician\"",
+   "ocr_text": "OpenAl fought dirty on career- making math problem, says NYU mathematician",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "fought dirty",
+     "boxes": [
+      [
+       501,
+       77,
+       920,
+       148
+      ]
+     ],
+     "ocr": "fought dirty",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "capabilities-ns-verge",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-verge.png",
+   "w": 1720,
+   "h": 250,
+   "kind": "headline",
+   "outlet": "The Verge",
+   "date": "2026-09-09",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/992953/openai-math-millennium-prize-navier-stokes",
+   "text": "Verge headline, Sam Altman photo, dek. Headline: \"OpenAI’s sly mathematical breakthrough sends a chill through academia\"",
+   "ocr_text": "OpenAl’s sly mathematical breakthrough sends a chill through academia",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "sends a chill through academia",
+     "boxes": [
+      [
+       12,
+       158,
+       1297,
+       240
+      ]
+     ],
+     "ocr": "sends a chill through academia",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "capabilities-ns-wired",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-wired.png",
+   "w": 1010,
+   "h": 440,
+   "kind": "headline",
+   "outlet": "WIRED",
+   "date": "2026-09-12",
+   "url": "https://www.wired.com/story/mathematician-steven-strogatz-grapples-with-ai-recent-breakthroughs/",
+   "text": "WIRED headline, dek and puzzle illustration. Headline: \"‘I’m Really Terrified’: A Mathematician Grapples With AI’s Recent Breakthroughs\"",
+   "ocr_text": "‘Tm Really Terrified’: A Mathematician Grapples With Al's Recent Breakthroughs",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "Really Terrified",
+     "boxes": [
+      [
+       148,
+       111,
+       673,
+       205
+      ]
+     ],
+     "ocr": "Really Terrified’:",
+     "score": 0.97
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "economy-guardian_block_4000_jobs_ai",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/economy/guardian_block_4000_jobs_ai.png",
+   "w": 1480,
+   "h": 1330,
+   "kind": "headline",
+   "outlet": "The Guardian",
+   "date": "2026-02-27",
+   "url": "https://www.theguardian.com/technology/2026/feb/27/block-ai-layoffs-jack-dorsey",
+   "text": "The,. * Guardian News Opinion Sport Culture Lifestyle e@ UK US politics World Climate crisis Middle East Ukraine Football Newsletters Business Environme Reworked Technology © This article is more than 7 months old Jack Dorsey to cut 4,000 jobs due to AI advances at Square parent Block Shares in comp",
+   "ocr_text": "The,. * Guardian News Opinion Sport Culture Lifestyle e@ UK US politics World Climate crisis Middle East Ukraine Football Newsletters Business Environme Reworked Technology © This article is more than 7 months old Jack Dorsey to cut 4,000 jobs due to AI advances at Square parent Block Shares in company increased over 20% as investors were encouraged by CEO's assertion that cuts will drive profits ",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "cut 4,000 jobs due to AI",
+     "boxes": [
+      [
+       497,
+       555,
+       1210,
+       622
+      ]
+     ],
+     "ocr": "cut 4,000 jobs due to AI",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "economy-guardian_meta_microsoft_layoffs_ai",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/economy/guardian_meta_microsoft_layoffs_ai.png",
+   "w": 1480,
+   "h": 1330,
+   "kind": "headline",
+   "outlet": "The Guardian",
+   "date": "2026-04-23",
+   "url": "https://www.theguardian.com/technology/2026/apr/23/meta-microsoft-tech-ai-layoffs",
+   "text": "The,. * Guardian News Opinion Sport Culture Lifestyle e@ UK US politics World Climate crisis Middle East Ukraine Football Newsletters Business Environme Reworked Technology © This article is more than 5 months old Microsoft and Meta announce large staff reductions as they spend big on AI Meta said i",
+   "ocr_text": "The,. * Guardian News Opinion Sport Culture Lifestyle e@ UK US politics World Climate crisis Middle East Ukraine Football Newsletters Business Environme Reworked Technology © This article is more than 5 months old Microsoft and Meta announce large staff reductions as they spend big on AI Meta said it would cut 10% of it employees while Microsoft will offer voluntary retirement to about 7% of worke",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "large staff reductions",
+     "boxes": [
+      [
+       975,
+       555,
+       1279,
+       622
+      ],
+      [
+       41,
+       633,
+       374,
+       688
+      ]
+     ],
+     "ocr": "large staff reductions",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "security-fortune-hf",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/fortune-hf.png",
+   "w": 2410,
+   "h": 798,
+   "kind": "headline",
+   "outlet": "Fortune",
+   "date": "2026-07-21",
+   "url": "https://fortune.com/2026/07/21/openai-says-ai-models-escaped-control-hacked-hugging-face/",
+   "text": "Fortune headline + photo of Sam Altman. Headline: \"OpenAI says its AI models secretly broke out of a secure test environment and hacked into AI company Hugging Face in order to cheat on an evaluation\"",
+   "ocr_text": "OpenAI says its AI models secretly broke out of a secure A Pp test environment and hacked >» into AI company Hugging Face \\ =e in order to cheat on an [a evaluation 4 by Jeremy Kahn and Emily Fortin we \\",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "secretly broke out of a secure test environment",
+     "boxes": [
+      [
+       39,
+       231,
+       1124,
+       308
+      ],
+      [
+       37,
+       328,
+       683,
+       387
+      ]
+     ],
+     "ocr": "secretly broke out of a secure A test environment",
+     "score": 0.949
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "security-guardian-medicare",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/guardian-medicare.png",
+   "w": 1560,
+   "h": 470,
+   "kind": "headline",
+   "outlet": "The Guardian",
+   "date": "2026-09-23",
+   "url": "https://www.theguardian.com/australia-news/2026/sep/24/anthony-albanese-says-openai-agent-hacked-medicare-extreme-concern-sam-altman",
+   "text": "Guardian headline with photos of Albanese and Altman. Headline: \"Australia launches investigation after OpenAI agent hacked healthcare database\"",
+   "ocr_text": "Medicare Australia launches investigation after OpenAI agent hacked healthcare database Prime minister says he told Sam Altman he was disappointed it had taken OpenAI ‘way too long’ to disclose breach",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "OpenAI agent hacked healthcare database",
+     "boxes": [
+      [
+       342,
+       101,
+       1344,
+       168
+      ],
+      [
+       342,
+       179,
+       615,
+       234
+      ]
+     ],
+     "ocr": "OpenAI agent hacked healthcare database",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "security-mythos-header",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/mythos-header.png",
+   "w": 1900,
+   "h": 480,
+   "kind": "headline",
+   "outlet": "Anthropic Frontier Red Team",
+   "date": "2026-04-07",
+   "url": "https://www.anthropic.com/research/mythos-preview",
+   "text": "Anthropic red-team post header (Project Glasswing). Headline: \"Assessing Claude Mythos Preview’s cybersecurity capabilities\"",
+   "ocr_text": "Assessing Claude Mythos Preview’s cybersecurity capabilities",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "cybersecurity capabilities",
+     "boxes": [
+      [
+       288,
+       260,
+       1612,
+       363
+      ]
+     ],
+     "ocr": "cybersecurity capabilities",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "work-swe-cbs-layoffs-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/swe-cbs-layoffs-head.png",
+   "w": 1320,
+   "h": 352,
+   "kind": "headline",
+   "outlet": "CBS News (MoneyWatch)",
+   "date": "2026-05-07",
+   "url": "https://www.cbsnews.com/news/ai-layoffs-job-cuts-challenger-report-april-2026/",
+   "text": "CBS News MoneyWatch headline with byline and date: \"AI emerges as a top cause of layoffs, accounting for 26% of April's job cuts\"",
+   "ocr_text": "MoneyWatch AI emerges as a top cause of layoffs, accounting for 26% of April's job cuts By Megan Cerullo May 7, 2026 / 4:30 PM EDT / CBS News",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "AI emerges as a top cause of layoffs",
+     "boxes": [
+      [
+       34,
+       77,
+       1105,
+       138
+      ]
+     ],
+     "ocr": "AI emerges as a top cause of layoffs,",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "work-swe-fortune-100pct-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/swe-fortune-100pct-head.png",
+   "w": 1130,
+   "h": 580,
+   "kind": "headline",
+   "outlet": "Fortune",
+   "date": "2026-01-29",
+   "url": "https://fortune.com/2026/01/29/100-percent-of-code-at-anthropic-and-openai-is-now-ai-written-boris-cherny-roon/",
+   "text": "Fortune headline with AI · Anthropic tag: \"Top engineers at Anthropic, OpenAI say AI now writes 100% of their code—with big implications for the future of software development jobs\"",
+   "ocr_text": "Top engineers at Anthropic, OpenAl say AI now writes 100% of their code—with big implications for the future of software development jobs",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "AI now writes 100% of their code",
+     "boxes": [
+      [
+       447,
+       217,
+       954,
+       276
+      ],
+      [
+       18,
+       312,
+       496,
+       372
+      ]
+     ],
+     "ocr": "AI now writes 100% of their",
+     "score": 0.941
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "xrisk-bbc-hubinger",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/bbc-hubinger.png",
+   "w": 1500,
+   "h": 740,
+   "kind": "headline",
+   "outlet": "BBC News",
+   "date": "2026-09-09",
+   "url": "https://www.bbc.com/news/articles/ckgwy1k42w4o",
+   "text": "BBC headline, date, byline and phone-with-Claude-logo photo. Headline: \"Anthropic researcher believes more than 10% chance AI 'could kill all humans'\"",
+   "ocr_text": "Anthropic researcher believes more than 10% chance AI ‘could kill all humans' Tom Gerken",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "10% chance AI 'could kill all humans'",
+     "boxes": [
+      [
+       220,
+       111,
+       1210,
+       169
+      ],
+      [
+       31,
+       199,
+       331,
+       257
+      ]
+     ],
+     "ocr": "10% chance AI ‘could kill all humans'",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "xrisk-guardian-iabied",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/guardian-iabied.png",
+   "w": 1280,
+   "h": 380,
+   "kind": "headline",
+   "outlet": "The Guardian",
+   "date": "2025-09-22",
+   "url": "https://www.theguardian.com/books/2025/sep/22/if-anyone-builds-it-everyone-dies-review-how-ai-could-kill-us-all",
+   "text": "Guardian review headline + standfirst + data-center hero photo. Headline: \"If Anyone Builds it, Everyone Dies review – how AI could kill us all\"",
+   "ocr_text": "[Review | If Anyone Builds it, Everyone Dies review - how AI could kill us all If machines become superintelligent we're toast, say Eliezer Yudkowsky and Nate Soares. Should we believe them?",
+   "year": 2025,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "how AI could kill us all",
+     "boxes": [
+      [
+       295,
+       164,
+       1018,
+       219
+      ]
+     ],
+     "ocr": "how AI could kill us all",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "xrisk-leike-shiny-products",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/leike-shiny-products.png",
+   "w": 1096,
+   "h": 290,
+   "kind": "headline",
+   "outlet": "X (@janleike)",
+   "date": "2024-05-17",
+   "url": "https://x.com/janleike/status/1791498184671605209",
+   "text": "Real X embed, 3:57 PM UTC May 17, 2024. Leike RESIGNED (not fired) as head of alignment / Superalignment co-lead. Headline: \"Jan Leike: \"But over the past years, safety culture and processes have taken a backseat to shiny products.\"\"",
+   "ocr_text": "s \\ Jan Leike @ Y @janleike - Follow But over the past years, safety culture and processes have taken a backseat to shiny products. 3:57 PM - May 17, 2024 @",
+   "year": 2024,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "taken a backseat to shiny products",
+     "boxes": [
+      [
+       130,
+       183,
+       753,
+       220
+      ]
+     ],
+     "ocr": "taken a backseat to shiny products.",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "xrisk-techcrunch-robinson",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/techcrunch-robinson.png",
+   "w": 1210,
+   "h": 280,
+   "kind": "headline",
+   "outlet": "TechCrunch",
+   "date": "2026-10-03",
+   "url": "https://techcrunch.com/2026/10/03/openai-safety-employee-resigns-claiming-the-companys-culture-is-broken/",
+   "text": "\"9:30 AM PDT - October 3, 2026\". Headline: \"OpenAI safety employee resigns, claiming the company’s ‘culture is broken’\"",
+   "ocr_text": "OpenAl safety employee resigns, claiming the company’s ‘culture is broken’",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "culture is broken",
+     "boxes": [
+      [
+       450,
+       194,
+       1087,
+       250
+      ]
+     ],
+     "ocr": "‘culture is broken’",
+     "score": 0.944
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "xrisk-transformer-aschenbrenner",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/transformer-aschenbrenner.png",
+   "w": 1480,
+   "h": 395,
+   "kind": "headline",
+   "outlet": "Transformer",
+   "date": "2024-06-04",
+   "url": "https://www.transformernews.ai/p/openai-employee-says-he-was-fired",
+   "text": "Summarizes Aschenbrenner's Dwarkesh Podcast interview. Headline: \"OpenAI employee says he was fired for raising security concerns to board\"",
+   "ocr_text": "OpenAl employee says he was fired for raising security concerns to board Leopold Aschenbrenner also said he was interrogated about his team’s “loyalty to the company” jinn a028",
+   "year": 2024,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "fired for raising security concerns",
+     "boxes": [
+      [
+       1136,
+       31,
+       1428,
+       81
+      ],
+      [
+       27,
+       103,
+       927,
+       166
+      ]
+     ],
+     "ocr": "fired for raising security concerns",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  },
+  {
+   "id": "xrisk-vox-freakout",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/vox-freakout.png",
+   "w": 1740,
+   "h": 368,
+   "kind": "headline",
+   "outlet": "Vox",
+   "date": "2026-09-14",
+   "url": "https://www.vox.com/politics/502717/ai-freakout-mainstream-openai-anthropic-humans",
+   "text": "Vox headline, dek and byline. Headline: \"The week the AI freakout went mainstream\"",
+   "ocr_text": "The week the Al freakout went mainstream Warnings about Al killing many people, or everyone, are going viral. Here are 3 things the government could do.",
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "AI freakout went mainstream",
+     "boxes": [
+      [
+       586,
+       59,
+       1264,
+       122
+      ],
+      [
+       24,
+       152,
+       507,
+       210
+      ]
+     ],
+     "ocr": "Al freakout went mainstream",
+     "score": 1.0
+    }
+   ],
+   "verified": false,
+   "verify_notes": "STAND-IN by builder C (auto OCR match, not checked); the research screens.json replaces this file"
+  }
+ ]
+}

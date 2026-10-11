@@ -1,0 +1,74 @@
+{
+  "lines": [
+    {
+      "speaker": "Jon Stewart",
+      "verbatim": "So, I heard you talking about jobs, and I think, like, there will be no jobs.",
+      "start_s": 522.04,
+      "end_s": 525.06,
+      "theme": "no jobs"
+    },
+    {
+      "speaker": "Jon Stewart",
+      "verbatim": "that's being beta tested amongst live humans.",
+      "start_s": 405.38,
+      "end_s": 408.98,
+      "theme": "gambling with our lives"
+    },
+    {
+      "speaker": "Jacob Coxon",
+      "verbatim": "Right now, an adversary, a motivated adversary, could steal the progress and destroy the lead.",
+      "start_s": 1416.34,
+      "end_s": 1421.6,
+      "theme": "racing to superintelligence"
+    },
+    {
+      "speaker": "Jacob Coxon",
+      "verbatim": "I think the domestic competitive pressures will still push under allocating towards safety research.",
+      "start_s": 1362.65,
+      "end_s": 1367.03,
+      "theme": "racing to superintelligence"
+    },
+    {
+      "speaker": "Jacob Coxon",
+      "verbatim": "In that case, clearly the safety team wasn't on the ball with that hack.",
+      "start_s": 355.44,
+      "end_s": 359.34,
+      "theme": "the Hugging Face hack"
+    },
+    {
+      "speaker": "Jacob Coxon",
+      "verbatim": "that's not happening. Like, restarted the thing, and it did it again.",
+      "start_s": 450.72,
+      "end_s": 454.36,
+      "theme": "the Hugging Face hack"
+    },
+    {
+      "speaker": "Jon Stewart, then Jacob Coxon",
+      "verbatim": "Do you have a bunker? No, sadly not.",
+      "start_s": 1460.77,
+      "end_s": 1464.65,
+      "theme": "extinction risk"
+    },
+    {
+      "speaker": "Jacob Coxon",
+      "verbatim": "I can say sincerely that the people I work with genuinely believe in the danger.",
+      "start_s": 1484.29,
+      "end_s": 1488.71,
+      "theme": "insider warnings"
+    },
+    {
+      "speaker": "Jon Stewart",
+      "verbatim": "as a cover for naked ambition.",
+      "start_s": 1100.08,
+      "end_s": 1104.58,
+      "theme": "Jon Stewart one-liner"
+    },
+    {
+      "speaker": "Jon Stewart",
+      "verbatim": "Are people not saying it because of the financial incentive?",
+      "start_s": 1523.82,
+      "end_s": 1527.26,
+      "theme": "insider warnings"
+    }
+  ]
+}

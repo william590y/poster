@@ -1,0 +1,38 @@
+{
+  "key": "ch-b-chorus-50.23-57.98",
+  "checks": [
+    {
+      "idx": 0,
+      "ok": true
+    },
+    {
+      "idx": 1,
+      "ok": false,
+      "problem": "Headline text matches verbatim (Vox page and deck image). The attribution date is wrong: the Vox page gives a published date of Sep 12, 2026 and shows 'Updated Sep 14, 2026'. The research JSON's 'Sep 14' is the update date, not the publication date.",
+      "correct_text": "VOX · SEP 12, 2026"
+    },
+    {
+      "idx": 2,
+      "ok": true
+    },
+    {
+      "idx": 3,
+      "ok": true
+    },
+    {
+      "idx": 4,
+      "ok": false,
+      "problem": "Text matches verbatim (the deck crop and the live aistatement.com page), and the signatories match. The date May 30, 2023 is not shown on the page as fetched today; it rests only on the deck manifest date in the research JSON. Confirm before use."
+    },
+    {
+      "idx": 5,
+      "ok": true
+    },
+    {
+      "idx": 6,
+      "ok": false,
+      "problem": "'believe AI does more harm than good' and the 39% (up from 31% in 2025) match the live Gallup page verbatim. The sample size 3,270 is not on the fetched page; it comes only from an earlier fetch recorded in the research JSON. Drop it or confirm it from the methodology.",
+      "correct_text": "GALLUP · 2026"
+    }
+  ]
+}

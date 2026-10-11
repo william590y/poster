@@ -1,0 +1,85 @@
+{
+ "id": "fortune-2026-08-06-cs-enrollment",
+ "url": "https://fortune.com/2026/08/06/computer-science-enrollment-plunging-ai-college-campus/",
+ "expected": "Computer science enrollment is plunging",
+ "notes": [
+  "hid 3 overlay element(s)",
+  "hid 6 more",
+  "crop starts at css y=290 (the area above it, masthead, hero image, empty ad slot or video player, is not included)"
+ ],
+ "status": 200,
+ "final_url": "https://fortune.com/2026/08/06/computer-science-enrollment-plunging-ai-college-campus/",
+ "title0": "Computer science enrollment is plunging as AI reshapes how college students learn and work | Fortune",
+ "hidden_detail": [
+  [
+   "DIV",
+   "",
+   "sticky w-full shrink-0 h-1 bg-secondary z-body-overlay top-[",
+   "sticky",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "paywall-selector",
+   "sticky",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "OL",
+   "",
+   "fixed bottom-4 left-1/2 -translate-x-1/2 z-modal-content w-f",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "Computer science enrollment is plunging as AI reshapes how college students learn and work | Fortune",
+ "og_title": "Computer science enrollment is plunging, but AI is taking over the rest of the college campus as it reshapes how students learn and work | Fortune",
+ "twitter_title": "Computer science enrollment is plunging, but AI is taking over the rest of the college campus as it reshapes how students learn and work | Fortune",
+ "og_site": "Fortune",
+ "published": null,
+ "author_meta": "Marco Quiroz-Gutierrez",
+ "canonical": "https://fortune.com/2026/08/06/computer-science-enrollment-plunging-ai-college-campus/",
+ "h1_count": 2,
+ "h1": "Computer science enrollment is plunging, but AI is taking over the rest of the college campus as it reshapes how students learn and work",
+ "h1_box": [
+  32,
+  539,
+  588,
+  755.015625
+ ],
+ "h1_font": "36px",
+ "below_bottom": 1030.671875,
+ "below_text": [
+  "By",
+  "Marco Quiroz-Gutierrez",
+  "Follow",
+  "Reporter",
+  "August 6, 2026, 9:40 AM ET",
+  "Assistant Professor of Psychology Veronica Romero lectures during the Davis Inst",
+  "Gabe Souza",
+  "Add Fortune on Google for similar content."
+ ],
+ "hero_top": 3419.140625,
+ "header_bottom": 357,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  290,
+  1200,
+  655
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/fortune-2026-08-06-cs-enrollment.png",
+ "trimmed": 0
+}

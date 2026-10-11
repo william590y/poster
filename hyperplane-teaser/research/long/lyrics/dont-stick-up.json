@@ -1,0 +1,46 @@
+{
+  "key": "dont-stick-up",
+  "lyric_idea": "Chorus: \"And I don't stick up for myself / I'm anxious and nothing can help\". Line 1 maps to weak AI regulation and self-regulation; line 2 maps to public anxiety about AI. Dropped: the Jon Stewart self-regulation segment (coverage paraphrases only, no verbatim on-screen quote; date conflicts: 'Monday's episode' per AV Club vs 6 Oct 2026 per Mary Sue and IBTimes). Fallback for line 2 if the Politico stat cannot be shown with its source: Vox, 'The week the AI freakout went mainstream' (14 Sep 2026, Andrew Prokop), deck-verified (theory/vox-ai-freakout.png, quality 5); live Vox fetch failed today.",
+  "candidates": [
+    {
+      "type": "headline",
+      "text": "After AI lunch, Trump backs self-regulation and plans to rename AI",
+      "speaker_or_outlet": "The Next Web (Ana-Maria Stanciuc)",
+      "date": "2026-09-29",
+      "url": "https://thenextweb.com/news/trump-white-house-ai-ceos-lunch-2",
+      "local_path": "",
+      "verified_how": "Opened the URL live this session. Headline, author and date read verbatim from the page. Trump quotes as returned by the page fetch: \"There's a belief that there should be tremendous self-regulation\" and \"But the self-regulation is very important,\" Trump said (the article cites NBC News). The fetch passed the page through a summarizer, so re-check both quotes on the page before putting them on screen. No local image exists.",
+      "why_it_fits": "Line 1, 'I don't stick up for myself': the headline is literally about the White House backing self-regulation over rules. Reads in about 2 s as a single headline."
+    },
+    {
+      "type": "headline",
+      "text": "Trump dismisses AI alarms as a ‘HOAX’ — worrying White House officials",
+      "speaker_or_outlet": "CNN (Kevin Liptak)",
+      "date": "2026-09-14",
+      "url": "https://www.cnn.com/2026/09/14/politics/trump-vance-ai-alarms",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/geopolitics/cnn-trump-ai-hoax.png",
+      "verified_how": "Deck source: screenshot file present (cnn-trump-ai-hoax.png); manifest entry cnn-trump-ai-hoax, quality 5, verified true, with the CNN deck slide's notes quoting the dek and the 'The whole thing is a hoax' call quote. Live fetch of the CNN URL returned HTTP 451 today, so the headline was not re-opened live. Parallel text-only confirmations in the deck notes: CBS, 'Trump dismisses push for AI regulation despite warnings from tech leaders' (Kathryn Watson); NBC, 'Trump says AI doesn't need guardrails, calls growing concerns ‘a hoax’' (Megan Brand).",
+      "why_it_fits": "Line 1, weak AI regulation: a president rejecting calls from AI industry leaders for regulation. Best as a headline card with the CNN crop (Trump in a USA cap); the 'HOAX' word is already in the headline, so no extra text is needed."
+    },
+    {
+      "type": "stat",
+      "text": "63% say AI destroying humanity is at least a moderate risk (17% almost certain, 20% significant, 26% moderate). Put 'reportedly' on screen or in the voice-over.",
+      "speaker_or_outlet": "Politico, poll conducted by Public First (published 16 Sep 2026); secondary write-ups only",
+      "date": "2026-09-16",
+      "url": "https://www.remio.ai/post/politico-ai-extinction-poll-finds-bipartisan-fear-as-washington-resists-new-guar",
+      "local_path": "",
+      "verified_how": "The Politico article itself was not reached (Cloudflare block in the deck's earlier capture; not reachable today). The figure is confirmed by several secondary write-ups: Remio (breakdown and fieldwork: 2,064 US adults online, 13–15 Sep 2026, margin of error about 2.2 points), Digg (63% headline). The deck's own xrisk slide says to use 'reportedly' only. Pause split (48% support slowing, 31% continue, 22% unsure) is from a single Digg post and should not be shown. No local image exists.",
+      "why_it_fits": "Line 2, 'I'm anxious and nothing can help': a large public-fear number that reads as anxiety. Medium confidence because of the secondary sourcing; fall back to the Vox headline if the stat cannot be sourced to Politico."
+    },
+    {
+      "type": "headline",
+      "text": "Trump is trying to preempt state AI laws via an executive order. It may not be legal",
+      "speaker_or_outlet": "NPR (Huo Jingnan)",
+      "date": "2025-12-11",
+      "url": "https://www.npr.org/2025/12/11/nx-s1-5638562/trump-ai-david-sacks-executive-order",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/geopolitics/npr-ai-preemption-eo.png",
+      "verified_how": "Deck source: screenshot file present (npr-ai-preemption-eo.png); manifest entry npr-ai-preemption-eo, quality 5, verified true. Live fetch returned HTTP 503 today, so the headline was not re-opened live. Background checked live: The Markup headline 'State AI regulations safe after Senate strips moratorium from ‘big, beautiful bill’' (Ryan Tate, 1 Jul 2025) confirms the Senate voted 99-1 on 1 Jul 2025 to strip the 10-year moratorium on state AI laws.",
+      "why_it_fits": "Line 1, weak AI regulation: the 10-year moratorium idea came back as an executive order on state laws. Pair with the 99-1 Senate vote (1 Jul 2025, from The Markup) as the earlier defeat of the same moratorium; the 99-1 number can be an on-screen stat if a card is wanted."
+    }
+  ]
+}

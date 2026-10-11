@@ -1,0 +1,81 @@
+{
+ "id": "fli-2023-03-22-pause-letter",
+ "url": "https://futureoflife.org/open-letter/pause-giant-ai-experiments/",
+ "expected": "Pause Giant AI Experiments: An Open Letter",
+ "notes": [
+  "hid 3 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://futureoflife.org/open-letter/pause-giant-ai-experiments/",
+ "title0": "Pause Giant AI Experiments: An Open Letter - Future of Life Institute",
+ "hidden_detail": [
+  [
+   "DIV",
+   "",
+   "uwy userway_p5 utb",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "userway_buttons_wrapper",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "-back-to-top-154-30729",
+   "oxy-back-to-top ",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "Pause Giant AI Experiments: An Open Letter - Future of Life Institute",
+ "og_title": "Pause Giant AI Experiments: An Open Letter - Future of Life Institute",
+ "twitter_title": null,
+ "og_site": "Future of Life Institute",
+ "published": null,
+ "author_meta": null,
+ "canonical": "https://futureoflife.org/open-letter/pause-giant-ai-experiments/",
+ "h1_count": 2,
+ "h1": "Pause Giant AI Experiments: An Open Letter",
+ "h1_box": [
+  192,
+  241.25,
+  1008,
+  341.28125
+ ],
+ "h1_font": "40.329px",
+ "below_bottom": 634.46875,
+ "below_text": [
+  "We call on all AI labs to immediately pause for at least 6 months the training o",
+  "Signatures",
+  "Add your signature",
+  "33705",
+  "Published",
+  "22 March, 2023"
+ ],
+ "hero_top": null,
+ "header_bottom": 78,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  652.46875
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/fli-2023-03-22-pause-letter.png",
+ "trimmed": 0
+}

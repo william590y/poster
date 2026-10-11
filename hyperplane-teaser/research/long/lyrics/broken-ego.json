@@ -1,0 +1,52 @@
+{
+  "key": "broken-ego",
+  "lyric_idea": "Bridge/outro (fast, repetitive build, 'just a little bit'): the fastest-escalating trend lines. Candidates show release cadence speeding up, the METR task-length curve running into its own measuring ceiling, and compute growing about 5x per year.",
+  "candidates": [
+    {
+      "type": "image",
+      "text": "New models from Anthropic and OpenAI are arriving faster. Chart callouts: '70 days' (early 2024) to '11 days' ('median gap now').",
+      "speaker_or_outlet": "Joshua Fonseca Rivera (@jfonsecarivera) on X; chart title as posted",
+      "date": "2026-09-29",
+      "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev3/jfonsecarivera-model-release-cadence-chart.jpg",
+      "verified_how": "Deck source: capabilities manifest item 'jfonsecarivera-model-release-cadence-chart' (verified: true, quality 4) and 'chart-original' (quality 5); slide_capabilities.js cadenceSlide() shows the same chart. Opened the local JPG and read the title and callouts. Post text and engagement come from the deck's rev3/post.json notes (api.fxtwitter.com, Oct 5, 2026). Deck's own re-count: 10.5-day median over Apr 5 to Oct 5, 2026 (14 gaps, from vendor launch pages); flagship-only 14.5 days. The on-screen text is the chart's own title and callouts, not the lyric.",
+      "why_it_fits": "The single most direct 'arriving faster' image in the research set. The 70 to 11 drop is visually a steep fall that can be animated during the fast build, and the title alone reads in about 2 s. Caveat for the edit: it is one researcher's chart (his bio says Anthropic safety fellow), method not stated, not an official statistic. Say so on screen or in the voiceover."
+    },
+    {
+      "type": "image",
+      "text": "Length of software tasks that different LLMs can complete 50% of the time. Band label: 'Measurements above 16 hrs are unreliable with our current task suite'.",
+      "speaker_or_outlet": "METR (metr.org/time-horizons)",
+      "date": "2026-05-08",
+      "url": "https://metr.org/time-horizons/",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/metr-time-horizon-chart.png",
+      "verified_how": "Deck source: capabilities manifest 'metr-time-horizon-chart' (verified: true, quality 5), plus 'metr-th-page-chart-with-date' and 'metr-th-page-chart-band' (rev2/metr-th-page-chart-unreliable-band.png). Opened the local PNG and read the title and the hatched band text. Deck notes say metr.org/time-horizons still reads 'LAST UPDATED May 8, 2026' (checked Oct 4, 2026). The 'doubles every ~4 months' line is the deck's own fit (METR's post-2023 fit is 128.7 days), not on-screen text.",
+      "why_it_fits": "The hatched 'unreliable above 16 hrs' band is the ego joke in one frame: the most-watched graph in AI runs out of ruler at the top. Pairs with the broken-ego idea. The curve climbs steeply through the build. Use METR's exact title, not the deck's 'doubles every ~4 months' wording."
+    },
+    {
+      "type": "headline",
+      "text": "‘Model fatigue’ sets in as AI labs race to roll out new versions at frenetic pace",
+      "speaker_or_outlet": "CNBC (Jonathan Vanian)",
+      "date": "2026-09-06",
+      "url": "https://www.cnbc.com/2026/09/06/meta-google-openai-anthropic-ai-model-fatigue.html",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev3/cnbc-model-fatigue-headline.png",
+      "verified_how": "Deck source: capabilities manifest 'cnbc-model-fatigue' (verified: true, quality 5), headline.json notes. Opened the local PNG (clean crop, headline and byline; Wayback capture 2026-09-13 because live cnbc.com returns Access Denied to headless browsers; Wayback archive: https://web.archive.org/web/20260913150404/https://www.cnbc.com/2026/09/06/meta-google-openai-anthropic-ai-model-fatigue.html). Headline quoted exactly with curly quotes from the on-page h1. Body quote from the deck notes, not re-read: Sam Altman told CNBC 'we're all moving to faster cadences'.",
+      "why_it_fits": "Reads in about 2 s on a phone and says 'frenetic pace' and 'model fatigue' with no need for a chart. Good for the release-cadence beat. Quote the headline only, never the lyric."
+    },
+    {
+      "type": "stat",
+      "text": "Training compute for frontier language models has been growing at 5× per year since 2020.",
+      "speaker_or_outlet": "Epoch AI, 'Trends in AI' dashboard",
+      "date": "2026-02-05",
+      "url": "https://epoch.ai/trends",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/splash/epoch-trends-page.png",
+      "verified_how": "Deck source: splash manifest 'epoch-trends-page-screenshot' (verified: true) and 'epoch-trends-quote-5x-since-2020' (verified: true, verbatim, Trends page updated Feb. 5, 2026); splash/scaling-epoch-trend.json. Opened the local screenshot: 'Training compute' card reads '5×/year', 90% CI 4× to 6×, 'Updated Feb. 5, 2026'. Deck notes also cite 'doubling every 5.2 months since 2020' on the same page (not visible in the screenshot, so not verified by me). Use the '×' sign as the page prints it.",
+      "why_it_fits": "The compute growth beat: a stat that reads as a steady exponential. Pairs with the METR doubling line in the build. Caveat: it covers frontier language-model training compute and is a 4-6x range, not a single fixed rate."
+    }
+  ],
+  "notes": [
+    "No video clips were needed or downloaded. No clip candidates for this moment.",
+    "Counterpoint to keep in the edit: Fast Company (Mark Sullivan, Sep 23, 2026, 'Why AI model releases feel nonstop') says much of the acceleration is repackaging for new price points, and that the time between genuinely new flagship models barely changed in 2026. Deck record: rev3/headline.json, item 'fastcompany-why-model-releases-feel-nonstop'. Not used on screen; file has no local screenshot (DataDome captcha).",
+    "Nikkei Asia headline 'US-China AI race speeds up as self-improving models advance' (Sep 22, 2026, local PNG at assets/research/capabilities/rev3/nikkei-us-china-ai-race-speeds-up-headline.png, verified live screenshot) is a fallback if a non-US-lab headline is wanted. Its 125-to-44-day survey numbers come from secondary write-ups, so do not show them on screen.",
+    "Lyric-to-visual mapping for the edit is not decided here. Headline items should be on screen as exact text; the chart items are images from the deck's own assets."
+  ]
+}

@@ -1,0 +1,209 @@
+{
+ "name": "test-equations",
+ "title": "Builder B: the equation modes on the riff (slam, drop, terms, chalk, paint), hb:0-10",
+ "_note": "Builder B's test EDL for fx/equations.js: one equation per 2 beats from research/rev2/equations.json (verified TeX): attention slams on the drop, gradient descent drops glyph by glyph, the GRPO KL estimator assembles term by term on 8ths, the Chinchilla loss is chalked on the dark ground, the next-token cross-entropy is painted in with builder A's bristle brush (hb:8). Render: python3 render/video/render.py beats test-equations --from 0 --to 4.85 --eighths",
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "duration": 4.85,
+ "audio": {
+  "song": "song/brutal.mp3",
+  "songStart": 19.232
+ },
+ "look": {
+  "ground": "#F2EBDD"
+ },
+ "themes": [
+  {
+   "t0": 0,
+   "t1": "hb:6",
+   "theme": "light"
+  },
+  {
+   "t0": "hb:6",
+   "t1": "hb:8",
+   "theme": "dark"
+  },
+  {
+   "t0": "hb:8",
+   "t1": 100,
+   "theme": "light"
+  }
+ ],
+ "items": [
+  {
+   "id": "ground",
+   "type": "color",
+   "t0": 0,
+   "t1": "hb:6",
+   "color": "#F2EBDD"
+  },
+  {
+   "id": "ground-dark",
+   "type": "color",
+   "t0": "hb:6",
+   "t1": "hb:8",
+   "color": "#0E0D12"
+  },
+  {
+   "id": "eq-attn",
+   "type": "equation",
+   "ref": "attention",
+   "t0": 0,
+   "t1": "hb:2",
+   "drop": "hb:0",
+   "mode": "slam",
+   "cx": 540,
+   "cy": 900,
+   "px": 60,
+   "maxW": 880,
+   "label": {
+    "text": "attention, slammed on the drop",
+    "at": "hb:0.5"
+   },
+   "cite": {
+    "at": "hb:1"
+   },
+   "pulse": "hb:1..1",
+   "splat": {
+    "color": "#FF2E88",
+    "r": 80,
+    "x": 880,
+    "y": 1250,
+    "dir": 1.0
+   }
+  },
+  {
+   "id": "eq-gd",
+   "type": "equation",
+   "ref": "gd",
+   "t0": "hb:2",
+   "t1": "hb:4",
+   "drop": "hb:2",
+   "mode": "drop",
+   "cx": 540,
+   "cy": 900,
+   "px": 72,
+   "label": {
+    "text": "gradient descent, dropped glyph by glyph",
+    "at": "hb:2"
+   },
+   "cite": {
+    "at": "hb:3"
+   },
+   "hl": [
+    {
+     "from": "highlight",
+     "at": "hb:3.5",
+     "style": "underline",
+     "color": "#2346FF"
+    }
+   ]
+  },
+  {
+   "id": "eq-kl",
+   "type": "equation",
+   "ref": "grpo-kl",
+   "t0": "hb:4",
+   "t1": "hb:6",
+   "drop": "hb:4",
+   "mode": "terms",
+   "cx": 540,
+   "cy": 900,
+   "px": 48,
+   "maxW": 940,
+   "terms": [
+    {
+     "from": "highlight",
+     "at": "hb:4.5"
+    },
+    {
+     "from": "extra:0",
+     "at": "hb:5"
+    }
+   ],
+   "label": {
+    "text": "the KL estimator, term by term",
+    "at": "hb:4"
+   },
+   "cite": {
+    "at": "hb:5"
+   }
+  },
+  {
+   "id": "eq-ch",
+   "type": "equation",
+   "ref": "chinchilla",
+   "t0": "hb:6",
+   "t1": "hb:8",
+   "drop": "hb:6",
+   "mode": "chalk",
+   "dur": 0.7,
+   "cx": 540,
+   "cy": 900,
+   "px": 64,
+   "maxW": 900,
+   "label": {
+    "text": "Chinchilla's loss, in chalk",
+    "at": "hb:6"
+   },
+   "cite": {
+    "at": "hb:7"
+   },
+   "hl": [
+    {
+     "from": "highlight",
+     "at": "hb:7.5",
+     "style": "circle",
+     "color": "#F2C300"
+    }
+   ]
+  },
+  {
+   "id": "ground3",
+   "type": "color",
+   "t0": "hb:8",
+   "t1": 4.85,
+   "color": "#F2EBDD"
+  },
+  {
+   "id": "eq-ntp",
+   "type": "equation",
+   "ref": "ntp-ce",
+   "t0": "hb:8",
+   "t1": 4.85,
+   "drop": "hb:8",
+   "mode": "paint",
+   "paint": {
+    "color": "yellow"
+   },
+   "cx": 540,
+   "cy": 900,
+   "px": 60,
+   "maxW": 880,
+   "label": {
+    "text": "next-token prediction, painted in",
+    "at": "hb:8"
+   },
+   "cite": {
+    "at": "hb:9"
+   },
+   "pulse": "hb:9..9"
+  },
+  {
+   "id": "paper",
+   "type": "paper",
+   "t0": 0,
+   "t1": 4.85
+  }
+ ],
+ "fx": [
+  {
+   "id": "punch",
+   "fx": "punch",
+   "on": "hb:0..9",
+   "amount": 0.01,
+   "bar": 0.03
+  }
+ ]
+}

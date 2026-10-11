@@ -1,0 +1,50 @@
+{
+ "name": "test-brutal",
+ "title": "Builder A: song 69.5-80.4: the refrain's last bar, 'it's brutal out here' painted in sync with the sung words, the reassembly and the cover hold",
+ "_note": "Edit time = song - 69.5. hb:108 = song 71.49 (the God bar; 'God,' sung 71.456), words from song/hits.json words.brutal_out_here (It's 72.012, brutal 72.339, out 72.798, here 73.099-73.441), hb:112 = song 73.426 (the instrumental, crash). The implode on hb:108 is a STAND-IN for builder D's black hole (fx/singularity.js); the pieces then burst out of the same point on hb:112. Render: python3 render/video/render.py beats test-brutal --from 0 --to 10.9; check/beatcheck.py test-brutal --render; check/coverdiff.py test-brutal.",
+ "fps": 30, "width": 1080, "height": 1920, "duration": 10.9,
+ "audio": {"song": "song/brutal.mp3", "songStart": 69.5},
+ "look": {"ground": "#F2EBDD"},
+ "themes": [{"t0": 0, "t1": "hb:108", "theme": "light"}, {"t0": "hb:108", "t1": "hb:112", "theme": "dark"}, {"t0": "hb:112", "t1": 99, "theme": "light"}],
+ "finalHold": ["hb:124", 10.9],
+ "items": [
+  {"id": "ground", "type": "color", "t0": 0, "t1": 10.9, "color": "#F2EBDD"},
+  {"id": "ink-wipe", "type": "brushwipe", "t0": "hb:108", "t1": "hb:112.5", "at": "hb:108", "dur": 0.2, "keep": true, "colors": ["night", "ink", "night", "ink"], "n": 4, "angle": -8, "layer": "own",
+   "_note": "the ground is painted dark in four ink bands as everything is sucked into the centre"},
+  {"id": "brutal", "type": "brushtext", "t0": "song:71.95", "t1": "hb:112.6", "text": "it's brutal out here", "words": "hits",
+   "_note": "painted word by word on the sung words (song/hits.json words.brutal_out_here), Hershey script centrelines in their pen order; a splat bursts on 'brutal'"},
+  {"id": "cream-wipe", "type": "brushwipe", "t0": "hb:112", "t1": 10.9, "at": "hb:112", "dur": 0.22, "keep": true, "colors": ["cream", "#EFE6D6", "cream", "#F5EEE2"], "n": 4, "angle": 8, "dir": -1, "layer": "own",
+   "_note": "the instrumental's crash paints the cream back (after 'here' ends at 73.441)"},
+  {"id": "paint", "type": "layer", "kind": "canvas"},
+  {"id": "kand-a", "type": "kand", "t0": 0, "t1": "hb:108.95", "layout": {"y": 400, "scale": 0.72}, "preset": "hold",
+   "moves": [
+    {"move": "orbit", "pieces": ["pink", "black"], "on": "hb:104..107", "stepDeg": 90},
+    {"move": "orbit", "pieces": ["core"], "around": "black", "on": "hb:104..107", "stepDeg": 90, "k": -1},
+    {"move": "orbit", "pieces": ["teal"], "around": "blue", "on": {"from": 104.5, "to": 107.5}, "stepDeg": 90},
+    {"move": "jump", "pieces": ["d0", "d1", "d2", "d3", "d4", "d5"], "on": ["hb:104.5", "hb:105.5", "hb:106.5"], "h": 80, "stagger": 0.03},
+    {"move": "spin", "pieces": ["square", "chk"], "on": ["hb:105", "hb:107"], "deg": 90},
+    {"move": "jump", "pieces": ["smallO", "target", "nabla"], "on": ["hb:105", "hb:106"], "h": 110, "stagger": 0.05},
+    {"move": "river", "from": 0, "to": "hb:108"},
+    {"move": "swing", "pieces": ["band"], "from": 0, "to": "hb:108", "amp": 3, "period": 8},
+    {"move": "artpulse", "on": "hb:104..107", "amp": 0.014},
+    {"move": "reframe", "shots": [{"at": "hb:106", "zoom": 1.45, "focus": "black", "to": [480, 760]}, {"at": "hb:107", "zoom": 1}]},
+    {"move": "whip", "at": "hb:107", "deg": -360, "dur": 1},
+    {"move": "break", "at": "hb:108", "mode": "implode", "dur": 0.45, "stagger": 0.008, "swirl": 420, "_note": "STAND-IN for builder D's black hole"}
+   ]},
+  {"id": "kand-b", "type": "kand", "t0": "hb:111.6", "t1": 10.9, "layout": {"y": 400, "scale": 0.72},
+   "preset": {"name": "assemble", "from": "hb:112", "point": "center", "hold": 12},
+   "moves": [
+    {"move": "jump", "pieces": ["d0", "d1", "d2", "d3", "d4", "d5"], "on": ["hb:117", "hb:119", "hb:121"], "h": 60, "stagger": 0.03},
+    {"move": "orbit", "pieces": ["teal"], "around": "blue", "on": "hb:114..121", "stepDeg": 45},
+    {"move": "spin", "pieces": ["square"], "on": ["hb:116", "hb:120"], "deg": 90},
+    {"move": "spin", "pieces": ["chk"], "on": ["hb:118", "hb:122"], "deg": 90},
+    {"move": "river", "from": "hb:116", "to": "hb:123"}
+   ]},
+  {"id": "grain", "type": "paper", "t0": 0, "t1": 10.9, "mode": "auto"}
+ ],
+ "beatfx": [
+  {"id": "refrain-fx", "from": "hb:104", "to": "hb:107.5", "pattern": "refrain", "eighths": true},
+  {"id": "god-fx", "from": "hb:108", "to": "hb:111.5", "pattern": "god", "eighths": false},
+  {"id": "outro-fx", "from": "hb:112", "to": "hb:123.5", "pattern": "outro", "eighths": true}
+ ]
+}

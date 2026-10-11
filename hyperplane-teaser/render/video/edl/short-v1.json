@@ -1,0 +1,140 @@
+{
+  "name": "short",
+  "title": "Hyperplane x brutal: short teaser (9:16)",
+  "fps": 30,
+  "width": 1080,
+  "height": 1920,
+  "duration": 20.65,
+  "audio": {
+    "song": "song/brutal.mp3",
+    "songStart": 6.10,
+    "note": "edit time = song time - 6.10 (no cold open, no looped bars: the no-song version is posted with the app's copy of the song, so the picture must stay on the song's own timeline). Picture: frames 0..619 (last frame 20.633 s); audio must end by edit 20.65 (song 26.75); last riff hit edit 20.411 (song 26.511). Each clip's speech is audio.in..audio.out in SOURCE seconds and plays at edit t0 + (audio.in - in) / speed (it may start before the picture: a J-cut). No clip speech after edit ~11.4 (Olivia's spoken line starts at 11.56)."
+  },
+  "look": { "ground": "#0E0D12", "red": "#B31B1B", "dim": "#9A96A8" },
+  "layout": { "clipBox": { "x": 0, "y": 330, "w": 1080, "h": 940 } },
+  "grids": {
+    "riff": [13.132, 13.643, 14.125, 14.612, 15.077, 15.570, 16.058, 16.539, 17.021, 17.520, 17.997, 18.480, 18.954, 19.442, 19.930, 20.411],
+    "pre": { "origin": 13.132, "period": -0.4839, "count": 28 }
+  },
+  "_grids_note": "riff = song grid 19.232 + k*0.4839 snapped to the measured onsets in BUILD.md, minus 6.10 (k = 0..15; beat 9 snapped with a 33 ms tolerance to the onset at song 23.62, which librosa also finds). pre:k = k beats BEFORE the drop on the same grid extrapolated back (pre:0 = drop 13.132, pre:3 = 11.680, pre:6 = 10.229, pre:17 = 4.906). The intro has no clear onsets, so montage cuts use this grid where the speech allows. Check by ear.",
+  "items": [
+    { "id": "grain", "type": "grain", "t0": 0, "t1": "riff:0", "opacity": 0.035, "size": 2, "hold": 3 },
+    { "id": "vignette", "type": "vignette", "t0": 0, "t1": "pre:3" },
+
+    { "id": "feynman-stamp", "type": "stamp", "t0": 0, "t1": 3.16, "stamp": { "year": "1985", "name": "Richard Feynman", "role": "Physicist" }, "verified": true },
+    {
+      "id": "feynman-a", "type": "clip", "t0": 0, "t1": 0.92,
+      "src": "clips/feynman-1985.mp4", "in": 1068.85,
+      "crop": { "x": 178, "y": 16, "w": 515, "h": 448 },
+      "grade": { "sat": 0, "contrast": 1.28, "brightness": -0.06, "gamma": 0.9, "sharpen": 0.7, "grain": 4 },
+      "zoom": [1.0, 1.02], "focus": [0.5, 0.3],
+      "audio": { "in": 1068.88, "out": 1069.70 },
+      "verified": true,
+      "_note": "\"So I think that.\" (small.en on exactly this window). The 0.56 s silence after \"that\" (1069.86-1070.42, below -55 dB) is cut; feynman-b punches in to mark the cut."
+    },
+    {
+      "id": "feynman-b", "type": "clip", "t0": 0.92, "t1": 3.16,
+      "src": "clips/feynman-1985.mp4", "in": 1070.40,
+      "crop": { "x": 244, "y": 20, "w": 412, "h": 358 },
+      "grade": { "sat": 0, "contrast": 1.28, "brightness": -0.06, "gamma": 0.9, "sharpen": 0.7, "grain": 4 },
+      "zoom": [1.0, 1.03], "focus": [0.5, 0.3],
+      "audio": { "in": 1070.40, "out": 1072.64 },
+      "verified": true,
+      "_note": "\"We are getting close to intelligent machines.\" (small.en on exactly this window); \"but\" follows at 1073.18."
+    },
+    {
+      "id": "feynman-cap", "type": "caption", "t0": 0, "t1": 3.16,
+      "text": "So I think that we are getting close to intelligent machines…",
+      "hl": "intelligent machines",
+      "words": [
+        { "w": "SO", "at": 0.05 }, { "w": "I", "at": 0.17 }, { "w": "THINK", "at": 0.30 }, { "w": "THAT", "at": 0.55 },
+        { "w": "WE", "at": 0.96 }, { "w": "ARE", "at": 1.14 }, { "w": "GETTING", "at": 1.26 }, { "w": "CLOSE", "at": 1.42 },
+        { "w": "TO", "at": 1.76 }, { "w": "INTELLIGENT", "at": 2.00 }, { "w": "MACHINES…", "at": 2.48 }
+      ],
+      "verified": true,
+      "_note": "Verbatim for the two audio windows; the ellipsis marks the sentence continuing (\"..., but they're showing the necessary weaknesses of intelligence\"). Date and venue beyond 1985 are unverified (research/verify/SUMMARY.md), so only the year is shown."
+    },
+
+    {
+      "id": "altman", "type": "quote", "t0": 3.16, "t1": "pre:17", "enter": "flicker",
+      "stamp": { "year": "2015", "name": "Sam Altman", "role": "Then president, Y Combinator" },
+      "parts": [
+        { "text": "“…AI will probably, like, most likely sort of lead to the end of the world,", "at": 3.16, "per": 0.03 },
+        { "text": "but in the meantime, there will be great companies…”", "at": "pre:19", "per": 0.035 }
+      ],
+      "hl": ["the end of the world", "great companies"],
+      "size": 64,
+      "source": "Airbnb OpenAir fireside chat · Jun 2015",
+      "verified": true,
+      "_note": "Integration v1: the recording turned up (research/verify/SUMMARY.md): Airbnb OpenAir 2015 fireside chat with Mike Curtis (re-upload d6lDZpvHAoo, clips/altman-airbnb-2015.mp3 527.8-537.3; 18 s excerpt clips/altman-2015-short.mp4 0.0-10.9). Verbatim heard: \"(Um,) you know, I think AI will probably like most likely sort of lead to the end of the world, but in the meantime there will be great companies created with serious machine learning.\" (small.en on both files + the excerpt's burned-in captions agree). The card now quotes the recording, not Business Insider's tidied print version (\"AI will probably most likely lead to the end of the world, but in the meantime, there'll be great companies.\", BI Jun 4 2015); leading \"…\" = \"you know, I think\" trimmed, trailing \"…\" = \"created with serious machine learning\" trimmed. Kept as a card: the spoken line runs 4.4 s (7 s with the punchline) and the speech window (edit 0-11.4) is full. Jun 2015 = BI's report of the talk (\"Thursday\", dated Jun 4 2015); OpenAir is on Curtis's shirt in the footage."
+    },
+
+    {
+      "id": "amodei", "type": "clip", "t0": "pre:17", "t1": 8.65,
+      "src": "clips/amodei-axios-2025.mp4", "in": 1065.62,
+      "crop": { "x": 310, "y": 170, "w": 379, "h": 330 },
+      "grade": { "sat": 0, "contrast": 1.25, "brightness": -0.05, "gamma": 0.92, "sharpen": 0.7, "grain": 4 },
+      "zoom": [1.0, 1.06], "focus": [0.5, 0.33],
+      "stamp": { "year": "Sep 2025", "name": "Dario Amodei", "role": "CEO, Anthropic" },
+      "caption": {
+        "text": "…there’s a 25% chance that things go really, really badly.",
+        "hl": ["25%", "really, really badly"],
+        "words": [
+          { "w": "…THERE’S", "s": 1065.69 }, { "w": "A", "s": 1065.91 }, { "w": "25%", "s": 1066.01 }, { "w": "CHANCE", "s": 1067.07 },
+          { "w": "THAT", "s": 1067.33 }, { "w": "THINGS", "s": 1067.55 }, { "w": "GO", "s": 1067.73 }, { "w": "REALLY,", "s": 1068.01 },
+          { "w": "REALLY", "s": 1068.59 }, { "w": "BADLY.", "s": 1068.87 }
+        ]
+      },
+      "source": "Axios AI+ DC Summit · Sep 17, 2025",
+      "audio": { "in": 1065.67, "out": 1069.34 },
+      "verified": true,
+      "_note": "Footage per research/verify/amodei-video.json (Axios upload nvXj4HTiYqA). Full sentence: \"So I think there's a 25% chance ... really, really badly and a 75% chance that things go really, really well\"; \"So I think\" is trimmed (clean dip at 1065.66) and marked with the ellipsis. small.en on 1065.67-1069.34 hears exactly the caption; out-points before 1069.34 clip \"badly\" to \"bad\", and \"and\" follows immediately: ear-check the tail. Crop is Amodei alone, clear of the lower third."
+    },
+
+    { "id": "hf-stamp", "type": "stamp", "t0": 8.65, "t1": "pre:6", "stamp": { "year": "Jul 2026", "name": "The Hugging Face attack", "role": "Cyberattacks by rogue OpenAI agents" }, "verified": true },
+    { "id": "hf-time", "type": "headline", "stack": "hf", "t0": 8.65, "t1": "pre:6", "hit": 5,
+      "outlet": "TIME", "date": "Jul 24, 2026", "text": "How OpenAI Lost Control of an AI Model—and What Needs to Change", "verified": true },
+    { "id": "hf-bbc", "type": "headline", "stack": "hf", "t0": "pre:8.5", "t1": "pre:6", "hit": 5,
+      "outlet": "BBC News", "date": "Jul 29, 2026", "text": "OpenAI says its rogue AI tried to hack other companies", "verified": true },
+    { "id": "hf-wired", "type": "headline", "stack": "hf", "t0": "pre:8", "t1": "pre:6", "hit": 5,
+      "outlet": "Wired", "date": "Aug 5, 2026", "text": "OpenAI Didn’t Notice Its AI Agents Using a Message Board to Plan Their Hacking Spree", "verified": true },
+    { "id": "hf-cnbc", "type": "headline", "stack": "hf", "t0": "pre:7.5", "t1": "pre:6", "hit": 6,
+      "outlet": "CNBC", "date": "Sep 30, 2026", "text": "OpenAI is sued over rogue AI Hugging Face cyberattack", "verified": true },
+
+    {
+      "id": "coxon", "type": "clip", "t0": "pre:6", "t1": "pre:3", "enter": "flicker",
+      "src": "clips/coxon-daily-show.mp4", "in": 529.01,
+      "crop": { "x": 205, "y": 30, "w": 735, "h": 640 },
+      "grade": { "sat": 0, "contrast": 1.25, "brightness": -0.04, "gamma": 0.93, "sharpen": 0.4, "grain": 4 },
+      "zoom": [1.0, 1.05], "focus": [0.48, 0.3],
+      "stamp": { "year": "2026", "name": "Jacob Coxon", "role": "Former Anthropic & OpenAI researcher" },
+      "caption": {
+        "text": "There won’t be jobs in this world.",
+        "hl": "jobs",
+        "words": [
+          { "w": "THERE", "s": 528.84 }, { "w": "WON’T", "s": 529.02 }, { "w": "BE", "s": 529.24 }, { "w": "JOBS", "s": 529.33 },
+          { "w": "IN", "s": 529.52 }, { "w": "THIS", "s": 529.78 }, { "w": "WORLD.", "s": 529.89 }
+        ]
+      },
+      "source": "The Daily Show",
+      "audio": { "in": 528.78, "out": 530.12 },
+      "verified": true,
+      "_note": "Coxon's restatement a few seconds after the reported line, in a clean close-up (shot change at 528.995): \"Yeah, there won't be jobs in this world.\" (\"Yeah,\" trimmed; small.en agrees on four windows). The reported line at 523.4-524.9 (\"...and I think, like, there will be no jobs.\") was rejected: its last word is masked by Stewart's \"I mentioned them\" (whisper hears \"no joke\"/\"no doubt\") and it is a wide two-shot. Audio starts 0.23 s before the picture (J-cut under the last headline). Year only: the episode date (early Oct 2026?) is not confirmed."
+    },
+
+    {
+      "id": "breath", "type": "text", "t0": "pre:3", "t1": "riff:0", "bg": "#000000",
+      "text": "it’s brutal out here",
+      "words": [ { "w": "it’s", "at": "pre:3" }, { "w": "brutal", "at": "pre:2.75" }, { "w": "out", "at": "pre:2.5" }, { "w": "here", "at": "pre:2.25" } ],
+      "style": { "y": 880, "size": 112 },
+      "_note": "William's exact words, lowercase. Lands word by word on 16ths (11.68-12.04) before the breath (12.15), then holds still until the drop."
+    },
+
+    {
+      "id": "logo", "type": "logo", "t0": "riff:0", "t1": 20.65,
+      "grid": "riff", "beat0": 0,
+      "layout": { "y": 400, "scale": 0.72 },
+      "_note": "Default choreography (LOGO_CUES in teaser.html): plane + scattered dots on the downbeat (flash + big shake), shapes on beats 1-7, wordmark beat 8 (bar 3), crossbar tilt beat 9, kicker beat 10 (bar 3.5), hold; pulses on every beat, accents on 8, 12, 15. Override with cues/hits/flashes/pulse. Final frame = brand/hyperplane-cover-3000.png scaled to 1080 wide at y 400 (pixel-checked)."
+    }
+  ]
+}

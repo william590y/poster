@@ -1,0 +1,92 @@
+{
+ "id": "cnn-2026-09-24-extreme-concern",
+ "url": "https://edition.cnn.com/2026/09/23/business/australia-openai-agent-hack-intl-hnk",
+ "expected": "'Extreme concern' over first known AI hack of a government system",
+ "notes": [
+  "clicked:Agree",
+  "hid 4 overlay element(s)",
+  "crop starts at css y=265 (the area above it, masthead, hero image, empty ad slot or video player, is not included)"
+ ],
+ "status": 200,
+ "final_url": "https://edition.cnn.com/2026/09/23/business/australia-openai-agent-hack-intl-hnk",
+ "title0": "Medicare Australia: ‘Extreme concern’ over OpenAI breach of health database, first known AI hack of a government system | CNN Business",
+ "hidden_detail": [
+  [
+   "DIV",
+   "marketFeatureRibbon",
+   "market-feature-ribbon test-ad",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-slot-rail_right",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-slot-rail__container",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-slot",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "Medicare Australia: ‘Extreme concern’ over OpenAI breach of health database, first known AI hack of a government system | CNN Business",
+ "og_title": "‘Extreme concern’ over first known AI hack of a government system | CNN Business",
+ "twitter_title": "‘Extreme concern’ over first known AI hack of a government system | CNN Business",
+ "og_site": "CNN",
+ "published": "2026-09-23T23:19:23.496Z",
+ "author_meta": "Hilary Whiteman, Hadas Gold, Max Saltman",
+ "canonical": "https://www.cnn.com/2026/09/23/business/australia-openai-agent-hack-intl-hnk",
+ "h1_count": 1,
+ "h1": "‘Extreme concern’ over first known AI hack of a government system",
+ "h1_box": [
+  0,
+  392,
+  1200,
+  500
+ ],
+ "h1_font": "43.2px",
+ "below_bottom": 580,
+ "below_text": [
+  "Updated Sep 24, 2026",
+  "By",
+  "Hilary Whiteman",
+  "Hadas Gold",
+  "Max Saltman"
+ ],
+ "hero_top": 618,
+ "header_bottom": 1061,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  265,
+  1200,
+  323.0
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/cnn-2026-09-24-extreme-concern.png",
+ "trimmed": 44
+}

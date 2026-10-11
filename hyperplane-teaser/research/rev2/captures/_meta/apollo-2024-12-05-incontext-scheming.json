@@ -1,0 +1,74 @@
+{
+ "id": "apollo-2024-12-05-incontext-scheming",
+ "url": "https://www.apolloresearch.ai/science/frontier-models-are-capable-of-incontext-scheming",
+ "expected": "Frontier Models are Capable of In-context Scheming",
+ "notes": [
+  "clicked:Allow all",
+  "hid 2 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://www.apolloresearch.ai/science/frontier-models-are-capable-of-incontext-scheming",
+ "title0": "Frontier Models are Capable of In-Context Scheming",
+ "hidden_detail": [
+  [
+   "DIV",
+   "CookiebotWidget",
+   "",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "BUTTON",
+   "",
+   "CookiebotWidget-logo",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "Frontier Models are Capable of In-Context Scheming",
+ "og_title": null,
+ "twitter_title": null,
+ "og_site": null,
+ "published": null,
+ "author_meta": null,
+ "canonical": null,
+ "h1_count": 1,
+ "h1": "Frontier Models are Capable of In-Context Scheming",
+ "h1_box": [
+  450,
+  186.390625,
+  1125,
+  293.640625
+ ],
+ "h1_font": "48.75px",
+ "below_bottom": 455.328125,
+ "below_text": [
+  "Models sometimes double down on deception",
+  "Published on",
+  "05 December 2024",
+  "The models understand that they are scheming",
+  "Models sometimes scheme without any goal nudging",
+  "We worked with OpenAI to test o1 before public deployment. You can find the resu",
+  "o1 system card",
+  ". Below, we provide a summary of the main findings."
+ ],
+ "hero_top": 862.703125,
+ "header_bottom": 110.328125,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  473.328125
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/apollo-2024-12-05-incontext-scheming.png",
+ "trimmed": 0
+}

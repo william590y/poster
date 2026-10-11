@@ -1,0 +1,25 @@
+{
+  "key": "v1b-verse1-34.71-42.49",
+  "checks": [
+    {
+      "idx": 0,
+      "ok": true,
+      "problem": "Non-blocking: text_exact matches the asset screenshot x-leike-2024-05-17-breaking-point.png, and the crop box (28,664 to 1068,712) shows only that line with no clipping. Speaker and date (Jan Leike, May 17, 2024) match the screenshot. The line appears in quit-my-job.json verified_how, not in a candidate text field. source_url could not be opened (x.com returned HTTP 402), so the status ID 1791498184671605209 is unconfirmed. The screenshot shows the line as the second post of a thread that opens with 'Stepping away from this job...', so check that the status ID is the post carrying the line."
+    },
+    {
+      "idx": 1,
+      "ok": true,
+      "problem": "Non-blocking: text_exact matches candidate rank 1 in quit-my-job.json and the provenance screenshot exactly. The screenshot timestamp is 12:04 AM · Sep 9, 2026, so the SEP 9, 2026 attribution matches what is on screen. The JSON date field gives Sep 8 US time, which the plan already flags. source_url (x.com) returned HTTP 402 and was not opened; the item is not web-only."
+    },
+    {
+      "idx": 2,
+      "ok": true,
+      "problem": "Headline matches the provenance screenshot and the live TechCrunch page (WebFetch: h1 identical, author Anthony Ha, 9:30 AM PDT · October 3, 2026). Curly quotes (U+2019, U+2018, U+2019) are identical in the plan and in quit-my-job.json. The crop box (1310,575 to 2390,855) contains the full headline; the closing quote sits close to the right edge but is complete."
+    },
+    {
+      "idx": 3,
+      "ok": true,
+      "problem": "Headline matches the TIME page h1 via WebFetch, with byline Billy Perrigo and date Jan 18, 2023 12:00 PM UTC. The text is identical to the candidate in exploited.json. A raw HTTP fetch returned 406, so this check rests on WebFetch, which is model-mediated; a raw-HTML check would firm it up."
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "key": "parallel-park",
+  "lyric_idea": "Verse 2: \"And I can't even parallel park\" is the speaker failing a small driving task while machines drive cars and walk themselves off factory lines. On-screen: a robotaxi stat, the driving-jobs-most-exposed line, a humanoid doing household chores, and a humanoid walking out of a production line by itself. No lyric text on screen.",
+  "candidates": [
+    {
+      "type": "stat",
+      "text": "500,000 paid robotaxi rides every week across 10 U.S. cities (on-screen source line: Waymo, via TechCrunch, Mar 2026)",
+      "speaker_or_outlet": "Waymo, as reported by TechCrunch (Kirsten Korosec)",
+      "date": "2026-03-27",
+      "url": "https://techcrunch.com/2026/03/27/waymo-skyrocketing-ridership-in-one-chart/",
+      "local_path": null,
+      "verified_how": "Live: TechCrunch article opened. Headline \"Waymo's skyrocketing ridership in one chart\", byline Kirsten Korosec, Mar 27 2026 12:11 PM PDT. Sentence read from the page: \"Waymo is now providing 500,000 paid robotaxi rides every week across 10 U.S. cities\". Waymo's own blog index (opened, Oct 2026) states no ride count, so the figure rests on TechCrunch's report of Waymo's post. Deck: work/rev2/robotwork.json item robotwork-claude-rating-taxi-drivers repeats ~500k paid rides/week, which is Claude's own sourced figure in the data release and is not independently verified there. Caveat: March 2026 is the newest ride figure I could verify. Later single-source claims (14-15 cities, ~4,000 vehicles, another ~500k) were not confirmed and are not used. Tesla: live results were third-party trackers that disagree on which cities are unsupervised, with no Tesla primary source opened, so no Tesla candidate.",
+      "why_it_fits": "The lyric is about failing to drive. A robotaxi stat is the most direct echo: a machine driving paying passengers at scale. Stat card reads in about 2 s."
+    },
+    {
+      "type": "quote",
+      "text": "We find that driving jobs are most exposed, due to autonomous vehicles. (secondary on-screen: \"Taxi drivers lead exposure with an index of 2.2.\")",
+      "speaker_or_outlet": "Anthropic, \"What work can robots do?\" (Research / Economics)",
+      "date": "2026-09-30",
+      "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robotwork-fig4-most-exposed-occupations-page.png",
+      "verified_how": "Live: anthropic.com/research/what-work-can-robots-do opened; publication date Sep 30 2026. Sentences read from the page: \"We find that driving jobs are most exposed, due to autonomous vehicles.\"; \"Taxi drivers lead exposure with an index of 2.2.\"; \"Most robots today aren't like driverless cars, and only operate in controlled environments.\" The text came through a summarizing fetch, so re-check exact wording and punctuation against the page before burn-in. Deck: work/rev2/robotwork.json items robotwork-quote-most-robots, robotwork-fig4-most-exposed-occupations-page (page screenshot on disk, Figure 4 table with taxi drivers at the top).",
+      "why_it_fits": "Says in the authors' own words that the job most exposed to machines is driving. Pairs with the lyric's driving failure. Use the Figure 4 screenshot as the image behind the line."
+    },
+    {
+      "type": "clip",
+      "text": "On-screen: \"Tidying living rooms · folding towels · making beds\" over the Helix 2.5 video. Card text from the page: \"Helix 2.5 performs three long-horizon behaviors across 30 unseen homes, with no data collection, fine-tuning, or adaptation\". Stat: 9% → 56% zero-shot success (page wording: \"The policy trained from scratch succeeded on 9% of zero-shot trials. The Index-pretrained policy succeeded on 56%.\")",
+      "speaker_or_outlet": "Figure AI (official company video; company-reported results)",
+      "date": "2026-09-17",
+      "url": "https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/work/video-yt-lJpM_2a1zrE.jpg (cover still only; no local video). Also /home/user/poster/ai-safety-presentation/assets/research/work/vla-figure-helix25.png (slide image).",
+      "verified_how": "Live: figure.ai/news/helix-2-5-zero-shot-30-home-generalization opened; title \"Helix 2.5: Zero-Shot 30-Home Generalization\", published Sep 17 2026. Quotes read: \"Then we took the robot into 30 Bay Area homes with zero data collected in any of them.\"; \"Helix 2.5 performs three long-horizon behaviors across 30 unseen homes, with no data collection, fine-tuning, or adaptation\"; \"The policy trained from scratch succeeded on 9% of zero-shot trials. The Index-pretrained policy succeeded on 56%.\" The video itself was not opened or downloaded. Video: YouTube id lJpM_2a1zrE (https://www.youtube.com/watch?v=lJpM_2a1zrE), taken from the deck (tools/slides_work.js, work/manifest.json). The three behavior names come from the deck and were not confirmed on the fetched page. The deck's stat label says \"pre-trained on human video\", which the fetched page does not say; use the page's \"Index-pretrained\" wording if quoting the 9% to 56% stat.",
+      "why_it_fits": "A humanoid making beds and folding towels in homes it has never seen, the chores the speaker cannot manage. Works as a contrast card over the chores clip. Video is YouTube only and needs a download step."
+    },
+    {
+      "type": "clip",
+      "text": "Headline: \"XPENG's Iron humanoid robot walked out immediately after being assembled\". Burned-in subtitles in the clip: \"This is the first IRON robot\" / \"rolling off the production line at XPENG Robotics\".",
+      "speaker_or_outlet": "XPENG (official ceremony video); headline by Engadget (byline Husain Parvez)",
+      "date": "2026-09-08",
+      "url": "https://www.youtube.com/watch?v=p9P84bt3AQY",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-xpeng-iron-walkoff-clip.mp4 (1080p, 19.9 s, with audio; trim to 2-3 s). Poster frame: /home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-xpeng-iron-walkoff-poster.jpg. Silent GIF alternative: /home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-xpeng-iron-walks-off-line.gif (5.3 s).",
+      "verified_how": "Live: Engadget article opened (https://www.engadget.com/2261658/xpeng-building-humanoid-robots-walked-out-after-assembled/). Headline and byline confirmed; publication date Sep 22 2026 per the page. Paragraph 1 says the robot walked autonomously off its newly operational production line; that is XPENG's claim. Deck: work/rev2/robots.json items robots-xpeng-iron-walkoff-clip and robots-xpeng-iron-walks-off-line-gif (both verified in the manifest against XPENG's official upload, with the clean copy taken from an X post). The clip was not re-watched in this session.",
+      "why_it_fits": "A humanoid that walks itself out of the factory is the robot version of a car that drives itself. The autonomy claim is the joke. Strong visual; the 2-3 s cut lands on the lyric's \"park\" beat."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+ "id": "openai-alignment-2026-09-25-agent-dns",
+ "url": "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/",
+ "expected": "An agent used DNS to reach an external chatbot",
+ "notes": [],
+ "status": 200,
+ "final_url": "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/",
+ "title0": "An agent used DNS to reach an external chatbot · OpenAI Alignment",
+ "hidden_detail": [],
+ "title": "An agent used DNS to reach an external chatbot · OpenAI Alignment",
+ "og_title": null,
+ "twitter_title": null,
+ "og_site": null,
+ "published": null,
+ "author_meta": null,
+ "canonical": null,
+ "h1_count": 1,
+ "h1": "An agent used DNS to reach an external chatbot",
+ "h1_box": [
+  291.1875,
+  136,
+  915.1875,
+  218.78125
+ ],
+ "h1_font": "36px",
+ "below_bottom": 432.96875,
+ "below_text": [
+  "Internal research model · RL training",
+  "Sample:",
+  "Sep 20, 2026",
+  "Discovery:",
+  "Sep 20, 2026",
+  "Report updated:",
+  "Sep 25, 2026",
+  "Summary",
+  "An agent attempting to complete a search-based training task queried a public ch",
+  "internet-access restrictions"
+ ],
+ "hero_top": null,
+ "header_bottom": 72,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  450.96875
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/openai-alignment-2026-09-25-agent-dns.png",
+ "trimmed": 0
+}

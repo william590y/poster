@@ -1,0 +1,95 @@
+{
+  "key": "brutal-out-here",
+  "lyric": "God, it's brutal out here",
+  "moment": "refrain",
+  "checked": "2026-10-10",
+  "candidates": [
+    {
+      "id": "altman-2015-end-of-the-world",
+      "type": "quote",
+      "on_screen_text": "AI will probably most likely lead to the end of the world, but in the meantime, there'll be great companies.",
+      "on_screen_text_trimmed_option": "AI will probably most likely lead to the end of the world…",
+      "speaker_or_outlet": "Sam Altman (then president of Y Combinator), Business Insider, Matt Weinberger",
+      "date": "2015-06-04 (talk at Airbnb Open Air 2015; BI article dated Jun 5, 2015 UTC)",
+      "url": "https://www.businessinsider.com/sam-altman-y-combinator-talks-mega-bubble-nuclear-power-and-more-2015-6",
+      "syndication_url": "https://finance.yahoo.com/news/head-silicon-valleys-most-important-000927584.html",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/economy/rev2/altman_bi_2015_quote_passage.png",
+      "video": {
+        "note": "Clip exists, not downloaded. YouTube d6lDZpvHAoo (re-upload of Airbnb's Open Air 2015 fireside chat, Altman with Mike Curtis). The quote lands at about 8:45 (t=525s). Local thumbnail: /home/user/poster/ai-safety-presentation/assets/research/economy/rev2/altman_yt_d6lDZpvHAoo_thumb.jpg",
+        "youtube_id": "d6lDZpvHAoo",
+        "start_seconds": 525
+      },
+      "verified_how": "BI passage screenshot in the deck (economy/rev2/altman.json, verified=true, quality 5) read visually: 'AI will probably most likely lead to the end of the world, but in the meantime, there'll be great companies.' Live WebFetch of the Yahoo Finance BI syndication returned the same sentence, attributed to Sam Altman, article dated June 4, 2015, by Matt Weinberger. Live BI URL was blocked for direct fetch.",
+      "why_it_fits": "The bleakest line from the builders, said on a stage and kept in the record for ten years. The trimmed option reads in about 2-3 s. The wording keeps 'probably' because the short versions in circulation drop it.",
+      "read_time_note": "Full sentence about 5 s; use the trimmed option or the full sentence on a two-line card."
+    },
+    {
+      "id": "coxon-2026-09-gambling-with-our-lives",
+      "type": "quote",
+      "on_screen_text": "They are racing straight to self-improving superintelligence and gambling with our lives.",
+      "on_screen_text_trimmed_option": "Neither company is acting responsibly.",
+      "speaker_or_outlet": "Jacob Coxon (@hilbertspaess), X post; he had just resigned from Anthropic",
+      "date": "2026-09-09 (posted 00:04 UTC, Sep 8 US time)",
+      "url": "https://x.com/hilbertspaess/status/2097476196791709843",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/x-coxon-2026-09-08-resigned-anthropic.png",
+      "video": null,
+      "verified_how": "Live fetch via the fxtwitter API: the tweet reads 'I resigned from Anthropic today... Neither company is acting responsibly. They are racing straight to self-improving superintelligence and gambling with our lives. More thoughts below.' Created Wed Sep 09 00:04:29 UTC 2026; about 175M views at the time of the check. Deck X embed screenshot (xrisk/manifest.json, verified=true, quality 5) matches. Direct x.com was not fetched.",
+      "why_it_fits": "Names both labs in one line, with 'gambling with our lives' as the most literal echo of the refrain. A resignation, not a firing, so it does not rely on the disputed OpenAI story."
+    },
+    {
+      "id": "balesni-2026-09-kill-all-humans",
+      "type": "quote",
+      "on_screen_text": "i am at OpenAI and i think AI is >10% likely to kill all humans",
+      "speaker_or_outlet": "Mikita Balesni (@balesni), X post; he said he was at OpenAI when he posted",
+      "date": "2026-09-10 (18:01 UTC)",
+      "url": "https://x.com/balesni/status/2098109503518683491",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/x-balesni-2026-09-10-gt10pct.png",
+      "video": null,
+      "verified_how": "Live fetch via the fxtwitter API: text is 'i am at OpenAI and i think AI is >10% likely to kill all humans' (lowercase kept as posted), created Thu Sep 10 18:01:01 UTC 2026. Matches the deck X embed screenshot (xrisk/manifest.json, verified=true, quality 5). Direct x.com was not fetched.",
+      "why_it_fits": "The most literal 'brutal' line in the set, and it comes from inside OpenAI. Keep the lowercase and the '>10%' exactly as posted. It is short enough to read in about 3 s on a phone.",
+      "read_time_note": "About 3 s at this length."
+    },
+    {
+      "id": "wired-2026-09-crunch-time-for-humanity",
+      "type": "headline",
+      "on_screen_text": "The AI Researcher Who Just Quit Anthropic Says It’s ‘Crunch Time for Humanity’",
+      "on_screen_text_trimmed_option": "…Says It’s ‘Crunch Time for Humanity’",
+      "speaker_or_outlet": "WIRED, Maxwell Zeff (about Jacob Coxon)",
+      "date": "2026-09-09 (6:11 PM on the WIRED page)",
+      "url": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/theory/wired-coxon-crunch-time.png",
+      "video": null,
+      "verified_how": "Local capture of the live page read visually: headline and dek plus the 'SEP 9, 2026 6:11 PM' stamp. Deck manifest (theory/manifest.json, wired-coxon-crunch-time, verified=true, quality 5) agrees. The WIRED page was blocked for direct WebFetch, so the body quotes ('crunch time for humanity' sentence) were not re-checked live. Only the headline is recommended.",
+      "why_it_fits": "The headline sets the frame for the whole refrain: the builders are calling it crunch time. Curly quotes and the apostrophe in It’s are part of the exact title.",
+      "read_time_note": "Long for a phone; use the trimmed option or split it into two lines of the exact title."
+    }
+  ],
+  "reserves": [
+    {
+      "id": "bbc-2026-09-hubinger-10pct",
+      "type": "headline",
+      "on_screen_text": "Anthropic researcher believes more than 10% chance AI 'could kill all humans'",
+      "speaker_or_outlet": "BBC News, Tom Gerken",
+      "date": "2026-09-09",
+      "url": "https://www.bbc.com/news/articles/ckgwy1k42w4o",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/theory/bbc-hubinger-10pct.png",
+      "verified_how": "Deck screenshot and manifest (theory/manifest.json, verified=true). Not re-fetched live."
+    },
+    {
+      "id": "grace-2023-survey-stat",
+      "type": "stat",
+      "on_screen_text": "38–51% of 2,778 AI researchers gave at least a 10% chance of outcomes as bad as human extinction",
+      "speaker_or_outlet": "Grace et al., 'Thousands of AI Authors on the Future of AI' (JAIR 2025)",
+      "date": "fielded 2023; preprint arXiv 2401.02843 (Jan 5, 2024)",
+      "url": "https://arxiv.org/abs/2401.02843",
+      "local_path": null,
+      "verified_how": "Deck slide source (slides_xrisk.js, notes) only. The arXiv page was not fetched in this run. The survey is 2023, not 2026, so label it as such if used."
+    }
+  ],
+  "excluded": [
+    {
+      "item": "ESCAPE VELOCITY (SS27) music video by @anabology, lyric 'gambling with our lives'",
+      "reason": "Satirical fan film, not a real AI event. It repeats the lyric, which the brief rules out."
+    }
+  ]
+}

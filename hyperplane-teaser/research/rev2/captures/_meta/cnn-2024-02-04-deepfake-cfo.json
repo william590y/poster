@@ -1,0 +1,111 @@
+{
+ "id": "cnn-2024-02-04-deepfake-cfo",
+ "url": "https://www.cnn.com/2024/02/04/asia/deepfake-cfo-scam-hong-kong-intl-hnk/index.html",
+ "expected": "Finance worker pays out $25 million after video call with deepfake ‘chief financial officer’",
+ "notes": [
+  "clicked:Agree",
+  "hid 6 overlay element(s)",
+  "crop starts at css y=290 (the area above it, masthead, hero image, empty ad slot or video player, is not included)"
+ ],
+ "status": 200,
+ "final_url": "https://www.cnn.com/2024/02/04/asia/deepfake-cfo-scam-hong-kong-intl-hnk/index.html",
+ "title0": "Finance worker pays out $25 million after video call with deepfake ‘chief financial officer’ | CNN",
+ "hidden_detail": [
+  [
+   "DIV",
+   "",
+   "ad-slot-header ad-slot-header_redesign",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-slot ad-slot_redesign",
+   "sticky",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "ad_bnr_atf_01",
+   "ad",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-slot-rail_right",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-slot-rail__container",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-slot ad-slot_redesign",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "Finance worker pays out $25 million after video call with deepfake ‘chief financial officer’ | CNN",
+ "og_title": "Finance worker pays out $25 million after video call with deepfake ‘chief financial officer’ | CNN",
+ "twitter_title": "Finance worker pays out $25 million after video call with deepfake ‘chief financial officer’ | CNN",
+ "og_site": "CNN",
+ "published": "2024-02-04T07:31:09.731Z",
+ "author_meta": "Heather Chen, Kathleen Magramo",
+ "canonical": "https://www.cnn.com/2024/02/04/asia/deepfake-cfo-scam-hong-kong-intl-hnk",
+ "h1_count": 1,
+ "h1": "Finance worker pays out $25 million after video call with deepfake ‘chief financial officer’",
+ "h1_box": [
+  0,
+  433,
+  1200,
+  541
+ ],
+ "h1_font": "43.2px",
+ "below_bottom": 621,
+ "below_text": [
+  "Feb 4, 2024",
+  "By",
+  "Heather Chen",
+  "Kathleen Magramo"
+ ],
+ "hero_top": 659,
+ "header_bottom": 1012,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  290,
+  1200,
+  349
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/cnn-2024-02-04-deepfake-cfo.png",
+ "trimmed": 0
+}

@@ -1,0 +1,596 @@
+{
+ "name": "test-beatfx",
+ "title": "Builder A: the beat track over the real prelude (short cut, edit 0-17.0 = song 6.10-23.10): gentle 'prelude' accents on the pad's swells, then the drop riff",
+ "_note": "Items 0-13.13 are copied from edl/short.json (the prelude montage: Altman, Amodei, two headlines, the breath line); the legacy logo formation is replaced by the kand 'riff' preset. song/hits.json says the prelude has NO tempo-locked pulse (a pad with an irregular ~1.7 Hz swell), so the prelude track uses \"grid\": \"pulse\" (hits.json prelude_pulse: swell peaks with a strength) instead of the beat grid, and the gentle pattern (soft blooms, grain on the ground, pencil ticks in the margins, small zoom pulses; no shake, no splat, no colour flip over footage). Calm 'auto': the 0.4 s after each headline enters gets only grain/ticks/small punches. Render: python3 render/video/render.py beats test-beatfx --from 0 --to 17; prep the clips first if cache/ is empty (python3 render/video/prep_clips.py test-beatfx).",
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "duration": 17.0,
+ "audio": {
+  "song": "song/brutal.mp3",
+  "songStart": 6.1,
+  "note": "SPLICED. Edit time = song time - 6.10 up to the splice at edit 20.377 (song 26.477), then song time - 44.811 (song 65.188 on). The 'song' block below is what mix.py plays; songStart only holds before the splice. Clip speech: the montage (edit 0-8.43; Olivia's spoken line starts at 11.56) and Bostrom over the closing instrumental."
+ },
+ "song": {
+  "file": "song/brutal.mp3",
+  "segments": [
+   {
+    "in_s": 6.1,
+    "out_s": 26.477,
+    "at": 0
+   },
+   {
+    "in_s": 65.188,
+    "out_s": 80.411,
+    "at": 20.377
+   }
+  ],
+  "xfade_ms": 20,
+  "xfade_shape": "gain",
+  "bars": "song/bars.json",
+  "bar_tol_ms": 70,
+  "fade_in_s": 0.01,
+  "fade_out_s": 0.35,
+  "max_out_s": 80.45,
+  "note": "Splice riff beat 15 -> refrain bar 23 beat 4 (same bar phase, 20 bars = 38.711 s). Not on a bar line: bar 23's downbeat is inside 'upset' (vocal to ~64.2) and bar 24's is inside the pickup 'They say' (from ~65.43). bar_tol_ms 70 because bars.json runs ~25 ms late and both cut points sit 15-20 ms before the beat's attack, by design (out/NOTES.md)."
+ },
+ "grids": {
+  "riff": [
+   13.132,
+   13.643,
+   14.125,
+   14.612,
+   15.077,
+   15.57,
+   16.058,
+   16.539,
+   17.021,
+   17.52,
+   17.997,
+   18.48,
+   18.954,
+   19.442,
+   19.93,
+   20.411
+  ],
+  "pre": {
+   "origin": 13.132,
+   "period": -0.4839,
+   "count": 28
+  },
+  "beat": [
+   13.132,
+   13.643,
+   14.125,
+   14.612,
+   15.077,
+   15.57,
+   16.058,
+   16.539,
+   17.021,
+   17.52,
+   17.997,
+   18.48,
+   18.954,
+   19.442,
+   19.93,
+   20.411,
+   20.9,
+   21.364,
+   21.823,
+   22.339,
+   22.833,
+   23.315,
+   23.779,
+   24.238,
+   24.754,
+   25.242,
+   25.729,
+   26.218,
+   26.728,
+   27.228,
+   27.692,
+   28.168,
+   28.609,
+   29.117,
+   29.602,
+   30.087,
+   30.545,
+   31.05,
+   31.535,
+   32.02,
+   32.504,
+   32.992,
+   33.474,
+   33.961,
+   34.44,
+   34.922,
+   35.407,
+   35.9,
+   36.37
+  ],
+  "bar": [
+   13.132,
+   15.077,
+   17.021,
+   18.954,
+   20.9,
+   22.833,
+   24.754,
+   26.728,
+   28.609,
+   30.545,
+   32.504,
+   34.44,
+   36.37
+  ]
+ },
+ "layout": {
+  "clipBox": {
+   "x": 0,
+   "y": 400,
+   "w": 1080,
+   "h": 640
+  },
+  "caption": {
+   "x": 60,
+   "w": 900,
+   "gap": 40,
+   "size": 56,
+   "lh": 1.16,
+   "reveal": "words"
+  },
+  "stack": {
+   "y0": 420,
+   "y1": 1400,
+   "gap": 64,
+   "dim": 0.62,
+   "align": "center"
+  }
+ },
+ "look": {
+  "ground": "#0E0D12",
+  "red": "#B31B1B",
+  "dim": "#9A96A8"
+ },
+ "themes": [
+  {
+   "t0": "hb:0",
+   "t1": 99,
+   "theme": "light"
+  }
+ ],
+ "items": [
+  {
+   "id": "grain",
+   "type": "grain",
+   "t0": 0,
+   "t1": "riff:0",
+   "opacity": 0.035,
+   "size": 2,
+   "hold": 3
+  },
+  {
+   "id": "paint",
+   "type": "layer",
+   "kind": "canvas",
+   "_note": "beat-track paint (ticks, grain, splats): above the ground, under the footage and headlines"
+  },
+  {
+   "id": "vignette",
+   "type": "vignette",
+   "t0": 0,
+   "t1": 11.9223
+  },
+  {
+   "id": "altman",
+   "type": "clip",
+   "t0": 0,
+   "t1": 4.7333,
+   "src": "clips/altman-2015-short.mp4",
+   "in": 1.84,
+   "crop": {
+    "x": 280,
+    "y": 6,
+    "w": 640
+   },
+   "grade": {
+    "sat": 0,
+    "contrast": 1.25,
+    "brightness": 0.0,
+    "gamma": 0.97,
+    "sharpen": 0.5,
+    "grain": 4
+   },
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "zoomEase": "out",
+   "snap": {
+    "z": 1.08,
+    "dur": 0.25
+   },
+   "focus": [
+    0.72,
+    0.3
+   ],
+   "punch": [
+    {
+     "at": 3.88,
+     "z": 1.08,
+     "dur": 0.12
+    }
+   ],
+   "shakes": [
+    {
+     "at": 3.88,
+     "amp": 11,
+     "decay": 0.1
+    }
+   ],
+   "stamp": {
+    "y": 300,
+    "yrPx": 52,
+    "year": "2015",
+    "name": "Sam Altman",
+    "role": "Then president, Y Combinator"
+   },
+   "caption": {
+    "reveal": "dim",
+    "dimOp": 0.6,
+    "text": "\u2026I think AI will probably like most likely sort of lead to the end of the world\u2026",
+    "hl": "the end of the world",
+    "dimHl": 0.85,
+    "words": [
+     {
+      "w": "\u2026I",
+      "s": 1.86
+     },
+     {
+      "w": "THINK",
+      "s": 1.99
+     },
+     {
+      "w": "AI",
+      "s": 2.2
+     },
+     {
+      "w": "WILL",
+      "s": 2.52
+     },
+     {
+      "w": "PROBABLY",
+      "s": 2.78
+     },
+     {
+      "w": "LIKE",
+      "s": 3.44
+     },
+     {
+      "w": "MOST",
+      "s": 3.9
+     },
+     {
+      "w": "LIKELY",
+      "s": 4.14
+     },
+     {
+      "w": "SORT",
+      "s": 4.48
+     },
+     {
+      "w": "OF",
+      "s": 4.66
+     },
+     {
+      "w": "LEAD",
+      "s": 5.1
+     },
+     {
+      "w": "TO",
+      "s": 5.58
+     },
+     {
+      "w": "THE",
+      "s": 5.72
+     },
+     {
+      "w": "END",
+      "s": 5.8
+     },
+     {
+      "w": "OF",
+      "s": 5.92
+     },
+     {
+      "w": "THE",
+      "s": 6.02
+     },
+     {
+      "w": "WORLD\u2026",
+      "s": 6.12
+     }
+    ]
+   },
+   "source": "Airbnb fireside chat \u00b7 2015",
+   "audio": {
+    "in": 1.86,
+    "out": 6.34,
+    "peak_rel_db": 14
+   },
+   "verified": true,
+   "meta": 32,
+   "name_px": 36,
+   "_note": "r4: footage + his own voice replace the silent quote card (all three short critics). r6: verbatim (small.en and base.en on the exact window, 3/3 each): 'I think AI will probably like most likely sort of lead to the end of the world'; the leading \u2026 marks the cut 'You know,', the trailing \u2026 the sentence going on ('but in the meantime, there will be great companies created with serious machine learning'). rev2: the backdrop (the event's cyan wall with yellow speaker credits, 'Airbnb' among them) is shown as filmed (the r4 key is removed). Year only (the month rests on Business Insider's Jun 4, 2015 report). Audio: a quiet recording with a 21 dB peak-to-loudness ratio, so a per-clip peak limiter (peak_rel_db 14) keeps it from capping the whole mix's loudness."
+  },
+  {
+   "id": "amodei",
+   "type": "clip",
+   "t0": 4.7333,
+   "t1": 8.3,
+   "src": "clips/amodei-axios-2025.mp4",
+   "in": 1065.64,
+   "crop": {
+    "x": 195,
+    "y": 150,
+    "w": 640
+   },
+   "grade": {
+    "sat": 0,
+    "contrast": 1.25,
+    "brightness": -0.02,
+    "gamma": 0.93,
+    "sharpen": 0.6,
+    "grain": 4
+   },
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "focus": [
+    0.5,
+    0.35
+   ],
+   "punch": [
+    {
+     "at": 5.1,
+     "z": 1.06,
+     "dur": 0.12
+    }
+   ],
+   "shakes": [
+    {
+     "at": 5.1,
+     "amp": 7,
+     "decay": 0.07
+    }
+   ],
+   "stamp": {
+    "y": 300,
+    "yrPx": 52,
+    "year": "2025",
+    "name": "Dario Amodei",
+    "role": "CEO, Anthropic"
+   },
+   "caption": {
+    "reveal": "dim",
+    "dimOp": 0.6,
+    "text": "\u2026there\u2019s a 25% chance that things go really, really badly\u2026",
+    "hl": [
+     "25%",
+     "really, really badly"
+    ],
+    "words": [
+     {
+      "w": "\u2026THERE\u2019S",
+      "s": 1065.69
+     },
+     {
+      "w": "A",
+      "s": 1065.91
+     },
+     {
+      "w": "25%",
+      "s": 1066.01
+     },
+     {
+      "w": "CHANCE",
+      "s": 1067.07
+     },
+     {
+      "w": "THAT",
+      "s": 1067.33
+     },
+     {
+      "w": "THINGS",
+      "s": 1067.55
+     },
+     {
+      "w": "GO",
+      "s": 1067.73
+     },
+     {
+      "w": "REALLY,",
+      "s": 1068.01
+     },
+     {
+      "w": "REALLY",
+      "s": 1068.59
+     },
+     {
+      "w": "BADLY\u2026",
+      "s": 1068.87
+     }
+    ]
+   },
+   "sub": {
+    "text": "\u201c\u2026and a 75% chance that things go really, really well\u2026\u201d",
+    "size": 40,
+    "gap": 22,
+    "color": "#C2BDCE"
+   },
+   "source": "Axios AI+ DC Summit \u00b7 Sep 17, 2025",
+   "audio": {
+    "in": 1065.67,
+    "out": 1069.34,
+    "lcut": 0.15
+   },
+   "verified": true,
+   "meta": 32,
+   "name_px": 36,
+   "_note": "Footage per research/verify/amodei-video.json (Axios upload nvXj4HTiYqA). Full sentence: 'I'm relatively an optimist, so I think there's a 25% chance that things go really, really badly and a 75% chance that things go really, really well'. r4 (editorial critic): the caption now ENDS with \u2026 (it went on with the 75% clause), not a full stop; 'So I think' is trimmed (leading \u2026). rev2: the background is shown as filmed (AXIOS wall, Jack Clark at left; the r4 key is removed)."
+  },
+  {
+   "id": "hf-stamp",
+   "type": "stamp",
+   "t0": 8.3,
+   "t1": 11.9223,
+   "meta": 32,
+   "name_px": 36,
+   "stamp": {
+    "y": 300,
+    "yrPx": 52,
+    "year": "2026",
+    "name": "OpenAI says its agents attacked Hugging Face",
+    "w": 560
+   },
+   "verified": true
+  },
+  {
+   "id": "hf-time",
+   "type": "headline",
+   "t0": 8.3,
+   "t1": 10.2333,
+   "size": 84,
+   "style": {
+    "cy": 760
+   },
+   "dimRest": 0.62,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "hit": 6,
+   "hlWipe": 0.2,
+   "invert": 0,
+   "meta": 32,
+   "name_px": 36,
+   "hlAt": "pre:9",
+   "outlet": "TIME",
+   "date": "Jul 24, 2026",
+   "text": "How OpenAI Lost Control of an AI Model\u2014and What Needs to Change",
+   "hl": "Lost Control",
+   "verified": true
+  },
+  {
+   "id": "hf-bbc",
+   "type": "headline",
+   "t0": 10.2333,
+   "t1": 11.9223,
+   "size": 84,
+   "style": {
+    "cy": 760
+   },
+   "dimRest": 0.62,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "hit": 6,
+   "hlWipe": 0.2,
+   "invert": 0,
+   "meta": 32,
+   "name_px": 36,
+   "hlAt": "pre:5",
+   "outlet": "BBC News",
+   "date": "Jul 29, 2026",
+   "text": "OpenAI says its rogue AI tried to hack other companies",
+   "hl": "rogue AI tried to hack",
+   "verified": true
+  },
+  {
+   "id": "breath",
+   "type": "text",
+   "t0": 11.9223,
+   "t1": "riff:0",
+   "bg": "#000000",
+   "text": "it\u2019s brutal out here",
+   "words": [
+    {
+     "w": "it\u2019s",
+     "at": "pre:2.5"
+    },
+    {
+     "w": "brutal",
+     "at": "pre:2.25"
+    },
+    {
+     "w": "out",
+     "at": "pre:2"
+    },
+    {
+     "w": "here",
+     "at": "pre:1.75"
+    }
+   ],
+   "style": {
+    "y": 880,
+    "size": 112
+   },
+   "_note": "William's exact words, lowercase, at his explicit request: the ONE approved exception to 'no lyrics on screen' (out/NOTES.md). Lands word by word on 16ths (11.92-12.29), over the breath (12.15-12.95), then holds until the drop."
+  },
+  {
+   "id": "ground-drop",
+   "type": "color",
+   "t0": "hb:0",
+   "t1": 17.0,
+   "color": "#F2EBDD"
+  },
+  {
+   "id": "paint3",
+   "type": "layer",
+   "kind": "canvas",
+   "_note": "the riff's beat paint, above the drop's cream ground"
+  },
+  {
+   "id": "kand",
+   "type": "kand",
+   "t0": "hb:0",
+   "t1": 17.0,
+   "layout": {
+    "y": 400,
+    "scale": 0.72
+   },
+   "preset": {
+    "name": "riff",
+    "from": "hb:0"
+   }
+  },
+  {
+   "id": "paper",
+   "type": "paper",
+   "t0": "hb:0",
+   "t1": 17.0,
+   "mode": "light"
+  }
+ ],
+ "beatfx": [
+  {
+   "id": "prelude-fx",
+   "grid": "pulse",
+   "from": 0,
+   "to": "song:18.2",
+   "pattern": "prelude",
+   "intensity": 1
+  },
+  {
+   "id": "riff-fx",
+   "from": "hb:0",
+   "to": "hb:7.5",
+   "pattern": "riff",
+   "eighths": true,
+   "layer": "paint3"
+  }
+ ]
+}

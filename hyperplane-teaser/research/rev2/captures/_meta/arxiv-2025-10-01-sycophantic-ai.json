@@ -1,0 +1,53 @@
+{
+ "id": "arxiv-2025-10-01-sycophantic-ai",
+ "url": "https://arxiv.org/abs/2510.01395",
+ "expected": "Sycophantic AI decreases prosocial intentions and promotes dependence",
+ "notes": [
+  "crop ends below .authors"
+ ],
+ "status": 200,
+ "final_url": "https://arxiv.org/abs/2510.01395",
+ "title0": "[2510.01395] Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence",
+ "hidden_detail": [],
+ "title": "[2510.01395] Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence",
+ "og_title": "Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence",
+ "twitter_title": "Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence",
+ "og_site": "arXiv.org",
+ "published": null,
+ "author_meta": null,
+ "canonical": "https://arxiv.org/abs/2510.01395",
+ "h1_count": 3,
+ "h1": "Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence",
+ "h1_box": [
+  20,
+  106.109375,
+  940.796875,
+  134.109375
+ ],
+ "h1_font": "23.328px",
+ "below_bottom": 192.453125,
+ "below_text": [
+  "TeX Source",
+  "Myra Cheng",
+  "Cinoo Lee",
+  "Pranav Khadpe",
+  "Sunny Yu",
+  "Dyllan Han",
+  "Dan Jurafsky",
+  "view license",
+  "Current browse context:"
+ ],
+ "hero_top": null,
+ "header_bottom": 52,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  184.109375
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/arxiv-2025-10-01-sycophantic-ai.png",
+ "trimmed": 0
+}

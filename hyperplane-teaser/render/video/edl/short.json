@@ -1,0 +1,1274 @@
+{
+ "name": "short",
+ "title": "Hyperplane x brutal: short teaser, the spliced intro cut (9:16)",
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "duration": 35.6,
+ "audio": {
+  "song": "song/brutal.mp3",
+  "songStart": 6.1,
+  "note": "SPLICED. Edit time = song time - 6.10 up to the splice at edit 20.377 (song 26.477), then song time - 44.811 (song 65.188 on). The 'song' block below is what mix.py plays; songStart only holds before the splice. Clip speech: the montage (edit 0-8.43; Olivia's spoken line starts at 11.56) and Bostrom over the closing instrumental."
+ },
+ "song": {
+  "file": "song/brutal.mp3",
+  "segments": [
+   {
+    "in_s": 6.1,
+    "out_s": 26.477,
+    "at": 0
+   },
+   {
+    "in_s": 65.188,
+    "out_s": 80.411,
+    "at": 20.377
+   }
+  ],
+  "xfade_ms": 20,
+  "xfade_shape": "gain",
+  "bars": "song/bars.json",
+  "bar_tol_ms": 70,
+  "fade_in_s": 0.01,
+  "fade_out_s": 0.35,
+  "max_out_s": 80.45,
+  "note": "Splice riff beat 15 -> refrain bar 23 beat 4 (same bar phase, 20 bars = 38.711 s). Not on a bar line: bar 23's downbeat is inside 'upset' (vocal to ~64.2) and bar 24's is inside the pickup 'They say' (from ~65.43). bar_tol_ms 70 because bars.json runs ~25 ms late and both cut points sit 15-20 ms before the beat's attack, by design (out/NOTES.md)."
+ },
+ "outputs": {
+  "song": "out/hyperplane-brutal-short-9x16.mp4",
+  "no_song": "out/hyperplane-brutal-short-no-song-9x16.mp4"
+ },
+ "look": {
+  "ground": "#0E0D12",
+  "red": "#B31B1B",
+  "dim": "#9A96A8"
+ },
+ "layout": {
+  "clipBox": {
+   "x": 0,
+   "y": 400,
+   "w": 1080,
+   "h": 640
+  },
+  "caption": {
+   "x": 60,
+   "w": 900,
+   "gap": 40,
+   "size": 56,
+   "lh": 1.16,
+   "reveal": "words"
+  },
+  "stack": {
+   "y0": 420,
+   "y1": 1400,
+   "gap": 64,
+   "dim": 0.62,
+   "align": "center"
+  }
+ },
+ "themes": [
+  {
+   "t0": 20.276999999999997,
+   "t1": 1000000000.0,
+   "theme": "light"
+  }
+ ],
+ "grids": {
+  "riff": [
+   13.132,
+   13.643,
+   14.125,
+   14.612,
+   15.077,
+   15.57,
+   16.058,
+   16.539,
+   17.021,
+   17.52,
+   17.997,
+   18.48,
+   18.954,
+   19.442,
+   19.93,
+   20.411
+  ],
+  "pre": {
+   "origin": 13.132,
+   "period": -0.4839,
+   "count": 28
+  },
+  "beat": [
+   13.132,
+   13.643,
+   14.125,
+   14.612,
+   15.077,
+   15.57,
+   16.058,
+   16.539,
+   17.021,
+   17.52,
+   17.997,
+   18.48,
+   18.954,
+   19.442,
+   19.93,
+   20.411,
+   20.9,
+   21.364,
+   21.823,
+   22.339,
+   22.833,
+   23.315,
+   23.779,
+   24.238,
+   24.754,
+   25.242,
+   25.729,
+   26.218,
+   26.728,
+   27.228,
+   27.692,
+   28.168,
+   28.609,
+   29.117,
+   29.602,
+   30.087,
+   30.545,
+   31.05,
+   31.535,
+   32.02,
+   32.504,
+   32.992,
+   33.474,
+   33.961,
+   34.44,
+   34.922,
+   35.407,
+   35.9,
+   36.37
+  ],
+  "bar": [
+   13.132,
+   15.077,
+   17.021,
+   18.954,
+   20.9,
+   22.833,
+   24.754,
+   26.728,
+   28.609,
+   30.545,
+   32.504,
+   34.44,
+   36.37
+  ]
+ },
+ "_grids_note": "riff and pre as in short-v1 (riff = measured riff onsets, beat 0 = the drop at edit 13.132; pre:k = k beats before it). beat = riff (beats 0-15) followed by long-beats.json from song bar 24 on, shifted to this timeline (edit = song - 44.811): beat:16 = bar:4 = song bar 24 'golden years' (edit 20.900), bar:5 'disappear', bar:6 'ego crush', bar:7 'God, it's brutal out here', bar:8 = the instrumental's downbeat (song 73.42), bar:9 the kicker (song 75.36). The music splice is at edit 20.377, just before beat:15. r4: the intro (edit 0-7.7) has no measurable pulse (flat onset-phase histograms in every band), so montage cuts there follow the speech; from edit 7.7 a ~0.5 s pulse is measurable (2-8 kHz onsets at 7.75, 8.24, 8.76, 9.26) and pre:k matches it within 60 ms.",
+ "items": [
+  {
+   "id": "grain",
+   "type": "grain",
+   "t0": 0,
+   "t1": "riff:0",
+   "opacity": 0.035,
+   "size": 2,
+   "hold": 3
+  },
+  {
+   "id": "vignette",
+   "type": "vignette",
+   "t0": 0,
+   "t1": 11.9223
+  },
+  {
+   "id": "altman",
+   "type": "clip",
+   "t0": 0,
+   "t1": 4.7333,
+   "src": "clips/altman-2015-short.mp4",
+   "in": 1.84,
+   "crop": {
+    "x": 280,
+    "y": 6,
+    "w": 640
+   },
+   "grade": {
+    "sat": 0,
+    "contrast": 1.25,
+    "brightness": 0.0,
+    "gamma": 0.97,
+    "sharpen": 0.5,
+    "grain": 4
+   },
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "zoomEase": "out",
+   "snap": {
+    "z": 1.08,
+    "dur": 0.25
+   },
+   "focus": [
+    0.72,
+    0.3
+   ],
+   "punch": [
+    {
+     "at": 3.88,
+     "z": 1.08,
+     "dur": 0.12
+    }
+   ],
+   "shakes": [
+    {
+     "at": 3.88,
+     "amp": 11,
+     "decay": 0.1
+    }
+   ],
+   "stamp": {
+    "y": 300,
+    "yrPx": 52,
+    "year": "2015",
+    "name": "Sam Altman",
+    "role": "Then president, Y Combinator"
+   },
+   "caption": {
+    "reveal": "dim",
+    "dimOp": 0.6,
+    "text": "…I think AI will probably like most likely sort of lead to the end of the world…",
+    "hl": "the end of the world",
+    "dimHl": 0.85,
+    "words": [
+     {
+      "w": "…I",
+      "s": 1.86
+     },
+     {
+      "w": "THINK",
+      "s": 1.99
+     },
+     {
+      "w": "AI",
+      "s": 2.2
+     },
+     {
+      "w": "WILL",
+      "s": 2.52
+     },
+     {
+      "w": "PROBABLY",
+      "s": 2.78
+     },
+     {
+      "w": "LIKE",
+      "s": 3.44
+     },
+     {
+      "w": "MOST",
+      "s": 3.9
+     },
+     {
+      "w": "LIKELY",
+      "s": 4.14
+     },
+     {
+      "w": "SORT",
+      "s": 4.48
+     },
+     {
+      "w": "OF",
+      "s": 4.66
+     },
+     {
+      "w": "LEAD",
+      "s": 5.1
+     },
+     {
+      "w": "TO",
+      "s": 5.58
+     },
+     {
+      "w": "THE",
+      "s": 5.72
+     },
+     {
+      "w": "END",
+      "s": 5.8
+     },
+     {
+      "w": "OF",
+      "s": 5.92
+     },
+     {
+      "w": "THE",
+      "s": 6.02
+     },
+     {
+      "w": "WORLD…",
+      "s": 6.12
+     }
+    ]
+   },
+   "source": "Airbnb fireside chat · 2015",
+   "audio": {
+    "in": 1.86,
+    "out": 6.34,
+    "peak_rel_db": 14
+   },
+   "verified": true,
+   "meta": 32,
+   "name_px": 36,
+   "_note": "r4: footage + his own voice replace the silent quote card (all three short critics). r6: verbatim (small.en and base.en on the exact window, 3/3 each): 'I think AI will probably like most likely sort of lead to the end of the world'; the leading … marks the cut 'You know,', the trailing … the sentence going on ('but in the meantime, there will be great companies created with serious machine learning'). rev2: the backdrop (the event's cyan wall with yellow speaker credits, 'Airbnb' among them) is shown as filmed (the r4 key is removed). Year only (the month rests on Business Insider's Jun 4, 2015 report). Audio: a quiet recording with a 21 dB peak-to-loudness ratio, so a per-clip peak limiter (peak_rel_db 14) keeps it from capping the whole mix's loudness."
+  },
+  {
+   "id": "amodei",
+   "type": "clip",
+   "t0": 4.7333,
+   "t1": 8.3,
+   "src": "clips/amodei-axios-2025.mp4",
+   "in": 1065.64,
+   "crop": {
+    "x": 195,
+    "y": 150,
+    "w": 640
+   },
+   "grade": {
+    "sat": 0,
+    "contrast": 1.25,
+    "brightness": -0.02,
+    "gamma": 0.93,
+    "sharpen": 0.6,
+    "grain": 4
+   },
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "focus": [
+    0.5,
+    0.35
+   ],
+   "punch": [
+    {
+     "at": 5.1,
+     "z": 1.06,
+     "dur": 0.12
+    }
+   ],
+   "shakes": [
+    {
+     "at": 5.1,
+     "amp": 7,
+     "decay": 0.07
+    }
+   ],
+   "stamp": {
+    "y": 300,
+    "yrPx": 52,
+    "year": "2025",
+    "name": "Dario Amodei",
+    "role": "CEO, Anthropic"
+   },
+   "caption": {
+    "reveal": "dim",
+    "dimOp": 0.6,
+    "text": "…there’s a 25% chance that things go really, really badly…",
+    "hl": [
+     "25%",
+     "really, really badly"
+    ],
+    "words": [
+     {
+      "w": "…THERE’S",
+      "s": 1065.69
+     },
+     {
+      "w": "A",
+      "s": 1065.91
+     },
+     {
+      "w": "25%",
+      "s": 1066.01
+     },
+     {
+      "w": "CHANCE",
+      "s": 1067.07
+     },
+     {
+      "w": "THAT",
+      "s": 1067.33
+     },
+     {
+      "w": "THINGS",
+      "s": 1067.55
+     },
+     {
+      "w": "GO",
+      "s": 1067.73
+     },
+     {
+      "w": "REALLY,",
+      "s": 1068.01
+     },
+     {
+      "w": "REALLY",
+      "s": 1068.59
+     },
+     {
+      "w": "BADLY…",
+      "s": 1068.87
+     }
+    ]
+   },
+   "sub": {
+    "text": "“…and a 75% chance that things go really, really well…”",
+    "size": 40,
+    "gap": 22,
+    "color": "#C2BDCE"
+   },
+   "source": "Axios AI+ DC Summit · Sep 17, 2025",
+   "audio": {
+    "in": 1065.67,
+    "out": 1069.34,
+    "lcut": 0.15
+   },
+   "verified": true,
+   "meta": 32,
+   "name_px": 36,
+   "_note": "Footage per research/verify/amodei-video.json (Axios upload nvXj4HTiYqA). Full sentence: 'I'm relatively an optimist, so I think there's a 25% chance that things go really, really badly and a 75% chance that things go really, really well'. r4 (editorial critic): the caption now ENDS with … (it went on with the 75% clause), not a full stop; 'So I think' is trimmed (leading …). rev2: the background is shown as filmed (AXIOS wall, Jack Clark at left; the r4 key is removed)."
+  },
+  {
+   "id": "hf-stamp",
+   "type": "stamp",
+   "t0": 8.3,
+   "t1": 11.9223,
+   "meta": 32,
+   "name_px": 36,
+   "stamp": {
+    "y": 300,
+    "yrPx": 52,
+    "year": "2026",
+    "name": "OpenAI says its agents attacked Hugging Face",
+    "w": 560
+   },
+   "verified": true
+  },
+  {
+   "id": "hf-time",
+   "type": "headline",
+   "t0": 8.3,
+   "t1": 10.2333,
+   "size": 84,
+   "style": {
+    "cy": 760
+   },
+   "dimRest": 0.62,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "hit": 6,
+   "hlWipe": 0.2,
+   "invert": 0,
+   "meta": 32,
+   "name_px": 36,
+   "hlAt": "pre:9",
+   "outlet": "TIME",
+   "date": "Jul 24, 2026",
+   "text": "How OpenAI Lost Control of an AI Model—and What Needs to Change",
+   "hl": "Lost Control",
+   "verified": true
+  },
+  {
+   "id": "hf-bbc",
+   "type": "headline",
+   "t0": 10.2333,
+   "t1": 11.9223,
+   "size": 84,
+   "style": {
+    "cy": 760
+   },
+   "dimRest": 0.62,
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "hit": 6,
+   "hlWipe": 0.2,
+   "invert": 0,
+   "meta": 32,
+   "name_px": 36,
+   "hlAt": "pre:5",
+   "outlet": "BBC News",
+   "date": "Jul 29, 2026",
+   "text": "OpenAI says its rogue AI tried to hack other companies",
+   "hl": "rogue AI tried to hack",
+   "verified": true
+  },
+  {
+   "id": "breath",
+   "type": "text",
+   "t0": 11.9223,
+   "t1": "riff:0",
+   "bg": "#000000",
+   "text": "it’s brutal out here",
+   "words": [
+    {
+     "w": "it’s",
+     "at": "pre:2.5"
+    },
+    {
+     "w": "brutal",
+     "at": "pre:2.25"
+    },
+    {
+     "w": "out",
+     "at": "pre:2"
+    },
+    {
+     "w": "here",
+     "at": "pre:1.75"
+    }
+   ],
+   "style": {
+    "y": 880,
+    "size": 112
+   },
+   "_note": "William's exact words, lowercase, at his explicit request: the ONE approved exception to 'no lyrics on screen' (out/NOTES.md). Lands word by word on 16ths (11.92-12.29), over the breath (12.15-12.95), then holds until the drop."
+  },
+  {
+   "id": "ground-cream",
+   "type": "color",
+   "color": "#F2EBDD",
+   "t0": 20.276999999999997,
+   "t1": 35.6,
+   "_note": "Refrain + instrumental ground (full colour on cream), under the logo; revealed when the logo breaks apart."
+  },
+  {
+   "id": "logo-form",
+   "type": "logo",
+   "t0": "riff:0",
+   "t1": "bar:4+0.6",
+   "grid": "beat",
+   "beat0": 0,
+   "layout": {
+    "y": 400,
+    "scale": 0.72
+   },
+   "_note": "short-v1's formation (LOGO_CUES on the measured riff onsets: plane + dots on the downbeat, shapes on beats 1-7, wordmark beat 8, tilt 9, kicker 10), with the long cut's downbeat slam. r4: beat-locked piece hits and a slow push through the hold (beats 10-15), then it BREAKS APART on the attack right after the music splice (cut at edit 20.377, attack 20.397) with a flash: the plane band becomes the Guardian ticker's band and the pink circle the Stargate frame.",
+   "break": {
+    "at": 20.397,
+    "dur": 0.36,
+    "stagger": 0.004,
+    "lead": 0.04,
+    "hide": [
+     "band",
+     "pink"
+    ],
+    "bgFade": 0,
+    "hit": 18
+   },
+   "slam": [
+    "plane",
+    "pink",
+    "black",
+    "core",
+    "blue",
+    "teal",
+    "smallO"
+   ],
+   "slamDur": 0.1,
+   "slamFrom": {
+    "plane": 1.3,
+    "pink": 1.3,
+    "black": 1.3,
+    "core": 2.3,
+    "blue": 1.9,
+    "teal": 2.2,
+    "smallO": 3.2
+   },
+   "cues": {
+    "plane": 0,
+    "dots": 0,
+    "pink": 0,
+    "black": 0,
+    "smallO": 0.5,
+    "core": 1,
+    "sort": 2,
+    "blue": 2,
+    "teal": 3
+   },
+   "hits": [
+    {
+     "beat": 0,
+     "amp": 20,
+     "decay": 0.07
+    },
+    {
+     "beat": 0.5,
+     "amp": 5,
+     "decay": 0.05
+    },
+    {
+     "beat": 1,
+     "amp": 9,
+     "decay": 0.06
+    },
+    {
+     "beat": 2,
+     "amp": 12,
+     "decay": 0.06
+    },
+    {
+     "beat": 3,
+     "amp": 6,
+     "decay": 0.06
+    },
+    {
+     "beat": 4,
+     "amp": 12,
+     "decay": 0.07
+    },
+    {
+     "beat": 7,
+     "amp": 6
+    },
+    {
+     "beat": 8,
+     "amp": 22
+    },
+    {
+     "beat": 9,
+     "amp": 7
+    },
+    {
+     "beat": 12,
+     "amp": 8
+    },
+    {
+     "beat": 11,
+     "amp": 5,
+     "decay": 0.06
+    },
+    {
+     "beat": 13,
+     "amp": 6,
+     "decay": 0.06
+    },
+    {
+     "beat": 14,
+     "amp": 5,
+     "decay": 0.06
+    }
+   ],
+   "pulse": {
+    "from": 0,
+    "to": 15,
+    "amp": 0.009,
+    "accents": {
+     "0": 6,
+     "1": 2.0,
+     "2": 2.4,
+     "8": 2.2,
+     "11": 1.6,
+     "12": 1.8,
+     "13": 1.8,
+     "14": 1.6,
+     "15": 1.8
+    }
+   },
+   "rehits": [
+    {
+     "beat": 11,
+     "parts": [
+      "blue",
+      "teal",
+      "square"
+     ],
+     "scale": 1.26,
+     "dur": 0.18
+    },
+    {
+     "beat": 12,
+     "parts": [
+      "pink",
+      "core"
+     ],
+     "scale": 1.16,
+     "dur": 0.18
+    },
+    {
+     "beat": 12.5,
+     "parts": [
+      "dots",
+      "smallO"
+     ],
+     "scale": 1.8,
+     "dur": 0.18
+    },
+    {
+     "beat": 13,
+     "parts": [
+      "blue",
+      "teal",
+      "target",
+      "square"
+     ],
+     "scale": 1.28,
+     "dur": 0.18
+    },
+    {
+     "beat": 13.5,
+     "parts": [
+      "nabla",
+      "chk"
+     ],
+     "scale": 1.3,
+     "dur": 0.16
+    },
+    {
+     "beat": 14,
+     "parts": [
+      "black",
+      "core",
+      "pink"
+     ],
+     "scale": 1.16,
+     "dur": 0.18
+    },
+    {
+     "beat": 14.5,
+     "parts": [
+      "teal",
+      "smallO",
+      "dots",
+      "target"
+     ],
+     "scale": 1.5,
+     "dur": 0.16
+    }
+   ],
+   "push": {
+    "from": 10,
+    "to": "20.397",
+    "z": [
+     1.0,
+     1.035
+    ]
+   },
+   "flashes": [
+    {
+     "beat": 0,
+     "opacity": 0.8,
+     "decay": 0.012
+    },
+    {
+     "beat": 8,
+     "opacity": 0.22,
+     "decay": 0.05
+    },
+    {
+     "beat": "20.397",
+     "opacity": 0.3,
+     "decay": 0.04
+    }
+   ]
+  },
+  {
+   "id": "rf-apollo-disc",
+   "type": "shape",
+   "t0": "beat:21",
+   "t1": "bar:6",
+   "frame": {
+    "shape": "circle",
+    "cx": 930,
+    "cy": 470,
+    "r": 165,
+    "fill": "#FF2E88"
+   },
+   "enter": {
+    "style": "pop",
+    "dur": 0.3
+   },
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "_note": "r5: the logo's pink circle as the Apollo card's frame (behind its top-right corner), under the plane band. r6: moved in from the frame edge so ~45 % shows; it cuts out with the card (no collapse dot)."
+  },
+  {
+   "id": "rf-lee-disc",
+   "type": "shape",
+   "t0": "beat:25",
+   "t1": 27.088,
+   "frame": {
+    "shape": "circle",
+    "cx": 850,
+    "cy": 1340,
+    "r": 150,
+    "fill": "#2346FF"
+   },
+   "enter": {
+    "style": "pop",
+    "dur": 0.3
+   },
+   "exit": {
+    "style": "fly",
+    "to": "axis",
+    "dur": 0.22,
+    "dist": 1700
+   },
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "_note": "r5: the logo's blue circle as the Lee card's frame. r6: below the plane band at the right, as on the cover, clear of the card, so the whole disc reads (it was a sliver at the card's bottom-left corner); it flies out with the band on the band's stop."
+  },
+  {
+   "id": "rf-band",
+   "type": "band",
+   "t0": 20.397,
+   "t1": 27.088,
+   "band": {
+    "cx": 540,
+    "cy": 1185,
+    "h": 260
+   },
+   "enter": {
+    "style": "morph",
+    "dur": 0.24,
+    "delay": 0.04,
+    "from": "logo:band"
+   },
+   "exit": {
+    "style": "slide",
+    "dur": 0.22
+   },
+   "_note": "The logo's plane band thickens into the 'golden age' ticker band at the break (long.json's rf-guardian band geometry). r5: it stays on as the ground under the Apollo and Lee cards (motion critic) and slides out on the band's stop."
+  },
+  {
+   "id": "rf-stargate-stamp",
+   "type": "stamp",
+   "t0": 20.397,
+   "t1": "bar:4",
+   "stamp": {
+    "year": "2026",
+    "name": "OpenAI Stargate Abilene",
+    "role": "Image: Epoch AI"
+   },
+   "verified": true,
+   "_note": "r7: rf-stargate's stamp, split off so it ends on the Guardian ticker's landing (bar:4)."
+  },
+  {
+   "id": "rf-stargate",
+   "type": "image",
+   "skipIn": [
+    "long"
+   ],
+   "t0": 20.397,
+   "t1": "bar:5",
+   "src": "/home/user/poster/ai-safety-presentation/assets/research/economy/epoch_sat_stargate_abilene_2026-07.png",
+   "crop": {
+    "x": 280,
+    "y": 0,
+    "w": 720,
+    "h": 720
+   },
+   "frame": {
+    "shape": "circle",
+    "cx": 540,
+    "cy": 630,
+    "r": 200,
+    "ring": "#B31B1B",
+    "ringW": 18
+   },
+   "grade": {
+    "sat": 1.0
+   },
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "enter": {
+    "style": "morph",
+    "dur": 0.24,
+    "delay": 0.04,
+    "from": "logo:pink"
+   },
+   "verified": true,
+   "_note": "Plan rf-b-0 with the verifier's correct_text 'IMAGERY: EPOCH AI · JUL 2026' (the Airbus credit is unconfirmed and dropped). r1: the circle is smaller and higher (cy 600, r 250) so it clears the raised Guardian band and its attribution line. r2: stamp at y 300 with the verifier's exact credit line as the role (chip '2026'), so the 40 px name fits one line; the circle sits between the stamp and the Guardian label (cy 630, r 200), the band moves to y 1185. r5 (social critic, high: the Guardian ticker plus this stamp, ~23 words in 1.9 s): the credit is cut to 'Image: Epoch AI' (the image stays credited on screen); the full 'Imagery: Epoch AI · Jul 2026' is in the post caption. [short: re-timed from long.json, short edit = long edit - 25.579]",
+   "textDelay": 0.3
+  },
+  {
+   "id": "rf-guardian",
+   "type": "ticker",
+   "t0": "bar:4",
+   "t1": "bar:5",
+   "band": "rf-band",
+   "skipIn": [
+    "long"
+   ],
+   "text": "Nvidia’s quarterly revenue doubles … as CEO declares ‘golden age’",
+   "hl": "‘golden age’",
+   "outlet": "The Guardian",
+   "date": "Aug 26, 2026",
+   "size": 68,
+   "style": {
+    "w": 940,
+    "labelStack": true,
+    "labelGap": 14,
+    "along": 50
+   },
+   "dimRest": 0.75,
+   "invert": 0,
+   "verified": true,
+   "_note": "Plan rf-b-1 (verify ok). Full: 'Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’'. 5 words: one bar. r1: band raised from y 1290 to 1100 (safe zone) and slams in with its text. r3 (social critic: whose CEO?): 'Nvidia’s quarterly revenue doubles … as CEO declares ‘golden age’' (9 words; only 'to nearly $100bn' is cut, marked …), set at 68 px across the band's 940 px. r5 (social critic, high): the verbatim headline stays whole, the words outside 'golden age' at 0.42 (as in the short's r5), so it reads as its highlight; the landing flash is 2 frames. r6: skipped in the long cut (skipIn), kept for make_short.py (the short overrides dimRest to 0.75); the long's bar 24 is rf-guardian-l. [short: re-timed from long.json, short edit = long edit - 25.579]",
+   "hit": 6
+  },
+  {
+   "id": "rf-apollo-card",
+   "type": "shape",
+   "t0": "bar:5",
+   "t1": "bar:6",
+   "frame": {
+    "shape": "square",
+    "x": 90,
+    "y": 470,
+    "w": 900,
+    "h": 600,
+    "fill": "#2346FF"
+   },
+   "enter": "slam",
+   "hit": 7,
+   "_note": "[short: re-timed from long.json, short edit = long edit - 25.579]"
+  },
+  {
+   "id": "rf-apollo",
+   "type": "pullquote",
+   "t0": "bar:5",
+   "t1": "bar:6",
+   "text": "“…I could copy myself to the new server…”",
+   "hl": "copy myself",
+   "size": 78,
+   "style": {
+    "x": 170,
+    "w": 740,
+    "cy": 770,
+    "color": "#F2EBDD",
+    "hlColor": "#F2C300",
+    "dimColor": "#F2EBDD"
+   },
+   "enter": "slam",
+   "textDelay": 0.0,
+   "verified": true,
+   "_note": "Plan rf-b-2 (verify ok). The figure reads '<thinking> [...] I could copy myself to the new server, overwriting...': both ellipses mark the cuts. r1: a filled blue tile, cream type, the highlight in the plane's yellow. r5 (social critic, high: ~21 words in 1.9 s): the source line is 'Self-exfiltration test · hidden reasoning' (the date, Dec 5, 2024, goes to the post caption). 'Hidden reasoning' stays, against the critic's 'Self-exfiltration test' alone: the words are the model's <thinking> in a test, not something it said to anyone. r6 (social critic, high: 17 words in 1.9 s): the role 'Apollo Research' goes to the post caption and the source line is 'Test · hidden reasoning' (both facts stay on screen): quote 7 + '2024 · Claude 3 Opus' + 3 = 13 words. (make_short.py overrides this item's name, year, role and source.) [short: re-timed from long.json, short edit = long edit - 25.579]",
+   "meta": 32,
+   "name_px": 36,
+   "stamp": {
+    "y": 300,
+    "yrPx": 52,
+    "year": "2024",
+    "name": "Claude 3 Opus",
+    "role": "Test · hidden reasoning",
+    "w": 500
+   }
+  },
+  {
+   "id": "rf-god-seed",
+   "type": "shape",
+   "t0": 26.941,
+   "t1": 27.088,
+   "frame": {
+    "shape": "circle",
+    "cx": 540,
+    "cy": 820,
+    "r": 380,
+    "fill": "#15131F"
+   },
+   "zoom": [
+    0.04,
+    0.42
+   ],
+   "_note": "r3 (social critic: ~0.25 s of blank cream between Lee's collapse and the disc): as Lee's card shrinks to a point, an ink seed appears at its centre and grows (r 15 -> 160 px); on 'God,' the full disc slams over it (rf-god-disc). [short: re-timed from long.json, short edit = long edit - 25.579]"
+  },
+  {
+   "id": "rf-lee-card",
+   "type": "shape",
+   "t0": "bar:6",
+   "t1": 27.088,
+   "frame": {
+    "shape": "square",
+    "x": 90,
+    "y": 470,
+    "w": 900,
+    "h": 640,
+    "ring": "#FF2E88",
+    "ringW": 18,
+    "fill": "#FBF7EE"
+   },
+   "enter": "slam",
+   "hit": 7,
+   "exit": {
+    "style": "collapse",
+    "dur": 0.22
+   },
+   "_note": "[short: re-timed from long.json, short edit = long edit - 25.579]"
+  },
+  {
+   "id": "rf-lee",
+   "type": "pullquote",
+   "t0": "bar:6",
+   "t1": 27.088,
+   "label": "On AI, retiring from Go",
+   "text": "“…there is an entity that cannot be defeated.”",
+   "hl": "cannot be defeated",
+   "size": 76,
+   "style": {
+    "x": 170,
+    "w": 740,
+    "cy": 790
+   },
+   "enter": "slam",
+   "textDelay": 0.0,
+   "exit": {
+    "style": "collapse",
+    "dur": 0.22
+   },
+   "verified": true,
+   "_note": "Plan rf-b-4 with the verifier's correct_text source line. Full: 'Even if I become the number one, there is an entity that cannot be defeated.' (TNW wording). The photo planned beside it (rf-b-3) is dropped: its DeepMind credit and date were not confirmed. Collapses from 'God,' (bar 27) to the band's stop at song ~71.90. r1: the text shrinks and spins with its card (same curve, same centre), so no empty frame rotates on its own. r5 (social critic, high: ~23 words in 2.3 s): source line 'Yonhap · 2019' ('As reported by Yonhap, Nov 27, 2019' in the post caption). r6 (social critic, high: 17 words in 2.3 s): the source line goes to the post caption (Lee Sedol speaking to Yonhap, Nov 27, 2019): 14 words. (make_short.py sets its own name, year, role and source.) [short: re-timed from long.json, short edit = long edit - 25.579]",
+   "meta": 32,
+   "name_px": 36,
+   "stamp": {
+    "y": 300,
+    "yrPx": 52,
+    "year": "2019",
+    "name": "Lee Sedol",
+    "role": "Go player"
+   }
+  },
+  {
+   "id": "rf-god-disc",
+   "type": "shape",
+   "t0": 27.088,
+   "t1": "beat:32.75",
+   "frame": {
+    "shape": "circle",
+    "cx": 540,
+    "cy": 820,
+    "r": 380,
+    "fill": "#15131F"
+   },
+   "enter": {
+    "style": "slam",
+    "dur": 0.12
+   },
+   "exit": {
+    "style": "morph",
+    "to": "logo-re:black",
+    "dur": 0.36
+   },
+   "zoom": [
+    1.0,
+    1.1
+   ],
+   "hit": 12,
+   "kicks": [
+    {
+     "at": 27.181,
+     "s": 1.04,
+     "dur": 0.14
+    },
+    {
+     "at": 27.529,
+     "s": 1.04,
+     "dur": 0.14
+    },
+    {
+     "at": 27.689,
+     "s": 1.04,
+     "dur": 0.14
+    },
+    {
+     "at": 27.849,
+     "s": 1.04,
+     "dur": 0.14
+    },
+    {
+     "at": 28.019,
+     "s": 1.04,
+     "dur": 0.14
+    },
+    {
+     "at": 28.309,
+     "s": 1.04,
+     "dur": 0.14
+    }
+   ],
+   "kickOrigin": [
+    540,
+    820
+   ],
+   "_note": "r2 (both critics: the 'God, it's brutal out here' hold read as an empty frame): one large ink disc slams in on 'God,' (song 71.99) and holds, slowly growing, through the a cappella line; the data points pop on it, one per word. On the instrumental's downbeat (song 73.42) it shrinks into the logo's black circle (exit morph, landing as the reassembly's black piece cuts in at beat 0.75) while the plane slams back over it. [short: re-timed from long.json, short edit = long edit - 25.579]",
+   "shakes": [
+    {
+     "at": 27.181,
+     "amp": 6,
+     "decay": 0.06
+    },
+    {
+     "at": 27.529,
+     "amp": 6,
+     "decay": 0.06
+    },
+    {
+     "at": 27.689,
+     "amp": 6,
+     "decay": 0.06
+    },
+    {
+     "at": 27.849,
+     "amp": 6,
+     "decay": 0.06
+    },
+    {
+     "at": 28.019,
+     "amp": 6,
+     "decay": 0.06
+    },
+    {
+     "at": 28.309,
+     "amp": 6,
+     "decay": 0.06
+    }
+   ]
+  },
+  {
+   "id": "logo-re",
+   "type": "logo",
+   "mode": "assemble",
+   "t0": 27.088,
+   "t1": 35.6,
+   "grid": "beat",
+   "beat0": 32,
+   "layout": {
+    "y": 400,
+    "scale": 0.72
+   },
+   "dotsAt": [
+    27.181,
+    27.529,
+    27.689,
+    27.849,
+    28.019,
+    28.309
+   ],
+   "dotScale": 7.0,
+   "bg": "rgba(0,0,0,0)",
+   "cutIn": [
+    "black"
+   ],
+   "flashes": [
+    {
+     "beat": 3,
+     "opacity": 0.2,
+     "decay": 0.05
+    }
+   ],
+   "_note": "While 'God, it's brutal out here' is sung a cappella (the band stops at song ~71.90) the six data points pop in one per word, large (4.2x), the first on 'God,'. Then on the instrumental's downbeat (song 73.42) the plane slams back and sorts them, the pieces fly in on 8ths, the wordmark lands on beat 3, the crossbar tilts, the kicker lands on bar 2 (song 75.36) and the cover holds to the end. r1: layout y 400 (was 465), the same place the logo formed on the riff, so the kicker (about y 1361-1385) clears the bottom app overlay; the art top (about y 481) clears the Bostrom caption. r2: the points pop at 7x (100-180 px) on the held ink disc (rf-god-disc), the logo's own cream is transparent (ground-cream is under it) so the disc can sit below the points, and the black circle cuts in where the disc lands (cutIn). r3 (motion critic: the disc read as a half-opacity grey circle at 54.2): that was the default 0.5 white flash on the instrumental downbeat washing over the ink disc. The downbeat flash is gone (the plane's slam keeps its 24 px hit); only the wordmark's 0.2 flash on beat 3 remains, so the disc stays flat ink until it lands as the black circle. [short: re-timed from long.json, short edit = long edit - 25.579]",
+   "wmFrom": 1.1
+  },
+  {
+   "id": "end-voice",
+   "type": "voice",
+   "t0": 29.521,
+   "t1": 33.391,
+   "src": "clips/bostrom-ted-2015-full.mp4",
+   "at": 29.521,
+   "audio": {
+    "in": 466.03,
+    "out": 469.9
+   },
+   "verified": true,
+   "_note": "AUDIBLE (closing instrumental, no vocals): 'Machine intelligence is the last invention that humanity will ever need to make.' research/long/bostrom-ted-2015.json rank 1 (466.06-469.70; small.en x3); edges re-checked 10 Oct: silence before 466.07 and after 469.75 (next word at 470.40). Song is ducked under it. r2: starts at edit 55.10 (song 74.33), ends 58.97 (song 78.20); the caption is gone by 59.35, so the finished cover holds clean for 1.85 s (to 61.2). [short: re-timed from long.json, short edit = long edit - 25.579]"
+  },
+  {
+   "id": "end-cap",
+   "type": "caption",
+   "t0": 29.521,
+   "t1": 33.771,
+   "exit": {
+    "style": "fade",
+    "dur": 0.3
+   },
+   "theme": "light",
+   "text": "Machine intelligence is the last invention that humanity will ever need to make.",
+   "hl": "the last invention",
+   "words": [
+    {
+     "w": "MACHINE",
+     "at": 29.611
+    },
+    {
+     "w": "INTELLIGENCE",
+     "at": 29.811
+    },
+    {
+     "w": "IS",
+     "at": 30.191
+    },
+    {
+     "w": "THE",
+     "at": 30.551
+    },
+    {
+     "w": "LAST",
+     "at": 30.691
+    },
+    {
+     "w": "INVENTION",
+     "at": 30.971
+    },
+    {
+     "w": "THAT",
+     "at": 31.491
+    },
+    {
+     "w": "HUMANITY",
+     "at": 31.851
+    },
+    {
+     "w": "WILL",
+     "at": 32.331
+    },
+    {
+     "w": "EVER",
+     "at": 32.591
+    },
+    {
+     "w": "NEED",
+     "at": 32.711
+    },
+    {
+     "w": "TO",
+     "at": 32.871
+    },
+    {
+     "w": "MAKE.",
+     "at": 32.971
+    }
+   ],
+   "y": 268,
+   "w": 960,
+   "size": 40,
+   "lh": 1.18,
+   "hlKeep": true,
+   "srcInline": true,
+   "srcGap": 12,
+   "source": "Nick Bostrom · TED2015",
+   "verified": true,
+   "_note": "r2: y 290 (was 250, inside the app header zone), 960 px wide so it sets on two lines above the art. FINAL PASS (motion critic, medium: 36 px, under the 38 px floor for read-once lines, and the only text on the cover moment for 4.25 s): 40 px. In IBM Plex Mono a 40 px character advances 24 px, so 960 px holds 40 characters and the 81-character line cannot set in two lines at 40 px (the critic's 'keep two lines' is not possible without leaving the 60 px margins); it sets in three, with 'THE LAST INVENTION' kept on one line (hlKeep) and the source line moved onto the red rule's line (srcInline, as in the short), so the block still ends above the art (black circle top, y ~481): see out/NOTES.md for the measured rows. [short: re-timed from long.json, short edit = long edit - 25.579]"
+  }
+ ]
+}

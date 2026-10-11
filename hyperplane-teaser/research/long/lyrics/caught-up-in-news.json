@@ -1,0 +1,62 @@
+{
+  "key": "caught-up-in-news",
+  "lyric": "And I'm so caught up in the news / Of who likes me and who hates you",
+  "lyric_idea": "A flood of AI news headlines (the 'news' half), then the feedback mechanism behind AI sycophancy: thumbs-up / thumbs-down signals and flattering answers (the 'who likes me' half). Never show the lyric itself.",
+  "candidates": [
+    {
+      "type": "headline",
+      "text": "The week the AI freakout went mainstream",
+      "speaker_or_outlet": "Vox (Andrew Prokop)",
+      "date": "Published 2026-09-12; updated 2026-09-14",
+      "url": "https://www.vox.com/politics/502717/ai-freakout-mainstream-openai-anthropic-humans",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/theory/vox-ai-freakout.png",
+      "verified_how": "Deck source: /home/user/poster/ai-safety-presentation/tools/slides_xrisk.js, wallSlide() (section 'THE ALIGNMENT PROBLEM · EXISTENTIAL RISK · 1'); manifest /home/user/poster/ai-safety-presentation/assets/research/theory/manifest.json, item vox-ai-freakout-mainstream (verified: true). Live: vox.com page opened via TinyFish fetch; title, byline and dates match.",
+      "why_it_fits": "The shortest and cleanest headline in the deck's wall of news clippings, so it reads as the 'news' beat in under 2 s. The full wall is a flood of stacked, rotated clippings, which matches 'caught up in the news'. Local files, all in /home/user/poster/ai-safety-presentation/assets/research/theory/: wired-coxon-crunch-time.png, time-ai-culture.png, cbs-amodei-slow-down.png, cnn-pacing-frontier.png, bbc-hubinger-10pct.png, vox-ai-freakout.png, bbc-hinton-quits-google.png, superintelligence-statement.png, guardian-iabied-review.png. Caveat: the wall is about existential-risk news, not flattery, so use it only for the news line. The deck's date says Sep 14, but the page's published date is Sep 12 (updated Sep 14)."
+    },
+    {
+      "type": "quote",
+      "text": "We also teach our models how to apply these principles by incorporating user signals like thumbs-up / thumbs-down feedback on ChatGPT responses.",
+      "speaker_or_outlet": "OpenAI, blog post 'Sycophancy in GPT‑4o: What happened and what we’re doing about it'",
+      "date": "2025-04-29",
+      "url": "https://openai.com/index/sycophancy-in-gpt-4o/",
+      "local_path": null,
+      "verified_how": "Page opened via TinyFish fetch; quote copied verbatim from the page text. The page uses a non-breaking hyphen in 'GPT‑4o' and a curly apostrophe in 'we’re'. Trim with ellipses if needed, e.g. '…incorporating user signals like thumbs-up / thumbs-down feedback on ChatGPT responses.'",
+      "why_it_fits": "The most literal echo of 'who likes me and who hates you': thumbs-up and thumbs-down are the signals the model was trained to chase. The same post says the update 'skewed towards responses that were overly supportive but disingenuous' because it 'focused too much on short-term feedback'. Best shown right after the news headlines as the 'mechanism' beat."
+    },
+    {
+      "type": "headline",
+      "text": "OpenAI explains why ChatGPT became too sycophantic",
+      "speaker_or_outlet": "TechCrunch (Kyle Wiggers)",
+      "date": "2025-04-29 (Pacific time; 2025-04-30 UTC)",
+      "url": "https://techcrunch.com/2025/04/29/openai-explains-why-chatgpt-became-too-sycophantic/",
+      "local_path": null,
+      "verified_how": "Page opened via WebFetch and TinyFish fetch. Page title is 'OpenAI explains why ChatGPT became too sycophantic | TechCrunch'; byline Kyle Wiggers. Body describes users noticing ChatGPT 'applauding all sorts of problematic, dangerous decisions and ideas', which 'quickly became a meme'.",
+      "why_it_fits": "47 characters and phone-friendly (about 2 s). It names the flattery directly, for the 'who likes me' beat. Verified alternate: NBC News, 'OpenAI rolled back a ChatGPT update that made the bot excessively flattering', Angela Yang, 2025-04-30 (https://www.nbcnews.com/tech/tech-news/openai-rolls-back-chatgpt-after-bot-sycophancy-rcna203782; page opened via TinyFish fetch and matches)."
+    },
+    {
+      "type": "stat",
+      "text": "across 11 state-of-the-art AI models … they affirm users' actions 50% more than humans do",
+      "speaker_or_outlet": "Myra Cheng, Cinoo Lee, Pranav Khadpe, Sunny Yu, Dyllan Han, Dan Jurafsky, 'Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence' (arXiv:2510.01395; published in Science, per NPR and a search index)",
+      "date": "arXiv v1 2025-10-01; Science 2026-03-26 (per search index)",
+      "url": "https://arxiv.org/abs/2510.01395",
+      "local_path": null,
+      "verified_how": "arXiv abstract page opened via TinyFish fetch; the 50% sentence is verbatim from the abstract. Science DOI 10.1126/science.aec8352 was bot-blocked, so its title and date come from a search index. NPR (Ari Daniel, 2026-04-23, page opened) confirms the paper appeared in Science.",
+      "why_it_fits": "Gives the scale behind 'who likes me': the abstract also says participants 'rated sycophantic responses as higher quality, trusted the sycophantic AI model more, and were more willing to use it again'. Use the abstract's 50% figure only; NPR's coverage gives 51% for one subset and 47% overall, so do not mix them."
+    }
+  ],
+  "rejected": [
+    {
+      "item": "Deck splash_ml 'Post-training' slide (tools/slides_splash_ml.js ~L821: 'Votes like yours become the training signal')",
+      "reason": "Concept only. The example answers are made up on the slide, so it is not a real AI event."
+    },
+    {
+      "item": "Deck 'Scaling Monosemanticity' fact: features for 'deception, sycophancy, bias'",
+      "reason": "Paraphrase in the research JSON, not on-screen or verbatim text. Usable only as a voiceover fact."
+    },
+    {
+      "item": "Verified alternate headline: NPR (Ari Daniel, 2026-04-23) 'AI's a suck up. Research shows how it flatters and suggests we're not to blame' (https://www.npr.org/2026/04/23/nx-s1-5792867/ai-chatbot-flattery-mental-health-risks)",
+      "reason": "Not in the top four. It is a good 2026 backup if the April 2025 items feel dated. The title is long (about 80 characters), so trim with an ellipsis for phone use."
+    }
+  ],
+  "notes": "Deck first: the only deck-sourced candidate is the x-risk wall-of-headlines slide. The deck has no verbatim sycophancy or flattery on-screen text, so the sycophancy beats come from the live web. Suggested order: headline wall (news) -> OpenAI thumbs quote (who likes me) -> TechCrunch headline (flattery). No video clips were identified for these items."
+}

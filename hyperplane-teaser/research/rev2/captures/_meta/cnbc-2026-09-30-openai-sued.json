@@ -1,0 +1,11 @@
+{
+ "id": "cnbc-2026-09-30-openai-sued",
+ "url": "https://www.cnbc.com/2026/09/30/openai-sued-cyberattack.html",
+ "expected": "OpenAI is sued over rogue AI Hugging Face cyberattack",
+ "notes": [],
+ "status": 403,
+ "final_url": "https://www.cnbc.com/2026/09/30/openai-sued-cyberattack.html",
+ "title0": "Access Denied",
+ "ok": false,
+ "error": "blocked or error: status 403 title 'Access Denied'"
+}

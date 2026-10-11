@@ -1,0 +1,175 @@
+{
+ "_note": "STAND-IN by builder B (10 Oct 2026): PLACEHOLDER NUMBERS, approximate and NOT verified, only so fx/charts.js can be built and tested while research/rev2/graphs.json is produced. fx/charts.js reads graphs.json first. Never ship these values; every source line below says STAND-IN.",
+ "graphs": [
+  {
+   "id": "dc-buildout",
+   "kind": "line",
+   "title": "The data-centre build-out",
+   "subtitle": "US construction spending on data centres, $ billions a year",
+   "series": [
+    {
+     "name": "data centres",
+     "points": [
+      [
+       "2020",
+       9
+      ],
+      [
+       "2021",
+       11
+      ],
+      [
+       "2022",
+       14
+      ],
+      [
+       "2023",
+       20
+      ],
+      [
+       "2024",
+       28
+      ],
+      [
+       "2025",
+       40
+      ]
+     ]
+    }
+   ],
+   "yAxis": {
+    "min": 0,
+    "max": 48,
+    "ticks": [
+     10,
+     20,
+     30,
+     40
+    ],
+    "fmt": {
+     "prefix": "$",
+     "suffix": "B"
+    }
+   },
+   "xAxis": {
+    "ticks": [
+     2020,
+     2022,
+     2024
+    ]
+   },
+   "source": "STAND-IN placeholder values (not verified) \u00b7 replace with graphs.json"
+  },
+  {
+   "id": "train-compute",
+   "kind": "scatter",
+   "title": "Training compute keeps exploding",
+   "subtitle": "FLOP used to train notable models (log scale)",
+   "series": [
+    {
+     "name": "models",
+     "points": [
+      {
+       "x": 2012.7,
+       "y": 4.7e+17,
+       "label": "AlexNet"
+      },
+      {
+       "x": 2017.8,
+       "y": 3.4e+23,
+       "label": "AlphaGo Zero"
+      },
+      {
+       "x": 2020.4,
+       "y": 3.1e+23,
+       "label": "GPT-3"
+      },
+      {
+       "x": 2022.3,
+       "y": 2.5e+24,
+       "label": "PaLM"
+      },
+      {
+       "x": 2023.2,
+       "y": 2.1e+25,
+       "label": "GPT-4"
+      },
+      {
+       "x": 2023.9,
+       "y": 5e+25,
+       "label": "Gemini Ultra"
+      },
+      {
+       "x": 2025.1,
+       "y": 4.6e+26,
+       "label": "Grok 3"
+      }
+     ]
+    }
+   ],
+   "log": true,
+   "yAxis": {
+    "min": 1e+17,
+    "max": 1e+27,
+    "ticks": [
+     1e+18,
+     1e+20,
+     1e+22,
+     1e+24,
+     1e+26
+    ],
+    "fmt": "pow10"
+   },
+   "xAxis": {
+    "min": 2012,
+    "max": 2026,
+    "ticks": [
+     2012,
+     2016,
+     2020,
+     2024
+    ]
+   },
+   "source": "STAND-IN approximate values (not verified) \u00b7 replace with graphs.json"
+  },
+  {
+   "id": "capex",
+   "kind": "bar",
+   "title": "Big Tech's AI spending spree",
+   "subtitle": "Capital spending, Microsoft + Alphabet + Amazon + Meta, $ billions",
+   "data": [
+    {
+     "label": "2022",
+     "value": 150
+    },
+    {
+     "label": "2023",
+     "value": 155
+    },
+    {
+     "label": "2024",
+     "value": 230
+    },
+    {
+     "label": "2025",
+     "value": 380
+    }
+   ],
+   "yAxis": {
+    "min": 0,
+    "max": 440,
+    "ticks": [
+     100,
+     200,
+     300,
+     400
+    ],
+    "fmt": {
+     "prefix": "$",
+     "suffix": "B"
+    }
+   },
+   "source": "STAND-IN placeholder values (not verified) \u00b7 replace with graphs.json"
+  }
+ ]
+}

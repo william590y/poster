@@ -1,0 +1,204 @@
+{
+ "id": "axios-2025-09-17-amodei-25-percent",
+ "url": "https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent",
+ "expected": "There's a 25% chance that things go really, really badly",
+ "notes": [
+  "hid 16 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent",
+ "title0": "Amodei on AI: \"There's a 25% chance that things go really, really badly\"",
+ "hidden_detail": [
+  [
+   "DIV",
+   "fides-overlay",
+   "fides-overlay",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "fides-modal-overlay",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "fides-modal-content",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "SPAN",
+   "",
+   "fixed sr-only",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "SPAN",
+   "",
+   "fixed sr-only",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "SPAN",
+   "",
+   "fixed sr-only",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "SPAN",
+   "",
+   "fixed sr-only",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "SPAN",
+   "",
+   "fixed sr-only",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "SPAN",
+   "",
+   "fixed sr-only",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "SPAN",
+   "",
+   "fixed sr-only",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "SPAN",
+   "",
+   "fixed sr-only",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "SPAN",
+   "",
+   "fixed sr-only",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "SPAN",
+   "",
+   "fixed sr-only",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "SPAN",
+   "",
+   "fixed sr-only",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "SPAN",
+   "",
+   "fixed sr-only",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "",
+   "",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "Amodei on AI: \"There's a 25% chance that things go really, really badly\"",
+ "og_title": "Amodei on AI: \"There's a 25% chance that things go really, really badly\"",
+ "twitter_title": "Amodei on AI: \"There's a 25% chance that things go really, really badly\"",
+ "og_site": "Axios",
+ "published": "2025-09-17T20:09:39.883000Z",
+ "author_meta": "Megan Morrone",
+ "canonical": "https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent",
+ "h1_count": 1,
+ "h1": "Amodei on AI: \"There's a 25% chance that things go really, really badly\"",
+ "h1_box": [
+  260,
+  405,
+  940,
+  577.78125
+ ],
+ "h1_font": "48px",
+ "below_bottom": 577.78125,
+ "below_text": [],
+ "hero_top": 753.78125,
+ "header_bottom": 157,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  583.28125
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/axios-2025-09-17-amodei-25-percent.png",
+ "trimmed": 25
+}

@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Introducing Hyperplane</title>
+<style>
+@font-face { font-family: 'Unbounded'; font-weight: 200 900; src: url('/node_modules/@fontsource-variable/unbounded/files/unbounded-latin-wght-normal.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-weight: 500; src: url('/node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2') format('woff2'); }
+html, body { margin: 0; background: #000; }
+#stage { display: block; width: 1080px; height: 1920px; }
+.word { font-family: 'Unbounded', sans-serif; font-weight: 700; font-size: 118px; letter-spacing: -0.03em; }
+.mono { font-family: 'IBM Plex Mono', monospace; font-weight: 500; text-transform: uppercase; }
+</style>
+</head>
+<body>
+<svg id="stage" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1080" height="1920" fill="#F2EBDD"/>
+  <g id="cam">
+  <g id="artOuter"><g id="art" transform="translate(0,337) scale(0.72)"></g></g>
+  <g id="words"></g>
+  <text id="intro" class="mono" font-size="38" letter-spacing="12" fill="#15131F" y="1160"></text>
+  <g id="wm"><path id="wmBody" fill="#15131F"/><path id="wmBar" fill="#15131F"/></g>
+  <g id="kicker">
+    <path d="M0 0H64L32 56Z M15 5H57L36 41.75Z" fill="#B31B1B" fill-rule="evenodd" id="kNabla"/>
+    <text id="kText" class="mono" font-size="30" letter-spacing="5.4" fill="#15131F">A CORNELL GRADIENT PODCAST</text>
+  </g>
+  </g>
+  <rect id="flash" width="1080" height="1920" fill="#FFFFFF" opacity="0"/>
+</svg>
+<script>
+// ---------------- timing (shared with the music: 128 BPM) ----------------
+const BPM = 128, B = 60 / BPM, S = B / 4, BAR = 4 * B;
+const T = (bar, beat = 1, s = 0) => (bar - 1) * BAR + (beat - 1) * B + s * S;
+const DURATION = 9 * BAR + 1.6;
+
+// ---------------- helpers ----------------
+const clamp = (x, a = 0, b = 1) => Math.min(b, Math.max(a, x));
+const lerp = (a, b, u) => a + (b - a) * u;
+const oCub = u => 1 - Math.pow(1 - u, 3);
+const iCub = u => u * u * u;
+const ioCub = u => u < .5 ? 4 * u * u * u : 1 - Math.pow(-2 * u + 2, 3) / 2;
+const oBack = (u, s = 1.9) => 1 + (s + 1) * Math.pow(u - 1, 3) + s * Math.pow(u - 1, 2);
+const pr = (t, t0, d) => clamp((t - t0) / d);
+const NS = 'http://www.w3.org/2000/svg';
+const art = document.getElementById('art');
+function mk(tag, attrs, parent = art) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; }
+const set = (e, a) => { for (const k in a) e.setAttribute(k, a[k]); };
+const C = { ink: '#15131F', cream: '#F2EBDD', pink: '#FF2E88', orange: '#FF4A1C', red: '#B31B1B',
+            blue: '#2346FF', teal: '#00B8A9', violet: '#7B3FF2', yellow: '#F2C300' };
+
+// ---------------- the cover's geometry (1500-unit cover space) ----------------
+const RAD = 22 * Math.PI / 180, K = Math.tan(RAD), TV = 120 / Math.cos(RAD), BOT = 1000;
+const topY = x => BOT - TV - K * x, botY = x => BOT - K * x;
+const nrm = [Math.sin(RAD), Math.cos(RAD)];
+const XL = -60, XR = 1560;
+
+// draw order matches the cover: lines under shapes, the plane on top
+const marginL = mk('line', { x1: 1180, y1: botY(1180) + 75, x2: 1400, y2: botY(1400) + 75, stroke: C.ink, 'stroke-width': 5 });
+const s0 = [470 + nrm[0] * 40, botY(470) + nrm[1] * 40];
+const normalL = mk('line', { x1: s0[0], y1: s0[1], x2: s0[0] + nrm[0] * 150, y2: s0[1] + nrm[1] * 150, stroke: C.ink, 'stroke-width': 12 });
+
+const pink = mk('circle', { cx: 430, cy: 390, r: 240, fill: C.pink });
+const black = mk('circle', { cx: 340, cy: 300, r: 188, fill: C.ink });
+const core = mk('circle', { cx: 465, cy: 425, r: 74, fill: C.orange });
+const smallO = mk('circle', { cx: 700, cy: 230, r: 30, fill: C.orange });
+const arc = mk('path', { d: 'M 760 340 A 90 90 0 0 1 940 340', fill: 'none', stroke: C.ink, 'stroke-width': 12 });
+const chkG = mk('g', {});
+const chk = [];
+for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++) {
+  if ((r + c) % 2) continue;
+  chk.push({ el: mk('rect', { x: -18, y: -18, width: 36, height: 36, fill: (r === 2 && c === 1) ? C.orange : C.ink }, chkG), r, c });
+}
+const nabla = mk('polygon', { fill: C.red });
+const NX = 1320, NTIP = topY(NX) - 67, NWD = 125, NHT = 108;
+
+const blue = mk('circle', { cx: 1080, cy: 815, r: 170, fill: C.blue });
+const teal = mk('circle', { cx: 928, cy: 775, r: 60, fill: C.teal });
+const sq = mk('rect', { x: -54, y: -54, width: 108, height: 108, fill: C.teal });
+const tg = [mk('circle', { cx: 1350, cy: 680, r: 56, fill: C.violet }), mk('circle', { cx: 1350, cy: 680, r: 37, fill: C.cream }), mk('circle', { cx: 1350, cy: 680, r: 19, fill: C.violet })];
+const TGR = [56, 37, 19];
+
+// data points: they start mixed together, then the plane sorts them
+const DOTS = [
+  { fin: [190, 643, 13], start: [560, 700], col: C.orange },
+  { fin: [760, 777, 10], start: [300, 360], col: C.blue },
+  { fin: [245, 685, 18], start: [1150, 520], col: C.orange },
+  { fin: [800, 806, 18], start: [980, 330], col: C.blue },
+  { fin: [292, 631, 10], start: [820, 250], col: C.orange },
+  { fin: [835, 880, 10], start: [420, 860], col: C.blue },
+].map(d => ({ ...d, el: mk('circle', { r: 0, fill: d.col }) }));
+
+const band = mk('polygon', { fill: C.yellow });
+const edge = mk('line', { stroke: C.ink, 'stroke-width': 12 });
+
+// ---------------- words: POINT. LINE. PLANE. ----------------
+const wordsG = document.getElementById('words');
+const WORDS = [['POINT', C.orange, 1230], ['LINE', C.blue, 1355], ['PLANE', C.yellow, 1480]].map(([w, dotCol, y]) => {
+  const g = mk('g', {}, wordsG);
+  const tx = mk('text', { class: 'word', x: 540, y, 'text-anchor': 'middle', fill: C.ink }, g);
+  tx.textContent = w;
+  const dot = mk('tspan', { fill: dotCol }, tx); dot.textContent = '.';
+  return { g, y };
+});
+
+// ---------------- type: INTRODUCING / wordmark / kicker ----------------
+const intro = document.getElementById('intro');
+const INTRO = 'INTRODUCING';
+const wm = document.getElementById('wm'), wmBar = document.getElementById('wmBar');
+let WMP = null, introX = 0, kickerW = 0;
+const WM_W = 840, WM_BASE = 1302;
+
+function line(el, x1, y1, x2, y2) { set(el, { x1, y1, x2, y2 }); }
+function drawOn(el, u, len) { set(el, { 'stroke-dasharray': `${len} ${len}`, 'stroke-dashoffset': len * (1 - u) }); }
+
+// a little kick pulse for the whole artwork
+let KICKS = [], HITS = [];
+const FINAL = T(9, 3);
+function pulse(t) {
+  let p = 0;
+  for (const k of KICKS) if (t >= k) p = Math.max(p, Math.exp(-(t - k) / 0.09) * (Math.abs(k - FINAL) < 1e-3 ? 2.2 : 1));
+  let amp = 0.012 * p;
+  // the build: 16th-note pulses, growing
+  if (t >= T(7, 1) && t < T(7, 4)) {
+    const u = (t - T(7, 1)) / BAR, last = Math.floor((t - T(7, 1)) / S) * S + T(7, 1);
+    amp = Math.max(amp, 0.004 + 0.022 * u * u * Math.exp(-(t - last) / 0.05));
+  }
+  return amp;
+}
+
+const DOT_T = [0, T(1, 1, 3), T(1, 1, 6), T(1, 1, 10), T(1, 1, 12), T(2, 1, 0)];
+// ---------------- render(t) ----------------
+function shake(t) {
+  let dx = 0, dy = 0;
+  for (const h of HITS) {
+    if (t < h) continue;
+    const amp = (h < 0.01 ? 9 : (Math.abs(h - T(8)) < 1e-3 || Math.abs(h - FINAL) < 1e-3) ? 20 : 13) * Math.exp(-(t - h) / 0.11);
+    dx += amp * Math.sin(2 * Math.PI * 23 * (t - h) + h); dy += amp * Math.cos(2 * Math.PI * 19 * (t - h) + 2 * h);
+  }
+  return [dx, dy];
+}
+function render(tReal) {
+  // the silence gap (bar 7, beat 4): everything freezes
+  const t = (tReal >= T(7, 4) && tReal < T(8)) ? T(7, 4) - 1e-4 : tReal;
+  const [sx, sy] = shake(tReal);
+  set(document.getElementById('cam'), { transform: `translate(${sx.toFixed(2)},${sy.toFixed(2)})` });
+  // --- whole-art pulse (around the artwork's middle)
+  const a = pulse(t), cx = 540, cy = 740;
+  set(document.getElementById('artOuter'), { transform: `translate(${cx},${cy}) scale(${1 + a}) translate(${-cx},${-cy})` });
+
+  // --- bar 1: POINT — dots pop in on 8th notes, big and mixed together
+  DOTS.forEach((d, i) => {
+    const t0 = i === 0 ? -0.12 : DOT_T[i], p = pr(t, t0, 0.22), sort = pr(t, T(3) + 0.04, 0.55);
+    const big = lerp(3.4, 1, oCub(sort));
+    const x = lerp(d.start[0], d.fin[0], oBack(sort, 1.4)), y = lerp(d.start[1], d.fin[1], oBack(sort, 1.4));
+    set(d.el, { cx: x, cy: y, r: d.fin[2] * big * oBack(p) });
+  });
+
+  // --- bar 2: LINE — lines draw on, beat by beat
+  drawOn(normalL, oCub(pr(t, T(2, 1), 0.32)), 150);
+  drawOn(marginL, oCub(pr(t, T(2, 1, 3), 0.32)), 238);
+  drawOn(arc, ioCub(pr(t, T(2, 1, 6), 0.42)), 283);
+  // the plane's top edge sweeps across on beat 4 (the whoosh)
+  const ue = ioCub(pr(t, T(2, 1, 12) - 0.15, 0.3));
+  const xe = lerp(XL, XR, ue);
+  line(edge, XL, topY(XL), xe, topY(xe));
+  edge.setAttribute('opacity', ue > 0 ? 1 : 0);
+
+  // --- bar 3: PLANE — the band drops out of the edge on the downbeat
+  const ub = oCub(pr(t, T(3), 0.16));
+  const h = TV * ub;
+  set(band, { points: `${XL},${topY(XL)} ${XR},${topY(XR)} ${XR},${topY(XR) + h} ${XL},${topY(XL) + h}` });
+
+  // --- words pop in on bars 1–3, leave on bar 7
+  WORDS.forEach((w, i) => {
+    const p = pr(t, i === 0 ? -0.12 : T(i + 1), 0.24), out = pr(t, T(7, 1, i), 0.3);
+    const s = lerp(0.55, 1, oBack(p)), dx = -1200 * iCub(out);
+    set(w.g, { transform: `translate(${540 + dx},${w.y}) scale(${s}) translate(-540,${-w.y})`, opacity: p > 0 ? clamp(p * 3) * (1 - out) : 0 });
+  });
+
+  // --- bar 4: the warm class arrives
+  let p = oBack(pr(t, T(4, 1), 0.36));
+  set(pink, { r: 240 * p });
+  p = oCub(pr(t, T(4, 2), 0.3));
+  set(black, { cx: lerp(-260, 340, p), cy: lerp(-300, 300, p), opacity: p > 0 ? 1 : 0 });
+  set(core, { r: 74 * oBack(pr(t, T(4, 3), 0.3)) });
+  set(smallO, { r: 30 * oBack(pr(t, T(4, 4), 0.28), 3) });
+
+  // --- bar 5: the cool class arrives
+  p = oBack(pr(t, T(5, 1), 0.42), 1.3);
+  set(blue, { cy: lerp(2600, 815, p), opacity: t >= T(5, 1) ? 1 : 0 });
+  set(teal, { r: 60 * oBack(pr(t, T(5, 2), 0.3)) });
+  p = pr(t, T(5, 3), 0.42);
+  set(sq, { transform: `translate(690,890) rotate(${lerp(-165, 15, oBack(p, 1.2))}) scale(${oBack(p)})` });
+  tg.forEach((c, i) => set(c, { r: TGR[i] * oBack(pr(t, T(5, 4, i), 0.26)) }));
+
+  // --- bar 6: checkerboard squares flip in on 16ths, then the ∇ drops in
+  chk.forEach((q, i) => {
+    const u = pr(t, T(6, 1, i), 0.2);
+    const x = (q.c - 1.5) * 36, y = (q.r - 1.5) * 36;
+    set(q.el, { transform: `translate(1100,270) rotate(-22) translate(${x},${y}) rotate(${lerp(90, 0, oCub(u))}) scale(${oBack(u)})` });
+  });
+  p = pr(t, T(6, 4), 0.34);
+  const dy = lerp(-700, 0, oBack(p, 1.6));
+  set(nabla, { points: `${NX - NWD / 2},${NTIP - NHT + dy} ${NX + NWD / 2},${NTIP - NHT + dy} ${NX},${NTIP + dy}`, opacity: t >= T(6, 4) ? 1 : 0 });
+
+  // --- bar 7: INTRODUCING types in on 16ths
+  const k = clamp(Math.floor((t - T(7, 1, 1)) / S) + 1, 0, INTRO.length);
+  intro.textContent = INTRO.slice(0, t >= T(7, 1, 1) ? k : 0);
+  intro.setAttribute('x', introX);
+
+  // --- bar 8: DROP — flash, the wordmark slams in, the H crossbar tilts to the plane's angle, the kicker follows
+  set(document.getElementById('flash'), { opacity: t >= T(8) ? 0.6 * (1 - oCub(pr(t, T(8), 0.32))) : 0 });
+  p = pr(t, T(8), 0.26);
+  const fin = pr(t, T(9, 3), 0.45), finS = 1 + 0.03 * (1 - oCub(fin)) * (t >= T(9, 3) ? 1 : 0);
+  const ws = lerp(1.4, 1, oBack(p, 1.5)) * finS;
+  const sc = WM_W / WMP.width;
+  set(wm, { transform: `translate(540,${WM_BASE - 50}) scale(${ws}) translate(-540,${-(WM_BASE - 50)}) translate(${540 - WM_W / 2},${WM_BASE}) scale(${sc})`, opacity: p > 0 ? clamp(p * 4) : 0 });
+  const tilt = -22 * oBack(pr(t, T(8, 2), 0.3), 2.2);
+  set(wmBar, { transform: `translate(${WMP.barC[0]},${WMP.barC[1]}) skewY(${tilt}) translate(${-WMP.barC[0]},${-WMP.barC[1]})` });
+  p = oCub(pr(t, T(8, 3), 0.35));
+  set(document.getElementById('kicker'), { transform: `translate(0,${lerp(30, 0, p)})`, opacity: p });
+}
+
+// ---------------- setup ----------------
+window.__ready = (async () => {
+  WMP = await (await fetch('wordmark_parts.json')).json();
+  const SY = await (await fetch('kpop/sync.json')).json(); KICKS = SY.kicks; HITS = SY.hits;
+  document.getElementById('wmBody').setAttribute('d', WMP.body);
+  wmBar.setAttribute('d', WMP.bar);
+  await document.fonts.ready;
+  // centre INTRODUCING by its full width, so typing doesn't shift it
+  intro.textContent = INTRO; const iw = intro.getComputedTextLength() - 12; introX = 540 - iw / 2; intro.textContent = '';
+  // kicker: ∇ + text, centred together
+  const kt = document.getElementById('kText'), kw = kt.getComputedTextLength() - 5.4, nw = 34, gap = 16;
+  const x0 = 540 - (nw + gap + kw) / 2;
+  document.getElementById('kNabla').setAttribute('transform', `translate(${x0},1383) scale(${nw / 64})`);
+  set(kt, { x: x0 + nw + gap, y: 1410 });
+  render(0);
+  window.__ok = true;
+  return true;
+})().catch(e => { window.__err = String(e && e.stack || e); });
+window.render = render; window.DURATION = DURATION;
+</script>
+</body>
+</html>

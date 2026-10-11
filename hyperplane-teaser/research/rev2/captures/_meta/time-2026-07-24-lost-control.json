@@ -1,0 +1,201 @@
+{
+ "id": "time-2026-07-24-lost-control",
+ "url": "https://time.com/article/2026/07/24/openai-hugging-face-attack/",
+ "expected": "How OpenAI Lost Control of an AI Model—and What Needs to Change",
+ "notes": [
+  "clicked:Accept All|Reject All",
+  "hid 15 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://time.com/article/2026/07/24/openai-hugging-face-attack/",
+ "title0": "How OpenAI Lost Control of an AI Model—and What Needs to Change",
+ "hidden_detail": [
+  [
+   "DIV",
+   "leaderboard-container",
+   "flex min-h-[4.125rem] w-full items-center justify-center bg-",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "leaderboard-ad-1",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "google_ads_iframe_/21801468956/time/busi",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "google_ads_iframe_/21801468956/time/busi",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-1",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-2",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "branded-content-inline-ad",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-3",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-4",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-5",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-6",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "inline-ad-7",
+   "w-full min-w-px max-w-[100vw] items-center justify-center bg",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "fixed bottom-0 z-[9998] flex max-h-14 w-full items-center ju",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "grecaptcha-badge",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "How OpenAI Lost Control of an AI Model—and What Needs to Change",
+ "og_title": "How OpenAI Lost Control of an AI Model—and What Needs to Change",
+ "twitter_title": "How OpenAI Lost Control of an AI Model—and What Needs to Change",
+ "og_site": "TIME",
+ "published": "2026-07-24T15:13:52.357Z",
+ "author_meta": "Harry Booth",
+ "canonical": "https://time.com/article/2026/07/24/openai-hugging-face-attack/",
+ "h1_count": 6,
+ "h1": "How OpenAI Lost Control of an AI Model—and What Needs to Change",
+ "h1_box": [
+  80,
+  155.890625,
+  440,
+  331.890625
+ ],
+ "h1_font": "40px",
+ "below_bottom": 453.6875,
+ "below_text": [
+  "ADD TIME ON GOOGLE",
+  "by",
+  "Harry Booth",
+  "Open follow modal",
+  "Booth is a reporter at TIME."
+ ],
+ "hero_top": null,
+ "header_bottom": 0,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  471.6875
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/time-2026-07-24-lost-control.png",
+ "trimmed": 0
+}

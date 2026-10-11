@@ -1,0 +1,224 @@
+{
+ "id": "guardian-2026-09-18-gemini-hacked-three",
+ "url": "https://www.theguardian.com/technology/2026/sep/18/google-gemini-ai-hack",
+ "expected": "Google says its Gemini AI model hacked three other companies",
+ "notes": [
+  "hid 17 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://www.theguardian.com/technology/2026/sep/18/google-gemini-ai-hack",
+ "title0": "Google says its Gemini AI model hacked three other companies | Google | The Guardian",
+ "hidden_detail": [
+  [
+   "DIV",
+   "",
+   "ad-slot-container ad-slot-container-sf",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "dfp-ad--inline1",
+   "js-ad-slot ad-slot ad-slot--inline ad-slot--inline1",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-slot-container ad-slot-container-2 ad-slot-container--rig",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "dfp-ad--inline2",
+   "js-ad-slot ad-slot ad-slot--inline ad-slot--inline2",
+   "sticky",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "ASIDE",
+   "",
+   "ad-slot-container dcr-1v8h29s",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "dfp-ad--right",
+   "js-ad-slot ad-slot ad-slot--right ad-slot--mpu-banner-ad ad-",
+   "sticky",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "google_ads_iframe_/59666047/theguardian.",
+   "ad-slot__content",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "google_ads_iframe_/59666047/theguardian.",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "ASIDE",
+   "",
+   "ad-slot-container dcr-1ddb4fq",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "dfp-ad--merchandising-high",
+   "js-ad-slot ad-slot ad-slot--merchandising-high dcr-u307rf",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "ASIDE",
+   "",
+   "ad-slot-container dcr-174zwgl",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "dfp-ad--mostpop",
+   "js-ad-slot ad-slot ad-slot--mostpop ad-slot--mpu-banner-ad a",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "ASIDE",
+   "",
+   "ad-slot-container dcr-1ddb4fq",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "dfp-ad--merchandising",
+   "js-ad-slot ad-slot ad-slot--merchandising dcr-u307rf",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "ASIDE",
+   "",
+   "dcr-3z2xmj",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "sp_message_container_1512675",
+   "",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "sp_message_iframe_1512675",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "Google says its Gemini AI model hacked three other companies | Google | The Guardian",
+ "og_title": "Google says its Gemini AI model hacked three other companies",
+ "twitter_title": null,
+ "og_site": "the Guardian",
+ "published": "2026-09-19T00:53:20.000Z",
+ "author_meta": "https://www.theguardian.com/profile/johana-bhuiyan",
+ "canonical": "https://www.theguardian.com/technology/2026/sep/18/google-gemini-ai-hack",
+ "h1_count": 1,
+ "h1": "Google says its Gemini AI model hacked three other companies",
+ "h1_box": [
+  210,
+  236,
+  830,
+  318.1875
+ ],
+ "h1_font": "34px",
+ "below_bottom": 641.640625,
+ "below_text": [
+  "Disclosure comes after OpenAI and Anthropic hacks amid fears that tech firms una",
+  "US man shoots off-duty ICE agent who allegedly attacked him and daughter",
+  "Johana Bhuiyan",
+  "Fri 18 Sep 2026 20.53 EDT",
+  "Christa Pike out of hospital and back in prison after botched execution attempt",
+  "Last modified on Tue 29 Sep 2026 10.34 EDT",
+  "Share",
+  "Prefer the Guardian on Google",
+  "Nine people, including children, dead after mass shooting in Pennsylvania"
+ ],
+ "hero_top": 414.1875,
+ "header_bottom": 236,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  410.1875
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/guardian-2026-09-18-gemini-hacked-three.png",
+ "trimmed": 0
+}

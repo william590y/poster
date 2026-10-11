@@ -1,0 +1,56 @@
+{
+ "id": "arxiv-2024-01-05-ai-impacts-survey",
+ "url": "https://arxiv.org/abs/2401.02843",
+ "expected": "Thousands of AI Authors on the Future of AI",
+ "notes": [
+  "crop ends below .authors"
+ ],
+ "status": 200,
+ "final_url": "https://arxiv.org/abs/2401.02843",
+ "title0": "[2401.02843] Thousands of AI Authors on the Future of AI",
+ "hidden_detail": [],
+ "title": "[2401.02843] Thousands of AI Authors on the Future of AI",
+ "og_title": "Thousands of AI Authors on the Future of AI",
+ "twitter_title": "Thousands of AI Authors on the Future of AI",
+ "og_site": "arXiv.org",
+ "published": null,
+ "author_meta": null,
+ "canonical": "https://arxiv.org/abs/2401.02843",
+ "h1_count": 3,
+ "h1": "Thousands of AI Authors on the Future of AI",
+ "h1_box": [
+  20,
+  106.109375,
+  940.796875,
+  134.109375
+ ],
+ "h1_font": "23.328px",
+ "below_bottom": 226.03125,
+ "below_text": [
+  "TeX Source",
+  "Katja Grace",
+  "Harlan Stewart",
+  "Julia Fabienne Sandkühler",
+  "Stephen Thomas",
+  "Ben Weinstein-Raun",
+  "Jan Brauner",
+  "Richard C. Korzekwa",
+  "view license",
+  "Current browse context:",
+  "cs.CY",
+  "< prev"
+ ],
+ "hero_top": null,
+ "header_bottom": 52,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  208.109375
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/arxiv-2024-01-05-ai-impacts-survey.png",
+ "trimmed": 0
+}

@@ -1,0 +1,67 @@
+{
+ "id": "tnw-2026-09-29-trump-self-regulation",
+ "url": "https://thenextweb.com/news/trump-white-house-ai-ceos-lunch-2",
+ "expected": "After AI lunch, Trump backs self-regulation and plans to rename AI",
+ "notes": [
+  "hid 2 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://thenextweb.com/news/trump-white-house-ai-ceos-lunch-2",
+ "title0": "After AI lunch, Trump backs self-regulation and plans to rename AI",
+ "hidden_detail": [
+  [
+   "DIV",
+   "",
+   "c-articles__backdrop",
+   "absolute",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "c-articles__backdrop--sticky",
+   "sticky",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "After AI lunch, Trump backs self-regulation and plans to rename AI",
+ "og_title": "After AI lunch, Trump backs self-regulation and plans to rename AI",
+ "twitter_title": "After AI lunch, Trump backs self-regulation and plans to rename AI",
+ "og_site": "TNW | Us",
+ "published": "2026-09-29T20:53:53+00:00",
+ "author_meta": "Ana-Maria Stanciuc",
+ "canonical": "https://thenextweb.com/news/trump-white-house-ai-ceos-lunch-2",
+ "h1_count": 2,
+ "h1": "After AI lunch, Trump backs self-regulation and plans to rename AI",
+ "h1_box": [
+  32,
+  184,
+  1168,
+  304
+ ],
+ "h1_font": "48px",
+ "below_bottom": 445,
+ "below_text": [
+  "The president praised the executives and rejected new safety rules, despite warn",
+  "September 29, 2026 - 8:53 pm"
+ ],
+ "hero_top": 576,
+ "header_bottom": 576,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  463
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/tnw-2026-09-29-trump-self-regulation.png",
+ "trimmed": 0
+}

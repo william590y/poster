@@ -1,0 +1,63 @@
+{
+  "key": "bostrom-ted-2015",
+  "found_video": true,
+  "speaker": "Nick Bostrom",
+  "event": "TED2015, TED Talks: \"What happens when our computers get smarter than we are?\" (TED page lists it under TED2015; venue not confirmed from fetched pages)",
+  "date": "Recorded 2015-03-18 (TED page recordedOn). Published on TED.com 2015-04-27.",
+  "source_url": "https://www.ted.com/talks/nick_bostrom_what_happens_when_our_computers_get_smarter_than_we_are",
+  "youtube_url": "https://www.youtube.com/watch?v=MnT1xgZgkpk",
+  "youtube_channel": "TED",
+  "file": "/home/user/hyperplane-teaser/clips/bostrom-ted-2015-full.mp4",
+  "clips": [
+    {
+      "file": "/home/user/hyperplane-teaser/clips/bostrom-ted-2015-last-invention.mp4",
+      "source_start_s": 457.2,
+      "source_end_s": 470.0,
+      "clip_length_s": 12.83,
+      "contains_lines": [
+        1,
+        2
+      ],
+      "audio_checked_by": "small.en re-transcription of this clip file"
+    },
+    {
+      "file": "/home/user/hyperplane-teaser/clips/bostrom-ted-2015-humanville-train.mp4",
+      "source_start_s": 424.5,
+      "source_end_s": 437.0,
+      "clip_length_s": 12.5,
+      "contains_lines": [
+        3
+      ],
+      "audio_checked_by": "small.en re-transcription of this clip file (second cut; first 5 s cut misheard the proper noun)"
+    }
+  ],
+  "lines": [
+    {
+      "rank": 1,
+      "verbatim": "Machine intelligence is the last invention that humanity will ever need to make.",
+      "start_s": 466.06,
+      "end_s": 469.7,
+      "notes": "The requested line. Matches the TED caption text. small.en agrees in the first pass (466.11-469.69), a tight re-run (466.06-469.70), and the clip file (clip 8.92-12.46 s)."
+    },
+    {
+      "rank": 2,
+      "verbatim": "Once there is superintelligence, the fate of humanity may depend on what the superintelligence does.",
+      "start_s": 457.48,
+      "end_s": 462.7,
+      "notes": "Sets up line 1. The first pass put 'Once' at 455.22 with low word probability (0.18), a word-alignment artifact at a segment boundary. The tight re-run puts the segment at 457.48. Clip check agrees."
+    },
+    {
+      "rank": 3,
+      "verbatim": "The train doesn't stop at Humanville Station. It's likely rather to swoosh right by.",
+      "start_s": 428.06,
+      "end_s": 432.96,
+      "notes": "Speed-of-progress line, good for a fast cut. Matches the TED caption text, apart from a comma in the whisper output. Proper noun 'Humanville' was misheard in a 5 s clip (as 'Humenville'); a 12.5 s clip with lead-in transcribes it correctly. Use the 12.5 s clip, not a bare 5 s cut."
+    }
+  ],
+  "verification": {
+    "tools": "y2mate.gs download via y2dl.py (720p MP4); faster-whisper small.en (CPU, int8, VAD on) with word timestamps",
+    "caption_cross_check": "TED.com transcript field on the talk page (not the audio; used only to find the lines and cross-check wording)",
+    "duration_full_file_s": 991.35
+  },
+  "notes": "Runtime: YouTube search metadata 992 s; TED page PT16M21S (981 s). The YouTube upload is the TED channel's. yt-dlp metadata is bot-blocked, so the date comes from the TED page. The TED page gives 2015-03-18 as the recording date and 2015-04-27 as the publish date. The venue (Vancouver) was not confirmed from the fetched pages. Caption the card '2015' or 'TED2015' unless the venue is checked. Wording is verbatim from the audio. Do not paraphrase."
+}

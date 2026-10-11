@@ -1,0 +1,519 @@
+{
+ "name": "test-screens",
+ "title": "Builder C: verse 1 (song 26.8-42.5): real headline screenshots piled on the beats and highlighted, b-roll panels, a quote rolled out",
+ "_note": "Builder C test EDL (fx/screens.js, fx/text.js). Prep first: python3 render/video/prep_clips.py test-screens (copies the shots to cache/screens/, extracts the panel footage). Shots come from research/rev2/screens.json (STAND-IN research/rev2/screens.stand-in.json until it exists); b-roll ids from research/rev2/broll.json (STAND-IN broll.stand-in.json). Render: python3 render/video/render.py beats test-screens --from 0 --to 15.7",
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "duration": 15.7,
+ "audio": {
+  "song": "song/brutal.mp3",
+  "songStart": 26.8
+ },
+ "look": {
+  "ground": "#0E0D12"
+ },
+ "themes": [
+  {
+   "t0": 0,
+   "t1": 100,
+   "theme": "dark"
+  }
+ ],
+ "items": [
+  {
+   "id": "ground",
+   "type": "color",
+   "t0": 0,
+   "t1": 15.7,
+   "color": "#0E0D12"
+  },
+  {
+   "id": "paint",
+   "type": "layer"
+  },
+  {
+   "id": "p1-coxon",
+   "type": "panel",
+   "prep": "clip",
+   "broll": "coxon-daily-show",
+   "in": 440.0,
+   "oversample": 1.25,
+   "t0": "hb:15.75",
+   "t1": "hb:24",
+   "shape": "circle",
+   "frame": {
+    "cx": 540,
+    "cy": 470,
+    "r": 215
+   },
+   "entry": {
+    "style": "paint",
+    "at": "hb:16"
+   },
+   "out": "iris",
+   "border": "paint",
+   "color": "#FF2E88",
+   "pulse": "hb:16..23",
+   "kb": {
+    "z": [
+     1.05,
+     1.25
+    ],
+    "pan": [
+     -30,
+     0
+    ]
+   },
+   "grade": {
+    "sat": 0.15,
+    "contrast": 1.15,
+    "grain": 0
+   },
+   "credit": "THE DAILY SHOW \u00b7 OCT 2026"
+  },
+  {
+   "id": "pile-a",
+   "type": "screens",
+   "t0": "hb:15.75",
+   "t1": "hb:24",
+   "region": {
+    "y0": 700,
+    "y1": 1500
+   },
+   "shots": [
+    {
+     "id": "xrisk-vox-freakout",
+     "at": "hb:16",
+     "entry": "slam"
+    },
+    {
+     "id": "theory-wired-coxon-crunch-time",
+     "at": "hb:17",
+     "entry": "drop"
+    },
+    {
+     "id": "xrisk-guardian-iabied",
+     "at": "hb:18",
+     "entry": "flip"
+    },
+    {
+     "id": "xrisk-bbc-hubinger",
+     "at": "hb:19",
+     "entry": "slam"
+    }
+   ],
+   "push": {
+    "at": "hb:20",
+    "z": 1.5
+   },
+   "emph": [
+    {
+     "style": "lift",
+     "at": "hb:20"
+    },
+    {
+     "style": "circle",
+     "at": "hb:20.5"
+    },
+    {
+     "style": "underline",
+     "at": "hb:21.5",
+     "color": "#FF2E88"
+    }
+   ],
+   "pulse": "hb:21..23",
+   "out": {
+    "style": "scatter",
+    "at": "hb:23.5",
+    "dur": 0.24
+   }
+  },
+  {
+   "id": "p2-agents",
+   "type": "panel",
+   "prep": "clip",
+   "broll": "ale-agent-wall",
+   "oversample": 1.2,
+   "t0": "hb:23.75",
+   "t1": "hb:32",
+   "shape": "square",
+   "frame": {
+    "cx": 540,
+    "cy": 900,
+    "w": 900,
+    "h": 900
+   },
+   "rot": -7,
+   "entry": {
+    "style": "iris",
+    "at": "hb:24"
+   },
+   "out": "collapse",
+   "border": "pencil",
+   "pulse": "hb:24..31",
+   "pulseAmt": 0.02,
+   "kb": {
+    "z": [
+     1.0,
+     1.2
+    ]
+   },
+   "grade": {
+    "sat": 0.6,
+    "contrast": 1.05,
+    "grain": 0
+   },
+   "credit": "AGENTS LAST EXAM \u00b7 AGENT SESSIONS"
+  },
+  {
+   "id": "pile-b",
+   "type": "screens",
+   "t0": "hb:23.75",
+   "t1": "hb:32",
+   "layout": "scatter",
+   "center": [
+    540,
+    880
+   ],
+   "w": 860,
+   "jitter": {
+    "x": 50,
+    "y": 34,
+    "rot": 6
+   },
+   "shots": [
+    {
+     "id": "capabilities-ns-bbc",
+     "at": "hb:24",
+     "entry": "slam"
+    },
+    {
+     "id": "capabilities-ns-fortune",
+     "at": "hb:24.5",
+     "entry": "slide"
+    },
+    {
+     "id": "capabilities-ns-verge",
+     "at": "hb:25",
+     "entry": "slam"
+    },
+    {
+     "id": "capabilities-ns-quanta",
+     "at": "hb:26",
+     "entry": "paint"
+    },
+    {
+     "id": "capabilities-ns-techcrunch",
+     "at": "hb:26.5",
+     "entry": "slide"
+    },
+    {
+     "id": "capabilities-ns-wired",
+     "at": "hb:27",
+     "entry": "slam"
+    }
+   ],
+   "push": {
+    "at": "hb:28",
+    "z": 1.35
+   },
+   "emph": [
+    {
+     "style": "lift",
+     "at": "hb:28"
+    },
+    {
+     "style": "circle",
+     "at": "hb:28.5"
+    },
+    {
+     "style": "underline",
+     "at": "hb:29.5",
+     "color": "#FF2E88"
+    }
+   ],
+   "pulse": "hb:29..31",
+   "out": {
+    "style": "sweep",
+    "at": "hb:31.5",
+    "dur": 0.24
+   }
+  },
+  {
+   "id": "p3-figure",
+   "type": "panel",
+   "prep": "clip",
+   "broll": "figure-botq-200",
+   "prepBox": {
+    "w": 1500,
+    "h": 1080
+   },
+   "t0": "hb:31.75",
+   "t1": "hb:38",
+   "shape": "band",
+   "frame": {
+    "cx": 540,
+    "cy": 470,
+    "w": 1500,
+    "h": 380
+   },
+   "rot": -22,
+   "entry": {
+    "style": "paint",
+    "at": "hb:32"
+   },
+   "out": "iris",
+   "border": "none",
+   "pulse": "hb:32..37",
+   "pulseAmt": 0.015,
+   "kb": {
+    "z": [
+     1.0,
+     1.12
+    ],
+    "pan": [
+     60,
+     0
+    ]
+   },
+   "grade": {
+    "sat": 0.35,
+    "contrast": 1.1,
+    "grain": 0
+   },
+   "credit": "FIGURE AI \u00b7 FIGURE 03 (BOTQ)",
+   "creditAt": [
+    64,
+    300
+   ]
+  },
+  {
+   "id": "pile-c",
+   "type": "screens",
+   "t0": "hb:31.75",
+   "t1": "hb:38",
+   "region": {
+    "y0": 760,
+    "y1": 1500
+   },
+   "w": 900,
+   "shots": [
+    {
+     "id": "work-swe-cbs-layoffs-head",
+     "at": "hb:32",
+     "entry": "slam"
+    },
+    {
+     "id": "work-swe-fortune-100pct-head",
+     "at": "hb:33",
+     "entry": "drop"
+    },
+    {
+     "id": "economy-guardian_block_4000_jobs_ai",
+     "at": "hb:34",
+     "entry": "slam",
+     "crop": [
+      20,
+      530,
+      1260,
+      875
+     ]
+    }
+   ],
+   "push": {
+    "at": "hb:35",
+    "z": 1.45
+   },
+   "emph": [
+    {
+     "style": "lift",
+     "at": "hb:35"
+    },
+    {
+     "style": "circle",
+     "at": "hb:35.5"
+    },
+    {
+     "style": "underline",
+     "at": "hb:36.5",
+     "color": "#FF2E88"
+    }
+   ],
+   "pulse": "hb:36..37",
+   "out": {
+    "style": "drop",
+    "at": "hb:37.5",
+    "dur": 0.26
+   }
+  },
+  {
+   "id": "p4-unitree",
+   "type": "panel",
+   "prep": "clip",
+   "broll": "unitree-factory",
+   "oversample": 1.2,
+   "t0": "hb:37.75",
+   "t1": "hb:44",
+   "shape": "blob",
+   "frame": {
+    "cx": 700,
+    "cy": 1390,
+    "r": 250
+   },
+   "entry": {
+    "style": "iris",
+    "at": "hb:38"
+   },
+   "out": "iris",
+   "border": "paint",
+   "color": "#2346FF",
+   "pulse": "hb:38..43",
+   "kb": {
+    "z": [
+     1.1,
+     1.3
+    ],
+    "pan": [
+     -40,
+     10
+    ]
+   },
+   "grade": {
+    "sat": 0.5,
+    "contrast": 1.1,
+    "grain": 0
+   },
+   "credit": "UNITREE ROBOTICS \u00b7 FEB 2026",
+   "creditAt": [
+    64,
+    1516
+   ]
+  },
+  {
+   "id": "q-mythos",
+   "type": "quoteroll",
+   "t0": "hb:37.75",
+   "t1": "hb:44",
+   "x": 60,
+   "cy": 760,
+   "w": 930,
+   "text": "Mythos Preview fully autonomously identified and then exploited a 17-year-old remote code execution vulnerability in FreeBSD",
+   "font": {
+    "size": 94
+   },
+   "roll": {
+    "mode": "words",
+    "rate": 4,
+    "from": "hb:38",
+    "entry": "pop",
+    "out": {
+     "at": "hb:43.5",
+     "per": 0.02,
+     "style": "blow",
+     "dur": 0.2
+    }
+   },
+   "marks": [
+    {
+     "phrase": "fully autonomously",
+     "style": "underline",
+     "at": "hb:40"
+    },
+    {
+     "phrase": "exploited",
+     "style": "marker",
+     "at": "hb:41"
+    },
+    {
+     "phrase": "exploited",
+     "style": "bold",
+     "at": "hb:41"
+    },
+    {
+     "phrase": "17-year-old",
+     "style": "circle",
+     "at": "hb:42"
+    }
+   ],
+   "name": "Anthropic Frontier Red Team",
+   "year": "2026",
+   "source": "anthropic.com \u00b7 Apr 7, 2026",
+   "metaAt": "hb:42.5",
+   "exit": {
+    "style": "fade",
+    "dur": 0.15
+   }
+  },
+  {
+   "id": "pile-d",
+   "type": "screens",
+   "t0": "hb:43.75",
+   "t1": 15.7,
+   "region": {
+    "y0": 520,
+    "y1": 1500
+   },
+   "w": 900,
+   "shots": [
+    {
+     "id": "security-mythos-header",
+     "at": "hb:44",
+     "entry": "flip"
+    },
+    {
+     "id": "security-hf-header",
+     "at": "hb:44.5",
+     "entry": "slide"
+    },
+    {
+     "id": "security-hl-bbc-medicare",
+     "at": "hb:45",
+     "entry": "slam"
+    }
+   ],
+   "push": {
+    "at": "hb:46",
+    "z": 1.35
+   },
+   "emph": [
+    {
+     "style": "lift",
+     "at": "hb:46"
+    },
+    {
+     "style": "circle",
+     "at": "hb:46.5"
+    },
+    {
+     "style": "underline",
+     "at": "hb:47",
+     "color": "#FF2E88"
+    }
+   ],
+   "out": {
+    "style": "scatter",
+    "at": "hb:47.6",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "grain",
+   "type": "paper",
+   "t0": 0,
+   "t1": 15.7,
+   "mode": "dark"
+  }
+ ],
+ "beatfx": [
+  {
+   "id": "v1-fx",
+   "from": "hb:16",
+   "to": "hb:47.5",
+   "pattern": "verse",
+   "intensity": 0.8,
+   "eighths": true,
+   "layer": "paint"
+  }
+ ]
+}

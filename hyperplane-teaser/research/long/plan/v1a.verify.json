@@ -1,0 +1,55 @@
+{
+  "key": "long-v1a",
+  "checks": [
+    {
+      "idx": 0,
+      "ok": true,
+      "problem": "Confirmed on asset hl-fortune-hf-escape.png. Full headline: 'OpenAI says its AI models secretly broke out of a secure test environment and hacked into AI company Hugging Face in order to cheat on an evaluation'. The plan's 'OpenAI says its AI models … hacked into AI company Hugging Face' matches the head and tail after the ellipsis trim. Byline Jeremy Kahn and Emily Forlini; date July 21, 2026 (3:45 PM ET) matches the stamp JUL 21, 2026; outlet FORTUNE matches. The live Fortune page was not re-fetched; the image and the deck manifest URL agree."
+    },
+    {
+      "idx": 1,
+      "ok": true,
+      "problem": "Confirmed on swarmtraces-loot.png. The crop shows a recovered script whose dictionary is named LOOT, with the comment '# collect sensitive material into encrypted sidecar'. The plan adds no on-screen text, so there is no text mismatch. The live swarmtraces.org page (fetched) carries the headline 'An agent referred to server resources and credentials as LOOT' with a 2026-09-25 date. Stamp SWARM TRACES · 2026 has the correct year."
+    },
+    {
+      "idx": 2,
+      "ok": true,
+      "problem": "Non-blocking: clip yudkowsky-ted-2023-all-going-to-die.mp4 exists; ffprobe duration is 5.422 s, which covers out 5.42. yudkowsky-ted-2023.json rank 2 gives the verbatim line 'If we actually try to do this in real life, we are all going to die.' at clip-local 1.04 to 4.72 s (clip window 275.6 to 281.0 s of the talk). The item's in-point 3.4 s with duration 1.974 s covers 3.4 to 5.374 s, so it contains the end of the line. The word-level timing of 3.78 to 4.68 s is not in any file on disk (no word-timing transcript for this clip), so only the sentence window is confirmed. Attribution: Eliezer Yudkowsky, TED2023, April 2023 per the research JSON."
+    },
+    {
+      "idx": 3,
+      "ok": true,
+      "problem": "Confirmed: '…we are all going to die.' is the verbatim tail of yudkowsky-ted-2023.json rank 2, 'If we actually try to do this in real life, we are all going to die.' Speaker Eliezer Yudkowsky and TED2023 match ELIEZER YUDKOWSKY · 2023. Non-blocking: the research file does not confirm the talk's exact day; the plan already says so."
+    },
+    {
+      "idx": 4,
+      "ok": true,
+      "problem": "Confirmed on bbc-hubinger-10pct.png and on the live BBC page (fetched in this session). Headline: 'Anthropic researcher believes more than 10% chance AI 'could kill all humans''. The trimmed ticker text matches, straight single quotes included. Dateline 9 September 2026 and byline Tom Gerken match SEP 9, 2026 and BBC News. Non-blocking: the plan writes '…more' with no space after the ellipsis, while the other tickers use '… '. This is typography only. The live article says Hubinger called the risk from current models 'low', so the card's caveat holds."
+    },
+    {
+      "idx": 5,
+      "ok": true,
+      "problem": "Confirmed: 'The week the AI freakout went mainstream' matches vox-ai-freakout.png and the live Vox page (fetched). Byline Andrew Prokop. The live page metadata gives article:published_time 2026-09-12T10:00 UTC, so the stamp SEP 12, 2026 correctly uses the published date. modified_time 2026-09-14 matches the on-screen 'Updated Sep 14, 2026'. The plan's caveat already flags this."
+    },
+    {
+      "idx": 6,
+      "ok": true,
+      "problem": "Confirmed on slides/xrisk/time-culture.png. text_on_screen 'AI Is Developing a Culture of Its Own. That Could Be Dangerous' matches exactly. Byline Tharin Pillay; date SEP 10, 2026 5:40 PM UTC matches stamp TIME · SEP 10, 2026. The live time.com page (fetched) has the same title and author, with published 2026-09-10T17:40Z."
+    },
+    {
+      "idx": 7,
+      "ok": true,
+      "problem": "Confirmed on slides/xrisk/cnn-pacing.png. 'Employees from the world’s biggest AI companies want the US to be ready to slow AI development' matches exactly, curly apostrophe included, and the date JUL 28, 2026 matches. The crop shows no outlet name, so CNN attribution rests on the live CNN page (fetched): title ends '| CNN Business', author Hadas Gold, published 2026-07-28. Non-blocking: the deck manifest points to theory/cnn-pacing-frontier.png, which is a different file (md5 differs). This check read only the local_asset path the plan cites."
+    },
+    {
+      "idx": 8,
+      "ok": true,
+      "problem": "Confirmed on the live OpenAI page (openai.com/index/sycophancy-in-gpt-4o, fetched). The sentence 'We also teach our models how to apply these principles by incorporating user signals like thumbs-up / thumbs-down feedback on ChatGPT responses.' appears verbatim. The plan's quote is its tail with an ellipsis; the hyphens are plain ASCII in both. Page title 'Sycophancy in GPT-4o: What happened and what we’re doing about it' matches source_line; date April 29, 2025 matches OPENAI · APR 29, 2025."
+    },
+    {
+      "idx": 9,
+      "ok": true,
+      "problem": "Confirmed on the live TechCrunch page (WebFetch). h1 'OpenAI explains why ChatGPT became too sycophantic' matches exactly; byline Kyle Wiggers; published April 29, 2025, 9:21 PM PDT matches APR 29, 2025 and outlet TECHCRUNCH. The body sentence with 'applauding all sorts of problematic, dangerous decisions and ideas' is present. local_asset null is correct, since tc-sycophancy.png is missing. WebFetch is model-mediated, so the headline was not re-checked against raw HTML."
+    }
+  ]
+}

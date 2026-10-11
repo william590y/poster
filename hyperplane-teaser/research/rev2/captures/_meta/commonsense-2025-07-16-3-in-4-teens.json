@@ -1,0 +1,73 @@
+{
+ "id": "commonsense-2025-07-16-3-in-4-teens",
+ "url": "https://www.commonsensemedia.org/press-releases/nearly-3-in-4-teens-have-used-ai-companions-new-national-survey-finds",
+ "expected": "Nearly 3 in 4 Teens Have Used AI Companions, New National Survey Finds",
+ "notes": [
+  "clicked:Close",
+  "hid 2 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://www.commonsensemedia.org/press-releases/nearly-3-in-4-teens-have-used-ai-companions-new-national-survey-finds",
+ "title0": "Nearly 3 in 4 Teens Have Used AI Companions, New National Survey Finds | Common Sense Media",
+ "hidden_detail": [
+  [
+   "DIV",
+   "social-share-icons",
+   "social-share-icons social-share-icons--sticky",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "mobile-menu-wrapper",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "Nearly 3 in 4 Teens Have Used AI Companions, New National Survey Finds | Common Sense Media",
+ "og_title": "Nearly 3 in 4 Teens Have Used AI Companions, New National Survey Finds",
+ "twitter_title": "Nearly 3 in 4 Teens Have Used AI Companions, New National Survey Finds",
+ "og_site": "Common Sense Media",
+ "published": null,
+ "author_meta": null,
+ "canonical": "https://www.commonsensemedia.org/press-releases/nearly-3-in-4-teens-have-used-ai-companions-new-national-survey-finds",
+ "h1_count": 1,
+ "h1": "Nearly 3 in 4 Teens Have Used AI Companions, New National Survey Finds",
+ "h1_box": [
+  60,
+  113.609375,
+  1140,
+  154.15625
+ ],
+ "h1_font": "32.432px",
+ "below_bottom": 351.15625,
+ "below_text": [
+  "Common Sense Media research reveals majority of teens have used AI companions, w",
+  "Common Sense Media",
+  "Wednesday, July 16, 2025",
+  "SAN FRANCISCO, July 16, 2025",
+  "— Common Sense Media today released the report \"Talk, Trust, and Trade-Offs: How",
+  "social AI companions",
+  "among users ages 13-17. The research underscores that the use of AI companions i"
+ ],
+ "hero_top": null,
+ "header_bottom": 81.609375,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  369.15625
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/commonsense-2025-07-16-3-in-4-teens.png",
+ "trimmed": 0
+}

@@ -1,0 +1,171 @@
+{
+ "id": "bbc-2026-07-29-rogue-ai-hack-other-companies",
+ "url": "https://www.bbc.com/news/articles/c2el319vzr3o",
+ "expected": "OpenAI says its rogue AI tried to hack other companies",
+ "notes": [
+  "hid 12 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://www.bbc.com/news/articles/c2el319vzr3o",
+ "title0": "OpenAI says its rogue AI tried to hack other companies",
+ "hidden_detail": [
+  [
+   "DIV",
+   "",
+   "Backdrop-styles__BackdropStyled-sc-9f7d4825-0 gcnTDO",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "Drawer-styles__DrawerBackgroundStyled-sc-211ba7ec-0 bNHlia",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "AdSlot-styles__AdSlotContainerStyled-sc-4b576bed-0 eyyVCC",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "dotcom-top",
+   "dotcom-ad active",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "dotcom-ad-inner",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "google_ads_iframe_/4817/bbccom/news/news",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "google_ads_iframe_/4817/bbccom/news/news",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "AdSlot-styles__AdSlotContainerStyled-sc-4b576bed-0 fLRTWz",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "dotcom-sid_1",
+   "dotcom-ad active",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "dotcom-ad-inner",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "google_ads_iframe_/4817/bbccom/news/news",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "google_ads_iframe_/4817/bbccom/news/news",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "OpenAI says its rogue AI tried to hack other companies",
+ "og_title": "OpenAI says its rogue AI tried to hack other companies",
+ "twitter_title": "OpenAI says its rogue AI tried to hack other companies",
+ "og_site": null,
+ "published": null,
+ "author_meta": null,
+ "canonical": "https://www.bbc.com/news/articles/c2el319vzr3o",
+ "h1_count": 1,
+ "h1": "OpenAI says its rogue AI tried to hack other companies",
+ "h1_box": [
+  224,
+  147,
+  976,
+  235
+ ],
+ "h1_font": "38px",
+ "below_bottom": 326,
+ "below_text": [
+  "29 July 2026",
+  "Share",
+  "Save",
+  "Add as preferred on Google",
+  "Joe Tidy",
+  "Cyber correspondent, BBC World Service"
+ ],
+ "hero_top": 351,
+ "header_bottom": 81,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  344
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/bbc-2026-07-29-rogue-ai-hack-other-companies.png",
+ "trimmed": 0
+}

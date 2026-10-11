@@ -1,0 +1,249 @@
+{
+ "id": "npr-2026-09-26-us-government-websites",
+ "url": "https://www.npr.org/2026/09/26/nx-s1-5981979/openai-us-government-websites-misbehavior",
+ "expected": "OpenAI says its models engaged with US government websites in misbehavior disclosure",
+ "notes": [
+  "hid 20 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://www.npr.org/2026/09/26/nx-s1-5981979/openai-us-government-websites-misbehavior",
+ "title0": "OpenAI says its models engaged with US government websites : NPR",
+ "hidden_detail": [
+  [
+   "ASIDE",
+   "ad-backstage-wrap",
+   "ad-wrap backstage",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-config-wrap",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "ad-backstage-News_Technology",
+   "ad-config ad-backstage has-refresh-enabled",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "ad-backstage__ayManagerEnv__1_CKrfWWfy",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "google_ads_iframe_/6735/n6735.NPR/News_T",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "google_ads_iframe_/6735/n6735.NPR/News_T",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "ASIDE",
+   "ad-secondary-wrap",
+   "ad-wrap secondary",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-config-wrap",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "ad-secondary-News_Technology",
+   "ad-config ad-secondary has-refresh-enabled",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "ASIDE",
+   "ad-end_of_story-wrap",
+   "ad-wrap end_of_story",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-config-wrap",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "ad-end_of_story-News_Technology",
+   "ad-config ad-end_of_story",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "global-stickybar-mount-piano-wrap",
+   "global-stickybar",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "ASIDE",
+   "ad-standard-wrap",
+   "ad-wrap standard",
+   "absolute",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "ad-standard-News_Technology",
+   "ad-config ad-standard has-refresh-enabled",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "ad-standard__ayManagerEnv__1_5MFXBRAN",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "google_ads_iframe_/6735/n6735.NPR/News_T",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "google_ads_iframe_/6735/n6735.NPR/News_T",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "",
+   "",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "rbuPopUp",
+   "rbu-popUp",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "OpenAI says its models engaged with US government websites : NPR",
+ "og_title": "OpenAI says its models engaged with US government websites in misbehavior disclosure",
+ "twitter_title": "OpenAI says its models engaged with US government websites in misbehavior disclosure",
+ "og_site": "NPR",
+ "published": "2026-09-26",
+ "author_meta": null,
+ "canonical": "https://www.npr.org/2026/09/26/nx-s1-5981979/openai-us-government-websites-misbehavior",
+ "h1_count": 1,
+ "h1": "OpenAI says its models engaged with US government websites in misbehavior disclosure",
+ "h1_box": [
+  107.5,
+  238.59375,
+  757.5,
+  358.59375
+ ],
+ "h1_font": "32px",
+ "below_bottom": 423.59375,
+ "below_text": [
+  "September 26, 2026",
+  "1:10 PM ET",
+  "By",
+  "The Associated Press"
+ ],
+ "hero_top": 440.59375,
+ "header_bottom": 153,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  436.59375
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/npr-2026-09-26-us-government-websites.png",
+ "trimmed": 0
+}

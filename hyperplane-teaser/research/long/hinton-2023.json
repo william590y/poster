@@ -1,0 +1,56 @@
+{
+  "key": "hinton-2023",
+  "found_video": true,
+  "speaker": "Geoffrey Hinton (interviewed by Scott Pelley)",
+  "event": "CBS News, 60 Minutes: '\"Godfather of AI\" Geoffrey Hinton' interview with Scott Pelley",
+  "date": "2023-10-08 (CBS transcript page: first published Oct. 8, 2023; Sunday broadcast; YouTube upload 2023-10-09)",
+  "source_url": "https://www.youtube.com/watch?v=qrvK_KuIeJk",
+  "transcript_url": "https://cbsnews.com/news/geoffrey-hinton-ai-dangers-60-minutes-transcript/",
+  "file": "/home/user/hyperplane-teaser/clips/hinton-60min-2023.mp4",
+  "context": "Interview recorded after Hinton's May 2023 departure from Google; CBS narration says he recently retired after 'what he calls 10 happy years at Google'.",
+  "lines": [
+    {
+      "rank": 1,
+      "verbatim": "So one of the ways in which these systems might escape control is by writing their own computer code to modify themselves.",
+      "speaker": "Geoffrey Hinton",
+      "start_s": 334.8,
+      "end_s": 342.6,
+      "clip": "/home/user/hyperplane-teaser/clips/hinton-escape-control-2023.mp4 (333.5-347.0 s, includes the follow-up 'And that's something we need to seriously worry about.')",
+      "verification": "small.en re-transcription of 300-390 s matches YouTube captions word for word; CBS transcript quote matches (CBS punctuates 'So, one of...').",
+      "notes": "Most explicit AI-control line. Self-contained, about 8 s; can be trimmed to 'these systems might escape control'."
+    },
+    {
+      "rank": 2,
+      "verbatim": "Well, because they might take over.",
+      "speaker": "Geoffrey Hinton",
+      "start_s": 707.2,
+      "end_s": 708.6,
+      "clip": "/home/user/hyperplane-teaser/clips/hinton-take-over-2023.mp4 (706.6-712.6 s)",
+      "verification": "small.en re-transcription of 650-770 s matches captions; CBS transcript quote matches.",
+      "notes": "Answer to Pelley's 'Can't afford to get it wrong, why?'. Follow-up exchange in the same clip: Pelley 'Take over from humanity?' (~709.6-710.7 s), then Hinton 'Yes, that's a possibility.' (~711.2-712.1 s). The Pelley question makes the 'take over' context explicit; the reply is punchy alone."
+    },
+    {
+      "rank": 3,
+      "verbatim": "I can't see a path that guarantees safety.",
+      "speaker": "Geoffrey Hinton",
+      "start_s": 688.9,
+      "end_s": 691.3,
+      "clip": "/home/user/hyperplane-teaser/clips/hinton-no-path-to-safety-2023.mp4 (687.3-692.0 s)",
+      "verification": "small.en re-transcription matches captions; CBS transcript quote matches.",
+      "notes": "Risk rather than control; very short and quotable. Clip opens on Hinton's preceding 'I don't know.'"
+    }
+  ],
+  "verification_method": "YouTube auto/CBS captions used only to locate timestamps (VTT word timings). Audio re-transcribed with faster-whisper small.en on the 300-390 s and 650-770 s windows; word sequences match the captions for all quoted lines. Quotes also match the CBS transcript page.",
+  "caveats": [
+    "Speaker attribution for the question lines (Pelley) comes from the CBS transcript, not from voice diarization; Hinton's answer lines are the quoted lines.",
+    "Air date rests on CBS's 'first published Oct. 8, 2023' and the Sunday teaser ('This Sunday on 60 Minutes', uploaded 2023-10-05); no broadcast log was checked.",
+    "Whisper transcribes 'connivances' where captions say 'connives' (not used in any candidate line).",
+    "Full interview is 13 min (792 s), under the 30 min cap; the file is the full video, the three trimmed clips are separate."
+  ],
+  "candidate_clips": [
+    "/home/user/hyperplane-teaser/clips/hinton-60min-2023.mp4",
+    "/home/user/hyperplane-teaser/clips/hinton-escape-control-2023.mp4",
+    "/home/user/hyperplane-teaser/clips/hinton-take-over-2023.mp4",
+    "/home/user/hyperplane-teaser/clips/hinton-no-path-to-safety-2023.mp4"
+  ]
+}

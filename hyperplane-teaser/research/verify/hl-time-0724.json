@@ -1,0 +1,34 @@
+{
+  "outlet": "TIME",
+  "date": "2026-07-24",
+  "title_exact": "How OpenAI Lost Control of an AI Model—and What Needs to Change",
+  "authors": ["Harry Booth"],
+  "url": "https://time.com/article/2026/07/24/openai-hugging-face-attack/",
+  "verified_by": [
+    {
+      "source_url": "https://time.com/article/2026/07/24/openai-hugging-face-attack/",
+      "method": "WebFetch of the article page, first pass (headline, byline, date, URL)",
+      "confirmed": "Headline \"How OpenAI Lost Control of an AI Model—and What Needs to Change\"; byline \"Harry Booth\"; printed date \"Jul 24, 2026 3:13 PM UTC\"; canonical URL as given; page returned article content (not 404, paywall, or redirect)."
+    },
+    {
+      "source_url": "https://time.com/article/2026/07/24/openai-hugging-face-attack/",
+      "method": "WebFetch of the article page, metadata pass (title tags, JSON-LD, dates)",
+      "confirmed": "og:title, twitter:title, and JSON-LD headline all read \"How OpenAI Lost Control of an AI Model—and What Needs to Change\" (em dash). JSON-LD author \"Harry Booth\"; visible byline \"by Harry Booth\". article:published_time and JSON-LD datePublished both 2026-07-24T15:13:52.357Z."
+    },
+    {
+      "source_url": "https://time.com/article/2026/07/24/openai-hugging-face-attack/",
+      "method": "WebSearch restricted to allowed_domains time.com for the exact headline",
+      "confirmed": "Search result title \"How OpenAI Lost Control of an AI Model—and What Needs to Change\" at this URL. Result carries no byline or date."
+    },
+    {
+      "source_url": "https://time.com/article/2026/07/24/openai-hugging-face-attack/",
+      "method": "Direct HTTP fetch via curl (browser User-Agent and Accept headers)",
+      "confirmed": "Not available: HTTP 406 with 0 bytes returned, so raw HTML could not be read and the exact characters were not checked against page bytes. Exact title characters rest on the metadata pass quoting the em dash."
+    },
+    {
+      "source_url": "https://npr.org/2026/07/23/nx-s1-5903083/openai-says-ai-models-hacked-into-another-ai-company-without-being-instructed",
+      "method": "WebSearch for the headline without a domain filter",
+      "confirmed": "Not found: the unfiltered search did not return the TIME article. It returned other outlets' coverage of the incident, which was not used for the metadata."
+    }
+  ]
+}

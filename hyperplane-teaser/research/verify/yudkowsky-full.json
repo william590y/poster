@@ -1,0 +1,47 @@
+{
+  "task": "Verbatim full sentence containing 'we are all going to die' (with its conditional clause) from the Yudkowsky TED 2023 talk, with start/end seconds",
+  "found": true,
+  "speaker": "Eliezer Yudkowsky",
+  "event_context_from_research_json_not_independently_verified": "TED2023 talk 'Will superintelligent AI end the world?' (TED), listed as April 2023 in research/long/yudkowsky-ted-2023.json. Speaker and event were not checked against a web page in this pass.",
+  "sentence_verbatim": "If we actually try to do this in real life, we are all going to die.",
+  "sentence_scope": "Whole sentence, from the conditional clause 'If' through the final 'die.' The preceding segment ends 'come in six months given a six-month moratorium.' at 275.80 s with a full stop, so the sentence begins at 'If'.",
+  "occurrences_of_target_phrase_in_checked_window": 1,
+  "timestamps_source_file": {
+    "source_file": "/home/user/hyperplane-teaser/clips/yudkowsky-ted-2023-full.mp4",
+    "source_duration_s": 632.65,
+    "start_s": 276.72,
+    "end_s": 280.32,
+    "mmss_start": "04:36.72",
+    "mmss_end": "04:40.32",
+    "word_start_if_s": 276.72,
+    "word_end_die_s": 280.32,
+    "method": "faster-whisper small.en, word timestamps, re-transcribed with transcribe.py on a window starting at 273.64 s, 9.68 s long (source-time offsets applied by the script)"
+  },
+  "prior_pass_base_en_full_file": {
+    "start_s": 276.64,
+    "end_s": 280.32,
+    "source": "research/long/yudkowsky-ted-2023.json, rank 2 entry (segment-level)"
+  },
+  "clip_file_check": {
+    "clip_file": "/home/user/hyperplane-teaser/clips/yudkowsky-ted-2023-all-going-to-die.mp4",
+    "clip_duration_s": 5.42,
+    "clip_window_src_s_from_research_json": [275.6, 281.0],
+    "small_en_clip_text": "If we actually try to do this in real life, we are all going to die.",
+    "small_en_clip_segment_s": [0.72, 4.68],
+    "note": "The clip pass reproduces the full sentence. Its first word 'If' is timed at 0.72 s with probability 0.37, which does not match the full-talk pass (about 1.1 s after a clip start of 275.6 s). Use the source-file timestamps above, not clip-relative times, until the clip's own start offset is checked."
+  },
+  "source_url": "https://www.youtube.com/watch?v=Yd0yQ9yxSYY",
+  "primary_source_url": "https://www.ted.com/talks/eliezer_yudkowsky_will_superintelligent_ai_end_the_world",
+  "method": {
+    "wording_passes": [
+      "faster-whisper base.en over the full talk (earlier pass, recorded in research/long/yudkowsky-ted-2023.json): same wording, 276.64 to 280.32 s",
+      "faster-whisper small.en over 273.64 to 283.32 s of the full talk (this pass): same wording, 'If' 276.72 s to 'die.' 280.32 s"
+    ],
+    "transcribe_output_location": "Intermediate JSON written to the session scratchpad (clip_win.json and full_win.json in the yudk folder), not /tmp/y.json"
+  },
+  "caveats": [
+    "Timestamps are ASR output and have not been checked against video frames. Expect roughly +/-0.1 s.",
+    "Wording is machine transcription from audio only. The official TED transcript page was not fetched, and the sentence was not checked against a published transcript.",
+    "The 0.08 s difference in the start (276.64 base.en vs 276.72 small.en) is within ASR timing noise. The small.en value is reported as primary."
+  ]
+}

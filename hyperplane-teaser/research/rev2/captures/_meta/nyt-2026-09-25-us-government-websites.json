@@ -1,0 +1,11 @@
+{
+ "id": "nyt-2026-09-25-us-government-websites",
+ "url": "https://www.nytimes.com/2026/09/25/technology/openais-ai-us-government-websites.html",
+ "expected": "OpenAI’s A.I. Went Rogue and Meddled With U.S. Government Websites",
+ "notes": [],
+ "status": 403,
+ "final_url": "https://www.nytimes.com/2026/09/25/technology/openais-ai-us-government-websites.html",
+ "title0": "nytimes.com",
+ "ok": false,
+ "error": "blocked or error: status 403 title 'nytimes.com'"
+}

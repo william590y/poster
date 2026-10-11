@@ -1,0 +1,4 @@
+roughjs 4.6.6 MIT
+perfect-freehand 1.2.3 MIT
+mathjax-full 3.2.1 Apache-2.0
+three 0.169.0 MIT

@@ -1,0 +1,280 @@
+{
+ "name": "test-paintlab",
+ "title": "Builder A: paint.js primitives on one page (painted shapes, splat, pencil boil, ink stamps, paper, brush lettering)",
+ "_note": "A lab page for fx/paint.js, not a cut. Render stills: python3 render/video/render.py sheet test-paintlab 0.1 0.3 0.6 1.2 2.4 3.4",
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "duration": 4.0,
+ "audio": {
+  "song": "song/brutal.mp3",
+  "songStart": 70.5
+ },
+ "look": {
+  "ground": "#F2EBDD"
+ },
+ "themes": [
+  {
+   "t0": 0,
+   "t1": 99,
+   "theme": "light"
+  }
+ ],
+ "items": [
+  {
+   "id": "ground",
+   "type": "color",
+   "t0": 0,
+   "t1": 4.0,
+   "color": "#F2EBDD"
+  },
+  {
+   "id": "dark",
+   "type": "shape",
+   "t0": 0,
+   "t1": 4.0,
+   "frame": {
+    "shape": "rect",
+    "x": -40,
+    "y": 1000,
+    "w": 1160,
+    "h": 1000,
+    "fill": "#0E0D12"
+   },
+   "_note": "lower half dark for the lettering"
+  },
+  {
+   "id": "paint",
+   "type": "layer",
+   "kind": "canvas"
+  },
+  {
+   "id": "band",
+   "type": "paintshape",
+   "t0": 0.0,
+   "t1": 4.0,
+   "dur": 0.14,
+   "color": "yellow",
+   "shape": {
+    "kind": "band",
+    "x0": -80,
+    "y0": 620,
+    "x1": 1160,
+    "y1": 120,
+    "w": 86
+   }
+  },
+  {
+   "id": "disc-swirl",
+   "type": "paintshape",
+   "t0": 0.1,
+   "t1": 4.0,
+   "dur": 0.36,
+   "color": "pink",
+   "shape": {
+    "kind": "circle",
+    "cx": 280,
+    "cy": 330,
+    "r": 172
+   }
+  },
+  {
+   "id": "disc-ink",
+   "type": "paintshape",
+   "t0": 0.3,
+   "t1": 4.0,
+   "dur": 0.36,
+   "color": "ink",
+   "shape": {
+    "kind": "circle",
+    "cx": 220,
+    "cy": 270,
+    "r": 135
+   }
+  },
+  {
+   "id": "disc-passes",
+   "type": "paintshape",
+   "t0": 0.2,
+   "t1": 4.0,
+   "dur": 0.36,
+   "color": "blue",
+   "style": "passes",
+   "shape": {
+    "kind": "circle",
+    "cx": 820,
+    "cy": 560,
+    "r": 122
+   }
+  },
+  {
+   "id": "sq",
+   "type": "paintshape",
+   "t0": 0.4,
+   "t1": 4.0,
+   "dur": 0.3,
+   "color": "teal",
+   "shape": {
+    "kind": "rect",
+    "x": 560,
+    "y": 600,
+    "w": 90,
+    "h": 90,
+    "rot": 15
+   }
+  },
+  {
+   "id": "sp1",
+   "type": "splat",
+   "at": 0.5,
+   "t1": 4.0,
+   "x": 860,
+   "y": 220,
+   "r": 90,
+   "color": "orange",
+   "dir": 200
+  },
+  {
+   "id": "pen",
+   "type": "pencil",
+   "t0": 0.6,
+   "t1": 4.0,
+   "shapes": [
+    {
+     "kind": "circle",
+     "cx": 820,
+     "cy": 560,
+     "r": 160,
+     "at": 0.6,
+     "dur": 0.4
+    },
+    {
+     "kind": "underline",
+     "x0": 520,
+     "x1": 1000,
+     "y": 780,
+     "at": 0.9,
+     "dur": 0.2
+    },
+    {
+     "kind": "arrow",
+     "x0": 520,
+     "y0": 300,
+     "x1": 700,
+     "y1": 470,
+     "at": 1.0,
+     "dur": 0.3
+    },
+    {
+     "kind": "scribble",
+     "cx": 160,
+     "cy": 760,
+     "w": 220,
+     "h": 60,
+     "at": 1.1,
+     "dur": 0.3
+    },
+    {
+     "kind": "star",
+     "cx": 980,
+     "cy": 860,
+     "r": 34,
+     "at": 1.2,
+     "dur": 0.2
+    }
+   ]
+  },
+  {
+   "id": "st1",
+   "type": "inkstamp",
+   "at": 0.8,
+   "t1": 4.0,
+   "x": 140,
+   "y": 900,
+   "size": 110,
+   "glyph": "nabla",
+   "color": "red",
+   "rot": -8
+  },
+  {
+   "id": "st2",
+   "type": "inkstamp",
+   "at": 0.9,
+   "t1": 4.0,
+   "x": 940,
+   "y": 360,
+   "size": 90,
+   "glyph": "checker",
+   "color": "ink",
+   "rot": 22
+  },
+  {
+   "id": "st3",
+   "type": "inkstamp",
+   "at": 1.0,
+   "t1": 4.0,
+   "x": 360,
+   "y": 900,
+   "size": 80,
+   "glyph": "text",
+   "text": "2026",
+   "color": "ink",
+   "rot": 4
+  },
+  {
+   "id": "lettering",
+   "type": "brushtext",
+   "t0": 0,
+   "t1": 4.0,
+   "text": "it's brutal out here",
+   "words": [
+    {
+     "w": "it's",
+     "at": 1.44
+    },
+    {
+     "w": "brutal",
+     "at": 2.02
+    },
+    {
+     "w": "out",
+     "at": 2.22
+    },
+    {
+     "w": "here",
+     "at": 2.54,
+     "dur": 0.5
+    }
+   ],
+   "place": [
+    {
+     "x": 150,
+     "y": 1180,
+     "size": 140
+    },
+    {
+     "x": 60,
+     "y": 1420,
+     "size": 250
+    },
+    {
+     "x": 330,
+     "y": 1600,
+     "size": 170
+    },
+    {
+     "x": 300,
+     "y": 1820,
+     "size": 200
+    }
+   ]
+  },
+  {
+   "id": "grain",
+   "type": "paper",
+   "t0": 0,
+   "t1": 4.0,
+   "mode": "auto"
+  }
+ ]
+}

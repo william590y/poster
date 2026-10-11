@@ -1,0 +1,48 @@
+{
+  "key": "sick-of-seventeen",
+  "lyric": "And I'm so sick of seventeen",
+  "lyric_idea": "Two readings of 'seventeen': as a count (the ~17,600 Hugging Face attacker actions, a stat that starts with 17) and as a teen age (surveys of teens aged 13-17 and kids ages 9-17). The frustration on screen is AI harm to teens and kids, including teens turning to chatbots.",
+  "researched": "2026-10-10",
+  "candidates": [
+    {
+      "type": "stat",
+      "text": "~17,600 attacker actions recovered by Hugging Face during the July 9–13, 2026 campaign. Deck label is a paraphrase; the verbatim Hugging Face sentence is \"covers ~17,600 attacker actions that we were able to recover\".",
+      "speaker_or_outlet": "Hugging Face (technical postmortem, 'Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident')",
+      "date": "2026-07-27",
+      "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/security/hf-timeline.png; /home/user/poster/ai-safety-presentation/assets/research/security/hf-blog-header.png; /home/user/poster/ai-safety-presentation/assets/research/security/hl-fortune-hf-escape.png",
+      "verified_how": "Page opened live (WebFetch). Verbatim on the page: \"covers ~17,600 attacker actions that we were able to recover\"; window \"between 2026-07-09 02:28 UTC and 2026-07-13 14:14 UTC\"; \"No human directed the individual steps.\"; \"Published July 27, 2026\". Deck source: tools/slides_security.js lines 362-400 (stat '~17,600' at line 383). Local chart hf-timeline.png captioned '~17,600 recovered attacker actions' (manifest hf-campaign-timeline, verified).",
+      "why_it_fits": "Literal echo of the lyric: the number begins with 17, so 'seventeen' lands on a real count of AI-agent actions. Reads in about 2 s as a big '~17,600' with a short label. The tilde and 'recovered' are part of the claim: it is what Hugging Face recovered, not a total."
+    },
+    {
+      "type": "stat",
+      "text": "44% (the report figure; the press page dek reads “Almost half of teens have already seen AI-generated sexual material”). Sample label: 1,314 US teens aged 13–17.",
+      "speaker_or_outlet": "Common Sense Media (Youth AI Safety Institute), 'Teens in the AI Era: Pornography and Sexual Content' (2026)",
+      "date": "2026-07-21",
+      "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/csm-pr-headline.png (960px alt: rev2/csm-pr-headline-w960.png); /home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/csm-teens-ai-era-pornography-sexual-content-2026.pdf (report)",
+      "verified_how": "Press page opened live (WebFetch): headline \"Common Sense Media Releases New Research on Teens and AI-Generated Explicit Material\"; date \"Tuesday, July 21, 2026\"; dek 'Almost half of teens have already seen AI-generated sexual material'; body 'a demographically representative set of 1,314 teens age 13 to 17'. The 44% is not on the press page; confirmed in the local report PDF via pdftotext: 'Almost half of teens (44%) have seen sexual content' and table row 'Total (N=1,314) 44%'. Deck source: tools/slides_openweights.js (Common Sense stat rows, approx. lines 365-402).",
+      "why_it_fits": "The '17' is the top of the surveyed age band ('aged 13–17'), so the word 'seventeen' has a real teen-age referent on screen. The 44% is the frustration: almost half of teens have seen AI sexual content. Caveat: self-reported; the 44% is 'seen', not 'made'."
+    },
+    {
+      "type": "stat",
+      "text": "15% said they confided in or sought guidance from an AI chatbot or companion in response (base: minors who reported an online sexual interaction). Also: 67% of minors surveyed have reported using an AI chatbot or companion.",
+      "speaker_or_outlet": "Thorn, 'Youth Perspectives on Online Safety, 2025' (press release)",
+      "date": "2026-07-28",
+      "url": "https://www.thorn.org/press-releases/as-ai-becomes-part-of-kids-response-to-online-harm-new-thorn-research-finds-children-turning-to-chatbots-for-guidance-after-online-sexual-interactions/",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/thorn-pr-2026-chatbot-findings.png; /home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/thorn-pr-2026-headline.png",
+      "verified_how": "Press page opened live (WebFetch): headline (first ~125 characters) 'As AI becomes part of kids' response to online harm, new Thorn research finds children turning to chatbots for guidance'; date 'July 28, 2026'; dek 'Annual survey of more than 1,000 U.S. kids ages 9 to 17'; '67% of minors surveyed have reported using an AI chatbot or companion.'; '15% said they confided in or sought guidance from an AI chatbot or companion in response'; 'more than twice the rate of minors who cited being bullied or made uncomfortable online (7%).' Deck source: manifest thorn-pr-2026-chatbots (verified: true) and tools/slides_openweights.js line 486 notes.",
+      "why_it_fits": "Puts teens and AI chatbots on screen as the frustration, and the dek's 'ages 9 to 17' gives the lyric's 17 a second real referent. Reads in about 2–3 s: '15%' large, then 'sought guidance from an AI chatbot or companion'. Caveat: the 15% base is minors who had an online sexual interaction, not all minors."
+    },
+    {
+      "type": "headline",
+      "text": "…to settle lawsuits over teen suicides (trimmed with an ellipsis from the full headline 'Google and chatbot start-up Character.AI to settle lawsuits over teen suicides')",
+      "speaker_or_outlet": "Euronews",
+      "date": "2026-01-08",
+      "url": "https://euronews.com/next/2026/01/08/google-and-chatbot-start-up-characterai-to-settle-lawsuits-over-teen-suicides",
+      "local_path": "none (no Character.AI or ChatGPT teen-harm material found in the deck; grep for Character, Raine, wrongful, suicide, self-harm, companion found nothing relevant)",
+      "verified_how": "Page opened live (WebFetch): headline verbatim; 'Published on 08/01/2026' (day/month order, matches URL 2026/01/08). Settlement: Google and Character Technologies agreed to settle the Florida suit (Megan Garcia, son Sewell Setzer III, 14) and suits in Colorado, New York and Texas; terms not disclosed and need judicial approval. Also: 'OpenAI faces a similar lawsuit in California, which was filed in August 2025 by the family of a 16-year-old boy.' Cross-checked by live WebSearch (Forbes AU and Folio3, late Jan 2026, same settlement).",
+      "why_it_fits": "Covers the teen-lawsuit leg of the brief: the frustration is AI chatbots and teen deaths in court, and the headline reads in about 3 s when trimmed. It has no numeric echo of 'seventeen', so it works as the mood beat, not the number beat. Caveat: the OpenAI case (Raine) is still pending per a search summary of Wikipedia; no 2026 ruling or settlement found. Some pages give conflicting dates for that filing."
+    }
+  ]
+}

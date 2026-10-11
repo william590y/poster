@@ -1,0 +1,206 @@
+{
+ "name": "test-net",
+ "title": "Builder B: a neural net doing inference, then backprop with its equations (song 26.8-34.7, verse 1)",
+ "_note": "Builder B's test EDL for fx/netviz.js (kind mlp) and fx/equations.js. A real tiny sigmoid MLP (144-16-16-10, seeded) reads a 3 and says 8 (beats 16-19, one layer per beat); the target arrives and the error flows back (BP1 on hb:20, BP2 hb:21, BP4 hb:22), the weights update (hb:23, w -> w - eta dC/dw), and a second, faster pass on 8ths says 3 (hb:24-25.5); then each equation's key term is circled or highlighted on a beat. Equations from research/rev2/equations-extra.json (Nielsen 2015, verified). Render: python3 render/video/render.py beats test-net --from 0 --to 7.9",
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "duration": 7.9,
+ "audio": {
+  "song": "song/brutal.mp3",
+  "songStart": 26.8
+ },
+ "look": {
+  "ground": "#0E0D12"
+ },
+ "themes": [
+  {
+   "t0": 0,
+   "t1": 100,
+   "theme": "dark"
+  }
+ ],
+ "items": [
+  {
+   "id": "ground",
+   "type": "color",
+   "t0": 0,
+   "t1": 7.9,
+   "color": "#0E0D12"
+  },
+  {
+   "id": "mlp",
+   "type": "net",
+   "kind": "mlp",
+   "t0": 0,
+   "t1": 7.9,
+   "digit": 3,
+   "wrong": 8,
+   "infer": "hb:16..19",
+   "backprop": "hb:20..22",
+   "update": "hb:23",
+   "infer2": {
+    "from": "hb:24",
+    "to": "hb:25.5",
+    "every": 0.5
+   },
+   "cam": {
+    "dist": 27,
+    "cy": 1250,
+    "cx": 455,
+    "orbit": 18,
+    "step": 1.4,
+    "target": [
+     -0.9,
+     0,
+     0
+    ]
+   },
+   "pulseOn": "hb:26..31"
+  },
+  {
+   "id": "eq-fwd",
+   "type": "equation",
+   "ref": "nn-forward",
+   "t0": "hb:15.6",
+   "t1": "hb:20",
+   "drop": "hb:16",
+   "mode": "pencil",
+   "dur": 0.9,
+   "cx": 540,
+   "y": 440,
+   "px": 66,
+   "label": {
+    "text": "inference: each layer feeds the next",
+    "at": "hb:16.5",
+    "font": {
+     "size": 46
+    }
+   },
+   "cite": {
+    "at": "hb:18"
+   },
+   "exit": {
+    "style": "fade",
+    "dur": 0.15
+   },
+   "pulse": "hb:17..19"
+  },
+  {
+   "id": "eq-bp1",
+   "type": "equation",
+   "ref": "bp1",
+   "t0": "hb:20",
+   "t1": 7.9,
+   "drop": "hb:20",
+   "mode": "pencil",
+   "dur": 0.42,
+   "x": 90,
+   "y": 320,
+   "px": 52,
+   "cite": false,
+   "label": {
+    "text": "backprop: the error at the output",
+    "at": "hb:20",
+    "font": {
+     "size": 36
+    },
+    "gap": 18
+   },
+   "hl": [
+    {
+     "tex": "\\delta^L",
+     "at": "hb:26",
+     "style": "circle",
+     "color": "#FF4A1C"
+    }
+   ]
+  },
+  {
+   "id": "eq-bp2",
+   "type": "equation",
+   "ref": "bp2",
+   "t0": "hb:21",
+   "t1": 7.9,
+   "drop": "hb:21",
+   "mode": "pencil",
+   "dur": 0.42,
+   "x": 90,
+   "y": 460,
+   "px": 52,
+   "cite": false,
+   "hl": [
+    {
+     "tex": "(w^{l+1})^T",
+     "at": "hb:27",
+     "style": "marker",
+     "color": "#FF4A1C"
+    }
+   ]
+  },
+  {
+   "id": "eq-bp4",
+   "type": "equation",
+   "ref": "bp4",
+   "t0": "hb:22",
+   "t1": 7.9,
+   "drop": "hb:22",
+   "mode": "pencil",
+   "dur": 0.42,
+   "x": 90,
+   "y": 590,
+   "px": 52,
+   "cite": false,
+   "hl": [
+    {
+     "tex": "a^{l-1}_k \\delta^l_j",
+     "at": "hb:28",
+     "style": "circle",
+     "color": "#FF4A1C"
+    }
+   ]
+  },
+  {
+   "id": "eq-upd",
+   "type": "equation",
+   "ref": "gd-update",
+   "t0": "hb:23",
+   "t1": 7.9,
+   "drop": "hb:23",
+   "mode": "slam",
+   "x": 90,
+   "y": 730,
+   "px": 52,
+   "cite": {
+    "text": "Nielsen 2015, Neural Networks and Deep Learning, ch. 2 eqs. BP1, BP2, BP4; ch. 1 eq. 16",
+    "at": "hb:24",
+    "px": 26,
+    "w": 640
+   },
+   "hl": [
+    {
+     "tex": "\\eta \\frac{\\partial C}{\\partial w_k}",
+     "at": "hb:29",
+     "style": "underline",
+     "color": "#F2C300"
+    }
+   ]
+  },
+  {
+   "id": "paper",
+   "type": "paper",
+   "t0": 0,
+   "t1": 7.9,
+   "_note": "builder A's paper grain (boils on twos): the handmade surface over everything"
+  }
+ ],
+ "fx": [
+  {
+   "id": "punch",
+   "fx": "punch",
+   "on": "hb:16..31",
+   "amount": 0.01,
+   "bar": 0.03
+  }
+ ]
+}

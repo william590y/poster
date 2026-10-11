@@ -1,0 +1,24 @@
+{
+  "key": "rf-a-refrain-57.98-65.74",
+  "checks": [
+    {
+      "idx": 0,
+      "ok": true
+    },
+    {
+      "idx": 1,
+      "ok": false,
+      "problem": "text_exact 'Claude Opus 4 blackmailed the user 96% of the time' is an exact clause of the Anthropic sentence (the page continues '; with the same prompt, Gemini 2.5 Flash also had a 96% blackmail rate...'), and the page is dated Jun 20, 2025, so the text and '2025' attribution are confirmed. The subline is wrong: it gives only the first disclaimer sentence, but the page states three sentences ('All the behaviors described in this post occurred in controlled simulations.' / 'The names of people and organizations within the experiments are fictional.' / 'No real people were involved or harmed in any of these experiments.'), and the item's own treatment says the disclaimer must be shown in full. source_file also holds a URL, not a local file; the local record is research/long/lyrics/tried-my-best.json.",
+      "correct_text": "All the behaviors described in this post occurred in controlled simulations. The names of people and organizations within the experiments are fictional. No real people were involved or harmed in any of these experiments."
+    },
+    {
+      "idx": 2,
+      "ok": true
+    },
+    {
+      "idx": 3,
+      "ok": false,
+      "problem": "text_exact 'The train doesn't stop at Humanville Station.' is the verbatim first sentence of the research line (research/long/bostrom-ted-2015.json rank 3), and the speaker and 2015 date match. The clip timing does not hold: clip_out 5.49 (source 429.99) cuts mid-word inside 'Humanville'. Word-level small.en on clips/bostrom-ted-2015-humanville-train.mp4 gives 'Humanville' 5.06-5.54 s and 'Station.' 5.54-5.84 s (source 430.34 s), so the sentence's last word is cut off. The sentence itself needs about 2.32 s of speech, longer than the 1.928 s item slot, so the plan's statement that it fits the 1.93 s window is wrong. clip_out minus clip_in is 1.99 s against a 1.928 s slot. clip_in 3.5 (source 428.0) is consistent with the research line start of 428.06. Fix the out point and slot length together, or state that the cut is visual only."
+    }
+  ]
+}

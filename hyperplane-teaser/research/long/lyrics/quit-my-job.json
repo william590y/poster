@@ -1,0 +1,74 @@
+{
+  "key": "quit-my-job",
+  "lyric": "And I'm so tired that I might / Quit my job, start a new life",
+  "lyric_idea": "Resignations over AI risk (Coxon, Robinson, Leike) echo 'quit my job'; AI layoffs at Block flip the escape fantasy into AI taking the job.",
+  "candidates": [
+    {
+      "rank": 1,
+      "type": "quote",
+      "text": "I resigned from Anthropic today.",
+      "full_post_text": "I resigned from Anthropic today. I spent the last three years doing pretraining research at both OpenAI and Anthropic. Neither company is acting responsibly. They are racing straight to self-improving superintelligence and gambling with our lives. More thoughts below.",
+      "speaker_or_outlet": "Jacob Coxon (@hilbertspaess), X post",
+      "date": "2026-09-09 00:04 UTC (Sep 8 US time)",
+      "url": "https://x.com/hilbertspaess/status/2097476196791709843",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/x-coxon-2026-09-08-resigned-anthropic.png",
+      "verified_how": "Live fetch of the X post: text and timestamp '12:04 AM · Sep 9, 2026' match. Deck screenshot (whistleblowers.json, verified: true). TIME (Harry Booth, Sep 9 2026) quotes 'I resigned from Anthropic today,' Coxon posted on X. Note: the deck screenshot's JSON date is 2026-09-09; the post is Sep 8 US time.",
+      "why_it_fits": "The most literal echo in the research: a researcher announcing he has quit his job. Reads in under 2 s. The full post is the source for any longer cut. Post had about 175M views, so the audience will recognise the event."
+    },
+    {
+      "rank": 2,
+      "type": "headline",
+      "text": "OpenAI safety employee resigns, claiming the company’s ‘culture is broken’",
+      "speaker_or_outlet": "TechCrunch (Anthony Ha)",
+      "date": "2026-10-03 (9:30 AM PDT)",
+      "url": "https://techcrunch.com/2026/10/03/openai-safety-employee-resigns-claiming-the-companys-culture-is-broken/",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/techcrunch-robinson-culture-broken.png",
+      "verified_how": "Live fetch of the TechCrunch page: headline matches exactly (curly quotes as printed); body says 'Now he's quitting, because in his view, the company's culture is broken' and the article says he resigned. Deck screenshot (verified: true). Do not use The Decoder's 'left' framing or any 'fired' wording: TechCrunch says resigned.",
+      "why_it_fits": "Most recent resignation (3 days before 'today'). 'Resigns' and 'culture is broken' match the 'quit my job' and 'so tired' feeling. Headline is 13 words, about 3 s on a phone; the 'culture is broken' phrase alone also works as a 1.5 s lower-third."
+    },
+    {
+      "rank": 3,
+      "type": "headline",
+      "text": "Jack Dorsey to cut 4,000 jobs due to AI advances at Square parent Block",
+      "speaker_or_outlet": "The Guardian (Sanya Mansoor)",
+      "date": "2026-02-27",
+      "url": "https://www.theguardian.com/technology/2026/feb/27/block-ai-layoffs-jack-dorsey",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/economy/guardian_block_4000_jobs_ai.png",
+      "verified_how": "Live fetch of the Guardian page: h1 matches exactly; body says Block is 'laying off 4,000 of its 10,000 employees because of gains in AI productivity', quoting Dorsey's shareholder letter. Deck screenshot (verified: true). Avoid the CNN headline ('Block lays off nearly half its staff because of AI'): the cut was about 40%, and the deck flags that.",
+      "why_it_fits": "The second half of the verse flipped: the job is what AI takes, not what the singer quits. Good for the 'start a new life' beat or as a cut away from the resignation. Headline is about 2.5 s on a phone."
+    },
+    {
+      "rank": 4,
+      "type": "quote",
+      "text": "resigning from my job as head of alignment",
+      "full_quote": "I am concerned there's not enough AI alignment work happening so I am resigning from my job as head of alignment at the world's most important AI company",
+      "speaker_or_outlet": "Jan Leike (@janleike), X thread",
+      "date": "2024-05-17",
+      "url": "https://x.com/janleike/status/1791498184671605209",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/x-leike-2024-05-17-breaking-point.png",
+      "verified_how": "Live fetch of the X post: the phrase 'resigning from my job as head of alignment' appears verbatim in the page text. The same page's og:description carries 'safety culture and processes have taken a backseat to shiny products.' WIRED (Will Knight, May 17 2024, 'OpenAI's Long-Term AI Risk Team Has Disbanded') quotes Leike's 'until we finally reached a breaking point,' which also appears in the post. Deck screenshots exist for both tweets. The scraped page order differs from the deck's note on which tweet opens the thread, so check the screenshot before treating the line's position as fixed.",
+      "why_it_fits": "Literal 'my job' plus 'resigning', 2024 quit. Companion line for the 'so tired' half: 'until we finally reached a breaking point.' Stronger on 'quit my job' than the deck's 'shiny products' line, which is about culture. A 2024 event, so it sits as the older footnote in a sequence."
+    }
+  ],
+  "not_recommended": [
+    {
+      "item": "Daniel Kokotajlo's 2024 exit",
+      "reason": "Only a secondhand line in the deck's facts, and WIRED's 2024 paraphrase of an internet-forum post. No primary post is in the deck; find one before using his words on screen."
+    },
+    {
+      "item": "CNN: 'Block lays off nearly half its staff because of AI...'",
+      "reason": "Numerically wrong (about 40%); the Guardian headline is accurate."
+    }
+  ],
+  "video_notes": "No video needed for these four. The Coxon post, TechCrunch and Guardian pages are all static screenshots or text.",
+  "deck_sources_checked": [
+    "/home/user/poster/ai-safety-presentation/tools/slides_xrisk.js",
+    "/home/user/poster/ai-safety-presentation/tools/slides_work.js",
+    "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/whistleblowers.json",
+    "/home/user/poster/ai-safety-presentation/assets/research/xrisk/manifest.json",
+    "/home/user/poster/ai-safety-presentation/assets/research/theory/manifest.json",
+    "/home/user/poster/ai-safety-presentation/assets/research/economy/manifest.json",
+    "/home/user/poster/ai-safety-presentation/assets/research/work/manifest.json"
+  ],
+  "fetched_live": "2026-10-10"
+}

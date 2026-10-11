@@ -1,0 +1,61 @@
+{
+  "key": "yudkowsky-ted-2023",
+  "found_video": true,
+  "speaker": "Eliezer Yudkowsky",
+  "event": "TED2023 talk 'Will superintelligent AI end the world?' (TED). Full upload on the TED YouTube channel (video Yd0yQ9yxSYY, 632.6 s). The talk body ends at about 343 s ('Thank you for coming to my brief TED talk'); a host Q&A runs from about 355 s to the end of the upload.",
+  "date": "2023-04",
+  "date_note": "The TED talk page lists the talk as TED2023 and dated April 2023. The exact day was not confirmed from the sources reached here. A TED Talks Daily podcast listing dated 2023-07-11 is a podcast release date, not the talk date.",
+  "source_url": "https://www.ted.com/talks/eliezer_yudkowsky_will_superintelligent_ai_end_the_world",
+  "primary_source_url": "https://www.ted.com/talks/eliezer_yudkowsky_will_superintelligent_ai_end_the_world",
+  "youtube_url": "https://www.youtube.com/watch?v=Yd0yQ9yxSYY",
+  "full_video_file": "/home/user/hyperplane-teaser/clips/yudkowsky-ted-2023-full.mp4",
+  "file": "/home/user/hyperplane-teaser/clips/yudkowsky-ted-2023-everyone-already-dead.mp4",
+  "video": {
+    "resolution": "1920x1080",
+    "duration_s": 632.59,
+    "talk_body_end_s": 343.0,
+    "qa_start_s_approx": 355.8
+  },
+  "lines": [
+    {
+      "rank": 1,
+      "verbatim": "We do not get to learn from our mistakes and try again because everyone is already dead.",
+      "start_s": 241.66,
+      "end_s": 245.64,
+      "file": "/home/user/hyperplane-teaser/clips/yudkowsky-ted-2023-everyone-already-dead.mp4",
+      "clip_window_src_s": [239.6, 246.8],
+      "line_in_clip_s": [2.06, 6.04],
+      "notes": "Strongest match for the 'no second try' and 'everyone dying' beats in one line. Mid-talk, inside the talk body. The small.en pass adds a comma after 'again'; the wording is identical in both passes."
+    },
+    {
+      "rank": 2,
+      "verbatim": "If we actually try to do this in real life, we are all going to die.",
+      "start_s": 276.64,
+      "end_s": 280.32,
+      "file": "/home/user/hyperplane-teaser/clips/yudkowsky-ted-2023-all-going-to-die.mp4",
+      "clip_window_src_s": [275.6, 281.0],
+      "line_in_clip_s": [1.04, 4.72],
+      "notes": "Direct 'we are all going to die' line, mid-talk. Wording identical in base.en and small.en passes; punctuation is Whisper's."
+    },
+    {
+      "rank": 3,
+      "verbatim": "I say this, expecting that we all just die.",
+      "start_s": 321.10,
+      "end_s": 323.72,
+      "file": "/home/user/hyperplane-teaser/clips/yudkowsky-ted-2023-we-all-just-die.mp4",
+      "clip_window_src_s": [320.4, 324.6],
+      "line_in_clip_s": [0.70, 3.32],
+      "notes": "Near the end of the talk body. Preceded by 'I say this, not expecting that to actually happen.' The lead-in gives context for the line. Wording identical in both passes; the small.en clip check drops the comma only."
+    }
+  ],
+  "verification": {
+    "method": "Audio only. The official TED transcript page was not fetched, and no third-party transcript was used as the source of the wording.",
+    "passes": [
+      "faster-whisper base.en over the full 632.6 s audio (116 segments, 0 to 629.9 s): candidate wording and timestamps located by phrase search.",
+      "faster-whisper small.en re-transcription of the window 236 to 330 s: all three candidates reproduced word for word; only punctuation differs from base.en.",
+      "faster-whisper small.en re-transcription of each cut clip: all three lines present in the cut audio (clip 1 at about 2.0 to 6.0 s, clip 2 at about 0.7 to 4.7 s, clip 3 at about 0.5 to 3.3 s)."
+    ],
+    "confidence": "high for wording of all three candidates; exact day of the talk not verified"
+  },
+  "notes": "Full talk saved as a source file for the long version (clips/yudkowsky-ted-2023-full.mp4, 1920x1080). Short clips are 5 to 7 s each for the short montage. Download went through the y2dl.py route because yt-dlp could not fetch the TED page (JSON error). The ffprobe output shows 1920x1080 for the source, above the 720p figure in the task notes; this does not affect the clip timings."
+}

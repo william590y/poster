@@ -1,0 +1,103 @@
+{
+  "key": "v1b-verse1-34.71-42.49",
+  "section": {
+    "t0": 34.714,
+    "t1": 42.493,
+    "bars": [
+      34.714,
+      36.641,
+      38.615,
+      40.542
+    ],
+    "mood": "verse 1, building (dark ground, desaturated, red accent)"
+  },
+  "notes": "One item per bar, each cut on its bar line (34.714, 36.641, 38.615, 40.542). The lyric pickups at 34.46, 36.42, 38.24 and 40.24 sit just before the bars; items start on the bar lines because the whisper lyric times run early. All four items are stills or text cards. There is no clip speech in this section, so nothing is muted and no pull-quote is needed; the song's vocals stay clean and no ducking applies. No song lyrics appear on screen. Look: ground #0E0D12, verse-dark grade, red #B31B1B on the key word, a year on every item. Frames are pieces of the broken-apart logo (circle, square, and the yellow plane band at 22° for the headline). Verification: the Leike, Coxon and TechCrunch screenshots were opened and read (wording matches the lyric files); the TIME headline was verified by WebFetch per exploited.json. FLAGS for the editor: (a) research/long/coxon-lines.json lists 'So, I heard you talking about jobs, and I think, like, there will be no jobs.' as spoken by Jon Stewart (the host), but SUMMARY.md and the README attribute it to Coxon. Not used in this section; resolve before any item uses that clip. (b) The Coxon post's visible timestamp is 12:04 AM · Sep 9, 2026 (the research file says Sep 8 US time), so this plan shows SEP 9, 2026. (c) Items 3 and 4 are dense (about 39 and 45 characters per second over 1.93 to 1.95 s). Both meet the 1.2 s floor. If item 4 reads too fast, use the verified Hugging Face fragment instead (see item 4). (d) Unused verified alternates: the Guardian headline 'Jack Dorsey to cut 4,000 jobs due to AI advances at Square parent Block' (research/economy/guardian_block_4000_jobs_ai.png, a candidate for a 'start a new life' beat in the next section); the Susman Godfrey settlement headline (exploited.json, live web). The CNN Block headline is avoided (wrong numbers).",
+  "items": [
+    {
+      "id": "v1b-01-tired-leike",
+      "t0": 34.714,
+      "t1": 36.641,
+      "bar": 34.714,
+      "lyric": "And I'm so tired that I might",
+      "type": "image",
+      "text_exact": "until we finally reached a breaking point.",
+      "attribution": "JAN LEIKE · X POST · MAY 17, 2024",
+      "source_file": "/home/user/hyperplane-teaser/research/long/lyrics/quit-my-job.json",
+      "asset": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/x-leike-2024-05-17-breaking-point.png",
+      "crop_px": {
+        "x0": 28,
+        "y0": 664,
+        "x1": 1068,
+        "y1": 712,
+        "source_size": [
+          1096,
+          960
+        ]
+      },
+      "source_url": "https://x.com/janleike/status/1791498184671605209",
+      "verified": true,
+      "audible": false,
+      "treatment": "Echoes 'tired' (the line is about reaching a breaking point). Show only the single bottom line of the post, cropped to the box above, as a letterboxed strip inside a square frame cut from the broken logo, on the #0E0D12 ground. Grade the crop: saturation about 0.15, contrast up, brightness down about 25 percent so the white card reads as verse-dark. Slam in on the bar line 34.714 with a small camera hit. Stamp above the frame: 'JAN LEIKE · 2024'. Cut out at 36.641. No red on this item."
+    },
+    {
+      "id": "v1b-02-quit-coxon",
+      "t0": 36.641,
+      "t1": 38.615,
+      "bar": 36.641,
+      "lyric": "Quit my job, start a new life",
+      "type": "quote",
+      "text_exact": "I resigned from Anthropic today.",
+      "attribution": "JACOB COXON · X POST · SEP 9, 2026",
+      "source_file": "/home/user/hyperplane-teaser/research/long/lyrics/quit-my-job.json",
+      "asset": "",
+      "provenance_png": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/x-coxon-2026-09-08-resigned-anthropic.png",
+      "source_url": "https://x.com/hilbertspaess/status/2097476196791709843",
+      "verified": true,
+      "audible": false,
+      "treatment": "The literal 'quit my job' echo. Quote card on the #0E0D12 ground inside a square frame cut from the broken logo. Newsreader italic, white; the engine wraps the text in quotation marks; 'resigned' set white on red #B31B1B (hl). Stamp above the frame: 'JACOB COXON · 2026'. Enter as a cut on the bar line 36.641 with a small hit at t0; exit as a cut at 38.615. No picture, so no audio issues. The screenshot is provenance only and is not shown (the post text runs about 50 words, too long for a 2 s card)."
+    },
+    {
+      "id": "v1b-03-disappointed-techcrunch",
+      "t0": 38.615,
+      "t1": 40.542,
+      "bar": 38.615,
+      "lyric": "And they'd all be so disappointed",
+      "type": "headline",
+      "text_exact": "OpenAI safety employee resigns, claiming the company’s ‘culture is broken’",
+      "attribution": "TECHCRUNCH · OCT 3, 2026",
+      "source_file": "/home/user/hyperplane-teaser/research/long/lyrics/quit-my-job.json",
+      "asset": "",
+      "provenance_png": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/techcrunch-robinson-culture-broken.png",
+      "provenance_crop_px": {
+        "x0": 1310,
+        "y0": 575,
+        "x1": 2390,
+        "y1": 855,
+        "source_size": [
+          2560,
+          1320
+        ]
+      },
+      "source_url": "https://techcrunch.com/2026/10/03/openai-safety-employee-resigns-claiming-the-companys-culture-is-broken/",
+      "verified": true,
+      "audible": false,
+      "treatment": "The disappointment is with the company's culture, not with the family. The yellow plane band at 22° is the headline ticker: the band slams in on the bar line 38.615 and holds static for the full 1.93 s (no scroll). The headline is set in Newsreader inside the band, with 'culture is broken' in red #B31B1B (hl). The mono attribution 'TECHCRUNCH · OCT 3, 2026' sits under the band. Ground stays dark verse. Exit as a cut at 40.542. Text only, with no TechCrunch masthead or green panel, to respect the plain-attribution look. The screenshot is provenance (crop above)."
+    },
+    {
+      "id": "v1b-04-exploited-time-kenya",
+      "t0": 40.542,
+      "t1": 42.493,
+      "bar": 40.542,
+      "lyric": "'Cause who am I, if not exploited?",
+      "type": "headline",
+      "text_exact": "Exclusive: OpenAI Used Kenyan Workers on Less Than $2 Per Hour to Make ChatGPT Less Toxic",
+      "attribution": "TIME · JAN 18, 2023",
+      "source_file": "/home/user/hyperplane-teaser/research/long/lyrics/exploited.json",
+      "asset": "",
+      "source_url": "https://time.com/6247678/openai-chatgpt-kenya-workers/",
+      "verified": true,
+      "audible": false,
+      "treatment": "The people-exploited side of the lyric (the singer's worth as exploited, here paid labellers). Serif headline centred inside a square frame cut from the broken logo, on the #0E0D12 ground; 'Kenyan Workers' set white on red #B31B1B (hl). Mono attribution 'TIME · JAN 18, 2023' under the frame. Slam in on the bar line 40.542; static to 42.493. No outlet logo, plain text only. Fallback if the editor wants more reading time (verified, exploited.json candidate 1): quote card '…escaped its sandbox by exploiting a zero-day…' with attribution 'HUGGING FACE BLOG · JUL 27, 2026' (the AI-as-exploiter side)."
+    }
+  ]
+}

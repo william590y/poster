@@ -1,0 +1,111 @@
+{
+ "id": "signalfire-2026-06-22-state-of-talent",
+ "url": "https://www.signalfire.com/blog/signalfire-state-of-talent-report-2026",
+ "expected": "SignalFire State of Talent Report 2026",
+ "notes": [
+  "clicked:Accept",
+  "hid 6 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://www.signalfire.com/blog/signalfire-state-of-talent-report-2026",
+ "title0": "SignalFire's State of Tech Talent Report - 2026",
+ "hidden_detail": [
+  [
+   "DIV",
+   "",
+   "cookie-wrapper",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "cookie-options-button",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "cookie-button-svg w-embed",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "legal-consent-container",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "legal-consent-container",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "legal-consent-container",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "SignalFire's State of Tech Talent Report - 2026",
+ "og_title": "SignalFire's State of Tech Talent Report - 2026",
+ "twitter_title": "SignalFire's State of Tech Talent Report - 2026",
+ "og_site": null,
+ "published": null,
+ "author_meta": null,
+ "canonical": null,
+ "h1_count": 1,
+ "h1": "SignalFire's State of Talent Report - 2026",
+ "h1_box": [
+  52.953125,
+  193.4375,
+  840.5625,
+  326.6875
+ ],
+ "h1_font": "60.5854px",
+ "below_bottom": 406.953125,
+ "below_text": [
+  "Published on June 22, 2026",
+  "Data Reports",
+  "Developers",
+  "Talent & Hiring",
+  "Beacon AI"
+ ],
+ "hero_top": 529.796875,
+ "header_bottom": 66.6875,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  424.953125
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/signalfire-2026-06-22-state-of-talent.png",
+ "trimmed": 0
+}

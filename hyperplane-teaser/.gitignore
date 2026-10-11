@@ -1,0 +1,16 @@
+song/*.mp3
+song/*.wav
+song/*.m4a
+clips/
+node_modules/
+render/node_modules/
+render/video/frames/
+render/video/_f.png
+*.pyc
+__pycache__/
+.DS_Store
+render/video/cache/
+render/video/sheets/
+out/
+stale-renders/
+render/video/check/out/

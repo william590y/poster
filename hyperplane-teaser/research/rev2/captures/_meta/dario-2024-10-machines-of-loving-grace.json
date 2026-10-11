@@ -1,0 +1,57 @@
+{
+ "id": "dario-2024-10-machines-of-loving-grace",
+ "url": "https://darioamodei.com/essay/machines-of-loving-grace",
+ "expected": "Machines of Loving Grace",
+ "notes": [
+  "hid 1 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://darioamodei.com/essay/machines-of-loving-grace",
+ "title0": "Dario Amodei — Machines of Loving Grace",
+ "hidden_detail": [
+  [
+   "NAV",
+   "",
+   "toc-container",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "Dario Amodei — Machines of Loving Grace",
+ "og_title": "Dario Amodei — Machines of Loving Grace",
+ "twitter_title": "Dario Amodei — Machines of Loving Grace",
+ "og_site": null,
+ "published": null,
+ "author_meta": null,
+ "canonical": null,
+ "h1_count": 2,
+ "h1": "Machines of Loving Grace1",
+ "h1_box": [
+  310,
+  130.984375,
+  890,
+  267.359375
+ ],
+ "h1_font": "62px",
+ "below_bottom": 367.734375,
+ "below_text": [
+  "How AI Could Transform the World for the Better",
+  "October 2024"
+ ],
+ "hero_top": null,
+ "header_bottom": 68.796875,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  371.5
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/dario-2024-10-machines-of-loving-grace.png",
+ "trimmed": 27
+}

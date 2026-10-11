@@ -1,0 +1,27 @@
+{
+  "key": "ch-a-chorus-42.49-50.23",
+  "checks": [
+    {
+      "idx": 0,
+      "ok": true,
+      "evidence": "text_exact 'attacker actions that we were able to recover' is a verbatim substring of sick-of-seventeen.json (source_sentence 'covers ~17,600 attacker actions that we were able to recover') and of the live Hugging Face page, fetched this session: 'covers ~17,600 attacker actions that we were able to recover, grouped into ~6,280 clusters'. Page date shown as July 27, 2026, matching the attribution 'HUGGING FACE · JUL 27, 2026'. Lyric matches the source file exactly. hf-timeline.png was read: no quote text is legible, consistent with the plan's provenance-only note."
+    },
+    {
+      "idx": 1,
+      "ok": true,
+      "evidence": "text_exact matches teenage-dream.json character for character, including U+2019 and U+2018 (checked by script; 80 characters). The local Guardian screenshot guardian_nvidia_revenue_100bn.png shows the same headline with curly apostrophe and quotes, byline Johana Bhuiyan and 'Wed 26 Aug 2026'. Attribution 'THE GUARDIAN · AUG 26, 2026' matches. The live Guardian fetch was blocked for this session, so the screenshot is the check. Highlight 'golden age' is present."
+    },
+    {
+      "idx": 2,
+      "ok": false,
+      "problem": "Speaker, year and source link are not confirmed. The text is correct and the in/out match the transcript: 'restarted' starts at 452.48 and 'again.' ends at 454.26 (clips/transcripts/coxon.json word timings). But (1) source_url is a placeholder, not a real URL; (2) no on-screen name caption appears in frames at 8, 16, 24 and 452.8 s (the 452.8 s frame shows a guest speaking in the guest chair, which confirms the speaker is the guest); (3) the YouTube page fetch returned no guest name, host or air date; (4) the year 2026 is not confirmed by any fetched page; (5) coxon-lines.json start_s/end_s (450.72 to 454.36) is looser than the transcript (452.24 to 454.26), so the plan's in/out is the one to keep.",
+      "correct_text": "source_url: https://youtube.com/watch?v=lnLDjXy2kRA (from README.md, line 41). Keep text_exact, source_words_exact, in 452.48 and out 454.26. Attribution 'JACOB COXON · THE DAILY SHOW · 2026' stays unconfirmed until the on-screen name caption or the air date is read from the video or a reachable page. Supporting evidence: the README and research/verify/SUMMARY.md name the guest Jacob Coxon, and the host says 'Jacob Cox.' at 1546.29 in the transcript (ASR, truncated).",
+      "evidence": "text_exact '…restarted the thing, and it did it again.' is a verbatim trim of coxon-lines.json ('that's not happening. Like, restarted the thing, and it did it again.'). source_words_exact 'Like, restarted the thing, and it did it again.' matches the transcript segment at 452.24 to 454.26."
+    },
+    {
+      "idx": 3,
+      "ok": true,
+      "evidence": "text_exact 'young workers (ages 22–25) in AI-exposed occupations' is verbatim in the abstract of the Stanford paper (pdftotext of the PDF fetched this session), en dash included. The full sentence in source_sentence_exact matches the abstract. Authors Erik Brynjolfsson, Bharat Chandar, Ruyu Chen and 'August 2026' match the attribution. Note: sections 1 and 2.2 of the paper say 'AI-exposed jobs', so keep the abstract wording. The chart PNG was read: Early Career 1 (22-25) ends near 0.8, and no 19% label is on the chart, consistent with the plan's note."
+    }
+  ]
+}

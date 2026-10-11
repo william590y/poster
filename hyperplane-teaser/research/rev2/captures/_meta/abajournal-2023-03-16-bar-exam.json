@@ -1,0 +1,145 @@
+{
+ "id": "abajournal-2023-03-16-bar-exam",
+ "url": "https://www.abajournal.com/web/article/latest-version-of-chatgpt-aces-the-bar-exam-with-score-in-90th-percentile",
+ "expected": "Latest version of ChatGPT aces bar exam with score nearing 90th percentile",
+ "notes": [
+  "hid 9 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://www.abajournal.com/web/article/latest-version-of-chatgpt-aces-the-bar-exam-with-score-in-90th-percentile",
+ "title0": "Latest version of ChatGPT aces bar exam with score nearing 90th percentile",
+ "hidden_detail": [
+  [
+   "DIV",
+   "sas-interstitial-bg-13404730",
+   "",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "sas-interstitial-13404730",
+   "",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "leaderboard-lg",
+   "leaderboard-lg col-xs-12 col-md-9 advert",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "med-rec-1",
+   "ad",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "med-rec-2",
+   "ad",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "aswift_1",
+   "",
+   "absolute",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "consent_prompt_submit",
+   "button left",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "tp-modal",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "tp-backdrop tp-active",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "Latest version of ChatGPT aces bar exam with score nearing 90th percentile",
+ "og_title": "Latest version of ChatGPT aces bar exam with score nearing 90th percentile",
+ "twitter_title": "Latest version of ChatGPT aces bar exam with score nearing 90th percentile",
+ "og_site": "ABA Journal",
+ "published": "2023-03-16",
+ "author_meta": "Debra Cassens Weiss",
+ "canonical": "https://www.abajournal.com/web/article/latest-version-of-chatgpt-aces-the-bar-exam-with-score-in-90th-percentile",
+ "h1_count": 2,
+ "h1": "Latest version of ChatGPT aces bar exam with score nearing 90th percentile",
+ "h1_box": [
+  30,
+  308.578125,
+  780,
+  364.015625
+ ],
+ "h1_font": "25.2px",
+ "below_bottom": 585.046875,
+ "below_text": [
+  "AI use changes in-house teams' approach to work, outside counsel",
+  "By",
+  "Debra Cassens Weiss",
+  "March 16, 2023, 1:59 pm CDT",
+  "Chicago Cubs win in federal court against neighboring bar that sold tickets to w",
+  "Email",
+  "Print",
+  "Share",
+  "What happens next in Jane Doe's case against Cornell, the Cornell Seven?",
+  "NCBE runs remotely proctored test to audition NextGen UBE questions"
+ ],
+ "hero_top": 512.015625,
+ "header_bottom": 142.578125,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  508.015625
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/abajournal-2023-03-16-bar-exam.png",
+ "trimmed": 0
+}

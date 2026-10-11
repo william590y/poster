@@ -1,0 +1,126 @@
+{
+ "id": "fortune-2026-07-21-openai-hf-escape",
+ "url": "https://fortune.com/2026/07/21/openai-says-ai-models-escaped-control-hacked-hugging-face/",
+ "expected": "OpenAI says its AI models secretly broke out of a secure test environment and hacked into AI company Hugging Face in order to cheat on an evaluation",
+ "notes": [
+  "hid 7 overlay element(s)",
+  "hid 3 more",
+  "crop starts at css y=290 (the area above it, masthead, hero image, empty ad slot or video player, is not included)"
+ ],
+ "status": 200,
+ "final_url": "https://fortune.com/2026/07/21/openai-says-ai-models-escaped-control-hacked-hugging-face/",
+ "title0": "OpenAI says its AI models escaped control and hacked into AI company Hugging Face | Fortune",
+ "hidden_detail": [
+  [
+   "DIV",
+   "",
+   "sticky w-full shrink-0 h-1 bg-secondary z-body-overlay top-[",
+   "sticky",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "paywall-selector",
+   "sticky",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "A",
+   "",
+   "aspect-[3/2] relative",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "A",
+   "",
+   "hover:text-secondary active:text-secondary font-inria-serif ",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "A",
+   "",
+   "aspect-[3/2] relative",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "A",
+   "",
+   "hover:text-secondary active:text-secondary font-inria-serif ",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "OL",
+   "",
+   "fixed bottom-4 left-1/2 -translate-x-1/2 z-modal-content w-f",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "OpenAI says its AI models escaped control and hacked into AI company Hugging Face | Fortune",
+ "og_title": "OpenAI says its AI models escaped from a secure test environment and hacked into AI company Hugging Face in order to cheat on an evaluation | Fortune",
+ "twitter_title": "OpenAI says its AI models escaped from a secure test environment and hacked into AI company Hugging Face in order to cheat on an evaluation | Fortune",
+ "og_site": "Fortune",
+ "published": null,
+ "author_meta": "Jeremy Kahn",
+ "canonical": "https://fortune.com/2026/07/21/openai-says-ai-models-escaped-control-hacked-hugging-face/",
+ "h1_count": 2,
+ "h1": "OpenAI says its AI models secretly broke out of a secure test environment and hacked into AI company Hugging Face in order to cheat on an evaluation",
+ "h1_box": [
+  32,
+  539,
+  588,
+  755.015625
+ ],
+ "h1_font": "36px",
+ "below_bottom": 1031.21875,
+ "below_text": [
+  "By",
+  "Jeremy Kahn",
+  "and",
+  "Emily Forlini",
+  "Follow",
+  "July 21, 2026, 3:45 PM ET",
+  "OpenAI CEO Sam Altman. The company said in a blog post that two of its AI models",
+  "Chip Somodevilla—Getty Images)",
+  "Add Fortune on Google for similar content."
+ ],
+ "hero_top": 7551.515625,
+ "header_bottom": 357,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  290,
+  1200,
+  655
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/fortune-2026-07-21-openai-hf-escape.png",
+ "trimmed": 0
+}

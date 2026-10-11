@@ -1,0 +1,118 @@
+{
+ "id": "dawn-2026-10-02-rogue-agents-covered-tracks",
+ "url": "https://www.dawn.com/news/2034110/rogue-openai-agents-covered-up-their-tracks",
+ "expected": "Rogue OpenAI agents ‘covered up their tracks’",
+ "notes": [
+  "hid 7 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://www.dawn.com/news/2034110/rogue-openai-agents-covered-up-their-tracks",
+ "title0": "Rogue OpenAI agents ‘covered up their tracks’ - World - DAWN.COM",
+ "hidden_detail": [
+  [
+   "DIV",
+   "div-gpt-ad-1683363187247-0",
+   "ad__wrapper__slot ad-100 bg-gray-50 md:ad-250 py-2 mb-4",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "div-gpt-ad-1785229313610-0",
+   "ad__wrapper__slot ",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "div-gpt-ad-1790766122205-0",
+   "ad__wrapper__slot my-4 clear-both flex justify-center ad-ren",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "google_ads_iframe_/1029551/Dawn-Responsi",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "IFRAME",
+   "google_ads_iframe_/1029551/Dawn-Responsi",
+   "",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "navstory fixed z-50 top-2/5 navstory--prev",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "navstory fixed z-50 top-2/5 right-0 rounded-t-md rounded-l-m",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "Rogue OpenAI agents ‘covered up their tracks’ - World - DAWN.COM",
+ "og_title": "Rogue OpenAI agents ‘covered up their tracks’",
+ "twitter_title": "Rogue OpenAI agents ‘covered up their tracks’",
+ "og_site": "Dawn",
+ "published": "2026-10-02 06:59:24+05:00",
+ "author_meta": "AFP",
+ "canonical": "https://www.dawn.com/news/2034110",
+ "h1_count": 50,
+ "h1": "Rogue OpenAI agents ‘covered up their tracks’",
+ "h1_box": [
+  148,
+  162,
+  1052,
+  219
+ ],
+ "h1_font": "30px",
+ "below_bottom": 251,
+ "below_text": [
+  "AFP",
+  "Published",
+  "October 2, 2026"
+ ],
+ "hero_top": 267,
+ "header_bottom": 158,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  263
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/dawn-2026-10-02-rogue-agents-covered-tracks.png",
+ "trimmed": 0
+}

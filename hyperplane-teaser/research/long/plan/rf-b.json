@@ -1,0 +1,212 @@
+{
+  "key": "rf-b-refrain-65.736-73.445",
+  "section": {
+    "t0": 65.736,
+    "t1": 73.445,
+    "bars": [65.736, 67.663, 69.59, 71.564],
+    "lines_echoed": {
+      "golden-years": "whisper onset 65.04 (before this window; the item enters on the bar line 65.736)",
+      "disappear": "whisper onset 67.44",
+      "ego-crush": "whisper onset 69.32",
+      "brutal-out-here": "clear on bar 71.564 (the sung 'God,' sits at the bar; whisper's 71.94 starts at 'It's')"
+    },
+    "mood": "refrain, full colour on cream; items sit inside the broken-logo shapes (rings, squares, the 22-degree yellow plane band); everything clears on 71.564 and stays clear to 73.445 for the reassembly",
+    "vocals": "sung throughout this window (whisper 65.04 to 73.64)"
+  },
+  "time_base": {
+    "unit": "song seconds (all t0/t1 below)",
+    "long_cut": "edit t = song - 19.232 (long/drop cut)",
+    "intro_cut": "edit t = song - 6.10 (not used here)"
+  },
+  "look": {
+    "ground": "#F2EBDD",
+    "red": "#B31B1B",
+    "blue": "#2346FF",
+    "yellow": "#F2C300",
+    "pink": "#FF2E88",
+    "ink": "#15131F",
+    "text": "#0E0D12",
+    "headline_font": "Newsreader",
+    "mono_font": "IBM Plex Mono"
+  },
+  "items": [
+    {
+      "id": "gy-sat-stargate-2026-07",
+      "lyric_echo": "golden-years",
+      "bar": 65.736,
+      "t0": 65.736,
+      "t1": 67.663,
+      "type": "image",
+      "enter": "slam",
+      "exit": "cut",
+      "z": 1,
+      "asset": "/home/user/poster/ai-safety-presentation/assets/research/economy/epoch_sat_stargate_abilene_2026-07.png",
+      "asset_size": "1280x720",
+      "text_exact": "STARGATE ABILENE · JUL 2026",
+      "attribution": "IMAGERY: EPOCH AI (AIRBUS DS) · JUL 2026",
+      "treatment": "Full-colour satellite frame inside a red #B31B1B ring (the logo's circle), about 680 px across in the upper half of the frame. Slow push-in 1.00 to 1.06 across the bar. Enters on the bar line with a small camera hit. Not cropped or recoloured; the annotation outlines stay as made. Circle must stay within the 720 px image height to avoid upscaling.",
+      "verified": true,
+      "verified_how": "Image read: eight building blocks with cooling rows and substations, matching the annotation 'all 8 buildings complete'. Epoch's live page was not fetched; credit taken from deck manifest epoch-sat-abilene-2026-07.",
+      "source_url": "https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene",
+      "audible": false
+    },
+    {
+      "id": "gy-guardian-golden-age",
+      "lyric_echo": "golden-years",
+      "bar": 65.736,
+      "t0": 65.736,
+      "t1": 67.663,
+      "type": "headline",
+      "enter": "slam",
+      "exit": "cut",
+      "z": 2,
+      "text_exact": "…as CEO declares ‘golden age’",
+      "full_text_exact": "Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’",
+      "hl": "‘golden age’",
+      "outlet": "THE GUARDIAN",
+      "date": "AUG 26, 2026",
+      "attribution": "THE GUARDIAN · AUG 26, 2026",
+      "treatment": "Yellow #F2C300 plane band at 22 degrees across the full frame width, enters on the bar line and holds. Headline in Newsreader, ink #0E0D12, with ‘golden age’ in red #B31B1B. Attribution in IBM Plex Mono under the band. Trim is a leading ellipsis only: the full 80-character headline is about 41 characters a second over 1.93 s, too fast for a phone.",
+      "asset": "/home/user/poster/ai-safety-presentation/assets/research/economy/guardian_nvidia_revenue_100bn.png",
+      "asset_use": "provenance only; typeset text, no masthead, no page imitation",
+      "verified": true,
+      "verified_how": "Local screenshot read: headline matches exactly, byline Johana Bhuiyan, 'Wed 26 Aug 2026'. Candidate golden-years rank 1; deck manifest nvidia-revenue-100bn-guardian verified.",
+      "url": "https://www.theguardian.com/technology/2026/aug/26/nvidia-quarterly-revenue",
+      "audible": false
+    },
+    {
+      "id": "dis-apollo-copy-myself",
+      "lyric_echo": "disappear",
+      "bar": 67.663,
+      "t0": 67.663,
+      "t1": 69.59,
+      "type": "quote",
+      "enter": "slam",
+      "exit": "cut",
+      "z": 3,
+      "text_exact": "“I could copy myself to the new server”",
+      "hl": "copy myself",
+      "stamp": {"name": "CLAUDE 3 OPUS", "role": "APOLLO RESEARCH, HIDDEN REASONING", "year": 2024},
+      "attribution": "CLAUDE 3 OPUS · APOLLO RESEARCH · 2024",
+      "source_line": "SELF-EXFILTRATION TEST · DEC 5, 2024",
+      "treatment": "Square blue #2346FF frame with a cream card inside; the quote set large in ink with 'copy myself' in red #B31B1B. Enters on the bar line and holds the full 1.93 s with only a slow 1.00 to 1.03 push-in. Set as typeset text, so the figure's own red box is not reused.",
+      "asset": "/home/user/poster/ai-safety-presentation/assets/research/security/apollo-scheming-headline.png",
+      "asset_crop_hint": "provenance only; the bold sentence sits near x 338 to 1138, y 1085 to 1150 of the 2500x1440 original",
+      "verified": true,
+      "verified_how": "Figure read: the bold sentence is verbatim in the Self-Exfiltration panel. The Apollo page (candidate notes) names Claude 3 Opus as the model in that example, so the brief's o1 attribution is not used. Apollo post date 5 Dec 2024.",
+      "source_url": "https://www.apolloresearch.ai/science/frontier-models-are-capable-of-incontext-scheming",
+      "audible": false
+    },
+    {
+      "id": "ego-deepmind-lee-sedol-photo",
+      "lyric_echo": "ego-crush",
+      "bar": 69.59,
+      "t0": 69.59,
+      "t1": 71.564,
+      "type": "image",
+      "enter": "slam",
+      "exit": "cut",
+      "z": 1,
+      "asset": "/home/user/poster/ai-safety-presentation/assets/research/splash/alphago-lee-sedol-thinking.png",
+      "asset_size": "1440x810",
+      "text_exact": "PHOTO: DEEPMIND · MARCH 2016",
+      "attribution": "PHOTO: DEEPMIND · MARCH 2016",
+      "treatment": "Photo clipped to a blue #2346FF circle (the logo's circle) in the upper right of the frame, slow push-in 1.00 to 1.05 across the bar. Mono attribution beneath the circle. Captioned as the 2016 match, not the 2019 retirement.",
+      "verified": true,
+      "verified_how": "Image read: Lee Sedol at the Go board with a scoreboard showing his name, consistent with the 2016 match. DeepMind credit comes from deck manifest alphago-lee-sedol-thinking (not visible in the image).",
+      "audible": false
+    },
+    {
+      "id": "ego-lee-sedol-cannot-be-defeated",
+      "lyric_echo": "ego-crush",
+      "bar": 69.59,
+      "t0": 69.59,
+      "t1": 71.564,
+      "type": "quote",
+      "enter": "slam",
+      "exit": "cut",
+      "z": 2,
+      "text_exact": "“…there is an entity that cannot be defeated.”",
+      "full_quote_exact": "Even if I become the number one, there is an entity that cannot be defeated.",
+      "hl": "cannot be defeated",
+      "label": "AI",
+      "stamp": {"name": "LEE SEDOL", "role": "GO PLAYER, RETIRING", "year": 2019},
+      "attribution": "LEE SEDOL · 2019",
+      "source_line": "AS REPORTED BY YONHAP (TRANSLATED FROM KOREAN) · NOV 27, 2019",
+      "treatment": "Cream card in a pink #FF2E88 square frame, overlapping the blue circle at lower left. Quote in Newsreader, ink, with 'cannot be defeated' in red. A small mono 'AI' label sits above the quote, as the candidate's caveat asks, because the quote never names the entity. Holds the full 1.97 s.",
+      "verified": true,
+      "verified_how": "Candidate ego-crush rank 1: TNW (after its 301) and Irish News both carry the sentence; TNW wording used because translations differ. Lee Sedol lost 4-1 to AlphaGo in 2016 (not on screen).",
+      "source_url": "https://thenextweb.com/artificial-intelligence/2019/11/27/world-champion-go-player-retires-ai-cannot-be-defeated/",
+      "audible": false
+    }
+  ],
+  "exceptions": [
+    {
+      "bar": 71.564,
+      "what": "No items. The brutal bar is the clear: every item ends on 71.564 (exit cut) and the frame stays empty cream to 73.445. This breaks the 1 to 3 items per bar guideline on purpose, because William's direction is that everything clears on the refrain's 'God, it's brutal out here'.",
+      "fallback": "alt_brutal_item below, but it reads too slowly for the 1.5 s hold and breaks 'everything clears'. Recommend the strict clear."
+    }
+  ],
+  "handoffs": {
+    "in_at_65.736": "The section before (rf-a, not in the plan folder when checked) should end on 65.736. Both sections use the cream ground, so this is a hard cut with the golden slam, no flash. The golden line is already being sung 0.7 s before this window; that first 0.7 s has no echo unless rf-a carries one.",
+    "out_at_73.445": "Empty cream frame. The instrumental planner takes over with the same ground; reassembly of the pieces is not planned here (the brief puts it on the instrumental after 73.64)."
+  },
+  "audio": {
+    "clip_speech": "None placed in this section. Every clip-based option is muted with a pull-quote in sung bars (see reserves), so no clip speech is audible under vocals.",
+    "song_lyrics_on_screen": "None. Candidate texts are headlines, a stat-free quote set and a photo caption; none reuse the lyric wording ('golden age' is not 'golden years'; 'disappear' is not on screen).",
+    "explicit_word": "44.88 to 45.22 is outside this section."
+  },
+  "fallback_brutal_item": {
+    "id": "alt-brutal-balesni",
+    "text_exact": "i am at OpenAI and i think AI is >10% likely to kill all humans",
+    "attribution": "MIKITA BALESNI · X POST · SEP 10, 2026",
+    "t0": 71.94,
+    "t1": 73.445,
+    "note": "Lowercase kept as posted. About 3 s to read, so 1.5 s of hold is too short; it would also break 'everything clears'. Only if William overrides the clear."
+  },
+  "reserves": [
+    {
+      "id": "dis-hinton-escape-control-muted",
+      "for_bar": 67.663,
+      "clip": "/home/user/hyperplane-teaser/clips/hinton-escape-control-2023.mp4",
+      "clip_source_window_s": [333.5, 347.0],
+      "line_source_s": [334.8, 342.6],
+      "pull_quote": "…one of the ways in which these systems might escape control…",
+      "verbatim_full": "So one of the ways in which these systems might escape control is by writing their own computer code to modify themselves.",
+      "stamp": {"name": "GEOFFREY HINTON", "year": 2023},
+      "audio": "muted (sung bar)",
+      "note": "Footage alternative to the Apollo card for the disappear bar. Picture in-point around 335 s source so the speaker is on screen as the phrase is said."
+    },
+    {
+      "id": "ego-feynman-do-it-better-muted",
+      "for_bar": 69.59,
+      "clip": "/home/user/hyperplane-teaser/clips/feynman-1985.mp4",
+      "line_source_s": [147.22, 150.94],
+      "pull_quote": "…but they'll do it better.",
+      "verbatim_full": "they're not going to do arithmetic the same way as we do arithmetic, but they'll do it better.",
+      "stamp": {"name": "RICHARD FEYNMAN", "year": 1985},
+      "audio": "muted (sung bar)",
+      "note": "Trim loses the referent of 'they' (machines). Only use if the pronoun is acceptable to William; date and venue unverified, so year only."
+    },
+    {
+      "id": "brutal-altman-2015-end-of-world",
+      "clip": "/home/user/hyperplane-teaser/clips/altman-2015-short.mp4",
+      "line_source_s": [0.0, 10.9],
+      "text_exact_trim": "AI will probably most likely lead to the end of the world…",
+      "note": "Brutal-bar candidate rank 1 (per the candidate file). Not used, because the bar is the clear."
+    }
+  ],
+  "open_questions": [
+    "Confirm the zero-item brutal bar (strict clear) against the 1 to 3 items per bar guideline.",
+    "Confirm the 'AI' label on the Lee Sedol card; it is the candidate's suggestion, not in the quote.",
+    "Confirm the refrain ground stays cream (#F2EBDD), matching the chorus plan ch-a.",
+    "Whisper word times are approximate; the bar grid is used as the entry, and the sung 'God,' is inferred to sit on 71.564 because the whisper line begins at 'It's' (71.94)."
+  ],
+  "checks": {
+    "bars_match_bars_json": true,
+    "items_per_bar": {"65.736": 2, "67.663": 1, "69.59": 2, "71.564": 0},
+    "min_readable": "headlines and quotes 1.93 to 1.97 s (>= 1.2 s); images 1.93 to 1.97 s (>= 0.8 s)",
+    "no_outlet_logos_or_page_imitations": true,
+    "exact_text_checked": "Guardian headline and Apollo sentence checked against local screenshots; Lee Sedol quote checked against candidate's live TNW and Irish News fetches (no local screenshot of the text)"
+  }
+}

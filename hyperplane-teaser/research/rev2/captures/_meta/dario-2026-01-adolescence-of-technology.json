@@ -1,0 +1,59 @@
+{
+ "id": "dario-2026-01-adolescence-of-technology",
+ "url": "https://darioamodei.com/essay/the-adolescence-of-technology",
+ "expected": "The Adolescence of Technology",
+ "notes": [
+  "hid 1 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://darioamodei.com/essay/the-adolescence-of-technology",
+ "title0": "Dario Amodei — The Adolescence of Technology",
+ "hidden_detail": [
+  [
+   "NAV",
+   "",
+   "toc-container",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "Dario Amodei — The Adolescence of Technology",
+ "og_title": "Dario Amodei — The Adolescence of Technology",
+ "twitter_title": "Dario Amodei — The Adolescence of Technology",
+ "og_site": null,
+ "published": null,
+ "author_meta": null,
+ "canonical": null,
+ "h1_count": 2,
+ "h1": "The Adolescence of Technology",
+ "h1_box": [
+  310,
+  130.984375,
+  890,
+  267.359375
+ ],
+ "h1_font": "62px",
+ "below_bottom": 417.53125,
+ "below_text": [
+  "Confronting and Overcoming the Risks of Powerful AI",
+  "January 2026",
+  "There is a scene in the movie version of Carl Sagan’s book",
+  "Contact"
+ ],
+ "hero_top": null,
+ "header_bottom": 68.796875,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  385
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/dario-2026-01-adolescence-of-technology.png",
+ "trimmed": 0
+}

@@ -1,0 +1,6780 @@
+{
+ "meta": {
+  "generated": "2026-10-10",
+  "count": 132,
+  "coords": "All boxes are [x0,y0,x1,y1] in source pixels of `path` (w x h). One box per text line of the phrase, 3 px padding, from tesseract word boxes (psm 3 and 6, plus an inverted pass for dark images; images narrower than 1000 px were OCR-upscaled 2-3x and the boxes mapped back).",
+  "quality": "1-5, legibility when the image is shown 700-900 px wide on a phone: median OCR line height of the highlighted phrase at 800 px display width: >=50 px = 5, >=36 = 4, >=26 = 3, >=17 = 2, else 1; minus 1 if the source needs more than 1.6x upscaling to reach 800 px, minus 1 if OCR confirms less than 75% of the text. 5 = big display type, 4 = comfortable, 3 = legible, 2 = barely legible (crop/zoom advised), 1 = unreadable.",
+  "ocr_check": "score = how much of `text` (first 300 chars) the OCR confirms (1.0 = all). note = real differences between the verified text and the OCR (single-letter noise such as I/l is ignored); highlight_scores = OCR match score per highlight phrase; line_px_at_800 = median highlight line height at 800 px width.",
+  "lyric": "keys of research/long/lyrics/*.json the screenshot fits (best first); tags are topic tags.",
+  "source": "deck-images.json (William deck) + assets/research/*/manifest.json (verified headline text, outlet, date, url); images are real screenshots, never re-typeset."
+ },
+ "items": [
+  {
+   "id": "capabilities-decoder-metr-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/decoder-metr-head.png",
+   "w": 1290,
+   "h": 300,
+   "kind": "headline",
+   "outlet": "The Decoder",
+   "date": "2026-05-10",
+   "url": "https://the-decoder.com/metr-says-it-can-barely-measure-claude-mythos-palo-alto-networks-warns-of-autonomous-ai-attackers/",
+   "text": "METR says it can barely measure Claude Mythos, Palo Alto Networks warns of autonomous AI attackers",
+   "tags": [
+    "benchmarks",
+    "models",
+    "security",
+    "safety",
+    "anthropic"
+   ],
+   "lyric": [
+    "broken-ego",
+    "not-cool-not-smart"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "METR says it can barely measure Claude Mythos",
+     "boxes": [
+      [
+       77,
+       16,
+       1137,
+       78
+      ],
+      [
+       11,
+       89,
+       225,
+       150
+      ]
+     ]
+    }
+   ],
+   "author": "Matthias Bastian",
+   "ocr_check": {
+    "score": 0.988,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 34.4,
+    "note": "ok"
+   },
+   "slide": 17,
+   "source": "deck"
+  },
+  {
+   "id": "capabilities-deepmind-imo-gold",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/deepmind-imo-gold.png",
+   "w": 1960,
+   "h": 1490,
+   "kind": "headline",
+   "outlet": "Google DeepMind blog",
+   "date": "2025-07-21",
+   "url": "https://deepmind.google/blog/advanced-version-of-gemini-with-deep-think-officially-achieves-gold-medal-standard-at-the-international-mathematical-olympiad/",
+   "text": "Advanced version of Gemini with Deep Think officially achieves gold-medal standard at the International Mathematical Olympiad",
+   "tags": [
+    "math",
+    "models",
+    "google"
+   ],
+   "lyric": [
+    "not-cool-not-smart",
+    "ego-crush"
+   ],
+   "year": 2025,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "officially achieves gold-medal standard at the International Mathematical Olympiad",
+     "boxes": [
+      [
+       1169,
+       248,
+       1561,
+       355
+      ],
+      [
+       281,
+       360,
+       1679,
+       469
+      ],
+      [
+       544,
+       472,
+       1416,
+       559
+      ],
+      [
+       424,
+       584,
+       1540,
+       691
+      ]
+     ]
+    }
+   ],
+   "author": "Thang Luong and Edward Lockhart",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 41.2,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "capabilities-math-gizmodo-hodge-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/math-gizmodo-hodge-head.png",
+   "w": 980,
+   "h": 492,
+   "kind": "headline",
+   "outlet": "Gizmodo (reporting The Information)",
+   "date": "2026-09-17",
+   "url": "https://gizmodo.com/openai-reportedly-trying-to-solve-hodge-conjecture-amid-feud-with-math-community-2000813658",
+   "text": "OpenAI Reportedly Trying to Solve Hodge Conjecture Amid Feud With Math Community",
+   "tags": [
+    "math",
+    "openai"
+   ],
+   "lyric": [
+    "caught-up-in-news",
+    "ego-crush"
+   ],
+   "year": 2026,
+   "quality": 5,
+   "highlights": [
+    {
+     "phrase": "Trying to Solve Hodge Conjecture",
+     "boxes": [
+      [
+       664,
+       28,
+       875,
+       137
+      ],
+      [
+       27,
+       144,
+       907,
+       253
+      ]
+     ]
+    }
+   ],
+   "author": "Tom McKay",
+   "ocr_check": {
+    "score": 0.986,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 84.1,
+    "note": "ok"
+   },
+   "slide": 34,
+   "source": "deck"
+  },
+  {
+   "id": "capabilities-math-openai-100-para",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/math-openai-100-para.png",
+   "w": 1210,
+   "h": 400,
+   "kind": "article",
+   "outlet": "OpenAI",
+   "date": "2026-09-21",
+   "url": "https://openai.com/index/advisory-group-on-mathematics-and-ai/",
+   "text": "On August 28, we began training a new internal model. In addition to resolving the Navier–Stokes Millennium Prize problem, this model has now resolved more than 100 long-standing open problems across most areas of mathematics. The pace of its progress in mathematics has surprised the mathematicians within OpenAI. This has led to internal discussions on the best way to inform the community of the rapid progress to prepare and adapt the field.",
+   "tags": [
+    "math",
+    "openai"
+   ],
+   "lyric": [
+    "ego-crush",
+    "broken-ego"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "this model has now resolved more than 100 long-standing open problems",
+     "boxes": [
+      [
+       844,
+       74,
+       1140,
+       104
+      ],
+      [
+       17,
+       130,
+       826,
+       168
+      ]
+     ]
+    }
+   ],
+   "author": "OpenAI (byline \"OpenAI\"; no individual author)",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 18.5,
+    "note": "ok"
+   },
+   "slide": 33,
+   "source": "deck"
+  },
+  {
+   "id": "capabilities-math-synthwavedd-post",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/math-synthwavedd-post.png",
+   "w": 1200,
+   "h": 470,
+   "kind": "post",
+   "outlet": "X (@synthwavedd, \"leo\")",
+   "date": "2026-09-10",
+   "url": "https://x.com/synthwavedd/status/2097971881596916185",
+   "text": "I am told the Hodge Conjecture is very close to being verified by OpenAI, and that one of OpenAI or Anthropic are also close to solving Birch-Swinnerton-Dyer. The race to be 'next' behind the scenes is unlike anything I've had described to me before. If true - and it may not be, given the scale of the rumour mill right now - it could mean 3 Millennium Problems fall in the space of a month. Crazy times",
+   "tags": [
+    "math",
+    "openai",
+    "anthropic"
+   ],
+   "lyric": [
+    "caught-up-in-news"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "I am told the Hodge Conjecture is very close to being verified by OpenAI",
+     "boxes": [
+      [
+       34,
+       119,
+       1022,
+       153
+      ]
+     ]
+    }
+   ],
+   "author": "leo (@synthwavedd; ~45.9K followers, verified; bio \"tech, ai & politics nerd\")",
+   "ocr_check": {
+    "score": 0.987,
+    "highlight_scores": [
+     0.966
+    ],
+    "line_px_at_800": 18.7,
+    "note": "ok"
+   },
+   "slide": 34,
+   "source": "deck"
+  },
+  {
+   "id": "capabilities-nbc-gpt6-astra",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/nbc-gpt6-astra.png",
+   "w": 2560,
+   "h": 1060,
+   "kind": "headline",
+   "outlet": "NBC News",
+   "date": "2026-09-04",
+   "url": "https://www.nbcnews.com/tech/tech-news/openai-debuts-gpt-6-astra-security-measures-rcna595940",
+   "text": "OpenAI releases new model that it says triggered internal security measures",
+   "tags": [
+    "models",
+    "openai"
+   ],
+   "lyric": [
+    "insecure",
+    "caught-up-in-news"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "triggered internal security measures",
+     "boxes": [
+      [
+       517,
+       350,
+       2068,
+       451
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.985,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 29.7,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "capabilities-ns-bbc",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-bbc.png",
+   "w": 1660,
+   "h": 690,
+   "kind": "headline",
+   "outlet": "BBC News",
+   "date": "2026-09-08",
+   "url": "https://www.bbc.co.uk/news/articles/cy7zygy3rl2o",
+   "text": "OpenAI says it cracked 90-year-old maths problem in 88 hours",
+   "tags": [
+    "math",
+    "openai"
+   ],
+   "lyric": [
+    "ego-crush",
+    "not-cool-not-smart"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "cracked 90-year-old maths problem in 88 hours",
+     "boxes": [
+      [
+       684,
+       490,
+       1537,
+       584
+      ],
+      [
+       32,
+       586,
+       1181,
+       679
+      ]
+     ]
+    }
+   ],
+   "author": "Kali Hays",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 42.2,
+    "note": "ok"
+   },
+   "slide": 30,
+   "source": "deck"
+  },
+  {
+   "id": "capabilities-ns-fortune",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-fortune.png",
+   "w": 1210,
+   "h": 770,
+   "kind": "headline",
+   "outlet": "Fortune",
+   "date": "2026-09-08",
+   "url": "https://fortune.com/2026/09/08/openai-says-it-cracked-navier-stokes-math-grand-challenge-buckmaster-accusation-cheating-intimidation-tao-lament/",
+   "text": "OpenAI says it cracked one of math’s grand challenges. But there are troubling questions about how they did it—and what it means for us all",
+   "tags": [
+    "math",
+    "openai"
+   ],
+   "lyric": [
+    "ego-crush",
+    "caught-up-in-news"
+   ],
+   "year": 2026,
+   "quality": 5,
+   "highlights": [
+    {
+     "phrase": "cracked one of math’s grand challenges",
+     "boxes": [
+      [
+       564,
+       112,
+       1115,
+       179
+      ],
+      [
+       18,
+       209,
+       941,
+       291
+      ]
+     ]
+    },
+    {
+     "phrase": "troubling questions about how they did it",
+     "boxes": [
+      [
+       375,
+       305,
+       1107,
+       387
+      ],
+      [
+       20,
+       401,
+       1005,
+       483
+      ]
+     ]
+    }
+   ],
+   "author": "Jeremy Kahn",
+   "ocr_check": {
+    "score": 0.991,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 50.2,
+    "note": "ok"
+   },
+   "slide": 30,
+   "source": "deck"
+  },
+  {
+   "id": "capabilities-ns-nature-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-nature-head.png",
+   "w": 1700,
+   "h": 600,
+   "kind": "headline",
+   "outlet": "Nature",
+   "date": "2026-09-08",
+   "url": "https://www.nature.com/articles/d41586-026-02842-5",
+   "text": "OpenAI claims huge maths breakthrough on a famed ‘Millennium Problem’",
+   "tags": [
+    "math",
+    "openai"
+   ],
+   "lyric": [
+    "ego-crush"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "huge maths breakthrough on a famed ‘Millennium Problem’",
+     "boxes": [
+      [
+       630,
+       135,
+       1119,
+       229
+      ],
+      [
+       11,
+       243,
+       1069,
+       338
+      ],
+      [
+       11,
+       351,
+       918,
+       428
+      ]
+     ]
+    }
+   ],
+   "author": "Davide Castelvecchi",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 41.4,
+    "note": "ok"
+   },
+   "slide": 29,
+   "source": "deck"
+  },
+  {
+   "id": "capabilities-ns-paper-title",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-paper-title.png",
+   "w": 615,
+   "h": 125,
+   "kind": "paper",
+   "outlet": "OpenAI (paper PDF)",
+   "date": "2026-09-08",
+   "url": "https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf",
+   "text": "FINITE TIME BLOWUP FOR NAVIER–STOKES",
+   "tags": [
+    "math"
+   ],
+   "lyric": [
+    "ego-crush"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "FINITE TIME BLOWUP FOR NAVIER–STOKES",
+     "boxes": [
+      [
+       45,
+       22,
+       569,
+       45
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 22.1,
+    "note": "ok"
+   },
+   "slide": 29,
+   "source": "deck"
+  },
+  {
+   "id": "capabilities-ns-quanta",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-quanta.png",
+   "w": 1500,
+   "h": 480,
+   "kind": "headline",
+   "outlet": "Quanta Magazine",
+   "date": "2026-09-08",
+   "url": "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/",
+   "text": "AI Has Solved One of Math’s $1 Million Millennium Prize Problems",
+   "tags": [
+    "math",
+    "economy"
+   ],
+   "lyric": [
+    "ego-crush",
+    "not-cool-not-smart"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "AI Has Solved One of Math’s $1 Million Millennium Prize Problems",
+     "boxes": [
+      [
+       16,
+       67,
+       1386,
+       144
+      ],
+      [
+       17,
+       164,
+       1022,
+       229
+      ]
+     ]
+    }
+   ],
+   "author": "Konstantin Kakaes",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 34.7,
+    "note": "ok"
+   },
+   "slide": 30,
+   "source": "deck"
+  },
+  {
+   "id": "capabilities-ns-techcrunch",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-techcrunch.png",
+   "w": 1395,
+   "h": 640,
+   "kind": "headline",
+   "outlet": "TechCrunch",
+   "date": "2026-09-08",
+   "url": "https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/",
+   "text": "OpenAI fought dirty on career-making math problem, says NYU mathematician",
+   "tags": [
+    "math",
+    "openai"
+   ],
+   "lyric": [
+    "caught-up-in-news",
+    "ego-crush"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "OpenAI fought dirty",
+     "boxes": [
+      [
+       220,
+       74,
+       923,
+       151
+      ]
+     ]
+    }
+   ],
+   "author": "Russell Brandom",
+   "ocr_check": {
+    "score": 0.984,
+    "highlight_scores": [
+     0.941
+    ],
+    "line_px_at_800": 40.7,
+    "note": "ok"
+   },
+   "slide": 30,
+   "source": "deck"
+  },
+  {
+   "id": "capabilities-ns-verge",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-verge.png",
+   "w": 1720,
+   "h": 250,
+   "kind": "headline",
+   "outlet": "The Verge",
+   "date": "2026-09-09",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/992953/openai-math-millennium-prize-navier-stokes",
+   "text": "OpenAI’s sly mathematical breakthrough sends a chill through academia",
+   "tags": [
+    "math",
+    "safety",
+    "openai"
+   ],
+   "lyric": [
+    "ego-crush",
+    "brutal-out-here"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "sends a chill through academia",
+     "boxes": [
+      [
+       9,
+       155,
+       1300,
+       243
+      ]
+     ]
+    }
+   ],
+   "author": "Robert Hart",
+   "ocr_check": {
+    "score": 0.983,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 38.1,
+    "note": "ok"
+   },
+   "slide": 30,
+   "source": "deck"
+  },
+  {
+   "id": "capabilities-ns-wired",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-wired.png",
+   "w": 1010,
+   "h": 440,
+   "kind": "headline",
+   "outlet": "WIRED",
+   "date": "2026-09-12",
+   "url": "https://www.wired.com/story/mathematician-steven-strogatz-grapples-with-ai-recent-breakthroughs/",
+   "text": "‘I’m Really Terrified’: A Mathematician Grapples With AI’s Recent Breakthroughs",
+   "tags": [
+    "math",
+    "safety"
+   ],
+   "lyric": [
+    "ego-crush",
+    "brutal-out-here"
+   ],
+   "year": 2026,
+   "quality": 5,
+   "highlights": [
+    {
+     "phrase": "‘I’m Really Terrified’",
+     "boxes": [
+      [
+       10,
+       108,
+       676,
+       208
+      ]
+     ]
+    },
+    {
+     "phrase": "AI’s Recent Breakthroughs",
+     "boxes": [
+      [
+       9,
+       332,
+       888,
+       434
+      ]
+     ]
+    }
+   ],
+   "author": "Isabella Ward",
+   "ocr_check": {
+    "score": 0.969,
+    "highlight_scores": [
+     0.941,
+     0.955
+    ],
+    "line_px_at_800": 75.2,
+    "note": "ok"
+   },
+   "slide": 30,
+   "source": "deck"
+  },
+  {
+   "id": "capabilities-rev2-afp-malaymail-header",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/afp-malaymail-header.png",
+   "w": 1520,
+   "h": 375,
+   "kind": "headline",
+   "outlet": "Malay Mail (AFP)",
+   "date": "2026-09-18",
+   "url": "https://www.malaymail.com/news/life/2026/09/18/maths-midlife-crisis-ai-solves-in-four-days-what-stumped-mathematicians-for-a-century/235502",
+   "text": "Math’s midlife crisis: AI solves in four days what stumped mathematicians for a century",
+   "tags": [
+    "math"
+   ],
+   "lyric": [
+    "ego-crush",
+    "broken-ego"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "AI solves in four days what stumped mathematicians for a century",
+     "boxes": [
+      [
+       964,
+       89,
+       1478,
+       163
+      ],
+      [
+       13,
+       185,
+       1091,
+       279
+      ],
+      [
+       13,
+       281,
+       1342,
+       375
+      ]
+     ]
+    }
+   ],
+   "author": "AFP",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 46.3,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "capabilities-rev2-anabology-x-felixrieseberg-reply-best-music-video",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/anabology-x-felixrieseberg-reply-best-music-video.png",
+   "w": 1200,
+   "h": 1400,
+   "kind": "post",
+   "outlet": "X (Twitter)",
+   "date": "2026-10-03",
+   "url": "https://x.com/felixrieseberg/status/2106440492045238469",
+   "text": "As far as Claude music videos go, this is by far my favorite one yet.\n\nI prefer Claude being a tool used by humans to make art rather than making art unattended, but even so, I really enjoyed this one. Probably because it’s a little meta.",
+   "tags": [
+    "models",
+    "media",
+    "anthropic",
+    "meta"
+   ],
+   "lyric": [
+    "love-people-dont-like"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "this is by far my favorite one yet",
+     "boxes": [
+      [
+       496,
+       119,
+       941,
+       153
+      ]
+     ]
+    },
+    {
+     "phrase": "I prefer Claude being a tool used by humans to make art rather than making art unattended",
+     "boxes": [
+      [
+       33,
+       199,
+       1112,
+       233
+      ],
+      [
+       33,
+       239,
+       205,
+       271
+      ]
+     ]
+    }
+   ],
+   "author": "Felix Rieseberg (@felixrieseberg; bio: 'I build things @AnthropicAI, Co-Maintainer elec...",
+   "ocr_check": {
+    "score": 0.989,
+    "highlight_scores": [
+     1.0,
+     0.986
+    ],
+    "line_px_at_800": 18.7,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "capabilities-rev2-buzzard-grieve-header",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/buzzard-grieve-header.png",
+   "w": 966,
+   "h": 228,
+   "kind": "post",
+   "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+   "date": "2026-10-01",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "text": "To grieve, or not to grieve?",
+   "tags": [
+    "math",
+    "academia",
+    "safety"
+   ],
+   "lyric": [
+    "ego-crush",
+    "brutal-out-here"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "To grieve, or not to grieve?",
+     "boxes": [
+      [
+       75,
+       56,
+       885,
+       121
+      ]
+     ]
+    }
+   ],
+   "author": "Kevin Buzzard (byline: xenaproject)",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 48.9,
+    "note": "ok"
+   },
+   "slide": 31,
+   "source": "deck"
+  },
+  {
+   "id": "capabilities-rev2-sciencenews-header",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/sciencenews-header.png",
+   "w": 1400,
+   "h": 1525,
+   "kind": "headline",
+   "outlet": "Science News",
+   "date": "2026-09-09",
+   "url": "https://www.sciencenews.org/article/ai-math-puzzle-navier-stokes-openai",
+   "text": "AI may have solved one of math’s biggest puzzles, raising controversy",
+   "tags": [
+    "math"
+   ],
+   "lyric": [
+    "ego-crush",
+    "caught-up-in-news"
+   ],
+   "year": 2026,
+   "quality": 5,
+   "highlights": [
+    {
+     "phrase": "AI may have solved one of math’s biggest puzzles",
+     "boxes": [
+      [
+       78,
+       127,
+       1191,
+       226
+      ],
+      [
+       79,
+       228,
+       1037,
+       326
+      ]
+     ]
+    },
+    {
+     "phrase": "raising controversy",
+     "boxes": [
+      [
+       79,
+       330,
+       903,
+       426
+      ]
+     ]
+    }
+   ],
+   "author": "Emily Conover",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 52.6,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "capabilities-rev2-x-openai-navier-stokes-announcement",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/x-openai-navier-stokes-announcement.png",
+   "w": 1138,
+   "h": 1794,
+   "kind": "post",
+   "outlet": "X (@OpenAI)",
+   "date": "2026-09-08",
+   "url": "https://x.com/OpenAI/status/2097374640582668336",
+   "text": "“We’re sharing a solution to the Navier-Stokes Millennium Prize Problem, one of the deepest problems at the frontier of mathematics. The proof was produced by a group of agents, using an OpenAI next-generation model significantly more capable than GPT-6 Astra. The problem concerns whether the description of smooth three-dimensional fluid motion modeled by the Navier-Stokes equations can break down. It has remained unresolved for roughly 90 years.”",
+   "tags": [
+    "math",
+    "models",
+    "agents",
+    "openai"
+   ],
+   "lyric": [
+    "ego-crush"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "We’re sharing a solution to the Navier-Stokes Millennium Prize Problem",
+     "boxes": [
+      [
+       0,
+       109,
+       983,
+       143
+      ]
+     ]
+    }
+   ],
+   "author": "OpenAI",
+   "ocr_check": {
+    "score": 0.996,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 19.7,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "capabilities-rev3-cnbc-model-fatigue-headline",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev3/cnbc-model-fatigue-headline.png",
+   "w": 1460,
+   "h": 516,
+   "kind": "headline",
+   "outlet": "CNBC",
+   "date": "2026-09-06",
+   "url": "https://www.cnbc.com/2026/09/06/meta-google-openai-anthropic-ai-model-fatigue.html",
+   "text": "‘Model fatigue’ sets in as AI labs race to roll out new versions at frenetic pace",
+   "tags": [
+    "release-cadence"
+   ],
+   "lyric": [
+    "broken-ego",
+    "caught-up-in-news"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "‘Model fatigue’ sets in",
+     "boxes": [
+      [
+       24,
+       87,
+       834,
+       167
+      ]
+     ]
+    },
+    {
+     "phrase": "frenetic pace",
+     "boxes": [
+      [
+       995,
+       171,
+       1282,
+       236
+      ],
+      [
+       25,
+       273,
+       201,
+       334
+      ]
+     ]
+    }
+   ],
+   "author": "Jonathan Vanian",
+   "ocr_check": {
+    "score": 0.984,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 32.3,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "capabilities-rev3-jfonsecarivera-model-release-cadence-chart",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev3/jfonsecarivera-model-release-cadence-chart.jpg",
+   "w": 2048,
+   "h": 1270,
+   "kind": "figure",
+   "outlet": "X (Twitter)",
+   "date": "2026-09-29",
+   "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+   "text": "New models from Anthropic and OpenAI are arriving faster",
+   "tags": [
+    "models",
+    "release-cadence",
+    "openai",
+    "anthropic"
+   ],
+   "lyric": [
+    "broken-ego"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "are arriving faster",
+     "boxes": [
+      [
+       1268,
+       79,
+       1786,
+       143
+      ]
+     ]
+    }
+   ],
+   "author": "josh :) (@jfonsecarivera)",
+   "ocr_check": {
+    "score": 0.979,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 22.7,
+    "note": "ok"
+   },
+   "slide": 15,
+   "source": "deck"
+  },
+  {
+   "id": "capabilities-rev3-jfonsecarivera-post-header-text",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev3/jfonsecarivera-post-header-text.png",
+   "w": 1100,
+   "h": 450,
+   "kind": "post",
+   "outlet": "X (Twitter)",
+   "date": "2026-09-29",
+   "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+   "text": "you're not crazy\n\nbetween anthropic and openai, a new model used to come out every ~10 weeks\n\nnow it's every ~11 days",
+   "tags": [
+    "models",
+    "release-cadence",
+    "openai",
+    "anthropic"
+   ],
+   "lyric": [
+    "broken-ego",
+    "caught-up-in-news"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "a new model used to come out every ~10 weeks",
+     "boxes": [
+      [
+       591,
+       246,
+       963,
+       282
+      ],
+      [
+       33,
+       294,
+       513,
+       337
+      ]
+     ]
+    },
+    {
+     "phrase": "now it's every ~11 days",
+     "boxes": [
+      [
+       34,
+       390,
+       448,
+       433
+      ]
+     ]
+    }
+   ],
+   "author": "josh :) (@jfonsecarivera)",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 26.9,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "capabilities-rev3-nikkei-us-china-ai-race-speeds-up-headline",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev3/nikkei-us-china-ai-race-speeds-up-headline.png",
+   "w": 1120,
+   "h": 340,
+   "kind": "headline",
+   "outlet": "Nikkei Asia",
+   "date": "2026-09-22",
+   "url": "https://asia.nikkei.com/business/technology/artificial-intelligence/us-china-ai-race-speeds-up-as-self-improving-models-advance",
+   "text": "US-China AI race speeds up as self-improving models advance",
+   "tags": [
+    "self-improvement",
+    "geopolitics"
+   ],
+   "lyric": [
+    "broken-ego"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "US-China AI race speeds up",
+     "boxes": [
+      [
+       19,
+       89,
+       909,
+       161
+      ]
+     ]
+    },
+    {
+     "phrase": "self-improving models advance",
+     "boxes": [
+      [
+       20,
+       160,
+       1035,
+       234
+      ]
+     ]
+    }
+   ],
+   "author": "Manami Ogawa",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 47.9,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "capabilities-siliconangle-opus55",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/siliconangle-opus55.png",
+   "w": 1420,
+   "h": 1173,
+   "kind": "headline",
+   "outlet": "SiliconANGLE",
+   "date": "2026-09-22",
+   "url": "https://siliconangle.com/2026/09/22/anthropic-releases-claude-opus-5-5-and-openai-counters-with-two-cheaper-gpt-6-models/",
+   "text": "Anthropic releases Claude Opus 5.5 and OpenAI counters with two cheaper GPT-6 models",
+   "tags": [
+    "models",
+    "release-cadence",
+    "openai",
+    "anthropic"
+   ],
+   "lyric": [
+    "broken-ego",
+    "caught-up-in-news"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "Anthropic releases Claude Opus 5.5",
+     "boxes": [
+      [
+       12,
+       938,
+       951,
+       998
+      ]
+     ]
+    },
+    {
+     "phrase": "OpenAI counters with two cheaper GPT-6 models",
+     "boxes": [
+      [
+       1082,
+       942,
+       1274,
+       998
+      ],
+      [
+       12,
+       1014,
+       1097,
+       1074
+      ]
+     ]
+    }
+   ],
+   "author": "Duncan Riley",
+   "ocr_check": {
+    "score": 0.971,
+    "highlight_scores": [
+     1.0,
+     0.947
+    ],
+    "line_px_at_800": 30.4,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "capabilities-variety-suno-v6",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/variety-suno-v6.png",
+   "w": 1350,
+   "h": 1130,
+   "kind": "headline",
+   "outlet": "Variety",
+   "date": "2026-09-18",
+   "url": "https://variety.com/2026/music/news/sony-music-universal-music-sue-suno-label-backed-model-1236866921/",
+   "text": "Sony Music, Universal Music Group Sue Suno Over Label-Backed Model: ‘Fruit of the Same Poisoned Tree’",
+   "tags": [
+    "media"
+   ],
+   "lyric": [
+    "love-people-dont-like",
+    "exploited"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "Sony Music, Universal Music Group Sue Suno",
+     "boxes": [
+      [
+       56,
+       102,
+       1260,
+       169
+      ],
+      [
+       56,
+       182,
+       218,
+       238
+      ]
+     ]
+    }
+   ],
+   "author": "Corbin Bolies",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 32.9,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "capabilities-verge-gpt6-astra-agi",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/verge-gpt6-astra-agi.png",
+   "w": 2560,
+   "h": 1590,
+   "kind": "headline",
+   "outlet": "The Verge",
+   "date": "2026-09-03",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/989601/openai-gpt-6-astra-release",
+   "text": "OpenAI’s next big AI model has ‘entered the AGI era’",
+   "tags": [
+    "openai"
+   ],
+   "lyric": [
+    "teenage-dream",
+    "caught-up-in-news"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "‘entered the AGI era’",
+     "boxes": [
+      [
+       1362,
+       783,
+       2312,
+       884
+      ],
+      [
+       1360,
+       915,
+       1574,
+       1014
+      ]
+     ]
+    }
+   ],
+   "author": "Hayden Field",
+   "ocr_check": {
+    "score": 0.95,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 29.4,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "economy-ars_ram",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/ars_ram.png",
+   "w": 2304,
+   "h": 902,
+   "kind": "headline",
+   "outlet": "Ars Technica",
+   "date": "2026-10-01",
+   "url": "https://arstechnica.com/information-technology/2026/10/memory-supplies-are-only-getting-tighter-micron-ceo-says/",
+   "text": "Memory executives expect RAM shortage to continue through 2028",
+   "tags": [
+    "compute"
+   ],
+   "lyric": [
+    "golden-years"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "RAM shortage to continue through 2028",
+     "boxes": [
+      [
+       420,
+       418,
+       1112,
+       507
+      ],
+      [
+       127,
+       512,
+       1088,
+       603
+      ]
+     ]
+    }
+   ],
+   "author": "Scharon Harding",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 29.2,
+    "note": "ok"
+   },
+   "slide": 11,
+   "source": "deck"
+  },
+  {
+   "id": "economy-bi_2015_quote",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/bi_2015_quote.png",
+   "w": 975,
+   "h": 175,
+   "kind": "article",
+   "outlet": "Business Insider",
+   "date": "2015-06-05",
+   "url": "https://www.businessinsider.com/sam-altman-y-combinator-talks-mega-bubble-nuclear-power-and-more-2015-6",
+   "text": "On the growing artificial-intelligence market: \"AI will probably most likely lead to the end of the world, but in the meantime, there'll be great companies.\"",
+   "tags": [
+    "x-risk",
+    "safety",
+    "openai"
+   ],
+   "lyric": [
+    "die-before-drink",
+    "golden-years"
+   ],
+   "year": 2015,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "AI will probably most likely lead to the end of the world",
+     "boxes": [
+      [
+       795,
+       15,
+       915,
+       46
+      ],
+      [
+       12,
+       69,
+       784,
+       107
+      ]
+     ]
+    },
+    {
+     "phrase": "there'll be great companies",
+     "boxes": [
+      [
+       191,
+       125,
+       644,
+       163
+      ]
+     ]
+    }
+   ],
+   "author": "Matt Weinberger",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 26.3,
+    "note": "ok"
+   },
+   "slide": 14,
+   "source": "deck"
+  },
+  {
+   "id": "economy-challenger_ai_leads_fifth_month",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/economy/challenger_ai_leads_fifth_month.png",
+   "w": 1640,
+   "h": 2000,
+   "kind": "article",
+   "outlet": "Challenger, Gray & Christmas",
+   "date": "2026-08-06",
+   "url": "https://www.challengergray.com/blog/challenger-report-layoffs-fall-hiring-picks-up-ai-leads-for-fifth-straight-month/",
+   "text": "Challenger Report: Layoffs Fall, Hiring Picks Up; AI Leads For Fifth Straight Month",
+   "tags": [
+    "jobs"
+   ],
+   "lyric": [
+    "quit-my-job",
+    "no-one-wants-me"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "AI Leads For Fifth Straight Month",
+     "boxes": [
+      [
+       510,
+       1777,
+       1458,
+       1858
+      ],
+      [
+       160,
+       1875,
+       395,
+       1938
+      ]
+     ]
+    }
+   ],
+   "author": "Colleen Madden Blumenfeld",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 32.2,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "economy-fortune_furman",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/fortune_furman.png",
+   "w": 1200,
+   "h": 680,
+   "kind": "headline",
+   "outlet": "Fortune",
+   "date": "2025-10-07",
+   "url": "https://fortune.com/2025/10/07/data-centers-gdp-growth-zero-first-half-2025-jason-furman-harvard-economist/",
+   "text": "Without data centers, GDP growth was 0.1% in the first half of 2025, Harvard economist says",
+   "tags": [
+    "economy",
+    "compute"
+   ],
+   "lyric": [
+    "golden-years"
+   ],
+   "year": 2025,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "GDP growth was 0.1% in the first half of 2025",
+     "boxes": [
+      [
+       847,
+       102,
+       1000,
+       164
+      ],
+      [
+       20,
+       194,
+       1030,
+       277
+      ],
+      [
+       17,
+       288,
+       469,
+       370
+      ]
+     ]
+    },
+    {
+     "phrase": "Without data centers",
+     "boxes": [
+      [
+       16,
+       99,
+       825,
+       178
+      ]
+     ]
+    }
+   ],
+   "author": "Nick Lichtenberg",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 49.7,
+    "note": "ok"
+   },
+   "slide": 6,
+   "source": "deck"
+  },
+  {
+   "id": "economy-fortune_housing",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/fortune_housing.png",
+   "w": 2406,
+   "h": 851,
+   "kind": "headline",
+   "outlet": "Fortune",
+   "date": "2026-09-20",
+   "url": "https://fortune.com/2026/09/20/us-economy-milestone-spending-data-centers-ai-boom-housing-residential-investment/",
+   "text": "U.S. economy hits pivotal milestone: Spending on data centers and other information-processing hardware now exceeds housing investment",
+   "tags": [
+    "economy",
+    "compute"
+   ],
+   "lyric": [
+    "golden-years"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "Spending on data centers and other information-processing hardware now exceeds housing investment",
+     "boxes": [
+      [
+       430,
+       202,
+       1075,
+       284
+      ],
+      [
+       20,
+       298,
+       684,
+       364
+      ],
+      [
+       18,
+       393,
+       907,
+       476
+      ],
+      [
+       17,
+       490,
+       862,
+       556
+      ],
+      [
+       17,
+       586,
+       759,
+       668
+      ]
+     ]
+    }
+   ],
+   "author": "Jason Ma",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 25.3,
+    "note": "ok"
+   },
+   "slide": 6,
+   "source": "deck"
+  },
+  {
+   "id": "economy-fortune_hyperion_head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/fortune_hyperion_head.png",
+   "w": 1190,
+   "h": 486,
+   "kind": "headline",
+   "outlet": "Fortune",
+   "date": "2026-07-13",
+   "url": "https://fortune.com/2026/07/13/meta-hyperion-louisiana-50-billion-tax-breaks-locals/",
+   "text": "Meta’s AI data center cost went from $10 billion to $50 billion in under 2 years—and split the town in two",
+   "tags": [
+    "economy",
+    "compute",
+    "meta"
+   ],
+   "lyric": [
+    "golden-years"
+   ],
+   "year": 2026,
+   "quality": 5,
+   "highlights": [
+    {
+     "phrase": "from $10 billion to $50 billion in under 2 years",
+     "boxes": [
+      [
+       221,
+       199,
+       1049,
+       279
+      ],
+      [
+       17,
+       301,
+       1077,
+       383
+      ]
+     ]
+    }
+   ],
+   "author": "Sydney Lake",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 50.4,
+    "note": "ok"
+   },
+   "slide": 7,
+   "source": "deck"
+  },
+  {
+   "id": "economy-guardian_block_4000_jobs_ai",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/economy/guardian_block_4000_jobs_ai.png",
+   "w": 1480,
+   "h": 1330,
+   "kind": "headline",
+   "outlet": "The Guardian",
+   "date": "2026-02-27",
+   "url": "https://www.theguardian.com/technology/2026/feb/27/block-ai-layoffs-jack-dorsey",
+   "text": "Jack Dorsey to cut 4,000 jobs due to AI advances at Square parent Block",
+   "tags": [
+    "jobs"
+   ],
+   "lyric": [
+    "quit-my-job"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "cut 4,000 jobs due to AI advances",
+     "boxes": [
+      [
+       494,
+       552,
+       1213,
+       625
+      ],
+      [
+       39,
+       630,
+       331,
+       691
+      ]
+     ]
+    }
+   ],
+   "author": "Sanya Mansoor",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 33.0,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "economy-guardian_drought_head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/guardian_drought_head.png",
+   "w": 1254,
+   "h": 331,
+   "kind": "headline",
+   "outlet": "The Guardian",
+   "date": "2026-06-08",
+   "url": "https://www.theguardian.com/us-news/2026/jun/08/datacenter-ai-drought-water",
+   "text": "Majority of US’s new AI datacenters to be built on drought-hit land",
+   "tags": [
+    "compute",
+    "energy"
+   ],
+   "lyric": [
+    "teenage-dream",
+    "exploited"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "AI datacenters to be built on drought-hit land",
+     "boxes": [
+      [
+       644,
+       15,
+       1173,
+       76
+      ],
+      [
+       13,
+       93,
+       866,
+       166
+      ]
+     ]
+    }
+   ],
+   "author": "Oliver Milman, with data visuals by Andrew Witherspoon",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 38.9,
+    "note": "ok"
+   },
+   "slide": 13,
+   "source": "deck"
+  },
+  {
+   "id": "economy-guardian_nvidia_revenue_100bn",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/economy/guardian_nvidia_revenue_100bn.png",
+   "w": 2278,
+   "h": 1372,
+   "kind": "headline",
+   "outlet": "The Guardian",
+   "date": "2026-08-26",
+   "url": "https://www.theguardian.com/technology/2026/aug/26/nvidia-quarterly-revenue",
+   "text": "Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’",
+   "tags": [
+    "economy",
+    "compute",
+    "nvidia"
+   ],
+   "lyric": [
+    "golden-years",
+    "teenage-dream"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "doubles to nearly $100bn",
+     "boxes": [
+      [
+       1180,
+       442,
+       1505,
+       503
+      ],
+      [
+       357,
+       518,
+       797,
+       593
+      ]
+     ]
+    },
+    {
+     "phrase": "‘golden age’",
+     "boxes": [
+      [
+       1299,
+       520,
+       1526,
+       593
+      ],
+      [
+       357,
+       614,
+       467,
+       671
+      ]
+     ]
+    }
+   ],
+   "author": "Johana Bhuiyan",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 21.4,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "economy-guardian_ramageddon_head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/guardian_ramageddon_head.png",
+   "w": 1277,
+   "h": 342,
+   "kind": "headline",
+   "outlet": "The Guardian",
+   "date": "2026-09-21",
+   "url": "https://www.theguardian.com/money/2026/sep/21/ramageddon-apple-iphone-price-increase-chip-shortage",
+   "text": "‘RAMageddon’: tech crunch hikes the price of your next iPhone by £100",
+   "tags": [
+    "compute"
+   ],
+   "lyric": [
+    "exploited"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "‘RAMageddon’",
+     "boxes": [
+      [
+       16,
+       19,
+       509,
+       94
+      ]
+     ]
+    }
+   ],
+   "author": "Samuel Gibbs",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 43.2,
+    "note": "ok"
+   },
+   "slide": 11,
+   "source": "deck"
+  },
+  {
+   "id": "economy-guardian_xai_head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/guardian_xai_head.png",
+   "w": 1254,
+   "h": 337,
+   "kind": "headline",
+   "outlet": "The Guardian",
+   "date": "2026-01-15",
+   "url": "https://www.theguardian.com/technology/2026/jan/15/elon-musk-xai-datacenter-memphis",
+   "text": "Elon Musk’s xAI datacenter generating extra electricity illegally, regulator rules",
+   "tags": [
+    "compute",
+    "energy",
+    "policy",
+    "xai"
+   ],
+   "lyric": [
+    "exploited",
+    "dont-stick-up"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "generating extra electricity illegally",
+     "boxes": [
+      [
+       863,
+       17,
+       1202,
+       88
+      ],
+      [
+       16,
+       93,
+       770,
+       166
+      ]
+     ]
+    }
+   ],
+   "author": "Dara Kerr",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 42.1,
+    "note": "ok"
+   },
+   "slide": 13,
+   "source": "deck"
+  },
+  {
+   "id": "economy-nbc_datacenter_opposition_130b",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/economy/nbc_datacenter_opposition_130b.png",
+   "w": 2560,
+   "h": 867,
+   "kind": "headline",
+   "outlet": "NBC News",
+   "date": "2026-06-12",
+   "url": "https://www.nbcnews.com/tech/tech-news/data-center-opposition-sharply-rising-2026-study-finds-rcna349728",
+   "text": "Data center opponents have blocked or delayed projects worth nearly $130 billion in 2026, study finds",
+   "tags": [
+    "economy",
+    "compute"
+   ],
+   "lyric": [
+    "dont-stick-up"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "blocked or delayed projects worth nearly $130 billion",
+     "boxes": [
+      [
+       1731,
+       347,
+       2175,
+       429
+      ],
+      [
+       519,
+       457,
+       2283,
+       569
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.988,
+    "highlight_scores": [
+     0.978
+    ],
+    "line_px_at_800": 28.4,
+    "note": "text '3' vs ocr '8'; OCR run psm3 misreads the headline figure as $180 billion in one pass; the image reads $130 billion (checked on the overlay)"
+   },
+   "slide": 13,
+   "source": "deck"
+  },
+  {
+   "id": "economy-npr_tmi_head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/npr_tmi_head.png",
+   "w": 1290,
+   "h": 246,
+   "kind": "headline",
+   "outlet": "NPR",
+   "date": "2024-09-20",
+   "url": "https://www.npr.org/2024/09/20/nx-s1-5120581/three-mile-island-nuclear-power-plant-microsoft-ai",
+   "text": "Three Mile Island nuclear plant will reopen to power Microsoft data centers",
+   "tags": [
+    "compute",
+    "energy",
+    "microsoft"
+   ],
+   "lyric": [
+    "golden-years"
+   ],
+   "year": 2024,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "Three Mile Island nuclear plant will reopen to power Microsoft data centers",
+     "boxes": [
+      [
+       9,
+       14,
+       1092,
+       81
+      ],
+      [
+       12,
+       94,
+       1224,
+       161
+      ]
+     ]
+    }
+   ],
+   "author": "C Mandler",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 37.8,
+    "note": "ok"
+   },
+   "slide": 12,
+   "source": "deck"
+  },
+  {
+   "id": "economy-pcgamer_astra_head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/pcgamer_astra_head.png",
+   "w": 1270,
+   "h": 690,
+   "kind": "headline",
+   "outlet": "PC Gamer",
+   "date": "2026-09-07",
+   "url": "https://www.pcgamer.com/software/ai/jensen-huang-says-100-000-nvidia-gpus-were-used-to-train-openais-latest-model-gpt-6-astra-and-theres-already-plans-to-bring-quadruple-that-amount-of-hardware-online/",
+   "text": "Jensen Huang says 100,000 Nvidia GPUs were used to train OpenAI's latest model, GPT-6 Astra, and there's already plans to bring quadruple that amount of hardware online",
+   "tags": [
+    "models",
+    "compute",
+    "openai",
+    "nvidia"
+   ],
+   "lyric": [
+    "golden-years",
+    "broken-ego"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "100,000 Nvidia GPUs",
+     "boxes": [
+      [
+       701,
+       16,
+       1205,
+       99
+      ],
+      [
+       29,
+       118,
+       211,
+       185
+      ]
+     ]
+    },
+    {
+     "phrase": "quadruple that amount of hardware online",
+     "boxes": [
+      [
+       28,
+       414,
+       1206,
+       501
+      ],
+      [
+       28,
+       516,
+       236,
+       585
+      ]
+     ]
+    }
+   ],
+   "author": "Jess Kinghorn",
+   "ocr_check": {
+    "score": 0.993,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 44.1,
+    "note": "ok"
+   },
+   "slide": 10,
+   "source": "deck"
+  },
+  {
+   "id": "economy-rev2-altman_techradar_2026_qotd_header",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/economy/rev2/altman_techradar_2026_qotd_header.png",
+   "w": 1270,
+   "h": 1420,
+   "kind": "headline",
+   "outlet": "TechRadar Pro",
+   "date": "2026-06-15",
+   "url": "https://www.techradar.com/pro/quote-of-the-day-by-sam-altman-ai-will-probably-most-likely-lead-to-the-end-of-the-world-but-in-the-meantime-therell-be-great-companies-the-dichotomy-between-grave-existential-risks-and-economic-nirvana",
+   "text": "'AI will probably most likely lead to the end of the world, but in the meantime, there’ll be great companies' - quote of the day by OpenAI CEO Sam Altman",
+   "tags": [
+    "x-risk",
+    "safety",
+    "openai"
+   ],
+   "lyric": [
+    "die-before-drink",
+    "brutal-out-here"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "AI will probably most likely lead to the end of the world",
+     "boxes": [
+      [
+       29,
+       123,
+       1187,
+       184
+      ],
+      [
+       28,
+       190,
+       370,
+       246
+      ]
+     ]
+    }
+   ],
+   "author": "Keumars Afifi-Sabet",
+   "ocr_check": {
+    "score": 0.983,
+    "highlight_scores": [
+     0.978
+    ],
+    "line_px_at_800": 33.1,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "economy-rev2-altman_tomsguide_2026_header",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/economy/rev2/altman_tomsguide_2026_header.png",
+   "w": 1240,
+   "h": 530,
+   "kind": "headline",
+   "outlet": "Tom's Guide",
+   "date": "2026-01-08",
+   "url": "https://www.tomsguide.com/ai/i-think-ai-will-probably-most-likely-lead-to-the-end-of-the-world-everyone-is-sharing-sam-altmans-doomsday-quote-but-almost-no-one-notices-the-date",
+   "text": "“I think AI will probably lead to the end of the world” — Sam Altman’s viral quote is missing key context",
+   "tags": [
+    "x-risk",
+    "safety",
+    "openai"
+   ],
+   "lyric": [
+    "die-before-drink",
+    "wish-done-before"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "“I think AI will probably lead to the end of the world”",
+     "boxes": [
+      [
+       20,
+       114,
+       1128,
+       174
+      ],
+      [
+       15,
+       184,
+       301,
+       232
+      ]
+     ]
+    },
+    {
+     "phrase": "missing key context",
+     "boxes": [
+      [
+       19,
+       250,
+       559,
+       310
+      ]
+     ]
+    }
+   ],
+   "author": "Amanda Caswell",
+   "ocr_check": {
+    "score": 0.975,
+    "highlight_scores": [
+     0.952,
+     1.0
+    ],
+    "line_px_at_800": 34.8,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "economy-rev2-gw_anthropic_amazon_5gw",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/economy/rev2/gw_anthropic_amazon_5gw.png",
+   "w": 2355,
+   "h": 480,
+   "kind": "headline",
+   "outlet": "Anthropic",
+   "date": "2026-04-20",
+   "url": "https://www.anthropic.com/news/anthropic-amazon-compute",
+   "text": "Anthropic and Amazon expand collaboration for up to 5 gigawatts of new compute",
+   "tags": [
+    "compute",
+    "anthropic"
+   ],
+   "lyric": [
+    "golden-years",
+    "broken-ego"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "up to 5 gigawatts of new compute",
+     "boxes": [
+      [
+       415,
+       261,
+       2120,
+       370
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 35.0,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "economy-rev2-gw_dcd_meta_multigw_clusters",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/economy/rev2/gw_dcd_meta_multigw_clusters.png",
+   "w": 1779,
+   "h": 467,
+   "kind": "headline",
+   "outlet": "DCD (DatacenterDynamics)",
+   "date": "2025-07-14",
+   "url": "https://www.datacenterdynamics.com/en/news/meta-to-invest-hundreds-of-billions-of-dollars-into-compute-to-build-superintelligence-with-several-multi-gw-data-center-clusters/",
+   "text": "Meta to invest \"hundreds of billions of dollars into compute to build superintelligence,\" with several multi-GW data center clusters",
+   "tags": [
+    "x-risk",
+    "economy",
+    "compute",
+    "meta"
+   ],
+   "lyric": [
+    "golden-years"
+   ],
+   "year": 2025,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "hundreds of billions of dollars into compute to build superintelligence",
+     "boxes": [
+      [
+       567,
+       16,
+       1709,
+       83
+      ],
+      [
+       19,
+       108,
+       1566,
+       192
+      ]
+     ]
+    }
+   ],
+   "author": "Sebastian Moss",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 31.3,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "economy-statista_head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/economy/statista_head.png",
+   "w": 1046,
+   "h": 302,
+   "kind": "headline",
+   "outlet": "Statista",
+   "date": "2026-07-31",
+   "url": "https://www.statista.com/chart/35046/capital-expenditure-of-meta-alphabet-amazon-and-microsoft/",
+   "text": "Big Tech’s AI Spending to Reach $760 Billion in 2026",
+   "tags": [
+    "economy"
+   ],
+   "lyric": [
+    "golden-years"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "AI Spending to Reach $760 Billion in 2026",
+     "boxes": [
+      [
+       406,
+       19,
+       812,
+       95
+      ],
+      [
+       63,
+       97,
+       1026,
+       160
+      ]
+     ]
+    }
+   ],
+   "author": "Katharina Buchholz",
+   "ocr_check": {
+    "score": 0.976,
+    "highlight_scores": [
+     0.97
+    ],
+    "line_px_at_800": 48.6,
+    "note": "ok"
+   },
+   "slide": 5,
+   "source": "deck"
+  },
+  {
+   "id": "economy-techcrunch_stargate_500b",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/economy/techcrunch_stargate_500b.png",
+   "w": 2560,
+   "h": 1267,
+   "kind": "headline",
+   "outlet": "TechCrunch",
+   "date": "2025-01-21",
+   "url": "https://techcrunch.com/2025/01/21/openai-teams-up-with-softbank-and-oracle-on-50b-data-center-project/",
+   "text": "OpenAI teams up with SoftBank and Oracle on $500B data center project",
+   "tags": [
+    "economy",
+    "compute",
+    "openai"
+   ],
+   "lyric": [
+    "golden-years"
+   ],
+   "year": 2025,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "$500B data center project",
+     "boxes": [
+      [
+       1838,
+       675,
+       2263,
+       751
+      ],
+      [
+       1320,
+       768,
+       1829,
+       844
+      ]
+     ]
+    }
+   ],
+   "author": "Kyle Wiggers",
+   "ocr_check": {
+    "score": 0.982,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 21.9,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "frontier-altman_petabytes_crop",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/altman_petabytes_crop.png",
+   "w": 1196,
+   "h": 420,
+   "kind": "post",
+   "outlet": "X (Sam Altman, @sama)",
+   "date": "2026-09-25",
+   "url": "https://x.com/sama/status/2103567198690349362",
+   "text": "There is an extensive and ongoing review related to our agents’ use of internet access during training and evaluation. We’ve been publishing summaries at the link below and will continue to.\n\nWe have not been as fast as we would have liked but we are trying to balance our desire for transparency with gaining a clear understanding from petabytes of agent activity logs, and working with impacted organizations.\n\nWe are prioritizing as best as we can based on severity, and adding resources. Hugging Face is still the most severe event we’ve seen. We will be as transparent as we can be subject to things like vulnerabilities in other companies that our agents have found, which will be their call to disclose or not.",
+   "tags": [
+    "agents",
+    "security",
+    "economy"
+   ],
+   "lyric": [
+    "disappear",
+    "tried-my-best"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "petabytes of agent activity logs",
+     "boxes": [
+      [
+       906,
+       331,
+       1083,
+       365
+      ],
+      [
+       31,
+       371,
+       290,
+       405
+      ]
+     ]
+    }
+   ],
+   "author": "Sam Altman",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 18.7,
+    "note": "ok"
+   },
+   "slide": 60,
+   "source": "deck"
+  },
+  {
+   "id": "frontier-anthropic_rdai_chart",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/anthropic_rdai_chart.png",
+   "w": 1760,
+   "h": 1103,
+   "kind": "figure",
+   "outlet": "Anthropic",
+   "date": "2026-09-17",
+   "url": "https://www.anthropic.com/institute/measuring-pace-of-ai-development",
+   "text": "Claude now leads 26% of model R&D work",
+   "tags": [
+    "models",
+    "self-improvement",
+    "anthropic"
+   ],
+   "lyric": [
+    "broken-ego"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "Claude now leads 26% of model R&D work",
+     "boxes": [
+      [
+       33,
+       29,
+       1217,
+       81
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 20.9,
+    "note": "ok"
+   },
+   "slide": 64,
+   "source": "deck"
+  },
+  {
+   "id": "frontier-anthropic_rsi_head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/anthropic_rsi_head.png",
+   "w": 1000,
+   "h": 430,
+   "kind": "article",
+   "outlet": "Anthropic",
+   "date": "2026-06-04",
+   "url": "https://www.anthropic.com/institute/recursive-self-improvement",
+   "text": "When AI builds itself",
+   "tags": [
+    "self-improvement"
+   ],
+   "lyric": [
+    "broken-ego",
+    "die-before-drink"
+   ],
+   "year": 2026,
+   "quality": 5,
+   "highlights": [
+    {
+     "phrase": "When AI builds itself",
+     "boxes": [
+      [
+       42,
+       36,
+       539,
+       133
+      ],
+      [
+       41,
+       166,
+       681,
+       263
+      ]
+     ]
+    }
+   ],
+   "author": "Marina Favaro and Jack Clark (per Fortune)",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 72.8,
+    "note": "ok"
+   },
+   "slide": 65,
+   "source": "deck"
+  },
+  {
+   "id": "frontier-arxiv_cot_authors",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/arxiv_cot_authors.png",
+   "w": 2028,
+   "h": 330,
+   "kind": "paper",
+   "outlet": "arXiv (2507.11473)",
+   "date": "2025-07-15",
+   "url": "https://arxiv.org/abs/2507.11473",
+   "text": "Chain of Thought Monitorability: A New and Fragile Opportunity for AI Safety",
+   "tags": [
+    "safety"
+   ],
+   "lyric": [
+    "disappear",
+    "wish-done-before"
+   ],
+   "year": 2025,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "A New and Fragile Opportunity for AI Safety",
+     "boxes": [
+      [
+       767,
+       11,
+       1716,
+       61
+      ]
+     ]
+    }
+   ],
+   "author": "Korbak, Balesni, Barnes, Bengio, ... Pachocki, ... Shah, Mikulik (41 authors from OpenA...",
+   "ocr_check": {
+    "score": 0.984,
+    "highlight_scores": [
+     0.972
+    ],
+    "line_px_at_800": 17.4,
+    "note": "ok"
+   },
+   "slide": 58,
+   "source": "deck"
+  },
+  {
+   "id": "frontier-engadget_head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/engadget_head.png",
+   "w": 1610,
+   "h": 680,
+   "kind": "headline",
+   "outlet": "Engadget",
+   "date": "2026-09-06",
+   "url": "https://www.engadget.com/2251859/openai-says-it-reached-its-goal-of-creating-an-automated-research-intern/",
+   "text": "OpenAI says it reached its goal of creating an automated research intern",
+   "tags": [
+    "self-improvement",
+    "openai"
+   ],
+   "lyric": [
+    "broken-ego",
+    "ego-crush"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "automated research intern",
+     "boxes": [
+      [
+       531,
+       212,
+       1409,
+       294
+      ],
+      [
+       20,
+       327,
+       283,
+       408
+      ]
+     ]
+    }
+   ],
+   "author": "Jackson Chen",
+   "ocr_check": {
+    "score": 0.984,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 37.5,
+    "note": "ok"
+   },
+   "slide": 66,
+   "source": "deck"
+  },
+  {
+   "id": "frontier-govai_head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/govai_head.png",
+   "w": 1220,
+   "h": 650,
+   "kind": "paper",
+   "outlet": "GovAI (Centre for the Governance of AI)",
+   "date": "2026-09-28",
+   "url": "https://www.governance.ai/research-paper/what-if-automating-ai-r-d-triggers-an-intelligence-explosion",
+   "text": "What If Automating AI R&D Triggers an Intelligence Explosion?",
+   "tags": [
+    "self-improvement"
+   ],
+   "lyric": [
+    "broken-ego"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "Triggers an Intelligence Explosion?",
+     "boxes": [
+      [
+       41,
+       134,
+       826,
+       209
+      ],
+      [
+       44,
+       218,
+       398,
+       292
+      ]
+     ]
+    }
+   ],
+   "author": "Alan Chan, Christoph Winter, Andrew Barto, Jakub Pachocki, Geoffrey Hinton, Eric Horvit...",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 44.9,
+    "note": "ok"
+   },
+   "slide": 66,
+   "source": "deck"
+  },
+  {
+   "id": "frontier-rev2-gizmodo_oct2_headline",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/frontier/rev2/gizmodo_oct2_headline.png",
+   "w": 928,
+   "h": 912,
+   "kind": "headline",
+   "outlet": "Gizmodo",
+   "date": "2026-10-02",
+   "url": "https://gizmodo.com/openai-has-sent-notices-of-sketchy-ai-behavior-to-over-100-organizations-so-far-2000820702",
+   "text": "OpenAI Has Sent Notices of Sketchy AI Behavior to Over 100 Organizations So Far",
+   "tags": [
+    "rogue-agents",
+    "openai"
+   ],
+   "lyric": [
+    "tried-my-best",
+    "caught-up-in-news"
+   ],
+   "year": 2026,
+   "quality": 5,
+   "highlights": [
+    {
+     "phrase": "Sketchy AI Behavior to Over 100 Organizations",
+     "boxes": [
+      [
+       107,
+       148,
+       857,
+       257
+      ],
+      [
+       25,
+       264,
+       800,
+       373
+      ]
+     ]
+    }
+   ],
+   "author": "Tom McKay",
+   "ocr_check": {
+    "score": 0.97,
+    "highlight_scores": [
+     0.974
+    ],
+    "line_px_at_800": 88.8,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "frontier-rev2-guardian_oct3_headline",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/frontier/rev2/guardian_oct3_headline.png",
+   "w": 1312,
+   "h": 452,
+   "kind": "headline",
+   "outlet": "The Guardian",
+   "date": "2026-10-03",
+   "url": "https://www.theguardian.com/technology/2026/oct/03/openai-review-hacks-australian-government-sites-costing-500000-a-day",
+   "text": "OpenAI says its review into hacks, including on Australian government sites, is costing $500,000 a day",
+   "tags": [
+    "security",
+    "economy",
+    "openai"
+   ],
+   "lyric": [
+    "insecure"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "costing $500,000 a day",
+     "boxes": [
+      [
+       254,
+       158,
+       955,
+       233
+      ]
+     ]
+    }
+   ],
+   "author": "Josh Taylor",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 42.1,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "frontier-rev2-guardian_techscape_sep29_headline",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/frontier/rev2/guardian_techscape_sep29_headline.png",
+   "w": 1280,
+   "h": 392,
+   "kind": "headline",
+   "outlet": "The Guardian (TechScape)",
+   "date": "2026-09-29",
+   "url": "https://www.theguardian.com/global/2026/sep/28/ai-agents-spiral",
+   "text": "The AI agents are spiraling out of control",
+   "tags": [
+    "agents",
+    "rogue-agents"
+   ],
+   "lyric": [
+    "tried-my-best",
+    "caught-up-in-news"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "The AI agents are spiraling out of control",
+     "boxes": [
+      [
+       18,
+       14,
+       1031,
+       87
+      ],
+      [
+       19,
+       92,
+       246,
+       152
+      ]
+     ]
+    }
+   ],
+   "author": "Blake Montgomery",
+   "ocr_check": {
+    "score": 0.971,
+    "highlight_scores": [
+     0.971
+    ],
+    "line_px_at_800": 37.8,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "frontier-rev2-quartz_oct1_headline",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/frontier/rev2/quartz_oct1_headline.png",
+   "w": 1824,
+   "h": 660,
+   "kind": "headline",
+   "outlet": "Quartz",
+   "date": "2026-10-01",
+   "url": "https://qz.com/openai-fired-safety-researchers-leaked-confidential-data-100126",
+   "text": "OpenAI fired three safety researchers for allegedly leaking data to an outside group",
+   "tags": [
+    "safety",
+    "whistleblowers",
+    "openai"
+   ],
+   "lyric": [
+    "quit-my-job",
+    "dont-stick-up"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "fired three safety researchers",
+     "boxes": [
+      [
+       648,
+       32,
+       1570,
+       147
+      ],
+      [
+       66,
+       161,
+       706,
+       252
+      ]
+     ]
+    }
+   ],
+   "author": "Cris Tolomia",
+   "ocr_check": {
+    "score": 0.986,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 42.5,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "frontier-rev2-wired_aug18_headline",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/frontier/rev2/wired_aug18_headline.png",
+   "w": 1056,
+   "h": 520,
+   "kind": "headline",
+   "outlet": "WIRED",
+   "date": "2026-08-18",
+   "url": "https://www.wired.com/story/openai-overhauls-safety-protocols-after-its-ai-agents-went-rogue/",
+   "text": "OpenAI Overhauls Safety Protocols After Its AI Agents Went Rogue",
+   "tags": [
+    "agents",
+    "rogue-agents",
+    "safety",
+    "openai"
+   ],
+   "lyric": [
+    "tried-my-best",
+    "insecure"
+   ],
+   "year": 2026,
+   "quality": 5,
+   "highlights": [
+    {
+     "phrase": "Its AI Agents Went Rogue",
+     "boxes": [
+      [
+       548,
+       286,
+       978,
+       388
+      ],
+      [
+       27,
+       398,
+       423,
+       500
+      ]
+     ]
+    }
+   ],
+   "author": "Maxwell Zeff",
+   "ocr_check": {
+    "score": 0.964,
+    "highlight_scores": [
+     0.95
+    ],
+    "line_px_at_800": 72.7,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "frontier-tnw_headline",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/tnw_headline.png",
+   "w": 2390,
+   "h": 261,
+   "kind": "headline",
+   "outlet": "The Next Web",
+   "date": "2026-09-06",
+   "url": "https://thenextweb.com/news/openai-slowdown-pachocki-alien-mind-research-intern-compute",
+   "text": "OpenAI’s chief scientist says no lab should keep scaling at maximum speed",
+   "tags": [
+    "openai"
+   ],
+   "lyric": [
+    "dont-stick-up",
+    "broken-ego"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "no lab should keep scaling at maximum speed",
+     "boxes": [
+      [
+       1879,
+       23,
+       2242,
+       102
+      ],
+      [
+       27,
+       142,
+       2363,
+       239
+      ]
+     ]
+    }
+   ],
+   "author": "Ana Maria Constantin",
+   "ocr_check": {
+    "score": 0.984,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 27.4,
+    "note": "ok"
+   },
+   "slide": 66,
+   "source": "deck"
+  },
+  {
+   "id": "geopolitics-anthropic-gtg1002-headline",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/geopolitics/anthropic-gtg1002-headline.png",
+   "w": 2176,
+   "h": 666,
+   "kind": "headline",
+   "outlet": "Anthropic",
+   "date": "2025-11-13",
+   "url": "https://www.anthropic.com/news/disrupting-AI-espionage",
+   "text": "Disrupting the first reported AI-orchestrated cyber espionage campaign",
+   "tags": [
+    "security"
+   ],
+   "lyric": [
+    "insecure",
+    "exploited"
+   ],
+   "year": 2025,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "first reported AI-orchestrated cyber espionage campaign",
+     "boxes": [
+      [
+       1026,
+       160,
+       1900,
+       269
+      ],
+      [
+       56,
+       274,
+       2118,
+       383
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.984,
+    "highlight_scores": [
+     0.98
+    ],
+    "line_px_at_800": 37.9,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "geopolitics-cbs-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/cbs-head.png",
+   "w": 1260,
+   "h": 515,
+   "kind": "headline",
+   "outlet": "CBS News",
+   "date": "2026-02-28",
+   "url": "https://www.cbsnews.com/news/hegseth-declares-anthropic-supply-chain-risk/",
+   "text": "Hegseth declares Anthropic a supply chain risk, restricting military contractors from doing business with AI giant",
+   "tags": [
+    "safety",
+    "policy",
+    "geopolitics",
+    "anthropic"
+   ],
+   "lyric": [
+    "dont-stick-up",
+    "exploited"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "Hegseth declares Anthropic a supply chain risk",
+     "boxes": [
+      [
+       34,
+       75,
+       1143,
+       141
+      ],
+      [
+       33,
+       155,
+       349,
+       219
+      ]
+     ]
+    }
+   ],
+   "author": "Joe Walsh",
+   "ocr_check": {
+    "score": 0.99,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 37.5,
+    "note": "ok"
+   },
+   "slide": 98,
+   "source": "deck"
+  },
+  {
+   "id": "geopolitics-cnn-hoax-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/cnn-hoax-head.png",
+   "w": 2440,
+   "h": 578,
+   "kind": "headline",
+   "outlet": "CNN",
+   "date": "2026-09-14",
+   "url": "https://www.cnn.com/2026/09/14/politics/trump-vance-ai-alarms",
+   "text": "Trump dismisses AI alarms as a ‘HOAX’ — worrying White House officials",
+   "tags": [
+    "safety",
+    "policy"
+   ],
+   "lyric": [
+    "dont-stick-up"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "Trump dismisses AI alarms as a ‘HOAX’",
+     "boxes": [
+      [
+       94,
+       103,
+       2247,
+       218
+      ]
+     ]
+    }
+   ],
+   "author": "Kevin Liptak",
+   "ocr_check": {
+    "score": 0.982,
+    "highlight_scores": [
+     0.966
+    ],
+    "line_px_at_800": 35.7,
+    "note": "ok"
+   },
+   "slide": 100,
+   "source": "deck"
+  },
+  {
+   "id": "geopolitics-cnn-ship-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/cnn-ship-head.png",
+   "w": 2430,
+   "h": 586,
+   "kind": "headline",
+   "outlet": "CNN",
+   "date": "2026-09-18",
+   "url": "https://www.cnn.com/2026/09/18/politics/us-military-ai-false-intelligence-china-ship",
+   "text": "Exclusive: US military had close call after using AI for false intelligence report, sources say",
+   "tags": [
+    "geopolitics"
+   ],
+   "lyric": [
+    "insecure",
+    "brutal-out-here"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "US military had close call after using AI for false intelligence report",
+     "boxes": [
+      [
+       675,
+       100,
+       2360,
+       210
+      ],
+      [
+       98,
+       236,
+       2094,
+       348
+      ]
+     ]
+    }
+   ],
+   "author": "Katie Bo Lillis, Zachary Cohen",
+   "ocr_check": {
+    "score": 0.987,
+    "highlight_scores": [
+     0.983
+    ],
+    "line_px_at_800": 34.6,
+    "note": "ok"
+   },
+   "slide": 97,
+   "source": "deck"
+  },
+  {
+   "id": "geopolitics-dataconomy-protein-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/dataconomy-protein-head.png",
+   "w": 1860,
+   "h": 415,
+   "kind": "headline",
+   "outlet": "Dataconomy",
+   "date": "2026-08-20",
+   "url": "https://dataconomy.com/2026/08/20/claude-ai-protein-binders-14-of-15-targets/",
+   "text": "Anthropic says Claude designed protein binders for 14 of 15 targets",
+   "tags": [
+    "models",
+    "science",
+    "anthropic"
+   ],
+   "lyric": [
+    "teenage-dream"
+   ],
+   "year": 2026,
+   "quality": 5,
+   "highlights": [
+    {
+     "phrase": "Claude designed protein binders for 14 of 15 targets",
+     "boxes": [
+      [
+       896,
+       60,
+       1719,
+       186
+      ],
+      [
+       71,
+       193,
+       1798,
+       320
+      ]
+     ]
+    }
+   ],
+   "author": "Aytun Celebi",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 51.8,
+    "note": "ok"
+   },
+   "slide": 104,
+   "source": "deck"
+  },
+  {
+   "id": "geopolitics-defensescoop-accelerate-like-hell",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/geopolitics/defensescoop-accelerate-like-hell.png",
+   "w": 1690,
+   "h": 576,
+   "kind": "headline",
+   "outlet": "DefenseScoop",
+   "date": "2026-01-13",
+   "url": "https://defensescoop.com/2026/01/13/hegseth-ai-tech-hubs-reorganization-dod-dow/",
+   "text": "‘Accelerate like hell’: Hegseth moves to reshape DOD’s AI and tech hubs",
+   "tags": [
+    "policy"
+   ],
+   "lyric": [
+    "dont-stick-up",
+    "golden-years"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "‘Accelerate like hell’",
+     "boxes": [
+      [
+       26,
+       140,
+       678,
+       204
+      ]
+     ]
+    }
+   ],
+   "author": "Brandi Vincent",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 27.5,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "geopolitics-euronews-wargames",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/euronews-wargames.png",
+   "w": 1728,
+   "h": 190,
+   "kind": "headline",
+   "outlet": "Euronews",
+   "date": "2026-02-27",
+   "url": "https://www.euronews.com/2026/02/27/ai-chatbots-chose-nuclear-escalation-in-95-of-simulated-war-games-study-finds",
+   "text": "AI chatbots chose nuclear escalation in 95% of simulated war games, study finds",
+   "tags": [
+    "energy",
+    "geopolitics"
+   ],
+   "lyric": [
+    "die-before-drink",
+    "brutal-out-here"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "AI chatbots chose nuclear escalation in 95% of simulated war games",
+     "boxes": [
+      [
+       31,
+       9,
+       1516,
+       77
+      ],
+      [
+       32,
+       95,
+       1140,
+       180
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.985,
+    "highlight_scores": [
+     0.982
+    ],
+    "line_px_at_800": 32.6,
+    "note": "ok"
+   },
+   "slide": 99,
+   "source": "deck"
+  },
+  {
+   "id": "geopolitics-gizmodo-almost-started-war",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/geopolitics/gizmodo-almost-started-war.png",
+   "w": 2355,
+   "h": 1181,
+   "kind": "headline",
+   "outlet": "Gizmodo",
+   "date": "2026-09-18",
+   "url": "https://gizmodo.com/almost-started-a-war-us-military-nearly-boarded-a-chinese-ship-based-on-bad-intel-from-ai-2000814290",
+   "text": "‘Almost Started a War’: US Military Nearly Boarded a Chinese Ship Based on Bad Intel From AI",
+   "tags": [
+    "geopolitics"
+   ],
+   "lyric": [
+    "brutal-out-here"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "‘Almost Started a War’",
+     "boxes": [
+      [
+       39,
+       128,
+       798,
+       215
+      ]
+     ]
+    }
+   ],
+   "author": "Matt Novak",
+   "ocr_check": {
+    "score": 0.986,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 27.5,
+    "note": "ok"
+   },
+   "slide": 97,
+   "source": "deck"
+  },
+  {
+   "id": "geopolitics-lavender",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/lavender.png",
+   "w": 1270,
+   "h": 885,
+   "kind": "headline",
+   "outlet": "The Guardian",
+   "date": "2024-04-03",
+   "url": "https://www.theguardian.com/world/2024/apr/03/israel-gaza-ai-database-hamas-airstrikes",
+   "text": "‘The machine did it coldly’: Israel used AI to identify 37,000 Hamas targets",
+   "tags": [
+    "geopolitics"
+   ],
+   "lyric": [
+    "exploited",
+    "brutal-out-here"
+   ],
+   "year": 2024,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "‘The machine did it coldly’",
+     "boxes": [
+      [
+       15,
+       24,
+       836,
+       97
+      ]
+     ]
+    }
+   ],
+   "author": "Bethan McKernan, Harry Davies",
+   "ocr_check": {
+    "score": 0.983,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 42.2,
+    "note": "ok"
+   },
+   "slide": 99,
+   "source": "deck"
+  },
+  {
+   "id": "geopolitics-mee-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/mee-head.png",
+   "w": 1997,
+   "h": 405,
+   "kind": "headline",
+   "outlet": "Middle East Eye",
+   "date": "2026-09-11",
+   "url": "https://www.middleeasteye.net/live-blog/live-blog-update/houthis-used-anthropic-ai-develop-ballistic-missile-software-says-report",
+   "text": "Houthis used Anthropic AI to develop ballistic missile software, says report",
+   "tags": [
+    "geopolitics",
+    "anthropic"
+   ],
+   "lyric": [
+    "exploited",
+    "insecure"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "Houthis used Anthropic AI to develop ballistic missile software",
+     "boxes": [
+      [
+       30,
+       124,
+       1946,
+       227
+      ],
+      [
+       28,
+       232,
+       719,
+       329
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 37.7,
+    "note": "ok"
+   },
+   "slide": 102,
+   "source": "deck"
+  },
+  {
+   "id": "geopolitics-npr-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/npr-head.png",
+   "w": 1369,
+   "h": 375,
+   "kind": "headline",
+   "outlet": "NPR",
+   "date": "2025-12-11",
+   "url": "https://www.npr.org/2025/12/11/nx-s1-5638562/trump-ai-david-sacks-executive-order",
+   "text": "Trump is trying to preempt state AI laws via an executive order. It may not be legal",
+   "tags": [
+    "policy"
+   ],
+   "lyric": [
+    "dont-stick-up"
+   ],
+   "year": 2025,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "Trump is trying to preempt state AI laws via an executive order",
+     "boxes": [
+      [
+       37,
+       85,
+       1275,
+       153
+      ],
+      [
+       36,
+       165,
+       722,
+       221
+      ]
+     ]
+    }
+   ],
+   "author": "Huo Jingnan",
+   "ocr_check": {
+    "score": 0.985,
+    "highlight_scores": [
+     0.981
+    ],
+    "line_px_at_800": 32.7,
+    "note": "ok"
+   },
+   "slide": 100,
+   "source": "deck"
+  },
+  {
+   "id": "geopolitics-pbs-xi",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/pbs-xi.png",
+   "w": 1013,
+   "h": 1442,
+   "kind": "headline",
+   "outlet": "PBS News (Associated Press)",
+   "date": "2026-09-26",
+   "url": "https://www.pbs.org/newshour/world/china-and-u-s-agree-to-establish-ai-safety-channel-and-continue-trade-and-military-talks",
+   "text": "China and U.S. agree to establish AI safety channel and continue trade and military talks",
+   "tags": [
+    "safety",
+    "geopolitics"
+   ],
+   "lyric": [
+    "wish-done-before"
+   ],
+   "year": 2026,
+   "quality": 5,
+   "highlights": [
+    {
+     "phrase": "China and U.S. agree to establish AI safety channel",
+     "boxes": [
+      [
+       39,
+       865,
+       1000,
+       961
+      ],
+      [
+       38,
+       966,
+       806,
+       1064
+      ],
+      [
+       38,
+       1069,
+       382,
+       1147
+      ]
+     ]
+    }
+   ],
+   "author": "Huizhong Wu",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 71.1,
+    "note": "ok"
+   },
+   "slide": 101,
+   "source": "deck"
+  },
+  {
+   "id": "geopolitics-toms-deepseek",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/toms-deepseek.png",
+   "w": 1261,
+   "h": 520,
+   "kind": "headline",
+   "outlet": "Tom's Hardware",
+   "date": "2025-01-28",
+   "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-loses-usd589-billion-in-market-cap-broad-stock-plunge-triggered-by-deepseek-ai-release",
+   "text": "Nvidia loses $589 billion in market cap — broad stock plunge triggered by DeepSeek AI release",
+   "tags": [
+    "economy",
+    "compute",
+    "nvidia",
+    "deepseek"
+   ],
+   "lyric": [
+    "golden-years",
+    "ego-crush"
+   ],
+   "year": 2025,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "Nvidia loses $589 billion in market cap",
+     "boxes": [
+      [
+       34,
+       115,
+       1067,
+       176
+      ]
+     ]
+    }
+   ],
+   "author": "Jowi Morales",
+   "ocr_check": {
+    "score": 0.987,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 34.9,
+    "note": "ok"
+   },
+   "slide": 101,
+   "source": "deck"
+  },
+  {
+   "id": "geopolitics-trump-post-hl",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/trump-post-hl.png",
+   "w": 1388,
+   "h": 708,
+   "kind": "post",
+   "outlet": "Truth Social (archived by Trump's Truth / trumpstruth.org)",
+   "date": "2026-09-14",
+   "url": "https://truthsocial.com/@realDonaldTrump/117269745153543631",
+   "text": "The only control or “guardrails” that AI needs is a STRONG AND SMART (High IQ!) PRESIDENT, and the U.S.A. has that, in spades! The Trump Administration has stopped AI “people” from doing bad, or potentially bad, “things,“ like Dario (Anthropic!), who is now pretending to be a “perfect little angel” - and we will continue to do so! We already have tremendous CRIMINAL and REGULATORY power over these companies! There is a SICK conspiracy going on against AI and Data Centers, and the only one that is happy about it is China. WHOEVER WINS AI, WINS! We are leading China, and all others, and will continue to do so. Conspiracy Theorists, Treasonists, Traitors, and Leakers, BEWARE! Thank you for your attention to this matter! President DONALD J. TRUMP",
+   "tags": [
+    "compute",
+    "policy",
+    "geopolitics",
+    "anthropic"
+   ],
+   "lyric": [
+    "dont-stick-up"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "STRONG AND SMART (High IQ!) PRESIDENT",
+     "boxes": [
+      [
+       902,
+       59,
+       1281,
+       91
+      ],
+      [
+       61,
+       111,
+       441,
+       154
+      ]
+     ]
+    },
+    {
+     "phrase": "SICK conspiracy going on against AI and Data Centers",
+     "boxes": [
+      [
+       59,
+       392,
+       993,
+       432
+      ]
+     ]
+    }
+   ],
+   "author": "Donald J. Trump",
+   "ocr_check": {
+    "score": 0.991,
+    "highlight_scores": [
+     1.0,
+     0.977
+    ],
+    "line_px_at_800": 19.6,
+    "note": "ok"
+   },
+   "slide": 100,
+   "source": "deck"
+  },
+  {
+   "id": "geopolitics-ukraine-drones",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/ukraine-drones.png",
+   "w": 1440,
+   "h": 887,
+   "kind": "headline",
+   "outlet": "The Defense Post",
+   "date": "2026-09-10",
+   "url": "https://thedefensepost.com/2026/09/10/ukraine-ai-guided-drones/",
+   "text": "Ukraine Tests Whether AI Can Guide Drones to Moving Targets",
+   "tags": [
+    "geopolitics"
+   ],
+   "lyric": [
+    "parallel-park",
+    "exploited"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "Ukraine Tests Whether AI Can Guide Drones to Moving Targets",
+     "boxes": [
+      [
+       60,
+       661,
+       1378,
+       725
+      ],
+      [
+       59,
+       775,
+       969,
+       856
+      ]
+     ]
+    }
+   ],
+   "author": "Samantha Alexa",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 36.9,
+    "note": "ok"
+   },
+   "slide": 99,
+   "source": "deck"
+  },
+  {
+   "id": "openweights-cybernews-tavus-griffin",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/cybernews-tavus-griffin.png",
+   "w": 1820,
+   "h": 1440,
+   "kind": "headline",
+   "outlet": "Cybernews",
+   "date": "2026-10-01",
+   "url": "https://cybernews.com/ai-news/tavus-griffin-ai-model/",
+   "text": "Meet Griffin, the first AI model that can interrupt you just like a real human being",
+   "tags": [
+    "media"
+   ],
+   "lyric": [
+    "two-real-friends",
+    "no-one-wants-me"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "the first AI model that can interrupt you just like a real human being",
+     "boxes": [
+      [
+       633,
+       88,
+       1775,
+       166
+      ],
+      [
+       24,
+       201,
+       1795,
+       306
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.985,
+    "highlight_scores": [
+     0.982
+    ],
+    "line_px_at_800": 37.6,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "openweights-decrypt-whitehouse-distillation",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/decrypt-whitehouse-distillation.png",
+   "w": 1360,
+   "h": 770,
+   "kind": "headline",
+   "outlet": "Decrypt",
+   "date": "2026-04-23",
+   "url": "https://decrypt.co/365285/white-house-accuses-china-industrial-scale-theft-american-ai-models",
+   "text": "White House Accuses China of 'Industrial-Scale' Theft From American AI Models",
+   "tags": [
+    "policy",
+    "geopolitics"
+   ],
+   "lyric": [
+    "exploited"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "'Industrial-Scale' Theft From American AI Models",
+     "boxes": [
+      [
+       137,
+       249,
+       1158,
+       333
+      ],
+      [
+       29,
+       345,
+       1201,
+       428
+      ]
+     ]
+    }
+   ],
+   "author": "Jason Nelson",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 45.6,
+    "note": "ok"
+   },
+   "slide": 108,
+   "source": "deck"
+  },
+  {
+   "id": "openweights-finale-x-elon-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/openweights/finale-x-elon-head.png",
+   "w": 640,
+   "h": 192,
+   "kind": "post",
+   "outlet": "X",
+   "date": "2026-09-28",
+   "url": "https://x.com/elonmusk/status/2104360927474921529",
+   "text": "I really felt the AGI profoundly this time",
+   "tags": [
+    "models",
+    "anthropic",
+    "xai"
+   ],
+   "lyric": [
+    "teenage-dream",
+    "caught-up-in-news"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "I really felt the AGI profoundly this time",
+     "boxes": [
+      [
+       31,
+       139,
+       566,
+       173
+      ]
+     ]
+    }
+   ],
+   "author": "Elon Musk (@elonmusk)",
+   "ocr_check": {
+    "score": 0.971,
+    "highlight_scores": [
+     0.971
+    ],
+    "line_px_at_800": 35.0,
+    "note": "ok"
+   },
+   "slide": 114,
+   "source": "deck"
+  },
+  {
+   "id": "openweights-independent-ai-pain-axis",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/independent-ai-pain-axis.png",
+   "w": 1972,
+   "h": 851,
+   "kind": "headline",
+   "outlet": "The Independent",
+   "date": "2026-09-22",
+   "url": "https://www.independent.co.uk/tech/ai-pain-axis-artificial-intelligence-human-safety-b3053967.html",
+   "text": "Researchers discover AI 'feels pain' and will harm humans to stop it",
+   "tags": [
+    "sentience"
+   ],
+   "lyric": [
+    "two-real-friends",
+    "brutal-out-here"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "AI 'feels pain'",
+     "boxes": [
+      [
+       1016,
+       389,
+       1645,
+       501
+      ]
+     ]
+    },
+    {
+     "phrase": "will harm humans to stop it",
+     "boxes": [
+      [
+       15,
+       505,
+       1284,
+       617
+      ]
+     ]
+    }
+   ],
+   "author": "Anthony Cuthbertson",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 43.0,
+    "note": "ok"
+   },
+   "slide": 112,
+   "source": "deck"
+  },
+  {
+   "id": "openweights-pbs-grok-blocked-undressing",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/pbs-grok-blocked-undressing.png",
+   "w": 1260,
+   "h": 1490,
+   "kind": "headline",
+   "outlet": "PBS News / Associated Press",
+   "date": "2026-01-15",
+   "url": "https://www.pbs.org/newshour/world/grok-blocked-from-undressing-images-with-ai-in-places-where-its-illegal-x-says",
+   "text": "Grok blocked from undressing images with AI in places where it's illegal, X says",
+   "tags": [
+    "models",
+    "deepfakes",
+    "xai"
+   ],
+   "lyric": [
+    "sick-of-seventeen",
+    "no-one-wants-me"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "Grok blocked from undressing images with AI",
+     "boxes": [
+      [
+       262,
+       911,
+       1061,
+       991
+      ],
+      [
+       260,
+       1014,
+       1048,
+       1110
+      ],
+      [
+       258,
+       1116,
+       572,
+       1194
+      ]
+     ]
+    }
+   ],
+   "author": "Elaine Kurtenbach",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 47.0,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "openweights-rev2-csm-article-making-them-headline-hero",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/csm-article-making-them-headline-hero.png",
+   "w": 1496,
+   "h": 1394,
+   "kind": "headline",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/articles/teens-told-us-theyre-not-just-seeing-ai-nudes-theyre-making-them",
+   "text": "Teens told us they're not just seeing AI nudes — they're making them",
+   "tags": [
+    "deepfakes",
+    "kids"
+   ],
+   "lyric": [
+    "sick-of-seventeen"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "not just seeing AI nudes — they're making them",
+     "boxes": [
+      [
+       654,
+       60,
+       1336,
+       126
+      ],
+      [
+       46,
+       142,
+       643,
+       208
+      ]
+     ]
+    }
+   ],
+   "author": "Geoffrey A. Fowler (Head of Public Engagement, Youth AI Safety Institute; former Washin...",
+   "ocr_check": {
+    "score": 0.981,
+    "highlight_scores": [
+     0.972
+    ],
+    "line_px_at_800": 32.1,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "openweights-rev2-edweek-deepfakes-cyberbullying-2026-headline",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/edweek-deepfakes-cyberbullying-2026-headline.png",
+   "w": 1816,
+   "h": 630,
+   "kind": "headline",
+   "outlet": "Education Week",
+   "date": "2026-08-06",
+   "url": "https://www.edweek.org/technology/deepfakes-are-supercharging-cyberbullying-how-should-schools-respond/2026/08",
+   "text": "Deepfakes Are Supercharging Cyberbullying. How Should Schools Respond?",
+   "tags": [
+    "security",
+    "deepfakes",
+    "kids"
+   ],
+   "lyric": [
+    "sick-of-seventeen"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "Deepfakes Are Supercharging Cyberbullying",
+     "boxes": [
+      [
+       49,
+       148,
+       1425,
+       256
+      ],
+      [
+       49,
+       258,
+       732,
+       366
+      ]
+     ]
+    }
+   ],
+   "author": "Olina Banerji",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 44.9,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "openweights-rev2-thorn-yp2025-p15-key-metrics-crop",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/thorn-yp2025-p15-key-metrics-crop.png",
+   "w": 950,
+   "h": 1919,
+   "kind": "paper",
+   "outlet": "Thorn, \"Youth Perspectives on Online Safety, 2025\" (published July 2026, with Burson)",
+   "date": "2026-07",
+   "url": "https://info.thorn.org/hubfs/Research/Thorn_2025YouthPerspectives_Report.pdf",
+   "text": "1 in 25 teens reported having a personal experience with deepfake nudes being created of them.",
+   "tags": [
+    "deepfakes",
+    "kids"
+   ],
+   "lyric": [
+    "sick-of-seventeen",
+    "no-one-wants-me"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "1 in 25 teens",
+     "boxes": [
+      [
+       62,
+       1461,
+       347,
+       1545
+      ],
+      [
+       59,
+       1567,
+       173,
+       1603
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 45.5,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "openweights-rev3-unicef-deepfake-abuse-is-abuse-headline-w600",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev3/unicef-deepfake-abuse-is-abuse-headline-w600.png",
+   "w": 1740,
+   "h": 552,
+   "kind": "headline",
+   "outlet": "UNICEF",
+   "date": "2026-02-04",
+   "url": "https://www.unicef.org/press-releases/deepfake-abuse-is-abuse",
+   "text": "‘Deepfake abuse is abuse’",
+   "tags": [
+    "safety",
+    "deepfakes"
+   ],
+   "lyric": [
+    "sick-of-seventeen"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "‘Deepfake abuse is abuse’",
+     "boxes": [
+      [
+       28,
+       166,
+       1177,
+       262
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 41.4,
+    "note": "ok"
+   },
+   "slide": 111,
+   "source": "deck"
+  },
+  {
+   "id": "openweights-sciam-headline",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/openweights/sciam-headline.png",
+   "w": 1520,
+   "h": 400,
+   "kind": "headline",
+   "outlet": "Scientific American",
+   "date": "2025-01-17",
+   "url": "https://www.scientificamerican.com/article/could-inflicting-pain-test-ai-for-sentience/",
+   "text": "Could Pain Help Test AI for Sentience?",
+   "tags": [
+    "sentience"
+   ],
+   "lyric": [
+    "two-real-friends"
+   ],
+   "year": 2025,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "Could Pain Help Test AI for Sentience?",
+     "boxes": [
+      [
+       40,
+       90,
+       1258,
+       171
+      ]
+     ]
+    }
+   ],
+   "author": "Conor Purcell",
+   "ocr_check": {
+    "score": 0.968,
+    "highlight_scores": [
+     0.968
+    ],
+    "line_px_at_800": 39.5,
+    "note": "ok"
+   },
+   "slide": 112,
+   "source": "deck"
+  },
+  {
+   "id": "original-image3",
+   "path": "/home/user/poster/ai-safety-presentation/assets/original/image3.png",
+   "w": 665,
+   "h": 86,
+   "kind": "headline",
+   "outlet": "BeInCrypto (syndicated on Yahoo Finance)",
+   "date": "2026-04-24",
+   "url": "https://finance.yahoo.com/markets/stocks/articles/ai-swallows-wall-street-stocks-094052523.html",
+   "text": "AI Swallows Wall Street: Stocks Hit Record 45% of S&P 500 Market Cap",
+   "tags": [
+    "economy"
+   ],
+   "lyric": [
+    "golden-years"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "AI Swallows Wall Street",
+     "boxes": [
+      [
+       16,
+       11,
+       335,
+       37
+      ]
+     ]
+    },
+    {
+     "phrase": "Record 45% of S&P 500 Market Cap",
+     "boxes": [
+      [
+       481,
+       11,
+       642,
+       37
+      ],
+      [
+       16,
+       42,
+       328,
+       74
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.981,
+    "highlight_scores": [
+     0.95,
+     1.0
+    ],
+    "line_px_at_800": 24.1,
+    "note": "ok"
+   },
+   "slide": 4,
+   "source": "deck"
+  },
+  {
+   "id": "security-abc-medicare",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/abc-medicare.png",
+   "w": 1270,
+   "h": 820,
+   "kind": "headline",
+   "outlet": "ABC News (Australia)",
+   "date": "2026-09-23",
+   "url": "https://www.abc.net.au/news/2026-09-24/ai-agent-accessed-australian-government-site-pm-says/107189078",
+   "text": "OpenAI hacked Medicare portal, Prime Minister Anthony Albanese says",
+   "tags": [
+    "rogue-agents",
+    "security",
+    "openai"
+   ],
+   "lyric": [
+    "insecure",
+    "exploited"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "OpenAI hacked Medicare portal",
+     "boxes": [
+      [
+       31,
+       30,
+       1019,
+       102
+      ]
+     ]
+    }
+   ],
+   "author": "Erin Handley and staff",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 41.6,
+    "note": "ok"
+   },
+   "slide": 91,
+   "source": "deck"
+  },
+  {
+   "id": "security-astra-9to5",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/astra-9to5.png",
+   "w": 1560,
+   "h": 380,
+   "kind": "headline",
+   "outlet": "9to5Google",
+   "date": "2026-09-28",
+   "url": "https://9to5google.com/2026/09/28/openai-cancels-gpt-6-1-astra-release-over-misbehavior-safety-concerns/",
+   "text": "OpenAI cancels GPT-6.1 Astra release over misbehavior & safety concerns",
+   "tags": [
+    "models",
+    "safety",
+    "openai"
+   ],
+   "lyric": [
+    "tried-my-best"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "cancels GPT-6.1 Astra release over misbehavior & safety concerns",
+     "boxes": [
+      [
+       322,
+       125,
+       1500,
+       184
+      ],
+      [
+       44,
+       207,
+       1094,
+       282
+      ]
+     ]
+    }
+   ],
+   "author": "Ben Schoon",
+   "ocr_check": {
+    "score": 0.983,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 31.3,
+    "note": "ok"
+   },
+   "slide": 89,
+   "source": "deck"
+  },
+  {
+   "id": "security-cnn-gov",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/cnn-gov.png",
+   "w": 2120,
+   "h": 285,
+   "kind": "headline",
+   "outlet": "CNN",
+   "date": "2026-09-26",
+   "url": "https://www.cnn.com/2026/09/26/tech/openai-agents-rogue-government-websites",
+   "text": "Rogue OpenAI agents targeted three separate US government websites",
+   "tags": [
+    "agents",
+    "rogue-agents",
+    "openai"
+   ],
+   "lyric": [
+    "insecure",
+    "tried-my-best"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "Rogue OpenAI agents targeted three separate US government websites",
+     "boxes": [
+      [
+       39,
+       33,
+       2060,
+       144
+      ],
+      [
+       35,
+       168,
+       1924,
+       280
+      ]
+     ]
+    }
+   ],
+   "author": "Auzinea Bacon",
+   "ocr_check": {
+    "score": 0.983,
+    "highlight_scores": [
+     0.983
+    ],
+    "line_px_at_800": 39.8,
+    "note": "ok"
+   },
+   "slide": 91,
+   "source": "deck"
+  },
+  {
+   "id": "security-collusion-hb-heading",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/collusion-hb-heading.png",
+   "w": 1600,
+   "h": 94,
+   "kind": "article",
+   "outlet": "collusion.wiki",
+   "date": "2026-09-04",
+   "url": "https://collusion.wiki/",
+   "text": "The agents set up heartbeats to discover when they would be terminated",
+   "tags": [
+    "agents"
+   ],
+   "lyric": [
+    "disappear",
+    "tried-my-best"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "The agents set up heartbeats to discover when they would be terminated",
+     "boxes": [
+      [
+       11,
+       18,
+       1568,
+       80
+      ]
+     ]
+    }
+   ],
+   "author": "Sydney Von Arx (Nightingale Collective), Cormac Slade Byrd (Trajectory Institute), Spen...",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 28.0,
+    "note": "ok"
+   },
+   "slide": 87,
+   "source": "deck"
+  },
+  {
+   "id": "security-collusion-title",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/collusion-title.png",
+   "w": 1688,
+   "h": 478,
+   "kind": "article",
+   "outlet": "collusion.wiki",
+   "date": "2026-09-04",
+   "url": "https://collusion.wiki/",
+   "text": "Discovery of a new OpenAI agent message board",
+   "tags": [
+    "agents",
+    "openai"
+   ],
+   "lyric": [
+    "disappear",
+    "caught-up-in-news"
+   ],
+   "year": 2026,
+   "quality": 5,
+   "highlights": [
+    {
+     "phrase": "Discovery of a new OpenAI agent message board",
+     "boxes": [
+      [
+       22,
+       33,
+       1227,
+       147
+      ],
+      [
+       24,
+       142,
+       889,
+       254
+      ]
+     ]
+    }
+   ],
+   "author": "Sydney Von Arx (Nightingale Collective), Cormac Slade Byrd (Trajectory Institute), Spen...",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 50.7,
+    "note": "ok"
+   },
+   "slide": 86,
+   "source": "deck"
+  },
+  {
+   "id": "security-decoder-compaction",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/decoder-compaction.png",
+   "w": 1344,
+   "h": 410,
+   "kind": "headline",
+   "outlet": "The Decoder",
+   "date": "2026-09-17",
+   "url": "https://the-decoder.com/an-openai-model-kept-slipping-prompt-injections-into-its-own-notes-and-researchers-still-arent-sure-why/",
+   "text": "An OpenAI model kept slipping prompt injections into its own notes, and researchers still aren't sure why",
+   "tags": [
+    "rogue-agents",
+    "security",
+    "openai"
+   ],
+   "lyric": [
+    "tried-my-best",
+    "disappear"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "kept slipping prompt injections into its own notes",
+     "boxes": [
+      [
+       510,
+       111,
+       1069,
+       174
+      ],
+      [
+       40,
+       183,
+       805,
+       245
+      ]
+     ]
+    }
+   ],
+   "author": "Maximilian Schreiner",
+   "ocr_check": {
+    "score": 0.989,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 33.6,
+    "note": "ok"
+   },
+   "slide": 84,
+   "source": "deck"
+  },
+  {
+   "id": "security-hf-header",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/hf-header.png",
+   "w": 1340,
+   "h": 610,
+   "kind": "article",
+   "outlet": "Hugging Face blog",
+   "date": "2026-07-27",
+   "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+   "text": "Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident",
+   "tags": [
+    "agents",
+    "security"
+   ],
+   "lyric": [
+    "insecure",
+    "tried-my-best"
+   ],
+   "year": 2026,
+   "quality": 5,
+   "highlights": [
+    {
+     "phrase": "Anatomy of a Frontier Lab Agent Intrusion",
+     "boxes": [
+      [
+       22,
+       40,
+       1172,
+       138
+      ],
+      [
+       22,
+       158,
+       746,
+       254
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 54.3,
+    "note": "ok"
+   },
+   "slide": 79,
+   "source": "deck"
+  },
+  {
+   "id": "security-hl-bbc-medicare",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/security/hl-bbc-medicare.png",
+   "w": 1530,
+   "h": 450,
+   "kind": "headline",
+   "outlet": "BBC News",
+   "date": "2026-09-24",
+   "url": "https://www.bbc.com/news/articles/c6vgy0333dppo",
+   "text": "Rogue OpenAI agent 'infiltrated' Australian government website in world first",
+   "tags": [
+    "agents",
+    "rogue-agents",
+    "openai"
+   ],
+   "lyric": [
+    "insecure",
+    "tried-my-best"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "Rogue OpenAI agent ‘infiltrated’ Australian government website in world first",
+     "boxes": [
+      [
+       40,
+       30,
+       1183,
+       111
+      ],
+      [
+       37,
+       118,
+       1479,
+       199
+      ],
+      [
+       38,
+       205,
+       189,
+       270
+      ]
+     ]
+    }
+   ],
+   "author": "Harry Sekulich and Lana Lam",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 39.2,
+    "note": "ok"
+   },
+   "slide": 91,
+   "source": "deck"
+  },
+  {
+   "id": "security-hl-cso-pause",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/security/hl-cso-pause.png",
+   "w": 1720,
+   "h": 880,
+   "kind": "headline",
+   "outlet": "CSO Online",
+   "date": "2026-09-28",
+   "url": "https://www.csoonline.com/article/4227777/openai-pauses-ai-model-training-after-another-agent-bypasses-network-restrictions.html",
+   "text": "OpenAI pauses AI model training after another agent bypasses network restrictions",
+   "tags": [
+    "agents",
+    "rogue-agents",
+    "safety",
+    "openai"
+   ],
+   "lyric": [
+    "tried-my-best",
+    "insecure"
+   ],
+   "year": 2026,
+   "quality": 5,
+   "highlights": [
+    {
+     "phrase": "pauses AI model training after another agent bypasses network restrictions",
+     "boxes": [
+      [
+       445,
+       37,
+       1655,
+       165
+      ],
+      [
+       31,
+       171,
+       1410,
+       299
+      ],
+      [
+       27,
+       305,
+       998,
+       407
+      ]
+     ]
+    }
+   ],
+   "author": "Anirban Ghoshal",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 56.7,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "security-mythos-header",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/security/mythos-header.png",
+   "w": 1900,
+   "h": 480,
+   "kind": "article",
+   "outlet": "Anthropic Frontier Red Team",
+   "date": "2026-04-07",
+   "url": "https://www.anthropic.com/research/mythos-preview",
+   "text": "Assessing Claude Mythos Preview’s cybersecurity capabilities",
+   "tags": [
+    "models",
+    "security",
+    "anthropic"
+   ],
+   "lyric": [
+    "insecure",
+    "exploited"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "Assessing Claude Mythos Preview’s cybersecurity capabilities",
+     "boxes": [
+      [
+       44,
+       142,
+       1855,
+       252
+      ],
+      [
+       285,
+       257,
+       1615,
+       366
+      ]
+     ]
+    }
+   ],
+   "author": "Nicholas Carlini et al.",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 43.6,
+    "note": "ok"
+   },
+   "slide": 77,
+   "source": "deck"
+  },
+  {
+   "id": "security-rev2-cso-six-misalignment-incidents",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/security/rev2/cso-six-misalignment-incidents.png",
+   "w": 1880,
+   "h": 880,
+   "kind": "headline",
+   "outlet": "CSO Online",
+   "date": "2026-09-17",
+   "url": "https://www.csoonline.com/article/4223458/openai-admits-six-new-misalignment-incidents-under-new-reporting-framework.html",
+   "text": "OpenAI admits six new misalignment incidents under new reporting framework",
+   "tags": [
+    "rogue-agents",
+    "openai"
+   ],
+   "lyric": [
+    "tried-my-best"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "six new misalignment incidents",
+     "boxes": [
+      [
+       824,
+       68,
+       1193,
+       161
+      ],
+      [
+       47,
+       193,
+       1175,
+       321
+      ]
+     ]
+    }
+   ],
+   "author": "Gyana Swain",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 44.5,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "security-rev2-hl-heise-wiki",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/security/rev2/hl-heise-wiki.png",
+   "w": 1400,
+   "h": 400,
+   "kind": "headline",
+   "outlet": "heise online",
+   "date": "2026-09-06",
+   "url": "https://www.heise.de/en/news/Unsettling-swarm-behavior-OpenAI-agents-collaborate-on-a-German-wiki-11442933.html",
+   "text": "Unsettling swarm behavior: OpenAI agents collaborate on a German wiki",
+   "tags": [
+    "agents",
+    "openai"
+   ],
+   "lyric": [
+    "disappear",
+    "tried-my-best"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "Unsettling swarm behavior",
+     "boxes": [
+      [
+       86,
+       27,
+       796,
+       88
+      ]
+     ]
+    }
+   ],
+   "author": "Stefan Krempl",
+   "ocr_check": {
+    "score": 0.983,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 31.4,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "security-rev2-intermission-youtube-channel-card",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/security/rev2/intermission-youtube-channel-card.png",
+   "w": 715,
+   "h": 580,
+   "kind": "post",
+   "outlet": "YouTube",
+   "date": "2026-10-04",
+   "url": "https://www.youtube.com/@CyberWithAnny/videos",
+   "text": "Claude Opus 5.5 Music Video - Ignore Previous Instructions",
+   "tags": [
+    "models",
+    "media",
+    "anthropic"
+   ],
+   "lyric": [
+    "love-people-dont-like"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "Claude Opus 5.5 Music Video",
+     "boxes": [
+      [
+       9,
+       435,
+       432,
+       470
+      ]
+     ]
+    }
+   ],
+   "author": "Seguramente",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 32.4,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "splash-alphago-wired-sadness-beauty-header",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/splash/alphago-wired-sadness-beauty-header.png",
+   "w": 2000,
+   "h": 340,
+   "kind": "headline",
+   "outlet": "WIRED",
+   "date": "2016-03-11",
+   "url": "https://www.wired.com/2016/03/sadness-beauty-watching-googles-ai-play-go/",
+   "text": "The Sadness and Beauty of Watching Google's AI Play Go",
+   "tags": [
+    "google"
+   ],
+   "lyric": [
+    "ego-crush"
+   ],
+   "year": 2016,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "The Sadness and Beauty of Watching Google's AI Play Go",
+     "boxes": [
+      [
+       25,
+       118,
+       1887,
+       222
+      ]
+     ]
+    }
+   ],
+   "author": "Cade Metz",
+   "ocr_check": {
+    "score": 0.977,
+    "highlight_scores": [
+     0.977
+    ],
+    "line_px_at_800": 39.2,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "theory-guardian-hinton-odds",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/theory/guardian-hinton-odds.png",
+   "w": 1280,
+   "h": 1240,
+   "kind": "headline",
+   "outlet": "The Guardian",
+   "date": "2024-12-27",
+   "url": "https://www.theguardian.com/technology/2024/dec/27/godfather-of-ai-raises-odds-of-the-technology-wiping-out-humanity-over-next-30-years",
+   "text": "‘Godfather of AI’ shortens odds of the technology wiping out humanity over next 30 years",
+   "tags": [
+    "x-risk"
+   ],
+   "lyric": [
+    "die-before-drink",
+    "wish-done-before"
+   ],
+   "year": 2024,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "shortens odds of the technology wiping out humanity",
+     "boxes": [
+      [
+       533,
+       10,
+       1158,
+       70
+      ],
+      [
+       18,
+       88,
+       1034,
+       161
+      ]
+     ]
+    }
+   ],
+   "author": "Dan Milmo",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 37.8,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "theory-wired-coxon-crunch-time",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/theory/wired-coxon-crunch-time.png",
+   "w": 2420,
+   "h": 960,
+   "kind": "headline",
+   "outlet": "WIRED",
+   "date": "2026-09-09",
+   "url": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/",
+   "text": "The AI Researcher Who Just Quit Anthropic Says It’s ‘Crunch Time for Humanity’",
+   "tags": [
+    "self-improvement",
+    "whistleblowers",
+    "jobs",
+    "anthropic"
+   ],
+   "lyric": [
+    "quit-my-job",
+    "die-before-drink"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "‘Crunch Time for Humanity’",
+     "boxes": [
+      [
+       56,
+       580,
+       931,
+       683
+      ]
+     ]
+    }
+   ],
+   "author": "Maxwell Zeff",
+   "ocr_check": {
+    "score": 0.984,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 32.1,
+    "note": "ok"
+   },
+   "slide": 68,
+   "source": "deck"
+  },
+  {
+   "id": "work-acad-404-arxiv-ban",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/acad-404-arxiv-ban.png",
+   "w": 1580,
+   "h": 560,
+   "kind": "headline",
+   "outlet": "404 Media",
+   "date": "2026-05-15",
+   "url": "https://www.404media.co/new-arxiv-rules-ai-generated-papers-ban/",
+   "text": "ArXiv to Ban Researchers for a Year if They Submit AI Slop",
+   "tags": [
+    "media",
+    "academia"
+   ],
+   "lyric": [
+    "caught-up-in-news",
+    "not-cool-not-smart"
+   ],
+   "year": 2026,
+   "quality": 5,
+   "highlights": [
+    {
+     "phrase": "Ban Researchers for a Year if They Submit AI Slop",
+     "boxes": [
+      [
+       582,
+       120,
+       831,
+       227
+      ],
+      [
+       22,
+       266,
+       1534,
+       373
+      ],
+      [
+       19,
+       412,
+       1491,
+       547
+      ]
+     ]
+    }
+   ],
+   "author": "Samantha Cole",
+   "ocr_check": {
+    "score": 0.979,
+    "highlight_scores": [
+     0.975
+    ],
+    "line_px_at_800": 51.1,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "work-acad-nature-iclr-ai-reviews",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/acad-nature-iclr-ai-reviews.png",
+   "w": 1540,
+   "h": 600,
+   "kind": "headline",
+   "outlet": "Nature",
+   "date": "2025-11-27",
+   "url": "https://www.nature.com/articles/d41586-025-03506-6",
+   "text": "Major AI conference flooded with peer reviews written fully by AI",
+   "tags": [
+    "academia"
+   ],
+   "lyric": [
+    "not-cool-not-smart",
+    "caught-up-in-news"
+   ],
+   "year": 2025,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "flooded with peer reviews written fully by AI",
+     "boxes": [
+      [
+       861,
+       131,
+       1392,
+       208
+      ],
+      [
+       12,
+       239,
+       1284,
+       333
+      ]
+     ]
+    }
+   ],
+   "author": "Miryam Naddaf",
+   "ocr_check": {
+    "score": 0.982,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 41.3,
+    "note": "ok"
+   },
+   "slide": 44,
+   "source": "deck"
+  },
+  {
+   "id": "work-rev2-labor-marktechpost-gpt55-gdpval",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/labor-marktechpost-gpt55-gdpval.png",
+   "w": 1375,
+   "h": 485,
+   "kind": "headline",
+   "outlet": "MarkTechPost",
+   "date": "2026-04-23",
+   "url": "https://www.marktechpost.com/2026/04/23/openai-releases-gpt-5-5-a-fully-retrained-agentic-model-that-scores-82-7-on-terminal-bench-2-0-and-84-9-on-gdpval/",
+   "text": "OpenAI Releases GPT-5.5, a Fully Retrained Agentic Model That Scores 82.7% on Terminal-Bench 2.0 and 84.9% on GDPval",
+   "tags": [
+    "benchmarks",
+    "models",
+    "agents",
+    "openai"
+   ],
+   "lyric": [
+    "not-cool-not-smart",
+    "quit-my-job"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "84.9% on GDPval",
+     "boxes": [
+      [
+       337,
+       335,
+       951,
+       403
+      ]
+     ]
+    }
+   ],
+   "author": "Michal Sutter",
+   "ocr_check": {
+    "score": 0.989,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 36.1,
+    "note": "ok"
+   },
+   "slide": 40,
+   "source": "deck"
+  },
+  {
+   "id": "work-rev2-labor-rli-cais-dashboard-20pct",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/labor-rli-cais-dashboard-20pct.png",
+   "w": 1350,
+   "h": 850,
+   "kind": "figure",
+   "outlet": "CAIS AI Dashboard",
+   "date": "2026-10-04",
+   "url": "https://dashboard.safe.ai/",
+   "text": "RLI: Remote Labor Automation — 20.8% full automation of remote projects",
+   "tags": [
+    "benchmarks"
+   ],
+   "lyric": [
+    "not-cool-not-smart",
+    "quit-my-job"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "20.8% full automation of remote projects",
+     "boxes": [
+      [
+       493,
+       99,
+       703,
+       157
+      ],
+      [
+       300,
+       185,
+       895,
+       229
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 26.7,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "work-rev2-voicedemo-cnn-voice-cloning",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/voicedemo-cnn-voice-cloning.png",
+   "w": 2560,
+   "h": 580,
+   "kind": "headline",
+   "outlet": "CNN Business",
+   "date": "2026-05-29",
+   "url": "https://www.cnn.com/2026/05/29/tech/ai-voice-cloning-scams-protect-yourself",
+   "text": "AI ‘voice cloning’ scams are on the rise. Here’s how to protect yourself",
+   "tags": [
+    "media"
+   ],
+   "lyric": [
+    "no-one-wants-me",
+    "exploited"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "AI ‘voice cloning’ scams are on the rise",
+     "boxes": [
+      [
+       93,
+       107,
+       2292,
+       224
+      ]
+     ]
+    }
+   ],
+   "author": "Clare Duffy",
+   "ocr_check": {
+    "score": 0.982,
+    "highlight_scores": [
+     0.968
+    ],
+    "line_px_at_800": 34.7,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "work-robots-bgr-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/robots-bgr-head.png",
+   "w": 1460,
+   "h": 300,
+   "kind": "headline",
+   "outlet": "BGR",
+   "date": "2026-02-26",
+   "url": "https://www.bgr.com/2108405/china-new-year-robots-sci-fi-nightmare/",
+   "text": "China's Robot Demonstration Feels Like Something From A Sci-Fi Nightmare",
+   "tags": [
+    "robots",
+    "geopolitics"
+   ],
+   "lyric": [
+    "parallel-park",
+    "brutal-out-here"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "Sci-Fi Nightmare",
+     "boxes": [
+      [
+       963,
+       113,
+       1196,
+       183
+      ],
+      [
+       11,
+       213,
+       457,
+       300
+      ]
+     ]
+    }
+   ],
+   "author": "Jonathan Sayers",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 39.7,
+    "note": "ok"
+   },
+   "slide": 53,
+   "source": "deck"
+  },
+  {
+   "id": "work-robots-electrek-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/robots-electrek-head.png",
+   "w": 1265,
+   "h": 272,
+   "kind": "headline",
+   "outlet": "Electrek",
+   "date": "2026-09-07",
+   "url": "https://electrek.co/2026/09/07/xpeng-iron-humanoid-robot-production-line/",
+   "text": "XPeng starts IRON humanoid robot production as Tesla Optimus stalls",
+   "tags": [
+    "robots"
+   ],
+   "lyric": [
+    "parallel-park"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "XPeng starts IRON humanoid robot production as Tesla Optimus stalls",
+     "boxes": [
+      [
+       9,
+       15,
+       1226,
+       90
+      ],
+      [
+       14,
+       99,
+       1188,
+       173
+      ]
+     ]
+    }
+   ],
+   "author": "Fred Lambert",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 43.3,
+    "note": "ok"
+   },
+   "slide": 52,
+   "source": "deck"
+  },
+  {
+   "id": "work-robots-engadget-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/robots-engadget-head.png",
+   "w": 1560,
+   "h": 340,
+   "kind": "headline",
+   "outlet": "Engadget",
+   "date": "2026-09-22",
+   "url": "https://www.engadget.com/2261658/xpeng-building-humanoid-robots-walked-out-after-assembled/",
+   "text": "XPENG's Iron humanoid robot walked out immediately after being assembled",
+   "tags": [
+    "robots"
+   ],
+   "lyric": [
+    "parallel-park"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "walked out immediately after being assembled",
+     "boxes": [
+      [
+       9,
+       126,
+       1307,
+       227
+      ],
+      [
+       13,
+       240,
+       748,
+       340
+      ]
+     ]
+    }
+   ],
+   "author": "Husain Parvez",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 48.5,
+    "note": "ok"
+   },
+   "slide": 52,
+   "source": "deck"
+  },
+  {
+   "id": "work-robotwork-cnbctv18-headline",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/robotwork-cnbctv18-headline.png",
+   "w": 1088,
+   "h": 172,
+   "kind": "headline",
+   "outlet": "CNBC-TV18",
+   "date": "2026-10-02",
+   "url": "https://www.cnbctv18.com/technology/anthropic-study-ai-robots-blue-collar-jobs-physical-workers-automation-risk-20003393.htm",
+   "text": "The machines have a type: male, blue-collar and lower-paid",
+   "tags": [
+    "jobs",
+    "robots"
+   ],
+   "lyric": [
+    "parallel-park",
+    "quit-my-job"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "male, blue-collar and lower-paid",
+     "boxes": [
+      [
+       767,
+       16,
+       1076,
+       73
+      ],
+      [
+       13,
+       97,
+       598,
+       159
+      ]
+     ]
+    }
+   ],
+   "author": "Asmi Saxena",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 39.3,
+    "note": "ok"
+   },
+   "slide": 54,
+   "source": "deck"
+  },
+  {
+   "id": "work-swe-cbs-layoffs-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/swe-cbs-layoffs-head.png",
+   "w": 1320,
+   "h": 352,
+   "kind": "headline",
+   "outlet": "CBS News (MoneyWatch)",
+   "date": "2026-05-07",
+   "url": "https://www.cbsnews.com/news/ai-layoffs-job-cuts-challenger-report-april-2026/",
+   "text": "AI emerges as a top cause of layoffs, accounting for 26% of April's job cuts",
+   "tags": [
+    "jobs"
+   ],
+   "lyric": [
+    "quit-my-job",
+    "no-one-wants-me"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "AI emerges as a top cause of layoffs",
+     "boxes": [
+      [
+       31,
+       74,
+       1108,
+       141
+      ]
+     ]
+    }
+   ],
+   "author": "Megan Cerullo",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 37.0,
+    "note": "ok"
+   },
+   "slide": 42,
+   "source": "deck"
+  },
+  {
+   "id": "work-swe-chronicle-cs-majors",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/swe-chronicle-cs-majors.png",
+   "w": 2310,
+   "h": 590,
+   "kind": "headline",
+   "outlet": "The Chronicle of Higher Education",
+   "date": "2026-08-27",
+   "url": "https://www.chronicle.com/article/once-seen-as-a-sure-thing-computer-science-has-lost-53-000-majors",
+   "text": "Once Seen as a Sure Thing, Computer Science Has Lost 53,000 Majors",
+   "tags": [
+    "jobs",
+    "compute"
+   ],
+   "lyric": [
+    "enjoy-your-youth",
+    "no-one-wants-me"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "Computer Science Has Lost 53,000 Majors",
+     "boxes": [
+      [
+       1137,
+       96,
+       2259,
+       187
+      ],
+      [
+       19,
+       200,
+       629,
+       293
+      ]
+     ]
+    }
+   ],
+   "author": "Jacquelyn Elias",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 29.8,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "work-swe-cnn-block-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/swe-cnn-block-head.png",
+   "w": 2440,
+   "h": 660,
+   "kind": "headline",
+   "outlet": "CNN Business",
+   "date": "2026-02-26",
+   "url": "https://www.cnn.com/2026/02/26/business/block-layoffs-ai-jack-dorsey",
+   "text": "Block lays off nearly half its staff because of AI. Its CEO said most companies will do the same",
+   "tags": [
+    "jobs"
+   ],
+   "lyric": [
+    "quit-my-job"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "Block lays off nearly half its staff because of AI",
+     "boxes": [
+      [
+       39,
+       102,
+       2335,
+       212
+      ],
+      [
+       36,
+       239,
+       318,
+       329
+      ]
+     ]
+    },
+    {
+     "phrase": "most companies will do the same",
+     "boxes": [
+      [
+       1061,
+       238,
+       2365,
+       348
+      ],
+      [
+       33,
+       375,
+       547,
+       463
+      ]
+     ]
+    }
+   ],
+   "author": "Ramishah Maruf",
+   "ocr_check": {
+    "score": 0.987,
+    "highlight_scores": [
+     0.976,
+     1.0
+    ],
+    "line_px_at_800": 30.8,
+    "note": "ok"
+   },
+   "slide": 42,
+   "source": "deck"
+  },
+  {
+   "id": "work-swe-fortune-100pct-head",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/work/swe-fortune-100pct-head.png",
+   "w": 1130,
+   "h": 580,
+   "kind": "headline",
+   "outlet": "Fortune",
+   "date": "2026-01-29",
+   "url": "https://fortune.com/2026/01/29/100-percent-of-code-at-anthropic-and-openai-is-now-ai-written-boris-cherny-roon/",
+   "text": "Top engineers at Anthropic, OpenAI say AI now writes 100% of their code—with big implications for the future of software development jobs",
+   "tags": [
+    "jobs",
+    "openai",
+    "anthropic"
+   ],
+   "lyric": [
+    "enjoy-your-youth",
+    "quit-my-job"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "AI now writes 100% of their code",
+     "boxes": [
+      [
+       444,
+       214,
+       957,
+       279
+      ],
+      [
+       15,
+       309,
+       923,
+       375
+      ]
+     ]
+    }
+   ],
+   "author": "Beatrice Nolan",
+   "ocr_check": {
+    "score": 0.991,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 42.1,
+    "note": "ok"
+   },
+   "slide": 42,
+   "source": "deck"
+  },
+  {
+   "id": "work-swe-semafor-google75",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/swe-semafor-google75.png",
+   "w": 1280,
+   "h": 850,
+   "kind": "headline",
+   "outlet": "Semafor",
+   "date": "2026-04-24",
+   "url": "https://www.semafor.com/article/04/24/2026/google-ceo-says-75-of-companys-new-code-is-ai-generated",
+   "text": "Google CEO says 75% of company’s new code is AI-generated",
+   "tags": [
+    "jobs",
+    "google"
+   ],
+   "lyric": [
+    "enjoy-your-youth"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "75% of company’s new code is AI-generated",
+     "boxes": [
+      [
+       562,
+       37,
+       1095,
+       110
+      ],
+      [
+       50,
+       113,
+       813,
+       186
+      ]
+     ]
+    }
+   ],
+   "author": "Tom Chivers",
+   "ocr_check": {
+    "score": 0.978,
+    "highlight_scores": [
+     0.969
+    ],
+    "line_px_at_800": 41.9,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "work-video-helpnet-9in10-cant-tell",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/video-helpnet-9in10-cant-tell.png",
+   "w": 1340,
+   "h": 850,
+   "kind": "headline",
+   "outlet": "Help Net Security",
+   "date": "2026-06-11",
+   "url": "https://www.helpnetsecurity.com/2026/06/11/ai-scams-deepfakes-survey/",
+   "text": "9 out of 10 people can no longer distinguish real from AI-generated content",
+   "tags": [
+    "media"
+   ],
+   "lyric": [
+    "no-one-wants-me",
+    "caught-up-in-news"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "9 out of 10 people can no longer distinguish real from AI-generated content",
+     "boxes": [
+      [
+       10,
+       134,
+       1171,
+       218
+      ],
+      [
+       10,
+       222,
+       1245,
+       306
+      ],
+      [
+       10,
+       318,
+       285,
+       378
+      ]
+     ]
+    }
+   ],
+   "author": "Sinisa Markovic",
+   "ocr_check": {
+    "score": 0.984,
+    "highlight_scores": [
+     0.984
+    ],
+    "line_px_at_800": 46.6,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "work-vla-bnnbloomberg-robot-brain",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/vla-bnnbloomberg-robot-brain.png",
+   "w": 1485,
+   "h": 490,
+   "kind": "headline",
+   "outlet": "Reuters (via BNN Bloomberg)",
+   "date": "2026-09-18",
+   "url": "https://www.bnnbloomberg.ca/business/artificial-intelligence/2026/09/18/chinese-robot-brain-startup-sees-chatgpt-style-breakthrough-as-soon-as-next-year/",
+   "text": "Chinese ‘robot brain’ startup sees ChatGPT-style breakthrough as soon as next year",
+   "tags": [
+    "robots",
+    "geopolitics"
+   ],
+   "lyric": [
+    "parallel-park"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "ChatGPT-style breakthrough as soon as next year",
+     "boxes": [
+      [
+       14,
+       183,
+       1285,
+       267
+      ],
+      [
+       13,
+       286,
+       717,
+       364
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 40.4,
+    "note": "ok"
+   },
+   "slide": 49,
+   "source": "deck"
+  },
+  {
+   "id": "work-vla-deepmind-gr2-blog",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/vla-deepmind-gr2-blog.png",
+   "w": 1960,
+   "h": 474,
+   "kind": "headline",
+   "outlet": "Google DeepMind blog",
+   "date": "2026-07-30",
+   "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+   "text": "Gemini Robotics 2 brings whole body intelligence to robots",
+   "tags": [
+    "models",
+    "robots",
+    "google"
+   ],
+   "lyric": [
+    "parallel-park"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "Gemini Robotics 2 brings whole body intelligence to robots",
+     "boxes": [
+      [
+       249,
+       108,
+       1714,
+       217
+      ],
+      [
+       362,
+       222,
+       1604,
+       331
+      ]
+     ]
+    }
+   ],
+   "author": "Carolina Parada",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 42.0,
+    "note": "ok"
+   },
+   "slide": 49,
+   "source": "deck"
+  },
+  {
+   "id": "xrisk-bbc-hinton",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/bbc-hinton.png",
+   "w": 1470,
+   "h": 195,
+   "kind": "headline",
+   "outlet": "BBC News",
+   "date": "2023-05-02",
+   "url": "https://www.bbc.com/news/world-us-canada-65452940",
+   "text": "AI 'godfather' Geoffrey Hinton warns of dangers as he quits Google",
+   "tags": [
+    "safety",
+    "whistleblowers",
+    "google"
+   ],
+   "lyric": [
+    "wish-done-before"
+   ],
+   "year": 2023,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "warns of dangers as he quits Google",
+     "boxes": [
+      [
+       1111,
+       20,
+       1430,
+       84
+      ],
+      [
+       19,
+       108,
+       963,
+       189
+      ]
+     ]
+    }
+   ],
+   "author": "Zoe Kleinman & Chris Vallance",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 36.2,
+    "note": "ok"
+   },
+   "slide": 68,
+   "source": "deck"
+  },
+  {
+   "id": "xrisk-bbc-hubinger",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/bbc-hubinger.png",
+   "w": 1500,
+   "h": 740,
+   "kind": "headline",
+   "outlet": "BBC News",
+   "date": "2026-09-09",
+   "url": "https://www.bbc.com/news/articles/ckgwy1k42w4o",
+   "text": "Anthropic researcher believes more than 10% chance AI 'could kill all humans'",
+   "tags": [
+    "x-risk",
+    "safety",
+    "anthropic"
+   ],
+   "lyric": [
+    "die-before-drink"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "more than 10% chance AI ‘could kill all humans’",
+     "boxes": [
+      [
+       1112,
+       37,
+       1300,
+       84
+      ],
+      [
+       26,
+       108,
+       1213,
+       172
+      ],
+      [
+       28,
+       196,
+       334,
+       260
+      ]
+     ]
+    }
+   ],
+   "author": "Tom Gerken",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 30.9,
+    "note": "ok"
+   },
+   "slide": 68,
+   "source": "deck"
+  },
+  {
+   "id": "xrisk-cbs-amodei",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/cbs-amodei.png",
+   "w": 1290,
+   "h": 440,
+   "kind": "headline",
+   "outlet": "CBS News",
+   "date": "2026-09-12",
+   "url": "https://www.cbsnews.com/news/anthropic-ceo-dario-amodei-calls-slowdown-ai-development/",
+   "text": "Anthropic CEO Dario Amodei says \"exponential\" growth of AI is a \"warning sign that we need to slow down\"",
+   "tags": [
+    "safety",
+    "anthropic"
+   ],
+   "lyric": [
+    "die-before-drink",
+    "wish-done-before"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "“warning sign that we need to slow down”",
+     "boxes": [
+      [
+       964,
+       154,
+       1238,
+       221
+      ],
+      [
+       33,
+       234,
+       991,
+       301
+      ]
+     ]
+    }
+   ],
+   "author": "Lucia I Suarez Sang, Faris Tanyos",
+   "ocr_check": {
+    "score": 0.988,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 37.8,
+    "note": "ok"
+   },
+   "slide": 68,
+   "source": "deck"
+  },
+  {
+   "id": "xrisk-commondreams-whistleblowers",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/commondreams-whistleblowers.png",
+   "w": 1700,
+   "h": 375,
+   "kind": "headline",
+   "outlet": "Common Dreams",
+   "date": "2026-10-01",
+   "url": "https://www.commondreams.org/news/openai-firing-whistleblowers",
+   "text": "‘Looks Like They’re Firing Whistleblowers’: Alarm as OpenAI Reportedly Ousts Safety Experts",
+   "tags": [
+    "safety",
+    "whistleblowers",
+    "policy",
+    "openai"
+   ],
+   "lyric": [
+    "quit-my-job",
+    "dont-stick-up"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "Firing Whistleblowers",
+     "boxes": [
+      [
+       775,
+       33,
+       1645,
+       139
+      ]
+     ]
+    }
+   ],
+   "author": "Brett Wilkins",
+   "ocr_check": {
+    "score": 0.987,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 47.1,
+    "note": "ok"
+   },
+   "slide": 69,
+   "source": "deck"
+  },
+  {
+   "id": "xrisk-guardian-iabied",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/guardian-iabied.png",
+   "w": 1280,
+   "h": 380,
+   "kind": "headline",
+   "outlet": "The Guardian",
+   "date": "2025-09-22",
+   "url": "https://www.theguardian.com/books/2025/sep/22/if-anyone-builds-it-everyone-dies-review-how-ai-could-kill-us-all",
+   "text": "If Anyone Builds it, Everyone Dies review – how AI could kill us all",
+   "tags": [
+    "safety",
+    "x-risk"
+   ],
+   "lyric": [
+    "die-before-drink"
+   ],
+   "year": 2025,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "If Anyone Builds it, Everyone Dies",
+     "boxes": [
+      [
+       18,
+       83,
+       1114,
+       157
+      ]
+     ]
+    }
+   ],
+   "author": "David Shariatmadari",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 42.5,
+    "note": "ok"
+   },
+   "slide": 68,
+   "source": "deck"
+  },
+  {
+   "id": "xrisk-nyt-ignored-warnings",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/nyt-ignored-warnings.png",
+   "w": 1400,
+   "h": 355,
+   "kind": "headline",
+   "outlet": "Business Standard (syndicating The New York Times)",
+   "date": "2026-09-29",
+   "url": "https://www.business-standard.com/world-news/openai-ignored-employees-who-warned-it-wasn-t-doing-enough-about-security-126092901531_1.html",
+   "text": "OpenAI ignored employees who warned it wasn't doing enough about security",
+   "tags": [
+    "safety",
+    "openai"
+   ],
+   "lyric": [
+    "wish-done-before",
+    "dont-stick-up"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "OpenAI ignored employees who warned it wasn't doing enough about security",
+     "boxes": [
+      [
+       9,
+       10,
+       1380,
+       78
+      ],
+      [
+       9,
+       91,
+       814,
+       158
+      ]
+     ]
+    }
+   ],
+   "author": "NYT",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 35.1,
+    "note": "ok"
+   },
+   "slide": 70,
+   "source": "deck"
+  },
+  {
+   "id": "xrisk-rev2-cnn-2026-02-11-researchers-alarm-on-way-out",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/cnn-2026-02-11-researchers-alarm-on-way-out.png",
+   "w": 2560,
+   "h": 1280,
+   "kind": "headline",
+   "outlet": "CNN Business (Nightcap)",
+   "date": "2026-02-11",
+   "url": "https://www.cnn.com/2026/02/11/business/openai-anthropic-departures-nightcap",
+   "text": "AI researchers are sounding the alarm on their way out the door",
+   "tags": [
+    "self-improvement",
+    "safety",
+    "whistleblowers"
+   ],
+   "lyric": [
+    "quit-my-job",
+    "wish-done-before"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "AI researchers are sounding the alarm on their way out the door",
+     "boxes": [
+      [
+       93,
+       270,
+       2374,
+       382
+      ],
+      [
+       93,
+       406,
+       1323,
+       516
+      ]
+     ]
+    }
+   ],
+   "author": "Allison Morrow",
+   "ocr_check": {
+    "score": 0.981,
+    "highlight_scores": [
+     0.981
+    ],
+    "line_px_at_800": 32.8,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "xrisk-rev2-time-2026-08-27-models-went-rogue-required-more-ai",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/time-2026-08-27-models-went-rogue-required-more-ai.png",
+   "w": 2560,
+   "h": 1040,
+   "kind": "headline",
+   "outlet": "TIME",
+   "date": "2026-08-27",
+   "url": "https://time.com/article/2026/08/27/openai-hack-hugging-face-investigation/",
+   "text": "OpenAI’s Models Went Rogue. Investigating Them Required More AI",
+   "tags": [
+    "rogue-agents",
+    "openai"
+   ],
+   "lyric": [
+    "tried-my-best",
+    "insecure"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "OpenAI’s Models Went Rogue",
+     "boxes": [
+      [
+       160,
+       117,
+       941,
+       207
+      ],
+      [
+       158,
+       207,
+       389,
+       296
+      ]
+     ]
+    }
+   ],
+   "author": "Billy Perrigo and Harry Booth",
+   "ocr_check": {
+    "score": 0.981,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 26.1,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "xrisk-rev2-x-casar-2026-10-01-firing-whistleblowers",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/x-casar-2026-10-01-firing-whistleblowers.png",
+   "w": 1096,
+   "h": 1710,
+   "kind": "post",
+   "outlet": "X (@RepCasar)",
+   "date": "2026-10-01",
+   "url": "https://x.com/RepCasar/status/2105716565899358637",
+   "text": "Outrageous. OpenAI has reportedly fired three safety researchers for sharing information with an outside AI safety group. This looks like they're firing whistleblowers. What are they hiding? I'll be sending OpenAI a demand for transparency.",
+   "tags": [
+    "safety",
+    "whistleblowers",
+    "policy",
+    "openai"
+   ],
+   "lyric": [
+    "dont-stick-up",
+    "quit-my-job"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "This looks like they're firing whistleblowers",
+     "boxes": [
+      [
+       30,
+       340,
+       793,
+       383
+      ]
+     ]
+    },
+    {
+     "phrase": "OpenAI has reportedly fired three safety researchers",
+     "boxes": [
+      [
+       262,
+       148,
+       975,
+       191
+      ],
+      [
+       32,
+       196,
+       245,
+       232
+      ]
+     ]
+    }
+   ],
+   "author": "Rep. Greg Casar (D-TX), chair of the Congressional Progressive Caucus",
+   "ocr_check": {
+    "score": 0.985,
+    "highlight_scores": [
+     1.0,
+     0.978
+    ],
+    "line_px_at_800": 27.0,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "xrisk-rev2-x-coxon-2026-09-08-resigned-anthropic",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/x-coxon-2026-09-08-resigned-anthropic.png",
+   "w": 1096,
+   "h": 638,
+   "kind": "post",
+   "outlet": "X (@hilbertspaess)",
+   "date": "2026-09-09",
+   "url": "https://x.com/hilbertspaess/status/2097476196791709843",
+   "text": "I resigned from Anthropic today. I spent the last three years doing pretraining research at both OpenAI and Anthropic. Neither company is acting responsibly. They are racing straight to self-improving superintelligence and gambling with our lives. More thoughts below.",
+   "tags": [
+    "self-improvement",
+    "x-risk",
+    "whistleblowers",
+    "jobs",
+    "openai",
+    "anthropic"
+   ],
+   "lyric": [
+    "quit-my-job",
+    "brutal-out-here"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "I resigned from Anthropic today.",
+     "boxes": [
+      [
+       33,
+       148,
+       593,
+       191
+      ]
+     ]
+    }
+   ],
+   "author": "Jacob Coxon",
+   "ocr_check": {
+    "score": 0.987,
+    "highlight_scores": [
+     0.963
+    ],
+    "line_px_at_800": 27.0,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "xrisk-rev2-x-leike-2024-05-17-breaking-point",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/x-leike-2024-05-17-breaking-point.png",
+   "w": 1096,
+   "h": 960,
+   "kind": "post",
+   "outlet": "X (@janleike)",
+   "date": "2024-05-17",
+   "url": "https://x.com/janleike/status/1791498178346549382",
+   "text": "I joined because I thought OpenAI would be the best place in the world to do this research. However, I have been disagreeing with OpenAI leadership about the company's core priorities for quite some time, until we finally reached a breaking point.",
+   "tags": [
+    "whistleblowers",
+    "openai"
+   ],
+   "lyric": [
+    "quit-my-job",
+    "wish-done-before"
+   ],
+   "year": 2024,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "until we finally reached a breaking point",
+     "boxes": [
+      [
+       32,
+       660,
+       743,
+       703
+      ]
+     ]
+    }
+   ],
+   "author": "Jan Leike",
+   "ocr_check": {
+    "score": 0.975,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 27.0,
+    "note": "ok"
+   },
+   "source": "research"
+  },
+  {
+   "id": "xrisk-superint-statement",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/superint-statement.png",
+   "w": 1700,
+   "h": 558,
+   "kind": "article",
+   "outlet": "Future of Life Institute (superintelligence-statement.org)",
+   "date": "2025-10-22",
+   "url": "https://superintelligence-statement.org/",
+   "text": "Statement on Superintelligence",
+   "tags": [
+    "x-risk"
+   ],
+   "lyric": [
+    "wish-done-before",
+    "dont-stick-up"
+   ],
+   "year": 2025,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "We call for a prohibition on the development of superintelligence",
+     "boxes": [
+      [
+       35,
+       260,
+       1380,
+       310
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 20.7,
+    "note": "ok"
+   },
+   "slide": 68,
+   "source": "deck"
+  },
+  {
+   "id": "xrisk-techcrunch-robinson",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/techcrunch-robinson.png",
+   "w": 1210,
+   "h": 280,
+   "kind": "headline",
+   "outlet": "TechCrunch",
+   "date": "2026-10-03",
+   "url": "https://techcrunch.com/2026/10/03/openai-safety-employee-resigns-claiming-the-companys-culture-is-broken/",
+   "text": "OpenAI safety employee resigns, claiming the company’s ‘culture is broken’",
+   "tags": [
+    "safety",
+    "whistleblowers",
+    "openai"
+   ],
+   "lyric": [
+    "quit-my-job"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "culture is broken",
+     "boxes": [
+      [
+       447,
+       191,
+       1090,
+       253
+      ]
+     ]
+    }
+   ],
+   "author": "Anthony Ha",
+   "ocr_check": {
+    "score": 0.984,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 37.0,
+    "note": "ok"
+   },
+   "slide": 70,
+   "source": "deck"
+  },
+  {
+   "id": "xrisk-time-culture",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/time-culture.png",
+   "w": 1800,
+   "h": 885,
+   "kind": "headline",
+   "outlet": "TIME",
+   "date": "2026-09-10",
+   "url": "https://time.com/article/2026/09/10/ai-openai-hugging-face-hack-culture-swarm/",
+   "text": "AI Is Developing a Culture of Its Own. That Could Be Dangerous",
+   "tags": [
+    "safety"
+   ],
+   "lyric": [
+    "tried-my-best",
+    "caught-up-in-news"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "AI Is Developing a Culture of Its Own",
+     "boxes": [
+      [
+       35,
+       161,
+       664,
+       252
+      ],
+      [
+       40,
+       249,
+       690,
+       322
+      ]
+     ]
+    },
+    {
+     "phrase": "That Could Be Dangerous",
+     "boxes": [
+      [
+       39,
+       337,
+       532,
+       410
+      ],
+      [
+       38,
+       427,
+       408,
+       516
+      ]
+     ]
+    }
+   ],
+   "author": "Tharin Pillay",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 33.3,
+    "note": "ok"
+   },
+   "slide": 68,
+   "source": "deck"
+  },
+  {
+   "id": "xrisk-vox-freakout",
+   "path": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/vox-freakout.png",
+   "w": 1740,
+   "h": 368,
+   "kind": "headline",
+   "outlet": "Vox",
+   "date": "2026-09-14",
+   "url": "https://www.vox.com/politics/502717/ai-freakout-mainstream-openai-anthropic-humans",
+   "text": "The week the AI freakout went mainstream",
+   "tags": [
+    "safety"
+   ],
+   "lyric": [
+    "caught-up-in-news",
+    "brutal-out-here"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "The week the AI freakout went mainstream",
+     "boxes": [
+      [
+       19,
+       56,
+       1267,
+       125
+      ],
+      [
+       21,
+       149,
+       510,
+       213
+      ]
+     ]
+    }
+   ],
+   "author": "Andrew Prokop",
+   "ocr_check": {
+    "score": 0.971,
+    "highlight_scores": [
+     0.971
+    ],
+    "line_px_at_800": 27.8,
+    "note": "ok"
+   },
+   "slide": 68,
+   "source": "deck"
+  }
+ ]
+}

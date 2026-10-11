@@ -1,0 +1,47 @@
+{
+  "key": "no-one-wants-me",
+  "lyric": "Verse 2: \"I feel like no one wants me / And I hate the way I'm perceived\"",
+  "lyric_idea": "Line 1 (no one wants me) -> young job seekers and AI-era hiring rejections. Line 2 (the way I'm perceived) -> deepfakes of real people and video-call impersonation. Recommended pairing: SignalFire stat on the 'no one wants me' beat, then the Common Sense 67% deepfake stat or the CNN deepfake-CFO headline on the 'perceived' beat. Verified alternate: CNN 2024-05-16 'British engineering giant Arup revealed as $25 million deepfake scam victim' (https://www.cnn.com/2024/05/16/tech/arup-deepfake-scam-loss-hong-kong-intl-hnk/index.html). Verified alternate: Tavus Griffin '48%' stat (https://www.tavus.io/griffin; local stills in assets/research/work/video-tavus-griffin-*.jpg).",
+  "candidates": [
+    {
+      "type": "stat",
+      "text": "New grad/entry-level hiring has collapsed further: down roughly 65% at the Tech Majors and down ~76% at early stage startups compared to 2019.",
+      "speaker_or_outlet": "SignalFire, State of Tech Talent Report 2026",
+      "date": "2026-06-22 (from deck manifest; no date shown in the fetched page text)",
+      "url": "https://www.signalfire.com/blog/signalfire-state-of-talent-report-2026",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/work/swe-signalfire-startup-hires.png (chart, Index 2019=100); also /home/user/poster/ai-safety-presentation/assets/research/work/swe-signalfire-newgrad-share.png (new-grad share of hires, 8% Tech Majors / 3% startups)",
+      "verified_how": "Page opened live (fetch) today; the '~76%' early-stage startup sentence is in the body text. Deck source: tools/slides_work.js, new-grad hiring stat '-76%' 'New-grad hiring at early-stage startups vs 2019' and source line naming SignalFire. Local chart images verified present and listed in deck manifest (quality 5).",
+      "why_it_fits": "Plain, big number that reads in about 2 s on a phone and maps directly to 'no one wants me' for young job seekers. It is a market-wide hiring stat, not an AI-hiring stat; the deck's own honest caveat applies (part of the decline predates AI and reflects post-2022 over-hiring and rates). Show the source line on screen.",
+      "on_screen": "~76% + 'New-grad hiring at early-stage startups vs 2019' (the deck shows '-76%'; the source says '~76%', so use the tilde)"
+    },
+    {
+      "type": "headline",
+      "text": "Judge allows Workday AI bias lawsuit to proceed as collective action",
+      "speaker_or_outlet": "HR Dive (Ginger Christ, Editor)",
+      "date": "2025-05-19 (updated 2025-05-20)",
+      "url": "https://www.hrdive.com/news/workday-ai-bias-lawsuit-class-collective-action/748518/",
+      "verified_how": "Article opened live (fetch) today; title and page H1 match exactly. Body includes, verbatim: 'The applicant and four opt-in plaintiffs said they received hundreds of quick rejections without interviews for jobs via Workday, in violation of the Age Discrimination in Employment Act.' Not in the deck; no local file.",
+      "why_it_fits": "Direct AI-hiring headline for 'no one wants me': an AI applicant-screening system is accused of rejecting older job seekers without interviews. Allegations only, not a finding; Workday says the claims lack merit. Use the headline as written; the 'hundreds of quick rejections' line can be a second card. Later 2026 rulings reported by law blogs were not opened and should not be on screen unless checked."
+    },
+    {
+      "type": "stat",
+      "text": "Two-thirds of teens (67%) fear being deepfaked without consent",
+      "speaker_or_outlet": "Common Sense Media (Youth AI Safety Institute), press release on its research with Burson",
+      "date": "2026-07-21",
+      "url": "https://www.commonsensemedia.org/press-releases/common-sense-media-releases-new-research-on-teens-and-ai-generated-explicit-material",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/csm-pr-key-findings-w960.png (the 67% bullet is the highlighted line near y=288 px in this 2880-px-wide crop; 1x copy: csm-pr-key-findings.png)",
+      "verified_how": "Press release opened live (fetch) today; the bullet text matches verbatim ('Two-thirds of teens (67%) fear being deepfaked without consent'). Local screenshot and highlight coordinates from deck research JSON openweights/rev2/deepfake.json (item csm-pr-key-findings). Survey: 1,314 US teens aged 13-17, fielded Nov-Dec 2025, self-reported.",
+      "why_it_fits": "Directly answers 'I hate the way I'm perceived' with the fear of being deepfaked. Reads as a number in one second. Avoid the release's headline ('...AI-Generated Explicit Material') for this moment: it is about explicit content and too heavy for a music-video cut.",
+      "on_screen": "67% + 'fear being deepfaked without their consent' (girls 71%, boys 62%)"
+    },
+    {
+      "type": "headline",
+      "text": "Finance worker pays out $25 million after video call with deepfake ‘chief financial officer’",
+      "speaker_or_outlet": "CNN (Heather Chen, Kathleen Magramo)",
+      "date": "2024-02-04",
+      "url": "https://www.cnn.com/2024/02/04/asia/deepfake-cfo-scam-hong-kong-intl-hnk/index.html",
+      "verified_how": "Article opened live (fetch) today; page title and headline match exactly ('... | CNN' suffix dropped). Body: Hong Kong police said the worker 'was duped into attending a video call with what he thought were several other members of staff, but all of whom were in fact deepfake recreations'; HK$200 million (about $25.6 million). Not in the deck; no local file. Trim option if needed: keep full headline (about 13 words) rather than cutting 'chief financial officer'.",
+      "why_it_fits": "Strongest deepfake-of-real-people example for 'the way I'm perceived': a fake version of colleagues and the CFO on a video call fooled a worker. Police-sourced, widely reported, and the headline is exact. For a sharper 1-line alternate, use CNN 2024-05-16 'British engineering giant Arup revealed as $25 million deepfake scam victim' (https://www.cnn.com/2024/05/16/tech/arup-deepfake-scam-loss-hong-kong-intl-hnk/index.html; verified live; Arup spokesperson: 'we can confirm that fake voices and images were used')."
+    }
+  ]
+}

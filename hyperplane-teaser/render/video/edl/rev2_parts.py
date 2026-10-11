@@ -711,10 +711,13 @@ def fixer_r1(items, cut):
                 m.update({'at': 'hb:11.5', 'dur': 0.5})
     # 'it's brutal out here' (critic: 'it's' completes 0.4 s after its onset, 'out' starts ~0.1 s late, the ghost text overlaps the
     # burst's flying cards for ~0.3 s): 'it's' painted in 0.22 s, 'out' leads by 0.2 s, the line fades out over the burst's first 8th
+    # FINAL PASS (11 Oct): 'out' lead 0.2 -> 0.07. Measured on the engine (brushtext alone, colour pixels in the word's band): with
+    # 0.2 the 'o' showed at f1996 = 165 ms (4.9 frames) before the sung 'out' (72.798), outside the brief's +-2 frames; with 0.07
+    # its first stroke shows one frame (~31 ms) ahead of the onset, still a hair of anticipation (the critic's 'starts late').
     if has('brutal'):
         b = g['brutal']
         b['place'][0]['dur'] = 0.22
-        b['place'][2]['lead'] = 0.2
+        b['place'][2]['lead'] = 0.07
         b['t1'] = 'hb:112.4'
         b['exit'] = {'style': 'fade', 'dur': 0.14}
     # the instrumental (critic: soft last bars, unlit quote words faint, no visible orbit, no impact on the cover): the pink and

@@ -1029,3 +1029,14 @@ the fog is cut on the burst and the burst is a warm radial bloom (no grey veil);
 zooms Dario's disc up (hb:118-121.5), his name line on a paper plate, the Stargate ghost at op 0.5, its credit clear of the splats;
 splats and his face wash out over the last 0.3 s; the cover holds 1.0 s past the music (long 75.30 s, short 36.59 s); the short has
 the build-out chart back at hb:96-100.6.
+
+## Final pass (11 Oct 2026): the deliverables
+William's feedback log had nothing new (only the showcase entry). One EDL change, made because the final verification requires
+each painted word within 2 frames of its sung onset: `rev2_parts.fixer_r1` sets the brushtext's `place[2].lead` ("out") to
+**0.07** (was 0.2). Measured on the engine with the brushtext alone (yellow/cream pixels in each word's band, frame by frame):
+with 0.2 the "o" showed 165 ms (4.9 frames) before the sung "out" (song 72.798); with 0.07 it shows 31 ms (0.9 frames) before.
+The other words: "it's" +21 ms, "brutal" +28 ms, "here" +1 ms (first visible paint vs song/hits.json words.brutal_out_here).
+That is the only difference between the r3 EDLs and the rendered ones (a JSON diff of long2/short2 shows that one field).
+- **Memory:** `render.py video long2 --workers 3` was OOM-killed: this box's memory cgroup is 14.3 GB and one rev2 Chromium page
+  peaks at ~6.5 GB (2.2 GB anon + 4.2 GB shared). Render the rev2 cuts with one worker (0.5-0.6 s/frame; long ~22 min, short
+  ~11 min), one cut at a time. Deliverables, measurements and ear checks: `out/rev2/NOTES.md`.

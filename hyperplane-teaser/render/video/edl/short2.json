@@ -36,8 +36,8 @@
   "note": "Splice riff beat 15 -> refrain bar 23 beat 4 (the r4-r7 short's splice, which William has heard): song 26.477 is 13 ms before hb:15 (26.490) and 65.188 is 12 ms before hb:95 (65.200), so both cuts sit just ahead of the beat's attack with the same beat phase (beat 4 of a bar on both sides, 80 beats apart). Re-checked 11 Oct (assembler) on song/brutal.mp3: see the onset/RMS figures in the assembler's notes. 20 ms raised-cosine (gain) crossfade centred on the cut. Not on a bar line by design: bar 23's downbeat is inside 'upset' and bar 24's inside the pickup 'They say'."
  },
  "mix": {
-  "limiter_max_gr_db": 5.0,
-  "speech_limiter_max_gr_db": 5.0
+  "limiter_max_gr_db": 6.5,
+  "speech_limiter_max_gr_db": 6.0
  },
  "outputs": {
   "song": "out/rev2/hyperplane-brutal-short-9x16.mp4",
@@ -113,8 +113,6 @@
   {
    "id": "paint",
    "type": "layer",
-   "t0": "song:6.1",
-   "t1": "hb:16",
    "kind": "canvas"
   },
   {
@@ -1066,7 +1064,7 @@
      ],
      "on": {
       "from": "hb:12",
-      "to": "hb:15.5",
+      "to": "hb:14.5",
       "every": 0.5
      },
      "stepDeg": 30
@@ -1089,7 +1087,7 @@
      "around": "black",
      "on": {
       "from": "hb:12",
-      "to": "hb:15.5",
+      "to": "hb:14.5",
       "every": 0.5
      },
      "stepDeg": 45,
@@ -1116,7 +1114,7 @@
      "around": "blue",
      "on": {
       "from": "hb:12",
-      "to": "hb:15.5",
+      "to": "hb:14.5",
       "every": 0.5
      },
      "stepDeg": 45
@@ -1271,8 +1269,7 @@
    "audio": {
     "in": 452.42,
     "out": 454.37,
-    "fade_ms": 25,
-    "duck_db": 9
+    "fade_ms": 25
    },
    "verified": true,
    "_note": "AUDIBLE over the riff (vocal-free 19.0-26.9): '…restarted the thing, and it did it again.' (clips/transcripts/coxon.json; small.en on the window). 'Like,' ends 452.27 and the gap 452.28-452.53 is silent, so the in-point carries none of it"
@@ -1284,7 +1281,7 @@
    "t1": "hb:9.25",
    "stamp": {
     "x": 64,
-    "y": 250,
+    "y": 262,
     "yrPx": 36,
     "year": "2026",
     "name": "Jacob Coxon",
@@ -1712,7 +1709,7 @@
    },
    "title": {
     "text": "AI that builds better AI",
-    "y": 255,
+    "y": 270,
     "at": "hb:95.5",
     "px": 64
    },
@@ -1800,7 +1797,7 @@
    ],
    "sourceAt": "hb:98.5",
    "sourcePer": 0.03,
-   "sourceY": 1540,
+   "sourceY": 1515,
    "sourcePx": 22,
    "sourceW": 760,
    "splatColor": "#F2C300",
@@ -2463,7 +2460,7 @@
    "type": "words",
    "t0": "hb:100.5",
    "t1": "hb:104",
-   "x": 64,
+   "x": 74,
    "y": 1296,
    "w": 330,
    "text": "IN THE DISCS: GALAXY · FIGURE AI · 2026",
@@ -2489,7 +2486,7 @@
    "type": "words",
    "t0": "hb:104",
    "t1": "hb:107.5",
-   "x": 64,
+   "x": 74,
    "y": 1296,
    "w": 330,
    "text": "IN THE DISCS: UNITREE ROBOTICS · 2026",
@@ -2575,7 +2572,7 @@
    "t0": "hb:108.25",
    "t1": "hb:112",
    "x": 64,
-   "y": 1534,
+   "y": 1512,
    "w": 900,
    "text": "FROM YOSHUA BENGIO'S TED2025 TALK",
    "font": {
@@ -3024,8 +3021,7 @@
    "audio": {
     "in": 686.03,
     "out": 691.6,
-    "fade_ms": 25,
-    "duck_db": 9
+    "fade_ms": 25
    },
    "verified": true
   },

@@ -39,8 +39,8 @@
   }
  },
  "mix": {
-  "limiter_max_gr_db": 5.0,
-  "speech_limiter_max_gr_db": 5.0
+  "limiter_max_gr_db": 6.5,
+  "speech_limiter_max_gr_db": 6.0
  },
  "outputs": {
   "song": "out/rev2/hyperplane-brutal-long-9x16.mp4",
@@ -145,8 +145,6 @@
   {
    "id": "paint",
    "type": "layer",
-   "t0": "song:6.1",
-   "t1": "hb:16",
    "kind": "canvas"
   },
   {
@@ -1312,8 +1310,7 @@
    "audio": {
     "in": 452.42,
     "out": 454.37,
-    "fade_ms": 25,
-    "duck_db": 9
+    "fade_ms": 25
    },
    "verified": true,
    "_note": "AUDIBLE over the riff (vocal-free 19.0-26.9): '…restarted the thing, and it did it again.' (clips/transcripts/coxon.json; small.en on the window). 'Like,' ends 452.27 and the gap 452.28-452.53 is silent, so the in-point carries none of it"
@@ -1325,7 +1322,7 @@
    "t1": "hb:9.25",
    "stamp": {
     "x": 64,
-    "y": 250,
+    "y": 262,
     "yrPx": 36,
     "year": "2026",
     "name": "Jacob Coxon",
@@ -1585,7 +1582,7 @@
    "t0": "hb:16.5",
    "t1": "hb:20",
    "x": 64,
-   "y": 262,
+   "y": 274,
    "w": 700,
    "text": "AGENTS' LAST EXAM · AI AGENT SESSIONS · 2026",
    "font": {
@@ -1872,7 +1869,8 @@
     {
      "style": "circle",
      "at": "hb:23",
-     "shot": 3
+     "shot": 3,
+     "dur": 0.209
     }
    ],
    "out": "cut"
@@ -1972,8 +1970,8 @@
    "pulseAmt": 0.025,
    "credit": "DARIO AMODEI · CBS SUNDAY MORNING · 2026",
    "creditAt": [
-    64,
-    262
+    74,
+    274
    ],
    "_note": "picture in-point 192.74 at hb:23.5 keeps lip sync with voice-amodei (audio.in 192.42 at song 30.283); one continuous shot of Amodei 188-197 s (ffmpeg scene check, no cutaway)"
   },
@@ -2057,7 +2055,8 @@
     {
      "style": "circle",
      "at": "hb:28",
-     "shot": 4
+     "shot": 4,
+     "dur": 0.209
     }
    ],
    "pulse": [
@@ -2070,7 +2069,7 @@
    "id": "kar-amodei",
    "type": "karaoke",
    "t0": "hb:23.5",
-   "t1": "hb:29.5",
+   "t1": "hb:29.2",
    "x": 72,
    "y": 790,
    "w": 940,
@@ -2141,7 +2140,7 @@
    ],
    "exit": {
     "style": "fade",
-    "dur": 0.2
+    "dur": 0.18
    },
    "theme": "dark"
   },
@@ -2164,7 +2163,7 @@
    "maxW": 960,
    "label": {
     "text": "DPO: learn from which answer people preferred",
-    "at": "hb:28.75",
+    "at": "hb:29.25",
     "per": 0.06,
     "font": {
      "size": 38
@@ -2244,8 +2243,8 @@
    "pulseAmt": 0.03,
    "credit": "PAUSEAI UK · MARCH FOR AI SAFETY PROMO · FEB 2026",
    "creditAt": [
-    64,
-    262
+    74,
+    274
    ]
   },
   {
@@ -2535,8 +2534,8 @@
    "pulseAmt": 0.03,
    "credit": "THE DAILY SHOW · OCT 5, 2026",
    "creditAt": [
-    64,
-    262
+    74,
+    274
    ],
    "_note": "opens on the show's own cut to his close-up (src 529.00 = song 37.339); audio leads by 0.18 s (J-cut, as the short did in r5)",
    "freeze": "song:38.400"
@@ -2564,7 +2563,7 @@
    "t1": "hb:40.5",
    "x": 72,
    "y": 752,
-   "w": 940,
+   "w": 440,
    "size": 52,
    "speech": {
     "in": 528.82,
@@ -2630,7 +2629,7 @@
    "mode": "chalk",
    "dur": 0.6,
    "cx": 540,
-   "y": 360,
+   "y": 400,
    "px": 54,
    "maxW": 900,
    "label": {
@@ -2669,7 +2668,7 @@
    "drop": "hb:41",
    "mode": "slam",
    "cx": 540,
-   "y": 660,
+   "y": 770,
    "px": 56,
    "maxW": 900,
    "hit": 8,
@@ -2799,8 +2798,8 @@
    "pulseAmt": 0.035,
    "credit": "COASTRUNNERS · OPENAI 2016 (VIA DEEPMIND BLOG)",
    "creditAt": [
-    64,
-    262
+    74,
+    274
    ],
    "_note": "rot 180 = the cover's downward red triangle (nabla); footage stays upright"
   },
@@ -3010,8 +3009,8 @@
    "pulseAmt": 0.035,
    "credit": "AI-GENERATED VIDEO · SORA 2 · OPENAI · 2025",
    "creditAt": [
-    64,
-    262
+    74,
+    274
    ],
    "_note": "AI-generated anime character in profile, then a close-up of eyes with sparks (Sora 2 reel, OpenAI 2025); the reel's cut at 18.043 lands on the hb:50 crash"
   },
@@ -3103,7 +3102,8 @@
      "style": "circle",
      "at": "hb:51.5",
      "shot": 1,
-     "color": "#FF2E88"
+     "color": "#FF2E88",
+     "dur": 0.209
     }
    ],
    "out": "cut",
@@ -3181,8 +3181,8 @@
    "pulseAmt": 0.035,
    "credit": "ANTHROPIC · CLAUDE-DESIGNED PROTEIN BINDERS · 2026",
    "creditAt": [
-    64,
-    262
+    74,
+    274
    ],
    "_note": "window 3.8-6.8: nine Claude-designed binders swirl together; plays 3.8 -> 6.33 over its life incl. the whip window (to hb:56.5)"
   },
@@ -3356,7 +3356,7 @@
     "in": 158.17,
     "out": 161.76,
     "fade_ms": 30,
-    "duck_db": 8
+    "duck_db": 9
    },
    "verified": true,
    "_note": "AUDIBLE over 'If someone tells me one more time / Enjoy your youth': one ON hb:56, two hb:57 (+16 ms), four hb:58 (+32 ms), eight 47.97, 16 48.61, 32 ON hb:62 (+37 ms). in 158.12 is 40 ms before 'one' (small.en 158.16; 'have' ends 158.16): check by ear and move to 158.15 if the tail of 'have' is heard"
@@ -3633,7 +3633,8 @@
      "style": "circle",
      "at": "hb:59.5",
      "shot": 1,
-     "color": "#FF2E88"
+     "color": "#FF2E88",
+     "dur": 0.209
     }
    ],
    "out": "cut",
@@ -3777,7 +3778,7 @@
     "in": 804.04,
     "out": 808.2,
     "fade_ms": 40,
-    "duck_db": 8
+    "duck_db": 9
    },
    "verified": true,
    "_note": "AUDIBLE: 'you' falls in the vocal gap 50.48-50.71, 'Altman?' on the hb:67 crash (51.635), 'No one,' ON hb:68, 'no one.' ON hb:69 (+16 ms), 'Honestly,' ON the snare hb:70 (-28 ms), 'no one.' ON hb:71 (-52 ms); ends 54.215, just past hb:72 (inside the zoom-through window). in 804.04 = after 'Like,' (ends 804.00), hence the leading ellipsis on screen"
@@ -3930,9 +3931,9 @@
    "t0": "hb:63.55",
    "t1": "hb:72",
    "graph": "dc-record-mw",
-   "x": 170,
+   "x": 195,
    "y": 1010,
-   "w": 700,
+   "w": 675,
    "h": 360,
    "card": {
     "x": 50,
@@ -4085,7 +4086,7 @@
    "t0": "hb:72.5",
    "t1": "hb:80",
    "x": 64,
-   "y": 1530,
+   "y": 1512,
    "w": 900,
    "text": "XAI COLOSSUS (2024 SITE), MEMPHIS · SERVETHEHOME TOUR · 2024",
    "font": {
@@ -4234,7 +4235,8 @@
      "style": "circle",
      "at": "hb:75.5",
      "shot": 2,
-     "color": "#FF2E88"
+     "color": "#FF2E88",
+     "dur": 0.209
     }
    ],
    "out": "cut",
@@ -4777,7 +4779,7 @@
    },
    "title": {
     "text": "AI that builds better AI",
-    "y": 255,
+    "y": 270,
     "at": "hb:80",
     "px": 64
    },
@@ -4846,7 +4848,8 @@
     {
      "style": "underline",
      "at": "hb:83.5",
-     "color": "#FF2E88"
+     "color": "#FF2E88",
+     "dur": 0.209
     }
    ],
    "pulse": "hb:82..83",
@@ -4864,22 +4867,22 @@
    "mode": "drop",
    "per": 0.02,
    "cx": 540,
-   "cy": 1395,
-   "px": 78,
+   "cy": 1385,
+   "px": 72,
    "maxW": 780,
    "label": {
     "text": "GRPO, the RL behind DeepSeek-R1: each answer's reward, graded on a curve against its own group",
     "at": "hb:84",
     "per": 0.05,
     "font": {
-     "size": 38
+     "size": 33
     },
     "gap": 26
    },
    "cite": {
     "text": "Shao et al. 2024, DeepSeekMath (arXiv:2402.03300), sec. 4.1.2",
     "at": "hb:85.5",
-    "px": 24
+    "px": 20
    },
    "card": {
     "color": "#FBF6EC",
@@ -4954,7 +4957,8 @@
      "style": "circle",
      "at": "hb:89.75",
      "shot": 0,
-     "color": "#B31B1B"
+     "color": "#B31B1B",
+     "dur": 0.329
     }
    ],
    "out": "cut",
@@ -4971,8 +4975,7 @@
    "audio": {
     "in": 676.8,
     "out": 678.84,
-    "fade_ms": 20,
-    "duck_db": 9
+    "fade_ms": 20
    },
    "verified": true
   },
@@ -5117,7 +5120,7 @@
    ],
    "sourceAt": "hb:98.5",
    "sourcePer": 0.03,
-   "sourceY": 1540,
+   "sourceY": 1515,
    "sourcePx": 22,
    "sourceW": 760,
    "splatColor": "#F2C300",
@@ -5780,7 +5783,7 @@
    "type": "words",
    "t0": "hb:100.5",
    "t1": "hb:104",
-   "x": 64,
+   "x": 74,
    "y": 1296,
    "w": 330,
    "text": "IN THE DISCS: GALAXY · FIGURE AI · 2026",
@@ -5806,7 +5809,7 @@
    "type": "words",
    "t0": "hb:104",
    "t1": "hb:107.5",
-   "x": 64,
+   "x": 74,
    "y": 1296,
    "w": 330,
    "text": "IN THE DISCS: UNITREE ROBOTICS · 2026",
@@ -5892,7 +5895,7 @@
    "t0": "hb:108.25",
    "t1": "hb:112",
    "x": 64,
-   "y": 1534,
+   "y": 1512,
    "w": 900,
    "text": "FROM YOSHUA BENGIO'S TED2025 TALK",
    "font": {
@@ -6341,8 +6344,7 @@
    "audio": {
     "in": 686.03,
     "out": 691.6,
-    "fade_ms": 25,
-    "duck_db": 9
+    "fade_ms": 25
    },
    "verified": true
   },

@@ -35,6 +35,9 @@ def build():
         g[k]['t1'] = SPLICE if k == 'paper' else RIFF_OUT
     k = g['kand-riff']
     k['moves'] = [m for m in k['moves'] if m['move'] != 'break']
+    for m in k['moves']:                               # bar 3's 8th-note orbits stop at riff beat 14.5 (15.5 is in the cut)
+        if isinstance(m.get('on'), dict) and m['on'].get('to') == 'hb:15.5':
+            m['on']['to'] = 'hb:14.5'
     k['_note'] = "the riff's logo, cut at riff beat 15 by the splice: it breaks into particles on the refrain's bar-24 downbeat (tr-entrance-short)"
     # the disc footage stays inside its catalogued windows to the end of the transition
     kp = g['kc-pink-agents']
@@ -47,7 +50,7 @@ def build():
     eq['pulse'] = ['hb:13', 'hb:14']                  # hb:15 is in the cut
     eq['exit'] = 'cut'
     g['riff-credit']['exit'] = 'cut'
-    items = P.ensure_prep(pre + ref)
+    items = P.safe_nudges(P.ensure_prep(pre + ref))
 
     # ---- transitions
     tr = P.transitions_of(P.load('prelude-riff'))
@@ -81,7 +84,7 @@ def build():
         'song': {'file': 'song/brutal.mp3', 'segments': [{'in_s': SONG0, 'out_s': SPL_A, 'at': 0}, {'in_s': SPL_B, 'out_s': SONG_END, 'at': SPLICE}],
                  'xfade_ms': 20, 'xfade_shape': 'gain', 'bars': 'song/bars-hits.json', 'bar_tol_ms': 30, 'fade_in_s': 0.01, 'fade_out_s': 0.35,
                  'max_out_s': 80.45, 'note': SPLICE_NOTE},
-        'mix': {'limiter_max_gr_db': 5.0, 'speech_limiter_max_gr_db': 5.0},
+        'mix': {'limiter_max_gr_db': 6.5, 'speech_limiter_max_gr_db': 6.0},
         'outputs': {'song': 'out/rev2/hyperplane-brutal-short-9x16.mp4', 'no_song': 'out/rev2/hyperplane-brutal-short-no-song-9x16.mp4'},
         'look': {'ground': P.DARK},
         'layout': P.LAYOUT,
@@ -104,6 +107,10 @@ SPLICE_NOTE = ("Splice riff beat 15 -> refrain bar 23 beat 4 (the r4-r7 short's 
 
 if __name__ == '__main__':
     edl = build()
+    for r in P.fit_emph(edl):
+        print('  emph drawn faster to finish before its transition:', r)
+    bad = [b for b in P.bad_refs(edl) if '..' not in b[1]]
+    assert not bad, bad
     ids = [x['id'] for x in edl['items']]
     assert len(ids) == len(set(ids)), 'duplicate item ids'
     for t in edl['transitions']:

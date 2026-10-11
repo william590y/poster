@@ -164,7 +164,7 @@
    "events": [
     "BAR 14 DOWNBEAT: WHIP impact ON 'one' (song 46.329): Dario Amodei (CBS Sunday Morning, 2026) decelerates into the violet-ringed circle top right; AUDIBLE '…one,' (music ducked 8 dB from 46.17); karaoke '…ONE,' lights; red ink stamp 'ONE' lands top left",
     "beatfx bar splat (bottom corners)",
-    "[+0.5, 46.571] the X chart 'New models from Anthropic and OpenAI are arriving faster' is PAINTED into the lower heap; karaoke 'THEN' (49.189)"
+    "[+0.5, 46.571] the X chart 'New models from Anthropic and OpenAI are arriving faster' is PAINTED into the lower heap; karaoke THEN (46.769)"
    ]
   },
   {
@@ -3749,7 +3749,8 @@
   "SENSITIVITY: from the teen candidates (research/long/lyrics/sick-of-seventeen.json and screens.json lyric 'sick-of-seventeen') the plan uses the survey and safety headlines (Common Sense, Thorn, Education Week, UNICEF) and leaves out the teen-suicide lawsuit and the 'AI nudes' headlines.",
   "TRANSITIONS (impact beats): 48 illuminate (verse, shared), 50 shatter (pile region), 52 fold, 54 page turn (essay region), 56 whip spin, 60 iris square (pile region), 64 paint wipe (cover), 67.75 iris ring (karaoke enterFx), 72 zoom-through, 73 paint wipe matte (pile enterFx), 76 shatter (pile region), 80 iris circle (refrain, shared). That is 12 transitions; every other item change is a beat-locked pile landing. Every beat also carries a beatfx paint effect and a camera move (four tracks), and most 8ths carry a marker, a push, a lift, a pencil mark or a lit karaoke word.",
   "PERFORMANCE: chart + two karaoke + a panel ~0.3-0.4 s/frame; the shatters (12-14 clones) and the zoom-through ~0.5; the racks clip is full-frame 1080x1920 from a 1920x1080 source (prep crops 607x1080 and upscales: soft but it is background). Prep: python3 render/video/prep_clips.py <edl> extracts p-sora, p-protein, p-cbs, p-60 (frame-sized) and v-racks, and copies the screenshots.",
-  "RISKS TO CHECK ON THE FIRST STRIP: (1) the zoom-through focus [865, 1030] must sit on the 946 MW point (engine request 1); (2) the callout at dx -560 / dy -10 must not cross the step line; (3) pile-youth has three tall cards in 620 px (overlap up to 0.4); (4) the Common Sense push z 1.7 must keep the phrase inside 940 px; (5) the four-line count karaoke must clear the CBS circle at x 610; (6) the in-point 158.12 must not let the tail of 'have' through (move to 158.15 if it does)."
+  "RISKS TO CHECK ON THE FIRST STRIP: (1) the zoom-through focus [865, 1030] must sit on the 946 MW point (engine request 1); (2) the callout at dx -560 / dy -10 must not cross the step line; (3) pile-youth has three tall cards in 620 px (overlap up to 0.4); (4) the Common Sense push z 1.7 must keep the phrase inside 940 px; (5) the four-line count karaoke must clear the CBS circle at x 610; (6) the in-point 158.12 must not let the tail of 'have' through (move to 158.15 if it does).",
+  "ASSEMBLER (11 Oct): verify fixes applied in render/video/edl/rev2_parts.py (chorus()); eq-grpo-adv dropped (the refrain's eq-adv is the same formula 3.5 s later); pile-before's NYT card replaced by CNN 'AI researchers are sounding the alarm on their way out the door' (the NYT card is verse 1's bar-4 lead)."
  ],
  "checks": {
   "verbatim": [

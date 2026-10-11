@@ -901,3 +901,48 @@ with no page error or warning. New fields, by module:
   - it is pre-existing: it reproduces with the integrator's caption mode, and is unaffected by `?camreset=0` or a forced
     non-identity transform.
   The canvas-drawn content (footage, paint, cards) is unaffected.
+
+## Assembler (11 Oct 2026): the rev2 long and short cuts
+`edl/make_long_rev2.py` -> `long2.json` (the intro cut, continuous: song 6.10 -> 80.40, 74.30 s, edit = song - 6.10) and
+`edl/make_short_rev2.py` -> `short2.json` (song 6.10 -> 26.477, a 20 ms gain crossfade, 65.188 -> 80.40; 35.589 s; edit = song -
+6.10, then song - 44.811). Both are built by `edl/rev2_parts.py` from the four verified section plans in `research/rev2/plan/`
+(`prelude-riff` "content", `verse1`/`chorus` "engine", `refrain-inst` "edl" blocks, filtered by its "cuts" field), with every verifier
+fix of `*.verify.json` applied in code (FIXES comments cite the verify ids) and the assembler's cross-plan decisions (ASSEMBLY comments).
+The r1-r7 `make_long.py` / `make_short.py` and their EDLs are untouched (history). Run `prep_clips.py long2` / `short2` after
+regenerating. The short's two riff kandclips use their own cache folders (`frames: short-<id>`): they play at other speeds.
+
+**Stacking.** Each section keeps its planner's order; sections follow in time. Grounds a break needs UNDER earlier items move down
+(`g-dark-v1` sits under `kand-riff`, so the logo blows apart over the dark verse). Each section draws its beat track and splats into
+its own shared canvas right above its ground: `paint` (prelude, riff, verse 1), `paint-ch` (chorus), `paint-racks` (above the
+full-frame racks footage), `paint-rf` (refrain), `paint-god` (above the fog footage), `paint-out` (above the instrumental's cream).
+A canvas under a full-frame clip would hide that section's beat track. A layer item that a transition lists in `out` (the prelude's
+`sketch`) is shattered with it; the items painting into it must stay alive for the transition window (shared canvases are cleared
+every frame), so `sketch-*` end at hb:1.45.
+
+**Cross-plan decisions.** One iris at hb:80 (the refrain's, out of the loop centre) carries the chorus's outgoing items; the verse's
+illuminate at hb:48 takes the chorus's incoming ones. Id clashes renamed (`kar-amodei` -> `kar-amodei-60` in the chorus, the
+refrain's `chart-dc` -> `chart-gw`, its `paint`/`paper` -> `paint-rf`/`paper-rf`, refrain `tr-fold`/`tr-shatter` -> `tr-rf-*`).
+Duplicates removed: the X post 'now it's every ~11 days' (chorus only), the NYT 'ignored employees' card (verse 1 only; the chorus's
+third 'before' card is CNN Feb 2026), the GRPO advantage formula (refrain only), the xAI corridor footage (chorus only; the riff's
+blue disc shows NVIDIA's data hall). Coxon's riff footage moved from the pink disc to the blue one (the black disc and the core cover
+most of the pink disc in the cover's geometry, which hid his face); the pink disc carries the agents wall for the whole riff, timed
+into verse 1's `v1-agents`. Fixed per-clip ducks that left speech under 10 LU over the loud song were removed (mix.py's rule decides:
+the riff Coxon 12.6 dB, the refrain Amodei 13.8 dB, the closer 12.5 dB).
+
+**Engine requests implemented (deterministic, opt-in):**
+- `kandclip` **`freeze`** (time ref): the picture holds on the frame shown then (Coxon past the show's camera cut).
+- `fluid` **`fadeIn`** (s): the marbling floods in over the piece's flat colour from t0.
+- `panel` **`freeze`** (time ref): footage holds its frame (Ken Burns, pulses, border keep moving).
+- `net` tower **`view`** `{dx, dy}` px: shifts the 3D camera's principal point (setViewOffset); pencil lines and tags follow.
+- transitions / beat tracks / `fx` entries honour **`skipIn`** (as items do).
+- `zoomthrough` **`focus`** may name a chart point `{"item", "point", "series", "dx", "dy"}`: the point's frame px (charts.js
+  `X`/`Y`) with the chart's drift at the window start.
+- `shatter` declares its overlay as imagery when an outgoing layer carries imagery (the clones keep their own markers too).
+- `screens`: a shot's **`marks`** `[{hl, style, at, color, dur}]` (or an `emph` entry's **`hl`**) emphasise a SECOND OCR phrase of that
+  shot (index, phrase or boxes) in its pushed/lifted frame; **payoffs** (each end-of-bar emphasis) for coverage.py.
+- `HP.probe.items()` reports **`readEnd`** (the impact of an item's first outgoing transition, else t1); `coverage.py`'s payoff check
+  uses it (an item leaving through a transition stays visible but is being folded / shattered / zoomed after the impact).
+- Not implemented: `panel` entry morphing out of a kand piece (verse 1 keeps its legacy clip for the one morph), `loop` grow (the
+  short and the long swap loops inside the zoom-through as the refrain plan designed).
+`rev2_parts.fit_emph` draws a pile's last pencil emphasis faster when it would still be drawing at its transition's impact (its start
+beat is unchanged); `rev2_parts.bad_refs` lists any hb:/song: reference that falls in the short's cut.

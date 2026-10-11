@@ -92,6 +92,8 @@ def prelude_riff():
             x['verified'] = True
         if 'frames' in x:
             x['frames'] = x['frames'].split(' ')[0]
+        if it['type'] == 'layer' and it['id'] != 'sketch':   # shared canvases live for the whole cut (no refs into the short's cut)
+            x.pop('t0', None); x.pop('t1', None)
         out.append(x)
     g = {x['id']: x for x in out}
 
@@ -171,7 +173,7 @@ def prelude_riff():
 
     # FIXES (verify "voice-coxon"): keep the whole of 'again' (vowel + nasal to 454.36): out 454.37, a 25 ms fade
     vc = g['voice-coxon']
-    vc['audio'] = {'in': 452.42, 'out': 454.37, 'fade_ms': 25, 'duck_db': 9}
+    vc['audio'] = {'in': 452.42, 'out': 454.37, 'fade_ms': 25}   # duck: mix.py's rule (>= 10 LU over the loud riff, max 15 dB)
     vc['t1'] = 'song:23.15'
     vc['verified'] = True
     vc['_note'] = ("AUDIBLE over the riff (vocal-free 19.0-26.9): '…restarted the thing, and it did it again.' (clips/transcripts/coxon.json; "
@@ -279,14 +281,14 @@ def chorus():
     g['p-sora']['_note'] = "AI-generated anime character in profile, then a close-up of eyes with sparks (Sora 2 reel, OpenAI 2025); the reel's cut at 18.043 lands on the hb:50 crash"
     # FIXES (verify "voice-count"): keep the whole 'thirty-two' (vowel to 161.73): out 161.76; in 158.17 (no tail of 'have')
     vc = g['voice-count']
-    vc['audio'] = {'in': 158.17, 'out': 161.76, 'fade_ms': 30, 'duck_db': 8}
+    vc['audio'] = {'in': 158.17, 'out': 161.76, 'fade_ms': 30, 'duck_db': 9}     # 9 dB (was 8): >= 10 LU over the chorus
     vc['at'] = vc['t0'] = 'song:46.339'
     vc['t1'] = 'song:49.929'
     g['kar-count']['speech']['in'] = 158.17
     g['kar-count']['speech']['at'] = 'song:46.339'
     # FIXES (verify "voice-elected"): end in the silence before the next word (808.25)
     ve = g['voice-elected']
-    ve['audio'] = {'in': 804.04, 'out': 808.20, 'fade_ms': 40, 'duck_db': 8}
+    ve['audio'] = {'in': 804.04, 'out': 808.20, 'fade_ms': 40, 'duck_db': 9}
     ve['t1'] = 'song:54.115'
     # FIXES (verify "chart-dc", optional): the values are Epoch estimates (graphs.json caption)
     g['chart-dc']['subtitle'] = GRA['dc-record-mw']['subtitle'] + ' (Epoch estimates)'
@@ -387,6 +389,11 @@ def refrain(cut):
     g['disc-credit-1']['text'] = 'IN THE DISCS: GALAXY · FIGURE AI · 2026'
     g['disc-credit-2']['text'] = 'IN THE DISCS: UNITREE ROBOTICS · 2026'
     g['fog-credit']['text'] = "FROM YOSHUA BENGIO'S TED2025 TALK"
+    # ASSEMBLY (mix dry run): a fixed 9 dB duck left the refrain and closing Amodei only 5-6.5 LU over the loud song; mix.py's own
+    # rule (raise the duck until speech is >= 10 LU over the song, at most 15 dB) decides instead
+    for k in ('voice-amodei-a', 'voice-amodei-b'):
+        if k in g:
+            g[k]['audio'].pop('duck_db', None)
     # ASSEMBLY: refrain paint into paint-rf; god-bar and outro beat tracks get canvases above the fog and the cream
     for x in out:
         if x.get('layer') == 'paint':
@@ -441,3 +448,103 @@ THEMES_TAIL = [{'t0': 'hb:80', 't1': 'hb:108', 'theme': 'light'}, {'t0': 'hb:108
 
 # the prelude's layout (the showcase's: taller footage box, caption sizes)
 LAYOUT = json.loads(json.dumps(json.load(open(EDLDIR / 'showcase.json'))['layout']))
+
+
+def bad_refs(edl):
+    """every "hb:"/"song:" string in an EDL that does not resolve (e.g. falls in the cut of a spliced song): [(path, ref, error)]"""
+    sys_path = str(ROOT / 'render/video')
+    import sys
+    if sys_path not in sys.path:
+        sys.path.insert(0, sys_path)
+    from timeref import TimeRef, TIME_RE
+    TR = TimeRef(edl)
+    bad = []
+
+    def walk(v, path):
+        if isinstance(v, dict):
+            for k, x in v.items():
+                walk(x, path + '.' + str(k))
+        elif isinstance(v, list):
+            for i, x in enumerate(v):
+                walk(x, f'{path}[{i}]')
+        elif isinstance(v, str) and TIME_RE.match(v) and v.split(':')[0] in ('hb', 'song'):
+            try:
+                TR(v)
+            except Exception as e:
+                bad.append((path, v, str(e)[:60]))
+        elif isinstance(v, str) and '..' in v and v.startswith('hb:'):
+            pass
+    for key in ('items', 'transitions', 'beatfx', 'fx', 'themes', 'finalHold'):
+        walk(edl.get(key), key)
+    return bad
+
+
+DEF_DUR = {'circle': 0.42, 'underline': 0.22, 'marker': 0.24, 'lift': 0.22, 'box': 0.36}
+
+
+def fit_emph(edl):
+    """screens piles whose last pencil emphasis (circle / underline / box) would still be drawing at the impact of the pile's
+    outgoing transition draw it faster, so it is complete one frame before the impact (it never vanishes half-drawn); the
+    beat it starts on is unchanged. Returns [(item, style, old dur, new dur)]."""
+    import sys
+    sp = str(ROOT / 'render/video')
+    if sp not in sys.path:
+        sys.path.insert(0, sp)
+    from timeref import TimeRef
+    TR = TimeRef(edl)
+    imp = {}
+    for t in edl.get('transitions', []):
+        for i in t.get('out', []):
+            imp[i] = min(imp.get(i, 1e9), TR(t['at']))
+    for x in edl['items']:
+        for k in ('enterFx', 'exitFx'):
+            pass
+    done = []
+    for x in edl['items']:
+        if x['type'] != 'screens' or not isinstance(x.get('emph'), list):
+            continue
+        end = imp.get(x['id'], TR(x['t1']))
+        for e in x['emph']:
+            if e.get('style') not in ('circle', 'underline', 'box') or 'at' not in e:
+                continue
+            a, d = TR(e['at']), e.get('dur', DEF_DUR[e['style']])
+            if a + d > end - 1 / 30 and end - 1 / 30 - a >= 0.12:
+                nd = round(end - 1 / 30 - a, 3)
+                e['dur'] = nd
+                done.append((x['id'], e['style'], d, nd))
+    return done
+
+
+def safe_nudges(items):
+    """text that sat on the safe zone's edge and crossed it under the camera shakes (coverage.py, first pass): moved inside"""
+    g = {x['id']: x for x in items}
+    def has(k): return k in g
+    if has('v1-agents-credit'): g['v1-agents-credit']['y'] = 274
+    if has('coxon-stamp'): g['coxon-stamp']['stamp']['y'] = 262
+    if has('loop-a'): g['loop-a']['title']['y'] = 270
+    if has('loop-a-s'): g['loop-a-s']['title']['y'] = 270
+    if has('chart-gw'): g['chart-gw']['sourceY'] = 1515
+    if has('fog-credit'): g['fog-credit']['y'] = 1512
+    if has('credit-racks'): g['credit-racks']['y'] = 1512
+    for k in ('disc-credit-1', 'disc-credit-2'):
+        if has(k): g[k]['x'] = 74
+    if has('eq-ntp'): g['eq-ntp']['y'] = 400
+    if has('eq-upd'): g['eq-upd']['y'] = 770
+    if has('eq-adv'):
+        g['eq-adv']['cy'] = 1385
+        g['eq-adv']['px'] = 72
+        g['eq-adv']['cite']['px'] = 20
+        g['eq-adv']['label']['font']['size'] = 33       # two lines, clear of the centre panel's credit
+    # verse 1: Amodei's karaoke stays until the DPO label rolls in (both moved half a beat), Coxon's karaoke wraps left of the
+    # tower's yellow residual river (its words were unreadable over the river)
+    if has('kar-amodei'):
+        g['kar-amodei']['t1'] = 'hb:29.2'
+        g['kar-amodei']['exit'] = {'style': 'fade', 'dur': 0.18}
+    if has('eq-dpo'): g['eq-dpo']['label']['at'] = 'hb:29.25'
+    if has('kar-coxon-v1'): g['kar-coxon-v1']['w'] = 440
+    if has('chart-dc'):
+        g['chart-dc']['x'] = 195; g['chart-dc']['w'] = 675
+    for x in items:
+        if x['type'] == 'panel' and x.get('creditAt') == [64, 262]:
+            x['creditAt'] = [74, 274]
+    return items

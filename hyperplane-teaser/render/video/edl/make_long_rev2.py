@@ -34,7 +34,7 @@ def build():
         if x['id'] == 'v-racks':
             out.append({'id': 'paint-racks', 'type': 'layer', 'kind': 'canvas', '_note': "the chorus's last two bars: paint over the racks footage"})
     cho = out
-    items = P.ensure_prep(pre + ver + cho + ref)
+    items = P.safe_nudges(P.ensure_prep(pre + ver + cho + ref))
 
     # ---- transitions
     tr = P.transitions_of(load_pre())
@@ -85,7 +85,7 @@ def build():
                  'max_out_s': 80.45, 'bars': 'song/bars-hits.json', 'bar_tol_ms': 30,
                  'clean': {'dips': [[44.86, 45.25]], 'ramp_ms': 12, 'mode': 'full',
                            'note': "the explicit word ('fucking'), measured 44.86-45.25 (its /f/ starts at 44.86, the 't' of 'teenage' at 45.28)"}},
-        'mix': {'limiter_max_gr_db': 5.0, 'speech_limiter_max_gr_db': 5.0},
+        'mix': {'limiter_max_gr_db': 6.5, 'speech_limiter_max_gr_db': 6.0},
         'outputs': {'song': 'out/rev2/hyperplane-brutal-long-9x16.mp4', 'clean': 'out/rev2/hyperplane-brutal-long-clean-9x16.mp4',
                     'no_song': 'out/rev2/hyperplane-brutal-long-no-song-9x16.mp4'},
         'look': {'ground': P.DARK},
@@ -112,6 +112,10 @@ def load_pre():
 
 if __name__ == '__main__':
     edl = build()
+    for r in P.fit_emph(edl):
+        print('  emph drawn faster to finish before its transition:', r)
+    bad = [b for b in P.bad_refs(edl) if '..' not in b[1]]
+    assert not bad, bad
     ids = [x['id'] for x in edl['items']]
     assert len(ids) == len(set(ids)), 'duplicate item ids'
     known = set(ids)

@@ -544,6 +544,11 @@ def safe_nudges(items):
     if has('kar-coxon-v1'): g['kar-coxon-v1']['w'] = 440
     if has('chart-dc'):
         g['chart-dc']['x'] = 195; g['chart-dc']['w'] = 675
+        # the callout sat on the title and subtitle (first render): it goes inside the plot, under the 1,000 line
+        a = g['chart-dc']['annotate'][0]; a['dx'] = -360; a['dy'] = 90; a['px'] = 54
+    if has('chart-gw'):
+        a = g['chart-gw']['annotate'][0]; a['dx'] = -300; a['dy'] = 90; a['px'] = 34; a['w'] = 300
+    if has('p-60'): g['p-60']['creditAt'] = [610, 712]      # was over the karaoke's name line (the long chip clamps left)
     for x in items:
         if x['type'] == 'panel' and x.get('creditAt') == [64, 262]:
             x['creditAt'] = [74, 274]

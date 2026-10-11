@@ -3763,7 +3763,7 @@
    "credit": "60 MINUTES · CBS NEWS · NOV 16, 2025",
    "creditAt": [
     610,
-    672
+    712
    ],
    "_note": "lip sync with voice-elected (src = song + 754.085). Scene cuts: Cooper on camera 803.67-806.14 (asking), Amodei on camera from 806.14 (answering); frames checked 804.5-807.6"
   },
@@ -3978,10 +3978,10 @@
      "at": "hb:67.5",
      "i": 5,
      "text": "Colossus 2: 946 MW",
-     "dx": -560,
-     "dy": -10,
+     "dx": -360,
+     "dy": 90,
      "w": 400,
-     "px": 60,
+     "px": 54,
      "lines": 2,
      "hl": "946 MW",
      "lead": 0,
@@ -5108,10 +5108,10 @@
      "at": "hb:98.25",
      "i": 11,
      "text": "13.8 GW across 93 sites",
-     "dx": -430,
-     "dy": -20,
-     "w": 360,
-     "px": 40,
+     "dx": -300,
+     "dy": 90,
+     "w": 300,
+     "px": 34,
      "lines": 2,
      "hl": "13.8 GW",
      "lead": 0,

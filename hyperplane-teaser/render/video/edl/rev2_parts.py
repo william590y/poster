@@ -1106,14 +1106,14 @@ WARM_BLOOM = ('radial-gradient(circle at 50% 45%, rgba(255,253,244,1) 0%, rgba(2
 
 def prelude_kicks_r3(t0_song, t1_song):
     """FIXER r3 (director, medium: the prelude's first scroll window and the Amodei half had the weakest beats, the framing the same
-    across them): the footage box pushes on EVERY grid beat (hits.json's negative beats), 2.5x the r2 pulse (bars 11 %, beats
-    6.5 %, springing back), plus the intro's own off-grid swells (song/hits.json prelude_pulse) at their r2 strength"""
+    across them): the footage box pushes on EVERY grid beat (hits.json's negative beats), ~2.5x the r2 pulse (bars 12 %, beats
+    8 %, springing back over 0.42 / 0.34 s so the push still reads two frames after the beat), plus the intro's own off-grid swells (song/hits.json prelude_pulse) at their r2 strength"""
     ks, grid = [], []
     for i in range(-30, 0):
         s = hb_song(i)
         if t0_song + 0.05 <= s < t1_song - 0.1:
             grid.append(s)
-            ks.append({'at': f'hb:{i}', 'z': 1.11 if i % 4 == 0 else 1.065, 'dur': 0.26 if i % 4 == 0 else 0.2})
+            ks.append({'at': f'hb:{i}', 'z': 1.12 if i % 4 == 0 else 1.08, 'dur': 0.42 if i % 4 == 0 else 0.34})
     for p in _hits().get('prelude_pulse', []):
         s = p['t']
         if t0_song + 0.05 <= s < t1_song - 0.1 and all(abs(s - b) > 0.15 for b in grid):

@@ -1021,7 +1021,7 @@ generators (`HOLD_PAST` 1.0 s, the tower b-roll in the verse wipe, the short's c
 
 What changed on screen: f393 is a one-frame white flash and f394 the cream world at full contrast with shards already flying; the
 riff's Helios ghost at op 0.5 from the drop and the agents footage in the pink disc from hb:0.75; the prelude pushes on every grid
-beat (bars 11 %, beats 6.5 %), with one jump-cut reframe per speaker (Altman hb:-24, Amodei hb:-12) and Amodei re-cropped round his
+beat (bars 12 %, beats 8 %), with one jump-cut reframe per speaker (Altman hb:-24, Amodei hb:-12) and Amodei re-cropped round his
 face and chair; the 3D tower over the Stargate Abilene rack aisle (op 0.62), dollied in, glowing, 34 px tags; DPO clear of Amodei's
 caption; the green TechCrunch card's phrase clear of the grey card; chips complete on 8th-note piles; a red '2023' chip on the BBC/FLI
 cards; an iris through a Kandinsky circle instead of the second paint wipe (hb:73); the sung 'out' gets an orange slap and a jolt;

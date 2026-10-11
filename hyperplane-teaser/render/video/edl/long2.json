@@ -4573,10 +4573,10 @@
    "border": "paint",
    "color": "teal",
    "borderW": 22,
-   "credit": "@MECAGENT · GPT-6 ASTRA, SOLIDWORKS · 2026",
+   "credit": "@MECAGENT · GPT-6 ASTRA · 2026",
    "creditAt": [
     64,
-    1088
+    1128
    ],
    "pulse": "hb:81..83",
    "pulseAmt": 0.04,

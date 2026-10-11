@@ -550,7 +550,11 @@ def safe_nudges(items):
         a = g['chart-gw']['annotate'][0]; a['dx'] = -300; a['dy'] = 90; a['px'] = 34; a['w'] = 300
     if has('p-60'): g['p-60']['creditAt'] = [610, 712]      # was over the karaoke's name line (the long chip clamps left)
     # credit chips too long for the safe zone (they clamped onto its left edge or into the right rail): shorter, same facts
-    if has('cp-try'): g['cp-try']['credit'] = '@MECAGENT · GPT-6 ASTRA, SOLIDWORKS · 2026'
+    if has('cp-try'):
+        # final coverage pass: the 42-character chip (y 1088) ran into the right rail and under the loop's 'Faster research' label;
+        # 30 characters, 40 px lower (between that label, bottom ~1122, and the DNS card's sloped top edge)
+        g['cp-try']['credit'] = '@MECAGENT · GPT-6 ASTRA · 2026'
+        g['cp-try']['creditAt'] = [64, 1128]
     if has('p-protein'): g['p-protein']['credit'] = 'ANTHROPIC · PROTEIN BINDERS BY CLAUDE · 2026'
     if has('p-pause'): g['p-pause']['credit'] = 'PAUSEAI UK · PROTEST FOOTAGE · 2026'   # the verifier's alternative wording
     for x in items:

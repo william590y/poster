@@ -566,6 +566,9 @@ function towerCam(it, t, cam) {
   const tgt = new THREE.Vector3(lerp((c.tx ?? 0) + side, -0.2, wide), lerp(yW - (c.lead ?? 1.2), Lo.Y.out / 2, wide), 0);
   let kick = 0; for (const x of [...it.Ti, ...it.Tb]) { if (t < x - HP.EPS) continue; const u = pr(t, x, 0.3); if (u < 1) kick = Math.max(kick, 1 - E.oCub(u)); }
   cam.fov = (c.fov ?? 42) * (1 - 0.04 * kick); cam.updateProjectionMatrix();
+  // assembler (rev2): view {dx, dy} px shifts the 3D camera's principal point (the tower and its projected pencil lines and tags
+  // move together; dy > 0 = the tower sits lower in the frame)
+  { const V = it.d.view; if (V && (V.dx || V.dy)) cam.setViewOffset(HP.W, HP.H, -(V.dx || 0), -(V.dy || 0), HP.W, HP.H); }
   cam.position.set(tgt.x + dist * Math.cos(pitch) * Math.sin(yaw), tgt.y + dist * Math.sin(pitch) + 2.2 * (1 - wide), tgt.z + dist * Math.cos(pitch) * Math.cos(yaw));
   cam.up.set(Math.sin((c.roll ?? -4) * Math.PI / 180), 1, 0); cam.lookAt(tgt);
   cam.updateMatrixWorld();

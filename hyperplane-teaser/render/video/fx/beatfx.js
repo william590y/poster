@@ -293,7 +293,8 @@ let PROMOTED = false;
 // zoom/rotation frames no longer depend on the frames rendered before them
 function promoteCam() { if (!PROMOTED) { PROMOTED = true; HP.cam.promote(); } }
 HP.on('built', () => {
-  for (const tr of (HP.EDL.beatfx || [])) { if (tr.enabled === false) continue; const p = plan(tr, true); TRACKS.push({ track: tr, plan: p }); promoteCam(); }
+  // assembler (rev2): a track's "skipIn": [edl names] skips it in those EDLs, as for items
+  for (const tr of (HP.EDL.beatfx || [])) { if (tr.enabled === false || (Array.isArray(tr.skipIn) && tr.skipIn.includes(HP.EDL_NAME))) continue; const p = plan(tr, true); TRACKS.push({ track: tr, plan: p }); promoteCam(); }
   if (DRAW.length) for (const L of new Set(DRAW.map(d => d.layer))) HP.shared(L);
 });
 // the same track as an "fx" entry: {"fx": "beatfx", "on": "hb:0..31", "pattern": ..., ...}

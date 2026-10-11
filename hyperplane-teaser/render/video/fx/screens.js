@@ -188,16 +188,23 @@ HP.register('screens', {
       it.mark(it.push.at, 'push');
       if (d.cam !== false) HP.cam.punch(it.push.at, 0.02, 0.1);
     }
-    it.emph = (d.emph === false ? [] : [].concat(d.emph || [{ style: 'lift' }, { style: 'circle', off: 0.5 }])).map((e0, k) => {
+    // assembler (rev2): a shot's own "marks": [{hl (index | phrase | boxes), style, at, color, dur}] are extra emphases on a SECOND
+    // phrase of that shot (an emph entry may carry "hl" the same way); they draw in the shot's (pushed, lifted) frame
+    const extra = []; it.shots.forEach((s, k) => { for (const m of (s.marks || [])) extra.push({ ...m, shot: k }); });
+    it.emph = (d.emph === false ? [] : [].concat(d.emph || [{ style: 'lift' }, { style: 'circle', off: 0.5 }])).concat(extra).map((e0, k) => {
       const e = typeof e0 === 'string' ? { style: e0 } : { ...e0 };
       e.s = ref(e, it.shots.length - 1);
+      if (e.s && e.hl !== undefined) { e.boxes = (hlBoxes(e.s.rec, e.hl) || []).map(b => toRect(b)); if (!e.boxes.length) HP.WARN.push(`screens ${it.id}: emph hl ${JSON.stringify(e.hl)} not found on ${e.s.id}`); }
       e.at = e.at !== undefined ? HP.T(e.at) : (it.push ? it.push.at : last.land + BP()) + (e.off ?? 0) * BP();
       e.dur = e.dur ?? ({ circle: 0.42, underline: 0.22, marker: 0.24, lift: 0.22, box: 0.36 }[e.style] ?? 0.3);
       e.color = e.color || (e.style === 'marker' ? (it.dark ? COL.pink : COL.pink) : COL.red);
       e.key = `${it.id}|emph${k}`;
       it.mark(e.at, 'emph:' + e.style);
       return e;
-    }).filter(e => e.s && e.s.boxes.length);
+    }).filter(e => e.s && (e.boxes || e.s.boxes).length);
+    // assembler (rev2): payoffs for check/coverage.py: each marker sweep and emphasis is complete at these times
+    it.payoffs = () => [...it.shots.filter(s => s.hlAt !== null).map(s => ({ what: 'marker ' + s.id, at: s.hlAt + 0.24 * (1 + 0.6 * Math.max(0, s.boxes.length - 1)) })),
+      ...it.emph.map(e => ({ what: `emph ${e.style} ${e.s.id}`, at: e.at + e.dur }))];
     // exit
     const X = typeof d.out === 'string' ? { style: d.out } : { style: 'scatter', ...(d.out || {}) };
     it.out = { ...X, dur: X.dur ?? 0.3 }; it.out.at = X.at !== undefined ? HP.T(X.at) : it.t1 - it.out.dur;
@@ -233,7 +240,7 @@ HP.register('screens', {
       else drawCard(c);
       // the marker over this shot's phrase (multiply: the paper turns yellow, the ink stays)
       if (s.hlAt !== null && t >= s.hlAt - EPS && P) markBoxes(c, s, t, s.hlAt, { color: s.hlColor || COL.yellow, dur: 0.24, key: `${it.id}|${s.id}|hl` });
-      for (const e of it.emph) if (e.s === s && e.style === 'marker' && t >= e.at - EPS && P) markBoxes(c, s, t, e.at, { color: e.color, dur: e.dur, key: e.key, h: 0.5, yK: 0.86 });
+      for (const e of it.emph) if (e.s === s && e.style === 'marker' && t >= e.at - EPS && P) markBoxes(c, emphShot(s, e), t, e.at, { color: e.color, dur: e.dur, key: e.key, h: e.boxes ? 1.18 : 0.5, yK: e.boxes ? 0.55 : 0.86 });
       if (ep.shade > 0.01) { c.fillStyle = `rgba(14,13,18,${ep.shade.toFixed(3)})`; c.fill(paperPath(s.id, s.w, s.h, s.pad)); }
       // dim + blur when buried
       const nb = clamp(newer);
@@ -243,7 +250,7 @@ HP.register('screens', {
       }
       c.globalAlpha = op;
       // emphasis (lift, pencil)
-      for (const e of it.emph) if (e.s === s && t >= e.at - EPS) drawEmph(c, it, s, e, t, M);
+      for (const e of it.emph) if (e.s === s && t >= e.at - EPS && e.style !== 'marker') drawEmph(c, it, emphShot(s, e), e, t, M);
       c.globalAlpha = 1;
       // chip at the card's lower-left corner, for the newest shot (and the emphasised one at the end)
       if (s.chip) {
@@ -260,6 +267,8 @@ HP.register('screens', {
   },
   texts(it) { return (it.shots || []).filter(s => s.chip).map(s => ({ text: s.chip.textContent, reveal: 'chars', role: 'meta' })); },
 });
+// the shot as an emphasis sees it: its own boxes, or the emph entry's second phrase (assembler, rev2)
+const emphShot = (s, e) => e.boxes ? Object.assign(Object.create(s), { boxes: e.boxes }) : s;
 // keep a w x h box drawn with matrix M inside the text-safe zone (x 64-1010, y 254-1570; x <= 926 where it reaches below y 1000,
 // the Reels/TikTok button rail): shrink it if needed, then shift it (edits M in place)
 function safeFit(M, w, h) {
@@ -383,6 +392,7 @@ function exitPose(it, s, u) {
 }
 
 // ============================================================ panel: footage or a still in a Kandinsky mask
+const panelLt = (it, t) => (it.d.freeze !== undefined ? Math.min(t, it._frz ?? (it._frz = HP.T(it.d.freeze))) : t) - it.t0;
 const d0 = it => String(it.d.credit);
 function maskPath(shape, w, h, key, t, o = {}) {
   const p = new Path2D(), R = Math.min(w, h) / 2;
@@ -456,10 +466,11 @@ HP.register('panel', {
     it.creditPos = [clamp(it.cx - it.w / 2, 64, (y + B.h > 1000 ? 926 : 1010) - B.w), y];
     Object.assign(it.creditCv.style, { left: it.creditPos[0] + 'px', top: it.creditPos[1] + 'px', width: B.w + 'px', height: B.h + 'px' }); it.creditCv.width = B.w; it.creditCv.height = B.h;
   },
-  async prepare(it, t) { if (!it.still && it.active(t) && it.seq.meta) await it.seq.prepare(it.seq.frameAt(t - it.t0, it.d.speed || 1)); },
+  // assembler (rev2): "freeze" (time ref): from then on the footage holds its frame (Ken Burns, pulses and the border keep moving)
+  async prepare(it, t) { if (!it.still && it.active(t) && it.seq.meta) await it.seq.prepare(it.seq.frameAt(panelLt(it, t), it.d.speed || 1)); },
   draw(it, t) {
     const d = it.d, c = it.ctx, M = it.M; c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, it.cv.width, it.cv.height);
-    const img = it.still ? it.img : it.seq.now(it.seq.frameAt(t - it.t0, d.speed || 1));
+    const img = it.still ? it.img : it.seq.now(it.seq.frameAt(panelLt(it, t), d.speed || 1));
     // motion: entry, exit, pulses, a slow spin
     let sc = 1, rot = it.rot + (d.spin || 0) * it.life(t), op = 1;
     const ue = pr(t, it.en.at - (it.en.style === 'paint' ? 1 / 30 : 0.05), it.en.dur);

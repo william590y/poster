@@ -776,7 +776,7 @@ window.__ready = (async () => {
   for (const k in SHARED) if (!SHARED[k].el.parentNode) HP.layers.cam.appendChild(SHARED[k].el);
   SHARED_LATE = true;
   for (const ev of (EDL.fx || [])) {
-    if (ev.enabled === false) continue;
+    if (ev.enabled === false || (Array.isArray(ev.skipIn) && ev.skipIn.includes(HP.EDL_NAME))) continue;   // assembler: skipIn as for items
     const spec = FXS[ev.fx]; if (!spec) throw new Error(`unknown fx "${ev.fx}"`);
     const r = fxTimes(ev); ev.times = r.times; ev.beats = r.beats;
     for (const x of ev.times) HP.mark(x, ev.id || ev.fx, 'fx:' + ev.fx);

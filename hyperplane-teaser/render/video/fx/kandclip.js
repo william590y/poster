@@ -13,7 +13,8 @@
  *   blend ("multiply" default as above | "screen": for dark footage, screened over the flat piece colour at screenK (0.9), so the
  *   disc keeps its hue),
  *   fadeIn (s, 0.12: the flat piece colour first, then the footage), out (time ref: the footage fades back to the flat colour
- *   there, over fadeOut s (0.2); default t1)}.
+ *   there, over fadeOut s (0.2); default t1), freeze (assembler, rev2 long/short: a time ref; from then on the picture holds on
+ *   the frame shown at that moment, e.g. a speaker's face held past a camera cut in the source until the piece changes)}.
  * Register it BEFORE any `fluid` item of the same kand item (EDL order): the first fill hook of a piece wins, so the footage
  * replaces the marbling on that piece while it plays; fluid's wobbling outline still applies.
  * For the check tools a transparent DOM box over the piece is declared as imagery (coverage.py), opacity = the footage's.
@@ -23,8 +24,10 @@
 'use strict';
 const { clamp, lerp, pr, el } = HP.u, E = HP.ease, EPS = HP.EPS;
 
+// local time of the picture: frozen from d.freeze on (the frame shown at that moment holds)
+const picLt = (it, t) => (it.freeze !== undefined ? Math.min(t, it.freeze) : t) - it.t0;
 function fill(it, ctx, P, t, info) {
-  const d = it.d, lt = t - it.t0;
+  const d = it.d, lt = picLt(it, t);
   const img = it.seq.now(it.seq.frameAt(lt, d.speed || 1));
   const u = footU(it, t);
   const box = P.kind === 'circle' ? [P.c[0] - P.r, P.c[1] - P.r, 2 * P.r, 2 * P.r] : [P.home[0] - (P.hh || 60), P.home[1] - (P.hh || 60), 2 * (P.hh || 60), 2 * (P.hh || 60)];
@@ -63,6 +66,7 @@ HP.register('kandclip', {
     if (!d.item || !d.piece) throw new Error(`kandclip ${it.id}: needs "item" (a kand id) and "piece"`);
     it.seq = HP.assets.frames('cache/' + (d.frames || it.id));
     it.out = d.out !== undefined ? HP.T(d.out) : it.t1;
+    if (d.freeze !== undefined) it.freeze = HP.T(d.freeze);
     it.mk = el('div', '', it.el, { position: 'absolute', left: '0px', top: '0px', width: '10px', height: '10px', opacity: 0, borderRadius: '50%' });
     it.imagery(it.mk);
     const K = HP.lib.kandinsky;
@@ -71,7 +75,7 @@ HP.register('kandclip', {
     it.mark(it.t0, 'kandclip');
   },
   async load(it) { await it.seq.ready; },
-  async prepare(it, t) { if (it.active(t) && it.seq.meta) await it.seq.prepare(it.seq.frameAt(t - it.t0, it.d.speed || 1)); },
+  async prepare(it, t) { if (it.active(t) && it.seq.meta) await it.seq.prepare(it.seq.frameAt(picLt(it, t), it.d.speed || 1)); },
   draw(it, t) {
     // the imagery marker: the piece's current box (frame px), visible while the footage is
     const g = HP.lib.kandinsky.geom(it.d.item, it.d.piece, t), P = HP.lib.kandinsky.poses(it.d.item, t);

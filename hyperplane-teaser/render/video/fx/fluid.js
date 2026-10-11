@@ -8,7 +8,8 @@
  * TYPE "fluid" (edl/README.md, "Builder D"): {t0, t1, item (the kand item), pieces (default every fillable piece: the discs with
  *   r >= 25, the band, the square, the triangle), flow (speed, 1), swirl (1), wobble (edge amplitude in cover units, 7), ripple
  *   (a wave round each edge on every beat, 1), scale (pattern scale, 1), calm {from, to} (flow and wobble ease down; default the
- *   2 beats before the kand item's settle), palettes {piece: [base, light, deep, accent, vein]} overrides}
+ *   2 beats before the kand item's settle), palettes {piece: [base, light, deep, accent, vein]} overrides, fadeIn (assembler,
+ *   rev2 long/short: seconds; the marbling floods in over the flat piece colour from t0 instead of switching in one frame; 0 = off)}
  * HOW: builder A's kandinsky hooks: fill(ctx, piece, t, info) draws this frame's marbled texture of the piece into its clipped
  * outline; outline(piece, t, info) returns the wobbling edge. The textures are rendered once per frame for all pieces by one
  * small WebGL2 fragment shader (domain-warped fbm marbling, integer hashes: deterministic on SwiftShader) into an atlas canvas
@@ -195,14 +196,17 @@ function palOf(it, P, col) {
 function fill(it, ctx, P, t, info) {
   (it._col || (it._col = {}))[P.name] = info.color;
   const bx = pieceBox(P), cv = atlas(it, t);
-  if (cv) { const s = it.slot[P.name]; ctx.drawImage(cv, s[0], s[1], s[2], s[3], bx[0], bx[1], bx[2], bx[3]); return true; }
+  // assembler: fadeIn floods the marbling in over the piece's flat colour (a pure function of t)
+  const fi = it.o.fadeIn ? smooth(pr(t, it.t0, it.o.fadeIn)) : 1, A0 = ctx.globalAlpha;
+  if (fi < 1) { ctx.fillStyle = info.color; ctx.fillRect(bx[0] - 20, bx[1] - 20, bx[2] + 40, bx[3] + 40); ctx.globalAlpha = A0 * fi; }
+  if (cv) { const s = it.slot[P.name]; ctx.drawImage(cv, s[0], s[1], s[2], s[3], bx[0], bx[1], bx[2], bx[3]); ctx.globalAlpha = A0; return true; }
   // fallback: canvas marbling (flat base + flowing sine veins in the hue family)
   const pal = palOf(it, P, info.color), T = flowT(it, t);
   ctx.fillStyle = pal[0]; ctx.fillRect(bx[0], bx[1], bx[2], bx[3]);
   ctx.lineWidth = bx[3] * .06; ctx.lineCap = 'round';
   for (let k = 0; k < 9; k++) { ctx.strokeStyle = pal[1 + k % 4]; ctx.globalAlpha *= 1; ctx.beginPath();
     for (let i = 0; i <= 24; i++) { const u = i / 24, x = bx[0] + u * bx[2], y = bx[1] + (k + .5) / 9 * bx[3] + Math.sin(u * 6 + T + k) * bx[3] * .06; i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); } ctx.stroke(); }
-  return true;
+  ctx.globalAlpha = A0; return true;
 }
 HP.lib.fluid = { PAL, atlas, wobblePath, glInit };
 })();

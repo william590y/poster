@@ -206,7 +206,8 @@ HP.on('built', () => {
       specs.push({ id: `${it.id}-${key}`, at: f.at ?? it[anchor], ...f, [role]: [it.id] });
     }
   }
-  specs.forEach((s, k) => { if (s.enabled === false) return; const tr = compile(s, k); if (tr) S.list.push(tr); });
+  // assembler (rev2): an entry's "skipIn": [edl names] skips it in those EDLs, as for items
+  specs.forEach((s, k) => { if (s.enabled === false || (Array.isArray(s.skipIn) && s.skipIn.includes(HP.EDL_NAME))) return; const tr = compile(s, k); if (tr) S.list.push(tr); });
   for (const it of HP.ITEMS) if (it._trIn || it._trOut) patchVisibility(it);
   S.list.sort((x, y) => x.a - y.a);
 });
@@ -369,6 +370,17 @@ register('fold', {
   },
 });
 
+// assembler (rev2): focus may name a chart point, {"item": <chart id>, "point": k, "series": 0}: the frame px of that data point
+// (charts.js it.X / it.Y) with the chart's own slow drift at the window start; resolved once per transition (pure)
+function focusOf(tr) {
+  const f = tr.p.focus;
+  if (!f || Array.isArray(f)) return f || null;
+  if (tr._focus) return tr._focus;
+  const it = HP.ITEMS.find(i => i.id === f.item), S = it && it.S && it.S[f.series || 0], q = S && S.pts && S.pts[f.point ?? S.pts.length - 1];
+  if (!q || !it.X || !it.Y) { HP.INFO.push(`transition ${tr.id}: focus ${JSON.stringify(f)} is not a chart point (using the out item's centre)`); return (tr._focus = null); }
+  const d = it.d, ox = (d.x ?? 120) + (d.w ?? 820) / 2, oy = (d.y ?? 700) + (d.h ?? 600) / 2, k = lerp(1, d.drift ?? 1.035, E.ioSine(it.life(tr.a)));
+  return (tr._focus = [ox + (it.X(q.xn) - ox) * k + (f.dx || 0), oy + (it.Y(q.y) - oy) * k + (f.dy || 0)]);
+}
 // ---------------------------------------------------------------- zoomthrough: push into a detail of the outgoing frame
 // params: focus [x, y] frame px (default: the centre of the out item's rect), r (detail radius px, 120), shape 'circle' | 'rect',
 // rim (colour of the portal ring: 'pink'), lines (speed lines: true)
@@ -376,7 +388,7 @@ register('zoomthrough', {
   dur: 1.5, lead: .62, ground: ['in'], defaults: { r: 120, shape: 'circle', rim: 'pink', lines: true },
   apply(tr, t, u, X) {
     const p = tr.p, C = [540, 960];
-    const F = p.focus || rectC(itemRect(tr.outs[0], p)), r = p.r, Zf = 540 / r;
+    const F = focusOf(tr) || rectC(itemRect(tr.outs[0], p)), r = p.r, Zf = 540 / r;
     // zoom path: slow start, fast through the impact, settling (log-space ease); the focus drifts to the frame centre
     const z = Math.pow(Zf, E.ioCub(clamp(u / .92))), w = E.ioSine(clamp(u / .92));
     const sf = [lerp(F[0], C[0], w), lerp(F[1], C[1], w)], c = [F[0] - (sf[0] - C[0]) / z, F[1] - (sf[1] - C[1]) / z];
@@ -492,6 +504,9 @@ register('shatter', {
     }
     // shards: clones of the out layer clipped to each cell, flying out from the impact with spin, tumble and gravity
     const lt = (u - h) * tr.D;
+    // assembler (rev2): the shards ARE the outgoing frames' footage/screenshots: when an out layer carries declared imagery the
+    // overlay is declared too (coverage.py), as particles does; the clones keep their own data-hp-img markers as well
+    if (X.outs.some(e => e.querySelector('[data-hp-img]'))) HP.markImagery(ctx.canvas, tr.id);
     for (const e of X.outs) {
       setStyle(e, 'visibility', 'hidden');
       for (const cl of cells) {

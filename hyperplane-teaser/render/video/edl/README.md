@@ -997,3 +997,35 @@ two generators (transition retimings, the riff break, the short's splice iris an
   window (quadratic ease, to ~5 %), with ghost copies trailing (motion blur).
 - **netviz.js** tower `beatGlow` (0..1): the blocks bloom on every beat, one after another up the residual river.
 - **check/coverage.py** `--min-area` default 0.12 (was 0.02).
+
+## Fixer r3 (11 Oct 2026): the critics' notes on the r2 cuts
+William's feedback log still had no note on the showcase, so the director and "william" critic lists were the brief. EDL changes live
+in `edl/rev2_parts.py` (`fixer_r3`, `fixer_r3_fx`, `prelude_kicks_r3`, `r3_prelude_tr`, `WARM_BLOOM`, `PAINT_MASK_OUTRO`) and the two
+generators (`HOLD_PAST` 1.0 s, the tower b-roll in the verse wipe, the short's chart-gw). Engine changes are opt-in fields:
+- **transitions.js** shatter `head` (s of shard flight already run at the impact: the drop frame is the incoming world with debris
+  flying, not the old stack under a veil) and `back` (colour: a shard turned past 90 deg shows its paper back, no mirrored text).
+- **screens.js** piles: `chips: "all"` (every landed card keeps its outlet/date chip unless a newer card's chip sits on it);
+  `chipFit` (default on: a chip types fast enough to be complete before the next card lands, >= 60 cps); a shot's `dx`/`dy` nudge
+  after the layout; the pile canvas counts as imagery only once a card has landed; `it.stamps()` for coverage.py. Panels:
+  `creditCps` (typewriter speed, default 50), `creditUntil` (time ref: the credit chip leaves before a pile lands on its slot).
+- **netviz.js** tower: `tagPx` (block tags, 26), `tokPx` (token words, 44), `tokGap` (px: the token words are spread apart, never
+  overprinted), `tagBlocks` (label only the first N blocks), `emissive` (0..1: additive cell faces, brighter edges, a bloom sprite
+  always on), `headScale`; the attention tag is clamped clear of the right edge and rail by its own width.
+- **beatfx.js** `paintMask[].fade` (s: the erase ramps in; the instrumental's splats wash out before the cover's flash).
+- **singularity.js** `burst.flashColor` (any CSS background, e.g. `WARM_BLOOM`, a warm radial gradient; core's flash layer takes
+  gradients as its colour, so `fx: flash` can bloom radially too).
+- **core.js** `HP.probe.items()` reports `stamps`.
+- **check/coverage.py** tightened (william, high: the r2 "100 %" counted non-footage): `--min-op` 0.5 (was 0.3); transition overlays
+  (`tr-*`) and `net` canvases never count; a pile counts once a card has landed; gaps of <= `--transient` (2) frames are listed apart;
+  new **stamps** check (each pile chip typed before the next card lands and >= 0.3 s before the pile leaves).
+
+What changed on screen: f393 is a one-frame white flash and f394 the cream world at full contrast with shards already flying; the
+riff's Helios ghost at op 0.5 from the drop and the agents footage in the pink disc from hb:0.75; the prelude pushes on every grid
+beat (bars 11 %, beats 6.5 %), with one jump-cut reframe per speaker (Altman hb:-24, Amodei hb:-12) and Amodei re-cropped round his
+face and chair; the 3D tower over the Stargate Abilene rack aisle (op 0.62), dollied in, glowing, 34 px tags; DPO clear of Amodei's
+caption; the green TechCrunch card's phrase clear of the grey card; chips complete on 8th-note piles; a red '2023' chip on the BBC/FLI
+cards; an iris through a Kandinsky circle instead of the second paint wipe (hb:73); the sung 'out' gets an orange slap and a jolt;
+the fog is cut on the burst and the burst is a warm radial bloom (no grey veil); the instrumental orbits on 8ths (hb:113-117.5) then
+zooms Dario's disc up (hb:118-121.5), his name line on a paper plate, the Stargate ghost at op 0.5, its credit clear of the splats;
+splats and his face wash out over the last 0.3 s; the cover holds 1.0 s past the music (long 75.30 s, short 36.59 s); the short has
+the build-out chart back at hb:96-100.6.

@@ -715,7 +715,7 @@ function drawTower(it, t) {
   it.blkTags.forEach((tg, l) => {
     const b = Lo.blocks[l];
     if (d.tagBlocks !== undefined && l >= d.tagBlocks) { tg.attn.style.opacity = 0; tg.mlp.style.opacity = 0; tg.res.style.opacity = 0; return; }   // fixer r3
-    { const q = prj(Lo.wR / 2 + 1.6, b.attnY + 1.5, 0); q.x = Math.min(q.x, 860); place(tg.attn, q, lo * (fi >= 2 * l + 0.5 || back ? 1 : 0.0)); }
+    { const q = prj(Lo.wR / 2 + 1.6, b.attnY + 1.5, 0); q.x = Math.min(q.x, 860, (q.y > 990 ? 926 : 1010) - tg.attn.offsetWidth / 2); place(tg.attn, q, lo * (fi >= 2 * l + 0.5 || back ? 1 : 0.0)); }   // fixer r3: a wider tag keeps clear of the edge / rail
     place(tg.mlp, prj(-(Lo.wR / 2 + 2.8), b.mlpY + 1.15, 1.0), lo * (fi >= 2 * l + 1.5 || back ? 1 : 0.0));
     place(tg.res, prj(0, b.attnY + 2.4, 0.3), l === 0 ? clamp((t - it.t0) / 0.2) : 0);
     tg.attn.style.background = back ? C.orange : C.cream; tg.mlp.style.background = back ? C.orange : C.cream;

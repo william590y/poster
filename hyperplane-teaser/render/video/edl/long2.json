@@ -345,17 +345,9 @@
      {
       "phrase": "most likely",
       "style": "underline",
-      "at": "song:8.42",
-      "dur": 0.28,
-      "color": "#F2C300",
-      "width": 7
-     },
-     {
-      "phrase": "end of the world",
-      "style": "circle",
-      "at": "hb:-18",
+      "at": "song:8.347",
       "dur": 0.24,
-      "color": "#FF2E88",
+      "color": "#F2C300",
       "width": 7
      }
     ]
@@ -2067,7 +2059,7 @@
    "font": {
     "family": "'IBM Plex Mono', monospace",
     "weight": 600,
-    "size": 28
+    "size": 27
    },
    "color": "#15131F",
    "roll": {
@@ -4980,7 +4972,7 @@
    "t0": "hb:73",
    "t1": "hb:74.75",
    "stamp": {
-    "x": 820,
+    "x": 690,
     "y": 985,
     "year": "2023",
     "yrPx": 60
@@ -6644,7 +6636,7 @@
    "type": "clip",
    "prep": "clip",
    "t0": "hb:107",
-   "t1": "hb:112",
+   "t1": "hb:112.07",
    "src": "clips/bengio-fog-loss-of-control-ted2025.mp4",
    "in": 11.142,
    "box": {
@@ -6879,7 +6871,7 @@
   {
    "id": "ghost-out",
    "type": "panel",
-   "t0": "hb:112.5",
+   "t0": "hb:112",
    "t1": "hb:124",
    "prep": "clip",
    "broll": "stargate-abilene-oracle",
@@ -6894,8 +6886,8 @@
    },
    "entry": {
     "style": "fade",
-    "at": "hb:112.5",
-    "dur": 0.5
+    "at": "hb:112",
+    "dur": 0.1
    },
    "out": {
     "style": "fade",

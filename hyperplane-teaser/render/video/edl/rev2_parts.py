@@ -1144,7 +1144,11 @@ def fixer_r3(items, cut):
         al['pulses'] = prelude_kicks_r3(6.10, 10.833)
         al['zoom'] = [1.0, 1.0]
         al['punch'] = [{'at': 'hb:-24', 'z': 1.08, 'dur': 0.034}, {'at': 'hb:-20', 'z': 1.03, 'dur': 0.1}, {'at': 'song:10.04', 'z': 1.03, 'dur': 0.12}]
-        al['caption']['marks'] = al['caption']['marks'] + [{'phrase': 'end of the world', 'style': 'circle', 'at': 'hb:-18', 'dur': 0.24, 'color': '#FF2E88', 'width': 7}]
+        # the 'most likely' underline completes ON hb:-22 (a pencil mark landing on the beat); a circle on 'end of the world' (asked
+        # for) cannot: 'world' is lit at 4.28 and the paint wipe to Amodei starts at 4.51 (it was covered half-drawn: dropped)
+        for m in al['caption']['marks']:
+            if m['phrase'] == 'most likely':
+                m.update({'at': f'song:{hb_song(-22) - 0.24:.3f}', 'dur': 0.24})
     # (director, low) Amodei was a small seated figure in a wide stage shot: the crop is ~4:3 around his face and chair (source x
     # 315-695, y 200-490 of 1280x720: the Axios wall, his chair and the neighbouring chair's edge stay in frame, framing only)
     if has('amodei'):
@@ -1173,6 +1177,7 @@ def fixer_r3(items, cut):
     # (director, low) the riff's credit stack was 2-3 lines of small mono: one line, outlet and year
     if has('riff-credit'):
         g['riff-credit']['text'] = "AGENTS' LAST EXAM 2026 · NVIDIA 2025 · GALAXY 2026"
+        g['riff-credit']['font'] = {**g['riff-credit']['font'], 'size': 27}   # one line clear of the rail under the title close-ups (1.08x)
     # ---- VERSE 1 ----------------------------------------------------------------------------------------------------------
     # (director, low) the DPO equation overprinted Amodei's caption: it sits 65 px lower and 10 % smaller (clear of the caption's
     # name line; the TechCrunch card's zone starts at y 1350)
@@ -1217,7 +1222,7 @@ def fixer_r3(items, cut):
                 s['label'] = 'FLI · MAR 22, 2023'
         # the stack buries each card's chip under the next card 0.24 s later: a big red '2023' year chip slams in beside the two
         # 2023 cards on hb:73 and holds until the CNN 2026 card has landed (hb:74.75): old vs new reads at a glance
-        insert_after('pile-before', {'id': 'r3-yr-2023', 'type': 'stamp', 't0': 'hb:73', 't1': 'hb:74.75', 'stamp': {'x': 820, 'y': 985, 'year': '2023', 'yrPx': 60},
+        insert_after('pile-before', {'id': 'r3-yr-2023', 'type': 'stamp', 't0': 'hb:73', 't1': 'hb:74.75', 'stamp': {'x': 690, 'y': 985, 'year': '2023', 'yrPx': 60},
                                      'enter': {'style': 'slam', 'dur': 0.12}, 'exit': {'style': 'fade', 'dur': 0.15}, 'theme': 'dark',
                                      '_note': 'FIXER r3 (william, medium): the BBC (May 2, 2023) and FLI (Mar 22, 2023) cards carry their year'})
         # (director, low) the second paint wipe in 9 s (hb:64, hb:73): the 'before' cards open out of a spinning Kandinsky circle
@@ -1231,8 +1236,10 @@ def fixer_r3(items, cut):
         insert_after('brutal', {'id': 'r3-out-slap', 'type': 'splat', 't0': 'song:72.78', 'at': 'song:72.80', 't1': 'hb:112', 'x': 830, 'y': 1150,
                                 'r': 130, 'color': '#FF4A1C', 'dir': -25, 'sats': 70, 'spikes': 8, 'drips': 2, 'spread': 1.25, 'layer': 'paint-god',
                                 '_note': "FIXER r3 (director, low): the sung 'out' gets its own slap"})
-    if has('fog'):
-        g['fog'].update({'t1': 'hb:112', 'exit': 'cut'})
+    if has('fog'):   # cut under the burst's flash (f2021), so the frame under the bloom is still Bengio's footage
+        g['fog'].update({'t1': 'hb:112.07', 'exit': 'cut'})
+    if has('ghost-out'):   # and the Stargate ghost is in by the bloom's second frame (it was hb:112.5: 8 frames without footage)
+        g['ghost-out'].update({'t0': 'hb:112', 'entry': {'style': 'fade', 'at': 'hb:112', 'dur': 0.1}})
     if has('hole'):
         g['hole']['burst'] = {**g['hole']['burst'], 'flash': 0.95, 'flashDecay': 0.07, 'flashColor': WARM_BLOOM}
     # ---- INSTRUMENTAL (director, medium): two beats of intent. hb:113-117.5: the pink and black discs orbit each other on 8ths

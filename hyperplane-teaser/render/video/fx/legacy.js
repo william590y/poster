@@ -272,6 +272,10 @@ class ClipItem extends Item {
     // "freeze": <time>: the picture holds on the frame at that moment (e.g. after the last heard word of a trimmed line)
     this.punch = (d.punch || []).map(p => ({ t: T(p.at), z: p.z ?? 1.03, dur: p.dur ?? 0.08 }));
     for (const p of this.punch) HP.mark(p.t, this.id, 'punch');
+    // fixer r2 "pulses": [{at, z (1.04), dur (0.18)}] the picture pushes in and springs back inside its box (not cumulative, unlike
+    // punch; the caption and stamp stay put): the prelude's pulse as a push on the footage
+    this.pulses = (d.pulses || []).map(p => ({ t: T(p.at), z: p.z ?? 1.04, dur: p.dur ?? 0.18 }));
+    for (const p of this.pulses) HP.mark(p.t, this.id, 'pulse');
     this.freezeLt = d.freeze !== undefined ? T(d.freeze) - this.t0 : undefined;
     // r6 (short) "zoomEase": the slow push's curve over the item's life, "io" (default: ease in-out, so the first and last
     // moments barely move), "out" (moves from frame 0 and settles) or "lin". "snap" {z (1.08), dur (0.25)}: the picture starts
@@ -324,6 +328,7 @@ class ClipItem extends Item {
       let z = lerp(this.zoom[0], this.zoom[1], this.zoomEase(u));
       if (this.snap) z *= lerp(this.snap.z, 1, oCub(pr(lt, 0, this.snap.dur)));
       for (const p of this.punch) if (t >= p.t - EPS) z *= lerp(1, p.z, oCub(pr(t, p.t, p.dur)));
+      { let k = 1; for (const p of this.pulses) { if (t < p.t - EPS) continue; const v = pr(t, p.t, p.dur); if (v < 1) k = Math.max(k, lerp(p.z, 1, oCub(v))); } z *= k; }
       const fx = this.focus[0] * b.w, fy = this.focus[1] * b.h;
       c.setTransform(z, 0, 0, z, fx - fx * z, fy - fy * z);
       c.drawImage(im, 0, 0, b.w, b.h);

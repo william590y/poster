@@ -811,17 +811,17 @@ def _hits():
 
 
 def prelude_kicks(t0_song, t1_song):
-    """the prelude's ~0.49 s pulse as a 1.5-3 % push of the whole footage box (critic: the pulse accents sat in the phone-UI strip):
-    every hits.json prelude_pulse swell (scaled by its strength) plus the grid's bar downbeats"""
+    """the prelude's ~0.49 s pulse as a 3-5.5 % push of the picture inside its box (critic: the pulse accents sat in the phone-UI
+    strip): every hits.json prelude_pulse swell (scaled by its strength) plus the grid's bar downbeats (legacy clip "pulses")"""
     ks = []
     bars = [hb_song(i) for i in (-24, -20, -16, -12, -8)]
     for b in bars:
         if t0_song + 0.05 <= b < t1_song - 0.1:
-            ks.append({'at': f'song:{b:.3f}', 's': 1.032, 'dur': 0.2})
+            ks.append({'at': f'song:{b:.3f}', 'z': 1.055, 'dur': 0.22})
     for p in _hits().get('prelude_pulse', []):
         s = p['t']
         if t0_song + 0.05 <= s < t1_song - 0.1 and all(abs(s - b) > 0.15 for b in bars):
-            ks.append({'at': f'song:{s:.3f}', 's': round(1.014 + 0.018 * min(1, p.get('s', 0.5)), 4), 'dur': 0.16})
+            ks.append({'at': f'song:{s:.3f}', 'z': round(1.025 + 0.02 * min(1, p.get('s', 0.5)), 4), 'dur': 0.18})
     return sorted(ks, key=lambda k: float(k['at'][5:]))
 
 
@@ -859,8 +859,7 @@ def fixer_r2(items, cut):
         c['stamp'] = {**c['stamp'], 'y': 262, 'roleColor': '#D8D8E0'}
         c['box'] = {**c['box'], 'y': c['box']['y'] + 16, 'h': c['box']['h'] - 16}
         c['caption'] = {**c['caption'], 'dimOp': 0.5, 'dimHl': 0.58}
-        c['kicks'] = prelude_kicks(s0, s1)
-        c['kickOrigin'] = [540, c['box']['y'] + c['box']['h'] // 2]
+        c['pulses'] = prelude_kicks(s0, s1)
     if has('frame-pencil'):
         g['frame-pencil']['shapes'][0].update({'y': 368, 'h': 900})
     # (director, medium) the classifier sketch sat at y > 1580 under the phone UI with 14 px dots: redrawn beside the caption
@@ -1026,9 +1025,9 @@ def fixer_r2(items, cut):
         g['kc-blue-amodei']['oversample'] = 2.0
     if has('g-cream-b'):   # (william, medium) the instrumental: the Stargate Abilene build-out printed into the cream (multiply 34 %)
         insert_after('g-cream-b', {
-            'id': 'ghost-out', 'type': 'panel', 't0': 'hb:112.5', 't1': 'hb:123.38', 'prep': 'clip', 'broll': 'stargate-abilene-oracle', 'in': 26.0,
+            'id': 'ghost-out', 'type': 'panel', 't0': 'hb:112.5', 't1': 'hb:124', 'prep': 'clip', 'broll': 'stargate-abilene-oracle', 'in': 26.0,
             'speed': 0.5, 'shape': 'rect', 'frame': {'x': 0, 'y': 0, 'w': 1080, 'h': 1920}, 'entry': {'style': 'fade', 'at': 'hb:112.5', 'dur': 0.5},
-            'out': {'style': 'fade', 'at': 'hb:122.6', 'dur': 0.35}, 'border': 'none', 'kb': {'z': [1.0, 1.1]}, 'alpha': 0.3, 'blend': 'multiply',
+            'out': {'style': 'fade', 'at': 'hb:122.9', 'dur': 0.5}, 'border': 'none', 'kb': {'z': [1.0, 1.1]}, 'alpha': 0.3, 'blend': 'multiply',
             'grade': {'sat': 0.3, 'contrast': 0.88, 'brightness': 0.06, 'gamma': 1.5, 'grain': 0},
             'mask': 'linear-gradient(to bottom, transparent 0%, transparent 28%, #000 37%, #000 55%, rgba(0,0,0,0.22) 60%, rgba(0,0,0,0.22) 75%, #000 81%, #000 100%)',
             'theme': 'light', '_note': "FIXER r2: MUTED ghost b-roll under the reassembly (Oracle's Stargate Abilene campus aerial, 2025), multiply 34 %, clear of the karaoke strip"})

@@ -1038,5 +1038,8 @@ with 0.2 the "o" showed 165 ms (4.9 frames) before the sung "out" (song 72.798);
 The other words: "it's" +21 ms, "brutal" +28 ms, "here" +1 ms (first visible paint vs song/hits.json words.brutal_out_here).
 That is the only difference between the r3 EDLs and the rendered ones (a JSON diff of long2/short2 shows that one field).
 - **Memory:** `render.py video long2 --workers 3` was OOM-killed: this box's memory cgroup is 14.3 GB and one rev2 Chromium page
-  peaks at ~6.5 GB (2.2 GB anon + 4.2 GB shared). Render the rev2 cuts with one worker (0.5-0.6 s/frame; long ~22 min, short
-  ~11 min), one cut at a time. Deliverables, measurements and ear checks: `out/rev2/NOTES.md`.
+  peaks at ~6.5 GB (2.2 GB anon + 4.2 GB shared). Render the rev2 cuts with one worker, one cut at a time (measured in this pass: long
+  1.05 s/frame = 39 min, short 0.93 s/frame = 17 min).
+  Deliverables, measurements and ear checks: `out/rev2/NOTES.md`.
+- **Checks of the final pass** live in `render/video/check/final/` (`verify_final.py`, `captions_final.py`, `words_final.py`,
+  `sheet_final.py`, `contents_final.py`; usage in `out/rev2/NOTES.md`, "Rebuild").

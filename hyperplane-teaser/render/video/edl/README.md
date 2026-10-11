@@ -983,10 +983,12 @@ William's feedback log still had no note, so the director and "william" critic l
 two generators (transition retimings, the riff break, the short's splice iris and loop). Engine changes are opt-in fields:
 - **core.js** (any item): `alpha` (multiplies the layer opacity), `blend` (mix-blend-mode, e.g. `multiply`), `mask` (a CSS mask-image on
   the layer). Used for the ghost b-roll layers printed into the cream (`ghost-riff`, `ghost-out`, the short's `ghost-loop-s`).
-- **legacy.js** stamp `roleColor`. **screens.js** panel `entry: "fade"`.
+- **legacy.js** stamp `roleColor`; clip `pulses: [{at, z (1.04), dur (0.18)}]` (the picture pushes in and springs back inside its
+  box, not cumulative like `punch`; caption and stamp stay put: the prelude's pulse). **screens.js** panel `entry: "fade"`.
 - **kandinsky.js** moves `thicken {at, back, k, dur}` (the band widens across its own axis; the river keeps its vectors' shape and
   spreads its lanes; `geom` reports the thickness, so a frame morphing out of the band starts wide) and `grow {pieces, from, to, scale,
-  dx, dy, dur}`; `superpose` takes `reach` (vectors past the circle), `flash` (2-frame colour-cycling flash on every beat), `wK`.
+  dx, dy, op, dur}` (a footage disc made big while it carries a speaker; `op` fades a piece, e.g. the teal moon that would orbit
+  inside the grown blue disc); `superpose` takes `reach` (vectors past the circle), `flash` (2-frame colour-cycling flash on every beat), `wK`.
 - **beatfx.js** EDL top-level `paintMask: [{layer, from, to, rect, feather}]` (erased from a shared paint canvas after everything has
   painted: no splat under the title band); splat silhouettes vary per key (flick / blot / spray); pencil weight and alpha vary per mark.
 - **transitions.js** fold: the flap stays a lifted, lit quad (168 deg) until the packet flies, with a light-to-shadow gradient, paper

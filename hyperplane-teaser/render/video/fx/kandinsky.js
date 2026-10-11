@@ -240,7 +240,7 @@ const MOVES = {
     const a = ST(m.from, 1e9), b = ST(m.to, 1e9), d = m.dur ?? .25, ps = sel(m.pieces, it.names), sc = m.scale ?? 1.5;
     it.mark(a, 'grow');
     return (t, P) => { const u = E.oBack(pr(t, a, d), 1.6) * (1 - E.ioCub(pr(t, b, d))); if (Math.abs(u) < 1e-4) return;
-      for (const k of ps) { const s = 1 + (sc - 1) * u; P[k].sx *= s; P[k].sy *= s; P[k].dx += (m.dx || 0) * u; P[k].dy += (m.dy || 0) * u; } };
+      for (const k of ps) { const s = 1 + (sc - 1) * u; P[k].sx *= s; P[k].sy *= s; P[k].dx += (m.dx || 0) * u; P[k].dy += (m.dy || 0) * u; if (m.op !== undefined) P[k].op *= lerp(1, m.op, clamp(u)); } };
   },
   // river / superpose: overlays drawn by the item (the band flows with vectors swimming in it; the superposition burst)
   river(m, it) { const a = ST(m.from ?? m.at, it.t0), b = ST(m.to, it.t1); it.overlays.push({ kind: 'river', m, a, b }); onTimes({ from: Math.ceil(HP.beatAt(a) - 1e-6), to: Math.floor(HP.beatAt(b) - 1e-6) }).forEach(x => it.mark(x, 'river')); return null; },

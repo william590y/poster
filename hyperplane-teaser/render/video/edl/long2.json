@@ -1506,6 +1506,17 @@
      "dx": -60,
      "dy": -40,
      "dur": 0.25
+    },
+    {
+     "move": "grow",
+     "pieces": [
+      "teal"
+     ],
+     "from": "hb:3.25",
+     "to": "hb:7.75",
+     "scale": 0.5,
+     "op": 0,
+     "dur": 0.25
     }
    ],
    "dotScale": 3.0,
@@ -1692,23 +1703,23 @@
    "id": "r2-burst-3",
    "type": "splat",
    "at": "hb:3",
-   "t1": "hb:7.5",
+   "t1": "hb:6.5",
    "x": 245,
-   "y": 616,
-   "r": 95,
-   "color": "#15131F",
-   "dir": -150,
+   "y": 640,
+   "r": 90,
+   "color": "#FF4A1C",
+   "dir": 110,
    "sats": 70,
    "spikes": 9,
    "drips": 1,
-   "spread": 3.0,
+   "spread": 1.1,
    "satMax": 0.2,
    "cull": {
-    "at": "hb:6.5",
-    "dur": 0.5
+    "at": "hb:5.25",
+    "dur": 0.4
    },
    "layer": "paint",
-   "_note": "FIXER r2: ink droplets burst out of the black disc on hb:3 (with the blue pop and a 5 % camera punch)"
+   "_note": "FIXER r2: droplets burst out of the black disc on hb:3 (with the blue pop and a 5 % camera punch), flying down, away from Coxon's caption"
   },
   {
    "id": "r2-plane-0",
@@ -1855,23 +1866,6 @@
    "_note": "AUDIBLE over the riff (vocal-free 19.0-26.9): '…restarted the thing, and it did it again.' (clips/transcripts/coxon.json; small.en on the window). 'Like,' ends 452.27 and the gap 452.28-452.53 is silent, so the in-point carries none of it"
   },
   {
-   "id": "coxon-stamp",
-   "type": "stamp",
-   "t0": "song:21.1",
-   "t1": "hb:9.25",
-   "stamp": {
-    "x": 64,
-    "y": 262,
-    "yrPx": 36,
-    "year": "2026",
-    "name": "Jacob Coxon",
-    "role": "on OpenAI's escaped agent",
-    "w": 900
-   },
-   "meta": 28,
-   "name_px": 30
-  },
-  {
    "id": "kar-coxon",
    "type": "karaoke",
    "t0": "song:21.1",
@@ -1939,7 +1933,28 @@
      "color": "#FF2E88",
      "width": 7
     }
-   ]
+   ],
+   "plate": {
+    "color": "rgba(242,235,221,0.9)",
+    "pad": 14
+   }
+  },
+  {
+   "id": "coxon-stamp",
+   "type": "stamp",
+   "t0": "song:21.1",
+   "t1": "hb:9.25",
+   "stamp": {
+    "x": 64,
+    "y": 262,
+    "yrPx": 36,
+    "year": "2026",
+    "name": "Jacob Coxon",
+    "role": "on OpenAI's escaped agent",
+    "w": 900
+   },
+   "meta": 28,
+   "name_px": 30
   },
   {
    "id": "credit-coxon",
@@ -6860,6 +6875,17 @@
      "scale": 1.5,
      "dx": -30,
      "dy": -40,
+     "dur": 0.3
+    },
+    {
+     "move": "grow",
+     "pieces": [
+      "teal"
+     ],
+     "from": "hb:113.5",
+     "to": "hb:122.6",
+     "scale": 0.5,
+     "op": 0,
      "dur": 0.3
     }
    ]

@@ -925,7 +925,9 @@ def fixer_r2(items, cut):
             {'move': 'bump', 'pieces': ['blue'], 'on': ['hb:3'], 'scale': 1.28, 'dur': 0.24},
             {'move': 'bump', 'pieces': ['black', 'core'], 'on': ['hb:1', 'hb:2'], 'scale': 1.18, 'dur': 0.2},
             # (william, medium) footage at 15 % of the frame: Coxon's disc grows to ~390 px while he speaks (back for the title)
-            {'move': 'grow', 'pieces': ['blue'], 'from': 'hb:3.25', 'to': 'hb:7.75', 'scale': 1.6, 'dx': -60, 'dy': -40, 'dur': 0.25}]
+            {'move': 'grow', 'pieces': ['blue'], 'from': 'hb:3.25', 'to': 'hb:7.75', 'scale': 1.6, 'dx': -60, 'dy': -40, 'dur': 0.25},
+            # its teal moon would orbit inside the grown disc (over his face): it shrinks away while he speaks
+            {'move': 'grow', 'pieces': ['teal'], 'from': 'hb:3.25', 'to': 'hb:7.75', 'scale': 0.5, 'op': 0, 'dur': 0.25}]
     riff_paint = [
         {'id': 'r2-spray-1', 'type': 'splat', 'at': 'hb:1', 't1': 'hb:6', 'x': 170, 'y': 1440, 'r': 110, 'color': 'orange', 'dir': 200,
          'sats': 80, 'spikes': 6, 'drips': 0, 'spread': 1.3, 'satMax': 0.2, 'cull': {'at': 'hb:5', 'dur': 0.5}, 'layer': 'paint',
@@ -933,9 +935,9 @@ def fixer_r2(items, cut):
         {'id': 'r2-spray-2', 'type': 'splat', 'at': 'hb:2', 't1': 'hb:7.5', 'x': 860, 'y': 1330, 'r': 150, 'color': 'pink', 'dir': -25,
          'sats': 110, 'spikes': 7, 'drips': 2, 'spread': 1.35, 'satMax': 0.22, 'cull': {'at': 'hb:6.5', 'dur': 0.6}, 'layer': 'paint',
          '_note': 'FIXER r2: a pink spray with droplets across the frame on hb:2 (with the 3-stroke yellow plane sweep)'},
-        {'id': 'r2-burst-3', 'type': 'splat', 'at': 'hb:3', 't1': 'hb:7.5', 'x': 245, 'y': 616, 'r': 95, 'color': '#15131F', 'dir': -150,
-         'sats': 70, 'spikes': 9, 'drips': 1, 'spread': 3.0, 'satMax': 0.2, 'cull': {'at': 'hb:6.5', 'dur': 0.5}, 'layer': 'paint',
-         '_note': 'FIXER r2: ink droplets burst out of the black disc on hb:3 (with the blue pop and a 5 % camera punch)'},
+        {'id': 'r2-burst-3', 'type': 'splat', 'at': 'hb:3', 't1': 'hb:6.5', 'x': 245, 'y': 640, 'r': 90, 'color': '#FF4A1C', 'dir': 110,
+         'sats': 70, 'spikes': 9, 'drips': 1, 'spread': 1.1, 'satMax': 0.2, 'cull': {'at': 'hb:5.25', 'dur': 0.4}, 'layer': 'paint',
+         '_note': "FIXER r2: droplets burst out of the black disc on hb:3 (with the blue pop and a 5 % camera punch), flying down, away from Coxon's caption"},
     ]
     # the yellow plane swept across the full width as three dry-brush strokes (hb:1.75, 1.875, 2): along the band, above, below
     BY = lambda X, off: round(1073.4 - 0.404 * X + off, 1)
@@ -970,6 +972,10 @@ def fixer_r2(items, cut):
         g['coxon-stamp']['meta'] = 28; g['coxon-stamp']['name_px'] = 30
     if has('kar-coxon'):
         g['kar-coxon']['roll'] = {**g['kar-coxon']['roll'], 'dim': 0.55}
+        # the riff's close-ups (hb:5-7) zoom the black disc up under Coxon's caption: ink words on ink; a paper plate keeps them read
+        g['kar-coxon']['plate'] = {'color': 'rgba(242,235,221,0.9)', 'pad': 14}
+        if has('coxon-stamp'):   # the year chip, name and role sit on top of the plate
+            out.remove(g['coxon-stamp']); out.insert(out.index(g['kar-coxon']) + 1, g['coxon-stamp'])
     # ---- VERSE / CHORUS (long) -----------------------------------------------------------------------------------------
     # (director, low) Hinton's portrait arrived over the 'Anthropic researcher ... 10%' card: it now pops in with his own Guardian
     # card (hb:21.5), so his face never sits on another speaker's claim
@@ -1021,6 +1027,7 @@ def fixer_r2(items, cut):
         kr['moves'] = [m for m in kr['moves'] if not (m.get('move') == 'bump' and m.get('on') == ['hb:124'])]
         # (william, medium) Dario's disc ~250 px: it grows to ~370 px while he speaks, back home before the settle
         kr['moves'].append({'move': 'grow', 'pieces': ['blue'], 'from': 'hb:113.5', 'to': 'hb:122.6', 'scale': 1.5, 'dx': -30, 'dy': -40, 'dur': 0.3})
+        kr['moves'].append({'move': 'grow', 'pieces': ['teal'], 'from': 'hb:113.5', 'to': 'hb:122.6', 'scale': 0.5, 'op': 0, 'dur': 0.3})
     if has('kc-blue-amodei'):
         g['kc-blue-amodei']['oversample'] = 2.0
     if has('g-cream-b'):   # (william, medium) the instrumental: the Stargate Abilene build-out printed into the cream (multiply 34 %)

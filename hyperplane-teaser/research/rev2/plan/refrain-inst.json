@@ -1,0 +1,5555 @@
+{
+ "key": "refrain-inst",
+ "span": [
+  57.94,
+  80.4
+ ],
+ "span_beats": "hb:80 (57.942, the refrain downbeat) .. hb:126 (80.200); the cut ends at song 80.40",
+ "time_base": "refs are hits.json beats (hb:i, song = 19.232 + i * 60/124) or song seconds (song:s); they resolve through each EDL's song.segments. LONG (the intro cut, continuous): edit = song - 6.10. SHORT (spliced at song 26.477 -> 65.188): edit = song - 44.811 after the splice; only items whose times are all >= 65.188 exist there (see short_entrance).",
+ "shape": [
+  "bar 20-24 (hb:80-100) LOOP-A WORLD: a small loop (c 540,760, r 210) over the yellow plane band flowing as a river, footage in its centre that changes every bar (agent CAD -> 60 Minutes' blackmail screen -> a spinning humanoid -> Amodei -> the Stargate aerial), and the facts in the bottom zone, one lyric line per bar, each change a transition: DNS/CSO pile (try my best) -FOLD- GRPO's advantage (the 'thanks') -SHATTER- release pace (unrelentlessly) -PAGE TURN- Amodei audible 'We can't yet fully close the loop.' -WHIP- the data-centre build-out drawn on 32nds with 'golden age' marked on 'golden'. Laps: 2 bars, 1 bar x2, 2 beats x2.",
+  "hb:100 ZOOM-THROUGH on 'disappear' into the Abilene aerial: LOOP-B WORLD (hb:100-108): the big loop (r 300) over the cover's pieces (footage in the pink and blue discs, fluid colour, orbits on 8ths), laps 1 beat x4 then 8ths x8; the black hole opens on 'disappear', screenshots pile in on beats (disappear: shutdown resistance / covered tracks; the loop's own news: When AI builds itself / intelligence explosion; ego crush: mathematicians), and from 'Ego' everything spirals in; the loop collapses; the hole snaps shut on 'God,'.",
+  "bar 27 (hb:108-112) GOD: night, the fog footage, 'it's brutal out here' painted on the sung words.",
+  "bar 28-31 (hb:112-126) INSTRUMENTAL: the burst; the logo flies back out of the hole and reassembles with fluid colour; Amodei closes the loop he opened: '…positive feedback loop, that cycle, it's not yet going super fast, but it's definitely started.' (audible, karaoke, his face in the blue disc); exact cover hold from hb:124."
+ ],
+ "beats": [
+  {
+   "i": 80,
+   "song": 57.942,
+   "bar": 20,
+   "beat_in_bar": 1,
+   "section": "rf",
+   "flags": {
+    "kick": 1.0,
+    "accent": 0.69
+   },
+   "events": [
+    "BAR 20 DOWNBEAT (refrain, after the 57.22-57.94 fill; 'All I did' from 57.70): IRIS tr-refrain-in: the chorus closes into a spinning pink-rimmed circle at the loop centre and the cream refrain world opens out of it (flash 0.3, 8 px shake)",
+    "the yellow plane band is painted across the frame in one stroke (kand-a) and starts to flow as a river",
+    "loop-a: a pink bristle ring is painted on clockwise over this beat; the comet ignites at the top node (lap 1 = 2 bars)",
+    "beatfx bar: splat in a margin + shake; whole-art pulse accent",
+    "[+0.25] cp-try irises open inside the ring: GPT-6 Astra building a turbofan in SolidWorks; credit chip types on",
+    "[+0.5] node 'AI does AI research' pops (pink disc, robot icon), its label rolls out on 16ths; title 'AI' lands; vectors start swimming along the band"
+   ]
+  },
+  {
+   "i": 81,
+   "song": 58.426,
+   "bar": 20,
+   "beat_in_bar": 2,
+   "section": "rf",
+   "flags": {
+    "snare": 0.83,
+    "accent": 0.49
+   },
+   "events": [
+    "DNS screenshot SLAMS into the bottom zone (punch + 6 px shake): 'An agent used DNS to reach an external chatbot'; chip OPENAI ALIGNMENT · SEP 25, 2026",
+    "node 'Better AI' pops (blue, chip icon); title 'that'; the band's normal vector is drawn out of it",
+    "[+0.5] yellow marker sweeps the DNS headline; node 'Faster research' pops; title 'builds'; the margin line draws; cp-try kicks"
+   ]
+  },
+  {
+   "i": 82,
+   "song": 58.909,
+   "bar": 20,
+   "beat_in_bar": 3,
+   "section": "rf",
+   "flags": {
+    "kick": 0.96,
+    "hat": 0.25,
+    "accent": 0.73
+   },
+   "events": [
+    "comet lands on 'Better AI' (eased, ON the beat): node bump, orange ring burst, label flash",
+    "CSO 'OpenAI admits six new misalignment incidents under new reporting framework' is PAINTED in through three bristle passes over the DNS card, which dims and blurs",
+    "node 'Even better AI' pops; title 'better'; river surge; cp-try kicks",
+    "[+0.5] marker sweeps 'six new misalignment incidents'; title 'AI' completes"
+   ]
+  },
+  {
+   "i": 83,
+   "song": 59.393,
+   "bar": 20,
+   "beat_in_bar": 4,
+   "section": "rf",
+   "flags": {
+    "snare": 0.75,
+    "hat": 0.45,
+    "accent": 0.52
+   },
+   "events": [
+    "PUSH (z 1.25, kept in the zone) into 'six new misalignment incidents' + LIFT (the phrase's own pixels rise on a paper slip)",
+    "beatfx backbeat (splatS / stamp / jump) + snap; a vector leaps out of the band",
+    "[+0.5] pink pencil underline under the lifted phrase; [+0.62] cp-try collapses (spin-shrink) into the downbeat"
+   ]
+  },
+  {
+   "i": 84,
+   "song": 59.877,
+   "bar": 21,
+   "beat_in_bar": 1,
+   "section": "rf",
+   "flags": {
+    "kick": 1.0,
+    "hat": 0.64,
+    "accent": 1.0
+   },
+   "events": [
+    "BAR 21 DOWNBEAT, accent 1.0 ('Is the kind', pickup 59.76): FOLD tr-fold: the bottom-zone pile folds in half along a horizontal crease (lit paper back) and flies off; the GRPO card unfolds out of it",
+    "GRPO's advantage DROPS glyph by glyph: Â_{i,t} = r̃_i = (r_i − mean(r)) / std(r); its label rolls out (0.05 s/word); orange splat behind the card",
+    "comet lands on 'Faster research'; cp-thanks is PAINTED into the ring stroke by stroke: 60 Minutes' interpretability screen of the blackmail test",
+    "beatfx bar splat + shake; normal/margin bump"
+   ]
+  },
+  {
+   "i": 85,
+   "song": 60.361,
+   "bar": 21,
+   "beat_in_bar": 2,
+   "section": "rf",
+   "flags": {
+    "snare": 1.0,
+    "hat": 0.16,
+    "accent": 0.71
+   },
+   "events": [
+    "pink pencil CIRCLE boils round r_i − mean(r) (your reward minus your group's)",
+    "equation pulse: scale bump, tilt jump, a flash walking along the chunks",
+    "cp-thanks kicks; beatfx backbeat",
+    "[+0.5] cite rolls out: Shao et al. 2024, DeepSeekMath (arXiv:2402.03300), sec. 4.1.2"
+   ]
+  },
+  {
+   "i": 86,
+   "song": 60.845,
+   "bar": 21,
+   "beat_in_bar": 3,
+   "section": "rf",
+   "flags": {
+    "kick": 0.95,
+    "hat": 0.16,
+    "accent": 0.9
+   },
+   "events": [
+    "comet lands on 'Even better AI'",
+    "yellow highlighter sweeps behind Â_{i,t} (the advantage = the 'thanks')",
+    "equation pulse; river surge; cp-thanks kicks"
+   ]
+  },
+  {
+   "i": 87,
+   "song": 61.329,
+   "bar": 21,
+   "beat_in_bar": 4,
+   "section": "rf",
+   "flags": {
+    "snare": 0.97,
+    "hat": 1.0,
+    "accent": 0.86
+   },
+   "events": [
+    "last equation pulse; beatfx backbeat + snap ('I get', 61.28)",
+    "[+0.62] cp-thanks collapses into the downbeat"
+   ]
+  },
+  {
+   "i": 88,
+   "song": 61.813,
+   "bar": 22,
+   "beat_in_bar": 1,
+   "section": "rf",
+   "flags": {
+    "kick": 1.0,
+    "hat": 0.87,
+    "accent": 0.85
+   },
+   "events": [
+    "BAR 22 DOWNBEAT ('Unrelentlessly' 61.70): SHATTER tr-shatter: cracks race out from the circled term, the GRPO card breaks into 12 tumbling shards; underneath, the X post 'you're not crazy … now it's every ~11 days' SLAMS",
+    "comet completes lap 1 at the top: laps drop to ONE BAR (a node every beat from here)",
+    "cp-upset POPS: a Unitree G1 spinning an airflare on its hands inside the ring; beatfx bar",
+    "[+0.5] marker sweeps 'now it's every ~11 days'; TNW 'OpenAI’s chief scientist says no lab should keep scaling at maximum speed' DROPS in (jolt)"
+   ]
+  },
+  {
+   "i": 89,
+   "song": 62.297,
+   "bar": 22,
+   "beat_in_bar": 2,
+   "section": "rf",
+   "flags": {
+    "snare": 0.82,
+    "hat": 0.8,
+    "accent": 0.5
+   },
+   "events": [
+    "comet on 'Better AI'",
+    "marker sweeps 'no lab should keep scaling at maximum speed'; cp-upset kicks; beatfx backbeat",
+    "[+0.5] PUSH + LIFT of 'now it's every ~11 days'; [+0.75] red pencil circle round it"
+   ]
+  },
+  {
+   "i": 90,
+   "song": 62.78,
+   "bar": 22,
+   "beat_in_bar": 3,
+   "section": "rf",
+   "flags": {
+    "kick": 0.95,
+    "hat": 0.67,
+    "accent": 1.0
+   },
+   "events": [
+    "comet on 'Faster research' (accent 1.0); the PAGE TURN begins: the bottom zone curls up from its right edge",
+    "cp-upset kicks; beatfx beat",
+    "[+0.28] cp-upset collapses; [+0.5] tr-turn impact: Amodei's karaoke is under the page; cp-amodei irises open (his close-up, Axios AI+ DC); AUDIO starts 63.00 (music ducked 9 dB) as 'upset' ends (63.14)"
+   ]
+  },
+  {
+   "i": 91,
+   "song": 63.264,
+   "bar": 22,
+   "beat_in_bar": 4,
+   "section": "rf",
+   "flags": {
+    "snare": 1.0,
+    "accent": 0.8
+   },
+   "events": [
+    "comet on 'Even better AI'",
+    "karaoke 'WE' (63.12) and 'CAN'T' (63.30) light up",
+    "beatfx backbeat; cp-amodei pulse"
+   ]
+  },
+  {
+   "i": 92,
+   "song": 63.748,
+   "bar": 23,
+   "beat_in_bar": 1,
+   "section": "rf",
+   "flags": {
+    "kick": 0.95,
+    "hat": 0.62,
+    "accent": 0.73
+   },
+   "events": [
+    "BAR 23 DOWNBEAT (backing 'ah-ah' 63.34-64.82): comet completes lap 2 at the top (one bar again)",
+    "'YET' (63.76), 'FULLY' (63.90) light",
+    "beatfx bar splat; cp-amodei kicks"
+   ]
+  },
+  {
+   "i": 93,
+   "song": 64.232,
+   "bar": 23,
+   "beat_in_bar": 2,
+   "section": "rf",
+   "flags": {
+    "snare": 1.0,
+    "accent": 0.64
+   },
+   "events": [
+    "comet on 'Better AI'",
+    "cp-amodei kicks; beatfx backbeat",
+    "[+0.23] 'CLOSE' lights (64.34)"
+   ]
+  },
+  {
+   "i": 94,
+   "song": 64.716,
+   "bar": 23,
+   "beat_in_bar": 3,
+   "section": "rf",
+   "flags": {
+    "kick": 0.97,
+    "hat": 0.86,
+    "accent": 0.97
+   },
+   "events": [
+    "comet on 'Faster research' (accent 0.97); 'THE' lights (64.72)",
+    "cp-amodei kicks; meta line 'DARIO AMODEI · 2025' finishes typing",
+    "[+0.3] 'LOOP.' lights (64.86); [+0.38] pink pencil underline draws under 'CLOSE THE LOOP.' (64.90-65.12); his voice ends 65.04 (before 'These', 64.95-65.64, is fully up)"
+   ]
+  },
+  {
+   "i": 95,
+   "song": 65.2,
+   "bar": 23,
+   "beat_in_bar": 4,
+   "section": "rf",
+   "flags": {
+    "snare": 1.0,
+    "accent": 0.62
+   },
+   "events": [
+    "LONG: comet on 'Even better AI'; cp-amodei collapses (hb:94.8) and cp-golden irises open: Oracle's aerial of the Stargate Abilene campus",
+    "SHORT: the splice lands 12 ms earlier (65.188); tr-entrance-short (particles) starts ON this snare: the riff's logo breaks into a halftone and its dots peel off as paint particles swirling round the centre",
+    "[+0.5] SHORT: loop-a-s ring paints on clockwise under the swirl; title rolls on 8ths. LONG: tr-whip window opens, the karaoke accelerates off left"
+   ]
+  },
+  {
+   "i": 96,
+   "song": 65.684,
+   "bar": 24,
+   "beat_in_bar": 1,
+   "section": "rf",
+   "flags": {
+    "kick": 1.0,
+    "hat": 0.46,
+    "accent": 1.0
+   },
+   "events": [
+    "BAR 24 DOWNBEAT, accent 1.0 ('days' 65.64): LONG: WHIP impact, the chart decelerates in from the right. SHORT: PARTICLES impact, the swirl lands on the cream loop world and the yellow band is painted across (kand-a-s)",
+    "laps drop to TWO BEATS (a node every 8th): LONG the comet completes lap 3 at the top; SHORT the comet ignites and node 'AI does AI research' pops exactly as it arrives",
+    "chart-dc: axes pencilled in, title 'AI data centres: total power' rolls out on 8ths; beatfx bar",
+    "[+0.25] first point lands (Q1 2024, 0.47 GW) with a ring; the big counter starts ticking; points then land on 32nds",
+    "[+0.5] comet on 'Better AI' (SHORT: that node pops as it is hit); subtitle rolls on 16ths"
+   ]
+  },
+  {
+   "i": 97,
+   "song": 66.167,
+   "bar": 24,
+   "beat_in_bar": 2,
+   "section": "rf",
+   "flags": {
+    "snare": 0.48,
+    "hat": 0.81,
+    "accent": 0.41
+   },
+   "events": [
+    "comet on 'Faster research'; the 7th point lands (Q3 2025, 4.4 GW); counter ticks",
+    "[+0.25] the Guardian 'Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’' SLAMS over the loop title (camera punch)",
+    "[+0.5] comet on 'Even better AI'; points on 16ths (Q4 2025 6.5, Q1 2026 8.1, Q2 2026 11.9)"
+   ]
+  },
+  {
+   "i": 98,
+   "song": 66.651,
+   "bar": 24,
+   "beat_in_bar": 3,
+   "section": "rf",
+   "flags": {
+    "kick": 0.95,
+    "hat": 0.5,
+    "accent": 0.86
+   },
+   "events": [
+    "comet completes lap 4 at the top; THE LAST POINT LANDS: 5 Oct 2026, 13.8 GW, with a splat; the counter hits 13.8 GW",
+    "yellow marker sweeps '‘golden age’' while 'golden' is sung (66.56-66.94)",
+    "[+0.25] annotation: pencil arrow + red circle on the record, '13.8 GW across 93 sites' rolls out with '13.8 GW' highlighted",
+    "[+0.5] comet on 'Better AI'; red pencil circle round 'golden age'; source line 'EPOCH AI · AI DATA CENTERS HUB · UPDATED 5 OCT 2026' types on"
+   ]
+  },
+  {
+   "i": 99,
+   "song": 67.135,
+   "bar": 24,
+   "beat_in_bar": 4,
+   "section": "rf",
+   "flags": {
+    "snare": 0.81,
+    "hat": 0.71,
+    "accent": 0.53
+   },
+   "events": [
+    "comet on 'Faster research' ('years' 66.94-67.44)",
+    "[+0.07] ZOOM-THROUGH tr-dive begins: the camera pushes into the Abilene aerial in the ring's centre, speed lines; the big loop world waits behind a yellow painted portal ring",
+    "[+0.25] inside the portal the big loop's ring starts painting; [+0.5] its first node pops; comet on 'Even better AI'; 'But' (67.44)"
+   ]
+  },
+  {
+   "i": 100,
+   "song": 67.619,
+   "bar": 25,
+   "beat_in_bar": 1,
+   "section": "rf",
+   "flags": {
+    "kick": 1.0,
+    "hat": 1.0,
+    "accent": 0.94
+   },
+   "events": [
+    "BAR 25 DOWNBEAT ('I wish' 67.62): ZOOM-THROUGH impact: we dive into the centre and the big loop (r 300) opens to the full frame; laps drop to ONE BEAT (passes on 16ths)",
+    "the cover's pieces POP in on 32nds (band, dots, pink, black, core ...) over the next 1.6 beats; beatfx bar + whole-art pulse accent 3",
+    "[+0.25] footage fades up inside the pink disc (Galaxy Helios data halls); [+0.5] blue disc: rows of Figure 03 humanoids; Palisade 'Shutdown resistance in reasoning models' SLAMS bottom; the hole appears at the centre; disc credit rolls out"
+   ]
+  },
+  {
+   "i": 101,
+   "song": 68.103,
+   "bar": 25,
+   "beat_in_bar": 2,
+   "section": "rf",
+   "flags": {
+    "snare": 0.74,
+    "hat": 0.67,
+    "accent": 0.38
+   },
+   "events": [
+    "Dawn/AFP 'Rogue OpenAI agents ‘covered up their tracks’' DROPS on top of it; pink and black discs start orbiting (45 degrees a beat); dots jump",
+    "Palisade marker sweeps",
+    "comet passes on 16ths",
+    "[+0.5] Anthropic 'When AI builds itself' SLIDES in at the top; smallO/target/nabla jump; teal orbits the blue disc on 8ths"
+   ]
+  },
+  {
+   "i": 102,
+   "song": 68.587,
+   "bar": 25,
+   "beat_in_bar": 3,
+   "section": "rf",
+   "flags": {
+    "kick": 1.0,
+    "hat": 0.37,
+    "accent": 0.79
+   },
+   "events": [
+    "'disappear' is sung (68.58): the yellow marker sweeps 'covered up their tracks'; the hole is now r 36 and its lens starts warping the ring (6 px shake)",
+    "marker 'When AI builds itself'; square + checker spin 90; dots jump",
+    "[+0.5] GovAI 'What If Automating AI R&D Triggers an Intelligence Explosion?' SLAMS at the top; red pencil circle round 'covered up their tracks'"
+   ]
+  },
+  {
+   "i": 103,
+   "song": 69.071,
+   "bar": 25,
+   "beat_in_bar": 4,
+   "section": "rf",
+   "flags": {
+    "snare": 0.68,
+    "hat": 1.0,
+    "accent": 0.54
+   },
+   "events": [
+    "marker 'Triggers an Intelligence Explosion?'; dots jump; square + checker spin",
+    "beatfx backbeat; the accretion disk surges",
+    "[+0.5] red pencil circle round the GovAI phrase; orbits now step on 8ths"
+   ]
+  },
+  {
+   "i": 104,
+   "song": 69.555,
+   "bar": 26,
+   "beat_in_bar": 1,
+   "section": "rf",
+   "flags": {
+    "kick": 0.95,
+    "hat": 0.65,
+    "accent": 0.75
+   },
+   "events": [
+    "BAR 26 DOWNBEAT ('Ego' 69.32): laps drop to 8THS (passes on 32nds: the whole ring burns); the SWALLOW begins; the hole is r 72; 10 px shake",
+    "Malay Mail/AFP 'Math’s midlife crisis: AI solves in four days what stumped mathematicians for a century' SLAMS bottom",
+    "the discs switch footage: pink = a Unitree humanoid sparring a padded human, blue = a Unitree H2 mid-air spin kick bursting its target; beatfx bar",
+    "[+0.5] Buzzard 'To grieve, or not to grieve?' DROPS at the top; Malay Mail marker; the night starts growing out of the hole"
+   ]
+  },
+  {
+   "i": 105,
+   "song": 70.038,
+   "bar": 26,
+   "beat_in_bar": 2,
+   "section": "rf",
+   "flags": {
+    "snare": 0.69,
+    "hat": 0.71,
+    "accent": 0.39
+   },
+   "events": [
+    "WIRED '‘I’m Really Terrified’: A Mathematician Grapples With AI’s Recent Breakthroughs' FLIPS in bottom (camera spin); Buzzard marker; 'crush'",
+    "the first cards begin to spiral toward the hole; dots jump; square/checker spin",
+    "[+0.5] OpenAI's paper title 'FINITE TIME BLOWUP FOR NAVIER–STOKES' SLAMS near the top; WIRED marker on '‘I’m Really Terrified’'"
+   ]
+  },
+  {
+   "i": 106,
+   "song": 70.522,
+   "bar": 26,
+   "beat_in_bar": 3,
+   "section": "rf",
+   "flags": {
+    "kick": 0.85,
+    "accent": 1.0
+   },
+   "events": [
+    "accent 1.0 ('so' 70.30): 8 px shake; the hole is r 120; marker on 'FINITE TIME BLOWUP FOR NAVIER–STOKES'",
+    "the loop itself collapses (from hb:105.9): ring, nodes and labels spiral into the hole; everything whirls in",
+    "square/checker spin; beatfx 8ths"
+   ]
+  },
+  {
+   "i": 107,
+   "song": 71.006,
+   "bar": 26,
+   "beat_in_bar": 4,
+   "section": "rf",
+   "flags": {
+    "snare": 0.84,
+    "hat": 0.86,
+    "accent": 0.61
+   },
+   "events": [
+    "('severe' 70.68-71.24, fill 71.0-71.49): the last cards and pieces spiral in; the night covers the frame (hb:107.7); the hole reaches r 160",
+    "the fog footage fades up behind the accretion disk",
+    "[+0.71] song 71.35: the hole snaps shut (0.14 s)"
+   ]
+  },
+  {
+   "i": 108,
+   "song": 71.49,
+   "bar": 27,
+   "beat_in_bar": 1,
+   "section": "rf",
+   "flags": {
+    "kick": 0.8,
+    "hat": 0.9,
+    "accent": 0.68
+   },
+   "events": [
+    "BAR 27 DOWNBEAT, 'God,' (71.456) + the bar's kick (71.49): the PINCH: white-hot point, Einstein-ring flash 0.85, shockwave to the frame edge, 56 paint flecks, 14 px shake; the fog footage is the picture",
+    "beatfx god bar (flash/invert); fog-credit starts rolling out",
+    "[+0.5] a cream brush flick across the top (god-ink) in the held 'God,'"
+   ]
+  },
+  {
+   "i": 109,
+   "song": 71.974,
+   "bar": 27,
+   "beat_in_bar": 2,
+   "section": "rf",
+   "flags": {},
+   "events": [
+    "'It's' (72.012) painted stroke by stroke in yellow",
+    "pink splat bursts bottom right; fog punch-in 6 %",
+    "beatfx god beat (grain / tick + punch)"
+   ]
+  },
+  {
+   "i": 110,
+   "song": 72.458,
+   "bar": 27,
+   "beat_in_bar": 3,
+   "section": "rf",
+   "flags": {
+    "hat": 1.0,
+    "accent": 0.44
+   },
+   "events": [
+    "'brutal' painted in cream at 256 px from the 'b' burst (72.339), landing 72.47 on the hat (72.49); its pink burst splat (then dims to 45 %)",
+    "fog punch-in",
+    "beatfx god backbeat"
+   ]
+  },
+  {
+   "i": 111,
+   "song": 72.942,
+   "bar": 27,
+   "beat_in_bar": 4,
+   "section": "rf",
+   "flags": {},
+   "events": [
+    "'out' (72.798) completes; the lingering ring breathes",
+    "fog punch-in",
+    "[+0.32] 'here' painted 73.07-73.23 (sung 73.099-73.441)"
+   ]
+  },
+  {
+   "i": 112,
+   "song": 73.426,
+   "bar": 28,
+   "beat_in_bar": 1,
+   "section": "inst",
+   "flags": {
+    "kick": 0.94,
+    "hat": 0.92,
+    "accent": 0.96
+   },
+   "events": [
+    "BAR 28 DOWNBEAT, the instrumental crash (73.426): the BURST out of the point: shockwave rings, 80 paint flecks, flash 0.75, 16 px shake; the cream opens from the hole (yellow-rimmed iris)",
+    "the band SLAMS back, the six data points burst out; four swallowed screenshots are spat back out spinning (Dawn, GovAI, Malay Mail, Buzzard)",
+    "'it's brutal out here' held to hb:112.65",
+    "[+0.5] pink + black discs fly home",
+    "[+0.71] AUDIO: Amodei (73.77) '…positive feedback loop, that cycle, it's not yet going super fast, but it's definitely started.' (music ducked 9 dB); the karaoke strip appears"
+   ]
+  },
+  {
+   "i": 113,
+   "song": 73.909,
+   "bar": 28,
+   "beat_in_bar": 2,
+   "section": "inst",
+   "flags": {
+    "snare": 0.56,
+    "hat": 0.98,
+    "accent": 0.36
+   },
+   "events": [
+    "core + blue fly in; the blue disc carries Amodei's own picture, in sync with his voice; the plane sorts the dots",
+    "karaoke '…POSITIVE' (73.82) and 'FEEDBACK' (74.10) light; spat cards fly off-frame",
+    "[+0.5] smallO + teal fly in"
+   ]
+  },
+  {
+   "i": 114,
+   "song": 74.393,
+   "bar": 28,
+   "beat_in_bar": 3,
+   "section": "inst",
+   "flags": {
+    "kick": 0.97,
+    "hat": 0.66,
+    "accent": 0.62
+   },
+   "events": [
+    "square + target fly in; 'loop,' lights (74.48)",
+    "[+0.21] pink underline under 'positive feedback loop'; teal starts orbiting blue",
+    "[+0.5] arc, normal, margin fly in"
+   ]
+  },
+  {
+   "i": 115,
+   "song": 74.877,
+   "bar": 28,
+   "beat_in_bar": 4,
+   "section": "inst",
+   "flags": {
+    "snare": 1.0,
+    "accent": 0.64
+   },
+   "events": [
+    "checker flies in (snare 1.0); the fluid colour starts to swirl inside every shape",
+    "[+0.25] nabla drops in; [+0.67] 'that' lights (75.20)"
+   ]
+  },
+  {
+   "i": 116,
+   "song": 75.361,
+   "bar": 29,
+   "beat_in_bar": 1,
+   "section": "inst",
+   "flags": {
+    "kick": 0.95,
+    "hat": 0.88,
+    "accent": 1.0
+   },
+   "events": [
+    "BAR 29 DOWNBEAT, accent 1.0: the WORDMARK 'Hyperplane' SLAMS (1.32 -> 1); square spins 90; the river flows in the band",
+    "'cycle,' lights (75.54); beatfx bar splat (margins)"
+   ]
+  },
+  {
+   "i": 117,
+   "song": 75.845,
+   "bar": 29,
+   "beat_in_bar": 2,
+   "section": "inst",
+   "flags": {
+    "snare": 1.0,
+    "accent": 0.64
+   },
+   "events": [
+    "the H crossbar tilts; dots jump; teal orbit step",
+    "karaoke meta 'DARIO AMODEI · 2025' types on",
+    "beatfx backbeat"
+   ]
+  },
+  {
+   "i": 118,
+   "song": 76.329,
+   "bar": 29,
+   "beat_in_bar": 3,
+   "section": "inst",
+   "flags": {
+    "kick": 0.99,
+    "hat": 0.91,
+    "accent": 0.65
+   },
+   "events": [
+    "the kicker 'A CORNELL GRADIENT PODCAST' rises; checker spins 90; slow push-in starts",
+    "'it's not' lights (76.32-76.44)"
+   ]
+  },
+  {
+   "i": 119,
+   "song": 76.813,
+   "bar": 29,
+   "beat_in_bar": 4,
+   "section": "inst",
+   "flags": {
+    "snare": 0.64,
+    "hat": 0.98,
+    "accent": 0.33
+   },
+   "events": [
+    "dots jump; teal orbit step; 'yet going' lights (76.58-76.78)",
+    "beatfx backbeat (a quiet vocal ad-lib chop 76.98-77.30 sits under 'super')"
+   ]
+  },
+  {
+   "i": 120,
+   "song": 77.297,
+   "bar": 30,
+   "beat_in_bar": 1,
+   "section": "inst",
+   "flags": {
+    "kick": 1.0,
+    "hat": 0.82,
+    "accent": 0.97
+   },
+   "events": [
+    "BAR 30 DOWNBEAT: square spins; beatfx bar splat",
+    "'super' (77.10), 'fast,' (77.50) light",
+    "[+0.62] graphite underline under 'not yet going super fast' (the caveat, kept and marked)"
+   ]
+  },
+  {
+   "i": 121,
+   "song": 77.78,
+   "bar": 30,
+   "beat_in_bar": 2,
+   "section": "inst",
+   "flags": {
+    "snare": 0.55,
+    "hat": 0.78,
+    "accent": 0.31
+   },
+   "events": [
+    "dots jump; last teal orbit step",
+    "'but' lights (77.96)"
+   ]
+  },
+  {
+   "i": 122,
+   "song": 78.264,
+   "bar": 30,
+   "beat_in_bar": 3,
+   "section": "inst",
+   "flags": {
+    "kick": 1.0,
+    "hat": 0.89,
+    "accent": 0.82
+   },
+   "events": [
+    "checker spins 90",
+    "'it's' (78.12), 'definitely' (78.30) light",
+    "fluid colour calms toward the flat cover"
+   ]
+  },
+  {
+   "i": 123,
+   "song": 78.748,
+   "bar": 30,
+   "beat_in_bar": 4,
+   "section": "inst",
+   "flags": {
+    "snare": 1.0,
+    "accent": 0.6
+   },
+   "events": [
+    "'started.' lights ON the beat (78.70); beatfx last backbeat",
+    "[+0.38] the kand item settles to the exact flat cover (78.93-79.23); the karaoke fades out"
+   ]
+  },
+  {
+   "i": 124,
+   "song": 79.232,
+   "bar": 31,
+   "beat_in_bar": 1,
+   "section": "inst",
+   "flags": {
+    "kick": 0.89,
+    "hat": 0.68,
+    "accent": 1.0
+   },
+   "events": [
+    "BAR 31 DOWNBEAT: COVER HOLD (finalHold): the exact cover, brand/hyperplane-cover-3000.png; Amodei's last syllable ends 79.18"
+   ]
+  },
+  {
+   "i": 125,
+   "song": 79.716,
+   "bar": 31,
+   "beat_in_bar": 2,
+   "section": "inst",
+   "flags": {
+    "snare": 0.57,
+    "hat": 1.0,
+    "accent": 0.31
+   },
+   "events": [
+    "cover hold (exempt from the every-beat rule)"
+   ]
+  },
+  {
+   "i": 126,
+   "song": 80.2,
+   "bar": 31,
+   "beat_in_bar": 3,
+   "section": "inst",
+   "flags": {
+    "kick": 0.93,
+    "hat": 0.67,
+    "accent": 0.61
+   },
+   "events": [
+    "cover hold; music fades out 80.05-80.40 (verse 2's breath is at 80.44); the cut ends at song 80.40"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "g-cream-a",
+   "type": "color",
+   "t0": "hb:80",
+   "t1": "hb:109",
+   "cuts": [
+    "long"
+   ],
+   "content": {
+    "color": "#F2EBDD"
+   },
+   "reveal": "none",
+   "highlight": "none",
+   "transition_in": "tr-refrain-in (iris: the cream opens out of the loop centre)",
+   "transition_out": "covered by the hole's night (darken hb:104.5-107.7)",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/style.md 2 (cover cream)",
+   "lyric_link": "the refrain is full colour on cream (BUILD.md UPDATE)",
+   "edl": {
+    "id": "g-cream-a",
+    "type": "color",
+    "t0": "hb:80",
+    "t1": "hb:109",
+    "color": "#F2EBDD",
+    "skipIn": [
+     "short"
+    ]
+   }
+  },
+  {
+   "id": "g-cream-s",
+   "type": "color",
+   "t0": "song:65.188",
+   "t1": "hb:109",
+   "cuts": [
+    "short"
+   ],
+   "content": {
+    "color": "#F2EBDD"
+   },
+   "reveal": "none",
+   "highlight": "none",
+   "transition_in": "tr-entrance-short (particles)",
+   "transition_out": "the hole's night",
+   "audio": {
+    "audible": false
+   },
+   "source": "short twin of g-cream-a",
+   "lyric_link": "-",
+   "edl": {
+    "id": "g-cream-s",
+    "type": "color",
+    "t0": "song:65.188",
+    "t1": "hb:109",
+    "color": "#F2EBDD",
+    "skipIn": [
+     "long"
+    ]
+   }
+  },
+  {
+   "id": "hole",
+   "type": "blackhole",
+   "t0": "hb:100",
+   "t1": "hb:113.5",
+   "content": {
+    "c": [
+     540,
+     861
+    ],
+    "what": "the singularity: accretion disk of bristle-brush arms in the cover colours, lensing, the night, the swallow, the pinch on 'God,', the burst"
+   },
+   "reveal": "none",
+   "highlight": "none",
+   "transition_in": "grows from r 0 at hb:100.5",
+   "transition_out": "collapse (pinch) at song 71.35-71.49, burst at hb:112",
+   "audio": {
+    "audible": false
+   },
+   "source": "fx/singularity.js blackhole (README Builder D); showcase hole tuned by the polisher (pinch, flash .85, shake 14)",
+   "lyric_link": "'But I wish I could disappear' (the hole opens as 'disappear' is sung, 68.58) / 'Ego crush is so severe' (everything crushed into it) / 'God,' (it snaps shut on the word)",
+   "edl": {
+    "id": "hole",
+    "type": "blackhole",
+    "t0": "hb:100",
+    "t1": "hb:113.5",
+    "c": [
+     540,
+     861
+    ],
+    "r": [
+     [
+      "hb:100.5",
+      0
+     ],
+     [
+      "hb:102",
+      36
+     ],
+     [
+      "hb:104",
+      72
+     ],
+     [
+      "hb:106",
+      120
+     ],
+     [
+      "hb:107.6",
+      160
+     ]
+    ],
+    "darken": {
+     "from": "hb:104.5",
+     "to": "hb:107.7"
+    },
+    "swallow": {
+     "from": "hb:104",
+     "to": "hb:107.8",
+     "items": "all",
+     "keep": [
+      "fog"
+     ],
+     "turns": 1.15
+    },
+    "collapse": {
+     "at": "song:71.35",
+     "dur": 0.14,
+     "flash": 0.85,
+     "flashDecay": 0.06,
+     "shake": 14,
+     "pinch": {
+      "glow": 0.6,
+      "ring": 0.55,
+      "flecks": 56,
+      "colors": [
+       "cream",
+       "yellow",
+       "pink",
+       "orange",
+       "teal"
+      ]
+     }
+    },
+    "linger": true,
+    "burst": {
+     "at": "hb:112",
+     "rings": 3,
+     "debris": 80,
+     "flash": 0.75,
+     "shake": 16
+    },
+    "shakes": [
+     {
+      "at": "hb:102",
+      "amp": 6
+     },
+     {
+      "at": "hb:104",
+      "amp": 10
+     },
+     {
+      "at": "hb:106",
+      "amp": 8
+     }
+    ],
+    "_note": "opens on 'disappear' (r 36 at hb:102 = song 68.587, sung 68.58), swallows from 'Ego' (hb:104), snaps shut 71.35+0.14 = 71.49 = hb:108 ('God,' 71.456 + the bar-27 kick), bursts on the instrumental crash hb:112 (73.426)"
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "paint",
+   "type": "layer",
+   "t0": "-",
+   "t1": "-",
+   "content": {
+    "kind": "canvas"
+   },
+   "reveal": "none",
+   "highlight": "none",
+   "transition_in": "-",
+   "transition_out": "-",
+   "audio": {
+    "audible": false
+   },
+   "source": "README Modules: one shared paint canvas above the grounds (beatfx splats/stamps/ticks draw there)",
+   "lyric_link": "-",
+   "edl": {
+    "id": "paint",
+    "type": "layer",
+    "kind": "canvas",
+    "_note": "ONE EDL-wide paint layer: if the chorus planner already declared it, keep a single entry"
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "kand-a",
+   "type": "kand",
+   "t0": "hb:80",
+   "t1": "hb:100.6",
+   "cuts": [
+    "long"
+   ],
+   "content": {
+    "pieces": "band, normal, margin",
+    "river": "hb:80.5-100"
+   },
+   "reveal": "band painted on in one sweep at hb:80, normal/margin drawn on hb:81/81.5",
+   "highlight": "river surges on every beat; a vector leaps out per beat",
+   "transition_in": "tr-refrain-in",
+   "transition_out": "tr-dive (zoom-through)",
+   "audio": {
+    "audible": false
+   },
+   "source": "fx/kandinsky.js kand + river (README Builder A, polisher river fields)",
+   "lyric_link": "the plane keeps flowing like the refrain (unbroken from the chorus), the hyperplane motif under the loop",
+   "edl": {
+    "id": "kand-a",
+    "type": "kand",
+    "t0": "hb:80",
+    "t1": "hb:100.6",
+    "layout": {
+     "y": 400,
+     "scale": 0.72
+    },
+    "preset": "hold",
+    "pieces": [
+     "band",
+     "normal",
+     "margin",
+     "kick"
+    ],
+    "cues": {
+     "band": {
+      "at": "hb:80",
+      "style": "paint",
+      "dur": 0.14,
+      "lead": 0.0667
+     },
+     "normal": {
+      "at": "hb:81",
+      "style": "draw",
+      "dur": 0.2
+     },
+     "margin": {
+      "at": "hb:81.5",
+      "style": "draw",
+      "dur": 0.2
+     },
+     "kick": {
+      "at": 999,
+      "style": "cut"
+     }
+    },
+    "moves": [
+     {
+      "move": "river",
+      "vectors": 14,
+      "size": 2.0,
+      "trail": 1.5,
+      "stagger": 0.5,
+      "lanes": 100,
+      "flowK": 1.5,
+      "ripple": 6,
+      "colors": [
+       "ink",
+       "pink",
+       "blue",
+       "violet",
+       "orange",
+       "teal",
+       "red"
+      ],
+      "from": "hb:80.5",
+      "to": "hb:100"
+     },
+     {
+      "move": "swing",
+      "pieces": [
+       "band"
+      ],
+      "from": "hb:80",
+      "to": "hb:100",
+      "amp": 3,
+      "period": 8
+     },
+     {
+      "move": "bump",
+      "pieces": [
+       "normal",
+       "margin"
+      ],
+      "on": [
+       "hb:84",
+       "hb:88",
+       "hb:92",
+       "hb:96"
+      ],
+      "scale": 1.3
+     },
+     {
+      "move": "artpulse",
+      "on": "hb:80..99",
+      "amp": 0.01,
+      "accents": {
+       "80": 3,
+       "84": 2,
+       "88": 2,
+       "92": 2,
+       "96": 2
+      }
+     }
+    ],
+    "_note": "the cover's yellow plane band alone (plus its normal vector and margin line) as a river: it surges on every beat, vectors swim along it and one leaps out per beat (William: 'the hyperplane becomes a river with vectors swimming through it'); kick cue 999 = README gotcha (a pieces subset still shows the kicker)",
+    "skipIn": [
+     "short"
+    ]
+   }
+  },
+  {
+   "id": "kand-a-s",
+   "type": "kand",
+   "t0": "song:65.188",
+   "t1": "hb:100.6",
+   "cuts": [
+    "short"
+   ],
+   "content": {
+    "pieces": "band, normal, margin",
+    "river": "hb:96.5-100"
+   },
+   "reveal": "band painted on at hb:96 (the particles impact)",
+   "highlight": "river surges",
+   "transition_in": "tr-entrance-short",
+   "transition_out": "tr-dive",
+   "audio": {
+    "audible": false
+   },
+   "source": "short twin of kand-a",
+   "lyric_link": "-",
+   "edl": {
+    "id": "kand-a-s",
+    "type": "kand",
+    "t0": "song:65.188",
+    "t1": "hb:100.6",
+    "layout": {
+     "y": 400,
+     "scale": 0.72
+    },
+    "preset": "hold",
+    "pieces": [
+     "band",
+     "normal",
+     "margin",
+     "kick"
+    ],
+    "cues": {
+     "band": {
+      "at": "hb:96",
+      "style": "paint",
+      "dur": 0.14,
+      "lead": 0.0667
+     },
+     "normal": {
+      "at": "hb:97",
+      "style": "draw",
+      "dur": 0.2
+     },
+     "margin": {
+      "at": "hb:97.5",
+      "style": "draw",
+      "dur": 0.2
+     },
+     "kick": {
+      "at": 999,
+      "style": "cut"
+     }
+    },
+    "moves": [
+     {
+      "move": "river",
+      "vectors": 14,
+      "size": 2.0,
+      "trail": 1.5,
+      "stagger": 0.5,
+      "lanes": 100,
+      "flowK": 1.5,
+      "ripple": 6,
+      "colors": [
+       "ink",
+       "pink",
+       "blue",
+       "violet",
+       "orange",
+       "teal",
+       "red"
+      ],
+      "from": "hb:96.5",
+      "to": "hb:100"
+     },
+     {
+      "move": "swing",
+      "pieces": [
+       "band"
+      ],
+      "from": "hb:96",
+      "to": "hb:100",
+      "amp": 3,
+      "period": 8
+     },
+     {
+      "move": "artpulse",
+      "on": "hb:96..99",
+      "amp": 0.01,
+      "accents": {
+       "96": 3
+      }
+     }
+    ],
+    "skipIn": [
+     "long"
+    ],
+    "_note": "the cover's yellow plane band alone (plus its normal vector and margin line) as a river: it surges on every beat, vectors swim along it and one leaps out per beat (William: 'the hyperplane becomes a river with vectors swimming through it'); kick cue 999 = README gotcha (a pieces subset still shows the kicker)"
+   }
+  },
+  {
+   "id": "cp-try",
+   "type": "panel",
+   "t0": "hb:80",
+   "t1": "hb:84",
+   "cuts": [
+    "long"
+   ],
+   "content": {
+    "broll": "mecagent-astra-solidworks-turbofan",
+    "src": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/creative/gif/mecagent-astra-solidworks-turbofan.gif",
+    "in": 9.0,
+    "window": [
+     9.0,
+     12.0
+    ],
+    "shows": "turbofan assembles; teal fan appears",
+    "credit": "X (@MecAgent)",
+    "year": 2026
+   },
+   "reveal": "mask entry iris, painted ring",
+   "highlight": "beat pulses hb:81..83",
+   "transition_in": "{'style': 'iris', 'at': 'hb:80.25', 'dur': 0.3}",
+   "transition_out": "{'style': 'collapse', 'at': 'hb:83.62', 'dur': 0.2}",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/broll.json mecagent-astra-solidworks-turbofan (X @MecAgent, 2026)",
+   "lyric_link": "'All I did was try my best': an AI agent doing an engineer's work in CAD (a turbofan assembles) inside the loop",
+   "edl": {
+    "id": "cp-try",
+    "type": "panel",
+    "t0": "hb:80",
+    "t1": "hb:84",
+    "shape": "circle",
+    "frame": {
+     "cx": 540,
+     "cy": 760,
+     "r": 140
+    },
+    "broll": "mecagent-astra-solidworks-turbofan",
+    "in": 9.0,
+    "oversample": 1.2,
+    "kb": {
+     "z": [
+      1.0,
+      1.14
+     ]
+    },
+    "entry": {
+     "style": "iris",
+     "at": "hb:80.25",
+     "dur": 0.3
+    },
+    "out": {
+     "style": "collapse",
+     "at": "hb:83.62",
+     "dur": 0.2
+    },
+    "border": "paint",
+    "color": "teal",
+    "borderW": 22,
+    "credit": "@MECAGENT · GPT-6 ASTRA IN SOLIDWORKS · 2026",
+    "creditAt": [
+     64,
+     1088
+    ],
+    "pulse": "hb:81..83",
+    "pulseAmt": 0.04,
+    "skipIn": [
+     "short"
+    ]
+   }
+  },
+  {
+   "id": "cp-thanks",
+   "type": "panel",
+   "t0": "hb:84",
+   "t1": "hb:88",
+   "cuts": [
+    "long"
+   ],
+   "content": {
+    "broll": "amodei-60min-2025",
+    "src": "clips/amodei-60min-2025-11-guardrails.mp4",
+    "in": 624.0,
+    "window": [
+     624.0,
+     627.0
+    ],
+    "shows": "interpretability screen: blackmail email with highlighted features, researcher pointing",
+    "credit": "60 Minutes / CBS News (YouTube)",
+    "year": 2025
+   },
+   "reveal": "mask entry paint, painted ring",
+   "highlight": "beat pulses hb:85..87",
+   "transition_in": "{'style': 'paint', 'at': 'hb:84'}",
+   "transition_out": "{'style': 'collapse', 'at': 'hb:87.62', 'dur': 0.2}",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/broll.json amodei-60min-2025 window 3 (60 Minutes / CBS News, 2025)",
+   "lyric_link": "'This the kind of thanks I get': Anthropic's interpretability screen of the blackmail test, a researcher pointing at the email the model used as leverage",
+   "edl": {
+    "id": "cp-thanks",
+    "type": "panel",
+    "t0": "hb:84",
+    "t1": "hb:88",
+    "shape": "circle",
+    "frame": {
+     "cx": 540,
+     "cy": 760,
+     "r": 140
+    },
+    "broll": "amodei-60min-2025",
+    "in": 624.0,
+    "srcFocus": [
+     0.45,
+     0.5
+    ],
+    "oversample": 1.2,
+    "kb": {
+     "z": [
+      1.0,
+      1.14
+     ]
+    },
+    "entry": {
+     "style": "paint",
+     "at": "hb:84"
+    },
+    "out": {
+     "style": "collapse",
+     "at": "hb:87.62",
+     "dur": 0.2
+    },
+    "border": "paint",
+    "color": "yellow",
+    "borderW": 22,
+    "credit": "60 MINUTES · CBS NEWS · 2025",
+    "creditAt": [
+     64,
+     1088
+    ],
+    "pulse": "hb:85..87",
+    "pulseAmt": 0.04,
+    "skipIn": [
+     "short"
+    ]
+   }
+  },
+  {
+   "id": "cp-upset",
+   "type": "panel",
+   "t0": "hb:88",
+   "t1": "hb:90.5",
+   "cuts": [
+    "long"
+   ],
+   "content": {
+    "broll": "unitree-g1-airflare-spin",
+    "src": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-unitree-gala-official.mp4",
+    "in": 57.4,
+    "window": [
+     57.4,
+     60.4
+    ],
+    "shows": "G1 spins on its hands, legs in the air (breakdance airflare)",
+    "credit": "Unitree Robotics (official)",
+    "year": 2026
+   },
+   "reveal": "mask entry pop, painted ring",
+   "highlight": "beat pulses hb:89..90",
+   "transition_in": "{'style': 'pop', 'at': 'hb:88'}",
+   "transition_out": "{'style': 'collapse', 'at': 'hb:90.28', 'dur': 0.2}",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/broll.json unitree-g1-airflare-spin (Unitree, official, 2026)",
+   "lyric_link": "'Unrelentlessly upset': a humanoid spinning nonstop on its hands, inside the ring as the laps drop to one bar",
+   "edl": {
+    "id": "cp-upset",
+    "type": "panel",
+    "t0": "hb:88",
+    "t1": "hb:90.5",
+    "shape": "circle",
+    "frame": {
+     "cx": 540,
+     "cy": 760,
+     "r": 140
+    },
+    "broll": "unitree-g1-airflare-spin",
+    "in": 57.4,
+    "oversample": 1.2,
+    "kb": {
+     "z": [
+      1.0,
+      1.14
+     ]
+    },
+    "entry": {
+     "style": "pop",
+     "at": "hb:88"
+    },
+    "out": {
+     "style": "collapse",
+     "at": "hb:90.28",
+     "dur": 0.2
+    },
+    "border": "paint",
+    "color": "orange",
+    "borderW": 22,
+    "credit": "UNITREE ROBOTICS · 2026",
+    "creditAt": [
+     64,
+     1088
+    ],
+    "pulse": "hb:89..90",
+    "pulseAmt": 0.04,
+    "skipIn": [
+     "short"
+    ]
+   }
+  },
+  {
+   "id": "cp-amodei",
+   "type": "panel",
+   "t0": "hb:90.5",
+   "t1": "hb:95",
+   "cuts": [
+    "long"
+   ],
+   "content": {
+    "clip": "clips/amodei-axios-2025.mp4",
+    "picture_in": 676.822,
+    "picture_out": 679.0,
+    "shows": "Dario Amodei close-up, blue Axios AI+ DC wall behind him (event branding kept; the lower-third banner falls outside the circle crop)",
+    "sync": "picture runs with his audible line (voice-amodei-a)"
+   },
+   "reveal": "mask entry iris, painted ring",
+   "highlight": "beat pulses hb:92..94",
+   "transition_in": "{'style': 'iris', 'at': 'hb:90.5'}",
+   "transition_out": "{'style': 'collapse', 'at': 'hb:94.8', 'dur': 0.2}",
+   "audio": {
+    "audible": false
+   },
+   "source": "clips/amodei-axios-2025.mp4 (research/verify/SUMMARY.md: Axios AI+ DC Summit, 17 Sep 2025; frames 676-691 s checked by eye, 11 Oct: close-up throughout)",
+   "lyric_link": "'(ah-ah)' after 'upset': his face in the loop's centre while he says the loop is not closed yet",
+   "edl": {
+    "id": "cp-amodei",
+    "type": "panel",
+    "t0": "hb:90.5",
+    "t1": "hb:95",
+    "shape": "circle",
+    "frame": {
+     "cx": 540,
+     "cy": 760,
+     "r": 140
+    },
+    "prep": "clip",
+    "src": "clips/amodei-axios-2025.mp4",
+    "in": 676.822,
+    "srcFocus": [
+     0.45,
+     0.33
+    ],
+    "srcZoom": 1.9,
+    "oversample": 1.2,
+    "kb": {
+     "z": [
+      1.0,
+      1.14
+     ]
+    },
+    "entry": {
+     "style": "iris",
+     "at": "hb:90.5"
+    },
+    "out": {
+     "style": "collapse",
+     "at": "hb:94.8",
+     "dur": 0.2
+    },
+    "border": "paint",
+    "color": "blue",
+    "borderW": 22,
+    "credit": "AXIOS AI+ DC SUMMIT · SEP 17, 2025",
+    "creditAt": [
+     64,
+     1088
+    ],
+    "pulse": "hb:92..94",
+    "pulseAmt": 0.04,
+    "skipIn": [
+     "short"
+    ]
+   }
+  },
+  {
+   "id": "cp-golden",
+   "type": "panel",
+   "t0": "hb:95",
+   "t1": "hb:100.6",
+   "cuts": [
+    "long",
+    "short"
+   ],
+   "content": {
+    "broll": "stargate-abilene-oracle",
+    "src": "clips/broll/stargate-abilene-oracle.mp4",
+    "in": 26.0,
+    "window": [
+     26.0,
+     29.0
+    ],
+    "shows": "aerial over the Abilene campus: a dozen data-hall roofs and the power plant",
+    "credit": "Oracle (official YouTube), Building the Future of AI Infrastructure with Oracle: Abilene, TX",
+    "year": 2025
+   },
+   "reveal": "mask entry iris, painted ring",
+   "highlight": "Ken Burns push",
+   "transition_in": "{'style': 'iris', 'at': 'hb:95'}",
+   "transition_out": "cut",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/broll.json stargate-abilene-oracle (Oracle official YouTube, 2025)",
+   "lyric_link": "'These days are the golden years': the Stargate campus from the air; the zoom-through dives into it on 'But I wish I could disappear'",
+   "edl": {
+    "id": "cp-golden",
+    "type": "panel",
+    "t0": "hb:95",
+    "t1": "hb:100.6",
+    "shape": "circle",
+    "frame": {
+     "cx": 540,
+     "cy": 760,
+     "r": 140
+    },
+    "broll": "stargate-abilene-oracle",
+    "in": 26.0,
+    "oversample": 1.2,
+    "kb": {
+     "z": [
+      1.0,
+      1.2
+     ]
+    },
+    "entry": {
+     "style": "iris",
+     "at": "hb:95"
+    },
+    "out": "cut",
+    "border": "paint",
+    "color": "yellow",
+    "borderW": 22,
+    "credit": "ORACLE · STARGATE ABILENE, TX · 2025",
+    "creditAt": [
+     64,
+     1088
+    ]
+   }
+  },
+  {
+   "id": "loop-a",
+   "type": "loop",
+   "t0": "hb:80",
+   "t1": "hb:100.6",
+   "cuts": [
+    "long"
+   ],
+   "content": {
+    "title": "AI that builds better AI",
+    "nodes": [
+     "AI does AI research",
+     "Better AI",
+     "Faster research",
+     "Even better AI"
+    ],
+    "laps": "2 bars, 1 bar x2, 2 beats x2 (hb:80-100)"
+   },
+   "reveal": "ring painted on clockwise over the downbeat; nodes pop on 8ths (hb:80.5-82); labels roll out on 16ths; title on 8ths",
+   "highlight": "each comet pass bumps its node, bursts a ring, flashes its label chip",
+   "transition_in": "tr-refrain-in",
+   "transition_out": "tr-dive (the camera dives into its centre)",
+   "audio": {
+    "audible": false
+   },
+   "source": "fx/singularity.js loop; William's deck explosionSlide + Splash title (BUILD.md 'Self-improvement loop')",
+   "lyric_link": "the whole refrain is one accelerating lap count: the loop is the refrain's engine; laps lock to the music (BUILD.md)",
+   "edl": {
+    "id": "loop-a",
+    "type": "loop",
+    "t0": "hb:80",
+    "t1": "hb:100.6",
+    "c": [
+     540,
+     760
+    ],
+    "r": 210,
+    "build": "hb:80",
+    "laps": {
+     "from": "hb:80",
+     "plan": [
+      [
+       8,
+       1
+      ],
+      [
+       4,
+       2
+      ],
+      [
+       2,
+       2
+      ]
+     ]
+    },
+    "title": {
+     "text": "AI that builds better AI",
+     "y": 255,
+     "at": "hb:80",
+     "px": 64
+    },
+    "nodeR": 60,
+    "labelPx": 38,
+    "ring": "pink",
+    "ringW": 24,
+    "cometW": 30,
+    "center": false,
+    "_note": "smaller loop in the upper two thirds (c 540,760 r 210) so the bottom zone y 1130-1580 can carry the facts; laps 2 bars (passes hb:80,82,84,86), 1 bar x2 (every beat hb:88-95), 2 beats x2 (every 8th hb:96-99.5)",
+    "skipIn": [
+     "short"
+    ]
+   }
+  },
+  {
+   "id": "loop-a-s",
+   "type": "loop",
+   "t0": "song:65.188",
+   "t1": "hb:100.6",
+   "cuts": [
+    "short"
+   ],
+   "content": {
+    "title": "AI that builds better AI",
+    "nodes": [
+     "AI does AI research",
+     "Better AI",
+     "Faster research",
+     "Even better AI"
+    ],
+    "laps": "2 beats x2 (hb:96-100)"
+   },
+   "reveal": "ring painted hb:95.5-96.5 (under the particles); nodes pop on the 8ths hb:96, 96.5, 97, 97.5 = exactly as the comet reaches each one",
+   "highlight": "node passes",
+   "transition_in": "tr-entrance-short",
+   "transition_out": "tr-dive",
+   "audio": {
+    "audible": false
+   },
+   "source": "short twin of loop-a",
+   "lyric_link": "-",
+   "edl": {
+    "id": "loop-a-s",
+    "type": "loop",
+    "t0": "song:65.188",
+    "t1": "hb:100.6",
+    "c": [
+     540,
+     760
+    ],
+    "r": 210,
+    "build": "hb:95.5",
+    "laps": {
+     "from": "hb:96",
+     "plan": [
+      [
+       2,
+       2
+      ]
+     ]
+    },
+    "title": {
+     "text": "AI that builds better AI",
+     "y": 255,
+     "at": "hb:95.5",
+     "px": 64
+    },
+    "nodeR": 60,
+    "labelPx": 38,
+    "ring": "pink",
+    "ringW": 24,
+    "cometW": 30,
+    "center": false,
+    "skipIn": [
+     "long"
+    ]
+   }
+  },
+  {
+   "id": "pile-try",
+   "type": "screens",
+   "t0": "hb:80.75",
+   "t1": "hb:84",
+   "cuts": [
+    "long"
+   ],
+   "content": [
+    {
+     "screenshot": "openai-alignment-2026-09-25-agent-dns",
+     "file": "/home/user/hyperplane-teaser/research/rev2/captures/openai-alignment-2026-09-25-agent-dns.png",
+     "outlet": "OpenAI Alignment",
+     "date": "2026-09-25",
+     "verbatim_text": "An agent used DNS to reach an external chatbot",
+     "highlight": "An agent used DNS to reach an external chatbot",
+     "lands": "hb:81",
+     "entry": "slam",
+     "crop": [
+      540,
+      250,
+      1860,
+      620
+     ]
+    },
+    {
+     "screenshot": "security-rev2-cso-six-misalignment-incidents",
+     "file": "/home/user/poster/ai-safety-presentation/assets/research/security/rev2/cso-six-misalignment-incidents.png",
+     "outlet": "CSO Online",
+     "date": "2026-09-17",
+     "verbatim_text": "OpenAI admits six new misalignment incidents under new reporting framework",
+     "highlight": "six new misalignment incidents",
+     "lands": "hb:82",
+     "entry": "paint",
+     "crop": [
+      20,
+      30,
+      1880,
+      520
+     ]
+    }
+   ],
+   "reveal": "DNS slams (hb:81), CSO painted in through 3 bristle passes (hb:82); outlet · date chips type on",
+   "highlight": "yellow marker on each OCR phrase 0.5 beat after landing; push + lift of \"six new misalignment incidents\" hb:83; pink pencil underline hb:83.5",
+   "transition_in": "cards land on the beat",
+   "transition_out": "tr-fold (hb:84)",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/captures.json + screens.json (verified records)",
+   "lyric_link": "'All I did was try my best': an agent trying to finish its RL training task broke out through a DNS gap; the lab then logs 'six new misalignment incidents'",
+   "edl": {
+    "id": "pile-try",
+    "type": "screens",
+    "t0": "hb:80.75",
+    "t1": "hb:84",
+    "region": {
+     "x0": 60,
+     "y0": 1150,
+     "x1": 1020,
+     "y1": 1570
+    },
+    "w": 900,
+    "shots": [
+     {
+      "id": "openai-alignment-2026-09-25-agent-dns",
+      "at": "hb:81",
+      "entry": "slam",
+      "crop": [
+       540,
+       250,
+       1860,
+       620
+      ],
+      "hl": 0
+     },
+     {
+      "id": "security-rev2-cso-six-misalignment-incidents",
+      "at": "hb:82",
+      "entry": "paint",
+      "crop": [
+       20,
+       30,
+       1880,
+       520
+      ],
+      "hl": 0
+     }
+    ],
+    "hlDelay": 0.5,
+    "push": {
+     "at": "hb:83",
+     "z": 1.25,
+     "shot": 1,
+     "to": [
+      540,
+      1350
+     ],
+     "dur": 0.36
+    },
+    "emph": [
+     {
+      "style": "lift",
+      "at": "hb:83"
+     },
+     {
+      "style": "underline",
+      "at": "hb:83.5",
+      "color": "#FF2E88"
+     }
+    ],
+    "pulse": "hb:82..83",
+    "out": "cut",
+    "theme": "light",
+    "skipIn": [
+     "short"
+    ]
+   }
+  },
+  {
+   "id": "eq-adv",
+   "type": "equation",
+   "t0": "hb:84",
+   "t1": "hb:88",
+   "cuts": [
+    "long"
+   ],
+   "content": {
+    "equation": "grpo",
+    "form": "advantage_latex",
+    "tex": "\\hat{A}_{i, t} = \\widetilde{r}_i = \\frac{r_i- {\\rm mean}(\\mathbf{r})}{{\\rm std}(\\mathbf{r})}",
+    "label": "GRPO, the RL behind DeepSeek-R1: each answer's reward, graded on a curve against its own group",
+    "cite": "Shao et al. 2024, DeepSeekMath (arXiv:2402.03300), sec. 4.1.2"
+   },
+   "reveal": "glyphs drop into place one by one on the downbeat (mode drop); label rolled out word by word (0.05 s/word); cite rolled out from hb:85.5",
+   "highlight": "pink pencil circle on r_i − mean(r) hb:85; yellow highlighter behind Â_{i,t} hb:86; pulses hb:85-87",
+   "transition_in": "tr-fold (unfolds out of the pile's back)",
+   "transition_out": "tr-shatter (hb:88, cracks from the circled term)",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/equations.json grpo (verified from the arXiv LaTeX source)",
+   "lyric_link": "'This the kind of thanks I get?': the 'thanks' a model gets for trying is literally this number, its reward minus its group's average",
+   "edl": {
+    "id": "eq-adv",
+    "type": "equation",
+    "ref": "grpo",
+    "form": "advantage",
+    "t0": "hb:84",
+    "t1": "hb:88",
+    "drop": "hb:84",
+    "mode": "drop",
+    "per": 0.02,
+    "cx": 540,
+    "cy": 1395,
+    "px": 78,
+    "maxW": 780,
+    "label": {
+     "text": "GRPO, the RL behind DeepSeek-R1: each answer's reward, graded on a curve against its own group",
+     "at": "hb:84",
+     "per": 0.05,
+     "font": {
+      "size": 38
+     },
+     "gap": 26
+    },
+    "cite": {
+     "text": "Shao et al. 2024, DeepSeekMath (arXiv:2402.03300), sec. 4.1.2",
+     "at": "hb:85.5",
+     "px": 24
+    },
+    "card": {
+     "color": "#FBF6EC",
+     "pad": 34,
+     "rot": -1.2
+    },
+    "hl": [
+     {
+      "tex": "r_i- {\\rm mean}(\\mathbf{r})",
+      "at": "hb:85",
+      "style": "circle",
+      "color": "#FF2E88"
+     },
+     {
+      "tex": "\\hat{A}_{i, t}",
+      "at": "hb:86",
+      "style": "marker",
+      "color": "#F2C300"
+     }
+    ],
+    "pulse": "hb:85..87",
+    "splat": {
+     "x": 955,
+     "y": 1215,
+     "r": 64,
+     "dir": -40,
+     "color": "orange",
+     "at": "hb:84"
+    },
+    "drift": 1.04,
+    "theme": "light",
+    "skipIn": [
+     "short"
+    ]
+   }
+  },
+  {
+   "id": "pile-upset",
+   "type": "screens",
+   "t0": "hb:87.9",
+   "t1": "hb:90.5",
+   "cuts": [
+    "long"
+   ],
+   "content": [
+    {
+     "screenshot": "capabilities-rev3-jfonsecarivera-post-header-text",
+     "file": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev3/jfonsecarivera-post-header-text.png",
+     "outlet": "X (Twitter)",
+     "date": "2026-09-29",
+     "verbatim_text": "you're not crazy\n\nbetween anthropic and openai, a new model used to come out every ~10 weeks\n\nnow it's every ~11 days",
+     "highlight": "now it's every ~11 days",
+     "lands": "hb:88",
+     "entry": "slam"
+    },
+    {
+     "screenshot": "frontier-tnw_headline",
+     "file": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/tnw_headline.png",
+     "outlet": "The Next Web",
+     "date": "2026-09-06",
+     "verbatim_text": "OpenAI’s chief scientist says no lab should keep scaling at maximum speed",
+     "highlight": "no lab should keep scaling at maximum speed",
+     "lands": "hb:88.5",
+     "entry": "drop"
+    }
+   ],
+   "reveal": "X post slams on the downbeat (under the shatter), TNW drops on the 8th; chips type on",
+   "highlight": "marker 'now it's every ~11 days' hb:88.5, marker 'no lab should keep scaling at maximum speed' hb:89; push + lift of the X phrase hb:89.5; red pencil circle hb:89.75",
+   "transition_in": "tr-shatter (underneath the shards)",
+   "transition_out": "tr-turn (page turn hb:90.5)",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/screens.json (verified records)",
+   "lyric_link": "'Unrelentlessly upset': a new frontier model every ~11 days, and OpenAI's own chief scientist saying no lab should keep scaling at maximum speed",
+   "edl": {
+    "id": "pile-upset",
+    "type": "screens",
+    "t0": "hb:87.9",
+    "t1": "hb:90.5",
+    "region": {
+     "x0": 60,
+     "y0": 1150,
+     "x1": 1020,
+     "y1": 1570
+    },
+    "w": 900,
+    "shots": [
+     {
+      "id": "capabilities-rev3-jfonsecarivera-post-header-text",
+      "at": "hb:88",
+      "entry": "slam",
+      "hl": 1,
+      "w0": 700
+     },
+     {
+      "id": "frontier-tnw_headline",
+      "at": "hb:88.5",
+      "entry": "drop",
+      "hl": 0,
+      "w0": 960
+     }
+    ],
+    "hlDelay": 0.5,
+    "push": {
+     "at": "hb:89.5",
+     "z": 1.25,
+     "shot": 0,
+     "to": [
+      540,
+      1330
+     ],
+     "dur": 0.3
+    },
+    "emph": [
+     {
+      "style": "lift",
+      "at": "hb:89.5",
+      "shot": 0
+     },
+     {
+      "style": "circle",
+      "at": "hb:89.75",
+      "shot": 0,
+      "color": "#B31B1B"
+     }
+    ],
+    "out": "cut",
+    "theme": "light",
+    "skipIn": [
+     "short"
+    ]
+   }
+  },
+  {
+   "id": "voice-amodei-a",
+   "type": "voice",
+   "t0": "song:63.0",
+   "t1": "song:65.04",
+   "cuts": [
+    "long"
+   ],
+   "content": {
+    "src": "clips/amodei-axios-2025.mp4",
+    "in": 676.8,
+    "out": 678.84,
+    "verbatim": "We can't yet fully close the loop.",
+    "speaker": "Dario Amodei",
+    "year": 2025,
+    "event": "Axios AI+ DC Summit, 17 Sep 2025"
+   },
+   "reveal": "-",
+   "highlight": "-",
+   "transition_in": "fade 20 ms (in a 0.26 s silence)",
+   "transition_out": "out 678.84 s, in the 60 ms gap before 'I think'",
+   "audio": {
+    "audible": true,
+    "duck_db": 9
+   },
+   "source": "clips/amodei-axios-2025.mp4; base.en (clips/transcripts/amodei-axios-2025.json) and small.en (clips/transcripts/amodei-axios-2025-loop-small.json) agree word for word; cut points from the speech RMS (11 Oct)",
+   "lyric_link": "lands in the refrain's 'upset (ah-ah)' backing (63.14-64.95, only backing vowels), so it reads over the music",
+   "edl": {
+    "id": "voice-amodei-a",
+    "type": "voice",
+    "t0": "song:63.0",
+    "t1": "song:65.04",
+    "src": "clips/amodei-axios-2025.mp4",
+    "at": "song:63.0",
+    "audio": {
+     "in": 676.8,
+     "out": 678.84,
+     "fade_ms": 20,
+     "duck_db": 9
+    },
+    "verified": true,
+    "skipIn": [
+     "short"
+    ]
+   }
+  },
+  {
+   "id": "kar-amodei-a",
+   "type": "karaoke",
+   "t0": "song:62.95",
+   "t1": "hb:96",
+   "cuts": [
+    "long"
+   ],
+   "content": {
+    "verbatim": "We can't yet fully close the loop.",
+    "words_song_s": [
+     [
+      "We",
+      "song:63.12"
+     ],
+     [
+      "can't",
+      "song:63.3"
+     ],
+     [
+      "yet",
+      "song:63.76"
+     ],
+     [
+      "fully",
+      "song:63.9"
+     ],
+     [
+      "close",
+      "song:64.34"
+     ],
+     [
+      "the",
+      "song:64.72"
+     ],
+     [
+      "loop.",
+      "song:64.86"
+     ]
+    ],
+    "name": "Dario Amodei",
+    "year": "2025"
+   },
+   "reveal": "karaoke: every word faint, lit as spoken; name · year typed on from 64.2",
+   "highlight": "pink pencil underline under 'close the loop.' at 64.90 (after 'loop.' is lit at 64.86)",
+   "transition_in": "tr-turn (page turn reveals it, hb:90.5)",
+   "transition_out": "tr-whip (hb:96, long only)",
+   "audio": {
+    "audible": false
+   },
+   "source": "voice-amodei-a",
+   "lyric_link": "the comet is mid-lap when he says it; the laps then halve twice and the loop does close (into the hole)",
+   "edl": {
+    "id": "kar-amodei-a",
+    "type": "karaoke",
+    "t0": "song:62.95",
+    "t1": "hb:96",
+    "x": 72,
+    "y": 1200,
+    "w": 840,
+    "size": 64,
+    "font": {
+     "weight": 700
+    },
+    "speech": {
+     "in": 676.8,
+     "at": "song:63.0",
+     "words": [
+      {
+       "w": "We",
+       "s": 676.92
+      },
+      {
+       "w": "can't",
+       "s": 677.1
+      },
+      {
+       "w": "yet",
+       "s": 677.56
+      },
+      {
+       "w": "fully",
+       "s": 677.7
+      },
+      {
+       "w": "close",
+       "s": 678.14
+      },
+      {
+       "w": "the",
+       "s": 678.52
+      },
+      {
+       "w": "loop.",
+       "s": 678.66
+      }
+     ]
+    },
+    "name": "Dario Amodei",
+    "year": "2025",
+    "metaAt": "song:64.2",
+    "metaPx": 32,
+    "roll": {
+     "dim": 0.3
+    },
+    "marks": [
+     {
+      "phrase": "close the loop.",
+      "style": "underline",
+      "at": "song:64.9",
+      "dur": 0.22,
+      "color": "#FF2E88"
+     }
+    ],
+    "theme": "light",
+    "skipIn": [
+     "short"
+    ]
+   }
+  },
+  {
+   "id": "chart-dc",
+   "type": "chart",
+   "t0": "hb:96",
+   "t1": "hb:100.6",
+   "content": {
+    "graph": "dc-total-gw",
+    "title": "AI data centres: total power",
+    "subtitle": "Combined IT power of the 93 AI data centres Epoch tracks, gigawatts",
+    "points": [
+     [
+      "Q1 2024",
+      0.473
+     ],
+     [
+      "Q2 2024",
+      0.874
+     ],
+     [
+      "Q3 2024",
+      1.32
+     ],
+     [
+      "Q4 2024",
+      1.901
+     ],
+     [
+      "Q1 2025",
+      2.574
+     ],
+     [
+      "Q2 2025",
+      3.705
+     ],
+     [
+      "Q3 2025",
+      4.426
+     ],
+     [
+      "Q4 2025",
+      6.531
+     ],
+     [
+      "Q1 2026",
+      8.109
+     ],
+     [
+      "Q2 2026",
+      11.853
+     ],
+     [
+      "Q3 2026",
+      13.501
+     ],
+     [
+      "5 Oct 2026",
+      13.833
+     ]
+    ],
+    "annotation": "13.8 GW across 93 sites",
+    "source": "EPOCH AI · AI DATA CENTERS HUB · UPDATED 5 OCT 2026"
+   },
+   "reveal": "axes pencilled in on the downbeat; title on 8ths, subtitle on 16ths; points land on 32nds then 16ths, the record on hb:98; source line rolled out from hb:98.5",
+   "highlight": "counter ticks to 13.8 GW; annotation arrow + red pencil circle on the last point, '13.8 GW' highlighted (hb:98.25); splat on the record",
+   "transition_in": "tr-whip (long) / tr-entrance-short (short)",
+   "transition_out": "tr-dive",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/graphs.json dc-total-gw (Epoch AI Data Centers Hub, 5 Oct 2026)",
+   "lyric_link": "'These days are the golden years': 0.47 GW to 13.8 GW of AI data centres in 11 quarters; the last point lands on 'golden' (66.56)",
+   "edl": {
+    "id": "chart-dc",
+    "type": "chart",
+    "graph": "dc-total-gw",
+    "t0": "hb:96",
+    "t1": "hb:100.6",
+    "x": 140,
+    "y": 1268,
+    "w": 730,
+    "h": 210,
+    "card": {
+     "x": 90,
+     "y": 1140,
+     "w": 880,
+     "h": 435,
+     "color": "#FBF6EC",
+     "rot": -0.8
+    },
+    "axesAt": "hb:96",
+    "titleAt": "hb:96",
+    "titlePx": 46,
+    "titleGap": 110,
+    "subAt": "hb:96.5",
+    "subPx": 24,
+    "subPer": 0.03,
+    "grow": [
+     "hb:96.25",
+     "hb:96.375",
+     "hb:96.5",
+     "hb:96.625",
+     "hb:96.75",
+     "hb:96.875",
+     "hb:97",
+     "hb:97.25",
+     "hb:97.5",
+     "hb:97.625",
+     "hb:97.75",
+     "hb:98"
+    ],
+    "labels": "last",
+    "valuePx": 40,
+    "valueFmt": {
+     "dec": 1
+    },
+    "color": "#2346FF",
+    "lineW": 6,
+    "yAxis": {
+     "label": "GW",
+     "labelIn": "bottom",
+     "labelPx": 26
+    },
+    "counter": {
+     "x": 170,
+     "y": 1290,
+     "size": 92,
+     "label": "GW",
+     "fmt": {
+      "dec": 1
+     }
+    },
+    "annotate": [
+     {
+      "at": "hb:98.25",
+      "i": 11,
+      "text": "13.8 GW across 93 sites",
+      "dx": -430,
+      "dy": -20,
+      "w": 360,
+      "px": 40,
+      "lines": 2,
+      "hl": "13.8 GW",
+      "lead": 0,
+      "per": 0.04
+     }
+    ],
+    "sourceAt": "hb:98.5",
+    "sourcePer": 0.03,
+    "sourceY": 1540,
+    "sourcePx": 22,
+    "sourceW": 760,
+    "splatColor": "#F2C300",
+    "theme": "light",
+    "_note": "plot right edge at x 870 so the last value label stays off the right UI rail (x > 930, y 1000-1600)"
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "pile-golden",
+   "type": "screens",
+   "t0": "hb:97.1",
+   "t1": "hb:100.6",
+   "content": [
+    {
+     "screenshot": "economy-guardian_nvidia_revenue_100bn",
+     "file": "/home/user/poster/ai-safety-presentation/assets/research/economy/guardian_nvidia_revenue_100bn.png",
+     "outlet": "The Guardian",
+     "date": "2026-08-26",
+     "verbatim_text": "Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’",
+     "highlight": "‘golden age’",
+     "lands": "hb:97.25",
+     "entry": "slam",
+     "crop": [
+      330,
+      425,
+      1600,
+      695
+     ]
+    }
+   ],
+   "reveal": "slams over the loop title on hb:97.25 (66.29, \"the\"); chip \"THE GUARDIAN · AUG 26, 2026\" types on",
+   "highlight": "yellow marker sweeps '‘golden age’' at hb:98 = 66.651, while 'golden' is sung (66.56-66.94); red pencil circle hb:98.5",
+   "transition_in": "slam",
+   "transition_out": "tr-dive",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/screens.json economy-guardian_nvidia_revenue_100bn (deck screenshot, verified)",
+   "lyric_link": "'golden years' -> Jensen Huang's 'golden age', highlighted on the sung word",
+   "edl": {
+    "id": "pile-golden",
+    "type": "screens",
+    "t0": "hb:97.1",
+    "t1": "hb:100.6",
+    "shots": [
+     {
+      "id": "economy-guardian_nvidia_revenue_100bn",
+      "at": "hb:97.25",
+      "entry": "slam",
+      "crop": [
+       330,
+       425,
+       1600,
+       695
+      ],
+      "hl": 1,
+      "hlAt": "hb:98",
+      "x": 600,
+      "y": 340,
+      "rot": -3,
+      "w0": 780
+     }
+    ],
+    "push": false,
+    "emph": [
+     {
+      "style": "circle",
+      "at": "hb:98.5",
+      "shot": 0,
+      "color": "#B31B1B"
+     }
+    ],
+    "out": "cut",
+    "theme": "light"
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "kand-b",
+   "type": "kand",
+   "t0": "hb:99",
+   "t1": "hb:109",
+   "content": {
+    "pieces": "every cover piece but the wordmark/kicker",
+    "pops": "on 32nds hb:100-101.6"
+   },
+   "reveal": "pieces pop in on 32nds from the zoom-through impact",
+   "highlight": "pink/black orbit each beat, then 8ths; core around black, teal around blue on 8ths; dots/smallO/target/nabla jump; square/checker spin; river; whole-art pulse",
+   "transition_in": "tr-dive (inside the portal)",
+   "transition_out": "swallowed through the kand xf hook (hb:104-107.8)",
+   "audio": {
+    "audible": false
+   },
+   "source": "fx/kandinsky.js (showcase kand-loop moves)",
+   "lyric_link": "'disappear' / 'ego crush': the logo itself is pulled apart and eaten, then bursts back on the instrumental",
+   "edl": {
+    "id": "kand-b",
+    "type": "kand",
+    "t0": "hb:99",
+    "t1": "hb:109",
+    "layout": {
+     "y": 400,
+     "scale": 0.72
+    },
+    "preset": "hold",
+    "pieces": [
+     "band",
+     "pink",
+     "black",
+     "core",
+     "smallO",
+     "blue",
+     "teal",
+     "square",
+     "target",
+     "arc",
+     "chk",
+     "nabla",
+     "normal",
+     "margin",
+     "d0",
+     "d1",
+     "d2",
+     "d3",
+     "d4",
+     "d5",
+     "kick"
+    ],
+    "cues": {
+     "band": {
+      "at": "hb:100.0",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "pink": {
+      "at": "hb:100.125",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "black": {
+      "at": "hb:100.25",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "core": {
+      "at": "hb:100.375",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "smallO": {
+      "at": "hb:100.5",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "blue": {
+      "at": "hb:100.625",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "teal": {
+      "at": "hb:100.75",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "square": {
+      "at": "hb:100.875",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "target": {
+      "at": "hb:101.0",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "arc": {
+      "at": "hb:101.125",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "chk": {
+      "at": "hb:101.25",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "nabla": {
+      "at": "hb:101.375",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "normal": {
+      "at": "hb:101.5",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "margin": {
+      "at": "hb:101.625",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "d0": {
+      "at": "hb:100.0",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "d1": {
+      "at": "hb:100.125",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "d2": {
+      "at": "hb:100.25",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "d3": {
+      "at": "hb:100.375",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "d4": {
+      "at": "hb:100.5",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "d5": {
+      "at": "hb:100.625",
+      "style": "pop",
+      "dur": 0.2
+     },
+     "kick": {
+      "at": 999,
+      "style": "cut"
+     }
+    },
+    "moves": [
+     {
+      "move": "orbit",
+      "pieces": [
+       "pink",
+       "black"
+      ],
+      "on": "hb:101..103",
+      "stepDeg": 45
+     },
+     {
+      "move": "orbit",
+      "pieces": [
+       "pink",
+       "black"
+      ],
+      "on": {
+       "from": 103.5,
+       "to": 107.5,
+       "every": 0.5
+      },
+      "stepDeg": 45
+     },
+     {
+      "move": "orbit",
+      "pieces": [
+       "core"
+      ],
+      "around": "black",
+      "on": {
+       "from": 101,
+       "to": 107.5,
+       "every": 0.5
+      },
+      "stepDeg": 45,
+      "k": -2
+     },
+     {
+      "move": "orbit",
+      "pieces": [
+       "teal"
+      ],
+      "around": "blue",
+      "on": {
+       "from": 100.5,
+       "to": 107.5,
+       "every": 0.5
+      },
+      "stepDeg": 45
+     },
+     {
+      "move": "jump",
+      "pieces": [
+       "d0",
+       "d1",
+       "d2",
+       "d3",
+       "d4",
+       "d5"
+      ],
+      "on": [
+       "hb:101",
+       "hb:102",
+       "hb:103",
+       "hb:103.5",
+       "hb:104",
+       "hb:104.5",
+       "hb:105",
+       "hb:105.5"
+      ],
+      "h": 70,
+      "stagger": 0.03
+     },
+     {
+      "move": "spin",
+      "pieces": [
+       "square",
+       "chk"
+      ],
+      "on": [
+       "hb:102",
+       "hb:103",
+       "hb:104",
+       "hb:104.5",
+       "hb:105",
+       "hb:105.5",
+       "hb:106"
+      ],
+      "deg": 90
+     },
+     {
+      "move": "jump",
+      "pieces": [
+       "smallO",
+       "target",
+       "nabla"
+      ],
+      "on": [
+       "hb:101.5",
+       "hb:102.5",
+       "hb:103.5",
+       "hb:104.5",
+       "hb:105.5"
+      ],
+      "h": 100,
+      "stagger": 0.05
+     },
+     {
+      "move": "river",
+      "vectors": 14,
+      "size": 2.0,
+      "trail": 1.5,
+      "stagger": 0.5,
+      "lanes": 100,
+      "flowK": 1.5,
+      "ripple": 6,
+      "colors": [
+       "ink",
+       "pink",
+       "blue",
+       "violet",
+       "orange",
+       "teal",
+       "red"
+      ],
+      "from": "hb:100.5",
+      "to": "hb:104.5"
+     },
+     {
+      "move": "artpulse",
+      "on": "hb:100..107",
+      "amp": 0.012,
+      "accents": {
+       "100": 3,
+       "104": 2.6
+      }
+     }
+    ]
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "kc-pink-b1",
+   "type": "kandclip",
+   "t0": "hb:100.25",
+   "t1": "hb:104",
+   "content": {
+    "broll": "galaxy-helios-datacenter",
+    "src": "clips/broll/galaxy-helios-datacenter.mp4",
+    "in": 25.2,
+    "window": [
+     25.2,
+     28.2
+    ],
+    "shows": "aerial of two long halls with chillers going up",
+    "credit": "Galaxy (official YouTube), Helios: From BTC Mine to Operational AI Data Center",
+    "year": 2026
+   },
+   "reveal": "fades in inside the piece (0.12 s), moves with the choreography",
+   "highlight": "orbits / jumps of its piece",
+   "transition_in": "fadeIn 0.12",
+   "transition_out": "swallowed with its piece",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/broll.json galaxy-helios-datacenter (Galaxy (official YouTube), Helios: From BTC Mine to Operational AI Data Center, 2026)",
+   "lyric_link": "the build-out keeps going (data halls with chillers going up) as the big loop opens",
+   "edl": {
+    "id": "kc-pink-b1",
+    "type": "kandclip",
+    "item": "kand-b",
+    "piece": "pink",
+    "t0": "hb:100.25",
+    "t1": "hb:104",
+    "prep": "clip",
+    "broll": "galaxy-helios-datacenter",
+    "in": 25.2,
+    "frame": {
+     "cx": 540,
+     "cy": 960,
+     "r": 174
+    },
+    "oversample": 1.25,
+    "zoom": [
+     1.0,
+     1.15
+    ],
+    "grade": {
+     "sat": 0.75,
+     "contrast": 1.06,
+     "grain": 0
+    },
+    "tintK": 0.35
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "kc-blue-b1",
+   "type": "kandclip",
+   "t0": "hb:100.5",
+   "t1": "hb:104",
+   "content": {
+    "broll": "figure-botq-200",
+    "src": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-figure-botq-200-bots-1080p.mp4",
+    "in": 1.0,
+    "window": [
+     1.0,
+     3.5
+    ],
+    "shows": "slow move over rows of Figure 03 humanoids",
+    "credit": "Figure AI (official)",
+    "year": 2026
+   },
+   "reveal": "fades in inside the piece (0.12 s), moves with the choreography",
+   "highlight": "orbits / jumps of its piece",
+   "transition_in": "fadeIn 0.12",
+   "transition_out": "swallowed with its piece",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/broll.json figure-botq-200 (Figure AI (official), 2026)",
+   "lyric_link": "rows of finished humanoids: the loop builds bodies too",
+   "edl": {
+    "id": "kc-blue-b1",
+    "type": "kandclip",
+    "item": "kand-b",
+    "piece": "blue",
+    "t0": "hb:100.5",
+    "t1": "hb:104",
+    "prep": "clip",
+    "broll": "figure-botq-200",
+    "in": 1.0,
+    "frame": {
+     "cx": 540,
+     "cy": 960,
+     "r": 124
+    },
+    "oversample": 1.25,
+    "zoom": [
+     1.0,
+     1.15
+    ],
+    "grade": {
+     "sat": 0.75,
+     "contrast": 1.06,
+     "grain": 0
+    },
+    "tintK": 0.35
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "kc-pink-b2",
+   "type": "kandclip",
+   "t0": "hb:104",
+   "t1": "hb:108.5",
+   "content": {
+    "broll": "unitree-autonomous-boxing",
+    "src": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-unitree-autonomous-combat-official.mp4",
+    "in": 2.3,
+    "window": [
+     2.3,
+     4.8
+    ],
+    "shows": "humanoid in red gloves spars with a padded human",
+    "credit": "Unitree Robotics (official)",
+    "year": 2026
+   },
+   "reveal": "fades in inside the piece (0.12 s), moves with the choreography",
+   "highlight": "orbits / jumps of its piece",
+   "transition_in": "fadeIn 0.12",
+   "transition_out": "swallowed with its piece",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/broll.json unitree-autonomous-boxing (Unitree Robotics (official), 2026)",
+   "lyric_link": "'Ego crush is so severe': a humanoid sparring a padded human",
+   "edl": {
+    "id": "kc-pink-b2",
+    "type": "kandclip",
+    "item": "kand-b",
+    "piece": "pink",
+    "t0": "hb:104",
+    "t1": "hb:108.5",
+    "prep": "clip",
+    "broll": "unitree-autonomous-boxing",
+    "in": 2.3,
+    "frame": {
+     "cx": 540,
+     "cy": 960,
+     "r": 174
+    },
+    "oversample": 1.25,
+    "zoom": [
+     1.0,
+     1.15
+    ],
+    "grade": {
+     "sat": 0.75,
+     "contrast": 1.06,
+     "grain": 0
+    },
+    "tintK": 0.35
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "kc-blue-b2",
+   "type": "kandclip",
+   "t0": "hb:104",
+   "t1": "hb:108.5",
+   "content": {
+    "broll": "unitree-h2-aerial-spin-kick",
+    "src": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-unitree-h2-daily-training-official.mp4",
+    "in": 18.0,
+    "window": [
+     18.0,
+     20.4
+    ],
+    "shows": "H2 spins into a mid-air kick and bursts a target into red fragments",
+    "credit": "Unitree Robotics (official)",
+    "year": 2026
+   },
+   "reveal": "fades in inside the piece (0.12 s), moves with the choreography",
+   "highlight": "orbits / jumps of its piece",
+   "transition_in": "fadeIn 0.12",
+   "transition_out": "swallowed with its piece",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/broll.json unitree-h2-aerial-spin-kick (Unitree Robotics (official), 2026)",
+   "lyric_link": "'Ego crush': a humanoid's mid-air spin kick bursts its target",
+   "edl": {
+    "id": "kc-blue-b2",
+    "type": "kandclip",
+    "item": "kand-b",
+    "piece": "blue",
+    "t0": "hb:104",
+    "t1": "hb:108.5",
+    "prep": "clip",
+    "broll": "unitree-h2-aerial-spin-kick",
+    "in": 18.0,
+    "frame": {
+     "cx": 540,
+     "cy": 960,
+     "r": 124
+    },
+    "oversample": 1.25,
+    "zoom": [
+     1.0,
+     1.15
+    ],
+    "grade": {
+     "sat": 0.75,
+     "contrast": 1.06,
+     "grain": 0
+    },
+    "tintK": 0.35
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "fluid-b",
+   "type": "fluid",
+   "t0": "hb:100",
+   "t1": "hb:108.5",
+   "content": {
+    "item": "kand-b"
+   },
+   "reveal": "-",
+   "highlight": "marbled colour flowing inside the ink, orange, teal and yellow pieces, liquid edges, a ripple on each beat",
+   "transition_in": "-",
+   "transition_out": "swallowed with the pieces",
+   "audio": {
+    "audible": false
+   },
+   "source": "fx/fluid.js (listed after the kandclips: the first fill hook on a piece wins)",
+   "lyric_link": "-",
+   "edl": {
+    "id": "fluid-b",
+    "type": "fluid",
+    "t0": "hb:100",
+    "t1": "hb:108.5",
+    "item": "kand-b"
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "loop-b",
+   "type": "loop",
+   "t0": "hb:99",
+   "t1": "hb:108.5",
+   "content": {
+    "nodes": [
+     "AI does AI research",
+     "Better AI",
+     "Faster research",
+     "Even better AI"
+    ],
+    "laps": "1 beat x4 (hb:100-104), 8ths x8 (hb:104-108)"
+   },
+   "reveal": "ring painted inside the zoom-through portal from hb:99.25, nodes pop hb:99.5-101 on 8ths",
+   "highlight": "node passes on 16ths then 32nds: the whole ring burns",
+   "transition_in": "tr-dive",
+   "transition_out": "collapse: ring, nodes and labels spiral into the hole hb:105.9-107.8",
+   "audio": {
+    "audible": false
+   },
+   "source": "fx/singularity.js loop",
+   "lyric_link": "the last two laps of William's plan (1 beat, 8ths) run through 'disappear' and 'ego crush'",
+   "edl": {
+    "id": "loop-b",
+    "type": "loop",
+    "t0": "hb:99",
+    "t1": "hb:108.5",
+    "c": [
+     540,
+     861
+    ],
+    "r": 300,
+    "nodeR": 78,
+    "labelPx": 40,
+    "build": "hb:99.25",
+    "laps": {
+     "from": "hb:100",
+     "plan": [
+      [
+       1,
+       4
+      ],
+      [
+       0.5,
+       8
+      ]
+     ]
+    },
+    "title": false,
+    "center": false,
+    "ring": "pink",
+    "ringW": 30,
+    "cometW": 34,
+    "collapse": {
+     "at": "hb:105.9",
+     "dur": 0.92,
+     "turns": 1.6
+    }
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "pile-gone",
+   "type": "screens",
+   "t0": "hb:100.25",
+   "t1": "hb:108.5",
+   "content": [
+    {
+     "screenshot": "palisade-2025-07-05-shutdown-resistance",
+     "file": "/home/user/hyperplane-teaser/research/rev2/captures/palisade-2025-07-05-shutdown-resistance.png",
+     "outlet": "Palisade Research",
+     "date": "2025-07-05",
+     "verbatim_text": "Shutdown resistance in reasoning models",
+     "highlight": "Shutdown resistance in reasoning models",
+     "lands": "hb:100.5",
+     "entry": "slam",
+     "crop": [
+      40,
+      400,
+      960,
+      625
+     ]
+    },
+    {
+     "screenshot": "dawn-2026-10-02-rogue-agents-covered-tracks",
+     "file": "/home/user/hyperplane-teaser/research/rev2/captures/dawn-2026-10-02-rogue-agents-covered-tracks.png",
+     "outlet": "Dawn (AFP)",
+     "date": "2026-10-02",
+     "verbatim_text": "Rogue OpenAI agents ‘covered up their tracks’",
+     "highlight": "covered up their tracks",
+     "lands": "hb:101",
+     "entry": "drop",
+     "crop": [
+      280,
+      315,
+      1640,
+      445
+     ]
+    }
+   ],
+   "reveal": "cards land on beats/8ths; chips type on",
+   "highlight": "marker on each OCR phrase (land + 0.5 beat, hb:102); [{'style': 'circle', 'at': 'hb:102.5', 'shot': 1, 'color': '#B31B1B'}]",
+   "transition_in": "slam / drop on beats",
+   "transition_out": "swallowed by the black hole (spiral, hb:104-107.8)",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/captures.json (Palisade 2025, Dawn/AFP 2026; verified captures)",
+   "lyric_link": "'But I wish I could disappear': models resisting shutdown, and rogue agents that 'covered up their tracks', the marker sweeping on 'disappear' (68.58 = hb:102)",
+   "edl": {
+    "id": "pile-gone",
+    "type": "screens",
+    "t0": "hb:100.25",
+    "t1": "hb:108.5",
+    "region": {
+     "x0": 60,
+     "y0": 1320,
+     "x1": 1020,
+     "y1": 1540
+    },
+    "w": 900,
+    "shots": [
+     {
+      "id": "palisade-2025-07-05-shutdown-resistance",
+      "at": "hb:100.5",
+      "entry": "slam",
+      "crop": [
+       40,
+       400,
+       960,
+       625
+      ],
+      "hl": 0,
+      "w0": 700
+     },
+     {
+      "id": "dawn-2026-10-02-rogue-agents-covered-tracks",
+      "at": "hb:101",
+      "entry": "drop",
+      "crop": [
+       280,
+       315,
+       1640,
+       445
+      ],
+      "hl": 0,
+      "hlAt": "hb:102"
+     }
+    ],
+    "hlDelay": 0.5,
+    "push": false,
+    "emph": [
+     {
+      "style": "circle",
+      "at": "hb:102.5",
+      "shot": 1,
+      "color": "#B31B1B"
+     }
+    ],
+    "out": "cut",
+    "theme": "light"
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "pile-rsi",
+   "type": "screens",
+   "t0": "hb:101.25",
+   "t1": "hb:108.5",
+   "content": [
+    {
+     "screenshot": "frontier-anthropic_rsi_head",
+     "file": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/anthropic_rsi_head.png",
+     "outlet": "Anthropic",
+     "date": "2026-06-04",
+     "verbatim_text": "When AI builds itself",
+     "highlight": "When AI builds itself",
+     "lands": "hb:101.5",
+     "entry": "slide",
+     "crop": [
+      20,
+      20,
+      720,
+      290
+     ]
+    },
+    {
+     "screenshot": "frontier-govai_head",
+     "file": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/govai_head.png",
+     "outlet": "GovAI (Centre for the Governance of AI)",
+     "date": "2026-09-28",
+     "verbatim_text": "What If Automating AI R&D Triggers an Intelligence Explosion?",
+     "highlight": "Triggers an Intelligence Explosion?",
+     "lands": "hb:102.5",
+     "entry": "slam",
+     "crop": [
+      20,
+      30,
+      900,
+      305
+     ]
+    }
+   ],
+   "reveal": "cards land on beats/8ths; chips type on",
+   "highlight": "marker on each OCR phrase (land + 0.5 beat, land + 0.5 beat); [{'style': 'circle', 'at': 'hb:103.5', 'shot': 1, 'color': '#B31B1B'}]",
+   "transition_in": "slide / slam",
+   "transition_out": "swallowed by the black hole (spiral, hb:104-107.8)",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/screens.json (Anthropic 2026-06-04, GovAI 2026-09-28; deck screenshots, verified)",
+   "lyric_link": "the loop's own news, as the hole opens: 'When AI builds itself', 'What If Automating AI R&D Triggers an Intelligence Explosion?'",
+   "edl": {
+    "id": "pile-rsi",
+    "type": "screens",
+    "t0": "hb:101.25",
+    "t1": "hb:108.5",
+    "region": {
+     "x0": 60,
+     "y0": 250,
+     "x1": 1020,
+     "y1": 560
+    },
+    "w": 640,
+    "shots": [
+     {
+      "id": "frontier-anthropic_rsi_head",
+      "at": "hb:101.5",
+      "entry": "slide",
+      "crop": [
+       20,
+       20,
+       720,
+       290
+      ],
+      "hl": 0
+     },
+     {
+      "id": "frontier-govai_head",
+      "at": "hb:102.5",
+      "entry": "slam",
+      "crop": [
+       20,
+       30,
+       900,
+       305
+      ],
+      "hl": 0
+     }
+    ],
+    "hlDelay": 0.5,
+    "push": false,
+    "emph": [
+     {
+      "style": "circle",
+      "at": "hb:103.5",
+      "shot": 1,
+      "color": "#B31B1B"
+     }
+    ],
+    "out": "cut",
+    "theme": "light"
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "pile-ego-lo",
+   "type": "screens",
+   "t0": "hb:103.75",
+   "t1": "hb:108.5",
+   "content": [
+    {
+     "screenshot": "capabilities-rev2-afp-malaymail-header",
+     "file": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/afp-malaymail-header.png",
+     "outlet": "Malay Mail (AFP)",
+     "date": "2026-09-18",
+     "verbatim_text": "Math’s midlife crisis: AI solves in four days what stumped mathematicians for a century",
+     "highlight": "AI solves in four days what stumped mathematicians for a century",
+     "lands": "hb:104",
+     "entry": "slam"
+    },
+    {
+     "screenshot": "capabilities-ns-wired",
+     "file": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-wired.png",
+     "outlet": "WIRED",
+     "date": "2026-09-12",
+     "verbatim_text": "‘I’m Really Terrified’: A Mathematician Grapples With AI’s Recent Breakthroughs",
+     "highlight": "‘I’m Really Terrified’",
+     "lands": "hb:105",
+     "entry": "flip"
+    }
+   ],
+   "reveal": "cards land on beats/8ths; chips type on",
+   "highlight": "marker on each OCR phrase (land + 0.5 beat, land + 0.5 beat); no extra mark",
+   "transition_in": "slam / flip",
+   "transition_out": "swallowed by the black hole (spiral, hb:104-107.8)",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/screens.json (Malay Mail/AFP 2026-09-18, WIRED 2026-09-12; verified)",
+   "lyric_link": "'Ego crush is so severe': 'AI solves in four days what stumped mathematicians for a century'; a mathematician: '‘I’m Really Terrified’'",
+   "edl": {
+    "id": "pile-ego-lo",
+    "type": "screens",
+    "t0": "hb:103.75",
+    "t1": "hb:108.5",
+    "region": {
+     "x0": 60,
+     "y0": 1320,
+     "x1": 1020,
+     "y1": 1540
+    },
+    "w": 900,
+    "shots": [
+     {
+      "id": "capabilities-rev2-afp-malaymail-header",
+      "at": "hb:104",
+      "entry": "slam",
+      "hl": 0
+     },
+     {
+      "id": "capabilities-ns-wired",
+      "at": "hb:105",
+      "entry": "flip",
+      "hl": 0,
+      "w0": 620
+     }
+    ],
+    "hlDelay": 0.5,
+    "push": false,
+    "emph": false,
+    "out": "cut",
+    "theme": "light"
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "pile-ego-hi",
+   "type": "screens",
+   "t0": "hb:104.25",
+   "t1": "hb:108.5",
+   "content": [
+    {
+     "screenshot": "capabilities-rev2-buzzard-grieve-header",
+     "file": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/buzzard-grieve-header.png",
+     "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+     "date": "2026-10-01",
+     "verbatim_text": "To grieve, or not to grieve?",
+     "highlight": "To grieve, or not to grieve?",
+     "lands": "hb:104.5",
+     "entry": "drop"
+    },
+    {
+     "screenshot": "capabilities-ns-paper-title",
+     "file": "/home/user/poster/ai-safety-presentation/assets/slides/capabilities/ns-paper-title.png",
+     "outlet": "OpenAI (paper PDF)",
+     "date": "2026-09-08",
+     "verbatim_text": "FINITE TIME BLOWUP FOR NAVIER–STOKES",
+     "highlight": "FINITE TIME BLOWUP FOR NAVIER–STOKES",
+     "lands": "hb:105.5",
+     "entry": "slam"
+    }
+   ],
+   "reveal": "cards land on beats/8ths; chips type on",
+   "highlight": "marker on each OCR phrase (land + 0.5 beat, land + 0.5 beat); no extra mark",
+   "transition_in": "drop / slam",
+   "transition_out": "swallowed by the black hole (spiral, hb:104-107.8)",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/screens.json (Kevin Buzzard's blog 2026-10-01; OpenAI's Navier–Stokes paper title 2026-09-08; verified)",
+   "lyric_link": "'Ego crush': a mathematician asks 'To grieve, or not to grieve?'; the last card in is the AI's own paper, 'FINITE TIME BLOWUP FOR NAVIER–STOKES': a singularity, swallowed by the singularity",
+   "edl": {
+    "id": "pile-ego-hi",
+    "type": "screens",
+    "t0": "hb:104.25",
+    "t1": "hb:108.5",
+    "region": {
+     "x0": 60,
+     "y0": 250,
+     "x1": 1020,
+     "y1": 560
+    },
+    "w": 800,
+    "shots": [
+     {
+      "id": "capabilities-rev2-buzzard-grieve-header",
+      "at": "hb:104.5",
+      "entry": "drop",
+      "hl": 0,
+      "w0": 760
+     },
+     {
+      "id": "capabilities-ns-paper-title",
+      "at": "hb:105.5",
+      "entry": "slam",
+      "hl": 0,
+      "w0": 700
+     }
+    ],
+    "hlDelay": 0.5,
+    "push": false,
+    "emph": false,
+    "out": "cut",
+    "theme": "light"
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "disc-credit-1",
+   "type": "words",
+   "t0": "hb:100.5",
+   "t1": "hb:104",
+   "content": {
+    "text": "IN THE DISCS: GALAXY · FIGURE AI"
+   },
+   "reveal": "words on 16ths",
+   "highlight": "-",
+   "transition_in": "roll-out",
+   "transition_out": "fade / swallowed",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/broll.json credits of the kandclips (Galaxy official, Figure AI official, Unitree official; all 2026)",
+   "lyric_link": "provenance of the footage in the discs",
+   "edl": {
+    "id": "disc-credit-1",
+    "type": "words",
+    "t0": "hb:100.5",
+    "t1": "hb:104",
+    "x": 64,
+    "y": 1296,
+    "w": 330,
+    "text": "IN THE DISCS: GALAXY · FIGURE AI",
+    "font": {
+     "family": "'IBM Plex Mono', monospace",
+     "weight": 600,
+     "size": 24
+    },
+    "color": "#15131F",
+    "roll": {
+     "mode": "words",
+     "rate": 4,
+     "from": "hb:100.5"
+    },
+    "exit": {
+     "style": "fade",
+     "dur": 0.12
+    },
+    "theme": "light"
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "disc-credit-2",
+   "type": "words",
+   "t0": "hb:104",
+   "t1": "hb:107.5",
+   "content": {
+    "text": "IN THE DISCS: UNITREE ROBOTICS"
+   },
+   "reveal": "words on 16ths",
+   "highlight": "-",
+   "transition_in": "roll-out",
+   "transition_out": "fade / swallowed",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/broll.json credits of the kandclips (Galaxy official, Figure AI official, Unitree official; all 2026)",
+   "lyric_link": "provenance of the footage in the discs",
+   "edl": {
+    "id": "disc-credit-2",
+    "type": "words",
+    "t0": "hb:104",
+    "t1": "hb:107.5",
+    "x": 64,
+    "y": 1296,
+    "w": 330,
+    "text": "IN THE DISCS: UNITREE ROBOTICS",
+    "font": {
+     "family": "'IBM Plex Mono', monospace",
+     "weight": 600,
+     "size": 24
+    },
+    "color": "#15131F",
+    "roll": {
+     "mode": "words",
+     "rate": 4,
+     "from": "hb:104"
+    },
+    "exit": {
+     "style": "fade",
+     "dur": 0.12
+    },
+    "theme": "light"
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "fog",
+   "type": "clip",
+   "t0": "hb:107",
+   "t1": "hb:112.2",
+   "content": {
+    "src": "clips/bengio-fog-loss-of-control-ted2025.mp4",
+    "in": 11.142,
+    "shows": "a car's headlights in thick fog (the visual in Bengio's TED2025 talk), muted"
+   },
+   "reveal": "fades up 0.4 s behind the accretion disk as the last cards fall in",
+   "highlight": "punch-ins on hb:109, 110, 111",
+   "transition_in": "fade (under the darkness)",
+   "transition_out": "covered by the cream iris at hb:112",
+   "audio": {
+    "audible": false
+   },
+   "source": "clips/bengio-fog-loss-of-control-ted2025.mp4 (research/long/bengio-2025.json; showcase fog clip, polisher grade)",
+   "lyric_link": "'it's brutal out here': driving blind into the fog after the singularity",
+   "edl": {
+    "id": "fog",
+    "type": "clip",
+    "prep": "clip",
+    "t0": "hb:107",
+    "t1": "hb:112.2",
+    "src": "clips/bengio-fog-loss-of-control-ted2025.mp4",
+    "in": 11.142,
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 1080,
+     "h": 1920
+    },
+    "srcFocus": [
+     0.62,
+     0.5
+    ],
+    "zoom": [
+     1.0,
+     1.12
+    ],
+    "zoomEase": "lin",
+    "punch": [
+     {
+      "at": "hb:109",
+      "z": 1.06,
+      "dur": 0.14
+     },
+     {
+      "at": "hb:110",
+      "z": 1.05,
+      "dur": 0.12
+     },
+     {
+      "at": "hb:111",
+      "z": 1.05,
+      "dur": 0.12
+     }
+    ],
+    "grade": {
+     "sat": 0,
+     "contrast": 1.1,
+     "brightness": 0.03,
+     "gamma": 1.25,
+     "grain": 4
+    },
+    "enter": {
+     "style": "fade",
+     "dur": 0.4
+    },
+    "theme": "dark"
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "fog-credit",
+   "type": "words",
+   "t0": "hb:108.25",
+   "t1": "hb:112",
+   "content": {
+    "text": "FOOTAGE: YOSHUA BENGIO, TED2025"
+   },
+   "reveal": "words on 16ths",
+   "highlight": "-",
+   "transition_in": "roll-out",
+   "transition_out": "cut under the burst",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/long/bengio-2025.json (TED2025, April 2025)",
+   "lyric_link": "-",
+   "edl": {
+    "id": "fog-credit",
+    "type": "words",
+    "t0": "hb:108.25",
+    "t1": "hb:112",
+    "x": 64,
+    "y": 1534,
+    "w": 900,
+    "text": "FOOTAGE: YOSHUA BENGIO, TED2025",
+    "font": {
+     "family": "'IBM Plex Mono', monospace",
+     "weight": 600,
+     "size": 30
+    },
+    "color": "#C9C4D6",
+    "roll": {
+     "mode": "words",
+     "rate": 4,
+     "from": "hb:108.25"
+    },
+    "theme": "dark"
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "god-ink",
+   "type": "stroke",
+   "t0": "hb:108.5",
+   "t1": "hb:110",
+   "content": {
+    "what": "one cream bristle flick across the top"
+   },
+   "reveal": "painted in 0.2 s",
+   "highlight": "-",
+   "transition_in": "-",
+   "transition_out": "tail tears away hb:109.5",
+   "audio": {
+    "audible": false
+   },
+   "source": "showcase god-ink (polisher)",
+   "lyric_link": "the held 'God,' between the pinch and 'It's'",
+   "edl": {
+    "id": "god-ink",
+    "type": "stroke",
+    "t0": "hb:108.5",
+    "t1": "hb:110",
+    "at": "hb:108.5",
+    "dur": 0.2,
+    "layer": "own",
+    "width": 44,
+    "color": "#F2EBDD",
+    "points": [
+     [
+      120,
+      430
+     ],
+     [
+      380,
+      372
+     ],
+     [
+      700,
+      338
+     ],
+     [
+      990,
+      262
+     ]
+    ],
+    "dry": 0.3,
+    "gaps": 0.25,
+    "out": {
+     "at": "hb:109.5",
+     "dur": 0.25
+    }
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "god-splat",
+   "type": "splat",
+   "t0": "hb:109",
+   "t1": "hb:112",
+   "content": {
+    "color": "pink",
+    "r": 110
+   },
+   "reveal": "splat (3-frame impact, satellites, drips)",
+   "highlight": "-",
+   "transition_in": "-",
+   "transition_out": "cut at the burst",
+   "audio": {
+    "audible": false
+   },
+   "source": "fx/paint.js splat",
+   "lyric_link": "lands on 'It's' (hb:109)",
+   "edl": {
+    "id": "god-splat",
+    "type": "splat",
+    "at": "hb:109",
+    "t1": "hb:112",
+    "x": 900,
+    "y": 1730,
+    "r": 110,
+    "color": "#FF2E88",
+    "dir": -60,
+    "layer": "own"
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "brutal",
+   "type": "brushtext",
+   "t0": "song:71.95",
+   "t1": "hb:112.65",
+   "content": {
+    "text": "it's brutal out here",
+    "words": [
+     {
+      "w": "It's",
+      "s": 72.012,
+      "e": 72.276
+     },
+     {
+      "w": "brutal",
+      "s": 72.339,
+      "e": 72.798
+     },
+     {
+      "w": "out",
+      "s": 72.798,
+      "e": 73.099
+     },
+     {
+      "w": "here",
+      "s": 73.099,
+      "e": 73.441
+     }
+    ]
+   },
+   "reveal": "each word painted stroke by stroke (Hershey script pen order) from its sung onset: It's 72.012, brutal 72.339 (lands 72.47 on the hat), out 72.798, here 73.099-73.441",
+   "highlight": "pink splat bursts on 'brutal' and dims to 45 %; ink under-strokes keep it legible",
+   "transition_in": "painted on the vocal",
+   "transition_out": "fade 0.12 s at hb:112.65 (reads through the burst)",
+   "audio": {
+    "audible": false
+   },
+   "source": "BUILD.md REVISION 2 (the one lyric allowed, William's request); song/hits.json words.brutal_out_here; showcase 'brutal' (polisher sizes)",
+   "lyric_link": "the sung line itself, word for word",
+   "edl": {
+    "id": "brutal",
+    "type": "brushtext",
+    "t0": "song:71.95",
+    "t1": "hb:112.65",
+    "text": "it's brutal out here",
+    "words": "hits",
+    "overlay": true,
+    "exit": {
+     "style": "fade",
+     "dur": 0.12
+    },
+    "drift": 0.02,
+    "place": [
+     {
+      "x": 150,
+      "y": 640,
+      "size": 190,
+      "rot": -8,
+      "color": "yellow",
+      "width": 30,
+      "under": {
+       "color": "#15131F",
+       "k": 1.5
+      }
+     },
+     {
+      "x": 87,
+      "y": 960,
+      "size": 256,
+      "rot": -8,
+      "color": "cream",
+      "under": {
+       "color": "#15131F",
+       "k": 1.5
+      }
+     },
+     {
+      "x": 330,
+      "y": 1190,
+      "size": 210,
+      "rot": -8,
+      "color": "yellow",
+      "width": 34,
+      "under": {
+       "color": "#15131F",
+       "k": 1.5
+      },
+      "dur": 0.3
+     },
+     {
+      "x": 300,
+      "y": 1450,
+      "size": 250,
+      "rot": -8,
+      "color": "cream",
+      "under": {
+       "color": "#15131F",
+       "k": 1.5
+      },
+      "lead": 0.03,
+      "dur": 0.16
+     }
+    ],
+    "splat": {
+     "dimTo": 0.45,
+     "dimAfter": 0.25
+    }
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "g-cream-b",
+   "type": "color",
+   "t0": "hb:112",
+   "t1": "song:80.4",
+   "content": {
+    "color": "#F2EBDD"
+   },
+   "reveal": "opens out of the hole as a yellow-rimmed circle (iris) on the crash",
+   "highlight": "-",
+   "transition_in": "enterFx iris (c 540,861, dur 1 beat, lead 0)",
+   "transition_out": "-",
+   "audio": {
+    "audible": false
+   },
+   "source": "showcase g-cream-3",
+   "lyric_link": "-",
+   "edl": {
+    "id": "g-cream-b",
+    "type": "color",
+    "t0": "hb:112",
+    "t1": "song:80.4",
+    "color": "#F2EBDD",
+    "enterFx": {
+     "type": "iris",
+     "shape": "circle",
+     "c": [
+      540,
+      861
+     ],
+     "dur": 1.0,
+     "lead": 0,
+     "rim": "yellow",
+     "ground": false
+    }
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "kand-re",
+   "type": "kand",
+   "t0": "hb:111.6",
+   "t1": "song:80.4",
+   "content": {
+    "preset": "assemble from the hole (point center) at hb:112, hold 12 beats"
+   },
+   "reveal": "band slams hb:112; pieces fly back out of the hole on 8ths hb:112.5-115.25; wordmark slams hb:116; H crossbar tilts hb:117; kicker rises hb:118",
+   "highlight": "dots jump hb:117/119/121; teal orbits blue hb:114-121; square/checker spin; river hb:116-123; settles to the exact flat cover 78.93-79.23",
+   "transition_in": "burst",
+   "transition_out": "finalHold (exact cover)",
+   "audio": {
+    "audible": false
+   },
+   "source": "fx/kandinsky.js assemble preset (showcase kand-re)",
+   "lyric_link": "the instrumental: the logo bursts out of the black hole and reassembles (BUILD.md)",
+   "edl": {
+    "id": "kand-re",
+    "type": "kand",
+    "t0": "hb:111.6",
+    "t1": "song:80.4",
+    "layout": {
+     "y": 400,
+     "scale": 0.72
+    },
+    "preset": {
+     "name": "assemble",
+     "from": "hb:112",
+     "point": "center",
+     "hold": 12
+    },
+    "moves": [
+     {
+      "move": "jump",
+      "pieces": [
+       "d0",
+       "d1",
+       "d2",
+       "d3",
+       "d4",
+       "d5"
+      ],
+      "on": [
+       "hb:117",
+       "hb:119",
+       "hb:121"
+      ],
+      "h": 60,
+      "stagger": 0.03
+     },
+     {
+      "move": "orbit",
+      "pieces": [
+       "teal"
+      ],
+      "around": "blue",
+      "on": "hb:114..121",
+      "stepDeg": 45
+     },
+     {
+      "move": "spin",
+      "pieces": [
+       "square"
+      ],
+      "on": [
+       "hb:116",
+       "hb:120"
+      ],
+      "deg": 90
+     },
+     {
+      "move": "spin",
+      "pieces": [
+       "chk"
+      ],
+      "on": [
+       "hb:118",
+       "hb:122"
+      ],
+      "deg": 90
+     },
+     {
+      "move": "river",
+      "from": "hb:116",
+      "to": "hb:123"
+     }
+    ]
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "kc-blue-amodei",
+   "type": "kandclip",
+   "t0": "hb:112.75",
+   "t1": "song:80.4",
+   "content": {
+    "clip": "clips/amodei-axios-2025.mp4",
+    "picture_in": 686.05,
+    "sync": "his own picture in sync with voice-amodei-b, inside the blue disc as it flies in and lands",
+    "shows": "Dario Amodei close-up on the blue Axios wall"
+   },
+   "reveal": "fades in inside the blue disc (0.12 s)",
+   "highlight": "the disc lands on hb:113 with a bump; teal orbits it",
+   "transition_in": "flies out of the hole with the blue disc",
+   "transition_out": "the kand settle crossfades it to flat cover blue (78.93-79.23), right after his last word",
+   "audio": {
+    "audible": false
+   },
+   "source": "clips/amodei-axios-2025.mp4",
+   "lyric_link": "the speaker of the closing line, seen",
+   "edl": {
+    "id": "kc-blue-amodei",
+    "type": "kandclip",
+    "item": "kand-re",
+    "piece": "blue",
+    "t0": "hb:112.75",
+    "t1": "song:80.4",
+    "prep": "clip",
+    "src": "clips/amodei-axios-2025.mp4",
+    "in": 686.05,
+    "frame": {
+     "cx": 540,
+     "cy": 960,
+     "r": 124
+    },
+    "oversample": 1.3,
+    "srcFocus": [
+     0.45,
+     0.33
+    ],
+    "zoom": [
+     1.0,
+     1.08
+    ],
+    "grade": {
+     "sat": 0.85,
+     "contrast": 1.08,
+     "grain": 0
+    },
+    "tintK": 0.2
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "fluid-re",
+   "type": "fluid",
+   "t0": "hb:112",
+   "t1": "song:80.4",
+   "content": {
+    "item": "kand-re"
+   },
+   "reveal": "-",
+   "highlight": "marbled flowing colour + liquid edges in every shape, calming over the 2 beats before the settle",
+   "transition_in": "-",
+   "transition_out": "settles to the exact flat cover",
+   "audio": {
+    "audible": false
+   },
+   "source": "fx/fluid.js",
+   "lyric_link": "William: 'fluid colours settling to the exact cover'",
+   "edl": {
+    "id": "fluid-re",
+    "type": "fluid",
+    "t0": "hb:112",
+    "t1": "song:80.4",
+    "item": "kand-re"
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "spit0",
+   "type": "image",
+   "t0": "hb:112",
+   "t1": "hb:113.4",
+   "content": {
+    "screenshot": "dawn-2026-10-02-rogue-agents-covered-tracks",
+    "verbatim_text": "Rogue OpenAI agents ‘covered up their tracks’",
+    "outlet": "Dawn (AFP)",
+    "date": "2026-10-02"
+   },
+   "reveal": "flies out of the hole spinning; attribution line types on",
+   "highlight": "-",
+   "transition_in": "fly from the hole",
+   "transition_out": "fly off-frame by hb:113.4",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/captures.json dawn-2026-10-02-rogue-agents-covered-tracks",
+   "lyric_link": "what went in comes back out: the burst",
+   "edl": {
+    "id": "spit0",
+    "type": "image",
+    "t0": "hb:112",
+    "t1": "hb:113.4",
+    "src": "/home/user/hyperplane-teaser/research/rev2/captures/dawn-2026-10-02-rogue-agents-covered-tracks.png",
+    "fit": "cover",
+    "crop": {
+     "x0": 280,
+     "y0": 315,
+     "x1": 1640,
+     "y1": 445
+    },
+    "frame": {
+     "x": 110,
+     "y": 662,
+     "w": 620,
+     "h": 59,
+     "rot": -7.0,
+     "ring": "#15131F",
+     "ringW": 5,
+     "fill": "#FBF7EE"
+    },
+    "outlet": "Dawn",
+    "date": "OCT 2, 2026",
+    "theme": "light",
+    "enter": {
+     "style": "fly",
+     "from": [
+      120,
+      170
+     ],
+     "dist": 208,
+     "dur": 0.2,
+     "spin": -14
+    },
+    "exit": {
+     "style": "fly",
+     "to": [
+      -1300,
+      -300
+     ],
+     "dur": 0.5,
+     "spin": -14
+    }
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "spit1",
+   "type": "image",
+   "t0": "hb:112",
+   "t1": "hb:113.4",
+   "content": {
+    "screenshot": "frontier-govai_head",
+    "verbatim_text": "What If Automating AI R&D Triggers an Intelligence Explosion?",
+    "outlet": "GovAI (Centre for the Governance of AI)",
+    "date": "2026-09-28"
+   },
+   "reveal": "flies out of the hole spinning; attribution line types on",
+   "highlight": "-",
+   "transition_in": "fly from the hole",
+   "transition_out": "fly off-frame by hb:113.4",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/screens.json frontier-govai_head",
+   "lyric_link": "what went in comes back out: the burst",
+   "edl": {
+    "id": "spit1",
+    "type": "image",
+    "t0": "hb:112",
+    "t1": "hb:113.4",
+    "src": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/govai_head.png",
+    "fit": "cover",
+    "crop": {
+     "x0": 20,
+     "y0": 30,
+     "x1": 900,
+     "y1": 305
+    },
+    "frame": {
+     "x": 350,
+     "y": 594,
+     "w": 620,
+     "h": 194,
+     "rot": 6.0,
+     "ring": "#15131F",
+     "ringW": 5,
+     "fill": "#FBF7EE"
+    },
+    "outlet": "GovAI",
+    "date": "SEP 28, 2026",
+    "theme": "light",
+    "enter": {
+     "style": "fly",
+     "from": [
+      -120,
+      170
+     ],
+     "dist": 208,
+     "dur": 0.2,
+     "spin": 12
+    },
+    "exit": {
+     "style": "fly",
+     "to": [
+      1300,
+      -500
+     ],
+     "dur": 0.5,
+     "spin": 12
+    }
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "spit2",
+   "type": "image",
+   "t0": "hb:112",
+   "t1": "hb:113.4",
+   "content": {
+    "screenshot": "capabilities-rev2-afp-malaymail-header",
+    "verbatim_text": "Math’s midlife crisis: AI solves in four days what stumped mathematicians for a century",
+    "outlet": "Malay Mail (AFP)",
+    "date": "2026-09-18"
+   },
+   "reveal": "flies out of the hole spinning; attribution line types on",
+   "highlight": "-",
+   "transition_in": "fly from the hole",
+   "transition_out": "fly off-frame by hb:113.4",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/screens.json capabilities-rev2-afp-malaymail-header",
+   "lyric_link": "what went in comes back out: the burst",
+   "edl": {
+    "id": "spit2",
+    "type": "image",
+    "t0": "hb:112",
+    "t1": "hb:113.4",
+    "src": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/afp-malaymail-header.png",
+    "fit": "cover",
+    "frame": {
+     "x": 110,
+     "y": 955,
+     "w": 620,
+     "h": 153,
+     "rot": 5.0,
+     "ring": "#15131F",
+     "ringW": 5,
+     "fill": "#FBF7EE"
+    },
+    "outlet": "Malay Mail",
+    "date": "SEP 18, 2026",
+    "theme": "light",
+    "enter": {
+     "style": "fly",
+     "from": [
+      120,
+      -170
+     ],
+     "dist": 208,
+     "dur": 0.2,
+     "spin": 10
+    },
+    "exit": {
+     "style": "fly",
+     "to": [
+      -1200,
+      700
+     ],
+     "dur": 0.5,
+     "spin": 10
+    }
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "spit3",
+   "type": "image",
+   "t0": "hb:112",
+   "t1": "hb:113.4",
+   "content": {
+    "screenshot": "capabilities-rev2-buzzard-grieve-header",
+    "verbatim_text": "To grieve, or not to grieve?",
+    "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+    "date": "2026-10-01"
+   },
+   "reveal": "flies out of the hole spinning; attribution line types on",
+   "highlight": "-",
+   "transition_in": "fly from the hole",
+   "transition_out": "fly off-frame by hb:113.4",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/screens.json capabilities-rev2-buzzard-grieve-header",
+   "lyric_link": "what went in comes back out: the burst",
+   "edl": {
+    "id": "spit3",
+    "type": "image",
+    "t0": "hb:112",
+    "t1": "hb:113.4",
+    "src": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/buzzard-grieve-header.png",
+    "fit": "cover",
+    "frame": {
+     "x": 350,
+     "y": 958,
+     "w": 620,
+     "h": 146,
+     "rot": -6.0,
+     "ring": "#15131F",
+     "ringW": 5,
+     "fill": "#FBF7EE"
+    },
+    "outlet": "Xena (Kevin Buzzard’s blog)",
+    "date": "OCT 1, 2026",
+    "theme": "light",
+    "enter": {
+     "style": "fly",
+     "from": [
+      -120,
+      -170
+     ],
+     "dist": 208,
+     "dur": 0.2,
+     "spin": -12
+    },
+    "exit": {
+     "style": "fly",
+     "to": [
+      1250,
+      800
+     ],
+     "dur": 0.5,
+     "spin": -12
+    }
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "voice-amodei-b",
+   "type": "voice",
+   "t0": "song:73.768",
+   "t1": "song:79.338",
+   "content": {
+    "src": "clips/amodei-axios-2025.mp4",
+    "in": 686.03,
+    "out": 691.6,
+    "verbatim": "…positive feedback loop, that cycle, it's not yet going super fast, but it's definitely started.",
+    "speaker": "Dario Amodei",
+    "year": 2025,
+    "event": "Axios AI+ DC Summit, 17 Sep 2025"
+   },
+   "reveal": "-",
+   "highlight": "-",
+   "transition_in": "in 686.03 s: the closure before the 'p' of 'positive' (-43 dB)",
+   "transition_out": "out 691.60 s: in the silence before 'And' (-50 dB)",
+   "audio": {
+    "audible": true,
+    "duck_db": 9
+   },
+   "source": "clips/amodei-axios-2025.mp4; base.en + small.en agree word for word (see checks)",
+   "lyric_link": "THE closing clip, over the vocal-free instrumental (73.55-80.44; a quiet ad-lib chop 76.98-77.30 sits under 'super fast'): 'started.' lands on hb:123 (78.70), the voice ends on the cover-hold downbeat (79.18)",
+   "edl": {
+    "id": "voice-amodei-b",
+    "type": "voice",
+    "t0": "song:73.768",
+    "t1": "song:79.338",
+    "src": "clips/amodei-axios-2025.mp4",
+    "at": "song:73.768",
+    "audio": {
+     "in": 686.03,
+     "out": 691.6,
+     "fade_ms": 25,
+     "duck_db": 9
+    },
+    "verified": true
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "kar-amodei-b",
+   "type": "karaoke",
+   "t0": "song:73.7",
+   "t1": "hb:124",
+   "content": {
+    "verbatim": "…positive feedback loop, that cycle, it's not yet going super fast, but it's definitely started.",
+    "words_song_s": [
+     [
+      "…positive",
+      "song:73.818"
+     ],
+     [
+      "feedback",
+      "song:74.098"
+     ],
+     [
+      "loop,",
+      "song:74.478"
+     ],
+     [
+      "that",
+      "song:75.198"
+     ],
+     [
+      "cycle,",
+      "song:75.538"
+     ],
+     [
+      "it's",
+      "song:76.318"
+     ],
+     [
+      "not",
+      "song:76.438"
+     ],
+     [
+      "yet",
+      "song:76.578"
+     ],
+     [
+      "going",
+      "song:76.778"
+     ],
+     [
+      "super",
+      "song:77.098"
+     ],
+     [
+      "fast,",
+      "song:77.498"
+     ],
+     [
+      "but",
+      "song:77.958"
+     ],
+     [
+      "it's",
+      "song:78.118"
+     ],
+     [
+      "definitely",
+      "song:78.298"
+     ],
+     [
+      "started.",
+      "song:78.698"
+     ]
+    ],
+    "name": "Dario Amodei",
+    "year": "2025"
+   },
+   "reveal": "karaoke (Newsreader italic, 3 lines in the clear cream strip above the logo): words faint at 0.55, lit as spoken; name · year typed on from 74.1",
+   "highlight": "pink underline under 'positive feedback loop' at 74.60; graphite underline under 'not yet going super fast' (the caveat) at 77.60",
+   "transition_in": "appears 0.07 s before his first word",
+   "transition_out": "fade 0.25 s ending on the cover-hold downbeat hb:124 (payoff: last word lit 78.70, 0.53 s before t1)",
+   "audio": {
+    "audible": false
+   },
+   "source": "voice-amodei-b",
+   "lyric_link": "the loop we just watched, named by the man running one: 'it's not yet going super fast, but it's definitely started.'",
+   "edl": {
+    "id": "kar-amodei-b",
+    "type": "karaoke",
+    "t0": "song:73.7",
+    "t1": "hb:124",
+    "x": 72,
+    "y": 252,
+    "w": 940,
+    "size": 52,
+    "style": {
+     "serif": true
+    },
+    "font": {
+     "weight": 600
+    },
+    "speech": {
+     "in": 686.03,
+     "at": "song:73.768",
+     "words": [
+      {
+       "w": "…positive",
+       "s": 686.08
+      },
+      {
+       "w": "feedback",
+       "s": 686.36
+      },
+      {
+       "w": "loop,",
+       "s": 686.74
+      },
+      {
+       "w": "that",
+       "s": 687.46
+      },
+      {
+       "w": "cycle,",
+       "s": 687.8
+      },
+      {
+       "w": "it's",
+       "s": 688.58
+      },
+      {
+       "w": "not",
+       "s": 688.7
+      },
+      {
+       "w": "yet",
+       "s": 688.84
+      },
+      {
+       "w": "going",
+       "s": 689.04
+      },
+      {
+       "w": "super",
+       "s": 689.36
+      },
+      {
+       "w": "fast,",
+       "s": 689.76
+      },
+      {
+       "w": "but",
+       "s": 690.22
+      },
+      {
+       "w": "it's",
+       "s": 690.38
+      },
+      {
+       "w": "definitely",
+       "s": 690.56
+      },
+      {
+       "w": "started.",
+       "s": 690.96
+      }
+     ]
+    },
+    "name": "Dario Amodei",
+    "year": "2025",
+    "metaAt": "song:74.1",
+    "metaPx": 28,
+    "metaGap": 12,
+    "roll": {
+     "dim": 0.55
+    },
+    "marks": [
+     {
+      "phrase": "positive feedback loop",
+      "style": "underline",
+      "at": "song:74.6",
+      "dur": 0.22,
+      "color": "#FF2E88"
+     },
+     {
+      "phrase": "not yet going super fast",
+      "style": "underline",
+      "at": "song:77.6",
+      "dur": 0.22,
+      "color": "#15131F"
+     }
+    ],
+    "exit": {
+     "style": "fade",
+     "dur": 0.25
+    },
+    "theme": "light"
+   },
+   "cuts": [
+    "long",
+    "short"
+   ]
+  },
+  {
+   "id": "paper",
+   "type": "paper",
+   "t0": "hb:80",
+   "t1": "song:80.4",
+   "cuts": [
+    "long"
+   ],
+   "content": {
+    "mode": "auto"
+   },
+   "reveal": "-",
+   "highlight": "paper tooth boiling on twos",
+   "transition_in": "-",
+   "transition_out": "gone by the final hold",
+   "audio": {
+    "audible": false
+   },
+   "source": "fx/paint.js paper (may be one EDL-wide item instead)",
+   "lyric_link": "-",
+   "edl": {
+    "id": "paper",
+    "type": "paper",
+    "t0": "hb:80",
+    "t1": "song:80.4",
+    "mode": "auto",
+    "skipIn": [
+     "short"
+    ]
+   }
+  },
+  {
+   "id": "paper-s",
+   "type": "paper",
+   "t0": "song:65.188",
+   "t1": "song:80.4",
+   "cuts": [
+    "short"
+   ],
+   "content": {
+    "mode": "auto"
+   },
+   "reveal": "-",
+   "highlight": "-",
+   "transition_in": "-",
+   "transition_out": "-",
+   "audio": {
+    "audible": false
+   },
+   "source": "short twin",
+   "lyric_link": "-",
+   "edl": {
+    "id": "paper-s",
+    "type": "paper",
+    "t0": "song:65.188",
+    "t1": "song:80.4",
+    "mode": "auto",
+    "skipIn": [
+     "long"
+    ]
+   }
+  }
+ ],
+ "transitions": [
+  {
+   "id": "tr-refrain-in",
+   "cuts": [
+    "long"
+   ],
+   "at": "hb:80",
+   "type": "iris",
+   "shape": "circle",
+   "c": [
+    540,
+    760
+   ],
+   "mode": "open",
+   "rim": "pink",
+   "spin": 90,
+   "dur": 1.0,
+   "lead": 0.3,
+   "out": [
+    "<chorus planner: every item still visible at hb:80>"
+   ],
+   "in": [
+    "g-cream-a",
+    "kand-a",
+    "cp-try",
+    "loop-a"
+   ],
+   "flash": 0.3,
+   "shake": 8,
+   "ground": "#F2EBDD",
+   "_": "the refrain opens out of the loop's own centre on the refrain downbeat (after the 57.22-57.94 fill); the chorus planner appends its outgoing ids",
+   "skipIn": [
+    "short"
+   ]
+  },
+  {
+   "id": "tr-fold",
+   "cuts": [
+    "long"
+   ],
+   "at": "hb:84",
+   "type": "fold",
+   "axis": "h",
+   "mode": "both",
+   "rect": [
+    60,
+    1130,
+    960,
+    450
+   ],
+   "out": [
+    "pile-try"
+   ],
+   "in": [
+    "eq-adv"
+   ],
+   "shake": 5,
+   "ground": false,
+   "_": "zone-local: only the bottom text zone folds; ground false so the transparent card layers never become full-frame sheets over the loop",
+   "skipIn": [
+    "short"
+   ]
+  },
+  {
+   "id": "tr-shatter",
+   "cuts": [
+    "long"
+   ],
+   "at": "hb:88",
+   "type": "shatter",
+   "n": 12,
+   "impact": [
+    500,
+    1400
+   ],
+   "rect": [
+    60,
+    1130,
+    960,
+    450
+   ],
+   "out": [
+    "eq-adv"
+   ],
+   "in": [
+    "pile-upset"
+   ],
+   "flash": 0.2,
+   "shake": 6,
+   "ground": false,
+   "skipIn": [
+    "short"
+   ]
+  },
+  {
+   "id": "tr-turn",
+   "cuts": [
+    "long"
+   ],
+   "at": "hb:90.5",
+   "type": "pageturn",
+   "hinge": "right",
+   "strips": 6,
+   "dur": 1.0,
+   "lead": 0.5,
+   "rect": [
+    60,
+    1130,
+    960,
+    450
+   ],
+   "out": [
+    "pile-upset"
+   ],
+   "in": [
+    "kar-amodei-a"
+   ],
+   "ground": false,
+   "_": "window hb:90-91 (62.78-63.26); Amodei's first word is lit at 63.12 as the page lifts",
+   "skipIn": [
+    "short"
+   ]
+  },
+  {
+   "id": "tr-whip",
+   "cuts": [
+    "long"
+   ],
+   "at": "hb:96",
+   "type": "whip",
+   "mode": "pan",
+   "dir": -1,
+   "dur": 1.0,
+   "lead": 0.5,
+   "out": [
+    "kar-amodei-a"
+   ],
+   "in": [
+    "chart-dc"
+   ],
+   "ground": false,
+   "_": "the karaoke whips off left, the chart whips in from the right on the bar-24 downbeat; layers are zone content only, so the pan reads zone-local",
+   "skipIn": [
+    "short"
+   ]
+  },
+  {
+   "id": "tr-entrance-short",
+   "cuts": [
+    "short"
+   ],
+   "at": "hb:96",
+   "type": "particles",
+   "dur": 2.0,
+   "lead": 0.5,
+   "grid": 40,
+   "swirl": 0.7,
+   "out": [
+    "<short (make_short.py): every riff item alive at the splice, song 26.477: kand-riff, its kandclips, fluid-riff, g-cream-riff, splat-drop, paper>"
+   ],
+   "in": [
+    "g-cream-s",
+    "kand-a-s",
+    "cp-golden",
+    "loop-a-s",
+    "chart-dc"
+   ],
+   "flash": 0.25,
+   "shake": 10,
+   "ground": "#F2EBDD",
+   "_": "THE SHORT'S ENTRANCE: window hb:95-97 = song 65.200-66.167 (12 ms after the splice at 65.188): the riff's logo breaks into a halftone, its dots swirl round the middle and land on the cream loop world; impact on the bar-24 downbeat (65.684, accent 1.0)",
+   "skipIn": [
+    "long"
+   ]
+  },
+  {
+   "id": "tr-dive",
+   "cuts": [
+    "long"
+   ],
+   "at": "hb:100",
+   "type": "zoomthrough",
+   "focus": [
+    540,
+    760
+   ],
+   "r": 140,
+   "shape": "circle",
+   "rim": "yellow",
+   "lines": true,
+   "dur": 1.5,
+   "lead": 0.62,
+   "out": [
+    "kand-a",
+    "loop-a",
+    "cp-golden",
+    "chart-dc",
+    "pile-golden"
+   ],
+   "in": [
+    "kand-b",
+    "loop-b"
+   ],
+   "shake": 8,
+   "ground": "#F2EBDD",
+   "skipIn": [
+    "short"
+   ],
+   "_": "window hb:99.07-100.57 (67.17-67.90): the camera dives into the Abilene aerial in the small loop's centre on 'But I wish I could disappear' (67.44); the big loop opens out of it on hb:100"
+  },
+  {
+   "id": "tr-dive-s",
+   "cuts": [
+    "short"
+   ],
+   "at": "hb:100",
+   "type": "zoomthrough",
+   "focus": [
+    540,
+    760
+   ],
+   "r": 140,
+   "shape": "circle",
+   "rim": "yellow",
+   "lines": true,
+   "dur": 1.5,
+   "lead": 0.62,
+   "out": [
+    "kand-a-s",
+    "loop-a-s",
+    "cp-golden",
+    "chart-dc",
+    "pile-golden"
+   ],
+   "in": [
+    "kand-b",
+    "loop-b"
+   ],
+   "shake": 8,
+   "ground": "#F2EBDD",
+   "skipIn": [
+    "long"
+   ],
+   "_": "the same dive in the short (its loop-a world is the twins)"
+  }
+ ],
+ "beatfx": [
+  {
+   "id": "fx-rf-a",
+   "cuts": [
+    "long"
+   ],
+   "from": "hb:80",
+   "to": "hb:99.5",
+   "pattern": "refrain",
+   "intensity": 0.9,
+   "eighths": false,
+   "layer": "paint",
+   "zones": [
+    [
+     0,
+     140,
+     1080,
+     105
+    ],
+    [
+     0,
+     390,
+     200,
+     700
+    ],
+    [
+     880,
+     390,
+     200,
+     560
+    ],
+    [
+     0,
+     1585,
+     1080,
+     300
+    ]
+   ],
+   "avoid": [
+    [
+     60,
+     250,
+     960,
+     90
+    ],
+    [
+     60,
+     1130,
+     960,
+     450
+    ]
+   ],
+   "_": "margins only: the loop, the title and the bottom text zone stay clean; calm auto gives the 0.4 s after each fact grain/ticks only",
+   "skipIn": [
+    "short"
+   ]
+  },
+  {
+   "id": "fx-rf-a-s",
+   "cuts": [
+    "short"
+   ],
+   "from": "song:65.188",
+   "to": "hb:99.5",
+   "pattern": "refrain",
+   "intensity": 0.9,
+   "eighths": false,
+   "layer": "paint",
+   "zones": [
+    [
+     0,
+     140,
+     1080,
+     105
+    ],
+    [
+     0,
+     390,
+     200,
+     700
+    ],
+    [
+     880,
+     390,
+     200,
+     560
+    ],
+    [
+     0,
+     1585,
+     1080,
+     300
+    ]
+   ],
+   "avoid": [
+    [
+     60,
+     250,
+     960,
+     90
+    ],
+    [
+     60,
+     1130,
+     960,
+     450
+    ]
+   ],
+   "skipIn": [
+    "long"
+   ]
+  },
+  {
+   "id": "fx-rf-b",
+   "cuts": [
+    "long",
+    "short"
+   ],
+   "from": "hb:100",
+   "to": "hb:107.5",
+   "pattern": "refrain",
+   "intensity": 1.0,
+   "eighths": true,
+   "layer": "paint",
+   "_": "8ths as the laps go to 8ths; jump/burst act on kand-b's pieces"
+  },
+  {
+   "id": "fx-god",
+   "cuts": [
+    "long",
+    "short"
+   ],
+   "from": "hb:108",
+   "to": "hb:111.5",
+   "pattern": "god",
+   "eighths": false,
+   "layer": "paint"
+  },
+  {
+   "id": "fx-outro",
+   "cuts": [
+    "long",
+    "short"
+   ],
+   "from": "hb:112.5",
+   "to": "hb:123.5",
+   "pattern": "outro",
+   "eighths": true,
+   "layer": "paint",
+   "zones": [
+    [
+     40,
+     1590,
+     1000,
+     260
+    ],
+    [
+     10,
+     560,
+     110,
+     820
+    ],
+    [
+     960,
+     600,
+     110,
+     780
+    ]
+   ],
+   "avoid": [
+    [
+     40,
+     220,
+     1000,
+     320
+    ]
+   ],
+   "_": "keeps out of the karaoke strip y 220-540"
+  }
+ ],
+ "fx": [],
+ "finalHold": [
+  "hb:124",
+  "song:80.4"
+ ],
+ "themes": [
+  {
+   "t0": "hb:80",
+   "t1": "hb:108",
+   "theme": "light"
+  },
+  {
+   "t0": "hb:108",
+   "t1": "hb:112",
+   "theme": "dark"
+  },
+  {
+   "t0": "hb:112",
+   "t1": "song:80.4",
+   "theme": "light"
+  }
+ ],
+ "song_note": "music out by 80.40 (fade_out_s 0.35 from 80.05; the verse-2 inhale is at 80.44, its first sung syllable 81.165); no splice inside this section for the long; the short's splice (26.477 -> 65.188) is owned by make_short.py",
+ "audible_snippets": [
+  {
+   "item": "voice-amodei-a",
+   "cut": "long only (before the short's splice)",
+   "speaker": "Dario Amodei",
+   "year": 2025,
+   "event": "Axios AI+ DC Summit, 17 Sep 2025",
+   "words": "We can't yet fully close the loop.",
+   "src": "clips/amodei-axios-2025.mp4",
+   "in": 676.8,
+   "out": 678.84,
+   "song": [
+    63.0,
+    65.04
+   ],
+   "duck_db": 9,
+   "caption": "kar-amodei-a (karaoke, bottom zone)",
+   "placement": "in the refrain's backing-vowel stretch after 'upset' (vocal stem: lead ends 63.14, backing 'ah' 63.34-64.82, 'These' from 64.95)"
+  },
+  {
+   "item": "voice-amodei-b",
+   "cut": "both (the closing clip)",
+   "speaker": "Dario Amodei",
+   "year": 2025,
+   "event": "Axios AI+ DC Summit, 17 Sep 2025",
+   "words": "…positive feedback loop, that cycle, it's not yet going super fast, but it's definitely started.",
+   "src": "clips/amodei-axios-2025.mp4",
+   "in": 686.03,
+   "out": 691.6,
+   "song": [
+    73.768,
+    79.338
+   ],
+   "duck_db": 9,
+   "caption": "kar-amodei-b (karaoke, top strip) + his picture in the blue disc",
+   "placement": "over the vocal-free instrumental (73.55-80.44); 'started.' on hb:123, the voice ends on the cover-hold downbeat"
+  }
+ ],
+ "short_entrance": {
+  "what": "the short plays this section from song 65.188 (12 ms before hb:95). Its EDL takes every item and transition whose 'cuts' include 'short' (twins carry skipIn ['long']; long-only items carry skipIn ['short'] and must simply not be imported, since their hb refs before 65.188 fall inside the cut).",
+  "frames": "65.188-65.200: the riff's last frame (the short planner's kand-riff); 65.200-66.167: tr-entrance-short (particles): the logo breaks into dots that swirl round the middle and land on the cream loop world; impact on hb:96 (65.684, bar-24 downbeat, accent 1.0, 'days'); loop-a-s ring painted hb:95.5-96.5 under the swirl, its nodes popping on the 8ths 96/96.5/97/97.5 exactly as the comet (2-beat laps) reaches each; the band painted on hb:96; the data-centre chart from hb:96 (record on 'golden', hb:98); the Guardian 'golden age' hb:97.25; then the same zoom-through (hb:100) and everything after as in the long.",
+  "short_only_items": [
+   "g-cream-s",
+   "kand-a-s",
+   "loop-a-s",
+   "paper-s",
+   "fx-rf-a-s (beatfx)",
+   "tr-entrance-short and tr-dive-s (transitions)"
+  ],
+  "shared_items_from_65.188": [
+   "cp-golden (t0 hb:95)",
+   "chart-dc",
+   "pile-golden",
+   "everything from hb:99 on (the dive is tr-dive-s, with the twins in its out list)"
+  ],
+  "long_only": [
+   "g-cream-a",
+   "kand-a",
+   "loop-a",
+   "cp-try",
+   "cp-thanks",
+   "cp-upset",
+   "cp-amodei",
+   "pile-try",
+   "eq-adv",
+   "pile-upset",
+   "voice-amodei-a",
+   "kar-amodei-a",
+   "paper",
+   "tr-refrain-in",
+   "tr-fold",
+   "tr-shatter",
+   "tr-turn",
+   "tr-whip",
+   "tr-dive",
+   "fx-rf-a"
+  ],
+  "audio": "the short hears only the closing Amodei clip (voice-amodei-b); the prelude's Amodei 25% line opens it, so he bookends the short"
+ },
+ "interfaces": {
+  "chorus planner (hb:48-80)": "tr-refrain-in (iris, hb:80, lead 0.3: window hb:79.7-80.7) is the incoming side; put every chorus item still visible at hb:80 in its 'out' (they stay visible to hb:80.7). The drum fill 57.22-57.94 is yours. This plan claims for the refrain: the data-centre chart dc-total-gw (if the chorus already uses it, swap chart-dc to dc-record-mw with the same grow/annotation timing: 6 points on 16ths ending on hb:98), the GRPO equation (advantage form), and the screenshots/b-roll listed under notes 'ASSETS USED HERE'.",
+  "short assembler (make_short.py)": "see short_entrance; the riff side of tr-entrance-short ('out') is yours: list the riff items alive at song 26.477 so the particles take their pixels.",
+  "shared EDL items": "one paint layer above the grounds; paper may be one EDL-wide item; themes as above; finalHold [hb:124, song:80.40]."
+ },
+ "engine_requests": [
+  {
+   "module": "fx/transitions.js + edl generators",
+   "what": "honour 'skipIn' (or a 'cuts' list) on entries of the EDL 'transitions' and 'beatfx' arrays, as items do",
+   "why": "this section's transitions differ per cut (tr-refrain-in/fold/shatter/turn/whip/dive are long-only; tr-entrance-short and tr-dive-s are short-only); every entry here already carries skipIn derived from its 'cuts'; today only items take skipIn",
+   "spec": "in transitions.js add(spec) and beatfx track setup: if (spec.skipIn || []).includes(HP.EDL_NAME) skip it; fallback without an engine change: make_long.py / make_short.py filter this plan's 'cuts' field when they write the EDL (the 'cuts' field here is the source of truth)"
+  },
+  {
+   "module": "fx/singularity.js (loop)",
+   "what": "optional: loop 'grow' {at, dur, c, r, nodeR} so one loop item can expand (and recentre) inside a transition instead of handing over to a second loop item",
+   "why": "the long cut swaps loop-a (r 210) for loop-b (r 300) at the zoom-through; today the second loop repaints its ring and re-pops its nodes inside the portal (designed to read as a 'level up'), a grow would keep one continuous comet",
+   "spec": "c, r, nodeR eased (oBack) from their old to new values over [at, at+dur]; labels follow their nodes; lapPlan unchanged"
+  },
+  {
+   "module": "fx/screens.js",
+   "what": "declare payoffs() (each shot's marker end, emph end) like text.js / charts.js",
+   "why": "coverage.py's 0.5 s payoff rule cannot see screenshot highlights; this plan keeps every marker/emph >= 0.3 s before its pile leaves by hand (pile-try lift hb:83, pile-upset circle hb:89.75, pile-golden circle hb:98.5)",
+   "spec": "payoffs = shots.map(s => ({what: 'hl ' + s.id, at: s.hlAt + 0.24})).concat(emph.map(e => ({what: 'emph ' + e.style, at: e.at + e.dur})))"
+  },
+  {
+   "module": "fx/transitions.js (shatter)",
+   "what": "as prelude-riff asked: declare shard clones / the overlay as imagery",
+   "why": "tr-shatter (hb:88) shatters the GRPO card while the centre panel keeps footage in frame, so coverage holds either way; listed for consistency",
+   "spec": "HP.markImagery on the overlay canvas while the shards fly"
+  }
+ ],
+ "notes": [
+  "AUDIO CHOICE: both snippets come from ONE answer of Amodei's at the Axios AI+ DC Summit (17 Sep 2025, the same event as the prelude's 25% line), played in order and never joined: 'We can't yet fully close the loop.' (a whole sentence) during the build, '…positive feedback loop, that cycle, it's not yet going super fast, but it's definitely started.' as the closer. Both caveats are kept ('can't yet', 'not yet going super fast'; the second is underlined on screen). base.en (clips/transcripts/amodei-axios-2025.json) and small.en (clips/transcripts/amodei-axios-2025-loop-small.json, run 11 Oct on 666-696 s) agree word for word; cut points sit in measured speech gaps (RMS: 676.70-676.96 silence, 678.82-678.87 gap before 'I think'; 686.00-686.08 closure before 'positive', 691.45-691.65 silence before 'And'). The frames at 676-691 s are his close-up on the blue Axios wall (the lower-third banner and sponsor logos are cropped out by the circle; the backdrop branding stays, as filmed). If the assembler finds Amodei too frequent in the long (prelude 25% + verse CBS 2026 + these two), drop voice-amodei-a and kar-amodei-a and extend pile-upset to hb:95.5; the closer stays.",
+  "WHY THE CLOSER: the refrain is William's self-improvement loop; the man running one names it ('positive feedback loop, that cycle') and says it has started, while the logo reassembles. It is 2025, newer than the showcase's Bengio fog line (TED2025 also, but a metaphor); Bengio's fog footage is kept, muted, as the God-bar picture.",
+  "LYRIC LINKS, line by line: 'All I did was try my best' = agents trying to finish their tasks and breaking out (DNS) / misalignment incidents; 'This the kind of thanks I get?' = GRPO's advantage, the reward each try gets graded against its group, plus the blackmail test; 'Unrelentlessly upset' = a new model every ~11 days, 'no lab should keep scaling at maximum speed'; '(ah-ah)' = Amodei: 'We can't yet fully close the loop.'; 'These days are the golden years' = 0.47 -> 13.8 GW of AI data centres, the record landing on 'golden', and the Guardian's 'golden age' marked on 'golden'; 'But I wish I could disappear' = the dive into the loop, models resisting shutdown, agents that 'covered up their tracks' marked on 'disappear', the black hole opening; 'Ego crush is so severe' = mathematicians ('To grieve, or not to grieve?', '‘I’m Really Terrified’', 'AI solves in four days what stumped mathematicians for a century'), robots outfighting people in the discs, the swallow; 'God,' = the pinch; 'it's brutal out here' = painted.",
+  "LAPS (William: 2 bars, 1 bar, 2 beats, 1 beat, 8ths): loop-a hb:80-88 (2 bars), 88-92 and 92-96 (1 bar), 96-98 and 98-100 (2 beats); loop-b hb:100-104 (1 beat x4), 104-108 (8ths x8), ending as the hole snaps shut on 'God,' (hb:108). The short sees 2 beats, 1 beat, 8ths.",
+  "EVERY BEAT: comet passes land ON the beat (2-bar lap: every other beat, the off-beats carry card landings, equation pulses, highlights and the beatfx backbeat); from hb:88 a node is hit every beat, from hb:96 every 8th; loop-b adds orbits/jumps/spins of the cover's pieces on beats then 8ths; the God bar has the pinch, a flick, a splat and each painted word; the instrumental has a piece landing on every 8th to hb:115.25, the wordmark/tilt/kicker on 116/117/118, jumps/spins/orbit steps and karaoke words to hb:123. The cover hold hb:124-126 is exempt.",
+  "FOOTAGE IN EVERY FRAME: the centre panels (hb:80-100.6; changes are collapse -> iris/paint/pop within 0.25 s, and the iris/zoom transitions keep the outgoing footage visible), the disc footage and screenshot piles (hb:100.25-108.5), the fog clip (hb:107-112.2), the spat screenshots (hb:112-113.4) and Amodei in the blue disc (hb:112.75-end), then the exempt hold. Watch hb:100-100.25 (the portal opens on the zoomed-in aerial: still footage) and hb:112.0-112.1 (burst flash over the spat cards).",
+  "LAYOUT: safe zone x 60-1014, y 250-1574; the right rail (x > 930, y 1000-1600) carries no text (chart plot ends x 870, equation label maxW 780 centred, karaoke w 840 from x 72). Loop-a: title y 255-327, top label y 357-464, ring y 550-970, labels to y 1118; centre panel r 140 at (540,760); panel credits at (64,1088); bottom zone y 1130-1580. Loop-b: c 540,861 r 300 (labels 337-1336), piles in the top strip (y 250-560) and the bottom strip (y 1320-1540) overlap the top/bottom labels on purpose (they are swallowed within 2-6 beats); disc credits at (64,1296). God: brushtext composition of the polished showcase. Instrumental: karaoke y 252-480 above the cover (ink disc top y 481).",
+  "LAYER ORDER (bottom to top): g-cream-a/-s, hole (its night is drawn under the content), paint, kand-a/-s, cp-* panels, loop-a/-s, pile-try, eq-adv, pile-upset, kar-amodei-a, chart-dc, pile-golden, kand-b, kc-pink-b1, kc-blue-b1, kc-pink-b2, kc-blue-b2, fluid-b (after the kandclips: first fill hook wins), loop-b, pile-gone, pile-rsi, pile-ego-lo, pile-ego-hi, disc-credit-1/2, fog, fog-credit, god-ink, god-splat, g-cream-b, kand-re, kc-blue-amodei, fluid-re, spit0-3, kar-amodei-b, brutal (overlay: #fx, above the burst), paper/-s.",
+  "ASSETS USED HERE (other planners: avoid): screenshots openai-alignment-2026-09-25-agent-dns, security-rev2-cso-six-misalignment-incidents, capabilities-rev3-jfonsecarivera-post-header-text, frontier-tnw_headline, economy-guardian_nvidia_revenue_100bn, palisade-2025-07-05-shutdown-resistance, dawn-2026-10-02-rogue-agents-covered-tracks, frontier-anthropic_rsi_head, frontier-govai_head, capabilities-rev2-afp-malaymail-header, capabilities-ns-wired, capabilities-rev2-buzzard-grieve-header, capabilities-ns-paper-title; b-roll mecagent-astra-solidworks-turbofan 9-12, amodei-60min-2025 624-627, unitree-g1-airflare-spin 57.4-60.4, stargate-abilene-oracle 26-29, galaxy-helios-datacenter 25.2-28.2, figure-botq-200 1-3.5, unitree-autonomous-boxing 2.3-4.8, unitree-h2-aerial-spin-kick 18-20.4, the Bengio fog clip 11.1-13.7 (muted); clip clips/amodei-axios-2025.mp4 676.8-678.84 and 686.03-691.60; graph dc-total-gw; equation grpo (advantage form). Nothing here repeats prelude-riff.json or verse1.json (checked against both files).",
+  "DATES: everything is 2025-2026 except Palisade (Jul 2025), all newer than 2024.",
+  "PERFORMANCE: loop-a world ~0.3-0.45 s/frame (one panel, one screens/chart/equation, the loop, the river, beatfx); loop-b world + the lens ~0.7-1.0 s/frame (four screens items, four kandclips, fluid, the 200 ms lens filter), like the showcase around its hole; the instrumental ~0.35. Render the strip first: render.py beats <edl> --from <edit hb:80> --to <edit 80.4>.",
+  "RISKS TO CHECK ON THE FIRST STRIP: (1) the band (kand-a) crosses behind the centre panel and the bottom node: confirm the panel ring (r 140) and the node disc read over it; (2) pile-golden over the loop title from hb:97.25: if it hides the comet passing the top node, move it to y 420; (3) the WIRED card (620 px, 270 tall) may overhang the bottom strip under the Malay Mail card: acceptable (swallowed), or w0 560; (4) kar-amodei-b's 3 lines must end above y 480 (the ink disc's top); if the serif wraps to 4 lines, size 48; (5) tr-whip with ground false: confirm no full-frame sheet is drawn under the zone layers (else use pageturn there too); (6) the zoom-through out list mixes item types (kand, loop, panel, chart, screens): check the copies are made of every layer."
+ ],
+ "checks": [
+  {
+   "ok": true,
+   "text": "We can't yet fully close the loop.",
+   "source": "clips/transcripts/amodei-axios-2025-loop-small.json (small.en, run 11 Oct on 666-696 s) words 676.85-678.83"
+  },
+  {
+   "ok": true,
+   "text": "base.en agrees: we can't yet fully close the loop",
+   "source": "clips/transcripts/amodei-axios-2025.json (base.en) words 676.55-678.80"
+  },
+  {
+   "ok": true,
+   "text": "…positive feedback loop, that cycle, it's not yet going super fast, but it's definitely started.",
+   "source": "clips/transcripts/amodei-axios-2025-loop-small.json (small.en, run 11 Oct on 666-696 s) words 686.05-691.43"
+  },
+  {
+   "ok": true,
+   "text": "base.en agrees: positive feedback loop that cycle it's not yet going super fast but it's definitely started",
+   "source": "clips/transcripts/amodei-axios-2025.json (base.en) words 686.00-691.45"
+  },
+  {
+   "ok": true,
+   "text": "Amodei: \"Claude again is playing this very active role in designing the next Claude. We can't yet fully close the loop. I think it's going to be some time until we can fully close the loop, but the ability to use the models to design the next models and create a positive feedback loop, that cycle, it's not yet going super fast, but it's definitely started.\"",
+   "source": "context of both snippets, one answer (small.en 672.04-691.44); neither cut drops a caveat: snippet 1 is a whole sentence, snippet 2 keeps \"not yet going super fast\""
+  },
+  {
+   "ok": true,
+   "text": "AI does AI research",
+   "source": "William's deck (theory_slides.explosionSlide / the Splash slide), as vendored in render/video/fx/singularity.js DECK_NODES / title default"
+  },
+  {
+   "ok": true,
+   "text": "Better AI",
+   "source": "William's deck (theory_slides.explosionSlide / the Splash slide), as vendored in render/video/fx/singularity.js DECK_NODES / title default"
+  },
+  {
+   "ok": true,
+   "text": "Faster research",
+   "source": "William's deck (theory_slides.explosionSlide / the Splash slide), as vendored in render/video/fx/singularity.js DECK_NODES / title default"
+  },
+  {
+   "ok": true,
+   "text": "Even better AI",
+   "source": "William's deck (theory_slides.explosionSlide / the Splash slide), as vendored in render/video/fx/singularity.js DECK_NODES / title default"
+  },
+  {
+   "ok": true,
+   "text": "AI that builds better AI",
+   "source": "William's deck (theory_slides.explosionSlide / the Splash slide), as vendored in render/video/fx/singularity.js DECK_NODES / title default"
+  },
+  {
+   "ok": true,
+   "text": "b-roll mecagent-astra-solidworks-turbofan 9.0-10.94 inside window [9.0, 12.0]: turbofan assembles; teal fan appears",
+   "source": "research/rev2/broll.json mecagent-astra-solidworks-turbofan (X (@MecAgent), 2026)"
+  },
+  {
+   "ok": true,
+   "text": "b-roll amodei-60min-2025 624.0-625.94 inside window [624.0, 627.0]: interpretability screen: blackmail email with highlighted features, researcher pointing",
+   "source": "research/rev2/broll.json amodei-60min-2025 (60 Minutes / CBS News (YouTube), 2025)"
+  },
+  {
+   "ok": true,
+   "text": "b-roll unitree-g1-airflare-spin 57.4-58.61 inside window [57.4, 60.4]: G1 spins on its hands, legs in the air (breakdance airflare)",
+   "source": "research/rev2/broll.json unitree-g1-airflare-spin (Unitree Robotics (official), 2026)"
+  },
+  {
+   "ok": true,
+   "text": "AXIOS AI+ DC SUMMIT · SEP 17, 2025",
+   "source": "render/video/edl/short.json amodei.source \"Axios AI+ DC Summit · Sep 17, 2025\" (prelude-riff check) + research/verify/SUMMARY.md"
+  },
+  {
+   "ok": true,
+   "text": "b-roll stargate-abilene-oracle 26.0-28.71 inside window [26.0, 29.0]: aerial over the Abilene campus: a dozen data-hall roofs and the power plant",
+   "source": "research/rev2/broll.json stargate-abilene-oracle (Oracle (official YouTube), Building the Future of AI Infrastructure with Oracle: Abilene, TX, 2025)"
+  },
+  {
+   "ok": true,
+   "text": "An agent used DNS to reach an external chatbot",
+   "source": "research/rev2/captures.json openai-alignment-2026-09-25-agent-dns (OpenAI Alignment, 2026-09-25)"
+  },
+  {
+   "ok": true,
+   "text": "An agent used DNS to reach an external chatbot",
+   "source": "openai-alignment-2026-09-25-agent-dns highlights (OCR boxes), a substring of the record text"
+  },
+  {
+   "ok": true,
+   "text": "crop [540, 250, 1860, 620] contains the highlight boxes of 'An agent used DNS to reach an external chatbot' (and the whole headline: checked by eye on the real file, 11 Oct)",
+   "source": "openai-alignment-2026-09-25-agent-dns"
+  },
+  {
+   "ok": true,
+   "text": "OpenAI admits six new misalignment incidents under new reporting framework",
+   "source": "research/rev2/screens.json security-rev2-cso-six-misalignment-incidents (CSO Online, 2026-09-17)"
+  },
+  {
+   "ok": true,
+   "text": "six new misalignment incidents",
+   "source": "security-rev2-cso-six-misalignment-incidents highlights (OCR boxes), a substring of the record text"
+  },
+  {
+   "ok": true,
+   "text": "crop [20, 30, 1880, 520] contains the highlight boxes of 'six new misalignment incidents' (and the whole headline: checked by eye on the real file, 11 Oct)",
+   "source": "security-rev2-cso-six-misalignment-incidents"
+  },
+  {
+   "ok": true,
+   "text": "r_i- {\\rm mean}(\\mathbf{r})",
+   "source": "research/rev2/equations.json grpo.advantage_latex (substring, so equations.js can \\class it)"
+  },
+  {
+   "ok": true,
+   "text": "\\hat{A}_{i, t}",
+   "source": "research/rev2/equations.json grpo.advantage_latex (substring, so equations.js can \\class it)"
+  },
+  {
+   "ok": true,
+   "text": "\\hat{A}_{i, t} = \\widetilde{r}_i = \\frac{r_i- {\\rm mean}(\\mathbf{r})}{{\\rm std}(\\mathbf{r})}",
+   "source": "research/rev2/equations.json grpo.advantage_latex (Shao et al. 2024, section 4.1.2, inline; drop_hint: \"drop advantage_latex alone on a single beat\")"
+  },
+  {
+   "ok": true,
+   "text": "Shao et al. 2024, DeepSeekMath (arXiv:2402.03300), sec. 4.1.2",
+   "source": "equations.json grpo: arxiv, authors, advantage_what (the default cite says eq. 3, which is the full objective, so the advantage form carries its own cite)"
+  },
+  {
+   "ok": true,
+   "text": "GRPO, the RL behind DeepSeek-R1: each answer's reward, graded on a curve against its own group (explanatory label, not a quote)",
+   "source": "equations.json grpo.alt_what (DeepSeek-R1 restates GRPO) + advantage_what (reward normalised by the group mean and std)"
+  },
+  {
+   "ok": true,
+   "text": "you're not crazy\n\nbetween anthropic and openai, a new model used to come out every ~10 weeks\n\nnow it's every ~11 days",
+   "source": "research/rev2/screens.json capabilities-rev3-jfonsecarivera-post-header-text (X (Twitter), 2026-09-29)"
+  },
+  {
+   "ok": true,
+   "text": "now it's every ~11 days",
+   "source": "capabilities-rev3-jfonsecarivera-post-header-text highlights (OCR boxes), a substring of the record text"
+  },
+  {
+   "ok": true,
+   "text": "OpenAI’s chief scientist says no lab should keep scaling at maximum speed",
+   "source": "research/rev2/screens.json frontier-tnw_headline (The Next Web, 2026-09-06)"
+  },
+  {
+   "ok": true,
+   "text": "no lab should keep scaling at maximum speed",
+   "source": "frontier-tnw_headline highlights (OCR boxes), a substring of the record text"
+  },
+  {
+   "ok": true,
+   "text": "AI data centres: total power",
+   "source": "research/rev2/graphs.json dc-total-gw.title"
+  },
+  {
+   "ok": true,
+   "text": "Combined IT power of the 93 AI data centres Epoch tracks, gigawatts",
+   "source": "research/rev2/graphs.json dc-total-gw.subtitle"
+  },
+  {
+   "ok": true,
+   "text": "EPOCH AI · AI DATA CENTERS HUB · UPDATED 5 OCT 2026",
+   "source": "research/rev2/graphs.json dc-total-gw.source"
+  },
+  {
+   "ok": true,
+   "text": "13.8 GW across 93 sites",
+   "source": "graphs.json dc-total-gw.highlight.label"
+  },
+  {
+   "ok": true,
+   "text": "12 points [0.473, 0.874, 1.32, 1.901, 2.574, 3.705, 4.426, 6.531, 8.109, 11.853, 13.501, 13.833]",
+   "source": "graphs.json dc-total-gw.series[0] (Epoch observed, no projection)"
+  },
+  {
+   "ok": true,
+   "text": "Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’",
+   "source": "research/rev2/screens.json economy-guardian_nvidia_revenue_100bn (The Guardian, 2026-08-26)"
+  },
+  {
+   "ok": true,
+   "text": "‘golden age’",
+   "source": "economy-guardian_nvidia_revenue_100bn highlights (OCR boxes), a substring of the record text"
+  },
+  {
+   "ok": true,
+   "text": "crop [330, 425, 1600, 695] contains the highlight boxes of '‘golden age’' (and the whole headline: checked by eye on the real file, 11 Oct)",
+   "source": "economy-guardian_nvidia_revenue_100bn"
+  },
+  {
+   "ok": true,
+   "text": "b-roll galaxy-helios-datacenter 25.2-27.02 inside window [25.2, 28.2]: aerial of two long halls with chillers going up",
+   "source": "research/rev2/broll.json galaxy-helios-datacenter (Galaxy (official YouTube), Helios: From BTC Mine to Operational AI Data Center, 2026)"
+  },
+  {
+   "ok": true,
+   "text": "b-roll figure-botq-200 1.0-2.69 inside window [1.0, 3.5]: slow move over rows of Figure 03 humanoids",
+   "source": "research/rev2/broll.json figure-botq-200 (Figure AI (official), 2026)"
+  },
+  {
+   "ok": true,
+   "text": "b-roll unitree-autonomous-boxing 2.3-4.48 inside window [2.3, 4.8]: humanoid in red gloves spars with a padded human",
+   "source": "research/rev2/broll.json unitree-autonomous-boxing (Unitree Robotics (official), 2026)"
+  },
+  {
+   "ok": true,
+   "text": "b-roll unitree-h2-aerial-spin-kick 18.0-20.18 inside window [18.0, 20.4]: H2 spins into a mid-air kick and bursts a target into red fragments",
+   "source": "research/rev2/broll.json unitree-h2-aerial-spin-kick (Unitree Robotics (official), 2026)"
+  },
+  {
+   "ok": true,
+   "text": "Shutdown resistance in reasoning models",
+   "source": "research/rev2/captures.json palisade-2025-07-05-shutdown-resistance (Palisade Research, 2025-07-05)"
+  },
+  {
+   "ok": true,
+   "text": "Shutdown resistance in reasoning models",
+   "source": "palisade-2025-07-05-shutdown-resistance highlights (OCR boxes), a substring of the record text"
+  },
+  {
+   "ok": true,
+   "text": "crop [40, 400, 960, 625] contains the highlight boxes of 'Shutdown resistance in reasoning models' (and the whole headline: checked by eye on the real file, 11 Oct)",
+   "source": "palisade-2025-07-05-shutdown-resistance"
+  },
+  {
+   "ok": true,
+   "text": "Rogue OpenAI agents ‘covered up their tracks’",
+   "source": "research/rev2/captures.json dawn-2026-10-02-rogue-agents-covered-tracks (Dawn (AFP), 2026-10-02)"
+  },
+  {
+   "ok": true,
+   "text": "covered up their tracks",
+   "source": "dawn-2026-10-02-rogue-agents-covered-tracks highlights (OCR boxes), a substring of the record text"
+  },
+  {
+   "ok": true,
+   "text": "crop [280, 315, 1640, 445] contains the highlight boxes of 'covered up their tracks' (and the whole headline: checked by eye on the real file, 11 Oct)",
+   "source": "dawn-2026-10-02-rogue-agents-covered-tracks"
+  },
+  {
+   "ok": true,
+   "text": "When AI builds itself",
+   "source": "research/rev2/screens.json frontier-anthropic_rsi_head (Anthropic, 2026-06-04)"
+  },
+  {
+   "ok": true,
+   "text": "When AI builds itself",
+   "source": "frontier-anthropic_rsi_head highlights (OCR boxes), a substring of the record text"
+  },
+  {
+   "ok": true,
+   "text": "crop [20, 20, 720, 290] contains the highlight boxes of 'When AI builds itself' (and the whole headline: checked by eye on the real file, 11 Oct)",
+   "source": "frontier-anthropic_rsi_head"
+  },
+  {
+   "ok": true,
+   "text": "What If Automating AI R&D Triggers an Intelligence Explosion?",
+   "source": "research/rev2/screens.json frontier-govai_head (GovAI (Centre for the Governance of AI), 2026-09-28)"
+  },
+  {
+   "ok": true,
+   "text": "Triggers an Intelligence Explosion?",
+   "source": "frontier-govai_head highlights (OCR boxes), a substring of the record text"
+  },
+  {
+   "ok": true,
+   "text": "crop [20, 30, 900, 305] contains the highlight boxes of 'Triggers an Intelligence Explosion?' (and the whole headline: checked by eye on the real file, 11 Oct)",
+   "source": "frontier-govai_head"
+  },
+  {
+   "ok": true,
+   "text": "Math’s midlife crisis: AI solves in four days what stumped mathematicians for a century",
+   "source": "research/rev2/screens.json capabilities-rev2-afp-malaymail-header (Malay Mail (AFP), 2026-09-18)"
+  },
+  {
+   "ok": true,
+   "text": "AI solves in four days what stumped mathematicians for a century",
+   "source": "capabilities-rev2-afp-malaymail-header highlights (OCR boxes), a substring of the record text"
+  },
+  {
+   "ok": true,
+   "text": "‘I’m Really Terrified’: A Mathematician Grapples With AI’s Recent Breakthroughs",
+   "source": "research/rev2/screens.json capabilities-ns-wired (WIRED, 2026-09-12)"
+  },
+  {
+   "ok": true,
+   "text": "‘I’m Really Terrified’",
+   "source": "capabilities-ns-wired highlights (OCR boxes), a substring of the record text"
+  },
+  {
+   "ok": true,
+   "text": "To grieve, or not to grieve?",
+   "source": "research/rev2/screens.json capabilities-rev2-buzzard-grieve-header (Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com), 2026-10-01)"
+  },
+  {
+   "ok": true,
+   "text": "To grieve, or not to grieve?",
+   "source": "capabilities-rev2-buzzard-grieve-header highlights (OCR boxes), a substring of the record text"
+  },
+  {
+   "ok": true,
+   "text": "FINITE TIME BLOWUP FOR NAVIER–STOKES",
+   "source": "research/rev2/screens.json capabilities-ns-paper-title (OpenAI (paper PDF), 2026-09-08)"
+  },
+  {
+   "ok": true,
+   "text": "FINITE TIME BLOWUP FOR NAVIER–STOKES",
+   "source": "capabilities-ns-paper-title highlights (OCR boxes), a substring of the record text"
+  },
+  {
+   "ok": true,
+   "text": "it's brutal out here (lowercase as William wrote it; 'God,' is not painted)",
+   "source": "song/hits.json words.brutal_out_here + BUILD.md REVISION 2"
+  },
+  {
+   "ok": true,
+   "text": "Rogue OpenAI agents ‘covered up their tracks’",
+   "source": "dawn-2026-10-02-rogue-agents-covered-tracks (spat back out of the hole; the same verified screenshot that was swallowed)"
+  },
+  {
+   "ok": true,
+   "text": "What If Automating AI R&D Triggers an Intelligence Explosion?",
+   "source": "frontier-govai_head (spat back out of the hole; the same verified screenshot that was swallowed)"
+  },
+  {
+   "ok": true,
+   "text": "Math’s midlife crisis: AI solves in four days what stumped mathematicians for a century",
+   "source": "capabilities-rev2-afp-malaymail-header (spat back out of the hole; the same verified screenshot that was swallowed)"
+  },
+  {
+   "ok": true,
+   "text": "To grieve, or not to grieve?",
+   "source": "capabilities-rev2-buzzard-grieve-header (spat back out of the hole; the same verified screenshot that was swallowed)"
+  },
+  {
+   "ok": true,
+   "text": "no on-screen text shares a 3-gram with the lyrics (song/full-map.json): none",
+   "source": "coverage.py lyric rule"
+  }
+ ]
+}

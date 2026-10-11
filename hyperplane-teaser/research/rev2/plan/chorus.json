@@ -1,0 +1,3912 @@
+{
+ "key": "chorus",
+ "span": [
+  42.46,
+  57.94
+ ],
+ "span_beats": "hb:48 .. hb:79 (32 beats, bars 12-19); hb:80 = 57.942 is the refrain downbeat, listed as the shared handoff",
+ "time_base": "all refs are hits.json beats (hb:i, song = 19.232 + i * 60/124) or song seconds (song:s); they resolve in any EDL through song.segments / audio.songStart",
+ "beats": [
+  {
+   "i": 48,
+   "song": 42.458,
+   "bar": 12,
+   "beat_in_bar": 1,
+   "flags": {
+    "kick": 0.76,
+    "snare": 0.0,
+    "hat": 0.74,
+    "accent": 0.97
+   },
+   "crash": true,
+   "sung_line": "\"And I'm so sick of seventeen\" (pickup 42.3)",
+   "events": [
+    "CHORUS CRASH (shared handoff): the verse's tr-v1-illum blows out to paper white ON the beat and clears onto the full-colour cream chorus: Sora 2's AI-generated anime eyes in a circle (top), Education Week 'Deepfakes Are Supercharging Cyberbullying. How Should Schools Respond?' already slammed into the lower pile",
+    "pink splat r 190 bursts bottom right; beatfx crash (splat) + camera shake",
+    "[+0.5 beat, song 42.700] UNICEF '‘Deepfake abuse is abuse’' DROPS onto the pile; the Sora circle's pink bristle ring paints on"
+   ]
+  },
+  {
+   "i": 49,
+   "song": 42.942,
+   "bar": 12,
+   "beat_in_bar": 2,
+   "flags": {
+    "kick": 0.58,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.56
+   },
+   "events": [
+    "on 'sick' (42.84): yellow marker sweeps 'Deepfakes Are Supercharging Cyberbullying'; Sora circle pulse; pile kick",
+    "[+0.5, 43.184] marker sweeps '‘Deepfake abuse is abuse’'",
+    "[+0.82, 43.338] cracks race out from the pile's middle"
+   ]
+  },
+  {
+   "i": 50,
+   "song": 43.426,
+   "bar": 12,
+   "beat_in_bar": 3,
+   "flags": {
+    "kick": 0.99,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.94
+   },
+   "crash": true,
+   "events": [
+    "SECOND CRASH on 'seven-' (43.38): SHATTER: the two teen cards break into 14 cream shards that tumble and fall; Thorn 'children turning to chatbots for guidance' is underneath; flash 0.3, shake 8",
+    "yellow splat r 170 bottom left; Sora circle pulse",
+    "[+0.25, 43.547] Thorn marker sweeps under the falling shards",
+    "[+0.5, 43.667] on '-teen': Common Sense 'Nearly 3 in 4 Teens Have Used AI Companions, New National Survey Finds' SLAMS on top",
+    "[+0.75, 43.788] its marker sweeps and the PUSH (z 1.7) starts into the phrase"
+   ]
+  },
+  {
+   "i": 51,
+   "song": 43.909,
+   "bar": 12,
+   "beat_in_bar": 4,
+   "flags": {
+    "kick": 0.95,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.97
+   },
+   "events": [
+    "push lands on 'Nearly 3 in 4 Teens Have Used AI Companions'; Sora circle pulse; beatfx",
+    "[+0.25, 44.030] LIFT: the phrase's own pixels lift off the page on a paper slip as 'seventeen' ends (44.04)",
+    "[+0.5, 44.151] pink pencil circle boils round it (sung 'Where's')",
+    "[+0.78, 44.284] FOLD starts: the crease runs down the middle of the sheet"
+   ]
+  },
+  {
+   "i": 52,
+   "song": 44.393,
+   "bar": 13,
+   "beat_in_bar": 1,
+   "flags": {
+    "kick": 0.85,
+    "snare": 0.0,
+    "hat": 0.7,
+    "accent": 1.0
+   },
+   "sung_line": "\"Where's my [explicit] teenage dream\" (44.04-46.06; explicit word 44.88-45.22)",
+   "events": [
+    "BAR 13 DOWNBEAT: FOLD impact: the teen sheet folds in half and flies off; the dream sheet unfolds out of its back: Anthropic's Claude-designed protein binders swirling inside a blue-rimmed liquid blob (top), 'Machines of Loving Grace' (Dario Amodei, Oct 2024) below; shake 7",
+    "beatfx bar splat",
+    "[+0.5, 44.635] Dataconomy 'Anthropic says Claude designed protein binders for 14 of 15 targets' SLAMS between them",
+    "[+0.75, 44.756] marker sweeps 'Machines of Loving Grace'"
+   ]
+  },
+  {
+   "i": 53,
+   "song": 44.877,
+   "bar": 13,
+   "beat_in_bar": 2,
+   "flags": {
+    "kick": 0.65,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.66
+   },
+   "events": [
+    "(explicit word 44.88-45.22: no event is keyed to it; the picture is the same for the clean audio) protein blob pulse; beatfx beat (droplets / scribble)",
+    "[+0.25, 44.998] marker sweeps 'Claude designed protein binders for 14 of 15 targets'",
+    "[+0.4, 45.071] PAGE TURN starts: the Machines of Loving Grace page curls over its left hinge"
+   ]
+  },
+  {
+   "i": 54,
+   "song": 45.361,
+   "bar": 13,
+   "beat_in_bar": 3,
+   "flags": {
+    "kick": 1.0,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.94
+   },
+   "events": [
+    "PAGE TURN impact: the turned page reveals 'The Adolescence of Technology' (Dario Amodei, Jan 2026), the dream's sequel; blob pulse",
+    "[+0.5, 45.603] marker sweeps 'The Adolescence of Technology' and 'Risks of Powerful AI' (on 'teenage', 45.22-45.7)"
+   ]
+  },
+  {
+   "i": 55,
+   "song": 45.845,
+   "bar": 13,
+   "beat_in_bar": 4,
+   "flags": {
+    "kick": 0.94,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.96
+   },
+   "events": [
+    "red pencil underline under 'Risks of Powerful AI' ('dream' 45.7); blob pulse; beatfx",
+    "[+0.5, 46.087] WHIP SPIN starts: the dream frame rotates away with radial streaks and ghost copies"
+   ]
+  },
+  {
+   "i": 56,
+   "song": 46.329,
+   "bar": 14,
+   "beat_in_bar": 1,
+   "flags": {
+    "kick": 0.74,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 1.0
+   },
+   "sung_line": "\"If someone tells me one more time\" (46.06-48.04)",
+   "events": [
+    "BAR 14 DOWNBEAT: WHIP impact ON 'one' (song 46.329): Dario Amodei (CBS Sunday Morning, 2026) decelerates into the violet-ringed circle top right; AUDIBLE '…one,' (music ducked 8 dB from 46.17); karaoke '…ONE,' lights; red ink stamp 'ONE' lands top left",
+    "beatfx bar splat (bottom corners)",
+    "[+0.5, 46.571] the X chart 'New models from Anthropic and OpenAI are arriving faster' is PAINTED into the lower heap; karaoke 'THEN' (49.189)"
+   ]
+  },
+  {
+   "i": 57,
+   "song": 46.813,
+   "bar": 14,
+   "beat_in_bar": 2,
+   "flags": {
+    "kick": 0.54,
+    "snare": 0.0,
+    "hat": 1.0,
+    "accent": 0.57
+   },
+   "events": [
+    "'two,' (46.829) lights; pink stamp 'TWO' lands top centre; the X post 'you're not crazy … now it's every ~11 days' SLAMS on top; CBS circle pulse",
+    "[+0.25, 46.934] marker on 'are arriving faster'",
+    "[+0.75, 47.176] marker on \"now it's every ~11 days\""
+   ]
+  },
+  {
+   "i": 58,
+   "song": 47.297,
+   "bar": 14,
+   "beat_in_bar": 3,
+   "flags": {
+    "kick": 1.0,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.91
+   },
+   "events": [
+    "'four,' (47.329) lights; orange stamp 'FOUR' lands top right; SiliconANGLE 'Anthropic releases Claude Opus 5.5 and OpenAI counters with two cheaper GPT-6 models' DROPS; CBS pulse",
+    "[+0.25, 47.417] marker on 'Anthropic releases Claude Opus 5.5'",
+    "[+0.5, 47.538] PUSH (z 1.42) into \"now it's every ~11 days\""
+   ]
+  },
+  {
+   "i": 59,
+   "song": 47.78,
+   "bar": 14,
+   "beat_in_bar": 4,
+   "flags": {
+    "kick": 0.89,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.93
+   },
+   "events": [
+    "LIFT \"now it's every ~11 days\" (sung 'one more time' 47.22-48.04); CBS pulse; beatfx",
+    "[+0.39, 47.969] 'eight,' lights; violet stamp 'EIGHT' lands left of the gap",
+    "[+0.5, 48.022] pink pencil circle round the lifted phrase",
+    "[+0.76, 48.148] IRIS opens: a spinning square grows from the heap's centre"
+   ]
+  },
+  {
+   "i": 60,
+   "song": 48.264,
+   "bar": 15,
+   "beat_in_bar": 1,
+   "flags": {
+    "kick": 0.75,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.7
+   },
+   "sung_line": "\"Enjoy your youth, I'm gonna cry\" (48.04-49.88)",
+   "events": [
+    "BAR 15 DOWNBEAT: IRIS impact (yellow rim): Fortune 'Computer science enrollment is plunging, but AI is taking over the rest of the college campus as it reshapes how students learn and work' SLAMS as the square opens; shake 5; beatfx bar splat",
+    "[+0.5, 48.506] Fortune 'Top engineers at Anthropic, OpenAI say AI now writes 100% of their code—with big implications for the future of software development jobs' DROPS; marker on 'Computer science enrollment is plunging'",
+    "[+0.7, 48.609] '16,' lights; blue stamp '16' lands right of the gap"
+   ]
+  },
+  {
+   "i": 61,
+   "song": 48.748,
+   "bar": 15,
+   "beat_in_bar": 2,
+   "flags": {
+    "kick": 0.68,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.6
+   },
+   "events": [
+    "on 'youth' (48.74): Chronicle 'Once Seen as a Sure Thing, Computer Science Has Lost 53,000 Majors' SLAMS on top; marker on 'AI now writes 100% of their code'; CBS pulse",
+    "[+0.25, 48.869] marker on 'Computer Science Has Lost 53,000 Majors'",
+    "[+0.5, 48.990] PUSH (z 1.42) into it"
+   ]
+  },
+  {
+   "i": 62,
+   "song": 49.232,
+   "bar": 15,
+   "beat_in_bar": 3,
+   "flags": {
+    "kick": 1.0,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.86
+   },
+   "events": [
+    "'32.' ON the beat (49.269): the giant red stamp '32' lands bottom centre; LIFT 'Computer Science Has Lost 53,000 Majors'; CBS pulse",
+    "[+0.5, 49.474] on 'cry' (49.46): red pencil circle round the lifted phrase; karaoke circle on '32.' at 49.72"
+   ]
+  },
+  {
+   "i": 63,
+   "song": 49.716,
+   "bar": 15,
+   "beat_in_bar": 4,
+   "flags": {
+    "kick": 0.93,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.87
+   },
+   "events": [
+    "pink underline under the Chronicle phrase; the count ends (49.749); CBS circle pulse (the correspondent listening since 161.23)",
+    "[+0.5, 49.958] AUDIBLE Cooper (60 Minutes, 16 Nov 2025) from 49.955: '…who' lights at 50.015; yellow and pink bristle bands start painting across the frame (from hb:63.55)"
+   ]
+  },
+  {
+   "i": 64,
+   "song": 50.2,
+   "bar": 16,
+   "beat_in_bar": 1,
+   "flags": {
+    "kick": 0.78,
+    "snare": 0.0,
+    "hat": 0.6,
+    "accent": 0.8
+   },
+   "sung_line": "\"And I don't stick up for myself\" (49.88-51.82)",
+   "events": [
+    "BAR 16 DOWNBEAT: PAINT WIPE impact: the cut hides under the bands and they tear away onto the HERO: Epoch's record chart on a paper card (bottom), the 60 Minutes circle with Anderson Cooper asking (top right), his karaoke (top left); 'ELECTED' lights (50.275); axes pencil in; title 'The record data centre keeps doubling' drops word by word on 16ths; shake 8",
+    "[+0.5, 50.442] record 1: 237 MW (Aug 2024) lands with a pop and a ring; 'YOU' (50.595) is heard in the vocal gap 50.48-50.71"
+   ]
+  },
+  {
+   "i": 65,
+   "song": 50.684,
+   "bar": 16,
+   "beat_in_bar": 2,
+   "flags": {
+    "kick": 0.49,
+    "snare": 0.0,
+    "hat": 0.53,
+    "accent": 0.61
+   },
+   "events": [
+    "278 MW (Feb 2025) lands; subtitle 'Largest AI data centre by IT power at each record, megawatts' rolls; 'AND' (50.915); 60 Minutes circle pulse; chart kick",
+    "[+0.5, 50.926] 398 MW (Jun 2025); 'SAM' (51.235); red underline under 'elected you' at 50.9"
+   ]
+  },
+  {
+   "i": 66,
+   "song": 51.167,
+   "bar": 16,
+   "beat_in_bar": 3,
+   "flags": {
+    "kick": 0.96,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 1.0
+   },
+   "events": [
+    "626 MW (Dec 2025) lands; chart kick; beatfx (camera punch)",
+    "[+0.5, 51.409] 910 MW (Mar 2026) lands"
+   ]
+  },
+  {
+   "i": 67,
+   "song": 51.651,
+   "bar": 16,
+   "beat_in_bar": 4,
+   "flags": {
+    "kick": 0.98,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.97
+   },
+   "crash": true,
+   "events": [
+    "CRASH on 'myself': THE RECORD: Colossus 2, 946 MW lands ON the crash (solid pink point, pop, ring, counter tick); 'ALTMAN?' lights (51.635); yellow splat r 200 under the card; shake",
+    "[+0.5, 51.893] the CALLOUT: a pencil arrow draws to the point, a red pencil circle on it, 'Colossus 2: 946 MW' rolled out at 60 px with '946 MW' highlighted (sung 'I'm anxious' 51.82)",
+    "[+0.75, 52.014] Amodei's karaoke opens out of a spinning ring (enterFx iris)"
+   ]
+  },
+  {
+   "i": 68,
+   "song": 52.135,
+   "bar": 17,
+   "beat_in_bar": 1,
+   "flags": {
+    "kick": 0.76,
+    "snare": 0.0,
+    "hat": 0.57,
+    "accent": 0.91
+   },
+   "sung_line": "\"I'm anxious and nothing can help\" (51.82-53.78)",
+   "events": [
+    "BAR 17 DOWNBEAT: AUDIBLE Amodei 'No one,' ON the beat (52.135); the 60 Minutes circle is on him now; source line 'EPOCH AI · DATA INSIGHT · FRONTIER DATA CENTER POWER · SEP 2026' types on; beatfx bar splat (under the card)",
+    "[+0.25, 52.256] his name line types on (DARIO AMODEI, ANTHROPIC CEO · 2025)",
+    "[+0.5, 52.377] red pencil circle on 'NO ONE,'"
+   ]
+  },
+  {
+   "i": 69,
+   "song": 52.619,
+   "bar": 17,
+   "beat_in_bar": 2,
+   "flags": {
+    "kick": 0.83,
+    "snare": 0.0,
+    "hat": 0.41,
+    "accent": 0.9
+   },
+   "events": [
+    "'no one.' ON the beat (52.635); 60 Minutes pulse; chart kick",
+    "[+0.5, 52.861] yellow marker sweeps 'keeps doubling' in the chart title"
+   ]
+  },
+  {
+   "i": 70,
+   "song": 53.103,
+   "bar": 17,
+   "beat_in_bar": 3,
+   "flags": {
+    "kick": 0.99,
+    "snare": 0.98,
+    "hat": 0.0,
+    "accent": 1.0
+   },
+   "events": [
+    "the chorus's only SNARE: 'HONESTLY,' ON the beat (53.075); blue splat bottom left; chart kick; camera snap",
+    "[+0.5, 53.345] the callout and the record hold clean (the chart beat track has no 8ths)"
+   ]
+  },
+  {
+   "i": 71,
+   "song": 53.587,
+   "bar": 17,
+   "beat_in_bar": 4,
+   "flags": {
+    "kick": 1.0,
+    "snare": 0.0,
+    "hat": 0.7,
+    "accent": 0.98
+   },
+   "events": [
+    "'no one.' ON the beat (53.535); 60 Minutes pulse",
+    "[+0.07, 53.621] ZOOM-THROUGH starts: the camera dives into the 946 MW point (log zoom, speed lines); the karaoke and the 60 Minutes circle fly off the frame",
+    "[+0.5, 53.829] the record point fills the frame; a painted yellow portal ring opens inside it onto purple-lit GPU racks"
+   ]
+  },
+  {
+   "i": 72,
+   "song": 54.071,
+   "bar": 18,
+   "beat_in_bar": 1,
+   "flags": {
+    "kick": 0.7,
+    "snare": 0.0,
+    "hat": 1.0,
+    "accent": 0.82
+   },
+   "sung_line": "\"And I wish I'd done this before\" (53.78-55.62)",
+   "events": [
+    "BAR 18 DOWNBEAT: ZOOM-THROUGH impact: the Colossus rack corridor opens to the full frame; the GRPO card (cover blue) slams in and row 1 is chalked on; Amodei's last 'one.' ends 54.175 and the music comes back to full",
+    "[+0.25, 54.192] label 'GRPO: each answer is scored against its group' rolls out word by word",
+    "[+0.5, 54.313] racks credit types on",
+    "[+0.75, 54.434] row 2 starts"
+   ]
+  },
+  {
+   "i": 73,
+   "song": 54.555,
+   "bar": 18,
+   "beat_in_bar": 2,
+   "flags": {
+    "kick": 0.53,
+    "snare": 0.0,
+    "hat": 0.96,
+    "accent": 0.42
+   },
+   "events": [
+    "matte paint bands (yellow/orange) paint the lower pile in: BBC 2023 'AI 'godfather' Geoffrey Hinton warns of dangers as he quits Google' SLAMS; beatfx",
+    "[+0.5, 54.797] FLI 2023 'Pause Giant AI Experiments: An Open Letter' DROPS; row 3 starts; Hinton marker",
+    "[+0.75, 54.917] marker on 'pause for at least 6 months the training of AI systems more powerful than GPT-4'"
+   ]
+  },
+  {
+   "i": 74,
+   "song": 55.038,
+   "bar": 18,
+   "beat_in_bar": 3,
+   "flags": {
+    "kick": 0.99,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.89
+   },
+   "events": [
+    "NYT (via Business Standard) 'OpenAI ignored employees who warned it wasn't doing enough about security' is PAINTED in on top; the equation is whole; racks zoom continues",
+    "[+0.25, 55.159] cite rolls: 'Shao et al. 2024, DeepSeekMath (arXiv:2402.03300), eq. 3; advantage: sec. 4.1.2'",
+    "[+0.5, 55.280] NYT marker + PUSH (z 1.3) into its headline"
+   ]
+  },
+  {
+   "i": 75,
+   "song": 55.522,
+   "bar": 18,
+   "beat_in_bar": 4,
+   "flags": {
+    "kick": 0.96,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.91
+   },
+   "events": [
+    "on 'before' (55.2-55.62): LIFT the NYT headline; yellow pencil circle on the KL term β D_KL[π_θ || π_ref] (the leash to the model from before); beatfx",
+    "[+0.5, 55.764] pink pencil circle round the lifted headline",
+    "[+0.82, 55.919] cracks race across the warnings pile"
+   ]
+  },
+  {
+   "i": 76,
+   "song": 56.006,
+   "bar": 19,
+   "beat_in_bar": 1,
+   "flags": {
+    "kick": 0.79,
+    "snare": 0.0,
+    "hat": 1.0,
+    "accent": 0.82
+   },
+   "sung_line": "\"And I wish people liked me more\" (55.62-57.70)",
+   "events": [
+    "BAR 19 DOWNBEAT: SHATTER impact: the warnings shatter into 12 shards over the racks; Gallup 'Americans Cool Toward AI' underneath; racks punch; beatfx bar splat",
+    "[+0.5, 56.248] on 'people' (56.36): yellow marker behind 1/G Σ (the group of G answers), its glyphs turn ink"
+   ]
+  },
+  {
+   "i": 77,
+   "song": 56.49,
+   "bar": 19,
+   "beat_in_bar": 2,
+   "flags": {
+    "kick": 0.77,
+    "snare": 0.0,
+    "hat": 1.0,
+    "accent": 0.78
+   },
+   "events": [
+    "the ADVANTAGE Â_{i,t} = r̃_i = (r_i − mean(r)) / std(r) SLAMS on an ink card under the GRPO card (6 px hit, pink flash)",
+    "[+0.25, 56.611] marker sweeps 'Americans Cool Toward AI'",
+    "[+0.5, 56.732] on 'liked' (56.78): pink pencil circle round Â_{i,t} in the objective"
+   ]
+  },
+  {
+   "i": 78,
+   "song": 56.974,
+   "bar": 19,
+   "beat_in_bar": 3,
+   "flags": {
+    "kick": 0.95,
+    "snare": 0.0,
+    "hat": 0.25,
+    "accent": 0.86
+   },
+   "events": [
+    "yellow underline under r_i − mean(r) ('me' 57.14); PUSH (z 1.3) into 'Americans Cool Toward AI'; racks punch",
+    "[+0.5, 57.216] THE FILL (57.22-57.94): the GRPO card, the advantage and the Gallup card pulse on 16ths; a pink bristle stroke is painted across the bottom strip; beatfx fill (tint / burst) + camera spin; pink underline under the Gallup headline"
+   ]
+  },
+  {
+   "i": 79,
+   "song": 57.458,
+   "bar": 19,
+   "beat_in_bar": 4,
+   "flags": {
+    "kick": 0.93,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.73
+   },
+   "events": [
+    "on 'more' (57.4): yellow pencil circle round 'Americans Cool Toward AI'; 16th pulses continue",
+    "[+0.6, 57.748] the bottom stroke tears away",
+    "[+0.7, 57.797] IRIS opens: a spinning circle with a yellow rim grows at [540, 861]"
+   ]
+  },
+  {
+   "i": 80,
+   "song": 57.942,
+   "bar": 20,
+   "beat_in_bar": 1,
+   "flags": {
+    "kick": 1.0,
+    "snare": 0.0,
+    "hat": 0.0,
+    "accent": 0.69
+   },
+   "sung_line": "refrain \"All I did was try my best\" (pickup 57.70)",
+   "events": [
+    "REFRAIN DOWNBEAT (shared handoff): tr-ch-out80 impact: the refrain planner's first frame opens out of the circle over the racks and the equation; every chorus item ends"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "g-ch-cream",
+   "type": "color",
+   "t0": "hb:48",
+   "t1": "hb:72",
+   "content": {
+    "color": "#F2EBDD"
+   },
+   "reveal": "none (ground)",
+   "highlight": "none",
+   "transition_in": "tr-v1-illum (verse planner, hb:48): the frame blows out to paper white and clears onto it",
+   "transition_out": "tr-ch-zoom72: the whole cream frame is zoomed through (the record point opens onto the racks)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "BUILD.md look: cream #F2EBDD Kandinsky world for the full-colour chorus",
+   "lyric_link": "full colour for the chorus (BUILD.md UPDATE)",
+   "engine": {
+    "id": "g-ch-cream",
+    "type": "color",
+    "t0": "hb:48",
+    "t1": "hb:72",
+    "color": "#F2EBDD",
+    "_note": "the full-colour chorus ground; listed in the verse planner's tr-v1-illum `in`, so it is up from hb:47.5 under the light"
+   }
+  },
+  {
+   "id": "ch-paper",
+   "type": "paper",
+   "t0": "hb:48",
+   "t1": "hb:80",
+   "content": {
+    "paper": "auto"
+   },
+   "reveal": "none",
+   "highlight": "none",
+   "transition_in": "-",
+   "transition_out": "-",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js paper (style.md 4.5)",
+   "lyric_link": "handmade texture (William: skeuomorphic)",
+   "engine": {
+    "id": "ch-paper",
+    "type": "paper",
+    "t0": "hb:48",
+    "t1": "hb:80",
+    "mode": "auto",
+    "_note": "builder A's paper tooth (boils on twos), light on cream, screen 0.07 on the dark racks; list it right after g-ch-cream so it stays UNDER the facts"
+   }
+  },
+  {
+   "id": "p-sora",
+   "type": "panel",
+   "t0": "hb:47.5",
+   "t1": "hb:52",
+   "content": {
+    "broll": "sora2-sample-reel",
+    "window": [
+     16.5,
+     19.5
+    ],
+    "shows": "AI-generated anime eyes with sparks (OpenAI Sora 2 sample reel)",
+    "credit_on_screen": "AI-GENERATED VIDEO · SORA 2 · OPENAI · 2025"
+   },
+   "reveal": "none (footage); credit chip types on",
+   "highlight": "pink bristle ring painted on from hb:48.5; pulses on hb:49-51",
+   "transition_in": "tr-v1-illum (verse planner, hb:48)",
+   "transition_out": "tr-ch-fold52 (folds away on hb:52)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/broll.json sora2-sample-reel (ai-video, captioned as AI-generated)",
+   "lyric_link": "'sick of seventeen': the youth-culture look of AI-generated video, next to the headlines about teens and AI fakes",
+   "engine": {
+    "id": "p-sora",
+    "type": "panel",
+    "t0": "hb:47.5",
+    "t1": "hb:52",
+    "prep": "clip",
+    "broll": "sora2-sample-reel",
+    "in": 16.5,
+    "speed": 1,
+    "oversample": 1.2,
+    "shape": "circle",
+    "frame": {
+     "cx": 540,
+     "cy": 540,
+     "r": 230
+    },
+    "srcFocus": [
+     0.5,
+     0.5
+    ],
+    "entry": "cut",
+    "out": "cut",
+    "border": "paint",
+    "color": "#FF2E88",
+    "borderDelay": 0.55,
+    "kb": {
+     "z": [
+      1.0,
+      1.18
+     ],
+     "pan": [
+      0,
+      -10
+     ]
+    },
+    "grade": {
+     "sat": 1.0,
+     "contrast": 1.05,
+     "grain": 0
+    },
+    "pulse": [
+     "hb:49",
+     "hb:50",
+     "hb:51"
+    ],
+    "pulseAmt": 0.035,
+    "credit": "AI-GENERATED VIDEO · SORA 2 · OPENAI · 2025",
+    "creditAt": [
+     64,
+     262
+    ],
+    "_note": "AI-generated anime eyes with sparks (broll window 16.5-19.5; the reel's title card ends at ~2.5 s, so >= 3 s is safe); visible from hb:47.5 inside the verse's illuminate window"
+   }
+  },
+  {
+   "id": "pile-teens-a",
+   "type": "screens",
+   "t0": "hb:47.5",
+   "t1": "hb:50",
+   "content": {
+    "shots": [
+     {
+      "screenshot": "openweights-rev2-edweek-deepfakes-cyberbullying-2026-headline",
+      "file": "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev2/edweek-deepfakes-cyberbullying-2026-headline.png",
+      "outlet": "Education Week",
+      "date": "2026-08-06",
+      "verbatim_text": "Deepfakes Are Supercharging Cyberbullying. How Should Schools Respond?",
+      "highlight_phrase": "Deepfakes Are Supercharging Cyberbullying",
+      "crop": null,
+      "lands": "hb:48",
+      "entry": "slam"
+     },
+     {
+      "screenshot": "openweights-rev3-unicef-deepfake-abuse-is-abuse-headline-w600",
+      "file": "/home/user/poster/ai-safety-presentation/assets/research/openweights/rev3/unicef-deepfake-abuse-is-abuse-headline-w600.png",
+      "outlet": "UNICEF",
+      "date": "2026-02-04",
+      "verbatim_text": "‘Deepfake abuse is abuse’",
+      "highlight_phrase": "‘Deepfake abuse is abuse’",
+      "crop": null,
+      "lands": "hb:48.5",
+      "entry": "drop"
+     }
+    ]
+   },
+   "reveal": "two cards on 8ths (hb:48, 48.5)",
+   "highlight": "yellow markers sweep each OCR phrase on hb:49 ('sick') and hb:49.5",
+   "transition_in": "tr-v1-illum (hb:48)",
+   "transition_out": "tr-ch-shatter50 (shards on the hb:50 crash)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/screens.json: openweights-rev2-edweek-deepfakes-cyberbullying-2026-headline, openweights-rev3-unicef-deepfake-abuse-is-abuse-headline-w600",
+   "lyric_link": "'sick of seventeen': deepfakes and kids (EdWeek Aug 2026, UNICEF Feb 2026)",
+   "engine": {
+    "id": "pile-teens-a",
+    "type": "screens",
+    "t0": "hb:47.5",
+    "t1": "hb:50",
+    "shots": [
+     {
+      "id": "openweights-rev2-edweek-deepfakes-cyberbullying-2026-headline",
+      "at": "hb:48",
+      "entry": "slam",
+      "hlAt": "hb:49"
+     },
+     {
+      "id": "openweights-rev3-unicef-deepfake-abuse-is-abuse-headline-w600",
+      "at": "hb:48.5",
+      "entry": "drop",
+      "hlAt": "hb:49.5"
+     }
+    ],
+    "region": {
+     "x0": 60,
+     "y0": 860,
+     "x1": 1020,
+     "y1": 1500
+    },
+    "w": 900,
+    "push": false,
+    "emph": [],
+    "out": "cut",
+    "pulse": [
+     "hb:49"
+    ],
+    "theme": "light",
+    "_note": "first card is already down ON hb:48 under the verse's light blowout"
+   }
+  },
+  {
+   "id": "pile-teens-b",
+   "type": "screens",
+   "t0": "hb:49.82",
+   "t1": "hb:52",
+   "content": {
+    "shots": [
+     {
+      "screenshot": "thorn-2026-07-28-chatbots-after-online-harm",
+      "file": "/home/user/hyperplane-teaser/research/rev2/captures/thorn-2026-07-28-chatbots-after-online-harm.png",
+      "outlet": "Thorn",
+      "date": "2026-07-28",
+      "verbatim_text": "As AI becomes part of kids’ response to online harm, new Thorn research finds children turning to chatbots for guidance after online sexual interactions",
+      "highlight_phrase": "children turning to chatbots for guidance",
+      "crop": [
+       80,
+       452,
+       2320,
+       1206
+      ],
+      "lands": "hb:50",
+      "entry": "slam"
+     },
+     {
+      "screenshot": "commonsense-2025-07-16-3-in-4-teens",
+      "file": "/home/user/hyperplane-teaser/research/rev2/captures/commonsense-2025-07-16-3-in-4-teens.png",
+      "outlet": "Common Sense Media",
+      "date": "2025-07-16",
+      "verbatim_text": "Nearly 3 in 4 Teens Have Used AI Companions, New National Survey Finds",
+      "highlight_phrase": "Nearly 3 in 4 Teens Have Used AI Companions",
+      "crop": [
+       80,
+       200,
+       2320,
+       560
+      ],
+      "lands": "hb:50.5",
+      "entry": "slam"
+     }
+    ]
+   },
+   "reveal": "Thorn under the shards on the crash (hb:50), Common Sense slams on top on '-teen' (hb:50.5)",
+   "highlight": "markers hb:50.25 / 50.75; PUSH z 1.7 into 'Nearly 3 in 4 Teens Have Used AI Companions' hb:50.75; LIFT hb:51.25 (as 'seventeen' ends 44.04); pink pencil circle hb:51.5",
+   "transition_in": "tr-ch-shatter50 (underneath the shards)",
+   "transition_out": "tr-ch-fold52",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/captures.json: thorn-2026-07-28-chatbots-after-online-harm, commonsense-2025-07-16-3-in-4-teens",
+   "lyric_link": "'seventeen' = teens: the Common Sense survey is of users ages 13-17 (visible in the captured page body); 3 in 4 have used AI companions; children turn to chatbots for guidance (Thorn 2026)",
+   "engine": {
+    "id": "pile-teens-b",
+    "type": "screens",
+    "t0": "hb:49.82",
+    "t1": "hb:52",
+    "shots": [
+     {
+      "id": "thorn-2026-07-28-chatbots-after-online-harm",
+      "at": "hb:50",
+      "entry": "slam",
+      "hlAt": "hb:50.25"
+     },
+     {
+      "id": "commonsense-2025-07-16-3-in-4-teens",
+      "at": "hb:50.5",
+      "entry": "slam",
+      "crop": [
+       80,
+       200,
+       2320,
+       560
+      ],
+      "hlAt": "hb:50.75"
+     }
+    ],
+    "region": {
+     "x0": 60,
+     "y0": 860,
+     "x1": 1020,
+     "y1": 1500
+    },
+    "w": 900,
+    "theme": "light",
+    "push": {
+     "at": "hb:50.75",
+     "z": 1.7,
+     "dur": 0.26,
+     "shot": 1,
+     "to": [
+      540,
+      1180
+     ]
+    },
+    "emph": [
+     {
+      "style": "lift",
+      "at": "hb:51.25",
+      "shot": 1
+     },
+     {
+      "style": "circle",
+      "at": "hb:51.5",
+      "shot": 1,
+      "color": "#FF2E88"
+     }
+    ],
+    "out": "cut",
+    "_note": "Common Sense crop [80,200,2320,560] = headline + dek + date (stops above the body paragraph, no sentence cut); z 1.7 because its headline is small (q2): the phrase is 545 px wide at w 900, 927 px at z 1.7 (< 940)"
+   }
+  },
+  {
+   "id": "splat-ch-48",
+   "type": "splat",
+   "t0": "hb:48",
+   "t1": "hb:50",
+   "content": {
+    "splat": "pink r 190 bottom right"
+   },
+   "reveal": "3-frame burst, satellites, drips",
+   "highlight": "none",
+   "transition_in": "the chorus crash hb:48",
+   "transition_out": "culls by hb:50",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js splat",
+   "lyric_link": "the chorus lands: paint flies",
+   "engine": {
+    "id": "splat-ch-48",
+    "type": "splat",
+    "t0": "hb:48",
+    "t1": "hb:50",
+    "at": "hb:48",
+    "x": 920,
+    "y": 1700,
+    "r": 190,
+    "color": "#FF2E88",
+    "dir": -110,
+    "layer": "paint",
+    "cullDur": 0.5
+   }
+  },
+  {
+   "id": "splat-ch-50",
+   "type": "splat",
+   "t0": "hb:50",
+   "t1": "hb:52",
+   "content": {
+    "splat": "yellow r 170 bottom left"
+   },
+   "reveal": "burst",
+   "highlight": "none",
+   "transition_in": "crash hb:50 ('seven-')",
+   "transition_out": "culls",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js splat",
+   "lyric_link": "'seventeen' hits on the second crash",
+   "engine": {
+    "id": "splat-ch-50",
+    "type": "splat",
+    "t0": "hb:50",
+    "t1": "hb:52",
+    "at": "hb:50",
+    "x": 150,
+    "y": 1730,
+    "r": 170,
+    "color": "#F2C300",
+    "dir": -70,
+    "layer": "paint",
+    "cullDur": 0.5
+   }
+  },
+  {
+   "id": "p-protein",
+   "type": "panel",
+   "t0": "hb:51.775",
+   "t1": "hb:56",
+   "content": {
+    "broll": "anthropic-protein-binders",
+    "window": [
+     3.8,
+     6.8
+    ],
+    "shows": "nine lab-confirmed Claude-designed protein binders bind their targets and swirl into the letters ANTHROPIC (Anthropic, 2026)"
+   },
+   "reveal": "none (footage)",
+   "highlight": "blue bristle ring painted on (liquid-edged blob)",
+   "transition_in": "tr-ch-fold52 (unfolds in)",
+   "transition_out": "tr-ch-whip56 (spins out)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/broll.json anthropic-protein-binders",
+   "lyric_link": "'teenage dream': the dream AI is sold on (AI science, cures)",
+   "engine": {
+    "id": "p-protein",
+    "type": "panel",
+    "t0": "hb:51.775",
+    "t1": "hb:56",
+    "prep": "clip",
+    "broll": "anthropic-protein-binders",
+    "in": 3.8,
+    "speed": 1,
+    "oversample": 1.2,
+    "shape": "blob",
+    "frame": {
+     "cx": 540,
+     "cy": 530,
+     "r": 240
+    },
+    "srcFocus": [
+     0.5,
+     0.45
+    ],
+    "entry": "cut",
+    "out": "cut",
+    "border": "paint",
+    "color": "#2346FF",
+    "borderDelay": 0.3,
+    "kb": {
+     "z": [
+      1.05,
+      1.2
+     ]
+    },
+    "grade": {
+     "sat": 1.0,
+     "contrast": 1.05,
+     "grain": 0
+    },
+    "pulse": [
+     "hb:53",
+     "hb:54",
+     "hb:55"
+    ],
+    "pulseAmt": 0.035,
+    "credit": "ANTHROPIC · CLAUDE-DESIGNED PROTEIN BINDERS · 2026",
+    "creditAt": [
+     64,
+     262
+    ],
+    "_note": "window 3.8-6.8: nine Claude-designed binders swirl together; plays 3.8 -> 6.33 over its life incl. the whip window (to hb:56.5)"
+   }
+  },
+  {
+   "id": "scr-dataconomy",
+   "type": "screens",
+   "t0": "hb:52.25",
+   "t1": "hb:56",
+   "content": {
+    "shots": [
+     {
+      "screenshot": "geopolitics-dataconomy-protein-head",
+      "file": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/dataconomy-protein-head.png",
+      "outlet": "Dataconomy",
+      "date": "2026-08-20",
+      "verbatim_text": "Anthropic says Claude designed protein binders for 14 of 15 targets",
+      "highlight_phrase": "Claude designed protein binders for 14 of 15 targets",
+      "crop": null,
+      "lands": "hb:52.5",
+      "entry": "slam"
+     }
+    ]
+   },
+   "reveal": "slams on hb:52.5",
+   "highlight": "marker on 'Claude designed protein binders for 14 of 15 targets' hb:53.25",
+   "transition_in": "slam",
+   "transition_out": "tr-ch-whip56",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/screens.json: geopolitics-dataconomy-protein-head",
+   "lyric_link": "the headline of the footage above it: the dream, achieved in a lab (Aug 2026)",
+   "engine": {
+    "id": "scr-dataconomy",
+    "type": "screens",
+    "t0": "hb:52.25",
+    "t1": "hb:56",
+    "shots": [
+     {
+      "id": "geopolitics-dataconomy-protein-head",
+      "at": "hb:52.5",
+      "entry": "slam",
+      "hlAt": "hb:53.25"
+     }
+    ],
+    "region": {
+     "x0": 60,
+     "y0": 800,
+     "x1": 1020,
+     "y1": 1010
+    },
+    "w": 880,
+    "push": false,
+    "emph": [],
+    "out": "cut",
+    "theme": "light"
+   }
+  },
+  {
+   "id": "scr-molg",
+   "type": "screens",
+   "t0": "hb:51.775",
+   "t1": "hb:54",
+   "content": {
+    "shots": [
+     {
+      "screenshot": "dario-2024-10-machines-of-loving-grace",
+      "file": "/home/user/hyperplane-teaser/research/rev2/captures/dario-2024-10-machines-of-loving-grace.png",
+      "outlet": "Dario Amodei",
+      "date": "2024-10",
+      "verbatim_text": "Machines of Loving Grace",
+      "highlight_phrase": "Machines of Loving Grace",
+      "crop": [
+       580,
+       231,
+       1820,
+       743
+      ],
+      "lands": "hb:52",
+      "entry": "drop"
+     }
+    ]
+   },
+   "reveal": "unfolds in on hb:52",
+   "highlight": "marker on 'Machines of Loving Grace' hb:52.75",
+   "transition_in": "tr-ch-fold52",
+   "transition_out": "tr-ch-page54 (the page turns over)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/captures.json: dario-2024-10-machines-of-loving-grace",
+   "lyric_link": "'teenage dream': the utopian essay (Oct 2024) is the dream itself",
+   "engine": {
+    "id": "scr-molg",
+    "type": "screens",
+    "t0": "hb:51.775",
+    "t1": "hb:54",
+    "shots": [
+     {
+      "id": "dario-2024-10-machines-of-loving-grace",
+      "at": "hb:52",
+      "entry": "drop",
+      "hlAt": "hb:52.75",
+      "label": "DARIO AMODEI · ESSAY · OCT 2024"
+     }
+    ],
+    "region": {
+     "x0": 60,
+     "y0": 1060,
+     "x1": 1020,
+     "y1": 1500
+    },
+    "w": 900,
+    "push": false,
+    "emph": [],
+    "out": "cut",
+    "theme": "light",
+    "_note": "label given as a string: the record's date is month-only (2024-10)"
+   }
+  },
+  {
+   "id": "scr-adol",
+   "type": "screens",
+   "t0": "hb:53.4",
+   "t1": "hb:56",
+   "content": {
+    "shots": [
+     {
+      "screenshot": "dario-2026-01-adolescence-of-technology",
+      "file": "/home/user/hyperplane-teaser/research/rev2/captures/dario-2026-01-adolescence-of-technology.png",
+      "outlet": "Dario Amodei",
+      "date": "2026-01",
+      "verbatim_text": "The Adolescence of Technology",
+      "highlight_phrase": "The Adolescence of Technology + Risks of Powerful AI",
+      "crop": [
+       580,
+       231,
+       1820,
+       770
+      ],
+      "lands": "hb:54",
+      "entry": "slam"
+     }
+    ]
+   },
+   "reveal": "revealed under the turning page (hb:54)",
+   "highlight": "marker sweeps 'The Adolescence of Technology' + 'Risks of Powerful AI' hb:54.5; red pencil underline hb:55",
+   "transition_in": "tr-ch-page54",
+   "transition_out": "tr-ch-whip56",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/captures.json: dario-2026-01-adolescence-of-technology",
+   "lyric_link": "'teenage dream' -> adolescence: the same author's sequel (Jan 2026) on the risks; the dream grown into a teenager",
+   "engine": {
+    "id": "scr-adol",
+    "type": "screens",
+    "t0": "hb:53.4",
+    "t1": "hb:56",
+    "shots": [
+     {
+      "id": "dario-2026-01-adolescence-of-technology",
+      "at": "hb:54",
+      "entry": "slam",
+      "hl": [
+       [
+        619,
+        269,
+        1537,
+        365
+       ],
+       [
+        621,
+        405,
+        1400,
+        532
+       ],
+       [
+        1181,
+        557,
+        1532,
+        606
+       ]
+      ],
+      "hlAt": "hb:54.5",
+      "label": "DARIO AMODEI · ESSAY · JAN 2026"
+     }
+    ],
+    "region": {
+     "x0": 60,
+     "y0": 1060,
+     "x1": 1020,
+     "y1": 1500
+    },
+    "w": 900,
+    "push": false,
+    "theme": "light",
+    "emph": [
+     {
+      "style": "underline",
+      "at": "hb:55",
+      "shot": 0,
+      "color": "#B31B1B"
+     }
+    ],
+    "out": "cut",
+    "_note": "hl = the OCR boxes of both record phrases ('The Adolescence of Technology' + 'Risks of Powerful AI'), so one marker sweep covers both (see engine_requests: per-shot second phrase)"
+   }
+  },
+  {
+   "id": "p-cbs",
+   "type": "panel",
+   "t0": "hb:55.5",
+   "t1": "hb:64",
+   "content": {
+    "clip": "clips/amodei-cbs-sunday-2026-09.mp4",
+    "picture_in": 157.918,
+    "picture_out": 162.031,
+    "shows": "Dario Amodei counting on his fingers (CBS Sunday Morning study set, sun bug bottom-left), then the correspondent listening"
+   },
+   "reveal": "none (footage)",
+   "highlight": "violet bristle ring",
+   "transition_in": "tr-ch-whip56 (spins in)",
+   "transition_out": "tr-ch-wipe64 (hides under the paint bands)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/broll.json amodei-cbs-sunday-2026 (clips/amodei-cbs-sunday-2026-09.mp4); frames checked 157.2-162.5",
+   "lyric_link": "'If someone tells me one more time': the CEO who keeps telling us; on camera as he says it",
+   "engine": {
+    "id": "p-cbs",
+    "type": "panel",
+    "t0": "hb:55.5",
+    "t1": "hb:64",
+    "prep": "clip",
+    "src": "clips/amodei-cbs-sunday-2026-09.mp4",
+    "in": 157.918,
+    "speed": 1,
+    "oversample": 1.2,
+    "shape": "circle",
+    "frame": {
+     "cx": 800,
+     "cy": 470,
+     "r": 190
+    },
+    "srcFocus": [
+     0.45,
+     0.4
+    ],
+    "entry": "cut",
+    "out": "cut",
+    "border": "paint",
+    "color": "#7B3FF2",
+    "borderDelay": 0.5,
+    "kb": {
+     "z": [
+      1.0,
+      1.1
+     ]
+    },
+    "grade": {
+     "sat": 1.0,
+     "contrast": 1.05,
+     "grain": 0
+    },
+    "pulse": [
+     "hb:57",
+     "hb:58",
+     "hb:59",
+     "hb:60",
+     "hb:61",
+     "hb:62",
+     "hb:63"
+    ],
+    "pulseAmt": 0.025,
+    "credit": "CBS SUNDAY MORNING · 2026",
+    "creditAt": [
+     610,
+     672
+    ],
+    "_note": "picture in-point keeps lip sync with voice-count (src = song + 111.831). Scene cuts (ffmpeg scene > 0.2): Amodei on camera 157.02-161.23 (the whole count), then an over-the-shoulder shot of the correspondent listening 161.23-162.83, so no muted mouth is shown after the audio stops (161.58)"
+   }
+  },
+  {
+   "id": "voice-count",
+   "type": "voice",
+   "t0": "song:46.289",
+   "t1": "song:49.749",
+   "content": {
+    "clip": "clips/amodei-cbs-sunday-2026-09.mp4",
+    "in": 158.12,
+    "out": 161.58,
+    "song_window": [
+     46.289,
+     49.749
+    ],
+    "verbatim": "…one, then two, then four, then eight, then 16, then 32.",
+    "speaker": "Dario Amodei",
+    "year": 2026,
+    "verification": {
+     "small_en_11oct": [
+      [
+       "…one,",
+       158.16
+      ],
+      [
+       "then",
+       158.6
+      ],
+      [
+       "two,",
+       158.66
+      ],
+      [
+       "then",
+       159.1
+      ],
+      [
+       "four,",
+       159.16
+      ],
+      [
+       "then",
+       159.68
+      ],
+      [
+       "eight,",
+       159.8
+      ],
+      [
+       "then",
+       160.4
+      ],
+      [
+       "16,",
+       160.44
+      ],
+      [
+       "then",
+       161.02
+      ],
+      [
+       "32.",
+       161.1
+      ]
+     ],
+     "base_en": "clips/transcripts/amodei-cbs-sunday-2026-09-base.json 157.58-161.36 'It's like you have one, then two, then four, then eight, then 16, then 32.'",
+     "context": "preceded by 'something I've been saying since we started Anthropic, almost since before we started Anthropic, is that this technology is on an exponential, right? It's like you have one, then two, ...'; the trimmed words ('It's like you have') are marked with the leading ellipsis; the count itself is unchanged"
+    }
+   },
+   "reveal": "karaoke (kar-count) + the six numbers stamped as he says them",
+   "highlight": "n/a",
+   "transition_in": "J-cut: audio from song 46.289, 40 ms before 'one'",
+   "transition_out": "ends song 49.749 (fade 30 ms); Cooper starts 0.21 s later",
+   "audio": {
+    "audible": true,
+    "duck_db": 8
+   },
+   "source": "clips/amodei-cbs-sunday-2026-09.mp4 157.58-161.52 (small.en re-run 11 Oct over 153-163 s; base.en agrees)",
+   "lyric_link": "'If someone tells me one more time': he tells us one more time that it doubles, each number landing on the beat",
+   "engine": {
+    "id": "voice-count",
+    "type": "voice",
+    "t0": "song:46.289",
+    "t1": "song:49.749",
+    "src": "clips/amodei-cbs-sunday-2026-09.mp4",
+    "at": "song:46.289",
+    "audio": {
+     "in": 158.12,
+     "out": 161.58,
+     "fade_ms": 30,
+     "duck_db": 8
+    },
+    "verified": true,
+    "_note": "AUDIBLE over 'If someone tells me one more time / Enjoy your youth': one ON hb:56, two hb:57 (+16 ms), four hb:58 (+32 ms), eight 47.97, 16 48.61, 32 ON hb:62 (+37 ms). in 158.12 is 40 ms before 'one' (small.en 158.16; 'have' ends 158.16): check by ear and move to 158.15 if the tail of 'have' is heard"
+   }
+  },
+  {
+   "id": "kar-count",
+   "type": "karaoke",
+   "t0": "hb:55.5",
+   "t1": "hb:64",
+   "content": {
+    "text": "…one, then two, then four, then eight, then 16, then 32.",
+    "words_song_s": [
+     [
+      "…one,",
+      46.329
+     ],
+     [
+      "then",
+      46.769
+     ],
+     [
+      "two,",
+      46.829
+     ],
+     [
+      "then",
+      47.269
+     ],
+     [
+      "four,",
+      47.329
+     ],
+     [
+      "then",
+      47.849
+     ],
+     [
+      "eight,",
+      47.969
+     ],
+     [
+      "then",
+      48.569
+     ],
+     [
+      "16,",
+      48.609
+     ],
+     [
+      "then",
+      49.189
+     ],
+     [
+      "32.",
+      49.269
+     ]
+    ],
+    "meta": "DARIO AMODEI, ANTHROPIC CEO · 2026"
+   },
+   "reveal": "karaoke: every word faint (0.3), lit red as spoken",
+   "highlight": "red pencil circle on '32.' at song 49.72 (after it is said)",
+   "transition_in": "tr-ch-whip56",
+   "transition_out": "tr-ch-wipe64",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "clips/amodei-cbs-sunday-2026-09.mp4 (small.en word times, 11 Oct)",
+   "lyric_link": "the karaoke of the audible count",
+   "engine": {
+    "id": "kar-count",
+    "type": "karaoke",
+    "t0": "hb:55.5",
+    "t1": "hb:64",
+    "x": 72,
+    "y": 300,
+    "w": 520,
+    "size": 50,
+    "font": {
+     "weight": 700
+    },
+    "speech": {
+     "in": 158.12,
+     "at": "song:46.289",
+     "words": [
+      {
+       "w": "…one,",
+       "s": 158.16
+      },
+      {
+       "w": "then",
+       "s": 158.6
+      },
+      {
+       "w": "two,",
+       "s": 158.66
+      },
+      {
+       "w": "then",
+       "s": 159.1
+      },
+      {
+       "w": "four,",
+       "s": 159.16
+      },
+      {
+       "w": "then",
+       "s": 159.68
+      },
+      {
+       "w": "eight,",
+       "s": 159.8
+      },
+      {
+       "w": "then",
+       "s": 160.4
+      },
+      {
+       "w": "16,",
+       "s": 160.44
+      },
+      {
+       "w": "then",
+       "s": 161.02
+      },
+      {
+       "w": "32.",
+       "s": 161.1
+      }
+     ]
+    },
+    "name": "Dario Amodei, Anthropic CEO",
+    "year": "2026",
+    "metaAt": "hb:56.5",
+    "metaPx": 26,
+    "metaGap": 12,
+    "roll": {
+     "dim": 0.3
+    },
+    "marks": [
+     {
+      "phrase": "32.",
+      "style": "circle",
+      "at": "song:49.720",
+      "color": "#B31B1B",
+      "dur": 0.24,
+      "width": 7
+     }
+    ],
+    "exit": "cut",
+    "theme": "light",
+    "_note": "4 lines of mono caps left of the CBS circle (x 72-592, y 300-656)"
+   }
+  },
+  {
+   "id": "stamp-one",
+   "type": "inkstamp",
+   "t0": "song:46.329",
+   "t1": "hb:64",
+   "content": {
+    "stamp": "ONE",
+    "lands": 46.329
+   },
+   "reveal": "rubber stamp landing (2-frame squash) on the spoken number",
+   "highlight": "none",
+   "transition_in": "lands as Amodei says 'one' (song 46.329)",
+   "transition_out": "tr-ch-wipe64",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js inkstamp (text glyph = his spoken word, the transcript's own form)",
+   "lyric_link": "each doubling stamped bigger than the last (84 -> 240 px): 'one more time', and again",
+   "engine": {
+    "id": "stamp-one",
+    "type": "inkstamp",
+    "t0": "song:46.329",
+    "t1": "hb:64",
+    "at": "song:46.329",
+    "x": 170,
+    "y": 205,
+    "size": 84,
+    "glyph": "text",
+    "text": "one",
+    "color": "#B31B1B",
+    "rot": -8,
+    "layer": "own",
+    "cull": {
+     "at": "hb:63.6",
+     "dur": 0.3
+    }
+   }
+  },
+  {
+   "id": "stamp-two",
+   "type": "inkstamp",
+   "t0": "song:46.829",
+   "t1": "hb:64",
+   "content": {
+    "stamp": "TWO",
+    "lands": 46.829
+   },
+   "reveal": "rubber stamp landing (2-frame squash) on the spoken number",
+   "highlight": "none",
+   "transition_in": "lands as Amodei says 'two' (song 46.829)",
+   "transition_out": "tr-ch-wipe64",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js inkstamp (text glyph = his spoken word, the transcript's own form)",
+   "lyric_link": "each doubling stamped bigger than the last (84 -> 240 px): 'one more time', and again",
+   "engine": {
+    "id": "stamp-two",
+    "type": "inkstamp",
+    "t0": "song:46.829",
+    "t1": "hb:64",
+    "at": "song:46.829",
+    "x": 545,
+    "y": 200,
+    "size": 100,
+    "glyph": "text",
+    "text": "two",
+    "color": "#FF2E88",
+    "rot": 6,
+    "layer": "own",
+    "cull": {
+     "at": "hb:63.6",
+     "dur": 0.3
+    }
+   }
+  },
+  {
+   "id": "stamp-four",
+   "type": "inkstamp",
+   "t0": "song:47.329",
+   "t1": "hb:64",
+   "content": {
+    "stamp": "FOUR",
+    "lands": 47.329
+   },
+   "reveal": "rubber stamp landing (2-frame squash) on the spoken number",
+   "highlight": "none",
+   "transition_in": "lands as Amodei says 'four' (song 47.329)",
+   "transition_out": "tr-ch-wipe64",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js inkstamp (text glyph = his spoken word, the transcript's own form)",
+   "lyric_link": "each doubling stamped bigger than the last (84 -> 240 px): 'one more time', and again",
+   "engine": {
+    "id": "stamp-four",
+    "type": "inkstamp",
+    "t0": "song:47.329",
+    "t1": "hb:64",
+    "at": "song:47.329",
+    "x": 905,
+    "y": 205,
+    "size": 120,
+    "glyph": "text",
+    "text": "four",
+    "color": "#FF4A1C",
+    "rot": -5,
+    "layer": "own",
+    "cull": {
+     "at": "hb:63.6",
+     "dur": 0.3
+    }
+   }
+  },
+  {
+   "id": "stamp-eight",
+   "type": "inkstamp",
+   "t0": "song:47.969",
+   "t1": "hb:64",
+   "content": {
+    "stamp": "EIGHT",
+    "lands": 47.969
+   },
+   "reveal": "rubber stamp landing (2-frame squash) on the spoken number",
+   "highlight": "none",
+   "transition_in": "lands as Amodei says 'eight' (song 47.969)",
+   "transition_out": "tr-ch-wipe64",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js inkstamp (text glyph = his spoken word, the transcript's own form)",
+   "lyric_link": "each doubling stamped bigger than the last (84 -> 240 px): 'one more time', and again",
+   "engine": {
+    "id": "stamp-eight",
+    "type": "inkstamp",
+    "t0": "song:47.969",
+    "t1": "hb:64",
+    "at": "song:47.969",
+    "x": 220,
+    "y": 790,
+    "size": 145,
+    "glyph": "text",
+    "text": "eight",
+    "color": "#7B3FF2",
+    "rot": 7,
+    "layer": "own",
+    "cull": {
+     "at": "hb:63.6",
+     "dur": 0.3
+    }
+   }
+  },
+  {
+   "id": "stamp-16",
+   "type": "inkstamp",
+   "t0": "song:48.609",
+   "t1": "hb:64",
+   "content": {
+    "stamp": "16",
+    "lands": 48.609
+   },
+   "reveal": "rubber stamp landing (2-frame squash) on the spoken number",
+   "highlight": "none",
+   "transition_in": "lands as Amodei says '16' (song 48.609)",
+   "transition_out": "tr-ch-wipe64",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js inkstamp (text glyph = his spoken word, the transcript's own form)",
+   "lyric_link": "each doubling stamped bigger than the last (84 -> 240 px): 'one more time', and again",
+   "engine": {
+    "id": "stamp-16",
+    "type": "inkstamp",
+    "t0": "song:48.609",
+    "t1": "hb:64",
+    "at": "song:48.609",
+    "x": 820,
+    "y": 785,
+    "size": 170,
+    "glyph": "text",
+    "text": "16",
+    "color": "#2346FF",
+    "rot": -6,
+    "layer": "own",
+    "cull": {
+     "at": "hb:63.6",
+     "dur": 0.3
+    }
+   }
+  },
+  {
+   "id": "stamp-32",
+   "type": "inkstamp",
+   "t0": "song:49.269",
+   "t1": "hb:64",
+   "content": {
+    "stamp": "32",
+    "lands": 49.269
+   },
+   "reveal": "rubber stamp landing (2-frame squash) on the spoken number",
+   "highlight": "none",
+   "transition_in": "lands as Amodei says '32' (song 49.269)",
+   "transition_out": "tr-ch-wipe64",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js inkstamp (text glyph = his spoken word, the transcript's own form)",
+   "lyric_link": "each doubling stamped bigger than the last (84 -> 240 px): 'one more time', and again",
+   "engine": {
+    "id": "stamp-32",
+    "type": "inkstamp",
+    "t0": "song:49.269",
+    "t1": "hb:64",
+    "at": "song:49.269",
+    "x": 540,
+    "y": 1700,
+    "size": 240,
+    "glyph": "text",
+    "text": "32",
+    "color": "#B31B1B",
+    "rot": 4,
+    "layer": "own",
+    "cull": {
+     "at": "hb:63.6",
+     "dur": 0.3
+    }
+   }
+  },
+  {
+   "id": "pile-cadence",
+   "type": "screens",
+   "t0": "hb:56.3",
+   "t1": "hb:60",
+   "content": {
+    "shots": [
+     {
+      "screenshot": "capabilities-rev3-jfonsecarivera-model-release-cadence-chart",
+      "file": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev3/jfonsecarivera-model-release-cadence-chart.jpg",
+      "outlet": "X (@jfonsecarivera)",
+      "date": "2026-09-29",
+      "verbatim_text": "New models from Anthropic and OpenAI are arriving faster",
+      "highlight_phrase": "are arriving faster",
+      "crop": null,
+      "lands": "hb:56.5",
+      "entry": "paint"
+     },
+     {
+      "screenshot": "capabilities-rev3-jfonsecarivera-post-header-text",
+      "file": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev3/jfonsecarivera-post-header-text.png",
+      "outlet": "X (Twitter)",
+      "date": "2026-09-29",
+      "verbatim_text": "you're not crazy\n\nbetween anthropic and openai, a new model used to come out every ~10 weeks\n\nnow it's every ~11 days",
+      "highlight_phrase": "now it's every ~11 days",
+      "crop": null,
+      "lands": "hb:57",
+      "entry": "slam"
+     },
+     {
+      "screenshot": "capabilities-siliconangle-opus55",
+      "file": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/siliconangle-opus55.png",
+      "outlet": "SiliconANGLE",
+      "date": "2026-09-22",
+      "verbatim_text": "Anthropic releases Claude Opus 5.5 and OpenAI counters with two cheaper GPT-6 models",
+      "highlight_phrase": "Anthropic releases Claude Opus 5.5",
+      "crop": [
+       0,
+       900,
+       1420,
+       1090
+      ],
+      "lands": "hb:58",
+      "entry": "drop"
+     }
+    ]
+   },
+   "reveal": "chart painted in hb:56.5, X post slams on 'two' (hb:57), SiliconANGLE drops on 'four' (hb:58)",
+   "highlight": "markers hb:57.25 / 57.75 / 58.25; PUSH into \"now it's every ~11 days\" hb:58.5; LIFT hb:59 (sung 'one more time' 47.22-48.04); pink pencil circle hb:59.5",
+   "transition_in": "lands under the whip's tail",
+   "transition_out": "tr-ch-iris60",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/screens.json: capabilities-rev3-jfonsecarivera-model-release-cadence-chart, capabilities-rev3-jfonsecarivera-post-header-text, capabilities-siliconangle-opus55",
+   "lyric_link": "'If someone tells me one more time': one more model, every ~11 days now (Sep 2026)",
+   "engine": {
+    "id": "pile-cadence",
+    "type": "screens",
+    "t0": "hb:56.3",
+    "t1": "hb:60",
+    "shots": [
+     {
+      "id": "capabilities-rev3-jfonsecarivera-model-release-cadence-chart",
+      "at": "hb:56.5",
+      "entry": "paint",
+      "w0": 760,
+      "hlAt": "hb:57.25"
+     },
+     {
+      "id": "capabilities-rev3-jfonsecarivera-post-header-text",
+      "at": "hb:57",
+      "entry": "slam",
+      "hl": 1,
+      "hlAt": "hb:57.75"
+     },
+     {
+      "id": "capabilities-siliconangle-opus55",
+      "at": "hb:58",
+      "entry": "drop",
+      "crop": [
+       0,
+       900,
+       1420,
+       1090
+      ],
+      "hlAt": "hb:58.25"
+     }
+    ],
+    "layout": "scatter",
+    "center": [
+     540,
+     1180
+    ],
+    "w": 880,
+    "jitter": {
+     "x": 40,
+     "y": 30,
+     "rot": 5
+    },
+    "theme": "light",
+    "push": {
+     "at": "hb:58.5",
+     "z": 1.42,
+     "dur": 0.3,
+     "shot": 1,
+     "to": [
+      540,
+      1180
+     ]
+    },
+    "emph": [
+     {
+      "style": "lift",
+      "at": "hb:59",
+      "shot": 1
+     },
+     {
+      "style": "circle",
+      "at": "hb:59.5",
+      "shot": 1,
+      "color": "#FF2E88"
+     }
+    ],
+    "out": "cut",
+    "_note": "SiliconANGLE crop [0,900,1420,1090] = its two-line headline only (OCR boxes y 938-1074), the photo above is left out"
+   }
+  },
+  {
+   "id": "pile-youth",
+   "type": "screens",
+   "t0": "hb:59.76",
+   "t1": "hb:64",
+   "content": {
+    "shots": [
+     {
+      "screenshot": "fortune-2026-08-06-cs-enrollment",
+      "file": "/home/user/hyperplane-teaser/research/rev2/captures/fortune-2026-08-06-cs-enrollment.png",
+      "outlet": "Fortune",
+      "date": "2026-08-06",
+      "verbatim_text": "Computer science enrollment is plunging, but AI is taking over the rest of the college campus as it reshapes how students learn and work",
+      "highlight_phrase": "Computer science enrollment is plunging",
+      "crop": [
+       24,
+       470,
+       1216,
+       935
+      ],
+      "lands": "hb:60",
+      "entry": "slam"
+     },
+     {
+      "screenshot": "work-swe-fortune-100pct-head",
+      "file": "/home/user/poster/ai-safety-presentation/assets/slides/work/swe-fortune-100pct-head.png",
+      "outlet": "Fortune",
+      "date": "2026-01-29",
+      "verbatim_text": "Top engineers at Anthropic, OpenAI say AI now writes 100% of their code—with big implications for the future of software development jobs",
+      "highlight_phrase": "AI now writes 100% of their code",
+      "crop": null,
+      "lands": "hb:60.5",
+      "entry": "drop"
+     },
+     {
+      "screenshot": "work-swe-chronicle-cs-majors",
+      "file": "/home/user/poster/ai-safety-presentation/assets/research/work/swe-chronicle-cs-majors.png",
+      "outlet": "The Chronicle of Higher Education",
+      "date": "2026-08-27",
+      "verbatim_text": "Once Seen as a Sure Thing, Computer Science Has Lost 53,000 Majors",
+      "highlight_phrase": "Computer Science Has Lost 53,000 Majors",
+      "crop": null,
+      "lands": "hb:61",
+      "entry": "slam"
+     }
+    ]
+   },
+   "reveal": "three cards on 8ths: Fortune on the bar (hb:60), Fortune 100% hb:60.5, Chronicle on 'youth' (hb:61)",
+   "highlight": "markers hb:60.5 / 61 / 61.25; PUSH into 'Computer Science Has Lost 53,000 Majors' hb:61.5; LIFT hb:62; red circle on 'cry' (hb:62.5); pink underline hb:63",
+   "transition_in": "tr-ch-iris60 (opens out of a spinning square)",
+   "transition_out": "tr-ch-wipe64",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/captures.json + research/rev2/screens.json: fortune-2026-08-06-cs-enrollment, work-swe-fortune-100pct-head, work-swe-chronicle-cs-majors",
+   "lyric_link": "'Enjoy your youth, I'm gonna cry': the young lose the safe bet (CS majors lost, enrollment plunging, AI writing the code)",
+   "engine": {
+    "id": "pile-youth",
+    "type": "screens",
+    "t0": "hb:59.76",
+    "t1": "hb:64",
+    "shots": [
+     {
+      "id": "fortune-2026-08-06-cs-enrollment",
+      "at": "hb:60",
+      "entry": "slam",
+      "crop": [
+       24,
+       470,
+       1216,
+       935
+      ],
+      "w0": 760,
+      "hlAt": "hb:60.5"
+     },
+     {
+      "id": "work-swe-fortune-100pct-head",
+      "at": "hb:60.5",
+      "entry": "drop",
+      "w0": 760,
+      "hlAt": "hb:61"
+     },
+     {
+      "id": "work-swe-chronicle-cs-majors",
+      "at": "hb:61",
+      "entry": "slam",
+      "hlAt": "hb:61.25"
+     }
+    ],
+    "layout": "stack",
+    "region": {
+     "x0": 60,
+     "y0": 880,
+     "x1": 1020,
+     "y1": 1500
+    },
+    "w": 880,
+    "theme": "light",
+    "push": {
+     "at": "hb:61.5",
+     "z": 1.42,
+     "dur": 0.3,
+     "shot": 2,
+     "to": [
+      540,
+      1180
+     ]
+    },
+    "emph": [
+     {
+      "style": "lift",
+      "at": "hb:62",
+      "shot": 2
+     },
+     {
+      "style": "circle",
+      "at": "hb:62.5",
+      "shot": 2,
+      "color": "#B31B1B"
+     },
+     {
+      "style": "underline",
+      "at": "hb:63",
+      "shot": 2,
+      "color": "#FF2E88"
+     }
+    ],
+    "out": "cut",
+    "_note": "Fortune crop [24,470,1216,935] = its full five-line headline (h1 box 64,498-1176,930), byline below left out"
+   }
+  },
+  {
+   "id": "p-60",
+   "type": "panel",
+   "t0": "hb:63.55",
+   "t1": "hb:72",
+   "content": {
+    "clip": "clips/amodei-60min-2025-11-guardrails.mp4",
+    "picture_in": 804.067,
+    "picture_out": 808.156,
+    "shows": "Anderson Cooper asking (60 MINUTES bug top-left), then Dario Amodei answering"
+   },
+   "reveal": "none (footage)",
+   "highlight": "blue bristle ring",
+   "transition_in": "tr-ch-wipe64 (under the bands)",
+   "transition_out": "tr-ch-zoom72 (flies off as the camera dives into the record point)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/broll.json amodei-60min-2025 (clips/amodei-60min-2025-11-guardrails.mp4); CBS transcript page 16 Nov 2025",
+   "lyric_link": "the faces of the exchange heard over 'I don't stick up for myself'",
+   "engine": {
+    "id": "p-60",
+    "type": "panel",
+    "t0": "hb:63.55",
+    "t1": "hb:72",
+    "prep": "clip",
+    "src": "clips/amodei-60min-2025-11-guardrails.mp4",
+    "in": 804.067,
+    "speed": 1,
+    "oversample": 1.2,
+    "shape": "circle",
+    "frame": {
+     "cx": 800,
+     "cy": 470,
+     "r": 190
+    },
+    "srcFocus": [
+     0.45,
+     0.4
+    ],
+    "entry": "cut",
+    "out": "cut",
+    "border": "paint",
+    "color": "#2346FF",
+    "borderDelay": 0.5,
+    "kb": {
+     "z": [
+      1.0,
+      1.12
+     ]
+    },
+    "grade": {
+     "sat": 1.0,
+     "contrast": 1.05,
+     "grain": 0
+    },
+    "pulse": [
+     "hb:65",
+     "hb:66",
+     "hb:67",
+     "hb:68",
+     "hb:69",
+     "hb:70",
+     "hb:71"
+    ],
+    "pulseAmt": 0.03,
+    "credit": "60 MINUTES · CBS NEWS · NOV 16, 2025",
+    "creditAt": [
+     610,
+     672
+    ],
+    "_note": "lip sync with voice-elected (src = song + 754.085). Scene cuts: Cooper on camera 803.67-806.14 (asking), Amodei on camera from 806.14 (answering); frames checked 804.5-807.6"
+   }
+  },
+  {
+   "id": "voice-elected",
+   "type": "voice",
+   "t0": "song:49.955",
+   "t1": "song:54.215",
+   "content": {
+    "clip": "clips/amodei-60min-2025-11-guardrails.mp4",
+    "in": 804.04,
+    "out": 808.3,
+    "song_window": [
+     49.955,
+     54.215
+    ],
+    "verbatim": "…who elected you and Sam Altman? / No one, no one. Honestly, no one.",
+    "speakers": [
+     [
+      "Anderson Cooper",
+      2025,
+      "…who elected you and Sam Altman?"
+     ],
+     [
+      "Dario Amodei",
+      2025,
+      "No one, no one. Honestly, no one."
+     ]
+    ],
+    "verification": {
+     "cbs_transcript": "https://www.cbsnews.com/news/anthropic-ceo-dario-amodei-warning-of-ai-potential-dangers-60-minutes-transcript/ (By Anderson Cooper, Nichole Marks, Nov 16, 2025): Anderson Cooper: 'Like, who elected you and Sam Altman?' Dario Amodei: 'No one, no one. Honestly, no one.' (fetched 11 Oct)",
+     "small_en_11oct": [
+      [
+       "…who",
+       804.1
+      ],
+      [
+       "elected",
+       804.36
+      ],
+      [
+       "you",
+       804.68
+      ],
+      [
+       "and",
+       805.0
+      ],
+      [
+       "Sam",
+       805.32
+      ],
+      [
+       "Altman?",
+       805.72
+      ],
+      [
+       "No",
+       806.22
+      ],
+      [
+       "one,",
+       806.4
+      ],
+      [
+       "no",
+       806.72
+      ],
+      [
+       "one.",
+       806.86
+      ],
+      [
+       "Honestly,",
+       807.16
+      ],
+      [
+       "no",
+       807.62
+      ],
+      [
+       "one.",
+       807.7
+      ]
+     ],
+     "base_en": "clips/transcripts/amodei-60min-2025-11-guardrails-base.json 803.78-807.84 (same words)",
+     "context": "Cooper: 'Nobody has voted on this...'; Amodei: 'I couldn't agree with this more. I'm deeply uncomfortable with these decisions being made by a few companies, by a few people.'; then this exchange; Amodei goes on 'And this is one reason why I've always advocated for responsible and thoughtful regulation of the technology.' The whole answer is kept; only 'Like,' is trimmed"
+    }
+   },
+   "reveal": "karaoke (kar-cooper, kar-amodei)",
+   "highlight": "n/a",
+   "transition_in": "J-cut: Cooper is heard from song 49.955, his picture opens under the bands by hb:64",
+   "transition_out": "ends song 54.215 (fade 40 ms)",
+   "audio": {
+    "audible": true,
+    "duck_db": 8
+   },
+   "source": "clips/amodei-60min-2025-11-guardrails.mp4 804.04-808.30 (small.en re-run 11 Oct over 800-810 s; base.en and the CBS transcript agree)",
+   "lyric_link": "'And I don't stick up for myself': nobody elected the few deciding this; the CEO says so himself",
+   "engine": {
+    "id": "voice-elected",
+    "type": "voice",
+    "t0": "song:49.955",
+    "t1": "song:54.215",
+    "src": "clips/amodei-60min-2025-11-guardrails.mp4",
+    "at": "song:49.955",
+    "audio": {
+     "in": 804.04,
+     "out": 808.3,
+     "fade_ms": 40,
+     "duck_db": 8
+    },
+    "verified": true,
+    "_note": "AUDIBLE: 'you' falls in the vocal gap 50.48-50.71, 'Altman?' on the hb:67 crash (51.635), 'No one,' ON hb:68, 'no one.' ON hb:69 (+16 ms), 'Honestly,' ON the snare hb:70 (-28 ms), 'no one.' ON hb:71 (-52 ms); ends 54.215, just past hb:72 (inside the zoom-through window). in 804.04 = after 'Like,' (ends 804.00), hence the leading ellipsis on screen"
+   }
+  },
+  {
+   "id": "kar-cooper",
+   "type": "karaoke",
+   "t0": "hb:63.55",
+   "t1": "hb:72",
+   "content": {
+    "text": "…who elected you and Sam Altman?",
+    "words_song_s": [
+     [
+      "…who",
+      50.015
+     ],
+     [
+      "elected",
+      50.275
+     ],
+     [
+      "you",
+      50.595
+     ],
+     [
+      "and",
+      50.915
+     ],
+     [
+      "Sam",
+      51.235
+     ],
+     [
+      "Altman?",
+      51.635
+     ]
+    ],
+    "meta": "ANDERSON COOPER, 60 MINUTES · 2025"
+   },
+   "reveal": "karaoke: lit as he asks",
+   "highlight": "red pencil underline under 'elected you' at song 50.9",
+   "transition_in": "tr-ch-wipe64",
+   "transition_out": "tr-ch-zoom72",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "clips/amodei-60min-2025-11-guardrails.mp4 (small.en)",
+   "lyric_link": "the question under 'I don't stick up for myself'",
+   "engine": {
+    "id": "kar-cooper",
+    "type": "karaoke",
+    "t0": "hb:63.55",
+    "t1": "hb:72",
+    "x": 72,
+    "y": 290,
+    "w": 520,
+    "size": 46,
+    "font": {
+     "weight": 700
+    },
+    "speech": {
+     "in": 804.04,
+     "at": "song:49.955",
+     "words": [
+      {
+       "w": "…who",
+       "s": 804.1
+      },
+      {
+       "w": "elected",
+       "s": 804.36
+      },
+      {
+       "w": "you",
+       "s": 804.68
+      },
+      {
+       "w": "and",
+       "s": 805.0
+      },
+      {
+       "w": "Sam",
+       "s": 805.32
+      },
+      {
+       "w": "Altman?",
+       "s": 805.72
+      }
+     ]
+    },
+    "name": "Anderson Cooper, 60 Minutes",
+    "year": "2025",
+    "metaAt": "hb:64.5",
+    "metaPx": 26,
+    "metaGap": 12,
+    "roll": {
+     "dim": 0.3
+    },
+    "marks": [
+     {
+      "phrase": "elected you",
+      "style": "underline",
+      "at": "song:50.900",
+      "color": "#B31B1B",
+      "dur": 0.3,
+      "width": 7
+     }
+    ],
+    "exit": "cut",
+    "theme": "light"
+   }
+  },
+  {
+   "id": "kar-amodei",
+   "type": "karaoke",
+   "t0": "hb:67.5",
+   "t1": "hb:72",
+   "content": {
+    "text": "No one, no one. Honestly, no one.",
+    "words_song_s": [
+     [
+      "No",
+      52.135
+     ],
+     [
+      "one,",
+      52.315
+     ],
+     [
+      "no",
+      52.635
+     ],
+     [
+      "one.",
+      52.775
+     ],
+     [
+      "Honestly,",
+      53.075
+     ],
+     [
+      "no",
+      53.535
+     ],
+     [
+      "one.",
+      53.615
+     ]
+    ],
+    "meta": "DARIO AMODEI, ANTHROPIC CEO · 2025"
+   },
+   "reveal": "karaoke: every word lands on a beat (hb:68, 69, 70, 71)",
+   "highlight": "red pencil circle on the first 'No one,' hb:68.5",
+   "transition_in": "enterFx iris (ring) hb:67.75",
+   "transition_out": "tr-ch-zoom72",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "clips/amodei-60min-2025-11-guardrails.mp4 (small.en; punctuation from the CBS transcript)",
+   "lyric_link": "'I'm anxious and nothing can help' answered: no one",
+   "engine": {
+    "id": "kar-amodei",
+    "type": "karaoke",
+    "t0": "hb:67.5",
+    "t1": "hb:72",
+    "x": 72,
+    "y": 520,
+    "w": 520,
+    "size": 46,
+    "font": {
+     "weight": 700
+    },
+    "speech": {
+     "in": 804.04,
+     "at": "song:49.955",
+     "words": [
+      {
+       "w": "No",
+       "s": 806.22
+      },
+      {
+       "w": "one,",
+       "s": 806.4
+      },
+      {
+       "w": "no",
+       "s": 806.72
+      },
+      {
+       "w": "one.",
+       "s": 806.86
+      },
+      {
+       "w": "Honestly,",
+       "s": 807.16
+      },
+      {
+       "w": "no",
+       "s": 807.62
+      },
+      {
+       "w": "one.",
+       "s": 807.7
+      }
+     ]
+    },
+    "name": "Dario Amodei, Anthropic CEO",
+    "year": "2025",
+    "metaAt": "hb:68.25",
+    "metaPx": 26,
+    "metaGap": 12,
+    "roll": {
+     "dim": 0.3
+    },
+    "marks": [
+     {
+      "phrase": "No one,",
+      "style": "circle",
+      "at": "hb:68.5",
+      "color": "#B31B1B",
+      "dur": 0.24,
+      "width": 7
+     }
+    ],
+    "enterFx": {
+     "type": "iris",
+     "shape": "ring",
+     "c": [
+      300,
+      580
+     ],
+     "at": "hb:67.75",
+     "dur": 0.75,
+     "lead": 0.3,
+     "ground": false
+    },
+    "exit": "cut",
+    "theme": "light"
+   }
+  },
+  {
+   "id": "chart-dc",
+   "type": "chart",
+   "t0": "hb:63.55",
+   "t1": "hb:72",
+   "content": {
+    "graph": "dc-record-mw",
+    "title": "The record data centre keeps doubling",
+    "subtitle": "Largest AI data centre by IT power at each record, megawatts",
+    "values_mw": [
+     237,
+     278,
+     398,
+     626,
+     910,
+     946
+    ],
+    "x": [
+     "Aug 2024",
+     "Feb 2025",
+     "Jun 2025",
+     "Dec 2025",
+     "Mar 2026",
+     "Jun 2026"
+    ],
+    "callout": "Colossus 2: 946 MW",
+    "source_line": "EPOCH AI · DATA INSIGHT · FRONTIER DATA CENTER POWER · SEP 2026"
+   },
+   "reveal": "axes pencilled hb:64, title rolled on 16ths hb:64, subtitle hb:65, one record per 8th hb:64.5-67, callout rolled on 16ths hb:67.5, source hb:68",
+   "highlight": "946 MW point solid pink with pop + ring + counter on the crash; pencil arrow + red circle + '946 MW' highlighted (hb:67.5); yellow marker on 'keeps doubling' hb:69.5",
+   "transition_in": "tr-ch-wipe64 (under the paint bands)",
+   "transition_out": "tr-ch-zoom72 (the camera dives into the 946 MW point)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/graphs.json dc-record-mw (Epoch observed records only, no projections)",
+   "lyric_link": "'I don't stick up for myself / nothing can help': the record keeps doubling while nobody votes on it; 'myself' and the crash land on the record",
+   "engine": {
+    "id": "chart-dc",
+    "type": "chart",
+    "t0": "hb:63.55",
+    "t1": "hb:72",
+    "graph": "dc-record-mw",
+    "x": 170,
+    "y": 1010,
+    "w": 700,
+    "h": 360,
+    "card": {
+     "x": 50,
+     "y": 760,
+     "w": 980,
+     "h": 800,
+     "color": "#FBF6EC",
+     "rot": -0.8
+    },
+    "titleGap": 200,
+    "titlePx": 54,
+    "titleAt": "hb:64",
+    "titlePer": 0.121,
+    "titleHl": "keeps doubling",
+    "titleHlAt": "hb:69.5",
+    "titleHlColor": "#F2C300",
+    "subAt": "hb:65",
+    "subPx": 24,
+    "axesAt": "hb:64",
+    "grow": [
+     "hb:64.5",
+     "hb:65",
+     "hb:65.5",
+     "hb:66",
+     "hb:66.5",
+     "hb:67"
+    ],
+    "hi": 5,
+    "labels": "all",
+    "valuePx": 40,
+    "valueFmt": {
+     "dec": 0
+    },
+    "color": "#FF2E88",
+    "yAxis": {
+     "label": "MW",
+     "labelIn": "bottom",
+     "labelPx": 28
+    },
+    "annotate": [
+     {
+      "at": "hb:67.5",
+      "i": 5,
+      "text": "Colossus 2: 946 MW",
+      "dx": -560,
+      "dy": -10,
+      "w": 400,
+      "px": 60,
+      "lines": 2,
+      "hl": "946 MW",
+      "lead": 0,
+      "per": 0.06
+     }
+    ],
+    "sourceAt": "hb:68",
+    "sourcePer": 0.05,
+    "sourceY": 1470,
+    "sourcePx": 24,
+    "sourceW": 760,
+    "splatColor": "#F2C300",
+    "kick": 1.02,
+    "theme": "light",
+    "_note": "the HERO: 8 beats (hb:64-72), records on 8ths so the 946 MW record lands ON the hb:67 crash; callout readable hb:67.5-71.07 (1.73 s) before the zoom-through dives into that point. No satellite image: the 60 Minutes circle is the footage layer. Callout placed top-left inside the plot (the step line is low there); check on the strip"
+   }
+  },
+  {
+   "id": "splat-ch-67",
+   "type": "splat",
+   "t0": "hb:67",
+   "t1": "hb:70",
+   "content": {
+    "splat": "yellow r 200 under the card"
+   },
+   "reveal": "burst",
+   "highlight": "none",
+   "transition_in": "crash hb:67 (the record lands)",
+   "transition_out": "culls",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js splat",
+   "lyric_link": "the record hits",
+   "engine": {
+    "id": "splat-ch-67",
+    "type": "splat",
+    "t0": "hb:67",
+    "t1": "hb:70",
+    "at": "hb:67",
+    "x": 960,
+    "y": 1690,
+    "r": 200,
+    "color": "#F2C300",
+    "dir": -120,
+    "layer": "paint",
+    "cullDur": 0.6
+   }
+  },
+  {
+   "id": "splat-ch-70",
+   "type": "splat",
+   "t0": "hb:70",
+   "t1": "hb:72",
+   "content": {
+    "splat": "blue r 120 bottom left"
+   },
+   "reveal": "burst",
+   "highlight": "none",
+   "transition_in": "the chorus's only snare (hb:70, 'Honestly,')",
+   "transition_out": "culls",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js splat",
+   "lyric_link": "'honestly' on the snare",
+   "engine": {
+    "id": "splat-ch-70",
+    "type": "splat",
+    "t0": "hb:70",
+    "t1": "hb:72",
+    "at": "hb:70",
+    "x": 120,
+    "y": 1700,
+    "r": 120,
+    "color": "#2346FF",
+    "dir": -60,
+    "layer": "paint",
+    "cullDur": 0.4
+   }
+  },
+  {
+   "id": "v-racks",
+   "type": "clip",
+   "t0": "hb:71.07",
+   "t1": "hb:80",
+   "content": {
+    "broll": "xai-colossus-racks",
+    "window": [
+     34.0,
+     37.0
+    ],
+    "shows": "a long corridor of GPU racks under purple light inside xAI's Colossus, Memphis (ServeTheHome tour, 2024)"
+   },
+   "reveal": "none (footage)",
+   "highlight": "punches on hb:76 and hb:78",
+   "transition_in": "tr-ch-zoom72 (opens out of the record point's portal)",
+   "transition_out": "tr-ch-out80 (iris into the refrain)",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/broll.json xai-colossus-racks",
+   "lyric_link": "inside the record data centre: where the RL runs",
+   "engine": {
+    "id": "v-racks",
+    "type": "clip",
+    "t0": "hb:71.07",
+    "t1": "hb:80",
+    "prep": "clip",
+    "src": "clips/broll/xai-colossus-racks.mp4",
+    "in": 34.0,
+    "speed": 0.62,
+    "box": {
+     "x": 0,
+     "y": 0,
+     "w": 1080,
+     "h": 1920
+    },
+    "srcFocus": [
+     0.5,
+     0.5
+    ],
+    "zoom": [
+     1.0,
+     1.15
+    ],
+    "zoomEase": "lin",
+    "punch": [
+     {
+      "at": "hb:76",
+      "z": 1.04,
+      "dur": 0.12
+     },
+     {
+      "at": "hb:78",
+      "z": 1.03,
+      "dur": 0.1
+     }
+    ],
+    "grade": {
+     "sat": 1.05,
+     "contrast": 1.08,
+     "brightness": -0.06,
+     "gamma": 0.95,
+     "grain": 3
+    },
+    "enter": "cut",
+    "theme": "dark",
+    "_note": "window 34.0-37.0 (long corridor of racks under purple light); 0.62x over hb:71.07-80.7 (4.66 s) = 34.0-36.89, inside the window and one splice segment; muted"
+   }
+  },
+  {
+   "id": "credit-racks",
+   "type": "words",
+   "t0": "hb:72.5",
+   "t1": "hb:80",
+   "content": {
+    "text": "XAI COLOSSUS, MEMPHIS · SERVETHEHOME TOUR · 2024"
+   },
+   "reveal": "words on 16ths from hb:72.5",
+   "highlight": "none",
+   "transition_in": "rolls on",
+   "transition_out": "tr-ch-out80",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/broll.json xai-colossus-racks (credit, shows, trim.published 2024-10-28)",
+   "lyric_link": "footage credit",
+   "engine": {
+    "id": "credit-racks",
+    "type": "words",
+    "t0": "hb:72.5",
+    "t1": "hb:80",
+    "x": 64,
+    "y": 1530,
+    "w": 900,
+    "text": "XAI COLOSSUS, MEMPHIS · SERVETHEHOME TOUR · 2024",
+    "font": {
+     "family": "'IBM Plex Mono', monospace",
+     "weight": 600,
+     "size": 26
+    },
+    "color": "#C9C4D6",
+    "roll": {
+     "mode": "words",
+     "rate": 4,
+     "from": "hb:72.5"
+    },
+    "theme": "dark"
+   }
+  },
+  {
+   "id": "eq-grpo",
+   "type": "equation",
+   "t0": "hb:72",
+   "t1": "hb:80",
+   "content": {
+    "equation": "grpo (portrait-stacked `tex`)",
+    "cite": "Shao et al. 2024, DeepSeekMath (arXiv:2402.03300), eq. 3",
+    "highlight_terms": [
+     "\\beta \\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right]",
+     "\\frac{1}{G}\\sum_{i=1}^G",
+     "\\hat{A}_{i,t}"
+    ],
+    "label": "GRPO: each answer is scored against its group (explanatory, not a quote)"
+   },
+   "reveal": "cream chalk drawn glyph by glyph, one row per 1.5 8ths (hb:72, 72.75, 73.5); label words 0.06 s apart; cite rolled from hb:74.25",
+   "highlight": "yellow pencil circle on the KL term (π_ref, the model from before) on 'before' (hb:75); yellow marker behind 1/G Σ (the group) on 'people' (hb:76.5); pink circle on Â_{i,t} on 'liked' (hb:77.5); 16th pulses through the fill",
+   "transition_in": "tr-ch-zoom72 (inside the portal)",
+   "transition_out": "tr-ch-out80",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/equations.json grpo (tex, highlight_latex, extra_highlights)",
+   "lyric_link": "'I wish people liked me more': the model is pushed toward the answers scored above their group; 'done this before' = the KL leash to the reference model",
+   "engine": {
+    "id": "eq-grpo",
+    "type": "equation",
+    "t0": "hb:72",
+    "t1": "hb:80",
+    "ref": "grpo",
+    "drop": "hb:72",
+    "mode": "chalk",
+    "rows": [
+     "hb:72",
+     "hb:72.75",
+     "hb:73.5"
+    ],
+    "cx": 540,
+    "cy": 580,
+    "px": 40,
+    "maxW": 940,
+    "card": {
+     "color": "#2346FF",
+     "pad": 40,
+     "rot": -1.2,
+     "lead": 0.12
+    },
+    "label": {
+     "text": "GRPO: each answer is scored against its group",
+     "at": "hb:72.25",
+     "per": 0.06,
+     "font": {
+      "size": 40
+     },
+     "gap": 50
+    },
+    "cite": {
+     "text": "Shao et al. 2024, DeepSeekMath (arXiv:2402.03300), eq. 3; advantage: sec. 4.1.2",
+     "at": "hb:74.25",
+     "px": 24
+    },
+    "hl": [
+     {
+      "from": "highlight",
+      "at": "hb:75",
+      "style": "circle",
+      "color": "#F2C300"
+     },
+     {
+      "from": "extra:1",
+      "at": "hb:76.5",
+      "style": "marker",
+      "color": "#F2C300",
+      "ink": "#15131F"
+     },
+     {
+      "from": "extra:0",
+      "at": "hb:77.5",
+      "style": "circle",
+      "color": "#FF2E88"
+     }
+    ],
+    "pulse": {
+     "from": "hb:78.5",
+     "to": "hb:79.75",
+     "every": 0.25
+    },
+    "theme": "dark",
+    "exit": "cut",
+    "_note": "the portrait-stacked `tex` (3 rows), cream chalk on a cover-blue card over the dark racks (the label and cite sit outside the card, so the dark theme keeps them legible on the footage); rows drawn on hb:72 / 72.75 / 73.5, whole from ~hb:74.3 to hb:79.7 (5.4 beats, 2.6 s) plus the advantage below"
+   }
+  },
+  {
+   "id": "eq-grpo-adv",
+   "type": "equation",
+   "t0": "hb:77",
+   "t1": "hb:80",
+   "content": {
+    "equation": "grpo advantage_latex",
+    "tex": "\\hat{A}_{i, t} = \\widetilde{r}_i = \\frac{r_i- {\\rm mean}(\\mathbf{r})}{{\\rm std}(\\mathbf{r})}",
+    "highlight_term": "r_i- {\\rm mean}(\\mathbf{r})"
+   },
+   "reveal": "slams on hb:77 with a 6 px hit and a pink ink flash",
+   "highlight": "yellow underline under r_i − mean(r) on hb:78 ('more' is sung 57.4)",
+   "transition_in": "slam",
+   "transition_out": "tr-ch-out80",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/equations.json grpo.advantage_latex (Shao et al. 2024, sec. 4.1.2)",
+   "lyric_link": "'liked me more' = your reward minus the group's mean",
+   "engine": {
+    "id": "eq-grpo-adv",
+    "type": "equation",
+    "t0": "hb:77",
+    "t1": "hb:80",
+    "ref": "grpo",
+    "form": "advantage",
+    "drop": "hb:77",
+    "mode": "slam",
+    "slam": 1.16,
+    "cx": 540,
+    "cy": 935,
+    "px": 50,
+    "maxW": 800,
+    "card": {
+     "color": "#15131F",
+     "pad": 24,
+     "rot": 1.5
+    },
+    "cite": false,
+    "hl": [
+     {
+      "tex": "r_i- {\\rm mean}(\\mathbf{r})",
+      "at": "hb:78",
+      "style": "underline",
+      "color": "#F2C300"
+     }
+    ],
+    "pulse": {
+     "from": "hb:78.5",
+     "to": "hb:79.75",
+     "every": 0.25
+    },
+    "hit": 6,
+    "flash": {
+     "opacity": 0.25,
+     "decay": 0.08,
+     "color": "#FF2E88"
+    },
+    "theme": "dark",
+    "exit": "cut",
+    "_note": "research field advantage_latex (same paper, sec. 4.1.2, inline); its source is in eq-grpo's cite line, on screen at the same time"
+   }
+  },
+  {
+   "id": "pile-before",
+   "type": "screens",
+   "t0": "hb:72.9",
+   "t1": "hb:76",
+   "content": {
+    "shots": [
+     {
+      "screenshot": "xrisk-bbc-hinton",
+      "file": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/bbc-hinton.png",
+      "outlet": "BBC News",
+      "date": "2023-05-02",
+      "verbatim_text": "AI 'godfather' Geoffrey Hinton warns of dangers as he quits Google",
+      "highlight_phrase": "warns of dangers as he quits Google",
+      "crop": null,
+      "lands": "hb:73",
+      "entry": "slam"
+     },
+     {
+      "screenshot": "fli-2023-03-22-pause-letter",
+      "file": "/home/user/hyperplane-teaser/research/rev2/captures/fli-2023-03-22-pause-letter.png",
+      "outlet": "Future of Life Institute",
+      "date": "2023-03-22",
+      "verbatim_text": "Pause Giant AI Experiments: An Open Letter",
+      "highlight_phrase": "pause for at least 6 months the training of AI systems more powerful than GPT-4",
+      "crop": [
+       344,
+       452,
+       2056,
+       900
+      ],
+      "lands": "hb:73.5",
+      "entry": "drop"
+     },
+     {
+      "screenshot": "xrisk-nyt-ignored-warnings",
+      "file": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/nyt-ignored-warnings.png",
+      "outlet": "Business Standard (syndicating The New York Times)",
+      "date": "2026-09-29",
+      "verbatim_text": "OpenAI ignored employees who warned it wasn't doing enough about security",
+      "highlight_phrase": "OpenAI ignored employees who warned it wasn't doing enough about security",
+      "crop": null,
+      "lands": "hb:74",
+      "entry": "paint"
+     }
+    ]
+   },
+   "reveal": "painted in through matte bands on hb:73 (Hinton slams), FLI drops hb:73.5, NYT painted in hb:74",
+   "highlight": "markers hb:73.5 / 73.75 / 74.5; PUSH into 'OpenAI ignored employees who warned it wasn't doing enough about security' hb:74.5; LIFT on 'before' (hb:75); pink circle hb:75.5",
+   "transition_in": "enterFx paintwipe matte (hb:73)",
+   "transition_out": "tr-ch-shatter76",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/captures.json + research/rev2/screens.json: xrisk-bbc-hinton, fli-2023-03-22-pause-letter, xrisk-nyt-ignored-warnings",
+   "lyric_link": "'I wish I'd done this before': the warnings came early (Hinton quits Google, the Pause letter, 2023) and were ignored (NYT, Sep 2026)",
+   "engine": {
+    "id": "pile-before",
+    "type": "screens",
+    "t0": "hb:72.9",
+    "t1": "hb:76",
+    "shots": [
+     {
+      "id": "xrisk-bbc-hinton",
+      "at": "hb:73",
+      "entry": "slam",
+      "hlAt": "hb:73.5"
+     },
+     {
+      "id": "fli-2023-03-22-pause-letter",
+      "at": "hb:73.5",
+      "entry": "drop",
+      "crop": [
+       344,
+       452,
+       2056,
+       900
+      ],
+      "w0": 700,
+      "hlAt": "hb:73.75"
+     },
+     {
+      "id": "xrisk-nyt-ignored-warnings",
+      "at": "hb:74",
+      "entry": "paint",
+      "hlAt": "hb:74.5"
+     }
+    ],
+    "layout": "stack",
+    "region": {
+     "x0": 60,
+     "y0": 1080,
+     "x1": 1020,
+     "y1": 1500
+    },
+    "w": 880,
+    "theme": "dark",
+    "push": {
+     "at": "hb:74.5",
+     "z": 1.3,
+     "dur": 0.26,
+     "shot": 2,
+     "to": [
+      540,
+      1290
+     ]
+    },
+    "emph": [
+     {
+      "style": "lift",
+      "at": "hb:75",
+      "shot": 2
+     },
+     {
+      "style": "circle",
+      "at": "hb:75.5",
+      "shot": 2,
+      "color": "#FF2E88"
+     }
+    ],
+    "out": "cut",
+    "enterFx": {
+     "type": "paintwipe",
+     "style": "matte",
+     "at": "hb:73",
+     "dur": 1,
+     "colors": [
+      "yellow",
+      "orange"
+     ],
+     "ground": false
+    },
+    "_note": "FLI crop [344,452,2056,900] = title + the call to pause (OCR highlight lines 739-873), the signature form below left out"
+   }
+  },
+  {
+   "id": "scr-gallup",
+   "type": "screens",
+   "t0": "hb:75.82",
+   "t1": "hb:80",
+   "content": {
+    "shots": [
+     {
+      "screenshot": "gallup-2026-07-28-americans-cool-toward-ai",
+      "file": "/home/user/hyperplane-teaser/research/rev2/captures/gallup-2026-07-28-americans-cool-toward-ai.png",
+      "outlet": "Gallup",
+      "date": "2026-07-28",
+      "verbatim_text": "Americans Cool Toward AI",
+      "highlight_phrase": "Americans Cool Toward AI",
+      "crop": [
+       511,
+       548,
+       1859,
+       812
+      ],
+      "lands": "hb:76",
+      "entry": "slam"
+     }
+    ]
+   },
+   "reveal": "revealed under the shards on the bar (hb:76)",
+   "highlight": "marker on 'Americans Cool Toward AI' on 'liked' (hb:77.25); PUSH hb:78; pink underline hb:78.5; yellow circle on 'more' (hb:79); 16th pulses through the fill",
+   "transition_in": "tr-ch-shatter76 (underneath)",
+   "transition_out": "tr-ch-out80",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "research/rev2/captures.json: gallup-2026-07-28-americans-cool-toward-ai",
+   "lyric_link": "'I wish people liked me more': Americans cool toward AI (Gallup, Jul 2026)",
+   "engine": {
+    "id": "scr-gallup",
+    "type": "screens",
+    "t0": "hb:75.82",
+    "t1": "hb:80",
+    "shots": [
+     {
+      "id": "gallup-2026-07-28-americans-cool-toward-ai",
+      "at": "hb:76",
+      "entry": "slam",
+      "hlAt": "hb:77.25"
+     }
+    ],
+    "region": {
+     "x0": 60,
+     "y0": 1080,
+     "x1": 1020,
+     "y1": 1500
+    },
+    "w": 880,
+    "theme": "dark",
+    "push": {
+     "at": "hb:78",
+     "z": 1.3,
+     "dur": 0.3,
+     "shot": 0,
+     "to": [
+      540,
+      1290
+     ]
+    },
+    "emph": [
+     {
+      "style": "underline",
+      "at": "hb:78.5",
+      "shot": 0,
+      "color": "#FF2E88"
+     },
+     {
+      "style": "circle",
+      "at": "hb:79",
+      "shot": 0,
+      "color": "#F2C300"
+     }
+    ],
+    "out": "cut",
+    "pulse": {
+     "from": "hb:78.5",
+     "to": "hb:79.75",
+     "every": 0.25
+    }
+   }
+  },
+  {
+   "id": "stroke-ch-fill",
+   "type": "stroke",
+   "t0": "hb:78.5",
+   "t1": "hb:80",
+   "content": {
+    "stroke": "pink bristle stroke across the bottom strip"
+   },
+   "reveal": "painted on in 0.3 s at the fill (song 57.22)",
+   "highlight": "none",
+   "transition_in": "the drum fill",
+   "transition_out": "tears away hb:79.6",
+   "audio": {
+    "audible": false,
+    "duck_db": null
+   },
+   "source": "fx/paint.js stroke",
+   "lyric_link": "the fill into the refrain, painted stroke by stroke",
+   "engine": {
+    "id": "stroke-ch-fill",
+    "type": "stroke",
+    "t0": "hb:78.5",
+    "t1": "hb:80",
+    "at": "hb:78.5",
+    "dur": 0.3,
+    "layer": "own",
+    "points": [
+     [
+      80,
+      1660
+     ],
+     [
+      400,
+      1630
+     ],
+     [
+      720,
+      1650
+     ],
+     [
+      1000,
+      1610
+     ]
+    ],
+    "width": 48,
+    "color": "#FF2E88",
+    "dry": 0.3,
+    "gaps": 0.2,
+    "out": {
+     "at": "hb:79.6",
+     "dur": 0.2
+    }
+   }
+  }
+ ],
+ "transitions": [
+  {
+   "id": "tr-v1-illum",
+   "_shared": "verse planner owns it (research/rev2/plan/verse1.json): add these to its `in`",
+   "at": "hb:48",
+   "type": "illuminate",
+   "_in_add": [
+    "g-ch-cream",
+    "p-sora",
+    "pile-teens-a"
+   ]
+  },
+  {
+   "id": "tr-ch-shatter50",
+   "at": "hb:50",
+   "type": "shatter",
+   "out": [
+    "pile-teens-a"
+   ],
+   "in": [
+    "pile-teens-b"
+   ],
+   "dur": 1.5,
+   "n": 14,
+   "rect": [
+    60,
+    860,
+    960,
+    640
+   ],
+   "impact": [
+    540,
+    1150
+   ],
+   "flash": 0.3,
+   "shake": 8,
+   "ground": "#F2EBDD",
+   "_note": "the second chorus crash ('seven-'): only the pile region shatters; the Sora circle stays"
+  },
+  {
+   "id": "tr-ch-fold52",
+   "at": "hb:52",
+   "type": "fold",
+   "out": [
+    "p-sora",
+    "pile-teens-b"
+   ],
+   "in": [
+    "p-protein",
+    "scr-molg"
+   ],
+   "dur": 0.75,
+   "lead": 0.3,
+   "axis": "v",
+   "mode": "both",
+   "shake": 7,
+   "ground": "#F2EBDD",
+   "_note": "lead 0.3 so the lifted '3 in 4 teens' reads hb:51.25-51.78 before the crease moves"
+  },
+  {
+   "id": "tr-ch-page54",
+   "at": "hb:54",
+   "type": "pageturn",
+   "out": [
+    "scr-molg"
+   ],
+   "in": [
+    "scr-adol"
+   ],
+   "dur": 1.0,
+   "lead": 0.6,
+   "hinge": "left",
+   "rect": [
+    60,
+    1040,
+    960,
+    480
+   ],
+   "ground": "#F2EBDD",
+   "_note": "the dream essay's page turns over onto its sequel; window hb:53.4-54.4 (the explicit word 44.88-45.22 falls inside it; nothing is keyed to that word, so the clean audio changes nothing on screen)"
+  },
+  {
+   "id": "tr-ch-whip56",
+   "at": "hb:56",
+   "type": "whip",
+   "mode": "spin",
+   "dir": 1,
+   "out": [
+    "p-protein",
+    "scr-dataconomy",
+    "scr-adol"
+   ],
+   "in": [
+    "p-cbs",
+    "kar-count"
+   ],
+   "dur": 1.0,
+   "lead": 0.5,
+   "ghosts": 3,
+   "ground": "#F2EBDD",
+   "_note": "impact ON 'one' (song 46.329): Amodei spins in as he starts counting"
+  },
+  {
+   "id": "tr-ch-iris60",
+   "at": "hb:60",
+   "type": "iris",
+   "shape": "square",
+   "c": [
+    540,
+    1180
+   ],
+   "out": [
+    "pile-cadence"
+   ],
+   "in": [
+    "pile-youth"
+   ],
+   "dur": 0.8,
+   "lead": 0.3,
+   "rim": "yellow",
+   "ground": false,
+   "shake": 5,
+   "_note": "ground false: only the lower pile changes; the CBS circle, karaoke and stamps are not in it"
+  },
+  {
+   "id": "tr-ch-wipe64",
+   "at": "hb:64",
+   "type": "paintwipe",
+   "style": "cover",
+   "out": [
+    "p-cbs",
+    "kar-count",
+    "pile-youth",
+    "stamp-one",
+    "stamp-two",
+    "stamp-four",
+    "stamp-eight",
+    "stamp-16",
+    "stamp-32"
+   ],
+   "in": [
+    "p-60",
+    "kar-cooper",
+    "chart-dc"
+   ],
+   "dur": 1.0,
+   "lead": 0.45,
+   "n": 4,
+   "angle": -8,
+   "colors": [
+    "yellow",
+    "pink"
+   ],
+   "shake": 8,
+   "ground": false,
+   "_note": "bars from hb:63.55 (Cooper's voice starts 49.955, a 0.2 s J-cut), the cut hides under them ON the bar 16 downbeat, they tear away onto the hero chart"
+  },
+  {
+   "id": "tr-ch-zoom72",
+   "at": "hb:72",
+   "type": "zoomthrough",
+   "out": [
+    "g-ch-cream",
+    "chart-dc",
+    "p-60",
+    "kar-cooper",
+    "kar-amodei"
+   ],
+   "in": [
+    "v-racks",
+    "eq-grpo"
+   ],
+   "dur": 1.5,
+   "lead": 0.62,
+   "focus": [
+    865,
+    1030
+   ],
+   "r": 120,
+   "rim": "yellow",
+   "lines": true,
+   "ground": "#0E0D12",
+   "_note": "the camera dives into the 946 MW record point (approximate frame px of point 5; see engine_requests) and comes out inside the data hall; window hb:71.07-72.57"
+  },
+  {
+   "id": "tr-ch-shatter76",
+   "at": "hb:76",
+   "type": "shatter",
+   "out": [
+    "pile-before"
+   ],
+   "in": [
+    "scr-gallup"
+   ],
+   "dur": 1.5,
+   "n": 12,
+   "rect": [
+    60,
+    1060,
+    960,
+    460
+   ],
+   "impact": [
+    540,
+    1290
+   ],
+   "flash": 0.2,
+   "shake": 7,
+   "ground": false,
+   "_note": "cracks from hb:75.82, after the lift on 'before'; ground false so only the cards break over the racks"
+  },
+  {
+   "id": "tr-ch-out80",
+   "_shared": "refrain planner: add your first items (e.g. the loop and its ground) to `in`",
+   "at": "hb:80",
+   "type": "iris",
+   "shape": "circle",
+   "c": [
+    540,
+    861
+   ],
+   "mode": "open",
+   "out": [
+    "v-racks",
+    "eq-grpo",
+    "eq-grpo-adv",
+    "scr-gallup",
+    "credit-racks",
+    "stroke-ch-fill"
+   ],
+   "in": [],
+   "dur": 1.0,
+   "lead": 0.3,
+   "rim": "yellow",
+   "shake": 6,
+   "ground": "#F2EBDD",
+   "_note": "HANDOFF on the refrain downbeat (song 57.942); centre = the kand art's middle, where the showcase's loop sits"
+  }
+ ],
+ "enter_fx": [
+  {
+   "item": "kar-amodei",
+   "at": "hb:67.75",
+   "type": "iris",
+   "shape": "ring"
+  },
+  {
+   "item": "pile-before",
+   "at": "hb:73",
+   "type": "paintwipe",
+   "style": "matte"
+  }
+ ],
+ "beatfx": [
+  {
+   "id": "fx-ch-a1",
+   "from": "hb:48",
+   "to": "hb:55.5",
+   "pattern": "chorus",
+   "intensity": 1,
+   "eighths": true,
+   "layer": "paint",
+   "zones": [
+    [
+     40,
+     140,
+     1000,
+     110
+    ],
+    [
+     40,
+     1590,
+     1000,
+     290
+    ],
+    [
+     0,
+     300,
+     56,
+     1250
+    ],
+    [
+     1024,
+     300,
+     56,
+     640
+    ]
+   ],
+   "no": [
+    "invert"
+   ],
+   "_note": "teens + dream: one visible paint effect and one camera move on every beat and 8th, in the strips and edges; calm auto after each card lands"
+  },
+  {
+   "id": "fx-ch-a2",
+   "from": "hb:56",
+   "to": "hb:63.5",
+   "pattern": "chorus",
+   "intensity": 1,
+   "eighths": true,
+   "layer": "paint",
+   "zones": [
+    [
+     0,
+     300,
+     56,
+     1250
+    ],
+    [
+     1024,
+     300,
+     56,
+     640
+    ],
+    [
+     40,
+     1590,
+     300,
+     290
+    ],
+    [
+     740,
+     1590,
+     300,
+     290
+    ]
+   ],
+   "avoid": [
+    [
+     60,
+     250,
+     960,
+     460
+    ],
+    [
+     100,
+     140,
+     900,
+     120
+    ],
+    [
+     60,
+     700,
+     960,
+     170
+    ]
+   ],
+   "no": [
+    "invert",
+    "stamp"
+   ],
+   "_note": "the count: no beatfx stamps (the six number stamps are the stamps), kept off the karaoke, the circle and the stamp spots"
+  },
+  {
+   "id": "fx-ch-chart",
+   "from": "hb:64",
+   "to": "hb:71.5",
+   "pattern": "chorus",
+   "intensity": 0.9,
+   "eighths": false,
+   "layer": "paint",
+   "zones": [
+    [
+     40,
+     1590,
+     1000,
+     290
+    ],
+    [
+     0,
+     250,
+     56,
+     500
+    ],
+    [
+     1024,
+     250,
+     56,
+     500
+    ]
+   ],
+   "avoid": [
+    [
+     50,
+     760,
+     980,
+     800
+    ],
+    [
+     60,
+     250,
+     960,
+     500
+    ]
+   ],
+   "no": [
+    "stamp",
+    "invert",
+    "tint"
+   ],
+   "_note": "the hero chart and the karaoke stay clean: paint only under the card and at the edges, camera moves on every beat"
+  },
+  {
+   "id": "fx-ch-b",
+   "from": "hb:72",
+   "to": "hb:79.75",
+   "pattern": "chorus",
+   "intensity": 1,
+   "eighths": true,
+   "layer": "paint",
+   "zones": [
+    [
+     40,
+     140,
+     1000,
+     110
+    ],
+    [
+     40,
+     1590,
+     1000,
+     290
+    ],
+    [
+     0,
+     250,
+     56,
+     1330
+    ]
+   ],
+   "avoid": [
+    [
+     60,
+     1080,
+     960,
+     440
+    ],
+    [
+     100,
+     280,
+     880,
+     760
+    ]
+   ],
+   "no": [
+    "invert"
+   ],
+   "_note": "GRPO over the racks; the fill (57.22-57.94) gets tint/grain/burst + spin from hits.json fills"
+  }
+ ],
+ "themes": [
+  {
+   "t0": "hb:48",
+   "t1": "hb:72",
+   "theme": "light"
+  },
+  {
+   "t0": "hb:72",
+   "t1": "hb:80",
+   "theme": "dark"
+  }
+ ],
+ "audible_snippets": [
+  {
+   "item": "voice-count",
+   "speaker": "Dario Amodei",
+   "year": 2026,
+   "words": "…one, then two, then four, then eight, then 16, then 32.",
+   "src": "clips/amodei-cbs-sunday-2026-09.mp4",
+   "in": 158.12,
+   "out": 161.58,
+   "song": [
+    46.289,
+    49.749
+   ],
+   "duck_db": 8,
+   "caption": "kar-count (karaoke) + six number stamps",
+   "beat_lock": "one hb:56, two hb:57, four hb:58, 32 hb:62"
+  },
+  {
+   "item": "voice-elected",
+   "speaker": "Anderson Cooper, then Dario Amodei",
+   "year": 2025,
+   "words": "…who elected you and Sam Altman? / No one, no one. Honestly, no one.",
+   "src": "clips/amodei-60min-2025-11-guardrails.mp4",
+   "in": 804.04,
+   "out": 808.3,
+   "song": [
+    49.955,
+    54.215
+   ],
+   "duck_db": 8,
+   "caption": "kar-cooper + kar-amodei (karaoke)",
+   "beat_lock": "'Altman?' on the hb:67 crash, 'No one,' hb:68, 'no one.' hb:69, 'Honestly,' hb:70 (snare), 'no one.' hb:71"
+  }
+ ],
+ "engine_requests": [
+  {
+   "module": "fx/transitions.js (zoomthrough)",
+   "request": "`focus` may name a chart point: {\"item\": \"chart-dc\", \"point\": 5, \"series\": 0}",
+   "spec": "at build/layout time resolve to the frame px of that point (charts.js it.X(p.xn), it.Y(p.y) of the item's series), plus the item's card rotation/drift at the window start; fall back to the item's rect centre with an INFO if the item is not a chart",
+   "why": "tr-ch-zoom72 must dive exactly into the 946 MW record point; the plan's [865, 1030] is computed from the chart box (x 170, w 700; y 1010, h 360; 946 of an assumed 1000 MW axis) and must be checked on the strip until then"
+  },
+  {
+   "module": "fx/screens.js (screens)",
+   "request": "per-shot extra emphasis on a second OCR phrase: shot `marks: [{hl: index | phrase | boxes, style: marker | circle | underline | box, at, color}]`",
+   "spec": "each entry resolves its boxes like `hl` (hlBoxes) and draws like the shot's own marker / the emph pencil styles, at its own time, in the shot's (pushed, lifted) frame",
+   "why": "scr-adol should sweep 'The Adolescence of Technology' on hb:54.5 and then 'Risks of Powerful AI' on hb:55 (two beats), and scr-gallup 'Americans turn skeptical' after the headline; today both phrases share one sweep (hl = both phrases' boxes)"
+  },
+  {
+   "module": "fx/transitions.js",
+   "request": "confirm the shared handoffs: (a) tr-v1-illum (verse planner) gets `in` = [g-ch-cream, p-sora, pile-teens-a]; (b) tr-ch-out80 is sent with `in: []` and the refrain planner appends its items",
+   "spec": "no change if an empty `in` already flashes/opens over whatever is under the outgoing layers (the verse planner asked the same)",
+   "why": "both chorus edges are transitions shared with the neighbouring planners"
+  },
+  {
+   "module": "fx/text.js (karaoke)",
+   "request": "none needed; note: the two karaoke items of one exchange (kar-cooper, kar-amodei) share one speech.at so their word times stay on one clock",
+   "spec": "-",
+   "why": "-"
+  }
+ ],
+ "interfaces": {
+  "verse planner (hb:16-48)": "tr-v1-illum (illuminate, at hb:48, lead 0.5) is the incoming side for the chorus: put [\"g-ch-cream\", \"p-sora\", \"pile-teens-a\"] in its `in`. Those three items start at hb:47.5 so they exist when the light starts; pile-teens-a's first card lands ON hb:48 under the white blowout. The verse's g-dark-v1 and v1-paper end at hb:48 (in its `out`).",
+  "refrain planner (hb:80-)": "tr-ch-out80 (iris, circle, c [540, 861], at hb:80, lead 0.3, dur 1) is the outgoing side: add your first items (loop ring, its ground) to `in`. Every chorus item ends by hb:80 (visible to hb:80.7 inside the iris window). Nothing of the chorus is audible after song 54.215; the music is unducked from ~54.34. The chorus's last frame is the dark Colossus rack corridor with the blue GRPO card, so a cream refrain opening out of the circle reads as a burst of light.",
+  "shared EDL items": "the EDL-wide {type: layer, id: paint, kind: canvas} above the grounds (beatfx, splats, pencil draw there). Duplicates to avoid: the verse used CNBC 'Model fatigue', Vox 'freakout', CNN 'HOAX', Hinton 60 Minutes footage and the Amodei CBS 'warning sign' line (192.42-195.12); this plan uses other CBS words (158.12-161.58). If the refrain planner reuses the showcase's GRPO or dc-record-mw, one of us should switch (the chorus now holds both).",
+  "time base": "all refs are hits.json beats (hb:i, song = 19.232 + i * 60/124) or song seconds (song:s); they resolve in any EDL through song.segments / audio.songStart"
+ },
+ "notes": [
+  "SHAPE (8 bars, four-on-the-floor, crashes on hb:48, hb:50 and hb:67, the only snare on hb:70, the fill 57.22-57.94): one couplet per two bars, and the energy rises in three steps. Bars 12-13 (hb:48-55) are pure music: screenshot piles and footage hit on every beat (teens on 'sick of seventeen', then the dream essays on 'teenage dream'). Bars 14-17 (hb:56-71) are the voice collage: Amodei counting the doublings, then the 60 Minutes exchange, ducked 8 dB under the sung lines, with every spoken number or 'no one' landing on a beat. Bars 18-19 (hb:72-79) are pure music again: the GRPO drop over the inside of the data hall, the warnings pile and Gallup, and then the fill.",
+  "THE HERO: Epoch's dc-record-mw chart, 8 beats (hb:64-72). The records land on 8ths, so the 946 MW Colossus 2 record lands ON the hb:67 crash (sung 'myself'). The callout 'Colossus 2: 946 MW' slams on hb:67.5 and reads clean until hb:71.07, when the zoom-through dives into that very point and comes out inside xAI's Colossus data hall (the GRPO scene). No transition crosses the hero; its beat events are its own data landings, marks and kicks.",
+  "THE EQUATION: GRPO (equations.json, the portrait-stacked tex). Its three rows are chalked on beats hb:72 / 72.75 / 73.5, and it is whole on screen from ~hb:74.3 to hb:79.7 (2.6 s). Its terms are lit on the sung words: KL to the reference model on 'before', the group mean 1/G Σ on 'people', Â on 'liked'. The advantage formula (same paper, sec. 4.1.2) then slams under it on hb:77, so that 'liked me more' has its maths: your reward minus the group's mean.",
+  "THE EYE: one lead phrase per couplet, always the last thing highlighted. 'Nearly 3 in 4 Teens Have Used AI Companions' (lifted hb:51.25), then 'The Adolescence of Technology… Risks of Powerful AI' (hb:54.5-55), then \"now it's every ~11 days\" (hb:59), then 'Computer Science Has Lost 53,000 Majors' (hb:62), then the record and 'Colossus 2: 946 MW' with Amodei's 'No one' (hb:67-71), then 'OpenAI ignored employees who warned it wasn't doing enough about security' (hb:75), then Â and 'Americans Cool Toward AI' (hb:77-79).",
+  "LAYOUT (safe zone x 60-1014, y 250-1574; right rail x > 930, y 1000-1600 carries no text). Footage masks sit in the top band: centred circle or blob at y 300-780 in bars 12-13, then a circle top right (cx 800, cy 470, r 190) with the karaoke left of it (x 72-592) in bars 14-17. Piles and the chart card sit at y 760-1550. Stamps and beatfx paint use the top strip (y 140-250), the gap (y 700-870), the bottom strip (y 1590-1880) and the edges. GRPO card at y 390-770 with its label above, the advantage at y 860-1010, and the bottom pile at y 1080-1500.",
+  "LAYERING (EDL order, bottom to top): g-ch-cream, ch-paper, the shared paint layer, v-racks (bars 18-19), panels, piles, chart, karaoke, equations, own-layer stamps and the stroke. Footage or an image is in every frame: Sora 2, the protein binders, Amodei on CBS, the 60 Minutes circle, the Colossus racks, plus the screenshots and the chart. The transitions use the frames' own pixels.",
+  "AUDIO: two snippets, 3.46 s and 4.26 s, 0.21 s apart, so mix.py merges them into one duck of 8 dB from ~46.17 to ~54.34 (120 ms ramps). Both were re-transcribed with small.en on 11 Oct and agree with base.en. The 60 Minutes words were also checked against the CBS transcript page (16 Nov 2025: Cooper asks, Amodei answers). Speakers were checked on the picture (scene cuts plus frames): Amodei is on camera for the whole count; Cooper is on camera asking and Amodei answering. Nothing is spoken under the explicit word (44.88-45.22), and both no-song versions carry the two snippets.",
+  "MEANING: the count keeps its numbers. The leading ellipsis marks the trimmed 'It's like you have', and its context is 'this technology is on an exponential'. The count is NOT synced to the chart's data points, because the chart's values are Epoch's MW and his numbers are a generic doubling, and the two scenes are separated by a transition. The 60 Minutes answer is kept whole ('No one, no one. Honestly, no one.'); only Cooper's 'Like,' is trimmed. The data-centre chart shows Epoch's observed records only, no projections, under the graph's own title and source. Labels on equation cards are explanatory, not quotes. Older items: Hinton quits Google and the FLI Pause letter (2023), used as the early warnings 'before'. Everything else is 2024-2026.",
+  "SENSITIVITY: from the teen candidates (research/long/lyrics/sick-of-seventeen.json and screens.json lyric 'sick-of-seventeen') the plan uses the survey and safety headlines (Common Sense, Thorn, Education Week, UNICEF) and leaves out the teen-suicide lawsuit and the 'AI nudes' headlines.",
+  "TRANSITIONS (impact beats): 48 illuminate (verse, shared), 50 shatter (pile region), 52 fold, 54 page turn (essay region), 56 whip spin, 60 iris square (pile region), 64 paint wipe (cover), 67.75 iris ring (karaoke enterFx), 72 zoom-through, 73 paint wipe matte (pile enterFx), 76 shatter (pile region), 80 iris circle (refrain, shared). That is 12 transitions; every other item change is a beat-locked pile landing. Every beat also carries a beatfx paint effect and a camera move (four tracks), and most 8ths carry a marker, a push, a lift, a pencil mark or a lit karaoke word.",
+  "PERFORMANCE: chart + two karaoke + a panel ~0.3-0.4 s/frame; the shatters (12-14 clones) and the zoom-through ~0.5; the racks clip is full-frame 1080x1920 from a 1920x1080 source (prep crops 607x1080 and upscales: soft but it is background). Prep: python3 render/video/prep_clips.py <edl> extracts p-sora, p-protein, p-cbs, p-60 (frame-sized) and v-racks, and copies the screenshots.",
+  "RISKS TO CHECK ON THE FIRST STRIP: (1) the zoom-through focus [865, 1030] must sit on the 946 MW point (engine request 1); (2) the callout at dx -560 / dy -10 must not cross the step line; (3) pile-youth has three tall cards in 620 px (overlap up to 0.4); (4) the Common Sense push z 1.7 must keep the phrase inside 940 px; (5) the four-line count karaoke must clear the CBS circle at x 610; (6) the in-point 158.12 must not let the tail of 'have' through (move to 158.15 if it does)."
+ ],
+ "checks": {
+  "verbatim": [
+   {
+    "id": "openweights-rev2-edweek-deepfakes-cyberbullying-2026-headline",
+    "file": "research/rev2/screens.json",
+    "text_ok": true,
+    "highlight": "Deepfakes Are Supercharging Cyberbullying",
+    "date": "2026-08-06"
+   },
+   {
+    "id": "openweights-rev3-unicef-deepfake-abuse-is-abuse-headline-w600",
+    "file": "research/rev2/screens.json",
+    "text_ok": true,
+    "highlight": "‘Deepfake abuse is abuse’",
+    "date": "2026-02-04"
+   },
+   {
+    "id": "thorn-2026-07-28-chatbots-after-online-harm",
+    "file": "research/rev2/captures.json",
+    "text_ok": true,
+    "highlight": "children turning to chatbots for guidance",
+    "date": "2026-07-28"
+   },
+   {
+    "id": "commonsense-2025-07-16-3-in-4-teens",
+    "file": "research/rev2/captures.json",
+    "text_ok": true,
+    "highlight": "Nearly 3 in 4 Teens Have Used AI Companions",
+    "date": "2025-07-16"
+   },
+   {
+    "id": "geopolitics-dataconomy-protein-head",
+    "file": "research/rev2/screens.json",
+    "text_ok": true,
+    "highlight": "Claude designed protein binders for 14 of 15 targets",
+    "date": "2026-08-20"
+   },
+   {
+    "id": "dario-2024-10-machines-of-loving-grace",
+    "file": "research/rev2/captures.json",
+    "text_ok": true,
+    "highlight": "Machines of Loving Grace",
+    "date": "2024-10"
+   },
+   {
+    "id": "dario-2026-01-adolescence-of-technology",
+    "file": "research/rev2/captures.json",
+    "text_ok": true,
+    "highlight": "The Adolescence of Technology + Risks of Powerful AI",
+    "date": "2026-01"
+   },
+   {
+    "id": "capabilities-rev3-jfonsecarivera-model-release-cadence-chart",
+    "file": "research/rev2/screens.json",
+    "text_ok": true,
+    "highlight": "are arriving faster",
+    "date": "2026-09-29"
+   },
+   {
+    "id": "capabilities-rev3-jfonsecarivera-post-header-text",
+    "file": "research/rev2/screens.json",
+    "text_ok": true,
+    "highlight": "now it's every ~11 days",
+    "date": "2026-09-29"
+   },
+   {
+    "id": "capabilities-siliconangle-opus55",
+    "file": "research/rev2/screens.json",
+    "text_ok": true,
+    "highlight": "Anthropic releases Claude Opus 5.5",
+    "date": "2026-09-22"
+   },
+   {
+    "id": "fortune-2026-08-06-cs-enrollment",
+    "file": "research/rev2/captures.json",
+    "text_ok": true,
+    "highlight": "Computer science enrollment is plunging",
+    "date": "2026-08-06"
+   },
+   {
+    "id": "work-swe-fortune-100pct-head",
+    "file": "research/rev2/screens.json",
+    "text_ok": true,
+    "highlight": "AI now writes 100% of their code",
+    "date": "2026-01-29"
+   },
+   {
+    "id": "work-swe-chronicle-cs-majors",
+    "file": "research/rev2/screens.json",
+    "text_ok": true,
+    "highlight": "Computer Science Has Lost 53,000 Majors",
+    "date": "2026-08-27"
+   },
+   {
+    "id": "eq-grpo",
+    "tex_field": "tex",
+    "hl_terms_found": true
+   },
+   {
+    "id": "eq-grpo-adv",
+    "tex_field": "advantage_latex",
+    "hl_terms_found": true
+   },
+   {
+    "id": "xrisk-bbc-hinton",
+    "file": "research/rev2/screens.json",
+    "text_ok": true,
+    "highlight": "warns of dangers as he quits Google",
+    "date": "2023-05-02"
+   },
+   {
+    "id": "fli-2023-03-22-pause-letter",
+    "file": "research/rev2/captures.json",
+    "text_ok": true,
+    "highlight": "pause for at least 6 months the training of AI systems more powerful than GPT-4",
+    "date": "2023-03-22"
+   },
+   {
+    "id": "xrisk-nyt-ignored-warnings",
+    "file": "research/rev2/screens.json",
+    "text_ok": true,
+    "highlight": "OpenAI ignored employees who warned it wasn't doing enough about security",
+    "date": "2026-09-29"
+   },
+   {
+    "id": "gallup-2026-07-28-americans-cool-toward-ai",
+    "file": "research/rev2/captures.json",
+    "text_ok": true,
+    "highlight": "Americans Cool Toward AI",
+    "date": "2026-07-28"
+   },
+   {
+    "id": "chart-dc",
+    "title": "The record data centre keeps doubling",
+    "callout": "Colossus 2: 946 MW",
+    "source": "EPOCH AI · DATA INSIGHT · FRONTIER DATA CENTER POWER · SEP 2026",
+    "values": [
+     237,
+     278,
+     398,
+     626,
+     910,
+     946
+    ]
+   }
+  ],
+  "problems": [],
+  "karaoke_vs_small_en": "all words match (normalised)",
+  "lyric_3gram_overlaps": [],
+  "beats_covered": 33,
+  "beat_range": [
+   48,
+   80
+  ],
+  "snippet_gap_s": 0.206,
+  "item_count": 36,
+  "transition_count": 12
+ }
+}

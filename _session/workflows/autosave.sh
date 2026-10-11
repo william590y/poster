@@ -7,6 +7,11 @@ REPO=/home/user/poster
 BR=claude/busy-thompson-44fmqz
 EXC=/home/user/wf/autosave-exclude.txt
 cd "$REPO" || exit 1
+# one run at a time: a slow push must never overlap the next save
+exec 9>/tmp/claude-0/-home-user/a99e0376-0534-5e3e-8b47-ccbc03821dfd/scratchpad/autosave.lock
+flock -n 9 || { echo "autosave: previous run still going, skipped ($(date -u +%H:%MZ))"; exit 0; }
+# never start from a broken state (e.g. a merge or rebase in progress)
+[ -e .git/MERGE_HEAD ] || [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ] && { echo "autosave: git busy, skipped"; exit 0; }
 git rev-parse --abbrev-ref HEAD | grep -qx "$BR" || { echo "not on $BR"; exit 1; }
 rm -rf "$REPO/hyperplane-teaser" "$REPO/_session"
 mkdir -p "$REPO/hyperplane-teaser" "$REPO/_session/workflows" "$REPO/_session/hyperplane-helpers"

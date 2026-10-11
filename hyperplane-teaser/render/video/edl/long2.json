@@ -6,7 +6,7 @@
  "fps": 30,
  "width": 1080,
  "height": 1920,
- "duration": 74.75,
+ "duration": 75.3,
  "audio": {
   "song": "song/brutal.mp3",
   "songStart": 6.1,
@@ -117,7 +117,7 @@
  ],
  "finalHold": [
   "hb:124",
-  74.75
+  75.3
  ],
  "items": [
   {
@@ -137,7 +137,7 @@
   {
    "id": "ghost-riff",
    "type": "panel",
-   "t0": "hb:1.25",
+   "t0": "hb:-0.3",
    "t1": "hb:16",
    "prep": "clip",
    "broll": "galaxy-helios-datacenter",
@@ -152,8 +152,8 @@
    },
    "entry": {
     "style": "fade",
-    "at": "hb:1.25",
-    "dur": 0.45
+    "at": "hb:-0.3",
+    "dur": 0.25
    },
    "out": {
     "style": "fade",
@@ -166,7 +166,7 @@
      1.12
     ]
    },
-   "alpha": 0.3,
+   "alpha": 0.5,
    "blend": "multiply",
    "grade": {
     "sat": 0.3,
@@ -177,7 +177,7 @@
    },
    "mask": "linear-gradient(to bottom, #000 0%, #000 52%, rgba(0,0,0,0.22) 58%, rgba(0,0,0,0.22) 82%, #000 90%, #000 100%)",
    "theme": "light",
-   "_note": "FIXER r2: MUTED ghost b-roll under the riff (Galaxy's Helios AI data centre, 2026; aerial of the halls), multiply 34 %"
+   "_note": "FIXER r3: MUTED ghost b-roll under the riff (Galaxy's Helios AI data centre, 2026), multiply 50 % (lighter behind the title band)"
   },
   {
    "id": "g-dark-v1",
@@ -234,7 +234,7 @@
    ],
    "zoom": [
     1.0,
-    1.03
+    1.0
    ],
    "zoomEase": "out",
    "snap": {
@@ -349,6 +349,14 @@
       "dur": 0.28,
       "color": "#F2C300",
       "width": 7
+     },
+     {
+      "phrase": "end of the world",
+      "style": "circle",
+      "at": "hb:-18",
+      "dur": 0.24,
+      "color": "#FF2E88",
+      "width": 7
      }
     ]
    },
@@ -356,17 +364,17 @@
    "punch": [
     {
      "at": "hb:-24",
-     "z": 1.04,
-     "dur": 0.1
+     "z": 1.08,
+     "dur": 0.034
     },
     {
      "at": "hb:-20",
-     "z": 1.04,
+     "z": 1.03,
      "dur": 0.1
     },
     {
      "at": "song:10.04",
-     "z": 1.06,
+     "z": 1.03,
      "dur": 0.12
     }
    ],
@@ -405,49 +413,69 @@
    },
    "pulses": [
     {
-     "at": "song:6.551",
-     "z": 1.045,
-     "dur": 0.18
+     "at": "hb:-27",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-26",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-25",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-24",
+     "z": 1.11,
+     "dur": 0.26
+    },
+    {
+     "at": "hb:-23",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-22",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-21",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-20",
+     "z": 1.11,
+     "dur": 0.26
+    },
+    {
+     "at": "hb:-19",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-18",
+     "z": 1.065,
+     "dur": 0.2
     },
     {
      "at": "song:7.376",
      "z": 1.04,
-     "dur": 0.18
-    },
-    {
-     "at": "song:7.619",
-     "z": 1.055,
-     "dur": 0.22
+     "dur": 0.16
     },
     {
      "at": "song:7.898",
      "z": 1.03,
-     "dur": 0.18
+     "dur": 0.16
     },
     {
      "at": "song:8.351",
      "z": 1.0286,
-     "dur": 0.18
-    },
-    {
-     "at": "song:9.123",
-     "z": 1.0286,
-     "dur": 0.18
-    },
-    {
-     "at": "song:9.555",
-     "z": 1.055,
-     "dur": 0.22
-    },
-    {
-     "at": "song:10.040",
-     "z": 1.027,
-     "dur": 0.18
-    },
-    {
-     "at": "song:10.499",
-     "z": 1.0278,
-     "dur": 0.18
+     "dur": 0.16
     }
    ]
   },
@@ -460,17 +488,17 @@
    "in": 1065.64,
    "frames": "plan-amodei",
    "crop": {
-    "x": 240,
-    "y": 120,
-    "w": 540
+    "x": 315,
+    "y": 200,
+    "w": 380
    },
    "focus": [
     0.5,
-    0.42
+    0.33
    ],
    "zoom": [
     1.0,
-    1.0
+    1.04
    ],
    "grade": {
     "sat": 0,
@@ -543,8 +571,8 @@
      {
       "phrase": "25%",
       "style": "circle",
-      "at": "hb:-14",
-      "dur": 0.28,
+      "at": "song:12.258",
+      "dur": 0.2,
       "color": "#F2C300",
       "width": 7
      },
@@ -580,38 +608,18 @@
    "punch": [
     {
      "at": "hb:-16",
-     "z": 1.05,
-     "dur": 0.12
-    },
-    {
-     "at": "hb:-13",
-     "z": 1.02,
-     "dur": 0.1
-    },
-    {
-     "at": "hb:-12",
-     "z": 1.035,
-     "dur": 0.1
-    },
-    {
-     "at": "song:13.51",
-     "z": 1.02,
-     "dur": 0.1
-    },
-    {
-     "at": "hb:-11",
-     "z": 1.02,
-     "dur": 0.1
-    },
-    {
-     "at": "song:14.23",
      "z": 1.04,
      "dur": 0.12
     },
     {
-     "at": "hb:-8",
-     "z": 1.02,
-     "dur": 0.1
+     "at": "hb:-12",
+     "z": 1.06,
+     "dur": 0.034
+    },
+    {
+     "at": "song:14.23",
+     "z": 1.03,
+     "dur": 0.12
     }
    ],
    "shakes": [
@@ -658,54 +666,69 @@
    },
    "pulses": [
     {
-     "at": "song:11.490",
-     "z": 1.055,
-     "dur": 0.22
+     "at": "hb:-17",
+     "z": 1.065,
+     "dur": 0.2
     },
     {
-     "at": "song:11.880",
-     "z": 1.037,
-     "dur": 0.18
+     "at": "hb:-16",
+     "z": 1.11,
+     "dur": 0.26
     },
     {
-     "at": "song:12.484",
-     "z": 1.0368,
-     "dur": 0.18
+     "at": "hb:-15",
+     "z": 1.065,
+     "dur": 0.2
     },
     {
-     "at": "song:13.059",
-     "z": 1.0312,
-     "dur": 0.18
+     "at": "hb:-14",
+     "z": 1.065,
+     "dur": 0.2
     },
     {
-     "at": "song:13.426",
-     "z": 1.055,
-     "dur": 0.22
+     "at": "hb:-13",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-12",
+     "z": 1.11,
+     "dur": 0.26
+    },
+    {
+     "at": "hb:-11",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-10",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-9",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-8",
+     "z": 1.11,
+     "dur": 0.26
     },
     {
      "at": "song:13.628",
      "z": 1.043,
-     "dur": 0.18
+     "dur": 0.16
     },
     {
      "at": "song:14.214",
      "z": 1.042,
-     "dur": 0.18
-    },
-    {
-     "at": "song:14.858",
-     "z": 1.0304,
-     "dur": 0.18
-    },
-    {
-     "at": "song:15.361",
-     "z": 1.055,
-     "dur": 0.22
+     "dur": 0.16
     },
     {
      "at": "song:15.660",
      "z": 1.0294,
-     "dur": 0.18
+     "dur": 0.16
     }
    ]
   },
@@ -1239,7 +1262,8 @@
    ],
    "drift": 0.05,
    "out": "cut",
-   "label": true
+   "label": true,
+   "chips": "all"
   },
   {
    "id": "r2-stamp-breath",
@@ -1525,14 +1549,14 @@
   {
    "id": "kc-pink-agents",
    "type": "kandclip",
-   "t0": "hb:1.25",
+   "t0": "hb:0.75",
    "t1": "hb:16.05",
    "item": "kand-riff",
    "piece": "pink",
    "prep": "clip",
    "broll": "ale-agent-wall",
    "in": 72.0,
-   "speed": 0.4482,
+   "speed": 0.4336,
    "srcFocus": [
     0.5,
     0.58
@@ -1640,9 +1664,9 @@
   {
    "id": "splat-drop",
    "type": "splat",
-   "t0": "hb:0",
+   "t0": "hb:-0.15",
    "t1": "hb:16",
-   "at": "hb:0",
+   "at": "hb:-0.15",
    "x": 860,
    "y": 1660,
    "r": 180,
@@ -2036,7 +2060,7 @@
    "type": "words",
    "t0": "hb:9.5",
    "t1": "hb:15.75",
-   "text": "IN THE DISCS: AGENTS' LAST EXAM, 2026 · NVIDIA NVL72 DATA HALL, 2025 · BEHIND: GALAXY HELIOS DATA CENTRE, 2026",
+   "text": "AGENTS' LAST EXAM 2026 · NVIDIA 2025 · GALAXY 2026",
    "x": 64,
    "y": 1468,
    "w": 940,
@@ -2228,7 +2252,8 @@
    "creditAt": [
     64,
     1528
-   ]
+   ],
+   "creditCps": 120
   },
   {
    "id": "pile-insecure",
@@ -2298,7 +2323,8 @@
     "hb:19"
    ],
    "drift": 0.04,
-   "out": "cut"
+   "out": "cut",
+   "chips": "all"
   },
   {
    "id": "p-hinton",
@@ -2346,7 +2372,8 @@
    "pulse": "hb:21..23",
    "pulseAmt": 0.03,
    "credit": "GEOFFREY HINTON · 60 MINUTES · 2023",
-   "_note": "MUTED. Revealed on the page beneath the page turn; its teal bristle ring paints on as the page lands"
+   "_note": "MUTED. Revealed on the page beneath the page turn; its teal bristle ring paints on as the page lands",
+   "creditCps": 120
   },
   {
    "id": "pile-die",
@@ -2432,7 +2459,8 @@
      "dur": 0.226
     }
    ],
-   "out": "cut"
+   "out": "cut",
+   "chips": "all"
   },
   {
    "id": "v1-arrow-hinton",
@@ -2532,7 +2560,8 @@
     74,
     274
    ],
-   "_note": "picture in-point 192.74 at hb:23.5 keeps lip sync with voice-amodei (audio.in 192.42 at song 30.283); one continuous shot of Amodei 188-197 s (ffmpeg scene check, no cutaway)"
+   "_note": "picture in-point 192.74 at hb:23.5 keeps lip sync with voice-amodei (audio.in 192.42 at song 30.283); one continuous shot of Amodei 188-197 s (ffmpeg scene check, no cutaway)",
+   "creditCps": 120
   },
   {
    "id": "voice-amodei",
@@ -2622,7 +2651,8 @@
     "hb:25",
     "hb:26"
    ],
-   "out": "cut"
+   "out": "cut",
+   "chips": "all"
   },
   {
    "id": "kar-amodei",
@@ -2717,8 +2747,8 @@
     "hb:29.5"
    ],
    "cx": 540,
-   "cy": 1115,
-   "px": 44,
+   "cy": 1185,
+   "px": 40,
    "maxW": 960,
    "label": {
     "text": "DPO: learn from which answer people preferred",
@@ -2809,7 +2839,8 @@
    "creditAt": [
     74,
     274
-   ]
+   ],
+   "creditCps": 120
   },
   {
    "id": "pile-syco",
@@ -2852,7 +2883,56 @@
      "at": "hb:30.5"
     }
    ],
-   "out": "cut"
+   "out": "cut",
+   "chips": "all"
+  },
+  {
+   "id": "tower-bg",
+   "type": "panel",
+   "t0": "hb:31.6",
+   "t1": "hb:44",
+   "prep": "clip",
+   "broll": "stargate-abilene-oracle",
+   "in": 16.5,
+   "speed": 0.31,
+   "shape": "rect",
+   "frame": {
+    "x": 0,
+    "y": 0,
+    "w": 1080,
+    "h": 1920
+   },
+   "out": "cut",
+   "border": "none",
+   "entry": {
+    "style": "fade",
+    "at": "hb:31.6",
+    "dur": 0.2
+   },
+   "creditUntil": "hb:36.6",
+   "kb": {
+    "z": [
+     1.06,
+     1.2
+    ]
+   },
+   "alpha": 0.62,
+   "grade": {
+    "sat": 0.35,
+    "contrast": 1.12,
+    "brightness": -0.1,
+    "gamma": 0.95,
+    "grain": 0
+   },
+   "theme": "dark",
+   "credit": "STARGATE ABILENE GPU HALL · ORACLE · 2025",
+   "creditAt": [
+    74,
+    1500
+   ],
+   "creditSize": 28,
+   "creditCps": 120,
+   "_note": "FIXER r3 (william, high): MUTED b-roll under the 3D tower (broll stargate-abilene-oracle 16.5-18.4, the rack aisle), 0.32x"
   },
   {
    "id": "v1-tower",
@@ -2893,8 +2973,8 @@
     "orbit": 30,
     "roll": -4,
     "wideDur": 0.6,
-    "dist": 34,
-    "fov": 40,
+    "dist": 23,
+    "fov": 42,
     "attnX": 1.0,
     "mlpX": -1.2,
     "lead": 0.4
@@ -2904,7 +2984,14 @@
     "dx": 0,
     "dy": 170
    },
-   "beatGlow": 0.85
+   "beatGlow": 0.85,
+   "tagPx": 34,
+   "tokPx": 50,
+   "tokGap": 18,
+   "tagBlocks": 1,
+   "emissive": 0.8,
+   "headScale": 1.3,
+   "fan": 40
   },
   {
    "id": "eq-attn",
@@ -3002,7 +3089,8 @@
     "hb:35"
    ],
    "credit": "ARCHITECT LABS · REDWOOD FPGA · 2026",
-   "enabled": false
+   "enabled": false,
+   "creditCps": 120
   },
   {
    "id": "pile-jobs",
@@ -3066,7 +3154,8 @@
     "hb:38"
    ],
    "out": "cut",
-   "overlap": 0.0
+   "overlap": 0.0,
+   "chips": "all"
   },
   {
    "id": "p-coxon-v1",
@@ -3118,7 +3207,8 @@
     274
    ],
    "_note": "opens on the show's own cut to his close-up (src 529.00 = song 37.339); audio leads by 0.18 s (J-cut, as the short did in r5)",
-   "freeze": "song:38.400"
+   "freeze": "song:38.400",
+   "creditCps": 120
   },
   {
    "id": "voice-coxon-v1",
@@ -3318,7 +3408,8 @@
      "id": "xrisk-commondreams-whistleblowers",
      "at": "hb:42",
      "entry": "drop",
-     "hlAt": "hb:42.5"
+     "hlAt": "hb:42.5",
+     "dy": 150
     }
    ],
    "push": {
@@ -3338,7 +3429,8 @@
      "shot": 0
     }
    ],
-   "out": "cut"
+   "out": "cut",
+   "chips": "all"
   },
   {
    "id": "p-coast",
@@ -3388,7 +3480,8 @@
     74,
     274
    ],
-   "_note": "rot 180 = the cover's downward red triangle (nabla); footage stays upright"
+   "_note": "rot 180 = the cover's downward red triangle (nabla); footage stays upright",
+   "creditCps": 120
   },
   {
    "id": "pile-exploit",
@@ -3490,7 +3583,8 @@
     "hb:46",
     "hb:47"
    ],
-   "out": "cut"
+   "out": "cut",
+   "chips": "all"
   },
   {
    "id": "v1-splat-exploit",
@@ -3600,7 +3694,8 @@
     74,
     274
    ],
-   "_note": "AI-generated anime character in profile, then a close-up of eyes with sparks (Sora 2 reel, OpenAI 2025); the reel's cut at 18.043 lands on the hb:50 crash"
+   "_note": "AI-generated anime character in profile, then a close-up of eyes with sparks (Sora 2 reel, OpenAI 2025); the reel's cut at 18.043 lands on the hb:50 crash",
+   "creditCps": 120
   },
   {
    "id": "pile-teens-a",
@@ -3635,7 +3730,8 @@
     "hb:49"
    ],
    "theme": "light",
-   "_note": "first card is already down ON hb:48 under the verse's light blowout"
+   "_note": "first card is already down ON hb:48 under the verse's light blowout",
+   "chips": "all"
   },
   {
    "id": "pile-teens-b",
@@ -3696,7 +3792,8 @@
     }
    ],
    "out": "cut",
-   "_note": "Common Sense crop [80,200,2320,560] = headline + dek + date (stops above the body paragraph, no sentence cut); z 1.7 because its headline is small (q2): the phrase is 545 px wide at w 900, 927 px at z 1.7 (< 940)"
+   "_note": "Common Sense crop [80,200,2320,560] = headline + dek + date (stops above the body paragraph, no sentence cut); z 1.7 because its headline is small (q2): the phrase is 545 px wide at w 900, 927 px at z 1.7 (< 940)",
+   "chips": "all"
   },
   {
    "id": "splat-ch-48",
@@ -3773,7 +3870,8 @@
     74,
     274
    ],
-   "_note": "window 3.8-6.8: nine Claude-designed binders swirl together; plays 3.8 -> 6.33 over its life incl. the whip window (to hb:56.5)"
+   "_note": "window 3.8-6.8: nine Claude-designed binders swirl together; plays 3.8 -> 6.33 over its life incl. the whip window (to hb:56.5)",
+   "creditCps": 120
   },
   {
    "id": "scr-dataconomy",
@@ -3798,7 +3896,8 @@
    "push": false,
    "emph": [],
    "out": "cut",
-   "theme": "light"
+   "theme": "light",
+   "chips": "all"
   },
   {
    "id": "scr-molg",
@@ -3825,7 +3924,8 @@
    "emph": [],
    "out": "cut",
    "theme": "light",
-   "_note": "label given as a string: the record's date is month-only (2024-10)"
+   "_note": "label given as a string: the record's date is month-only (2024-10)",
+   "chips": "all"
   },
   {
    "id": "scr-adol",
@@ -3880,7 +3980,8 @@
     }
    ],
    "out": "cut",
-   "_note": "hl = the OCR boxes of both record phrases ('The Adolescence of Technology' + 'Risks of Powerful AI'), so one marker sweep covers both (see engine_requests: per-shot second phrase)"
+   "_note": "hl = the OCR boxes of both record phrases ('The Adolescence of Technology' + 'Risks of Powerful AI'), so one marker sweep covers both (see engine_requests: per-shot second phrase)",
+   "chips": "all"
   },
   {
    "id": "p-cbs",
@@ -3933,7 +4034,8 @@
     610,
     672
    ],
-   "_note": "picture in-point keeps lip sync with voice-count (src = song + 111.831). Scene cuts (ffmpeg scene > 0.2): Amodei on camera 157.02-161.23 (the whole count), then an over-the-shoulder shot of the correspondent listening 161.23-162.83, so no muted mouth is shown after the audio stops (161.58)"
+   "_note": "picture in-point keeps lip sync with voice-count (src = song + 111.831). Scene cuts (ffmpeg scene > 0.2): Amodei on camera 157.02-161.23 (the whole count), then an over-the-shoulder shot of the correspondent listening 161.23-162.83, so no muted mouth is shown after the audio stops (161.58)",
+   "creditCps": 120
   },
   {
    "id": "voice-count",
@@ -4228,7 +4330,8 @@
     }
    ],
    "out": "cut",
-   "_note": "SiliconANGLE crop [0,900,1420,1090] = its two-line headline only (OCR boxes y 938-1074), the photo above is left out"
+   "_note": "SiliconANGLE crop [0,900,1420,1090] = its two-line headline only (OCR boxes y 938-1074), the photo above is left out",
+   "chips": "all"
   },
   {
    "id": "pile-youth",
@@ -4303,7 +4406,8 @@
     }
    ],
    "out": "cut",
-   "_note": "Fortune crop [24,470,1216,935] = its full five-line headline (h1 box 64,498-1176,930), byline below left out"
+   "_note": "Fortune crop [24,470,1216,935] = its full five-line headline (h1 box 64,498-1176,930), byline below left out",
+   "chips": "all"
   },
   {
    "id": "p-60",
@@ -4356,7 +4460,8 @@
     610,
     712
    ],
-   "_note": "lip sync with voice-elected (src = song + 754.085). Scene cuts: Cooper on camera 803.67-806.14 (asking), Amodei on camera from 806.14 (answering); frames checked 804.5-807.6"
+   "_note": "lip sync with voice-elected (src = song + 754.085). Scene cuts: Cooper on camera 803.67-806.14 (asking), Amodei on camera from 806.14 (answering); frames checked 804.5-807.6",
+   "creditCps": 120
   },
   {
    "id": "voice-elected",
@@ -4787,7 +4892,8 @@
      "id": "xrisk-bbc-hinton",
      "at": "hb:73",
      "entry": "slam",
-     "hlAt": "hb:73.5"
+     "hlAt": "hb:73.5",
+     "label": "BBC NEWS · MAY 2, 2023"
     },
     {
      "id": "fli-2023-03-22-pause-letter",
@@ -4800,7 +4906,8 @@
       900
      ],
      "w0": 880,
-     "hlAt": "hb:73.75"
+     "hlAt": "hb:73.75",
+     "label": "FLI · MAR 22, 2023"
     },
     {
      "id": "xrisk-rev2-cnn-2026-02-11-researchers-alarm-on-way-out",
@@ -4850,17 +4957,44 @@
    ],
    "out": "cut",
    "enterFx": {
-    "type": "paintwipe",
-    "style": "matte",
+    "type": "iris",
+    "shape": "circle",
     "at": "hb:73",
-    "dur": 1,
-    "colors": [
-     "yellow",
-     "orange"
+    "dur": 1.0,
+    "lead": 0.3,
+    "c": [
+     540,
+     1290
     ],
-    "ground": false
+    "rim": "pink",
+    "spin": 120,
+    "ground": false,
+    "shake": 6
    },
-   "_note": "'And I wish I'd done this before': the early warnings (Hinton quits Google 2023, the FLI pause letter 2023) and CNN Feb 2026 'AI researchers are sounding the alarm on their way out the door' (pushed, lifted, circled)"
+   "_note": "'And I wish I'd done this before': the early warnings (Hinton quits Google 2023, the FLI pause letter 2023) and CNN Feb 2026 'AI researchers are sounding the alarm on their way out the door' (pushed, lifted, circled)",
+   "chips": "all"
+  },
+  {
+   "id": "r3-yr-2023",
+   "type": "stamp",
+   "t0": "hb:73",
+   "t1": "hb:74.75",
+   "stamp": {
+    "x": 820,
+    "y": 985,
+    "year": "2023",
+    "yrPx": 60
+   },
+   "enter": {
+    "style": "slam",
+    "dur": 0.12
+   },
+   "exit": {
+    "style": "fade",
+    "dur": 0.15
+   },
+   "theme": "dark",
+   "_note": "FIXER r3 (william, medium): the BBC (May 2, 2023) and FLI (Mar 22, 2023) cards carry their year"
   },
   {
    "id": "scr-gallup",
@@ -4914,7 +5048,8 @@
     "from": "hb:78.5",
     "to": "hb:79.75",
     "every": 0.25
-   }
+   },
+   "chips": "all"
   },
   {
    "id": "stroke-ch-fill",
@@ -5062,8 +5197,10 @@
     "at": "hb:112",
     "rings": 3,
     "debris": 80,
-    "flash": 0.2,
-    "shake": 16
+    "flash": 0.95,
+    "shake": 16,
+    "flashDecay": 0.07,
+    "flashColor": "radial-gradient(circle at 50% 45%, rgba(255,253,244,1) 0%, rgba(255,246,222,0.97) 24%, rgba(255,232,190,0.72) 48%, rgba(255,214,150,0.25) 72%, rgba(255,214,150,0) 92%)"
    },
    "shakes": [
     {
@@ -5230,7 +5367,8 @@
    ],
    "pulse": "hb:81..83",
    "pulseAmt": 0.04,
-   "prep": "clip"
+   "prep": "clip",
+   "creditCps": 120
   },
   {
    "id": "cp-thanks",
@@ -5275,7 +5413,8 @@
    ],
    "pulse": "hb:85..87",
    "pulseAmt": 0.04,
-   "prep": "clip"
+   "prep": "clip",
+   "creditCps": 120
   },
   {
    "id": "cp-upset",
@@ -5316,7 +5455,8 @@
    ],
    "pulse": "hb:89..90",
    "pulseAmt": 0.04,
-   "prep": "clip"
+   "prep": "clip",
+   "creditCps": 120
   },
   {
    "id": "cp-amodei",
@@ -5362,7 +5502,8 @@
     1088
    ],
    "pulse": "hb:92..94",
-   "pulseAmt": 0.04
+   "pulseAmt": 0.04,
+   "creditCps": 120
   },
   {
    "id": "cp-golden",
@@ -5398,7 +5539,8 @@
     1046
    ],
    "prep": "clip",
-   "creditSize": 24
+   "creditSize": 24,
+   "creditCps": 120
   },
   {
    "id": "loop-a",
@@ -5513,7 +5655,8 @@
    ],
    "pulse": "hb:82..83",
    "out": "cut",
-   "theme": "light"
+   "theme": "light",
+   "chips": "all"
   },
   {
    "id": "eq-adv",
@@ -5622,7 +5765,8 @@
    ],
    "out": "cut",
    "theme": "light",
-   "_note": "'Unrelentlessly upset': OpenAI's chief scientist says no lab should keep scaling at maximum speed (TNW, Sep 6 2026)"
+   "_note": "'Unrelentlessly upset': OpenAI's chief scientist says no lab should keep scaling at maximum speed (TNW, Sep 6 2026)",
+   "chips": "all"
   },
   {
    "id": "voice-amodei-a",
@@ -5831,7 +5975,8 @@
     "style": "scatter",
     "dur": 0.2
    },
-   "theme": "light"
+   "theme": "light",
+   "chips": "all"
   },
   {
    "id": "kand-b",
@@ -6317,7 +6462,8 @@
     }
    ],
    "out": "cut",
-   "theme": "light"
+   "theme": "light",
+   "chips": "all"
   },
   {
    "id": "pile-rsi",
@@ -6369,7 +6515,8 @@
     }
    ],
    "out": "cut",
-   "theme": "light"
+   "theme": "light",
+   "chips": "all"
   },
   {
    "id": "pile-ego-lo",
@@ -6402,7 +6549,8 @@
    "push": false,
    "emph": false,
    "out": "cut",
-   "theme": "light"
+   "theme": "light",
+   "chips": "all"
   },
   {
    "id": "pile-ego-hi",
@@ -6436,7 +6584,8 @@
    "push": false,
    "emph": false,
    "out": "cut",
-   "theme": "light"
+   "theme": "light",
+   "chips": "all"
   },
   {
    "id": "disc-credit-1",
@@ -6495,7 +6644,7 @@
    "type": "clip",
    "prep": "clip",
    "t0": "hb:107",
-   "t1": "hb:112.2",
+   "t1": "hb:112",
    "src": "clips/bengio-fog-loss-of-control-ted2025.mp4",
    "in": 11.142,
    "box": {
@@ -6541,7 +6690,8 @@
     "style": "fade",
     "dur": 0.4
    },
-   "theme": "dark"
+   "theme": "dark",
+   "exit": "cut"
   },
   {
    "id": "paint-god",
@@ -6690,10 +6840,28 @@
    }
   },
   {
+   "id": "r3-out-slap",
+   "type": "splat",
+   "t0": "song:72.78",
+   "at": "song:72.80",
+   "t1": "hb:112",
+   "x": 830,
+   "y": 1150,
+   "r": 130,
+   "color": "#FF4A1C",
+   "dir": -25,
+   "sats": 70,
+   "spikes": 8,
+   "drips": 2,
+   "spread": 1.25,
+   "layer": "paint-god",
+   "_note": "FIXER r3 (director, low): the sung 'out' gets its own slap"
+  },
+  {
    "id": "g-cream-b",
    "type": "color",
    "t0": "hb:112",
-   "t1": 74.75,
+   "t1": 75.3,
    "color": "#F2EBDD",
    "enterFx": {
     "type": "iris",
@@ -6741,7 +6909,7 @@
      1.1
     ]
    },
-   "alpha": 0.3,
+   "alpha": 0.5,
    "blend": "multiply",
    "grade": {
     "sat": 0.3,
@@ -6755,12 +6923,18 @@
    "_note": "FIXER r2: MUTED ghost b-roll under the reassembly (Oracle's Stargate Abilene campus aerial, 2025), multiply 34 %, clear of the karaoke strip"
   },
   {
+   "id": "paint-out",
+   "type": "layer",
+   "kind": "canvas",
+   "_note": "the instrumental's beat track over its cream"
+  },
+  {
    "id": "ghost-out-credit",
    "type": "words",
    "t0": "hb:113",
    "t1": "hb:122.9",
    "x": 64,
-   "y": 1488,
+   "y": 1448,
    "w": 900,
    "text": "BEHIND: STARGATE ABILENE · ORACLE · 2025",
    "font": {
@@ -6781,16 +6955,10 @@
    "theme": "light"
   },
   {
-   "id": "paint-out",
-   "type": "layer",
-   "kind": "canvas",
-   "_note": "the instrumental's beat track over its cream"
-  },
-  {
    "id": "kand-re",
    "type": "kand",
    "t0": "hb:111.6",
-   "t1": 74.75,
+   "t1": 75.3,
    "layout": {
     "y": 400,
     "scale": 0.72
@@ -6857,15 +7025,6 @@
      "to": "hb:123"
     },
     {
-     "move": "orbit",
-     "pieces": [
-      "pink",
-      "black"
-     ],
-     "on": "hb:116..123",
-     "stepDeg": 45
-    },
-    {
      "move": "grow",
      "pieces": [
       "blue"
@@ -6887,6 +7046,31 @@
      "scale": 0.5,
      "op": 0,
      "dur": 0.3
+    },
+    {
+     "move": "orbit",
+     "pieces": [
+      "pink",
+      "black"
+     ],
+     "on": {
+      "from": 113,
+      "to": 117.5,
+      "every": 0.5
+     },
+     "stepDeg": 36
+    },
+    {
+     "move": "grow",
+     "pieces": [
+      "blue"
+     ],
+     "from": "hb:118",
+     "to": "hb:121.5",
+     "scale": 1.38,
+     "dx": -60,
+     "dy": -30,
+     "dur": 0.35
     }
    ]
   },
@@ -6896,7 +7080,7 @@
    "item": "kand-re",
    "piece": "blue",
    "t0": "hb:112.75",
-   "t1": 74.75,
+   "t1": 75.3,
    "prep": "clip",
    "src": "clips/amodei-axios-2025.mp4",
    "in": 686.05,
@@ -6919,13 +7103,15 @@
     "contrast": 1.08,
     "grain": 0
    },
-   "tintK": 0.2
+   "tintK": 0.2,
+   "out": "hb:123.4",
+   "fadeOut": 0.3
   },
   {
    "id": "fluid-re",
    "type": "fluid",
    "t0": "hb:112",
-   "t1": 74.75,
+   "t1": 75.3,
    "item": "kand-re"
   },
   {
@@ -7223,13 +7409,17 @@
     "style": "fade",
     "dur": 0.25
    },
-   "theme": "light"
+   "theme": "light",
+   "plate": {
+    "color": "rgba(242,235,221,0.9)",
+    "pad": 14
+   }
   },
   {
    "id": "paper-rf",
    "type": "paper",
    "t0": "hb:80",
-   "t1": 74.75,
+   "t1": 75.3,
    "mode": "auto"
   }
  ],
@@ -7281,7 +7471,8 @@
    ],
    "in": [
     "g-cream-riff",
-    "kand-riff"
+    "kand-riff",
+    "ghost-riff"
    ],
    "dur": 1.75,
    "lead": 0.2,
@@ -7290,14 +7481,12 @@
     540,
     880
    ],
-   "flash": {
-    "opacity": 0.6,
-    "decay": 0.08,
-    "color": "#FBF7EE"
-   },
    "shake": 16,
    "ground": false,
-   "_note": "window 19.063-19.909 (dur 1.75 beats, lead 0.2): cracks race out from the circled Gizmodo phrase from 19.063 (the riff pickup is at 19.116); shards fly and fall from the drop 19.232 to 19.91, by when the pink disc's footage has faded in (kc-pink-agents-a from hb:1.25)"
+   "_note": "window 19.063-19.909 (dur 1.75 beats, lead 0.2): cracks race out from the circled Gizmodo phrase from 19.063 (the riff pickup is at 19.116); shards fly and fall from the drop 19.232 to 19.91, by when the pink disc's footage has faded in (kc-pink-agents-a from hb:1.25)",
+   "head": 0.2,
+   "speed": 2100,
+   "back": "#E9E1CF"
   },
   {
    "id": "tr-v1-turn",
@@ -7428,7 +7617,8 @@
     "v1-tower",
     "eq-ntp",
     "eq-upd",
-    "pile-disappoint"
+    "pile-disappoint",
+    "tower-bg"
    ],
    "in": [
     "pile-exploit"
@@ -8320,9 +8510,9 @@
     "hb:36",
     "hb:40"
    ],
-   "opacity": 0.3,
+   "opacity": 0.5,
    "decay": 0.08,
-   "color": "#F2EBDD",
+   "color": "radial-gradient(circle at 50% 45%, rgba(255,253,244,1) 0%, rgba(255,246,222,0.97) 24%, rgba(255,232,190,0.72) 48%, rgba(255,214,150,0.25) 72%, rgba(255,214,150,0) 92%)",
    "_note": "the break, the predicted token on 'Quit', the start of backprop"
   },
   {
@@ -8382,6 +8572,35 @@
    "barK": 1,
    "decay": 0.1,
    "_note": "FIXER r2: the CBS circle and the count land on the bar downbeat"
+  },
+  {
+   "id": "fx-drop-white",
+   "fx": "flash",
+   "at": "song:19.1995",
+   "opacity": 1.15,
+   "decay": 0.007,
+   "color": "#FFFFFF",
+   "_note": "FIXER r3 (director, medium): f393 is white, f394 the first full-contrast frame of the cream world"
+  },
+  {
+   "id": "fx-out-jolt",
+   "fx": "shake",
+   "on": [
+    "song:72.80"
+   ],
+   "amp": 16,
+   "decay": 0.045,
+   "_note": "FIXER r3: the sung 'out'"
+  },
+  {
+   "id": "fx-re-zoom",
+   "fx": "punch",
+   "on": [
+    "hb:118"
+   ],
+   "amount": 0.05,
+   "decay": 0.14,
+   "_note": "FIXER r3: Dario's disc zooms up"
   }
  ],
  "paintMask": [
@@ -8397,6 +8616,20 @@
    ],
    "feather": 110,
    "_note": "FIXER r2 (director): no splat or stamp under the wordmark, the kicker and the credit line (y 1125-1575) once the title paints on"
+  },
+  {
+   "layer": "paint-out",
+   "from": "hb:123.35",
+   "to": 999,
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ],
+   "feather": 0,
+   "fade": 0.3,
+   "_note": "FIXER r3 (director): the instrumental's splats wash out over the 0.3 s before the cover's flash"
   }
  ]
 }

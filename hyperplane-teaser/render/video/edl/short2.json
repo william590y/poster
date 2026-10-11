@@ -6,7 +6,7 @@
  "fps": 30,
  "width": 1080,
  "height": 1920,
- "duration": 36.039,
+ "duration": 36.589,
  "audio": {
   "song": "song/brutal.mp3",
   "songStart": 6.1,
@@ -93,7 +93,7 @@
  ],
  "finalHold": [
   "hb:124",
-  36.039
+  36.589
  ],
  "items": [
   {
@@ -113,7 +113,7 @@
   {
    "id": "ghost-riff",
    "type": "panel",
-   "t0": "hb:1.25",
+   "t0": "hb:-0.3",
    "t1": 20.923,
    "prep": "clip",
    "broll": "galaxy-helios-datacenter",
@@ -128,8 +128,8 @@
    },
    "entry": {
     "style": "fade",
-    "at": "hb:1.25",
-    "dur": 0.45
+    "at": "hb:-0.3",
+    "dur": 0.25
    },
    "out": {
     "style": "fade",
@@ -142,7 +142,7 @@
      1.12
     ]
    },
-   "alpha": 0.3,
+   "alpha": 0.5,
    "blend": "multiply",
    "grade": {
     "sat": 0.3,
@@ -153,7 +153,7 @@
    },
    "mask": "linear-gradient(to bottom, #000 0%, #000 52%, rgba(0,0,0,0.22) 58%, rgba(0,0,0,0.22) 82%, #000 90%, #000 100%)",
    "theme": "light",
-   "_note": "FIXER r2: MUTED ghost b-roll under the riff (Galaxy's Helios AI data centre, 2026; aerial of the halls), multiply 34 %",
+   "_note": "FIXER r3: MUTED ghost b-roll under the riff (Galaxy's Helios AI data centre, 2026), multiply 50 % (lighter behind the title band)",
    "frames": "short-ghost-riff"
   },
   {
@@ -203,7 +203,7 @@
    ],
    "zoom": [
     1.0,
-    1.03
+    1.0
    ],
    "zoomEase": "out",
    "snap": {
@@ -318,6 +318,14 @@
       "dur": 0.28,
       "color": "#F2C300",
       "width": 7
+     },
+     {
+      "phrase": "end of the world",
+      "style": "circle",
+      "at": "hb:-18",
+      "dur": 0.24,
+      "color": "#FF2E88",
+      "width": 7
      }
     ]
    },
@@ -325,17 +333,17 @@
    "punch": [
     {
      "at": "hb:-24",
-     "z": 1.04,
-     "dur": 0.1
+     "z": 1.08,
+     "dur": 0.034
     },
     {
      "at": "hb:-20",
-     "z": 1.04,
+     "z": 1.03,
      "dur": 0.1
     },
     {
      "at": "song:10.04",
-     "z": 1.06,
+     "z": 1.03,
      "dur": 0.12
     }
    ],
@@ -374,49 +382,69 @@
    },
    "pulses": [
     {
-     "at": "song:6.551",
-     "z": 1.045,
-     "dur": 0.18
+     "at": "hb:-27",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-26",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-25",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-24",
+     "z": 1.11,
+     "dur": 0.26
+    },
+    {
+     "at": "hb:-23",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-22",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-21",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-20",
+     "z": 1.11,
+     "dur": 0.26
+    },
+    {
+     "at": "hb:-19",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-18",
+     "z": 1.065,
+     "dur": 0.2
     },
     {
      "at": "song:7.376",
      "z": 1.04,
-     "dur": 0.18
-    },
-    {
-     "at": "song:7.619",
-     "z": 1.055,
-     "dur": 0.22
+     "dur": 0.16
     },
     {
      "at": "song:7.898",
      "z": 1.03,
-     "dur": 0.18
+     "dur": 0.16
     },
     {
      "at": "song:8.351",
      "z": 1.0286,
-     "dur": 0.18
-    },
-    {
-     "at": "song:9.123",
-     "z": 1.0286,
-     "dur": 0.18
-    },
-    {
-     "at": "song:9.555",
-     "z": 1.055,
-     "dur": 0.22
-    },
-    {
-     "at": "song:10.040",
-     "z": 1.027,
-     "dur": 0.18
-    },
-    {
-     "at": "song:10.499",
-     "z": 1.0278,
-     "dur": 0.18
+     "dur": 0.16
     }
    ]
   },
@@ -429,17 +457,17 @@
    "in": 1065.64,
    "frames": "plan-amodei",
    "crop": {
-    "x": 240,
-    "y": 120,
-    "w": 540
+    "x": 315,
+    "y": 200,
+    "w": 380
    },
    "focus": [
     0.5,
-    0.42
+    0.33
    ],
    "zoom": [
     1.0,
-    1.0
+    1.04
    ],
    "grade": {
     "sat": 0,
@@ -512,8 +540,8 @@
      {
       "phrase": "25%",
       "style": "circle",
-      "at": "hb:-14",
-      "dur": 0.28,
+      "at": "song:12.258",
+      "dur": 0.2,
       "color": "#F2C300",
       "width": 7
      },
@@ -549,38 +577,18 @@
    "punch": [
     {
      "at": "hb:-16",
-     "z": 1.05,
-     "dur": 0.12
-    },
-    {
-     "at": "hb:-13",
-     "z": 1.02,
-     "dur": 0.1
-    },
-    {
-     "at": "hb:-12",
-     "z": 1.035,
-     "dur": 0.1
-    },
-    {
-     "at": "song:13.51",
-     "z": 1.02,
-     "dur": 0.1
-    },
-    {
-     "at": "hb:-11",
-     "z": 1.02,
-     "dur": 0.1
-    },
-    {
-     "at": "song:14.23",
      "z": 1.04,
      "dur": 0.12
     },
     {
-     "at": "hb:-8",
-     "z": 1.02,
-     "dur": 0.1
+     "at": "hb:-12",
+     "z": 1.06,
+     "dur": 0.034
+    },
+    {
+     "at": "song:14.23",
+     "z": 1.03,
+     "dur": 0.12
     }
    ],
    "shakes": [
@@ -627,54 +635,69 @@
    },
    "pulses": [
     {
-     "at": "song:11.490",
-     "z": 1.055,
-     "dur": 0.22
+     "at": "hb:-17",
+     "z": 1.065,
+     "dur": 0.2
     },
     {
-     "at": "song:11.880",
-     "z": 1.037,
-     "dur": 0.18
+     "at": "hb:-16",
+     "z": 1.11,
+     "dur": 0.26
     },
     {
-     "at": "song:12.484",
-     "z": 1.0368,
-     "dur": 0.18
+     "at": "hb:-15",
+     "z": 1.065,
+     "dur": 0.2
     },
     {
-     "at": "song:13.059",
-     "z": 1.0312,
-     "dur": 0.18
+     "at": "hb:-14",
+     "z": 1.065,
+     "dur": 0.2
     },
     {
-     "at": "song:13.426",
-     "z": 1.055,
-     "dur": 0.22
+     "at": "hb:-13",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-12",
+     "z": 1.11,
+     "dur": 0.26
+    },
+    {
+     "at": "hb:-11",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-10",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-9",
+     "z": 1.065,
+     "dur": 0.2
+    },
+    {
+     "at": "hb:-8",
+     "z": 1.11,
+     "dur": 0.26
     },
     {
      "at": "song:13.628",
      "z": 1.043,
-     "dur": 0.18
+     "dur": 0.16
     },
     {
      "at": "song:14.214",
      "z": 1.042,
-     "dur": 0.18
-    },
-    {
-     "at": "song:14.858",
-     "z": 1.0304,
-     "dur": 0.18
-    },
-    {
-     "at": "song:15.361",
-     "z": 1.055,
-     "dur": 0.22
+     "dur": 0.16
     },
     {
      "at": "song:15.660",
      "z": 1.0294,
-     "dur": 0.18
+     "dur": 0.16
     }
    ]
   },
@@ -1208,7 +1231,8 @@
    ],
    "drift": 0.05,
    "out": "cut",
-   "label": true
+   "label": true,
+   "chips": "all"
   },
   {
    "id": "r2-stamp-breath",
@@ -1483,14 +1507,14 @@
   {
    "id": "kc-pink-agents",
    "type": "kandclip",
-   "t0": "hb:1.25",
+   "t0": "hb:0.75",
    "t1": 20.923,
    "item": "kand-riff",
    "piece": "pink",
    "prep": "clip",
    "broll": "ale-agent-wall",
    "in": 72.0,
-   "speed": 0.4467,
+   "speed": 0.4321,
    "srcFocus": [
     0.5,
     0.58
@@ -1600,9 +1624,9 @@
   {
    "id": "splat-drop",
    "type": "splat",
-   "t0": "hb:0",
+   "t0": "hb:-0.15",
    "t1": 20.923,
-   "at": "hb:0",
+   "at": "hb:-0.15",
    "x": 860,
    "y": 1660,
    "r": 180,
@@ -1992,7 +2016,7 @@
    "type": "words",
    "t0": "hb:9.5",
    "t1": 20.923,
-   "text": "IN THE DISCS: AGENTS' LAST EXAM, 2026 · NVIDIA NVL72 DATA HALL, 2025 · BEHIND: GALAXY HELIOS DATA CENTRE, 2026",
+   "text": "AGENTS' LAST EXAM 2026 · NVIDIA 2025 · GALAXY 2026",
    "x": 64,
    "y": 1468,
    "w": 940,
@@ -2062,7 +2086,7 @@
      1.1
     ]
    },
-   "alpha": 0.3,
+   "alpha": 0.5,
    "blend": "multiply",
    "grade": {
     "sat": 0.3,
@@ -2178,8 +2202,10 @@
     "at": "hb:112",
     "rings": 3,
     "debris": 80,
-    "flash": 0.2,
-    "shake": 16
+    "flash": 0.95,
+    "shake": 16,
+    "flashDecay": 0.07,
+    "flashColor": "radial-gradient(circle at 50% 45%, rgba(255,253,244,1) 0%, rgba(255,246,222,0.97) 24%, rgba(255,232,190,0.72) 48%, rgba(255,214,150,0.25) 72%, rgba(255,214,150,0) 92%)"
    },
    "shakes": [
     {
@@ -2319,10 +2345,11 @@
    "credit": "STARGATE 2025 · BEHIND: GALAXY HELIOS 2026",
    "creditAt": [
     64,
-    1160
+    1046
    ],
    "prep": "clip",
-   "creditSize": 26,
+   "creditSize": 24,
+   "creditCps": 120,
    "frames": "short-cp-golden"
   },
   {
@@ -2366,6 +2393,84 @@
    "tailBase": 1.9,
    "tailK": 1.5,
    "lapShock": true
+  },
+  {
+   "id": "chart-gw",
+   "type": "chart",
+   "graph": "dc-total-gw",
+   "t0": "hb:96",
+   "t1": "hb:100.6",
+   "x": 175,
+   "y": 1300,
+   "w": 660,
+   "h": 178,
+   "card": {
+    "x": 70,
+    "y": 1090,
+    "w": 940,
+    "h": 482,
+    "color": "#FBF6EC",
+    "rot": -0.6
+   },
+   "axesAt": "hb:96",
+   "titleAt": "hb:96",
+   "titlePx": 50,
+   "titleGap": 196,
+   "subAt": "hb:96.25",
+   "subPx": 23,
+   "subPer": 0.03,
+   "grow": [
+    "hb:96.25",
+    "hb:96.375",
+    "hb:96.5",
+    "hb:96.625",
+    "hb:96.75",
+    "hb:96.875",
+    "hb:97",
+    "hb:97.25",
+    "hb:97.5",
+    "hb:97.625",
+    "hb:97.75",
+    "hb:98"
+   ],
+   "labels": "last",
+   "valuePx": 60,
+   "valueFmt": {
+    "dec": 1
+   },
+   "color": "#2346FF",
+   "lineW": 6,
+   "yAxis": {
+    "label": "GW",
+    "labelIn": "top",
+    "labelPx": 28
+   },
+   "annotate": [
+    {
+     "at": "hb:98.125",
+     "i": 11,
+     "text": "13.8 GW across 93 sites",
+     "dx": -330,
+     "dy": 70,
+     "w": 330,
+     "px": 38,
+     "lines": 2,
+     "hl": "13.8 GW",
+     "lead": 0,
+     "per": 0.03
+    }
+   ],
+   "sourceAt": "hb:97.25",
+   "sourcePer": 0.02,
+   "sourceY": 1538,
+   "sourcePx": 21,
+   "sourceW": 760,
+   "splatColor": "#F2C300",
+   "theme": "light",
+   "_note": "plot right edge at x 870 so the last value label stays off the right UI rail (x > 930, y 1000-1600)",
+   "subW": 600,
+   "sourceX": 140,
+   "metaPx": 32
   },
   {
    "id": "kand-b",
@@ -2842,7 +2947,8 @@
     }
    ],
    "out": "cut",
-   "theme": "light"
+   "theme": "light",
+   "chips": "all"
   },
   {
    "id": "pile-rsi",
@@ -2894,7 +3000,8 @@
     }
    ],
    "out": "cut",
-   "theme": "light"
+   "theme": "light",
+   "chips": "all"
   },
   {
    "id": "pile-ego-lo",
@@ -2927,7 +3034,8 @@
    "push": false,
    "emph": false,
    "out": "cut",
-   "theme": "light"
+   "theme": "light",
+   "chips": "all"
   },
   {
    "id": "pile-ego-hi",
@@ -2961,7 +3069,8 @@
    "push": false,
    "emph": false,
    "out": "cut",
-   "theme": "light"
+   "theme": "light",
+   "chips": "all"
   },
   {
    "id": "disc-credit-1",
@@ -3020,7 +3129,7 @@
    "type": "clip",
    "prep": "clip",
    "t0": "hb:107",
-   "t1": "hb:112.2",
+   "t1": "hb:112",
    "src": "clips/bengio-fog-loss-of-control-ted2025.mp4",
    "in": 11.142,
    "box": {
@@ -3066,7 +3175,8 @@
     "style": "fade",
     "dur": 0.4
    },
-   "theme": "dark"
+   "theme": "dark",
+   "exit": "cut"
   },
   {
    "id": "paint-god",
@@ -3215,10 +3325,28 @@
    }
   },
   {
+   "id": "r3-out-slap",
+   "type": "splat",
+   "t0": "song:72.78",
+   "at": "song:72.80",
+   "t1": "hb:112",
+   "x": 830,
+   "y": 1150,
+   "r": 130,
+   "color": "#FF4A1C",
+   "dir": -25,
+   "sats": 70,
+   "spikes": 8,
+   "drips": 2,
+   "spread": 1.25,
+   "layer": "paint-god",
+   "_note": "FIXER r3 (director, low): the sung 'out' gets its own slap"
+  },
+  {
    "id": "g-cream-b",
    "type": "color",
    "t0": "hb:112",
-   "t1": 36.039,
+   "t1": 36.589,
    "color": "#F2EBDD",
    "enterFx": {
     "type": "iris",
@@ -3266,7 +3394,7 @@
      1.1
     ]
    },
-   "alpha": 0.3,
+   "alpha": 0.5,
    "blend": "multiply",
    "grade": {
     "sat": 0.3,
@@ -3280,12 +3408,18 @@
    "_note": "FIXER r2: MUTED ghost b-roll under the reassembly (Oracle's Stargate Abilene campus aerial, 2025), multiply 34 %, clear of the karaoke strip"
   },
   {
+   "id": "paint-out",
+   "type": "layer",
+   "kind": "canvas",
+   "_note": "the instrumental's beat track over its cream"
+  },
+  {
    "id": "ghost-out-credit",
    "type": "words",
    "t0": "hb:113",
    "t1": "hb:122.9",
    "x": 64,
-   "y": 1488,
+   "y": 1448,
    "w": 900,
    "text": "BEHIND: STARGATE ABILENE · ORACLE · 2025",
    "font": {
@@ -3306,16 +3440,10 @@
    "theme": "light"
   },
   {
-   "id": "paint-out",
-   "type": "layer",
-   "kind": "canvas",
-   "_note": "the instrumental's beat track over its cream"
-  },
-  {
    "id": "kand-re",
    "type": "kand",
    "t0": "hb:111.6",
-   "t1": 36.039,
+   "t1": 36.589,
    "layout": {
     "y": 400,
     "scale": 0.72
@@ -3382,15 +3510,6 @@
      "to": "hb:123"
     },
     {
-     "move": "orbit",
-     "pieces": [
-      "pink",
-      "black"
-     ],
-     "on": "hb:116..123",
-     "stepDeg": 45
-    },
-    {
      "move": "grow",
      "pieces": [
       "blue"
@@ -3412,6 +3531,31 @@
      "scale": 0.5,
      "op": 0,
      "dur": 0.3
+    },
+    {
+     "move": "orbit",
+     "pieces": [
+      "pink",
+      "black"
+     ],
+     "on": {
+      "from": 113,
+      "to": 117.5,
+      "every": 0.5
+     },
+     "stepDeg": 36
+    },
+    {
+     "move": "grow",
+     "pieces": [
+      "blue"
+     ],
+     "from": "hb:118",
+     "to": "hb:121.5",
+     "scale": 1.38,
+     "dx": -60,
+     "dy": -30,
+     "dur": 0.35
     }
    ]
   },
@@ -3421,7 +3565,7 @@
    "item": "kand-re",
    "piece": "blue",
    "t0": "hb:112.75",
-   "t1": 36.039,
+   "t1": 36.589,
    "prep": "clip",
    "src": "clips/amodei-axios-2025.mp4",
    "in": 686.05,
@@ -3444,13 +3588,15 @@
     "contrast": 1.08,
     "grain": 0
    },
-   "tintK": 0.2
+   "tintK": 0.2,
+   "out": "hb:123.4",
+   "fadeOut": 0.3
   },
   {
    "id": "fluid-re",
    "type": "fluid",
    "t0": "hb:112",
-   "t1": 36.039,
+   "t1": 36.589,
    "item": "kand-re"
   },
   {
@@ -3748,13 +3894,17 @@
     "style": "fade",
     "dur": 0.25
    },
-   "theme": "light"
+   "theme": "light",
+   "plate": {
+    "color": "rgba(242,235,221,0.9)",
+    "pad": 14
+   }
   },
   {
    "id": "paper-rf",
    "type": "paper",
    "t0": "song:65.188",
-   "t1": 36.039,
+   "t1": 36.589,
    "mode": "auto"
   }
  ],
@@ -3806,7 +3956,8 @@
    ],
    "in": [
     "g-cream-riff",
-    "kand-riff"
+    "kand-riff",
+    "ghost-riff"
    ],
    "dur": 1.75,
    "lead": 0.2,
@@ -3815,14 +3966,12 @@
     540,
     880
    ],
-   "flash": {
-    "opacity": 0.6,
-    "decay": 0.08,
-    "color": "#FBF7EE"
-   },
    "shake": 16,
    "ground": false,
-   "_note": "window 19.063-19.909 (dur 1.75 beats, lead 0.2): cracks race out from the circled Gizmodo phrase from 19.063 (the riff pickup is at 19.116); shards fly and fall from the drop 19.232 to 19.91, by when the pink disc's footage has faded in (kc-pink-agents-a from hb:1.25)"
+   "_note": "window 19.063-19.909 (dur 1.75 beats, lead 0.2): cracks race out from the circled Gizmodo phrase from 19.063 (the riff pickup is at 19.116); shards fly and fall from the drop 19.232 to 19.91, by when the pink disc's footage has faded in (kc-pink-agents-a from hb:1.25)",
+   "head": 0.2,
+   "speed": 2100,
+   "back": "#E9E1CF"
   },
   {
    "id": "tr-entrance-short",
@@ -3846,6 +3995,7 @@
     "kand-a-s",
     "cp-golden",
     "loop-a-s",
+    "chart-gw",
     "ghost-loop-s"
    ],
    "flash": {
@@ -3883,6 +4033,7 @@
     "kand-a-s",
     "loop-a-s",
     "cp-golden",
+    "chart-gw",
     "ghost-loop-s"
    ],
    "in": [
@@ -4155,6 +4306,35 @@
    "amount": 0.05,
    "decay": 0.1,
    "_note": "FIXER r2: the blue pop on hb:3"
+  },
+  {
+   "id": "fx-drop-white",
+   "fx": "flash",
+   "at": "song:19.1995",
+   "opacity": 1.15,
+   "decay": 0.007,
+   "color": "#FFFFFF",
+   "_note": "FIXER r3 (director, medium): f393 is white, f394 the first full-contrast frame of the cream world"
+  },
+  {
+   "id": "fx-out-jolt",
+   "fx": "shake",
+   "on": [
+    "song:72.80"
+   ],
+   "amp": 16,
+   "decay": 0.045,
+   "_note": "FIXER r3: the sung 'out'"
+  },
+  {
+   "id": "fx-re-zoom",
+   "fx": "punch",
+   "on": [
+    "hb:118"
+   ],
+   "amount": 0.05,
+   "decay": 0.14,
+   "_note": "FIXER r3: Dario's disc zooms up"
   }
  ],
  "paintMask": [
@@ -4170,6 +4350,20 @@
    ],
    "feather": 110,
    "_note": "FIXER r2 (director): no splat or stamp under the wordmark, the kicker and the credit line (y 1125-1575) once the title paints on"
+  },
+  {
+   "layer": "paint-out",
+   "from": "hb:123.35",
+   "to": 999,
+   "rect": [
+    0,
+    0,
+    1080,
+    1920
+   ],
+   "feather": 0,
+   "fade": 0.3,
+   "_note": "FIXER r3 (director): the instrumental's splats wash out over the 0.3 s before the cover's flash"
   }
  ]
 }

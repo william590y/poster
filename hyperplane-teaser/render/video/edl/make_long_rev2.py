@@ -11,7 +11,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 import rev2_parts as P
 
 SONG0, SONG_END = 6.10, 80.40
-HOLD_PAST = 0.45                                   # FIXER r1: the cover holds 0.45 s past the music (critic: a 1.17 s hold was too short)
+HOLD_PAST = 1.0                                    # FIXER r3: the cover holds 1.0 s past the music (r1: 0.45; director r3: the clean cover held ~1.4 s)
 END = round(SONG_END - SONG0 + HOLD_PAST, 3)        # 74.75 (the music ends at 74.30 + its 0.35 s fade)
 
 
@@ -35,7 +35,7 @@ def build():
         if x['id'] == 'v-racks':
             out.append({'id': 'paint-racks', 'type': 'layer', 'kind': 'canvas', '_note': "the chorus's last two bars: paint over the racks footage"})
     cho = out
-    items = P.fixer_r2(P.fixer_r1(P.safe_nudges(P.ensure_prep(pre + ver + cho + ref)), 'long'), 'long')
+    items = P.fixer_r3(P.fixer_r2(P.fixer_r1(P.safe_nudges(P.ensure_prep(pre + ver + cho + ref)), 'long'), 'long'), 'long')
     gi = {x['id']: x for x in items}
     # FIXER r2 (william, medium: 'the 20.87 cut does not read as the logo breaking apart'): the riff's logo no longer blows out
     # under a hard cut to the dark verse; the pink disc and the band stay behind as the verse's frames (hidden on hb:16, the
@@ -45,7 +45,7 @@ def build():
             m.update({'at': 'hb:99', 'hideAt': 'hb:16'})
 
     # ---- transitions
-    tr = P.r2_prelude_tr(P.transitions_of(load_pre()))
+    tr = P.r3_prelude_tr(P.r2_prelude_tr(P.transitions_of(load_pre())))
     vt = P.transitions_of(V)
     ill = next(t for t in vt if t['id'] == 'tr-v1-illum')
     ill['in'] = [x for x in next(t for t in C['transitions'] if t['id'] == 'tr-v1-illum')['_in_add']]   # chorus interface
@@ -86,6 +86,8 @@ def build():
     # (director, low) Hinton's portrait is not revealed under the page turn any more (it pops in with his own card, hb:21.5)
     T['tr-v1-turn']['in'] = [i for i in T['tr-v1-turn']['in'] if i != 'p-hinton']
     T['tr-dive']['out'] = [i for i in T['tr-dive']['out'] if i != 'pile-golden']   # it scatters out before the dive (hb:99.5)
+    # FIXER r3 (william, high): the tower's b-roll (fading in under the particles from hb:31.6) leaves under the paint wipe
+    T['tr-v1-wipe']['out'] = T['tr-v1-wipe']['out'] + ['tower-bg']
     transitions.append({'id': 'tr-riff-break', 'type': 'shatter', 'at': 'hb:16', 'dur': 1.5, 'lead': 0.12, 'n': 22, 'impact': [540, 1236],
                         'out': ['g-cream-riff', 'ghost-riff', 'kand-riff', 'eq-superpose'], 'in': ['g-dark-v1'],
                         '_note': "FIXER r2: the cover page (wordmark, kicker, discs, the river) cracks from the wordmark and shatters into the dark verse; the pink disc and the band morph into the verse's frames on top"})
@@ -95,7 +97,10 @@ def build():
               + P.beatfx_of(C, layer=lambda b: 'paint-racks' if b['id'] == 'fx-ch-b' else 'paint-ch')
               + P.beatfx_of(R, 'long', layer=lambda b: {'fx-god': 'paint-god', 'fx-outro': 'paint-out'}.get(b['id'], 'paint-rf')))
     fx = ([dict(f) for f in V.get('fx', [])] + [dict(f) for f in R.get('fx', [])] + [f for f in P.fixer_fx('long') if f['id'] != 'fx-cover-bloom']
-          + P.fixer_r2_fx('long'))
+          + P.fixer_r2_fx('long') + P.fixer_r3_fx('long'))
+    for f in fx:   # FIXER r3 (director): the verse's bar flashes (hb:16, 36, 40) were a flat grey veil on the dark: a warm radial bloom
+        if f['id'] == 'fx-v1-flash':
+            f.update({'color': P.WARM_BLOOM, 'opacity': 0.5})
 
     themes = ([{'t0': 0, 't1': 'hb:0', 'theme': 'dark'}, {'t0': 'hb:0', 't1': 'hb:16', 'theme': 'light'}, {'t0': 'hb:16', 't1': 'hb:48', 'theme': 'dark'}]
               + C['themes'] + P.THEMES_TAIL)
@@ -125,7 +130,7 @@ def build():
         'transitions': transitions,
         'beatfx': beatfx,
         'fx': fx,
-        'paintMask': [P.PAINT_MASK_RIFF],
+        'paintMask': [P.PAINT_MASK_RIFF, P.PAINT_MASK_OUTRO],
     }
     return edl
 

@@ -18,7 +18,7 @@ import rev2_parts as P
 SONG0, SPL_A, SPL_B, SONG_END = 6.10, 26.477, 65.188, 80.40
 SPLICE = round(SPL_A - SONG0, 3)                     # edit 20.377
 OFF2 = SPL_B - SPLICE                                # edit = song - 44.811 after the splice
-HOLD_PAST = 0.45                                     # FIXER r1: the cover holds 0.45 s past the music
+HOLD_PAST = 1.0                                      # FIXER r3: the cover holds 1.0 s past the music (r1: 0.45)
 END = round(SONG_END - OFF2 + HOLD_PAST, 3)          # 36.039
 E = lambda s: round(s - SONG0, 4) if s <= SPL_A else round(s - OFF2, 4)
 HB = lambda i: E(P.hb_song(i))
@@ -51,16 +51,19 @@ def build():
     eq['pulse'] = ['hb:13', 'hb:14']                  # hb:15 is in the cut
     eq['exit'] = 'cut'
     g['riff-credit']['exit'] = 'cut'
-    items = P.fixer_r2(P.fixer_r1(P.safe_nudges(P.ensure_prep(pre + ref)), 'short'), 'short')
+    items = P.fixer_r3(P.fixer_r2(P.fixer_r1(P.safe_nudges(P.ensure_prep(pre + ref)), 'short'), 'short'), 'short')
     gi = {x['id']: x for x in items}
     # FIXER r2: the ghost b-roll under the riff ends with the riff (hb:16 is in the cut of the song)
     gi['ghost-riff']['t1'] = RIFF_OUT
     gi['ghost-riff']['frames'] = 'short-ghost-riff'   # its own cache folder (a shorter life than the long's)
+    gi['kc-pink-agents']['speed'] = round((75.21 - 72.0) / (RIFF_OUT - HB(0.75)), 4)   # FIXER r3: from hb:1 (fixer_r3 set the long's speed)
     riff_out.append('ghost-riff')
     # FIXER r2 (director, medium: the loop's 2 s were cluttered by an empty chart card and the Guardian card over the top node):
     # the short drops the build-out chart and the 'golden age' card; the loop has the frame, its comet lighting the four nodes one
     # per beat (hb:96-100), then laps twice as fast in the big loop; only Palisade's shutdown-resistance card lands on hb:100.5
-    items = [x for x in items if x['id'] not in ('chart-gw', 'pile-golden')]
+    # FIXER r3 (william, medium: no data-centre graph in the short, the loop's bottom third empty at hb:96-100): the build-out chart
+    # (Epoch's 13.8 GW / 93 sites, source line included) is back, the same item as the long's; the 'golden age' card stays out
+    items = [x for x in items if x['id'] not in ('pile-golden',)]
     gi = {x['id']: x for x in items}
     pg = gi['pile-gone']
     pg['shots'] = [s for s in pg['shots'] if s['id'].startswith('palisade')]
@@ -78,8 +81,9 @@ def build():
         '_note': "FIXER r2: MUTED ghost b-roll under the short's loop (Galaxy's Helios AI data centre going up, 2026), multiply 30 %"})
     gi = {x['id']: x for x in items}
     gi['cp-golden']['credit'] = 'STARGATE 2025 · BEHIND: GALAXY HELIOS 2026'
-    gi['cp-golden']['creditAt'] = [64, 1160]      # under the loop (the chart card is gone), clear of the bottom node's label
-    gi['cp-golden']['creditSize'] = 26
+    gi['cp-golden']['creditAt'] = [64, 1046]      # FIXER r3: above the chart card again (as in the long)
+    gi['cp-golden']['creditSize'] = 24
+    gi['ghost-loop-s']['alpha'] = 0.5              # FIXER r3 (william): footage at op >= 0.5
     # FIXER r1 (critic: the short's loop could not read as accelerating): the laps run 1 bar (hb:96-100, the small loop), then
     # 2 beats x2, 1 beat x2 and 8ths x4 in the big loop (hb:100-108, into the collapse): each lap twice as fast as the last
     g2 = {x['id']: x for x in items}
@@ -88,7 +92,7 @@ def build():
     g2['loop-b']['laps'] = {'from': 'hb:100', 'plan': [[2, 2], [1, 2], [0.5, 4]]}
 
     # ---- transitions
-    tr = P.r2_prelude_tr(P.transitions_of(P.load('prelude-riff')))
+    tr = P.r3_prelude_tr(P.r2_prelude_tr(P.transitions_of(P.load('prelude-riff'))))
     rt = P.transitions_of(R, 'short')
     for t in rt:
         if t['id'] == 'tr-entrance-short':
@@ -103,8 +107,8 @@ def build():
                       'spin': 120, 'flash': {'opacity': 0.35, 'decay': 0.06, 'color': '#FFF8EA'}, 'shake': 10})
             t['_note'] = ("THE SHORT'S ENTRANCE (fixer r2): an iris out of the loop centre opens on the splice (edit 20.377, song 26.477 | 65.188) "
                           "with a flash and a hit; the riff's logo stays round it until the iris passes the frame edge (hb:95.85)")
-        t['in'] = [i for i in ('chart-gw' if i == 'chart-dc' else i for i in t.get('in', [])) if i not in ('chart-gw', 'pile-golden')]
-        t['out'] = [i for i in ('chart-gw' if i == 'chart-dc' else i for i in t.get('out', [])) if i not in ('chart-gw', 'pile-golden')]
+        t['in'] = [i for i in ('chart-gw' if i == 'chart-dc' else i for i in t.get('in', [])) if i not in ('pile-golden',)]
+        t['out'] = [i for i in ('chart-gw' if i == 'chart-dc' else i for i in t.get('out', [])) if i not in ('pile-golden',)]
     for t in rt:
         if t['id'] == 'tr-dive-s':
             t['out'] = t['out'] + ['ghost-loop-s']
@@ -142,8 +146,8 @@ def build():
         'items': items,
         'transitions': transitions,
         'beatfx': bfx,
-        'fx': [f for f in P.fixer_fx('short') if f['id'] != 'fx-cover-bloom'] + P.fixer_r2_fx('short'),
-        'paintMask': [{**P.PAINT_MASK_RIFF, 'to': RIFF_OUT}],
+        'fx': [f for f in P.fixer_fx('short') if f['id'] != 'fx-cover-bloom'] + P.fixer_r2_fx('short') + P.fixer_r3_fx('short'),
+        'paintMask': [{**P.PAINT_MASK_RIFF, 'to': RIFF_OUT}, P.PAINT_MASK_OUTRO],
     }
     return edl
 

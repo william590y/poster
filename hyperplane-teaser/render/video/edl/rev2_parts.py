@@ -1097,3 +1097,189 @@ def r2_bfx(bfx):
             b['to'] = 'hb:7.5'
             out.append(b2)
     return out
+
+
+# ============================================================================================ FIXER r3 (critics on the r2 cuts, 11 Oct)
+WARM_BLOOM = ('radial-gradient(circle at 50% 45%, rgba(255,253,244,1) 0%, rgba(255,246,222,0.97) 24%, rgba(255,232,190,0.72) 48%, '
+              'rgba(255,214,150,0.25) 72%, rgba(255,214,150,0) 92%)')
+
+
+def prelude_kicks_r3(t0_song, t1_song):
+    """FIXER r3 (director, medium: the prelude's first scroll window and the Amodei half had the weakest beats, the framing the same
+    across them): the footage box pushes on EVERY grid beat (hits.json's negative beats), 2.5x the r2 pulse (bars 11 %, beats
+    6.5 %, springing back), plus the intro's own off-grid swells (song/hits.json prelude_pulse) at their r2 strength"""
+    ks, grid = [], []
+    for i in range(-30, 0):
+        s = hb_song(i)
+        if t0_song + 0.05 <= s < t1_song - 0.1:
+            grid.append(s)
+            ks.append({'at': f'hb:{i}', 'z': 1.11 if i % 4 == 0 else 1.065, 'dur': 0.26 if i % 4 == 0 else 0.2})
+    for p in _hits().get('prelude_pulse', []):
+        s = p['t']
+        if t0_song + 0.05 <= s < t1_song - 0.1 and all(abs(s - b) > 0.15 for b in grid):
+            ks.append({'at': f'song:{s:.3f}', 'z': round(1.025 + 0.02 * min(1, p.get('s', 0.5)), 4), 'dur': 0.16})
+    return ks
+
+
+def fixer_r3(items, cut):
+    """FIXER r3 (critics on the r2 cuts, 11 Oct; William's feedback log still had no note): shared by both cuts. Each block names
+    the critic issue it answers (director / william lens)."""
+    g = {x['id']: x for x in items}
+    def has(k): return k in g
+    out = list(items)
+    def insert_before(ref, new):
+        i = next(k for k, x in enumerate(out) if x['id'] == ref)
+        out.insert(i, new)
+        g[new['id']] = new
+    def insert_after(ref, new):
+        i = next(k for k, x in enumerate(out) if x['id'] == ref)
+        out.insert(i + 1, new)
+        g[new['id']] = new
+    # ---- PRELUDE (director, medium): every grid beat pushes the picture (prelude_kicks_r3); one jump-cut reframe per speaker on a
+    # bar (a one-frame punch to a tighter frame that stays: Altman hb:-24, Amodei hb:-12), ending ~1.15x; a pink marker sweep on
+    # Altman's 'end of the world' starting ON hb:-18 (the word 'world' is sung... said at song 10.38); Amodei's '25%' circle lands
+    # ON hb:-14
+    if has('altman'):
+        al = g['altman']
+        al['pulses'] = prelude_kicks_r3(6.10, 10.833)
+        al['zoom'] = [1.0, 1.0]
+        al['punch'] = [{'at': 'hb:-24', 'z': 1.08, 'dur': 0.034}, {'at': 'hb:-20', 'z': 1.03, 'dur': 0.1}, {'at': 'song:10.04', 'z': 1.03, 'dur': 0.12}]
+        al['caption']['marks'] = al['caption']['marks'] + [{'phrase': 'end of the world', 'style': 'circle', 'at': 'hb:-18', 'dur': 0.24, 'color': '#FF2E88', 'width': 7}]
+    # (director, low) Amodei was a small seated figure in a wide stage shot: the crop is ~4:3 around his face and chair (source x
+    # 315-695, y 200-490 of 1280x720: the Axios wall, his chair and the neighbouring chair's edge stay in frame, framing only)
+    if has('amodei'):
+        am = g['amodei']
+        am['crop'] = {'x': 315, 'y': 200, 'w': 380}
+        am['focus'] = [0.5, 0.33]
+        am['zoom'] = [1.0, 1.04]
+        am['pulses'] = prelude_kicks_r3(10.833, hb_song(-7))
+        am['punch'] = [{'at': 'hb:-16', 'z': 1.04, 'dur': 0.12}, {'at': 'hb:-12', 'z': 1.06, 'dur': 0.034}, {'at': 'song:14.23', 'z': 1.03, 'dur': 0.12}]
+        for m in am['caption']['marks']:
+            if m['phrase'] == '25%':
+                m.update({'at': f'song:{hb_song(-14) - 0.2:.3f}', 'dur': 0.2})
+    # ---- DROP / RIFF (director + william, medium): footage under the riff at op >= 0.5 from the drop frame on (the Galaxy Helios
+    # aerial printed into the cream, under the shards from hb:-0.3 so the drop frame already has it); the pink disc's footage
+    # from hb:1 (with the black disc's landing)
+    if has('ghost-riff'):
+        gr = g['ghost-riff']
+        gr.update({'t0': 'hb:-0.3', 'alpha': 0.5, 'entry': {'style': 'fade', 'at': 'hb:-0.3', 'dur': 0.25}})
+        gr['_note'] = "FIXER r3: MUTED ghost b-roll under the riff (Galaxy's Helios AI data centre, 2026), multiply 50 % (lighter behind the title band)"
+    if has('kc-pink-agents'):
+        kp = g['kc-pink-agents']
+        kp['t0'] = 'hb:0.75'
+        kp['speed'] = round((75.21 - 72.0) / (hb_song(16.05) - hb_song(0.75)), 4)
+    if has('splat-drop'):   # the pink splat is already down on the drop frame (it lands under the white frame)
+        g['splat-drop'].update({'t0': 'hb:-0.15', 'at': 'hb:-0.15'})
+    # (director, low) the riff's credit stack was 2-3 lines of small mono: one line, outlet and year
+    if has('riff-credit'):
+        g['riff-credit']['text'] = "AGENTS' LAST EXAM 2026 · NVIDIA 2025 · GALAXY 2026"
+    # ---- VERSE 1 ----------------------------------------------------------------------------------------------------------
+    # (director, low) the DPO equation overprinted Amodei's caption: it sits 65 px lower and 10 % smaller (clear of the caption's
+    # name line; the TechCrunch card's zone starts at y 1350)
+    if has('eq-dpo'):
+        g['eq-dpo'].update({'cy': 1185, 'px': 40})
+    # (william, HIGH) no footage under the 3D tower for hb:32-36: the Stargate Abilene GPU hall (an aisle of black racks with
+    # engineers, 2025) runs full frame behind the tower for its whole life, graded dark and cool (op 0.62), the tower glowing over it
+    if has('v1-tower'):
+        insert_before('v1-tower', {
+            'id': 'tower-bg', 'type': 'panel', 't0': 'hb:31.6', 't1': 'hb:44', 'prep': 'clip', 'broll': 'stargate-abilene-oracle', 'in': 16.5,
+            'speed': 0.31, 'shape': 'rect', 'frame': {'x': 0, 'y': 0, 'w': 1080, 'h': 1920}, 'out': 'cut', 'border': 'none',
+            'entry': {'style': 'fade', 'at': 'hb:31.6', 'dur': 0.2}, 'creditUntil': 'hb:36.6',
+            'kb': {'z': [1.06, 1.2]}, 'alpha': 0.62, 'grade': {'sat': 0.35, 'contrast': 1.12, 'brightness': -0.1, 'gamma': 0.95, 'grain': 0},
+            'theme': 'dark', 'credit': 'STARGATE ABILENE GPU HALL · ORACLE · 2025', 'creditAt': [74, 1500], 'creditSize': 28, 'creditCps': 120,
+            '_note': "FIXER r3 (william, high): MUTED b-roll under the 3D tower (broll stargate-abilene-oracle 16.5-18.4, the rack aisle), 0.32x"})
+        # (director, medium) the tower read as thin wireframes in the left 60 %: the camera dollies in ~1.5x, the blocks glow
+        # (additive faces, bloom sprites always on), the four heads are 30 % bigger and fan wider, the labels are 34 px and only
+        # the first block is labelled; the token words never overprint each other ('AI that builds better' was garbled)
+        vt = g['v1-tower']
+        vt['cam'] = {**vt['cam'], 'dist': 23, 'fov': 42}
+        vt.update({'tagPx': 34, 'tokPx': 50, 'tokGap': 18, 'tagBlocks': 1, 'emissive': 0.8, 'headScale': 1.3, 'fan': 40})
+    # (director, low) the green TechCrunch card's highlighted 'culture is broken' was covered by the grey Common Dreams card: the
+    # grey card lands 150 px lower
+    if has('pile-disappoint'):
+        pd = g['pile-disappoint']
+        for s in pd['shots']:
+            if s['id'] == 'xrisk-commondreams-whistleblowers':
+                s.update({'dy': 150})
+    # ---- every pile (william, medium): the outlet/date chips type fast enough to finish (year included) before the next card lands,
+    # and every landed card keeps its chip; the panels' credits type at 120 cps (was 50: 'COASTRU▌' as the next card landed)
+    for x in out:
+        if x['type'] == 'screens':
+            x['chips'] = 'all'
+        if x['type'] == 'panel' and x.get('credit'):
+            x.setdefault('creditCps', 120)
+    # (william, medium) the 2023 'before' cards read as current news: short dated chips, stamped as they land
+    if has('pile-before'):
+        for s in g['pile-before']['shots']:
+            if s['id'] == 'xrisk-bbc-hinton':
+                s['label'] = 'BBC NEWS · MAY 2, 2023'
+            if s['id'] == 'fli-2023-03-22-pause-letter':
+                s['label'] = 'FLI · MAR 22, 2023'
+        # the stack buries each card's chip under the next card 0.24 s later: a big red '2023' year chip slams in beside the two
+        # 2023 cards on hb:73 and holds until the CNN 2026 card has landed (hb:74.75): old vs new reads at a glance
+        insert_after('pile-before', {'id': 'r3-yr-2023', 'type': 'stamp', 't0': 'hb:73', 't1': 'hb:74.75', 'stamp': {'x': 820, 'y': 985, 'year': '2023', 'yrPx': 60},
+                                     'enter': {'style': 'slam', 'dur': 0.12}, 'exit': {'style': 'fade', 'dur': 0.15}, 'theme': 'dark',
+                                     '_note': 'FIXER r3 (william, medium): the BBC (May 2, 2023) and FLI (Mar 22, 2023) cards carry their year'})
+        # (director, low) the second paint wipe in 9 s (hb:64, hb:73): the 'before' cards open out of a spinning Kandinsky circle
+        g['pile-before']['enterFx'] = {'type': 'iris', 'shape': 'circle', 'at': 'hb:73', 'dur': 1.0, 'lead': 0.3, 'c': [540, 1290], 'rim': 'pink',
+                                       'spin': 120, 'ground': False, 'shake': 6}
+    # ---- GOD / 'here' (director, medium + low) ----------------------------------------------------------------------------------
+    # 'out' had only a small camera punch: an orange slap lands right of the word ON its onset (song 72.80) with a 2-frame jolt
+    # (fixer_r3_fx); the dark ground holds through 'here' (the fog clip is cut ON the burst, no fade over the cream: that was the
+    # grey veil) and the burst is a bright warm radial bloom (WARM_BLOOM), not a uniform 20 % white
+    if has('brutal'):
+        insert_after('brutal', {'id': 'r3-out-slap', 'type': 'splat', 't0': 'song:72.78', 'at': 'song:72.80', 't1': 'hb:112', 'x': 830, 'y': 1150,
+                                'r': 130, 'color': '#FF4A1C', 'dir': -25, 'sats': 70, 'spikes': 8, 'drips': 2, 'spread': 1.25, 'layer': 'paint-god',
+                                '_note': "FIXER r3 (director, low): the sung 'out' gets its own slap"})
+    if has('fog'):
+        g['fog'].update({'t1': 'hb:112', 'exit': 'cut'})
+    if has('hole'):
+        g['hole']['burst'] = {**g['hole']['burst'], 'flash': 0.95, 'flashDecay': 0.07, 'flashColor': WARM_BLOOM}
+    # ---- INSTRUMENTAL (director, medium): two beats of intent. hb:113-117.5: the pink and black discs orbit each other on 8ths
+    # (ten 36-degree steps: a full turn, home on hb:117.5); hb:118-121.5: Dario's disc zooms up toward the middle (the 'zoom-through'
+    # into the logo's disc) and settles back into the cover's blue disc by hb:122.6; the Stargate ghost at op 0.5; its credit line
+    # sits clear of the wordmark, kicker and splats (y 1528); the splats and his face wash out over the last 0.3 s before the flash
+    if has('kand-re'):
+        kr = g['kand-re']
+        kr['moves'] = [m for m in kr['moves'] if not (m.get('move') == 'orbit' and m.get('pieces') == ['pink', 'black'])]
+        kr['moves'] += [{'move': 'orbit', 'pieces': ['pink', 'black'], 'on': {'from': 113, 'to': 117.5, 'every': 0.5}, 'stepDeg': 36},
+                        {'move': 'grow', 'pieces': ['blue'], 'from': 'hb:118', 'to': 'hb:121.5', 'scale': 1.38, 'dx': -60, 'dy': -30, 'dur': 0.35}]
+    if has('kc-blue-amodei'):
+        g['kc-blue-amodei'].update({'out': 'hb:123.4', 'fadeOut': 0.3})
+    if has('ghost-out'):
+        g['ghost-out']['alpha'] = 0.5
+    if has('ghost-out-credit') and has('paint-out'):
+        # between the kicker and the splats' zone, and above the paint layer (a splat covered it)
+        gc = g['ghost-out-credit']
+        gc.update({'y': 1448})
+        out.remove(gc)
+        out.insert(next(k for k, x in enumerate(out) if x['id'] == 'paint-out') + 1, gc)
+    if has('kar-amodei-b'):   # his name line sat on the orbiting black disc (ink on ink): a paper plate under the quote block
+        g['kar-amodei-b']['plate'] = {'color': 'rgba(242,235,221,0.9)', 'pad': 14}
+    return out
+
+
+def fixer_r3_fx(cut):
+    """FIXER r3: the one-frame white flash on the frame BEFORE the drop (f393; the drop frame f394 is then the cream world at full
+    contrast, the shards already flying: tr-shatter head); the 2-frame jolt on the sung 'out'; the instrumental's zoom punch; the
+    verse's bar flashes as warm radial blooms (no grey veil)"""
+    return [{'id': 'fx-drop-white', 'fx': 'flash', 'at': 'song:19.1995', 'opacity': 1.15, 'decay': 0.007, 'color': '#FFFFFF',
+             '_note': 'FIXER r3 (director, medium): f393 is white, f394 the first full-contrast frame of the cream world'},
+            {'id': 'fx-out-jolt', 'fx': 'shake', 'on': ['song:72.80'], 'amp': 16, 'decay': 0.045, '_note': "FIXER r3: the sung 'out'"},
+            {'id': 'fx-re-zoom', 'fx': 'punch', 'on': ['hb:118'], 'amount': 0.05, 'decay': 0.14, '_note': "FIXER r3: Dario's disc zooms up"}]
+
+
+def r3_prelude_tr(tr):
+    """FIXER r3 (director, medium): the drop. The shatter's grey paper flash on the impact is gone (fixer_r3_fx puts a full white
+    frame on f393 instead); the shards have flown 0.12 s at the impact, faster, and a shard turned past 90 deg shows its paper back
+    (no mirrored headline text); the riff's ghost b-roll comes in under them"""
+    for t in tr:
+        if t['id'] == 'tr-shatter':
+            t.pop('flash', None)
+            t.update({'head': 0.2, 'speed': 2100, 'back': '#E9E1CF'})
+            t['in'] = t['in'] + ['ghost-riff']
+    return tr
+
+
+PAINT_MASK_OUTRO = {'layer': 'paint-out', 'from': 'hb:123.35', 'to': 999, 'rect': [0, 0, 1080, 1920], 'feather': 0, 'fade': 0.3,
+                    '_note': "FIXER r3 (director): the instrumental's splats wash out over the 0.3 s before the cover's flash"}

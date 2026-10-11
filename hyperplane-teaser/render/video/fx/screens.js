@@ -260,6 +260,15 @@ HP.register('screens', {
     // fixer r3 (coverage.py): the pile's canvas counts as imagery only once a card has landed
     if (top) it.cv.dataset.hpImg = it.id; else delete it.cv.dataset.hpImg;
     const outU = it.out.style === 'cut' ? 0 : pr(t, it.out.at, it.out.dur);
+    // fixer r3 "chips": "all": an older card keeps its chip unless a newer landed card's chip sits on it (no half-hidden double
+    // print): the chips' anchors (each card's lower-left corner) this frame
+    if (d.chips === 'all') for (const s of it.shots) {
+      s._anc = null; if (!s.chipTxt || t < s.land - EPS) continue;
+      const ep = entryPose(s, t), ex = exitPose(it, s, outU);
+      const M = PM.multiply(new DOMMatrix().translate(s.cx + ep.dx + ex.dx, s.cy + ep.dy + ex.dy).rotate(s.rot + ep.rot + ex.rot).scale(ep.sc * ex.sc, ep.sc * ep.sy * ex.sc));
+      s._anc = M.transformPoint(new DOMPoint(-s.w / 2 - s.pad, s.h / 2 + s.pad + 10));
+    }
+    const chipHidden = (s) => it.shots.some(o => o.idx > s.idx && o._anc && s._anc && Math.abs(o._anc.y - s._anc.y) < 80 && Math.abs(o._anc.x - s._anc.x) < 0.5 * Math.max(o.chipW || 300, s.chipW || 300));
     for (const s of it.shots) {
       const ep = entryPose(s, t);
       if (!ep.vis) { if (s.chip) s.chip.style.display = 'none'; continue; }
@@ -297,7 +306,7 @@ HP.register('screens', {
       c.globalAlpha = 1;
       // chip at the card's lower-left corner, for the newest shot (and the emphasised one at the end)
       if (s.chip) {
-        const keep = s === top || d.chips === 'all' || (it.emph.length && it.emph[0].s === s && t >= it.emph[0].at - EPS);
+        const keep = s === top || (d.chips === 'all' && !chipHidden(s)) || (it.emph.length && it.emph[0].s === s && t >= it.emph[0].at - EPS);
         if (!keep || t < s.land - EPS) { s.chip.style.display = 'none'; continue; }
         let CM = M.multiply(new DOMMatrix().translate(-s.w / 2 - s.pad, s.h / 2 + s.pad + 10).scale(1 / Math.max(0.5, ep.sc * ex.sc)));
         // fixer r1: when the slot under the card is below the safe zone (safeFit would push the chip up over the headline), it
@@ -439,6 +448,7 @@ function layoutPile(it) {
     S.forEach((s, i) => { const r = HP.rng(it.id, 'lay', i); s.cx = s.x ?? C[0] + (r() - 0.5) * 2 * (J.x * 2.5); s.cy = s.y ?? C[1] + (r() - 0.5) * 2 * (J.y * 10); s.rot = s.rot ?? (r() - 0.5) * 2 * J.rot; });
   }
   for (const s of S) {
+    s.cx += s.dx || 0; s.cy += s.dy || 0;   // fixer r3: a shot's own nudge after the layout (e.g. off a card's highlighted phrase)
     s.ks = s.w / s.crop.w; s.pad = s.pad ?? (d.pad ?? 10);
     s.bw = Math.round(Math.min(s.crop.w * s.fk, s.w * (d.bake ?? 1.6))); s.bh = Math.round(s.bw * s.crop.h / s.crop.w);
   }
@@ -611,7 +621,7 @@ HP.register('panel', {
     }
     c.globalAlpha = 1;
     if (it.credit) {
-      const on = t >= it.en.at + 0.2 - EPS && (1 - ux) * op > 0.01, x = it.creditX;
+      const on = t >= it.en.at + 0.2 - EPS && (1 - ux) * op > 0.01 && (it.d.creditUntil === undefined || t < HP.T(it.d.creditUntil) - EPS), x = it.creditX;   // fixer r3: creditUntil
       Object.assign(it.credit.style, { display: on ? 'block' : 'none', left: it.creditPos[0] + 'px', top: it.creditPos[1] + 'px' });
       x.setTransform(1, 0, 0, 1, 0, 0); x.clearRect(0, 0, it.creditCv.width, it.creditCv.height);
       const tx = on ? TX().typed(d0(it), t, it.en.at + 0.2, it.d.creditCps ?? 50) : '';   // fixer r3: creditCps

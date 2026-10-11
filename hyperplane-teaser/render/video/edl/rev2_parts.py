@@ -180,6 +180,7 @@ def prelude_riff():
     al, am = g['altman'], g['amodei']
     al['crop'] = {'x': 340, 'y': 50, 'w': 540}         # source 920x720: rows 50-500, clear of the burned-in subtitles (y > 520)
     al['zoom'] = [1.0, 1.03]
+    al['box'] = {'x': 0, 'y': 360, 'w': 1080, 'h': 850}   # his four caption lines and the source line stay inside the safe zone (y <= 1574)
     al['punch'] = [{'at': 'hb:-24', 'z': 1.04, 'dur': 0.1}, {'at': 'hb:-20', 'z': 1.04, 'dur': 0.1}, {'at': 'song:10.04', 'z': 1.06, 'dur': 0.12}]
     al['shakes'] = [{'at': 'hb:-24', 'amp': 6, 'decay': 0.08}, {'at': 'hb:-20', 'amp': 6, 'decay': 0.08}, {'at': 'song:10.04', 'amp': 11, 'decay': 0.1}]
     al['caption']['marks'] = [{'phrase': 'probably', 'style': 'underline', 'at': 'hb:-25', 'dur': 0.16, 'color': '#F2C300', 'width': 7},
@@ -642,7 +643,7 @@ def fixer_r1(items, cut):
     # ---- verse 1, the DPO beat (critic: grey on near-black, an almost empty frame at 27.3-27.5): white chalk drawn fast, the
     # PauseAI footage painted in 0.3 s earlier and larger, over Amodei's closing iris
     if has('eq-dpo'):
-        g['eq-dpo'].update({'color': '#FFF8EA', 'penColor': '#FFF8EA', 'rowDur': 0.3, 'fillDur': 0.16, 'glyphDur': 0.05, 'cy': 1075})   # 85 px up: the TechCrunch card covered its last row
+        g['eq-dpo'].update({'color': '#FFF8EA', 'penColor': '#FFF8EA', 'rowDur': 0.3, 'fillDur': 0.16, 'glyphDur': 0.05, 'cy': 1115})   # 45 px up: the TechCrunch card covered its last row (and clear of Amodei's caption above)
     if has('p-pause'):
         pp = g['p-pause']
         pp['t0'] = 'hb:28.9'

@@ -318,7 +318,13 @@
     "duck_db": 5
    },
    "verified": true,
-   "_note": "Altman 2015 (Airbnb fireside chat), footage as filmed; caption verbatim of the heard window 1.86-6.34 (small.en), word times re-measured by the prelude verifier (LEAD after its pause)"
+   "_note": "Altman 2015 (Airbnb fireside chat), footage as filmed; caption verbatim of the heard window 1.86-6.34 (small.en), word times re-measured by the prelude verifier (LEAD after its pause)",
+   "box": {
+    "x": 0,
+    "y": 360,
+    "w": 1080,
+    "h": 850
+   }
   },
   {
    "id": "amodei",

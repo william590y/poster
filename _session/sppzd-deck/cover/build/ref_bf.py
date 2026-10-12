@@ -17,7 +17,7 @@ MAC = {'Z': '[-]', 'R': '[->+<]', 'L': '[->+++<]', 'N': '[-<->]', 'C': '[->+>+<<
 ALPHA = '<>+-[].,' + 'ZRLNCGHWVX' + 'F'   # 19 generator logits
 
 
-def run(prog, omega, T, M=256, budget=30000):
+def run(prog, omega, T, M=256, budget=300000):
     if prog.startswith('S'):
         prog = prog[1:]
     code = ''

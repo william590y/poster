@@ -1,0 +1,261 @@
+// Self-play loop cover animation. 1920x1080 logical units; every frame is a pure function of time t (seconds).
+const W = 1920, H = 1080, M = Math, D = document;
+const SANS = "'IBM Plex Sans',system-ui,-apple-system,'Segoe UI',Helvetica,Arial,sans-serif",
+  MONO = "'IBM Plex Mono',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono',monospace",
+  SER = "'Source Serif 4',Georgia,'Times New Roman',serif";
+const BG = '#17242c', TE = '#1d6f68', TL = '#6cc3b8', GO = '#f2b07c', BL = '#9fb4d8', CR = '#eef1ec', MU = '#b9c7c4';
+const mk = () => { const c = D.createElement('canvas'); c.style.cssText = 'position:fixed;left:0;top:0;width:100%;height:100%'; D.documentElement.appendChild(c); return c; };
+const cb = mk(), cf = mk(), B = cb.getContext('2d'), X = cf.getContext('2d');
+const cl = x => x < 0 ? 0 : x > 1 ? 1 : x, lp = (a, b, u) => a + (b - a) * u,
+  ez = x => (x = cl(x), x * x * (3 - 2 * x)), eo = x => (x = cl(x), 1 - (1 - x) ** 3),
+  eb = x => (x = cl(x) - 1, 1 + 2.7 * x ** 3 + 1.7 * x * x);
+const hs = i => { i = M.imul(i ^ i >>> 16, 73244475); i = M.imul(i ^ i >>> 16, 73244475); return ((i ^ i >>> 16) >>> 0) / 4294967296; };
+const rng = a => () => hs(a = a + 1831565813 | 0);
+const AL = '<>+-[].,ZRLNCGHWVXF';
+
+// text with ~italic math~, _sub, ^sup ({...} groups); sub/sup at 0.75 size
+const fo = (s, it, w) => (it ? 'italic ' : (w || 400) + ' ') + s + 'px ' + (it ? SER : SANS);
+function rt(c, str, x, y, s, col, al, w) {
+  const g = []; let it = 0, i = 0;
+  while (i < str.length) {
+    let ch = str[i++], lv = 0;
+    if (ch == '~') { it ^= 1; continue; }
+    if (ch == '_' || ch == '^') { lv = ch == '_' ? 1 : 2; ch = str[i++]; if (ch == '{') { const j = str.indexOf('}', i); ch = str.slice(i, j); i = j + 1; } }
+    const l = g[g.length - 1];
+    if (l && !lv && !l[2] && l[1] == it) l[0] += ch; else g.push([ch, it, lv]);
+  }
+  let tw = 0;
+  for (const q of g) { c.font = fo(q[2] ? s * .75 : s, q[1], w); tw += q[3] = c.measureText(q[0]).width; }
+  x -= tw * (al || 0); c.fillStyle = col;
+  for (const q of g) { c.font = fo(q[2] ? s * .75 : s, q[1], w); c.fillText(q[0], x, y + (q[2] == 1 ? s * .24 : q[2] ? -s * .4 : 0)); x += q[3]; }
+  return tw;
+}
+const mono = (c, s, w) => c.font = (w || 400) + ' ' + s + 'px ' + MONO;
+const tc = (c, s, x, y, col) => { c.fillStyle = col; c.textAlign = 'center'; c.fillText(s, x, y); c.textAlign = 'left'; };
+const box = (c, x, y, w, h, r, f, s, lw) => { c.beginPath(); c.roundRect(x, y, w, h, r); if (f) { c.fillStyle = f; c.fill(); } if (s) { c.strokeStyle = s; c.lineWidth = lw || 1.5; c.stroke(); } };
+const ln = (c, p, col, w) => { c.beginPath(); p.forEach((q, i) => i ? c.lineTo(...q) : c.moveTo(...q)); c.strokeStyle = col; c.lineWidth = w; c.stroke(); };
+const tri = (c, x, y, a, s, col) => { c.beginPath(); for (const d of [0, 2.4, -2.4]) c.lineTo(x + s * M.cos(a + d), y + s * M.sin(a + d)); c.fillStyle = col; c.fill(); };
+
+// glow sprites, drawn additively; alpha multiplies the current alpha
+const spr = col => { const c = D.createElement('canvas'); c.width = c.height = 64; const g = c.getContext('2d'), r = g.createRadialGradient(32, 32, 0, 32, 32, 32);
+  r.addColorStop(0, col); r.addColorStop(.3, col + '66'); r.addColorStop(1, col + '00'); g.fillStyle = r; g.fillRect(0, 0, 64, 64); return c; };
+const sT = spr(TL), sG = spr(GO), sB = spr(BL), sC = spr(CR);
+const gl = (s, x, y, r, a) => { if (a > .01) { const o = X.globalAlpha; X.globalCompositeOperation = 'lighter'; X.globalAlpha = M.min(1, a) * o;
+  X.drawImage(s, x - r, y - r, 2 * r, 2 * r); X.globalCompositeOperation = 'source-over'; X.globalAlpha = o; } };
+
+// layout
+const net = (x0, y0, w, h, L) => L.map((n, i) => Array.from({length: n}, (_, j) => [x0 + w * i / 2, y0 + h * (j + .5) / n]));
+const GN = net(1114, 100, 160, 170, [4, 5, 4]), LN = net(1497, 838, 150, 150, [4, 5, 4]);
+const SMX = 1318, SMY = 226, CTOP = [1318, 286], CU = [1320, 434], TX = 1590, TY = 584, CHX = 1376, CHY = 660;
+const ARC = [[1040, 806]];
+for (let i = 0; i <= 8; i++) ARC.push([1070 - 30 * M.cos(i * M.PI / 16), 278 - 30 * M.sin(i * M.PI / 16)]);
+ARC.push([1084, 248]);
+const ALEN = [0]; ARC.forEach((q, i) => i && ALEN.push(ALEN[i - 1] + M.hypot(q[0] - ARC[i - 1][0], q[1] - ARC[i - 1][1])));
+const onArc = s => { const L = s * ALEN[9 + 1]; let i = 1; while (i < 10 && ALEN[i] < L) i++;
+  const f = (L - ALEN[i - 1]) / (ALEN[i] - ALEN[i - 1]); return [lp(ARC[i - 1][0], ARC[i][0], f), lp(ARC[i - 1][1], ARC[i][1], f)]; };
+
+// Table 1 programs (after the 'S' prefix) and their runs on U. w0 = first random-tape byte (reproduces Table 1's printed draw)
+const PR = [['+[.++]', 'Arithmetic', 0, 0, 40], ['+[.L>]', 'Geometric', 256, 0, 24], [',[[.C>.C>]', 'Fibonacci', 512, 1, 19], [',.[<C>>VX<RX++]', 'Quadratic', 512, 9, 28], ['+[[-.L>L>-]-]', 'Cubic', 512, 0, 33]];
+const SH = PR.map(([p, f, e, w0, af], i) => {
+  const R = rng(i * 97 + 5), w = Array.from({length: 64}, (_, j) => !j && w0 ? w0 : R() * 256 | 0), om = j => w[j % 64];
+  const ev = run(p, om, 96, 170).ev, o = run(p, om, 96, 0).o, ts = [];
+  let tt = 0, k = 0;
+  for (; k < ev.length - 1 && tt < 4.25; k++) { ts.push(tt); tt += M.max(.021, .27 * .9 ** k); }
+  ts.push(tt);
+  const K = k, em = [];
+  for (k = 0; k < K; k++) for (let j = ev[k].o; j < ev[k + 1].o; j++) em[j] = ts[k];
+  return {p, d: p + 'F', f, e, w, ev, o, ts, K, em, n: p.length + 1, af, nic: M.min(8, ev[K].d) + 9 * (p.length < 8 ? 0 : p.length < 16 ? 1 : p.length < 32 ? 2 : 3)};
+});
+// uniform-prior programs (19 logits, sampled until F) for the fast-forward rows; kept if they print a nonzero byte
+const NZ = [], R0 = rng(4242);
+while (NZ.length < 12) { let p = '', c; while (p.length < 40 && (c = AL[R0() * 19 | 0]) != 'F') p += c;
+  const w = Array.from({length: 64}, () => R0() * 256 | 0), o = run(p, j => w[j % 64], 96, 0).o; if (o.some(v => v)) NZ.push({p, o}); }
+// byte -> colour ramp; 0 = nothing
+const RP = [[29, 111, 104], [108, 195, 184], [238, 241, 236], [242, 176, 124], [190, 96, 40]];
+[...SH, ...NZ].forEach(s => { const c = D.createElement('canvas'); c.width = 96; c.height = 1; const g = c.getContext('2d'), d = g.createImageData(96, 1);
+  s.o.forEach((v, i) => { const x = v / 255 * 4, a = M.min(3, x | 0); for (let j = 0; j < 3; j++) d.data[i * 4 + j] = lp(RP[a][j], RP[a + 1][j], x - a); d.data[i * 4 + 3] = v ? 255 : 0; });
+  g.putImageData(d, 0, 0); s.img = c; });
+
+// timeline: A (e=0) | fast-forward | B (e=256) | fast-forward | C (e=512, family rotates per cycle) | rewind
+const RD = 12, FF = 1.6, SG = [0, RD, RD + FF, 2 * RD + FF, 2 * RD + 2 * FF, 3 * RD + 2 * FF, 3 * RD + 3 * FF], PER = SG[6];
+const T0 = SG[4] + 5.8, XS = 3.05, RWS = 8.1, UPS = 10.35;
+// tapestry rows over a few cycles: [time, img, label, round, kind(1 named, 0 thin, 2 new-run divider)]
+const ROWS = [];
+for (let c = -1; c < 4; c++) { const o = c * PER;
+  ROWS.push([o + 10.6, SH[0].img, 'Arithmetic', 0, 1], [o + SG[2] + 10.6, SH[1].img, 'Geometric', 256, 1], [o + SG[5] + .8, 0, '', 0, 2]);
+  for (let i = 0; i < 12; i++) ROWS.push([o + SG[i < 6 ? 1 : 3] + (i % 6 + .5) * FF / 6, NZ[i].img, '', 0, 0]);
+  for (let i = 0; i < 3; i++) ROWS.push([o + SG[4] + 10.6 + i * .25, SH[2 + i].img, SH[2 + i].f, 512, 1]); }
+ROWS.sort((a, b) => a[0] - b[0]);
+
+// static layer
+function st() {
+  const c = B; c.fillStyle = BG; c.fillRect(0, 0, W, H);
+  let g = c.createRadialGradient(1470, 560, 40, 1470, 560, 820); g.addColorStop(0, 'rgba(29,111,104,.22)'); g.addColorStop(1, 'rgba(29,111,104,0)');
+  c.fillStyle = g; c.fillRect(990, 0, 930, H);
+  g = c.createLinearGradient(990, 0, 1040, 0); g.addColorStop(0, BG); g.addColorStop(1, 'rgba(23,36,44,0)'); c.fillStyle = g; c.fillRect(990, 0, 50, H);
+  c.fillStyle = 'rgba(238,241,236,.05)'; for (let x = 1064; x < W; x += 32) for (let y = 16; y < H; y += 32) c.fillRect(x, y, 2, 2);
+  const nw = (N, col, lab, lx, ly) => {
+    for (let l = 0; l < 2; l++) for (const a of N[l]) for (const b of N[l + 1]) ln(c, [a, b], col + '30', 1);
+    for (const L of N) for (const [x, y] of L) { c.beginPath(); c.arc(x, y, 10, 0, 7); c.fillStyle = BG; c.fill(); c.strokeStyle = col; c.lineWidth = 2.5; c.stroke(); }
+    rt(c, lab, lx, ly, 32, col, .5, 500); };
+  nw(GN, TL, 'Generator ~g_φ~', 1194, 316); nw(LN, GO, 'Learner ~π_θ~', 1572, 1032);
+  for (const [x, y] of GN[2]) { c.beginPath(); c.moveTo(x + 10, y); c.quadraticCurveTo(1296, y, SMX - 8, SMY - 2); c.strokeStyle = TL + '40'; c.lineWidth = 1.5; c.stroke(); }
+  c.fillStyle = TL + '55'; c.fillRect(SMX - 8, SMY, 562, 2);
+  mono(c, 24); for (let i = 0; i < 19; i++) tc(c, AL[i], SMX + 10 + i * 29, SMY + 30, MU);
+  rt(c, 'softmax over 19 logits', SMX - 8, 78, 24, MU);
+  // machine U
+  box(c, 1300, 384, 580, 398, 18, 'rgba(9,18,24,.62)', TL + '55', 2);
+  rt(c, 'Universal machine ~U~', 1320, 418, 28, CR, 0, 500);
+  rt(c, '~ω~', 1320, 534, 32, BL); rt(c, '~y~', 1322, 690, 32, GO);
+  rt(c, '~y_i~ = ~U~(~x_i~, ~ω_i~)', 1320, 762, 32, MU); rt(c, 'Brainf*ck + 10 macros', 1860, 760, 24, MU, 1);
+  // reward panel
+  box(c, 1020, 806, 420, 248, 18, 'rgba(9,18,24,.55)', TL + '40');
+  rt(c, 'Generator reward', 1038, 838, 24, TL, 0, 600); rt(c, 'schematic', 1424, 838, 24, MU, 1);
+  ln(c, [[1048, 852], [1048, 958], [1214, 958]], MU + '80', 1.5);
+  rt(c, '~θ~', 1026, 874, 28, MU); rt(c, '⌊~e~/2⌋', 1123, 988, 24, MU, .5); rt(c, '~e~', 1198, 988, 24, MU, .5);
+  // RL update arc
+  c.lineJoin = 'round'; ln(c, ARC, TE, 4); tri(c, 1090, 248, 0, 13, TE);
+  rt(c, 'RL update', 1058, 406, 28, TL, 0, 600); rt(c, 'policy gradient', 1058, 440, 24, MU); rt(c, '+ reward-weighted', 1058, 468, 24, MU); rt(c, 'SFT', 1058, 496, 24, MU);
+  rt(c, 'MAP-Elites', 1058, 552, 24, MU); rt(c, 'archive', 1058, 580, 24, MU);
+  for (let i = 0; i < 36; i++) box(c, 1060 + i % 9 * 21, 596 + (i / 9 | 0) * 21, 17, 17, 4, 0, TL + '45');
+  rt(c, '36 niches', 1058, 712, 24, MU);
+  rt(c, 'next byte', 1690, 852, 24, MU); c.fillStyle = GO + '50'; c.fillRect(1690, 952, 190, 2);
+  rt(c, 'Output bytes by round', 128, 452, 24, MU);
+}
+
+// dynamic layer
+const segOf = t => { const cy = M.floor(t / PER), u = t - cy * PER; let i = 0; while (u >= SG[i + 1]) i++; return [cy, i, u - SG[i]]; };
+const shOf = (cy, i) => SH[i < 2 ? 0 : i < 4 ? 1 : 2 + (cy % 3 + 3) % 3];
+const PT = [...Array(60)].map((_, i) => [hs(i * 3 + 1), hs(i * 3 + 2), hs(i * 3 + 3)]);
+
+// reward panel for showcase s at reward-time ru (seconds since the reward beat began), opacity a
+function rw(c, s, ru, a) {
+  const z = !s.e, gr = eo(ru / .8), da = eo((ru - .6) / .4), cx = f => 1048 + f * 150, cy = f => 950 - 92 * (1 / (1 + M.exp(-7 * (f - .55))) - .02) / .94;
+  c.globalAlpha = a; const cv = []; for (let i = 0; i <= 40 * gr; i++) cv.push([cx(i / 40), cy(i / 40)]);
+  if (!z && cv.length > 1) ln(c, cv, GO, 3);
+  const mh = z ? 0 : .5, me = z ? 0 : 1;
+  c.setLineDash([5, 5]); ln(c, [[cx(mh), cy(mh)], [cx(1) + 12, cy(mh)]], MU + '90', 1.5); c.setLineDash([]);
+  for (const f of [mh, me]) { c.beginPath(); c.arc(cx(f), cy(f), 6, 0, 7); c.fillStyle = BG; c.fill(); c.strokeStyle = GO; c.lineWidth = 2.5; c.stroke(); }
+  if (!z && da > 0) { const y0 = cy(.5), y1 = lp(y0, cy(1), da), x = cx(1) + 12; ln(c, [[x, y0], [x, y1]], GO, 3); tri(c, x, y1 - 4, -M.PI / 2, 8, GO); tri(c, x, y0 + 4, M.PI / 2, 8, GO); }
+  const ox = 1256, oy = 966, aD = -.17, lD = z ? 0 : 132 * eo((ru - .7) / .5), aG = lp(aD - 1, aD - s.af * M.PI / 180, eb((ru - 1.1) / 1.1)), lG = 120 * eo((ru - .9) / .3);
+  const arw = (an, l, col) => { const x = ox + l * M.cos(an), y = oy + l * M.sin(an); ln(c, [[ox, oy], [x, y]], col, 5); tri(c, x + 6 * M.cos(an), y + 6 * M.sin(an), an, 12, col); return [x, y]; };
+  if (lG > 1 && lD > 1) { c.beginPath(); c.arc(ox, oy, 38, aG, aD); c.strokeStyle = CR + '99'; c.lineWidth = 2; c.stroke(); }
+  if (lD > 1) { const [x, y] = arw(aD, lD, GO); rt(c, 'Δ~θ_e~', x - 24, y + 38, 32, GO); } else if (z && ru > .7) { c.beginPath(); c.arc(ox, oy, 6, 0, 7); c.fillStyle = GO; c.fill(); }
+  if (lG > 1) { const [x, y] = arw(aG, lG, BL); rt(c, '~g_i~', x + 10, y + 14, 32, BL); }
+  if (z && ru > .7) { rt(c, 'Δ~θ_0~ = 0', 1064, 900, 32, MU); rt(c, 'empty window', 1064, 938, 24, MU); }
+  const r = lG > 1 ? M.abs(M.cos(aG - aD)) * lG / 120 * lD / 132 * .95 : 0;
+  let x = 1038; x += rt(c, '~r_i~ = |⟨', x, 1030, 34, CR); x += rt(c, '~g_i~', x, 1030, 34, BL); x += rt(c, ', ', x, 1030, 34, CR); x += rt(c, 'Δ~θ_e~', x, 1030, 34, GO);
+  rt(c, '⟩|' + (ru < .95 ? '' : ' = ' + r.toFixed(2)), x, 1030, 34, CR);
+  c.globalAlpha = 1;
+}
+
+function fr(t) {
+  const c = X; c.clearRect(0, 0, W, H);
+  const [cy, si, lu] = segOf(t), live = !(si & 1) && si < 5, s = shOf(cy, si), u = live ? lu : 99, ffu = live ? 0 : lu / FF, fade = si == 5 ? 1 - ffu : 1;
+  // ambient particles
+  for (const [a, b, q] of PT) gl(q > .5 ? sT : sG, 1060 + (a * 860 + t * (6 + 14 * q)) % 860, 30 + ((b * 1020 - t * (8 + 10 * a)) % 1020 + 1020) % 1020, 6 + 6 * q, .2 + .12 * M.sin(t * 2 + q * 9));
+  // generator: an activation wave per sampled token, a flare when the reward arrives, flicker in fast-forward
+  const tk = i => .2 + i * 2.1 / s.n, wv = [];
+  if (live) { for (let i = 0; i < s.n; i++) wv.push([tk(i) - .2, .8]); wv.push([UPS + .85, 2]); } else for (let i = 0; i < 6; i++) wv.push([(i + .2) * FF / 6, .7]);
+  for (const [w0, a] of wv) { const d = lu - w0; if (d < -.1 || d > .6) continue;
+    GN.forEach((L, l) => L.forEach(([x, y], j) => gl(sT, x, y, 34 * a ** .5, a * .9 * M.exp(-(((d - l * .07) / .08) ** 2)) * (.5 + .5 * hs(j * 7 + l + (w0 * 10 | 0))))));
+    if (a > 1 && d > 0) { c.globalAlpha = 1 - d / .6; c.beginPath(); c.arc(1194, 185, 40 + d * 300, 0, 7); c.strokeStyle = TL; c.lineWidth = 3; c.stroke(); c.globalAlpha = 1; }
+    for (let l = 0; l < 2; l++) { const f = (d - l * .07) / .07; if (f > 0 && f < 1) GN[l].forEach((p, j) => { const q = GN[l + 1][(j * 3 + (w0 * 10 | 0)) % GN[l + 1].length]; gl(sC, lp(p[0], q[0], f), lp(p[1], q[1], f), 9, .7 * a); }); } }
+  // softmax over the 19 logits (illustrative probabilities; near-uniform at e = 0 where g starts near the uniform prior)
+  const ki = live ? M.min(s.n - 1, M.max(0, M.floor((u - .02) * s.n / 2.1 + .2))) : t * 9 | 0, sampling = live && u < 2.45;
+  const dist = k => { const tok = AL.indexOf(live ? s.d[k] : AL[hs(k) * 19 | 0]), p = [...AL].map((_, j) => live && !s.e ? 1 + .3 * (hs(k * 31 + j) - .5) : j == tok ? 3.4 + 2 * hs(k * 31 + j) : .22 + .9 * hs(k * 31 + j) ** 2), z = p.reduce((a, b) => a + b); return p.map(v => v / z); };
+  const P1 = dist(ki), P0 = dist(M.max(0, ki - 1)), bu = live ? eo((u - tk(ki) + .26) / .12) : 1;
+  for (let j = 0; j < 19; j++) { const h = M.min(122, 4 + lp(P0[j], P1[j], bu) * 300), x = SMX + j * 29, hot = sampling && AL[j] == s.d[ki] && u > tk(ki) - .06;
+    c.globalAlpha = sampling || !live ? .95 : .5; box(c, x, SMY - h, 21, h, 4, hot ? CR : TL); if (hot) gl(sT, x + 10, SMY - h, 40, .9); }
+  c.globalAlpha = 1;
+  // program card: sampled token by token at the top, then flown into U
+  mono(c, 32); const cw = c.measureText('M').width, cwid = (s.n + 1) * cw + 28;
+  let px = CU[0], py = CU[1];
+  if (live && u < 3) { const f = ez((u - 2.4) / .6); px = lp(CTOP[0], CU[0], f); py = lp(CTOP[1], CU[1], f); }
+  const tx = j => px + 14 + (j + .5) * cw;
+  if (!live && si < 5) { const q = NZ[(si == 1 ? 0 : 6) + M.min(5, ffu * 6 | 0)].p.slice(0, 16); c.globalAlpha = .7;
+    box(c, CTOP[0], CTOP[1], (q.length + 2) * cw + 28, 54, 8, CR); c.fillStyle = BG; c.fillText('S' + q + (q.length < 16 ? 'F' : '…'), CTOP[0] + 14, CTOP[1] + 38); }
+  c.globalAlpha = live ? 1 : si == 5 ? 1 - ffu : .6;
+  if (live && u < 2.4) { for (let g = 2; g > 0; g--) box(c, px + g * 7, py + g * 7, cwid, 54, 8, 0, CR + '50'); rt(c, '~x_i~ ∼ ~g_φ~', px + cwid + 26, py + 38, 32, MU); }
+  box(c, px, py, cwid, 54, 8, CR);
+  // execution state
+  const xu = u - XS, ts = s.ts; let k = 0; while (k < s.K && ts[k + 1] <= xu) k++;
+  const run0 = xu < 0, done = xu >= ts[s.K], st0 = run0 || done, pre = s.ev[st0 ? (done ? s.K : 0) : k], post = s.ev[st0 ? (done ? s.K : 0) : k + 1],
+    su = st0 ? 1 : (xu - ts[k]) / (ts[k + 1] - ts[k]), kk = pre.k, show = live ? u > XS - .1 : 1;
+  if (show) { const pk = !st0 && k ? s.ev[k - 1].k : kk, x = lp(tx(pk), tx(kk), eo(su * 3)); gl(sT, x, py + 27, 40, done || !live ? .35 : .8);
+    box(c, x - cw / 2 - 3, py + 6, cw + 6, 42, 6, TE + (done || !live ? '99' : '')); }
+  for (let j = 0; j <= s.n; j++) { if (live && j && u < tk(j - 1)) continue; const pp = live && j ? eb((u - tk(j - 1)) / .2) : 1;
+    c.font = '600 ' + 32 * pp + 'px ' + MONO; c.fillStyle = !j ? '#8b9792' : show && j == kk ? CR : BG; c.fillText(j ? s.d[j - 1] : 'S', tx(j) - cw * pp / 2, py + 38); }
+  if (u > 2.4) { rt(c, 'Table 1', 1860, py + 22, 24, MU, 1); rt(c, s.f, 1860, py + 50, 24, GO, 1, 600); }
+  // glyph flying from the softmax to the card
+  if (sampling) for (let j = 0; j < s.n; j++) { const f = (u - tk(j) + .24) / .24; if (f > 0 && f < 1) {
+    const x = lp(SMX + 10 + AL.indexOf(s.d[j]) * 29, tx(j + 1), ez(f)), y = lp(SMY + 20, py + 28, ez(f)) - 40 * M.sin(f * M.PI);
+    gl(sT, x, y, 26, 1); mono(c, 32, 600); tc(c, s.d[j], x, y + 11, CR); } }
+  c.globalAlpha = fade * (live ? 1 : .55);
+  // random tape omega: the next unread bytes, one lifted into the cell by ','
+  const oA = lp(pre.n, post.n, eo(su * 2)); mono(c, 24);
+  for (let j = M.floor(oA); j < oA + 9; j++) { const x = 1376 + (j - oA) * 56; if (x < 1360 || !st0 && j >= pre.n && j < post.n) continue;
+    const o = c.globalAlpha; c.globalAlpha *= (.62 + .25 * M.sin(t * 3.1 + j * 1.7)) * cl((1866 - x) / 70); tc(c, s.w[j % 64], x, 532, BL); c.globalAlpha = o; }
+  if (!st0 && post.n > pre.n) { const f = ez(su * 1.6), x = lp(1376, TX, f), y = lp(532, TY + 35, f); gl(sB, x, y - 8, 30, 1); mono(c, 26, 600); tc(c, s.w[pre.n % 64], x, y, CR); }
+  // tape (circular, mod 256) under the head
+  let dp = post.p - pre.p; dp = dp > 128 ? dp - 256 : dp < -128 ? dp + 256 : dp;
+  const pd = pre.p + dp * ez(su * 1.4), p0 = M.round(pd), ga = c.globalAlpha;
+  for (let i = p0 - 5; i <= p0 + 5; i++) { const x = TX + (i - pd) * 62, a = cl(1 - ((x - TX) / 290) ** 4), v = post.t[i & 255];
+    if (a <= 0) continue; c.globalAlpha = a * ga; box(c, x - 28, TY, 56, 52, 8, '#20343e', TL + '50');
+    if (!st0 && pre.t[i & 255] != v) gl(sG, x, TY + 26, 46, 1 - su); mono(c, 26, v ? 600 : 400); tc(c, v, x, TY + 35, v ? CR : '#6f8088'); }
+  c.globalAlpha = ga; c.beginPath(); c.moveTo(TX - 13, TY - 26); c.lineTo(TX + 13, TY - 26); c.lineTo(TX, TY - 6); c.closePath(); c.strokeStyle = CR; c.lineWidth = 2.5; c.stroke();
+  // output bytes y_i
+  const nOut = post.o, rel = j => live ? u - XS - s.em[j] : 9;
+  for (let j = 0; j < M.min(nOut, 8); j++) { const x = CHX + j * 62, f = eb(rel(j) / .2);
+    box(c, x - 27 * f, CHY + 20 - 20 * f, 54 * f, 40 * f, 8, '#3d2f24', GO + 'aa'); mono(c, 24 * M.max(1, f), 600); tc(c, j < 7 ? s.o[j] : '…', x, CHY + 29, GO);
+    if (rel(j) < .4) gl(sG, x, CHY + 20, 44, 1 - rel(j) / .4); }
+  c.globalAlpha = 1;
+  // bytes stream into the learner
+  const arr = [];
+  if (live) for (let j = 0; j < s.ev[s.K].o; j++) { const f = rel(j) / .75; arr.push(XS + s.em[j] + .75); if (f < 0 || f > 1) continue;
+    const x0 = CHX + M.min(j, 7) * 62, [x1, y1] = LN[0][j % 4];
+    for (let q = 0; q < 5; q++) { const g = ez(f - q * .035), h = cl(g * 2), k2 = cl(g * 2 - 1);
+      gl(sG, g < .5 ? lp(x0, 1552, eo(h)) : lp(1552, x1, k2 * k2), g < .5 ? lp(702, 790, h * h) : lp(790, y1, eo(k2)), 18 - q * 3, 1 - q / 5); } }
+  const seen = arr.filter(a => lu > a).length;
+  LN.forEach((L, l) => L.forEach(([x, y], j) => { let z = 0; for (const a of arr) { const d = lu - a - l * .08; if (d > -.1 && d < .5) z += M.exp(-((d / .12) ** 2)) * (.4 + .6 * hs(j + l * 5 + (a * 40 | 0))); }
+    if (live && u > RWS && u < RWS + .5) z += 1 - (u - RWS) / .5; gl(sG, x, y, 30, z * .8); }));
+  // next-byte prediction (illustrative): flat at e = 0, sharpening in context later
+  { const nb = s.o[M.min(seen, 95)], sh = s.e ? cl((seen - 1) / 7) * .92 : .06, tb = t * 8 | 0, pts = [[1690, 952]];
+    for (let i = 0; i <= 64; i++) { const v = i * 4, dd = m => M.min(M.abs(v - m), 256 - M.abs(v - m)); let nz = 0; for (let q = 0; q < 3; q++) nz += M.exp(-((dd(hs(tb * 3 + q) * 256) / 22) ** 2));
+      pts.push([1690 + i * 190 / 64, 952 - 80 * (sh * M.exp(-((dd(nb) / 7) ** 2)) + (1 - sh) * (.25 + .5 * nz) * .5)]); }
+    pts.push([1880, 952]); c.globalAlpha = seen ? fade : .45 * fade; c.beginPath(); pts.forEach(q => c.lineTo(...q)); c.fillStyle = GO + '55'; c.fill(); ln(c, pts.slice(1, -1), GO, 2);
+    if (seen) { const x = 1690 + nb / 256 * 190; c.fillStyle = CR; c.fillRect(x - 1, 864, 2, 88); mono(c, 24, 600); tc(c, nb, M.min(1862, M.max(1708, x)), 984, CR); }
+    c.globalAlpha = 1; }
+  // reward panel: this round's beat, else the previous round's result, dimmed
+  if (live && u >= RWS) rw(c, s, u - RWS, 1); else if (si != 0) rw(c, live ? shOf(cy, si - 2) : s, 9, live ? .5 : .6 * fade); else rw(c, s, -1, 1);
+  // reward pulse back to the generator (policy gradient + reward-weighted SFT)
+  const pu = live ? [[UPS, .85, s.e ? 1 : .3]] : si < 5 ? [0, 1, 2].map(i => [(i + .3) * FF / 3, .45, .7]) : [];
+  for (const [p0, d, a] of pu) { const f = (lu - p0) / d; if (f < 0 || f > 1.05) continue;
+    for (let q = 0; q < 16; q++) { const g = ez(f) - q * .016; if (g >= 0 && g <= 1) { const [x, y] = onArc(g); gl(q ? sT : sC, x, y, (q ? 30 - q * 1.5 : 26) * (1 + a), a * (1 - q / 16)); } } }
+  // MAP-Elites archive (occupancy illustrative; the shown program's niche lights only when its reward is positive)
+  { const on = [], oc = [[SG[2] + UPS + .3, SH[1].nic], [SG[4] + UPS + .3, s.nic]], cu = lu + SG[si];
+    for (let i = 0; i < 10; i++) oc.push([SG[i < 5 ? 1 : 3] + (i % 5 + .5) * FF / 5, (hs(i + 77) * 3 | 0) + 9 * (hs(i + 99) * 2.2 | 0)]);
+    for (const [ta, n] of oc) { const d = cu - ta; if (d < 0 || si == 5 && ffu > .6) continue; on[n] = 1; if (d < .8) gl(sT, 1069 + n % 9 * 21, 605 + (n / 9 | 0) * 21, 40, 1 - d / .8); }
+    c.globalAlpha = .85 * fade; on.forEach((a, n) => a && box(c, 1060 + n % 9 * 21, 596 + (n / 9 | 0) * 21, 17, 17, 4, TL)); c.globalAlpha = 1; }
+  // byte tapestry: newest row at the bottom
+  { let y = 604; c.save(); c.beginPath(); c.rect(120, 464, 840, 140); c.clip(); c.imageSmoothingEnabled = false;
+    for (let i = ROWS.length - 1; i >= 0 && y > 440; i--) { const [ta, img, lab, e, th] = ROWS[i], d = t - ta; if (d < 0) continue;
+      const h = (th == 1 ? 28 : th ? 14 : 6) * eo(d / .35), hh = h - (th == 1 ? 3 : 1); y -= h; c.globalAlpha = cl((y - 444) / 40);
+      if (th == 2) { c.setLineDash([6, 6]); ln(c, [[198, y + 7], [774, y + 7]], CR + '80', 1.5); c.setLineDash([]); continue; }
+      const rv = eo(d / .6); c.drawImage(img, 0, 0, M.max(1, 96 * rv), 1, 198, y, 576 * M.max(1 / 96, rv), hh);
+      if (th) { c.globalAlpha *= cl(d / .4); mono(c, 24); c.fillStyle = MU; c.textAlign = 'right'; c.fillText(e, 186, y + 22); c.textAlign = 'left'; rt(c, lab, 788, y + 22, 24, CR, 0, 500);
+        if (d < .7) gl(sG, 198 + 576 * rv, y + hh / 2, 30, 1 - d / .7); } }
+    c.restore(); }
+  // round counter
+  const e = si == 5 ? M.round(512 * (1 - ez(ffu))) : si & 1 ? M.round(lp(si == 1 ? 1 : 257, si == 1 ? 255 : 511, ez(ffu))) : s.e;
+  rt(c, 'round', 1866 - rt(c, '~e~ = ' + e, 1878, 82, 40, CR, 1, 600), 82, 24, MU, 1);
+  if (!live) gl(sT, 1820, 70, 70, .35 + .2 * M.sin(t * 30));
+}
+
+// sizing + clock (window.__t, if set, drives time for previews)
+const rs = () => { const d = M.min(devicePixelRatio || 1, 2), w = innerWidth, h = innerHeight;
+  for (const c of [cb, cf]) { c.width = M.round(w * d); c.height = M.round(h * d); c.getContext('2d').setTransform(w * d / W, 0, 0, h * d / H, 0, 0); }
+  st(); };
+addEventListener('resize', rs); rs();
+const t0 = performance.now(), loop = () => { fr(self.__t != null ? self.__t : T0 + (performance.now() - t0) / 1e3); requestAnimationFrame(loop); };
+loop();

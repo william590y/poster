@@ -11,7 +11,7 @@ function run(p, om, T, tr) {
   for (i = 0; i < c.length; i++) if (c[i] == '[') k.push(i); else if (c[i] == ']' && k.length) { j = k.pop(); m[i] = j; m[j] = i; }
   let t = new Uint8Array(256), P = 0, pc = 0, o = [], n = 0, st = 0, d = 0, D = 0, ev = [];
   const snap = () => ev.push({k: pc < c.length ? s[pc] + 1 : nt + 1, t: t.slice(), p: P, o: o.length, n, d: D});
-  while (pc < c.length && o.length < T && st++ < 3e4) {
+  while (pc < c.length && o.length < T && st++ < 3e5) {
     const h = c[pc], g = m[pc] != null;
     if (tr && f[pc]) { snap(); if (ev.length > tr) break; }
     if (h == '+') t[P]++;

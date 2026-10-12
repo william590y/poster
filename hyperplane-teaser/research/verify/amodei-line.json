@@ -1,0 +1,39 @@
+{
+  "task": "Locate Dario Amodei 25% chance / really, really badly line in amodei-axios-2025.mp4",
+  "found": true,
+  "source_file": "/home/user/hyperplane-teaser/clips/amodei-axios-2025.mp4",
+  "source_file_duration_s": 1294.791111,
+  "source_url": "not found (task gave only the local file path; no web URL was provided, and no web page was fetched)",
+  "event_context_from_task_not_independently_verified": "Axios AI+ DC Summit, 17 Sep 2025, Dario Amodei (speaker and event as stated in the task; not checked against a web source or the video frames)",
+  "line_verbatim": "So I think there's a 25% chance that things go really, really badly",
+  "line_continues_verbatim": "and a 75% chance that things go really, really well",
+  "timestamps_source_file": {
+    "primary_base_en_whole_file": {
+      "start_s": 1065.3,
+      "end_s": 1069.16,
+      "mmss_start": "17:45.30",
+      "mmss_end": "17:49.16",
+      "word_start_so_s": 1065.3,
+      "word_end_badly_s": 1069.16
+    },
+    "confirmation_small_en_40s_window_from_1050": {
+      "start_s": 1065.26,
+      "end_s": 1069.32,
+      "word_start_so_s": 1065.26,
+      "word_end_badly_s": 1069.32
+    },
+    "consensus_start_s": 1065.3,
+    "consensus_end_s": 1069.2
+  },
+  "small_en_segment_text_verbatim": "I'm relatively an optimist, so I think there's a 25% chance that things go really, really badly and a 75% chance that things go really, really well with not much space.",
+  "occurrences_in_full_transcript": 1,
+  "method": {
+    "full_file": "faster-whisper base.en, int8, CPU, word timestamps, VAD on: /home/user/hyperplane-teaser/clips/transcripts/amodei.json and amodei.txt",
+    "window": "faster-whisper small.en, 40 s from 1050 s: /home/user/hyperplane-teaser/clips/transcripts/amodei-window-small.json"
+  },
+  "caveats": [
+    "Timestamps are ASR output, not checked against video frames; expect roughly +/-0.1 s.",
+    "Transcripts are machine transcripts, and the small.en window differs elsewhere (e.g. base.en: \"not much, uh, not much space, not much space number\"); the target line matches in both models.",
+    "Speaker identity and event attribution were not verified against any URL or on-screen content."
+  ]
+}

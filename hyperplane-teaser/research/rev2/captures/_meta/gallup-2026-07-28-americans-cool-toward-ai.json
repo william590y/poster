@@ -1,0 +1,57 @@
+{
+ "id": "gallup-2026-07-28-americans-cool-toward-ai",
+ "url": "https://news.gallup.com/poll/712751/americans-cool-toward.aspx",
+ "expected": "Americans Cool Toward AI",
+ "notes": [
+  "clicked:ACCEPT ALL",
+  "hid 1 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://news.gallup.com/poll/712751/americans-cool-toward.aspx",
+ "title0": "Americans Cool Toward AI",
+ "hidden_detail": [
+  [
+   "DIV",
+   "gcb-modal__toast_0f2c2",
+   "gcb-modal__toast_0f2c2 gcb-modal__toast--show_0f2c2",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "Americans Cool Toward AI",
+ "og_title": "Americans Cool Toward AI",
+ "twitter_title": "Americans Cool Toward AI",
+ "og_site": "Gallup.com",
+ "published": "2026-07-28",
+ "author_meta": "Gallup, Inc.",
+ "canonical": "https://news.gallup.com/poll/712751/americans-cool-toward.aspx",
+ "h1_count": 1,
+ "h1": "Americans Cool Toward AI",
+ "h1_box": [
+  275.5,
+  289.390625,
+  909.5,
+  330.296875
+ ],
+ "h1_font": "39px",
+ "below_bottom": 400.296875,
+ "below_text": [
+  "After two years of improving attitudes toward AI, Americans turn skeptical"
+ ],
+ "hero_top": 426.296875,
+ "header_bottom": 138.390625,
+ "doc_w": 1185,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  406.296875
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/gallup-2026-07-28-americans-cool-toward-ai.png",
+ "trimmed": 24
+}

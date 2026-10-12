@@ -1,0 +1,25 @@
+{
+ "name": "test-kandinsky",
+ "title": "Builder A: kand from riff bar 2 into verse 1 (song 23.103-29.4): orbits, river, superposition, builder D's hooks (demo), the break into frames for the news",
+ "_note": "Edit time = song - 23.103 (hb:8 = 0; hb:16 = song 26.974 = verse 1, edit 3.871). The kand item runs the 'riff' preset (cues before t0 are already in place); 'kandhook' items demo builder D's fill/outline hooks on the blue disc (stripes = a marbling stand-in, a wobbling liquid edge). On hb:16 the pieces break apart, the pink disc becomes a frame (legacy shape, enter morph from 'kand:pink') and the band a 22-degree band (legacy band, enter morph from 'kand:band'), on a darker ground. Render: python3 render/video/render.py beats test-kandinsky --from 0 --to 6.3.",
+ "fps": 30, "width": 1080, "height": 1920, "duration": 6.3,
+ "audio": {"song": "song/brutal.mp3", "songStart": 23.103},
+ "look": {"ground": "#F2EBDD"},
+ "themes": [{"t0": 0, "t1": "hb:16", "theme": "light"}, {"t0": "hb:16", "t1": 99, "theme": "dark"}],
+ "items": [
+  {"id": "ground", "type": "color", "t0": 0, "t1": 6.3, "color": "#F2EBDD"},
+  {"id": "ground-dark", "type": "color", "t0": "hb:16.1", "t1": 6.3, "color": "#0E0D12", "enter": {"style": "fade", "dur": 0.2}},
+  {"id": "paint", "type": "layer", "kind": "canvas"},
+  {"id": "kand", "type": "kand", "t0": 0, "t1": "hb:17", "layout": {"y": 400, "scale": 0.72}, "preset": {"name": "riff", "from": "hb:0"},
+   "moves": [{"move": "break", "at": "hb:16", "dur": 0.4, "hide": ["pink", "band"], "stagger": 0.006}]},
+  {"id": "hook-blue", "type": "kandhook", "t0": "hb:12", "t1": "hb:15.75", "item": "kand", "pieces": ["blue", "teal"], "fill": "stripes", "wobble": 9},
+  {"id": "frame-pink", "type": "shape", "t0": "hb:16", "t1": 6.3, "frame": {"shape": "circle", "cx": 540, "cy": 760, "r": 330, "fill": "#FF2E88", "ring": "#F2EBDD", "ringW": 12},
+   "enter": {"style": "morph", "from": "kand:pink", "dur": 0.3}, "_note": "stand-in for a clip frame (a real item would be a clip/image with this frame)"},
+  {"id": "band", "type": "band", "t0": "hb:16", "t1": 6.3, "band": {"cy": 1400, "h": 170}, "enter": {"style": "morph", "from": "kand:band", "dur": 0.3}},
+  {"id": "grain", "type": "paper", "t0": 0, "t1": 6.3, "mode": "auto"}
+ ],
+ "beatfx": [
+  {"id": "riff-fx", "from": "hb:8", "to": "hb:15.5", "pattern": "riff", "eighths": true},
+  {"id": "verse-fx", "from": "hb:16", "to": "hb:20", "pattern": "verse", "eighths": false}
+ ]
+}

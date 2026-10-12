@@ -1,0 +1,61 @@
+{
+  "requested_headline": "Its AI agent spent days hacking a company. Sources say OpenAI did not notice for a week",
+  "requested_outlet_date": "Reuters, 24 Jul 2026",
+  "overall_status": "partially verified: article, outlet, date and authors confirmed; exact headline wording not confirmed on reuters.com (blocked)",
+  "data": {
+    "outlet": "Reuters",
+    "date": "2026-07-24",
+    "title_exact": "NOT VERIFIED: reuters.com could not be fetched, so the headline as published there was not read. See title_variants.",
+    "authors": ["Raphael Satter", "Deepa Seetharaman", "Kenrick Cai"],
+    "url": "https://www.reuters.com/business/its-ai-agent-spent-days-hacking-company-sources-say-openai-did-not-notice-week-2026-07-24/",
+    "verified_by": [
+      "https://en.wikipedia.org/wiki/2026_OpenAI_agent_cyberattacks - references 17 and 36 both cite Reuters, July 24, 2026, for the same reuters.com URL. Ref 17 lists Raphael Satter, Deepa Seetharaman, Kenrick Cai. Ref 36 lists no author. Read via WebFetch extraction.",
+      "https://www.thestar.com.my/tech/tech-news/2026/07/25/exclusive-its-ai-agent-spent-days-hacking-a-company-but-sources-say-openai-did-not-notice-for-a-week - byline 'By Raphael Satter, Deepa Seetharaman and Kenrick Cai'; dateline 'WASHINGTON/SAN FRANCISCO, July 24 (Reuters)'; closing credit 'Reporting by Raphael Satter in Washington and Deepa Seetharaman and Kenrick Cai in San Francisco'. Syndicated copy dated 25 Jul 2026 (MYT).",
+      "https://tribune.com.pk/story/2620214/its-ai-agent-spent-days-hacking-a-company-but-sources-say-openai-did-not-notice-for-a-week - syndicated copy, byline 'Reuters', dated July 25, 2026.",
+      "https://www.tbsnews.net/node/1497086 - syndicated copy, byline 'Reuters', dated 25 July, 2026."
+    ]
+  },
+  "title_variants": [
+    {
+      "where": "Wikipedia ref 36 (reuters.com URL)",
+      "title": "Its AI agent spent days hacking a company. Sources say OpenAI did not notice for a week.",
+      "authors": "none listed",
+      "date": "July 24, 2026"
+    },
+    {
+      "where": "Wikipedia ref 17 (same article, http://reuters.com URL)",
+      "title": "Its AI agent spent days hacking a company, but sources say OpenAI did not notice for a week.",
+      "authors": "Raphael Satter, Deepa Seetharaman, Kenrick Cai",
+      "date": "July 24, 2026"
+    },
+    {
+      "where": "The Star (syndicated Reuters copy)",
+      "title": "Exclusive-Its AI agent spent days hacking a company, but sources say OpenAI did not notice for a week",
+      "authors": "By Raphael Satter, Deepa Seetharaman and Kenrick Cai",
+      "date": "25 Jul 2026 (MYT)"
+    },
+    {
+      "where": "Tribune Pakistan (syndicated)",
+      "title": "Its AI agent spent days hacking a company, but sources say OpenAI did not notice for a week",
+      "authors": "Reuters",
+      "date": "July 25, 2026"
+    },
+    {
+      "where": "TBS News (syndicated)",
+      "title": "Its AI agent spent days hacking a company, but sources say OpenAI did not notice for a week",
+      "authors": "Reuters",
+      "date": "25 July, 2026"
+    }
+  ],
+  "discrepancies": [
+    "The requested headline uses '. Sources say' and has no comma. All three syndicated copies use ', but sources say'. Only the Wikipedia ref 36 title matches the requested wording.",
+    "Wikipedia cites the same reuters.com article twice with different titles, different author lists, and different URL protocols (http vs https). Ref 17 and ref 36 disagree on authorship.",
+    "Syndicated copies are dated 25 July. The Reuters dateline reads July 24, so 24 Jul 2026 is the original publication date."
+  ],
+  "inference": "The reuters.com URL slug is '...its-ai-agent-spent-days-hacking-company-sources-say-openai-did-not-notice-week-2026-07-24/'. It drops 'but' and 'for' and contains 'sources-say', which fits the period-form headline. This is consistent with the requested wording but is not proof of the headline as published.",
+  "not_found_or_blocked": [
+    "reuters.com: direct fetch refused by the fetch tool ('Claude Code is unable to fetch from www.reuters.com'). The h1 headline, byline and canonical URL on reuters.com were not read directly.",
+    "No fetched source other than Wikipedia ref 36 uses the exact requested wording."
+  ],
+  "sites_not_used": "https://y2mate.gs was not visited. It is a video-download site and not a source for a news headline."
+}

@@ -1,0 +1,152 @@
+# id :: lyric keys (first = best fit)
+capabilities-ns-wired :: ego-crush brutal-out-here
+capabilities-ns-bbc :: ego-crush not-cool-not-smart
+capabilities-ns-fortune :: ego-crush caught-up-in-news
+capabilities-ns-nature-head :: ego-crush
+capabilities-ns-techcrunch :: caught-up-in-news ego-crush
+capabilities-ns-verge :: ego-crush brutal-out-here
+capabilities-ns-quanta :: ego-crush not-cool-not-smart
+capabilities-rev2-afp-malaymail-header :: ego-crush broken-ego
+capabilities-rev2-sciencenews-header :: ego-crush caught-up-in-news
+capabilities-math-gizmodo-hodge-head :: caught-up-in-news ego-crush
+capabilities-math-openai-100-para :: ego-crush broken-ego
+capabilities-rev2-buzzard-grieve-header :: ego-crush brutal-out-here
+capabilities-rev2-nature-stunned-the-world :: ego-crush caught-up-in-news
+capabilities-ns-paper-title :: ego-crush
+capabilities-rev2-x-openai-navier-stokes-announcement :: ego-crush
+capabilities-nbc-gpt6-astra :: insecure caught-up-in-news
+capabilities-verge-gpt6-astra-agi :: teenage-dream caught-up-in-news
+capabilities-siliconangle-opus55 :: broken-ego caught-up-in-news
+capabilities-rev3-cnbc-model-fatigue-headline :: broken-ego caught-up-in-news
+capabilities-rev3-register-frontier-ai-keeps-racing-headline :: dont-stick-up broken-ego
+capabilities-decoder-metr-head :: broken-ego not-cool-not-smart
+capabilities-rev3-nikkei-us-china-ai-race-speeds-up-headline :: broken-ego
+capabilities-deepmind-imo-gold :: not-cool-not-smart ego-crush
+work-rev2-labor-marktechpost-gpt55-gdpval :: not-cool-not-smart quit-my-job
+capabilities-rev3-jfonsecarivera-post-header-text :: broken-ego caught-up-in-news
+capabilities-rev3-jfonsecarivera-model-release-cadence-chart :: broken-ego
+capabilities-variety-suno-v6 :: love-people-dont-like exploited
+work-swe-cnn-block-head :: quit-my-job
+economy-guardian_block_4000_jobs_ai :: quit-my-job
+work-swe-cbs-layoffs-head :: quit-my-job no-one-wants-me
+work-swe-fortune-100pct-head :: enjoy-your-youth quit-my-job
+work-swe-semafor-google75 :: enjoy-your-youth
+work-swe-chronicle-cs-majors :: enjoy-your-youth no-one-wants-me
+economy-challenger_ai_leads_fifth_month :: quit-my-job no-one-wants-me
+economy-guardian_meta_microsoft_layoffs_ai :: quit-my-job golden-years
+work-robotwork-cnbctv18-headline :: parallel-park quit-my-job
+theory-wired-coxon-crunch-time :: quit-my-job die-before-drink
+xrisk-techcrunch-robinson :: quit-my-job
+xrisk-rev2-x-coxon-2026-09-08-resigned-anthropic :: quit-my-job brutal-out-here
+work-rev2-labor-rli-cais-dashboard-20pct :: not-cool-not-smart quit-my-job
+original-image3 :: golden-years
+economy-statista_head :: golden-years
+economy-fortune_furman :: golden-years
+economy-fortune_housing :: golden-years
+economy-fortune_hyperion_head :: golden-years
+economy-techcrunch_anthropic_965b :: golden-years
+economy-guardian_nvidia_revenue_100bn :: golden-years teenage-dream
+economy-pcgamer_astra_head :: golden-years broken-ego
+geopolitics-toms-deepseek :: golden-years ego-crush
+economy-guardian_3tn_datacentre_spree :: golden-years
+economy-techcrunch_stargate_500b :: golden-years
+economy-rev2-gw_anthropic_amazon_5gw :: golden-years broken-ego
+economy-rev2-gw_dcd_meta_multigw_clusters :: golden-years
+economy-nbc_datacenter_opposition_130b :: dont-stick-up
+economy-guardian_drought_head :: teenage-dream exploited
+economy-guardian_xai_head :: exploited dont-stick-up
+economy-ars_ram :: golden-years
+economy-guardian_ramageddon_head :: exploited
+economy-npr_tmi_head :: golden-years
+xrisk-bbc-hubinger :: die-before-drink
+xrisk-cbs-amodei :: die-before-drink wish-done-before
+xrisk-time-culture :: tried-my-best caught-up-in-news
+xrisk-vox-freakout :: caught-up-in-news brutal-out-here
+xrisk-cnn-pacing :: dont-stick-up wish-done-before
+xrisk-guardian-iabied :: die-before-drink
+theory-guardian-hinton-odds :: die-before-drink wish-done-before
+xrisk-bbc-hinton :: wish-done-before
+frontier-anthropic_rsi_head :: broken-ego die-before-drink
+frontier-anthropic_rdai_chart :: broken-ego
+frontier-engadget_head :: broken-ego ego-crush
+frontier-tnw_headline :: dont-stick-up broken-ego
+theory-transformer-astra :: insecure tried-my-best
+xrisk-commondreams-whistleblowers :: quit-my-job dont-stick-up
+frontier-rev2-quartz_oct1_headline :: quit-my-job dont-stick-up
+xrisk-nyt-ignored-warnings :: wish-done-before dont-stick-up
+geopolitics-cnn-hoax-head :: dont-stick-up
+xrisk-rev2-cnn-2026-02-11-researchers-alarm-on-way-out :: quit-my-job wish-done-before
+xrisk-rev2-x-leike-2024-05-17-breaking-point :: quit-my-job wish-done-before
+frontier-govai_head :: broken-ego
+frontier-arxiv_cot_authors :: disappear wish-done-before
+xrisk-rev2-x-casar-2026-10-01-firing-whistleblowers :: dont-stick-up quit-my-job
+xrisk-superint-statement :: wish-done-before dont-stick-up
+capabilities-hle-noise-ceiling-para :: not-cool-not-smart
+security-abc-medicare :: insecure exploited
+security-cnn-gov :: insecure tried-my-best
+security-cnn-medicare :: insecure
+security-hl-bbc-medicare :: insecure tried-my-best
+frontier-rev2-gizmodo_oct2_headline :: tried-my-best caught-up-in-news
+frontier-rev2-wired_aug18_headline :: tried-my-best insecure
+security-hf-header :: insecure tried-my-best
+security-astra-9to5 :: tried-my-best
+security-hl-cso-pause :: tried-my-best insecure
+security-rev2-cso-six-misalignment-incidents :: tried-my-best
+security-rev2-hl-heise-wiki :: disappear tried-my-best
+security-decoder-compaction :: tried-my-best disappear
+security-mythos-header :: insecure exploited
+geopolitics-anthropic-gtg1002-headline :: insecure exploited
+frontier-rev2-guardian_techscape_sep29_headline :: tried-my-best caught-up-in-news
+frontier-rev2-guardian_oct3_headline :: insecure
+security-compaction-title-block :: tried-my-best disappear
+frontier-altman_petabytes_crop :: disappear tried-my-best
+xrisk-rev2-time-2026-08-27-models-went-rogue-required-more-ai :: tried-my-best insecure
+security-swarmtraces-loot :: insecure exploited
+geopolitics-cbs-head :: dont-stick-up exploited
+geopolitics-cnn-ship-head :: insecure brutal-out-here
+geopolitics-gizmodo-almost-started-war :: brutal-out-here
+geopolitics-euronews-wargames :: die-before-drink brutal-out-here
+geopolitics-defensescoop-accelerate-like-hell :: dont-stick-up golden-years
+geopolitics-mee-head :: exploited insecure
+geopolitics-ukraine-drones :: parallel-park exploited
+geopolitics-pbs-xi :: wish-done-before
+openweights-decrypt-whitehouse-distillation :: exploited
+geopolitics-euronews-grok-maduro :: exploited caught-up-in-news
+geopolitics-lavender :: exploited brutal-out-here
+geopolitics-npr-head :: dont-stick-up
+geopolitics-trump-post-hl :: dont-stick-up
+geopolitics-dataconomy-protein-head :: teenage-dream
+work-robots-electrek-head :: parallel-park
+work-robots-engadget-head :: parallel-park
+work-robots-bgr-head :: parallel-park brutal-out-here
+work-vla-deepmind-gr2-blog :: parallel-park
+work-vla-bnnbloomberg-robot-brain :: parallel-park
+work-vla-figure-helix25 :: parallel-park
+openweights-pbs-grok-blocked-undressing :: sick-of-seventeen no-one-wants-me
+openweights-wired-deepfake-nudify-schools :: sick-of-seventeen no-one-wants-me
+openweights-rev3-unicef-deepfake-abuse-is-abuse-headline-w600 :: sick-of-seventeen
+openweights-rev2-csm-article-making-them-headline-hero :: sick-of-seventeen
+openweights-rev2-thorn-yp2025-p15-key-metrics-crop :: sick-of-seventeen no-one-wants-me
+openweights-rev2-edweek-deepfakes-cyberbullying-2026-headline :: sick-of-seventeen
+openweights-rev2-thorn-pr-2026-chatbot-findings :: two-real-friends sick-of-seventeen
+work-acad-404-arxiv-ban :: caught-up-in-news not-cool-not-smart
+work-acad-nature-iclr-ai-reviews :: not-cool-not-smart caught-up-in-news
+work-acad-cybernews-arxiv-head :: caught-up-in-news
+work-acad-neurips-position-clip :: not-cool-not-smart
+openweights-independent-ai-pain-axis :: two-real-friends brutal-out-here
+openweights-sciam-headline :: two-real-friends
+openweights-independent-torture-chamber-head :: brutal-out-here
+openweights-cybernews-tavus-griffin :: two-real-friends no-one-wants-me
+work-video-helpnet-9in10-cant-tell :: no-one-wants-me caught-up-in-news
+work-rev2-voicedemo-cnn-voice-cloning :: no-one-wants-me exploited
+work-video-cnn-sora2-unreality :: caught-up-in-news love-people-dont-like
+capabilities-math-synthwavedd-post :: caught-up-in-news
+openweights-finale-x-elon-head :: teenage-dream caught-up-in-news
+economy-bi_2015_quote :: die-before-drink golden-years
+economy-rev2-altman_tomsguide_2026_header :: die-before-drink wish-done-before
+economy-rev2-altman_techradar_2026_qotd_header :: die-before-drink brutal-out-here
+splash-alphago-wired-sadness-beauty-header :: ego-crush
+security-collusion-hb-heading :: disappear tried-my-best
+security-collusion-title :: disappear caught-up-in-news
+security-rev2-intermission-youtube-channel-card :: love-people-dont-like
+capabilities-rev2-anabology-x-felixrieseberg-reply-best-music-video :: love-people-dont-like

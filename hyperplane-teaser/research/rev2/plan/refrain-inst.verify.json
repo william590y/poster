@@ -1,0 +1,306 @@
+{
+ "key": "refrain-inst",
+ "items": [
+  {
+   "id": "g-cream-a",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "g-cream-s",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "hole",
+   "ok": true,
+   "problem": "Timing refs re-derived: hb:100 = 67.619, hb:102 = 68.587, hb:104 = 69.555, hb:108 = 71.490, hb:112 = 73.426 (19.232 + i*60/124); collapse 71.35 + 0.14 = 71.49 = hb:108 = the bar-27 kick, and \"God,\" is 71.456 (hits.json words.brutal_out_here). All consistent.",
+   "fix": ""
+  },
+  {
+   "id": "paint",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "kand-a",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "kand-a-s",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "cp-try",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Credit \"@MECAGENT · GPT-6 ASTRA IN SOLIDWORKS · 2026\" matches the deck record (creative.json mecagent-solidworks-gif: \"GPT-6 Astra on CAD (SolidWorks 2026) with the MecAgent harness\", X @MecAgent, tweet id decodes to 2026-09-09; it is a vendor demo). Frames 9.0-10.94 of the GIF show the SolidWorks screen with the turbofan assembling (nose cone added); the teal fan of the window note only appears after 10.94, so \"shows\" over-describes the used slice (no text on screen depends on it). No third-party subtitles in the circle.",
+   "fix": ""
+  },
+  {
+   "id": "cp-thanks",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): 60 Minutes window checked frame by frame: 624.0-625.75 is the interpretability screen (blackmail-test email with highlighted features, researcher's hand pointing, 60 MINUTES bug outside the circle crop). There is a HARD CUT at clip 625.80 (= hb:87.72, inside the 0.2 s collapse hb:87.62-87.82) to the wide shot with the interviewer, which broll.json says the windows avoid; it would flash for ~0.1 s as the disc spin-shrinks. Credit \"60 MINUTES · CBS NEWS · 2025\" is right.",
+   "fix": "Optional: set in to 623.9 (shot is stable from at least 623.0) so the cut lands at hb:87.93, after the collapse, and update broll.json window 3 to end at 625.75."
+  },
+  {
+   "id": "cp-upset",
+   "ok": true,
+   "problem": "Unitree G1 airflare, window 57.4-58.61 (gala video, 2026) matches broll.json; credit \"UNITREE ROBOTICS · 2026\" right.",
+   "fix": ""
+  },
+  {
+   "id": "cp-amodei",
+   "ok": true,
+   "problem": "Verified by eye: the close-ups at 676.8-692.8 are Dario Amodei (centre of the wide shot, curly hair, glasses, navy jacket; Jack Clark is the man on the left who speaks at ~700-720 s), with NO camera cut anywhere in 676.5-692.8 (frame-difference scan). Picture window 676.822-679.0 runs with his audible line (offset 22 ms). Credit \"AXIOS AI+ DC SUMMIT · SEP 17, 2025\" matches research/verify/SUMMARY.md.",
+   "fix": ""
+  },
+  {
+   "id": "cp-golden",
+   "ok": true,
+   "problem": "Oracle (official YouTube) Abilene aerial, window 26.0-28.71 (inside the 26-29 window; the \"Abilene, Texas May 2025\" title card at 1.2-3 s is not shown); credit \"ORACLE · STARGATE ABILENE, TX · 2025\" right (video published 2025-12-01).",
+   "fix": ""
+  },
+  {
+   "id": "loop-a",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "loop-a-s",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "pile-try",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Both records match: DNS (openai-alignment-2026-09-25-agent-dns: outlet OpenAI Alignment, 2026-09-25, text \"An agent used DNS to reach an external chatbot\", hl = the whole headline, OCR boxes inside crop) and CSO (CSO Online, 2026-09-17, \"OpenAI admits six new misalignment incidents under new reporting framework\", hl \"six new misalignment incidents\" with 2 boxes). Two cosmetic crop issues seen on the real crops: (1) the DNS crop [540,250,1860,620] slices through the card's metadata row (\"Sample: Sep 20, 2026 / Discovery: Sep 20, 2026 / Report updated: Sep 25, 2026\"), leaving it half-clipped at the bottom edge, and the chip date SEP 25, 2026 is the \"Report updated\" date while the sample/discovery date shown is Sep 20; (2) the CSO crop [20,30,1880,520] clips the \"News\" kicker at its bottom edge (ink y 502-521).",
+   "fix": "DNS crop y1 -> 455 (headline only; headline_box ends y 437) so no clipped row and no competing dates; CSO crop y1 -> 490."
+  },
+  {
+   "id": "eq-adv",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Verified against the arXiv e-print of 2402.03300v3 (downloaded 11 Oct): main.tex, \\subsubsection{Outcome Supervision RL with GRPO} (= sec. 4.1.2) contains $\\hat{A}_{i, t} = \\widetilde{r}_i = \\frac{r_i- {\\rm mean}(\\mathbf{r})}{{\\rm std}(\\mathbf{r})}$, character-identical to content.tex = equations.json grpo.advantage_latex; both hl TeX fragments are exact substrings; form \"advantage\" resolves to advantage_latex in equations.js. Cite \"Shao et al. 2024, DeepSeekMath (arXiv:2402.03300), sec. 4.1.2\" is right (the record's default cite says eq. 3, so the item correctly overrides it). The label is explanatory (GRPO is the algorithm DeepSeek-R1 uses), not a quote.",
+   "fix": ""
+  },
+  {
+   "id": "pile-upset",
+   "ok": false,
+   "problem": "DUPLICATE ASSET ACROSS PLANS. capabilities-rev3-jfonsecarivera-post-header-text (the X post \"you're not crazy ... now it's every ~11 days\") is already in chorus.json item pile-cadence (slams hb:57 = song 46.8, same highlight \"now it's every ~11 days\", PUSH hb:58.5, LIFT hb:59, pink circle hb:59.5). pile-upset repeats the same screenshot with the same highlight, push, lift and circle (hb:88-89.75 = song 61.8-63.0), so the long cut shows it twice within 15 s. The note \"Nothing here repeats prelude-riff.json or verse1.json (checked against both files)\" never checked chorus.json. Text, outlet (X (Twitter)), date (2026-09-29, status id decodes to 2026-09-29 18:31 UTC), hl index 1 and OCR boxes are otherwise right, and TNW (\"OpenAI’s chief scientist says no lab should keep scaling at maximum speed\", The Next Web, 2026-09-06, hl \"no lab should keep scaling at maximum speed\", attribution kept) is exact.",
+   "fix": "Remove shot 0 (the X post) from pile-upset and let TNW be the single card: slam it on hb:88 (entry slam), hl 0, push/lift on it at hb:89.5 and the red circle at hb:89.75 (change emph \"shot\" to 0 which is then TNW); update beat 88/89/90 event text (X post, \"now it's every ~11 days\" marker/lift/circle) and the lyric_link; or swap in a different, unused headline that supports \"unrelentlessly upset\". Also fix the \"checked against\" note to include chorus.json."
+  },
+  {
+   "id": "voice-amodei-a",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Audio window 676.80-678.84 contains exactly \"We can't yet fully close the loop.\" Re-run small.en on 676.3+3.04: \"We can't yet fully close the loop.\" (676.92-678.82), then \"I think it's going to...\" only after the window. 20 ms RMS scan: previous sentence ends 676.63, silence (-45 dB) 676.66-676.96, \"We\" onset 676.975, so in 676.80 + 20 ms fade is in clean silence; \"loop.\" ends 678.81, gap (-45 dB) 678.82-678.87, \"I\" onset 678.88, so out 678.84 keeps the whole word and none of \"I think\". Whole sentence, speaker (Amodei, close-up on screen) and year right; the omitted next sentence (\"I think it's going to be some time until we can fully close the loop\") only reinforces the caveat.",
+   "fix": ""
+  },
+  {
+   "id": "kar-amodei-a",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Text, name/year (Dario Amodei · 2025) and verbatim string are right; underline \"close the loop.\" is an exact substring. Whisper word starts lead the voice by up to 0.21 s: can't real 677.20 (song 63.40; plan 63.30), fully 677.91 (64.11; plan 63.90, lit in a 0.2 s silence), close 678.30 (64.50; plan 64.34), the 678.57 (64.77; plan 64.72); We 676.97 (63.17), yet 677.54 (63.74) and loop. 678.66 (64.86) are right (offsets song = clip - 613.8).",
+   "fix": "Optional polish: s = We 676.97, can't 677.20, yet 677.54, fully 677.91, close 678.30, the 678.57, loop. 678.66 (fully then lands exactly on the 8th hb:92.75 = 64.11 and close on hb:93.5 = 64.47); update beat 91/92/93 event times."
+  },
+  {
+   "id": "chart-dc",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): All data verified against graphs.json dc-total-gw: 12 points [0.473, 0.874, 1.32, 1.901, 2.574, 3.705, 4.426, 6.531, 8.109, 11.853, 13.501, 13.833] with labels Q1 2024 ... Q3 2026, 5 Oct 2026; title, subtitle (\"Combined IT power of the 93 AI data centres Epoch tracks, gigawatts\"), annotation \"13.8 GW across 93 sites\" and source line \"EPOCH AI · AI DATA CENTERS HUB · UPDATED 5 OCT 2026\" are verbatim; \"13.8 GW\" is a substring of the annotation; the grow schedule has 12 entries, point 7 (Q3 2025, 4.4 GW) at hb:97 and the record at hb:98 = 66.651 (\"golden\" sung 66.56-66.94) as the beat text says. Baseline caveat from graphs.json notes: the curve partly reflects Epoch improving its coverage, so say \"tracked by Epoch\", never a world total, and quote no growth multiple. The subtitle says \"Epoch tracks\" (good) and no multiple is shown, but the headline title \"AI data centres: total power\" alone reads as a world total.",
+   "fix": "Optional: title \"AI data centres Epoch tracks: total power\" (or keep the title and make the subtitle the first thing that rolls out)."
+  },
+  {
+   "id": "pile-golden",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Guardian record matches (The Guardian, 2026-08-26, \"Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’\", hl index 1 = \"‘golden age’\", OCR boxes [1299,520,1526,593] and [357,614,467,671]; attribution \"CEO declares\" stays in the visible headline; crop [330,425,1600,695] contains the whole headline and excludes the \"more than 1 month old\" badge). Cosmetic: the second box ends at the \"e\" of \"age\" (x 467), so the closing ’ is just outside the marker.",
+   "fix": "Optional: widen box 2 x1 from 467 to 480 in screens.json."
+  },
+  {
+   "id": "kand-b",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "kc-pink-b1",
+   "ok": true,
+   "problem": "Galaxy Helios aerial 25.2-27.02 (two long halls with chillers) verified on frames; credit/year (Galaxy official YouTube, 2026) right.",
+   "fix": ""
+  },
+  {
+   "id": "kc-blue-b1",
+   "ok": true,
+   "problem": "Figure 03 rows 1.0-2.69 verified on frames; Figure AI (official), 2026 right.",
+   "fix": ""
+  },
+  {
+   "id": "kc-pink-b2",
+   "ok": true,
+   "problem": "Unitree sparring clip 2.3-4.48 verified on frames (red gloves, padded human); the clip has an in-window camera change and a \"Champion: Awakening!\" banner in the background at ~4.4 s (event branding as filmed, acceptable). Vendor autonomy claim is not on screen.",
+   "fix": ""
+  },
+  {
+   "id": "kc-blue-b2",
+   "ok": true,
+   "problem": "Unitree H2 mid-air spin kick bursting the target, 18.0-20.18, verified on frames.",
+   "fix": ""
+  },
+  {
+   "id": "fluid-b",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "loop-b",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "pile-gone",
+   "ok": true,
+   "problem": "Palisade (Palisade Research, 2025-07-05, page shows \"Published July 5, 2025\"; \"Shutdown resistance in reasoning models\", crop [40,400,960,625] holds the full 2-line headline and nothing else) and Dawn/AFP (2026-10-02, page shows \"Published October 2, 2026\"; \"Rogue OpenAI agents ‘covered up their tracks’\", crop excludes the masthead date) match the records; hl phrases are exact substrings with OCR boxes inside the crops; quotes kept as in the headline.",
+   "fix": ""
+  },
+  {
+   "id": "pile-rsi",
+   "ok": false,
+   "problem": "CROP CUTS THE HEADLINE. frontier-govai_head crop [20,30,900,305] slices the first line \"What If Automating AI R&D\": the line's ink runs to x = 940 (measured), so the card shows \"…AI R&\" plus half a \"D\", i.e. the shown text no longer matches the source headline (\"What If Automating AI R&D Triggers an Intelligence Explosion?\"). The same crop is reused by spit1. Everything else is right: Anthropic \"When AI builds itself\" (hl both lines, crop [20,20,720,290] clean, excludes the sub-line), GovAI 2026-09-28, hl \"Triggers an Intelligence Explosion?\" with boxes [41,134,826,209] and [44,218,398,292]. ADVISORY on the Anthropic date: 2026-06-04 is an inferred first-publication date (Fortune, dated 2026-06-05, says \"In the now-viral blog post on Thursday\" = Thu 4 Jun 2026; confirmed 11 Oct); the live page header shows no date and its body carries \"Update 9/18/2026\", so the chip \"ANTHROPIC · JUN 4, 2026\" should be read as first published.",
+   "fix": "Set the GovAI crop to [20,30,960,305] in pile-rsi (and its content/crop check text) and in spit1 (frame aspect becomes 940x275: frame w 620 -> h 181). Optionally give the Anthropic shot label \"ANTHROPIC · FIRST PUBLISHED JUN 4, 2026\" (or drop the date)."
+  },
+  {
+   "id": "pile-ego-lo",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Malay Mail (AFP) (2026-09-18, \"Math’s midlife crisis: AI solves in four days what stumped mathematicians for a century\", hl \"AI solves in four days what stumped mathematicians for a century\", 3 boxes) and WIRED (2026-09-12, \"‘I’m Really Terrified’: A Mathematician Grapples With AI’s Recent Breakthroughs\", page shows SEP 12, 2026) match the records exactly with no crop. Cosmetic: the WIRED box [10,108,676,208] also covers the colon after ’.",
+   "fix": ""
+  },
+  {
+   "id": "pile-ego-hi",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Buzzard (Xena blog, 2026-10-01, page shows \"Posted on October 1, 2026 by xenaproject\"; \"To grieve, or not to grieve?\") and the OpenAI paper title (\"FINITE TIME BLOWUP FOR NAVIER–STOKES\", page shows OPENAI under it) match the records. The Navier-Stokes date 2026-09-08 is in the deck/capabilities manifest (cdn.openai.com PDF) but is not visible on the card; the 615 px source scaled to w0 700 gives ~25 px type (quality 2), acceptable only because the card is swallowed within 3 beats.",
+   "fix": ""
+  },
+  {
+   "id": "disc-credit-1",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Pairing is right (Galaxy Helios aerial in the pink disc, Figure 03 rows in the blue disc, hb:100.25/100.5-104). The credit carries no year while every other credit/caption does (both clips are 2026).",
+   "fix": "Optional: \"IN THE DISCS: GALAXY · FIGURE AI · 2026\"."
+  },
+  {
+   "id": "disc-credit-2",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Both discs show Unitree (autonomous-combat sparring, H2 spin kick) 2026; no year in the credit.",
+   "fix": "Optional: \"IN THE DISCS: UNITREE ROBOTICS · 2026\"."
+  },
+  {
+   "id": "fog",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Clip 11.142-13.66 is the car-in-fog visual from Bengio's TED2025 talk (muted); a hard cut at clip 11.46 (song 71.33) falls under the night/pinch (the first 0.32 s is the preceding smoky road shot, hidden by the 0.4 s fade). No subtitles in the frames.",
+   "fix": ""
+  },
+  {
+   "id": "fog-credit",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): \"FOOTAGE: YOSHUA BENGIO, TED2025\" is accurate as \"from his TED2025 talk\" (research/long/bengio-2025.json; talk \"The Catastrophic Risks of AI — and a Safer Path\", April 2025) but the frames are the animation shown during the talk, not Bengio himself.",
+   "fix": "Optional: \"FROM YOSHUA BENGIO'S TED2025 TALK\"."
+  },
+  {
+   "id": "god-ink",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "god-splat",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "brutal",
+   "ok": true,
+   "problem": "Text \"it's brutal out here\" (lowercase, the one allowed lyric; \"God,\" is not painted). Word times equal song/hits.json words.brutal_out_here exactly: It's 72.012-72.276, brutal 72.339-72.798 (b burst 72.339 = hits-extra word_markers.brutal_burst, landing 72.47 on the hat 72.49), out 72.798-73.099, here 73.099-73.441. Held to hb:112.65 = 73.736 (vocal interval ends 73.51).",
+   "fix": ""
+  },
+  {
+   "id": "g-cream-b",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "kand-re",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "kc-blue-amodei",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Picture offset 686.05 at hb:112.75 (73.786) is 18 ms from the voice (686.03 at 73.768); Amodei close-up with no camera cut through 692.8; the kand settle (78.93-79.23) crossfades to flat blue right after his last word (clip 691.33-691.45).",
+   "fix": ""
+  },
+  {
+   "id": "fluid-re",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "spit0",
+   "ok": true,
+   "problem": "Same verified screenshot that was swallowed: Dawn (AFP) 2026-10-02 \"Rogue OpenAI agents ‘covered up their tracks’\", crop [280,315,1640,445] clean; outlet/date stamp right; frame aspect equals the crop aspect.",
+   "fix": ""
+  },
+  {
+   "id": "spit1",
+   "ok": false,
+   "problem": "Same crop defect as pile-rsi: frontier-govai_head crop {x0 20, y0 30, x1 900, y1 305} clips the \"D\" of \"R&D\" in \"What If Automating AI R&D Triggers an Intelligence Explosion?\" (ink to x 940), so the spat-back card shows a truncated headline. Outlet GovAI and stamp SEP 28, 2026 are right.",
+   "fix": "crop x1 -> 960 and frame h 194 -> 181 (940x275 at w 620); keep rot/position."
+  },
+  {
+   "id": "spit2",
+   "ok": true,
+   "problem": "Same verified screenshot that was swallowed: Malay Mail (AFP) 2026-09-18 headline, no crop, \"SEP 18, 2026\"; outlet/date stamp right; frame aspect equals the crop aspect.",
+   "fix": ""
+  },
+  {
+   "id": "spit3",
+   "ok": true,
+   "problem": "Same verified screenshot that was swallowed: Buzzard blog 2026-10-01 \"To grieve, or not to grieve?\", no crop, \"OCT 1, 2026\"; outlet/date stamp right; frame aspect equals the crop aspect.",
+   "fix": ""
+  },
+  {
+   "id": "voice-amodei-b",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Audio window 686.03-691.60 contains exactly \"…positive feedback loop, that cycle, it's not yet going super fast, but it's definitely started.\" small.en re-run (685.53+6.57): \"and create a positive feedback loop.\" / \"That cycle, it's not yet going super fast,\" / \"but it's definitely started.\" (the \"and create a\" is before the in-point). RMS: \"a\" ends 685.98, closure at -43 dB 685.99-686.09, \"p\" burst 686.10, so in 686.03 (+25 ms fade) is clean; \"started.\" ends ~691.33 with a tail to ~691.45, silence (-50 dB) 691.45-691.66, \"And\" onset 691.67, so out 691.60 is clean. Context (672-691 s, one answer, small.en): \"...the ability to use the models to design the next models and create a positive feedback loop, that cycle, it's not yet going super fast, but it's definitely started.\"; the cut starts after \"create a\" with a leading \"…\" and keeps the caveat \"not yet going super fast\". Speaker Amodei (close-up on screen), 2025, never joined with snippet a. Overlaps the quiet vocal chop 76.98-77.30 briefly (allowed). Music is out by 80.40, before the 80.44 breath.",
+   "fix": ""
+  },
+  {
+   "id": "kar-amodei-b",
+   "ok": false,
+   "problem": "KARAOKE LEADS THE VOICE (audible window itself is clean, see voice-amodei-b). The word times are whisper starts, which attribute every pause to the NEXT word. Measured on the clip (20 ms RMS + spectrogram, clip s -> song s = clip - 612.262): real onsets are positive 686.10 (73.84; plan 73.82 ok), feedback 686.52 (74.26; plan 74.10), loop, 686.90 (74.64; plan 74.48), that 687.52 (75.26; plan 75.20 ok), cycle, 688.06 (75.80; plan 75.54: the plan lights it inside a verified 0.26 s silence 687.78-688.05), it's 688.68 (76.42; plan 76.32), not 688.92 (76.66; plan 76.44), yet ~689.14 (76.88; plan 76.58), going ~689.26 (77.00; plan 76.78), super 689.56 (77.30; plan 77.10), fast, 689.90 (77.64; plan 77.50), but 690.30 (78.04; plan 77.96 ok), it's ~690.37 (78.11, ok), definitely 690.66 (78.40; plan 78.30), started. ~691.15-691.19 (78.89-78.93; plan 78.70). Leads up to 0.26-0.30 s on cycle/not/yet/going/super and 0.2 s on started, so the closing payoff word \"started.\" lights 0.2 s before it is said, the pink underline at 74.60 starts before \"loop,\" is spoken (74.64), and the beat events (loop 74.48, cycle 75.54, it's not 76.32-76.44, yet going 76.58-76.78, super 77.10, fast 77.50, started 78.70) are early. Text, name/year (Dario Amodei · 2025), \"…\" at the start only, both underlines (positive feedback loop; not yet going super fast = the caveat kept) and the verbatim string are right.",
+   "fix": "Set speech.words s (clip seconds) to: …positive 686.10, feedback 686.52, loop, 686.90, that 687.52, cycle, 688.06, it's 688.68, not 688.92, yet 689.14, going 689.26, super 689.56, fast, 689.90, but 690.30, it's 690.37, definitely 690.66, started. 691.15; update words_song_s accordingly (clip - 612.262) and the beat 113-123 event times (cycle, naturally on hb:117 = 75.845 with the H-crossbar tilt; started. on ~78.93 = the [+0.38] settle of beat 123, not on the beat at 78.70). Move the pink underline to >= 74.74 (after \"loop,\" starts) and keep the graphite caveat underline at 77.60-77.82 (fast, is spoken 77.64)."
+  },
+  {
+   "id": "paper",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "paper-s",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  }
+ ],
+ "beats_missing": []
+}

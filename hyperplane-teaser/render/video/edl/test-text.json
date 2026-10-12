@@ -1,0 +1,427 @@
+{
+ "name": "test-text",
+ "title": "Builder C: every reveal mode and mark (prelude pulse, Feynman karaoke, legacy types rolled out on the riff)",
+ "_note": "Builder C test EDL (fx/text.js). STAND-IN demo sentences are marked as such; the Feynman line is verbatim (clips/transcripts/feynman.json). Prep: python3 render/video/prep_clips.py test-text. Render: python3 render/video/render.py beats test-text --from 0 --to 12 --eighths",
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "duration": 12.0,
+ "audio": {
+  "song": "song/brutal.mp3",
+  "songStart": 11.0
+ },
+ "look": {
+  "ground": "#0E0D12"
+ },
+ "themes": [
+  {
+   "t0": 0,
+   "t1": 8.232,
+   "theme": "dark"
+  },
+  {
+   "t0": 8.232,
+   "t1": 100,
+   "theme": "light"
+  }
+ ],
+ "rollout": {
+  "mode": "words",
+  "rate": 2,
+  "entry": "pop"
+ },
+ "items": [
+  {
+   "id": "ground",
+   "type": "color",
+   "t0": 0,
+   "t1": 12.0,
+   "color": "#0E0D12"
+  },
+  {
+   "id": "cream",
+   "type": "color",
+   "t0": "hb:0",
+   "t1": 12.0,
+   "color": "#F2EBDD"
+  },
+  {
+   "id": "paint",
+   "type": "layer"
+  },
+  {
+   "id": "w-roll",
+   "type": "words",
+   "t0": 0.1,
+   "t1": 3.7,
+   "x": 60,
+   "y": 330,
+   "w": 940,
+   "font": {
+    "family": "'Newsreader', serif",
+    "weight": 500,
+    "size": 80
+   },
+   "text": "STAND-IN: text is never dumped as a paragraph, it rolls out word by word on the pulse",
+   "roll": {
+    "mode": "words",
+    "rate": 2,
+    "from": 0.2,
+    "entry": "pop"
+   },
+   "marks": [
+    {
+     "phrase": "never dumped",
+     "style": "marker",
+     "at": 2.5
+    },
+    {
+     "phrase": "paragraph,",
+     "style": "strike",
+     "at": 2.8
+    },
+    {
+     "phrase": "word by word",
+     "style": "underline",
+     "at": 3.05
+    },
+    {
+     "phrase": "pulse",
+     "style": "circle",
+     "at": 3.25
+    }
+   ],
+   "exit": {
+    "style": "fade",
+    "dur": 0.2
+   }
+  },
+  {
+   "id": "w-ink",
+   "type": "words",
+   "t0": 0.6,
+   "t1": 3.7,
+   "x": 60,
+   "y": 900,
+   "w": 940,
+   "font": {
+    "family": "'Newsreader', serif",
+    "style": "italic",
+    "weight": 400,
+    "size": 72
+   },
+   "text": "ink: each word bleeds in",
+   "roll": {
+    "rate": 2,
+    "from": 0.7,
+    "entry": "ink"
+   }
+  },
+  {
+   "id": "w-slam",
+   "type": "words",
+   "t0": 1.4,
+   "t1": 3.7,
+   "x": 60,
+   "y": 1040,
+   "w": 940,
+   "font": {
+    "family": "'Unbounded', sans-serif",
+    "weight": 700,
+    "size": 64
+   },
+   "text": "SLAM ON THE BEAT",
+   "roll": {
+    "rate": 1,
+    "from": 1.5,
+    "entry": "slam"
+   }
+  },
+  {
+   "id": "w-drop",
+   "type": "words",
+   "t0": 1.9,
+   "t1": 3.7,
+   "x": 60,
+   "y": 1170,
+   "w": 940,
+   "font": {
+    "family": "'IBM Plex Mono', monospace",
+    "weight": 600,
+    "size": 52
+   },
+   "upper": true,
+   "text": "drop, then bold",
+   "roll": {
+    "rate": 4,
+    "from": 2.0,
+    "entry": "drop"
+   },
+   "marks": [
+    {
+     "phrase": "BOLD",
+     "style": "bold",
+     "at": 2.9
+    }
+   ]
+  },
+  {
+   "id": "w-chars",
+   "type": "words",
+   "t0": 0.3,
+   "t1": 3.7,
+   "x": 60,
+   "y": 1320,
+   "w": 820,
+   "font": {
+    "family": "'IBM Plex Mono', monospace",
+    "weight": 500,
+    "size": 40
+   },
+   "upper": true,
+   "text": "typewriter: characters at 30 per second",
+   "roll": {
+    "mode": "chars",
+    "cps": 30,
+    "from": 0.4
+   }
+  },
+  {
+   "id": "w-lines",
+   "type": "words",
+   "t0": 2.2,
+   "t1": 3.7,
+   "x": 60,
+   "y": 1420,
+   "w": 600,
+   "font": {
+    "family": "'Newsreader', serif",
+    "weight": 500,
+    "size": 44
+   },
+   "text": "lines rise one by one, each line short",
+   "roll": {
+    "mode": "lines",
+    "rate": 1,
+    "from": 2.3
+   }
+  },
+  {
+   "id": "fey-panel",
+   "type": "panel",
+   "prep": "clip",
+   "src": "clips/feynman-1985.mp4",
+   "in": 1068.6,
+   "oversample": 1.2,
+   "t0": 3.7,
+   "t1": 8.232,
+   "shape": "circle",
+   "frame": {
+    "cx": 540,
+    "cy": 640,
+    "r": 300
+   },
+   "entry": {
+    "style": "iris",
+    "at": 3.75
+   },
+   "out": "iris",
+   "border": "pencil",
+   "kb": {
+    "z": [
+     1.05,
+     1.2
+    ]
+   },
+   "grade": {
+    "sat": 0.0,
+    "contrast": 1.2,
+    "grain": 0
+   },
+   "credit": "CAN MACHINES THINK? \u00b7 1985"
+  },
+  {
+   "id": "fey-cap",
+   "type": "karaoke",
+   "t0": 3.8,
+   "t1": 8.232,
+   "x": 60,
+   "y": 1020,
+   "w": 940,
+   "size": 58,
+   "speech": {
+    "in": 1068.6,
+    "at": 3.7,
+    "words": [
+     {
+      "w": "\u2026we",
+      "s": 1069.53
+     },
+     {
+      "w": "are",
+      "s": 1070.47
+     },
+     {
+      "w": "getting",
+      "s": 1070.67
+     },
+     {
+      "w": "close",
+      "s": 1070.87
+     },
+     {
+      "w": "to",
+      "s": 1071.15
+     },
+     {
+      "w": "intelligent",
+      "s": 1071.41
+     },
+     {
+      "w": "machines",
+      "s": 1071.67
+     }
+    ]
+   },
+   "name": "Richard Feynman",
+   "year": "1985",
+   "metaAt": 4.0,
+   "marks": [
+    {
+     "phrase": "intelligent machines",
+     "style": "underline",
+     "at": 7.3
+    }
+   ]
+  },
+  {
+   "id": "hl-legacy",
+   "type": "headline",
+   "t0": "hb:0",
+   "t1": "hb:7",
+   "text": "STAND-IN legacy headline rolled out word by word on the eighths",
+   "outlet": "TEST OUTLET",
+   "date": "OCT 10, 2026",
+   "style": {
+    "cy": 520
+   },
+   "marks": [
+    {
+     "phrase": "word by word",
+     "style": "marker",
+     "at": "hb:5"
+    },
+    {
+     "phrase": "eighths",
+     "style": "circle",
+     "at": "hb:5.5"
+    }
+   ]
+  },
+  {
+   "id": "pq-legacy",
+   "type": "pullquote",
+   "t0": "hb:1",
+   "t1": "hb:7",
+   "text": "STAND-IN pull quote: a verbatim line keeps its name and its year",
+   "hl": "verbatim",
+   "name": "Test Speaker",
+   "year": "2026",
+   "style": {
+    "y": 860,
+    "size": 60
+   },
+   "marks": [
+    {
+     "phrase": "name",
+     "style": "underline",
+     "at": "hb:6"
+    },
+    {
+     "phrase": "year",
+     "style": "box",
+     "at": "hb:6.5"
+    }
+   ]
+  },
+  {
+   "id": "qr",
+   "type": "quoteroll",
+   "t0": "hb:7",
+   "t1": 12.0,
+   "cy": 900,
+   "text": "STAND-IN quote card: words roll on sixteenths, then the name and year type on",
+   "roll": {
+    "rate": 4,
+    "from": "hb:7",
+    "entry": "rise"
+   },
+   "name": "Test Speaker",
+   "year": "2026",
+   "source": "test source \u00b7 Oct 10, 2026",
+   "marks": [
+    {
+     "phrase": "sixteenths,",
+     "style": "paint",
+     "at": "hb:9"
+    },
+    {
+     "phrase": "name",
+     "style": "arrow",
+     "at": "hb:9.5"
+    },
+    {
+     "phrase": "year",
+     "style": "scribble",
+     "at": "hb:10"
+    }
+   ]
+  },
+  {
+   "id": "tri-panel",
+   "type": "panel",
+   "prep": "clip",
+   "broll": "figure-botq-200",
+   "oversample": 1.2,
+   "t0": "hb:0",
+   "t1": 12.0,
+   "shape": "triangle",
+   "frame": {
+    "cx": 560,
+    "cy": 1380,
+    "r": 230
+   },
+   "rot": 8,
+   "spin": 20,
+   "entry": {
+    "style": "pop",
+    "at": "hb:0.5"
+   },
+   "border": "both",
+   "color": "#2346FF",
+   "pulse": "hb:1..15",
+   "kb": {
+    "z": [
+     1.0,
+     1.2
+    ],
+    "pan": [
+     40,
+     0
+    ]
+   },
+   "grade": {
+    "sat": 0.4,
+    "contrast": 1.1,
+    "grain": 0
+   },
+   "credit": "FIGURE AI \u00b7 FIGURE 03 (BOTQ)"
+  },
+  {
+   "id": "grain",
+   "type": "paper",
+   "t0": 0,
+   "t1": 12.0
+  }
+ ]
+}

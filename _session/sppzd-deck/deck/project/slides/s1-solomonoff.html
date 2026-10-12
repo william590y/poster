@@ -1,0 +1,42 @@
+<section id="s1-solomonoff" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Background</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">Solomonoff induction: the idealized target</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:24px;align-items:stretch">
+<div style="flex:1;background:#ebefe9;border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#5f6b72">Ideal: background, not this paper</p>
+<div style="display:flex;flex-direction:row;align-items:start;gap:16px;font-family:'IBM Plex Mono', 'Courier New', monospace;color:#17242c">
+<p style="font-size:36px;line-height:1.2">M(x) =</p>
+<div style="display:flex;flex-direction:column;align-items:center;gap:4px">
+<p style="font-size:36px;line-height:1.2">Σ</p>
+<p style="font-size:24px;line-height:1.1">p : U(p) = x*</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:4px">
+<p style="font-size:36px;line-height:1.2">2</p>
+<p style="font-size:24px;line-height:1;transform:translateY(-8px)">−ℓ(p)</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.35;color:#3d4a52"><i>U</i> a monotone universal machine; <i>x*</i> any output starting with <i>x</i>; the whole program <i>p</i> is read</p>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">Solomonoff 1964a, as restated in Grau-Moya et al. 2024, Sec. 1, p.3</p>
+<p style="font-size:28px;line-height:1.35;color:#3d4a52;border-top:1px solid #d5d9d2;padding:16px 0px 0px 0px"><b>Hypothesis class:</b> all computable data-generating processes, with unbounded compute <span style="color:#5f6b72">(p.2)</span></p>
+<p style="font-size:28px;line-height:1.35;color:#17242c"><b>Uncomputable</b> <span style="color:#5f6b72">(p.2)</span></p>
+</div>
+<p style="font-size:36px;color:#1d6f68;align-self:center">→</p>
+<div style="flex:1;background:#ffffff;border:1px solid #dde1da;border-left:6px solid #1d6f68;border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#1d6f68">This paper: generator prior (p.6)</p>
+<div style="display:flex;flex-direction:row;align-items:start;gap:4px;font-family:'IBM Plex Mono', 'Courier New', monospace;color:#17242c">
+<p style="font-size:36px;line-height:1.2">g₀(x) = |A|</p>
+<p style="font-size:24px;line-height:1;transform:translateY(-8px)">−ℓ(x)</p>
+</div>
+<p style="font-size:24px;line-height:1.35;color:#3d4a52"><i>ℓ</i> = tokens through <i>F</i>; “the natural analog of the Solomonoff prior 2^(−|p|)” <span style="color:#5f6b72">(p.6)</span></p>
+<p style="font-size:28px;line-height:1.35;color:#3d4a52;border-top:1px solid #d5d9d2;padding:16px 0px 0px 0px">The paper aims at “an efficient computable approximation to universal prediction” <span style="color:#5f6b72">(p.2)</span></p>
+<p style="font-size:28px;line-height:1.35;color:#3d4a52"><b>Hypothesized regularities self-play should find:</b> “copying, recursion, and hierarchical composition” <span style="color:#5f6b72">(p.2)</span></p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · p.2, p.6 · Grau-Moya et al. 2024, Sec. 1, p.3</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">4</p>
+<aside>About 1 minute.
+Background only. The paper cites the prior 2^(-|p|) (Solomonoff 1964; p.6), not the mixture M. Definition from Grau-Moya et al. 2024, Def. 2 (arXiv 2401.14953, p.3). If asked about guarantees: Solomonoff (1964a), restated there, bounds the summed expected squared error, sum_t sum_{x&lt;t} mu(x&lt;t) sum_x (M - mu)^2 &lt;= K(mu) ln 2, where K(mu) = min{l(p): U(p) = mu} is the length of the shortest program computing the true source mu. The paper uses the prior twice: as the KL anchor g_0 (Eq. 3, p.6) and as the baseline sampler, tokens 'drawn i.i.d. until termination, giving full support to every finite program while favoring shorter descriptions' (p.8). |A| is ambiguous: App. E lists 9 base symbols, while generation uses 19 tokens (Sec. 2.3). [mine] Program space plays the role of the hypothesis class, and self-play is a finite-compute search over it. Grau-Moya's Thm. 9 says non-uniform program samplers keep universality under conditions; this paper never invokes it.
+Slide layout: the equation is M(x) = sum over programs p with U(p) = x* of 2^(-l(p)). The outline bullet "Uncomputable; the paper aims at 'an efficient computable approximation to universal prediction' (p.2)" is split across the two panels: "Uncomputable" closes the ideal on the left, the approximation aim opens the paper's side on the right. Nothing was cut.</aside>
+</section>

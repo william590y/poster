@@ -1,0 +1,229 @@
+[
+ {
+  "id": "dapo",
+  "latex": "ok 2025x362px @48px em",
+  "short_latex": "ok 1212x98px @48px em",
+  "latex_stacked": "ok 1031x606px @48px em",
+  "definitions_latex": "ok",
+  "highlights": [
+   {
+    "sub": "\\varepsilon_{\\text{high}}",
+    "latex": "ok",
+    "latex_stacked": "ok",
+    "short_latex": "ok"
+   },
+   {
+    "sub": "\\varepsilon_{\\text{low}}",
+    "latex": "ok",
+    "latex_stacked": "ok",
+    "short_latex": "ok"
+   },
+   {
+    "sub": "0< \\Big|\\{o_i\\mid\\mathtt{is\\_equivalent}(a,o_i)\\}\\",
+    "latex": "ok",
+    "latex_stacked": "ok",
+    "short_latex": "absent"
+   },
+   {
+    "sub": "\\frac{1}{\\sum_{i=1}^{G}|o_i|}",
+    "latex": "ok",
+    "latex_stacked": "ok",
+    "short_latex": "absent"
+   }
+  ]
+ },
+ {
+  "id": "grpo",
+  "latex": "ok 2660x252px @48px em",
+  "short_latex": "ok 1995x135px @48px em",
+  "latex_stacked": "ok 1411x447px @48px em",
+  "advantage_latex": "ok",
+  "alt_latex": "ok",
+  "highlights": [
+   {
+    "sub": "\\beta \\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{re",
+    "latex": "ok",
+    "latex_stacked": "ok",
+    "short_latex": "ok"
+   },
+   {
+    "sub": "\\hat{A}_{i,t}",
+    "latex": "ok",
+    "latex_stacked": "ok",
+    "short_latex": "ok"
+   },
+   {
+    "sub": "\\frac{1}{G}\\sum_{i=1}^G",
+    "latex": "ok",
+    "latex_stacked": "ok",
+    "short_latex": "absent"
+   }
+  ]
+ },
+ {
+  "id": "grpo-kl",
+  "latex": "ok 1408x136px @48px em",
+  "short_latex": "ok 1126x134px @48px em",
+  "highlights": [
+   {
+    "sub": "\\frac{\\pi_{ref}(o_{i,t}|q,o_{i,<t})}{\\pi_{\\theta}(",
+    "latex": "ok",
+    "short_latex": "absent"
+   },
+   {
+    "sub": "- \\log",
+    "latex": "ok",
+    "short_latex": "ok"
+   }
+  ]
+ },
+ {
+  "id": "ntp-ce",
+  "latex": "ok 673x115px @48px em",
+  "short_latex": "ok 540x115px @48px em",
+  "related_latex": "ok",
+  "highlights": [
+   {
+    "sub": "\\log P_\\theta(x_{t+1} \\mid x_{t:1})",
+    "latex": "ok",
+    "short_latex": "ok"
+   },
+   {
+    "sub": "- \\sum_t",
+    "latex": "ok",
+    "short_latex": "ok"
+   }
+  ]
+ },
+ {
+  "id": "dpo",
+  "latex": "ok 1798x131px @48px em",
+  "short_latex": "ok 1046x131px @48px em",
+  "latex_stacked": "ok 850x399px @48px em",
+  "highlights": [
+   {
+    "sub": "\\beta \\log \\frac{\\pi_{\\theta}(y_w\\mid x)}{\\pi_\\tex",
+    "latex": "ok",
+    "latex_stacked": "ok",
+    "short_latex": "ok"
+   }
+  ]
+ },
+ {
+  "id": "chinchilla",
+  "latex": "ok 642x116px @48px em",
+  "short_latex": "ok 373x116px @48px em",
+  "fitted_latex": "ok",
+  "fitted_numbers_latex": "ok",
+  "fitted_substituted_latex": "ok",
+  "highlights": [
+   {
+    "sub": "\\frac{B}{D^\\beta}",
+    "latex": "ok",
+    "short_latex": "ok"
+   },
+   {
+    "sub": "\\frac{A}{N^\\alpha}",
+    "latex": "ok",
+    "short_latex": "ok"
+   },
+   {
+    "sub": "E",
+    "latex": "ok",
+    "short_latex": "ok"
+   }
+  ]
+ },
+ {
+  "id": "rlhf",
+  "latex": "ok 1635x221px @48px em",
+  "short_latex": "ok 1241x107px @48px em",
+  "latex_stacked": "ok 850x357px @48px em",
+  "highlights": [
+   {
+    "sub": "\\beta \\log \\left(\\pi_{\\phi}^{\\mathrm{RL}}(y \\mid x",
+    "latex": "ok",
+    "latex_stacked": "ok",
+    "short_latex": "ok"
+   },
+   {
+    "sub": "\\gamma E_{x \\sim D_\\textrm{pretrain}}\\left[\\log(\\p",
+    "latex": "ok",
+    "latex_stacked": "ok",
+    "short_latex": "absent"
+   }
+  ]
+ },
+ {
+  "id": "superposition",
+  "latex": "ok 569x62px @48px em",
+  "latex_stacked": "ok 512x133px @48px em",
+  "highlight_latex_stacked": "ok",
+  "loss_latex": "ok",
+  "highlights": [
+   {
+    "sub": "W^TW",
+    "latex": "ok",
+    "latex_stacked": "absent"
+   },
+   {
+    "sub": "\\text{ReLU}",
+    "latex": "ok",
+    "latex_stacked": "ok"
+   },
+   {
+    "sub": "+ b",
+    "latex": "ok",
+    "latex_stacked": "absent"
+   }
+  ]
+ },
+ {
+  "id": "ppo",
+  "latex": "ok 1302x98px @48px em",
+  "short_latex": "ok 902x72px @48px em",
+  "ratio_latex": "ok",
+  "highlights": [
+   {
+    "sub": "\\mathrm{clip}(r_t(\\theta), 1-\\epsilon, 1+\\epsilon)",
+    "latex": "ok",
+    "short_latex": "ok"
+   }
+  ]
+ },
+ {
+  "id": "attention",
+  "latex": "ok 948x138px @48px em",
+  "short_latex": "ok 421x138px @48px em",
+  "highlights": [
+   {
+    "sub": "\\frac{QK^T}{\\sqrt{d_k}}",
+    "latex": "ok",
+    "short_latex": "ok"
+   },
+   {
+    "sub": "\\sqrt{d_k}",
+    "latex": "ok",
+    "short_latex": "ok"
+   }
+  ]
+ },
+ {
+  "id": "gd",
+  "latex": "ok 426x54px @48px em",
+  "highlights": [
+   {
+    "sub": "\\eta \\cdot \\nabla_\\theta J( \\theta)",
+    "latex": "ok"
+   },
+   {
+    "sub": "\\nabla_\\theta J( \\theta)",
+    "latex": "ok"
+   },
+   {
+    "sub": "\\eta",
+    "latex": "ok"
+   }
+  ]
+ }
+]

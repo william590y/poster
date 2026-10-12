@@ -1,0 +1,17 @@
+{
+ "_note": "STAND-IN for research/rev2/broll.json made by builder C (fx/screens.js panels) from research/long/deck-videos.json and clips/; the research file wins as soon as it exists. Windows and subject points picked by eye from frame strips; years only where the source states them.",
+ "items": [
+  {"id": "coxon-daily-show", "path": "clips/coxon-daily-show.mp4", "w": 1280, "h": 720, "fps": 30, "dur": 1560.0,
+   "windows": [{"in": 440.0, "out": 446.0, "note": "Jacob Coxon in the guest chair (muted b-roll)"}], "shows": "Jacob Coxon on The Daily Show", "subject_xy": [0.3, 0.45],
+   "tags": ["xrisk", "whistleblower"], "year": 2026, "credit": "The Daily Show (Comedy Central)", "source_url": null},
+  {"id": "ale-agent-wall", "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/labor-ale-intro.mp4", "w": 1280, "h": 720, "fps": 30, "dur": 79.92,
+   "windows": [{"in": 70.5, "out": 75.9, "note": "a wall of real agent desktop sessions"}], "shows": "Agents Last Exam intro: real agent desktop sessions", "subject_xy": [0.5, 0.55],
+   "tags": ["agents", "work"], "year": null, "credit": "agents-last-exam.org", "source_url": "https://agents-last-exam.org/videos/ale-intro.mp4"},
+  {"id": "figure-botq-200", "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-figure-botq-200-bots-1080p.mp4", "w": 1920, "h": 1080, "fps": 30, "dur": 12.76,
+   "windows": [{"in": 0.5, "out": 12.5, "note": "about 200 Figure 03 humanoids in rows, slow camera move"}], "shows": "Figure 03 humanoids in the BotQ hall", "subject_xy": [0.5, 0.5],
+   "tags": ["robots", "jobs"], "year": null, "credit": "Figure AI (official)", "source_url": "https://www.figure.ai/news/ramping-figure-03-production"},
+  {"id": "unitree-factory", "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-unitree-factory-official.mp4", "w": 1920, "h": 1080, "fps": 30, "dur": 44.69,
+   "windows": [{"in": 23.0, "out": 35.0, "note": "a humanoid sorting parts into blue trays"}], "shows": "Unitree humanoids on a factory line", "subject_xy": [0.62, 0.5],
+   "tags": ["robots", "jobs"], "year": 2026, "credit": "Unitree Robotics (official), X post Feb 13, 2026", "source_url": "https://x.com/UnitreeRobotics/status/2022256376073089309"}
+ ]
+}

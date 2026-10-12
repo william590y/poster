@@ -1,0 +1,49 @@
+{
+  "key": "altman-senate-2023",
+  "found_video": true,
+  "speaker": "Sam Altman (CEO, OpenAI)",
+  "event": "Senate Judiciary Subcommittee on Privacy, Technology and the Law hearing, 'Oversight of A.I.: Rules for Artificial Intelligence'",
+  "date": "2023-05-16",
+  "source_url": "https://www.youtube.com/watch?v=Pn-W41hC764",
+  "source_outlet": "C-SPAN (YouTube upload, 437 s, 'OpenAI CEO Sam Altman: \"If this technology goes wrong, it can go quite wrong.\"', upload date not reported by yt-dlp)",
+  "file": "/home/user/hyperplane-teaser/clips/altman-senate-2023-cspan.mp4",
+  "trimmed_clip": {
+    "path": "/home/user/hyperplane-teaser/clips/altman-senate-2023-worst-fear.mp4",
+    "source_start_s": 398.0,
+    "duration_s": 38.0,
+    "covers_lines": [
+      1,
+      2
+    ],
+    "note": "Re-encoded H.264/AAC 720p; source timestamps shift by -398 s in the trimmed file."
+  },
+  "lines": [
+    {
+      "verbatim": "I think if this technology goes wrong, it can go quite wrong and we want to be vocal about that.",
+      "start_s": 418.36,
+      "end_s": 424.58,
+      "min_word_prob_small_en": 0.278,
+      "notes": "Best match to the target line. The audio opens with 'I think', which the C-SPAN title and the widely shared version drop, and the title capitalizes 'If'. Trim 'I think' and 'and we want to be vocal about that' only if the montage needs the short form. The core phrase 'if this technology goes wrong, it can go quite wrong' spans 418.64-421.64 s."
+    },
+    {
+      "verbatim": "My worst fears are that we cause significant, we, the field, the technology, the industry, cause significant harm to the world.",
+      "start_s": 400.2,
+      "end_s": 407.02,
+      "min_word_prob_small_en": 0.833,
+      "notes": "Setup for the target line; Altman answers Gary Marcus's remark that he never said what his worst fear is. Good for an AI-risk montage: the speaker names the harm before the 'goes wrong' line."
+    },
+    {
+      "verbatim": "We want to work with the government to prevent that from happening.",
+      "start_s": 424.68,
+      "end_s": 427.56,
+      "min_word_prob_small_en": 0.837,
+      "notes": "Follow-on line; softer, usable as a tag or closing beat after the target line."
+    }
+  ],
+  "verification": {
+    "method": "faster-whisper base.en over the full 436 s file (found the line at 418-424 s), then small.en over the 392-438 s window; word-level timings from small.en; both models agree word for word on all three lines",
+    "not_done": "No human listening pass; the agreement is two-model. Word 'it' at 420.46 s (p=0.278) and 'and' at 421.64 s (p=0.459) are the weakest words. Listen to 418-425 s before final cut.",
+    "source_resolution": "C-SPAN upload, 1280x720 H.264 with AAC audio, 436.19 s duration"
+  },
+  "notes": "Clip is a 437 s C-SPAN excerpt that begins mid-hearing. The target line sits at 418.36-424.58 s in the file. Context: witness Gary Marcus said Altman never stated his worst fear, and the chair then asked Altman to respond. Date from the May 16, 2023 hearing coverage (Al Jazeera 2023-05-17 takeaways piece, in search results; not fetched). Hearing title from an OODA Loop listing ('oversight of A.I. rules for artificial intelligence'). Yt-dlp gave no upload date. No official Senate.gov transcript was checked. Transcripts are whisper output, so commas and periods are the model's punctuation, not the speaker's."
+}

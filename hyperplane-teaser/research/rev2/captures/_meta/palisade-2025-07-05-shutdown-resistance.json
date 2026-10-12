@@ -1,0 +1,46 @@
+{
+ "id": "palisade-2025-07-05-shutdown-resistance",
+ "url": "https://palisaderesearch.org/research/shutdown-resistance",
+ "expected": "Shutdown resistance in reasoning models",
+ "notes": [],
+ "status": 200,
+ "final_url": "https://palisaderesearch.org/research/shutdown-resistance",
+ "title0": "Shutdown resistance in reasoning models | Palisade Research",
+ "hidden_detail": [],
+ "title": "Shutdown resistance in reasoning models | Palisade Research",
+ "og_title": "Shutdown resistance in reasoning models",
+ "twitter_title": "Shutdown resistance in reasoning models",
+ "og_site": "Palisade Research",
+ "published": "2025-07-05T00:00:00+00:00",
+ "author_meta": "Jeffrey Ladish, Jeremy Schlatter, Benjamin Weinstein-Raun",
+ "canonical": "https://palisaderesearch.org/research/shutdown-resistance",
+ "h1_count": 1,
+ "h1": "Shutdown resistance in reasoning models",
+ "h1_box": [
+  40,
+  206.796875,
+  730,
+  302.796875
+ ],
+ "h1_font": "48px",
+ "below_bottom": 445.796875,
+ "below_text": [
+  "Subjects",
+  "OpenAI's reasoning models sometimes circumvent shutdown mechanisms even when exp",
+  "Shutdown Resistance",
+  "Authors"
+ ],
+ "hero_top": 2188.875,
+ "header_bottom": 70.99644088745117,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  463.796875
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/palisade-2025-07-05-shutdown-resistance.png",
+ "trimmed": 0
+}

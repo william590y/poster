@@ -1,0 +1,63 @@
+{
+  "key": "golden-years",
+  "lyric": "They say these are the golden years",
+  "lyric_idea": "Refrain echo: the AI boom. Hundreds of billions in data-center spending (Stargate $500B), record valuations, and 'golden age' rhetoric. Never show the lyric itself.",
+  "candidates": [
+    {
+      "rank": 1,
+      "type": "headline",
+      "text": "Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’",
+      "trim_option": "…as CEO declares ‘golden age’",
+      "speaker_or_outlet": "The Guardian (Johana Bhuiyan)",
+      "date": "2026-08-26",
+      "url": "https://www.theguardian.com/technology/2026/aug/26/nvidia-quarterly-revenue",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/economy/guardian_nvidia_revenue_100bn.png",
+      "verified_how": "Live page fetched: title and standfirst match. Body: Jensen Huang said the AI industry had reached a 'golden age'; revenue $96.2bn, up 106% year on year. Screenshot viewed locally. Deck manifest id nvidia-revenue-100bn-guardian, verified true.",
+      "why_it_fits": "Literal golden-age rhetoric from the AI boom's own chief executive, so the phrase lands without the lyric being shown. The trim option reads in about 2 s on a phone."
+    },
+    {
+      "rank": 2,
+      "type": "headline",
+      "text": "OpenAI teams up with SoftBank and Oracle on $500B data center project",
+      "trim_option": "…Oracle on $500B data center project",
+      "speaker_or_outlet": "TechCrunch (Kyle Wiggers)",
+      "date": "2025-01-21",
+      "url": "https://techcrunch.com/2025/01/21/openai-teams-up-with-softbank-and-oracle-on-50b-data-center-project/",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/economy/techcrunch_stargate_500b.png",
+      "verified_how": "Live page fetched: title reads 'OpenAI teams up with SoftBank and Oracle on $500B data center project | TechCrunch'. Body: the partners will 'pour up to $500 billion into the venture over the next four years'. Screenshot viewed locally. Deck manifest id techcrunch-stargate-500b. Note: the URL slug says '50b'; the headline text is $500B.",
+      "why_it_fits": "This is the Stargate $500B figure from the brief, the build-out behind the 'golden years'. Caveat: the $500B is a plan of up to $500B over four years, not money already spent, so keep the on-screen wording to the headline."
+    },
+    {
+      "rank": 3,
+      "type": "stat",
+      "text": "Big Tech’s AI Spending to Reach $760 Billion in 2026 (subtitle: Annual capital expenditure of Meta, Microsoft, Alphabet and Amazon)",
+      "trim_option": "$760B: Meta $145B + Microsoft $190B + Alphabet $205B + Amazon $220B (2026, company projections)",
+      "speaker_or_outlet": "Statista (Katharina Buchholz); source: company reports",
+      "date": "2026-07-31",
+      "url": "https://www.statista.com/chart/35046/capital-expenditure-of-meta-alphabet-amazon-and-microsoft/",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/economy/statista_bigtech_capex_2026.jpeg",
+      "verified_how": "Chart image opened and read locally: title, per-company 2026 bars, and footnote ('upper limit of latest company projection as of Jul. 30, 2026'). The four bars sum to $760B. Deck manifest id statista-bigtech-capex-760b, verified true. Live Statista page not opened.",
+      "why_it_fits": "The money behind the 'golden years' as one number a phone can read in about 2 s. Licence: CC BY-ND (stated on the image), so show it unaltered with credit; a crop or recolour may breach the no-derivatives term, so check before editing."
+    },
+    {
+      "rank": 4,
+      "type": "headline",
+      "text": "Anthropic raises $65 billion, nears $1T valuation ahead of IPO",
+      "trim_option": "Anthropic raises $65 billion, nears $1T valuation",
+      "speaker_or_outlet": "TechCrunch (Rebecca Bellan)",
+      "date": "2026-05-28",
+      "url": "https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/economy/techcrunch_anthropic_965b.png",
+      "verified_how": "Screenshot viewed locally: headline, byline and date (May 28, 2026) match. Deck manifest id techcrunch-anthropic-965b, verified true, dek: '$65 billion Series H round at a $965 billion post-money valuation'. Live page not opened.",
+      "why_it_fits": "Record-valuation rhetoric for the valuation beat of the boom. Caveat: 'nears $1T' is the headline's wording; the dek's $965B post-money is the closed figure, so quote the headline as written."
+    }
+  ],
+  "optional_visual": {
+    "note": "Not a lyric candidate; a build-out visual that pairs with Stargate. Epoch AI annotated satellite views of Stargate Abilene, imagery Airbus DS.",
+    "local_paths": [
+      "/home/user/poster/ai-safety-presentation/assets/research/economy/epoch_sat_stargate_abilene_2025-06.png",
+      "/home/user/poster/ai-safety-presentation/assets/research/economy/epoch_sat_stargate_abilene_2026-07.png"
+    ],
+    "url": "https://epoch.ai/data/ai-data-centers/directory/openai-stargate-abilene"
+  }
+}

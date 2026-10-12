@@ -1,0 +1,50 @@
+{
+  "key": "bengio-2025",
+  "found_video": true,
+  "speaker": "Yoshua Bengio",
+  "event": "TED2025 talk \"The Catastrophic Risks of AI — and a Safer Path\" (TED)",
+  "date": "April 2025 (TED2025, per TED page); TED page published 2025-05-20; YouTube upload 2025-05-21",
+  "source_url": "https://www.ted.com/talks/yoshua_bengio_the_catastrophic_risks_of_ai_and_a_safer_path",
+  "youtube_url": "https://www.youtube.com/watch?v=qe9QSCF-d88",
+  "full_talk_duration_s": 893,
+  "file": "/home/user/hyperplane-teaser/clips/bengio-fog-loss-of-control-ted2025.mp4",
+  "lines": [
+    {
+      "rank": 1,
+      "verbatim": "Despite the warnings of scientists like myself that this trajectory could lead to loss of control.",
+      "source_start_s": 598.72,
+      "source_end_s": 605.86,
+      "clip_file": "/home/user/hyperplane-teaser/clips/bengio-fog-loss-of-control-ted2025.mp4",
+      "clip_start_s": 8.72,
+      "clip_end_s": 15.86,
+      "trim_option": "\"that this trajectory could lead to loss of control.\" at source 601.18-605.86 (clip 11.18-15.86), about 4.7 s",
+      "notes": "Explicit loss-of-control line. Speaker is delivering it on stage. base.en and small.en agree on wording; small.en splits it into 598.72-601.18 and 601.18-605.86."
+    },
+    {
+      "rank": 2,
+      "verbatim": "We are blindly driving into a fog",
+      "source_start_s": 593.50,
+      "source_end_s": 597.80,
+      "clip_file": "/home/user/hyperplane-teaser/clips/bengio-fog-loss-of-control-ted2025.mp4",
+      "clip_start_s": 3.50,
+      "clip_end_s": 7.80,
+      "notes": "Short, punchy metaphor for the trajectory risk, about 4.3 s. The sentence continues with a comma into line 1, so the trailing comma is omitted here. Confirmed by both base.en and small.en; the word 'We' has low ASR confidence (0.42) in small.en, but base.en gives the same wording."
+    },
+    {
+      "rank": 3,
+      "verbatim": "about the potentially catastrophic risks of AI.",
+      "source_start_s": 115.82,
+      "source_end_s": 119.22,
+      "clip_file": "/home/user/hyperplane-teaser/clips/bengio-potentially-catastrophic-risks-ted2025.mp4",
+      "clip_start_s": 2.82,
+      "clip_end_s": 6.22,
+      "notes": "Direct catastrophic-risk framing, but early in the talk and less striking than lines 1-2. Start time from base.en; small.en gives 'talk to you about the potentially catastrophic' (110.0-117.98) and 'risks of AI.' (117.98-119.22)."
+    }
+  ],
+  "verification": {
+    "method": "Full talk downloaded (y2mate headless helper, 720p) and transcribed with base.en over the whole file, then re-transcribed the 540-650 s and 110-126 s windows with small.en; compared text and word probabilities. Cut clips with ffmpeg (re-encoded H.264/AAC).",
+    "agreement": "base.en and small.en agree on all three lines.",
+    "date_check": "TED page metadata reads TED2025, April 2025; yt-dlp reports YouTube upload_date 20250521."
+  },
+  "notes": "Clips and wording are verified against the audio. Lines 1 and 2 come from the same passage and can be cut together from one clip (bengio-fog-loss-of-control-ted2025.mp4, about 18.5 s). Line 3 has its own clip. Full talk is kept only in the scratchpad (not in clips/)."
+}

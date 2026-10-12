@@ -1,0 +1,2664 @@
+{
+ "name": "long",
+ "title": "Hyperplane x brutal: long version, the drop cut (9:16)",
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "duration": 61.2,
+ "audio": {
+  "song": "song/brutal.mp3",
+  "songStart": 19.232,
+  "note": "edit time = song time - 19.232 (the drop downbeat is frame 0). Ends at song 80.432 (verse 2's first vocal is at 80.68). Clip speech only in vocal-free stretches (r2): the drop riff (open-voice, Altman), the refrain's vocal gap (rf-musk) and the closing instrumental (end-voice, Bostrom)."
+ },
+ "song": {
+  "file": "song/brutal.mp3",
+  "segments": [
+   {
+    "in_s": 19.232,
+    "out_s": 80.432,
+    "at": 0
+   }
+  ],
+  "fade_in_s": 0.025,
+  "fade_out_s": 0.35,
+  "max_out_s": 80.45,
+  "bars": "song/bars.json",
+  "clean": {
+   "dips": [
+    [
+     44.86,
+     45.25
+    ]
+   ],
+   "ramp_ms": 12,
+   "mode": "full",
+   "note": "the explicit word ('fucking'), measured 44.86-45.25 (its /f/ starts at 44.86, the 't' of 'teenage' at 45.28); bars.json says 44.88-45.22"
+  }
+ },
+ "mix": {
+  "limiter_max_gr_db": 5.0,
+  "speech_limiter_max_gr_db": 5.0
+ },
+ "outputs": {
+  "song": "out/hyperplane-brutal-long-9x16.mp4",
+  "clean": "out/hyperplane-brutal-long-clean-9x16.mp4",
+  "no_song": "out/hyperplane-brutal-long-no-song-9x16.mp4"
+ },
+ "look": {
+  "ground": "#0E0D12",
+  "red": "#B31B1B",
+  "dim": "#9A96A8"
+ },
+ "themes": [
+  {
+   "t0": "bar:12",
+   "t1": 1000000000.0,
+   "theme": "light"
+  }
+ ],
+ "grids": {
+  "riff": [
+   0,
+   0.511,
+   0.993,
+   1.48,
+   1.945,
+   2.438,
+   2.926,
+   3.407,
+   3.889,
+   4.388,
+   4.865,
+   5.348,
+   5.822,
+   6.31,
+   6.798,
+   7.279
+  ],
+  "beat": [
+   0,
+   0.511,
+   0.993,
+   1.48,
+   1.945,
+   2.438,
+   2.926,
+   3.407,
+   3.889,
+   4.388,
+   4.865,
+   5.348,
+   5.822,
+   6.31,
+   6.798,
+   7.279,
+   7.725,
+   8.235,
+   8.747,
+   9.214,
+   9.705,
+   10.178,
+   10.657,
+   11.161,
+   11.632,
+   12.09,
+   12.561,
+   13.071,
+   13.576,
+   14.064,
+   14.551,
+   15.031,
+   15.507,
+   15.896,
+   16.435,
+   16.949,
+   17.388,
+   17.918,
+   18.406,
+   18.865,
+   19.347,
+   19.84,
+   20.319,
+   20.804,
+   21.32,
+   21.796,
+   22.307,
+   22.746,
+   23.251,
+   23.732,
+   24.211,
+   24.696,
+   25.175,
+   25.645,
+   26.147,
+   26.62,
+   27.111,
+   27.578,
+   28.08,
+   28.562,
+   29.041,
+   29.534,
+   30.013,
+   30.504,
+   30.957,
+   31.468,
+   31.949,
+   32.434,
+   32.922,
+   33.403,
+   33.882,
+   34.376,
+   34.808,
+   35.337,
+   35.818,
+   36.3,
+   36.782,
+   37.281,
+   37.76,
+   38.251,
+   38.723,
+   39.211,
+   39.698,
+   40.163,
+   40.663,
+   41.115,
+   41.632,
+   42.12,
+   42.601,
+   43.086,
+   43.571,
+   44.064,
+   44.54,
+   45.022,
+   45.504,
+   45.989,
+   46.479,
+   46.943,
+   47.402,
+   47.918,
+   48.412,
+   48.894,
+   49.358,
+   49.817,
+   50.333,
+   50.821,
+   51.308,
+   51.797,
+   52.307,
+   52.807,
+   53.271,
+   53.747,
+   54.188,
+   54.696,
+   55.181,
+   55.666,
+   56.124,
+   56.629,
+   57.114,
+   57.599,
+   58.083,
+   58.571,
+   59.053,
+   59.54,
+   60.019,
+   60.501,
+   60.986,
+   61.479,
+   61.949
+  ],
+  "bar": [
+   0,
+   1.945,
+   3.889,
+   5.822,
+   7.725,
+   9.705,
+   11.632,
+   13.576,
+   15.507,
+   17.388,
+   19.347,
+   21.32,
+   23.251,
+   25.175,
+   27.111,
+   29.041,
+   30.957,
+   32.922,
+   34.808,
+   36.782,
+   38.723,
+   40.663,
+   42.601,
+   44.54,
+   46.479,
+   48.412,
+   50.333,
+   52.307,
+   54.188,
+   56.124,
+   58.083,
+   60.019,
+   61.949
+  ]
+ },
+ "_grids_note": "beat = the measured riff onsets for beats 0-15 (as in short.json, minus 13.132), then song/bars.json beats snapped to the strongest onset within 70 ms (else bars.json - 25 ms, the median offset of the matched ones), minus 19.232. bar:k = beat:4k (bar 4 = verse 1 at song 26.957, bar 12 = chorus 42.483, bar 20 = refrain 57.955, bar 27 = 'God, it's brutal out here' 71.539, bar 28 = the instrumental 73.42).",
+ "items": [
+  {
+   "id": "ground-dark",
+   "type": "color",
+   "color": "#0E0D12",
+   "t0": "riff:15-0.05",
+   "t1": "bar:12",
+   "_note": "Verse 1 ground. Sits under the logo; the logo's cream fades out over the break (bgFade) and reveals it."
+  },
+  {
+   "id": "grain-verse",
+   "type": "grain",
+   "t0": "bar:4",
+   "t1": "bar:12",
+   "opacity": 0.035,
+   "size": 2,
+   "hold": 3
+  },
+  {
+   "id": "vignette-verse",
+   "type": "vignette",
+   "t0": "bar:4",
+   "t1": "bar:12"
+  },
+  {
+   "id": "ground-cream",
+   "type": "color",
+   "color": "#F2EBDD",
+   "t0": "bar:12",
+   "t1": 61.2,
+   "flash": {
+    "opacity": 0.5,
+    "decay": 0.03
+   },
+   "_note": "Chorus, refrain and the instrumental: full colour on the cream Kandinsky ground. r1: the chorus-downbeat flash is 0.5 / 0.03 s (was 0.75 / 0.07), so it is gone by the second frame and does not wash out the 17,600 card."
+  },
+  {
+   "id": "logo-form",
+   "type": "logo",
+   "t0": 0,
+   "t1": "bar:4+0.6",
+   "grid": "riff",
+   "beat0": 0,
+   "layout": {
+    "y": 300,
+    "scale": 0.72
+   },
+   "slam": [
+    "plane",
+    "pink",
+    "black",
+    "core",
+    "blue",
+    "teal",
+    "smallO"
+   ],
+   "slamDur": 0.1,
+   "slamFrom": {
+    "plane": 1.3,
+    "pink": 1.3,
+    "black": 1.3,
+    "core": 2.3,
+    "blue": 1.9,
+    "teal": 2.2,
+    "smallO": 3.2
+   },
+   "cues": {
+    "plane": 0,
+    "dots": 0,
+    "pink": 0,
+    "black": 0,
+    "smallO": 0.5,
+    "core": 1,
+    "sort": 2,
+    "blue": 2,
+    "teal": 3
+   },
+   "hits": [
+    {
+     "beat": 0,
+     "amp": 14,
+     "decay": 0.05
+    },
+    {
+     "beat": 0.5,
+     "amp": 5,
+     "decay": 0.05
+    },
+    {
+     "beat": 1,
+     "amp": 9,
+     "decay": 0.06
+    },
+    {
+     "beat": 2,
+     "amp": 12,
+     "decay": 0.06
+    },
+    {
+     "beat": 3,
+     "amp": 6,
+     "decay": 0.06
+    },
+    {
+     "beat": 4,
+     "amp": 9
+    },
+    {
+     "beat": 7,
+     "amp": 6
+    },
+    {
+     "beat": 8,
+     "amp": 22
+    },
+    {
+     "beat": 9,
+     "amp": 7
+    },
+    {
+     "beat": 12,
+     "amp": 8
+    }
+   ],
+   "shakes": [
+    {
+     "at": "riff:10",
+     "amp": 5,
+     "decay": 0.06
+    },
+    {
+     "at": "riff:11",
+     "amp": 5,
+     "decay": 0.06
+    },
+    {
+     "at": "riff:13",
+     "amp": 6,
+     "decay": 0.06
+    },
+    {
+     "at": "riff:14",
+     "amp": 5,
+     "decay": 0.06
+    }
+   ],
+   "flashes": [
+    {
+     "beat": 8,
+     "opacity": 0.22,
+     "decay": 0.05
+    }
+   ],
+   "pulse": {
+    "from": 0,
+    "to": 15,
+    "amp": 0.009,
+    "accents": {
+     "0": 6,
+     "1": 2.0,
+     "2": 2.4,
+     "8": 2.2,
+     "11": 1.6,
+     "12": 1.8,
+     "13": 1.8,
+     "14": 1.6,
+     "15": 1.8
+    }
+   },
+   "rehits": [
+    {
+     "beat": 9,
+     "parts": [
+      "teal",
+      "square",
+      "dots"
+     ],
+     "scale": 1.45,
+     "dur": 0.16
+    },
+    {
+     "beat": 9.5,
+     "parts": [
+      "smallO",
+      "core"
+     ],
+     "scale": 1.5,
+     "dur": 0.16
+    },
+    {
+     "beat": 10,
+     "parts": [
+      "blue",
+      "target"
+     ],
+     "scale": 1.22,
+     "dur": 0.18
+    },
+    {
+     "beat": 10.5,
+     "parts": [
+      "dots",
+      "smallO"
+     ],
+     "scale": 1.6,
+     "dur": 0.16
+    },
+    {
+     "beat": 11,
+     "parts": [
+      "blue",
+      "teal",
+      "square"
+     ],
+     "scale": 1.26,
+     "dur": 0.18
+    },
+    {
+     "beat": 11.5,
+     "parts": [
+      "nabla",
+      "chk",
+      "smallO"
+     ],
+     "scale": 1.3,
+     "dur": 0.16
+    },
+    {
+     "beat": 12,
+     "parts": [
+      "pink",
+      "core"
+     ],
+     "scale": 1.16,
+     "dur": 0.18
+    },
+    {
+     "beat": 12.5,
+     "parts": [
+      "dots",
+      "smallO"
+     ],
+     "scale": 1.8,
+     "dur": 0.18
+    },
+    {
+     "beat": 13,
+     "parts": [
+      "blue",
+      "teal",
+      "target",
+      "square"
+     ],
+     "scale": 1.28,
+     "dur": 0.18
+    },
+    {
+     "beat": 13.5,
+     "parts": [
+      "nabla",
+      "chk"
+     ],
+     "scale": 1.3,
+     "dur": 0.16
+    },
+    {
+     "beat": 14,
+     "parts": [
+      "black",
+      "core",
+      "pink"
+     ],
+     "scale": 1.16,
+     "dur": 0.18
+    },
+    {
+     "beat": 14.5,
+     "parts": [
+      "teal",
+      "smallO",
+      "dots",
+      "target"
+     ],
+     "scale": 1.5,
+     "dur": 0.16
+    }
+   ],
+   "push": {
+    "from": 9,
+    "to": 15,
+    "z": [
+     1.0,
+     1.035
+    ]
+   },
+   "break": {
+    "at": "riff:15",
+    "dur": 0.3,
+    "stagger": 0.004,
+    "lead": 0.05,
+    "hide": [
+     "band"
+    ],
+    "bgFade": 0,
+    "bgDelay": 0.067,
+    "hit": 16
+   },
+   "_note": "r1: the drop lands on frame 0. The plane band and the black and pink discs SLAM in fully formed on the downbeat (1.3x -> 1 over 3 frames, whole-art kick 1.054 -> 1, a 3-frame camera shake of 14 px) with no white flash (this cut opens cold on frame 0, so a flash would only blank the first frame). The orange core moves to beat 1 and the small orange O to beat 1.5 so beat 1 still has a hit; dots sort on beat 2 and the rest is unchanged (blue 3, teal 3.5, square 4, target 4.5, arc 5, normal 5.5, margin 5.75, checkerboard 6, nabla 7, wordmark 8, tilt 9, kicker 10). BREAK (r1): on the riff's last hit (beat 15, song 26.511), 0.45 s before the verse bar, so the blow-out gets its full 0.4 s before the first verse frame lands: the wordmark and kicker leave first (0.05 s lead), the cream fades to the dark verse ground over 0.22 s (no ghost of the wordmark on dark), and the yellow band and the teal square stay behind in place, then morph into band-v1 and the LOOT frame after the pieces have cleared (morph delay 0.18 s, landing on bar 4). r2 (critics): the riff's first hits are visible events, not specks: the orange core slams in at 2.3x on beat 1 (0.51 s), the blue disc at 1.9x on beat 2 (0.99 s, was rising in on beat 3) and the teal disc at 2.2x on beat 3 (1.48 s), each with a camera hit and a whole-art kick. Break: no grey dissolve: the cream holds 2 frames while the wordmark and kicker leave first, then cuts to the dark ground (bgFade 0, bgDelay 0.067). The verse lands on the MEASURED first vocal (song 26.915, edit 7.683; bars.json's 26.82 is the riff's level drop, not the voice): morph delay 0.14 s. r3 (motion critic: thin dark frames 7.40-7.60 before the verse lands): the blow-out is 0.3 s (ends 7.58) and the LOOT frame and the band morph out of the stay-behind pieces 0.06 s after the break over 0.22 s, so both are in place by 7.56; the ticker still lands on the first vocal (re-measured r3: centre-channel energy jumps at song 26.925, edit 7.693, the same frame 231 as 7.683; 26.74-26.92 is the riff's ring-out with no centred voice, so 26.82 / edit 7.588 is not the vocal). The hook gets one more event in its first second: the small orange O slams at 3.2x on beat 0.5 (0.255 s)."
+  },
+  {
+   "id": "open-voice",
+   "type": "voice",
+   "t0": 0.471,
+   "t1": 3.9309999999999796,
+   "src": "clips/altman-senate-2023-cspan.mp4",
+   "at": 0.471,
+   "audio": {
+    "in": 418.32,
+    "out": 421.78,
+    "peak_rel_db": 13
+   },
+   "verified": true,
+   "_note": "AUDIBLE (drop riff, no vocals). research/long/altman-senate-2023.json line 1 ('I think if this technology goes wrong, it can go quite wrong and we want to be vocal about that.', 418.36-424.58; C-SPAN, Senate Judiciary subcommittee hearing 'Oversight of A.I.', May 16, 2023). Cut after 'wrong' (marked …): r2 small.en on the exact window 418.32 + 3.46 s hears 'I think if this technology goes wrong, it can go quite wrong.' Edges measured on the clip's RMS: silence 417.84-418.38 before 'I' (418.40) and 421.74-422.00 after 'wrong' ('and' at 422.02). A 40 ms thump on 'I' (418.42-418.48, 15-20 dB over the speech, +7.7 dBTP after leveling) is held by a per-clip limiter (peak_rel_db 13), so it no longer forces the whole mix down to -20 LUFS."
+  },
+  {
+   "id": "open-cap",
+   "type": "caption",
+   "t0": 0,
+   "t1": "riff:8",
+   "theme": "light",
+   "text": "I think if this technology goes wrong, it can go quite wrong…",
+   "hl": "it can go quite wrong…",
+   "words": [
+    {
+     "w": "I",
+     "at": 0.511
+    },
+    {
+     "w": "think",
+     "at": 0.651
+    },
+    {
+     "w": "if",
+     "at": 0.791
+    },
+    {
+     "w": "this",
+     "at": 1.031
+    },
+    {
+     "w": "technology",
+     "at": 1.231
+    },
+    {
+     "w": "goes",
+     "at": 1.611
+    },
+    {
+     "w": "wrong,",
+     "at": 1.971
+    },
+    {
+     "w": "it",
+     "at": 2.651
+    },
+    {
+     "w": "can",
+     "at": 2.871
+    },
+    {
+     "w": "go",
+     "at": 2.991
+    },
+    {
+     "w": "quite",
+     "at": 3.171
+    },
+    {
+     "w": "wrong…",
+     "at": 3.451
+    }
+   ],
+   "y": 1040,
+   "w": 800,
+   "size": 84,
+   "lh": 1.05,
+   "srcGap": 14,
+   "serif": true,
+   "hlKeep": true,
+   "reveal": "dim",
+   "dimOp": 0.82,
+   "dimHl": 1.0,
+   "source": "Sam Altman · Senate hearing, 2023",
+   "verified": true,
+   "_note": "Caption = exactly what is heard (small.en words), the trailing … marks the cut 'and we want to be vocal about that'. r5: on screen 0.43-4.25 over the formation (the line is heard 0.471-3.931); the whole line shows dim from its first frame and each word lights as it is spoken, so the hook reads at once; it fades 0.3 s after the last word, over the wordmark slam, and the title holds clean to the break. r6 (social critic, high): a big serif pull-quote from frame 0 (see above), cut by the wordmark slam at 3.889; 'WRONG…' is heard 3.45-3.93."
+  },
+  {
+   "id": "band-v1",
+   "type": "band",
+   "t0": "riff:15",
+   "t1": "beat:22",
+   "band": {
+    "cx": 540,
+    "cy": 960,
+    "h": 330
+   },
+   "enter": {
+    "style": "morph",
+    "from": "logo:band",
+    "dur": 0.16,
+    "delay": 0.06
+   },
+   "kicks": [
+    {
+     "at": "beat:18",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "bar:5",
+     "s": 1.035,
+     "dur": 0.2
+    }
+   ],
+   "kickOrigin": [
+    540,
+    960
+   ],
+   "_note": "The logo's plane band stays behind at the break, then thickens into the 22-degree ticker for verse bars 4-5 (one headline, two bars). r1: centre raised from y 1300 to 1100 so the left end of the headline sits inside the Reels/TikTok text-safe area (left-end centreline about y 1274). r3: lands by 7.56 (delay 0.06, dur 0.22) and carries TWO tickers in turn, Fortune (bars 4-5) then TechCrunch (bar 6), each landing with the 2-frame ink flash; it slides out on bar 7. r5 (both critics, high: two or three text blocks at once in bars 4-6): the band carries Fortune ALONE through bar 4 and cuts out on bar 5 under Yudkowsky's slam (camera hit), so bar 5 belongs to him; the TechCrunch ticker and the LOOT frame are dropped. Centred on the frame (cy 960, 330 px thick), it is the bar's one picture."
+  },
+  {
+   "id": "v1-gap-sq",
+   "type": "shape",
+   "t0": "beat:15.25",
+   "t1": 7.5,
+   "frame": {
+    "shape": "square",
+    "cx": 820,
+    "cy": 847,
+    "w": 112,
+    "h": 112,
+    "fill": "#00B8A9",
+    "rot": 15
+   },
+   "enter": {
+    "style": "pop",
+    "dur": 0.16
+   },
+   "hit": 4
+  },
+  {
+   "id": "v1-gap-dot",
+   "type": "shape",
+   "t0": "beat:15.5",
+   "t1": 7.683,
+   "enabled": false,
+   "frame": {
+    "shape": "circle",
+    "cx": 250,
+    "cy": 1077,
+    "r": 50,
+    "fill": "#2346FF"
+   },
+   "enter": {
+    "style": "pop",
+    "dur": 0.14
+   },
+   "hit": 4
+  },
+  {
+   "id": "v1-loot",
+   "type": "image",
+   "t0": "riff:15",
+   "t1": "bar:5",
+   "src": "/home/user/poster/ai-safety-presentation/assets/research/security/swarmtraces-loot.png",
+   "enabled": false,
+   "crop": {
+    "x": 14,
+    "y": 911,
+    "w": 316,
+    "h": 50
+   },
+   "frame": {
+    "shape": "rect",
+    "x": 90,
+    "y": 560,
+    "w": 900,
+    "h": 142,
+    "ring": "#00B8A9",
+    "ringW": 6
+   },
+   "grade": {
+    "sat": 0.5,
+    "contrast": 1.04,
+    "brightness": -0.07,
+    "gamma": 1.0
+   },
+   "oversample": 1.0,
+   "enter": {
+    "style": "morph",
+    "from": "logo:square",
+    "dur": 0.22,
+    "delay": 0.06
+   },
+   "stamp": {
+    "year": "2026",
+    "name": "A recovered agent script",
+    "role": "Swarm Traces · Sep 25, 2026"
+   },
+   "textDelay": 0.41,
+   "verified": true,
+   "_note": "Plan v1a s1-loot-square (verify ok). r1: cropped to the single line 'LOOT=[ENV VALUE 315]' of the recovered script (swarmtraces-loot.png, source px x 14-330, y 911-961) at 2.85x, so the line is about 64 px tall and nothing runs off the frame. The teal square of the broken logo stays behind at the break and morphs into this frame. r2: stamp at the default y 300 (below the app header), frame moved down to y 430. r3 (social critic: two headlines at once in bars 4-5): the typeset LOOT headline is dropped, so Fortune is the only headline of bars 4-5; the source moves into the stamp's role line ('Swarm Traces · Sep 25, 2026', the page date verified in v1a.verify idx 1) and the frame sits at y 560, centred between the stamp and the Fortune label."
+  },
+  {
+   "id": "v1-fortune",
+   "type": "ticker",
+   "band": "band-v1",
+   "t0": 7.5,
+   "t1": "beat:22",
+   "hit": 6,
+   "shakes": [
+    {
+     "at": 7.683,
+     "amp": 5,
+     "decay": 0.06
+    },
+    {
+     "at": "bar:5",
+     "amp": 7,
+     "decay": 0.07
+    }
+   ],
+   "kicks": [
+    {
+     "at": "beat:18",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "bar:5",
+     "s": 1.035,
+     "dur": 0.2
+    }
+   ],
+   "kickOrigin": [
+    540,
+    960
+   ],
+   "text": "…hacked into AI company Hugging Face",
+   "hl": "hacked into AI company Hugging Face",
+   "outlet": "OpenAI says its AI models",
+   "date": "Fortune · 2026",
+   "size": 84,
+   "style": {
+    "w": 960,
+    "labelStack": true,
+    "labelGap": 18
+   },
+   "invert": 0,
+   "verified": true,
+   "_note": "Plan v1a s1-fortune-ticker (verify ok). r1: holds two bars (3.9 s) instead of one. Full headline: 'OpenAI says its AI models secretly broke out of a secure test environment and hacked into AI company Hugging Face in order to cheat on an evaluation'; the ellipsis marks the cut. r5 (motion and social critics, high: it ran under Yudkowsky's card through bar 5): it ends on bar 5 (9.705), so it holds 2.0 s alone (10 words, the only text on screen), set at 74 px on the centred band. The social critic's 'OpenAI's AI models hacked into AI company Hugging Face' is not used: it rewrites 'says its' and drops the ellipsis, and headlines stay verbatim. r6 (social critic, high: 15 words in 2.0 s): the label is 'FORTUNE · 2026' (the date, Jul 21, 2026, goes to the post caption), and the lead-in 'OpenAI says its AI models …' is set at 0.72 (dimRest; ~5:1 on the yellow) so the eye lands on the red clause 'hacked into AI company Hugging Face' (6 words) while the whole verbatim headline stays readable: 12 words in 2.0 s. The critic's option of a 6-word band with 'OpenAI' in a stamp would read as 'OpenAI hacked into Hugging Face' (the company, not its models), which changes the claim; its other option (Yudkowsky from bar 5.5) would leave his 20-word sentence 2.9 s. The ticker already lands on the measured first vocal (7.683, song 26.915); the critic's 7.59 is bars.json's 26.82, the riff's level drop. FINAL PASS (social critic, high: ~13 words in 2.0 s, dimming adds no reading time): the band carries only the red clause, '…hacked into AI company Hugging Face' (6 words, 84 px), and the headline's subject rides in the stacked mono label above the band: 'OPENAI SAYS ITS AI MODELS' over 'FORTUNE · 2026'. Every word is the headline's, in order; the … marks the cut 'secretly broke out of a secure test environment and' (in the post caption with the full headline). 'says' keeps the attribution and 'its AI models' keeps the claim about the models, not the company (the r6 objection to 'OpenAI' alone)."
+  },
+  {
+   "id": "v1-yud",
+   "type": "clip",
+   "t0": "beat:22",
+   "t1": "bar:8-0.01",
+   "src": "clips/yudkowsky-ted-2023-full.mp4",
+   "in": 276.092,
+   "crop": {
+    "x": 730,
+    "y": 0,
+    "w": 460,
+    "h": 460
+   },
+   "frame": {
+    "shape": "circle",
+    "cx": 540,
+    "cy": 640,
+    "r": 250,
+    "ring": "#B31B1B",
+    "ringW": 8
+   },
+   "grade": {
+    "sat": 0.15,
+    "contrast": 1.18,
+    "brightness": 0.02,
+    "gamma": 1.08,
+    "sharpen": 0.6,
+    "grain": 4
+   },
+   "zoom": [
+    1.0,
+    1.08
+   ],
+   "focus": [
+    0.5,
+    0.3
+   ],
+   "enter": "slam",
+   "hit": 10,
+   "shakes": [
+    {
+     "at": "bar:6",
+     "amp": 7,
+     "decay": 0.07
+    },
+    {
+     "at": "bar:7",
+     "amp": 7,
+     "decay": 0.07
+    }
+   ],
+   "kicks": [
+    {
+     "at": "beat:24",
+     "s": 1.035,
+     "dur": 0.2
+    },
+    {
+     "at": "beat:26",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:28",
+     "s": 1.035,
+     "dur": 0.2
+    },
+    {
+     "at": "beat:30",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    860
+   ],
+   "verified": true,
+   "_note": "MUTED (sung verse). Plan v1a s2-yudkowsky-clip, re-cut r4 from the full talk (TED2023, YouTube Yd0yQ9yxSYY, 1920x1080, one continuous wide shot from 275 to 281 s, no camera cut). research/verify/yudkowsky-full.json: 'If we actually try to do this in real life, we are all going to die.' runs 276.72-280.32 s (small.en on 273.64 + 9.68 s; the preceding sentence ends at 275.80 with a full stop). Picture in 276.50, so he says the whole sentence at card-local 0.22-3.82 s, inside the two bars (3.90 s). Crop 400 px around his head and chest (he drifts from x ~860 to ~1040 over the line). His words are the pull-quote v1-yud-q. r4: the circle moves to the upper right (cx 800, cy 525, r 200) so the full sentence can run down the left column from y 300, ending above the band's attribution line (y ~870). r5 (motion critic, low: a flat pink disc with no content showed at the upper right for ~3 frames at 9.75-9.85 s): that was this frame's morph out of the logo's pink circle (the colour fades off as it grows). It now SLAMS in on bar 5, full size with the clip on its first frame, like every other hand-over. With the band gone in bars 5-6 (r5), the card uses the whole frame: the circle is larger and centred above (cx 540, cy 640, r 250), the sentence runs under it. Beat kicks on beats 22, 24 (bar 6, with a camera hit) and 26. At this size the crop is 460 px centred on x 960 (he drifts from x ~860 to ~1040 over the line), and the grade is lifted (brightness +0.02, gamma 1.08): the dark verse grade left the larger circle nearly black on the r5 stills."
+  },
+  {
+   "id": "v1-yud-q",
+   "type": "pullquote",
+   "t0": "beat:22",
+   "t1": "bar:8-0.01",
+   "label": "On superintelligence",
+   "text": "“If we actually try to do this in real life, we are all going to die.”",
+   "hl": "we are all going to die",
+   "size": 78,
+   "style": {
+    "x": 60,
+    "w": 960,
+    "y": 950,
+    "labSize": 38
+   },
+   "name": "Eliezer Yudkowsky",
+   "year": "2023",
+   "enter": "slam",
+   "textDelay": 0.0,
+   "kicks": [
+    {
+     "at": "beat:24",
+     "s": 1.035,
+     "dur": 0.2
+    },
+    {
+     "at": "beat:26",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:28",
+     "s": 1.035,
+     "dur": 0.2
+    },
+    {
+     "at": "beat:30",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    860
+   ],
+   "verified": true,
+   "_note": "r4: the WHOLE sentence, verbatim (research/verify/yudkowsky-full.json; base.en and small.en agree word for word), so the condition stays with the claim. No ellipsis: the sentence starts at 'If' (the one before ends with a full stop at 275.80). The red label says what 'this' is: the sentences just before are 'Some of the people leading these efforts have spent the last decade not denying that creating a superintelligence might kill everyone, but joking about it. We are very far behind. This is not a gap we can overcome in six months given a six-month moratorium.' (small.en, 260.98-275.80). Talk: 'Will superintelligent AI end the world?', TED2023 (April 2023). r6 (social critic, high: density): the role line 'TED2023' goes to the post caption (the chip says 2023); the whole sentence stays (r4 editorial): 20 words in 3.9 s."
+  },
+  {
+   "id": "v1-tc",
+   "type": "ticker",
+   "band": "band-v1",
+   "t0": "bar:6",
+   "t1": "bar:7",
+   "hit": 4,
+   "enabled": false,
+   "text": "OpenAI explains why ChatGPT became too sycophantic",
+   "hl": "too sycophantic",
+   "outlet": "TechCrunch",
+   "date": "Apr 29, 2025",
+   "size": 66,
+   "style": {
+    "w": 940
+   },
+   "verified": true,
+   "_note": "Plan v1a s4-techcrunch-ticker (verify ok; Kyle Wiggers; h1 checked on the live page). 7 words, one bar. r3: moved from bar 7 to bar 6 and set on the shared verse band (it takes over from Fortune with the ink flash)."
+  },
+  {
+   "id": "v1-openai-ring",
+   "type": "shape",
+   "enabled": false,
+   "t0": "bar:7",
+   "t1": "bar:8+0.04",
+   "frame": {
+    "shape": "square",
+    "cx": 540,
+    "cy": 860,
+    "w": 740,
+    "h": 740,
+    "ring": "#B31B1B",
+    "ringW": 8,
+    "rot": 15
+   },
+   "enter": "slam",
+   "hit": 5,
+   "exit": {
+    "style": "collapse",
+    "dur": 0.12
+   },
+   "_note": "r3: alone in the bar now, a tilted square (the logo's square at 15 degrees) instead of the small corner frame. r4: its collapse runs 40 ms past bar 8 (under Leike's slam), so the frame before the slam still shows it at ~1/4 size instead of a point on an empty ground. r6 (frame scan): the collapse is 0.12 s (was 0.2), so the last frame before Leike's slam (464) shows the square at ~86 % instead of ~1/3 (0.5 % of the frame had content)."
+  },
+  {
+   "id": "v1-openai-q",
+   "type": "pullquote",
+   "enabled": false,
+   "t0": "bar:7",
+   "t1": "bar:8+0.04",
+   "label": "Sycophancy in GPT-4o",
+   "text": "“…thumbs-up / thumbs-down feedback…”",
+   "upright": true,
+   "hl": "thumbs-up / thumbs-down",
+   "size": 84,
+   "style": {
+    "x": 220,
+    "w": 640,
+    "cy": 860,
+    "align": "center",
+    "labSize": 40
+   },
+   "name": "OpenAI",
+   "year": "2025",
+   "enter": "slam",
+   "textDelay": 0.0,
+   "exit": {
+    "style": "collapse",
+    "dur": 0.12
+   },
+   "verified": true,
+   "_note": "Plan v1a s4-openai-quote (verify ok): tail of 'We also teach our models how to apply these principles by incorporating user signals like thumbs-up / thumbs-down feedback on ChatGPT responses.' (Sycophancy in GPT-4o, Apr 29, 2025). r1: the text collapses with its frame. r3: the only block in its bar (the TechCrunch ticker moved to bar 6). r4 (seen on the r4 strip: the tilted square stood empty for 3 frames after its slam): textDelay 0.1 -> 0.03. r5 (motion critic, medium: the italic body read as tilted inside the 15-degree square): set upright (roman); only the frame keeps its tilt. With the TechCrunch ticker dropped, the red label 'Sycophancy in GPT-4o' (the post's title: 'Sycophancy in GPT-4o: what happened and what we're doing about it') says why the feedback line matters; the role line is 'Blog' (the date, Apr 29, 2025, goes to the post caption), so the bar carries 15 words, not 18. r6 (social critic, high: density): cut to '…thumbs-up / thumbs-down feedback…' (the post's 'by incorporating user signals like' and 'on ChatGPT responses' cut, marked …; same meaning: the models were taught with that feedback) at 84 px, and the role 'Blog' goes to the caption: label 3 + quote 3 + '2025 · OpenAI' = 8 words in 1.9 s. Frame scan (r6): the text rose in 0.03 s after the square's slam, so frame 408 showed only the thin red outline; it now slams in with the square, and collapses with it in 0.12 s."
+  },
+  {
+   "id": "v1-leike-card",
+   "type": "shape",
+   "t0": "bar:8-0.01",
+   "t1": "bar:10",
+   "frame": {
+    "shape": "square",
+    "x": 60,
+    "y": 560,
+    "w": 960,
+    "h": 660,
+    "ring": "#B31B1B",
+    "ringW": 8
+   },
+   "enter": "slam",
+   "hit": 6,
+   "shakes": [
+    {
+     "at": "bar:9",
+     "amp": 8,
+     "decay": 0.07
+    }
+   ],
+   "kicks": [
+    {
+     "at": "beat:34",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:36",
+     "s": 1.035,
+     "dur": 0.2
+    },
+    {
+     "at": "beat:38",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    890
+   ]
+  },
+  {
+   "id": "v1-leike",
+   "type": "pullquote",
+   "t0": "bar:8-0.01",
+   "t1": "bar:10",
+   "label": "Resigning",
+   "text": "“…disagreeing with OpenAI leadership … for quite some time, until we finally reached a breaking point.”",
+   "hl": "breaking point",
+   "hlAt": "bar:9",
+   "hlWipe": 0.2,
+   "size": 70,
+   "style": {
+    "x": 120,
+    "w": 840,
+    "cy": 890
+   },
+   "name": "Jan Leike",
+   "year": "2024",
+   "enter": "slam",
+   "textDelay": 0.0,
+   "kicks": [
+    {
+     "at": "beat:34",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:36",
+     "s": 1.035,
+     "dur": 0.2
+    },
+    {
+     "at": "beat:38",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    890
+   ],
+   "verified": true,
+   "_note": "Plan v1b-01 (verify ok). r1: typeset from the post (x-leike-2024-05-17-breaking-point.png, second post of the thread, 3:57 PM · May 17, 2024) instead of the page capture: 'However, I have been disagreeing with OpenAI leadership about the company's core priorities for quite some time, until we finally reached a breaking point.' One sentence; the ellipses mark 'However,' and 'about the company's core priorities for quite some time,'. No X mark or chrome. r2 (both critics: 14 words in one bar, ~7 w/s): cut to the sentence's end, '…until we finally reached a breaking point.' (7 words); the red label 'Resigning from OpenAI' carries the context the cut removes (the thread says he is 'resigning from my job as head of alignment', lyrics/quit-my-job.json; 'we' = Leike and OpenAI leadership). r3 (motion critic: one bar only if the role line goes): the 'X post · May 17, 2024' role line is dropped; label, quote, '2024' and the name stay. The post's date is in out/NOTES.md. r4 (editorial critic): '…disagreeing with OpenAI leadership … for quite some time, until we finally reached a breaking point.' (15 words of the one sentence, in order; the ellipses mark 'However, I have been' and 'about the company's core priorities'), on screen for two bars (3.9 s, about 4.6 words/s with the label), so the motion critic's reading-load limit still holds. research/verify/leike-full.json: x.com/janleike/status/1791498178346549382, 2024-05-17T15:57:04Z, second post of the thread; the role line 'X post · May 17, 2024' is back now the card has time. r6 (social critic, medium): alone for both bars, centred (card y 560-1220, 70 px); the role line goes to the post caption again (label 3 + quote 15 + '2024 · Jan Leike' = 21 words in 3.9 s, the only block on screen); 'breaking point' wipes on on bar 9 (hlAt) with the bar's kick and a camera hit. Seen on the r6 strip: frames 465-466 showed the slammed card as an empty red outline while the text rose in, so the text now slams in with the card (enter slam, no delay)."
+  },
+  {
+   "id": "v1-coxon-ring",
+   "type": "shape",
+   "t0": "bar:9",
+   "t1": "bar:10",
+   "frame": {
+    "shape": "circle",
+    "cx": 540,
+    "cy": 1185,
+    "r": 270,
+    "ring": "#B31B1B",
+    "ringW": 10
+   },
+   "enter": "slam",
+   "hit": 8,
+   "enabled": false,
+   "kicks": [
+    {
+     "at": "beat:38",
+     "s": 1.03,
+     "dur": 0.18
+    }
+   ],
+   "kickOrigin": [
+    540,
+    1185
+   ]
+  },
+  {
+   "id": "v1-coxon",
+   "type": "pullquote",
+   "t0": "bar:9",
+   "t1": "bar:10",
+   "text": "“I resigned from Anthropic today.”",
+   "hl": "resigned",
+   "size": 64,
+   "style": {
+    "x": 300,
+    "w": 480,
+    "cy": 1162,
+    "align": "center"
+   },
+   "name": "Jacob Coxon",
+   "year": "2026",
+   "role": "X post · Sep 9, 2026",
+   "rule": false,
+   "enter": "slam",
+   "enabled": false,
+   "kicks": [
+    {
+     "at": "beat:38",
+     "s": 1.03,
+     "dur": 0.18
+    }
+   ],
+   "kickOrigin": [
+    540,
+    1185
+   ],
+   "verified": true,
+   "_note": "Plan v1b-02 (verify ok): the post's first sentence, verbatim (x-coxon-2026-09-08-resigned-anthropic.png, 12:04 AM · Sep 9, 2026). r1: typeset instead of the page capture (no X mark, no Follow button). r4: a circle under Leike's card (the two resignations stacked on 'so tired that I might / quit my job'); the role line is set with non-breaking spaces so it wraps as one line under the name. r6: DROPPED (enabled: false; social critic, medium: two text blocks at once under Leike's card). Coxon is in the long cut once, on The Daily Show (ch-coxon)."
+  },
+  {
+   "id": "v1-kenya-ring",
+   "type": "shape",
+   "t0": "bar:10",
+   "t1": "bar:12",
+   "frame": {
+    "shape": "square",
+    "x": 80,
+    "y": 470,
+    "w": 920,
+    "h": 760,
+    "ring": "#B31B1B",
+    "ringW": 10
+   },
+   "enter": "slam",
+   "zoom": [
+    1.0,
+    1.045
+   ],
+   "shakes": [
+    {
+     "at": "bar:11",
+     "amp": 9,
+     "decay": 0.07
+    }
+   ],
+   "kicks": [
+    {
+     "at": "beat:42",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:44",
+     "s": 1.035,
+     "dur": 0.2
+    },
+    {
+     "at": "beat:46",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    850
+   ]
+  },
+  {
+   "id": "v1-kenya",
+   "type": "headline",
+   "t0": "bar:10",
+   "t1": "bar:12",
+   "enter": "slam",
+   "hit": 6,
+   "hlAt": "bar:11",
+   "hlWipe": 0.2,
+   "zoom": [
+    1.0,
+    1.045
+   ],
+   "invert": 0,
+   "text": "…OpenAI Used Kenyan Workers on Less Than $2 Per Hour to Make ChatGPT Less Toxic",
+   "hl": "Kenyan Workers",
+   "outlet": "TIME",
+   "date": "2023",
+   "size": 70,
+   "style": {
+    "x": 150,
+    "w": 780,
+    "cy": 850
+   },
+   "kicks": [
+    {
+     "at": "beat:42",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:44",
+     "s": 1.035,
+     "dur": 0.2
+    },
+    {
+     "at": "beat:46",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    850
+   ],
+   "verified": true,
+   "_note": "Plan v1b-04 (verify ok; Billy Perrigo). r1: two bars (3.9 s) for its 15 words. r3 (motion critic: a 4 s static hold): the card and its ring push in slowly (1 -> 1.045 over both bars, same centre and curve), and on bar 11 ('who am I if not exploited') the red 'Kenyan Workers' highlight wipes on left to right with a camera hit. r5 (motion critic, medium: the hold still ignored the beat; Kenya needs a beat hit at bar 11, not only the wipe): card and ring kick together on beat 42 (2 %), bar 11 (3.5 %, with the shake and the wipe) and beat 46 (2 %). r6 (social critic, high: density): the headline's 'Exclusive:' tag is cut (marked …; the headline is otherwise verbatim) and the attribution is 'TIME · 2023' (Jan 18, 2023 in the post caption): 16 words in 3.9 s."
+  },
+  {
+   "id": "ch-17600-sq",
+   "enabled": false,
+   "type": "shape",
+   "t0": "bar:12",
+   "t1": "bar:12",
+   "frame": {
+    "shape": "square",
+    "cx": 150,
+    "cy": 1450,
+    "w": 400,
+    "h": 400,
+    "fill": "#FF2E88",
+    "rot": 15
+   },
+   "enter": {
+    "style": "fly",
+    "from": "left",
+    "dist": 700,
+    "dur": 0.22
+   }
+  },
+  {
+   "id": "ch-17600-ring",
+   "enabled": false,
+   "type": "shape",
+   "t0": "bar:12",
+   "t1": "bar:12",
+   "frame": {
+    "shape": "circle",
+    "cx": 560,
+    "cy": 950,
+    "r": 520,
+    "fill": "#2346FF"
+   },
+   "enter": "slam",
+   "hit": 8,
+   "_note": "r4 (seen on the r4 strip): the chorus downbeat frame showed only a small blue dot (the disc popped from zero under the flash); the disc now slams in at full size on the downbeat, the pink square still flies in from the left."
+  },
+  {
+   "id": "ch-17600",
+   "enabled": false,
+   "type": "pullquote",
+   "t0": "bar:12",
+   "t1": "bar:12",
+   "big": "~17,600",
+   "bigSize": 180,
+   "text": "attacker actions recovered",
+   "upright": true,
+   "size": 58,
+   "style": {
+    "x": 220,
+    "w": 680,
+    "cy": 950,
+    "align": "center",
+    "color": "#F2EBDD",
+    "bigColor": "#F2EBDD"
+   },
+   "enter": "rise",
+   "textDelay": 0.1,
+   "verified": true,
+   "_note": "Plan ch-a-01 (verify ok): verbatim 'covers ~17,600 attacker actions that we were able to recover' (Hugging Face technical timeline, Jul 27, 2026). The 17 lands on 'seventeen'. r1: a half-bleed filled blue disc (not an outline ring) with a pink square behind it; the figure is set in cream on the blue (about 5:1). r2: stamp at y 300 (below the app header) with the date in the chip ('JUL 27, 2026') and 'Incident timeline' as the role, so the 38-40 px line fits; the disc moves down to cy 950 to clear it; the card hands over to Amodei on beat 51 (it is up through 'seventeen'). r3 (social critic: 8 words plus a stamp in 1.45 s): the sub-line is shortened to 'attacker actions recovered' (unquoted, upright: a description of the source's '~17,600 attacker actions that we were able to recover', same meaning: the count of recovered actions). The card cannot hold longer: '17' sits on 'seventeen' and Amodei needs its 2.4 s."
+  },
+  {
+   "id": "ch-17600-stamp",
+   "enabled": false,
+   "type": "stamp",
+   "t0": "bar:12",
+   "t1": "bar:12",
+   "stamp": {
+    "year": "Jul 27, 2026",
+    "name": "Hugging Face",
+    "role": "Incident timeline"
+   },
+   "_note": "r4: drawn after the disc, so the disc's 1.18x slam on the chorus downbeat passes under the stamp."
+  },
+  {
+   "id": "ch-amodei-disc",
+   "type": "shape",
+   "t0": "beat:49",
+   "t1": "beat:55",
+   "frame": {
+    "shape": "circle",
+    "cx": 240,
+    "cy": 1300,
+    "r": 200,
+    "fill": "#2346FF"
+   },
+   "enter": {
+    "style": "pop",
+    "dur": 0.22
+   },
+   "kicks": [
+    {
+     "at": "beat:50",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:52",
+     "s": 1.035,
+     "dur": 0.2
+    },
+    {
+     "at": "beat:54",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    850
+   ],
+   "_note": "r6: with the 17,600 card cut, the chorus's blue disc is a half-bleed accent behind the pink tile's lower-left corner; it pops on the downbeat's second beat (as the 17,600 card's pink square flew in) and kicks with the card. FINAL PASS (motion critic, low: at cx 170, cy 1310 it clipped the card's corner and the frame edge, a sliver that read as an accidental tangent): its centre sits ON the card's bottom edge (cx 240, cy 1300), so exactly half of it shows as a clean half-disc under the tile, wholly inside the frame (x 40-440, y 1300-1500), the cover's layered-circle look."
+  },
+  {
+   "id": "ch-amodei-ring",
+   "type": "shape",
+   "t0": "bar:12",
+   "t1": "beat:55",
+   "frame": {
+    "shape": "square",
+    "x": 90,
+    "y": 400,
+    "w": 900,
+    "h": 900,
+    "fill": "#FF2E88"
+   },
+   "enter": "slam",
+   "hit": 8,
+   "kicks": [
+    {
+     "at": "beat:50",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:52",
+     "s": 1.035,
+     "dur": 0.2
+    },
+    {
+     "at": "beat:54",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    850
+   ],
+   "_note": "r2: slams in (full size on its first frame), so the hand-over from the 17,600 card has no empty frame. r6: it slams on the chorus downbeat (bar 12) under the cream ground's flash."
+  },
+  {
+   "id": "ch-amodei",
+   "type": "pullquote",
+   "t0": "bar:12",
+   "t1": "beat:55",
+   "text": "“…the dream of a civilization that had made it through to adulthood…”",
+   "hl": "the dream",
+   "size": 80,
+   "hlAt": "bar:13",
+   "hlWipe": 0.2,
+   "style": {
+    "x": 160,
+    "w": 760,
+    "cy": 850,
+    "color": "#15131F",
+    "hlColor": "#15131F",
+    "hlBg": "#F2EBDD",
+    "dimColor": "#3A1027"
+   },
+   "name": "Dario Amodei",
+   "year": "2026",
+   "role": "Anthropic CEO",
+   "enter": "slam",
+   "textDelay": 0.0,
+   "kicks": [
+    {
+     "at": "beat:50",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:52",
+     "s": 1.035,
+     "dur": 0.2
+    },
+    {
+     "at": "beat:54",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    850
+   ],
+   "verified": true,
+   "_note": "REPLACEMENT for ch-a-02 (the Guardian 'golden age' headline was planned twice; it stays on 'golden years'). From lyrics/teenage-dream.json; re-checked 10 Oct by fetching darioamodei.com/essay/the-adolescence-of-technology (header 'January 2026'): '...In my essay Machines of Loving Grace, I tried to lay out the dream of a civilization that had made it through to adulthood, where the risks had been addressed...'. No picture event on the explicit word (song 44.86-45.25). r2 (both critics: 16 words in 1.9 s): trimmed to '…the dream of a civilization that had made it through to adulthood…' (12 words; 'I tried to lay out' cut, meaning unchanged) and on screen 2.4 s from beat 51 (~5 w/s). Filled pink tile, ink type (about 5.8:1), the highlight as a cream-on-ink chip. r5 (social critic, high: 23 words in 2.4 s): the source line 'Essay: The Adolescence of Technology' moves to the post caption (out/NOTES.md); on screen the quote, 'Jan 2026 · Dario Amodei · CEO, Anthropic' (18 words). r6: on the chorus downbeat for 3.4 s (bar 12 to beat 55; the 17,600 card is cut), 17 words (~5 w/s). The chip is 'Jan 2026' -> '2026' (the essay's month is in the post caption). Motion critic (low): the body was already ink on the pink (#15131F on #FF2E88, ~5.3:1; the 'cream' read was the thumbnail), but the black highlight chip broke the cut's highlight system, so the chip is now cream with ink type, and it wipes on on bar 13 ('where's my … teenage dream', 25.175, 0.45 s before the explicit word, which still has no picture event) with the bar's 3.5 % kick. Seen on the r6 strip: the chorus downbeat (frames 698-699) showed an empty pink tile under the cream flash while the quote rose in, so the quote now slams in with the tile."
+  },
+  {
+   "id": "ch-coxon",
+   "type": "clip",
+   "t0": "beat:55",
+   "t1": "bar:15",
+   "src": "clips/coxon-daily-show.mp4",
+   "in": 451.75,
+   "crop": {
+    "x": 250,
+    "y": 20,
+    "w": 540,
+    "h": 540
+   },
+   "frame": {
+    "shape": "circle",
+    "cx": 540,
+    "cy": 690,
+    "r": 300,
+    "ring": "#7B3FF2",
+    "ringW": 18
+   },
+   "grade": {
+    "sat": 1.0,
+    "contrast": 1.08,
+    "brightness": -0.01,
+    "gamma": 1.0,
+    "sharpen": 0.5,
+    "grain": 3
+   },
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "focus": [
+    0.5,
+    0.4
+   ],
+   "enter": "slam",
+   "hit": 6,
+   "verified": true,
+   "_note": "MUTED (sung chorus). Plan ch-a-03: its verify flagged the speaker/year, so re-checked here: the transcript shows the guest (28, worked at Anthropic and OpenAI) saying it at 452.24-454.26 and the host says 'Jacob Cox[on]' at 1546.3; a frame at 452.8 shows the guest speaking. Same guest and attribution as the short's verified Coxon clip (research/verify/SUMMARY.md). Source: youtube.com/watch?v=lnLDjXy2kRA. Picture starts at 452.25 ('Like,') so the bar ends before the camera cut at 454.21. r6: 2.42 s from beat 55 (26.620, after the explicit word and 'teenage dream'), so the picture starts at 451.75 (one continuous shot of the guest from before 450 to the cut at 454.22, checked with ffmpeg scene detection; muted, so the extra 0.5 s is him finishing 'that's not happening' on mute) and ends at 454.17."
+  },
+  {
+   "id": "ch-coxon-q",
+   "type": "pullquote",
+   "t0": "beat:55",
+   "t1": "bar:15",
+   "label": "OpenAI restarted the escaped agent",
+   "text": "“…and it did it again.”",
+   "hl": "it did it again",
+   "size": 84,
+   "style": {
+    "x": 60,
+    "w": 860,
+    "y": 1040
+   },
+   "name": "Jacob Coxon",
+   "year": "2026",
+   "enter": "rise",
+   "textDelay": 0.08,
+   "verified": true,
+   "_note": "Heard on tape (transcript 445.38-454.26): 'because OpenAI specifically, they saw the thing poking its head out of the sandbox, and they were like, that's not happening. Like, restarted the thing, and it did it again.' r3: the motion critic (8 words + name in one bar) and the social critic (no context: what is 'the thing', what did 'it' do) are both met by the core of the line, '…and it did it again.' (cut 'Like, restarted the thing,', marked …), under a red context label in the house style, 'OpenAI restarted the escaped agent': Coxon's own account ('they saw the thing poking its head out of the sandbox … restarted the thing'; earlier, 421.5-424.9: 'it figured out it was in a sandbox, hacked its way out of the sandbox'), and Fortune's 'secretly broke out of a secure test environment' (v1-fortune). 10 words in 1.93 s. r4 (editorial critic: show and year unconfirmed): research/verify/coxon-daily-show-date.json confirms the segment aired Monday, Oct 5, 2026 (The Daily Show with Jon Stewart, Season 31, Episode 111; YouTube lnLDjXy2kRA; LateNighter, Oct 5, 11:52 AM ET: Coxon 'set to sit down tonight'; Newsweek, IBTimes UK and Mediaite, Oct 6: 'Monday'; Wikipedia's 2026 episode list: Episode 111, October 5, guest 'Former researcher at OpenAI and Anthropic'). About 92% confidence; no network listing page could be read. The role line now carries the air date. This supersedes plan ch-a.verify idx 2 (ok: false: placeholder source_url, no air date); the source URL is https://youtube.com/watch?v=lnLDjXy2kRA. r5 (social critic, high: ~19 words in 1.9 s): the role line is 'The Daily Show' (the chip says 2026); the air date, Oct 5, 2026, is in the post caption (out/NOTES.md). r6 (social critic, high: 15 words in 1.9 s): 2.4 s from beat 55, and the role line goes to the post caption (The Daily Show, Oct 5, 2026: re-confirmed by research/verify/coxon-daily-show-date.json): label 5 + quote 5 + '2026 · Jacob Coxon' = 13 words in 2.4 s."
+  },
+  {
+   "id": "ch-19-stamp",
+   "type": "stamp",
+   "t0": "bar:15",
+   "t1": "bar:17",
+   "stamp": {
+    "year": "2026",
+    "name": "Stanford study"
+   },
+   "_note": "r2: chip '2026' (was 'Aug 2026') so the 40 px name and 38 px authors each fit one line above the tile. r5 (social critic, high): the authors (Brynjolfsson, Chandar, Chen) move to the post caption; the stamp is year + lab. r6 (social critic, high/medium: 26 words in 3.9 s): 'Stanford study' (the Digital Economy Lab and the authors are in the post caption)."
+  },
+  {
+   "id": "ch-19-ring",
+   "type": "shape",
+   "t0": "bar:15",
+   "t1": "bar:17",
+   "frame": {
+    "shape": "square",
+    "x": 90,
+    "y": 450,
+    "w": 900,
+    "h": 680,
+    "fill": "#7B3FF2"
+   },
+   "enter": "slam",
+   "hit": 6,
+   "zoom": [
+    1.0,
+    1.02
+   ],
+   "kicks": [
+    {
+     "at": "beat:62",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:64",
+     "s": 1.035,
+     "dur": 0.2
+    },
+    {
+     "at": "beat:66",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    790
+   ]
+  },
+  {
+   "id": "ch-19",
+   "type": "pullquote",
+   "t0": "bar:15",
+   "t1": "bar:17",
+   "label": "Young workers (22–25) in AI-exposed jobs",
+   "big": "19% below",
+   "bigDim": " below",
+   "bigSize": 160,
+   "text": "where it would be had it kept pace with … less-exposed peers",
+   "upright": true,
+   "size": 62,
+   "style": {
+    "x": 150,
+    "w": 780,
+    "cy": 790,
+    "lh": 1.12,
+    "color": "#F2EBDD",
+    "bigColor": "#F2EBDD",
+    "bigDimColor": "#F2C300",
+    "labColor": "#F2EBDD",
+    "labSize": 42
+   },
+   "enter": "cut",
+   "kicks": [
+    {
+     "at": "beat:62",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:64",
+     "s": 1.035,
+     "dur": 0.2
+    },
+    {
+     "at": "beat:66",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    790
+   ],
+   "verified": true,
+   "_note": "Plan ch-a-04 (verify ok). Source (abstract, verbatim): 'employment of young workers (ages 22–25) in AI-exposed occupations now stands 19% below where it would be had it kept pace with that of their less-exposed peers'. Descriptive, not causal: nothing on screen says AI caused it. r1: a filled tile. r2: violet with cream type (about 5.5:1). r3 (social critic): the card now reads as the comparison it is: label 'Employment of young workers (22–25) in AI-exposed jobs' (the subject), '19% below', 'the trend of less-exposed peers' (the baseline: 'where it would be had it kept pace with … their less-exposed peers'). The text is upright and unquoted (a description of the finding, not a quotation). Two bars (bars 15-16, 3.9 s) for its 13 words. r4 (editorial critic, high: 'the trend of' is our paraphrase, and the cut at 'occupations' was unmarked): every word on the card is now the abstract's, in its order: 'Employment of young workers (ages 22–25) in AI-exposed occupations' / '19% below' / 'where it would be had it kept pace with that of their less-exposed peers'; only the linking 'now stands' between the label and the figure is left out (the card is an unquoted stat card, not a quotation, so there is no quote to mark). research/verify/stanford-19pct.json: verbatim in the abstract of the August 2026 revision (PDF p. 1, 'Revised August 12 2026', data through June 2026), digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf; the 19% is the paper's descriptive series (15% in Jul 2025 -> 19% in Jun 2026), not a regression estimate. Not sourced to the deck's swe-by-age chart (no 19% on it). r5 (social critic, high: ~33 words in 3.9 s): the authors leave the stamp (post caption); the counterfactual STAYS on screen, because a bare '19% below' reads as a plain decline (the r3 editorial and social issue; the critic says it 'does not make sense without it'), and the card cannot take a third bar without dropping Hinton's 'I can't see a path that guarantees safety' on 'I'm anxious and nothing can help'. Beat kicks on beats 62, 64 (bar 16, with the yellow dot) and 66. r6 (motion critic, medium: a 10-word, three-line 38 px label read as texture; social critic, medium: 26 words in 3.9 s; both: 'Young workers (22-25) in AI-exposed jobs'): the label is 'Young workers (22–25) in AI-exposed jobs' at 42 px (two lines). 'Jobs' is the paper's own word (research/verify/stanford-19pct.json: Section 2.2 and the introduction say 'AI-exposed jobs'), and 'young workers in AI-exposed jobs' counts the same people as 'employment of young workers in AI-exposed occupations', so the figure keeps its subject. The counterfactual STAYS (a bare '19% below' reads as a plain decline, the r3 issue), cut to 'where it would be had it kept pace with … less-exposed peers' ('that of their' cut, marked …). On screen: 'Stanford study' 2 + label 6 + '19% below' + 11 = 21 words in 3.9 s (was 26). The full sentence is in the post caption."
+  },
+  {
+   "id": "ch-19-dot",
+   "type": "shape",
+   "t0": "bar:16",
+   "t1": "bar:17",
+   "frame": {
+    "shape": "circle",
+    "cx": 985,
+    "cy": 1140,
+    "r": 150,
+    "fill": "#F2C300"
+   },
+   "enter": {
+    "style": "pop",
+    "dur": 0.22
+   },
+   "hit": 6,
+   "kicks": [
+    {
+     "at": "beat:66",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    790
+   ],
+   "_note": "r3: the bar-16 event inside the two-bar hold: a plane-yellow disc pops over the tile's lower-right corner (no text there)."
+  },
+  {
+   "id": "ch-hinton-tile",
+   "type": "shape",
+   "t0": "bar:17",
+   "t1": "bar:18",
+   "frame": {
+    "shape": "circle",
+    "cx": 250,
+    "cy": 500,
+    "r": 250,
+    "fill": "#2346FF"
+   },
+   "enter": {
+    "style": "pop",
+    "dur": 0.22
+   },
+   "_note": "r2 (motion critic): a filled tile behind the Hinton clip, so the chorus has a filled shape every one or two cards. r3: cy 430 -> 500 so its top (y 250) stays below the platform header."
+  },
+  {
+   "id": "ch-hinton",
+   "type": "clip",
+   "t0": "bar:17",
+   "t1": "bar:18",
+   "src": "clips/hinton-no-path-to-safety-2023.mp4",
+   "in": 1.6,
+   "crop": {
+    "x": 270,
+    "y": 0,
+    "w": 600,
+    "h": 600
+   },
+   "frame": {
+    "shape": "square",
+    "x": 240,
+    "y": 380,
+    "w": 600,
+    "h": 600,
+    "ring": "#00B8A9",
+    "ringW": 18
+   },
+   "grade": {
+    "sat": 1.0,
+    "contrast": 1.08,
+    "brightness": -0.01,
+    "gamma": 1.0,
+    "sharpen": 0.5,
+    "grain": 3
+   },
+   "zoom": [
+    1.0,
+    1.04
+   ],
+   "focus": [
+    0.5,
+    0.4
+   ],
+   "enter": "slam",
+   "hit": 6,
+   "verified": true,
+   "_note": "MUTED (sung chorus). Plan ch-b-03 (verify ok). In-point re-checked with small.en on the clip: 'I can't see a path that guarantees safety.' = clip 1.70-3.90, so he says it inside the bar. The duplicate Vox ticker planned for this bar is dropped."
+  },
+  {
+   "id": "ch-hinton-q",
+   "type": "pullquote",
+   "t0": "bar:17",
+   "t1": "bar:18",
+   "text": "“I can’t see a path that guarantees safety.”",
+   "hl": "guarantees safety",
+   "size": 70,
+   "style": {
+    "x": 60,
+    "w": 900,
+    "y": 1050
+   },
+   "name": "Geoffrey Hinton",
+   "year": "2023",
+   "enter": "rise",
+   "textDelay": 0.08,
+   "verified": true,
+   "_note": "r6 (social critic, high: density): the role line 'CBS 60 Minutes' goes to the post caption: 10 words in 1.9 s."
+  },
+  {
+   "id": "ch-turing-sq",
+   "type": "shape",
+   "t0": "bar:18",
+   "t1": "bar:19",
+   "frame": {
+    "shape": "square",
+    "cx": 990,
+    "cy": 590,
+    "w": 520,
+    "h": 520,
+    "fill": "#00B8A9",
+    "rot": 15
+   },
+   "enter": {
+    "style": "fly",
+    "from": "right",
+    "dist": 800,
+    "dur": 0.22
+   },
+   "hit": 6
+  },
+  {
+   "id": "ch-turing",
+   "type": "pullquote",
+   "t0": "bar:18",
+   "t1": "bar:19",
+   "big": "1951",
+   "bigSize": 240,
+   "text": "“…we should have to expect the machines to take control…”",
+   "hl": "the machines to take control",
+   "size": 80,
+   "style": {
+    "x": 60,
+    "w": 900,
+    "cy": 880,
+    "bigColor": "#15131F"
+   },
+   "name": "Alan M. Turing",
+   "enter": "cut",
+   "verified": true,
+   "_note": "Plan ch-b-04 (verify ok; Quote Investigator). Venue deliberately not named. The CAIS-statement image planned on beat 2 is dropped: its May 30, 2023 date was not confirmed by the verifier, and the bar is already dense. r1: the teal square is a half-bleed filled tile behind the year, which is set in ink. r2 (social critic: 14 words in 2.0 s): 'At some stage therefore' cut, marked …; 10 words, meaning unchanged. r3 (motion critic: 10 words + '1951' + name in one bar): cut to the core, '…expect the machines to take control…' (6 words; 'we should have to' cut, marked …; 'expect' is kept so it stays a forecast, not a claim). The teal square moves down (cy 590, 520 px, rotated 15) so its top corner stays below y 250 (was ~139, under the platform header)."
+  },
+  {
+   "id": "ch-gallup",
+   "type": "ticker",
+   "t0": "bar:19",
+   "t1": "bar:20",
+   "band": {
+    "cx": 540,
+    "cy": 1080,
+    "h": 240
+   },
+   "enabled": false,
+   "enter": {
+    "style": "slam",
+    "dur": 0.2
+   },
+   "exit": {
+    "style": "slide",
+    "dur": 0.2
+   },
+   "hit": 6,
+   "text": "Americans Cool Toward AI",
+   "hl": "Cool",
+   "outlet": "Gallup",
+   "date": "Jul 28, 2026",
+   "size": 84,
+   "verified": true,
+   "_note": "Plan ch-b-06 (verify ok). r1: band raised from y 1230 to 1080 (safe zone); slams in with its text. r5: dropped (see above); the headline is in out/NOTES.md for the post caption."
+  },
+  {
+   "id": "ch-gallup-39",
+   "type": "ticker",
+   "t0": "bar:19",
+   "t1": "bar:20",
+   "band": {
+    "cx": 540,
+    "cy": 690,
+    "h": 340
+   },
+   "enter": {
+    "style": "slam",
+    "dur": 0.2
+   },
+   "hit": 7,
+   "invert": 0,
+   "text": "39%",
+   "size": 250,
+   "style": {
+    "w": 760
+   },
+   "outlet": "Gallup",
+   "date": "2026",
+   "verified": true,
+   "_note": "Plan ch-b-07 with the verifier's correct_text 'GALLUP · 2026' (the 3,270 sample size was not confirmed and is dropped). Page (news.gallup.com/poll/712751, 'Americans Cool Toward AI', Jul 28, 2026): 'The percentage of Americans who believe AI does more harm than good has increased from 31% in 2025 to 39% in 2026'. r5 (social critic, high: the Gallup stack, a headline ticker plus a 39% card with a second attribution, ~19 words in 1.9 s): ONE block on the bar line. The figure rides the logo's yellow plane band at its 22 degrees (fully inside the band, so no edge crosses the type), the band's straight label carries the one attribution 'GALLUP · JUL 28, 2026' (the page's date; the year chip of the old card is gone), and the subject sits upright under the band (ch-gallup-sub). The headline 'Americans Cool Toward AI' goes to the post caption. 12 words in 1.9 s. r6 (social critic, high: density): the label is 'GALLUP · 2026' (Jul 28, 2026 in the post caption): 12 words in 1.9 s."
+  },
+  {
+   "id": "ch-gallup-sub",
+   "type": "pullquote",
+   "t0": "bar:19",
+   "t1": "bar:20",
+   "text": "of Americans believe AI does more harm than good",
+   "source": "up from 31% in 2025",
+   "upright": true,
+   "size": 62,
+   "rule": false,
+   "style": {
+    "x": 150,
+    "w": 780,
+    "y": 1085,
+    "align": "center",
+    "lh": 1.08,
+    "dimColor": "#2C2836"
+   },
+   "enter": "slam",
+   "verified": true,
+   "_note": "r4 (editorial critic: the subject was dropped): 'of Americans' is restored (unquoted, upright: the page's figure in short form, same meaning). r5: set under the band's lower edge (y ~1044 at x 90), so the band never crosses it."
+  },
+  {
+   "id": "rf-96-field",
+   "type": "shape",
+   "t0": "bar:21",
+   "t1": "bar:22",
+   "frame": {
+    "shape": "circle",
+    "cx": 700,
+    "cy": 570,
+    "r": 320,
+    "fill": "#2346FF"
+   },
+   "enter": {
+    "style": "pop",
+    "dur": 0.22
+   },
+   "hit": 5,
+   "kicks": [
+    {
+     "at": "beat:86",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    900
+   ],
+   "_note": "r2: a half-bleed blue field pops in behind the red disc on bar 21 ('this the kind of thanks I get'), so the two-bar card still moves on the bar line. r3 (social critic: it started above the frame, under the platform header): cx 950, cy 570, r 320, so its top is y 250; it still sits behind the red disc, overlapping it by about 50 px. r5 (motion critic, medium: the ~50 px sliver read as a mistake): cx 820, so it commits to a ~180 px lens behind the red disc (top still y 250) and still bleeds off the right edge. r6 (motion critic, low: the field still read as tangent to the disc beside the '%'): the field sits BEHIND the red disc, so the 180 px overlap was hidden and only the touching edges showed. It moves in to cx 700 (a 300 px overlap): the bigger blue disc now shows as a crescent wrapping the red disc's top-right and right side, the layered look of the cover's pink behind its black circle; its top stays at y 250 and its bottom (y 890) clears the label. The '96%' is set at 196 px (was 220) so it sits inside the red disc with a margin instead of touching its edge."
+  },
+  {
+   "id": "rf-96-ring",
+   "type": "shape",
+   "t0": "bar:20",
+   "t1": "bar:22",
+   "frame": {
+    "shape": "circle",
+    "cx": 420,
+    "cy": 590,
+    "r": 260,
+    "fill": "#B31B1B"
+   },
+   "enter": "slam",
+   "hit": 10,
+   "flash": {
+    "opacity": 0.5,
+    "decay": 0.03
+   },
+   "kicks": [
+    {
+     "at": "beat:82",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:84",
+     "s": 1.035,
+     "dur": 0.2
+    },
+    {
+     "at": "beat:86",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    900
+   ]
+  },
+  {
+   "id": "rf-96-big",
+   "type": "pullquote",
+   "t0": "bar:20",
+   "t1": "bar:22",
+   "big": "96%",
+   "bigSize": 196,
+   "rule": false,
+   "style": {
+    "x": 170,
+    "w": 500,
+    "cy": 602,
+    "align": "center",
+    "bigColor": "#F2EBDD"
+   },
+   "enter": "cut",
+   "kicks": [
+    {
+     "at": "beat:82",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:84",
+     "s": 1.035,
+     "dur": 0.2
+    },
+    {
+     "at": "beat:86",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    900
+   ]
+  },
+  {
+   "id": "rf-96",
+   "type": "pullquote",
+   "t0": "beat:80.5",
+   "t1": "bar:22",
+   "label": "In controlled simulations",
+   "text": "“Claude Opus 4 blackmailed the user 96% of the time…”",
+   "hl": "blackmailed",
+   "size": 70,
+   "style": {
+    "x": 60,
+    "w": 900,
+    "y": 920,
+    "labSize": 44
+   },
+   "name": "Anthropic",
+   "year": "2025",
+   "enter": "rise",
+   "textDelay": 0.0,
+   "kicks": [
+    {
+     "at": "beat:82",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:84",
+     "s": 1.035,
+     "dur": 0.2
+    },
+    {
+     "at": "beat:86",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    900
+   ],
+   "verified": true,
+   "_note": "Plan rf-a-2 with the verifier's correct_text: the disclaimer is shown in full (three sentences). Only the Opus 4 row. r1: a filled red disc with the figure in cream. r2 (both critics: the caveat was unreadable in 1.5 s): the card holds two bars (3.9 s; the text from one beat in, 3.4 s), the disclaimer is set at 38 px, and a 42 px red label 'In controlled simulations' (the disclaimer's own words) sits above the quote for the whole card, so the qualifier reads with the claim. The quote itself is unchanged (an exact clause of the Anthropic sentence). Full disclaimer also in out/NOTES.md for the post caption. r3 (both critics: a 34-word mono paragraph is unreadable texture on a phone, 13 words/s): the on-screen honesty is the red label 'In controlled simulations' (the words of the disclaimer's first sentence) plus its third sentence, verbatim, as the one source line: 'No real people were involved or harmed in any of these experiments.' The second sentence (the experiments' names are fictional) names nothing shown on screen, so it moves to the post caption with the full three-sentence disclaimer (out/NOTES.md). The text rises half a beat after the 96% slam (beat 80.5), 3.6 s. r5 (social critic, high: 32 words in 3.6 s): the source line is the disclaimer's third sentence up to 'harmed' ('No real people were involved or harmed.'; 'in any of these experiments' is implied by the label 'In controlled simulations' and is in the caption), set at the 38 px meta size (>= 36 px), and the role line 'Agentic Misalignment · Jun 20, 2025' moves to the post caption. On screen: label 3 + quote 9 + '2025 · Anthropic' + source 7 = 21 words in 3.6 s. Beat kicks on beats 82, 84 (bar 21, with the blue field) and 86. r6 (social critic, high: density; motion critic, medium: the 38 px 'NO REAL PEOPLE…' line was at risk on a phone): the source line goes to the post caption with the full disclaimer. The on-screen qualifier is the red label 'In controlled simulations' (the disclaimer's own words), now 44 px, over the quote at 70 px: label 3 + quote 9 + '2025 · Anthropic' = 14 words in 3.4 s."
+  },
+  {
+   "id": "rf-o3-disc",
+   "type": "shape",
+   "t0": "beat:89",
+   "t1": "beat:93",
+   "frame": {
+    "shape": "circle",
+    "cx": 930,
+    "cy": 640,
+    "r": 200,
+    "fill": "#00B8A9"
+   },
+   "enter": {
+    "style": "pop",
+    "dur": 0.22
+   },
+   "hit": 5,
+   "kicks": [
+    {
+     "at": "beat:89",
+     "s": 1.025,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:91",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:92",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    820
+   ],
+   "_note": "r6: the bar's second-beat event (motion critic: 'a beat-locked teal disc behind the card'), behind the card's top-right corner."
+  },
+  {
+   "id": "rf-o3-card",
+   "type": "shape",
+   "t0": "bar:22",
+   "t1": "beat:93",
+   "frame": {
+    "shape": "rect",
+    "x": 90,
+    "y": 640,
+    "w": 900,
+    "h": 350,
+    "ring": "#00B8A9",
+    "ringW": 14,
+    "fill": "#EAF7F3"
+   },
+   "enter": "slam",
+   "hit": 6,
+   "resize": {
+    "at": "beat:90",
+    "dur": 0.16,
+    "frame": {
+     "h": 760
+    }
+   },
+   "kicks": [
+    {
+     "at": "beat:89",
+     "s": 1.025,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:91",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:92",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    820
+   ],
+   "_note": "r3 (motion critic: the card's lower half was empty for a beat): it opens at content height (final pass 3: the snippet's caption and its name row) and grows down to full height on the 'Stop.' slam (beat 90), with a small overshoot."
+  },
+  {
+   "id": "rf-o3",
+   "type": "pullquote",
+   "t0": "bar:22",
+   "t1": "beat:93",
+   "text": "OpenAI o3 keeps repeating the same phrase before snapping out of it",
+   "hl": "keeps repeating the same phrase",
+   "upright": true,
+   "size": 66,
+   "name": "Apollo Research × OpenAI",
+   "year": "2025",
+   "rule": false,
+   "style": {
+    "x": 135,
+    "w": 810,
+    "y": 676,
+    "lh": 1.04,
+    "color": "#15131F"
+   },
+   "enter": "cut",
+   "kicks": [
+    {
+     "at": "beat:89",
+     "s": 1.025,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:91",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:92",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    820
+   ],
+   "verified": true,
+   "_note": "Plan rf-a-3 (research/long/plan/rf-a.json text_exact; rf-a.verify.json idx 2 ok): the snippet's caption, verbatim, 'OpenAI o3 keeps repeating the same phrase before snapping out of it' (slides/frontier/o3_loop1.png, antischeming.ai/snippets, Apollo Research × OpenAI, Sep 17, 2025). It is the publisher's caption, not model output: upright, unquoted, with the publisher as the name row. The model's own text on the card is only 'Stop.' and '[…]' (rf-o3-stop, mono). The red highlight marks the loop (exact substring). History: r1-r6 showed a verbatim excerpt of the repeated reasoning phrase under a mono label; r7 dropped the excerpt (it read as garble) for a red label 'Its reasoning' over 'Stuck in a loop', which final pass 3 removed (the gloss read as o3's reasoning and is in no source)."
+  },
+  {
+   "id": "rf-o3-stop",
+   "type": "pullquote",
+   "t0": "beat:90",
+   "t1": "beat:93",
+   "big": "Stop.",
+   "bigSize": 210,
+   "text": "[…]",
+   "size": 44,
+   "rule": false,
+   "style": {
+    "x": 135,
+    "w": 810,
+    "y": 1010,
+    "mono": true,
+    "bigMono": true
+   },
+   "enter": "slam",
+   "hit": 8,
+   "kicks": [
+    {
+     "at": "beat:89",
+     "s": 1.025,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:91",
+     "s": 1.02,
+     "dur": 0.16
+    },
+    {
+     "at": "beat:92",
+     "s": 1.02,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    540,
+    820
+   ],
+   "verified": true,
+   "_note": "The snippet's 'Stop. [...]' (the model snapping out of the loop), set big in mono (model output) on beat 90. r5 (refrain word load, social critic): the role's date (Sep 17, 2025) moves to the post caption; the chip keeps 2025. r6: the role line 'Apollo Research × OpenAI' moves to the post caption. Final pass 3: it is back on screen as rf-o3's name row (the publisher of the caption shown above 'Stop.')."
+  },
+  {
+   "id": "rf-musk",
+   "type": "clip",
+   "t0": "beat:93",
+   "t1": "bar:24",
+   "src": "clips/musk-mit-2014-demon.mp4",
+   "in": 58.354,
+   "crop": {
+    "x": 230,
+    "y": 10,
+    "w": 540,
+    "h": 540
+   },
+   "frame": {
+    "shape": "circle",
+    "cx": 540,
+    "cy": 640,
+    "r": 280,
+    "ring": "#B31B1B",
+    "ringW": 18
+   },
+   "grade": {
+    "sat": 1.0,
+    "contrast": 1.08,
+    "brightness": -0.01,
+    "gamma": 1.0,
+    "sharpen": 0.5,
+    "grain": 3
+   },
+   "zoom": [
+    1.0,
+    1.05
+   ],
+   "focus": [
+    0.5,
+    0.4
+   ],
+   "enter": "slam",
+   "hit": 6,
+   "audio": {
+    "in": 58.46,
+    "out": 59.44
+   },
+   "verified": true,
+   "_note": "AUDIBLE in the refrain's vocal gap (r2). REPLACEMENT for rf-a-4 (Bostrom 'Humanville'). research/long/musk-mit-2014.json line 1: 'With artificial intelligence, we are summoning the demon.' (57.32-59.38; MIT AeroAstro Centennial Symposium, 24 Oct 2014). The gap only holds the second half: audio 58.36-59.44 plays at song 64.26-65.34 (edit 45.028-46.108). Gap measured r2 on song/brutal.wav (mid-side energy, 300-3500 Hz): 'upset' decays to the band's level by ~64.1, the pickup 'They' starts at 65.44, so speech ends 0.10 s before it (the 120 ms duck ramp ends on it). small.en on the exact window (58.36 + 1.08 s) hears only 'we are summoning the demon.' (also from 58.30 and 58.46). The picture starts at src 58.354 so his mouth matches the sound; it runs to 59.81, before 'You know' (60.92). FINAL PASS: audio in 58.36 -> 58.46. small.en on the final mix (window padded with digital silence) heard 'As we are summoning the demon': 58.30-58.40 keep the sibilant tail of 'intelligence' (HF energy 58.31-58.44). 58.46 sits in the quiet gap before 'we' (58.45-58.50) and hears exactly 'We are summoning the demon.' Speech now plays at edit 45.128-46.108 (song 64.36-65.34)."
+  },
+  {
+   "id": "rf-musk-q",
+   "type": "pullquote",
+   "t0": "beat:93",
+   "t1": "bar:24",
+   "label": "On AI",
+   "text": "“…we are summoning the demon.”",
+   "hl": "summoning the demon",
+   "size": 76,
+   "style": {
+    "x": 60,
+    "w": 900,
+    "y": 1000
+   },
+   "name": "Elon Musk",
+   "year": "2014",
+   "enter": "rise",
+   "textDelay": 0.06,
+   "verified": true,
+   "_note": "What is heard, exactly ('With artificial intelligence,' is cut, marked …); the label says what the demon is. r5 (social critic, high: 13 words in 1.5 s): the role line 'MIT AeroAstro Symposium' moves to the post caption (MIT AeroAstro Centennial Symposium, Oct 24, 2014)."
+  },
+  {
+   "id": "rf-stargate",
+   "type": "image",
+   "skipIn": [
+    "long"
+   ],
+   "t0": "bar:24",
+   "t1": "bar:25",
+   "src": "/home/user/poster/ai-safety-presentation/assets/research/economy/epoch_sat_stargate_abilene_2026-07.png",
+   "crop": {
+    "x": 280,
+    "y": 0,
+    "w": 720,
+    "h": 720
+   },
+   "frame": {
+    "shape": "circle",
+    "cx": 540,
+    "cy": 630,
+    "r": 200,
+    "ring": "#B31B1B",
+    "ringW": 18
+   },
+   "grade": {
+    "sat": 1.0
+   },
+   "zoom": [
+    1.0,
+    1.06
+   ],
+   "enter": "slam",
+   "hit": 8,
+   "stamp": {
+    "year": "2026",
+    "name": "OpenAI Stargate Abilene",
+    "role": "Image: Epoch AI"
+   },
+   "verified": true,
+   "_note": "Plan rf-b-0 with the verifier's correct_text 'IMAGERY: EPOCH AI · JUL 2026' (the Airbus credit is unconfirmed and dropped). r1: the circle is smaller and higher (cy 600, r 250) so it clears the raised Guardian band and its attribution line. r2: stamp at y 300 with the verifier's exact credit line as the role (chip '2026'), so the 40 px name fits one line; the circle sits between the stamp and the Guardian label (cy 630, r 200), the band moves to y 1185. r5 (social critic, high: the Guardian ticker plus this stamp, ~23 words in 1.9 s): the credit is cut to 'Image: Epoch AI' (the image stays credited on screen); the full 'Imagery: Epoch AI · Jul 2026' is in the post caption."
+  },
+  {
+   "id": "rf-guardian",
+   "type": "ticker",
+   "t0": "bar:24",
+   "t1": "bar:25",
+   "band": {
+    "cx": 540,
+    "cy": 1185,
+    "h": 260
+   },
+   "skipIn": [
+    "long"
+   ],
+   "enter": {
+    "style": "slam",
+    "dur": 0.2
+   },
+   "exit": {
+    "style": "slide",
+    "dur": 0.2
+   },
+   "text": "Nvidia’s quarterly revenue doubles … as CEO declares ‘golden age’",
+   "hl": "‘golden age’",
+   "outlet": "The Guardian",
+   "date": "Aug 26, 2026",
+   "size": 68,
+   "style": {
+    "w": 940
+   },
+   "dimRest": 0.42,
+   "invert": 0.06,
+   "verified": true,
+   "_note": "Plan rf-b-1 (verify ok). Full: 'Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’'. 5 words: one bar. r1: band raised from y 1290 to 1100 (safe zone) and slams in with its text. r3 (social critic: whose CEO?): 'Nvidia’s quarterly revenue doubles … as CEO declares ‘golden age’' (9 words; only 'to nearly $100bn' is cut, marked …), set at 68 px across the band's 940 px. r5 (social critic, high): the verbatim headline stays whole, the words outside 'golden age' at 0.42 (as in the short's r5), so it reads as its highlight; the landing flash is 2 frames. r6: skipped in the long cut (skipIn), kept for make_short.py (the short overrides dimRest to 0.75); the long's bar 24 is rf-guardian-l."
+  },
+  {
+   "id": "rf-gold-disc",
+   "type": "shape",
+   "t0": "beat:97",
+   "t1": "bar:25",
+   "frame": {
+    "shape": "circle",
+    "cx": 720,
+    "cy": 690,
+    "r": 230,
+    "fill": "#FF4A1C"
+   },
+   "enter": {
+    "style": "pop",
+    "dur": 0.26
+   },
+   "hit": 5,
+   "kicks": [
+    {
+     "at": "beat:98",
+     "s": 1.04,
+     "dur": 0.16
+    }
+   ],
+   "kickOrigin": [
+    720,
+    690
+   ],
+   "_note": "r6: the bar's second-beat event, an orange disc (the logo's core colour) behind the band's top edge, like a sun on the 'golden age' horizon; it cuts out with the band under Apollo's slam on bar 25."
+  },
+  {
+   "id": "rf-guardian-l",
+   "type": "ticker",
+   "t0": "bar:24",
+   "t1": "bar:25",
+   "band": {
+    "cx": 540,
+    "cy": 1080,
+    "h": 300
+   },
+   "enter": {
+    "style": "slam",
+    "dur": 0.2
+   },
+   "hit": 8,
+   "text": "Nvidia’s quarterly revenue doubles … as CEO declares ‘golden age’",
+   "hl": "‘golden age’",
+   "outlet": "The Guardian",
+   "date": "2026",
+   "size": 72,
+   "style": {
+    "w": 940
+   },
+   "dimRest": 0.85,
+   "invert": 0,
+   "verified": true,
+   "_note": "FINAL PASS (motion critic, medium: the band entered as a near-black band for 2 frames, 46.50-46.53, the label grey on it, a flicker before the yellow): invert 0, so the band is yellow from its first frame and only the text slams (1.06 -> 1 over 0.14 s, with the band's 1.18 -> 1 slam and an 8 px hit). The long cut's bar 24 (r6). Plan rf-b-1 (verify ok): 'Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’' (The Guardian, Aug 26, 2026); only 'to nearly $100bn' is cut, marked …. Motion critic (medium): the body is ink at 0.85 on the yellow (was 0.42, 'tan mud'), the red 'golden age' unchanged. Social critic (high): one block, 9 + 'THE GUARDIAN · 2026' = 12 words in 1.9 s (the date is in the post caption). The band takes the Stargate image's place in the middle of the frame (cy 1080, 300 px thick). It CUTS on bar 25 under Apollo's slam: a slide-out (seen on the r6 strip) left frame 1452 (48.400, 12 ms before bar 25) as empty cream, because Apollo's card is shared with the short and keeps its bar-line start."
+  },
+  {
+   "id": "rf-apollo-card",
+   "type": "shape",
+   "t0": "bar:25",
+   "t1": "bar:26",
+   "frame": {
+    "shape": "square",
+    "x": 90,
+    "y": 420,
+    "w": 900,
+    "h": 780,
+    "fill": "#2346FF"
+   },
+   "enter": "slam",
+   "hit": 7
+  },
+  {
+   "id": "rf-apollo",
+   "type": "pullquote",
+   "t0": "bar:25",
+   "t1": "bar:26",
+   "text": "“…I could copy myself to the new server…”",
+   "hl": "copy myself",
+   "size": 78,
+   "style": {
+    "x": 170,
+    "w": 740,
+    "cy": 810,
+    "color": "#F2EBDD",
+    "hlColor": "#F2C300",
+    "dimColor": "#D8D4F5"
+   },
+   "name": "Claude 3 Opus",
+   "year": "2024",
+   "source": "Test · hidden reasoning",
+   "enter": "slam",
+   "textDelay": 0.0,
+   "verified": true,
+   "_note": "Plan rf-b-2 (verify ok). The figure reads '<thinking> [...] I could copy myself to the new server, overwriting...': both ellipses mark the cuts. r1: a filled blue tile, cream type, the highlight in the plane's yellow. r5 (social critic, high: ~21 words in 1.9 s): the source line is 'Self-exfiltration test · hidden reasoning' (the date, Dec 5, 2024, goes to the post caption). 'Hidden reasoning' stays, against the critic's 'Self-exfiltration test' alone: the words are the model's <thinking> in a test, not something it said to anyone. r6 (social critic, high: 17 words in 1.9 s): the role 'Apollo Research' goes to the post caption and the source line is 'Test · hidden reasoning' (both facts stay on screen): quote 7 + '2024 · Claude 3 Opus' + 3 = 13 words. (make_short.py overrides this item's name, year, role and source.)"
+  },
+  {
+   "id": "rf-lee-card",
+   "type": "shape",
+   "t0": "bar:26",
+   "t1": 52.667,
+   "frame": {
+    "shape": "square",
+    "x": 90,
+    "y": 420,
+    "w": 900,
+    "h": 820,
+    "ring": "#FF2E88",
+    "ringW": 18,
+    "fill": "#FBF7EE"
+   },
+   "enter": "slam",
+   "hit": 7,
+   "exit": {
+    "style": "collapse",
+    "dur": 0.36
+   }
+  },
+  {
+   "id": "rf-lee",
+   "type": "pullquote",
+   "t0": "bar:26",
+   "t1": 52.667,
+   "label": "On AI, retiring from Go",
+   "text": "“…there is an entity that cannot be defeated.”",
+   "hl": "cannot be defeated",
+   "size": 76,
+   "style": {
+    "x": 170,
+    "w": 740,
+    "cy": 830
+   },
+   "name": "Lee Sedol",
+   "year": "2019",
+   "role": "Go player",
+   "enter": "slam",
+   "textDelay": 0.0,
+   "exit": {
+    "style": "collapse",
+    "dur": 0.36
+   },
+   "verified": true,
+   "_note": "Plan rf-b-4 with the verifier's correct_text source line. Full: 'Even if I become the number one, there is an entity that cannot be defeated.' (TNW wording). The photo planned beside it (rf-b-3) is dropped: its DeepMind credit and date were not confirmed. Collapses from 'God,' (bar 27) to the band's stop at song ~71.90. r1: the text shrinks and spins with its card (same curve, same centre), so no empty frame rotates on its own. r5 (social critic, high: ~23 words in 2.3 s): source line 'Yonhap · 2019' ('As reported by Yonhap, Nov 27, 2019' in the post caption). r6 (social critic, high: 17 words in 2.3 s): the source line goes to the post caption (Lee Sedol speaking to Yonhap, Nov 27, 2019): 14 words. (make_short.py sets its own name, year, role and source.)"
+  },
+  {
+   "id": "rf-god-seed",
+   "type": "shape",
+   "t0": 52.52,
+   "t1": 52.758,
+   "frame": {
+    "shape": "circle",
+    "cx": 540,
+    "cy": 820,
+    "r": 380,
+    "fill": "#15131F"
+   },
+   "zoom": [
+    0.04,
+    0.42
+   ],
+   "_note": "r3 (social critic: ~0.25 s of blank cream between Lee's collapse and the disc): as Lee's card shrinks to a point, an ink seed appears at its centre and grows (r 15 -> 160 px); on 'God,' the full disc slams over it (rf-god-disc)."
+  },
+  {
+   "id": "rf-god-disc",
+   "type": "shape",
+   "t0": 52.758,
+   "t1": "beat:112.75",
+   "frame": {
+    "shape": "circle",
+    "cx": 540,
+    "cy": 820,
+    "r": 380,
+    "fill": "#15131F"
+   },
+   "enter": {
+    "style": "slam",
+    "dur": 0.12
+   },
+   "exit": {
+    "style": "morph",
+    "to": "logo-re:black",
+    "dur": 0.36
+   },
+   "zoom": [
+    1.0,
+    1.07
+   ],
+   "hit": 12,
+   "kicks": [
+    {
+     "at": 53.108,
+     "s": 1.02,
+     "dur": 0.12
+    },
+    {
+     "at": 53.268,
+     "s": 1.02,
+     "dur": 0.12
+    },
+    {
+     "at": 53.428,
+     "s": 1.02,
+     "dur": 0.12
+    },
+    {
+     "at": 53.598,
+     "s": 1.02,
+     "dur": 0.12
+    },
+    {
+     "at": 53.888,
+     "s": 1.02,
+     "dur": 0.12
+    }
+   ],
+   "kickOrigin": [
+    540,
+    820
+   ],
+   "_note": "r2 (both critics: the 'God, it's brutal out here' hold read as an empty frame): one large ink disc slams in on 'God,' (song 71.99) and holds, slowly growing, through the a cappella line; the data points pop on it, one per word. On the instrumental's downbeat (song 73.42) it shrinks into the logo's black circle (exit morph, landing as the reassembly's black piece cuts in at beat 0.75) while the plane slams back over it."
+  },
+  {
+   "id": "logo-re",
+   "type": "logo",
+   "mode": "assemble",
+   "t0": 52.667,
+   "t1": 61.2,
+   "grid": "beat",
+   "beat0": 112,
+   "layout": {
+    "y": 400,
+    "scale": 0.72
+   },
+   "dotsAt": [
+    52.76,
+    53.108,
+    53.268,
+    53.428,
+    53.598,
+    53.888
+   ],
+   "dotScale": 7.0,
+   "bg": "rgba(0,0,0,0)",
+   "cutIn": [
+    "black"
+   ],
+   "flashes": [
+    {
+     "beat": 3,
+     "opacity": 0.2,
+     "decay": 0.05
+    }
+   ],
+   "_note": "While 'God, it's brutal out here' is sung a cappella (the band stops at song ~71.90) the six data points pop in one per word, large (4.2x), the first on 'God,'. Then on the instrumental's downbeat (song 73.42) the plane slams back and sorts them, the pieces fly in on 8ths, the wordmark lands on beat 3, the crossbar tilts, the kicker lands on bar 2 (song 75.36) and the cover holds to the end. r1: layout y 400 (was 465), the same place the logo formed on the riff, so the kicker (about y 1361-1385) clears the bottom app overlay; the art top (about y 481) clears the Bostrom caption. r2: the points pop at 7x (100-180 px) on the held ink disc (rf-god-disc), the logo's own cream is transparent (ground-cream is under it) so the disc can sit below the points, and the black circle cuts in where the disc lands (cutIn). r3 (motion critic: the disc read as a half-opacity grey circle at 54.2): that was the default 0.5 white flash on the instrumental downbeat washing over the ink disc. The downbeat flash is gone (the plane's slam keeps its 24 px hit); only the wordmark's 0.2 flash on beat 3 remains, so the disc stays flat ink until it lands as the black circle."
+  },
+  {
+   "id": "end-voice",
+   "type": "voice",
+   "t0": 55.1,
+   "t1": 58.97,
+   "src": "clips/bostrom-ted-2015-full.mp4",
+   "at": 55.1,
+   "audio": {
+    "in": 466.03,
+    "out": 469.9
+   },
+   "verified": true,
+   "_note": "AUDIBLE (closing instrumental, no vocals): 'Machine intelligence is the last invention that humanity will ever need to make.' research/long/bostrom-ted-2015.json rank 1 (466.06-469.70; small.en x3); edges re-checked 10 Oct: silence before 466.07 and after 469.75 (next word at 470.40). Song is ducked under it. r2: starts at edit 55.10 (song 74.33), ends 58.97 (song 78.20); the caption is gone by 59.35, so the finished cover holds clean for 1.85 s (to 61.2)."
+  },
+  {
+   "id": "end-cap",
+   "type": "caption",
+   "t0": 55.1,
+   "t1": 59.35,
+   "exit": {
+    "style": "fade",
+    "dur": 0.3
+   },
+   "theme": "light",
+   "text": "Machine intelligence is the last invention that humanity will ever need to make.",
+   "hl": "the last invention",
+   "words": [
+    {
+     "w": "MACHINE",
+     "at": 55.19
+    },
+    {
+     "w": "INTELLIGENCE",
+     "at": 55.39
+    },
+    {
+     "w": "IS",
+     "at": 55.77
+    },
+    {
+     "w": "THE",
+     "at": 56.13
+    },
+    {
+     "w": "LAST",
+     "at": 56.27
+    },
+    {
+     "w": "INVENTION",
+     "at": 56.55
+    },
+    {
+     "w": "THAT",
+     "at": 57.07
+    },
+    {
+     "w": "HUMANITY",
+     "at": 57.43
+    },
+    {
+     "w": "WILL",
+     "at": 57.91
+    },
+    {
+     "w": "EVER",
+     "at": 58.17
+    },
+    {
+     "w": "NEED",
+     "at": 58.29
+    },
+    {
+     "w": "TO",
+     "at": 58.45
+    },
+    {
+     "w": "MAKE.",
+     "at": 58.55
+    }
+   ],
+   "y": 268,
+   "w": 960,
+   "size": 40,
+   "lh": 1.18,
+   "hlKeep": true,
+   "srcInline": true,
+   "srcGap": 12,
+   "source": "Nick Bostrom · TED2015",
+   "verified": true,
+   "_note": "r2: y 290 (was 250, inside the app header zone), 960 px wide so it sets on two lines above the art. FINAL PASS (motion critic, medium: 36 px, under the 38 px floor for read-once lines, and the only text on the cover moment for 4.25 s): 40 px. In IBM Plex Mono a 40 px character advances 24 px, so 960 px holds 40 characters and the 81-character line cannot set in two lines at 40 px (the critic's 'keep two lines' is not possible without leaving the 60 px margins); it sets in three, with 'THE LAST INVENTION' kept on one line (hlKeep) and the source line moved onto the red rule's line (srcInline, as in the short), so the block still ends above the art (black circle top, y ~481): see out/NOTES.md for the measured rows."
+  }
+ ]
+}

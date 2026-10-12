@@ -1,0 +1,166 @@
+{
+  "group": "splash",
+  "items": [
+    {
+      "id": "nn-playground-screenshot-trained",
+      "slide_topic": "Neural networks: how a network learns (live interactive demo, one default run)",
+      "type": "screenshot",
+      "file": "tf-playground.png",
+      "headline": "A Neural Network Playground",
+      "dek": "Tinker With a Neural Network Right Here in Your Browser. Don’t Worry, You Can’t Break It. We Promise.",
+      "outlet": "TensorFlow Playground",
+      "author": "Daniel Smilkov, Shan Carter (per arXiv:1708.03788)",
+      "date": "2026-10-10",
+      "url": "https://playground.tensorflow.org/",
+      "caption": "TensorFlow Playground after pressing Play on the default circle task: 2 hidden layers (4 neurons, then 2 neurons), tanh activation, learning rate 0.03; epoch 000,451, Test loss 0.003, Training loss 0.001; the output panel shows a blue circle boundary separating blue from orange points.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Real screenshot of the live page (1280x900, 1x), taken 2026-10-10 with a Playwright wrapper that clicks #play-pause-button. tools/shot.js alone does NOT start training: its capture (no click) shows epoch 000,000, a Play icon and Test loss 0.508 / Training loss 0.499 (seed 0.19696). The trained capture is URL seed 0.51290. The page is undated; date is the capture date. Dataset thumbnails are unlabelled in the view; only the URL param dataset=circle is confirmed."
+    },
+    {
+      "id": "nn-playground-explainer",
+      "slide_topic": "Neural networks: what a neural network is (plain-words definition for grade 7-12)",
+      "type": "quote",
+      "file": null,
+      "headline": "Um, What Is a Neural Network?",
+      "dek": "It’s a technique for building a computer program that learns from data. It is based very loosely on how we think the human brain works. First, a collection of software “neurons” are created and connected together, allowing them to send messages to each other. Next, the network is asked to solve a problem, which it attempts to do over and over, each time strengthening the connections that lead to success and diminishing those that lead to failure.",
+      "outlet": "TensorFlow Playground",
+      "author": null,
+      "date": "2026-10-10",
+      "url": "https://playground.tensorflow.org/",
+      "caption": "On-page explainer text, verbatim, from the Playground page.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Verbatim page text (loaded page, innerText). Page does not show a publication date; the date is the capture date. Good plain-words definition for slides."
+    },
+    {
+      "id": "nn-playground-color-key",
+      "slide_topic": "Neural networks: reading the colours in the demo (for the live walkthrough)",
+      "type": "quote",
+      "file": null,
+      "headline": "What Do All the Colors Mean?",
+      "dek": "Orange and blue are used throughout the visualization in slightly different ways, but in general orange shows negative values while blue shows positive values.",
+      "outlet": "TensorFlow Playground",
+      "author": null,
+      "date": "2026-10-10",
+      "url": "https://playground.tensorflow.org/",
+      "caption": "Page colour key, verbatim; the page's legend under the output panel reads Colors shows data, neuron and weight values, from -1 (orange) to 1 (blue).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Verbatim page text. The page's next paragraph (about hidden-layer line colours) contains a typo ('assiging'); not quoted here. Colour key scale -1 / 0 / 1 read from the screenshot."
+    },
+    {
+      "id": "nn-playground-paper-2017",
+      "slide_topic": "Neural networks: who built TensorFlow Playground and why (credit slide)",
+      "type": "quote",
+      "file": null,
+      "headline": "Direct-Manipulation Visualization of Deep Networks",
+      "dek": "We describe TensorFlow Playground, an interactive, open sourced visualization",
+      "outlet": "arXiv",
+      "author": "Daniel Smilkov, Shan Carter, D. Sculley, Fernanda B. Viégas, Martin Wattenberg",
+      "date": "2017-08-12",
+      "url": "https://arxiv.org/abs/1708.03788",
+      "caption": "Opening of the abstract of the paper that describes TensorFlow Playground (arXiv:1708.03788).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Title, author order and submission date (12 Aug 2017) read from the arXiv abstract page. Abstract quote is only the opening portion (fetch summary truncated it) - check the full abstract before quoting the complete sentence."
+    },
+    {
+      "id": "nn-playground-github-readme",
+      "slide_topic": "Neural networks: open source and where to read the code",
+      "type": "quote",
+      "file": null,
+      "headline": "tensorflow/playground",
+      "dek": "Deep playground is an interactive visualization of neural networks, written in TypeScript using d3.js.",
+      "outlet": "GitHub",
+      "author": null,
+      "date": null,
+      "url": "https://github.com/tensorflow/playground",
+      "caption": "README description of the open-source repository for TensorFlow Playground.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Read via WebFetch summary of the repo page, not a byte-exact copy: re-check the wording on the page before quoting on a slide. The About text reads 'Play with neural networks!'. The README also says the project is 'not an official Google product'. The page shows a LICENSE file but the fetch did not name the licence."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "nn-playground-loss-one-run",
+      "title": "TensorFlow Playground loss readouts, two states of the default circle task (one run each, not a statistic)",
+      "unit": "loss (page readout, rounded to 3 decimals)",
+      "labels": ["epoch 000,000 (paused, seed 0.19696)", "epoch 000,451 (after Play, seed 0.51290)"],
+      "series": [
+        {"name": "Test loss", "values": [0.508, 0.003]},
+        {"name": "Training loss", "values": [0.499, 0.001]}
+      ],
+      "source": "Own capture of the live page's Output panel readouts, 2026-10-10",
+      "url": "https://playground.tensorflow.org/",
+      "notes": "Two different seeds, so these are two single runs, not one training curve. Values are exactly what the page displayed. Good for 'loss falls fast on an easy task' only, not as evidence about larger models."
+    }
+  ],
+  "facts": [
+    {
+      "claim": "On the page's explainer: 'It’s a technique for building a computer program that learns from data.'",
+      "source": "TensorFlow Playground page, 'Um, What Is a Neural Network?' section",
+      "url": "https://playground.tensorflow.org/",
+      "date": "2026-10-10"
+    },
+    {
+      "claim": "On the page's explainer: a neural network is 'based very loosely on how we think the human brain works.'",
+      "source": "TensorFlow Playground page, 'Um, What Is a Neural Network?' section",
+      "url": "https://playground.tensorflow.org/",
+      "date": "2026-10-10"
+    },
+    {
+      "claim": "In the page's colour key, orange shows negative values and blue shows positive values.",
+      "source": "TensorFlow Playground page, 'What Do All the Colors Mean?' section",
+      "url": "https://playground.tensorflow.org/",
+      "date": "2026-10-10"
+    },
+    {
+      "claim": "In one default run (circle task, 4-neuron and 2-neuron hidden layers), the page's own readout reached Training loss 0.001 and Test loss 0.003 at epoch 000,451.",
+      "source": "Own capture of TensorFlow Playground after pressing Play",
+      "url": "https://playground.tensorflow.org/",
+      "date": "2026-10-10"
+    },
+    {
+      "claim": "The default state is paused: the page sits at epoch 000,000 with Test loss 0.508 and Training loss 0.499 until Play is pressed.",
+      "source": "Own capture of TensorFlow Playground, no click (shot.js default)",
+      "url": "https://playground.tensorflow.org/",
+      "date": "2026-10-10"
+    },
+    {
+      "claim": "TensorFlow Playground was described in an arXiv paper by Daniel Smilkov, Shan Carter, D. Sculley, Fernanda B. Viégas and Martin Wattenberg, submitted 12 August 2017, titled 'Direct-Manipulation Visualization of Deep Networks'.",
+      "source": "arXiv:1708.03788 abstract page",
+      "url": "https://arxiv.org/abs/1708.03788",
+      "date": "2017-08-12"
+    },
+    {
+      "claim": "Deep playground is an interactive visualization of neural networks, written in TypeScript using d3.js.",
+      "source": "tensorflow/playground GitHub README (via fetch summary; re-check wording)",
+      "url": "https://github.com/tensorflow/playground",
+      "date": null
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Licence name for TensorFlow Playground (Apache 2.0 claimed)",
+      "searched": "WebFetch github.com/tensorflow/playground: a LICENSE file link is shown but the licence name is not in the fetched text. The only 'Apache 2.0' claim came from a search summary citing aiwiki.ai, which I did not verify."
+    },
+    {
+      "outline_item": "Launch year of TensorFlow Playground (2016) and the 'Google Brain and Big Picture teams' credit",
+      "searched": "WebSearch summary citing aiwiki.ai only (unverified). Tried poloclub.gatech.edu/idea2016/papers/p115-smilkov.pdf: the PDF is binary and WebFetch could not extract its title, venue or year."
+    },
+    {
+      "outline_item": "GitHub star count (over 13,000) for tensorflow/playground",
+      "searched": "Only a search summary citing aiwiki.ai. Not checked against the GitHub page itself."
+    },
+    {
+      "outline_item": "Playground page author meta tag naming Smilkov and Carter",
+      "searched": "Search summary only; I did not inspect the page's meta tags."
+    },
+    {
+      "outline_item": "Names of the three non-circle datasets (thumbnails on the page)",
+      "searched": "Scanned the live DOM for dataset ids (circle/xor/gauss/spiral); none matched. Only dataset=circle is confirmed from the URL. The thumbnails are unlabelled in the view."
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+<section id="s1-hook" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Background</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">Data is still largely curated on the model's behalf</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:row;gap:40px;align-items:stretch">
+<div style="flex:2;background:#ebefe9;border-radius:12px;padding:24px 28px;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#5f6b72">Today</p>
+<p style="font-size:28px;line-height:1.35;color:#3d4a52">Pretraining is driven by “scaling pretraining on ever more data”, yet the data is “still largely curated on the model's behalf” <span style="color:#5f6b72">(Abstract)</span></p>
+<p style="font-size:28px;line-height:1.35;color:#3d4a52">Curation today: data curation, data-mixture design, hand-designed synthetic generators <span style="color:#5f6b72">(p.1)</span></p>
+</div>
+<div style="flex:3;background:#ffffff;border:1px solid #dde1da;border-left:6px solid #1d6f68;border-radius:12px;padding:24px 28px;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">This paper: zero data</p>
+<p style="font-size:28px;line-height:1.35;color:#3d4a52"><b>Proposal:</b> let the model “learn to generate the data most useful for its own improvement” <span style="color:#5f6b72">(Abstract)</span></p>
+<p style="font-size:28px;line-height:1.35;color:#3d4a52"><b>Setting:</b> generator and learner both randomly initialized; all learner data comes from self-play <span style="color:#5f6b72">(p.2)</span></p>
+<p style="font-size:28px;line-height:1.35;color:#3d4a52"><b>No natural data in any gradient update;</b> natural validation loss (DCLM, DNA) chose hyperparameters <span style="color:#5f6b72">(p.8)</span></p>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72"><b>Scope:</b> models below 25M params, 4K context (p.15); max budget 34.36B tokens (p.8); loss in bits per byte</p>
+<p style="font-size:36px;line-height:1.3;color:#17242c;border-left:4px solid #1d6f68;padding:0px 0px 0px 24px"><span style="color:#1d6f68"><b>Test:</b></span> does zero-shot loss on natural data improve predictably with self-play compute? <span style="color:#5f6b72">(Abstract)</span></p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · Abstract; p.1–2; p.8; p.15</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">2</p>
+<aside>About 1.75 minutes.
+Quotes: Abstract and Intro p.1, whose curation sentence cites Li 2025, Penedo 2023, Soldaini 2024; Chen 2026, Xie 2023; Gunasekar 2023, Yang 2025. The paper frames this as extending 'the Bitter Lesson [Sutton, 2019] to the training data itself' (p.1), and asks whether useful structure 'can emerge ex nihilo' (p.2). Scope of 'zero data', in the paper's words (p.8): 'This introduces limited leakage through hyperparameter selection, but natural data are never used for gradient updates.' So zero holds for gradients, not for selection or design. Design was also hand-chosen: the reward was picked 'after searching through several possibilities at small scale' (p.5), and the macros were kept after 'preliminary experiments' (App. E, p.30). The critique section returns to all three. The bottom line is the paper's own test, which Results answers.
+Slide layout: the six outline bullets are kept on the slide, grouped as "Today" (the curation status quo, Abstract and p.1) versus "This paper: zero data" (proposal, setting, the gradient-only scope of zero data), with the scope line (below 25M params, 4K context, p.15; max budget 34.36B tokens, p.8; loss in bits per byte) and the paper's test closing the slide. Nothing was cut.</aside>
+</section>

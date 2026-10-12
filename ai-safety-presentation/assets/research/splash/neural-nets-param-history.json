@@ -1,0 +1,435 @@
+{
+  "group": "splash/neural-nets/param-history",
+  "items": [
+    {
+      "id": "lenet5-1998-60k-trainable-params",
+      "slide_topic": "Param history: LeNet-5 (1998), about 60,000 trainable parameters",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "The network in figure 2 contains 340,908 connections, but only 60,000 trainable free parameters because of the weight sharing.",
+      "outlet": "Proceedings of the IEEE (LeCun, Bottou, Bengio, Haffner: Gradient-based learning applied to document recognition)",
+      "date": "1998-11-01",
+      "url": "http://vision.stanford.edu/cs598_spring07/papers/Lecun98.pdf",
+      "caption": "LeNet-5 (1998): 60,000 trainable free parameters",
+      "quality": 5,
+      "verified": true,
+      "notes": "Sentence from the loaded PDF text layer; pdftotext dropped the 'fi' ligature (printed 'gure'), restored here. This copy says 340,908 connections; Epoch's note quotes 390408 connections. The 60,000 figure matches in both. The yann.lecun.com copy (also downloaded) had no extractable copy of this sentence, so the Stanford-hosted copy is the cited source. Date is Epoch's publication date."
+    },
+    {
+      "id": "alexnet-2012-60m-params",
+      "slide_topic": "Param history: AlexNet (2012), 60 million parameters",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "The neural network, which has 60 million parameters and 650,000 neurons, consists of five convolutional layers, some of which are followed by max-pooling layers,",
+      "outlet": "NeurIPS 2012 (Krizhevsky, Sutskever, Hinton: ImageNet Classification with Deep Convolutional Neural Networks)",
+      "date": "2012-09-30",
+      "url": "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+      "caption": "AlexNet (2012): 60 million parameters",
+      "quality": 5,
+      "verified": true,
+      "notes": "Abstract sentence from the loaded PDF (text cut at the end of the line; the sentence continues). The same paper also states 'Our neural network architecture has 60 million parameters.' A WebFetch summary of the NeurIPS abstract page said '500,000 neurons'; the PDF says 650,000 - use 650,000. Date is Epoch's publication date (2012-09-30)."
+    },
+    {
+      "id": "gpt2-2019-1-5b-params",
+      "slide_topic": "Param history: GPT-2 (2019), 1.5 billion parameters",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "Our largest model, GPT-2, is a 1.5B parameter Transformer that achieves state of the art results on 7 out of 8 tested language modeling datasets in a zero-shot setting but still underfits WebText.",
+      "outlet": "OpenAI (Language Models are Unsupervised Multitask Learners)",
+      "date": "2019-02-14",
+      "url": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf",
+      "caption": "GPT-2 (2019): 1.5 billion parameters",
+      "quality": 5,
+      "verified": true,
+      "notes": "Abstract from the loaded PDF. Table 2 of the same paper lists the largest model as 1542M parameters with 48 layers and width 1600; 1.5B is the headline (rounded) figure. The OpenAI blog post openai.com/index/better-language-models/ returned HTTP 403 and was not loaded. Epoch labels its GPT-2 (1.5B) record 'Speculative' even though the paper states the figure."
+    },
+    {
+      "id": "gpt3-2020-175b-params",
+      "slide_topic": "Param history: GPT-3 (2020), 175 billion parameters",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "Specifically, we train GPT-3, an autoregressive language model with 175 billion parameters, 10x more than any previous non-sparse language model",
+      "outlet": "arXiv (Brown et al.: Language Models are Few-Shot Learners)",
+      "date": "2020-05-28",
+      "url": "https://arxiv.org/pdf/2005.14165",
+      "caption": "GPT-3 (2020): 175 billion parameters",
+      "quality": 5,
+      "verified": true,
+      "notes": "Sentence from the loaded arXiv PDF (introduction). The arXiv abstract page https://arxiv.org/abs/2005.14165 was also loaded: submitted 28 May 2020 (v1). Appendix Table D.1 lists GPT-3 175B at 174,600 (millions), i.e. 174.6B; main-text Table 2.1 lists 175.0B."
+    },
+    {
+      "id": "llama31-405b-2024-trainable-params",
+      "slide_topic": "Param history: Llama 3.1 405B (2024), 405 billion parameters",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "we pre-trained a flagship model with 405B trainable parameters on 15.6T text tokens.",
+      "outlet": "Meta AI (The Llama 3 Herd of Models)",
+      "date": "2024-07-23",
+      "url": "https://arxiv.org/pdf/2407.21783",
+      "caption": "Llama 3.1 405B (2024): 405B trainable parameters",
+      "quality": 4,
+      "verified": true,
+      "notes": "Sentence from the loaded arXiv PDF (introduction). Epoch's record for Llama 3.1-405B is dated 2024-07-23 and labelled Confident."
+    },
+    {
+      "id": "deepseek-v3-2024-671b-total-37b-active",
+      "slide_topic": "Param history: DeepSeek-V3 (2024), 671B total, 37B active",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "DeepSeek-V3 comprises 671B total parameters, of which 37B are activated for each token.",
+      "outlet": "DeepSeek (arXiv 2412.19437)",
+      "date": "2024-12-24",
+      "url": "https://arxiv.org/pdf/2412.19437",
+      "caption": "DeepSeek-V3 (2024): 671B total parameters, 37B active per token",
+      "quality": 4,
+      "verified": true,
+      "notes": "Sentence from the loaded arXiv PDF. Mixture-of-experts model: the total is far larger than the per-token active count. Date is Epoch's date for DeepSeek-V3."
+    },
+    {
+      "id": "llama4-behemoth-2025-288b-active",
+      "slide_topic": "Param history: Llama 4 (2025), active vs total parameters",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "Llama 4 Behemoth, a 288 billion active parameter model with 16 experts that is our most powerful yet and among the world’s smartest LLMs.",
+      "outlet": "Meta AI blog (Llama 4 announcement, ai.meta.com)",
+      "date": "2025-04-05",
+      "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+      "caption": "Llama 4 Behemoth (2025 preview): 288B active parameters; no total stated in this post",
+      "quality": 4,
+      "verified": true,
+      "notes": "Sentence from the loaded Meta blog text. The same post says 'Llama 4 Maverick models have 17B active parameters and 400B total parameters.' Meta does not state Behemoth's total in this post. Epoch's 2e12 total for Behemoth is Epoch's own estimate (label Likely = within 10x); do not show 2T as a Meta figure."
+    },
+    {
+      "id": "kimi-k2-2025-1t-total-32b-active",
+      "slide_topic": "Param history: Kimi K2 (2025), 1 trillion total parameters",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "Kimi K2 is our latest Mixture-of-Experts model with 32 billion activated parameters and 1 trillion total parameters.",
+      "outlet": "Moonshot AI (Kimi K2 project page)",
+      "date": "2025-07-11",
+      "url": "https://moonshotai.github.io/Kimi-K2/",
+      "caption": "Kimi K2 (2025): 1 trillion total parameters, 32B activated",
+      "quality": 4,
+      "verified": true,
+      "notes": "Text taken from the page's HTML meta description (loaded). Date is Epoch's date for Kimi K2."
+    },
+    {
+      "id": "kimi-k25-2026-1-04t-total-32b-active",
+      "slide_topic": "Param history: Kimi K2.5 (2026), 1.04 trillion total parameters",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "The model comprises 1.04 trillion total parameters with 32 billion activated",
+      "outlet": "arXiv 2602.02276 (Kimi K2.5)",
+      "date": "2026-02-02",
+      "url": "https://arxiv.org/pdf/2602.02276",
+      "caption": "Kimi K2.5 (2026): 1.04 trillion total parameters, 32B activated",
+      "quality": 4,
+      "verified": true,
+      "notes": "Sentence from the loaded arXiv PDF. Same paper calls the base Kimi K2 'a trillion-parameter mixture-of-experts (MoE) transformer'. Date is Epoch's date."
+    },
+    {
+      "id": "glm5-2026-744b-total",
+      "slide_topic": "Param history: GLM-5 (2026), 744B parameters",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "This results in a 744B parameter model",
+      "outlet": "arXiv 2602.15763 (GLM-5 technical report)",
+      "date": "2026-02-12",
+      "url": "https://arxiv.org/pdf/2602.15763",
+      "caption": "GLM-5 (2026): 744B parameters (40B active)",
+      "quality": 4,
+      "verified": true,
+      "notes": "Sentence from the loaded arXiv PDF. The same sentence continues with '(40B active' in the text layer, and the paper also states 'scale the model parameters up to 744B'. Epoch's record is dated 2026-02-12 and labelled Likely."
+    },
+    {
+      "id": "deepseek-v4-pro-2026-1-6t-49b-active",
+      "slide_topic": "Param history: DeepSeek-V4-Pro (2026), 1.6T total, 49B activated",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "DeepSeek-V4-Pro with 1.6T parameters (49B activated) and DeepSeek-V4-Flash with 284B parameters (13B activated)",
+      "outlet": "Hugging Face model card (deepseek-ai/DeepSeek-V4-Pro)",
+      "date": "2026-04-24",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+      "caption": "DeepSeek-V4-Pro (2026): 1.6T parameters, 49B activated",
+      "quality": 4,
+      "verified": true,
+      "notes": "Text from the loaded model-card page. Epoch cites a PDF at .../blob/main/DeepSeek_V4.pdf, which returned HTTP 404 when fetched; the model card was used instead. Epoch date 2026-04-24, label Likely."
+    },
+    {
+      "id": "inkling-2026-975b-total-41b-active",
+      "slide_topic": "Param history: Inkling (Thinking Machines, 2026), 975B total",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "Our model, called Inkling, is a Mixture-of-Experts transformer with 975B total parameters, 41B active.",
+      "outlet": "Thinking Machines Lab (Introducing Inkling)",
+      "date": "2026-07-15",
+      "url": "https://thinkingmachines.ai/news/introducing-inkling/",
+      "caption": "Inkling (2026): 975B total parameters, 41B active",
+      "quality": 4,
+      "verified": true,
+      "notes": "Sentence from the loaded post. Epoch date 2026-07-15, label Likely."
+    },
+    {
+      "id": "qwen38-max-2026-2-4t-total",
+      "slide_topic": "Param history: Qwen3.8-Max (2026), 2.4 trillion parameters",
+      "type": "quote",
+      "file": null,
+      "headline": "",
+      "dek": "Introducing Qwen3.8-Max, the largest and most capable flagship model to date! With 2.4 trillion parameters and a 1 million-token context window",
+      "outlet": "ForkLog (quoting Alibaba Group's X post dated Aug 3, 2026)",
+      "date": "2026-08-03",
+      "url": "https://forklog.com/en/news/alibaba-launches-qwen3-8-max-with-2-4-trillion-parameters",
+      "caption": "Qwen3.8-Max (2026): 2.4 trillion parameters, per Alibaba",
+      "quality": 3,
+      "verified": true,
+      "notes": "Quote is from the loaded ForkLog article, which embeds Alibaba Group's X post. The Alibaba post and the qwen.ai blog were not loaded (qwen.ai returned no text). Epoch lists 'Qwen 3.8 Max' at 2.4e12 (Confident, dated 2026-07-19) and 'Qwen3.8-2.4T-A95B' (2026-08-08). The ~95B active figure comes from Epoch's note and press, not a primary source here."
+    },
+    {
+      "id": "grok47-2026-2-1t-press",
+      "slide_topic": "Param history: Grok 4.7 (2026), 2.1 trillion per press",
+      "type": "quote",
+      "file": null,
+      "headline": "xAI Launches Grok 4.7. It's Bigger, But Late to the AI Frontier Party",
+      "dek": "Grok 4.7 packs 2.1 trillion parameters, up 40% from the 1.5 trillion in Grok 4.6",
+      "outlet": "Decrypt",
+      "date": "2026-09-21",
+      "url": "https://decrypt.co/378824/xai-launches-grok-4-7",
+      "caption": "Grok 4.7 (Sep 2026): 2.1 trillion parameters, as reported by Decrypt",
+      "quality": 3,
+      "verified": true,
+      "notes": "Sentence from the loaded Decrypt article (headline and date also from the page). The article states the figure without a technical source, and no xAI technical document turned up in search. Epoch's notable CSV row for Grok 4.7 holds 2100000000.0 (2.1e9), which contradicts that row's own note ('the 2.1T model'); treated as a units error, so the press figure is used in the chart."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "param-history-1998-2020",
+      "title": "Parameters of landmark neural networks, 1998-2020 (as stated in each paper)",
+      "unit": "parameters (count); log10 axis recommended",
+      "labels": [
+        "LeNet-5 (1998)",
+        "AlexNet (2012)",
+        "GPT-2 largest (2019)",
+        "GPT-3 175B (2020)"
+      ],
+      "series": [
+        {
+          "name": "Parameters (paper)",
+          "values": [
+            60000,
+            60000000,
+            1500000000,
+            175000000000
+          ]
+        }
+      ],
+      "source": "Papers loaded and checked: LeCun et al. 1998 (Proc. IEEE, Stanford-hosted copy); Krizhevsky et al. 2012 (NeurIPS PDF); OpenAI 2019 GPT-2 paper (Table 2: 1542M); Brown et al. 2020 GPT-3 (text; Table D.1: 174,600M). Epoch CSV rows for the same four models in neural-nets-param-history-epoch-extract.csv.",
+      "url": "http://vision.stanford.edu/cs598_spring07/papers/Lecun98.pdf ; https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf ; https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf ; https://arxiv.org/pdf/2005.14165"
+    },
+    {
+      "id": "param-history-frontier-2024-2026",
+      "title": "Total parameters of frontier-class models, 2024-2026 (published figures, Epoch estimates, press)",
+      "unit": "parameters (total, not active); log10 axis recommended",
+      "labels": [
+        "Nemotron-4 340B (Jun 2024, published name)",
+        "Llama 3.1 405B (Jul 2024, published)",
+        "DeepSeek-V3 (Dec 2024, published)",
+        "Grok 3 (Feb 2025, Epoch estimate)",
+        "Llama 4 Maverick (Apr 2025, published)",
+        "Llama 4 Behemoth (Apr 2025, Epoch estimate; Meta gives 288B active only)",
+        "Grok 4 (Jul 2025, Epoch estimate, speculative)",
+        "Kimi K2 (Jul 2025, published)",
+        "Kimi K2.5 (Feb 2026, published)",
+        "GLM-5 (Feb 2026, published)",
+        "DeepSeek-V4-Pro (Apr 2026, published)",
+        "Inkling (Jul 2026, published)",
+        "Qwen3.8-Max (Jul-Aug 2026, Alibaba-stated)",
+        "Grok 4.7 (Sep 2026, press-reported)"
+      ],
+      "series": [
+        {
+          "name": "Total parameters",
+          "values": [
+            340000000000,
+            405000000000,
+            671000000000,
+            3000000000000,
+            400000000000,
+            2000000000000,
+            3000000000000,
+            1000000000000,
+            1040000000000,
+            744000000000,
+            1600000000000,
+            975000000000,
+            2400000000000,
+            2100000000000
+          ]
+        }
+      ],
+      "source": "Epoch AI notable_ai_models.csv (Oct 8, 2026) for dates and Epoch labels; published totals from the primary pages in items[]. Epoch labels: Confident = within 3x, Likely = within 10x, Speculative = within 30x. Excluded: Kimi K3 (Epoch 2.8e12, Speculative; no primary source). Grok 4.7 Epoch CSV value (2.1e9) is a units error against its own note; press figure used. Closed models GPT-4o, GPT-4.5, Claude 3.5 Sonnet, Gemini 1.5 Pro, GPT-6 Astra have no Epoch parameter estimate. Full extract: neural-nets-param-history-epoch-extract.csv.",
+      "url": "https://epoch.ai/data/notable_ai_models.csv ; https://blogs.nvidia.com/blog/nemotron-4-synthetic-data-generation-llm-training/ ; https://arxiv.org/pdf/2407.21783 ; https://arxiv.org/pdf/2412.19437 ; https://ai.meta.com/blog/llama-4-multimodal-intelligence/ ; https://moonshotai.github.io/Kimi-K2/ ; https://arxiv.org/pdf/2602.02276 ; https://arxiv.org/pdf/2602.15763 ; https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro ; https://thinkingmachines.ai/news/introducing-inkling/ ; https://forklog.com/en/news/alibaba-launches-qwen3-8-max-with-2-4-trillion-parameters ; https://decrypt.co/378824/xai-launches-grok-4-7"
+    }
+  ],
+  "facts": [
+    {
+      "claim": "LeNet-5 (1998) had 60,000 trainable free parameters because of weight sharing.",
+      "source": "LeCun, Bottou, Bengio, Haffner, Gradient-based learning applied to document recognition, Proc. IEEE (1998)",
+      "url": "http://vision.stanford.edu/cs598_spring07/papers/Lecun98.pdf",
+      "date": "1998-11-01"
+    },
+    {
+      "claim": "AlexNet (2012) had 60 million parameters and 650,000 neurons.",
+      "source": "Krizhevsky, Sutskever, Hinton, ImageNet Classification with Deep Convolutional Neural Networks, NeurIPS 2012",
+      "url": "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf",
+      "date": "2012-09-30"
+    },
+    {
+      "claim": "GPT-2's largest model is described as a 1.5B parameter Transformer; its Table 2 lists 1542M parameters and 48 layers.",
+      "source": "OpenAI, Language Models are Unsupervised Multitask Learners (2019)",
+      "url": "https://cdn.openai.com/better-language-models/language_models_are_unsupervised_multitask_learners.pdf",
+      "date": "2019-02-14"
+    },
+    {
+      "claim": "GPT-3 (2020) is an autoregressive language model with 175 billion parameters, '10x more than any previous non-sparse language model'.",
+      "source": "Brown et al., Language Models are Few-Shot Learners (arXiv 2005.14165)",
+      "url": "https://arxiv.org/pdf/2005.14165",
+      "date": "2020-05-28"
+    },
+    {
+      "claim": "From LeNet-5 (60,000) to GPT-3 (175 billion) is about 2.9 million times more parameters, over 22 years (1998 to 2020). Computed by us from the two papers' figures.",
+      "source": "Computed: 175,000,000,000 / 60,000 = about 2.9 million",
+      "url": "http://vision.stanford.edu/cs598_spring07/papers/Lecun98.pdf ; https://arxiv.org/pdf/2005.14165",
+      "date": "2020-05-28"
+    },
+    {
+      "claim": "From AlexNet (60 million) to GPT-3 (175 billion) is about 2,900 times more parameters, over 8 years (2012 to 2020). Computed by us from the two papers' figures.",
+      "source": "Computed: 175,000,000,000 / 60,000,000 = about 2,917",
+      "url": "https://papers.nips.cc/paper_files/paper/2012/file/c399862d3b9d6b76c8436e924a68c45b-Paper.pdf ; https://arxiv.org/pdf/2005.14165",
+      "date": "2020-05-28"
+    },
+    {
+      "claim": "Llama 3.1 405B: 'we pre-trained a flagship model with 405B trainable parameters on 15.6T text tokens.'",
+      "source": "Meta AI, The Llama 3 Herd of Models (arXiv 2407.21783)",
+      "url": "https://arxiv.org/pdf/2407.21783",
+      "date": "2024-07-23"
+    },
+    {
+      "claim": "DeepSeek-V3 (Dec 2024) has 671B total parameters, of which 37B are activated for each token.",
+      "source": "DeepSeek, DeepSeek-V3 (arXiv 2412.19437)",
+      "url": "https://arxiv.org/pdf/2412.19437",
+      "date": "2024-12-24"
+    },
+    {
+      "claim": "Meta's Llama 4 Behemoth preview post gives 288 billion active parameters and does not state a total; Llama 4 Maverick is 17B active and 400B total.",
+      "source": "Meta AI blog, Llama 4 announcement",
+      "url": "https://ai.meta.com/blog/llama-4-multimodal-intelligence/",
+      "date": "2025-04-05"
+    },
+    {
+      "claim": "Kimi K2 (Jul 2025): 1 trillion total parameters, 32 billion activated.",
+      "source": "Moonshot AI, Kimi K2 project page",
+      "url": "https://moonshotai.github.io/Kimi-K2/",
+      "date": "2025-07-11"
+    },
+    {
+      "claim": "Kimi K2.5 (Feb 2026): 'The model comprises 1.04 trillion total parameters with 32 billion activated'.",
+      "source": "arXiv 2602.02276 (Kimi K2.5)",
+      "url": "https://arxiv.org/pdf/2602.02276",
+      "date": "2026-02-02"
+    },
+    {
+      "claim": "GLM-5 (Feb 2026): 'a 744B parameter model' (40B active).",
+      "source": "arXiv 2602.15763 (GLM-5 technical report)",
+      "url": "https://arxiv.org/pdf/2602.15763",
+      "date": "2026-02-12"
+    },
+    {
+      "claim": "DeepSeek-V4-Pro (Apr 2026): 1.6T parameters, 49B activated; DeepSeek-V4-Flash: 284B, 13B activated.",
+      "source": "Hugging Face model card, deepseek-ai/DeepSeek-V4-Pro",
+      "url": "https://huggingface.co/deepseek-ai/DeepSeek-V4-Pro",
+      "date": "2026-04-24"
+    },
+    {
+      "claim": "Inkling (Thinking Machines, Jul 2026): 975B total parameters, 41B active.",
+      "source": "Thinking Machines Lab, Introducing Inkling",
+      "url": "https://thinkingmachines.ai/news/introducing-inkling/",
+      "date": "2026-07-15"
+    },
+    {
+      "claim": "Qwen3.8-Max (Alibaba, Aug 2026): 2.4 trillion parameters, per Alibaba's X post as quoted by ForkLog.",
+      "source": "ForkLog, quoting Alibaba Group (X, Aug 3, 2026)",
+      "url": "https://forklog.com/en/news/alibaba-launches-qwen3-8-max-with-2-4-trillion-parameters",
+      "date": "2026-08-03"
+    },
+    {
+      "claim": "Grok 4.7 (xAI, Sep 2026): 'packs 2.1 trillion parameters' per Decrypt; no xAI technical document found in search.",
+      "source": "Decrypt, xAI Launches Grok 4.7. It's Bigger, But Late to the AI Frontier Party",
+      "url": "https://decrypt.co/378824/xai-launches-grok-4-7",
+      "date": "2026-09-21"
+    },
+    {
+      "claim": "Epoch AI confidence labels: 'Confident' records are accurate within a factor of 3x, 'Likely' within 10x, 'Speculative' within 30x.",
+      "source": "Epoch AI, AI models data page (notable AI models)",
+      "url": "https://epoch.ai/data/notable-ai-models",
+      "date": "2026-10-08"
+    },
+    {
+      "claim": "Epoch AI's notable-models CSV (1,078 rows) was updated Oct. 8, 2026; its frontier-models CSV (138 rows) was updated Sep. 23, 2026.",
+      "source": "Epoch AI, AI models data page (CSV downloads)",
+      "url": "https://epoch.ai/data/notable_ai_models.csv",
+      "date": "2026-10-08"
+    },
+    {
+      "claim": "Epoch's data has blank parameter counts for GPT-4o, GPT-4.5, Claude 3.5 Sonnet, Gemini 1.5 Pro and GPT-6 Astra, so there is no Epoch estimate for them.",
+      "source": "Epoch AI frontier_ai_models.csv (parsed; Parameters field empty)",
+      "url": "https://epoch.ai/data/frontier_ai_models.csv",
+      "date": "2026-09-23"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "GPT-2 1.5B on OpenAI's own blog post",
+      "searched": "WebFetch of openai.com/index/better-language-models/ returned HTTP 403; the GPT-2 paper PDF on cdn.openai.com was loaded instead and used as the source."
+    },
+    {
+      "outline_item": "Parameter counts for closed 2024-2026 frontier models (GPT-4o, GPT-4.5, Claude 3.5 Sonnet, Gemini 1.5 Pro, GPT-6 Astra)",
+      "searched": "Epoch frontier_ai_models.csv and notable_ai_models.csv: parameter fields are blank. No primary-source figure found; these labs' sizes are not in the data. Do not show numbers for them."
+    },
+    {
+      "outline_item": "Qwen3.8-Max official primary source (qwen.ai blog, Hugging Face repo)",
+      "searched": "qwen.ai/blog?id=qwen3.8 returned no readable text. WebSearch found press coverage (ForkLog, eWeek, ProPakistani) of 2.4T total / ~95B active; only the ForkLog page was loaded."
+    },
+    {
+      "outline_item": "Kimi K3 total parameters (2.8T)",
+      "searched": "Epoch CSV: 2.8e12, label Speculative; its note gives only '104 billion active parameters'. A WebSearch snippet repeats 2.8T but no page was loaded. Excluded from the chart."
+    },
+    {
+      "outline_item": "Grok 3 and Grok 4 parameter counts from xAI",
+      "searched": "Only Epoch estimates are available: Grok 3 3e12 (Likely, no note); Grok 4 3e12 (Speculative; note cites a rumored 2.4T from a social-media post). xAI pages were not loaded."
+    },
+    {
+      "outline_item": "Llama 4 Behemoth total parameters as a Meta figure",
+      "searched": "Meta blog loaded: gives 288B active and no total. The 2T total is Epoch's estimate (Likely), not a Meta statement."
+    },
+    {
+      "outline_item": "Nemotron-4 340B as a stated parameter count",
+      "searched": "NVIDIA blog loaded: names 'Nemotron-4 340B' but has no sentence giving '340 billion parameters'. The 340B value is Epoch's (Confident) and matches the model name."
+    },
+    {
+      "outline_item": "LeNet-5 sentence from the yann.lecun.com copy",
+      "searched": "lecun-98.pdf downloaded (HTTP 200) but its text layer had no 60,000 sentence; the Stanford-hosted copy was used. That copy says 340,908 connections, while Epoch's note says 390408; the 60,000 figure matches."
+    }
+  ]
+}

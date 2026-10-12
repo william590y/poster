@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hyperplane avatar</title>
+<style>
+html, body { margin: 0; background: #000; }
+#cover { position: relative; width: 1500px; height: 1500px; overflow: hidden; background: #F2EBDD; }
+#art { position: absolute; left: 0; top: 0; width: 1500px; height: 1500px; }
+</style>
+</head>
+<body>
+<div id="cover">
+<svg id="art" viewBox="0 0 1500 1500" aria-hidden="true"><g id="layer"></g></svg>
+</div>
+<script>
+// ?small=1 → a simplified version for 64 px and below: bigger discs, thicker band, no cores
+const SMALL = new URLSearchParams(location.search).get('small') === '1';
+const NS = 'http://www.w3.org/2000/svg', layer = document.getElementById('layer');
+const mk = (tag, a) => { const e = document.createElementNS(NS, tag); for (const k in a) e.setAttribute(k, a[k]); layer.appendChild(e); return e; };
+const RAD = 22 * Math.PI / 180, d = [Math.cos(RAD), -Math.sin(RAD)], n = [Math.sin(RAD), Math.cos(RAD)];
+// same arrangement as the cover: black breaks out up-left, orange core at its lower right, teal core on the blue's left edge
+const HALF = SMALL ? 160 : 150, GAP = SMALL ? 30 : 40, A = SMALL ? 40 : 110, c = [750, 750];
+const at = (a, perp) => [c[0] + d[0] * a + n[0] * perp, c[1] + d[1] * a + n[1] * perp];
+const disc = (p, r, fill) => mk('circle', { cx: p[0], cy: p[1], r, fill });
+const rp = SMALL ? 230 : 212, rk = SMALL ? 165 : 150, rb = SMALL ? 240 : 216;
+const pink = at(-A, -(HALF + rp + GAP)), blue = at(A, HALF + rb + GAP);
+// black stays where it was; the pink shrinks about its centre so it clears the band (and the breakout grows)
+const off = (rp - rk + 60) / Math.SQRT2, black = [pink[0] - off, pink[1] - off];
+disc(pink, rp * (SMALL ? 0.85 : 0.9), '#FF2E88');
+disc(black, rk, '#15131F');
+if (!SMALL) disc([black[0] + 0.707 * 130, black[1] + 0.707 * 130], 72, '#FF4A1C');
+disc(blue, rb, '#2346FF');
+if (!SMALL) disc([blue[0] - 0.981 * 195, blue[1] - 0.196 * 195], 79, '#00B8A9');
+// safety: report the furthest edge from the crop centre
+window.__far = Math.max(...[[black, rk], [pink, rp], [blue, rb]].map(([p, r]) => Math.hypot(p[0] - 750, p[1] - 750) + r));
+
+const K = Math.tan(RAD), TV = 2 * HALF / Math.cos(RAD);
+const topY = (x) => 750 - TV / 2 - K * (x - 750), botY = (x) => topY(x) + TV;
+mk('polygon', { points: `-60,${topY(-60)} 1560,${topY(1560)} 1560,${botY(1560)} -60,${botY(-60)}`, fill: '#F2C300' });
+mk('line', { x1: -60, y1: topY(-60), x2: 1560, y2: topY(1560), stroke: '#15131F', 'stroke-width': SMALL ? 40 : 32 });
+window.__done = true;
+</script>
+</body>
+</html>

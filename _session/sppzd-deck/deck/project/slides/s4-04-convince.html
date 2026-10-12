@@ -1,0 +1,40 @@
+<section id="s4-04-convince" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Critique</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">What would convince us</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:row;align-items:start;gap:32px">
+<p style="width:48px;flex-shrink:0;font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-weight:600;line-height:1.3;color:#1d6f68">1</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:36px;font-weight:600;line-height:1.3;color:#17242c">Trivial baselines, same bits/byte and records</p>
+<p style="font-size:28px;line-height:1.35;color:#3d4a52">unigram, n-gram or PPM, copy-last-byte, LPC (linear predictive coding) for audio, hold/delta for melody</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:32px">
+<p style="width:48px;flex-shrink:0;font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-weight:600;line-height:1.3;color:#1d6f68">2</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:36px;font-weight:600;line-height:1.3;color:#17242c">Shuffled-reward run at scale</p>
+<p style="font-size:28px;line-height:1.35;color:#3d4a52">plus separate ablations: mutation with and without the MAP-Elites archive <span style="color:#5f6b72">(App. G)</span>, replay, expert iteration, KL term</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:32px">
+<p style="width:48px;flex-shrink:0;font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-weight:600;line-height:1.3;color:#1d6f68">3</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:36px;font-weight:600;line-height:1.3;color:#17242c">Equal-compute comparison with formal-language pre-pretraining</p>
+<p style="font-size:28px;line-height:1.35;color:#3d4a52">Hu et al. 2025, with self-play compute counted</p>
+</div>
+</div>
+</div>
+<div style="background:#ebefe9;border-radius:12px;padding:24px 32px;display:flex;flex-direction:row;align-items:start;gap:32px">
+<p style="width:120px;flex-shrink:0;font-size:24px;font-weight:600;letter-spacing:3px;line-height:1.55;text-transform:uppercase;color:#1d6f68">Next</p>
+<p style="flex:1;font-size:28px;line-height:1.35;color:#3d4a52">held-out extrapolation of the fit (fit lower decades, predict the top) · full compute accounting · ablate one discovered family from the curriculum</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · App. G, pp.31–32; pp.5–6, 8, 15; Fig. 1, p.3 · Hu et al. 2025</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">26</p>
+<aside>About 1.25 minutes.
+Item 1 is cheapest and most decisive; run it first. Item 2 targets reward vs pool: the Table 5 shuffle run keeps mutation, replay, expert iteration and KL. Item 3: per the Hu et al. 2025 abstract, a 1B model on ~1.6B natural tokens reaches the same loss with a 33% smaller token budget after formal-language pre-pretraining. This paper cites Hu et al. but never runs it. Next-line details. Fit: L(C) = E + A*C^-alpha per dataset (p.8), never tested out of sample. Compute: C = K x params x tokens (Fig. 1-2 axis labels; K is the seed count, p.8). Our reading is that it counts the learner only. Generator updates, program execution and the forward-mode JVP for Eq. 2 (pp.5-6, fn. 1) are not in C. Family ablation: our variant of the paper's suggested 'circuit analysis or curriculum ablations' (p.15). Selection hygiene also matters: tune on proxy data and report on untouched sets. [interp] Ask the room which item they would fund first.
+Slide layout: the three numbered items are split into a bold lead and a detail line, in the outline's words. Item 3 in full: 'Equal-compute comparison with formal-language pre-pretraining (Hu et al. 2025), with self-play compute counted'. The 'Next:' line is on the slide in full, with semicolons shown as dots. Nothing was cut.</aside>
+</section>

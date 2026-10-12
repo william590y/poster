@@ -1,0 +1,29 @@
+<section id="s3-02" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Results</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">Scaling: self-play vs two fixed priors (Fig. 2)</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<p style="font-size:28px;line-height:1.35;color:#3d4a52"><b><span style="color:#17242c">Setup</span></b> · models &lt; 25M params · 4,096-token context · 34.36B-token budget <span style="color:#5f6b72">(pp.8, 15)</span></p>
+<div style="display:flex;flex-direction:row;gap:48px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="background:#ffffff;border:1px solid #dde1da;border-radius:12px;padding:16px">
+<img src="/_blob/0861642efb87bae638c94d962bb30fa6" alt="Paper's Fig. 2: eight log-log panels of loss in bits per byte against effective compute for Images (CIFAR-10), Melody (Mutopia), Audio (MusicNet 44.1 kHz), Speech (LibriSpeech PCM8), Text (DCLM), Python, C code and Common Crawl; teal filled points are self-play, orange dashed the universal prior, purple dash-dot the PCFG" style="width:940px;height:443px;object-fit:contain">
+</div>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">Paper's Fig. 2, p.7 · x: C = K × params × tokens (K = seeds ensembled; <span style="color:#a14d19">learner only, our reading</span>) · y: bits/byte, both log</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">Universal prior</span></b> (same program space, tokens i.i.d. until F) “scales substantially more slowly” <span style="color:#5f6b72">(p.7)</span></p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">PCFG</span></b> is “stronger on text and code”; self-play “substantially outperforms it on images, music, audio, and speech” <span style="color:#5f6b72">(p.9)</span></p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #a14d19;padding:0px 0px 0px 20px"><b><span style="color:#a14d19">Plot reads</span></b>: melody (Mutopia) is close to PCFG at matched compute; DCLM self-play ~4.6 vs PCFG ~3.7 near 4e17</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">Fig. 7</span></b>: same format on 21 datasets; glibc rand stays near 8 bits</p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · Fig. 2, p.7; pp.8–9, 15; Fig. 7, p.23</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">14</p>
+<aside>About 2 minutes.
+Point at Images and Text first, then the rest. Fig. 2 (p.7) shows 8 of the 21 Fig. 7 panels (p.23). Caption: 'access to a universal space of programs alone is insufficient without the adaptive curriculum'; the frontier 'ends where we do not find further models with smaller loss'. Plot reads, approximate: CIFAR-10 self-play ~5.05 at ~6e18 (matches the HWC curve in Fig. 7) vs PCFG ~7.55 and universal prior ~7.4. LibriSpeech PCM8 ~2.1 vs PCFG ~5.0. MusicNet 44.1 kHz ~1.85 vs PCFG ~2.8. Melody: PCFG ~2.2 at ~4e17, with self-play ~2.0 there. [mine] At the largest compute, self-play points sit above the fitted line on DCLM, Python, C, Common Crawl, melody and audio, hinting at flattening; the fits are never tested out of sample. glibc rand is a negative control the text never discusses; Table 5's random-bytes row is 8.02. No natural-data baseline appears in Fig. 2.
+Legend, for the room: teal filled points = self-play; orange dashed = programs sampled from the universal prior; purple dash-dot = PCFG.
+Moved off the slide, in the outline's words. Setup line in full: 'Models &lt; 25M params, 4,096-token context, 34.36B-token budget (pp.8, 15)'. Axes in full: 'x: C = K x params x tokens (K = seeds ensembled; learner only, my reading) · y: bits/byte, both log' (on the slide as the figure caption; K as independent seeds whose predictive distributions are averaged is stated on p.8). Universal-prior quote cite in full: '(Fig. 2, p.7)'; the slide shows '(p.7)' because the title already names Fig. 2. PCFG line: the slide adds 'is' to read as a sentence; p.9 says 'PCFG pretraining is stronger on text and code'. DCLM anchors in full (plot reads): 'self-play ~4.6 and PCFG ~3.7 near 4e17; universal prior ~6.9 near 1e17; self-play ~4.4 at ~1e18'. The slide keeps only the 4e17 pair; the universal prior ~6.9 near 1e17 and self-play ~4.4 at ~1e18 are only here.</aside>
+</section>

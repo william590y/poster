@@ -763,4 +763,17 @@ async function build(d) {
   await loopholesSlide(d);
 }
 
-module.exports = { build };
+// Slide functions by name (for other decks, e.g. tools/build_splash.js); build() above is unchanged.
+module.exports = {
+  build,
+  slides: {
+    wallSlide,
+    firedSlide,
+    precedentSlide,
+    caisSlide,
+    orthogonalitySlide,
+    convergenceSlide,
+    coastRunnersSlide,
+    loopholesSlide,
+  },
+};

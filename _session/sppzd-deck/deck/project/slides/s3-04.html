@@ -1,0 +1,43 @@
+<section id="s3-04" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Results</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">Math families appear early under self-play (Table 1)</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:28px">
+<div style="display:flex;flex-direction:row;gap:40px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="background:#ffffff;border:1px solid #dde1da;border-radius:12px;padding:16px">
+<img src="/_blob/250a2a00d0f1699965c28200d9914113" alt="Paper's Table 1: five sequence families mod 256 with an example Brainf*ck program and its output; earliest self-play round and expected first round under the universal prior: arithmetic 0 vs about 105, Fibonacci 512 vs over 53,000, geometric 256 vs over 53,000, quadratic 512 vs over 53,000, cubic 512 vs over 53,000" style="width:1000px;height:279px;object-fit:contain">
+</div>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">Paper's Table 1, p.9 (repeated as Table 3, p.28)</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:600;line-height:1.35;color:#17242c">1 round = 1,024 programs</p>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">App. C: “the same rate” as the scaling runs</p>
+</div>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">Paper</span></b>: “one mechanism driving the faster scaling” <span style="color:#5f6b72">(p.9)</span>; causal link to transfer untested <span style="color:#5f6b72">(p.15)</span></p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;gap:24px;align-items:start">
+<div style="flex:1;background:#ebefe9;border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:600;line-height:1.35;color:#1d6f68">By round 512, self-play</p>
+<p style="font-size:24px;line-height:1.35;color:#3d4a52">Fibonacci, geometric, quadratic, cubic. Arithmetic is not accelerated: round 0 vs ~105 under the universal prior</p>
+</div>
+<div style="flex:1;background:#ebefe9;border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:600;line-height:1.35;color:#17242c">Universal prior: 0 hits</p>
+<p style="font-size:24px;line-height:1.35;color:#3d4a52">in 1.64e8 samples → p ≤ 1.8e-8 (rule of three, one-sided 95%) → first round &gt; 53,000 <span style="color:#5f6b72">(App. C, p.29)</span></p>
+</div>
+<div style="flex:1;background:#ebefe9;border-radius:12px;padding:24px;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;font-weight:600;line-height:1.35;color:#17242c">Self-play: upper bounds</p>
+<p style="font-size:24px;line-height:1.35;color:#3d4a52">Programs saved only every 256 rounds, so its rounds are upper bounds <span style="color:#5f6b72">(App. C, p.28)</span></p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · Table 1, p.9; App. C and Table 3, pp.28–29; p.15</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">16</p>
+<aside>About 1.5 minutes.
+Read one row aloud (geometric: round 256 under self-play vs more than 53,000 expected under the universal prior), then the caveats.
+Table 1 is p.9; Table 3 (p.28) repeats it. The universal baseline is checked every round and self-play only every 256, so 'the comparison therefore underestimates the gap' (App. C). Arithmetic: 1,526 hits, p ~ 9.3e-6, first round ~105 (95% CI 100-111). The paper notes the zero-hit result 'establishes only a common lower bound on their rarity'. Detection (App. C): up to 30 unrelated leading bytes; the rest must satisfy the recurrence mod 256 (constant 1st/2nd/3rd differences; v_n = v_{n-1} + v_{n-2}; v_n = r*v_{n-1}); minimal period ≥ 30. Programs use macros C, L, R, V, X. [mine] Outputs shown for programs that read ',' are one tape draw (Fibonacci r = 1, quadratic r = 9, per my re-implementation). Not stated: how many self-play programs were searched, or what fraction of generator mass these families take. The families were named after observation.
+Reworded on the slide, in the outline's words. 'Round = 1,024 programs (App. C, "the same rate" as the scaling runs)'. 'Fibonacci, geometric, quadratic, cubic: all by round 512 under self-play' (card title 'By round 512, self-play'). 'Arithmetic is not accelerated: round 0 vs ~105 under the universal prior'. 'Universal prior: 0 hits in 1.64e8 samples -&gt; p ≤ 1.8e-8 (rule of three, one-sided 95%) -&gt; first round &gt; 53,000 (App. C, p.29)'. 'Self-play saved only every 256 rounds, so its rounds are upper bounds (App. C, p.28)'. 'Paper: "one mechanism driving the faster scaling" (p.9); causal link to transfer untested (p.15)'. Nothing from the outline content was cut.</aside>
+</section>

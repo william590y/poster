@@ -1,0 +1,27 @@
+<section id="s3-05" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Results</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">Later checkpoints: more structure, transfer flattens</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:48px;align-items:start">
+<div style="width:934px;display:flex;flex-direction:column;gap:12px">
+<div style="background:#ffffff;border:1px solid #dde1da;border-radius:12px;padding:16px">
+<img src="/_blob/38a47bba61cedb3ac3a00a44824f1d6f" alt="Paper's Fig. 3: (a) epiplexity in nats times rounds against generator-training endpoint g0 to g4,096, individual seeds and the mean of 8 seeds rising to about 1,700, with one off-scale seed at 5,001; (b) validation bits per byte for text, audio and images against the same endpoints; text and audio fall steeply to g512 and then stay nearly flat, images keep falling slowly" style="width:900px;height:413px;object-fit:contain">
+</div>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">Paper's Fig. 3, p.10</p>
+<p style="font-size:24px;line-height:1.35;color:#3d4a52"><b><span style="color:#17242c">Setup</span></b> <span style="color:#5f6b72">(p.9)</span>: for endpoint T, a corpus of 4.19M programs sampled across 16 generator snapshots ending at T; a fresh 1M-param learner trains one epoch on each</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">Paper</span></b>: “Both improve steadily with T” <span style="color:#5f6b72">(p.9)</span></p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">Epiplexity</span></b> = “the excess training loss the learner accumulates before converging” <span style="color:#5f6b72">(Fig. 3 caption)</span>; units nats × rounds</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #a14d19;padding:0px 0px 0px 20px"><b>(a) Epiplexity rises</b>: ~15 at g0 → ~1,700 at g4,096 (mean of 8); ~1,240 without the off-scale 5,001 seed <span style="color:#a14d19">(plot read, our calc)</span></p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #a14d19;padding:0px 0px 0px 20px"><b>(b) Val BPB falls, then flattens</b>: text ~8.4 → ~5.2 by g1,024, ~5.3 at g4,096; audio ~5.4 → 5.2 after g512; images still falling slowly (~6.8 → ~6.3) <span style="color:#a14d19">(plot reads)</span></p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · Fig. 3, p.10; Sec. 3.1, p.9</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">17</p>
+<aside>About 1.5 minutes.
+Order: the setup under the figure, then the paper's claim, then what the two panels actually show.
+Fig. 3, p.10; method on p.9. Epiplexity is from Finzi et al. 2026, 'the amount of structure extractable by a compute-bounded learner' (p.9). Seed counts conflict within the paper. The caption says 'four seeds per endpoint', while panel (a) says 'mean of 8 seeds'. Panel (b) says 'mean of 4-seed subsets, +/-1 SD over subsets', while the caption says '4 ensembled seeds'. Flag this as a question for the authors. [mine] The structure measure keeps rising while text and audio transfer saturate after g512 to g1,024. The text uptick at g4,096 is within the error bars. Each corpus mixes 16 snapshots, so this tests a mixture, not an ordering. It does not separate an adaptive curriculum from a good static distribution, and there is no early-only vs late-only control at equal corpus size. One learner size (1M) and one budget.
+Reworded on the slide, in the outline's words. Setup: 'Setup (p.9): for endpoint T, a corpus of 4.19M programs sampled across 16 generator snapshots ending at T; a fresh 1M-param learner trains one epoch on each' (on the slide in full, under the figure). Definition: 'Epiplexity = "the excess training loss the learner accumulates before converging" (Fig. 3 caption); units nats x rounds'. Panel (a): 'Epiplexity rises: ~15 at g0 -&gt; ~1,700 at g4,096 (mean of 8); ~1,240 without the off-scale 5,001 seed (plot read, my calc)'; the slide says 'our calc'. Panel (b): 'Val BPB falls, then flattens (plot reads): text ~8.4 -&gt; ~5.2 by g1,024, ~5.3 at g4,096; audio ~5.4 -&gt; 5.2 after g512; images still falling slowly (~6.8 -&gt; ~6.3)'. 'Paper: "Both improve steadily with T" (p.9)' is on the slide, placed first so the plot reads answer it. Nothing from the outline content was cut.</aside>
+</section>

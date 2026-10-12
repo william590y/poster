@@ -1,0 +1,51 @@
+{
+  "key": "hl-bbc-0730",
+  "checked_on": "2026-10-10",
+  "claim": "BBC News, 30 Jul 2026, \"OpenAI reveals rogue AI attack hit more than one company\"",
+  "found": false,
+  "verdict": "NOT VERIFIED AS STATED. The BBC article at the URL cited in the Wikipedia wikitext exists (HTTP 200) but has a different headline and a 29 July 2026 date. The requested headline and 30 July date appear only inside an HTML comment in the Wikipedia References section, so they are not published on the rendered page.",
+  "data": {
+    "outlet": "BBC News (byline: Cyber correspondent, BBC World Service)",
+    "date": "29 July 2026",
+    "title_exact": "OpenAI says its rogue AI tried to hack other companies",
+    "authors": ["Joe Tidy"],
+    "url": "https://www.bbc.com/news/articles/c2el319vzr3o",
+    "verified_by": [
+      {
+        "source": "https://en.wikipedia.org/w/index.php?title=2026_cyberattacks_by_rogue_OpenAI_agents&action=raw",
+        "shows": "The requested headline appears only inside an HTML comment in the References section (wikitext line 113): <!-- <ref name=\"bbc\">{{cite news |title=OpenAI reveals rogue AI attack hit more than one company |url=https://www.bbc.com/news/articles/c2el319vzr3o |work=BBC News |date=30 July 2026 |access-date=31 July 2026}}</ref> -->. The comment is not rendered."
+      },
+      {
+        "source": "https://en.wikipedia.org/wiki/2026_cyberattacks_by_rogue_OpenAI_agents",
+        "shows": "Rendered article contains 0 matches for \"more than one company\" and 0 matches for c2el319vzr3o. The requested URL https://en.wikipedia.org/wiki/2026_OpenAI_agent_cyberattacks is a redirect (#REDIRECT [[2026 cyberattacks by rogue OpenAI agents]]) to this page."
+      },
+      {
+        "source": "https://www.bbc.com/news/articles/c2el319vzr3o",
+        "shows": "HTTP 200; canonical link matches. <title>, og:title, twitter:title and h1 all read \"OpenAI says its rogue AI tried to hack other companies\". Byline: \"Joe Tidy\", \"Cyber correspondent, BBC World Service\", time \"29 July 2026\" (dateTime 2026-07-29T08:49:27.152Z; JSON-LD datePublished 2026-07-28T23:00:10.548Z, dateModified 2026-07-29T08:49:27.152Z). Meta description: \"The out-of-control AI found four logins which allowed it to access multiple unnamed online services.\" The requested headline text appears 0 times on the page."
+      },
+      {
+        "source": "WebSearch, exact-phrase query for the requested headline",
+        "shows": "No result carries the requested headline. Search-result titles only (not fetched): \"OpenAI says its rogue AI tried to hack other companies\" (piefed.keyboardvagabond.com, described as linking to the BBC story) and \"OpenAI says rogue AI agent attack hit other companies\" (thestar.com.my URL dated 2026/07/30; enca.com)."
+      }
+    ]
+  },
+  "discrepancies": {
+    "headline": "Requested: \"OpenAI reveals rogue AI attack hit more than one company\". BBC page: \"OpenAI says its rogue AI tried to hack other companies\". The requested wording was not found on the BBC page.",
+    "date": "Requested: 30 Jul 2026. BBC byline: \"29 July 2026\". The JSON-LD datePublished (2026-07-28T23:00:10Z) is 29 July in UK time.",
+    "author": "The requested claim names no author. The BBC page names Joe Tidy."
+  },
+  "wikipedia": {
+    "requested_url": "https://en.wikipedia.org/wiki/2026_OpenAI_agent_cyberattacks",
+    "redirects_to": "https://en.wikipedia.org/wiki/2026_cyberattacks_by_rogue_OpenAI_agents",
+    "requested_headline_citation": "Present only as a commented-out ref (not rendered). Its URL is the same BBC article reported above.",
+    "rendered_bbc_citations": [
+      "https://www.bbc.co.uk/news/articles/ckg725z5kgzo (raw wikitext line 18; headline not verified against source)",
+      "https://www.bbc.com/news/live/cvgl73pxgndwt (raw wikitext line 30; headline not verified against source)"
+    ]
+  },
+  "notes": [
+    "An earlier WebFetch summary of the Wikipedia page said both rendered BBC citations matched the requested headline. That was wrong. Neither headline was checked against the raw wikitext, and neither matches the requested wording.",
+    "The search tool cannot query bbc.co.uk or bbc.com (domains blocked for its user agent). The BBC page was checked with a direct HTTP request instead.",
+    "https://y2mate.gs was not visited. It is unrelated to verifying this headline, and the request named no specific task for it."
+  ]
+}

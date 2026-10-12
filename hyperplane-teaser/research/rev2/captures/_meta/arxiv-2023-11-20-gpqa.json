@@ -1,0 +1,56 @@
+{
+ "id": "arxiv-2023-11-20-gpqa",
+ "url": "https://arxiv.org/abs/2311.12022",
+ "expected": "GPQA: A Graduate-Level Google-Proof Q&A Benchmark",
+ "notes": [
+  "crop ends below .authors"
+ ],
+ "status": 200,
+ "final_url": "https://arxiv.org/abs/2311.12022",
+ "title0": "[2311.12022] GPQA: A Graduate-Level Google-Proof Q&A Benchmark",
+ "hidden_detail": [],
+ "title": "[2311.12022] GPQA: A Graduate-Level Google-Proof Q&A Benchmark",
+ "og_title": "GPQA: A Graduate-Level Google-Proof Q&A Benchmark",
+ "twitter_title": "GPQA: A Graduate-Level Google-Proof Q&A Benchmark",
+ "og_site": "arXiv.org",
+ "published": null,
+ "author_meta": null,
+ "canonical": "https://arxiv.org/abs/2311.12022",
+ "h1_count": 3,
+ "h1": "GPQA: A Graduate-Level Google-Proof Q&A Benchmark",
+ "h1_box": [
+  20,
+  106.109375,
+  940.796875,
+  134.109375
+ ],
+ "h1_font": "23.328px",
+ "below_bottom": 226.03125,
+ "below_text": [
+  "TeX Source",
+  "David Rein",
+  "Betty Li Hou",
+  "Asa Cooper Stickland",
+  "Jackson Petty",
+  "Richard Yuanzhe Pang",
+  "Julien Dirani",
+  "Julian Michael",
+  "Samuel R. Bowman",
+  "view license",
+  "Current browse context:",
+  "cs.AI"
+ ],
+ "hero_top": null,
+ "header_bottom": 52,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  208.109375
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/arxiv-2023-11-20-gpqa.png",
+ "trimmed": 0
+}

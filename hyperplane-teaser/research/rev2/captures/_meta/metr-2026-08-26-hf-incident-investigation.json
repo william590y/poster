@@ -1,0 +1,65 @@
+{
+ "id": "metr-2026-08-26-hf-incident-investigation",
+ "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+ "expected": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+ "notes": [
+  "hid 1 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+ "title0": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident - METR",
+ "hidden_detail": [
+  [
+   "DIV",
+   "menu-main-mobile",
+   "menu-main-mobile nested",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident - METR",
+ "og_title": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+ "twitter_title": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+ "og_site": null,
+ "published": null,
+ "author_meta": null,
+ "canonical": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+ "h1_count": 11,
+ "h1": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+ "h1_box": [
+  30,
+  140,
+  1170,
+  320
+ ],
+ "h1_font": "52px",
+ "below_bottom": 404.984375,
+ "below_text": [
+  "CONTRIBUTORS",
+  "DATE",
+  "SHARE",
+  "Ryan Greenblatt",
+  "Ajeya Cotra",
+  ", \n                    \n                      \n                        and",
+  "Hjalmar Wijk",
+  "August 26, 2026",
+  "Copy Link",
+  "Citation"
+ ],
+ "hero_top": 969,
+ "header_bottom": 7968.765625,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  422.984375
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/metr-2026-08-26-hf-incident-investigation.png",
+ "trimmed": 0
+}

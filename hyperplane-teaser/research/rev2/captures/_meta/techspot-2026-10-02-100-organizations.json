@@ -1,0 +1,70 @@
+{
+ "id": "techspot-2026-10-02-100-organizations",
+ "url": "https://www.techspot.com/news/114073-openai-rogue-ai-agents-triggered-alerts-more-than.html",
+ "expected": "OpenAI's rogue agent problem is bigger than Hugging Face, over 100 organizations and counting",
+ "notes": [
+  "hid 2 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://www.techspot.com/news/114073-openai-rogue-ai-agents-triggered-alerts-more-than.html",
+ "title0": "OpenAI's rogue agent problem is bigger than Hugging Face, over 100 organizations and counting | TechSpot",
+ "hidden_detail": [
+  [
+   "DIV",
+   "",
+   "billboard_placeholder min",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "billboard_placeholder_min",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "OpenAI's rogue agent problem is bigger than Hugging Face, over 100 organizations and counting | TechSpot",
+ "og_title": "OpenAI's rogue agent problem is bigger than Hugging Face, over 100 organizations and counting",
+ "twitter_title": null,
+ "og_site": "TechSpot",
+ "published": null,
+ "author_meta": null,
+ "canonical": "https://www.techspot.com/news/114073-openai-rogue-ai-agents-triggered-alerts-more-than.html",
+ "h1_count": 1,
+ "h1": "OpenAI's rogue agent problem is bigger than Hugging Face, over 100 organizations and counting",
+ "h1_box": [
+  48,
+  144,
+  1000,
+  304.96875
+ ],
+ "h1_font": "41.28px",
+ "below_bottom": 422.84375,
+ "below_text": [
+  "Agents bypassed access controls, exposed credentials, and even repurposed websit",
+  "By",
+  "Rob Thubron",
+  "October 2, 2026 at 5:19 AM",
+  "Add TechSpot"
+ ],
+ "hero_top": 452.84375,
+ "header_bottom": 76,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  440.84375
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/techspot-2026-10-02-100-organizations.png",
+ "trimmed": 0
+}

@@ -1,0 +1,3564 @@
+{
+ "meta": {
+  "generated": "2026-10-10",
+  "count": 46,
+  "coords": "Same as screens.json: all boxes are [x0,y0,x1,y1] in source pixels of `path` (w x h = 2400 x crop height; the page was captured at 1200 css px wide, deviceScaleFactor 2). One box per text line of the phrase, 3 px padding, from tesseract word boxes (psm 3 and 6, inverted pass for dark images). `headline_box` = the page h1 element box in the same pixels.",
+  "capture": "Playwright + Chromium (chrome-linux 1194), viewport 1200x1000, deviceScaleFactor 2, taken 2026-10-10 through the session proxy. Cookie/consent banners dismissed by clicking an accept/close button where one was found; remaining fixed overlays (and empty ad slots) hidden with CSS. Cropped to the masthead + headline + dek/byline region; no pixels were edited or re-typeset.",
+  "quality": "1-5 as in screens.json (median OCR line height of the highlighted phrase at 800 px display width; minus 1 if OCR confirms less than 75% of the text).",
+  "ocr_check": "as in screens.json; `verify` adds the visible h1 and the page <title>/og:title compared with the candidate headline (similarity 0-1).",
+  "lyric": "keys of research/long/lyrics/*.json the capture fits (best first).",
+  "source": "research/long/lyrics/*.json candidates (headline/article/post) and research/verify headlines that had no screenshot in the deck.",
+  "skipped": "see captures.skipped.json for pages that were not captured and why."
+ },
+ "items": [
+  {
+   "id": "abajournal-2023-03-16-bar-exam",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/abajournal-2023-03-16-bar-exam.png",
+   "w": 2400,
+   "h": 1016,
+   "kind": "headline",
+   "outlet": "ABA Journal",
+   "date": "2023-03-16",
+   "url": "https://www.abajournal.com/web/article/latest-version-of-chatgpt-aces-the-bar-exam-with-score-in-90th-percentile",
+   "text": "Latest version of ChatGPT aces bar exam with score nearing 90th percentile",
+   "tags": [
+    "benchmarks"
+   ],
+   "lyric": [
+    "not-cool-not-smart"
+   ],
+   "year": 2023,
+   "quality": 1,
+   "highlights": [
+    {
+     "phrase": "with score nearing 90th percentile",
+     "boxes": [
+      [
+       1032,
+       621,
+       1466,
+       672
+      ],
+      [
+       59,
+       675,
+       416,
+       726
+      ]
+     ]
+    }
+   ],
+   "author": "Debra Cassens Weiss",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 15.0,
+    "note": "ok",
+    "line_px_at_800_focus": 22.8
+   },
+   "verify": {
+    "candidate_text": "Latest version of ChatGPT aces bar exam with score nearing 90th percentile",
+    "visible_h1": "Latest version of ChatGPT aces bar exam with score nearing 90th percentile",
+    "h1_match": 1.0,
+    "page_title": "Latest version of ChatGPT aces bar exam with score nearing 90th percentile",
+    "og_title": "Latest version of ChatGPT aces bar exam with score nearing 90th percentile",
+    "title_match": 1.0,
+    "published_meta": "2023-03-16",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 9 overlay element(s)"
+   },
+   "headline_box": [
+    60,
+    617,
+    1560,
+    728
+   ],
+   "focus_crop": [
+    20,
+    587,
+    1600,
+    1016
+   ],
+   "quality_at_focus": 2,
+   "captured": "https://www.abajournal.com/web/article/latest-version-of-chatgpt-aces-the-bar-exam-with-score-in-90th-percentile on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "abc-2026-09-11-swarm-own-words",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/abc-2026-09-11-swarm-own-words.png",
+   "w": 2400,
+   "h": 1240,
+   "kind": "headline",
+   "outlet": "ABC News (Australia)",
+   "date": "2026-09-11",
+   "url": "https://www.abc.net.au/news/2026-09-11/how-openai-agents-hacked-hugging-face-messages-revealed/107125126",
+   "text": "How a ‘swarm’ of AI agents hacked another company, in the AI’s own words",
+   "tags": [
+    "agents",
+    "rogue-agents",
+    "security"
+   ],
+   "lyric": [
+    "disappear",
+    "tried-my-best"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "swarm of AI agents hacked another company",
+     "boxes": [
+      [
+       828,
+       348,
+       1590,
+       436
+      ],
+      [
+       578,
+       440,
+       1555,
+       528
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.982,
+    "highlight_scores": [
+     0.971
+    ],
+    "line_px_at_800": 27.3,
+    "note": "ok",
+    "line_px_at_800_focus": 49.7
+   },
+   "verify": {
+    "candidate_text": "How a 'swarm' of AI agents hacked another company, in the AI's own words",
+    "visible_h1": "How a ‘swarm’ of AI agents hacked another company, in the AI’s own words",
+    "h1_match": 1.0,
+    "page_title": "How a 'swarm' of AI agents hacked another company, in the AI's own words - ABC News",
+    "og_title": "How a 'swarm' of AI agents hacked another company, in the AI's own words",
+    "title_match": 1.0,
+    "published_meta": "2026-09-10T18:51:59+00:00",
+    "http_status": 200,
+    "masthead_included": false,
+    "consent_handling": "hid 4 overlay element(s); crop starts at css y=540 (the area above it, masthead, hero image, empty ad slot or video player, is not included); captured beyond the first viewport (CDP captureBeyondViewport)"
+   },
+   "headline_box": [
+    579,
+    337,
+    1820,
+    613
+   ],
+   "focus_crop": [
+    539,
+    307,
+    1860,
+    637
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://www.abc.net.au/news/2026-09-11/how-openai-agents-hacked-hugging-face-messages-revealed/107125126 on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "anthropic-2025-06-20-agentic-misalignment",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/anthropic-2025-06-20-agentic-misalignment.png",
+   "w": 2400,
+   "h": 706,
+   "kind": "article",
+   "outlet": "Anthropic",
+   "date": "2025-06-20",
+   "url": "https://www.anthropic.com/research/agentic-misalignment",
+   "text": "Agentic misalignment: How LLMs could be insider threats",
+   "tags": [
+    "agents",
+    "rogue-agents"
+   ],
+   "lyric": [
+    "tried-my-best",
+    "disappear"
+   ],
+   "year": 2025,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "LLMs could be insider threats",
+     "boxes": [
+      [
+       452,
+       467,
+       1951,
+       552
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 26.3,
+    "note": "ok",
+    "line_px_at_800_focus": 28.4
+   },
+   "verify": {
+    "candidate_text": "Agentic Misalignment: How LLMs could be insider threats",
+    "visible_h1": "Agentic misalignment: How LLMs could be insider threats",
+    "h1_match": 1.0,
+    "page_title": "Agentic misalignment: How LLMs could be insider threats \\ Anthropic",
+    "og_title": "Agentic misalignment: How LLMs could be insider threats",
+    "title_match": 1.0,
+    "published_meta": "2025-06-20T22:30:00.000Z",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "none needed"
+   },
+   "headline_box": [
+    128,
+    338,
+    2272,
+    566
+   ],
+   "focus_crop": [
+    88,
+    308,
+    2312,
+    694
+   ],
+   "quality_at_focus": 3,
+   "captured": "https://www.anthropic.com/research/agentic-misalignment on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "anthropic-2026-09-30-what-work-can-robots-do",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/anthropic-2026-09-30-what-work-can-robots-do.png",
+   "w": 2400,
+   "h": 716,
+   "kind": "article",
+   "outlet": "Anthropic",
+   "date": "2026-09-30",
+   "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+   "text": "What work can robots do?",
+   "tags": [
+    "robots"
+   ],
+   "lyric": [
+    "parallel-park"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "What work can robots do?",
+     "boxes": [
+      [
+       525,
+       352,
+       1874,
+       438
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 26.7,
+    "note": "page <title>/og:title differs from the headline (sim 0.43): title = 'Can we predict the jobs robots will do? \\\\ Anthropic', og = 'Can we predict the jobs robots will do?'",
+    "line_px_at_800_focus": 44.8
+   },
+   "verify": {
+    "candidate_text": "What work can robots do?",
+    "visible_h1": "What work can robots do?",
+    "h1_match": 1.0,
+    "page_title": "Can we predict the jobs robots will do? \\ Anthropic",
+    "og_title": "Can we predict the jobs robots will do?",
+    "title_match": 0.426,
+    "published_meta": "2026-09-30T16:01:00.000Z",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "none needed"
+   },
+   "headline_box": [
+    526,
+    338,
+    1873,
+    452
+   ],
+   "focus_crop": [
+    486,
+    308,
+    1914,
+    705
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://www.anthropic.com/research/what-work-can-robots-do on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "apollo-2024-12-05-incontext-scheming",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/apollo-2024-12-05-incontext-scheming.png",
+   "w": 2400,
+   "h": 946,
+   "kind": "article",
+   "outlet": "Apollo Research",
+   "date": "2024-12-05",
+   "url": "https://www.apolloresearch.ai/science/frontier-models-are-capable-of-incontext-scheming",
+   "text": "Frontier Models are Capable of In-Context Scheming",
+   "tags": [
+    "models",
+    "safety"
+   ],
+   "lyric": [
+    "disappear"
+   ],
+   "year": 2024,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "Frontier Models are Capable of In-Context Scheming",
+     "boxes": [
+      [
+       904,
+       386,
+       2188,
+       480
+      ],
+      [
+       901,
+       494,
+       1612,
+       588
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 29.3,
+    "note": "ok",
+    "line_px_at_800_focus": 49.2
+   },
+   "verify": {
+    "candidate_text": "Frontier Models are Capable of In-context Scheming",
+    "visible_h1": "Frontier Models are Capable of In-Context Scheming",
+    "h1_match": 1.0,
+    "page_title": "Frontier Models are Capable of In-Context Scheming",
+    "og_title": null,
+    "title_match": 1.0,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "clicked:Allow all; hid 2 overlay element(s)"
+   },
+   "headline_box": [
+    900,
+    372,
+    2250,
+    587
+   ],
+   "focus_crop": [
+    860,
+    342,
+    2290,
+    934
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://www.apolloresearch.ai/science/frontier-models-are-capable-of-incontext-scheming on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "arxiv-2023-11-20-gpqa",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/arxiv-2023-11-20-gpqa.png",
+   "w": 2400,
+   "h": 416,
+   "kind": "paper",
+   "outlet": "arXiv (2311.12022)",
+   "date": "2023-11-20",
+   "url": "https://arxiv.org/abs/2311.12022",
+   "text": "GPQA: A Graduate-Level Google-Proof Q&A Benchmark",
+   "tags": [
+    "math",
+    "benchmarks",
+    "google"
+   ],
+   "lyric": [
+    "not-cool-not-smart"
+   ],
+   "year": 2023,
+   "quality": 1,
+   "highlights": [
+    {
+     "phrase": "Graduate-Level Google-Proof",
+     "boxes": [
+      [
+       248,
+       219,
+       902,
+       269
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 14.7,
+    "note": "ok",
+    "line_px_at_800_focus": 18.3
+   },
+   "verify": {
+    "candidate_text": "GPQA: A Graduate-Level Google-Proof Q&A Benchmark",
+    "visible_h1": "GPQA: A Graduate-Level Google-Proof Q&A Benchmark",
+    "h1_match": 1.0,
+    "page_title": "[2311.12022] GPQA: A Graduate-Level Google-Proof Q&A Benchmark",
+    "og_title": "GPQA: A Graduate-Level Google-Proof Q&A Benchmark",
+    "title_match": 1.0,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "crop ends below .authors"
+   },
+   "headline_box": [
+    40,
+    212,
+    1881,
+    268
+   ],
+   "focus_crop": [
+    0,
+    182,
+    1921,
+    416
+   ],
+   "quality_at_focus": 2,
+   "captured": "https://arxiv.org/abs/2311.12022 on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "arxiv-2024-01-05-ai-impacts-survey",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/arxiv-2024-01-05-ai-impacts-survey.png",
+   "w": 2400,
+   "h": 416,
+   "kind": "paper",
+   "outlet": "arXiv (2401.02843)",
+   "date": "2024-01-05",
+   "url": "https://arxiv.org/abs/2401.02843",
+   "text": "Thousands of AI Authors on the Future of AI",
+   "tags": [],
+   "lyric": [
+    "brutal-out-here",
+    "die-before-drink"
+   ],
+   "year": 2024,
+   "quality": 1,
+   "highlights": [
+    {
+     "phrase": "Thousands of AI Authors on the Future of AI",
+     "boxes": [
+      [
+       38,
+       219,
+       964,
+       260
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.943,
+    "highlight_scores": [
+     0.943
+    ],
+    "line_px_at_800": 11.7,
+    "note": "ok",
+    "line_px_at_800_focus": 14.6
+   },
+   "verify": {
+    "candidate_text": "Thousands of AI Authors on the Future of AI",
+    "visible_h1": "Thousands of AI Authors on the Future of AI",
+    "h1_match": 1.0,
+    "page_title": "[2401.02843] Thousands of AI Authors on the Future of AI",
+    "og_title": "Thousands of AI Authors on the Future of AI",
+    "title_match": 1.0,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "crop ends below .authors"
+   },
+   "headline_box": [
+    40,
+    212,
+    1881,
+    268
+   ],
+   "focus_crop": [
+    0,
+    182,
+    1921,
+    416
+   ],
+   "quality_at_focus": 1,
+   "captured": "https://arxiv.org/abs/2401.02843 on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "arxiv-2025-10-01-sycophantic-ai",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/arxiv-2025-10-01-sycophantic-ai.png",
+   "w": 2400,
+   "h": 368,
+   "kind": "paper",
+   "outlet": "arXiv (2510.01395)",
+   "date": "2025-10-01",
+   "url": "https://arxiv.org/abs/2510.01395",
+   "text": "Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence",
+   "tags": [],
+   "lyric": [
+    "caught-up-in-news"
+   ],
+   "year": 2025,
+   "quality": 1,
+   "highlights": [
+    {
+     "phrase": "Sycophantic AI Decreases Prosocial Intentions",
+     "boxes": [
+      [
+       39,
+       219,
+       1081,
+       269
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.984,
+    "highlight_scores": [
+     0.976
+    ],
+    "line_px_at_800": 14.7,
+    "note": "ok",
+    "line_px_at_800_focus": 18.3
+   },
+   "verify": {
+    "candidate_text": "Sycophantic AI decreases prosocial intentions and promotes dependence",
+    "visible_h1": "Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence",
+    "h1_match": 1.0,
+    "page_title": "[2510.01395] Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence",
+    "og_title": "Sycophantic AI Decreases Prosocial Intentions and Promotes Dependence",
+    "title_match": 1.0,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "crop ends below .authors"
+   },
+   "headline_box": [
+    40,
+    212,
+    1881,
+    268
+   ],
+   "focus_crop": [
+    0,
+    182,
+    1921,
+    368
+   ],
+   "quality_at_focus": 2,
+   "captured": "https://arxiv.org/abs/2510.01395 on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "axios-2025-09-17-amodei-25-percent",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/axios-2025-09-17-amodei-25-percent.png",
+   "w": 2400,
+   "h": 1165,
+   "kind": "headline",
+   "outlet": "Axios",
+   "date": "2025-09-17",
+   "url": "https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent",
+   "text": "Amodei on AI: \"There's a 25% chance that things go really, really badly\"",
+   "tags": [
+    "anthropic"
+   ],
+   "lyric": [
+    "die-before-drink"
+   ],
+   "year": 2025,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "25% chance that things go really, really badly",
+     "boxes": [
+      [
+       1569,
+       828,
+       1749,
+       904
+      ],
+      [
+       520,
+       945,
+       1736,
+       1039
+      ],
+      [
+       524,
+       1059,
+       1046,
+       1152
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.981,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 29.0,
+    "note": "ok",
+    "line_px_at_800_focus": 48.3
+   },
+   "verify": {
+    "candidate_text": "There's a 25% chance that things go really, really badly",
+    "visible_h1": "Amodei on AI: \"There's a 25% chance that things go really, really badly\"",
+    "h1_match": 0.896,
+    "page_title": "Amodei on AI: \"There's a 25% chance that things go really, really badly\"",
+    "og_title": "Amodei on AI: \"There's a 25% chance that things go really, really badly\"",
+    "title_match": 0.896,
+    "published_meta": "2025-09-17T20:09:39.883000Z",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 16 overlay element(s)"
+   },
+   "headline_box": [
+    520,
+    810,
+    1880,
+    1155
+   ],
+   "focus_crop": [
+    480,
+    780,
+    1920,
+    1165
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "bbc-2026-07-29-rogue-ai-hack-other-companies",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/bbc-2026-07-29-rogue-ai-hack-other-companies.png",
+   "w": 2400,
+   "h": 688,
+   "kind": "headline",
+   "outlet": "BBC News",
+   "date": "2026-07-29",
+   "url": "https://www.bbc.com/news/articles/c2el319vzr3o",
+   "text": "OpenAI says its rogue AI tried to hack other companies",
+   "tags": [
+    "rogue-agents",
+    "security",
+    "openai"
+   ],
+   "lyric": [
+    "disappear",
+    "tried-my-best",
+    "insecure"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "rogue AI tried to hack other companies",
+     "boxes": [
+      [
+       1023,
+       304,
+       1800,
+       385
+      ],
+      [
+       448,
+       392,
+       1045,
+       472
+      ]
+     ]
+    }
+   ],
+   "author": "Joe Tidy",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 24.8,
+    "note": "ok",
+    "line_px_at_800_focus": 37.6
+   },
+   "verify": {
+    "candidate_text": "OpenAI says its rogue AI tried to hack other companies",
+    "visible_h1": "OpenAI says its rogue AI tried to hack other companies",
+    "h1_match": 1.0,
+    "page_title": "OpenAI says its rogue AI tried to hack other companies",
+    "og_title": "OpenAI says its rogue AI tried to hack other companies",
+    "title_match": 1.0,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 12 overlay element(s)"
+   },
+   "headline_box": [
+    448,
+    294,
+    1952,
+    470
+   ],
+   "focus_crop": [
+    408,
+    264,
+    1992,
+    676
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://www.bbc.com/news/articles/c2el319vzr3o on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "cnn-2024-02-04-deepfake-cfo",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/cnn-2024-02-04-deepfake-cfo.png",
+   "w": 2400,
+   "h": 698,
+   "kind": "headline",
+   "outlet": "CNN",
+   "date": "2024-02-04",
+   "url": "https://www.cnn.com/2024/02/04/asia/deepfake-cfo-scam-hong-kong-intl-hnk/index.html",
+   "text": "Finance worker pays out $25 million after video call with deepfake ‘chief financial officer’",
+   "tags": [
+    "jobs",
+    "economy",
+    "media",
+    "deepfakes"
+   ],
+   "lyric": [
+    "no-one-wants-me"
+   ],
+   "year": 2024,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "pays out $25 million",
+     "boxes": [
+      [
+       781,
+       293,
+       1631,
+       387
+      ]
+     ]
+    },
+    {
+     "phrase": "deepfake chief financial officer",
+     "boxes": [
+      [
+       307,
+       406,
+       1682,
+       495
+      ]
+     ]
+    }
+   ],
+   "author": "Heather Chen, Kathleen Magramo",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 28.5,
+    "note": "ok",
+    "line_px_at_800_focus": 28.5
+   },
+   "verify": {
+    "candidate_text": "Finance worker pays out $25 million after video call with deepfake ‘chief financial officer’",
+    "visible_h1": "Finance worker pays out $25 million after video call with deepfake ‘chief financial officer’",
+    "h1_match": 1.0,
+    "page_title": "Finance worker pays out $25 million after video call with deepfake ‘chief financial officer’ | CNN",
+    "og_title": "Finance worker pays out $25 million after video call with deepfake ‘chief financial officer’ | CNN",
+    "title_match": 1.0,
+    "published_meta": "2024-02-04T07:31:09.731Z",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "clicked:Agree; hid 6 overlay element(s); crop starts at css y=290 (the area above it, masthead, hero image, empty ad slot or video player, is not included)"
+   },
+   "headline_box": [
+    0,
+    286,
+    2400,
+    502
+   ],
+   "focus_crop": [
+    0,
+    256,
+    2400,
+    686
+   ],
+   "quality_at_focus": 3,
+   "captured": "https://www.cnn.com/2024/02/04/asia/deepfake-cfo-scam-hong-kong-intl-hnk/index.html on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "cnn-2026-09-24-extreme-concern",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/cnn-2026-09-24-extreme-concern.png",
+   "w": 2400,
+   "h": 646,
+   "kind": "headline",
+   "outlet": "CNN",
+   "date": "2026-09-24",
+   "url": "https://edition.cnn.com/2026/09/23/business/australia-openai-agent-hack-intl-hnk",
+   "text": "‘Extreme concern’ over first known AI hack of a government system",
+   "tags": [
+    "security"
+   ],
+   "lyric": [
+    "insecure",
+    "dont-stick-up"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "over first known AI hack of a government system",
+     "boxes": [
+      [
+       901,
+       270,
+       2130,
+       340
+      ],
+      [
+       95,
+       382,
+       932,
+       464
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.981,
+    "highlight_scores": [
+     0.974
+    ],
+    "line_px_at_800": 23.3,
+    "note": "ok",
+    "line_px_at_800_focus": 23.3
+   },
+   "verify": {
+    "candidate_text": "'Extreme concern' over first known AI hack of a government system",
+    "visible_h1": "‘Extreme concern’ over first known AI hack of a government system",
+    "h1_match": 1.0,
+    "page_title": "Medicare Australia: ‘Extreme concern’ over OpenAI breach of health database, first known AI hack of a government system | CNN Business",
+    "og_title": "‘Extreme concern’ over first known AI hack of a government system | CNN Business",
+    "title_match": 0.894,
+    "published_meta": "2026-09-23T23:19:23.496Z",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "clicked:Agree; hid 4 overlay element(s); crop starts at css y=265 (the area above it, masthead, hero image, empty ad slot or video player, is not included)"
+   },
+   "headline_box": [
+    0,
+    254,
+    2400,
+    470
+   ],
+   "focus_crop": [
+    0,
+    224,
+    2400,
+    646
+   ],
+   "quality_at_focus": 2,
+   "captured": "https://edition.cnn.com/2026/09/23/business/australia-openai-agent-hack-intl-hnk on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "commonsense-2025-07-16-3-in-4-teens",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/commonsense-2025-07-16-3-in-4-teens.png",
+   "w": 2400,
+   "h": 738,
+   "kind": "article",
+   "outlet": "Common Sense Media",
+   "date": "2025-07-16",
+   "url": "https://www.commonsensemedia.org/press-releases/nearly-3-in-4-teens-have-used-ai-companions-new-national-survey-finds",
+   "text": "Nearly 3 in 4 Teens Have Used AI Companions, New National Survey Finds",
+   "tags": [
+    "kids"
+   ],
+   "lyric": [
+    "two-real-friends",
+    "sick-of-seventeen"
+   ],
+   "year": 2025,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "Nearly 3 in 4 Teens Have Used AI Companions",
+     "boxes": [
+      [
+       122,
+       241,
+       1453,
+       307
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.982,
+    "highlight_scores": [
+     0.971
+    ],
+    "line_px_at_800": 20.0,
+    "note": "ok",
+    "line_px_at_800_focus": 21.4
+   },
+   "verify": {
+    "candidate_text": "Nearly 3 in 4 Teens Have Used AI Companions, New National Survey Finds",
+    "visible_h1": "Nearly 3 in 4 Teens Have Used AI Companions, New National Survey Finds",
+    "h1_match": 1.0,
+    "page_title": "Nearly 3 in 4 Teens Have Used AI Companions, New National Survey Finds | Common Sense Media",
+    "og_title": "Nearly 3 in 4 Teens Have Used AI Companions, New National Survey Finds",
+    "title_match": 1.0,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "clicked:Close; hid 2 overlay element(s)"
+   },
+   "headline_box": [
+    120,
+    227,
+    2280,
+    308
+   ],
+   "focus_crop": [
+    80,
+    197,
+    2320,
+    726
+   ],
+   "quality_at_focus": 2,
+   "captured": "https://www.commonsensemedia.org/press-releases/nearly-3-in-4-teens-have-used-ai-companions-new-national-survey-finds on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "cryptoslate-2025-04-17-o3-mensa",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/cryptoslate-2025-04-17-o3-mensa.png",
+   "w": 2400,
+   "h": 1424,
+   "kind": "headline",
+   "outlet": "CryptoSlate",
+   "date": "2025-04-17",
+   "url": "https://cryptoslate.com/openais-o3-scores-136-on-mensa-norway-test-surpassing-98-of-human-population/",
+   "text": "OpenAI’s o3 scores 136 on Mensa Norway test, surpassing 98% of human population",
+   "tags": [
+    "benchmarks",
+    "openai"
+   ],
+   "lyric": [
+    "not-cool-not-smart"
+   ],
+   "year": 2025,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "surpassing 98% of human population",
+     "boxes": [
+      [
+       577,
+       601,
+       1544,
+       739
+      ],
+      [
+       295,
+       747,
+       1538,
+       882
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.969,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 43.5,
+    "note": "ok",
+    "line_px_at_800_focus": 55.5
+   },
+   "verify": {
+    "candidate_text": "OpenAI's o3 scores 136 on Mensa Norway test, surpassing 98% of human population",
+    "visible_h1": "OpenAI’s o3 scores 136 on Mensa Norway test, surpassing 98% of human population",
+    "h1_match": 1.0,
+    "page_title": "OpenAI’s o3 scores 136 on Mensa Norway test, surpassing 98% of human population",
+    "og_title": "OpenAI’s o3 scores 136 on Mensa Norway test, surpassing 98% of human population",
+    "title_match": 1.0,
+    "published_meta": "2025-04-17T15:08:59+00:00",
+    "http_status": 200,
+    "masthead_included": false,
+    "consent_handling": "hid 4 overlay element(s); crop starts at css y=407 (the area above it, masthead, hero image, empty ad slot or video player, is not included); captured beyond the first viewport (CDP captureBeyondViewport)"
+   },
+   "headline_box": [
+    292,
+    300,
+    2092,
+    874
+   ],
+   "focus_crop": [
+    252,
+    270,
+    2132,
+    1424
+   ],
+   "quality_at_focus": 5,
+   "captured": "https://cryptoslate.com/openais-o3-scores-136-on-mensa-norway-test-surpassing-98-of-human-population/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "dario-2024-10-machines-of-loving-grace",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/dario-2024-10-machines-of-loving-grace.png",
+   "w": 2400,
+   "h": 743,
+   "kind": "article",
+   "outlet": "Dario Amodei",
+   "date": "2024-10",
+   "url": "https://darioamodei.com/essay/machines-of-loving-grace",
+   "text": "Machines of Loving Grace",
+   "tags": [],
+   "lyric": [
+    "teenage-dream"
+   ],
+   "year": 2024,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "Machines of Loving Grace",
+     "boxes": [
+      [
+       619,
+       269,
+       1311,
+       365
+      ],
+      [
+       621,
+       405,
+       1378,
+       532
+      ]
+     ]
+    }
+   ],
+   "author": "Dario Amodei",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 35.2,
+    "note": "page <title>/og:title differs from the headline (sim 0.79): title = 'Dario Amodei —\\xa0Machines of Loving Grace', og = 'Dario Amodei —\\xa0Machines of Loving Grace'",
+    "line_px_at_800_focus": 68.1
+   },
+   "verify": {
+    "candidate_text": "Machines of Loving Grace",
+    "visible_h1": "Machines of Loving Grace1",
+    "h1_match": 0.98,
+    "page_title": "Dario Amodei — Machines of Loving Grace",
+    "og_title": "Dario Amodei — Machines of Loving Grace",
+    "title_match": 0.787,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 1 overlay element(s)"
+   },
+   "headline_box": [
+    620,
+    261,
+    1780,
+    534
+   ],
+   "focus_crop": [
+    580,
+    231,
+    1820,
+    743
+   ],
+   "quality_at_focus": 5,
+   "captured": "https://darioamodei.com/essay/machines-of-loving-grace on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "dario-2026-01-adolescence-of-technology",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/dario-2026-01-adolescence-of-technology.png",
+   "w": 2400,
+   "h": 770,
+   "kind": "article",
+   "outlet": "Dario Amodei",
+   "date": "2026-01",
+   "url": "https://darioamodei.com/essay/the-adolescence-of-technology",
+   "text": "The Adolescence of Technology",
+   "tags": [],
+   "lyric": [
+    "teenage-dream"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "The Adolescence of Technology",
+     "boxes": [
+      [
+       619,
+       269,
+       1537,
+       365
+      ],
+      [
+       621,
+       405,
+       1400,
+       532
+      ]
+     ]
+    },
+    {
+     "phrase": "Risks of Powerful AI",
+     "boxes": [
+      [
+       1181,
+       557,
+       1532,
+       606
+      ]
+     ]
+    }
+   ],
+   "author": "Dario Amodei",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 30.0,
+    "note": "ok",
+    "line_px_at_800_focus": 58.1
+   },
+   "verify": {
+    "candidate_text": "The Adolescence of Technology",
+    "visible_h1": "The Adolescence of Technology",
+    "h1_match": 1.0,
+    "page_title": "Dario Amodei — The Adolescence of Technology",
+    "og_title": "Dario Amodei — The Adolescence of Technology",
+    "title_match": 0.817,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 1 overlay element(s)"
+   },
+   "headline_box": [
+    620,
+    261,
+    1780,
+    534
+   ],
+   "focus_crop": [
+    580,
+    231,
+    1820,
+    770
+   ],
+   "quality_at_focus": 5,
+   "captured": "https://darioamodei.com/essay/the-adolescence-of-technology on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "dawn-2026-10-02-rogue-agents-covered-tracks",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/dawn-2026-10-02-rogue-agents-covered-tracks.png",
+   "w": 2400,
+   "h": 526,
+   "kind": "headline",
+   "outlet": "Dawn (AFP)",
+   "date": "2026-10-02",
+   "url": "https://www.dawn.com/news/2034110/rogue-openai-agents-covered-up-their-tracks",
+   "text": "Rogue OpenAI agents ‘covered up their tracks’",
+   "tags": [
+    "agents",
+    "rogue-agents",
+    "openai"
+   ],
+   "lyric": [
+    "disappear",
+    "tried-my-best"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "covered up their tracks",
+     "boxes": [
+      [
+       918,
+       342,
+       1554,
+       406
+      ]
+     ]
+    }
+   ],
+   "author": "AFP",
+   "ocr_check": {
+    "score": 0.973,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 19.3,
+    "note": "ok",
+    "line_px_at_800_focus": 24.6
+   },
+   "verify": {
+    "candidate_text": "Rogue OpenAI agents ‘covered up their tracks’",
+    "visible_h1": "Rogue OpenAI agents ‘covered up their tracks’",
+    "h1_match": 1.0,
+    "page_title": "Rogue OpenAI agents ‘covered up their tracks’ - World - DAWN.COM",
+    "og_title": "Rogue OpenAI agents ‘covered up their tracks’",
+    "title_match": 1.0,
+    "published_meta": "2026-10-02 06:59:24+05:00",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 7 overlay element(s)"
+   },
+   "headline_box": [
+    296,
+    324,
+    2104,
+    438
+   ],
+   "focus_crop": [
+    256,
+    294,
+    2144,
+    526
+   ],
+   "quality_at_focus": 2,
+   "captured": "https://www.dawn.com/news/2034110/rogue-openai-agents-covered-up-their-tracks on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "decoder-2025-09-17-icpc",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/decoder-2025-09-17-icpc.png",
+   "w": 2400,
+   "h": 584,
+   "kind": "headline",
+   "outlet": "The Decoder",
+   "date": "2025-09-17",
+   "url": "https://the-decoder.com/openai-outperforms-humans-and-google-at-the-worlds-top-collegiate-programming-contest/",
+   "text": "OpenAI outperforms humans and Google at the world's top collegiate programming contest",
+   "tags": [
+    "openai",
+    "google"
+   ],
+   "lyric": [
+    "ego-crush",
+    "not-cool-not-smart"
+   ],
+   "year": 2025,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "outperforms humans and Google",
+     "boxes": [
+      [
+       448,
+       360,
+       1327,
+       422
+      ]
+     ]
+    }
+   ],
+   "author": "Maximilian Schreiner",
+   "ocr_check": {
+    "score": 0.986,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 18.7,
+    "note": "ok",
+    "line_px_at_800_focus": 33.4
+   },
+   "verify": {
+    "candidate_text": "OpenAI outperforms humans and Google at the world's top collegiate programming contest",
+    "visible_h1": "OpenAI outperforms humans and Google at the world's top collegiate programming contest",
+    "h1_match": 1.0,
+    "page_title": "OpenAI outperforms humans and Google at the world's top collegiate programming contest",
+    "og_title": "OpenAI outperforms humans and Google at the world's top collegiate programming contest",
+    "title_match": 1.0,
+    "published_meta": "2025-09-17T19:12:48+00:00",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "clicked:Agree; hid 16 overlay element(s)"
+   },
+   "headline_box": [
+    176,
+    344,
+    1439,
+    502
+   ],
+   "focus_crop": [
+    136,
+    314,
+    1479,
+    584
+   ],
+   "quality_at_focus": 3,
+   "captured": "https://the-decoder.com/openai-outperforms-humans-and-google-at-the-worlds-top-collegiate-programming-contest/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "euronews-2026-01-08-characterai-settle",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/euronews-2026-01-08-characterai-settle.png",
+   "w": 2400,
+   "h": 658,
+   "kind": "headline",
+   "outlet": "Euronews",
+   "date": "2026-01-08",
+   "url": "https://www.euronews.com/2026/01/08/google-and-chatbot-start-up-characterai-to-settle-lawsuits-over-teen-suicides",
+   "text": "Google and chatbot start-up Character.AI to settle lawsuits over teen suicides",
+   "tags": [
+    "kids",
+    "google"
+   ],
+   "lyric": [
+    "sick-of-seventeen",
+    "two-real-friends"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "to settle lawsuits over teen suicides",
+     "boxes": [
+      [
+       590,
+       453,
+       1426,
+       522
+      ],
+      [
+       94,
+       539,
+       607,
+       608
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.985,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 21.0,
+    "note": "ok",
+    "line_px_at_800_focus": 32.0
+   },
+   "verify": {
+    "candidate_text": "Google and chatbot start-up Character.AI to settle lawsuits over teen suicides",
+    "visible_h1": "Google and chatbot start-up Character.AI to settle lawsuits over teen suicides",
+    "h1_match": 1.0,
+    "page_title": "Google and chatbot start-up Character.AI to settle lawsuits over teen suicides | Euronews",
+    "og_title": "Google and Character.AI agree to settle US lawsuits over teen suicides",
+    "title_match": 1.0,
+    "published_meta": "2026-01-08 11:21:45 +01:00",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "clicked:Agree and close; hid 20 overlay element(s)"
+   },
+   "headline_box": [
+    96,
+    360,
+    1592,
+    618
+   ],
+   "focus_crop": [
+    56,
+    330,
+    1632,
+    658
+   ],
+   "quality_at_focus": 3,
+   "captured": "https://www.euronews.com/next/2026/01/08/google-and-chatbot-start-up-characterai-to-settle-lawsuits-over-teen-suicides on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "fli-2023-03-22-pause-letter",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/fli-2023-03-22-pause-letter.png",
+   "w": 2400,
+   "h": 1304,
+   "kind": "article",
+   "outlet": "Future of Life Institute",
+   "date": "2023-03-22",
+   "url": "https://futureoflife.org/open-letter/pause-giant-ai-experiments/",
+   "text": "Pause Giant AI Experiments: An Open Letter",
+   "tags": [
+    "safety"
+   ],
+   "lyric": [
+    "wish-done-before"
+   ],
+   "year": 2023,
+   "quality": 1,
+   "highlights": [
+    {
+     "phrase": "pause for at least 6 months the training of AI systems more powerful than GPT-4",
+     "boxes": [
+      [
+       1169,
+       739,
+       2009,
+       791
+      ],
+      [
+       384,
+       821,
+       1275,
+       873
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.971,
+    "highlight_scores": [
+     0.984
+    ],
+    "line_px_at_800": 15.3,
+    "note": "ok",
+    "line_px_at_800_focus": 21.5
+   },
+   "verify": {
+    "candidate_text": "Pause Giant AI Experiments: An Open Letter",
+    "visible_h1": "Pause Giant AI Experiments: An Open Letter",
+    "h1_match": 1.0,
+    "page_title": "Pause Giant AI Experiments: An Open Letter - Future of Life Institute",
+    "og_title": "Pause Giant AI Experiments: An Open Letter - Future of Life Institute",
+    "title_match": 1.0,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 3 overlay element(s)"
+   },
+   "headline_box": [
+    384,
+    482,
+    2016,
+    682
+   ],
+   "focus_crop": [
+    344,
+    452,
+    2056,
+    1292
+   ],
+   "quality_at_focus": 2,
+   "captured": "https://futureoflife.org/open-letter/pause-giant-ai-experiments/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "fortune-2026-07-21-openai-hf-escape",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/fortune-2026-07-21-openai-hf-escape.png",
+   "w": 2400,
+   "h": 1310,
+   "kind": "headline",
+   "outlet": "Fortune",
+   "date": "2026-07-21",
+   "url": "https://fortune.com/2026/07/21/openai-says-ai-models-escaped-control-hacked-hugging-face/",
+   "text": "OpenAI says its AI models secretly broke out of a secure test environment and hacked into AI company Hugging Face in order to cheat on an evaluation",
+   "tags": [
+    "rogue-agents",
+    "security",
+    "economy",
+    "openai"
+   ],
+   "lyric": [
+    "insecure",
+    "tried-my-best",
+    "disappear"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "secretly broke out of a secure test environment",
+     "boxes": [
+      [
+       64,
+       597,
+       1046,
+       673
+      ],
+      [
+       62,
+       684,
+       649,
+       744
+      ]
+     ]
+    },
+    {
+     "phrase": "hacked into AI company Hugging Face",
+     "boxes": [
+      [
+       803,
+       684,
+       1048,
+       744
+      ],
+      [
+       63,
+       772,
+       1072,
+       847
+      ]
+     ]
+    }
+   ],
+   "author": "Jeremy Kahn and Emily Forlini",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 20.5,
+    "note": "ok",
+    "line_px_at_800_focus": 41.3
+   },
+   "verify": {
+    "candidate_text": "OpenAI says its AI models secretly broke out of a secure test environment and hacked into AI company Hugging Face in order to cheat on an evaluation",
+    "visible_h1": "OpenAI says its AI models secretly broke out of a secure test environment and hacked into AI company Hugging Face in order to cheat on an evaluation",
+    "h1_match": 1.0,
+    "page_title": "OpenAI says its AI models escaped control and hacked into AI company Hugging Face | Fortune",
+    "og_title": "OpenAI says its AI models escaped from a secure test environment and hacked into AI company Hugging Face in order to cheat on an evaluation | Fortune",
+    "title_match": 0.896,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 7 overlay element(s); hid 3 more; crop starts at css y=290 (the area above it, masthead, hero image, empty ad slot or video player, is not included)"
+   },
+   "headline_box": [
+    64,
+    498,
+    1176,
+    930
+   ],
+   "focus_crop": [
+    24,
+    468,
+    1216,
+    1310
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://fortune.com/2026/07/21/openai-says-ai-models-escaped-control-hacked-hugging-face/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "fortune-2026-08-06-cs-enrollment",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/fortune-2026-08-06-cs-enrollment.png",
+   "w": 2400,
+   "h": 1310,
+   "kind": "headline",
+   "outlet": "Fortune",
+   "date": "2026-08-06",
+   "url": "https://fortune.com/2026/08/06/computer-science-enrollment-plunging-ai-college-campus/",
+   "text": "Computer science enrollment is plunging, but AI is taking over the rest of the college campus as it reshapes how students learn and work",
+   "tags": [
+    "compute",
+    "kids"
+   ],
+   "lyric": [
+    "enjoy-your-youth"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "Computer science enrollment is plunging",
+     "boxes": [
+      [
+       66,
+       512,
+       1131,
+       586
+      ],
+      [
+       62,
+       598,
+       377,
+       673
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 22.8,
+    "note": "page <title>/og:title differs from the headline (sim 0.60): title = 'Computer science enrollment is plunging as AI reshapes how college students learn and work | Fortune', og = 'Computer science enrollment is plunging, but AI is taking over the rest of the college campus as it reshapes how students learn and work | Fortune'; candidate text was a truncated headline; the visible full h1 is used",
+    "line_px_at_800_focus": 46.0
+   },
+   "verify": {
+    "candidate_text": "Computer science enrollment is plunging",
+    "visible_h1": "Computer science enrollment is plunging, but AI is taking over the rest of the college campus as it reshapes how students learn and work",
+    "h1_match": 0.448,
+    "page_title": "Computer science enrollment is plunging as AI reshapes how college students learn and work | Fortune",
+    "og_title": "Computer science enrollment is plunging, but AI is taking over the rest of the college campus as it reshapes how students learn and work | Fortune",
+    "title_match": 0.605,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 3 overlay element(s); hid 6 more; crop starts at css y=290 (the area above it, masthead, hero image, empty ad slot or video player, is not included)"
+   },
+   "headline_box": [
+    64,
+    498,
+    1176,
+    930
+   ],
+   "focus_crop": [
+    24,
+    468,
+    1216,
+    1310
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://fortune.com/2026/08/06/computer-science-enrollment-plunging-ai-college-campus/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "gallup-2026-07-28-americans-cool-toward-ai",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/gallup-2026-07-28-americans-cool-toward-ai.png",
+   "w": 2400,
+   "h": 812,
+   "kind": "headline",
+   "outlet": "Gallup",
+   "date": "2026-07-28",
+   "url": "https://news.gallup.com/poll/712751/americans-cool-toward.aspx",
+   "text": "Americans Cool Toward AI",
+   "tags": [],
+   "lyric": [
+    "wish-done-before"
+   ],
+   "year": 2026,
+   "quality": 1,
+   "highlights": [
+    {
+     "phrase": "Americans Cool Toward AI",
+     "boxes": [
+      [
+       548,
+       578,
+       1471,
+       640
+      ]
+     ]
+    },
+    {
+     "phrase": "Americans turn skeptical",
+     "boxes": [
+      [
+       1407,
+       697,
+       1600,
+       732
+      ],
+      [
+       549,
+       757,
+       790,
+       799
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 12.0,
+    "note": "ok",
+    "line_px_at_800_focus": 21.4
+   },
+   "verify": {
+    "candidate_text": "Americans Cool Toward AI",
+    "visible_h1": "Americans Cool Toward AI",
+    "h1_match": 1.0,
+    "page_title": "Americans Cool Toward AI",
+    "og_title": "Americans Cool Toward AI",
+    "title_match": 1.0,
+    "published_meta": "2026-07-28",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "clicked:ACCEPT ALL; hid 1 overlay element(s)"
+   },
+   "headline_box": [
+    551,
+    578,
+    1819,
+    660
+   ],
+   "focus_crop": [
+    511,
+    548,
+    1859,
+    812
+   ],
+   "quality_at_focus": 2,
+   "captured": "https://news.gallup.com/poll/712751/americans-cool-toward.aspx on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "guardian-2026-09-18-gemini-hacked-three",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/guardian-2026-09-18-gemini-hacked-three.png",
+   "w": 2400,
+   "h": 820,
+   "kind": "headline",
+   "outlet": "The Guardian",
+   "date": "2026-09-18",
+   "url": "https://www.theguardian.com/technology/2026/sep/18/google-gemini-ai-hack",
+   "text": "Google says its Gemini AI model hacked three other companies",
+   "tags": [
+    "models",
+    "rogue-agents",
+    "security",
+    "google"
+   ],
+   "lyric": [
+    "insecure",
+    "exploited"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "Gemini AI model hacked three other companies",
+     "boxes": [
+      [
+       880,
+       490,
+       1641,
+       551
+      ],
+      [
+       418,
+       568,
+       1118,
+       641
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 20.3,
+    "note": "ok",
+    "line_px_at_800_focus": 37.0
+   },
+   "verify": {
+    "candidate_text": "Google says its Gemini AI model hacked three other companies",
+    "visible_h1": "Google says its Gemini AI model hacked three other companies",
+    "h1_match": 1.0,
+    "page_title": "Google says its Gemini AI model hacked three other companies | Google | The Guardian",
+    "og_title": "Google says its Gemini AI model hacked three other companies",
+    "title_match": 1.0,
+    "published_meta": "2026-09-19T00:53:20.000Z",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 17 overlay element(s)"
+   },
+   "headline_box": [
+    420,
+    472,
+    1660,
+    636
+   ],
+   "focus_crop": [
+    380,
+    442,
+    1700,
+    820
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://www.theguardian.com/technology/2026/sep/18/google-gemini-ai-hack on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "guardian-2026-09-24-albanese-medicare",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/guardian-2026-09-24-albanese-medicare.png",
+   "w": 2400,
+   "h": 944,
+   "kind": "headline",
+   "outlet": "The Guardian",
+   "date": "2026-09-23",
+   "url": "https://www.theguardian.com/australia-news/2026/sep/24/anthony-albanese-says-openai-agent-hacked-medicare-extreme-concern-sam-altman",
+   "text": "Australia launches investigation after OpenAI agent hacked healthcare database",
+   "tags": [
+    "agents",
+    "rogue-agents",
+    "security",
+    "openai"
+   ],
+   "lyric": [
+    "insecure",
+    "dont-stick-up"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "OpenAI agent hacked healthcare database",
+     "boxes": [
+      [
+       419,
+       568,
+       1427,
+       641
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.9,
+    "highlight_scores": [
+     0.829
+    ],
+    "line_px_at_800": 22.3,
+    "note": "text 'da' vs ocr 'mos'; text 'abase' vs ocr ''",
+    "line_px_at_800_focus": 40.6
+   },
+   "verify": {
+    "candidate_text": "Australia launches investigation after OpenAI agent hacked healthcare database",
+    "visible_h1": "Australia launches investigation after OpenAI agent hacked healthcare database",
+    "h1_match": 1.0,
+    "page_title": "Australia launches investigation after OpenAI agent hacked healthcare database | Medicare Australia | The Guardian",
+    "og_title": "Australia launches investigation after OpenAI agent hacked healthcare database",
+    "title_match": 1.0,
+    "published_meta": "2026-09-24T02:06:05.000Z",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 24 overlay element(s)"
+   },
+   "headline_box": [
+    420,
+    472,
+    1660,
+    714
+   ],
+   "focus_crop": [
+    380,
+    442,
+    1700,
+    944
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://www.theguardian.com/australia-news/2026/sep/24/anthony-albanese-says-openai-agent-hacked-medicare-extreme-concern-sam-altman on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "hrdive-2025-05-19-workday-bias",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/hrdive-2025-05-19-workday-bias.png",
+   "w": 2400,
+   "h": 1074,
+   "kind": "headline",
+   "outlet": "HR Dive",
+   "date": "2025-05-19",
+   "url": "https://www.hrdive.com/news/workday-ai-bias-lawsuit-class-collective-action/748518/",
+   "text": "Judge allows Workday AI bias lawsuit to proceed as collective action",
+   "tags": [],
+   "lyric": [
+    "no-one-wants-me"
+   ],
+   "year": 2025,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "Workday AI bias lawsuit to proceed as collective action",
+     "boxes": [
+      [
+       640,
+       381,
+       1291,
+       475
+      ],
+      [
+       125,
+       477,
+       1359,
+       570
+      ],
+      [
+       126,
+       576,
+       376,
+       648
+      ]
+     ]
+    }
+   ],
+   "author": "Ginger Christ",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 29.0,
+    "note": "ok",
+    "line_px_at_800_focus": 46.6
+   },
+   "verify": {
+    "candidate_text": "Judge allows Workday AI bias lawsuit to proceed as collective action",
+    "visible_h1": "Judge allows Workday AI bias lawsuit to proceed as collective action",
+    "h1_match": 1.0,
+    "page_title": "Judge allows Workday AI bias lawsuit to proceed as collective action | HR Dive",
+    "og_title": "Judge allows Workday AI bias lawsuit to proceed as collective action",
+    "title_match": 1.0,
+    "published_meta": "2025-05-19",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 25 overlay element(s); hid 1 more"
+   },
+   "headline_box": [
+    126,
+    372,
+    1538,
+    662
+   ],
+   "focus_crop": [
+    86,
+    342,
+    1578,
+    1074
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://www.hrdive.com/news/workday-ai-bias-lawsuit-class-collective-action/748518/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "metr-2026-08-26-hf-incident-investigation",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/metr-2026-08-26-hf-incident-investigation.png",
+   "w": 2400,
+   "h": 844,
+   "kind": "article",
+   "outlet": "METR / Redwood Research",
+   "date": "2026-08-26",
+   "url": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/",
+   "text": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+   "tags": [
+    "agents",
+    "security",
+    "openai"
+   ],
+   "lyric": [
+    "tried-my-best",
+    "disappear"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "OpenAI / Hugging Face hacking incident",
+     "boxes": [
+      [
+       287,
+       537,
+       2118,
+       641
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.991,
+    "highlight_scores": [
+     0.969
+    ],
+    "line_px_at_800": 32.7,
+    "note": "ok",
+    "line_px_at_800_focus": 33.2
+   },
+   "verify": {
+    "candidate_text": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+    "visible_h1": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+    "h1_match": 1.0,
+    "page_title": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident - METR",
+    "og_title": "Brief independent investigation of agents’ behavior, reasoning and collaboration in the OpenAI / Hugging Face hacking incident",
+    "title_match": 1.0,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 1 overlay element(s)"
+   },
+   "headline_box": [
+    60,
+    280,
+    2340,
+    640
+   ],
+   "focus_crop": [
+    20,
+    250,
+    2380,
+    833
+   ],
+   "quality_at_focus": 3,
+   "captured": "https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "npr-2026-09-26-us-government-websites",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/npr-2026-09-26-us-government-websites.png",
+   "w": 2400,
+   "h": 872,
+   "kind": "headline",
+   "outlet": "NPR (The Associated Press)",
+   "date": "2026-09-26",
+   "url": "https://www.npr.org/2026/09/26/nx-s1-5981979/openai-us-government-websites-misbehavior",
+   "text": "OpenAI says its models engaged with US government websites in misbehavior disclosure",
+   "tags": [
+    "openai"
+   ],
+   "lyric": [
+    "insecure",
+    "dont-stick-up"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "models engaged with US government websites in misbehavior disclosure",
+     "boxes": [
+      [
+       699,
+       488,
+       1456,
+       556
+      ],
+      [
+       215,
+       568,
+       1339,
+       636
+      ],
+      [
+       215,
+       648,
+       529,
+       704
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.986,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 20.7,
+    "note": "ok",
+    "line_px_at_800_focus": 35.9
+   },
+   "verify": {
+    "candidate_text": "OpenAI says its models engaged with US government websites in misbehavior disclosure",
+    "visible_h1": "OpenAI says its models engaged with US government websites in misbehavior disclosure",
+    "h1_match": 1.0,
+    "page_title": "OpenAI says its models engaged with US government websites : NPR",
+    "og_title": "OpenAI says its models engaged with US government websites in misbehavior disclosure",
+    "title_match": 1.0,
+    "published_meta": "2026-09-26",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 20 overlay element(s)"
+   },
+   "headline_box": [
+    215,
+    477,
+    1515,
+    717
+   ],
+   "focus_crop": [
+    175,
+    447,
+    1555,
+    871
+   ],
+   "quality_at_focus": 3,
+   "captured": "https://www.npr.org/2026/09/26/nx-s1-5981979/openai-us-government-websites-misbehavior on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "openai-alignment-2026-09-25-agent-dns",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/openai-alignment-2026-09-25-agent-dns.png",
+   "w": 2400,
+   "h": 900,
+   "kind": "article",
+   "outlet": "OpenAI Alignment",
+   "date": "2026-09-25",
+   "url": "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/",
+   "text": "An agent used DNS to reach an external chatbot",
+   "tags": [
+    "agents"
+   ],
+   "lyric": [
+    "tried-my-best",
+    "insecure"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "An agent used DNS to reach an external chatbot",
+     "boxes": [
+      [
+       580,
+       284,
+       1823,
+       357
+      ],
+      [
+       583,
+       366,
+       830,
+       424
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 19.8,
+    "note": "ok",
+    "line_px_at_800_focus": 35.8
+   },
+   "verify": {
+    "candidate_text": "An agent used DNS to reach an external chatbot",
+    "visible_h1": "An agent used DNS to reach an external chatbot",
+    "h1_match": 1.0,
+    "page_title": "An agent used DNS to reach an external chatbot · OpenAI Alignment",
+    "og_title": null,
+    "title_match": 0.844,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "none needed"
+   },
+   "headline_box": [
+    582,
+    272,
+    1830,
+    437
+   ],
+   "focus_crop": [
+    542,
+    242,
+    1870,
+    889
+   ],
+   "quality_at_focus": 3,
+   "captured": "https://alignment.openai.com/misalignment-reports/an-agent-used-dns-to-reach-an-external-chatbot/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "palisade-2025-07-05-shutdown-resistance",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/palisade-2025-07-05-shutdown-resistance.png",
+   "w": 2400,
+   "h": 926,
+   "kind": "article",
+   "outlet": "Palisade Research",
+   "date": "2025-07-05",
+   "url": "https://palisaderesearch.org/research/shutdown-resistance",
+   "text": "Shutdown resistance in reasoning models",
+   "tags": [],
+   "lyric": [
+    "disappear"
+   ],
+   "year": 2025,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "Shutdown resistance in reasoning models",
+     "boxes": [
+      [
+       79,
+       422,
+       917,
+       498
+      ],
+      [
+       82,
+       519,
+       880,
+       613
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 26.3,
+    "note": "ok",
+    "line_px_at_800_focus": 43.3
+   },
+   "verify": {
+    "candidate_text": "Shutdown resistance in reasoning models",
+    "visible_h1": "Shutdown resistance in reasoning models",
+    "h1_match": 1.0,
+    "page_title": "Shutdown resistance in reasoning models | Palisade Research",
+    "og_title": "Shutdown resistance in reasoning models",
+    "title_match": 1.0,
+    "published_meta": "2025-07-05T00:00:00+00:00",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "none needed"
+   },
+   "headline_box": [
+    80,
+    413,
+    1460,
+    605
+   ],
+   "focus_crop": [
+    40,
+    383,
+    1500,
+    915
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://palisaderesearch.org/research/shutdown-resistance on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "register-2026-09-28-pauses-training",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/register-2026-09-28-pauses-training.png",
+   "w": 2400,
+   "h": 1196,
+   "kind": "headline",
+   "outlet": "The Register",
+   "date": "2026-09-28",
+   "url": "https://www.theregister.com/ai-and-ml/2026/09/28/openai-pauses-some-training-amid-allegations-its-rogue-agents-behaved-more-badly-than-first-thought/5299350",
+   "text": "OpenAI pauses some training amid allegations its rogue agents behaved more badly than first thought",
+   "tags": [
+    "agents",
+    "rogue-agents",
+    "safety",
+    "openai"
+   ],
+   "lyric": [
+    "tried-my-best",
+    "broken-ego"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "rogue agents behaved more badly than first thought",
+     "boxes": [
+      [
+       1870,
+       383,
+       2352,
+       460
+      ],
+      [
+       24,
+       473,
+       1427,
+       558
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.988,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 25.0,
+    "note": "ok",
+    "line_px_at_800_focus": 25.0
+   },
+   "verify": {
+    "candidate_text": "OpenAI pauses some training amid allegations its rogue agents behaved more badly than first thought",
+    "visible_h1": "OpenAI pauses some training amid allegations its rogue agents behaved more badly than first thought",
+    "h1_match": 1.0,
+    "page_title": "OpenAI pauses some training amid allegations its rogue agents behaved more badly than first thought",
+    "og_title": "OpenAI pauses some training amid allegations its rogue agents behaved more badly than first thought",
+    "title_match": 1.0,
+    "published_meta": "2026-09-28T05:30:50.000Z",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 16 overlay element(s)"
+   },
+   "headline_box": [
+    22,
+    364,
+    2377,
+    561
+   ],
+   "focus_crop": [
+    0,
+    334,
+    2400,
+    1196
+   ],
+   "quality_at_focus": 2,
+   "captured": "https://www.theregister.com/ai-and-ml/2026/09/28/openai-pauses-some-training-amid-allegations-its-rogue-agents-behaved-more-badly-than-first-thought/5299350 on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "rollingstone-2025-07-06-velvet-sundown",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/rollingstone-2025-07-06-velvet-sundown.png",
+   "w": 2400,
+   "h": 736,
+   "kind": "headline",
+   "outlet": "Rolling Stone Australia",
+   "date": "2025-07-06",
+   "url": "https://au.rollingstone.com/music/music-news/ai-band-the-velvet-sundown-confirm-ai-79519",
+   "text": "AI ‘Band’ the Velvet Sundown Officially Confirm They’re AI — and a ‘Provocation’",
+   "tags": [],
+   "lyric": [
+    "love-people-dont-like"
+   ],
+   "year": 2025,
+   "quality": 1,
+   "highlights": [
+    {
+     "phrase": "Confirm They're AI",
+     "boxes": [
+      [
+       39,
+       451,
+       647,
+       531
+      ]
+     ]
+    },
+    {
+     "phrase": "ongoing artistic provocation",
+     "boxes": [
+      [
+       1551,
+       559,
+       1715,
+       600
+      ],
+      [
+       38,
+       605,
+       408,
+       646
+      ]
+     ]
+    }
+   ],
+   "author": "Brian Hiatt",
+   "ocr_check": {
+    "score": 0.968,
+    "highlight_scores": [
+     0.933,
+     1.0
+    ],
+    "line_px_at_800": 11.7,
+    "note": "ok",
+    "line_px_at_800_focus": 15.9
+   },
+   "verify": {
+    "candidate_text": "AI ‘Band’ the Velvet Sundown Officially Confirm They’re AI — and a ‘Provocation’",
+    "visible_h1": "AI ‘Band’ the Velvet Sundown Officially Confirm They’re AI — and a ‘Provocation’",
+    "h1_match": 1.0,
+    "page_title": "AI 'Band' the Velvet Sundown Officially Confirm They're AI -- and a 'Provocation'",
+    "og_title": "AI 'Band' the Velvet Sundown Officially Confirm They're AI -- and a 'Provocation'",
+    "title_match": 1.0,
+    "published_meta": "2025-07-06T07:38:08+00:00",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 4 overlay element(s); crop starts at css y=290 (the area above it, masthead, hero image, empty ad slot or video player, is not included)"
+   },
+   "headline_box": [
+    40,
+    344,
+    1720,
+    544
+   ],
+   "focus_crop": [
+    0,
+    314,
+    1760,
+    736
+   ],
+   "quality_at_focus": 1,
+   "captured": "https://au.rollingstone.com/music/music-news/ai-band-the-velvet-sundown-confirm-ai-79519 on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "signalfire-2026-06-22-state-of-talent",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/signalfire-2026-06-22-state-of-talent.png",
+   "w": 2400,
+   "h": 848,
+   "kind": "article",
+   "outlet": "SignalFire",
+   "date": "2026-06-22",
+   "url": "https://www.signalfire.com/blog/signalfire-state-of-talent-report-2026",
+   "text": "SignalFire's State of Talent Report - 2026",
+   "tags": [],
+   "lyric": [
+    "enjoy-your-youth",
+    "no-one-wants-me"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "State of Talent Report",
+     "boxes": [
+      [
+       770,
+       402,
+       1558,
+       500
+      ],
+      [
+       112,
+       539,
+       475,
+       658
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 34.2,
+    "note": "ok",
+    "line_px_at_800_focus": 49.5
+   },
+   "verify": {
+    "candidate_text": "SignalFire State of Talent Report 2026",
+    "visible_h1": "SignalFire's State of Talent Report - 2026",
+    "h1_match": 0.974,
+    "page_title": "SignalFire's State of Tech Talent Report - 2026",
+    "og_title": "SignalFire's State of Tech Talent Report - 2026",
+    "title_match": 0.916,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "clicked:Accept; hid 6 overlay element(s)"
+   },
+   "headline_box": [
+    105,
+    386,
+    1681,
+    653
+   ],
+   "focus_crop": [
+    65,
+    356,
+    1721,
+    837
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://www.signalfire.com/blog/signalfire-state-of-talent-report-2026 on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "susmangodfrey-2025-09-25-piracy-settlement",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/susmangodfrey-2025-09-25-piracy-settlement.png",
+   "w": 2400,
+   "h": 1112,
+   "kind": "headline",
+   "outlet": "Susman Godfrey",
+   "date": "2025-09-25",
+   "url": "https://www.susmangodfrey.com/wins/susman-godfrey-secures-1-5-billion-settlement-in-landmark-ai-piracy-case/",
+   "text": "Susman Godfrey Secures $1.5 Billion Settlement in Landmark AI Piracy Case",
+   "tags": [
+    "economy"
+   ],
+   "lyric": [
+    "exploited"
+   ],
+   "year": 2025,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "$1.5 Billion Settlement",
+     "boxes": [
+      [
+       865,
+       571,
+       2121,
+       704
+      ]
+     ]
+    },
+    {
+     "phrase": "Landmark AI Piracy Case",
+     "boxes": [
+      [
+       864,
+       738,
+       2292,
+       869
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.918,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 42.0,
+    "note": "text '' vs ocr 'ei'; text '' vs ocr 'yel'",
+    "line_px_at_800_focus": 65.9
+   },
+   "verify": {
+    "candidate_text": "Susman Godfrey Secures $1.5 Billion Settlement in Landmark AI Piracy Case",
+    "visible_h1": "Susman Godfrey Secures $1.5 Billion Settlement in Landmark AI Piracy Case",
+    "h1_match": 1.0,
+    "page_title": "Susman Godfrey Secures $1.5 Billion Settlement in Landmark AI Piracy Case | Susman Godfrey L.L.P.",
+    "og_title": "Susman Godfrey Secures $1.5 Billion Settlement in Landmark AI Piracy Case | Susman Godfrey L.L.P.",
+    "title_match": 1.0,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "clicked:Accept All|Close; hid 5 overlay element(s)"
+   },
+   "headline_box": [
+    861,
+    390,
+    2311,
+    870
+   ],
+   "focus_crop": [
+    821,
+    360,
+    2351,
+    1112
+   ],
+   "quality_at_focus": 5,
+   "captured": "https://www.susmangodfrey.com/wins/susman-godfrey-secures-1-5-billion-settlement-in-landmark-ai-piracy-case/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "techcrunch-2025-04-29-sycophantic",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/techcrunch-2025-04-29-sycophantic.png",
+   "w": 2400,
+   "h": 1472,
+   "kind": "headline",
+   "outlet": "TechCrunch",
+   "date": "2025-04-29",
+   "url": "https://techcrunch.com/2025/04/29/openai-explains-why-chatgpt-became-too-sycophantic/",
+   "text": "OpenAI explains why ChatGPT became too sycophantic",
+   "tags": [
+    "openai"
+   ],
+   "lyric": [
+    "caught-up-in-news",
+    "not-cool-not-smart"
+   ],
+   "year": 2025,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "too sycophantic",
+     "boxes": [
+      [
+       1549,
+       858,
+       2114,
+       932
+      ]
+     ]
+    }
+   ],
+   "author": "Kyle Wiggers",
+   "ocr_check": {
+    "score": 0.977,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 22.7,
+    "note": "ok",
+    "line_px_at_800_focus": 46.1
+   },
+   "verify": {
+    "candidate_text": "OpenAI explains why ChatGPT became too sycophantic",
+    "visible_h1": "OpenAI explains why ChatGPT became too sycophantic",
+    "h1_match": 1.0,
+    "page_title": "OpenAI explains why ChatGPT became too sycophantic | TechCrunch",
+    "og_title": "OpenAI explains why ChatGPT became too sycophantic | TechCrunch",
+    "title_match": 1.0,
+    "published_meta": "2025-04-30T04:21:41+00:00",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "clicked:Close; hid 14 overlay element(s)"
+   },
+   "headline_box": [
+    1252,
+    768,
+    2352,
+    936
+   ],
+   "focus_crop": [
+    1212,
+    738,
+    2392,
+    1472
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://techcrunch.com/2025/04/29/openai-explains-why-chatgpt-became-too-sycophantic/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "techcrunch-2026-03-27-waymo-ridership",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/techcrunch-2026-03-27-waymo-ridership.png",
+   "w": 2400,
+   "h": 1472,
+   "kind": "headline",
+   "outlet": "TechCrunch",
+   "date": "2026-03-27",
+   "url": "https://techcrunch.com/2026/03/27/waymo-skyrocketing-ridership-in-one-chart/",
+   "text": "Waymo’s skyrocketing ridership in one chart",
+   "tags": [],
+   "lyric": [
+    "parallel-park"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "skyrocketing ridership in one chart",
+     "boxes": [
+      [
+       1586,
+       774,
+       2043,
+       849
+      ],
+      [
+       1254,
+       858,
+       2005,
+       932
+      ]
+     ]
+    }
+   ],
+   "author": "Kirsten Korosec",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 22.8,
+    "note": "ok",
+    "line_px_at_800_focus": 46.4
+   },
+   "verify": {
+    "candidate_text": "Waymo skyrocketing ridership in one chart",
+    "visible_h1": "Waymo’s skyrocketing ridership in one chart",
+    "h1_match": 0.976,
+    "page_title": "Waymo’s skyrocketing ridership in one chart | TechCrunch",
+    "og_title": "Waymo’s skyrocketing ridership in one chart | TechCrunch",
+    "title_match": 0.976,
+    "published_meta": "2026-03-27T19:11:10+00:00",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "clicked:Close; hid 16 overlay element(s)"
+   },
+   "headline_box": [
+    1252,
+    768,
+    2352,
+    936
+   ],
+   "focus_crop": [
+    1212,
+    738,
+    2392,
+    1472
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://techcrunch.com/2026/03/27/waymo-skyrocketing-ridership-in-one-chart/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "techcrunch-2026-05-28-anthropic-65b",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/techcrunch-2026-05-28-anthropic-65b.png",
+   "w": 2400,
+   "h": 1472,
+   "kind": "headline",
+   "outlet": "TechCrunch",
+   "date": "2026-05-28",
+   "url": "https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/",
+   "text": "Anthropic raises $65 billion, nears $1T valuation ahead of IPO",
+   "tags": [
+    "economy",
+    "anthropic"
+   ],
+   "lyric": [
+    "golden-years",
+    "teenage-dream"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "raises $65 billion",
+     "boxes": [
+      [
+       1617,
+       727,
+       2229,
+       804
+      ]
+     ]
+    },
+    {
+     "phrase": "nears $1T valuation",
+     "boxes": [
+      [
+       1254,
+       809,
+       1927,
+       883
+      ]
+     ]
+    }
+   ],
+   "author": "Rebecca Bellan",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 23.2,
+    "note": "ok",
+    "line_px_at_800_focus": 47.1
+   },
+   "verify": {
+    "candidate_text": "Anthropic raises $65 billion, nears $1T valuation ahead of IPO",
+    "visible_h1": "Anthropic raises $65 billion, nears $1T valuation ahead of IPO",
+    "h1_match": 1.0,
+    "page_title": "Anthropic raises $65 billion, nears $1T valuation ahead of IPO | TechCrunch",
+    "og_title": "Anthropic raises $65 billion, nears $1T valuation ahead of IPO | TechCrunch",
+    "title_match": 1.0,
+    "published_meta": "2026-05-28T18:52:51+00:00",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "clicked:Close; hid 12 overlay element(s)"
+   },
+   "headline_box": [
+    1252,
+    727,
+    2352,
+    978
+   ],
+   "focus_crop": [
+    1212,
+    697,
+    2392,
+    1472
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://techcrunch.com/2026/05/28/anthropic-raises-65-billion-nears-1t-valuation-ahead-of-ipo/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "techcrunch-2026-08-11-spotify-ai-persona",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/techcrunch-2026-08-11-spotify-ai-persona.png",
+   "w": 2400,
+   "h": 1472,
+   "kind": "headline",
+   "outlet": "TechCrunch",
+   "date": "2026-08-11",
+   "url": "https://techcrunch.com/2026/08/11/spotify-will-label-ai-persona-profiles-and-exclude-their-music-from-recommendations/",
+   "text": "Spotify will label ‘AI Persona’ profiles and exclude their music from recommendations",
+   "tags": [
+    "media"
+   ],
+   "lyric": [
+    "love-people-dont-like"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "label AI Persona profiles",
+     "boxes": [
+      [
+       1655,
+       734,
+       2245,
+       794
+      ],
+      [
+       1254,
+       816,
+       1517,
+       890
+      ]
+     ]
+    },
+    {
+     "phrase": "exclude their music from recommendations",
+     "boxes": [
+      [
+       1685,
+       816,
+       2141,
+       876
+      ],
+      [
+       1254,
+       900,
+       2305,
+       960
+      ]
+     ]
+    }
+   ],
+   "author": "Sarah Perez",
+   "ocr_check": {
+    "score": 0.986,
+    "highlight_scores": [
+     0.955,
+     1.0
+    ],
+    "line_px_at_800": 18.0,
+    "note": "ok",
+    "line_px_at_800_focus": 36.6
+   },
+   "verify": {
+    "candidate_text": "Spotify will label ‘AI Persona’ profiles and exclude their music from recommendations",
+    "visible_h1": "Spotify will label ‘AI Persona’ profiles and exclude their music from recommendations",
+    "h1_match": 1.0,
+    "page_title": "Spotify will label 'AI Persona' profiles and exclude their music from recommendations | TechCrunch",
+    "og_title": "Spotify will label 'AI Persona' profiles and exclude their music from recommendations | TechCrunch",
+    "title_match": 1.0,
+    "published_meta": "2026-08-11T13:00:00+00:00",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "clicked:Close; hid 17 overlay element(s)"
+   },
+   "headline_box": [
+    1252,
+    727,
+    2352,
+    978
+   ],
+   "focus_crop": [
+    1212,
+    697,
+    2392,
+    1472
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://techcrunch.com/2026/08/11/spotify-will-label-ai-persona-profiles-and-exclude-their-music-from-recommendations/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "techspot-2026-10-02-100-organizations",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/techspot-2026-10-02-100-organizations.png",
+   "w": 2400,
+   "h": 880,
+   "kind": "headline",
+   "outlet": "TechSpot",
+   "date": "2026-10-02",
+   "url": "https://www.techspot.com/news/114073-openai-rogue-ai-agents-triggered-alerts-more-than.html",
+   "text": "OpenAI's rogue agent problem is bigger than Hugging Face, over 100 organizations and counting",
+   "tags": [
+    "agents",
+    "rogue-agents",
+    "openai"
+   ],
+   "lyric": [
+    "insecure",
+    "disappear"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "rogue agent problem is bigger than Hugging Face",
+     "boxes": [
+      [
+       460,
+       306,
+       1319,
+       391
+      ],
+      [
+       97,
+       414,
+       1078,
+       499
+      ]
+     ]
+    },
+    {
+     "phrase": "over 100 organizations and counting",
+     "boxes": [
+      [
+       1096,
+       431,
+       1266,
+       482
+      ],
+      [
+       95,
+       519,
+       1267,
+       605
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.987,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 26.3,
+    "note": "ok",
+    "line_px_at_800_focus": 31.9
+   },
+   "verify": {
+    "candidate_text": "OpenAI's rogue agent problem is bigger than Hugging Face, over 100 organizations and counting",
+    "visible_h1": "OpenAI's rogue agent problem is bigger than Hugging Face, over 100 organizations and counting",
+    "h1_match": 1.0,
+    "page_title": "OpenAI's rogue agent problem is bigger than Hugging Face, over 100 organizations and counting | TechSpot",
+    "og_title": "OpenAI's rogue agent problem is bigger than Hugging Face, over 100 organizations and counting",
+    "title_match": 1.0,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 2 overlay element(s)"
+   },
+   "headline_box": [
+    96,
+    288,
+    2000,
+    609
+   ],
+   "focus_crop": [
+    56,
+    258,
+    2040,
+    869
+   ],
+   "quality_at_focus": 3,
+   "captured": "https://www.techspot.com/news/114073-openai-rogue-ai-agents-triggered-alerts-more-than.html on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "techxplore-2026-04-04-ai-companions-lonely",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/techxplore-2026-04-04-ai-companions-lonely.png",
+   "w": 2400,
+   "h": 994,
+   "kind": "headline",
+   "outlet": "Tech Xplore",
+   "date": "2026-04-04",
+   "url": "https://techxplore.com/news/2026-03-ai-companions-comfort-lonely-users.html",
+   "text": "AI companions can comfort lonely users but may deepen distress over time",
+   "tags": [],
+   "lyric": [
+    "two-real-friends"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "may deepen distress over time",
+     "boxes": [
+      [
+       785,
+       597,
+       1433,
+       665
+      ],
+      [
+       469,
+       673,
+       763,
+       728
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.934,
+    "highlight_scores": [
+     0.88
+    ],
+    "line_px_at_800": 18.5,
+    "note": "text '' vs ocr 'als'",
+    "line_px_at_800_focus": 38.3
+   },
+   "verify": {
+    "candidate_text": "AI companions can comfort lonely users but may deepen distress over time",
+    "visible_h1": "AI companions can comfort lonely users but may deepen distress over time",
+    "h1_match": 1.0,
+    "page_title": "AI companions can comfort lonely users but may deepen distress over time",
+    "og_title": "AI companions can comfort lonely users but may deepen distress over time",
+    "title_match": 1.0,
+    "published_meta": "2026-04-04T12:00:06-0400",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 13 overlay element(s)"
+   },
+   "headline_box": [
+    470,
+    512,
+    1550,
+    738
+   ],
+   "focus_crop": [
+    430,
+    482,
+    1590,
+    994
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://techxplore.com/news/2026-03-ai-companions-comfort-lonely-users.html on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "thorn-2026-07-28-chatbots-after-online-harm",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/thorn-2026-07-28-chatbots-after-online-harm.png",
+   "w": 2400,
+   "h": 1206,
+   "kind": "article",
+   "outlet": "Thorn",
+   "date": "2026-07-28",
+   "url": "https://www.thorn.org/press-releases/as-ai-becomes-part-of-kids-response-to-online-harm-new-thorn-research-finds-children-turning-to-chatbots-for-guidance-after-online-sexual-interactions/",
+   "text": "As AI becomes part of kids’ response to online harm, new Thorn research finds children turning to chatbots for guidance after online sexual interactions",
+   "tags": [
+    "kids"
+   ],
+   "lyric": [
+    "sick-of-seventeen",
+    "two-real-friends"
+   ],
+   "year": 2026,
+   "quality": 4,
+   "highlights": [
+    {
+     "phrase": "children turning to chatbots for guidance",
+     "boxes": [
+      [
+       371,
+       761,
+       2031,
+       883
+      ],
+      [
+       129,
+       896,
+       619,
+       1015
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.992,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 38.2,
+    "note": "ok",
+    "line_px_at_800_focus": 40.9
+   },
+   "verify": {
+    "candidate_text": "As AI Becomes Part of Kids' Response to Online Harm, New Thorn Research Finds Children Turning to Chatbots for Guidance After Online Sexual Interactions",
+    "visible_h1": "As AI becomes part of kids’ response to online harm, new Thorn research finds children turning to chatbots for guidance after online sexual interactions",
+    "h1_match": 1.0,
+    "page_title": "As AI becomes part of kids' response to online harm, new Thorn research finds children turning to chatbots for guidance after online sexual interactions - Thorn",
+    "og_title": "As AI becomes part of kids' response to online harm, new Thorn research finds children turning to chatbots for guidance after online sexual interactions",
+    "title_match": 1.0,
+    "published_meta": null,
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "clicked:OK; hid 9 overlay element(s)"
+   },
+   "headline_box": [
+    120,
+    482,
+    2280,
+    1010
+   ],
+   "focus_crop": [
+    80,
+    452,
+    2320,
+    1206
+   ],
+   "quality_at_focus": 4,
+   "captured": "https://www.thorn.org/press-releases/as-ai-becomes-part-of-kids-response-to-online-harm-new-thorn-research-finds-children-turning-to-chatbots-for-guidance-after-online-sexual-interactions/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "time-2023-01-18-kenyan-workers",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/time-2023-01-18-kenyan-workers.png",
+   "w": 2400,
+   "h": 1086,
+   "kind": "headline",
+   "outlet": "TIME",
+   "date": "2023-01-18",
+   "url": "https://time.com/6247678/openai-chatgpt-kenya-workers/",
+   "text": "Exclusive: OpenAI Used Kenyan Workers on Less Than $2 Per Hour to Make ChatGPT Less Toxic",
+   "tags": [
+    "jobs",
+    "economy",
+    "openai"
+   ],
+   "lyric": [
+    "exploited"
+   ],
+   "year": 2023,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "Used Kenyan Workers on Less Than $2 Per Hour",
+     "boxes": [
+      [
+       157,
+       367,
+       604,
+       458
+      ],
+      [
+       158,
+       455,
+       716,
+       529
+      ],
+      [
+       159,
+       540,
+       782,
+       623
+      ]
+     ]
+    }
+   ],
+   "author": "Billy Perrigo",
+   "ocr_check": {
+    "score": 1.0,
+    "highlight_scores": [
+     1.0
+    ],
+    "line_px_at_800": 25.7,
+    "note": "page <title>/og:title differs from the headline (sim 0.74): title = 'OpenAI Used Kenyan Workers on Less Than $2 Per Hour: Exclusive', og = 'Exclusive: The $2 Per Hour Workers Who Made ChatGPT Safer'",
+    "line_px_at_800_focus": 77.0
+   },
+   "verify": {
+    "candidate_text": "Exclusive: OpenAI Used Kenyan Workers on Less Than $2 Per Hour to Make ChatGPT Less Toxic",
+    "visible_h1": "Exclusive: OpenAI Used Kenyan Workers on Less Than $2 Per Hour to Make ChatGPT Less Toxic",
+    "h1_match": 1.0,
+    "page_title": "OpenAI Used Kenyan Workers on Less Than $2 Per Hour: Exclusive",
+    "og_title": "Exclusive: The $2 Per Hour Workers Who Made ChatGPT Safer",
+    "title_match": 0.742,
+    "published_meta": "2023-01-18T12:00:58.000Z",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "clicked:Accept All|Reject All; hid 20 overlay element(s)"
+   },
+   "headline_box": [
+    160,
+    280,
+    880,
+    808
+   ],
+   "focus_crop": [
+    120,
+    250,
+    920,
+    1075
+   ],
+   "quality_at_focus": 5,
+   "captured": "https://time.com/6247678/openai-chatgpt-kenya-workers/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "time-2026-07-24-lost-control",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/time-2026-07-24-lost-control.png",
+   "w": 2400,
+   "h": 942,
+   "kind": "headline",
+   "outlet": "TIME",
+   "date": "2026-07-24",
+   "url": "https://time.com/article/2026/07/24/openai-hugging-face-attack/",
+   "text": "How OpenAI Lost Control of an AI Model—and What Needs to Change",
+   "tags": [
+    "openai"
+   ],
+   "lyric": [
+    "tried-my-best",
+    "disappear",
+    "insecure"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "How OpenAI Lost Control of an AI Model",
+     "boxes": [
+      [
+       158,
+       311,
+       778,
+       401
+      ],
+      [
+       160,
+       399,
+       718,
+       472
+      ],
+      [
+       158,
+       487,
+       602,
+       561
+      ]
+     ]
+    }
+   ],
+   "author": "Harry Booth",
+   "ocr_check": {
+    "score": 0.98,
+    "highlight_scores": [
+     0.968
+    ],
+    "line_px_at_800": 22.7,
+    "note": "ok",
+    "line_px_at_800_focus": 68.0
+   },
+   "verify": {
+    "candidate_text": "How OpenAI Lost Control of an AI Model—and What Needs to Change",
+    "visible_h1": "How OpenAI Lost Control of an AI Model—and What Needs to Change",
+    "h1_match": 1.0,
+    "page_title": "How OpenAI Lost Control of an AI Model—and What Needs to Change",
+    "og_title": "How OpenAI Lost Control of an AI Model—and What Needs to Change",
+    "title_match": 1.0,
+    "published_meta": "2026-07-24T15:13:52.357Z",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "clicked:Accept All|Reject All; hid 15 overlay element(s)"
+   },
+   "headline_box": [
+    160,
+    311,
+    880,
+    663
+   ],
+   "focus_crop": [
+    120,
+    281,
+    920,
+    931
+   ],
+   "quality_at_focus": 5,
+   "captured": "https://time.com/article/2026/07/24/openai-hugging-face-attack/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "tnw-2026-09-29-trump-self-regulation",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/tnw-2026-09-29-trump-self-regulation.png",
+   "w": 2400,
+   "h": 926,
+   "kind": "headline",
+   "outlet": "The Next Web",
+   "date": "2026-09-29",
+   "url": "https://thenextweb.com/news/trump-white-house-ai-ceos-lunch-2",
+   "text": "After AI lunch, Trump backs self-regulation and plans to rename AI",
+   "tags": [
+    "policy"
+   ],
+   "lyric": [
+    "dont-stick-up"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "Trump backs self-regulation",
+     "boxes": [
+      [
+       1105,
+       391,
+       2164,
+       486
+      ],
+      [
+       196,
+       510,
+       814,
+       607
+      ]
+     ]
+    },
+    {
+     "phrase": "rejected new safety rules",
+     "boxes": [
+      [
+       1026,
+       669,
+       1599,
+       722
+      ]
+     ]
+    }
+   ],
+   "author": "Ana-Maria Stanciuc",
+   "ocr_check": {
+    "score": 0.963,
+    "highlight_scores": [
+     1.0,
+     1.0
+    ],
+    "line_px_at_800": 29.7,
+    "note": "ok",
+    "line_px_at_800_focus": 30.3
+   },
+   "verify": {
+    "candidate_text": "After AI lunch, Trump backs self-regulation and plans to rename AI",
+    "visible_h1": "After AI lunch, Trump backs self-regulation and plans to rename AI",
+    "h1_match": 1.0,
+    "page_title": "After AI lunch, Trump backs self-regulation and plans to rename AI",
+    "og_title": "After AI lunch, Trump backs self-regulation and plans to rename AI",
+    "title_match": 1.0,
+    "published_meta": "2026-09-29T20:53:53+00:00",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 2 overlay element(s)"
+   },
+   "headline_box": [
+    64,
+    368,
+    2336,
+    608
+   ],
+   "focus_crop": [
+    24,
+    338,
+    2376,
+    914
+   ],
+   "quality_at_focus": 3,
+   "captured": "https://thenextweb.com/news/trump-white-house-ai-ceos-lunch-2 on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "wired-2026-08-05-message-board",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/wired-2026-08-05-message-board.png",
+   "w": 2400,
+   "h": 1032,
+   "kind": "headline",
+   "outlet": "WIRED",
+   "date": "2026-08-05",
+   "url": "https://www.wired.com/story/openai-didnt-notice-its-ai-agents-using-a-message-board-to-plan-their-hacking-spree/",
+   "text": "OpenAI Didn’t Notice Its AI Agents Using a Message Board to Plan Their Hacking Spree",
+   "tags": [
+    "agents",
+    "security",
+    "openai"
+   ],
+   "lyric": [
+    "disappear",
+    "tried-my-best",
+    "insecure"
+   ],
+   "year": 2026,
+   "quality": 3,
+   "highlights": [
+    {
+     "phrase": "OpenAI Didn't Notice Its AI Agents",
+     "boxes": [
+      [
+       99,
+       304,
+       895,
+       406
+      ],
+      [
+       99,
+       417,
+       340,
+       519
+      ]
+     ]
+    },
+    {
+     "phrase": "Plan Their Hacking Spree",
+     "boxes": [
+      [
+       402,
+       529,
+       1017,
+       632
+      ],
+      [
+       99,
+       640,
+       291,
+       743
+      ]
+     ]
+    }
+   ],
+   "author": "Lily Hay Newman",
+   "ocr_check": {
+    "score": 0.971,
+    "highlight_scores": [
+     0.929,
+     1.0
+    ],
+    "line_px_at_800": 32.2,
+    "note": "ok",
+    "line_px_at_800_focus": 71.5
+   },
+   "verify": {
+    "candidate_text": "OpenAI Didn’t Notice Its AI Agents Using a Message Board to Plan Their Hacking Spree",
+    "visible_h1": "OpenAI Didn’t Notice Its AI Agents Using a Message Board to Plan Their Hacking Spree",
+    "h1_match": 1.0,
+    "page_title": "OpenAI Didn’t Notice Its AI Agents Using a Message Board to Plan Their Hacking Spree | WIRED",
+    "og_title": "OpenAI Didn’t Notice Its AI Agents Using a Message Board to Plan Their Hacking Spree",
+    "title_match": 1.0,
+    "published_meta": "2026-08-06T00:15:04.344Z",
+    "http_status": 200,
+    "masthead_included": false,
+    "consent_handling": "hid 38 overlay element(s); crop starts at css y=532 (the area above it, masthead, hero image, empty ad slot or video player, is not included); captured beyond the first viewport (CDP captureBeyondViewport)"
+   },
+   "headline_box": [
+    100,
+    300,
+    1100,
+    748
+   ],
+   "focus_crop": [
+    60,
+    270,
+    1140,
+    1020
+   ],
+   "quality_at_focus": 5,
+   "captured": "https://www.wired.com/story/openai-didnt-notice-its-ai-agents-using-a-message-board-to-plan-their-hacking-spree/ on 2026-10-10",
+   "source": "capture"
+  },
+  {
+   "id": "x-2026-09-10-balesni",
+   "path": "/home/user/hyperplane-teaser/research/rev2/captures/x-2026-09-10-balesni.png",
+   "w": 1236,
+   "h": 824,
+   "kind": "post",
+   "outlet": "X (@balesni)",
+   "date": "2026-09-10",
+   "url": "https://x.com/balesni/status/2098109503518683491",
+   "text": "i am at OpenAI and i think AI is >10% likely to kill all humans\n\nthis proposal is among the top things we should do as an industry to lower that risk (it’s not enough though!)",
+   "tags": [
+    "x-risk",
+    "openai",
+    "safety"
+   ],
+   "lyric": [
+    "brutal-out-here"
+   ],
+   "year": 2026,
+   "quality": 2,
+   "highlights": [
+    {
+     "phrase": "i am at OpenAI and i think AI is >10% likely to kill all humans",
+     "boxes": [
+      [
+       52,
+       129,
+       870,
+       172
+      ]
+     ]
+    }
+   ],
+   "ocr_check": {
+    "score": 0.985,
+    "highlight_scores": [
+     0.957
+    ],
+    "line_px_at_800": 23.9,
+    "note": "post page: text read from the screenshot (OCR-checked); the page <title> contains the same post text"
+   },
+   "verify": {
+    "candidate_text": "(post by @balesni)",
+    "visible_h1": "Trending now",
+    "h1_match": null,
+    "page_title": "Mikita Balesni on X: \"i am at OpenAI and i think AI is >10% likely to kill all humans this proposal is among the top things we should do as an industry to lower that risk (it’s not enough though!)\" / X",
+    "og_title": "Mikita Balesni (@balesni) on X",
+    "title_match": 1.0,
+    "published_meta": "2026-09-10T18:01:01.000Z",
+    "http_status": 200,
+    "masthead_included": true,
+    "consent_handling": "hid 2 overlay element(s); cropped to the post column (css x 108..726, y 0..412): the first post with its quoted post and metrics; the login panel in the right sidebar is outside the crop"
+   },
+   "captured": "https://x.com/balesni/status/2098109503518683491 on 2026-10-10",
+   "source": "capture"
+  }
+ ]
+}

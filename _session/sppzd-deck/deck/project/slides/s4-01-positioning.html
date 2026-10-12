@@ -1,0 +1,69 @@
+<section id="s4-01-positioning" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Critique</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">Positioning: where this paper sits</h2>
+</div>
+<div style="display:flex;flex-direction:column">
+<div style="display:flex;flex-direction:row;align-items:end;gap:24px;padding:0px 16px 8px 16px;border-bottom:2px solid #17242c">
+<p style="width:310px;flex-shrink:0;font-size:24px;font-weight:600;line-height:1.25;color:#17242c">Work</p>
+<p style="width:490px;flex-shrink:0;font-size:24px;font-weight:600;line-height:1.25;color:#17242c">Natural data or model?</p>
+<p style="width:290px;flex-shrink:0;font-size:24px;font-weight:600;line-height:1.25;color:#17242c">Adaptive generator?</p>
+<p style="flex:1;font-size:24px;font-weight:600;line-height:1.25;color:#17242c">Reward</p>
+</div>
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;line-height:1.25;text-transform:uppercase;color:#5f6b72;padding:12px 16px 4px 16px">Fixed synthetic distributions</p>
+<div style="display:flex;flex-direction:row;align-items:start;gap:24px;padding:8px 16px 8px 16px;border-bottom:1px solid #d5d9d2">
+<p style="width:310px;flex-shrink:0;font-size:24px;font-weight:600;line-height:1.25;color:#17242c">Grau-Moya et al. 2024</p>
+<p style="width:490px;flex-shrink:0;font-size:24px;line-height:1.25">none: sampled UTM program outputs</p>
+<p style="width:290px;flex-shrink:0;font-size:24px;line-height:1.25">no (fixed sampler)</p>
+<p style="flex:1;font-size:24px;line-height:1.25">none</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:24px;padding:8px 16px 8px 16px;border-bottom:1px solid #d5d9d2">
+<p style="width:310px;flex-shrink:0;font-size:24px;font-weight:600;line-height:1.25;color:#17242c">Bloem 2025</p>
+<p style="width:490px;flex-shrink:0;font-size:24px;line-height:1.25">none: iterated random computation</p>
+<p style="width:290px;flex-shrink:0;font-size:24px;line-height:1.25">no</p>
+<p style="flex:1;font-size:24px;line-height:1.25">none</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:24px;padding:8px 16px 8px 16px;border-bottom:1px solid #d5d9d2">
+<p style="width:310px;flex-shrink:0;font-size:24px;font-weight:600;line-height:1.25;color:#17242c">Hu et al. 2025</p>
+<p style="width:490px;flex-shrink:0;font-size:24px;line-height:1.25">formal, then natural language</p>
+<p style="width:290px;flex-shrink:0;font-size:24px;line-height:1.25">no (hand-designed)</p>
+<p style="flex:1;font-size:24px;line-height:1.25">none</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:24px;padding:8px 16px 8px 16px;border-bottom:1px solid #d5d9d2">
+<p style="width:310px;flex-shrink:0;font-size:24px;font-weight:600;line-height:1.25;color:#17242c">PCFG baseline</p>
+<p style="width:490px;flex-shrink:0;font-size:24px;line-height:1.25">none</p>
+<p style="width:290px;flex-shrink:0;font-size:24px;line-height:1.25">no (fixed prior)</p>
+<p style="flex:1;font-size:24px;line-height:1.25">none</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:24px;padding:8px 16px 8px 16px;border-bottom:1px solid #d5d9d2;background:#ebefe9">
+<p style="width:310px;flex-shrink:0;font-size:24px;font-weight:600;line-height:1.25;color:#17242c"><span style="color:#1d6f68">This paper</span><br>Self-play pretraining</p>
+<p style="width:490px;flex-shrink:0;font-size:24px;line-height:1.25;color:#17242c">none; both networks random init</p>
+<p style="width:290px;flex-shrink:0;font-size:24px;line-height:1.25;color:#17242c">yes: RL + expert iteration</p>
+<p style="flex:1;font-size:24px;line-height:1.25;color:#17242c">|preconditioned gradient alignment| since round ⌊e/2⌋</p>
+</div>
+<p style="font-size:24px;font-weight:600;letter-spacing:2px;line-height:1.25;text-transform:uppercase;color:#5f6b72;padding:12px 16px 4px 16px">Self-play from pretrained LLMs · not zero-data</p>
+<div style="display:flex;flex-direction:row;align-items:start;gap:24px;padding:8px 16px 8px 16px;border-bottom:1px solid #d5d9d2">
+<p style="width:310px;flex-shrink:0;font-size:24px;font-weight:600;line-height:1.25;color:#17242c">Absolute Zero (Zhao 2025)</p>
+<p style="width:490px;flex-shrink:0;font-size:24px;line-height:1.25">Qwen2.5-7B / 7B-Coder base</p>
+<p style="width:290px;flex-shrink:0;font-size:24px;line-height:1.25">yes</p>
+<p style="flex:1;font-size:24px;line-height:1.25">learnability: 1 − solve rate, 0 if never solved; Python executor</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:24px;padding:8px 16px 8px 16px;border-bottom:1px solid #d5d9d2">
+<p style="width:310px;flex-shrink:0;font-size:24px;font-weight:600;line-height:1.25;color:#17242c">LSP (Kuba 2025)</p>
+<p style="width:490px;flex-shrink:0;font-size:24px;line-height:1.25">Llama-3.2-3B-Instruct</p>
+<p style="width:290px;flex-shrink:0;font-size:24px;line-height:1.25">yes (Challenger)</p>
+<p style="flex:1;font-size:24px;line-height:1.25">LSP-Zero: zero-sum minimax; LSP adds a quality self-reward</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:24px;padding:8px 16px 8px 16px;border-bottom:1px solid #d5d9d2">
+<p style="width:310px;flex-shrink:0;font-size:24px;font-weight:600;line-height:1.25;color:#17242c">G-Zero (Huang 2026)</p>
+<p style="width:490px;flex-shrink:0;font-size:24px;line-height:1.25">Qwen3-8B-Base, Llama-3.1-8B-Instruct</p>
+<p style="width:290px;flex-shrink:0;font-size:24px;line-height:1.25">yes (Proposer)</p>
+<p style="flex:1;font-size:24px;line-height:1.25">Hint-delta (self-hint shifts own log-probs); no verifier</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · pp.4, 13–14; Eq. 2; Fig. 2; App. H, p.32 · UTM = universal Turing machine</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">23</p>
+<aside>About 1.5 minutes.
+Related Work (pp.13-14) calls Grau-Moya 2024 and Bloem 2025 'most relevant'; 'We instead learn the program distribution jointly with the learner' (p.14). Bloem 'provides evidence for universal pretraining from zero natural data' (p.13). Hu et al. 2025 is cited (pp.2, 13, 14, 21) but never run as a comparator. Cited: Absolute Zero (arXiv 2505.03335) and MINIMO (Poesia 2024), the one prior work the paper says starts from scratch (p.14). Not cited: LSP (2509.07414), G-Zero (2605.09959). Checked: AZR main runs use Qwen2.5-7B and 7B-Coder, Llama-3.1-8B only in extra runs; LSP full text: LSP-Zero is zero-sum, LSP adds self-reward, task reward from Skywork-Reward-V2-Llama-3.2-3B. [interp] Avoid 'Absolute Zero, but for pretraining'. Nearest algorithmic cousin: Thrush et al. 2026 (RL generator, gradient-attribution reward, but toward a target). Their scores are reasoning benchmarks, not bits/byte.
+Moved off the slide or reworded, in the outline's words. Column header: 'Natural data or pretrained model?' (slide: 'Natural data or model?'). Grau-Moya et al. 2024: 'none: outputs of sampled UTM programs'. Bloem 2025: 'none: iterated random computation (p.13)'. Hu et al. 2025: 'formal languages, then natural language'. PCFG row: 'PCFG (Fig. 2 baseline) | none | no: random grammars from a fixed prior (App. H) | none'. This paper: 'none; both networks random init (p.4)'; reward '|preconditioned gradient alignment| since round floor(e/2) (Eq. 2)'. LSP reward in full: 'LSP-Zero: zero-sum minimax; LSP adds a quality self-reward; task reward from Skywork-Reward-V2'. G-Zero reward in full: 'Hint-delta: how much a self-generated hint shifts the model's own log-probs; no verifier'. Outline footnote: 'UTM = universal Turing machine. The three LLM rows start from pretrained models, so they are not zero-data' (on the slide as the footer gloss and the 'not zero-data' group label). The outline's 'This paper' group heading is the highlighted row.</aside>
+</section>

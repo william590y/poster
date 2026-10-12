@@ -1,0 +1,213 @@
+{
+ "id": "decoder-2025-09-17-icpc",
+ "url": "https://the-decoder.com/openai-outperforms-humans-and-google-at-the-worlds-top-collegiate-programming-contest/",
+ "expected": "OpenAI outperforms humans and Google at the world's top collegiate programming contest",
+ "notes": [
+  "clicked:Agree",
+  "hid 16 overlay element(s)"
+ ],
+ "status": 200,
+ "final_url": "https://the-decoder.com/openai-outperforms-humans-and-google-at-the-worlds-top-collegiate-programming-contest/",
+ "title0": "OpenAI outperforms humans and Google at the world's top collegiate programming contest",
+ "hidden_detail": [
+  [
+   "DIV",
+   "",
+   "decoder-top-ad-wrapper",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ad-container ad",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "the-decoder.com_dynamic_ad",
+   "ad",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "adunit-container__the-decoder.com_bb_1",
+   "symplr-ad-holder",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "primary-menu",
+   "fixed inset-y-0 right-0 w-full md:max-w-sm bg-(--heise-prima",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "svg",
+   "",
+   "",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "svg",
+   "",
+   "",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "decoder-sidebar-ad decoder-sidebar-ad--top decoder-sidebar-a",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "decoder-sidebar-ad__inner",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "decoder-sidebar-ad__slot",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "adunit-container__the-decoder.com_siteba",
+   "symplr-ad-holder",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "decoder-sidebar-ad decoder-sidebar-ad--sticky decoder-sideba",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "decoder-sidebar-ad__inner",
+   "sticky",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "decoder-sidebar-ad__slot",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "adunit-container__the-decoder.com_siteba",
+   "symplr-ad-holder",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "anchorSymplr",
+   "",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "OpenAI outperforms humans and Google at the world's top collegiate programming contest",
+ "og_title": "OpenAI outperforms humans and Google at the world's top collegiate programming contest",
+ "twitter_title": null,
+ "og_site": "The Decoder",
+ "published": "2025-09-17T19:12:48+00:00",
+ "author_meta": "Maximilian Schreiner",
+ "canonical": "https://the-decoder.com/openai-outperforms-humans-and-google-at-the-worlds-top-collegiate-programming-contest/",
+ "h1_count": 1,
+ "h1": "OpenAI outperforms humans and Google at the world's top collegiate programming contest",
+ "h1_box": [
+  88,
+  172,
+  719.953125,
+  251
+ ],
+ "h1_font": "30px",
+ "below_bottom": 531.1875,
+ "below_text": [
+  "NASA and IBM's open source lunar model turns 17 years of orbiter data into a fou",
+  "View the LinkedIn Profile of Maximilian Schreiner",
+  "Maximilian Schreiner",
+  "Sep 17, 2025",
+  "Google researchers find a way to keep self-improving AI agents from memorizing t",
+  "Some mathematicians call for OpenAI boycott after AI-generated proofs flood thei",
+  "OpenAI's safety crisis keeps getting worse and the company keeps making it worse"
+ ],
+ "hero_top": 296,
+ "header_bottom": 114,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  292
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/decoder-2025-09-17-icpc.png",
+ "trimmed": 0
+}

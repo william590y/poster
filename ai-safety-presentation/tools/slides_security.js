@@ -1710,4 +1710,29 @@ async function build(d) {
   await freqTrackers(d);
 }
 
-module.exports = { build };
+// Slide functions by name (for other decks, e.g. tools/build_splash.js); build() above is unchanged.
+module.exports = {
+  build,
+  slides: {
+    cyberCves,
+    cyberMythos,
+    cyberInterlude,
+    hfOverview,
+    hfDiagram,
+    hfSwarm,
+    videoSlide,
+    rogueWords,
+    rogueCompaction,
+    rogueEvidence,
+    wikiBoard,
+    wikiHeartbeat,
+    wikiHeartbeatEnd,
+    controlBrakes,
+    controlAnthropic,
+    controlHeadlines,
+    controlWall,
+    freqAxios,
+    freqTally,
+    freqTrackers,
+  },
+};

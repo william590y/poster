@@ -1,0 +1,44 @@
+{
+ "id": "anthropic-2026-09-30-what-work-can-robots-do",
+ "url": "https://www.anthropic.com/research/what-work-can-robots-do",
+ "expected": "What work can robots do?",
+ "notes": [],
+ "status": 200,
+ "final_url": "https://www.anthropic.com/research/what-work-can-robots-do",
+ "title0": "Can we predict the jobs robots will do? \\ Anthropic",
+ "hidden_detail": [],
+ "title": "Can we predict the jobs robots will do? \\ Anthropic",
+ "og_title": "Can we predict the jobs robots will do?",
+ "twitter_title": "Can we predict the jobs robots will do?",
+ "og_site": null,
+ "published": "2026-09-30T16:01:00.000Z",
+ "author_meta": null,
+ "canonical": "https://www.anthropic.com/research/what-work-can-robots-do",
+ "h1_count": 1,
+ "h1": "What work can robots do?",
+ "h1_box": [
+  263.359375,
+  169,
+  936.640625,
+  226.203125
+ ],
+ "h1_font": "52px",
+ "below_bottom": 340.703125,
+ "below_text": [
+  "Sep 30, 2026",
+  "Download the PDF"
+ ],
+ "hero_top": 383.203125,
+ "header_bottom": 68,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  358.703125
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/anthropic-2026-09-30-what-work-can-robots-do.png",
+ "trimmed": 0
+}

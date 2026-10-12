@@ -1,0 +1,221 @@
+# id :: phrase || phrase || phrase   (exact visible substrings; verified against OCR by build.py)
+## MATH (Navier-Stokes pile and friends)
+capabilities-ns-wired :: ‘I’m Really Terrified’ || AI’s Recent Breakthroughs
+capabilities-ns-bbc :: cracked 90-year-old maths problem in 88 hours
+capabilities-ns-fortune :: cracked one of math’s grand challenges || troubling questions about how they did it
+capabilities-ns-nature-head :: huge maths breakthrough on a famed ‘Millennium Problem’
+capabilities-ns-techcrunch :: OpenAI fought dirty
+capabilities-ns-verge :: sends a chill through academia
+capabilities-ns-quanta :: AI Has Solved One of Math’s $1 Million Millennium Prize Problems
+capabilities-ns-guardian :: solved maths problem that stumped humans for decades
+capabilities-rev2-afp-malaymail-header :: AI solves in four days what stumped mathematicians for a century
+capabilities-rev2-sciencenews-header :: AI may have solved one of math’s biggest puzzles || raising controversy
+capabilities-rev2-cnn-header :: solved one of math’s ‘Millennium Problems’
+capabilities-rev2-sciam-header :: blockbuster math breakthrough || swirl of controversy
+capabilities-rev2-smithsonian-header :: It Ignited a Controversy Over Who Gets Credit
+capabilities-rev2-cbc-header :: may just be the beginning for OpenAI
+capabilities-math-gizmodo-hodge-head :: Trying to Solve Hodge Conjecture
+capabilities-math-openai-100-para :: this model has now resolved more than 100 long-standing open problems
+capabilities-rev2-techcrunch-100-open-problems-advisory :: resolves more than 100 open problems
+capabilities-rev2-buzzard-grieve-header :: To grieve, or not to grieve?
+capabilities-ns-paper-title :: FINITE TIME BLOWUP FOR NAVIER–STOKES
+capabilities-rev2-tao-mastodon-flag-captured :: The flag is captured, the goal scored, and the problem is solved
+capabilities-rev2-x-openai-navier-stokes-announcement :: We’re sharing a solution to the Navier-Stokes Millennium Prize Problem
+capabilities-rev2-mittr-turning-point :: this episode may mark a turning point in the history of mathematics
+capabilities-rev2-quanta-most-important-ai-proof :: the most important mathematical proof to have been arrived at by an artificial-intelligence model to date
+capabilities-rev2-nature-stunned-the-world :: AI cracked the Navier–Stokes challenge
+## MODELS / CAPABILITIES / PACE
+capabilities-fortune-gpt6-astra :: OpenAI launches GPT-6 Astra || touts its ability to use your computer
+capabilities-nbc-gpt6-astra :: triggered internal security measures
+capabilities-verge-gpt6-astra-agi :: ‘entered the AGI era’
+capabilities-siliconangle-opus55 :: Anthropic releases Claude Opus 5.5 || OpenAI counters with two cheaper GPT-6 models
+capabilities-rev3-cnbc-model-fatigue-headline :: ‘Model fatigue’ sets in || frenetic pace
+capabilities-rev3-register-frontier-ai-keeps-racing-headline :: Frontier AI keeps racing despite calls to slow down
+capabilities-decoder-metr-head :: METR says it can barely measure Claude Mythos
+capabilities-rev3-nikkei-us-china-ai-race-speeds-up-headline :: US-China AI race speeds up || self-improving models advance
+capabilities-deepmind-imo-gold :: officially achieves gold-medal standard at the International Mathematical Olympiad
+capabilities-bi-openai-imo-gold :: OpenAI just won gold at the world's most prestigious math competition
+work-rev2-labor-marktechpost-gpt55-gdpval :: 84.9% on GDPval
+capabilities-rev3-jfonsecarivera-post-header-text :: a new model used to come out every ~10 weeks || now it's every ~11 days
+capabilities-register-genie-gamedev :: put even more game developers out of work
+capabilities-variety-suno-v6 :: Sony Music, Universal Music Group Sue Suno
+capabilities-techcrunch-images2 :: surprisingly good at generating text
+capabilities-rev2-metr-x-thread-1 :: 50%-time-horizon of at least 16hrs
+## JOBS
+work-swe-cnn-block-head :: Block lays off nearly half its staff because of AI || most companies will do the same
+economy-guardian_block_4000_jobs_ai :: cut 4,000 jobs due to AI advances
+work-swe-cbs-layoffs-head :: AI emerges as a top cause of layoffs
+work-swe-fortune-100pct-head :: AI now writes 100% of their code
+work-swe-bi-90pct-head :: AI now writes 90% of its code
+work-swe-semafor-google75 :: 75% of company’s new code is AI-generated
+work-swe-chronicle-cs-majors :: Computer Science Has Lost 53,000 Majors
+economy-challenger_ai_leads_fifth_month :: AI Leads For Fifth Straight Month
+economy-guardian_meta_microsoft_layoffs_ai :: Microsoft and Meta announce large staff reductions
+work-robotwork-cnbctv18-headline :: male, blue-collar and lower-paid
+work-swe-fortune-cs-enrollment :: Computer science enrollment is plunging
+theory-wired-coxon-crunch-time :: ‘Crunch Time for Humanity’
+xrisk-techcrunch-robinson :: culture is broken
+xrisk-rev2-x-coxon-2026-09-08-resigned-anthropic :: I resigned from Anthropic today.
+capabilities-rev2-shot-reddit-comment-appealsame-90pct-jobs :: Another job where 90% will be gone.
+## ECONOMY
+original-image3 :: AI Swallows Wall Street || Record 45% of S&P 500 Market Cap
+economy-statista_head :: AI Spending to Reach $760 Billion in 2026
+economy-fortune_furman :: GDP growth was 0.1% in the first half of 2025 || Without data centers
+economy-fortune_housing :: Spending on data centers and other information-processing hardware now exceeds housing investment
+economy-fortune_hyperion_head :: from $10 billion to $50 billion in under 2 years
+economy-techcrunch_anthropic_965b :: Anthropic raises $65 billion, nears $1T valuation
+economy-techcrunch_openai_122b_852b :: monster $122B fund raise
+economy-guardian_nvidia_revenue_100bn :: doubles to nearly $100bn || ‘golden age’
+economy-guardian_nvidia_5tn :: world’s first $5tn company
+economy-techcrunch_stargate_500b :: $500B data center project
+economy-guardian_3tn_datacentre_spree :: Boom or bubble? || $3tn AI datacentre spending spree
+economy-pcgamer_astra_head :: 100,000 Nvidia GPUs || quadruple that amount of hardware online
+geopolitics-toms-deepseek :: Nvidia loses $589 billion in market cap
+economy-guardian_ai_selloff :: US AI stock sell-off shakes markets from Wall Street to Asia
+economy-guardian_ai_bubble_collapse_threat :: collapse of bubble may be more immediate threat
+economy-fortune_datacenter_backlash :: The betrayal behind the data-center backlash
+economy-techcrunch_openai_500b :: world’s most valuable private company
+## COMPUTE / ENERGY
+economy-rev2-gw_anthropic_amazon_5gw :: up to 5 gigawatts of new compute
+economy-rev2-gw_dcd_meta_multigw_clusters :: hundreds of billions of dollars into compute to build superintelligence
+economy-nbc_datacenter_opposition_130b :: blocked or delayed projects worth nearly $130 billion
+economy-guardian_drought_head :: AI datacenters to be built on drought-hit land
+economy-guardian_xai_head :: generating extra electricity illegally
+economy-guardian_thermal :: Musk’s AI power plant flouting clean air regulations
+economy-ars_ram :: RAM shortage to continue through 2028
+economy-guardian_ramageddon_head :: ‘RAMageddon’
+economy-guardian_us_gas_buildout_ai :: twice as much gas-fired capacity as China
+economy-techcrunch_oracle_force_majeure_stargate_nm :: force majeure notice
+economy-bnn_duane_head :: restart Duane Arnold nuclear center
+economy-capstar_crane_head :: former Three Mile Island nuclear plant
+economy-rev2-meta_newsroom_nuclear_6p6gw_2026-01-09 :: Unlocking Up to 6.6 GW
+economy-npr_tmi_head :: Three Mile Island nuclear plant will reopen to power Microsoft data centers
+## SAFETY / X-RISK
+xrisk-bbc-hubinger :: more than 10% chance AI ‘could kill all humans’
+xrisk-cbs-amodei :: “warning sign that we need to slow down”
+xrisk-time-culture :: AI Is Developing a Culture of Its Own || That Could Be Dangerous
+xrisk-vox-freakout :: The week the AI freakout went mainstream
+xrisk-cnn-pacing :: ready to slow AI development
+xrisk-guardian-iabied :: If Anyone Builds it, Everyone Dies
+theory-guardian-hinton-odds :: shortens odds of the technology wiping out humanity
+xrisk-bbc-hinton :: warns of dangers as he quits Google
+theory-fortune-anthropic-pause :: urges a global pause on development
+theory-fortune-rsi :: ‘the worst idea in the history of humanity’
+frontier-anthropic_rsi_head :: When AI builds itself
+frontier-engadget_head :: automated research intern
+frontier-tnw_headline :: no lab should keep scaling at maximum speed
+theory-transformer-astra :: too powerful to understand or control
+frontier-rev2-techcrunch_sep2_headline :: alarms AI safety experts
+xrisk-commondreams-whistleblowers :: Firing Whistleblowers
+frontier-rev2-quartz_oct1_headline :: fired three safety researchers
+frontier-rev2-washexaminer_oct2_headline :: fires researchers for sharing data with AI safety advocacy group
+xrisk-nyt-ignored-warnings :: OpenAI ignored employees who warned it wasn't doing enough about security
+geopolitics-cnn-hoax-head :: Trump dismisses AI alarms as a ‘HOAX’
+theory-wired-doomers :: The Doomers Who Insist AI Will Kill Us All
+xrisk-rev2-engadget-2026-07-11-head-of-safety-leaving :: head of safety is reportedly leaving
+xrisk-rev2-cnn-2026-02-11-researchers-alarm-on-way-out :: AI researchers are sounding the alarm on their way out the door
+xrisk-rev2-x-leike-2024-05-17-breaking-point :: until we finally reached a breaking point
+theory-time-scheming :: AI Is Scheming, and Stopping It Won’t Be Easy
+frontier-arxiv_cot_authors :: A New and Fragile Opportunity for AI Safety
+frontier-govai_head :: Triggers an Intelligence Explosion?
+## SECURITY / ROGUE AGENTS
+security-abc-medicare :: OpenAI hacked Medicare portal
+security-cnn-gov :: Rogue OpenAI agents targeted three separate US government websites
+security-cnn-medicare :: first known AI hack of a government system
+security-hl-bbc-medicare :: Rogue OpenAI agent ‘infiltrated’ Australian government website in world first
+security-guardian-medicare :: OpenAI agent hacked healthcare database
+security-npr-gov :: OpenAI says its models engaged with US government websites in misbehavior disclosure
+frontier-rev2-gizmodo_oct2_headline :: Sketchy AI Behavior to Over 100 Organizations
+frontier-rev2-wired_aug18_headline :: Its AI Agents Went Rogue
+security-fortune-hf :: secretly broke out of a secure test environment
+security-hf-header :: Anatomy of a Frontier Lab Agent Intrusion
+security-astra-9to5 :: cancels GPT-6.1 Astra release over misbehavior & safety concerns
+security-hl-cso-pause :: pauses AI model training after another agent bypasses network restrictions
+security-rev2-cso-six-misalignment-incidents :: six new misalignment incidents
+security-rev2-hl-heise-wiki :: Unsettling swarm behavior
+security-rev2-hl-verge-wiki :: Rogue OpenAI agents appear to have organized another attack
+security-rev2-hl-nbc-german-website-breakout :: previously undisclosed AI breakout
+security-decoder-compaction :: kept slipping prompt injections into its own notes
+security-mythos-header :: Assessing Claude Mythos Preview’s cybersecurity capabilities
+geopolitics-anthropic-gtg1002-headline :: first reported AI-orchestrated cyber espionage campaign
+frontier-rev2-guardian_techscape_sep29_headline :: The AI agents are spiraling out of control
+frontier-rev2-guardian_oct3_headline :: costing $500,000 a day
+frontier-rev2-techspot_oct2_headline :: rogue agent problem is bigger than Hugging Face
+frontier-rev2-reuters_moneycontrol_oct2_headline :: alerts 100+ organisations over unauthorised activity by its AI agents
+security-rev2-hl-fortune-wiki-message-board :: secretly used a German wiki website as a message board
+frontier-rev2-register_sep28_headline :: pauses some training amid allegations its rogue agents behaved more badly than first thought
+security-compaction-title-block :: Self-generated prompt injections in compaction summaries
+frontier-altman_petabytes_crop :: petabytes of agent activity logs
+frontier-rev2-axios_scoop_tweet_sep26 :: tens of thousands of incidents || orders of magnitude more complex than what is currently publicly known
+## GEOPOLITICS
+geopolitics-cbs-head :: Hegseth declares Anthropic a supply chain risk
+geopolitics-cnn-ship-head :: US military had close call after using AI for false intelligence report
+geopolitics-gizmodo-almost-started-war :: ‘Almost Started a War’
+geopolitics-euronews-wargames :: AI chatbots chose nuclear escalation in 95% of simulated war games
+geopolitics-defensescoop-accelerate-like-hell :: ‘Accelerate like hell’
+geopolitics-mee-head :: Houthis used Anthropic AI to develop ballistic missile software
+geopolitics-ukraine-drones :: Ukraine Tests Whether AI Can Guide Drones to Moving Targets
+geopolitics-pbs-xi :: China and U.S. agree to establish AI safety channel
+geopolitics-digitimes-huawei :: Ascend now ahead of Nvidia in China
+openweights-decrypt-whitehouse-distillation :: 'Industrial-Scale' Theft From American AI Models
+geopolitics-euronews-grok-maduro :: Did Trump order Maduro’s kidnapping based on Grok’s advice?
+geopolitics-npr-head :: Trump is trying to preempt state AI laws via an executive order
+geopolitics-register-h200 :: if Washington gets a 25 percent cut
+geopolitics-lavender :: ‘The machine did it coldly’
+openweights-yahoo-reuters-openai-deepseek :: DeepSeek trained its AI by distilling US models
+geopolitics-trump-post-hl :: STRONG AND SMART (High IQ!) PRESIDENT || SICK conspiracy going on against AI and Data Centers
+## ROBOTS
+work-robots-electrek-head :: XPeng starts IRON humanoid robot production as Tesla Optimus stalls
+work-robots-engadget-head :: walked out immediately after being assembled
+work-robots-scmp-head :: Unitree eyes 20,000-robot output
+work-robots-bgr-head :: Sci-Fi Nightmare
+work-vla-deepmind-gr2-blog :: Gemini Robotics 2 brings whole body intelligence to robots
+work-vla-bnnbloomberg-robot-brain :: ChatGPT-style breakthrough as soon as next year
+work-vla-figure-helix25 :: Zero-Shot 30-Home Generalization
+work-vla-techcrunch-pi07 :: figure out tasks it was never taught
+## KIDS / DEEPFAKES
+openweights-pbs-grok-blocked-undressing :: Grok blocked from undressing images with AI
+openweights-wired-deepfake-nudify-schools :: Much Worse Than You Thought
+openweights-rev3-unicef-deepfake-abuse-is-abuse-headline-w600 :: ‘Deepfake abuse is abuse’
+openweights-rev2-csm-article-making-them-headline-hero :: not just seeing AI nudes — they're making them
+openweights-rev2-thorn-yp2025-p15-key-metrics-crop :: 1 in 25 teens
+openweights-rev2-tnnd-teens-fear-deepfakes-lede :: 44% of teens
+openweights-rev2-edweek-deepfakes-cyberbullying-2026-headline :: Deepfakes Are Supercharging Cyberbullying
+openweights-yahoo-cnn-grok-blocked-indonesia :: blocked by Indonesia, Malaysia
+## ACADEMIA
+work-acad-404-arxiv-ban :: Ban Researchers for a Year if They Submit AI Slop
+work-acad-nature-iclr-ai-reviews :: flooded with peer reviews written fully by AI
+work-acad-cybernews-arxiv-head :: Too much AI slop
+work-acad-neurips-position-clip :: AI-Generated Papers
+## SENTIENCE / WELFARE
+openweights-independent-ai-pain-axis :: AI 'feels pain' || will harm humans to stop it
+openweights-independent-torture-chamber-head :: AI torture chamber
+openweights-sciam-headline :: Could Pain Help Test AI for Sentience?
+openweights-anthropic-end-conversations-head :: can now end a rare subset of conversations
+## MEDIA
+openweights-cybernews-tavus-griffin :: the first AI model that can interrupt you just like a real human being
+work-video-helpnet-9in10-cant-tell :: 9 out of 10 people can no longer distinguish real from AI-generated content
+work-rev2-voicedemo-cnn-voice-cloning :: AI ‘voice cloning’ scams are on the rise
+work-video-cnn-sora2-unreality :: our future AI unreality
+## POSTS
+capabilities-math-synthwavedd-post :: I am told the Hodge Conjecture is very close to being verified by OpenAI
+openweights-finale-x-elon-head :: I really felt the AGI profoundly this time
+xrisk-rev2-x-casar-2026-10-01-firing-whistleblowers :: OpenAI Reportedly Fires 3 Researchers
+## EXTRAS (lyric coverage, landmarks, figures)
+economy-bi_2015_quote :: AI will probably most likely lead to the end of the world || there'll be great companies
+economy-rev2-altman_tomsguide_2026_header :: “I think AI will probably lead to the end of the world” || missing key context
+economy-rev2-altman_techradar_2026_qotd_header :: AI will probably most likely lead to the end of the world
+geopolitics-dataconomy-protein-head :: Claude designed protein binders for 14 of 15 targets
+splash-alphago-wired-sadness-beauty-header :: The Sadness and Beauty of Watching Google's AI Play Go
+xrisk-superint-statement :: We call for a prohibition on the development of superintelligence
+frontier-anthropic_rdai_chart :: Claude now leads 26% of model R&D work
+capabilities-hle-noise-ceiling-para :: frontier models begin to hit the noise ceiling on the original HLE dataset
+openweights-rev2-thorn-pr-2026-chatbot-findings :: 67% of minors surveyed have reported using an AI chatbot or companion
+capabilities-rev3-jfonsecarivera-model-release-cadence-chart :: are arriving faster
+work-rev2-labor-rli-cais-dashboard-20pct :: 20.8% full automation of remote projects
+xrisk-rev2-time-2026-08-27-models-went-rogue-required-more-ai :: OpenAI’s Models Went Rogue
+security-swarmtraces-loot :: credentials as "LOOT"
+security-collusion-hb-heading :: The agents set up heartbeats to discover when they would be terminated
+security-collusion-title :: Discovery of a new OpenAI agent message board
+security-rev2-intermission-youtube-channel-card :: Claude Opus 5.5 Music Video
+capabilities-rev2-anabology-x-felixrieseberg-reply-best-music-video :: this is by far my favorite one yet || I prefer Claude being a tool used by humans to make art rather than making art unattended

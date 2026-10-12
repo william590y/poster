@@ -1,0 +1,104 @@
+{
+  "subject": "Jacob Coxon appearance on The Daily Show with Jon Stewart",
+  "video_url": "https://youtube.com/watch?v=lnLDjXy2kRA",
+  "video_title": "Jacob Coxon On Witnessing the Existential Threat of AI from the Inside | The Daily Show",
+  "checked_on": "2026-10-10",
+  "air_date": "2026-10-05",
+  "air_day": "Monday",
+  "air_time": "Not confirmed for this episode. Comedy Central's standard slot is weeknights 11:00 pm ET/PT (general boilerplate in a BroadwayWorld article). A LateNighter preview posted 2026-10-05 11:52 AM ET says Coxon was set to sit down 'tonight', which fits a late-evening Monday airing.",
+  "episode_identifiers": {
+    "season_episode": "Season 31, Episode 111 (Paramount+ title as shown in a search-index snippet; the Paramount+ page itself returned HTTP 500 on fetch)",
+    "overall_episode": "Episode 111 (Wikipedia, List of The Daily Show episodes (2026))",
+    "host": "Jon Stewart",
+    "guest": "Jacob Coxon"
+  },
+  "confidence": "high",
+  "confidence_percent_estimate": 92,
+  "confidence_reason": "Several independent outlets published on Oct 5 and Oct 6, 2026 and place the segment on Monday, and the only Monday before those publication times is Oct 5. A Wikipedia episode-list row and a Paramount+ title both give Oct 5, 2026. The NYC Council testimony the same day also points to Oct 5. The main gap is that no Comedy Central or Paramount+ listing page could be read directly.",
+  "evidence": [
+    {
+      "source": "LateNighter",
+      "url": "https://latenighter.com/news/jon-stewart-former-anthropic-researcher-jacob-coxon-daily-show/",
+      "published": "2026-10-05 11:52 AM ET",
+      "says": "Coxon 'set to sit down tonight' with Jon Stewart; Stewart 'will then hand the desk over Tuesday'.",
+      "strength": "strong (preview posted the same day as the airing)"
+    },
+    {
+      "source": "Newsweek",
+      "url": "https://www.newsweek.com/former-anthropic-researcher-issues-ai-warning-for-2027-12528004",
+      "published": "2026-10-06 07:18 AM EDT",
+      "says": "'During an appearance on The Daily Show on Monday,' Coxon spoke with 'Daily Show host Jon Stewart'.",
+      "strength": "strong (day only, no calendar date)"
+    },
+    {
+      "source": "IBTimes UK",
+      "url": "https://www.ibtimes.co.uk/jon-stewart-mocks-trump-strategy-ai-self-regulation-former-openai-researcher-warns-threat-1823958",
+      "published": "2026-10-06 12:35 PM BST",
+      "says": "Stewart criticized Trump's AI self-regulation push 'during Monday's episode of The Daily Show', where Coxon warned of existential AI risk.",
+      "strength": "strong (day only)"
+    },
+    {
+      "source": "Mediaite",
+      "url": "https://www.mediaite.com/media/tv/more-sobering-than-i-imagined-jon-stewart-dumbstruck-in-interview-with-ai-whistleblower-jacob-coxon/",
+      "published": "2026-10-06 12:25 PM",
+      "says": "Stewart was 'dumbstruck' 'Monday following his interview with the ex-Anthropic employee'.",
+      "strength": "moderate (wording is slightly ambiguous, but consistent with Monday)"
+    },
+    {
+      "source": "AI Weekly",
+      "url": "https://aiweekly.co/alerts/coxon-tells-stewart-ai-race-is-gambling-with-our-lives",
+      "published": "2026-10-06 21:12 UTC (updated 22:45 UTC)",
+      "says": "Coxon 'told Jon Stewart on The Daily Show'. 'Earlier the same day he testified before the NYC Council.' No explicit weekday or date for the segment.",
+      "strength": "moderate (corroborates same-day NYC testimony)"
+    },
+    {
+      "source": "Wikipedia, List of The Daily Show episodes (2026)",
+      "url": "https://en.wikipedia.org/wiki/List_of_The_Daily_Show_episodes_(2026)",
+      "published": "page snapshot, not dated",
+      "says": "Row 'Episode 111 (overall), October 5': host Jon Stewart, guest Jacob Coxon, 'Former researcher at OpenAI and Anthropic'. Neighboring rows: Oct 1 (Jordan Klepper), Oct 6 (Michael Kosta, Aaron Sorkin), Oct 7 (Michael Kosta, Sebastian Stan), Oct 8 (Michael Kosta, Kyle MacLachlan).",
+      "strength": "moderate-strong (secondary aggregator; its footnote cites a Rolling Stone piece dated Oct 6, which is a citation date, not an air date)"
+    },
+    {
+      "source": "Paramount+ (search-index title only)",
+      "url": "https://www.paramountplus.com/shows/video/ALVE01M33725DWEX1SQSSGETK9G5YT/",
+      "published": "n/a",
+      "says": "Search result title: 'Watch The Daily Show Season 31 Episode 111: October 5, 2026 - Paramount+'. Fetching the page returned HTTP 500, so the title is unverified on the page itself.",
+      "strength": "moderate (official platform, but read from a search snippet only)"
+    },
+    {
+      "source": "BroadwayWorld (two articles)",
+      "url": "https://www.broadwayworld.com/bwwtv/article/THE-DAILY-SHOW-with-Jon-Stewart-to-Feature-Jacob-Coxon-20261006",
+      "published": "byline Oct. 06, 2026",
+      "says": "Describes Stewart as having 'hosted an all-new episode' with Coxon (past tense). Gives no weekday or date for the episode. Boilerplate: 'All-new episodes of The Daily Show air weeknights at 11pm ET/PT on Comedy Central.' A companion 'New Episode' article (byline Oct. 06, 2026) also names Coxon and gives no weekday.",
+      "strength": "weak-moderate (confirms the episode already aired by Oct 6; no date given)"
+    },
+    {
+      "source": "X post by @TheDailyShow (status 2107531924965069242)",
+      "url": "https://x.com/TheDailyShow/status/2107531924965069242",
+      "published": "2026-10-06 18:02 UTC (14:02 EDT Tuesday), decoded from the snowflake ID; the page itself returned HTTP 402",
+      "says": "Show account post: 'Former Anthropic researcher Jacob Coxon (@hilbertspaess) and Jon Stewart discuss AI, jobs disappearing, universal income...'",
+      "strength": "weak (a post-air promotional post the day after a Monday airing fits, but the post does not state an air date)"
+    },
+    {
+      "source": "NYC Council hearing (corroborating same-day event)",
+      "url": "https://www.businesstoday.in/technology/artificial-intelligence/story/former-anthropic-researcher-jacob-coxon-set-to-testify-as-new-york-city-weighs-ai-rules-559466-2026-10-05",
+      "published": "2026-10-05",
+      "says": "Coxon was 'set to testify' before the NYC Council on Oct 5, 2026 (URL slug dated 2026-10-05). A Bloomberg-sourced piece (thestar.com.my, 2026/10/05) reports the same. A post-hearing search summary says he did testify on Monday, Oct 5.",
+      "strength": "moderate (supports Oct 5 as the day of the Daily Show appearance, because AI Weekly places the segment 'earlier the same day' as the testimony)"
+    }
+  ],
+  "not_verified_directly": [
+    "Comedy Central schedule or listing page for this episode. None was found in search.",
+    "Paramount+ episode page (HTTP 500 on fetch).",
+    "X post content and timestamp (HTTP 402 on fetch; timestamp decoded from the ID instead).",
+    "YouTube page: fetched, but the visible text had no upload or air date.",
+    "Episode air time for this specific episode (11:00 pm ET/PT is the standard weeknight slot, not confirmed)."
+  ],
+  "conflicts_and_caveats": [
+    "Gizmodo: the article at https://gizmodo.com/ai-doomlord-jacob-coxons-media-tour-has-begun-2000809720) is dated 2026-09-10 and does not mention Jon Stewart or The Daily Show, so it cannot establish the air date. The URL as returned by search ends in a stray ')'.",
+    "Descriptions of Coxon's employers vary ('former Anthropic researcher' vs 'former OpenAI and Anthropic'). This does not affect the date.",
+    "A TheWrap photo credit mentions a Sept. 23, 2026 Daily Show episode. That article does not mention Coxon and is not a conflict for this appearance.",
+    "Wikipedia's footnote is dated Oct 6 (a Rolling Stone citation). That is a citation date, not the air date."
+  ],
+  "bottom_line": "The Coxon segment aired Monday, October 5, 2026 (Season 31, Episode 111), most likely late evening ET. Confidence is high, about 92 percent. The inference rests on same-day and next-day coverage that says 'Monday' or 'tonight' and on a Wikipedia episode row and a Paramount+ title dated Oct 5. A direct read of the Comedy Central or Paramount+ listing would move this to near certainty."
+}

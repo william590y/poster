@@ -1,0 +1,90 @@
+{
+ "id": "rollingstone-2025-07-06-velvet-sundown",
+ "url": "https://au.rollingstone.com/music/music-news/ai-band-the-velvet-sundown-confirm-ai-79519",
+ "expected": "AI ‘Band’ the Velvet Sundown Officially Confirm They’re AI — and a ‘Provocation’",
+ "notes": [
+  "hid 4 overlay element(s)",
+  "crop starts at css y=290 (the area above it, masthead, hero image, empty ad slot or video player, is not included)"
+ ],
+ "status": 200,
+ "final_url": "https://au.rollingstone.com/music/music-news/ai-band-the-velvet-sundown-confirm-ai-79519",
+ "title0": "AI 'Band' the Velvet Sundown Officially Confirm They're AI -- and a 'Provocation'",
+ "hidden_detail": [
+  [
+   "DIV",
+   "skin-ad-container",
+   "",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "l-page__mega",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "floating-player-wrap",
+   "",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "ksc-in-con",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "AI 'Band' the Velvet Sundown Officially Confirm They're AI -- and a 'Provocation'",
+ "og_title": "AI 'Band' the Velvet Sundown Officially Confirm They're AI -- and a 'Provocation'",
+ "twitter_title": "AI ‘Band’ the Velvet Sundown Officially Confirm They’re AI — and a ‘Provocation’",
+ "og_site": "Rolling Stone Australia",
+ "published": "2025-07-06T07:38:08+00:00",
+ "author_meta": null,
+ "canonical": "https://www.rollingstone.com/music/music-features/ai-band-the-velvet-sundown-confirm-ai-1235379354/",
+ "h1_count": 1,
+ "h1": "AI ‘Band’ the Velvet Sundown Officially Confirm They’re AI — and a ‘Provocation’",
+ "h1_box": [
+  20,
+  462,
+  860,
+  562
+ ],
+ "h1_font": "40px",
+ "below_bottom": 648,
+ "below_text": [
+  "In an update to their Spotify bio, viral AI “band” the Velvet Sundown call thems",
+  "By",
+  "Brian Hiatt",
+  "Subscribe Now"
+ ],
+ "hero_top": 662,
+ "header_bottom": 414,
+ "doc_w": 1200,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  290,
+  1200,
+  368
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/rollingstone-2025-07-06-velvet-sundown.png",
+ "trimmed": 0
+}

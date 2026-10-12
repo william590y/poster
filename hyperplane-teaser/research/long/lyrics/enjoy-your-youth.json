@@ -1,0 +1,64 @@
+{
+  "key": "enjoy-your-youth",
+  "lyric_idea": "Chorus: \"If someone tells me one more time / 'Enjoy your youth,' I'm gonna cry\". Advice to young people that AI undercuts: 'learn to code' vs AI coding agents writing most code; entry-level hiring collapse for new graduates (2025-2026).",
+  "candidates": [
+    {
+      "type": "quote",
+      "text": "From: (Learn to code) –> (Join big tech company) –> (Build confidence) –> (Understand customers) –> (Become a founder)",
+      "speaker_or_outlet": "SignalFire, State of Tech Talent Report 2026 (report text, not a person's quote)",
+      "date": "2026-06-22 (deck manifest date; the live page fetched 2026-10-10 shows no date)",
+      "url": "https://www.signalfire.com/blog/signalfire-state-of-talent-report-2026",
+      "local_path": null,
+      "verified_how": "Opened the live report page on 2026-10-10 and copied the line verbatim. The same page says: 'New grad/entry-level hiring has collapsed further: down roughly 65% at the Tech Majors* and down ~76% at early stage startups* compared to 2019.' Deck source: assets/research/work/manifest.json, swe-signalfire-* items; tools/slides_work.js juniorSlide.",
+      "why_it_fits": "Puts 'learn to code' on screen as the old career path, with an arrow to 'Become a founder'. The report calls the old ladder obsolete, which is the lyric's point about advice to the young.",
+      "caveat": "The same report says the 'AI Code Apocalypse' 'has failed to materialize' for engineers, and engineering hiring at Tech Majors is down only ~11%. Do not caption it as AI replacing coders. For a phone, trim the middle steps with an ellipsis ('From: (Learn to code) –> … –> (Become a founder)') rather than rewording."
+    },
+    {
+      "type": "stat",
+      "text": "employment of young workers (ages 22–25) in AI-exposed occupations now stands 19% below where it would be had it kept pace with that of their less-exposed peers; experienced workers show no comparable gap.",
+      "speaker_or_outlet": "Erik Brynjolfsson, Bharat Chandar, Ruyu Chen, Stanford Digital Economy Lab, 'Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence'",
+      "date": "2026-08 (paper dated August 2026; deck manifest 2026-08-12)",
+      "url": "https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/work/swe-stanford-canaries-swe-by-age.png",
+      "verified_how": "Viewed the local chart PNG: the 'Early Career 1 (22-25)' line ends near 0.8 of its late-2022 level, while 'Mid-Career 2 (41-49)' ends near 1.2. Fetched the paper text on 2026-10-10 and matched the 19% sentence (Fact 2, section 2.2). Deck source: manifest item swe-stanford-canaries, cropped from p.62.",
+      "why_it_fits": "Youth is the subject of 'Enjoy your youth'. This is the paper's 'canary' finding on young workers, shown next to the age split.",
+      "caveat": "The paper calls this descriptive, not causal, and finds no economy-wide displacement. The 0.8 on the chart is headcount, not the 19% counterfactual gap; do not merge the two numbers. The deck label '−20%' is a rounding of the chart, so prefer the paper's 19%."
+    },
+    {
+      "type": "headline",
+      "text": "Once Seen as a Sure Thing, Computer Science Has Lost 53,000 Majors",
+      "speaker_or_outlet": "The Chronicle of Higher Education (Jacquelyn Elias)",
+      "date": "2026-08-27",
+      "url": "https://www.chronicle.com/article/once-seen-as-a-sure-thing-computer-science-has-lost-53-000-majors",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/work/swe-chronicle-cs-majors.png",
+      "verified_how": "Viewed the local screenshot of the rendered page: headline, byline and 'August 27, 2026' are visible. The article body is paywalled (403 on fetch), so the 53,000 figure rests on the headline alone.",
+      "why_it_fits": "'Sure thing' is the same 'safe bet' the advice to young people pointed to. Fortune (2026-08-06) makes the same point: CS 'was considered one of higher education's safest bets'.",
+      "caveat": "Headline-only figure. Do not state a breakdown of the 53,000 that the body would need to support."
+    },
+    {
+      "type": "headline",
+      "text": "Google CEO says 75% of company’s new code is AI-generated",
+      "speaker_or_outlet": "Semafor (Tom Chivers); primary source Sundar Pichai, Google Cloud Next '26",
+      "date": "2026-04-24",
+      "url": "https://www.semafor.com/article/04/24/2026/google-ceo-says-75-of-companys-new-code-is-ai-generated",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/work/swe-semafor-google75.png (listed in the deck manifest; not opened by me)",
+      "verified_how": "Opened the Semafor page on 2026-10-10. The headline matches verbatim, and the dek reads: 'Google chief Sundar Pichai said 75% of the company’s new code is AI-generated. In 2024 that figure was 25%, rising to 50% last fall.' The Google blog line ('75% of all new code at Google is now AI-generated and approved by engineers') comes from the deck manifest notes; I did not open the Google blog.",
+      "why_it_fits": "The cleanest echo of the 'learn to code' half of the lyric: the job advice is 'learn to code', and the headline says AI now writes most of the new code.",
+      "caveat": "Google-reported, self-reported figure. Quote the headline exactly; the page says 'Google chief' in the body, 'Google CEO' in the headline."
+    }
+  ],
+  "backup": [
+    {
+      "type": "stat",
+      "text": "Undergraduate enrollment in computer and information sciences at four-year institutions declined 8.4% in spring 2026 from a year earlier",
+      "speaker_or_outlet": "Fortune (Marco Quiroz-Gutierrez), citing National Student Clearinghouse Research Center",
+      "date": "2026-08-06",
+      "url": "https://fortune.com/2026/08/06/computer-science-enrollment-plunging-ai-college-campus/",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/work/swe-fortune-cs-enrollment.png",
+      "verified_how": "Fetched the live article on 2026-10-10 and matched the sentence. Viewed the local screenshot; headline matches.",
+      "why_it_fits": "Students abandoning the advised path.",
+      "caveat": "The same article says the drop 'doesn't mean students are losing interest in technology'."
+    }
+  ],
+  "notes": "Deck sources: tools/slides_work.js (juniorSlide, codeSlide) and assets/research/work/manifest.json (swe-* ids). Live checks on 2026-10-10: SignalFire, Semafor, Fortune, Stanford paper text. The Chronicle body is paywalled, and the Google blog was not opened."
+}

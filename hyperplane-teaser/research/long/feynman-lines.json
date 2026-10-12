@@ -1,0 +1,40 @@
+{
+  "lines": [
+    {
+      "verbatim": "a question, intelligence is to be defined.",
+      "start_s": 31.48,
+      "end_s": 33.64,
+      "theme": "Intelligence has to be defined before we can compare machines to people"
+    },
+    {
+      "verbatim": "they're not going to do arithmetic the same way as we do arithmetic, but they'll do it better.",
+      "start_s": 147.22,
+      "end_s": 150.94,
+      "theme": "Machines will do intelligence differently from us, and better"
+    },
+    {
+      "verbatim": "Now, I say that both of these show intelligence.",
+      "start_s": 1045.06,
+      "end_s": 1047.76,
+      "theme": "A machine's bugs and quirks count as intelligence"
+    },
+    {
+      "verbatim": "If you want to make an intelligent machine, you're going to get all kinds of crazy ways of avoiding labor.",
+      "start_s": 1049.09,
+      "end_s": 1053.61,
+      "theme": "An intelligent machine will find crazy shortcuts to avoid labor"
+    },
+    {
+      "verbatim": "I think that we are getting close to intelligent machines",
+      "start_s": 1068.97,
+      "end_s": 1072.55,
+      "theme": "We are getting close to intelligent machines"
+    },
+    {
+      "verbatim": "but they're showing the necessary weaknesses of intelligence.",
+      "start_s": 1073.17,
+      "end_s": 1076.77,
+      "theme": "Machines are showing the necessary weaknesses of intelligence"
+    }
+  ]
+}

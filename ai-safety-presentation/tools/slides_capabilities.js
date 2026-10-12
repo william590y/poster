@@ -1792,4 +1792,29 @@ async function build(d) {
   await rumorsSlide(d);
 }
 
-module.exports = { build };
+// Slide functions by name (for other decks, e.g. tools/build_splash.js); build() above is unchanged.
+module.exports = {
+  build,
+  slides: {
+    cadenceSlide,
+    metrSlide,
+    metrEvidenceSlide,
+    graveyardSlide,
+    hleSlide,
+    heroSlide,
+    closeupSlide,
+    paintSlide,
+    worldsSlide,
+    anabologyFilmSlide,
+    anabologySatireSlide,
+    fableSlide,
+    takSlide,
+    videoSlide,
+    navierSlide,
+    headlinesSlide,
+    aftermathSlide,
+    vibemathedSlide,
+    pipelineSlide,
+    rumorsSlide,
+  },
+};

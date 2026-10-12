@@ -1,0 +1,26 @@
+<section id="s2-04" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Method</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">Reward: alignment with the learner's own progress</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:28px">
+<p style="font-size:36px;line-height:1.3;color:#17242c">Reward = how far a program's gradient points along the learner's preconditioned parameter movement over the lookback window</p>
+<div style="background:#ffffff;border:1px solid #dde1da;border-radius:12px;padding:20px;display:flex;flex-direction:row;gap:40px;align-items:center">
+<img src="/_blob/bf9be6b823e5518e4d4f3b991b0a83a2" alt="Paper's Eq. 2: p(e) = floor(e/2), δθ_e = θ_p(e) − θ_e; r_i = |⟨∇_θ L(y_i; θ_e), P_e ⊙ δθ_e⟩|; P_e = lr / (sqrt(v̂_e) + ε)" style="width:860px;height:202px;object-fit:contain">
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:28px;line-height:1.35"><b>δθ_e</b>: learner movement over a lookback window that grows with training</p>
+<p style="font-size:28px;line-height:1.35"><b>P_e</b>: the diagonal AdamW step operator</p>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">Paper's Eq. 2, p.5</p>
+</div>
+</div>
+<div style="display:grid;grid-template-columns:820px 820px;gap:24px">
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">Expected</span></b> (p.5): little reward for mastered programs (near-zero gradients) and for unrelated or unlearnable ones (no alignment)</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #a14d19;padding:0px 0px 0px 20px"><b><span style="color:#a14d19">Our reading</span></b>: to first order, roughly the loss decrease on y_i between θ_⌊e/2⌋ and θ_e, unsigned and preconditioned</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b>Forward-mode autodiff</b>, no full gradients (p.6). <span style="color:#a14d19">Our reading: one JVP per program.</span></p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b>Chosen</b> “after searching through several possibilities at small scale” <span style="color:#5f6b72">(p.5)</span></p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · Eq. 2, p.5; forward mode, p.6 · What each piece buys: Table 5, in Results</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">9</p>
+<aside>About 2.5 minutes. Lead: reward = how far a program's gradient points along the learner's preconditioned parameter movement over the lookback window. r_i = | ⟨grad_θ L(y_i; θ_e), P_e ⊙ δθ_e⟩ | (Eq. 2, p.5); δθ_e = θ_{floor(e/2)} - θ_e; P_e = lr / (sqrt(v_hat_e) + eps), the diagonal AdamW step operator. Expected (p.5): mastered programs give near-zero gradients; unrelated or unlearnable ones do not align with the movement; both get little reward. First order (my reading): roughly the loss decrease on y_i between θ_{floor(e/2)} and θ_e, unsigned and preconditioned. Forward-mode autodiff, no full gradients (p.6); one JVP per program is my reading. Lookback grows with training; reward chosen "after searching through several possibilities at small scale" (p.5). What each piece buys: Table 5, in Results. Detail: Eq. 2 is on p.5; typeset crop at figs/eq-generator-reward.png. Window: the text's "lookback window of ceil(e/2)" is the length e - floor(e/2), so it agrees with Eq. 2's checkpoint θ_{floor(e/2)} and with Table 5's caption. The window "helps average over short-term fluctuations" and "allows early mistakes to eventually be forgotten" (p.5). [mine] First-order reading: ⟨grad L(θ_e), θ_past - θ_e⟩ ≈ L(y; θ_past) - L(y; θ_e), with the gradient taken at θ_e. The paper calls its loss_delta variant "putatively similar ... (to first order)" (p.31). At e = 0 the window is empty, so r = 0. The lr scalar cancels under the advantage's std normalization. Preconditioning "was important in line with Thrush et al. [2026]" (p.5), but no Table 5 row removes it. The absolute value is defended on p.31, from 1M-param ablations with mixed evidence (Results). Whether θ_e and v_hat_e are read before or after round e's learner step is not stated.</aside>
+</section>

@@ -1,0 +1,64 @@
+{
+  "key": "musk-mit-2014",
+  "found_video": true,
+  "speaker": "Elon Musk",
+  "event": "MIT AeroAstro Centennial Symposium, Massachusetts Institute of Technology, Cambridge, MA. Musk's session (interview with MIT AeroAstro department head Jaime Peraire, then audience Q&A), the final session of the symposium per the uploader's description.",
+  "date": "2014-10-24 (Friday)",
+  "source_url": "https://www.youtube.com/watch?v=Fc0wQ95oqDU",
+  "source_title": "Elon Musk (MIT 2014): \"with artificial intelligence we are summoning the demon\"",
+  "source_channel": "Paridae Vision",
+  "source_duration_s": 165.19,
+  "video_file": "/home/user/hyperplane-teaser/clips/musk-mit-2014-demon.mp4",
+  "video_file_notes": "Full upload, 1280x720 H.264 + AAC, 165.19 s, downloaded via y2dl.py (720p).",
+  "cut_file": "/home/user/hyperplane-teaser/clips/musk-mit-2014-demon-cut.mp4",
+  "cut_file_notes": "16.02 s re-encoded cut starting at source 50.0 s. The demon line sits at about 7.3 to 9.4 s inside the cut.",
+  "lines": [
+    {
+      "verbatim": "With artificial intelligence, we are summoning the demon.",
+      "start_s": 57.32,
+      "end_s": 59.38,
+      "notes": "Target line. Confirmed by a small.en window re-transcription (50 to 68 s) and by the full-file small.en pass. Full-file pass also has a lead-in 'I mean,' at 56.44 to 57.42 s, which the window pass does not show, so the core line is the safe quote. Word probabilities 0.94 to 1.00. Press versions differ: Salon quotes 'we're summoning the demon'; the audio reads 'we are'. Verify by ear before a quote card."
+    },
+    {
+      "verbatim": "If I were to guess at what our biggest existential threat is, it's probably that.",
+      "start_s": 28.90,
+      "end_s": 35.38,
+      "notes": "Lower confidence. 'were' 0.74 and \"it's\" 0.48 word probabilities. Salon quotes 'If I had to guess'. Verify by ear before use."
+    },
+    {
+      "verbatim": "I think we should be very careful about artificial intelligence.",
+      "start_s": 25.52,
+      "end_s": 28.16,
+      "notes": "High confidence (word probabilities 0.96 to 1.00). Directly precedes the existential-threat line, so 25.5 to 35.4 s is a usable caution-then-threat sequence."
+    }
+  ],
+  "verification": {
+    "transcriber": "faster-whisper small.en, word timestamps, VAD on",
+    "passes": [
+      "full file 0 to 165 s: /home/user/hyperplane-teaser/research/long/musk-mit-2014-full-small.json",
+      "window 50 to 68 s: /home/user/hyperplane-teaser/research/long/musk-mit-2014-window-small.json"
+    ],
+    "agreement": "Target line matches across both passes. Lead-in 'I mean,' appears only in the full pass."
+  },
+  "press_sources": [
+    {
+      "outlet": "Salon",
+      "date": "2014-10-27",
+      "url": "https://www.salon.com/2014/10/27/elon_musk_warns_about_artificial_intelligence_were_summoning_the_demon/",
+      "note": "Quotes 'we're summoning the demon' and 'If I had to guess'. Says the Q&A was 'last week'."
+    },
+    {
+      "outlet": "UPI",
+      "date": "2014-10-27",
+      "url": "https://www.upi.com/Business_News/2014/10/27/Elon-Musk-We-are-summoning-a-demon-with-artificial-intelligence/4191414407652/"
+    },
+    {
+      "outlet": "MIT News",
+      "date": "2014 (symposium coverage; astronaut session on Friday)",
+      "url": "https://news.mit.edu/2014/aeroastro-centennial-symposium-1025",
+      "note": "Confirms Musk was a featured speaker at the symposium. Does not carry the quote."
+    }
+  ],
+  "date_basis": "Uploader description gives October 24, 2014. MIT News says the astronaut session was on Friday. BetaBoston coverage is dated October 24, 2014. Upload date of the YouTube video not retrieved (yt-dlp metadata blocked by bot check).",
+  "notes": "Speaker is Musk answering an audience question from 'Bob' at the start of the clip (0 to 6 s). Line 1 is the recommended quote. Lines 2 and 3 need an ear check before use. The first five seconds are the audience question, so start a montage cut at 25 s or later."
+}

@@ -1,0 +1,41 @@
+<section id="s4-06-discussion" data-transition="fade" style="background:#17242c;color:#eef1ec;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#6cc3b8">Critique</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#eef1ec">Discussion: two questions first</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:row;align-items:start;gap:32px">
+<p style="width:48px;flex-shrink:0;font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-weight:600;line-height:1.3;color:#6cc3b8">1</p>
+<p style="flex:1;font-size:36px;line-height:1.3;color:#eef1ec">Is the learner learning universal structure, or marginals plus copying plus local smoothing? Which baseline would settle it?</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:32px">
+<p style="width:48px;flex-shrink:0;font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-weight:600;line-height:1.3;color:#6cc3b8">2</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:36px;line-height:1.3;color:#eef1ec">Is the reward or the pool doing the work?</p>
+<p style="font-size:28px;line-height:1.35;color:#b9c7c4">On DCLM, shuffling keeps 74% of the gain over no generator (5.96 vs 7.75) but is 0.62 bpb worse than canonical (5.34) · <b><span style="color:#f2b07c">our calc</span></b> from Table 5</p>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#b9c7c4">Then</p>
+<div style="display:flex;flex-direction:row;align-items:start;gap:32px">
+<p style="width:48px;flex-shrink:0;font-family:'Source Serif 4', Georgia, serif;font-size:28px;font-weight:600;line-height:1.35;color:#6cc3b8">3</p>
+<p style="flex:1;font-size:28px;line-height:1.35;color:#eef1ec">What does self-play cost, counting generator updates, JVPs and program execution, next to the natural-data compute it replaces?</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:32px">
+<p style="width:48px;flex-shrink:0;font-family:'Source Serif 4', Georgia, serif;font-size:28px;font-weight:600;line-height:1.35;color:#6cc3b8">4</p>
+<p style="flex:1;font-size:28px;line-height:1.35;color:#eef1ec">Paper: “natural data are never used for gradient updates.” <span style="color:#b9c7c4">(p.8)</span> With DCLM + DNA model selection, is “zero data” the right label?</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:32px">
+<p style="width:48px;flex-shrink:0;font-family:'Source Serif 4', Georgia, serif;font-size:28px;font-weight:600;line-height:1.35;color:#6cc3b8">5</p>
+<p style="flex:1;font-size:28px;line-height:1.35;color:#eef1ec">Music: is a 40-piece, absolute-pitch, hold-heavy melody benchmark measuring structure? Would warm starts help most for data-scarce symbolic music?</p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#b9c7c4">Cowsik et al. 2026 · Table 5, p.31; p.8; Fig. 1, p.3; App. B.4, pp.25–26</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#b9c7c4">28</p>
+<aside>About 1 minute.
+This slide stays up for the ~18-minute open discussion; take Q1 and Q2 first. Q1: the paper has no trivial baselines (limitations slide). Q2: both readings are true; the paper calls shuffle 'much worse' (p.31) against canonical, while against no generator it keeps most of the gain. Also ask whether shuffle permutes across the pool (caption) or within a batch (text, p.31). Q3: C has no generator or JVP term (Fig. 1 axis). Q4: put the p.8 sentence on screen before asking. Q5 is my angle: Mutopia is 40 hand-picked pieces, absolute pitch with no transposition invariance, one byte per 16th note so 'hold' dominates (B.4). Per-onset entropy or event-based MIDI tokens would test it better. Spares: why does a random PCFG beat self-play on text and code (p.9), and would a PCFG plus self-play mixture beat both? Do LSP and G-Zero belong in the comparison, given they start from pretrained models?
+Slide layout, in the outline's words. Q2 in full: 'On DCLM, shuffling keeps 74% of the gain over no generator (5.96 vs 7.75) but is 0.62 bpb worse than canonical (5.34). Is the reward or the pool doing the work?' The slide leads with the question and shows the numbers as its detail line; the 74% and 0.62 are computed from Table 5, so the slide tags them 'our calc' (74% = (7.75-5.96)/(7.75-5.34), as on the limitations slide). Q4 in full: 'Paper, p.8: "natural data are never used for gradient updates." With DCLM + DNA model selection, is "zero data" the right label?' (the page cite follows the quote on the slide). The 'Then:' heading and Q1, Q3 and Q5 are on the slide in full. Nothing was cut.</aside>
+</section>

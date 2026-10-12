@@ -1,0 +1,56 @@
+{
+  "key": "cnn-hoax-headline",
+  "confirmed": true,
+  "checked_on": "2026-10-10",
+  "headline_exact": "Trump dismisses AI alarms as a ‘HOAX’ — worrying White House officials",
+  "headline_codepoints": {
+    "open_single_quote": "U+2018",
+    "close_single_quote": "U+2019",
+    "em_dash": "U+2014"
+  },
+  "html_title_tag": "Trump suggests AI needs a ’STRONG AND SMART’ president | CNN Politics",
+  "html_title_note": "The <title> tag uses CNN's alternativeHeadline. The og:title, JSON-LD headline and visible h1 all carry the exact headline above, so the <title> tag must not be used as the headline.",
+  "outlet": "CNN",
+  "section": "POLITICS",
+  "byline": "Kevin Liptak",
+  "date_published_utc": "2026-09-14T15:54:49.726Z",
+  "date_published_local_label": "SEP 14, 2026",
+  "date_last_updated_utc": "2026-09-14T23:55:13.444Z",
+  "date_last_updated_label": "UPDATED SEP 14, 2026",
+  "weekday": "Monday",
+  "url": "https://www.cnn.com/2026/09/14/politics/trump-vance-ai-alarms",
+  "dek": "President Donald Trump spent Monday angrily rejecting calls from AI industry leaders for more government regulation on their cutting-edge models",
+  "verification": {
+    "live_fetch": "curl to the URL on 2026-10-10 returned HTTP 200. The final URL was unchanged, so there was no redirect. The earlier note in dont-stick-up.json (HTTP 451) is stale.",
+    "og_title": "Trump dismisses AI alarms as a ‘HOAX’ — worrying White House officials | CNN Politics",
+    "json_ld_headline": "Trump dismisses AI alarms as a ‘HOAX’ — worrying White House officials",
+    "h1": "Trump dismisses AI alarms as a ‘HOAX’ — worrying White House officials",
+    "exact_match": true
+  },
+  "screenshots": {
+    "slide_crop": {
+      "path": "/home/user/poster/ai-safety-presentation/assets/slides/geopolitics/cnn-hoax-head.png",
+      "size_px": "2440x578",
+      "sha256": "7fa2d81592e587665534459c8d58221efa3083f95ea6aa53f28b6a7e75a76bac",
+      "visible_text": "POLITICS • 6 MIN READ / Trump dismisses AI alarms as a ‘HOAX’ — worrying White House officials / UPDATED SEP 14, 2026 / By Kevin Liptak",
+      "matches_headline": true
+    },
+    "full_source": {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/geopolitics/cnn-trump-ai-hoax.png",
+      "size_px": "2560x2000",
+      "sha256": "dc0549167ca46aa51fc9c41de1c40900958b449f8246022fdd2435fd84939727",
+      "visible_text": "Same headline, UPDATED SEP 14, 2026, By Kevin Liptak. Photo caption: President Donald Trump looks across the 18th green during the trophy presentation at the Amgen Irish Open at Trump International Golf Links in Doonbeg, Ireland, on September 13. (Richard Heathcote/Getty Images)",
+      "matches_headline": true
+    }
+  },
+  "asset_references": {
+    "make_long_py": "No direct asset reference. Line 251 of /home/user/hyperplane-teaser/render/video/edl/make_long.py says the CNN 'HOAX' ticker that held bar 16 is dropped.",
+    "long_json": "No CNN or HOAX reference in /home/user/hyperplane-teaser/render/video/edl/long.json.",
+    "plan_entry": "/home/user/hyperplane-teaser/research/long/plan/ch-b.json item chb-01-dont-stick-up-cnn-hoax uses asset slides/geopolitics/cnn-hoax-head.png, attribution 'CNN · SEP 14, 2026'.",
+    "lyric_source": "/home/user/hyperplane-teaser/research/long/lyrics/dont-stick-up.json candidate 2 uses local_path research/geopolitics/cnn-trump-ai-hoax.png."
+  },
+  "caveats": [
+    "make_long.py and long.json do not reference the screenshot. The asset is referenced in research/long/plan/ch-b.json and research/long/lyrics/dont-stick-up.json, and the task's premise was off on this point.",
+    "The on-screen attribution 'CNN · SEP 14, 2026' matches the publish date. The crop itself reads 'UPDATED SEP 14, 2026', and the last update was 2026-09-14T23:55Z."
+  ]
+}

@@ -1,0 +1,114 @@
+{
+ "openweights-finale-x-elon-head": {
+  "text": "I really felt the AGI profoundly this time",
+  "tags": [
+   "models",
+   "anthropic",
+   "xai"
+  ]
+ },
+ "xrisk-rev2-x-casar-2026-10-01-firing-whistleblowers": {
+  "text": "Outrageous. OpenAI has reportedly fired three safety researchers for sharing information with an outside AI safety group. This looks like they're firing whistleblowers. What are they hiding? I'll be sending OpenAI a demand for transparency.",
+  "phrases": [
+   "This looks like they're firing whistleblowers",
+   "OpenAI has reportedly fired three safety researchers"
+  ]
+ },
+ "xrisk-rev2-x-leike-2024-05-17-breaking-point": {
+  "text": "I joined because I thought OpenAI would be the best place in the world to do this research. However, I have been disagreeing with OpenAI leadership about the company's core priorities for quite some time, until we finally reached a breaking point."
+ },
+ "xrisk-rev2-x-coxon-2026-09-08-resigned-anthropic": {
+  "text": "I resigned from Anthropic today. I spent the last three years doing pretraining research at both OpenAI and Anthropic. Neither company is acting responsibly. They are racing straight to self-improving superintelligence and gambling with our lives. More thoughts below."
+ },
+ "economy-nbc_datacenter_opposition_130b": {
+  "note": "OCR run psm3 misreads the headline figure as $180 billion in one pass; the image reads $130 billion (checked on the overlay)"
+ },
+ "work-vla-figure-helix25": {
+  "note": "OCR misreads the stylised '30-Home' as '8O-Home'; the image reads 30-Home (checked on the overlay)"
+ },
+ "capabilities-math-gizmodo-hodge-head": {
+  "kind": "headline"
+ },
+ "splash-alphago-wired-sadness-beauty-header": {
+  "kind": "headline"
+ },
+ "work-robots-bgr-head": {
+  "kind": "headline"
+ },
+ "work-robots-electrek-head": {
+  "kind": "headline"
+ },
+ "work-robots-engadget-head": {
+  "kind": "headline"
+ },
+ "xrisk-commondreams-whistleblowers": {
+  "kind": "headline"
+ },
+ "xrisk-nyt-ignored-warnings": {
+  "kind": "headline"
+ },
+ "xrisk-rev2-cnn-2026-02-11-researchers-alarm-on-way-out": {
+  "kind": "headline"
+ },
+ "xrisk-rev2-time-2026-08-27-models-went-rogue-required-more-ai": {
+  "kind": "headline"
+ },
+ "xrisk-techcrunch-robinson": {
+  "kind": "headline"
+ },
+ "work-rev2-voicedemo-cnn-voice-cloning": {
+  "kind": "headline"
+ },
+ "economy-statista_head": {
+  "kind": "headline"
+ },
+ "frontier-govai_head": {
+  "kind": "paper"
+ },
+ "work-rev2-labor-rli-cais-dashboard-20pct": {
+  "kind": "figure"
+ },
+ "security-rev2-intermission-youtube-channel-card": {
+  "kind": "post"
+ },
+ "work-robotwork-cnbctv18-headline": {
+  "tags": [
+   "jobs",
+   "robots"
+  ]
+ },
+ "xrisk-guardian-iabied": {
+  "tags": [
+   "safety",
+   "x-risk"
+  ]
+ },
+ "capabilities-rev2-buzzard-grieve-header": {
+  "tags": [
+   "math",
+   "academia",
+   "safety"
+  ]
+ },
+ "economy-rev2-altman_tomsguide_2026_header": {
+  "tags": [
+   "x-risk",
+   "safety",
+   "openai"
+  ]
+ },
+ "economy-bi_2015_quote": {
+  "tags": [
+   "x-risk",
+   "safety",
+   "openai"
+  ]
+ },
+ "economy-rev2-altman_techradar_2026_qotd_header": {
+  "tags": [
+   "x-risk",
+   "safety",
+   "openai"
+  ]
+ }
+}

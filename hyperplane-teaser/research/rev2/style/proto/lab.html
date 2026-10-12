@@ -1,0 +1,222 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>paint lab</title>
+<style>
+@font-face { font-family: 'Newsreader'; font-weight: 200 800; src: url('fonts/newsreader-latin-opsz-normal.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-weight: 500; src: url('fonts/ibm-plex-mono-latin-500-normal.woff2') format('woff2'); }
+@font-face { font-family: 'IBM Plex Mono'; font-weight: 700; src: url('fonts/ibm-plex-mono-latin-700-normal.woff2') format('woff2'); }
+@font-face { font-family: 'Unbounded'; font-weight: 200 900; src: url('fonts/unbounded-latin-wght-normal.woff2') format('woff2'); }
+html, body { margin: 0; background: #333; }
+canvas { display: block; }
+</style></head>
+<body>
+<canvas id="c" width="1080" height="1920"></canvas>
+<script type="module">
+import * as P from './paint.js';
+const { PAL, rng, clamp, lerp, easeOutCubic, easeOutQuad, easeOutBack, easeInOutCubic, smooth } = P;
+const cv = document.getElementById('c'), ctx = cv.getContext('2d');
+const W = 1080, H = 1920;
+P.installInkFilter();
+const paper = P.makePaper(W, H, { seed: 7 });
+const tooth = P.makeTooth(W, H);
+const mk = () => { const c = document.createElement('canvas'); c.width = W; c.height = H; return c; };
+const scratch = [mk(), mk()];
+const img = new Image(); img.src = 'headline.png';
+await img.decode(); await document.fonts.load('700 80px "IBM Plex Mono"'); await document.fonts.load('600 80px Newsreader'); await document.fonts.load('800 80px Unbounded');
+const bg = (c = PAL.cream) => { ctx.setTransform(1, 0, 0, 1, 0, 0); ctx.globalCompositeOperation = 'source-over'; ctx.globalAlpha = 1; ctx.filter = 'none'; ctx.fillStyle = c; ctx.fillRect(0, 0, W, H); };
+const T = {};  // timings
+
+// ---------- A: stroke-by-stroke reveal of a real screenshot ----------
+function sceneReveal(t, { colour = PAL.pink, width = 92 } = {}) {
+  bg();
+  const rect = [60, 640, 960, 150];
+  const paths = P.zigzag([rect[0], rect[1] - 20, rect[2], rect[3] + 40], width, { seed: 4, angle: -3 });
+  const strokes = paths.map((pts, i) => ({ S: P.makeStroke(pts, { width, color: colour, seed: 10 + i, dry: .4, gaps: .5 }), t0: i * 0.07, dur: 0.17 }));
+  // underpaint: the colour strokes themselves (paint first, image through the paint)
+  strokes.forEach(s => P.drawStroke(ctx, s.S, easeOutQuad((t - s.t0) / s.dur), { alpha: .92 }));
+  // image revealed by a mask built from slightly smaller strokes (so a rim of paint stays visible)
+  const mstrokes = paths.map((pts, i) => ({ S: P.makeStroke(pts, { width: width * .78, color: '#fff', seed: 30 + i, dry: .25, gaps: .25 }), t0: i * 0.07 + 0.05, dur: 0.17 }));
+  P.paintReveal(ctx, c => { c.drawImage(img, rect[0], rect[1] + 8, rect[2], rect[3] - 16); }, mstrokes, t, scratch);
+  P.applyPaper(ctx, paper);
+}
+
+// ---------- B: single big brush stroke, dry variants ----------
+function sceneBrush() {
+  bg();
+  const rows = [['dry 0 (wet)', 0, 0], ['dry .35 gaps .45 (default)', .35, .45], ['dry .6 gaps .8 (very dry)', .6, .8]];
+  rows.forEach(([lab, dry, gaps], r) => {
+    const y = 330 + r * 520;
+    const S = P.makeStroke([[90, y + 60], [330, y - 60], [640, y + 70], [990, y - 40]], { width: 170, color: [PAL.blue, PAL.orange, PAL.teal][r], seed: 5 + r, dry, gaps, wet: .55 });
+    P.drawStroke(ctx, S, 1);
+    ctx.fillStyle = PAL.ink; ctx.font = '500 26px "IBM Plex Mono"'; ctx.fillText(lab, 60, y + 190);
+  });
+  P.applyPaper(ctx, paper);
+}
+
+// ---------- brush head in motion ----------
+function sceneBrushMotion() {
+  bg();
+  const pts = [[90, 300], [340, 200], [640, 330], [990, 240]];
+  [.15, .4, .7, 1].forEach((p, r) => {
+    const y = r * 330; ctx.save(); ctx.translate(0, y);
+    const S = P.makeStroke(pts, { width: 150, color: PAL.pink, seed: 12 }); P.drawStroke(ctx, S, p); ctx.restore();
+  });
+  P.applyPaper(ctx, paper);
+}
+
+// ---------- C: splatter timeline ----------
+function sceneSplat(age, { cull = 0, color = PAL.pink, seed = 3 } = {}) {
+  bg();
+  const S = P.makeSplat({ x: 480, y: 760, R: 170, dir: -0.5, color, seed, sats: 56, spikes: 10, drips: 3, spread: .6 });
+  P.drawSplat(ctx, S, age, { cull });
+  const S2 = P.makeSplat({ x: 800, y: 1350, R: 95, dir: 2.6, color: PAL.blue, seed: seed + 11, sats: 36, spikes: 8, drips: 2, spread: .7 });
+  P.drawSplat(ctx, S2, age - .12, { cull });
+  P.applyPaper(ctx, paper);
+}
+
+// ---------- D: ink bleed ----------
+function sceneBleed(grow) {
+  bg();
+  const lines = c => { c.fillStyle = PAL.ink; c.textBaseline = 'alphabetic'; c.font = '800 118px Unbounded'; c.fillText('Hyper', 80, 250); };
+  const md = c => { c.fillStyle = PAL.ink; c.font = '600 92px Newsreader'; c.fillText('plane theory', 80, 400); };
+  const md2 = c => { c.fillStyle = PAL.ink; c.font = '600 56px Newsreader'; c.fillText('75% chance things go badly', 80, 500); };
+  const sm = c => { c.fillStyle = PAL.ink; c.font = '700 38px "IBM Plex Mono"'; c.fillText('A CORNELL GRADIENT PODCAST', 84, 580); };
+  ctx.fillStyle = PAL.red; ctx.font = '500 24px "IBM Plex Mono"'; ctx.fillText('plain fill', 80, 90);
+  [lines, md, md2, sm].forEach(f => f(ctx));
+  ctx.save(); ctx.translate(0, 700);
+  ctx.fillStyle = PAL.red; ctx.font = '500 24px "IBM Plex Mono"'; ctx.fillText('inkbleed lg (>=80px) / md (40-80) / halo only (<40), grow=' + grow, 80, 90);
+  const T = (f) => { const o = mk(); const oc = o.getContext('2d'); oc.translate(0, 700); f(oc); return o; };
+  P.drawBled(ctx, c => c.drawImage(T(lines), 0, -700), grow, { id: 'inkbleed-lg', halo: .16 });
+  P.drawBled(ctx, c => c.drawImage(T(md), 0, -700), grow, { id: 'inkbleed-lg', halo: .16 });
+  P.drawBled(ctx, c => c.drawImage(T(md2), 0, -700), grow, { id: 'inkbleed-md', halo: .14 });
+  P.drawBled(ctx, c => c.drawImage(T(sm), 0, -700), grow, { id: 'inkbleed-md', halo: 0 });
+  ctx.restore();
+  P.applyPaper(ctx, paper);
+}
+
+// ---------- E: rough.js chart on twos ----------
+const DATA = [['2022', 12], ['2023', 25], ['2024', 52], ['2025', 98], ['2026', 160]]; // DEMO values, not real data
+function sceneChart(frame, { grow = 1, boil = true } = {}) {
+  bg();
+  const seed = boil ? P.boilSeed(40, frame) : 40;
+  const rc = P.rough.canvas(cv);
+  const x0 = 130, y0 = 1180, cw = 840, chh = 640, maxV = 180;
+  // axes
+  rc.line(x0, y0, x0 + cw, y0, { stroke: PAL.ink, strokeWidth: 4.5, roughness: 1.1, bowing: 1.1, seed: seed + 1 });
+  rc.line(x0, y0, x0, y0 - chh, { stroke: PAL.ink, strokeWidth: 4.5, roughness: 1.1, bowing: 1.1, seed: seed + 2 });
+  // gridlines (light, pencil)
+  for (let g = 1; g <= 3; g++) rc.line(x0, y0 - g * chh / 3.2, x0 + cw, y0 - g * chh / 3.2, { stroke: 'rgba(21,19,31,.28)', strokeWidth: 2, roughness: 1.6, bowing: 2, seed: seed + 5 + g });
+  const bw = 112, gap = (cw - 5 * bw) / 6; const cols = [PAL.blue, PAL.blue, PAL.blue, PAL.orange, PAL.pink];
+  DATA.forEach(([lab, v], i) => {
+    const p = easeOutBack(clamp(grow * 5 - i * .55) / 1, 1.2); const h = v / maxV * chh * clamp(p, 0, 1.06);
+    if (h < 4) return; const x = x0 + gap + i * (bw + gap);
+    rc.rectangle(x, y0 - h, bw, h, { fill: cols[i], fillStyle: 'hachure', hachureAngle: -41, hachureGap: 8, fillWeight: 3.4, stroke: PAL.ink, strokeWidth: 3.6, roughness: 1.35, bowing: 1.5, seed: seed + 20 + i });
+    ctx.fillStyle = PAL.ink; ctx.font = '700 34px "IBM Plex Mono"'; ctx.textAlign = 'center'; ctx.fillText(lab, x + bw / 2, y0 + 52); ctx.textAlign = 'left';
+  });
+  ctx.fillStyle = PAL.red; ctx.font = '700 30px "IBM Plex Mono"'; ctx.fillText('DEMO DATA, NOT A REAL SERIES', 130, 440);
+  P.applyPaper(ctx, paper);
+}
+
+// ---------- F: pencil-in + circle ----------
+function scenePencil(frame, p) {
+  bg();
+  const seed = P.boilSeed(70, frame);
+  const dash = (len) => [len * p, 99999];
+  P.penciled(ctx, tooth, (rc, base) => {
+    // a hand-drawn circle around a "fact" and an underline, drawn on in order
+    rc.ellipse(540, 600, 760, 210, { ...base, seed: seed + 1, strokeLineDash: dash(2400), strokeWidth: 4.2 });
+    rc.line(150, 800, 930, 790, { ...base, seed: seed + 2, strokeLineDash: dash(1000 * clamp(p * 1.4 - .55)) , strokeWidth: 4.2, roughness: 1.2 });
+  });
+  ctx.fillStyle = PAL.ink; ctx.font = '600 120px Newsreader'; ctx.textAlign = 'center'; ctx.fillText('75% chance', 540, 640); ctx.textAlign = 'left';
+  P.applyPaper(ctx, paper);
+}
+
+// ---------- G: Kandinsky orbit ----------
+const BEAT = 60 / 124;
+function sceneKand(tb) { // tb in beats
+  bg();
+  const cx = 540, cy = 640;
+  // beat-quantised rotation: +45deg per beat with overshoot (easeOutBack over 0.6 beat)
+  const q = Math.floor(tb), f = tb - q; const ang = (q + easeOutBack(clamp(f / .6), 2.2)) * Math.PI / 4;
+  const kick = 1 + .07 * Math.exp(-f * 7);                    // scale punch on every beat
+  const disc = (x, y, r, c) => { ctx.fillStyle = c; ctx.beginPath(); ctx.arc(x, y, r, 0, 7); ctx.fill(); };
+  // yellow band (22deg) swings +-3deg per bar
+  ctx.save(); ctx.translate(540, 1000); ctx.rotate((-22 + 3 * Math.sin(tb * Math.PI / 2)) * Math.PI / 180); ctx.fillStyle = PAL.yellow; ctx.fillRect(-900, -150, 1800, 300);
+  ctx.fillStyle = PAL.ink; ctx.fillRect(-900, -168, 1800, 18); ctx.restore();
+  // big pair orbits a common centre
+  const R1 = 150; const px = cx + Math.cos(ang) * R1 * .55, py = cy + Math.sin(ang) * R1 * .55;
+  disc(cx - Math.cos(ang) * R1 * .45, cy - Math.sin(ang) * R1 * .45, 250 * kick, PAL.pink);
+  disc(px, py, 220 * kick, PAL.ink);
+  // small orange orbits the other way at 2x
+  const a2 = -ang * 2; disc(px + Math.cos(a2) * 175, py + Math.sin(a2) * 175, 62 * kick, PAL.orange);
+  // blue disc + teal satellite
+  const a3 = ang * 1.5 + 2; disc(780, 1500, 170 * kick, PAL.blue); disc(780 + Math.cos(a3) * 215, 1500 + Math.sin(a3) * 215, 66 * kick, PAL.teal);
+  // checkerboard rotates 90deg per bar
+  ctx.save(); ctx.translate(800, 330); ctx.rotate((Math.floor(tb / 4) + easeInOutCubic(clamp((tb % 4) / 4 * 4 - 3))) * Math.PI / 2); ctx.fillStyle = PAL.ink;
+  for (let i = -1; i <= 1; i++) for (let j = -1; j <= 1; j++) if ((i + j) % 2 === 0) ctx.fillRect(i * 44 - 20, j * 44 - 20, 40, 40); ctx.restore();
+  P.applyPaper(ctx, paper);
+}
+
+// ---------- H: paper close-ups ----------
+function scenePaper() {
+  bg(); ctx.fillStyle = PAL.ink; ctx.fillRect(0, 960, W, 960); P.applyPaper(ctx, paper); // ink area gets soft-light too (very faint)
+  ctx.save(); ctx.beginPath(); ctx.rect(0, 960, W, 960); ctx.clip(); P.applyPaper(ctx, paper, { mode: 'screen', alpha: .07, dx: 0 }); ctx.restore();
+  ctx.fillStyle = PAL.yellow; ctx.fillRect(100, 200, 400, 400); ctx.fillStyle = PAL.pink; ctx.fillRect(560, 200, 400, 400); P.applyPaper(ctx, paper);
+}
+
+// ---------- H2: paper strength test ----------
+function scenePaperTest() {
+  bg();
+  const cfgs = [[20, .55], [34, .9], [46, 1], [60, 1]];
+  cfgs.forEach(([g, a], i) => {
+    const tile = P.makePaper(W, 480, { seed: 7, grain: g, mottle: 12 + i * 3, fibres: 90 });
+    ctx.save(); ctx.beginPath(); ctx.rect(0, i * 480, W, 480); ctx.clip();
+    ctx.fillStyle = PAL.cream; ctx.fillRect(0, i * 480, W, 480); ctx.fillStyle = PAL.yellow; ctx.fillRect(100, i * 480 + 120, 340, 240); ctx.fillStyle = PAL.pink; ctx.fillRect(520, i * 480 + 120, 340, 240);
+    ctx.globalCompositeOperation = 'soft-light'; ctx.globalAlpha = a; ctx.drawImage(tile, 0, i * 480); ctx.restore();
+    ctx.fillStyle = PAL.ink; ctx.font = '500 24px "IBM Plex Mono"'; ctx.fillText('grain ' + g + ' soft-light ' + a, 40, i * 480 + 50);
+  });
+}
+// ---------- I: composed legibility mock frame ----------
+function sceneFrame(t) {
+  bg('#F2EBDD');
+  // painted Kandinsky ground (bristle-painted shapes)
+  const band = P.makeStroke([[-120, 1180], [300, 1010], [700, 880], [1200, 720]], { width: 330, color: PAL.yellow, seed: 3, dry: .22, gaps: .3, pressure: [.95, 1, .9], thinning: .15 });
+  P.drawStroke(ctx, band, easeOutCubic(t / .35));
+  const disc = (cx, cy, R, c, seed, prog = 1, ang = -18) => {
+    // fill a disc with parallel bristle passes (all the same direction, alternating), clipped to a slightly wobbly circle
+    const clipP = new Path2D();
+    for (let i = 0; i <= 64; i++) { const th = i / 64 * 6.2832; const r = R * (1 + .018 * Math.sin(th * 5 + seed) + .012 * Math.sin(th * 11 + seed)); const x = cx + Math.cos(th) * r, y = cy + Math.sin(th) * r; if (i) clipP.lineTo(x, y); else clipP.moveTo(x, y); }
+    clipP.closePath();
+    const bw = R * .62; const rows = P.zigzag([cx - R, cy - R, 2 * R, 2 * R], bw, { angle: ang, pad: 40, seed, overlap: .3, bow: .06 });
+    ctx.save(); ctx.clip(clipP);
+    ctx.fillStyle = c; ctx.globalAlpha = .55; ctx.fillRect(cx - R, cy - R, 2 * R, 2 * R); ctx.globalAlpha = 1;
+    rows.forEach((pts, i) => P.drawStroke(ctx, P.makeStroke(pts, { width: bw, color: c, seed: seed * 7 + i, dry: .15, gaps: .2, wet: .12, pressure: [1, 1, 1], thinning: .05 }), prog));
+    ctx.restore();
+  };
+  disc(300, 330, 250, PAL.pink, 8); disc(255, 290, 215, PAL.ink, 9); disc(420, 440, 62, PAL.orange, 10);
+  disc(820, 1560, 190, PAL.blue, 11); disc(700, 1450, 66, PAL.teal, 12);
+  // real screenshot painted in on a white card, with ink edge
+  ctx.save(); ctx.translate(540, 905); ctx.rotate(-5 * Math.PI / 180); ctx.fillStyle = '#FBF7EE'; ctx.shadowColor = 'rgba(21,19,31,.35)'; ctx.shadowBlur = 24; ctx.shadowOffsetY = 12; ctx.fillRect(-470, -85, 940, 170); ctx.shadowColor = 'transparent'; ctx.drawImage(img, -450, -70, 900, 140); ctx.strokeStyle = PAL.ink; ctx.lineWidth = 4; ctx.strokeRect(-470, -85, 940, 170); ctx.restore();
+  // highlighter sweep over the key phrase
+  const hl = P.makeStroke([[430, 920], [640, 904], [830, 880]], { width: 56, color: PAL.yellow, seed: 21, dry: .3, gaps: .35, pressure: [.8, 1, .7] });
+  ctx.save(); ctx.globalCompositeOperation = 'multiply'; P.drawStroke(ctx, hl, easeOutQuad((t - .5) / .25), { alpha: .85 }); ctx.restore();
+  // splatter
+  const sp = P.makeSplat({ x: 820, y: 340, R: 70, dir: 2.2, color: PAL.orange, seed: 5, sats: 40, spikes: 9, drips: 2, spread: .8 }); P.drawSplat(ctx, sp, t - .3);
+  // headline type
+  P.drawBled(ctx, c => { c.fillStyle = PAL.ink; c.font = '800 112px Unbounded'; c.fillText('Hyperplane', 60, 1700); c.font = '700 34px "IBM Plex Mono"'; c.fillText('A CORNELL GRADIENT PODCAST', 64, 1770); }, 1, { halo: .12 });
+  P.applyPaper(ctx, paper);
+}
+
+// ---------- dispatcher + timing ----------
+window.scene = (name, ...args) => {
+  const t0 = performance.now();
+  ({ reveal: sceneReveal, brush: sceneBrush, brushmotion: sceneBrushMotion, splat: sceneSplat, bleed: sceneBleed, chart: sceneChart, pencil: scenePencil, kand: sceneKand, paper: scenePaper, papertest: scenePaperTest, frame: sceneFrame })[name](...args);
+  return performance.now() - t0;
+};
+window.timed = (name, args, n = 20) => { // CPU + raster flush per call
+  const f = window.scene; f(name, ...args); ctx.getImageData(0, 0, 1, 1);
+  const t0 = performance.now(); for (let i = 0; i < n; i++) { f(name, ...args); ctx.getImageData(0, 0, 1, 1); } return (performance.now() - t0) / n;
+};
+window.timedBake = (n = 10) => { const t0 = performance.now(); let c; for (let i = 0; i < n; i++) c = P.bakeBled(1000, 220, o => { o.fillStyle = PAL.ink; o.font = '800 118px Unbounded'; o.fillText('Hyperplane', 20, 150); }); const bake = (performance.now() - t0) / n;
+  const t1 = performance.now(); for (let i = 0; i < 50; i++) { ctx.drawImage(c, 40, 200); ctx.getImageData(0, 0, 1, 1); } return [bake, (performance.now() - t1) / 50]; };
+window.__ok = true;
+</script></body></html>

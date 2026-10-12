@@ -1,0 +1,27 @@
+<section id="s4-02-strengths" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Critique</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">Strengths: what survives scrutiny</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:48px;align-items:start">
+<div style="width:594px;flex-shrink:0;display:flex;flex-direction:column;gap:12px">
+<div style="background:#ffffff;border:1px solid #dde1da;border-radius:12px;padding:16px">
+<img src="/_blob/dce0622edb05b153cd7701593faae64c" alt="Paper's Fig. 2, Text (DCLM) panel: log-log plot of loss in bits per byte against effective compute C = K × params × tokens from about 1e15 to 1e18; the orange dashed universal-prior line is highest and flattest, the teal filled self-play points fall below it, and the purple dash-dot PCFG points are lowest" style="width:560px;height:463px;object-fit:contain">
+</div>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">Paper's Fig. 2, Text (DCLM) panel, p.7 · teal filled = self-play, orange dashed = universal prior, purple dash-dot = PCFG</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#a14d19">Our reading · quotes are the paper's</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">Clean transfer test</span></b>: no natural data in any gradient update; hyperparameters still selected on DCLM + DNA <span style="color:#5f6b72">(p.8)</span></p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">Fixed sampler, same program space</span></b>: the universal prior “scales substantially more slowly” <span style="color:#5f6b72">(Fig. 2, p.7)</span>; DCLM endpoints, <b><span style="color:#a14d19">plot reads</span></b>: prior ~6.9 near 1e17 vs self-play ~4.4 bpb at ~1e18</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">Reward-only rows hurt</span></b> <span style="color:#5f6b72">(1M params, Table 5)</span>: DCLM negate 10.62, shuffle 5.96 vs canonical 5.34</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">Four non-arithmetic families</span></b> by round 512 (upper bound) vs &gt; 53,000 rounds under the prior (95% bound)</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">Reports unflattering results</span></b>: PCFG “stronger on text and code” <span style="color:#5f6b72">(p.9)</span>; glibc rand flat at ~8 bits <span style="color:#5f6b72">(Fig. 7)</span></p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · Fig. 2, p.7; pp.8–9; Table 5, p.31; App. C, pp.28–29; Fig. 7, p.23</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">24</p>
+<aside>About 1 minute.
+These were all shown in Results, so name them quickly. The figure on this slide is the Text (DCLM) panel of Fig. 2 (the outline planned the Text (DCLM) and Python panels; Python is on the full Fig. 2 slide in Results). Point at DCLM: self-play ~4.4 at ~1e18, PCFG ~3.7 at ~4e17, universal prior ~6.9 (plot reads). The quotes are the paper's; calling them strengths is my reading. Signed beats canonical on DCLM and C (Table 5), so do not claim the absolute value helps on DCLM. Detail behind the families claim: App. C, 1.64e8 uniform samples with zero hits for the four families, at 1,024 programs per round. The warm-start result (Fig. 6) is a real but caveated strength: fewer natural-data tokens to convergence, a gap that 'narrowed considerably' (p.21), and self-play compute not counted (p.22).
+Moved off the slide or reworded, in the outline's words. Bullet 1 in full: 'Clean transfer test: no natural data in any gradient update (hyperparameters still selected on DCLM + DNA, p.8)'. Bullet 2 in full: 'Same program space, fixed sampler: the universal prior "scales substantially more slowly" (Fig. 2, p.7); DCLM endpoints ~6.9 vs self-play ~4.4 bpb (plot reads)'. The slide adds each endpoint's compute from the Fig. 2 DCLM anchors (universal prior ~6.9 near 1e17, self-play ~4.4 at ~1e18), so the 4.4 is not confused with the self-play ~4.6 near 4e17 on the scaling slide. Bullet 3, the part cut from the slide: 'uniform (7.75) removes the generator, not just the reward'. Bullet 4 qualifiers in full: 'by round 512 (upper bound, 256-round resolution) vs &gt; 53,000 rounds under the prior (95% bound from zero hits)'. Bullet 5 is on the slide in full. The orange tag 'Our reading · quotes are the paper's' renders the note that the strength framing is the presenter's.</aside>
+</section>

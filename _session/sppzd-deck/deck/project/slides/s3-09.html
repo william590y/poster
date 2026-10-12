@@ -1,0 +1,43 @@
+<section id="s3-09" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Results</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">Reward ablations: canonical tops 7 of 9 real datasets</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:48px;align-items:start">
+<div style="width:914px;display:flex;flex-direction:column;gap:12px">
+<div style="background:#ffffff;border:1px solid #dde1da;border-radius:12px;padding:16px">
+<img src="/_blob/86498133925381ca68d2e520cd1dddbd" alt="Paper's Table 5: validation bits per byte for ten datasets (text dclm, Metamath, C source, DNA 8-symbol, arithmetic, audio 8-bit PCM, audio 16-bit PCM, melody Mutopia, CIFAR-10 planar, random bytes) under seven reward variants: None (canonical), uniform, signed, shuffle, last_step, loss_delta, negate. Bold marks the best per row; None is bold on seven real datasets, signed on dclm (5.06) and C source (4.10), and random bytes ties at 8.02." style="width:880px;height:388px;object-fit:contain">
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:24px;line-height:1.35"><b>None</b> = canonical Eq. 2 · <b>uniform</b> = generator removed, i.i.d. uniform programs · <b>last_step</b> = window θ_{e−1} · <b>loss_delta</b> = realized loss change</p>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">Paper's Table 5, p.31 · 1M learner, 4-seed ensembles, 256 held-out sequences per dataset, bits/byte · random bytes ties at 8.02 (uninformative)</p>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<div style="display:flex;flex-direction:column;gap:4px;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px">
+<p style="font-size:28px;line-height:1.35"><b>Signed</b> wins on DCLM (5.06 vs 5.34) and C source (4.10 vs 4.16)</p>
+<p style="font-size:24px;line-height:1.35">Signed = no absolute value; the text says it “does worse” <span style="color:#5f6b72">(p.31)</span></p>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px">
+<p style="font-size:28px;line-height:1.35"><b>Shuffle</b> (rewards permuted within the round's pool): “much worse” <span style="color:#5f6b72">(p.31)</span></p>
+<p style="font-size:24px;line-height:1.35;color:#a14d19"><b>Our calc:</b> 0.2–1.2 bits worse than canonical, yet recovers 27–93% of the uniform-to-canonical gap (median 74%)</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px">
+<p style="font-size:28px;line-height:1.35"><b>Negate</b> (sign flipped): “worse than a randomly initialized model” <span style="color:#5f6b72">(p.31)</span></p>
+<p style="font-size:24px;line-height:1.35">But Table 5 has no random-init row; audio 8-bit reads 7.67</p>
+</div>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">No variance shown · no row removes the preconditioner · last_step and loss_delta are bimodal across seeds</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · Table 5 and App. F text, p.31; Eq. 2, p.5</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">21</p>
+<aside>About 2 minutes.
+Setup: 1M learner; 4-seed ensembles; 256 held-out sequences per dataset; bits/byte (Table 5, p.31).
+Columns: None = canonical Eq. 2 · uniform = generator removed, i.i.d. uniform programs · signed = no absolute value · shuffle = rewards permuted within the round's pool · last_step = window theta_{e-1} · loss_delta = realized loss change · negate = sign flipped.
+Canonical best on 7 of 9 real datasets; the random-bytes row ties at 8.02 (uninformative).
+Signed wins on DCLM (5.06 vs 5.34) and C source (4.10 vs 4.16); the text says signed "does worse" (p.31).
+Shuffle: 0.2-1.2 bits worse than canonical, yet recovers 27-93% of the uniform-to-canonical gap (median 74%, my calc); paper: "much worse" (p.31).
+Negate: "worse than a randomly initialized model" (p.31), but Table 5 has no random-init row; audio 8-bit reads 7.67.
+No variance shown; no row removes the preconditioner; last_step and loss_delta are bimodal across seeds.
+Table 5, p.31; exact values in the crop. Canonical wins outright on Metamath, DNA, arithmetic, audio 8-bit, audio 16-bit, melody (2.20 vs signed 2.21) and CIFAR planar. The caption says it 'often has lower variance as well', but no variance is shown. Footnotes: one loss_delta seed stopped at round 2587 and was excluded (3-seed ensemble). last_step and loss_delta are bimodal: DCLM last_step single seeds 6.4/6.5 vs 10.6/11.1; loss_delta 7.0 vs 9.8/12.3. Shuffle scope: the caption says 'across the program pool', the text 'between programs of the same batch'. [mine] The pool is the round's batch, so these likely mean the same. Shuffle shares over the nine rows: 27, 37, 61, 71, 74, 75, 78, 83, 93%. Uniform removes the generator, so the share measures what survives breaking the reward-program link, not the reward alone. Scale: Table 5 is 1M; Fig. 2 goes to ~25M, so do not compare numbers across them. Random-init reference: Fig. 6's from-scratch 0-token values are ~8.6-8.7.</aside>
+</section>

@@ -1,0 +1,11 @@
+{
+  "name": "hyperplane-vendor",
+  "private": true,
+  "description": "Libraries vendored for the render engine (fx/core.js loads the built files copied next to this file; node_modules is pruned).",
+  "dependencies": {
+    "mathjax-full": "^3.2.1",
+    "perfect-freehand": "^1.2.3",
+    "roughjs": "^4.6.6",
+    "three": "^0.169.0"
+  }
+}

@@ -1,0 +1,11 @@
+{
+ "id": "reuters-2026-07-24-agent-spent-days-hacking",
+ "url": "https://www.reuters.com/business/its-ai-agent-spent-days-hacking-company-sources-say-openai-did-not-notice-week-2026-07-24/",
+ "expected": "Its AI agent spent days hacking a company. Sources say OpenAI did not notice for a week",
+ "notes": [],
+ "status": 401,
+ "final_url": "https://www.reuters.com/business/its-ai-agent-spent-days-hacking-company-sources-say-openai-did-not-notice-week-2026-07-24/",
+ "title0": "reuters.com",
+ "ok": false,
+ "error": "blocked or error: status 401 title 'reuters.com'"
+}

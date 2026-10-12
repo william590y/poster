@@ -1,0 +1,82 @@
+{
+  "task": "Locate video of Dario Amodei at Axios AI+ DC Summit, 17 Sep 2025 (interviewed by Jim VandeHei) saying a '25% chance that things go really, really badly'",
+  "found": true,
+  "url": "https://www.youtube.com/watch?v=nvXj4HTiYqA",
+  "title": "Anthropic’s Dario Amodei & Jack Clark & Axios’ Jim VandeHei",
+  "platform": "YouTube",
+  "channel": "Axios (youtube.com/@axios); yt-dlp lists channel as 'Axios and Axios Live'",
+  "video_id": "nvXj4HTiYqA",
+  "on_screen_caption": "AXIOS AI+DC - A conversation with Jim VandeHei, Dario Amodei & Jack Clark (presented by HPE)",
+  "duration_s": 1294.79,
+  "downloaded_path": "/home/user/hyperplane-teaser/clips/amodei-axios-2025.mp4",
+  "downloaded_bytes": 68884858,
+  "downloaded_format": "mp4, h264 1280x720 + aac, via y2dl.py (y2mate.gs)",
+  "transcript_path": "/home/user/hyperplane-teaser/clips/transcripts/amodei-axios-2025.json",
+  "approx_timestamp_s": 1066.0,
+  "quote_span_s": [
+    1065.36,
+    1071.02
+  ],
+  "second_occurrence_s": 1077.28,
+  "p_doom_question_s": [
+    1033.42,
+    1041.64
+  ],
+  "quote_verbatim_asr": "I think there's a 25% chance that things go really really badly and a 75% chance that things go really really well",
+  "quote_source_of_text": "faster-whisper small.en ASR transcript (word timestamps); not a human caption. Wording matches the Axios article's quoted wording.",
+  "event": "Axios AI+ DC Summit (Axios AI+DC), Washington DC",
+  "event_date": "2025-09-17 (Wednesday)",
+  "sources": [
+    {
+      "url": "https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent",
+      "what": "Axios article, title and text (fetched via TinyFish fetch_content; direct curl and WebFetch returned HTTP 403)",
+      "published": "2025-09-17T20:09:39Z",
+      "author": "Megan Morrone",
+      "quote": "There's a 25% chance that the future of AI will go \"really, really badly,\" Anthropic CEO Dario Amodei said at the Axios AI+ DC Summit on Wednesday.",
+      "also": "Amodei also said there's a \"75% chance that things go really, really well.\"",
+      "video_embed_confirmed": false,
+      "video_embed_note": "The fetched article text does not show which video is embedded; not confirmed as the same as nvXj4HTiYqA."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=nvXj4HTiYqA",
+      "what": "Full video, Axios channel. Title confirmed via YouTube oEmbed (https://www.youtube.com/oembed?url=https://www.youtube.com/watch?v=nvXj4HTiYqA&format=json). Duration from yt-dlp search listing and ffprobe of the download.",
+      "upload_date": "not verified (yt-dlp single-video metadata blocked by bot check); TinyFish search shows '1 year ago'",
+      "quote": "I think there's a 25% chance that things go really really badly and a 75% chance that things go really really well",
+      "quote_timestamp_s": 1066.0
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=yGUJxnimw2k",
+      "what": "Short 32-second clip by 'AI Keypoint' containing the quote (secondary; not the full interview)",
+      "upload_date": "2025-09-18 (yt-dlp)",
+      "title": "Dario Amodei says: “I think there’s a 25% chance that things could go really, really badly.”",
+      "note": "Title wording ('could go') differs from transcript and Axios ('go')."
+    },
+    {
+      "url": "https://www.axios.com/2025/09/18/axios-ai-dc-summit-us-china-ai-race-regulation-take-center-stage",
+      "what": "Axios event coverage, 2025-09-18 (search snippet only; not fetched)",
+      "snippet": "Anthropic's co-founder & CEO Dario Amodei and co-founder & head of policy Jack Clark on stage with Axios CEO Jim VandeHei at AI+ DC Summit 2025."
+    },
+    {
+      "url": "https://www.youtube.com/watch?v=nvXj4HTiYqA&xstg=CAMSBhUDzO3xHw%3D%3D",
+      "what": "TinyFish search snippet for the full video",
+      "snippet": "Axios CEO Jim VandeHei speaks to Anthropic's CEO and co-founder Dario Amodei and co-founder and head of policy Jack Clark at Axios' AI+ DC ..."
+    }
+  ],
+  "unverified_leads": [
+    {
+      "url": "https://www.youtube.com/live/EadZgGtct_k?feature=shared&t=716",
+      "what": "Listed in search as 'Axios' AI+ DC Summit' with a related 'Anthropic's Dario Amodei & Jack Clark & Axios' Jim VandeHei' item. Not opened; may be a summit livestream rather than the same session."
+    }
+  ],
+  "not_checked": [
+    "X/Twitter (@axios, @mikeallen, @JimVandeHei)",
+    "C-SPAN",
+    "LinkedIn (only search results surfaced, not verified)",
+    "axios.com embedded video (fetch text shows no video ID)"
+  ],
+  "notes": [
+    "Dario Amodei and Jim VandeHei confirmed on stage in the full video via transcript and on-screen lower-third.",
+    "The 25% line is said in reply to VandeHei's p-doom question (about 1033-1041 s).",
+    "Transcript and download are from this machine; the video is the full Axios AI+DC session, roughly 21.6 minutes."
+  ]
+}

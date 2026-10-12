@@ -1,0 +1,45 @@
+{
+  "key": "hawking-bbc-2014",
+  "found_video": true,
+  "speaker": "Prof. Stephen Hawking",
+  "event": "BBC News interview with Rory Cellan-Jones (BBC Technology correspondent, article byline) after the launch of Hawking's new speech system (Intel, with SwiftKey machine-learning input). Article title: 'Stephen Hawking warns artificial intelligence could end mankind'.",
+  "date": "2014-12-02",
+  "source_url": "https://www.youtube.com/watch?v=fFLVyWBDTfo",
+  "primary_source_url": "https://www.bbc.co.uk/news/technology-30290540",
+  "file": "/home/user/hyperplane-teaser/clips/hawking-ai-end-of-race.mp4",
+  "full_video_file": "/home/user/hyperplane-teaser/clips/hawking-bbc-2014.mp4",
+  "video": {
+    "upload": "BBC News, YouTube, uploaded 2014-12-02, 305 s, 720p max (downloaded via y2mate helper, 11 MB)",
+    "title": "Stephen Hawking: 'AI could spell end of the human race'",
+    "trimmed_clip": {
+      "path": "/home/user/hyperplane-teaser/clips/hawking-ai-end-of-race.mp4",
+      "source_window_s": [
+        267.5,
+        275.3
+      ],
+      "duration_s": 7.84,
+      "note": "H.264 720p + AAC re-encode, cut tight around the line. Line 1 sits at 0.38-7.44 s inside the clip."
+    }
+  },
+  "lines": [
+    {
+      "verbatim": "But I think the development of full artificial intelligence could spell the end of the human race.",
+      "start_s": 267.88,
+      "end_s": 274.94,
+      "notes": "Best candidate. Source-video timestamps (full 305 s upload). Verification: small.en (no VAD) and medium.en both transcribe the same wording in the window 258-290 s; small.en re-run on the trimmed clip returns the same sentence. Word timings: 'But' 267.88, 'the' 269.18, 'development' 269.48, 'race' 274.42-274.94. The BBC article prints the quote as 'The development of full artificial intelligence could spell the end of the human race.' and omits the on-air lead-in 'But I think'; for a quote card, either quote the full on-air line or use the article wording with the lead-in omitted and flagged. The VAD pass of the full file dropped 'artificial intelligence could spell', so the window pass is the authoritative transcript."
+    },
+    {
+      "verbatim": "Once humans develop artificial intelligence, it would take off on its own and redesign itself at an ever-increasing rate.",
+      "start_s": 278.28,
+      "end_s": 287.48,
+      "notes": "Second candidate, same interview, about the self-improvement risk. small.en and medium.en agree on the words (medium splits the line into two segments at 'intelligence'). The BBC article prints 'It would take off on its own, and re-design itself at an ever increasing rate'; the audio says 'redesign' and 'ever-increasing'. Punctuation is editorial."
+    },
+    {
+      "verbatim": "Humans who are limited by slow biological evolution couldn't compete and would be superseded.",
+      "start_s": 291.1,
+      "end_s": 298.88,
+      "notes": "Third candidate. small.en and medium.en agree on the words. The BBC article prints 'Humans, who are limited by slow biological evolution, couldn't compete, and would be superseded.' The commas are editorial, not audible, so they are left out of the verbatim line."
+    }
+  ],
+  "notes": "Verified against the BBC News article (published 2 Dec 2014, byline Rory Cellan-Jones) and the BBC News YouTube upload (2014-12-02). The BBC article quotes the main line without the on-air lead-in 'But I think', so the card should either quote the full line or flag the omission. Transcription check: faster-whisper small.en and medium.en, both run without VAD on the 258-290 s and 288-306 s windows, plus small.en on the trimmed clip. No human listening. Recommend a quick ear-check of 267-275 s before the card goes final. Full-video transcript is not saved to the project; per-window JSON is in the scratchpad at hawk/work."
+}

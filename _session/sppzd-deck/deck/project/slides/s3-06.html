@@ -1,0 +1,45 @@
+<section id="s3-06" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Results</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">ICL: self-play learns in context; priors mostly don't</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:row;gap:40px;align-items:start">
+<div style="background:#ffffff;border:1px solid #dde1da;border-radius:12px;padding:16px">
+<img src="/_blob/146338f4646e905a76a471df0d2f849e" alt="Paper's Fig. 4: exact-match accuracy against the number of in-context examples m, on a nonlinear y-axis, for six tasks (reverse string, stack, assoc, sum, max, min) in three panels. Self-play: every task rises with m, and reverse string, stack and assoc end near 1.0. Universal prior: every task stays near zero. PCFG: assoc stays near 1.0 while the other tasks stay low and jagged." style="width:1022px;height:356px;object-fit:contain">
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;line-height:1.35"><b>Setup:</b> m examples of [0, x1 … xk, f(x)], then a query; greedy argmax exact match; no gradient updates</p>
+<p style="font-size:24px;line-height:1.35;color:#a14d19"><b>Our calc:</b> chance = 1/256 ≈ 0.004 for a uniform byte guess</p>
+<p style="font-size:24px;line-height:1.35"><b>Not stated:</b> model scale, dictionary size V, k, instance counts</p>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">Paper's Fig. 4, p.10 · the y-axis is nonlinear</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;gap:24px;align-items:stretch">
+<div style="flex:1;background:#ebefe9;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;line-height:1.35;font-weight:600;color:#1d6f68">Self-play</p>
+<p style="font-size:24px;line-height:1.35">Reverse string, stack, assoc reach “almost 100%” after a sufficient number of examples <span style="color:#5f6b72">(p.11)</span></p>
+<p style="font-size:24px;line-height:1.35">SUM at m = 0 is at chance</p>
+</div>
+<div style="flex:1;background:#ebefe9;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;line-height:1.35;font-weight:600;color:#17242c">Universal prior</p>
+<p style="font-size:24px;line-height:1.35">“little evidence of effective ICL” <span style="color:#5f6b72">(Fig. 4 caption)</span></p>
+<p style="font-size:24px;line-height:1.35;color:#a14d19"><b>Plot read:</b> SUM at most ~1.5%</p>
+</div>
+<div style="flex:1;background:#ebefe9;border-radius:12px;padding:20px;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:28px;line-height:1.35;font-weight:600;color:#17242c">PCFG</p>
+<p style="font-size:24px;line-height:1.35">“performs strongly on associative recall but transfers only weakly to the remaining tasks” <span style="color:#5f6b72">(Fig. 4 caption)</span></p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · Fig. 4, p.10; p.11; App. D, Eq. 14</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">18</p>
+<aside>About 1.75 minutes.
+Format: m examples of [0, x1..xk, f(x)], then a query; greedy argmax exact match; no gradient updates (p.10; App. D, Eq. 14). Chance: 1/256 ~ 0.004 for a uniform byte guess (my calc). The y-axis is nonlinear. There is no dashed chance line drawn on the plot (an overlay would not line up), so say the chance level out loud: about 0.004.
+Self-play: reverse string, stack and associative recall reach "almost 100%" after a sufficient number of examples (p.11). MAX and MIN at m = 0: the text reports 6%-8% from a copying prior (p.11); the plot reads ~4-5%. SUM at m = 0 is at chance.
+Universal prior: "little evidence of effective ICL"; SUM at most ~1.5% (Fig. 4 caption; plot read).
+PCFG: "performs strongly on associative recall but transfers only weakly to the remaining tasks" (Fig. 4 caption).
+Not stated: model scale (only "below 25M", p.15), dictionary size V, k, instance counts.
+Suggested walk-through order (all three panels are on screen at once): (1) the Self-play panel, pointing at reverse string, stack and assoc; (2) the Universal prior and PCFG panels; (3) the PCFG assoc curve.
+Fig. 4, p.10; the same tasks appear in Fig. 1 (lower right). Plot reads at the largest m: stack and reverse ~1.0, assoc ~0.9-1.0, SUM ~0.85, MAX and MIN ~0.65-0.7. Reverse and stack stop near m ~ 128. Also at m = 0 (plot reads, not discussed in the paper): self-play stack ~0.35; PCFG assoc ~0.6 and PCFG MAX/MIN ~0.35, which then collapse. Prepare for questions on these. p.9 says PCFG and universal-prior models 'fail on our ICL evaluations', while the Fig. 4 caption credits PCFG on assoc; quote the caption. Tasks (App. D): SUM = (x1+x2) mod 256 with x1, x2 != 0; STACK push = 250, pop = 251; ASSOC dictionary over bytes 1-255. [mine] The jagged PCFG curves suggest few instances. The tasks are close to the machine's own operations, so 'completely held-out tasks' (p.2) is plausible but untested.</aside>
+</section>

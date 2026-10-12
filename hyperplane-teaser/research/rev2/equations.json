@@ -1,0 +1,1048 @@
+{
+ "_note": "Equations to drop on the beat (BUILD.md REVISION 2). Built 10 Oct 2026 by research agent (equations). Every `latex` is copied mechanically from the paper's own LaTeX source (arXiv e-print) wherever one exists, or from the author's web source (toy model), or typed from the rendered PDF page and compared by eye (PPO); see `verified_how` and `source_check` per item. fx/equations.js reads `latex` (or `tex`); `latex_stacked` is the same math reflowed for a 1080-px-wide portrait frame, and where the paper's own layout is too wide for that (grpo, dapo, rlhf, dpo) the item also carries `tex` = `latex_stacked`, which fx/equations.js prefers over `latex` (use `latex` for the paper's own layout); `short_latex`, `highlight_latex` and `extra_highlights[].latex` are exact substrings (or labelled restatements, see *_what) usable as `terms`/`hl` entries. All TeX compiles with MathJax 3.2.1 (the vendored version). Newest first. `items` and `equations` hold the same list (fx/equations.js reads `equations`).",
+ "verification": {
+  "date": "2026-10-10",
+  "method": "arXiv abs page + e-print LaTeX source + PDF (text layer and rasterised pages) fetched per paper; programmatic equality check between each `latex` and its source block; MathJax 3.2.1 strict compile of every TeX field (see research/rev2/equations/_compile_report.json); one or two renders rasterised and viewed.",
+  "mathjax": "mathjax-full 3.2.1 (same as render/video/vendor/mathjax)"
+ },
+ "items": [
+  {
+   "id": "dapo",
+   "label": "DAPO objective",
+   "latex": "\\begin{aligned} \\mathcal{J}_{\\text{DAPO}}(\\theta) =\\quad& \\mathbb{E}_{(q,a)\\sim \\mathcal{D}, \\{o_i\\}_{i=1}^G\\sim \\pi_{\\theta_\\text{old}}(\\cdot\\mid q)}\\\\& \\Bigg[\\frac{1}{\\sum_{i=1}^{G}|o_i|}\\sum_{i=1}^{G}\\sum_{t=1}^{|o_i|} \\min \\Big( r_{i,t}(\\theta) \\hat{A}_{i,t}, \\ \\text{clip} \\Big( r_{i,t}(\\theta), 1 - {\\varepsilon_{\\text{low}}}, 1 + {\\varepsilon_{\\text{high}}} \\Big) \\hat{A}_{i,t} \\Big) \\Bigg] \\\\ \\text{s.t.}\\quad& 0< \\Big|\\{o_i\\mid\\mathtt{is\\_equivalent}(a,o_i)\\}\\Big|< G \\end{aligned}",
+   "latex_stacked": "\\begin{gathered} \\mathcal{J}_{\\text{DAPO}}(\\theta) = \\mathbb{E}_{(q,a)\\sim \\mathcal{D}, \\{o_i\\}_{i=1}^G\\sim \\pi_{\\theta_\\text{old}}(\\cdot\\mid q)} \\\\[4pt] \\Bigg[\\frac{1}{\\sum_{i=1}^{G}|o_i|}\\sum_{i=1}^{G}\\sum_{t=1}^{|o_i|} \\min \\Big( r_{i,t}(\\theta) \\hat{A}_{i,t}, \\\\[4pt] \\ \\text{clip} \\Big( r_{i,t}(\\theta), 1 - {\\varepsilon_{\\text{low}}}, 1 + {\\varepsilon_{\\text{high}}} \\Big) \\hat{A}_{i,t} \\Big) \\Bigg] \\\\[4pt] \\text{s.t.}\\quad 0< \\Big|\\{o_i\\mid\\mathtt{is\\_equivalent}(a,o_i)\\}\\Big|< G \\end{gathered}",
+   "tex": "\\begin{gathered} \\mathcal{J}_{\\text{DAPO}}(\\theta) = \\mathbb{E}_{(q,a)\\sim \\mathcal{D}, \\{o_i\\}_{i=1}^G\\sim \\pi_{\\theta_\\text{old}}(\\cdot\\mid q)} \\\\[4pt] \\Bigg[\\frac{1}{\\sum_{i=1}^{G}|o_i|}\\sum_{i=1}^{G}\\sum_{t=1}^{|o_i|} \\min \\Big( r_{i,t}(\\theta) \\hat{A}_{i,t}, \\\\[4pt] \\ \\text{clip} \\Big( r_{i,t}(\\theta), 1 - {\\varepsilon_{\\text{low}}}, 1 + {\\varepsilon_{\\text{high}}} \\Big) \\hat{A}_{i,t} \\Big) \\Bigg] \\\\[4pt] \\text{s.t.}\\quad 0< \\Big|\\{o_i\\mid\\mathtt{is\\_equivalent}(a,o_i)\\}\\Big|< G \\end{gathered}",
+   "latex_stacked_what": "same symbols and order as `latex`, only the line breaks differ (4 rows) for a 1080-px-wide portrait frame; checked equal to `latex` after removing layout",
+   "short_latex": "\\min \\Big( r_{i,t}(\\theta) \\hat{A}_{i,t}, \\ \\text{clip} \\Big( r_{i,t}(\\theta), 1 - {\\varepsilon_{\\text{low}}}, 1 + {\\varepsilon_{\\text{high}}} \\Big) \\hat{A}_{i,t} \\Big)",
+   "short_latex_what": "the token-level clipped term inside eq. 8, min(r A-hat, clip(r, 1-eps_low, 1+eps_high) A-hat); drops the expectation, the 1/sum|o_i| token-level normaliser and the s.t. sampling constraint",
+   "highlight_latex": "\\varepsilon_{\\text{high}}",
+   "highlight_what": "eps_high: the Clip-Higher decoupling (a larger upper clip range than lower, to keep exploration alive)",
+   "extra_highlights": [
+    {
+     "latex": "\\varepsilon_{\\text{low}}",
+     "what": "eps_low, the lower clip range"
+    },
+    {
+     "latex": "0< \\Big|\\{o_i\\mid\\mathtt{is\\_equivalent}(a,o_i)\\}\\Big|< G",
+     "what": "the dynamic-sampling constraint: keep only prompts whose group is neither all-wrong nor all-right"
+    },
+    {
+     "latex": "\\frac{1}{\\sum_{i=1}^{G}|o_i|}",
+     "what": "the token-level (sum over all tokens in the group) normaliser, replacing GRPO's per-sample 1/|o_i|"
+    }
+   ],
+   "definitions_latex": "r_{i,t}(\\theta)=\\frac{\\pi_{\\theta}(o_{i,t} \\mid q, o_{i,<t})}{\\pi_{\\theta_{\\text{old}}}(o_{i,t} \\mid q,o_{i,<t})},\\quad\\hat{A}_{i,t} = \\frac{R_i - \\text{mean}(\\{R_i\\}_{i=1}^G)}{\\text{std}(\\{R_i\\}_{i=1}^G)}",
+   "definitions_what": "eq. 9 of the same paper: the importance ratio r_{i,t}(theta) and the group-normalised advantage",
+   "symbols": {
+    "\\mathcal{D}": "dataset of question-answer pairs (q, a)",
+    "\\{o_i\\}_{i=1}^G": "G responses sampled from the old policy for question q",
+    "r_{i,t}(\\theta)": "importance-sampling ratio pi_theta / pi_theta_old (eq. 9)",
+    "\\hat{A}_{i,t}": "group-normalised advantage (eq. 9)",
+    "\\varepsilon_{\\text{low}}, \\varepsilon_{\\text{high}}": "decoupled lower and upper clip ranges (Clip-Higher)",
+    "\\mathtt{is\\_equivalent}(a,o_i)": "whether response o_i matches the reference answer a (rule-based verifier)"
+   },
+   "paper": "DAPO: An Open-Source LLM Reinforcement Learning System at Scale",
+   "authors": "Qiying Yu, Zheng Zhang, Ruofei Zhu, Yufeng Yuan, Xiaochen Zuo, Yu Yue, Weinan Dai, Tiantian Fan, Gaohong Liu, Lingjun Liu, Xin Liu, Haibin Lin, Zhiqi Lin, Bole Ma et al. (35 authors; ByteDance Seed, Tsinghua AIR, HKU)",
+   "year": 2025,
+   "arxiv": "2503.14476",
+   "eq_no": "8",
+   "url": "https://arxiv.org/abs/2503.14476",
+   "arxiv_version_checked": "v2",
+   "cite": "Yu et al. 2025, DAPO (arXiv:2503.14476), eq. 8",
+   "source_tex_ref": "arXiv e-print 2503.14476v2, sections/030method.tex, \\label{eq:dapoloss}",
+   "latex_changes": [
+    "\\label removed; trailing comma dropped; newlines collapsed (the source is already an aligned block); \\texttt{is\\_equivalent} written \\mathtt{is\\_equivalent} because MathJax's \\texttt prints the backslash of \\_ literally (LaTeX prints is_equivalent in typewriter type; \\mathtt gives the same). No symbol changed."
+   ],
+   "verified_how": "Copied mechanically from the arXiv LaTeX source (e-print 2503.14476v2, sections/030method.tex, label eq:dapoloss); printed number (8) read from the PDF text layer (eq. 9 defines r and A-hat right below it); abstract page checked for title, authors and date (v1 18 Mar 2025, v2 20 May 2025); compile-checked with MathJax 3.2.1. DAPO is the algorithm the paper reports reaching 50 points on AIME 2024 with Qwen2.5-32B (stated in its introduction).",
+   "drop_hint": "A 2025 sequel to GRPO: drop it right after GRPO and flash eps_high in the accent colour.",
+   "latex_source_verbatim": "\\begin{aligned} \\mathcal{J}_{\\text{DAPO}}(\\theta) =\\quad& \\mathbb{E}_{(q,a)\\sim \\mathcal{D}, \\{o_i\\}_{i=1}^G\\sim \\pi_{\\theta_\\text{old}}(\\cdot\\mid q)}\\\\& \\Bigg[\\frac{1}{\\sum_{i=1}^{G}|o_i|}\\sum_{i=1}^{G}\\sum_{t=1}^{|o_i|} \\min \\Big( r_{i,t}(\\theta) \\hat{A}_{i,t}, \\ \\text{clip} \\Big( r_{i,t}(\\theta), 1 - {\\varepsilon_{\\text{low}}}, 1 + {\\varepsilon_{\\text{high}}} \\Big) \\hat{A}_{i,t} \\Big) \\Bigg] \\\\ \\text{s.t.}\\quad& 0< \\Big|\\{o_i\\mid\\texttt{is\\_equivalent}(a,o_i)\\}\\Big|< G, \\label{eq:dapoloss} \\end{aligned}",
+   "name": "DAPO objective",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/2503.14476"
+  },
+  {
+   "id": "grpo",
+   "label": "GRPO objective",
+   "latex": "\\begin{aligned} \\mathcal{J}_{GRPO}(\\theta) &= \\mathbb{E}{[q \\sim P(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]} \\\\ & \\frac{1}{G}\\sum_{i=1}^G\\frac{1}{|o_i|} \\sum_{t=1}^{|o_i|} \\left\\{ \\min \\left[ \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})} \\hat{A}_{i,t}, \\text{clip} \\left( \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})}, 1 - \\epsilon, 1 + \\epsilon \\right) \\hat{A}_{i,t} \\right] - \\beta \\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right]\\right\\} \\end{aligned}",
+   "latex_stacked": "\\begin{gathered} \\mathcal{J}_{GRPO}(\\theta) = \\mathbb{E}{[q \\sim P(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]} \\\\[4pt] \\frac{1}{G}\\sum_{i=1}^G\\frac{1}{|o_i|} \\sum_{t=1}^{|o_i|} \\left\\{ \\min \\left[ \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})} \\hat{A}_{i,t}, \\right.\\right. \\\\[4pt] \\left.\\left. \\text{clip} \\left( \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})}, 1 - \\epsilon, 1 + \\epsilon \\right) \\hat{A}_{i,t} \\right] - \\beta \\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right]\\right\\} \\end{gathered}",
+   "tex": "\\begin{gathered} \\mathcal{J}_{GRPO}(\\theta) = \\mathbb{E}{[q \\sim P(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]} \\\\[4pt] \\frac{1}{G}\\sum_{i=1}^G\\frac{1}{|o_i|} \\sum_{t=1}^{|o_i|} \\left\\{ \\min \\left[ \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})} \\hat{A}_{i,t}, \\right.\\right. \\\\[4pt] \\left.\\left. \\text{clip} \\left( \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})}, 1 - \\epsilon, 1 + \\epsilon \\right) \\hat{A}_{i,t} \\right] - \\beta \\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right]\\right\\} \\end{gathered}",
+   "latex_stacked_what": "same symbols and order as `latex`, only the line breaks differ (4 rows, braces/brackets split with \\left. \\right. pairs) so it fits a 1080-px-wide portrait frame; checked equal to `latex` after removing layout",
+   "short_latex": "\\min \\left[ \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})} \\hat{A}_{i,t}, \\text{clip} \\left( \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})}, 1 - \\epsilon, 1 + \\epsilon \\right) \\hat{A}_{i,t} \\right] - \\beta \\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right]",
+   "short_latex_what": "the per-token summand inside the braces of eq. 3 (clipped-ratio min[...] minus the KL penalty); drops the expectation and the 1/G and 1/|o_i| averaging. The most compact GRPO drop is `advantage_latex` (the group-relative advantage).",
+   "highlight_latex": "\\beta \\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right]",
+   "highlight_what": "the KL penalty: beta * D_KL[pi_theta || pi_ref] (GRPO adds it to the loss directly instead of folding it into the reward as PPO does)",
+   "extra_highlights": [
+    {
+     "latex": "\\hat{A}_{i,t}",
+     "what": "the group-relative advantage (first occurrence)"
+    },
+    {
+     "latex": "\\frac{1}{G}\\sum_{i=1}^G",
+     "what": "the average over the G outputs sampled for the same question"
+    }
+   ],
+   "advantage_latex": "\\hat{A}_{i, t} = \\widetilde{r}_i = \\frac{r_i- {\\rm mean}(\\mathbf{r})}{{\\rm std}(\\mathbf{r})}",
+   "advantage_what": "outcome-supervision advantage of the same paper (section 4.1.2, inline, unnumbered): each output's reward normalised by the group mean and standard deviation",
+   "alt_latex": "\\begin{aligned} \\mathcal{J}_{GRPO}(\\theta) = \\mathbb{E}{[q \\sim P(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]} \\\\ & \\frac{1}{G}\\sum_{i=1}^G \\left( \\min \\left( \\frac{\\pi_\\theta(o_i |q)}{\\pi_{\\theta_{old}}(o_i |q)} A_i, \\text{clip} \\left( \\frac{\\pi_\\theta(o_i |q)}{\\pi_{\\theta_{old}}(o_i |q)}, 1 - \\epsilon, 1 + \\epsilon \\right) A_i \\right) - \\beta \\mathbb{D}_{KL}\\left(\\pi_{\\theta} || \\pi_{ref}\\right)\\right) \\end{aligned}",
+   "alt_what": "DeepSeek-R1 (Guo et al., arXiv:2501.12948v2, Section 2.1, eq. 1) restates GRPO at sequence level (no token index t; A_i instead of A-hat_{i,t}); same symbols otherwise",
+   "alt_source": {
+    "paper": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+    "authors": "DeepSeek-AI (Daya Guo et al.)",
+    "year": 2025,
+    "arxiv": "2501.12948",
+    "eq_no": "1",
+    "url": "https://arxiv.org/abs/2501.12948",
+    "doi": "10.1038/s41586-025-09422-z"
+   },
+   "symbols": {
+    "\\pi_\\theta": "policy being trained",
+    "\\pi_{\\theta_{old}}": "old policy that sampled the outputs",
+    "\\pi_{ref}": "reference model (usually the initial SFT model)",
+    "q": "question sampled from P(Q)",
+    "\\{o_i\\}_{i=1}^G": "group of G outputs sampled for the same question",
+    "|o_i|": "length of output i in tokens",
+    "\\hat{A}_{i,t}": "advantage of token t of output i, computed from the relative rewards inside the group only",
+    "\\epsilon": "clipping hyper-parameter",
+    "\\beta": "KL-penalty coefficient (0.04 in the paper's RL run)",
+    "\\mathbb{D}_{KL}": "KL divergence, estimated with eq. 4 (see item grpo-kl)"
+   },
+   "paper": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+   "authors": "Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, Y. K. Li, Y. Wu, Daya Guo",
+   "year": 2024,
+   "arxiv": "2402.03300",
+   "eq_no": "3",
+   "url": "https://arxiv.org/abs/2402.03300",
+   "arxiv_version_checked": "v3",
+   "cite": "Shao et al. 2024, DeepSeekMath (arXiv:2402.03300), eq. 3",
+   "source_tex_ref": "arXiv e-print 2402.03300v3, main.tex, \\label{eq:GRPO-obj} (a \\begin{split} block with one line break after the expectation)",
+   "latex_changes": [
+    "\\begin{split}...\\end{split} -> \\begin{aligned}...\\end{aligned}; \\label and \\footnotesize removed; trailing comma dropped; newlines collapsed. No symbol changed."
+   ],
+   "verified_how": "Downloaded the arXiv LaTeX source (e-print 2402.03300v3, 10 Oct 2026) and copied the equation block labelled eq:GRPO-obj (main.tex) mechanically, no retyping; printed number (3) read from the arXiv PDF text layer (eqs 1-2 are the PPO objective and PPO reward, eq 4 the KL estimator); symbol meanings read from the surrounding Section 4.1.1 text; compile-checked with MathJax 3.2.1.",
+   "drop_hint": "Pencil in the first row (E over q and the G samples), land the second row on the downbeat, then circle the KL term on the next beat; or drop `advantage_latex` alone on a single beat.",
+   "latex_source_verbatim": "\\footnotesize \\begin{split} \\mathcal{J}_{GRPO}(\\theta) &= \\mathbb{E}{[q \\sim P(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]} \\\\ & \\frac{1}{G}\\sum_{i=1}^G\\frac{1}{|o_i|} \\sum_{t=1}^{|o_i|} \\left\\{ \\min \\left[ \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})} \\hat{A}_{i,t}, \\text{clip} \\left( \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})}, 1 - \\epsilon, 1 + \\epsilon \\right) \\hat{A}_{i,t} \\right] - \\beta \\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right]\\right\\} , \\end{split} \\label{eq:GRPO-obj}",
+   "name": "GRPO objective",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/2402.03300"
+  },
+  {
+   "id": "grpo-kl",
+   "label": "GRPO KL estimator",
+   "latex": "\\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right] = \\frac{\\pi_{ref}(o_{i,t}|q,o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|q,o_{i,<t})}- \\log\\frac{\\pi_{ref}(o_{i,t}|q,o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|q,o_{i,<t})} - 1",
+   "short_latex": "\\mathbb{D}_{KL}\\left(\\pi_{\\theta} || \\pi_{ref}\\right) = \\frac{\\pi_{ref}(o_i|q)}{\\pi_{\\theta}(o_i|q)}- \\log\\frac{\\pi_{ref}(o_i|q)}{\\pi_{\\theta}(o_i|q)} - 1",
+   "short_latex_what": "the same estimator at sequence level, as printed in DeepSeek-R1 (arXiv:2501.12948v2, eq. 2): D_KL(pi_theta || pi_ref) = pi_ref(o_i|q)/pi_theta(o_i|q) - log(pi_ref(o_i|q)/pi_theta(o_i|q)) - 1 (round brackets, no token index)",
+   "highlight_latex": "\\frac{\\pi_{ref}(o_{i,t}|q,o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|q,o_{i,<t})}",
+   "highlight_what": "the density ratio pi_ref / pi_theta (first occurrence); the estimator is ratio - log(ratio) - 1",
+   "extra_highlights": [
+    {
+     "latex": "- \\log",
+     "what": "the log of the ratio (first occurrence of the minus-log)"
+    }
+   ],
+   "symbols": {
+    "\\mathbb{D}_{KL}[\\pi_\\theta || \\pi_{ref}]": "per-token KL estimate used as the penalty in the GRPO objective",
+    "\\pi_{ref}": "reference model",
+    "\\pi_\\theta": "current policy",
+    "o_{i,t}": "token t of sampled output i",
+    "q": "question; o_{i,<t} = the tokens of output i before t"
+   },
+   "paper": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+   "authors": "Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, Y. K. Li, Y. Wu, Daya Guo",
+   "year": 2024,
+   "arxiv": "2402.03300",
+   "eq_no": "4",
+   "url": "https://arxiv.org/abs/2402.03300",
+   "arxiv_version_checked": "v3",
+   "cite": "Shao et al. 2024, DeepSeekMath (arXiv:2402.03300), eq. 4",
+   "source_tex_ref": "arXiv e-print 2402.03300v3, main.tex, the unlabelled equation after the GRPO objective; the paper calls it an unbiased estimator (citing Schulman's \"Approximating KL divergence\" note) that is guaranteed to be positive",
+   "latex_changes": [
+    "\\small removed; trailing comma dropped. No symbol changed."
+   ],
+   "verified_how": "Copied mechanically from the arXiv LaTeX source (e-print 2402.03300v3, main.tex, the equation right after eq:GRPO-obj); printed number (4) read from the PDF text layer; the sequence-level variant in short_latex copied from the DeepSeek-R1 e-print source (2501.12948v2, sn-article.tex) and its number (2) read from that PDF; compile-checked with MathJax 3.2.1.",
+   "drop_hint": "Pair with the GRPO objective: after circling the KL term, slam this on the next downbeat.",
+   "latex_source_verbatim": "\\small \\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right] = \\frac{\\pi_{ref}(o_{i,t}|q,o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|q,o_{i,<t})}- \\log\\frac{\\pi_{ref}(o_{i,t}|q,o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|q,o_{i,<t})} - 1,",
+   "name": "GRPO KL estimator",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/2402.03300"
+  },
+  {
+   "id": "ntp-ce",
+   "label": "Next-token cross-entropy",
+   "latex": "L_1 = - \\sum_t \\log P_\\theta(x_{t+1} \\mid x_{t:1})",
+   "short_latex": "- \\sum_t \\log P_\\theta(x_{t+1} \\mid x_{t:1})",
+   "short_latex_what": "the right-hand side of eq. 1 (minus the summed log-probability the model gave each true next token)",
+   "highlight_latex": "\\log P_\\theta(x_{t+1} \\mid x_{t:1})",
+   "highlight_what": "the log-probability of the actual next token given the history",
+   "extra_highlights": [
+    {
+     "latex": "- \\sum_t",
+     "what": "minus the sum over positions t of the training corpus"
+    }
+   ],
+   "related_latex": "L_n = - \\sum_t \\log P_\\theta(x_{t+n:t+1} \\mid x_{t:1})",
+   "related_what": "eq. 2 of the same paper, the multi-token generalisation L_n (predict n future tokens at once), which is the paper's contribution",
+   "symbols": {
+    "L_1": "next-token (n = 1) cross-entropy loss over the corpus",
+    "x_1,\\dots,x_T": "tokens of the training corpus",
+    "P_\\theta": "the language model being trained",
+    "x_{t:1}": "history x_t, ..., x_1 of past tokens",
+    "x_{t+1}": "the next token to predict"
+   },
+   "paper": "Better & Faster Large Language Models via Multi-token Prediction",
+   "authors": "Fabian Gloeckle, Badr Youbi Idrissi, Baptiste Rozière, David Lopez-Paz, Gabriel Synnaeve",
+   "year": 2024,
+   "arxiv": "2404.19737",
+   "eq_no": "1",
+   "url": "https://arxiv.org/abs/2404.19737",
+   "arxiv_version_checked": "v1",
+   "cite": "Gloeckle et al. 2024 (arXiv:2404.19737), eq. 1",
+   "source_tex_ref": "arXiv e-print 2404.19737v1, method.tex, first display equation of Section 2 (\"Formally, the learning objective is to minimize the cross-entropy loss\")",
+   "latex_changes": [
+    "\\begin{align} ... & = ... \\end{align} flattened to one line (& removed); trailing comma dropped. No symbol changed."
+   ],
+   "origin_note": "The same objective as a likelihood to maximise is eq. 1 of Radford, Narasimhan, Salimans, Sutskever 2018, \"Improving Language Understanding by Generative Pre-Training\" (GPT-1; OpenAI PDF, not on arXiv): L_1(U) = sum_i log P(u_i | u_{i-k}, ..., u_{i-1}; Theta). Read from the PDF text layer only (not rendered), so it is not offered as a separate item.",
+   "verified_how": "Copied mechanically from the arXiv LaTeX source (e-print 2404.19737v1, method.tex); printed numbers (1) and (2) read from the PDF text layer; the sentence introducing it calls it \"the cross-entropy loss\" for \"next-token prediction\"; compile-checked with MathJax 3.2.1. Chosen over older sources because it prints the standard next-token loss explicitly and is a 2024 paper.",
+   "drop_hint": "The simplest drop: roll the left side, slam the minus-log term on the downbeat, circle the log-probability.",
+   "latex_source_verbatim": "L_1 &= - \\sum_t \\log P_\\theta(x_{t+1} \\mid x_{t:1}),",
+   "name": "Next-token cross-entropy",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/2404.19737"
+  },
+  {
+   "id": "dpo",
+   "label": "DPO loss",
+   "latex": "\\mathcal{L}_\\text{DPO}(\\pi_{\\theta}; \\pi_\\text{ref}) = -\\mathbb{E}_{(x, y_w, y_l)\\sim \\mathcal{D}}\\left[\\log \\sigma \\left(\\beta \\log \\frac{\\pi_{\\theta}(y_w\\mid x)}{\\pi_\\text{ref}(y_w\\mid x)} - \\beta \\log \\frac{\\pi_{\\theta}(y_l\\mid x)}{\\pi_\\text{ref}(y_l\\mid x)}\\right)\\right]",
+   "latex_stacked": "\\begin{gathered} \\mathcal{L}_\\text{DPO}(\\pi_{\\theta}; \\pi_\\text{ref}) = -\\mathbb{E}_{(x, y_w, y_l)\\sim \\mathcal{D}}\\left[\\log \\sigma \\left( \\right.\\right. \\\\[4pt] \\left.\\left.\\beta \\log \\frac{\\pi_{\\theta}(y_w\\mid x)}{\\pi_\\text{ref}(y_w\\mid x)} \\right.\\right. \\\\[4pt] \\left.\\left.- \\beta \\log \\frac{\\pi_{\\theta}(y_l\\mid x)}{\\pi_\\text{ref}(y_l\\mid x)}\\right)\\right] \\end{gathered}",
+   "tex": "\\begin{gathered} \\mathcal{L}_\\text{DPO}(\\pi_{\\theta}; \\pi_\\text{ref}) = -\\mathbb{E}_{(x, y_w, y_l)\\sim \\mathcal{D}}\\left[\\log \\sigma \\left( \\right.\\right. \\\\[4pt] \\left.\\left.\\beta \\log \\frac{\\pi_{\\theta}(y_w\\mid x)}{\\pi_\\text{ref}(y_w\\mid x)} \\right.\\right. \\\\[4pt] \\left.\\left.- \\beta \\log \\frac{\\pi_{\\theta}(y_l\\mid x)}{\\pi_\\text{ref}(y_l\\mid x)}\\right)\\right] \\end{gathered}",
+   "latex_stacked_what": "same symbols and order as `latex`, only the line breaks differ (3 rows, brackets split with \\left. \\right. pairs) for a 1080-px-wide portrait frame; checked equal to `latex` after removing layout",
+   "short_latex": "\\log \\sigma \\left(\\beta \\log \\frac{\\pi_{\\theta}(y_w\\mid x)}{\\pi_\\text{ref}(y_w\\mid x)} - \\beta \\log \\frac{\\pi_{\\theta}(y_l\\mid x)}{\\pi_\\text{ref}(y_l\\mid x)}\\right)",
+   "short_latex_what": "the log-sigmoid term inside the expectation of eq. 7 (the loss for one preference pair)",
+   "highlight_latex": "\\beta \\log \\frac{\\pi_{\\theta}(y_w\\mid x)}{\\pi_\\text{ref}(y_w\\mid x)}",
+   "highlight_what": "the implicit reward of the preferred answer, beta * log(pi_theta(y_w|x) / pi_ref(y_w|x)); the loss pushes it above the same quantity for the dispreferred answer y_l",
+   "symbols": {
+    "\\pi_\\theta": "the language model being optimised",
+    "\\pi_{\\text{ref}}": "reference policy (the initial SFT model)",
+    "y_w, y_l": "preferred (\"winning\") and dispreferred (\"losing\") completions for prompt x",
+    "\\mathcal{D}": "dataset of preference triples (x, y_w, y_l)",
+    "\\beta": "parameter controlling deviation from the reference policy",
+    "\\sigma": "logistic sigmoid"
+   },
+   "paper": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+   "authors": "Rafael Rafailov, Archit Sharma, Eric Mitchell, Stefano Ermon, Christopher D. Manning, Chelsea Finn",
+   "year": 2023,
+   "arxiv": "2305.18290",
+   "eq_no": "7",
+   "url": "https://arxiv.org/abs/2305.18290",
+   "arxiv_version_checked": "v3",
+   "cite": "Rafailov et al. 2023, DPO (arXiv:2305.18290), eq. 7",
+   "source_tex_ref": "arXiv e-print 2305.18290v3, main.tex, \\label{eq:optimum_model} (Section 4); NeurIPS 2023",
+   "latex_changes": [
+    "the paper's macro \\piref (defined in main.tex line 48 as \\pi_\\text{ref}) expanded to \\pi_\\text{ref}; \\label removed; trailing full stop dropped. No symbol changed."
+   ],
+   "verified_how": "Copied mechanically from the arXiv LaTeX source (e-print 2305.18290v3, main.tex, label eq:optimum_model), expanding the paper's one macro \\piref; printed number (7) read from the PDF text layer (\"L_DPO(pi_theta; pi_ref) = -E[log sigma(beta log ... - beta log ...)]  (7)\"); symbol meanings read from Section 3-4; compile-checked with MathJax 3.2.1.",
+   "drop_hint": "Slam the minus-E-log-sigma frame, then the winner term and the loser term on successive beats (the loser term subtracts).",
+   "latex_source_verbatim": "\\label{eq:optimum_model} \\mathcal{L}_\\text{DPO}(\\pi_{\\theta}; \\pi_\\text{ref}) = -\\mathbb{E}_{(x, y_w, y_l)\\sim \\mathcal{D}}\\left[\\log \\sigma \\left(\\beta \\log \\frac{\\pi_{\\theta}(y_w\\mid x)}{\\pi_\\text{ref}(y_w\\mid x)} - \\beta \\log \\frac{\\pi_{\\theta}(y_l\\mid x)}{\\pi_\\text{ref}(y_l\\mid x)}\\right)\\right].",
+   "name": "DPO loss",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/2305.18290"
+  },
+  {
+   "id": "chinchilla",
+   "label": "Chinchilla scaling law",
+   "latex": "\\hat L(N,D) \\triangleq E + \\frac{A}{N^\\alpha} + \\frac{B}{D^\\beta}",
+   "short_latex": "E + \\frac{A}{N^\\alpha} + \\frac{B}{D^\\beta}",
+   "short_latex_what": "the right-hand side of eq. 2 (predicted loss as irreducible term + model-size term + data term)",
+   "highlight_latex": "\\frac{B}{D^\\beta}",
+   "highlight_what": "the data term B/D^beta: loss left over because the model saw only D tokens (the paper's message is that N and D should be scaled together)",
+   "extra_highlights": [
+    {
+     "latex": "\\frac{A}{N^\\alpha}",
+     "what": "the model-size term A/N^alpha"
+    },
+    {
+     "latex": "E",
+     "what": "E, the irreducible loss (entropy of natural text)"
+    }
+   ],
+   "fitted_latex": "L(N, D) = E + \\frac{A}{N^{0.34}} + \\frac{B}{D^{0.28}}",
+   "fitted_what": "eq. 10 (Appendix D.2): the paper's fitted exponents printed in place of alpha and beta; the constants are given in the text right below it",
+   "fitted_numbers_latex": "E = 1.69,\\quad A = 406.4,\\quad B = 410.7,\\quad \\alpha = 0.34,\\quad \\beta = 0.28",
+   "fitted_numbers_what": "the fitted constants as printed in Appendix D.2 (\"with E = 1.69, A = 406.4, B = 410.7\") and the exponents printed in eq. 10 (alpha = 0.34, beta = 0.28); assembled from those two printed places, not a single printed line",
+   "fitted_substituted_latex": "L(N, D) = 1.69 + \\frac{406.4}{N^{0.34}} + \\frac{410.7}{D^{0.28}}",
+   "fitted_substituted_what": "eq. 10 with the printed constants substituted by hand (derived, not printed in this form)",
+   "fitted_constants": {
+    "E": 1.69,
+    "A": 406.4,
+    "B": 410.7,
+    "alpha": 0.34,
+    "beta": 0.28
+   },
+   "replication_caveat": "Besiroglu, Erdil, Barnett, You 2024 (\"Chinchilla Scaling: A replication attempt\", arXiv:2404.10102v2, eq. 3) re-fit the same parametric form to data reconstructed from the paper's plots and report L = 1.8172 + 482.01/N^0.3478 + 2085.43/D^0.3658; they find the published constants inconsistent with the paper's first two approaches. If the fitted numbers go on screen, attribute them as \"as reported by Hoffmann et al.\" and do not call them settled. The functional form (eq. 2) is not in dispute.",
+   "symbols": {
+    "\\hat L(N,D)": "predicted final loss",
+    "N": "number of model parameters",
+    "D": "number of training tokens",
+    "E": "irreducible loss; the paper says it should correspond to the entropy of natural text",
+    "A/N^\\alpha": "loss gap of a perfectly trained N-parameter transformer vs the ideal generative process",
+    "B/D^\\beta": "loss gap because training is not run to convergence on a finite sample"
+   },
+   "paper": "Training Compute-Optimal Large Language Models",
+   "authors": "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Elena Buchatskaya, Trevor Cai, Eliza Rutherford, Diego de Las Casas, Lisa Anne Hendricks, Johannes Welbl, Aidan Clark et al. (22 authors; DeepMind)",
+   "year": 2022,
+   "arxiv": "2203.15556",
+   "eq_no": "2",
+   "url": "https://arxiv.org/abs/2203.15556",
+   "arxiv_version_checked": "v1",
+   "cite": "Hoffmann et al. 2022, Chinchilla (arXiv:2203.15556), eq. 2",
+   "source_tex_ref": "arXiv e-print 2203.15556v1, main.tex, \\label{eq:decompose} (Section 3.3, Approach 3); fitted form in Appendix D.2",
+   "latex_changes": [
+    "\\label removed; trailing full stop dropped. No symbol changed."
+   ],
+   "verified_how": "Copied mechanically from the arXiv LaTeX source (e-print 2203.15556v1, main.tex, label eq:decompose); printed number (2) read from the PDF text layer (\"L-hat(N, D) = E + A/N^alpha + B/D^beta  (2)\"); the fitted constants and exponents located in the PDF text layer of Section D.2, eq. (10), and in the source (\"with E=1.69, A=406.4, B=410.7\"); cross-checked against the replication paper (arXiv:2404.10102), which quotes the rounded values E = 1.69, A = 406.4, B = 410.7, alpha = 0.34, beta = 0.28; compile-checked with MathJax 3.2.1.",
+   "drop_hint": "Draw L-hat, then three terms on three beats (E, the N term, the D term); on the next bar swap in the fitted numbers.",
+   "latex_source_verbatim": "\\hat L(N,D) \\triangleq E + \\frac{A}{N^\\alpha} + \\frac{B}{D^\\beta}.\\label{eq:decompose}",
+   "name": "Chinchilla scaling law",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/2203.15556"
+  },
+  {
+   "id": "rlhf",
+   "label": "RLHF objective with KL",
+   "latex": "\\begin{aligned} \\operatorname{objective}\\left(\\phi\\right)= & E_{\\left(x, y\\right) \\sim D_{\\pi_{\\phi}^{\\mathrm{RL}}}}\\left[r_{\\theta}(x, y)-\\beta \\log \\left(\\pi_{\\phi}^{\\mathrm{RL}}(y \\mid x) / \\pi^{\\mathrm{SFT}}(y \\mid x)\\right)\\right] + \\\\ & \\gamma E_{x \\sim D_\\textrm{pretrain}}\\left[\\log(\\pi_{\\phi}^{\\mathrm{RL}}(x))\\right] \\end{aligned}",
+   "latex_stacked": "\\begin{gathered} \\operatorname{objective}\\left(\\phi\\right)= E_{\\left(x, y\\right) \\sim D_{\\pi_{\\phi}^{\\mathrm{RL}}}}\\left[r_{\\theta}(x, y)- \\right. \\\\[4pt] \\left.\\beta \\log \\left(\\pi_{\\phi}^{\\mathrm{RL}}(y \\mid x) / \\pi^{\\mathrm{SFT}}(y \\mid x)\\right)\\right] + \\\\[4pt] \\gamma E_{x \\sim D_\\textrm{pretrain}}\\left[\\log(\\pi_{\\phi}^{\\mathrm{RL}}(x))\\right] \\end{gathered}",
+   "tex": "\\begin{gathered} \\operatorname{objective}\\left(\\phi\\right)= E_{\\left(x, y\\right) \\sim D_{\\pi_{\\phi}^{\\mathrm{RL}}}}\\left[r_{\\theta}(x, y)- \\right. \\\\[4pt] \\left.\\beta \\log \\left(\\pi_{\\phi}^{\\mathrm{RL}}(y \\mid x) / \\pi^{\\mathrm{SFT}}(y \\mid x)\\right)\\right] + \\\\[4pt] \\gamma E_{x \\sim D_\\textrm{pretrain}}\\left[\\log(\\pi_{\\phi}^{\\mathrm{RL}}(x))\\right] \\end{gathered}",
+   "latex_stacked_what": "same symbols and order as `latex`, only the line breaks differ (3 rows) for a 1080-px-wide portrait frame; checked equal to `latex` after removing layout",
+   "short_latex": "E_{\\left(x, y\\right) \\sim D_{\\pi_{\\phi}^{\\mathrm{RL}}}}\\left[r_{\\theta}(x, y)-\\beta \\log \\left(\\pi_{\\phi}^{\\mathrm{RL}}(y \\mid x) / \\pi^{\\mathrm{SFT}}(y \\mid x)\\right)\\right]",
+   "short_latex_what": "the first expectation of eq. 2 (reward minus beta times the log-ratio to the SFT model); the paper says for its \"PPO\" models gamma is set to 0, i.e. this is the whole objective",
+   "highlight_latex": "\\beta \\log \\left(\\pi_{\\phi}^{\\mathrm{RL}}(y \\mid x) / \\pi^{\\mathrm{SFT}}(y \\mid x)\\right)",
+   "highlight_what": "the per-sample KL penalty: beta * log(pi_RL(y|x) / pi_SFT(y|x)), which keeps the RL policy near the supervised model",
+   "extra_highlights": [
+    {
+     "latex": "\\gamma E_{x \\sim D_\\textrm{pretrain}}\\left[\\log(\\pi_{\\phi}^{\\mathrm{RL}}(x))\\right]",
+     "what": "the pretraining-gradient mix-in (the \"PPO-ptx\" term)"
+    }
+   ],
+   "symbols": {
+    "\\pi_\\phi^{\\mathrm{RL}}": "the learned RL policy",
+    "\\pi^{\\mathrm{SFT}}": "the supervised fine-tuned model",
+    "r_\\theta(x,y)": "reward-model score for prompt x and response y",
+    "\\beta": "KL reward coefficient (0.02 in the paper's runs)",
+    "\\gamma": "pretraining loss coefficient (0 for the \"PPO\" models)",
+    "D_{\\mathrm{pretrain}}": "the pretraining distribution"
+   },
+   "paper": "Training language models to follow instructions with human feedback",
+   "authors": "Long Ouyang, Jeff Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, John Schulman, Jacob Hilton, Fraser Kelton, Luke Miller et al. (20 authors; OpenAI)",
+   "year": 2022,
+   "arxiv": "2203.02155",
+   "eq_no": "2",
+   "url": "https://arxiv.org/abs/2203.02155",
+   "arxiv_version_checked": "v1",
+   "cite": "Ouyang et al. 2022, InstructGPT (arXiv:2203.02155), eq. 2",
+   "source_tex_ref": "arXiv e-print 2203.02155v1, neurips_2021.tex, \\label{eq2} (Section 3.5, \"Reinforcement learning (RL)\")",
+   "latex_changes": [
+    "\\begin{split}...\\end{split} -> \\begin{aligned}...\\end{aligned}; \\label removed; newlines collapsed. No symbol changed."
+   ],
+   "verified_how": "Copied mechanically from the arXiv LaTeX source (e-print 2203.02155v1, neurips_2021.tex, label eq2); printed number (2) read from the PDF text layer (\"objective (phi) = E_(x,y)~D[...]  (2)\"); the definitions of pi^RL, pi^SFT, D_pretrain, beta and gamma read from the sentences that follow it; beta = 0.02 from the appendix training details; compile-checked with MathJax 3.2.1.",
+   "drop_hint": "Drop the first expectation on the downbeat, circle the KL penalty, then add the gamma line on the next bar.",
+   "latex_source_verbatim": "\\label{eq2} \\begin{split} \\operatorname{objective}\\left(\\phi\\right)= & E_{\\left(x, y\\right) \\sim D_{\\pi_{\\phi}^{\\mathrm{RL}}}}\\left[r_{\\theta}(x, y)-\\beta \\log \\left(\\pi_{\\phi}^{\\mathrm{RL}}(y \\mid x) / \\pi^{\\mathrm{SFT}}(y \\mid x)\\right)\\right] + \\\\ & \\gamma E_{x \\sim D_\\textrm{pretrain}}\\left[\\log(\\pi_{\\phi}^{\\mathrm{RL}}(x))\\right] \\end{split}",
+   "name": "RLHF objective with KL",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/2203.02155"
+  },
+  {
+   "id": "superposition",
+   "label": "Toy model of superposition",
+   "latex": "x' = \\text{ReLU}(W^TWx + b)",
+   "latex_source_verbatim": "x' ~=~\\text{ReLU}(W^TWx + b)",
+   "latex_stacked": "\\begin{aligned} h &= Wx \\\\ x' &= \\text{ReLU}(W^Th+b) \\end{aligned}",
+   "latex_stacked_what": "the two-step form printed above it in the paper: h = Wx (down-projection), x' = ReLU(W^T h + b) (up-projection); substituting h gives `latex`",
+   "highlight_latex": "W^TW",
+   "highlight_what": "W^T W: the features-by-features matrix that is read off in the paper's figures (off-diagonal entries = interference between features)",
+   "highlight_latex_stacked": "W^Th",
+   "highlight_stacked_what": "in the two-step form: the up-projection W^T h (the transpose of the same matrix is used to read the features back out)",
+   "extra_highlights": [
+    {
+     "latex": "\\text{ReLU}",
+     "what": "the ReLU on the output, which is what lets the model use superposition (the linear model does not)"
+    },
+    {
+     "latex": "+ b",
+     "what": "the bias term (+ b)"
+    }
+   ],
+   "loss_latex": "L = \\sum_x \\sum_i I_i (x_i - x'_i)^2",
+   "loss_what": "the paper's loss, importance-weighted mean squared error over feature vectors x and features i (I_i = importance of feature i)",
+   "symbols": {
+    "x": "high-dimensional input vector of n features (each feature x_i is 0 with probability S_i, otherwise uniform on [0,1])",
+    "W": "m x n matrix; column W_i is the direction in the low-dimensional space that represents feature x_i",
+    "h = Wx": "m-dimensional hidden vector (m < n)",
+    "b": "bias",
+    "x'": "reconstruction of x"
+   },
+   "paper": "Toy Models of Superposition",
+   "authors": "Nelson Elhage, Tristan Hume, Catherine Olsson, Nicholas Schiefer, Tom Henighan, Shauna Kravec, Zac Hatfield-Dodds, Robert Lasenby, Dawn Drain, Carol Chen, Roger Grosse, Sam McCandlish, Jared Kaplan, Dario Amodei et al. (16 authors; Anthropic, Harvard)",
+   "year": 2022,
+   "arxiv": "2209.10652",
+   "eq_no": "unnumbered (Section \"The Model (X -> X')\", ReLU Output Model column)",
+   "url": "https://arxiv.org/abs/2209.10652",
+   "url_alt": "https://transformer-circuits.pub/2022/toy_model/index.html",
+   "arxiv_version_checked": "v1",
+   "cite": "Elhage et al. 2022, Toy Models of Superposition (arXiv:2209.10652)",
+   "source_tex_ref": "transformer-circuits.pub/2022/toy_model/index.html, the <d-math> elements of \"The Model (X -> X')\" (the arXiv PDF is a print of this article; arXiv has no LaTeX source for it)",
+   "latex_changes": [
+    "the article's ~=~ (non-breaking spaces around \"=\") written as a plain \" = \"; nothing else."
+   ],
+   "verified_how": "arXiv has only a PDF for this paper (the e-print is the PDF itself), so two checks: (1) the original article transformer-circuits.pub/2022/toy_model/index.html was downloaded and the TeX inside its <d-math> elements read directly (x' ~=~\\text{ReLU}(W^TWx + b), h ~=~ Wx, L = \\sum_x \\sum_i I_i (x_i - x'_i)^2); (2) page 10 of the arXiv PDF was rasterised and compared by eye with the same equations (\"ReLU Output Model: h = Wx; x' = ReLU(W^T h + b); x' = ReLU(W^T W x + b)\", and the loss). Neither source numbers the equations. Compile-checked with MathJax 3.2.1.",
+   "drop_hint": "Draw W^T W on a beat, then x' and the ReLU; the flashy-superposition visuals can run underneath.",
+   "name": "Toy model of superposition",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == article <d-math> TeX up to ~ spacing",
+   "pdf": "https://arxiv.org/pdf/2209.10652"
+  },
+  {
+   "id": "ppo",
+   "label": "PPO clipped objective",
+   "latex": "L^{CLIP}(\\theta) = \\hat{\\mathbb{E}}_t\\left[\\min(r_t(\\theta)\\hat{A}_t, \\mathrm{clip}(r_t(\\theta), 1-\\epsilon, 1+\\epsilon)\\hat{A}_t)\\right]",
+   "short_latex": "\\min(r_t(\\theta)\\hat{A}_t, \\mathrm{clip}(r_t(\\theta), 1-\\epsilon, 1+\\epsilon)\\hat{A}_t)",
+   "short_latex_what": "the per-timestep term inside the expectation of eq. 7",
+   "highlight_latex": "\\mathrm{clip}(r_t(\\theta), 1-\\epsilon, 1+\\epsilon)",
+   "highlight_what": "the clip that removes the incentive to move the probability ratio outside [1-eps, 1+eps]",
+   "ratio_latex": "r_t(\\theta) = \\frac{\\pi_\\theta(a_t \\mid s_t)}{\\pi_{\\theta_{\\text{old}}}(a_t \\mid s_t)}",
+   "ratio_what": "the probability ratio r_t(theta) defined in the sentence just above eq. 6 (page 3); r(theta_old) = 1",
+   "symbols": {
+    "L^{CLIP}(\\theta)": "clipped surrogate objective, maximised",
+    "\\hat{\\mathbb{E}}_t": "empirical average over a batch of timesteps",
+    "r_t(\\theta)": "probability ratio pi_theta(a_t|s_t) / pi_theta_old(a_t|s_t)",
+    "\\hat{A}_t": "estimator of the advantage at timestep t",
+    "\\epsilon": "clip hyper-parameter (0.2 in the paper)"
+   },
+   "paper": "Proximal Policy Optimization Algorithms",
+   "authors": "John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, Oleg Klimov",
+   "year": 2017,
+   "arxiv": "1707.06347",
+   "eq_no": "7",
+   "url": "https://arxiv.org/abs/1707.06347",
+   "arxiv_version_checked": "v2",
+   "cite": "Schulman et al. 2017, PPO (arXiv:1707.06347), eq. 7",
+   "source_tex_ref": null,
+   "latex_source_verbatim": null,
+   "latex_changes": [
+    "arXiv e-print for this paper is only a PDF wrapper (ppo-min.pdf), so there is no TeX to copy; the TeX here is typed from the rendered page."
+   ],
+   "verified_how": "No LaTeX source exists on arXiv for this paper (the e-print is a PDF include). Rasterised page 3 of the arXiv PDF (v2) and compared symbol by symbol: L^CLIP(theta) = E-hat_t[min(r_t(theta) A-hat_t, clip(r_t(theta), 1-eps, 1+eps) A-hat_t)] printed as eq. (7); the PDF text layer also reads \"(7)\" and the definition of r_t(theta) is in the sentence above eq. (6); epsilon = 0.2 from the paragraph below eq. (7). MathJax render compared with the page by eye; compile-checked with MathJax 3.2.1.",
+   "drop_hint": "Land min( on the downbeat, flash the clip(...) term on the next beat; then GRPO reuses exactly this inner term.",
+   "name": "PPO clipped objective",
+   "verified_date": "2026-10-10",
+   "source_check": "typed from rendered PDF page (no TeX source exists)",
+   "pdf": "https://arxiv.org/pdf/1707.06347"
+  },
+  {
+   "id": "attention",
+   "label": "Scaled dot-product attention",
+   "latex": "\\mathrm{Attention}(Q, K, V) = \\mathrm{softmax}(\\frac{QK^T}{\\sqrt{d_k}})V",
+   "short_latex": "\\mathrm{softmax}(\\frac{QK^T}{\\sqrt{d_k}})V",
+   "short_latex_what": "the right-hand side of eq. 1 (the attention output)",
+   "highlight_latex": "\\frac{QK^T}{\\sqrt{d_k}}",
+   "highlight_what": "the scaled dot products between queries and keys (the 1/sqrt(d_k) scaling is the \"scaled\" in the name)",
+   "extra_highlights": [
+    {
+     "latex": "\\sqrt{d_k}",
+     "what": "the scale factor sqrt(d_k)"
+    }
+   ],
+   "symbols": {
+    "Q": "matrix of queries (dimension d_k)",
+    "K": "matrix of keys (dimension d_k)",
+    "V": "matrix of values (dimension d_v)",
+    "d_k": "dimension of queries and keys"
+   },
+   "paper": "Attention Is All You Need",
+   "authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin",
+   "year": 2017,
+   "arxiv": "1706.03762",
+   "eq_no": "1",
+   "url": "https://arxiv.org/abs/1706.03762",
+   "arxiv_version_checked": "v7",
+   "cite": "Vaswani et al. 2017, Attention Is All You Need (arXiv:1706.03762), eq. 1",
+   "source_tex_ref": "arXiv e-print 1706.03762v7, model_architecture.tex, Section 3.2.1 (\"In practice, we compute the attention function on a set of queries simultaneously...\")",
+   "latex_changes": [],
+   "verified_how": "Copied mechanically from the arXiv LaTeX source (e-print 1706.03762v7, model_architecture.tex); printed number (1) read from the PDF text layer (\"Attention(Q, K, V) = softmax(QK^T / sqrt(d_k)) V  (1)\"); symbol definitions from the sentence before it (\"queries and keys of dimension d_k, and values of dimension d_v\"); also identical to the copy in research/rev2/equations-extra.json (id attention); compile-checked with MathJax 3.2.1.",
+   "drop_hint": "Draw QK^T first, then the sqrt(d_k) on the next beat, then softmax and V on the downbeat.",
+   "latex_source_verbatim": "\\mathrm{Attention}(Q, K, V) = \\mathrm{softmax}(\\frac{QK^T}{\\sqrt{d_k}})V",
+   "name": "Scaled dot-product attention",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/1706.03762"
+  },
+  {
+   "id": "gd",
+   "label": "Gradient descent update",
+   "latex": "\\theta = \\theta - \\eta \\cdot \\nabla_\\theta J( \\theta)",
+   "highlight_latex": "\\eta \\cdot \\nabla_\\theta J( \\theta)",
+   "highlight_what": "the step: learning rate times the gradient of the objective, subtracted from the parameters",
+   "extra_highlights": [
+    {
+     "latex": "\\nabla_\\theta J( \\theta)",
+     "what": "the gradient of the objective function w.r.t. the parameters"
+    },
+    {
+     "latex": "\\eta",
+     "what": "the learning rate"
+    }
+   ],
+   "symbols": {
+    "\\theta": "model parameters (theta in R^d)",
+    "J(\\theta)": "objective (cost) function",
+    "\\nabla_\\theta J(\\theta)": "gradient of the objective w.r.t. the parameters",
+    "\\eta": "learning rate, the size of the step"
+   },
+   "paper": "An overview of gradient descent optimization algorithms",
+   "authors": "Sebastian Ruder",
+   "year": 2016,
+   "arxiv": "1609.04747",
+   "eq_no": "1",
+   "url": "https://arxiv.org/abs/1609.04747",
+   "arxiv_version_checked": "v2",
+   "cite": "Ruder 2016, An overview of gradient descent optimization algorithms (arXiv:1609.04747), eq. 1",
+   "source_tex_ref": "arXiv e-print 1609.04747v2, overview_sgd.tex, \"Batch gradient descent\"",
+   "latex_changes": [],
+   "see_also": [
+    "gd-update in research/rev2/equations-extra.json (Nielsen 2015 eq. 17-style per-weight form w_k -> w_k - eta dC/dw_k)"
+   ],
+   "verified_how": "Copied mechanically from the arXiv LaTeX source (e-print 1609.04747v2, overview_sgd.tex, batch gradient descent); printed number (1) read from the PDF text layer (\"theta = theta - eta . grad_theta J(theta)  (1)\"); the paper's sentence defines J(theta) as the objective, eta as the learning rate and the update as \"in the opposite direction of the gradient\"; compile-checked with MathJax 3.2.1. Eq. 2 of the same paper is the stochastic version (theta - eta grad J(theta; x(i); y(i))).",
+   "drop_hint": "Quick, minimal: rolls in a single beat; pairs with the netviz backprop weight update.",
+   "latex_source_verbatim": "\\theta = \\theta - \\eta \\cdot \\nabla_\\theta J( \\theta)",
+   "name": "Gradient descent update",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/1609.04747"
+  }
+ ],
+ "equations": [
+  {
+   "id": "dapo",
+   "label": "DAPO objective",
+   "latex": "\\begin{aligned} \\mathcal{J}_{\\text{DAPO}}(\\theta) =\\quad& \\mathbb{E}_{(q,a)\\sim \\mathcal{D}, \\{o_i\\}_{i=1}^G\\sim \\pi_{\\theta_\\text{old}}(\\cdot\\mid q)}\\\\& \\Bigg[\\frac{1}{\\sum_{i=1}^{G}|o_i|}\\sum_{i=1}^{G}\\sum_{t=1}^{|o_i|} \\min \\Big( r_{i,t}(\\theta) \\hat{A}_{i,t}, \\ \\text{clip} \\Big( r_{i,t}(\\theta), 1 - {\\varepsilon_{\\text{low}}}, 1 + {\\varepsilon_{\\text{high}}} \\Big) \\hat{A}_{i,t} \\Big) \\Bigg] \\\\ \\text{s.t.}\\quad& 0< \\Big|\\{o_i\\mid\\mathtt{is\\_equivalent}(a,o_i)\\}\\Big|< G \\end{aligned}",
+   "latex_stacked": "\\begin{gathered} \\mathcal{J}_{\\text{DAPO}}(\\theta) = \\mathbb{E}_{(q,a)\\sim \\mathcal{D}, \\{o_i\\}_{i=1}^G\\sim \\pi_{\\theta_\\text{old}}(\\cdot\\mid q)} \\\\[4pt] \\Bigg[\\frac{1}{\\sum_{i=1}^{G}|o_i|}\\sum_{i=1}^{G}\\sum_{t=1}^{|o_i|} \\min \\Big( r_{i,t}(\\theta) \\hat{A}_{i,t}, \\\\[4pt] \\ \\text{clip} \\Big( r_{i,t}(\\theta), 1 - {\\varepsilon_{\\text{low}}}, 1 + {\\varepsilon_{\\text{high}}} \\Big) \\hat{A}_{i,t} \\Big) \\Bigg] \\\\[4pt] \\text{s.t.}\\quad 0< \\Big|\\{o_i\\mid\\mathtt{is\\_equivalent}(a,o_i)\\}\\Big|< G \\end{gathered}",
+   "tex": "\\begin{gathered} \\mathcal{J}_{\\text{DAPO}}(\\theta) = \\mathbb{E}_{(q,a)\\sim \\mathcal{D}, \\{o_i\\}_{i=1}^G\\sim \\pi_{\\theta_\\text{old}}(\\cdot\\mid q)} \\\\[4pt] \\Bigg[\\frac{1}{\\sum_{i=1}^{G}|o_i|}\\sum_{i=1}^{G}\\sum_{t=1}^{|o_i|} \\min \\Big( r_{i,t}(\\theta) \\hat{A}_{i,t}, \\\\[4pt] \\ \\text{clip} \\Big( r_{i,t}(\\theta), 1 - {\\varepsilon_{\\text{low}}}, 1 + {\\varepsilon_{\\text{high}}} \\Big) \\hat{A}_{i,t} \\Big) \\Bigg] \\\\[4pt] \\text{s.t.}\\quad 0< \\Big|\\{o_i\\mid\\mathtt{is\\_equivalent}(a,o_i)\\}\\Big|< G \\end{gathered}",
+   "latex_stacked_what": "same symbols and order as `latex`, only the line breaks differ (4 rows) for a 1080-px-wide portrait frame; checked equal to `latex` after removing layout",
+   "short_latex": "\\min \\Big( r_{i,t}(\\theta) \\hat{A}_{i,t}, \\ \\text{clip} \\Big( r_{i,t}(\\theta), 1 - {\\varepsilon_{\\text{low}}}, 1 + {\\varepsilon_{\\text{high}}} \\Big) \\hat{A}_{i,t} \\Big)",
+   "short_latex_what": "the token-level clipped term inside eq. 8, min(r A-hat, clip(r, 1-eps_low, 1+eps_high) A-hat); drops the expectation, the 1/sum|o_i| token-level normaliser and the s.t. sampling constraint",
+   "highlight_latex": "\\varepsilon_{\\text{high}}",
+   "highlight_what": "eps_high: the Clip-Higher decoupling (a larger upper clip range than lower, to keep exploration alive)",
+   "extra_highlights": [
+    {
+     "latex": "\\varepsilon_{\\text{low}}",
+     "what": "eps_low, the lower clip range"
+    },
+    {
+     "latex": "0< \\Big|\\{o_i\\mid\\mathtt{is\\_equivalent}(a,o_i)\\}\\Big|< G",
+     "what": "the dynamic-sampling constraint: keep only prompts whose group is neither all-wrong nor all-right"
+    },
+    {
+     "latex": "\\frac{1}{\\sum_{i=1}^{G}|o_i|}",
+     "what": "the token-level (sum over all tokens in the group) normaliser, replacing GRPO's per-sample 1/|o_i|"
+    }
+   ],
+   "definitions_latex": "r_{i,t}(\\theta)=\\frac{\\pi_{\\theta}(o_{i,t} \\mid q, o_{i,<t})}{\\pi_{\\theta_{\\text{old}}}(o_{i,t} \\mid q,o_{i,<t})},\\quad\\hat{A}_{i,t} = \\frac{R_i - \\text{mean}(\\{R_i\\}_{i=1}^G)}{\\text{std}(\\{R_i\\}_{i=1}^G)}",
+   "definitions_what": "eq. 9 of the same paper: the importance ratio r_{i,t}(theta) and the group-normalised advantage",
+   "symbols": {
+    "\\mathcal{D}": "dataset of question-answer pairs (q, a)",
+    "\\{o_i\\}_{i=1}^G": "G responses sampled from the old policy for question q",
+    "r_{i,t}(\\theta)": "importance-sampling ratio pi_theta / pi_theta_old (eq. 9)",
+    "\\hat{A}_{i,t}": "group-normalised advantage (eq. 9)",
+    "\\varepsilon_{\\text{low}}, \\varepsilon_{\\text{high}}": "decoupled lower and upper clip ranges (Clip-Higher)",
+    "\\mathtt{is\\_equivalent}(a,o_i)": "whether response o_i matches the reference answer a (rule-based verifier)"
+   },
+   "paper": "DAPO: An Open-Source LLM Reinforcement Learning System at Scale",
+   "authors": "Qiying Yu, Zheng Zhang, Ruofei Zhu, Yufeng Yuan, Xiaochen Zuo, Yu Yue, Weinan Dai, Tiantian Fan, Gaohong Liu, Lingjun Liu, Xin Liu, Haibin Lin, Zhiqi Lin, Bole Ma et al. (35 authors; ByteDance Seed, Tsinghua AIR, HKU)",
+   "year": 2025,
+   "arxiv": "2503.14476",
+   "eq_no": "8",
+   "url": "https://arxiv.org/abs/2503.14476",
+   "arxiv_version_checked": "v2",
+   "cite": "Yu et al. 2025, DAPO (arXiv:2503.14476), eq. 8",
+   "source_tex_ref": "arXiv e-print 2503.14476v2, sections/030method.tex, \\label{eq:dapoloss}",
+   "latex_changes": [
+    "\\label removed; trailing comma dropped; newlines collapsed (the source is already an aligned block); \\texttt{is\\_equivalent} written \\mathtt{is\\_equivalent} because MathJax's \\texttt prints the backslash of \\_ literally (LaTeX prints is_equivalent in typewriter type; \\mathtt gives the same). No symbol changed."
+   ],
+   "verified_how": "Copied mechanically from the arXiv LaTeX source (e-print 2503.14476v2, sections/030method.tex, label eq:dapoloss); printed number (8) read from the PDF text layer (eq. 9 defines r and A-hat right below it); abstract page checked for title, authors and date (v1 18 Mar 2025, v2 20 May 2025); compile-checked with MathJax 3.2.1. DAPO is the algorithm the paper reports reaching 50 points on AIME 2024 with Qwen2.5-32B (stated in its introduction).",
+   "drop_hint": "A 2025 sequel to GRPO: drop it right after GRPO and flash eps_high in the accent colour.",
+   "latex_source_verbatim": "\\begin{aligned} \\mathcal{J}_{\\text{DAPO}}(\\theta) =\\quad& \\mathbb{E}_{(q,a)\\sim \\mathcal{D}, \\{o_i\\}_{i=1}^G\\sim \\pi_{\\theta_\\text{old}}(\\cdot\\mid q)}\\\\& \\Bigg[\\frac{1}{\\sum_{i=1}^{G}|o_i|}\\sum_{i=1}^{G}\\sum_{t=1}^{|o_i|} \\min \\Big( r_{i,t}(\\theta) \\hat{A}_{i,t}, \\ \\text{clip} \\Big( r_{i,t}(\\theta), 1 - {\\varepsilon_{\\text{low}}}, 1 + {\\varepsilon_{\\text{high}}} \\Big) \\hat{A}_{i,t} \\Big) \\Bigg] \\\\ \\text{s.t.}\\quad& 0< \\Big|\\{o_i\\mid\\texttt{is\\_equivalent}(a,o_i)\\}\\Big|< G, \\label{eq:dapoloss} \\end{aligned}",
+   "name": "DAPO objective",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/2503.14476"
+  },
+  {
+   "id": "grpo",
+   "label": "GRPO objective",
+   "latex": "\\begin{aligned} \\mathcal{J}_{GRPO}(\\theta) &= \\mathbb{E}{[q \\sim P(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]} \\\\ & \\frac{1}{G}\\sum_{i=1}^G\\frac{1}{|o_i|} \\sum_{t=1}^{|o_i|} \\left\\{ \\min \\left[ \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})} \\hat{A}_{i,t}, \\text{clip} \\left( \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})}, 1 - \\epsilon, 1 + \\epsilon \\right) \\hat{A}_{i,t} \\right] - \\beta \\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right]\\right\\} \\end{aligned}",
+   "latex_stacked": "\\begin{gathered} \\mathcal{J}_{GRPO}(\\theta) = \\mathbb{E}{[q \\sim P(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]} \\\\[4pt] \\frac{1}{G}\\sum_{i=1}^G\\frac{1}{|o_i|} \\sum_{t=1}^{|o_i|} \\left\\{ \\min \\left[ \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})} \\hat{A}_{i,t}, \\right.\\right. \\\\[4pt] \\left.\\left. \\text{clip} \\left( \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})}, 1 - \\epsilon, 1 + \\epsilon \\right) \\hat{A}_{i,t} \\right] - \\beta \\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right]\\right\\} \\end{gathered}",
+   "tex": "\\begin{gathered} \\mathcal{J}_{GRPO}(\\theta) = \\mathbb{E}{[q \\sim P(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]} \\\\[4pt] \\frac{1}{G}\\sum_{i=1}^G\\frac{1}{|o_i|} \\sum_{t=1}^{|o_i|} \\left\\{ \\min \\left[ \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})} \\hat{A}_{i,t}, \\right.\\right. \\\\[4pt] \\left.\\left. \\text{clip} \\left( \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})}, 1 - \\epsilon, 1 + \\epsilon \\right) \\hat{A}_{i,t} \\right] - \\beta \\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right]\\right\\} \\end{gathered}",
+   "latex_stacked_what": "same symbols and order as `latex`, only the line breaks differ (4 rows, braces/brackets split with \\left. \\right. pairs) so it fits a 1080-px-wide portrait frame; checked equal to `latex` after removing layout",
+   "short_latex": "\\min \\left[ \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})} \\hat{A}_{i,t}, \\text{clip} \\left( \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})}, 1 - \\epsilon, 1 + \\epsilon \\right) \\hat{A}_{i,t} \\right] - \\beta \\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right]",
+   "short_latex_what": "the per-token summand inside the braces of eq. 3 (clipped-ratio min[...] minus the KL penalty); drops the expectation and the 1/G and 1/|o_i| averaging. The most compact GRPO drop is `advantage_latex` (the group-relative advantage).",
+   "highlight_latex": "\\beta \\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right]",
+   "highlight_what": "the KL penalty: beta * D_KL[pi_theta || pi_ref] (GRPO adds it to the loss directly instead of folding it into the reward as PPO does)",
+   "extra_highlights": [
+    {
+     "latex": "\\hat{A}_{i,t}",
+     "what": "the group-relative advantage (first occurrence)"
+    },
+    {
+     "latex": "\\frac{1}{G}\\sum_{i=1}^G",
+     "what": "the average over the G outputs sampled for the same question"
+    }
+   ],
+   "advantage_latex": "\\hat{A}_{i, t} = \\widetilde{r}_i = \\frac{r_i- {\\rm mean}(\\mathbf{r})}{{\\rm std}(\\mathbf{r})}",
+   "advantage_what": "outcome-supervision advantage of the same paper (section 4.1.2, inline, unnumbered): each output's reward normalised by the group mean and standard deviation",
+   "alt_latex": "\\begin{aligned} \\mathcal{J}_{GRPO}(\\theta) = \\mathbb{E}{[q \\sim P(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]} \\\\ & \\frac{1}{G}\\sum_{i=1}^G \\left( \\min \\left( \\frac{\\pi_\\theta(o_i |q)}{\\pi_{\\theta_{old}}(o_i |q)} A_i, \\text{clip} \\left( \\frac{\\pi_\\theta(o_i |q)}{\\pi_{\\theta_{old}}(o_i |q)}, 1 - \\epsilon, 1 + \\epsilon \\right) A_i \\right) - \\beta \\mathbb{D}_{KL}\\left(\\pi_{\\theta} || \\pi_{ref}\\right)\\right) \\end{aligned}",
+   "alt_what": "DeepSeek-R1 (Guo et al., arXiv:2501.12948v2, Section 2.1, eq. 1) restates GRPO at sequence level (no token index t; A_i instead of A-hat_{i,t}); same symbols otherwise",
+   "alt_source": {
+    "paper": "DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning",
+    "authors": "DeepSeek-AI (Daya Guo et al.)",
+    "year": 2025,
+    "arxiv": "2501.12948",
+    "eq_no": "1",
+    "url": "https://arxiv.org/abs/2501.12948",
+    "doi": "10.1038/s41586-025-09422-z"
+   },
+   "symbols": {
+    "\\pi_\\theta": "policy being trained",
+    "\\pi_{\\theta_{old}}": "old policy that sampled the outputs",
+    "\\pi_{ref}": "reference model (usually the initial SFT model)",
+    "q": "question sampled from P(Q)",
+    "\\{o_i\\}_{i=1}^G": "group of G outputs sampled for the same question",
+    "|o_i|": "length of output i in tokens",
+    "\\hat{A}_{i,t}": "advantage of token t of output i, computed from the relative rewards inside the group only",
+    "\\epsilon": "clipping hyper-parameter",
+    "\\beta": "KL-penalty coefficient (0.04 in the paper's RL run)",
+    "\\mathbb{D}_{KL}": "KL divergence, estimated with eq. 4 (see item grpo-kl)"
+   },
+   "paper": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+   "authors": "Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, Y. K. Li, Y. Wu, Daya Guo",
+   "year": 2024,
+   "arxiv": "2402.03300",
+   "eq_no": "3",
+   "url": "https://arxiv.org/abs/2402.03300",
+   "arxiv_version_checked": "v3",
+   "cite": "Shao et al. 2024, DeepSeekMath (arXiv:2402.03300), eq. 3",
+   "source_tex_ref": "arXiv e-print 2402.03300v3, main.tex, \\label{eq:GRPO-obj} (a \\begin{split} block with one line break after the expectation)",
+   "latex_changes": [
+    "\\begin{split}...\\end{split} -> \\begin{aligned}...\\end{aligned}; \\label and \\footnotesize removed; trailing comma dropped; newlines collapsed. No symbol changed."
+   ],
+   "verified_how": "Downloaded the arXiv LaTeX source (e-print 2402.03300v3, 10 Oct 2026) and copied the equation block labelled eq:GRPO-obj (main.tex) mechanically, no retyping; printed number (3) read from the arXiv PDF text layer (eqs 1-2 are the PPO objective and PPO reward, eq 4 the KL estimator); symbol meanings read from the surrounding Section 4.1.1 text; compile-checked with MathJax 3.2.1.",
+   "drop_hint": "Pencil in the first row (E over q and the G samples), land the second row on the downbeat, then circle the KL term on the next beat; or drop `advantage_latex` alone on a single beat.",
+   "latex_source_verbatim": "\\footnotesize \\begin{split} \\mathcal{J}_{GRPO}(\\theta) &= \\mathbb{E}{[q \\sim P(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]} \\\\ & \\frac{1}{G}\\sum_{i=1}^G\\frac{1}{|o_i|} \\sum_{t=1}^{|o_i|} \\left\\{ \\min \\left[ \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})} \\hat{A}_{i,t}, \\text{clip} \\left( \\frac{\\pi_\\theta(o_{i,t} | q, o_{i,<t})}{\\pi_{\\theta_{old}}(o_{i,t} | q, o_{i,<t})}, 1 - \\epsilon, 1 + \\epsilon \\right) \\hat{A}_{i,t} \\right] - \\beta \\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right]\\right\\} , \\end{split} \\label{eq:GRPO-obj}",
+   "name": "GRPO objective",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/2402.03300"
+  },
+  {
+   "id": "grpo-kl",
+   "label": "GRPO KL estimator",
+   "latex": "\\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right] = \\frac{\\pi_{ref}(o_{i,t}|q,o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|q,o_{i,<t})}- \\log\\frac{\\pi_{ref}(o_{i,t}|q,o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|q,o_{i,<t})} - 1",
+   "short_latex": "\\mathbb{D}_{KL}\\left(\\pi_{\\theta} || \\pi_{ref}\\right) = \\frac{\\pi_{ref}(o_i|q)}{\\pi_{\\theta}(o_i|q)}- \\log\\frac{\\pi_{ref}(o_i|q)}{\\pi_{\\theta}(o_i|q)} - 1",
+   "short_latex_what": "the same estimator at sequence level, as printed in DeepSeek-R1 (arXiv:2501.12948v2, eq. 2): D_KL(pi_theta || pi_ref) = pi_ref(o_i|q)/pi_theta(o_i|q) - log(pi_ref(o_i|q)/pi_theta(o_i|q)) - 1 (round brackets, no token index)",
+   "highlight_latex": "\\frac{\\pi_{ref}(o_{i,t}|q,o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|q,o_{i,<t})}",
+   "highlight_what": "the density ratio pi_ref / pi_theta (first occurrence); the estimator is ratio - log(ratio) - 1",
+   "extra_highlights": [
+    {
+     "latex": "- \\log",
+     "what": "the log of the ratio (first occurrence of the minus-log)"
+    }
+   ],
+   "symbols": {
+    "\\mathbb{D}_{KL}[\\pi_\\theta || \\pi_{ref}]": "per-token KL estimate used as the penalty in the GRPO objective",
+    "\\pi_{ref}": "reference model",
+    "\\pi_\\theta": "current policy",
+    "o_{i,t}": "token t of sampled output i",
+    "q": "question; o_{i,<t} = the tokens of output i before t"
+   },
+   "paper": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+   "authors": "Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, Y. K. Li, Y. Wu, Daya Guo",
+   "year": 2024,
+   "arxiv": "2402.03300",
+   "eq_no": "4",
+   "url": "https://arxiv.org/abs/2402.03300",
+   "arxiv_version_checked": "v3",
+   "cite": "Shao et al. 2024, DeepSeekMath (arXiv:2402.03300), eq. 4",
+   "source_tex_ref": "arXiv e-print 2402.03300v3, main.tex, the unlabelled equation after the GRPO objective; the paper calls it an unbiased estimator (citing Schulman's \"Approximating KL divergence\" note) that is guaranteed to be positive",
+   "latex_changes": [
+    "\\small removed; trailing comma dropped. No symbol changed."
+   ],
+   "verified_how": "Copied mechanically from the arXiv LaTeX source (e-print 2402.03300v3, main.tex, the equation right after eq:GRPO-obj); printed number (4) read from the PDF text layer; the sequence-level variant in short_latex copied from the DeepSeek-R1 e-print source (2501.12948v2, sn-article.tex) and its number (2) read from that PDF; compile-checked with MathJax 3.2.1.",
+   "drop_hint": "Pair with the GRPO objective: after circling the KL term, slam this on the next downbeat.",
+   "latex_source_verbatim": "\\small \\mathbb{D}_{KL}\\left[\\pi_{\\theta} || \\pi_{ref}\\right] = \\frac{\\pi_{ref}(o_{i,t}|q,o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|q,o_{i,<t})}- \\log\\frac{\\pi_{ref}(o_{i,t}|q,o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|q,o_{i,<t})} - 1,",
+   "name": "GRPO KL estimator",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/2402.03300"
+  },
+  {
+   "id": "ntp-ce",
+   "label": "Next-token cross-entropy",
+   "latex": "L_1 = - \\sum_t \\log P_\\theta(x_{t+1} \\mid x_{t:1})",
+   "short_latex": "- \\sum_t \\log P_\\theta(x_{t+1} \\mid x_{t:1})",
+   "short_latex_what": "the right-hand side of eq. 1 (minus the summed log-probability the model gave each true next token)",
+   "highlight_latex": "\\log P_\\theta(x_{t+1} \\mid x_{t:1})",
+   "highlight_what": "the log-probability of the actual next token given the history",
+   "extra_highlights": [
+    {
+     "latex": "- \\sum_t",
+     "what": "minus the sum over positions t of the training corpus"
+    }
+   ],
+   "related_latex": "L_n = - \\sum_t \\log P_\\theta(x_{t+n:t+1} \\mid x_{t:1})",
+   "related_what": "eq. 2 of the same paper, the multi-token generalisation L_n (predict n future tokens at once), which is the paper's contribution",
+   "symbols": {
+    "L_1": "next-token (n = 1) cross-entropy loss over the corpus",
+    "x_1,\\dots,x_T": "tokens of the training corpus",
+    "P_\\theta": "the language model being trained",
+    "x_{t:1}": "history x_t, ..., x_1 of past tokens",
+    "x_{t+1}": "the next token to predict"
+   },
+   "paper": "Better & Faster Large Language Models via Multi-token Prediction",
+   "authors": "Fabian Gloeckle, Badr Youbi Idrissi, Baptiste Rozière, David Lopez-Paz, Gabriel Synnaeve",
+   "year": 2024,
+   "arxiv": "2404.19737",
+   "eq_no": "1",
+   "url": "https://arxiv.org/abs/2404.19737",
+   "arxiv_version_checked": "v1",
+   "cite": "Gloeckle et al. 2024 (arXiv:2404.19737), eq. 1",
+   "source_tex_ref": "arXiv e-print 2404.19737v1, method.tex, first display equation of Section 2 (\"Formally, the learning objective is to minimize the cross-entropy loss\")",
+   "latex_changes": [
+    "\\begin{align} ... & = ... \\end{align} flattened to one line (& removed); trailing comma dropped. No symbol changed."
+   ],
+   "origin_note": "The same objective as a likelihood to maximise is eq. 1 of Radford, Narasimhan, Salimans, Sutskever 2018, \"Improving Language Understanding by Generative Pre-Training\" (GPT-1; OpenAI PDF, not on arXiv): L_1(U) = sum_i log P(u_i | u_{i-k}, ..., u_{i-1}; Theta). Read from the PDF text layer only (not rendered), so it is not offered as a separate item.",
+   "verified_how": "Copied mechanically from the arXiv LaTeX source (e-print 2404.19737v1, method.tex); printed numbers (1) and (2) read from the PDF text layer; the sentence introducing it calls it \"the cross-entropy loss\" for \"next-token prediction\"; compile-checked with MathJax 3.2.1. Chosen over older sources because it prints the standard next-token loss explicitly and is a 2024 paper.",
+   "drop_hint": "The simplest drop: roll the left side, slam the minus-log term on the downbeat, circle the log-probability.",
+   "latex_source_verbatim": "L_1 &= - \\sum_t \\log P_\\theta(x_{t+1} \\mid x_{t:1}),",
+   "name": "Next-token cross-entropy",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/2404.19737"
+  },
+  {
+   "id": "dpo",
+   "label": "DPO loss",
+   "latex": "\\mathcal{L}_\\text{DPO}(\\pi_{\\theta}; \\pi_\\text{ref}) = -\\mathbb{E}_{(x, y_w, y_l)\\sim \\mathcal{D}}\\left[\\log \\sigma \\left(\\beta \\log \\frac{\\pi_{\\theta}(y_w\\mid x)}{\\pi_\\text{ref}(y_w\\mid x)} - \\beta \\log \\frac{\\pi_{\\theta}(y_l\\mid x)}{\\pi_\\text{ref}(y_l\\mid x)}\\right)\\right]",
+   "latex_stacked": "\\begin{gathered} \\mathcal{L}_\\text{DPO}(\\pi_{\\theta}; \\pi_\\text{ref}) = -\\mathbb{E}_{(x, y_w, y_l)\\sim \\mathcal{D}}\\left[\\log \\sigma \\left( \\right.\\right. \\\\[4pt] \\left.\\left.\\beta \\log \\frac{\\pi_{\\theta}(y_w\\mid x)}{\\pi_\\text{ref}(y_w\\mid x)} \\right.\\right. \\\\[4pt] \\left.\\left.- \\beta \\log \\frac{\\pi_{\\theta}(y_l\\mid x)}{\\pi_\\text{ref}(y_l\\mid x)}\\right)\\right] \\end{gathered}",
+   "tex": "\\begin{gathered} \\mathcal{L}_\\text{DPO}(\\pi_{\\theta}; \\pi_\\text{ref}) = -\\mathbb{E}_{(x, y_w, y_l)\\sim \\mathcal{D}}\\left[\\log \\sigma \\left( \\right.\\right. \\\\[4pt] \\left.\\left.\\beta \\log \\frac{\\pi_{\\theta}(y_w\\mid x)}{\\pi_\\text{ref}(y_w\\mid x)} \\right.\\right. \\\\[4pt] \\left.\\left.- \\beta \\log \\frac{\\pi_{\\theta}(y_l\\mid x)}{\\pi_\\text{ref}(y_l\\mid x)}\\right)\\right] \\end{gathered}",
+   "latex_stacked_what": "same symbols and order as `latex`, only the line breaks differ (3 rows, brackets split with \\left. \\right. pairs) for a 1080-px-wide portrait frame; checked equal to `latex` after removing layout",
+   "short_latex": "\\log \\sigma \\left(\\beta \\log \\frac{\\pi_{\\theta}(y_w\\mid x)}{\\pi_\\text{ref}(y_w\\mid x)} - \\beta \\log \\frac{\\pi_{\\theta}(y_l\\mid x)}{\\pi_\\text{ref}(y_l\\mid x)}\\right)",
+   "short_latex_what": "the log-sigmoid term inside the expectation of eq. 7 (the loss for one preference pair)",
+   "highlight_latex": "\\beta \\log \\frac{\\pi_{\\theta}(y_w\\mid x)}{\\pi_\\text{ref}(y_w\\mid x)}",
+   "highlight_what": "the implicit reward of the preferred answer, beta * log(pi_theta(y_w|x) / pi_ref(y_w|x)); the loss pushes it above the same quantity for the dispreferred answer y_l",
+   "symbols": {
+    "\\pi_\\theta": "the language model being optimised",
+    "\\pi_{\\text{ref}}": "reference policy (the initial SFT model)",
+    "y_w, y_l": "preferred (\"winning\") and dispreferred (\"losing\") completions for prompt x",
+    "\\mathcal{D}": "dataset of preference triples (x, y_w, y_l)",
+    "\\beta": "parameter controlling deviation from the reference policy",
+    "\\sigma": "logistic sigmoid"
+   },
+   "paper": "Direct Preference Optimization: Your Language Model is Secretly a Reward Model",
+   "authors": "Rafael Rafailov, Archit Sharma, Eric Mitchell, Stefano Ermon, Christopher D. Manning, Chelsea Finn",
+   "year": 2023,
+   "arxiv": "2305.18290",
+   "eq_no": "7",
+   "url": "https://arxiv.org/abs/2305.18290",
+   "arxiv_version_checked": "v3",
+   "cite": "Rafailov et al. 2023, DPO (arXiv:2305.18290), eq. 7",
+   "source_tex_ref": "arXiv e-print 2305.18290v3, main.tex, \\label{eq:optimum_model} (Section 4); NeurIPS 2023",
+   "latex_changes": [
+    "the paper's macro \\piref (defined in main.tex line 48 as \\pi_\\text{ref}) expanded to \\pi_\\text{ref}; \\label removed; trailing full stop dropped. No symbol changed."
+   ],
+   "verified_how": "Copied mechanically from the arXiv LaTeX source (e-print 2305.18290v3, main.tex, label eq:optimum_model), expanding the paper's one macro \\piref; printed number (7) read from the PDF text layer (\"L_DPO(pi_theta; pi_ref) = -E[log sigma(beta log ... - beta log ...)]  (7)\"); symbol meanings read from Section 3-4; compile-checked with MathJax 3.2.1.",
+   "drop_hint": "Slam the minus-E-log-sigma frame, then the winner term and the loser term on successive beats (the loser term subtracts).",
+   "latex_source_verbatim": "\\label{eq:optimum_model} \\mathcal{L}_\\text{DPO}(\\pi_{\\theta}; \\pi_\\text{ref}) = -\\mathbb{E}_{(x, y_w, y_l)\\sim \\mathcal{D}}\\left[\\log \\sigma \\left(\\beta \\log \\frac{\\pi_{\\theta}(y_w\\mid x)}{\\pi_\\text{ref}(y_w\\mid x)} - \\beta \\log \\frac{\\pi_{\\theta}(y_l\\mid x)}{\\pi_\\text{ref}(y_l\\mid x)}\\right)\\right].",
+   "name": "DPO loss",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/2305.18290"
+  },
+  {
+   "id": "chinchilla",
+   "label": "Chinchilla scaling law",
+   "latex": "\\hat L(N,D) \\triangleq E + \\frac{A}{N^\\alpha} + \\frac{B}{D^\\beta}",
+   "short_latex": "E + \\frac{A}{N^\\alpha} + \\frac{B}{D^\\beta}",
+   "short_latex_what": "the right-hand side of eq. 2 (predicted loss as irreducible term + model-size term + data term)",
+   "highlight_latex": "\\frac{B}{D^\\beta}",
+   "highlight_what": "the data term B/D^beta: loss left over because the model saw only D tokens (the paper's message is that N and D should be scaled together)",
+   "extra_highlights": [
+    {
+     "latex": "\\frac{A}{N^\\alpha}",
+     "what": "the model-size term A/N^alpha"
+    },
+    {
+     "latex": "E",
+     "what": "E, the irreducible loss (entropy of natural text)"
+    }
+   ],
+   "fitted_latex": "L(N, D) = E + \\frac{A}{N^{0.34}} + \\frac{B}{D^{0.28}}",
+   "fitted_what": "eq. 10 (Appendix D.2): the paper's fitted exponents printed in place of alpha and beta; the constants are given in the text right below it",
+   "fitted_numbers_latex": "E = 1.69,\\quad A = 406.4,\\quad B = 410.7,\\quad \\alpha = 0.34,\\quad \\beta = 0.28",
+   "fitted_numbers_what": "the fitted constants as printed in Appendix D.2 (\"with E = 1.69, A = 406.4, B = 410.7\") and the exponents printed in eq. 10 (alpha = 0.34, beta = 0.28); assembled from those two printed places, not a single printed line",
+   "fitted_substituted_latex": "L(N, D) = 1.69 + \\frac{406.4}{N^{0.34}} + \\frac{410.7}{D^{0.28}}",
+   "fitted_substituted_what": "eq. 10 with the printed constants substituted by hand (derived, not printed in this form)",
+   "fitted_constants": {
+    "E": 1.69,
+    "A": 406.4,
+    "B": 410.7,
+    "alpha": 0.34,
+    "beta": 0.28
+   },
+   "replication_caveat": "Besiroglu, Erdil, Barnett, You 2024 (\"Chinchilla Scaling: A replication attempt\", arXiv:2404.10102v2, eq. 3) re-fit the same parametric form to data reconstructed from the paper's plots and report L = 1.8172 + 482.01/N^0.3478 + 2085.43/D^0.3658; they find the published constants inconsistent with the paper's first two approaches. If the fitted numbers go on screen, attribute them as \"as reported by Hoffmann et al.\" and do not call them settled. The functional form (eq. 2) is not in dispute.",
+   "symbols": {
+    "\\hat L(N,D)": "predicted final loss",
+    "N": "number of model parameters",
+    "D": "number of training tokens",
+    "E": "irreducible loss; the paper says it should correspond to the entropy of natural text",
+    "A/N^\\alpha": "loss gap of a perfectly trained N-parameter transformer vs the ideal generative process",
+    "B/D^\\beta": "loss gap because training is not run to convergence on a finite sample"
+   },
+   "paper": "Training Compute-Optimal Large Language Models",
+   "authors": "Jordan Hoffmann, Sebastian Borgeaud, Arthur Mensch, Elena Buchatskaya, Trevor Cai, Eliza Rutherford, Diego de Las Casas, Lisa Anne Hendricks, Johannes Welbl, Aidan Clark et al. (22 authors; DeepMind)",
+   "year": 2022,
+   "arxiv": "2203.15556",
+   "eq_no": "2",
+   "url": "https://arxiv.org/abs/2203.15556",
+   "arxiv_version_checked": "v1",
+   "cite": "Hoffmann et al. 2022, Chinchilla (arXiv:2203.15556), eq. 2",
+   "source_tex_ref": "arXiv e-print 2203.15556v1, main.tex, \\label{eq:decompose} (Section 3.3, Approach 3); fitted form in Appendix D.2",
+   "latex_changes": [
+    "\\label removed; trailing full stop dropped. No symbol changed."
+   ],
+   "verified_how": "Copied mechanically from the arXiv LaTeX source (e-print 2203.15556v1, main.tex, label eq:decompose); printed number (2) read from the PDF text layer (\"L-hat(N, D) = E + A/N^alpha + B/D^beta  (2)\"); the fitted constants and exponents located in the PDF text layer of Section D.2, eq. (10), and in the source (\"with E=1.69, A=406.4, B=410.7\"); cross-checked against the replication paper (arXiv:2404.10102), which quotes the rounded values E = 1.69, A = 406.4, B = 410.7, alpha = 0.34, beta = 0.28; compile-checked with MathJax 3.2.1.",
+   "drop_hint": "Draw L-hat, then three terms on three beats (E, the N term, the D term); on the next bar swap in the fitted numbers.",
+   "latex_source_verbatim": "\\hat L(N,D) \\triangleq E + \\frac{A}{N^\\alpha} + \\frac{B}{D^\\beta}.\\label{eq:decompose}",
+   "name": "Chinchilla scaling law",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/2203.15556"
+  },
+  {
+   "id": "rlhf",
+   "label": "RLHF objective with KL",
+   "latex": "\\begin{aligned} \\operatorname{objective}\\left(\\phi\\right)= & E_{\\left(x, y\\right) \\sim D_{\\pi_{\\phi}^{\\mathrm{RL}}}}\\left[r_{\\theta}(x, y)-\\beta \\log \\left(\\pi_{\\phi}^{\\mathrm{RL}}(y \\mid x) / \\pi^{\\mathrm{SFT}}(y \\mid x)\\right)\\right] + \\\\ & \\gamma E_{x \\sim D_\\textrm{pretrain}}\\left[\\log(\\pi_{\\phi}^{\\mathrm{RL}}(x))\\right] \\end{aligned}",
+   "latex_stacked": "\\begin{gathered} \\operatorname{objective}\\left(\\phi\\right)= E_{\\left(x, y\\right) \\sim D_{\\pi_{\\phi}^{\\mathrm{RL}}}}\\left[r_{\\theta}(x, y)- \\right. \\\\[4pt] \\left.\\beta \\log \\left(\\pi_{\\phi}^{\\mathrm{RL}}(y \\mid x) / \\pi^{\\mathrm{SFT}}(y \\mid x)\\right)\\right] + \\\\[4pt] \\gamma E_{x \\sim D_\\textrm{pretrain}}\\left[\\log(\\pi_{\\phi}^{\\mathrm{RL}}(x))\\right] \\end{gathered}",
+   "tex": "\\begin{gathered} \\operatorname{objective}\\left(\\phi\\right)= E_{\\left(x, y\\right) \\sim D_{\\pi_{\\phi}^{\\mathrm{RL}}}}\\left[r_{\\theta}(x, y)- \\right. \\\\[4pt] \\left.\\beta \\log \\left(\\pi_{\\phi}^{\\mathrm{RL}}(y \\mid x) / \\pi^{\\mathrm{SFT}}(y \\mid x)\\right)\\right] + \\\\[4pt] \\gamma E_{x \\sim D_\\textrm{pretrain}}\\left[\\log(\\pi_{\\phi}^{\\mathrm{RL}}(x))\\right] \\end{gathered}",
+   "latex_stacked_what": "same symbols and order as `latex`, only the line breaks differ (3 rows) for a 1080-px-wide portrait frame; checked equal to `latex` after removing layout",
+   "short_latex": "E_{\\left(x, y\\right) \\sim D_{\\pi_{\\phi}^{\\mathrm{RL}}}}\\left[r_{\\theta}(x, y)-\\beta \\log \\left(\\pi_{\\phi}^{\\mathrm{RL}}(y \\mid x) / \\pi^{\\mathrm{SFT}}(y \\mid x)\\right)\\right]",
+   "short_latex_what": "the first expectation of eq. 2 (reward minus beta times the log-ratio to the SFT model); the paper says for its \"PPO\" models gamma is set to 0, i.e. this is the whole objective",
+   "highlight_latex": "\\beta \\log \\left(\\pi_{\\phi}^{\\mathrm{RL}}(y \\mid x) / \\pi^{\\mathrm{SFT}}(y \\mid x)\\right)",
+   "highlight_what": "the per-sample KL penalty: beta * log(pi_RL(y|x) / pi_SFT(y|x)), which keeps the RL policy near the supervised model",
+   "extra_highlights": [
+    {
+     "latex": "\\gamma E_{x \\sim D_\\textrm{pretrain}}\\left[\\log(\\pi_{\\phi}^{\\mathrm{RL}}(x))\\right]",
+     "what": "the pretraining-gradient mix-in (the \"PPO-ptx\" term)"
+    }
+   ],
+   "symbols": {
+    "\\pi_\\phi^{\\mathrm{RL}}": "the learned RL policy",
+    "\\pi^{\\mathrm{SFT}}": "the supervised fine-tuned model",
+    "r_\\theta(x,y)": "reward-model score for prompt x and response y",
+    "\\beta": "KL reward coefficient (0.02 in the paper's runs)",
+    "\\gamma": "pretraining loss coefficient (0 for the \"PPO\" models)",
+    "D_{\\mathrm{pretrain}}": "the pretraining distribution"
+   },
+   "paper": "Training language models to follow instructions with human feedback",
+   "authors": "Long Ouyang, Jeff Wu, Xu Jiang, Diogo Almeida, Carroll L. Wainwright, Pamela Mishkin, Chong Zhang, Sandhini Agarwal, Katarina Slama, Alex Ray, John Schulman, Jacob Hilton, Fraser Kelton, Luke Miller et al. (20 authors; OpenAI)",
+   "year": 2022,
+   "arxiv": "2203.02155",
+   "eq_no": "2",
+   "url": "https://arxiv.org/abs/2203.02155",
+   "arxiv_version_checked": "v1",
+   "cite": "Ouyang et al. 2022, InstructGPT (arXiv:2203.02155), eq. 2",
+   "source_tex_ref": "arXiv e-print 2203.02155v1, neurips_2021.tex, \\label{eq2} (Section 3.5, \"Reinforcement learning (RL)\")",
+   "latex_changes": [
+    "\\begin{split}...\\end{split} -> \\begin{aligned}...\\end{aligned}; \\label removed; newlines collapsed. No symbol changed."
+   ],
+   "verified_how": "Copied mechanically from the arXiv LaTeX source (e-print 2203.02155v1, neurips_2021.tex, label eq2); printed number (2) read from the PDF text layer (\"objective (phi) = E_(x,y)~D[...]  (2)\"); the definitions of pi^RL, pi^SFT, D_pretrain, beta and gamma read from the sentences that follow it; beta = 0.02 from the appendix training details; compile-checked with MathJax 3.2.1.",
+   "drop_hint": "Drop the first expectation on the downbeat, circle the KL penalty, then add the gamma line on the next bar.",
+   "latex_source_verbatim": "\\label{eq2} \\begin{split} \\operatorname{objective}\\left(\\phi\\right)= & E_{\\left(x, y\\right) \\sim D_{\\pi_{\\phi}^{\\mathrm{RL}}}}\\left[r_{\\theta}(x, y)-\\beta \\log \\left(\\pi_{\\phi}^{\\mathrm{RL}}(y \\mid x) / \\pi^{\\mathrm{SFT}}(y \\mid x)\\right)\\right] + \\\\ & \\gamma E_{x \\sim D_\\textrm{pretrain}}\\left[\\log(\\pi_{\\phi}^{\\mathrm{RL}}(x))\\right] \\end{split}",
+   "name": "RLHF objective with KL",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/2203.02155"
+  },
+  {
+   "id": "superposition",
+   "label": "Toy model of superposition",
+   "latex": "x' = \\text{ReLU}(W^TWx + b)",
+   "latex_source_verbatim": "x' ~=~\\text{ReLU}(W^TWx + b)",
+   "latex_stacked": "\\begin{aligned} h &= Wx \\\\ x' &= \\text{ReLU}(W^Th+b) \\end{aligned}",
+   "latex_stacked_what": "the two-step form printed above it in the paper: h = Wx (down-projection), x' = ReLU(W^T h + b) (up-projection); substituting h gives `latex`",
+   "highlight_latex": "W^TW",
+   "highlight_what": "W^T W: the features-by-features matrix that is read off in the paper's figures (off-diagonal entries = interference between features)",
+   "highlight_latex_stacked": "W^Th",
+   "highlight_stacked_what": "in the two-step form: the up-projection W^T h (the transpose of the same matrix is used to read the features back out)",
+   "extra_highlights": [
+    {
+     "latex": "\\text{ReLU}",
+     "what": "the ReLU on the output, which is what lets the model use superposition (the linear model does not)"
+    },
+    {
+     "latex": "+ b",
+     "what": "the bias term (+ b)"
+    }
+   ],
+   "loss_latex": "L = \\sum_x \\sum_i I_i (x_i - x'_i)^2",
+   "loss_what": "the paper's loss, importance-weighted mean squared error over feature vectors x and features i (I_i = importance of feature i)",
+   "symbols": {
+    "x": "high-dimensional input vector of n features (each feature x_i is 0 with probability S_i, otherwise uniform on [0,1])",
+    "W": "m x n matrix; column W_i is the direction in the low-dimensional space that represents feature x_i",
+    "h = Wx": "m-dimensional hidden vector (m < n)",
+    "b": "bias",
+    "x'": "reconstruction of x"
+   },
+   "paper": "Toy Models of Superposition",
+   "authors": "Nelson Elhage, Tristan Hume, Catherine Olsson, Nicholas Schiefer, Tom Henighan, Shauna Kravec, Zac Hatfield-Dodds, Robert Lasenby, Dawn Drain, Carol Chen, Roger Grosse, Sam McCandlish, Jared Kaplan, Dario Amodei et al. (16 authors; Anthropic, Harvard)",
+   "year": 2022,
+   "arxiv": "2209.10652",
+   "eq_no": "unnumbered (Section \"The Model (X -> X')\", ReLU Output Model column)",
+   "url": "https://arxiv.org/abs/2209.10652",
+   "url_alt": "https://transformer-circuits.pub/2022/toy_model/index.html",
+   "arxiv_version_checked": "v1",
+   "cite": "Elhage et al. 2022, Toy Models of Superposition (arXiv:2209.10652)",
+   "source_tex_ref": "transformer-circuits.pub/2022/toy_model/index.html, the <d-math> elements of \"The Model (X -> X')\" (the arXiv PDF is a print of this article; arXiv has no LaTeX source for it)",
+   "latex_changes": [
+    "the article's ~=~ (non-breaking spaces around \"=\") written as a plain \" = \"; nothing else."
+   ],
+   "verified_how": "arXiv has only a PDF for this paper (the e-print is the PDF itself), so two checks: (1) the original article transformer-circuits.pub/2022/toy_model/index.html was downloaded and the TeX inside its <d-math> elements read directly (x' ~=~\\text{ReLU}(W^TWx + b), h ~=~ Wx, L = \\sum_x \\sum_i I_i (x_i - x'_i)^2); (2) page 10 of the arXiv PDF was rasterised and compared by eye with the same equations (\"ReLU Output Model: h = Wx; x' = ReLU(W^T h + b); x' = ReLU(W^T W x + b)\", and the loss). Neither source numbers the equations. Compile-checked with MathJax 3.2.1.",
+   "drop_hint": "Draw W^T W on a beat, then x' and the ReLU; the flashy-superposition visuals can run underneath.",
+   "name": "Toy model of superposition",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == article <d-math> TeX up to ~ spacing",
+   "pdf": "https://arxiv.org/pdf/2209.10652"
+  },
+  {
+   "id": "ppo",
+   "label": "PPO clipped objective",
+   "latex": "L^{CLIP}(\\theta) = \\hat{\\mathbb{E}}_t\\left[\\min(r_t(\\theta)\\hat{A}_t, \\mathrm{clip}(r_t(\\theta), 1-\\epsilon, 1+\\epsilon)\\hat{A}_t)\\right]",
+   "short_latex": "\\min(r_t(\\theta)\\hat{A}_t, \\mathrm{clip}(r_t(\\theta), 1-\\epsilon, 1+\\epsilon)\\hat{A}_t)",
+   "short_latex_what": "the per-timestep term inside the expectation of eq. 7",
+   "highlight_latex": "\\mathrm{clip}(r_t(\\theta), 1-\\epsilon, 1+\\epsilon)",
+   "highlight_what": "the clip that removes the incentive to move the probability ratio outside [1-eps, 1+eps]",
+   "ratio_latex": "r_t(\\theta) = \\frac{\\pi_\\theta(a_t \\mid s_t)}{\\pi_{\\theta_{\\text{old}}}(a_t \\mid s_t)}",
+   "ratio_what": "the probability ratio r_t(theta) defined in the sentence just above eq. 6 (page 3); r(theta_old) = 1",
+   "symbols": {
+    "L^{CLIP}(\\theta)": "clipped surrogate objective, maximised",
+    "\\hat{\\mathbb{E}}_t": "empirical average over a batch of timesteps",
+    "r_t(\\theta)": "probability ratio pi_theta(a_t|s_t) / pi_theta_old(a_t|s_t)",
+    "\\hat{A}_t": "estimator of the advantage at timestep t",
+    "\\epsilon": "clip hyper-parameter (0.2 in the paper)"
+   },
+   "paper": "Proximal Policy Optimization Algorithms",
+   "authors": "John Schulman, Filip Wolski, Prafulla Dhariwal, Alec Radford, Oleg Klimov",
+   "year": 2017,
+   "arxiv": "1707.06347",
+   "eq_no": "7",
+   "url": "https://arxiv.org/abs/1707.06347",
+   "arxiv_version_checked": "v2",
+   "cite": "Schulman et al. 2017, PPO (arXiv:1707.06347), eq. 7",
+   "source_tex_ref": null,
+   "latex_source_verbatim": null,
+   "latex_changes": [
+    "arXiv e-print for this paper is only a PDF wrapper (ppo-min.pdf), so there is no TeX to copy; the TeX here is typed from the rendered page."
+   ],
+   "verified_how": "No LaTeX source exists on arXiv for this paper (the e-print is a PDF include). Rasterised page 3 of the arXiv PDF (v2) and compared symbol by symbol: L^CLIP(theta) = E-hat_t[min(r_t(theta) A-hat_t, clip(r_t(theta), 1-eps, 1+eps) A-hat_t)] printed as eq. (7); the PDF text layer also reads \"(7)\" and the definition of r_t(theta) is in the sentence above eq. (6); epsilon = 0.2 from the paragraph below eq. (7). MathJax render compared with the page by eye; compile-checked with MathJax 3.2.1.",
+   "drop_hint": "Land min( on the downbeat, flash the clip(...) term on the next beat; then GRPO reuses exactly this inner term.",
+   "name": "PPO clipped objective",
+   "verified_date": "2026-10-10",
+   "source_check": "typed from rendered PDF page (no TeX source exists)",
+   "pdf": "https://arxiv.org/pdf/1707.06347"
+  },
+  {
+   "id": "attention",
+   "label": "Scaled dot-product attention",
+   "latex": "\\mathrm{Attention}(Q, K, V) = \\mathrm{softmax}(\\frac{QK^T}{\\sqrt{d_k}})V",
+   "short_latex": "\\mathrm{softmax}(\\frac{QK^T}{\\sqrt{d_k}})V",
+   "short_latex_what": "the right-hand side of eq. 1 (the attention output)",
+   "highlight_latex": "\\frac{QK^T}{\\sqrt{d_k}}",
+   "highlight_what": "the scaled dot products between queries and keys (the 1/sqrt(d_k) scaling is the \"scaled\" in the name)",
+   "extra_highlights": [
+    {
+     "latex": "\\sqrt{d_k}",
+     "what": "the scale factor sqrt(d_k)"
+    }
+   ],
+   "symbols": {
+    "Q": "matrix of queries (dimension d_k)",
+    "K": "matrix of keys (dimension d_k)",
+    "V": "matrix of values (dimension d_v)",
+    "d_k": "dimension of queries and keys"
+   },
+   "paper": "Attention Is All You Need",
+   "authors": "Ashish Vaswani, Noam Shazeer, Niki Parmar, Jakob Uszkoreit, Llion Jones, Aidan N. Gomez, Lukasz Kaiser, Illia Polosukhin",
+   "year": 2017,
+   "arxiv": "1706.03762",
+   "eq_no": "1",
+   "url": "https://arxiv.org/abs/1706.03762",
+   "arxiv_version_checked": "v7",
+   "cite": "Vaswani et al. 2017, Attention Is All You Need (arXiv:1706.03762), eq. 1",
+   "source_tex_ref": "arXiv e-print 1706.03762v7, model_architecture.tex, Section 3.2.1 (\"In practice, we compute the attention function on a set of queries simultaneously...\")",
+   "latex_changes": [],
+   "verified_how": "Copied mechanically from the arXiv LaTeX source (e-print 1706.03762v7, model_architecture.tex); printed number (1) read from the PDF text layer (\"Attention(Q, K, V) = softmax(QK^T / sqrt(d_k)) V  (1)\"); symbol definitions from the sentence before it (\"queries and keys of dimension d_k, and values of dimension d_v\"); also identical to the copy in research/rev2/equations-extra.json (id attention); compile-checked with MathJax 3.2.1.",
+   "drop_hint": "Draw QK^T first, then the sqrt(d_k) on the next beat, then softmax and V on the downbeat.",
+   "latex_source_verbatim": "\\mathrm{Attention}(Q, K, V) = \\mathrm{softmax}(\\frac{QK^T}{\\sqrt{d_k}})V",
+   "name": "Scaled dot-product attention",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/1706.03762"
+  },
+  {
+   "id": "gd",
+   "label": "Gradient descent update",
+   "latex": "\\theta = \\theta - \\eta \\cdot \\nabla_\\theta J( \\theta)",
+   "highlight_latex": "\\eta \\cdot \\nabla_\\theta J( \\theta)",
+   "highlight_what": "the step: learning rate times the gradient of the objective, subtracted from the parameters",
+   "extra_highlights": [
+    {
+     "latex": "\\nabla_\\theta J( \\theta)",
+     "what": "the gradient of the objective function w.r.t. the parameters"
+    },
+    {
+     "latex": "\\eta",
+     "what": "the learning rate"
+    }
+   ],
+   "symbols": {
+    "\\theta": "model parameters (theta in R^d)",
+    "J(\\theta)": "objective (cost) function",
+    "\\nabla_\\theta J(\\theta)": "gradient of the objective w.r.t. the parameters",
+    "\\eta": "learning rate, the size of the step"
+   },
+   "paper": "An overview of gradient descent optimization algorithms",
+   "authors": "Sebastian Ruder",
+   "year": 2016,
+   "arxiv": "1609.04747",
+   "eq_no": "1",
+   "url": "https://arxiv.org/abs/1609.04747",
+   "arxiv_version_checked": "v2",
+   "cite": "Ruder 2016, An overview of gradient descent optimization algorithms (arXiv:1609.04747), eq. 1",
+   "source_tex_ref": "arXiv e-print 1609.04747v2, overview_sgd.tex, \"Batch gradient descent\"",
+   "latex_changes": [],
+   "see_also": [
+    "gd-update in research/rev2/equations-extra.json (Nielsen 2015 eq. 17-style per-weight form w_k -> w_k - eta dC/dw_k)"
+   ],
+   "verified_how": "Copied mechanically from the arXiv LaTeX source (e-print 1609.04747v2, overview_sgd.tex, batch gradient descent); printed number (1) read from the PDF text layer (\"theta = theta - eta . grad_theta J(theta)  (1)\"); the paper's sentence defines J(theta) as the objective, eta as the learning rate and the update as \"in the opposite direction of the gradient\"; compile-checked with MathJax 3.2.1. Eq. 2 of the same paper is the stochastic version (theta - eta grad J(theta; x(i); y(i))).",
+   "drop_hint": "Quick, minimal: rolls in a single beat; pairs with the netviz backprop weight update.",
+   "latex_source_verbatim": "\\theta = \\theta - \\eta \\cdot \\nabla_\\theta J( \\theta)",
+   "name": "Gradient descent update",
+   "verified_date": "2026-10-10",
+   "source_check": "latex == source (layout-insensitive, mechanical)",
+   "pdf": "https://arxiv.org/pdf/1609.04747"
+  }
+ ]
+}

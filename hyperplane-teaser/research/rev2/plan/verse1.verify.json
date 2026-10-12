@@ -1,0 +1,204 @@
+{
+ "key": "verse1",
+ "items": [
+  {
+   "id": "g-dark-v1",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "v1-agents",
+   "ok": false,
+   "problem": "Footage window is not clean. Source labor-ale-intro.mp4 75.21-76.18 at 0.5x: the intro video itself dissolves to a pale grey wash from about src 75.8 (mean contrast of the screen area 94 at 75.2-75.7, 74 at 75.9, 48 at 76.05, 27 at 76.18; scene detector fires at 76.167; frames at 76.0 and 76.2 viewed, both washed out; QR card at 76.375). At 0.5x that is hb:18.44 to hb:20, so the last ~1.5 beats of the pink circle show a greying wall, not a wall 'zooming out'. The plan note 'checked by eye ... keeps zooming out' is wrong; the catalogued window (72-75) stops before the fade. (Text/credit are fine: 'Agents' Last Exam', UC Berkeley RDI, 2026; the 'Come test your agents on ALE!' caption sits above the screen in the full frame and must be outside srcFocus [0.5,0.58] x 1.35, check on the first strip.)",
+   "fix": "Keep the hand-over at src 75.21 (continuity with kc-pink-agents-b) but stop before 75.75: e.g. speed 0.25 (4 beats = 1.94 s -> 0.48 s of source, 75.21-75.69), or end the circle at hb:18.4 and let the NYT push / page turn carry hb:18.4-20. Update content.source_window and the note."
+  },
+  {
+   "id": "v1-agents-credit",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "v1-band",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "p-nvlink",
+   "ok": true,
+   "problem": "",
+   "fix": "OPTIONAL: window 26.5-28.19 contains a hard cut at src 27.03 (ffmpeg scene detector; frames viewed: a hand fitting cables on the orange board for 26.5-27.03, then the fan of copper cables to 28.23), while the plan says 'a fan of copper cables ... no splice cut'. Both shots carry the 'NVLink Spine | Amphenol' plate, which the 230 px band crops out. For one continuous shot use in 27.05 with speed 0.7 (27.05-28.23). Credit 'NVIDIA · GB200 NVL72 · 2025' is right (video published 2025-06-11)."
+  },
+  {
+   "id": "pile-insecure",
+   "ok": true,
+   "problem": "",
+   "fix": "OPTIONAL: (a) capabilities-nbc-gpt6-astra crop x0 = 380 cuts the section label ('... INTELLIGENCE' runs to x = 437), leaving a stray 'ENCE' at the left edge; use x0 about 450 (highlight box starts at x 517, headline at x 520). (b) The Guardian marker skips the attribution 'Google says its' (the full headline stays legible, so OK). (c) xrisk-nyt-ignored-warnings is reused in chorus.json (pile-before, hb:72.9-76): consider a different card there. All 4 texts, outlets and dates match screens.json/captures.json; every highlight phrase is an exact substring with OCR boxes (overlays viewed)."
+  },
+  {
+   "id": "p-hinton",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "pile-die",
+   "ok": false,
+   "problem": "Meaning/baseline (MEDIUM). The one phrase that is pushed (z 1.4), lifted, circled and then dived into by the zoom-through is 'shortens odds of the technology wiping out humanity', which drops the headline's baseline 'over next 30 years' and its subject ''Godfather of AI''. The full 3-line headline is on the page, but for the last beats (and the 'camera is deep inside it' moment) the viewer sees only the fragment. Texts, outlets, dates, crops and OCR boxes of all four cards check out (BBC 2026-09-09, Guardian 2025-09-22, Euronews 2026-02-27, Guardian 2024-12-27).",
+   "fix": "Add a highlight to the theory-guardian-hinton-odds record whose phrase is 'shortens odds of the technology wiping out humanity over next 30 years' (boxes: the existing line-2 box already ends at 'humanity'; add 'over' on line 2 and 'next 30 years' on line 3) and use it for hlAt/push/lift/circle; or lift the whole 3-line headline. Same standard as the BBC card, whose highlight keeps '10% chance'."
+  },
+  {
+   "id": "v1-arrow-hinton",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "v1-stamp-die",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "p-amodei",
+   "ok": true,
+   "problem": "",
+   "fix": "Checked: clips/amodei-cbs-sunday-2026-09.mp4 192.74-195.64 is one continuous shot of Amodei (no scene cut 192-196; sun bug bottom-left); credit/name/year right."
+  },
+  {
+   "id": "voice-amodei",
+   "ok": true,
+   "problem": "",
+   "fix": "Re-run small.en on the exact faded window 192.42-195.12: 'It's a warning sign that we need to slow down.' (nothing else). Previous 'sign.' ends about 192.30 and 'We need to make this technology carefully' starts about 195.6; the cut points sit in silence (-41..-47 dB at 192.42, -43 dB at 195.12). Words, source lines and times match small.en and base.en."
+  },
+  {
+   "id": "kar-amodei",
+   "ok": true,
+   "problem": "",
+   "fix": "OPTIONAL (timing, not text): energy onsets put 'down.' at about 194.80 (d-burst after a closure at 194.78), 0.14 s later than the small.en time 194.66 used for the word light, the LIFT at song 32.538 ('at the instant he says down') and the 'slow down.' underline at 32.62 (that underline would land before 'down.' is said). Suggest 'down.' 194.80 (song 32.663), lift and underline at >= 32.66; other words are within about 0.1 s. Caption text, name 'Dario Amodei, Anthropic CEO' and year 2026 are right; no ellipsis needed (starts and ends on sentence boundaries)."
+  },
+  {
+   "id": "pile-news",
+   "ok": true,
+   "problem": "",
+   "fix": "All 5 texts/outlets/dates verified. Highlight indices used by the engine (CNBC index 0 = ''Model fatigue' sets in', CBS index 0) match the plan phrases."
+  },
+  {
+   "id": "eq-dpo",
+   "ok": true,
+   "problem": "",
+   "fix": "TeX is research/rev2/equations.json dpo `tex` (3-row form of eq. 7, normalises to the paper's `latex`); both hl terms are exact substrings of that TeX; cite identical. y_w = preferred, y_l = rejected: correct."
+  },
+  {
+   "id": "p-pause",
+   "ok": false,
+   "problem": "Credit/description misdate the footage (MEDIUM-LOW). broll.json: pauseai-march-2026.mp4 is a PauseAI UK promo published 2026-02-05 for the march on 28 Feb 2026; the footage (sepia, burned-in lower third 'PauseAI Global Founder / Joep Meinderstma', viewed at 20.0-21.3) was shot earlier, so it cannot show the 28 Feb 2026 march. content.shows says 'PauseAI protesters with signs and banner (London, 28 Feb 2026)' and the on-screen credit 'PAUSEAI UK · MARCH FOR AI SAFETY · FEB 2026' reads as footage of that march.",
+   "fix": "Credit: 'PAUSEAI UK · MARCH FOR AI SAFETY PROMO · FEB 2026' (or 'PAUSEAI UK · PROTEST FOOTAGE · 2026'); shows: 'PauseAI protesters with signs and banner (from PauseAI UK's Feb 2026 promo)'. Also confirm on the first strip that the burned-in lower-third (bottom-left, x 0.02-0.25) is outside the blob after the -30 px pan. Window 20.0-21.21 has no cuts."
+  },
+  {
+   "id": "pile-syco",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "v1-tower",
+   "ok": true,
+   "problem": "",
+   "fix": "Token source 'AI that builds better AI' (Splash deck title) confirmed; no lyric 3-grams."
+  },
+  {
+   "id": "eq-attn",
+   "ok": true,
+   "problem": "",
+   "fix": "OPTIONAL: label 'each word decides which earlier words matter' describes causal self-attention; Vaswani eq. 1 (the cited, verified TeX) has no mask, so 'which words matter' is the safer wording. TeX, cite and highlight_term (QK^T/sqrt(d_k)) are exact."
+  },
+  {
+   "id": "p-fpga",
+   "ok": true,
+   "problem": "",
+   "fix": "Architect Labs promo dated 2026-08-27 per the deck manifest (credit year 2026 right); window 1.5-2.95 inside 1.5-4.5, no cuts; '1X Speed' label is outside the square."
+  },
+  {
+   "id": "pile-jobs",
+   "ok": true,
+   "problem": "",
+   "fix": "Both cards, the X post (Jacob Coxon, @hilbertspaess, 12:04 AM Sep 9, 2026 as shown) and crops verified. Highlight 'I resigned from Anthropic today.' exact."
+  },
+  {
+   "id": "p-coxon-v1",
+   "ok": true,
+   "problem": "",
+   "fix": "Picture in 529.0 is the show's own cut (scene detector 528.995); window runs 0.39 s past the catalogued 528.8-530.1 (mouth starts 'Um,' at about 530.38) but the whip has taken him off by then. Credit 'THE DAILY SHOW · OCT 5, 2026' matches coxon-daily-show-date.json (92%)."
+  },
+  {
+   "id": "voice-coxon-v1",
+   "ok": true,
+   "problem": "",
+   "fix": "Audio window right: small.en on the exact faded window 528.82-530.12 gives 'there won't be jobs in this world.'; 'Yeah,' ends at 528.76 and 'Um,' starts at 530.38 (energy). Window start is about 15 ms into the vowel of 'There' (30 ms fade), which is the in-point NOTES.md verified by ear. OPTIONAL: set `verbatim` to the heard words with the cut marked: '…there won't be jobs in this world.'"
+  },
+  {
+   "id": "kar-coxon-v1",
+   "ok": false,
+   "problem": "Caption honesty (BUILD.md: 'caption shows exactly what is heard, with … where words were cut'). The heard line is mid-sentence: 'Yeah, there won't be jobs in this world.'; the plan trims 'Yeah,' but prints 'There won't be jobs in this world.' (capital T, no ellipsis), whereas earlier rounds captioned this same cut '…THERE WON'T BE JOBS IN THIS WORLD.' (NOTES.md). Also the word times lead the audio: energy/small.en onsets are won't 528.98 (plan 528.88), jobs about 529.34 (plan 529.28; burst after a closure), world about 529.92 (plan 529.84), so 'JOBS lights ON the beat exactly as he says it' is about 70 ms early; beat 38's '[+0.5 beat 37.861] IN THIS lit' disagrees with the item's own times (in = 38.009).",
+   "fix": "text '…there won't be jobs in this world.' (ellipsis lit with 'There'; render uppercase as before); content.meta unchanged. Nudge word starts: won't 528.98 (song 37.319), jobs 529.34 (37.679), world 529.92 (38.259); to keep 'JOBS' on hb:38 shift voice-coxon-v1 `at` and the picture by +0.06 s instead. Fix the beat-38 event text ('IN THIS' lights at 38.009)."
+  },
+  {
+   "id": "eq-ntp",
+   "ok": true,
+   "problem": "",
+   "fix": "TeX = equations.json ntp-ce (Gloeckle et al. 2024, eq. 1); hl term exact; cite identical."
+  },
+  {
+   "id": "eq-upd",
+   "ok": true,
+   "problem": "",
+   "fix": "OPTIONAL: label 'backprop: every weight nudged downhill' - eq. 16 is the gradient-descent update that consumes backprop's gradients; 'gradient descent: every weight nudged downhill' is exact. TeX = equations-extra.json gd-update (Nielsen 2015 ch. 1 eq. 16); hl term exact; cite identical."
+  },
+  {
+   "id": "pile-disappoint",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "p-coast",
+   "ok": true,
+   "problem": "",
+   "fix": "OPTIONAL: the boat clip originates from OpenAI's 'Faulty Reward Functions in the Wild' (Clark & Amodei, Dec 2016); the stamp 'SPECIFICATION GAMING · DEEPMIND BLOG · 2020' credits the page the GIF was taken from (Fig. 4, 2020-04-21), which is accurate but may read as DeepMind's footage. Window 0.4-2.2 inside 0.4-3.4, no cuts; gif is 478x360 (zoom 1.3 will soften it)."
+  },
+  {
+   "id": "pile-exploit",
+   "ok": true,
+   "problem": "",
+   "fix": "OPTIONAL: (a) the pushed/lifted/circled TIME fragment 'Used Kenyan Workers on Less Than $2 Per Hour' omits the actor 'OpenAI' (visible just above on the card); consider 'OpenAI Used Kenyan Workers on Less Than $2 Per Hour' (add an OCR highlight). (b) TIME crop bottom edge is 2 px under the ink of 'Toxic' (ink ends y 788, crop 790): extend to 800. All four texts, dates (Anthropic Nov 13 2025, TIME 2023-01-18, Susman 9.25.2025, Variety Sep 18 2026 as printed) match."
+  },
+  {
+   "id": "v1-splat-exploit",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "v1-splat-break",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "v1-paper",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "notes",
+   "ok": false,
+   "problem": "Stale/incorrect text in notes: 'THE EYE' lists 'secretly broke out of a secure test environment' as bar 4's lead phrase; that is the Fortune/Hugging Face headline from the prelude plan and appears nowhere in this plan. The bar-4 lead phrase here is 'OpenAI ignored employees who warned it wasn't doing enough about security' (NYT/Business Standard, pushed hb:19, lifted hb:19.5).",
+   "fix": "Replace with 'OpenAI ignored employees who warned it wasn't doing enough about security' (bar 4)."
+  }
+ ],
+ "beats_missing": []
+}

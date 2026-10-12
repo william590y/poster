@@ -1,0 +1,190 @@
+{
+ "name": "test-net3d",
+ "title": "Builder B: the 3D transformer fly-through (three.js; song 34.7-42.5), then the 2D attention row on the chorus (42.5-44.5)",
+ "_note": "Builder B's test EDL for fx/netviz.js kind tower (WebGL, deterministic). Tokens 'AI that builds better' -> 'AI'. Forward pass one stage per beat (hb:32 embed .. hb:39 output), backprop on 8ths (hb:40-43), then the camera pulls back over the whole tower (hb:44-47). Render: python3 render/video/render.py beats test-net3d --from 0 --to 7.8 Then (hb:48-51, chorus, cream) the 2D attention kind: tokens roll in, attention arcs flicker head by head on the beats, the next token is predicted on hb:51.5.",
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "duration": 9.8,
+ "audio": {
+  "song": "song/brutal.mp3",
+  "songStart": 34.7
+ },
+ "look": {
+  "ground": "#0E0D12"
+ },
+ "themes": [
+  {
+   "t0": 0,
+   "t1": "hb:48",
+   "theme": "dark"
+  },
+  {
+   "t0": "hb:48",
+   "t1": 100,
+   "theme": "light"
+  }
+ ],
+ "items": [
+  {
+   "id": "ground",
+   "type": "color",
+   "t0": 0,
+   "t1": "hb:48",
+   "color": "#0E0D12"
+  },
+  {
+   "id": "tower",
+   "type": "net",
+   "kind": "tower",
+   "t0": 0,
+   "t1": "hb:48",
+   "tokens": [
+    "AI",
+    "that",
+    "builds",
+    "better"
+   ],
+   "next": "AI",
+   "infer": "hb:32..39",
+   "backprop": {
+    "from": "hb:40",
+    "to": "hb:43",
+    "every": 0.5
+   },
+   "wideAt": "hb:44"
+  },
+  {
+   "id": "eq-attn",
+   "type": "equation",
+   "ref": "attention",
+   "t0": "hb:33",
+   "t1": "hb:40",
+   "drop": "hb:33",
+   "mode": "slam",
+   "cx": 540,
+   "y": 320,
+   "px": 52,
+   "maxW": 900,
+   "cite": {
+    "at": "hb:34",
+    "px": 26
+   },
+   "exit": {
+    "style": "fade",
+    "dur": 0.15
+   },
+   "card": {
+    "color": "#0E0D12",
+    "pad": 34,
+    "rot": 0
+   }
+  },
+  {
+   "id": "eq-upd",
+   "type": "equation",
+   "ref": "gd-update",
+   "t0": "hb:40",
+   "t1": "hb:48",
+   "drop": "hb:40",
+   "mode": "pencil",
+   "dur": 0.6,
+   "cx": 540,
+   "y": 370,
+   "px": 56,
+   "label": {
+    "text": "backprop: every weight nudged downhill",
+    "at": "hb:40.5",
+    "font": {
+     "size": 40
+    }
+   },
+   "cite": {
+    "at": "hb:42",
+    "px": 26
+   },
+   "card": {
+    "color": "#0E0D12",
+    "pad": 34,
+    "rot": 0
+   }
+  },
+  {
+   "id": "ground2",
+   "type": "color",
+   "t0": "hb:48",
+   "t1": 9.8,
+   "color": "#F2EBDD"
+  },
+  {
+   "id": "attn-row",
+   "type": "net",
+   "kind": "attention",
+   "t0": "hb:48",
+   "t1": 9.8,
+   "ground": "cream",
+   "tokens": [
+    "AI",
+    "that",
+    "builds",
+    "better"
+   ],
+   "next": "AI",
+   "tokensAt": {
+    "at": "hb:48",
+    "per": 0.121
+   },
+   "heads": "hb:49..51",
+   "predictAt": "hb:51.5",
+   "rowY": 1180
+  },
+  {
+   "id": "eq-attn2",
+   "type": "equation",
+   "ref": "attention",
+   "t0": "hb:48",
+   "t1": 9.8,
+   "drop": "hb:48",
+   "mode": "pencil",
+   "dur": 0.8,
+   "cx": 540,
+   "y": 380,
+   "px": 54,
+   "maxW": 900,
+   "label": {
+    "text": "each word decides which earlier words matter",
+    "at": "hb:48.5",
+    "font": {
+     "size": 42
+    }
+   },
+   "cite": {
+    "at": "hb:50",
+    "px": 26
+   },
+   "hl": [
+    {
+     "tex": "QK^T",
+     "at": "hb:50.5",
+     "style": "circle"
+    }
+   ]
+  },
+  {
+   "id": "paper",
+   "type": "paper",
+   "t0": 0,
+   "t1": 9.8,
+   "_note": "builder A's paper grain (boils on twos): the handmade surface over everything"
+  }
+ ],
+ "fx": [
+  {
+   "id": "punch",
+   "fx": "punch",
+   "on": "hb:32..51",
+   "amount": 0.008,
+   "bar": 0.025
+  }
+ ]
+}

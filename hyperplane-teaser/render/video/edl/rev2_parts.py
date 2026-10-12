@@ -1,0 +1,1295 @@
+"""Shared assembly for the rev2 cuts (assembler, 11 Oct 2026): edl/make_long_rev2.py -> long2.json, edl/make_short_rev2.py -> short2.json.
+
+The four section plans in research/rev2/plan/ are the source of truth (prelude-riff, verse1, chorus, refrain-inst). This module
+loads them, turns each plan item into its EDL item (prelude-riff: "content"; verse1/chorus: "engine"; refrain-inst: "edl"),
+applies every verifier fix from research/rev2/plan/*.verify.json (the FIXES comments below cite the verify item ids) and the
+assembler's cross-plan decisions (ASSEMBLY comments), and returns the parts in stacking order. Nothing here writes a file.
+
+Stacking (EDL order = bottom to top): each section keeps its planner's order; the grounds that a logo break or a dark verse need
+UNDER earlier items are moved down (g-dark-v1 under kand-riff, so the logo blows apart over the dark verse ground), and every
+section gets its own shared paint canvas right above its ground (the beat track and splats draw there): paint (prelude, riff,
+verse), paint-ch (chorus), paint-racks (over the full-frame racks footage), paint-rf (refrain), paint-god (over the fog footage),
+paint-out (over the instrumental's cream). A paint layer under a full-frame clip would hide its beat track.
+"""
+import copy, json, pathlib
+
+ROOT = pathlib.Path('/home/user/hyperplane-teaser')
+EDLDIR = ROOT / 'render/video/edl'
+R2 = ROOT / 'research/rev2'
+PLAN = R2 / 'plan'
+BEAT = 60 / 124
+CREAM, DARK, INK, PAPER = '#F2EBDD', '#0E0D12', '#15131F', '#FBF6EC'
+
+
+def hb_song(i):
+    """song second of hits.json beat i (the 124-BPM grid; hits.json beats are these values to the ms)"""
+    return 19.232 + i * BEAT
+
+
+def load(name):
+    return json.load(open(PLAN / f'{name}.json'))
+
+
+SCR = {x['id']: x for x in json.load(open(R2 / 'screens.json'))['items']}
+SCR.update({x['id']: x for x in json.load(open(R2 / 'captures.json'))['items']})
+BROLL = {x['id']: x for x in json.load(open(R2 / 'broll.json'))['items']}
+GRA = {x['id']: x for x in json.load(open(R2 / 'graphs.json'))['items']}
+
+# plan-only documentation keys that are not EDL fields
+DOC_KEYS = {'expand', 'entries', 'verbatim_heard', 'word_times_song', 'verify_by_ear', 'tex_verbatim', 'verbatim', 'lines', '_sync',
+            'handoff', '_preset_cues_kept', '_fields_note', '_role_basis', '_', 'shows', 'window', 'source_window', 'catalog_window', 'note'}
+
+
+def _und(d):
+    if isinstance(d, dict):
+        return {k: _und(v) for k, v in d.items() if not (k.startswith('_') and k != '_note')}
+    if isinstance(d, list):
+        return [_und(x) for x in d]
+    return d
+
+
+def clean(d):
+    """drop plan documentation keys (top level) and '_...' keys (recursively, e.g. the shots' _verbatim); keep _note"""
+    return _und({k: v for k, v in d.items() if k not in DOC_KEYS})
+
+
+def find(items, iid):
+    for x in items:
+        if x['id'] == iid:
+            return x
+    raise KeyError(iid)
+
+
+def words_set(item, new):
+    """re-time karaoke / caption words by word text (first match in order): new = [(word, s)]"""
+    ws = item['speech']['words'] if 'speech' in item else item['caption']['words']
+    k = 0
+    for w, s in new:
+        while ws[k]['w'] != w:
+            k += 1
+        ws[k]['s'] = s
+        k += 1
+
+
+# ============================================================================================ PRELUDE + RIFF (song 6.10 - hb:16)
+def prelude_riff():
+    P = load('prelude-riff')
+    out = []
+    for it in P['items']:
+        c = clean(it.get('content') or {})
+        base = {'id': it['id'], 'type': it['type'], 't0': it['t0'], 't1': it['t1']}
+        if it['id'] == 'sketch-dots':      # the generator expands the stamp list (plan: content.expand)
+            for e in it['content']['entries']:
+                b = float(e['at'][3:])
+                out.append({'id': f"sketch-dot-{'m' if b < 0 else ''}{abs(b):g}", 'type': 'inkstamp', 'at': e['at'], 't0': e['at'],
+                            't1': 'hb:1.45', 'x': e['x'], 'y': e['y'], 'size': e['size'], 'glyph': e['glyph'], 'color': e['color'],
+                            'rot': e.get('rot', 0), 'layer': 'sketch'})
+            continue
+        x = {**base, **c}
+        au = it.get('audio') or {}
+        if it['type'] == 'clip' and au.get('audible'):
+            x['audio'] = {k: au[k] for k in ('in', 'out', 'peak_rel_db', 'duck_db', 'lcut') if k in au}
+            x['verified'] = True
+        if 'frames' in x:
+            x['frames'] = x['frames'].split(' ')[0]
+        if it['type'] == 'layer' and it['id'] != 'sketch':   # shared canvases live for the whole cut (no refs into the short's cut)
+            x.pop('t0', None); x.pop('t1', None)
+        out.append(x)
+    g = {x['id']: x for x in out}
+
+    # FIXES (prelude-riff.verify.json "altman", optional, measured): word starts after the 0.5 s pause before LEAD etc.
+    words_set(g['altman'], [('WILL', 2.42), ('PROBABLY', 2.68), ('SORT', 4.40), ('LEAD', 5.40)])
+    g['altman']['_note'] = ("Altman 2015 (Airbnb fireside chat), footage as filmed; caption verbatim of the heard window 1.86-6.34 (small.en), "
+                            "word times re-measured by the prelude verifier (LEAD after its pause)")
+    # FIXES (verify "amodei"): the audio window kept the whole of 'badly' (out 1069.50, the next word 'and' is at 1069.73), lcut
+    # dropped; word times moved to the real onsets (whisper put each pause before the NEXT word); the punches follow the words
+    a = g['amodei']
+    a['audio'] = {'in': 1065.67, 'out': 1069.50, 'duck_db': 5}
+    words_set(a, [('25%', 1066.26), ('CHANCE', 1067.20), ('THAT', 1067.44), ('GO', 1067.84), ('REALLY,', 1068.32), ('REALLY', 1068.66), ('BADLY…', 1069.04)])
+    # song = source - 1054.807: 25% 11.453 (~hb:-16 = 11.490), REALLY, 13.513, BADLY 14.233
+    a['punch'] = [{'at': 'hb:-16', 'z': 1.06, 'dur': 0.12}, {'at': 'song:13.51', 'z': 1.035, 'dur': 0.12},
+                  {'at': 'song:14.23', 'z': 1.05, 'dur': 0.12}, {'at': 'hb:-8', 'z': 1.03, 'dur': 0.12}]
+    a['shakes'] = [{'at': 'hb:-16', 'amp': 7, 'decay': 0.07}, {'at': 'song:14.23', 'amp': 6, 'decay': 0.08}, {'at': 'hb:-12', 'amp': 5, 'decay': 0.08}]
+    # the 25% circle after 'percent' ends (~song 12.30): ON hb:-14; the underline drawn from 'badly' to land ON hb:-10 (14.393)
+    a['caption']['marks'] = [{'phrase': '25%', 'style': 'circle', 'at': 'hb:-14', 'dur': 0.28, 'color': '#F2C300', 'width': 7},
+                             {'phrase': 'really, really badly…', 'style': 'underline', 'at': 'song:14.24', 'dur': 0.15, 'color': '#F2C300', 'width': 7}]
+    a['_note'] = ("Amodei 2025 (Axios AI+ DC Summit, Sep 17 2025), footage as filmed (Axios wall kept). Heard: '…there's a 25% chance that "
+                  "things go really, really badly…' (audio 1065.67-1069.50, the whole of 'badly'); the sub line is the baseline he says next "
+                  "('…and a 75% chance…'), set as unheard words, never word-lit")
+
+    # FIXES (verify "pile-hf", cosmetic): the TIME marker box 3 covered the OCR token 'Model-and'; it now ends at 'Model' (x 378)
+    for s in g['pile-hf']['shots']:
+        if s['id'] == 'time-2026-07-24-lost-control':
+            s['hl'] = [[158, 311, 778, 401], [160, 399, 718, 472], [158, 487, 378, 561]]
+    # the sketch keeps drawing through the shatter window (hb:0 - hb:1.4: its shared layer 'sketch' is in tr-shatter's out list, and
+    # a shared canvas is cleared every frame, so the items that paint it must stay alive while the shards fly)
+    g['sketch-plane']['t1'] = 'hb:1.45'
+    g['sketch']['t1'] = 'hb:0'
+
+    # ASSEMBLY (verse1 interfaces): the riff's logo breaks on verse 1's downbeat; the pink disc and the band stay behind as frames
+    k = g['kand-riff']
+    k['moves'].append({'move': 'break', 'at': 'hb:16', 'dur': 0.4, 'hide': ['pink', 'band'], 'hideAt': 'hb:16', 'stagger': 0.006})
+    k['_note'] = ("builder A's riff preset: shattered prelude above it, painted on piece by piece, Coxon in the orbiting pink disc (upright), "
+                  "the wordmark on hb:8, the band a river of vectors from hb:8, the whole art whips 360 into the superposition burst on hb:12; "
+                  "breaks on verse 1 (hb:16): the pink disc and the band become the verse's frames")
+
+    # ASSEMBLY (seen on the first strip): in the cover the black disc and the orange core sit on top of most of the pink disc, so
+    # Coxon's face in the pink disc was hidden for most of his line. His picture goes into the BLUE disc instead (unoccluded but for
+    # the small teal moon at its rim, and it never turns, so he stays upright); the pink disc carries the agents wall the whole riff,
+    # timed to reach source 75.21 at hb:16.05, where verse 1's v1-agents picks the same footage up (continuity through the morph);
+    # the blue disc then carries the NVIDIA data hall (broll nvidia-nvl72-factory 39.8-42.2) from the title downbeat. The xAI
+    # Colossus corridor the plan had in the blue disc is the chorus's full-frame footage (hb:71-80), so it is not shown twice.
+    ag = g['kc-pink-agents-a']
+    pink = {**ag, 'id': 'kc-pink-agents', 't0': 'hb:1.25', 't1': 'hb:16.05', 'in': 72.0,
+            'speed': round((75.21 - 72.0) / (hb_song(16.05) - hb_song(1.25)), 4), 'zoom': [1.0, 1.15],
+            '_note': "agents' wall (ale-agent-wall 72.0 -> 75.21, Agents' Last Exam 2026) in the orbiting pink disc for the whole riff"}
+    for k in ('fadeOut', 'out'):
+        pink.pop(k, None)
+    cx = g['kc-pink-coxon']
+    cox = {**cx, 'id': 'kc-blue-coxon', 'piece': 'blue', 't0': 'hb:3', 't1': 'hb:8', 'in': round(hb_song(3) + 431.22, 3),
+           'frame': {'cx': 540, 'cy': 960, 'r': 122}, 'oversample': 2.0, 'zoom': [1.0, 1.06], 'freeze': 'song:22.98', 'fadeOut': 0.1,
+           '_note': ("Coxon's own picture in sync with voice-coxon (song = source - 431.22), in the blue disc; frozen on source 454.20 (song 22.98), "
+                     "before the show's camera cut at 454.22, so his face holds through 'again.' to the title downbeat (ENGINE REQUEST: kandclip freeze)")}
+    br = g['kc-blue-racks']
+    dc = {**br, 'id': 'kc-blue-dc', 't0': 'hb:8', 't1': 'hb:16.35', 'broll': 'nvidia-nvl72-factory', 'in': 39.8,
+          'speed': round(2.35 / (hb_song(16.35) - hb_song(8)), 4),
+          '_note': "broll nvidia-nvl72-factory 39.8-42.15 'rows of racks in a data hall' (NVIDIA, 2025) in the blue disc from the title downbeat"}
+    rep = {'kc-pink-agents-a': pink, 'kc-pink-coxon': cox, 'kc-blue-racks': dc}
+    out = [rep.get(x['id'], x) for x in out if x['id'] not in ('kc-pink-agents-b',)]
+    g = {x['id']: x for x in out}
+    # beat-cut close-ups follow: Coxon's disc (hb:5, hb:7), the agents disc (hb:6); the title close-ups capped at 1.08 so the
+    # wordmark stays in frame (the first strip showed the 'e' cut at 1.15)
+    rf = g['kand-riff']['preset']['reframe']
+    rf[0].update({'focus': 'blue', 'to': [560, 900]})
+    rf[1].update({'focus': 'pink', 'to': [560, 820]})
+    rf[2].update({'focus': 'blue', 'to': [560, 900]})
+    for x in rf:
+        if x['at'] in (13, 14):
+            x['zoom'] = 1.08
+    g['riff-credit']['text'] = "IN THE DISCS: AGENTS' LAST EXAM, 2026 · NVIDIA NVL72 DATA HALL, 2025"
+
+    # ENGINE REQUEST (fluid fadeIn, implemented): the colour floods in over ~0.18 s from the title downbeat
+    g['fluid-riff']['fadeIn'] = 0.18
+
+    # FIXER r1 (director, prelude): the talking heads were ~35 % of the frame height and sat still for ~5 s each, and the weakest
+    # beats of the cut were here (hb:-25, -14, -13, -11). The footage box is now 1080x900 (47 %: LAYOUT below; tighter source crops,
+    # Altman's still above his talk's burned-in subtitles), and every bar downbeat gets a push-in snap on the speaker (clip punch,
+    # they step in and stay, replacing the slow push), the off-beats a pencil mark on the word just spoken or a smaller snap. Both
+    # cuts open with a paint dab behind the red '2015' tag on frame 0 (a scroll-stopping first second). The Altman -> Amodei swap
+    # already is a transition (tr-wipe, a paint wipe between his last word and Amodei's first: it stays on the speech, not on hb:-16).
+    al, am = g['altman'], g['amodei']
+    al['crop'] = {'x': 340, 'y': 50, 'w': 540}         # source 920x720: rows 50-500, clear of the burned-in subtitles (y > 520)
+    al['zoom'] = [1.0, 1.03]
+    al['box'] = {'x': 0, 'y': 360, 'w': 1080, 'h': 850}   # his four caption lines and the source line stay inside the safe zone (y <= 1574)
+    al['punch'] = [{'at': 'hb:-24', 'z': 1.04, 'dur': 0.1}, {'at': 'hb:-20', 'z': 1.04, 'dur': 0.1}, {'at': 'song:10.04', 'z': 1.06, 'dur': 0.12}]
+    al['shakes'] = [{'at': 'hb:-24', 'amp': 6, 'decay': 0.08}, {'at': 'hb:-20', 'amp': 6, 'decay': 0.08}, {'at': 'song:10.04', 'amp': 11, 'decay': 0.1}]
+    al['caption']['marks'] = [{'phrase': 'probably', 'style': 'underline', 'at': 'hb:-25', 'dur': 0.16, 'color': '#F2C300', 'width': 7},
+                              {'phrase': 'most likely', 'style': 'underline', 'at': 'song:8.42', 'dur': 0.28, 'color': '#F2C300', 'width': 7}]
+    am['crop'] = {'x': 240, 'y': 120, 'w': 540}        # source 1280x720: rows 120-570 (Amodei, VandeHei's knee, the Axios wall)
+    am['zoom'] = [1.0, 1.0]
+    am['box'] = {'x': 0, 'y': 360, 'w': 1080, 'h': 840}   # 60 px shorter: his caption, the unheard '75%' line and the source fit the safe zone
+    am['sub']['size'] = 40
+    am['punch'] = [{'at': 'hb:-16', 'z': 1.05, 'dur': 0.12}, {'at': 'hb:-13', 'z': 1.02, 'dur': 0.1}, {'at': 'hb:-12', 'z': 1.035, 'dur': 0.1},
+                   {'at': 'song:13.51', 'z': 1.02, 'dur': 0.1}, {'at': 'hb:-11', 'z': 1.02, 'dur': 0.1}, {'at': 'song:14.23', 'z': 1.04, 'dur': 0.12},
+                   {'at': 'hb:-8', 'z': 1.02, 'dur': 0.1}]
+    am['shakes'] = [{'at': 'hb:-16', 'amp': 7, 'decay': 0.07}, {'at': 'hb:-13', 'amp': 4, 'decay': 0.07}, {'at': 'hb:-12', 'amp': 6, 'decay': 0.08},
+                    {'at': 'hb:-11', 'amp': 4, 'decay': 0.07}, {'at': 'song:14.23', 'amp': 6, 'decay': 0.08}]
+    fp = g['frame-pencil']
+    fp['shapes'][0].update({'y': 352, 'h': 916})
+    fp['shapes'][1].update({'y0': 1282, 'y1': 1282})
+    ix = next(i for i, x in enumerate(out) if x['id'] == 'altman')
+    out.insert(ix, {'id': 'splat-open', 'type': 'splat', 't0': 0, 'at': 0.0, 't1': 'hb:-20', 'x': 124, 'y': 296, 'r': 96, 'color': '#FF2E88',
+                    'dir': -20, 'layer': 'paint', 'cullDur': 0.6, 'hit': 8,
+                    '_note': "FIXER r1: a paint dab bursts behind the red '2015' tag on frame 0 (the short's first second)"})
+
+    # FIXES (verify "voice-coxon"): keep the whole of 'again' (vowel + nasal to 454.36): out 454.37, a 25 ms fade
+    vc = g['voice-coxon']
+    vc['audio'] = {'in': 452.42, 'out': 454.37, 'fade_ms': 25}   # duck: mix.py's rule (>= 10 LU over the loud riff, max 15 dB)
+    vc['t1'] = 'song:23.15'
+    vc['verified'] = True
+    vc['_note'] = ("AUDIBLE over the riff (vocal-free 19.0-26.9): '…restarted the thing, and it did it again.' (clips/transcripts/coxon.json; "
+                   "small.en on the window). 'Like,' ends 452.27 and the gap 452.28-452.53 is silent, so the in-point carries none of it")
+    # FIXES (verify "kar-coxon", optional): real onsets
+    words_set(g['kar-coxon'], [('…RESTARTED', 452.52), ('THING,', 453.12), ('AND', 453.72)])
+    return out
+
+
+# ============================================================================================ VERSE 1 (hb:16 - hb:48)
+def verse1():
+    V = load('verse1')
+    out = [clean(it['engine']) for it in V['items']]
+    g = {x['id']: x for x in out}
+    # FIXES (verse1.verify "v1-agents"): the intro video dissolves to grey from source ~75.8: 0.25x keeps 4 beats inside 75.21-75.69
+    g['v1-agents']['speed'] = 0.25
+    g['v1-agents']['_note'] = ("MUTED b-roll: continues the riff's kc-pink-agents-b (ale-agent-wall, 75.21 at hb:16); 0.25x so the 4 beats show "
+                               "75.21-75.69, before the source dissolves to grey (~75.8). The logo's pink disc becomes this frame (legacy morph)")
+    # FIXES (verify "p-nvlink", optional): one continuous shot (the window had a hard cut at 27.03)
+    g['p-nvlink']['in'] = 27.05
+    g['p-nvlink']['speed'] = 0.7
+    # FIXES (verify "pile-insecure", optional): the NBC crop starts after the section label (no stray 'ENCE')
+    for s in g['pile-insecure']['shots']:
+        if s['id'] == 'capabilities-nbc-gpt6-astra':
+            s['crop'] = [450, 150, 2560, 640]
+    # FIXES (verify "pile-die", MEDIUM): the pushed / lifted / circled phrase keeps its baseline 'over next 30 years' (tesseract
+    # word boxes on the Guardian image: 'over' 1045-1179 on line 2, 'next 30 years' 21-422 on line 3)
+    for s in g['pile-die']['shots']:
+        if s['id'] == 'theory-guardian-hinton-odds':
+            s['hl'] = [[533, 10, 1158, 70], [18, 88, 1185, 161], [18, 172, 428, 240]]
+            s['_note'] = "phrase: 'shortens odds of the technology wiping out humanity over next 30 years' (baseline kept)"
+    # FIXES (verify "p-pause"): the footage is from the promo, not of the 28 Feb march
+    g['p-pause']['credit'] = 'PAUSEAI UK · MARCH FOR AI SAFETY PROMO · FEB 2026'
+    # FIXES (verify "kar-amodei", optional): 'down.' starts at 194.80 (song 32.663): the word, its underline and the CBS lift after it
+    words_set(g['kar-amodei'], [('down.', 194.80)])
+    g['kar-amodei']['marks'][0]['at'] = 'song:32.67'
+    for e in g['pile-news']['emph']:
+        if e['style'] == 'lift':
+            e['at'] = 'song:32.67'
+    # FIXES (verify "kar-coxon-v1"): the heard line starts mid-sentence ('Yeah,' trimmed): leading ellipsis; real onsets; the whole
+    # Coxon snippet (voice, karaoke, picture) moves 0.06 s earlier so 'jobs' (source 529.34) lands ON hb:38 (song 37.619)
+    sh = -0.06
+    kc = g['kar-coxon-v1']
+    kc['speech']['words'][0]['w'] = '…There'
+    words_set(kc, [("won't", 528.98), ('jobs', 529.34), ('world.', 529.92)])
+    kc['speech']['at'] = f'song:{37.159 + sh:.3f}'
+    kc['t0'] = f'song:{37.1 + sh:.3f}'
+    kc['metaAt'] = f'song:{37.25 + sh:.3f}'
+    vcx = g['voice-coxon-v1']
+    vcx['at'] = vcx['t0'] = f'song:{37.159 + sh:.3f}'
+    vcx['t1'] = f'song:{38.459 + sh:.3f}'
+    pc = g['p-coxon-v1']
+    pc['t0'] = f'song:{37.339 + sh:.3f}'
+    pc['entry']['at'] = f'song:{37.339 + sh:.3f}'
+    # ENGINE REQUEST (panel freeze, implemented): no silent mouth after his last word ('world.' ends ~530.1 = song 38.40)
+    pc['freeze'] = f'song:{38.46 + sh:.3f}'
+    # FIXES (verify "eq-attn", "eq-upd", optional): exact labels
+    g['eq-attn']['label']['text'] = 'each word decides which words matter'
+    g['eq-upd']['label']['text'] = 'gradient descent: every weight nudged downhill'
+    # FIXES (verify "p-coast", optional): the boat clip is OpenAI's (Clark & Amodei, Dec 2016), shown on DeepMind's 2020 blog
+    # FIXES (verify "pile-exploit", optional): the TIME fragment keeps its actor ('OpenAI Used Kenyan Workers...'; tesseract box of
+    # 'OpenAI' 511-776 x 282-366) and the crop no longer touches the ink of 'Toxic'
+    for s in g['pile-exploit']['shots']:
+        if s['id'] == 'time-2023-01-18-kenyan-workers':
+            s['crop'] = [120, 250, 920, 800]
+            s['hl'] = [[506, 280, 780, 368], [157, 367, 604, 458], [158, 455, 716, 529], [159, 540, 782, 623]]
+    # ENGINE REQUEST (tower view, implemented): the tower sits 140 px lower so the equation cards (y 250-650) never cover it
+    g['v1-tower']['view'] = {'dx': 0, 'dy': 140}
+    # ASSEMBLY (first strip): bar 6's news pile covered Amodei's karaoke (y 790-960): the pile sits lower and the karaoke is drawn
+    # above it; bar 7's DPO card and the TechCrunch card move down so the karaoke reads until it leaves, and the fold's flap is
+    # confined to the pile's zone (rect 'item' meant the whole frame for a pile, so its violet back covered everything)
+    pn = g['pile-news']
+    pn['center'] = [540, 1330]
+    pn['jitter'] = {'x': 50, 'y': 20, 'rot': 6}
+    pn['push']['to'] = [540, 1300]
+    ka = g['kar-amodei']
+    out.remove(ka)
+    out.insert(out.index(pn) + 1, ka)
+    g['eq-dpo']['cy'] = 1160
+    ps = g['pile-syco']
+    ps['region'] = {'x0': 60, 'y0': 1350, 'x1': 1020, 'y1': 1560}
+    ps['push']['to'] = [540, 1450]
+    for t in V['transitions']:
+        if t['id'] == 'tr-v1-fold':
+            t['rect'] = [40, 960, 1000, 620]
+    # the equation cards' labels sit above the cards: the cards start lower so every label stays in the safe zone (y >= 250), and
+    # the update rule clears the loss's cite line
+    g['eq-attn']['y'] = 360
+    g['eq-ntp']['y'] = 360
+    g['eq-upd']['y'] = 660
+    g['p-coast']['credit'] = 'COASTRUNNERS · OPENAI 2016 (VIA DEEPMIND BLOG)'
+    return out, V
+
+
+# ============================================================================================ CHORUS (hb:48 - hb:80)
+def chorus():
+    C = load('chorus')
+    out = [clean(it['engine']) for it in C['items']]
+    g = {x['id']: x for x in out}
+    # ASSEMBLY: id clash with verse 1's kar-amodei
+    g['kar-amodei']['id'] = 'kar-amodei-60'
+    g = {x['id']: x for x in out}
+    # FIXES (chorus.verify "p-sora"): the source cut (18.043) lands on the hb:50 crash; the panel shows the profile, then the eyes
+    g['p-sora']['in'] = 16.833
+    g['p-sora']['_note'] = "AI-generated anime character in profile, then a close-up of eyes with sparks (Sora 2 reel, OpenAI 2025); the reel's cut at 18.043 lands on the hb:50 crash"
+    # FIXES (verify "voice-count"): keep the whole 'thirty-two' (vowel to 161.73): out 161.76; in 158.17 (no tail of 'have')
+    vc = g['voice-count']
+    vc['audio'] = {'in': 158.17, 'out': 161.76, 'fade_ms': 30, 'duck_db': 9}     # 9 dB (was 8): >= 10 LU over the chorus
+    vc['at'] = vc['t0'] = 'song:46.339'
+    vc['t1'] = 'song:49.929'
+    g['kar-count']['speech']['in'] = 158.17
+    g['kar-count']['speech']['at'] = 'song:46.339'
+    # FIXES (verify "voice-elected"): end in the silence before the next word (808.25)
+    ve = g['voice-elected']
+    ve['audio'] = {'in': 804.04, 'out': 808.20, 'fade_ms': 40, 'duck_db': 9}
+    ve['t1'] = 'song:54.115'
+    # FIXES (verify "chart-dc", optional): the values are Epoch estimates (graphs.json caption)
+    g['chart-dc']['subtitle'] = GRA['dc-record-mw']['subtitle'] + ' (Epoch estimates)'
+    # ENGINE REQUEST (zoomthrough focus on a chart point, implemented): dive exactly into the 946 MW record (point 5)
+    # FIXES (verify "credit-racks", optional): the footage is the 2024 site, not Colossus 2
+    g['credit-racks']['text'] = 'XAI COLOSSUS (2024 SITE), MEMPHIS · SERVETHEHOME TOUR · 2024'
+    pb = g['pile-before']
+    for s in pb['shots']:
+        if s['id'] == 'fli-2023-03-22-pause-letter':     # FIXES (verify "pile-before", optional): legible
+            s['w0'] = 880
+    # ASSEMBLY (verse1.verify "pile-insecure" (c)): the NYT 'ignored employees' card is verse 1's bar-4 lead phrase; the chorus's
+    # third 'before' card is CNN's 'AI researchers are sounding the alarm on their way out the door' (Feb 2026) instead
+    pb['shots'] = [s if s['id'] != 'xrisk-nyt-ignored-warnings' else
+                   {'id': 'xrisk-rev2-cnn-2026-02-11-researchers-alarm-on-way-out', 'at': s['at'], 'entry': s['entry'], 'hlAt': s['hlAt'],
+                    'crop': [60, 240, 2420, 530]} for s in pb['shots']]
+    pb['_note'] = ("'And I wish I'd done this before': the early warnings (Hinton quits Google 2023, the FLI pause letter 2023) and CNN Feb 2026 "
+                   "'AI researchers are sounding the alarm on their way out the door' (pushed, lifted, circled)")
+    # ENGINE REQUEST (screens per-shot second phrase, implemented): the X post's baseline 'every ~10 weeks' is marked before
+    # 'now it's every ~11 days' is pushed and lifted (verify "pile-cadence": keep the antecedent on screen)
+    for s in g['pile-cadence']['shots']:
+        if s['id'] == 'capabilities-rev3-jfonsecarivera-post-header-text':
+            s['marks'] = [{'hl': 0, 'style': 'marker', 'at': 'hb:58.25', 'color': '#F2C300', 'dur': 0.24}]
+    # Gallup: 'Americans turn skeptical' underlined after the headline's marker (engine request 2)
+    for e in g['scr-gallup']['emph']:
+        if e['style'] == 'underline':
+            e['hl'] = 1
+    # ASSEMBLY: the refrain's bar 21 is the GRPO advantage formula as its hero (eq-adv, hb:84); the chorus's small copy of the same
+    # formula 3.5 s earlier (eq-grpo-adv, hb:77) is dropped, and the GRPO cite goes back to the record's own (eq. 3)
+    out = [x for x in out if x['id'] != 'eq-grpo-adv']
+    g['eq-grpo']['cite'] = {'at': 'hb:74.25', 'px': 24}
+    # ASSEMBLY: chorus splats draw into the chorus's paint canvas
+    for x in out:
+        if x.get('layer') == 'paint':
+            x['layer'] = 'paint-ch'
+    return out, C
+
+
+# ============================================================================================ REFRAIN + GOD + INSTRUMENTAL (hb:80 -)
+def refrain(cut):
+    R = load('refrain-inst')
+    out = []
+    for it in R['items']:
+        if cut not in it.get('cuts', ['long', 'short']):
+            continue
+        x = clean(it['edl'])
+        x.pop('skipIn', None)
+        out.append(x)
+    g = {x['id']: x for x in out}
+    # ASSEMBLY: id clashes (chorus chart-dc; prelude paint/paper)
+    if 'chart-dc' in g:
+        g['chart-dc']['id'] = 'chart-gw'
+    g['paint']['id'] = 'paint-rf'
+    for k in ('paper', 'paper-s'):
+        if k in g:
+            g[k]['id'] = 'paper-rf'
+    g = {x['id']: x for x in out}
+    if cut == 'long':
+        # FIXES (refrain-inst.verify "pile-upset"): the X post is the chorus's (pile-cadence); TNW is the single card
+        pu = g['pile-upset']
+        pu['shots'] = [{'id': 'frontier-tnw_headline', 'at': 'hb:88', 'entry': 'slam', 'hl': 0, 'w0': 960}]
+        pu['push'] = {'at': 'hb:89.5', 'z': 1.25, 'shot': 0, 'to': [540, 1330], 'dur': 0.3}
+        pu['emph'] = [{'style': 'lift', 'at': 'hb:89.5', 'shot': 0}, {'style': 'circle', 'at': 'hb:89.75', 'shot': 0, 'color': '#B31B1B'}]
+        pu['_note'] = "'Unrelentlessly upset': OpenAI's chief scientist says no lab should keep scaling at maximum speed (TNW, Sep 6 2026)"
+        # FIXES (verify "cp-thanks", optional): the source's hard cut (625.80) now lands after the collapse
+        g['cp-thanks']['in'] = 623.9
+        # FIXES (verify "pile-try", optional): headline-only crops (no half-clipped metadata row, no competing dates)
+        for s in g['pile-try']['shots']:
+            if s['id'] == 'openai-alignment-2026-09-25-agent-dns':
+                s['crop'] = [540, 250, 1860, 455]
+            if s['id'] == 'security-rev2-cso-six-misalignment-incidents':
+                s['crop'] = [20, 30, 1880, 490]
+        # FIXES (verify "kar-amodei-a", optional): real onsets
+        words_set(g['kar-amodei-a'], [('We', 676.97), ("can't", 677.20), ('yet', 677.54), ('fully', 677.91), ('close', 678.30), ('the', 678.57), ('loop.', 678.66)])
+    # FIXES (verify "pile-rsi" / "spit1"): the GovAI crop keeps the whole 'R&D' (ink to x 940)
+    for s in g['pile-rsi']['shots']:
+        if s['id'] == 'frontier-govai_head':
+            s['crop'] = [20, 30, 960, 305]
+        if s['id'] == 'frontier-anthropic_rsi_head':      # advisory: the date is the inferred first publication
+            s['label'] = 'ANTHROPIC · FIRST PUBLISHED JUN 4, 2026'
+    sp = g['spit1']
+    sp['crop'] = {'x0': 20, 'y0': 30, 'x1': 960, 'y1': 305}
+    sp['frame']['h'] = 181
+    sp['frame']['y'] += (194 - 181) // 2
+    # FIXES (verify "kar-amodei-b"): the karaoke words on the real onsets (clip - 612.262 = song); the underline after 'loop,'
+    words_set(g['kar-amodei-b'], [('…positive', 686.10), ('feedback', 686.52), ('loop,', 686.90), ('that', 687.52), ('cycle,', 688.06),
+                                  ("it's", 688.68), ('not', 688.92), ('yet', 689.14), ('going', 689.26), ('super', 689.56), ('fast,', 689.90),
+                                  ('but', 690.30), ("it's", 690.37), ('definitely', 690.66), ('started.', 691.15)])
+    for m in g['kar-amodei-b']['marks']:
+        if m['phrase'] == 'positive feedback loop':
+            m['at'] = 'song:74.74'
+    # FIXES (verify "chart-dc" -> chart-gw, optional): Epoch's tracked sites, never a world total: the subtitle ('Combined IT power of
+    # the 93 AI data centres Epoch tracks') rolls out right behind the title (a longer title wrapped onto the subtitle on the strip)
+    g['chart-gw']['subAt'] = 'hb:96.25'
+    # FIXES (verify "pile-golden", optional): the marker covers the closing quote of 'golden age'
+    for s in g['pile-golden']['shots']:
+        s['hl'] = [[1299, 520, 1526, 593], [357, 614, 480, 671]]
+    # FIXES (verify "disc-credit-1/2", "fog-credit", optional)
+    g['disc-credit-1']['text'] = 'IN THE DISCS: GALAXY · FIGURE AI · 2026'
+    g['disc-credit-2']['text'] = 'IN THE DISCS: UNITREE ROBOTICS · 2026'
+    g['fog-credit']['text'] = "FROM YOSHUA BENGIO'S TED2025 TALK"
+    # ASSEMBLY (mix dry run): a fixed 9 dB duck left the refrain and closing Amodei only 5-6.5 LU over the loud song; mix.py's own
+    # rule (raise the duck until speech is >= 10 LU over the song, at most 15 dB) decides instead
+    for k in ('voice-amodei-a', 'voice-amodei-b'):
+        if k in g:
+            g[k]['audio'].pop('duck_db', None)
+    # ASSEMBLY: refrain paint into paint-rf; god-bar and outro beat tracks get canvases above the fog and the cream
+    for x in out:
+        if x.get('layer') == 'paint':
+            x['layer'] = 'paint-rf'
+    res = []
+    for x in out:
+        res.append(x)
+        if x['id'] == 'fog':
+            res.append({'id': 'paint-god', 'type': 'layer', 'kind': 'canvas', '_note': "the God bar's beat track over the fog footage"})
+        if x['id'] == 'g-cream-b':
+            res.append({'id': 'paint-out', 'type': 'layer', 'kind': 'canvas', '_note': "the instrumental's beat track over its cream"})
+    return res, R
+
+
+def beatfx_of(plan, cut=None, layer=None):
+    out = []
+    for b in plan.get('beatfx', []):
+        if cut and cut not in b.get('cuts', ['long', 'short']):
+            continue
+        b = {k: v for k, v in b.items() if k not in ('cuts', 'skipIn')}
+        if '_' in b:
+            b['_note'] = b.pop('_')
+        if layer:
+            b['layer'] = layer(b)
+        out.append(b)
+    return out
+
+
+def transitions_of(plan, cut=None):
+    out = []
+    for t in plan.get('transitions', []):
+        if cut and cut not in t.get('cuts', ['long', 'short']):
+            continue
+        t = {k: v for k, v in t.items() if k not in ('cuts', 'skipIn')}
+        if '_' in t:
+            t['_note'] = t.pop('_')
+        out.append(t)
+    return out
+
+
+def ensure_prep(items):
+    """footage panels / kandclips that name a b-roll id or a video src but no "prep" (the refrain plan's centre panels) get
+    "prep": "clip", so prep_clips.py extracts their frames"""
+    for x in items:
+        if x['type'] in ('panel', 'kandclip') and 'prep' not in x and (x.get('broll') or (x.get('src') and not x['src'].lower().endswith(('.png', '.jpg', '.jpeg', '.webp')))):
+            x['prep'] = 'clip'
+    return items
+
+
+THEMES_TAIL = [{'t0': 'hb:80', 't1': 'hb:108', 'theme': 'light'}, {'t0': 'hb:108', 't1': 'hb:112', 'theme': 'dark'},
+               {'t0': 'hb:112', 't1': 999, 'theme': 'light'}]
+
+# the prelude's layout (the showcase's: taller footage box, caption sizes)
+LAYOUT = json.loads(json.dumps(json.load(open(EDLDIR / 'showcase.json'))['layout']))
+# FIXER r1: the prelude's talking heads at 1080x900 (47 % of the frame, was 740); the caption a little smaller so it and its source
+# line stay inside the safe zone under the taller box and clear of the right rail
+LAYOUT['clipBox'] = {'x': 0, 'y': 360, 'w': 1080, 'h': 900}
+LAYOUT['caption'] = {**LAYOUT['caption'], 'size': 50, 'w': 860, 'gap': 34}
+
+
+def bad_refs(edl):
+    """every "hb:"/"song:" string in an EDL that does not resolve (e.g. falls in the cut of a spliced song): [(path, ref, error)]"""
+    sys_path = str(ROOT / 'render/video')
+    import sys
+    if sys_path not in sys.path:
+        sys.path.insert(0, sys_path)
+    from timeref import TimeRef, TIME_RE
+    TR = TimeRef(edl)
+    bad = []
+
+    def walk(v, path):
+        if isinstance(v, dict):
+            for k, x in v.items():
+                walk(x, path + '.' + str(k))
+        elif isinstance(v, list):
+            for i, x in enumerate(v):
+                walk(x, f'{path}[{i}]')
+        elif isinstance(v, str) and TIME_RE.match(v) and v.split(':')[0] in ('hb', 'song'):
+            try:
+                TR(v)
+            except Exception as e:
+                bad.append((path, v, str(e)[:60]))
+        elif isinstance(v, str) and '..' in v and v.startswith('hb:'):
+            pass
+    for key in ('items', 'transitions', 'beatfx', 'fx', 'themes', 'finalHold'):
+        walk(edl.get(key), key)
+    return bad
+
+
+DEF_DUR = {'circle': 0.42, 'underline': 0.22, 'marker': 0.24, 'lift': 0.22, 'box': 0.36}
+
+
+def fit_emph(edl):
+    """screens piles whose last pencil emphasis (circle / underline / box) would still be drawing at the impact of the pile's
+    outgoing transition draw it faster, so it is complete one frame before the impact (it never vanishes half-drawn); the
+    beat it starts on is unchanged. Returns [(item, style, old dur, new dur)]."""
+    import sys
+    sp = str(ROOT / 'render/video')
+    if sp not in sys.path:
+        sys.path.insert(0, sp)
+    from timeref import TimeRef
+    TR = TimeRef(edl)
+    imp = {}
+    for t in edl.get('transitions', []):
+        for i in t.get('out', []):
+            imp[i] = min(imp.get(i, 1e9), TR(t['at']))
+    for x in edl['items']:
+        for k in ('enterFx', 'exitFx'):
+            pass
+    done = []
+    for x in edl['items']:
+        if x['type'] != 'screens' or not isinstance(x.get('emph'), list):
+            continue
+        end = imp.get(x['id'], TR(x['t1']))
+        for e in x['emph']:
+            if e.get('style') not in ('circle', 'underline', 'box') or 'at' not in e:
+                continue
+            a, d = TR(e['at']), e.get('dur', DEF_DUR[e['style']])
+            if a + d > end - 1 / 30 and end - 1 / 30 - a >= 0.12:
+                nd = round(end - 1 / 30 - a, 3)
+                e['dur'] = nd
+                done.append((x['id'], e['style'], d, nd))
+    return done
+
+
+def early_emph(edl, read=0.5):
+    """FIXER r1 (critic 'late payoffs'): a pile's end-of-bar emphases (lift, circle, underline, box, marker) finished as the pile
+    was already leaving (folded / zoomed / shattered at its outgoing transition's impact), so the finished highlight was seen for
+    1-2 frames. Every emphasis that would complete less than `read` s before that impact (else before t1) now starts on the
+    latest 8th of the hits grid that lets it finish in time (its duration trimmed to fit, never below 0.14 s), never before its
+    card has landed (+0.06 s: pre-lit as it slams in); the push-in moves up with it. Returns [(item, style, old at, new ref)]."""
+    import math, sys
+    sp = str(ROOT / 'render/video')
+    if sp not in sys.path:
+        sys.path.insert(0, sp)
+    from timeref import TimeRef
+    TR = TimeRef(edl)
+    imp = {}
+    for t in edl.get('transitions', []):
+        for i in t.get('out', []):
+            imp[i] = min(imp.get(i, 1e9), TR(t['at']))
+    done = []
+    for x in edl['items']:
+        if x['type'] != 'screens' or not isinstance(x.get('emph'), list) or not x['emph']:
+            continue
+        end = imp.get(x['id'], TR(x['t1']))
+        D = end - read
+        shots = x['shots']
+        lands = [TR(s['at']) if isinstance(s, dict) and 'at' in s else None for s in shots]
+        P = x.get('push') if isinstance(x.get('push'), dict) else None
+        for e in x['emph']:
+            if 'at' not in e:
+                continue
+            a, d = TR(e['at']), e.get('dur', DEF_DUR.get(e['style'], 0.3))
+            if a + d <= D + 1e-3:
+                continue
+            k = e.get('shot', len(shots) - 1)
+            k = k if k >= 0 else len(shots) + k
+            floor = (lands[k] if k < len(lands) and lands[k] is not None else TR(x['t0'])) + 0.06
+            # latest 8th with room for at least min(d, 0.2) s
+            hb = (TR.song_at(D - min(d, 0.2)) - 19.232) / BEAT
+            cand = math.floor(hb * 2 + 1e-6) / 2
+            ref = f'hb:{cand:g}'
+            try:
+                na = TR(ref)
+            except Exception:
+                na = None
+            if na is None or na < floor:
+                na, ref = floor, round(floor, 4)
+            nd = max(0.14, min(d, D - na))
+            e['at'] = ref
+            if nd < d - 1e-3:
+                e['dur'] = round(nd, 3)
+            done.append((x['id'], e['style'], round(a, 3), ref))
+            if P and 'at' in P and TR(P['at']) > na + 1e-3:
+                P['at'] = ref
+    return done
+
+
+def fixer_r1(items, cut):
+    """FIXER r1 (critics on the assembled cuts, 11 Oct): layout and craft changes applied after safe_nudges, shared by both cuts.
+    Each block names the critic issue it answers."""
+    g = {x['id']: x for x in items}
+    def has(k): return k in g
+    # ---- the self-improvement loop (critic 'the acceleration does not read'): bigger ring (r 210 -> 250, ~60 % of the frame width
+    # with its nodes), a comet tail a third of the ring at the slowest lap that grows with each faster lap, a shock ring and a
+    # tick on every lap; the top and bottom labels sit beside their nodes (the title above and the facts below need the room)
+    for k in ('loop-a', 'loop-a-s'):
+        if has(k):
+            L = g[k]
+            L['r'] = 250
+            L['labelSide'] = ['right', None, 'right', None]
+            L['tailBase'], L['tailK'], L['lapShock'] = 1.9, 1.5, True
+    if has('loop-b'):
+        g['loop-b'].update({'tailBase': 1.9, 'tailK': 1.5, 'lapShock': True})
+    # ---- the refrain's data-centre chart (critic: small, colliding): the card is 940 x 482 (87 % x 25 % of the frame), the plot
+    # 670 x 200 with the unit inside it; no big counter (its 'GW' doubled the axis unit and it printed over the subtitle): the
+    # value label at the line's head counts up instead, at 56 px; the subtitle wraps in a narrower column so the head's label is
+    # clear of it; the source line rolls out while the last points land (complete before the dive), under the x labels
+    if has('chart-gw'):
+        c = g['chart-gw']
+        c.update({'x': 175, 'y': 1300, 'w': 660, 'h': 178, 'titlePx': 50, 'titleGap': 196, 'subPx': 23, 'subW': 600, 'valuePx': 56,
+                  'card': {'x': 70, 'y': 1090, 'w': 940, 'h': 482, 'color': '#FBF6EC', 'rot': -0.6},
+                  'sourceAt': 'hb:97.25', 'sourcePer': 0.02, 'sourceY': 1538, 'sourcePx': 21, 'sourceW': 760, 'sourceX': 140})
+        c.pop('counter', None)
+        c['yAxis'] = {**c.get('yAxis', {}), 'labelPx': 28, 'labelIn': 'top'}   # the unit top-left inside the plot (the first point sat on it)
+        a = c['annotate'][0]
+        a.update({'dx': -330, 'dy': 70, 'px': 38, 'w': 330, 'at': 'hb:98.125', 'per': 0.03})
+    if has('pile-golden'):   # the Guardian card and its chip a little higher: the chip sat on the top node's label
+        for sh in g['pile-golden']['shots']:
+            sh['y'] = 318
+    if has('cp-golden'):   # its credit sat under the 'Faster research' label: shorter, smaller, clear of the bottom node and the chart
+        g['cp-golden']['credit'] = 'ORACLE · STARGATE · 2025'
+        g['cp-golden']['creditSize'] = 24
+        g['cp-golden']['creditAt'] = [64, 1046]
+    # ---- verse 1, the DPO beat (critic: grey on near-black, an almost empty frame at 27.3-27.5): white chalk drawn fast, the
+    # PauseAI footage painted in 0.3 s earlier and larger, over Amodei's closing iris
+    if has('eq-dpo'):
+        g['eq-dpo'].update({'color': '#FFF8EA', 'penColor': '#FFF8EA', 'rowDur': 0.3, 'fillDur': 0.16, 'glyphDur': 0.05, 'cy': 1115})   # 45 px up: the TechCrunch card covered its last row (and clear of Amodei's caption above)
+    if has('p-pause'):
+        pp = g['p-pause']
+        pp['t0'] = 'hb:28.9'
+        pp['entry'] = {'style': 'paint', 'at': 'hb:28.9'}
+        pp['frame'] = {**pp['frame'], 'r': 250}
+    # ---- verse 1, the 3D net (critic: a yellow slab cropped by the frame edges, buried under five other things): the tower has its
+    # first bar to itself with the attention equation (the FPGA panel is gone), the camera stands back so the blocks stay inside
+    # the frame, and the heads fan out on beats 2, 3, 4 (attention of blocks 1-3) with the output token on the next downbeat;
+    # Coxon's portrait, the tweet and the Guardian card come in smaller on the second bar, around the tower
+    if has('p-fpga'):
+        g['p-fpga']['enabled'] = False
+    if has('v1-tower'):
+        vt = g['v1-tower']
+        vt['infer'] = ['hb:32', 'hb:33', 'hb:33.5', 'hb:34', 'hb:34.5', 'hb:35', 'hb:35.5', 'hb:36']
+        vt['cam'] = {**vt.get('cam', {}), 'dist': 34, 'fov': 40, 'attnX': 1.0, 'mlpX': -1.2, 'lead': 0.4}
+        vt['view'] = {'dx': 0, 'dy': 170}
+    if has('p-coxon-v1'):
+        g['p-coxon-v1']['frame'] = {'cx': 790, 'cy': 480, 'r': 175}
+    if has('kar-coxon-v1'):
+        k = g['kar-coxon-v1']
+        k.update({'lead': 0.08, 'metaAt': k['t0'], 'metaCps': 110, 'metaWrap': True, 'plate': {'color': 'rgba(14,13,18,0.88)', 'pad': 22}})
+    if has('pile-jobs'):
+        pj = g['pile-jobs']
+        pj['region'] = {'x0': 60, 'y0': 1150, 'x1': 1020, 'y1': 1560}
+        pj['w'] = 700
+        pj['overlap'] = 0.0
+        for sh in pj['shots']:
+            if sh['id'] == 'xrisk-rev2-x-coxon-2026-09-08-resigned-anthropic':
+                # the post's header and its first sentence only (the paragraph read as a dumped block); its marker lands on it
+                sh.update({'crop': [20, 20, 610, 214], 'w0': 520, 'at': 'hb:36.75', 'hlAt': 'hb:37.25'})
+            else:
+                sh.update({'at': 'hb:37.75', 'w0': 700})
+        pj['pulse'] = ['hb:37.75', 'hb:38']
+        pj['push'] = {**pj['push'], 'z': 1.25, 'to': [540, 1380]}
+    # ---- the chorus's GRPO objective over the racks (critic: pale lavender on cornflower, ~3:1, illegible on a phone; a green smudge
+    # over 1/G Σ; the source line weak on the purple footage): ink on a cream card, 20 % larger, the markers yellow on cream (the
+    # green was yellow multiplied on blue), red and pink circles drawn heavier, label and source line on dark chips
+    if has('eq-grpo'):
+        q = g['eq-grpo']
+        q.update({'mode': 'pencil', 'color': '#15131F', 'penColor': '#2A2832', 'px': 48, 'maxW': 1000,
+                  'card': {**q['card'], 'color': '#FBF6EC', 'pad': 26}})
+        q['label'] = {**q['label'], 'color': '#FBF6EC', 'bg': {'color': '#0E0D12', 'pad': 12}}
+        q['cite'] = {**(q.get('cite') or {}), 'color': '#FBF6EC', 'px': 24, 'bg': {'color': '#0E0D12', 'pad': 10}}
+        for h in q['hl']:
+            if h.get('from') == 'highlight':
+                h.update({'color': '#B31B1B', 'width': 9, 'padX': 24, 'padY': 28})
+            elif h.get('from') == 'extra:0':
+                h.update({'color': '#FF2E88', 'width': 9, 'padX': 34, 'padY': 28})
+    # ---- low-severity, cheap (critics): -------------------------------------------------------------------------------------
+    # 'exploit' pile: the emphasis was on TIME's 2023 Kenyan-workers card (unstamped under newer cards); it now lands on Susman
+    # Godfrey's $1.5 billion piracy settlement (Sep 2025), which lands last and on top; TIME 2023 stays in the pile, behind
+    if has('pile-exploit'):
+        pe = g['pile-exploit']
+        sh = {x['id']: x for x in pe['shots']}
+        sg, va = sh['susmangodfrey-2025-09-25-piracy-settlement'], sh['capabilities-variety-suno-v6']
+        va.update({'at': 'hb:45', 'entry': 'slam'})
+        sg.update({'at': 'hb:45.5', 'entry': 'paint', 'hl': 0})
+        pe['shots'] = [x for x in pe['shots'] if x['id'] not in (sg['id'], va['id'])] + [va, sg]
+        pe['push'] = {**pe['push'], 'shot': 3, 'at': 'hb:46.5', 'z': 1.3}
+        pe['emph'] = [{'style': 'lift', 'at': 'hb:46.5', 'shot': 3}, {'style': 'circle', 'at': 'hb:46.5', 'shot': 3, 'dur': 0.3}]
+    # riff: the whole-art whip turns the fresh title upside down for a shorter moment (360 deg in half a beat into hb:12)
+    if has('kand-riff'):
+        for m in g['kand-riff']['moves']:
+            if m.get('move') == 'whip':
+                m.update({'at': 'hb:11.5', 'dur': 0.5})
+    # 'it's brutal out here' (critic: 'it's' completes 0.4 s after its onset, 'out' starts ~0.1 s late, the ghost text overlaps the
+    # burst's flying cards for ~0.3 s): 'it's' painted in 0.22 s, 'out' leads by 0.2 s, the line fades out over the burst's first 8th
+    # FINAL PASS (11 Oct): 'out' lead 0.2 -> 0.07. Measured on the engine (brushtext alone, colour pixels in the word's band): with
+    # 0.2 the 'o' showed at f1996 = 165 ms (4.9 frames) before the sung 'out' (72.798), outside the brief's +-2 frames; with 0.07
+    # its first stroke shows one frame (~31 ms) ahead of the onset, still a hair of anticipation (the critic's 'starts late').
+    if has('brutal'):
+        b = g['brutal']
+        b['place'][0]['dur'] = 0.22
+        b['place'][2]['lead'] = 0.07
+        b['t1'] = 'hb:112.4'
+        b['exit'] = {'style': 'fade', 'dur': 0.14}
+    # the instrumental (critic: soft last bars, unlit quote words faint, no visible orbit, no impact on the cover): the pink and
+    # black discs orbit each other once over the last two bars (eight 45-degree steps, home on hb:123), every piece bumps and the
+    # frame blooms on the final downbeat; Amodei's unspoken words at 62 %
+    if has('kand-re'):
+        kr = g['kand-re']
+        kr['moves'] = kr['moves'] + [{'move': 'orbit', 'pieces': ['pink', 'black'], 'on': 'hb:116..123', 'stepDeg': 45},
+                                     {'move': 'bump', 'pieces': ['pink', 'black', 'core', 'blue', 'teal', 'square', 'target', 'band', 'smallO', 'nabla', 'chk'],
+                                      'on': ['hb:124'], 'scale': 1.035, 'dur': 0.2}]
+    if has('kar-amodei-b'):
+        g['kar-amodei-b']['roll'] = {**g['kar-amodei-b'].get('roll', {}), 'dim': 0.62}
+    return items
+
+
+def fixer_fx(cut):
+    """FIXER r1: the bloom flash on the cover's final downbeat (both cuts)"""
+    return [{'id': 'fx-cover-bloom', 'fx': 'flash', 'on': ['hb:124'], 'opacity': 0.42, 'decay': 0.12, 'color': '#FFF8EA',
+             '_note': 'FIXER r1: the cover lands on the final downbeat with a bloom flash (and a 3.5 % bump of every piece, kand-re)'}]
+
+
+def hold_past(edl, old_end):
+    """FIXER r1: every item (and theme) that ran to the old end of the cut runs to the new one (the cover holds past the music)"""
+    import sys
+    sp = str(ROOT / 'render/video')
+    if sp not in sys.path:
+        sys.path.insert(0, sp)
+    from timeref import TimeRef
+    TR = TimeRef(edl)
+    n = 0
+    for x in edl['items']:
+        if 't1' in x:
+            try:
+                v = TR(x['t1'])
+            except Exception:
+                continue
+            if v >= old_end - 1e-3:
+                x['t1'] = edl['duration']
+                n += 1
+    return n
+
+
+def safe_nudges(items):
+    """text that sat on the safe zone's edge and crossed it under the camera shakes (coverage.py, first pass): moved inside"""
+    g = {x['id']: x for x in items}
+    def has(k): return k in g
+    if has('v1-agents-credit'): g['v1-agents-credit']['y'] = 276; g['v1-agents-credit']['x'] = 76
+    if has('coxon-stamp'): g['coxon-stamp']['stamp']['y'] = 262
+    if has('loop-a'): g['loop-a']['title']['y'] = 270
+    if has('loop-a-s'): g['loop-a-s']['title']['y'] = 270
+    if has('chart-gw'): g['chart-gw']['sourceY'] = 1498
+    if has('fog-credit'): g['fog-credit']['y'] = 1512
+    if has('credit-racks'): g['credit-racks']['y'] = 1490
+    for k in ('disc-credit-1', 'disc-credit-2'):
+        if has(k): g[k]['x'] = 74
+    if has('eq-ntp'): g['eq-ntp']['y'] = 400
+    if has('eq-upd'): g['eq-upd']['y'] = 770
+    if has('eq-adv'):
+        g['eq-adv']['cy'] = 1345                         # its cite line sat on the safe zone's bottom edge (coverage)
+        g['eq-adv']['px'] = 72
+        g['eq-adv']['cite']['px'] = 20
+        g['eq-adv']['label']['font']['size'] = 33       # two lines, clear of the centre panel's credit
+    # verse 1: Amodei's karaoke stays until the DPO label rolls in (both moved half a beat), Coxon's karaoke wraps left of the
+    # tower's yellow residual river (its words were unreadable over the river)
+    if has('kar-amodei'):
+        g['kar-amodei']['t1'] = 'hb:29.2'
+        g['kar-amodei']['exit'] = {'style': 'fade', 'dur': 0.18}
+    if has('eq-dpo'): g['eq-dpo']['label']['at'] = 'hb:29.25'
+    if has('kar-coxon-v1'): g['kar-coxon-v1']['w'] = 440
+    if has('chart-dc'):
+        g['chart-dc']['x'] = 195; g['chart-dc']['w'] = 675
+        # the callout sat on the title and subtitle (first render): it goes inside the plot, under the 1,000 line
+        a = g['chart-dc']['annotate'][0]; a['dx'] = -360; a['dy'] = 90; a['px'] = 54
+    if has('chart-gw'):
+        a = g['chart-gw']['annotate'][0]; a['dx'] = -300; a['dy'] = 90; a['px'] = 34; a['w'] = 300
+    if has('p-60'): g['p-60']['creditAt'] = [610, 712]      # was over the karaoke's name line (the long chip clamps left)
+    # credit chips too long for the safe zone (they clamped onto its left edge or into the right rail): shorter, same facts
+    if has('cp-try'):
+        # final coverage pass: the 42-character chip (y 1088) ran into the right rail and under the loop's 'Faster research' label;
+        # 30 characters, 40 px lower (between that label, bottom ~1122, and the DNS card's sloped top edge)
+        g['cp-try']['credit'] = '@MECAGENT · GPT-6 ASTRA · 2026'
+        g['cp-try']['creditAt'] = [64, 1128]
+    if has('p-protein'): g['p-protein']['credit'] = 'ANTHROPIC · PROTEIN BINDERS BY CLAUDE · 2026'
+    if has('p-pause'): g['p-pause']['credit'] = 'PAUSEAI UK · PROTEST FOOTAGE · 2026'   # the verifier's alternative wording
+    for x in items:
+        if x['type'] == 'panel' and x.get('creditAt') == [64, 262]:
+            x['creditAt'] = [74, 274]
+    return items
+
+
+# ============================================================================================ FIXER r2 (critics on the r1 cuts, 11 Oct)
+def _hits():
+    return json.load(open(ROOT / 'song/hits.json'))
+
+
+def prelude_kicks(t0_song, t1_song):
+    """the prelude's ~0.49 s pulse as a 3-5.5 % push of the picture inside its box (critic: the pulse accents sat in the phone-UI
+    strip): every hits.json prelude_pulse swell (scaled by its strength) plus the grid's bar downbeats (legacy clip "pulses")"""
+    ks = []
+    bars = [hb_song(i) for i in (-24, -20, -16, -12, -8)]
+    for b in bars:
+        if t0_song + 0.05 <= b < t1_song - 0.1:
+            ks.append({'at': f'song:{b:.3f}', 'z': 1.055, 'dur': 0.22})
+    for p in _hits().get('prelude_pulse', []):
+        s = p['t']
+        if t0_song + 0.05 <= s < t1_song - 0.1 and all(abs(s - b) > 0.15 for b in bars):
+            ks.append({'at': f'song:{s:.3f}', 'z': round(1.025 + 0.02 * min(1, p.get('s', 0.5)), 4), 'dur': 0.18})
+    return sorted(ks, key=lambda k: float(k['at'][5:]))
+
+
+# the classifier sketch, redrawn inside the safe zone beside the caption (x 772-1008, y 1255-1450; critic: it sat under the phone UI)
+SKETCH_DOTS = {   # beat -> (x, y, size, glyph, color): orange above the plane, blue below the margin, the cover's glyphs on it
+    -26: (788, 1346, 28, 'disc', 'orange'), -25: (800, 1432, 28, 'disc', 'blue'), -23: (802, 1298, 28, 'disc', 'orange'),
+    -22: (848, 1416, 28, 'disc', 'blue'), -21: (840, 1270, 28, 'disc', 'orange'), -19: (898, 1398, 28, 'disc', 'blue'),
+    -18: (828, 1318, 28, 'disc', 'orange'), -17: (930, 1438, 28, 'disc', 'blue'), -15: (876, 1292, 28, 'disc', 'orange'),
+    -14: (952, 1370, 28, 'disc', 'blue'), -13: (920, 1266, 28, 'disc', 'orange'), -11: (992, 1410, 28, 'disc', 'blue'),
+    -10: (964, 1262, 26, 'disc', 'orange'), -9: (996, 1344, 26, 'disc', 'blue'), -7: (962, 1436, 26, 'disc', 'blue'),
+    -16: (994, 1290, 34, 'nabla', 'red'), -12: (776, 1258, 34, 'checker', 'cream'), -8: (872, 1352, 30, 'ring', 'violet'),
+    -4: (880, 1444, 28, 'square', 'teal'),
+}
+
+
+def fixer_r2(items, cut):
+    """FIXER r2 (critics on the r1 cuts, 11 Oct; William's feedback log had no note on them): shared by both cuts. Each block
+    names the critic issue it answers."""
+    g = {x['id']: x for x in items}
+    def has(k): return k in g
+    out = list(items)
+    def insert_after(ref, new):
+        i = next(k for k, x in enumerate(out) if x['id'] == ref)
+        out.insert(i + 1, new)
+        g[new['id']] = new
+    # ---- PRELUDE -----------------------------------------------------------------------------------------------------------
+    # (william, medium) the role line straddled the footage's top edge in dim grey: the stamp rises 38 px, the footage box starts
+    # 16 px lower (same bottom), so the role line ends ~32 px clear of the picture; role text #D8D8E0
+    # (director, low) unlit caption words at 14 %: 50 % (highlighted words 58 %), still lit word by word as spoken
+    # (director, medium) the pulse accents sat in the phone-UI strip: the footage box itself pushes 1.5-3 % on every pulse swell
+    for k, (s0, s1) in (('altman', (6.10, 10.833)), ('amodei', (10.833, hb_song(-7)))):
+        if not has(k):
+            continue
+        c = g[k]
+        c['stamp'] = {**c['stamp'], 'y': 262, 'roleColor': '#D8D8E0'}
+        c['box'] = {**c['box'], 'y': c['box']['y'] + 16, 'h': c['box']['h'] - 16}
+        c['caption'] = {**c['caption'], 'dimOp': 0.5, 'dimHl': 0.58}
+        c['pulses'] = prelude_kicks(s0, s1)
+    if has('frame-pencil'):
+        g['frame-pencil']['shapes'][0].update({'y': 368, 'h': 900})
+    # (director, medium) the classifier sketch sat at y > 1580 under the phone UI with 14 px dots: redrawn beside the caption
+    # (x 772-1008, y 1255-1450, inside the safe zone), 26-34 px ink-bled dots one per beat, the plane and its margin drawn on the
+    # bars in pencil segments (the margin grows a segment per bar)
+    for x in out:
+        if x['id'].startswith('sketch-dot-'):
+            b = -int(x['id'].split('-m')[-1]) if '-m' in x['id'] else int(x['id'].split('-')[-1])
+            if b in SKETCH_DOTS:
+                X, Y, S, gl, col = SKETCH_DOTS[b]
+                x.update({'x': X, 'y': Y, 'size': S, 'glyph': gl, 'color': col})
+    if has('sketch-plane'):
+        L1 = lambda x: 1372 - 0.4025 * (x - 772)
+        L2 = lambda x: 1406 - 0.4025 * (x - 772)
+        sh = [{'kind': 'line', 'x0': 772, 'y0': L1(772), 'x1': 1008, 'y1': L1(1008), 'at': 'hb:-24', 'dur': 0.35}]
+        segs = [(772, 832), (832, 892), (892, 952), (952, 1008)]
+        for (a, b), at in zip(segs, ('hb:-23.5', 'hb:-20', 'hb:-16', 'hb:-12')):
+            sh.append({'kind': 'line', 'x0': a, 'y0': L2(a), 'x1': b, 'y1': L2(b), 'at': at, 'dur': 0.2})
+        sh.append({'kind': 'arrow', 'x0': 880, 'y0': L1(880) + 2, 'x1': 894, 'y1': L1(880) + 40, 'head': 12, 'at': 'hb:-19.5', 'dur': 0.25})
+        g['sketch-plane'].update({'shapes': sh, 'width': 4, 'alpha': 0.85})
+    # (william, medium) the prelude pile was 2-3 cards in the top 60 % and its breath beats were the same frame: 8 real headline
+    # screenshots land on beats and 8ths (two more of the same incident: TIME Aug 27 2026, CSO Sep 28 2026) over the full height,
+    # then the push, the lift, the circle and (on the second breath beat) the pink marker pass and a kick
+    if has('pile-hf'):
+        ph = g['pile-hf']
+        sh = {s['id']: s for s in ph['shots']}
+        pos = {'fortune-2026-07-21-openai-hf-escape': (470, 470), 'time-2026-07-24-lost-control': (650, 870),
+               'security-hf-header': (520, 660), 'bbc-2026-07-29-rogue-ai-hack-other-companies': (560, 1450),
+               'frontier-rev2-wired_aug18_headline': (500, 780), 'frontier-rev2-gizmodo_oct2_headline': (540, 1010)}
+        for k, (x, y) in pos.items():
+            sh[k].update({'x': x, 'y': y})
+        new = [{'id': 'xrisk-rev2-time-2026-08-27-models-went-rogue-required-more-ai', 'at': 'hb:-6.5', 'entry': 'slam', 'hl': 0,
+                'crop': [140, 60, 2420, 830], 'x': 600, 'y': 1300, 'w0': 860, 'rot': 2.5},
+               {'id': 'security-hl-cso-pause', 'at': 'hb:-5.5', 'entry': 'drop', 'hl': 0, 'crop': [0, 0, 1720, 560], 'x': 450,
+                'y': 1130, 'w0': 820, 'rot': -2}]
+        order = ['fortune-2026-07-21-openai-hf-escape', None, 'time-2026-07-24-lost-control', None, 'security-hf-header',
+                 'bbc-2026-07-29-rogue-ai-hack-other-companies', 'frontier-rev2-wired_aug18_headline', 'frontier-rev2-gizmodo_oct2_headline']
+        shots, ni = [], iter(new)
+        for k in order:
+            shots.append(sh[k] if k else next(ni))
+        ph['shots'] = shots
+        ph['push'] = {**ph['push'], 'shot': 7}
+        ph['emph'] = [{'style': 'lift', 'at': 'hb:-2.5', 'shot': 7}, {'style': 'circle', 'at': 'hb:-2', 'shot': 7},
+                      {'style': 'marker', 'at': 'hb:-1', 'shot': 7, 'color': '#FF2E88', 'dur': 0.2}]
+        ph['pulse'] = ph['pulse'] + [f'song:{hb_song(-1):.3f}']
+        # the second breath beat (hb:-1) gets its own event: a red ink nabla stamped onto the pushed card (the pile's emphases
+        # must finish 0.5 s before the shatter, so the marker stays on hb:-1.5)
+        insert_after('pile-hf', {'id': 'r2-stamp-breath', 'type': 'inkstamp', 'at': 'hb:-1', 't0': 'hb:-1', 't1': 'hb:0', 'x': 958, 'y': 1188,
+                                 'size': 120, 'glyph': 'nabla', 'color': 'red', 'rot': 8, 'layer': 'own',
+                                 '_note': 'FIXER r2 (william): the two breath beats were the same frame'})
+    # ---- RIFF --------------------------------------------------------------------------------------------------------------
+    if has('kand-riff'):
+        k = g['kand-riff']
+        pre = k['preset']
+        # (director, medium) river and superposition under-scaled: the plane thickens to the verse band's width on the bar-4
+        # downbeat (hb:12) with 26 swimmers on 16ths; the superposition is 500 units (was 380) with vectors fanning past the
+        # circle toward the frame edges, thicker, and a 2-frame colour-cycling flash on every beat
+        pre['river'] = {**pre['river'], 'vectors': 26, 'stagger': 0.25, 'lanes': 100, 'ripple': 8}
+        pre['superpose'] = {**pre['superpose'], 'r': 500, 'reach': 1.22, 'flash': True, 'wK': 1.3}
+        k['moves'] = k['moves'] + [
+            {'move': 'thicken', 'at': 'hb:12', 'k': 2.5, 'dur': 0.3},
+            # (director, medium) the riff's opening beats each added one lone shape: hb:3 pops the blue disc with a ripple
+            {'move': 'bump', 'pieces': ['blue'], 'on': ['hb:3'], 'scale': 1.28, 'dur': 0.24},
+            {'move': 'bump', 'pieces': ['black', 'core'], 'on': ['hb:1', 'hb:2'], 'scale': 1.18, 'dur': 0.2},
+            # (william, medium) footage at 15 % of the frame: Coxon's disc grows to ~390 px while he speaks (back for the title)
+            {'move': 'grow', 'pieces': ['blue'], 'from': 'hb:3.25', 'to': 'hb:7.75', 'scale': 1.6, 'dx': -60, 'dy': -40, 'dur': 0.25},
+            # its teal moon would orbit inside the grown disc (over his face): it shrinks away while he speaks
+            {'move': 'grow', 'pieces': ['teal'], 'from': 'hb:3.25', 'to': 'hb:7.75', 'scale': 0.5, 'op': 0, 'dur': 0.25}]
+    riff_paint = [
+        {'id': 'r2-spray-1', 'type': 'splat', 'at': 'hb:1', 't1': 'hb:6', 'x': 170, 'y': 1440, 'r': 110, 'color': 'orange', 'dir': 200,
+         'sats': 80, 'spikes': 6, 'drips': 0, 'spread': 1.3, 'satMax': 0.2, 'cull': {'at': 'hb:5', 'dur': 0.5}, 'layer': 'paint',
+         '_note': 'FIXER r2: the black disc lands with an orange spray (the riff opening was one lone shape per beat)'},
+        {'id': 'r2-spray-2', 'type': 'splat', 'at': 'hb:2', 't1': 'hb:7.5', 'x': 860, 'y': 1330, 'r': 150, 'color': 'pink', 'dir': -25,
+         'sats': 110, 'spikes': 7, 'drips': 2, 'spread': 1.35, 'satMax': 0.22, 'cull': {'at': 'hb:6.5', 'dur': 0.6}, 'layer': 'paint',
+         '_note': 'FIXER r2: a pink spray with droplets across the frame on hb:2 (with the 3-stroke yellow plane sweep)'},
+        {'id': 'r2-burst-3', 'type': 'splat', 'at': 'hb:3', 't1': 'hb:6.5', 'x': 245, 'y': 640, 'r': 90, 'color': '#FF4A1C', 'dir': 110,
+         'sats': 70, 'spikes': 9, 'drips': 1, 'spread': 1.1, 'satMax': 0.2, 'cull': {'at': 'hb:5.25', 'dur': 0.4}, 'layer': 'paint',
+         '_note': "FIXER r2: droplets burst out of the black disc on hb:3 (with the blue pop and a 5 % camera punch), flying down, away from Coxon's caption"},
+    ]
+    # the yellow plane swept across the full width as three dry-brush strokes (hb:1.75, 1.875, 2): along the band, above, below
+    BY = lambda X, off: round(1073.4 - 0.404 * X + off, 1)
+    for i, (at, off, w) in enumerate((('hb:1.75', -70, 64), ('hb:1.875', 74, 58), ('hb:2', 0, 120))):
+        pts = [[-60, BY(-60, off)], [300, BY(300, off) + (6 if i else -4)], [700, BY(700, off) - 5], [1140, BY(1140, off)]]
+        riff_paint.append({'id': f'r2-plane-{i}', 'type': 'stroke', 't0': at, 't1': 'hb:12.3', 'at': at, 'dur': 0.16, 'points': pts, 'width': w,
+                           'color': '#F2C300', 'dry': 0.55, 'gaps': 0.45, 'wet': 0.3, 'pressure': [0.7, 1, 0.8], 'ease': 'oQuad',
+                           'out': {'at': 'hb:12', 'dur': 0.25}, 'layer': 'paint', '_note': 'FIXER r2: the plane swept across the frame on hb:2 (three dry-brush passes)'})
+    if has('splat-drop'):
+        # (director, medium) the drop's pink splat climbed into the kicker/credit band: it now bursts low and drips down-right
+        g['splat-drop'].update({'x': 860, 'y': 1660, 'r': 180, 'dir': 70, 'drips': 4, 'cull': {'at': 'hb:6.75', 'dur': 0.6}})
+        for x in reversed(riff_paint):
+            insert_after('splat-drop', x)
+    # (william, medium) footage under 15 % of the frame in the riff: the Galaxy Helios data-centre build-out (2026) printed into the
+    # cream paper (multiply, 34 %), lighter behind the wordmark band so the title and kicker keep their contrast
+    if has('g-cream-riff'):
+        insert_after('g-cream-riff', {
+            'id': 'ghost-riff', 'type': 'panel', 't0': 'hb:1.25', 't1': 'hb:16', 'prep': 'clip', 'broll': 'galaxy-helios-datacenter', 'in': 43.6,
+            'speed': 0.4, 'shape': 'rect', 'frame': {'x': 0, 'y': 0, 'w': 1080, 'h': 1920}, 'entry': {'style': 'fade', 'at': 'hb:1.25', 'dur': 0.45},
+            'out': {'style': 'fade', 'dur': 0.2}, 'border': 'none', 'kb': {'z': [1.0, 1.12]}, 'alpha': 0.3, 'blend': 'multiply',
+            'grade': {'sat': 0.3, 'contrast': 0.88, 'brightness': 0.06, 'gamma': 1.5, 'grain': 0},
+            'mask': 'linear-gradient(to bottom, #000 0%, #000 52%, rgba(0,0,0,0.22) 58%, rgba(0,0,0,0.22) 82%, #000 90%, #000 100%)',
+            'theme': 'light', '_note': "FIXER r2: MUTED ghost b-roll under the riff (Galaxy's Helios AI data centre, 2026; aerial of the halls), multiply 34 %"})
+    for k in ('credit-coxon', 'riff-credit'):
+        if has(k):
+            g[k]['font'] = {**g[k]['font'], 'size': 28}
+            g[k]['y'] = 1468
+    if has('riff-credit'):
+        g['riff-credit']['text'] = "IN THE DISCS: AGENTS' LAST EXAM, 2026 · NVIDIA NVL72 DATA HALL, 2025 · BEHIND: GALAXY HELIOS DATA CENTRE, 2026"
+        g['riff-credit']['w'] = 940
+    if has('coxon-stamp'):
+        g['coxon-stamp']['meta'] = 28; g['coxon-stamp']['name_px'] = 30
+    if has('kar-coxon'):
+        g['kar-coxon']['roll'] = {**g['kar-coxon']['roll'], 'dim': 0.55}
+        # the riff's close-ups (hb:5-7) zoom the black disc up under Coxon's caption: ink words on ink; a paper plate keeps them read
+        g['kar-coxon']['plate'] = {'color': 'rgba(242,235,221,0.9)', 'pad': 14}
+        if has('coxon-stamp'):   # the year chip, name and role sit on top of the plate
+            out.remove(g['coxon-stamp']); out.insert(out.index(g['kar-coxon']) + 1, g['coxon-stamp'])
+    # ---- VERSE / CHORUS (long) -----------------------------------------------------------------------------------------
+    # (director, low) Hinton's portrait arrived over the 'Anthropic researcher ... 10%' card: it now pops in with his own Guardian
+    # card (hb:21.5), so his face never sits on another speaker's claim
+    if has('p-hinton'):
+        g['p-hinton'].update({'t0': 'hb:21.5', 'entry': {'style': 'pop', 'at': 'hb:21.5', 'dur': 0.25}})
+    # (director, medium) the 3D tower was covered by the news piles from hb:37: the jobs pile keeps below y 1310 until it leaves
+    # (hb:40.5); every block blooms on the beat, one after another up the residual river
+    if has('pile-jobs'):
+        pj = g['pile-jobs']
+        pj['region'] = {'x0': 60, 'y0': 1310, 'x1': 1020, 'y1': 1566}
+        pj['push'] = {**pj['push'], 'to': [540, 1440]}
+    if has('v1-tower'):
+        g['v1-tower']['beatGlow'] = 0.85
+    if has('cp-try'):   # (william, medium) the hb:80 iris landed on an empty ring: the centre footage is already popping in
+        g['cp-try']['entry'] = {'style': 'pop', 'at': 'hb:79.7', 'dur': 0.28}
+    for k in ('kar-amodei', 'kar-coxon-v1', 'kar-count', 'kar-cooper', 'kar-amodei-60', 'kar-amodei-a'):
+        if has(k):   # (director, low) unlit karaoke words 30-35 %: 55 %
+            g[k]['roll'] = {**g[k].get('roll', {}), 'dim': max(0.55, g[k].get('roll', {}).get('dim', 0.3))}
+    # ---- REFRAIN / BLACK HOLE / GOD / OUTRO ----------------------------------------------------------------------------------
+    if has('chart-gw'):   # (director, low) ticks 32 px, the final value 60 px
+        g['chart-gw'].update({'metaPx': 32, 'valuePx': 60})
+    if has('pile-golden'):   # (director, low) the Guardian card sat by the top node: higher, and it leaves before the dive (hb:99.5)
+        pgd = g['pile-golden']
+        pgd['t1'] = 'hb:99.5'
+        pgd['out'] = {'style': 'scatter', 'dur': 0.2}
+        for sh in pgd['shots']:
+            sh['y'] = 300
+    if has('hole'):
+        h = g['hole']
+        # (director, medium) the swallow read as fade-and-stack: the cards go one pile per beat along a 1.2-turn spiral to 5 %, with
+        # ghost trails; a stronger lens (Einstein radius x1.35) bends more of the page round the hole
+        # each group starts 0.4 beat before its beat, so the beat frame catches it mid-turn
+        seq = [(['pile-gone', 'disc-credit-1'], 'hb:103.6'), (['pile-rsi'], 'hb:104.6'), (['pile-ego-lo', 'disc-credit-2'], 'hb:105.6'), (['pile-ego-hi'], 'hb:106.6')]
+        h['swallow'] = {**h['swallow'], 'seq': [{'items': [i for i in its if has(i)], 'at': at, 'dur': 0.9, 'turns': 1.2} for its, at in seq]}
+        h['lens'] = {'k': 2.3, 'extent': 9.5}
+        # (director, low) 'here' had 0.33 s of clean read: the burst's white flash is much lower (0.75 -> 0.2); the rings, debris and
+        # the 16 px shake still hit the downbeat
+        h['burst'] = {**h['burst'], 'flash': 0.2}
+    if has('brutal'):   # 'here' held at full contrast to song 73.67 (hb:112.5); the spit cards fly in 0.15 s later
+        g['brutal']['t1'] = 'hb:112.5'
+        g['brutal']['exit'] = {'style': 'fade', 'dur': 0.12}
+    for k in ('spit0', 'spit1', 'spit2', 'spit3'):
+        if has(k):
+            g[k]['t0'] = 'hb:112.3'
+            g[k]['t1'] = 'hb:113.6'
+    if has('kand-re'):
+        kr = g['kand-re']
+        # the 3.5 % bump on hb:124 never showed (the settle overrides it): the landing is the flash + camera punch (fixer_fx)
+        kr['moves'] = [m for m in kr['moves'] if not (m.get('move') == 'bump' and m.get('on') == ['hb:124'])]
+        # (william, medium) Dario's disc ~250 px: it grows to ~370 px while he speaks, back home before the settle
+        kr['moves'].append({'move': 'grow', 'pieces': ['blue'], 'from': 'hb:113.5', 'to': 'hb:122.6', 'scale': 1.5, 'dx': -30, 'dy': -40, 'dur': 0.3})
+        kr['moves'].append({'move': 'grow', 'pieces': ['teal'], 'from': 'hb:113.5', 'to': 'hb:122.6', 'scale': 0.5, 'op': 0, 'dur': 0.3})
+    if has('kc-blue-amodei'):
+        g['kc-blue-amodei']['oversample'] = 2.0
+    if has('g-cream-b'):   # (william, medium) the instrumental: the Stargate Abilene build-out printed into the cream (multiply 34 %)
+        insert_after('g-cream-b', {
+            'id': 'ghost-out', 'type': 'panel', 't0': 'hb:112.5', 't1': 'hb:124', 'prep': 'clip', 'broll': 'stargate-abilene-oracle', 'in': 26.0,
+            'speed': 0.5, 'shape': 'rect', 'frame': {'x': 0, 'y': 0, 'w': 1080, 'h': 1920}, 'entry': {'style': 'fade', 'at': 'hb:112.5', 'dur': 0.5},
+            'out': {'style': 'fade', 'at': 'hb:122.9', 'dur': 0.5}, 'border': 'none', 'kb': {'z': [1.0, 1.1]}, 'alpha': 0.3, 'blend': 'multiply',
+            'grade': {'sat': 0.3, 'contrast': 0.88, 'brightness': 0.06, 'gamma': 1.5, 'grain': 0},
+            'mask': 'linear-gradient(to bottom, transparent 0%, transparent 28%, #000 37%, #000 55%, rgba(0,0,0,0.22) 60%, rgba(0,0,0,0.22) 75%, #000 81%, #000 100%)',
+            'theme': 'light', '_note': "FIXER r2: MUTED ghost b-roll under the reassembly (Oracle's Stargate Abilene campus aerial, 2025), multiply 34 %, clear of the karaoke strip"})
+        insert_after('ghost-out', {
+            'id': 'ghost-out-credit', 'type': 'words', 't0': 'hb:113', 't1': 'hb:122.9', 'x': 64, 'y': 1488, 'w': 900,
+            'text': 'BEHIND: STARGATE ABILENE · ORACLE · 2025', 'font': {'family': "'IBM Plex Mono', monospace", 'weight': 600, 'size': 28},
+            'color': '#15131F', 'roll': {'mode': 'words', 'rate': 4, 'from': 'hb:113'}, 'exit': {'style': 'fade', 'dur': 0.2}, 'theme': 'light'})
+    return out
+
+
+def fixer_r2_fx(cut):
+    """FIXER r2: (director, low) the cover landed as a pale cream bloom: a 2-frame white flash and a 3 % camera punch that settles
+    within ~0.2 s (the frame is the exact cover from ~73.3 s); the riff's hb:3 punch; the whip impact on the bar (long)"""
+    fx = [{'id': 'fx-cover-flash', 'fx': 'flash', 'on': ['hb:124'], 'opacity': 0.92, 'decay': 0.03, 'color': '#FFFFFF',
+           '_note': 'FIXER r2: white-hot 2-frame flash on the cover landing'},
+          {'id': 'fx-cover-punch', 'fx': 'punch', 'on': ['hb:124'], 'amount': 0.03, 'bar': 0.03, 'decay': 0.045,
+           '_note': 'FIXER r2: the cover lands with a 3 % overshoot that settles in ~0.2 s'},
+          {'id': 'fx-riff-punch3', 'fx': 'punch', 'on': ['hb:3'], 'amount': 0.05, 'decay': 0.1, '_note': 'FIXER r2: the blue pop on hb:3'}]
+    if cut == 'long':
+        fx.append({'id': 'fx-ch-whip-land', 'fx': 'shake', 'on': ['hb:56'], 'amp': 12, 'barK': 1, 'decay': 0.1,
+                   '_note': 'FIXER r2: the CBS circle and the count land on the bar downbeat'})
+    return fx
+
+
+PAINT_MASK_RIFF = {'layer': 'paint', 'from': 'hb:7.75', 'to': 'hb:16', 'rect': [0, 1140, 1080, 400], 'feather': 110,
+                   '_note': 'FIXER r2 (director): no splat or stamp under the wordmark, the kicker and the credit line (y 1125-1575) once the title paints on'}
+
+
+def r2_prelude_tr(tr):
+    """FIXER r2: the breath stamp leaves with the prelude (it is shattered with the pile)"""
+    for t in tr:
+        if t['id'] == 'tr-shatter':
+            t['out'] = t['out'] + ['r2-stamp-breath']
+        if t['id'] == 'tr-fold':   # (director, low) the flap's back is lit paper, not a vermilion slab
+            t['back'] = '#F2EBDD'
+    return tr
+
+
+def r2_prelude_bfx(bfx):
+    """(see r2_bfx)"""
+    return r2_bfx(bfx)
+
+
+def r2_bfx(bfx):
+    """FIXER r2 (director, medium): the prelude tracks' drawn accents sat in the top strip that the phone UI covers (and now the
+    lifted stamp's row): they keep their camera moves, grain and flashes, and draw only small pencil ticks in the top-right
+    corner beside the stamp; the pulse itself is the footage box's push (prelude_kicks) and the sketch's dot per beat"""
+    for b in bfx:
+        if b['id'] in ('fx-prelude', 'fx-prelude-grid'):
+            b['zones'] = [[872, 150, 136, 84]]
+            b['no'] = sorted(set(b.get('no', []) + ['scribble', 'stamp', 'splat', 'splatS', 'droplets']))
+    # (director, medium) splats and stamps under the title band: from the wordmark's bar (hb:8) the riff track paints only in the
+    # top strip and the side margins above the wordmark (the paint mask is the safety net for a splat's fingers)
+    out = []
+    for b in bfx:
+        out.append(b)
+        if b['id'] == 'fx-riff':
+            b2 = {**b, 'id': 'fx-riff-b', 'from': 'hb:8', 'zones': [[40, 150, 1000, 100], [10, 440, 150, 600], [920, 440, 150, 600]],
+                  'avoid': b.get('avoid', []) + [[0, 1100, 1080, 500]], '_note': 'FIXER r2: the riff track after the title lands: above the wordmark band only'}
+            b['to'] = 'hb:7.5'
+            out.append(b2)
+    return out
+
+
+# ============================================================================================ FIXER r3 (critics on the r2 cuts, 11 Oct)
+WARM_BLOOM = ('radial-gradient(circle at 50% 45%, rgba(255,253,244,1) 0%, rgba(255,246,222,0.97) 24%, rgba(255,232,190,0.72) 48%, '
+              'rgba(255,214,150,0.25) 72%, rgba(255,214,150,0) 92%)')
+
+
+def prelude_kicks_r3(t0_song, t1_song):
+    """FIXER r3 (director, medium: the prelude's first scroll window and the Amodei half had the weakest beats, the framing the same
+    across them): the footage box pushes on EVERY grid beat (hits.json's negative beats), ~2.5x the r2 pulse (bars 12 %, beats
+    8 %, springing back over 0.42 / 0.34 s so the push still reads two frames after the beat), plus the intro's own off-grid swells (song/hits.json prelude_pulse) at their r2 strength"""
+    ks, grid = [], []
+    for i in range(-30, 0):
+        s = hb_song(i)
+        if t0_song + 0.05 <= s < t1_song - 0.1:
+            grid.append(s)
+            ks.append({'at': f'hb:{i}', 'z': 1.12 if i % 4 == 0 else 1.08, 'dur': 0.42 if i % 4 == 0 else 0.34})
+    for p in _hits().get('prelude_pulse', []):
+        s = p['t']
+        if t0_song + 0.05 <= s < t1_song - 0.1 and all(abs(s - b) > 0.15 for b in grid):
+            ks.append({'at': f'song:{s:.3f}', 'z': round(1.025 + 0.02 * min(1, p.get('s', 0.5)), 4), 'dur': 0.16})
+    return ks
+
+
+def fixer_r3(items, cut):
+    """FIXER r3 (critics on the r2 cuts, 11 Oct; William's feedback log still had no note): shared by both cuts. Each block names
+    the critic issue it answers (director / william lens)."""
+    g = {x['id']: x for x in items}
+    def has(k): return k in g
+    out = list(items)
+    def insert_before(ref, new):
+        i = next(k for k, x in enumerate(out) if x['id'] == ref)
+        out.insert(i, new)
+        g[new['id']] = new
+    def insert_after(ref, new):
+        i = next(k for k, x in enumerate(out) if x['id'] == ref)
+        out.insert(i + 1, new)
+        g[new['id']] = new
+    # ---- PRELUDE (director, medium): every grid beat pushes the picture (prelude_kicks_r3); one jump-cut reframe per speaker on a
+    # bar (a one-frame punch to a tighter frame that stays: Altman hb:-24, Amodei hb:-12), ending ~1.15x; a pink marker sweep on
+    # Altman's 'end of the world' starting ON hb:-18 (the word 'world' is sung... said at song 10.38); Amodei's '25%' circle lands
+    # ON hb:-14
+    if has('altman'):
+        al = g['altman']
+        al['pulses'] = prelude_kicks_r3(6.10, 10.833)
+        al['zoom'] = [1.0, 1.0]
+        al['punch'] = [{'at': 'hb:-24', 'z': 1.08, 'dur': 0.034}, {'at': 'hb:-20', 'z': 1.03, 'dur': 0.1}, {'at': 'song:10.04', 'z': 1.03, 'dur': 0.12}]
+        # the 'most likely' underline completes ON hb:-22 (a pencil mark landing on the beat); a circle on 'end of the world' (asked
+        # for) cannot: 'world' is lit at 4.28 and the paint wipe to Amodei starts at 4.51 (it was covered half-drawn: dropped)
+        for m in al['caption']['marks']:
+            if m['phrase'] == 'most likely':
+                m.update({'at': f'song:{hb_song(-22) - 0.24:.3f}', 'dur': 0.24})
+    # (director, low) Amodei was a small seated figure in a wide stage shot: the crop is ~4:3 around his face and chair (source x
+    # 315-695, y 200-490 of 1280x720: the Axios wall, his chair and the neighbouring chair's edge stay in frame, framing only)
+    if has('amodei'):
+        am = g['amodei']
+        am['crop'] = {'x': 315, 'y': 200, 'w': 380}
+        am['focus'] = [0.5, 0.33]
+        am['zoom'] = [1.0, 1.04]
+        am['pulses'] = prelude_kicks_r3(10.833, hb_song(-7))
+        am['punch'] = [{'at': 'hb:-16', 'z': 1.04, 'dur': 0.12}, {'at': 'hb:-12', 'z': 1.06, 'dur': 0.034}, {'at': 'song:14.23', 'z': 1.03, 'dur': 0.12}]
+        for m in am['caption']['marks']:
+            if m['phrase'] == '25%':
+                m.update({'at': f'song:{hb_song(-14) - 0.2:.3f}', 'dur': 0.2})
+    # ---- DROP / RIFF (director + william, medium): footage under the riff at op >= 0.5 from the drop frame on (the Galaxy Helios
+    # aerial printed into the cream, under the shards from hb:-0.3 so the drop frame already has it); the pink disc's footage
+    # from hb:1 (with the black disc's landing)
+    if has('ghost-riff'):
+        gr = g['ghost-riff']
+        gr.update({'t0': 'hb:-0.3', 'alpha': 0.5, 'entry': {'style': 'fade', 'at': 'hb:-0.3', 'dur': 0.25}})
+        gr['_note'] = "FIXER r3: MUTED ghost b-roll under the riff (Galaxy's Helios AI data centre, 2026), multiply 50 % (lighter behind the title band)"
+    if has('kc-pink-agents'):
+        kp = g['kc-pink-agents']
+        kp['t0'] = 'hb:0.75'
+        kp['speed'] = round((75.21 - 72.0) / (hb_song(16.05) - hb_song(0.75)), 4)
+    if has('splat-drop'):   # the pink splat is already down on the drop frame (it lands under the white frame)
+        g['splat-drop'].update({'t0': 'hb:-0.15', 'at': 'hb:-0.15'})
+    # (director, low) the riff's credit stack was 2-3 lines of small mono: one line, outlet and year
+    if has('riff-credit'):
+        g['riff-credit']['text'] = "AGENTS' LAST EXAM 2026 · NVIDIA 2025 · GALAXY 2026"
+        g['riff-credit']['font'] = {**g['riff-credit']['font'], 'size': 27}   # one line clear of the rail under the title close-ups (1.08x)
+    # ---- VERSE 1 ----------------------------------------------------------------------------------------------------------
+    # (director, low) the DPO equation overprinted Amodei's caption: it sits 65 px lower and 10 % smaller (clear of the caption's
+    # name line; the TechCrunch card's zone starts at y 1350)
+    if has('eq-dpo'):
+        g['eq-dpo'].update({'cy': 1185, 'px': 40})
+    # (william, HIGH) no footage under the 3D tower for hb:32-36: the Stargate Abilene GPU hall (an aisle of black racks with
+    # engineers, 2025) runs full frame behind the tower for its whole life, graded dark and cool (op 0.62), the tower glowing over it
+    if has('v1-tower'):
+        insert_before('v1-tower', {
+            'id': 'tower-bg', 'type': 'panel', 't0': 'hb:31.6', 't1': 'hb:44', 'prep': 'clip', 'broll': 'stargate-abilene-oracle', 'in': 16.5,
+            'speed': 0.31, 'shape': 'rect', 'frame': {'x': 0, 'y': 0, 'w': 1080, 'h': 1920}, 'out': 'cut', 'border': 'none',
+            'entry': {'style': 'fade', 'at': 'hb:31.6', 'dur': 0.2}, 'creditUntil': 'hb:36.6',
+            'kb': {'z': [1.06, 1.2]}, 'alpha': 0.62, 'grade': {'sat': 0.35, 'contrast': 1.12, 'brightness': -0.1, 'gamma': 0.95, 'grain': 0},
+            'theme': 'dark', 'credit': 'STARGATE ABILENE GPU HALL · ORACLE · 2025', 'creditAt': [74, 1500], 'creditSize': 28, 'creditCps': 120,
+            '_note': "FIXER r3 (william, high): MUTED b-roll under the 3D tower (broll stargate-abilene-oracle 16.5-18.4, the rack aisle), 0.32x"})
+        # (director, medium) the tower read as thin wireframes in the left 60 %: the camera dollies in ~1.5x, the blocks glow
+        # (additive faces, bloom sprites always on), the four heads are 30 % bigger and fan wider, the labels are 34 px and only
+        # the first block is labelled; the token words never overprint each other ('AI that builds better' was garbled)
+        vt = g['v1-tower']
+        vt['cam'] = {**vt['cam'], 'dist': 23, 'fov': 42}
+        vt.update({'tagPx': 34, 'tokPx': 50, 'tokGap': 18, 'tagBlocks': 1, 'emissive': 0.8, 'headScale': 1.3, 'fan': 40})
+    # (director, low) the green TechCrunch card's highlighted 'culture is broken' was covered by the grey Common Dreams card: the
+    # grey card lands 150 px lower
+    if has('pile-disappoint'):
+        pd = g['pile-disappoint']
+        for s in pd['shots']:
+            if s['id'] == 'xrisk-commondreams-whistleblowers':
+                s.update({'dy': 150})
+    # ---- every pile (william, medium): the outlet/date chips type fast enough to finish (year included) before the next card lands,
+    # and every landed card keeps its chip; the panels' credits type at 120 cps (was 50: 'COASTRU▌' as the next card landed)
+    for x in out:
+        if x['type'] == 'screens':
+            x['chips'] = 'all'
+        if x['type'] == 'panel' and x.get('credit'):
+            x.setdefault('creditCps', 120)
+    # (william, medium) the 2023 'before' cards read as current news: short dated chips, stamped as they land
+    if has('pile-before'):
+        for s in g['pile-before']['shots']:
+            if s['id'] == 'xrisk-bbc-hinton':
+                s['label'] = 'BBC NEWS · MAY 2, 2023'
+            if s['id'] == 'fli-2023-03-22-pause-letter':
+                s['label'] = 'FLI · MAR 22, 2023'
+        # the stack buries each card's chip under the next card 0.24 s later: a big red '2023' year chip slams in beside the two
+        # 2023 cards on hb:73 and holds until the CNN 2026 card has landed (hb:74.75): old vs new reads at a glance
+        insert_after('pile-before', {'id': 'r3-yr-2023', 'type': 'stamp', 't0': 'hb:73', 't1': 'hb:74.75', 'stamp': {'x': 690, 'y': 985, 'year': '2023', 'yrPx': 60},
+                                     'enter': {'style': 'slam', 'dur': 0.12}, 'exit': {'style': 'fade', 'dur': 0.15}, 'theme': 'dark',
+                                     '_note': 'FIXER r3 (william, medium): the BBC (May 2, 2023) and FLI (Mar 22, 2023) cards carry their year'})
+        # (director, low) the second paint wipe in 9 s (hb:64, hb:73): the 'before' cards open out of a spinning Kandinsky circle
+        g['pile-before']['enterFx'] = {'type': 'iris', 'shape': 'circle', 'at': 'hb:73', 'dur': 1.0, 'lead': 0.3, 'c': [540, 1290], 'rim': 'pink',
+                                       'spin': 120, 'ground': False, 'shake': 6}
+    # ---- GOD / 'here' (director, medium + low) ----------------------------------------------------------------------------------
+    # 'out' had only a small camera punch: an orange slap lands right of the word ON its onset (song 72.80) with a 2-frame jolt
+    # (fixer_r3_fx); the dark ground holds through 'here' (the fog clip is cut ON the burst, no fade over the cream: that was the
+    # grey veil) and the burst is a bright warm radial bloom (WARM_BLOOM), not a uniform 20 % white
+    if has('brutal'):
+        insert_after('brutal', {'id': 'r3-out-slap', 'type': 'splat', 't0': 'song:72.78', 'at': 'song:72.80', 't1': 'hb:112', 'x': 830, 'y': 1150,
+                                'r': 130, 'color': '#FF4A1C', 'dir': -25, 'sats': 70, 'spikes': 8, 'drips': 2, 'spread': 1.25, 'layer': 'paint-god',
+                                '_note': "FIXER r3 (director, low): the sung 'out' gets its own slap"})
+    if has('fog'):   # cut under the burst's flash (f2021), so the frame under the bloom is still Bengio's footage
+        g['fog'].update({'t1': 'hb:112.07', 'exit': 'cut'})
+    if has('ghost-out'):   # and the Stargate ghost is in by the bloom's second frame (it was hb:112.5: 8 frames without footage)
+        g['ghost-out'].update({'t0': 'hb:112', 'entry': {'style': 'fade', 'at': 'hb:112', 'dur': 0.1}})
+    if has('hole'):
+        g['hole']['burst'] = {**g['hole']['burst'], 'flash': 0.95, 'flashDecay': 0.07, 'flashColor': WARM_BLOOM}
+    # ---- INSTRUMENTAL (director, medium): two beats of intent. hb:113-117.5: the pink and black discs orbit each other on 8ths
+    # (ten 36-degree steps: a full turn, home on hb:117.5); hb:118-121.5: Dario's disc zooms up toward the middle (the 'zoom-through'
+    # into the logo's disc) and settles back into the cover's blue disc by hb:122.6; the Stargate ghost at op 0.5; its credit line
+    # sits clear of the wordmark, kicker and splats (y 1528); the splats and his face wash out over the last 0.3 s before the flash
+    if has('kand-re'):
+        kr = g['kand-re']
+        kr['moves'] = [m for m in kr['moves'] if not (m.get('move') == 'orbit' and m.get('pieces') == ['pink', 'black'])]
+        kr['moves'] += [{'move': 'orbit', 'pieces': ['pink', 'black'], 'on': {'from': 113, 'to': 117.5, 'every': 0.5}, 'stepDeg': 36},
+                        {'move': 'grow', 'pieces': ['blue'], 'from': 'hb:118', 'to': 'hb:121.5', 'scale': 1.38, 'dx': -60, 'dy': -30, 'dur': 0.35}]
+    if has('kc-blue-amodei'):
+        g['kc-blue-amodei'].update({'out': 'hb:123.4', 'fadeOut': 0.3})
+    if has('ghost-out'):
+        g['ghost-out']['alpha'] = 0.5
+    if has('ghost-out-credit') and has('paint-out'):
+        # between the kicker and the splats' zone, and above the paint layer (a splat covered it)
+        gc = g['ghost-out-credit']
+        gc.update({'y': 1448})
+        out.remove(gc)
+        out.insert(next(k for k, x in enumerate(out) if x['id'] == 'paint-out') + 1, gc)
+    if has('kar-amodei-b'):   # his name line sat on the orbiting black disc (ink on ink): a paper plate under the quote block
+        g['kar-amodei-b']['plate'] = {'color': 'rgba(242,235,221,0.9)', 'pad': 14}
+    return out
+
+
+def fixer_r3_fx(cut):
+    """FIXER r3: the one-frame white flash on the frame BEFORE the drop (f393; the drop frame f394 is then the cream world at full
+    contrast, the shards already flying: tr-shatter head); the 2-frame jolt on the sung 'out'; the instrumental's zoom punch; the
+    verse's bar flashes as warm radial blooms (no grey veil)"""
+    return [{'id': 'fx-drop-white', 'fx': 'flash', 'at': 'song:19.1995', 'opacity': 1.15, 'decay': 0.007, 'color': '#FFFFFF',
+             '_note': 'FIXER r3 (director, medium): f393 is white, f394 the first full-contrast frame of the cream world'},
+            {'id': 'fx-out-jolt', 'fx': 'shake', 'on': ['song:72.80'], 'amp': 16, 'decay': 0.045, '_note': "FIXER r3: the sung 'out'"},
+            {'id': 'fx-re-zoom', 'fx': 'punch', 'on': ['hb:118'], 'amount': 0.05, 'decay': 0.14, '_note': "FIXER r3: Dario's disc zooms up"}]
+
+
+def r3_prelude_tr(tr):
+    """FIXER r3 (director, medium): the drop. The shatter's grey paper flash on the impact is gone (fixer_r3_fx puts a full white
+    frame on f393 instead); the shards have flown 0.12 s at the impact, faster, and a shard turned past 90 deg shows its paper back
+    (no mirrored headline text); the riff's ghost b-roll comes in under them"""
+    for t in tr:
+        if t['id'] == 'tr-shatter':
+            t.pop('flash', None)
+            t.update({'head': 0.2, 'speed': 2100, 'back': '#E9E1CF'})
+            t['in'] = t['in'] + ['ghost-riff']
+    return tr
+
+
+PAINT_MASK_OUTRO = {'layer': 'paint-out', 'from': 'hb:123.35', 'to': 999, 'rect': [0, 0, 1080, 1920], 'feather': 0, 'fade': 0.3,
+                    '_note': "FIXER r3 (director): the instrumental's splats wash out over the 0.3 s before the cover's flash"}

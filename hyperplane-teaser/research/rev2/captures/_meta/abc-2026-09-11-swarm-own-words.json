@@ -1,0 +1,86 @@
+{
+ "id": "abc-2026-09-11-swarm-own-words",
+ "url": "https://www.abc.net.au/news/2026-09-11/how-openai-agents-hacked-hugging-face-messages-revealed/107125126",
+ "expected": "How a 'swarm' of AI agents hacked another company, in the AI's own words",
+ "notes": [
+  "hid 4 overlay element(s)",
+  "crop starts at css y=540 (the area above it, masthead, hero image, empty ad slot or video player, is not included)",
+  "captured beyond the first viewport (CDP captureBeyondViewport)"
+ ],
+ "status": 200,
+ "final_url": "https://www.abc.net.au/news/2026-09-11/how-openai-agents-hacked-hugging-face-messages-revealed/107125126",
+ "title0": "How a 'swarm' of AI agents hacked another company, in the AI's own words - ABC News",
+ "hidden_detail": [
+  [
+   "DIV",
+   "",
+   "grecaptcha-badge",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "menu-drawer",
+   "menuDrawer_drawerPanel__d0_EJ Drawer_drawerPanel__vtUsy Draw",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "NotificationsProvider_container__xddr_ NotificationsProvider",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "How a 'swarm' of AI agents hacked another company, in the AI's own words - ABC News",
+ "og_title": "How a 'swarm' of AI agents hacked another company, in the AI's own words",
+ "twitter_title": null,
+ "og_site": null,
+ "published": "2026-09-10T18:51:59+00:00",
+ "author_meta": "https://www.abc.net.au/news/jessica-riga/12011888",
+ "canonical": "https://www.abc.net.au/news/2026-09-11/how-openai-agents-hacked-hugging-face-messages-revealed/107125126",
+ "h1_count": 1,
+ "h1": "How a ‘swarm’ of AI agents hacked another company, in the AI’s own words",
+ "h1_box": [
+  289.65625,
+  708.5625,
+  910.328125,
+  846.5625
+ ],
+ "h1_font": "40px",
+ "below_bottom": 846.5625,
+ "below_text": [],
+ "hero_top": 11377.59375,
+ "header_bottom": 128,
+ "doc_w": 1200,
+ "masthead_included": false,
+ "crop_css": [
+  0,
+  540,
+  1200,
+  620
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/abc-2026-09-11-swarm-own-words.png",
+ "trimmed": 0
+}

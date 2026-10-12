@@ -1,0 +1,66 @@
+<section id="s3-03" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Results</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">Exponents vs literature: a bit higher; DNA far above</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:row;align-items:center;gap:16px">
+<p style="font-size:28px;font-weight:600;line-height:1.35;color:#17242c;white-space:nowrap">Fit</p>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:28px;line-height:1.35;color:#17242c;white-space:nowrap">L(C) = A · C^(−b) + E</p>
+<p style="font-size:28px;line-height:1.35;color:#3d4a52"><span style="color:#5f6b72">(Table 2, p.21)</span> · same exponent as α in Sec. 3.1 and Fig. 1</p>
+</div>
+<p style="font-size:28px;line-height:1.35;color:#3d4a52"><b><span style="color:#1d6f68">Paper</span></b>: “broadly similar ... if a bit higher” <span style="color:#5f6b72">(p.21)</span>; DNA “the exceptional case” <span style="color:#5f6b72">(p.8)</span></p>
+<div style="display:flex;flex-direction:row;gap:48px;align-items:start">
+<div style="width:940px;display:flex;flex-direction:column;gap:12px">
+<table style="width:940px;font-size:24px;line-height:1.35;color:#3d4a52;font-variant-numeric:tabular-nums">
+<tr>
+<th style="width:52%;padding:10px 16px;text-align:left;font-weight:600;color:#17242c">Dataset</th>
+<th style="width:20%;padding:10px 16px;text-align:right;font-weight:600;color:#17242c">b, paper</th>
+<th style="width:28%;padding:10px 16px;text-align:right;font-weight:600;color:#17242c">b, literature</th>
+</tr>
+<tr>
+<td style="padding:10px 16px;text-align:left">text (DCLM)</td>
+<td style="padding:10px 16px;text-align:right">0.123</td>
+<td style="padding:10px 16px;text-align:right">0.048–0.099†</td>
+</tr>
+<tr>
+<td style="padding:10px 16px;text-align:left">CIFAR-10 image bytes</td>
+<td style="padding:10px 16px;text-align:right">0.145</td>
+<td style="padding:10px 16px;text-align:right">0.065†–0.10</td>
+</tr>
+<tr>
+<td style="padding:10px 16px;text-align:left">audio 8-bit PCM</td>
+<td style="padding:10px 16px;text-align:right">0.260</td>
+<td style="padding:10px 16px;text-align:right">0.12†–0.14†</td>
+</tr>
+<tr style="background:#ebefe9">
+<td style="padding:10px 16px;text-align:left;font-weight:600;color:#17242c">DNA (8-symbol)</td>
+<td style="padding:10px 16px;text-align:right;font-weight:600;color:#17242c">0.435</td>
+<td style="padding:10px 16px;text-align:right;font-weight:600;color:#17242c">0.01–0.06</td>
+</tr>
+<tr>
+<td style="padding:10px 16px;text-align:left">Metamath set.mm</td>
+<td style="padding:10px 16px;text-align:right">0.129</td>
+<td style="padding:10px 16px;text-align:right">0.17</td>
+</tr>
+<tr>
+<td style="padding:10px 16px;text-align:left">C source (AITDCC)</td>
+<td style="padding:10px 16px;text-align:right">0.116</td>
+<td style="padding:10px 16px;text-align:right">0.17†</td>
+</tr>
+</table>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">† derived from Chinchilla-form fits, b = α·β/(α+β), under the compute-optimal allocation</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #a14d19;padding:0px 0px 0px 20px"><b><span style="color:#a14d19">Our calc</span></b>: higher in 4 of 6 (text 1.2–2.6× the range, 8-bit audio about 2×); lower on Metamath and C</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">Same CIFAR-10 images</span></b>: HWC 0.066 vs “image bytes” 0.145; B.2 reports “no appreciable effect” of byte order; the gap is unexplained</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">Different setups</span></b>: paper's fits use models &lt; 25M params; literature rows: other models, tokenizers and data</p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · Table 2, p.21; Sec. 3.1, p.8; App. B.2, p.24</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">15</p>
+<aside>About 2 minutes.
+Read the table top to bottom, then stop on the DNA row. Full table crop: figs/tab2-compute-exponents.png (10 rows). Rows with no literature value: CIFAR-10 HWC 0.066, audio 16-bit 0.141, MIDI 0.249, Python 0.113. Fig. 1 headlines Images 0.066 (the HWC row), Text 0.123 and Melody 0.249, a 3.8x spread (my calc). The audio rows name no dataset, and Table 2 never says the 'image bytes' row is planar, although Table 5 and Fig. 7 use 'planar'. Literature: text from Aghajanyan 2023 (0.048) and Henighan 2020 (0.099†); DNA from Shah et al. 2026. No E, A, confidence intervals or fit window are reported. [mine] DNA is also a hyperparameter-selection dataset (p.8). Sec. 4 links the self-play exponent (gamma*eta, Eq. 10) to natural-data exponents via beta_obs ~ min{beta*nu, gamma*mu} (Eq. 13). Equating them needs eta ~ mu, which is argued, not measured. The paper itself says to 'cautiously interpret' this (p.13).
+Moved off the slide or reworded, in the outline's words. Fit line: 'Fit: L(C) = A * C^(-b) + E (Table 2, p.21); same exponent as alpha in Sec. 3.1 and Fig. 1' (on the slide). Paper line: 'Paper: "broadly similar ... if a bit higher" (p.21); DNA "the exceptional case" (p.8)' (on the slide). The table column the outline calls 'Ours b' is the paper's own fit, so the slide labels it 'b, paper' to keep it apart from the presenter's orange 'our' labels; likewise the outline's 'Our fits: models &lt; 25M params; literature rows: other models, tokenizers and data' appears as 'Different setups: paper's fits use models &lt; 25M params; ...'. The 'Higher in 4 of 6 (text 1.2-2.6x the range, 8-bit audio about 2x); lower on Metamath and C' line is tagged 'Our calc' on the slide because the counts and ratios are computed from the table (0.123 / 0.099 ≈ 1.2 and 0.123 / 0.048 ≈ 2.6), not stated in the paper. The CIFAR line is on the slide in full. The dagger footnote is on the slide in full: 'derived from Chinchilla-form fits, b = alpha*beta/(alpha+beta), under the compute-optimal allocation'. The DNA row is shaded to match the title.</aside>
+</section>

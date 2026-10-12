@@ -1,0 +1,104 @@
+{
+  "task": "Verify date and venue of Richard Feynman lecture in YouTube video ipRvjS7q1DI, 'Richard Feynman: Can Machines Think?'",
+  "checked_on": "2026-10-10",
+  "result": "PARTIAL. Date is claimed (26 Sep 1985) only by secondary sources and conflicts with a catalog record for a different talk. Venue not found.",
+  "date": "26 Sep 1985 - CLAIMED, UNVERIFIED. Only secondary sources state it (sources 1 and 5). No primary record or video description was accessed. A catalog record places a different Feynman talk on August 9, 1985 at Gakushuin, Tokyo (source 2). It is not established that the video clip comes from that talk.",
+  "venue": "not found",
+  "sources": [
+    {
+      "id": 1,
+      "url": "https://journalismai.com/2020/05/19/richard-feynman-can-machines-think-lex-clips/",
+      "supports": "date (secondary, unverified); no venue",
+      "quote": "Podcaster Lex Friedman compiled these comments by Prof. Richard Fineman in a lecture he gave on September 26, 1985.",
+      "how_checked": "Raw HTML fetched with curl; quote matched in the meta description. The source spells the names 'Friedman' and 'Fineman'."
+    },
+    {
+      "id": 2,
+      "url": "https://ci.nii.ac.jp/ncid/BA04058924",
+      "supports": "venue and date for a different talk, 'The computing machines in the future' (Nishina Memorial Foundation publication no. 23, 1986)",
+      "quote": "Nihina Memorial Lecture, given at Gakushuin, Tokyo, August 9, 1985",
+      "how_checked": "Raw HTML fetched with curl; quote matched. The source spells 'Nihina' (typo for Nishina).",
+      "conflict": "Date differs from the claimed 26 Sep 1985. Link to the video clip not established."
+    },
+    {
+      "id": 3,
+      "url": "https://www.openculture.com/2025/05/richard-feynman-contemplates-the-future-of-artificial-intelligence-1985.html",
+      "supports": "year only (1985) from the title; article publication date 2025-05-29",
+      "quote": "Will Machines Ever Truly Think? Richard Feynman Contemplates the Future of Artificial Intelligence (1985)",
+      "how_checked": "Raw HTML fetched with curl; title matched; JSON-LD datePublished 2025-05-29; author Colin Marshall; page embeds a YouTube player.",
+      "date": "no day stated in the cached article text",
+      "venue": "not stated",
+      "quote_note": "The 'getting close to intelligent machines' line was reported by the WebFetch summarizer for this page, but it is not in the cached raw HTML (grep for 'getting close' and 'weaknesses' returned nothing)."
+    },
+    {
+      "id": 4,
+      "url": "https://www.youtube.com/watch?v=ipRvjS7q1DI",
+      "supports": "none; title, upload date and description not obtained",
+      "how_checked": "yt-dlp --skip-download --print description failed with HTTP 429 and 'Sign in to confirm you're not a bot'. WebFetch returned only YouTube footer text.",
+      "status": "access failed"
+    },
+    {
+      "id": 5,
+      "url": "https://yt.d0.cx/v/yt/ipRvjS7q1DI",
+      "supports": "date (secondary, unverified)",
+      "quote_from_search_summary": "Published 2019-11-25. This is a Q&A excerpt on the topic of AI from a lecture by Richard Feynman from September 26th, 1985.",
+      "how_checked": "Search-result summary only; page not opened. Third-party mirror of the YouTube page, so not a primary source."
+    },
+    {
+      "id": 6,
+      "url": "https://medium.com/@pranava.joshi/can-machines-think-feynman-ai-and-what-companies-often-miss-about-automation-a458c4a08dfb",
+      "supports": "venue claim (unverified)",
+      "quote_from_search_summary": "In a 1985 talk at Caltech",
+      "how_checked": "Search summary only. The summary did not say which Medium post carries the line, and the post was not opened. This URL is a candidate, not a confirmed source. Treat the Caltech claim as unverified."
+    },
+    {
+      "id": 7,
+      "url": "https://www.technologynetworks.com/neuroscience/videos/richard-feynman-can-machines-think-327664",
+      "supports": "none",
+      "how_checked": "Title 'Richard Feynman: Can Machines Think?' seen in search results. WebFetch returned empty content. No date or venue."
+    },
+    {
+      "id": 8,
+      "url": "https://www.nishina-mf.or.jp/wp/wp-content/uploads/2020/03/OCR_nkz-23.pdf",
+      "supports": "none obtained",
+      "how_checked": "WebFetch returned raw PDF bytes (scanned images, no text layer). No date, venue or Q&A text extracted."
+    },
+    {
+      "id": 9,
+      "url": "https://en.wikipedia.org/wiki/The_Pleasure_of_Finding_Things_Out",
+      "supports": "lead only",
+      "quote": "\"Computing Machines in the Future\" (Nishina Memorial Lecture, 1985)",
+      "how_checked": "WebFetch summary of the Contents entry. No venue or day given."
+    },
+    {
+      "id": 10,
+      "url": "https://digitalrosh.com/knowledge/technologies/ai/richard-feynman-can-machine-think/",
+      "supports": "date (unverified)",
+      "how_checked": "WebFetch returned HTTP 403. Search summary says the Q&A came after a computer-science lecture on September 26, 1985. Not verified."
+    }
+  ],
+  "quote_check": {
+    "requested_quote": "I think that we are getting close to intelligent machines, but they're showing the necessary weaknesses of intelligence.",
+    "status": "NOT VERIFIED verbatim in any primary text fetched",
+    "found_in": "WebFetch summary of the Open Culture page (not in its raw HTML); search summaries of secondary blogs",
+    "wording_variant": "A 2019 blog (search summary only, not fetched) reads 'they are showing' instead of 'they're showing'.",
+    "advice": "Do not put this quote on screen as exact until a transcript or recording confirms the wording."
+  },
+  "safe_on_screen_label": "Richard Feynman, Q&A excerpt on AI, 1985",
+  "safe_on_screen_label_rationale": "The year 1985 is in the Open Culture title. The day and venue are unverified, so the label omits them. 'Q&A excerpt' comes from search summary of source 5, not a fetched page.",
+  "access_failures": [
+    "YouTube via yt-dlp: HTTP 429 and 'Sign in to confirm you're not a bot'",
+    "YouTube page via WebFetch: footer text only, no title or description",
+    "insidehpc.com/2014/03/richard-feynman-computer-heuristics-lecture: HTTP 503",
+    "cse.unl.edu Feynman-future computing machines PDF: HTTP 503",
+    "digitalrosh.com page: HTTP 403",
+    "Nishina OCR_nkz-23.pdf: scanned images, no text layer"
+  ],
+  "not_used": "https://y2mate.gs was not used. It is a third-party YouTube downloader, and this check needed only metadata and written sources, not a copy of the video.",
+  "next_steps": [
+    "Open https://www.youtube.com/watch?v=ipRvjS7q1DI in a normal browser and copy the description and upload date. The search snippet claims 2019-11-25 (Lex Clips).",
+    "Check the Caltech Archives or Feynman papers for a 26 Sep 1985 engagement.",
+    "Check whether the August 9, 1985 Nishina lecture (Gakushuin, Tokyo) transcript contains this exchange. The PDF needs OCR.",
+    "Confirm or drop the Caltech claim from the Medium post."
+  ]
+}

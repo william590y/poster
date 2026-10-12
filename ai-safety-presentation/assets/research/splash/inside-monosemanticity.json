@@ -1,0 +1,196 @@
+{
+  "group": "splash-inside-monosemanticity",
+  "items": [
+    {
+      "id": "sm-paper-title-screenshot",
+      "slide_topic": "Inside the model: features and monosemanticity (Scaling Monosemanticity, 2024)",
+      "type": "screenshot",
+      "file": "scaling-monosemanticity-title.png",
+      "headline": "Scaling Monosemanticity: Extracting Interpretable Features from Claude 3 Sonnet",
+      "dek": "We were able to extract millions of features from one of our production models.",
+      "outlet": "Anthropic (Transformer Circuits Thread)",
+      "author": "Adly Templeton et al. (Anthropic)",
+      "date": "2024-05-21",
+      "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/",
+      "caption": "Top of the Scaling Monosemanticity paper: title, 'Published May 21, 2024', and the summary subhead about millions of features.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Real screenshot via tools/shot.js (1280x700 clip, 2x scale), viewed and confirmed as the genuine page. The subhead is visible in the screenshot but is not in the extracted page text, so cite it from the screenshot. Canonical source is transformer-circuits.pub; arXiv 2605.29358 copies were not used (2026 dates)."
+    },
+    {
+      "id": "sm-golden-gate-feature-fig4",
+      "slide_topic": "Inside the model: a feature example (the Golden Gate Bridge feature)",
+      "type": "image",
+      "file": "scaling-monosemanticity-golden-gate-feature-fig4.png",
+      "headline": null,
+      "dek": "Feature activation distributions for The Golden Gate Bridge F#34M/31164353",
+      "outlet": "Anthropic (Transformer Circuits Thread)",
+      "date": "2024-05-21",
+      "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/",
+      "caption": "The paper's own figure for the Golden Gate Bridge feature (34M/31164353): how strongly it fires across inputs, with example images and text from low and high activation levels.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Figure 4 of the paper (of 44 figures), decoded unmodified from the page's embedded PNG (1408x1102). The page text states its greatest activations are essentially all references to the bridge. Shows the bridge photos at high activation and the tokens 'Golden Gate Bridge' highlighted in text."
+    },
+    {
+      "id": "gg-announcement-screenshot",
+      "slide_topic": "Golden Gate Claude: the feature-steering demo (May 2024)",
+      "type": "screenshot",
+      "file": "golden-gate-claude-announcement.png",
+      "headline": "Golden Gate Claude",
+      "dek": "UPDATE: Golden Gate Claude was online for a 24-hour period as a research demo and is no longer available.",
+      "outlet": "Anthropic",
+      "date": "2024-05-23",
+      "url": "https://www.anthropic.com/news/golden-gate-claude",
+      "caption": "Anthropic's Golden Gate Claude announcement page, dated May 23, 2024, with its headline and the note that the demo was online for 24 hours.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Real screenshot via tools/shot.js (1280x760 clip, 2x scale), confirmed as the genuine page. The hero image on the page is decorative artwork, not a model output, so it was not saved. The live demo is retired, so no live screenshot of its replies exists."
+    },
+    {
+      "id": "gg-feature-definition-quote",
+      "slide_topic": "Inside the model: what a 'feature' is",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "In the “mind” of Claude, we found millions of concepts that activate when the model reads relevant text or sees relevant images, which we call “features”. One of those was the concept of the Golden Gate Bridge.",
+      "outlet": "Anthropic",
+      "date": "2024-05-23",
+      "url": "https://www.anthropic.com/news/golden-gate-claude",
+      "caption": "Anthropic's own definition of a 'feature' from the Golden Gate Claude announcement.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Copied verbatim from the page text (curl of the page). The first sentence is the definition; the second is the page's example."
+    },
+    {
+      "id": "sm-golden-gate-clamp-quote",
+      "slide_topic": "Inside the model: turning a feature up changes behavior",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "For instance, we see that clamping the Golden Gate Bridge feature 34M/31164353 to 10× its maximum activation value induces thematically-related model behavior. In this example, the model starts to self-identify as the Golden Gate Bridge!",
+      "outlet": "Anthropic (Transformer Circuits Thread)",
+      "date": "2024-05-21",
+      "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/",
+      "caption": "The paper's description of steering: pinning the bridge feature to 10x its maximum makes the model start to self-identify as the bridge.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Copied verbatim from the paper's 'Influence on Behavior' section (curl of the page). 'Clamping' means forcing the feature to a fixed high or low value during the forward pass."
+    },
+    {
+      "id": "gg-example-reply-quote",
+      "slide_topic": "Golden Gate Claude: an example of what it said",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Golden Gate - This iconic bridge name would be a fitting moniker for the pelican with its striking orange color and beautiful suspension cables.",
+      "outlet": "Simon Willison's Weblog",
+      "date": "2024-05-24",
+      "url": "https://simonwillison.net/2024/May/24/golden-gate-claude/",
+      "caption": "A real reply from Golden Gate Claude, quoted in a May 24, 2024 blog post: the user asked for names for a pet pelican.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Secondary source quoting the demo, verified verbatim by curl of the post. The same post also quotes the pretzel-recipe reply: 'Gently wipe any fog away and pour the warm chocolate mixture over the bridge/brick combination.' Post also says: 'No matter what question you ask it the Golden Gate Bridge is likely to be involved in the answer in some way.'"
+    }
+  ],
+  "datasets": [
+    {
+      "id": "sae-dictionary-sizes",
+      "title": "Sparse autoencoder sizes trained on Claude 3 Sonnet (number of features)",
+      "unit": "features",
+      "labels": ["1M SAE", "4M SAE", "34M SAE"],
+      "series": [{"name": "Features", "values": [1048576, 4194304, 33554432]}],
+      "source": "Anthropic, Scaling Monosemanticity (2024-05-21), training section: 'We trained three SAEs of varying sizes: 1,048,576 (~1M), 4,194,304 (~4M), and 33,554,432 (~34M) features.'",
+      "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/"
+    },
+    {
+      "id": "sae-dead-features",
+      "title": "Dead features by SAE size (paper says 'roughly')",
+      "unit": "% of features",
+      "labels": ["1M SAE", "4M SAE", "34M SAE"],
+      "series": [{"name": "Dead features", "values": [2, 35, 65]}],
+      "source": "Anthropic, Scaling Monosemanticity (2024-05-21): 'dead' features are those not active over a sample of 10^7 tokens; 'The proportion of dead features was roughly 2% for the 1M SAE, 35% for the 4M SAE, and 65% for the 34M SAE.'",
+      "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/"
+    }
+  ],
+  "facts": [
+    {
+      "claim": "Anthropic released Golden Gate Claude as a research demo dated May 23, 2024; it was online for a 24-hour period and is no longer available.",
+      "source": "Anthropic, 'Golden Gate Claude' (announcement page)",
+      "url": "https://www.anthropic.com/news/golden-gate-claude",
+      "date": "2024-05-23"
+    },
+    {
+      "claim": "Anthropic says that when it turned up the strength of the 'Golden Gate Bridge' feature, Claude's responses began to focus on the bridge: 'Its replies to most queries start to mention the Golden Gate Bridge, even if it's not directly relevant.'",
+      "source": "Anthropic, 'Golden Gate Claude' (announcement page)",
+      "url": "https://www.anthropic.com/news/golden-gate-claude",
+      "date": "2024-05-23"
+    },
+    {
+      "claim": "Anthropic's 'Scaling Monosemanticity' paper (published May 21, 2024) extracted features from Claude 3 Sonnet, the 3.0 version: 'released March 4, 2024'.",
+      "source": "Anthropic, Scaling Monosemanticity (Transformer Circuits Thread)",
+      "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/",
+      "date": "2024-05-21"
+    },
+    {
+      "claim": "The paper's authors say they found 'millions of features' and that 'Scaling feature exploration is an important open problem ... which we do not solve in this paper.'",
+      "source": "Anthropic, Scaling Monosemanticity (Transformer Circuits Thread)",
+      "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/",
+      "date": "2024-05-21"
+    },
+    {
+      "claim": "'The resulting features are highly abstract: multilingual, multimodal, and generalizing between concrete and abstract references.' (paper's key results)",
+      "source": "Anthropic, Scaling Monosemanticity (Transformer Circuits Thread), Key Results",
+      "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/",
+      "date": "2024-05-21"
+    },
+    {
+      "claim": "The features also activate on images, even though the dictionary learning was run only on text: 'Note that these features also activate on relevant images, despite our only performing dictionary learning on a text-based dataset!'",
+      "source": "Anthropic, Scaling Monosemanticity (Transformer Circuits Thread)",
+      "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/",
+      "date": "2024-05-21"
+    },
+    {
+      "claim": "The paper reports features related to a broad range of safety concerns, including deception, sycophancy, bias, and dangerous content.",
+      "source": "Anthropic, Scaling Monosemanticity (Transformer Circuits Thread), Key Results",
+      "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/",
+      "date": "2024-05-21"
+    },
+    {
+      "claim": "The Golden Gate Bridge feature (34M/31164353): 'Its greatest activations are essentially all references to the bridge, and weaker activations also include related tourist attractions, similar bridges, and other monuments.'",
+      "source": "Anthropic, Scaling Monosemanticity (Transformer Circuits Thread)",
+      "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/",
+      "date": "2024-05-21"
+    },
+    {
+      "claim": "Plain-words version of the paper's definition: a 'feature' is one concept inside the AI's network, such as the Golden Gate Bridge, that lights up when the model reads text or sees images about it.",
+      "source": "Paraphrase of Anthropic's definition: 'millions of concepts that activate when the model reads relevant text or sees relevant images, which we call features' (Golden Gate Claude page)",
+      "url": "https://www.anthropic.com/news/golden-gate-claude",
+      "date": "2024-05-23"
+    },
+    {
+      "claim": "Anthropic trained three sparse autoencoders with 1,048,576 (~1M), 4,194,304 (~4M), and 33,554,432 (~34M) features; the largest had roughly 65% dead features versus roughly 2% for the 1M one.",
+      "source": "Anthropic, Scaling Monosemanticity (Transformer Circuits Thread), Methodological Details",
+      "url": "https://transformer-circuits.pub/2024/scaling-monosemanticity/",
+      "date": "2024-05-21"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Live screenshot or image of Golden Gate Claude's own replies (the demo itself)",
+      "searched": "The demo was retired after 24 hours and no archived screenshot was loaded. Found only text quotes of its replies in Simon Willison's 2024-05-24 post. web.archive.org was not tried for the demo."
+    },
+    {
+      "outline_item": "Nov 2025 Hugging Face post reproducing the approach with Llama 3.1 8B",
+      "searched": "Appeared only in a WebSearch snippet. Not loaded, so excluded from the manifest."
+    },
+    {
+      "outline_item": "Anthropic follow-up research on social bias and feature steering (after Golden Gate Claude)",
+      "searched": "Mentioned only in a WebSearch snippet. Not loaded, so excluded."
+    },
+    {
+      "outline_item": "arXiv 2605.29358 copy of Scaling Monosemanticity",
+      "searched": "Appeared in search with 2026 dates. Not used; the canonical transformer-circuits.pub page was loaded instead."
+    }
+  ]
+}

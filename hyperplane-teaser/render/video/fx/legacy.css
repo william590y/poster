@@ -1,0 +1,104 @@
+/* Legacy item types (r1-r7 of the short and long cuts): their CSS. Moved out of teaser.html unchanged (rev2 refactor). */
+
+/* year stamp row */
+.stamp { position: absolute; display: flex; align-items: center; gap: 24px; }
+.stamp .yr { background: var(--red); color: #fff; font: 700 58px/1 'IBM Plex Mono', monospace; padding: 15px 20px 13px; letter-spacing: 0.01em; white-space: nowrap; text-transform: uppercase; }
+.stamp .who { display: flex; flex-direction: column; gap: 6px; }
+.stamp .nm { font: 600 var(--name, 40px)/1.1 'IBM Plex Mono', monospace; color: #fff; letter-spacing: 0.04em; text-transform: uppercase; }
+.stamp .rl { font: 500 var(--meta, 38px)/1.2 'IBM Plex Mono', monospace; color: var(--dim); letter-spacing: 0.06em; text-transform: uppercase; }
+
+/* spoken captions and quote text */
+.cap { position: absolute; font-family: 'IBM Plex Mono', monospace; font-weight: 600; text-transform: uppercase; color: #fff; text-wrap: balance; }
+.cap .w { display: inline; }
+.cap .hl { background: var(--red); box-shadow: 0.14em 0 0 var(--red), -0.14em 0 0 var(--red); }
+.cap .hl.mid { box-shadow: none; }
+.cap .hl.first { box-shadow: -0.14em 0 0 var(--red); }
+.cap .hl.last { box-shadow: 0.14em 0 0 var(--red); }
+/* long r6 "serif": a caption set as a pull-quote (Newsreader italic, sentence case), e.g. the long cut's opening hook */
+.cap.serif { font-family: 'Newsreader', serif; font-style: italic; font-weight: 400; text-transform: none; letter-spacing: -0.012em; font-optical-sizing: auto; }
+.rule { position: absolute; height: 8px; background: var(--red); }
+.src { position: absolute; font: 500 var(--meta, 38px)/1.3 'IBM Plex Mono', monospace; color: var(--dim); letter-spacing: 0.06em; text-transform: uppercase; }
+.csub { position: absolute; font-family: 'Newsreader', serif; font-style: italic; font-weight: 400; line-height: 1.15; color: var(--dim); letter-spacing: -0.005em; text-wrap: balance; font-optical-sizing: auto; }
+.light .csub { color: var(--dimlight); }
+.big { position: absolute; font-family: 'IBM Plex Mono', monospace; font-weight: 700; color: #fff; line-height: 0.9; letter-spacing: -0.04em; }
+
+/* headlines */
+.hlb { position: absolute; left: 0; }
+.hlb .ht { font-family: 'Newsreader', serif; font-weight: 500; color: #F5F2EA; font-optical-sizing: auto; letter-spacing: -0.012em; text-wrap: pretty; }
+.hlb .ha { margin-top: 20px; font: 500 var(--meta, 38px)/1 'IBM Plex Mono', monospace; letter-spacing: 0.08em; color: #fff; text-transform: uppercase; display: flex; align-items: center; gap: 14px; }
+.hlb .ha i { display: inline-block; width: 14px; height: 14px; background: var(--red); }
+.hlb .ha span { color: var(--dim); }
+.hlb.inv { background: #F5F2EA; box-shadow: 0 0 0 14px #F5F2EA; }
+.hlb.inv .ht, .hlb.inv .ha, .hlb.inv .ha span { color: #0E0D12; }
+
+/* free text (e.g. the breath line) */
+.txt { position: absolute; left: 0; right: 0; text-align: center; white-space: nowrap; }
+.txt .w { display: inline-block; }
+
+/* overlays */
+/* ---- long-cut additions: light theme, frames, band/ticker, pull-quotes ---- */
+.light .stamp .nm, .light .cap, .light .big { color: var(--ink); }
+.light .stamp .rl, .light .src { color: var(--dimlight); }
+.light .cap .hl { color: #fff; }
+.light .hlb .ht, .light .hlb .ha { color: var(--ink); }
+.light .hlb .ha span { color: var(--dimlight); }
+.light .hlb.inv { background: var(--ink); box-shadow: 0 0 0 14px var(--ink); }
+.light .hlb.inv .ht, .light .hlb.inv .ha, .light .hlb.inv .ha span { color: var(--cream); }
+.hlb .ht .hl { background: var(--red); color: #fff; box-decoration-break: clone; -webkit-box-decoration-break: clone; padding: 0 0.08em; }
+.light .hlb .ht .hl { background: none; color: var(--red); padding: 0; }
+
+/* frames: a shape from the broken logo used as a mask (circle/square/rect) with an optional ring */
+.fbox { position: absolute; transform-origin: 50% 50%; }
+.fbox .fin { position: absolute; inset: 0; overflow: hidden; }
+.fbox .fin > img, .fbox .fin > canvas { position: absolute; left: 0; top: 0; width: 100%; height: 100%; display: block; transform-origin: 50% 50%; }
+.fbox .fring { position: absolute; box-sizing: border-box; pointer-events: none; }
+.fbox .ftint { position: absolute; inset: 0; opacity: 0; z-index: 3; }
+.fsrc { position: absolute; font: 500 var(--meta, 38px)/1.25 'IBM Plex Mono', monospace; letter-spacing: 0.08em; color: #fff; text-transform: uppercase; display: flex; align-items: flex-start; gap: 12px; }
+.fsrc i { display: inline-block; flex: none; width: 15px; height: 15px; margin-top: 8px; background: var(--red); }
+.fsrc b { font-weight: 600; white-space: nowrap; }
+.fsrc span { color: var(--dim); }
+.light .fsrc { color: var(--ink); }
+.light .fsrc span { color: var(--dimlight); }
+
+/* the plane band (22 deg) and the headline ticker set inside it */
+.band { position: absolute; transform-origin: 50% 50%; }
+.tkr { position: absolute; transform-origin: 50% 50%; }
+.tkr .tt { font-family: 'Newsreader', serif; font-weight: 500; color: var(--ink); letter-spacing: -0.014em; line-height: 1.04; text-wrap: balance; font-optical-sizing: auto; }
+.tkr .tt .hl { color: var(--bandred); }
+/* the ticker's attribution: a straight mono line above the band (not tilted with it), on the ground */
+.tkl { position: absolute; font: 600 var(--meta, 38px)/1 'IBM Plex Mono', monospace; letter-spacing: 0.08em; color: var(--ondark); text-transform: uppercase; display: flex; align-items: center; gap: 14px; white-space: nowrap; }
+.tkl i { display: inline-block; width: 15px; height: 15px; background: var(--red); }
+.tkl span { font-weight: 500; color: var(--dim); }
+.light .tkl { color: var(--ink); }
+.light .tkl span { color: var(--dimlight); }
+.tkl.stk { flex-direction: column; align-items: flex-start; gap: 10px; }
+.tkl.stk .l1 { display: flex; align-items: center; gap: 14px; }
+.tkl.stk .l2 { padding-left: 29px; }
+.tkr.inv .tt, .tkr.inv .tt .hl { color: var(--cream); }
+.tko { position: absolute; transform-origin: 50% 50%; background: var(--ink); display: none; }
+
+/* pull-quote: a quote styled as a quote (not a subtitle), with name and year */
+.pq { position: absolute; }
+.pq .lab { font: 600 var(--meta, 38px)/1.2 'IBM Plex Mono', monospace; letter-spacing: 0.08em; color: var(--red); text-transform: uppercase; margin-bottom: 18px; }
+.pq .pbig { font-family: 'Newsreader', serif; font-weight: 600; font-style: normal; color: var(--red); line-height: 0.92; letter-spacing: -0.035em; margin-bottom: 22px; white-space: nowrap; font-optical-sizing: auto; }
+.pq .pbig em { font-style: normal; color: var(--ondark); }
+.pq .pbig.bmono { font-family: 'IBM Plex Mono', monospace; font-weight: 700; letter-spacing: -0.04em; }
+.light .pq .pbig em { color: var(--ink); }
+.pq .prule { width: 64px; height: 7px; background: var(--red); margin-bottom: 22px; }
+.pq .pqt { font-family: 'Newsreader', serif; font-style: italic; font-weight: 400; color: var(--ondark); line-height: 1.1; letter-spacing: -0.01em; text-wrap: balance; font-optical-sizing: auto; }
+.pq .pqt.up { font-style: normal; font-weight: 500; }
+.pq .pqt.pmono { font-family: 'IBM Plex Mono', monospace; font-style: normal; font-weight: 500; letter-spacing: 0; }
+.pq .pqt.pre { white-space: pre-line; text-wrap: wrap; }
+.pq .pqt .hl { background: var(--red); color: #fff; box-decoration-break: clone; -webkit-box-decoration-break: clone; padding: 0 0.07em; }
+.light .pq .pqt { color: var(--ink); }
+.light .pq .pqt .hl { background: none; color: var(--red); padding: 0; }
+.pq .pa { margin-top: 26px; display: flex; align-items: center; gap: 8px 16px; font: 600 var(--meta, 38px)/1.15 'IBM Plex Mono', monospace; letter-spacing: 0.05em; color: #fff; text-transform: uppercase; flex-wrap: wrap; }
+.pq .pa .yr { background: var(--red); color: #fff; font-weight: 700; padding: 7px 11px 6px; white-space: nowrap; }
+.pq .pa .rl { font-weight: 500; color: var(--dim); letter-spacing: 0.05em; font-size: var(--meta, 38px); }
+.pq .ps { margin-top: 14px; font: 500 var(--meta, 38px)/1.3 'IBM Plex Mono', monospace; letter-spacing: 0.04em; color: var(--dim); text-transform: uppercase; }
+.light .pq .pa { color: var(--ink); }
+.light .pq .pa .rl, .light .pq .ps { color: var(--dimlight); }
+.pq.center { text-align: center; }
+.pq.center .prule { margin-left: auto; margin-right: auto; }
+.pq.center .pa { justify-content: center; }
+

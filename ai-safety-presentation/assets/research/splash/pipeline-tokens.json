@@ -1,0 +1,150 @@
+{
+  "group": "splash",
+  "items": [
+    {
+      "id": "tokenizer-sentence-screenshot",
+      "slide_topic": "Pipeline stage 1: text is cut into tokens before the model reads it",
+      "type": "screenshot",
+      "file": "tokenizer-tiktokenizer-sentence.png",
+      "headline": null,
+      "dek": "Tokens are small pieces of text. Models read them one at a time.",
+      "outlet": "Tiktokenizer (third-party tool, built by dqbd)",
+      "author": "dqbd",
+      "date": "2026-10-10",
+      "url": "https://tiktokenizer.vercel.app/",
+      "caption": "Tiktokenizer (gpt-4o) splitting a typed 13-word sentence into 15 tokens; the 26 total includes 11 chat-format tokens.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Real headless-browser capture, 1280x900 @2x. The sentence was typed into the System box by the research agent (it replaced the default text); the dek is that typed input, not a page quote. Page shows no publication date, so date is the capture date. Token IDs in the panel: 200264, 17360, 200266 (chat header) then 30325, 553, 3291, 12762, 328, 2201, 13, 50258, 1729, 1373, 1001, 540, 261, 1058, 13 (the 15 sentence tokens) then 200265, 200264, 1428, 200266, 200265, 200264, 173781, 200266 (chat footer). The official platform.openai.com/tokenizer rendered as a blank white page in headless Chromium (discarded), so this third-party tool was used instead. Tiktokenizer is not an OpenAI product."
+    },
+    {
+      "id": "openai-help-tokens-article",
+      "slide_topic": "Pipeline stage 1: definition of a token and the tokens-per-word ratio",
+      "type": "screenshot",
+      "file": "openai-help-tokens-article.png",
+      "headline": "Understanding and counting tokens",
+      "dek": "Learn how input, output, cached, and reasoning tokens affect API usage, model limits, and costs.",
+      "outlet": "OpenAI Help Center",
+      "author": null,
+      "date": null,
+      "url": "https://help.openai.com/en/articles/4936856-understanding-and-counting-tokens",
+      "caption": "OpenAI Help Center article 'Understanding and counting tokens': the Overview paragraph defines a token. The tokens-per-word section is below the fold in this capture; its wording is in the facts.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Loaded in headless Chromium; WebFetch returned HTTP 403 for this URL. The older URL .../4936856-what-are-tokens-and-how-to-count-them redirects to this title. The page shows 'Updated: 9 days ago' at capture (2026-10-10), not an absolute date, so date is null. Full article text saved to the research agent's scratchpad for quoting."
+    },
+    {
+      "id": "llm-next-token-definition-ms-learn",
+      "slide_topic": "Next-token prediction: the one training objective behind LLMs",
+      "type": "quote",
+      "file": null,
+      "headline": "LLM Fundamentals",
+      "dek": "A large language model is a neural network trained on massive amounts of text data to predict the next token in a sequence.",
+      "outlet": "Microsoft Learn",
+      "author": null,
+      "date": null,
+      "url": "https://learn.microsoft.com/agent-framework/journey/llm-fundamentals",
+      "caption": "Microsoft Learn 'LLM Fundamentals' one-line definition of next-token prediction.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Page title 'LLM Fundamentals | Microsoft Learn'. Same page also says: 'Pretraining is where the model learns the bulk of its knowledge. The model is fed massive amounts of text from the internet ... and learns to predict the next token given all previous tokens.' Generation loop on the same page: the model 'produces a probability distribution over its vocabulary', the chosen token 'is appended to the full sequence', and the sequence is fed back in."
+    },
+    {
+      "id": "llm-wikipedia-next-token-predictors",
+      "slide_topic": "Next-token prediction: pretraining first, then fine-tuning",
+      "type": "quote",
+      "file": null,
+      "headline": "Large language model",
+      "dek": "Before being fine-tuned, most LLMs are next-token predictors.",
+      "outlet": "Wikipedia",
+      "author": null,
+      "date": null,
+      "url": "https://en.wikipedia.org/wiki/Large_language_model",
+      "caption": "Wikipedia 'Large language model' article: most LLMs are next-token predictors before fine-tuning (RLHF and constitutional AI are named as fine-tuning methods).",
+      "quality": 3,
+      "verified": true,
+      "notes": "Wording from the loaded page; the article's citation marker [28] removed. Same article, same section: 'GPT models are first pretrained to predict the next word on a large amount of data, before being fine-tuned.' Page version is the one loaded on 2026-10-10 (no publication date on Wikipedia)."
+    },
+    {
+      "id": "guess-next-word-example-wikipedia",
+      "slide_topic": "Interactive: guess the next word (think-pair-share or hand-raise poll)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "whether the word sequence \"I like to eat\" is more likely to be followed by the word \"bread\" or the word \"rocks\"",
+      "outlet": "Wikipedia",
+      "author": null,
+      "date": null,
+      "url": "https://en.wikipedia.org/wiki/Large_language_model",
+      "caption": "Wikipedia's own example of next-word prediction, usable as a poll: 'bread' or 'rocks'.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Verbatim from the Wikipedia 'Large language model' article, section on autoregressive vs masked models. Article's own sentence: 'Autoregressive models, such as GPTs, are trained to guess how a sequence continues.' Good for a hand-raise poll before revealing the answer model."
+    }
+  ],
+  "datasets": [],
+  "facts": [
+    {
+      "claim": "Tokens are the units that OpenAI models use to process text. A token can represent a character, part of a word, a whole word, or punctuation.",
+      "source": "OpenAI Help Center, 'Understanding and counting tokens' (Overview section)",
+      "url": "https://help.openai.com/en/articles/4936856-understanding-and-counting-tokens",
+      "date": null
+    },
+    {
+      "claim": "1 token is approximately 4 characters.",
+      "source": "OpenAI Help Center, 'Understanding and counting tokens' (section 'Use rough estimates for English text'). Same section: 'These are estimates, not exact counts.'",
+      "url": "https://help.openai.com/en/articles/4936856-understanding-and-counting-tokens",
+      "date": null
+    },
+    {
+      "claim": "1 token is approximately three-quarters of a word. 100 tokens are approximately 75 words.",
+      "source": "OpenAI Help Center, 'Understanding and counting tokens' (section 'Use rough estimates for English text'). OpenAI calls these estimates, not exact counts, and notes other languages differ.",
+      "url": "https://help.openai.com/en/articles/4936856-understanding-and-counting-tokens",
+      "date": null
+    },
+    {
+      "claim": "Derived: an English word is about 1.33 tokens on average (1 divided by 0.75), so about 4 tokens per 3 words.",
+      "source": "Arithmetic on the OpenAI Help Center ratio ('1 token is approximately three-quarters of a word'). Derived by the research agent, not stated by OpenAI.",
+      "url": "https://help.openai.com/en/articles/4936856-understanding-and-counting-tokens",
+      "date": null
+    },
+    {
+      "claim": "A token count is not the same as a word count. The same text can produce different token counts depending on the model, its encoding, and the language.",
+      "source": "OpenAI Help Center, 'Understanding and counting tokens' (Overview section)",
+      "url": "https://help.openai.com/en/articles/4936856-understanding-and-counting-tokens",
+      "date": null
+    },
+    {
+      "claim": "The sentence 'Tokens are small pieces of text. Models read them one at a time.' (13 words) is 15 tokens in the gpt-4o tokenizer on Tiktokenizer, about 1.15 tokens per word for this one sentence.",
+      "source": "Measured by the research agent on Tiktokenizer (gpt-4o) on 2026-10-10. Third-party tool, not an OpenAI statement. The page's total of 26 includes 11 chat-format tokens.",
+      "url": "https://tiktokenizer.vercel.app/",
+      "date": "2026-10-10"
+    },
+    {
+      "claim": "A large language model is a neural network trained on massive amounts of text data to predict the next token in a sequence.",
+      "source": "Microsoft Learn, 'LLM Fundamentals'",
+      "url": "https://learn.microsoft.com/agent-framework/journey/llm-fundamentals",
+      "date": null
+    },
+    {
+      "claim": "Before being fine-tuned, most LLMs are next-token predictors.",
+      "source": "Wikipedia, 'Large language model'",
+      "url": "https://en.wikipedia.org/wiki/Large_language_model",
+      "date": null
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Screenshot of the official OpenAI tokenizer (platform.openai.com/tokenizer) tokenizing a sentence",
+      "searched": "shot.js headless capture of platform.openai.com/tokenizer returned a blank white page (discarded); WebSearch returned only third-party pages about the tool. Substituted Tiktokenizer (tiktokenizer.vercel.app), a third-party tool, and labelled it as such."
+    },
+    {
+      "outline_item": "Tokenizer differences across OpenAI model generations (e.g. GPT-3.5/GPT-4 vs newer encodings such as o200k_base)",
+      "searched": "WebSearch snippets mention a different tokenizer for GPT-3.5/GPT-4 and the o200k_base encoding, but no loaded primary page confirmed it. Not used in facts."
+    },
+    {
+      "outline_item": "Tokens-per-word figure for non-English text",
+      "searched": "OpenAI article says other languages have different character/word/token relationships but gives no number. No other loaded page with a verified figure found."
+    }
+  ]
+}

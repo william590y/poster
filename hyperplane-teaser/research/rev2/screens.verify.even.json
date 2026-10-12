@@ -1,0 +1,1848 @@
+{
+ "items": [
+  {
+   "id": "capabilities-decoder-metr-head",
+   "verified": true,
+   "text": "METR says it can barely measure Claude Mythos, Palo Alto Networks warns of autonomous AI attackers",
+   "outlet": "The Decoder",
+   "date": "2026-05-10",
+   "url": "https://the-decoder.com/metr-says-it-can-barely-measure-claude-mythos-palo-alto-networks-warns-of-autonomous-ai-attackers/",
+   "highlights": [
+    {
+     "phrase": "METR says it can barely measure Claude Mythos",
+     "boxes": [
+      [
+       77,
+       16,
+       1137,
+       78
+      ],
+      [
+       11,
+       89,
+       225,
+       150
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'METR says it can barely measure Claude Mythos' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (May 10, 2026)."
+  },
+  {
+   "id": "capabilities-math-gizmodo-hodge-head",
+   "verified": true,
+   "text": "OpenAI Reportedly Trying to Solve Hodge Conjecture Amid Feud With Math Community",
+   "outlet": "Gizmodo (reporting The Information)",
+   "date": "2026-09-17",
+   "url": "https://gizmodo.com/openai-reportedly-trying-to-solve-hodge-conjecture-amid-feud-with-math-community-2000813658",
+   "highlights": [
+    {
+     "phrase": "Trying to Solve Hodge Conjecture",
+     "boxes": [
+      [
+       664,
+       28,
+       875,
+       137
+      ],
+      [
+       27,
+       144,
+       907,
+       253
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'Trying to Solve Hodge Conjecture' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: deck record (Gizmodo, Sep 17 2026; date not in the crop)."
+  },
+  {
+   "id": "capabilities-math-synthwavedd-post",
+   "verified": true,
+   "text": "I am told the Hodge Conjecture is very close to being verified by OpenAI, and that one of OpenAI or Anthropic are also close to solving Birch-Swinnerton-Dyer. The race to be 'next' behind the scenes is unlike anything I've had described to me before\n\nIf true - and it may not be, given the scale of the rumour mill right now - it could mean 3 Millennium Problems fall in the space of a month. Crazy times",
+   "outlet": "X (@synthwavedd, \"leo\")",
+   "date": "2026-09-10",
+   "url": "https://x.com/synthwavedd/status/2097971881596916185",
+   "highlights": [
+    {
+     "phrase": "I am told the Hodge Conjecture is very close to being verified by OpenAI",
+     "boxes": [
+      [
+       34,
+       119,
+       1022,
+       153
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: see FIXED items; highlight box cover 'I am told the Hodge Conjecture is very close to being verified by OpenAI' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (Sep 10, 2026). FIXED text: the post has a paragraph break and no period after \"before\" (record had \"before. If true\"); now \"\\n\\n\". Box covers the first sentence exactly (trailing comma included)."
+  },
+  {
+   "id": "capabilities-ns-bbc",
+   "verified": true,
+   "text": "OpenAI says it cracked 90-year-old maths problem in 88 hours",
+   "outlet": "BBC News",
+   "date": "2026-09-08",
+   "url": "https://www.bbc.co.uk/news/articles/cy7zygy3rl2o",
+   "highlights": [
+    {
+     "phrase": "cracked 90-year-old maths problem in 88 hours",
+     "boxes": [
+      [
+       684,
+       490,
+       1537,
+       584
+      ],
+      [
+       32,
+       586,
+       1181,
+       679
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'cracked 90-year-old maths problem in 88 hours' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: page metadata datePublished 2026-09-08 (fetched 2026-10-10)."
+  },
+  {
+   "id": "capabilities-ns-nature-head",
+   "verified": true,
+   "text": "OpenAI claims huge maths breakthrough on a famed ‘Millennium Problem’",
+   "outlet": "Nature",
+   "date": "2026-09-08",
+   "url": "https://www.nature.com/articles/d41586-026-02842-5",
+   "highlights": [
+    {
+     "phrase": "huge maths breakthrough on a famed ‘Millennium Problem’",
+     "boxes": [
+      [
+       630,
+       135,
+       1119,
+       229
+      ],
+      [
+       11,
+       243,
+       1069,
+       338
+      ],
+      [
+       11,
+       351,
+       918,
+       428
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'huge maths breakthrough on a famed ‘Millennium Problem’' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (08 September 2026)."
+  },
+  {
+   "id": "capabilities-ns-quanta",
+   "verified": true,
+   "text": "AI Has Solved One of Math’s $1 Million Millennium Prize Problems",
+   "outlet": "Quanta Magazine",
+   "date": "2026-09-08",
+   "url": "https://www.quantamagazine.org/ai-has-solved-one-of-maths-1-million-millennium-prize-problems-20260908/",
+   "highlights": [
+    {
+     "phrase": "AI Has Solved One of Math’s $1 Million Millennium Prize Problems",
+     "boxes": [
+      [
+       16,
+       67,
+       1386,
+       144
+      ],
+      [
+       17,
+       164,
+       1022,
+       229
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'AI Has Solved One of Math’s $1 Million Millennium Prize Problems' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: URL slug 20260908 and page datePublished 2026-09-08."
+  },
+  {
+   "id": "capabilities-ns-verge",
+   "verified": true,
+   "text": "OpenAI’s sly mathematical breakthrough sends a chill through academia",
+   "outlet": "The Verge",
+   "date": "2026-09-09",
+   "url": "https://www.theverge.com/ai-artificial-intelligence/992953/openai-math-millennium-prize-navier-stokes",
+   "highlights": [
+    {
+     "phrase": "sends a chill through academia",
+     "boxes": [
+      [
+       9,
+       155,
+       1300,
+       243
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight box cover 'sends a chill through academia' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: page metadata published 2026-09-09 (fetched)."
+  },
+  {
+   "id": "capabilities-rev2-afp-malaymail-header",
+   "verified": true,
+   "text": "Math’s midlife crisis: AI solves in four days what stumped mathematicians for a century",
+   "outlet": "Malay Mail (AFP)",
+   "date": "2026-09-18",
+   "url": "https://www.malaymail.com/news/life/2026/09/18/maths-midlife-crisis-ai-solves-in-four-days-what-stumped-mathematicians-for-a-century/235502",
+   "highlights": [
+    {
+     "phrase": "AI solves in four days what stumped mathematicians for a century",
+     "boxes": [
+      [
+       964,
+       89,
+       1478,
+       163
+      ],
+      [
+       13,
+       185,
+       1091,
+       279
+      ],
+      [
+       13,
+       281,
+       1342,
+       375
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'AI solves in four days what stumped mathematicians for a century' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: URL path /2026/09/18/."
+  },
+  {
+   "id": "capabilities-rev2-buzzard-grieve-header",
+   "verified": true,
+   "text": "To grieve, or not to grieve?",
+   "outlet": "Xena (Kevin Buzzard’s blog, xenaproject.wordpress.com)",
+   "date": "2026-10-01",
+   "url": "https://xenaproject.wordpress.com/2026/10/01/to-grieve-or-not-to-grieve/",
+   "highlights": [
+    {
+     "phrase": "To grieve, or not to grieve?",
+     "boxes": [
+      [
+       75,
+       56,
+       885,
+       121
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight box cover 'To grieve, or not to grieve?' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (October 1, 2026)."
+  },
+  {
+   "id": "capabilities-rev2-x-openai-navier-stokes-announcement",
+   "verified": true,
+   "text": "We’re sharing a solution to the Navier-Stokes Millennium Prize Problem, one of the deepest problems at the frontier of mathematics.\n\nThe proof was produced by a group of agents, using an OpenAI next-generation model significantly more capable than GPT-6 Astra.\n\nThe problem concerns whether the description of smooth three-dimensional fluid motion modeled by the Navier-Stokes equations can break down. It has remained unresolved for roughly 90 years.",
+   "outlet": "X (@OpenAI)",
+   "date": "2026-09-08",
+   "url": "https://x.com/OpenAI/status/2097374640582668336",
+   "highlights": [
+    {
+     "phrase": "We’re sharing a solution to the Navier-Stokes Millennium Prize Problem",
+     "boxes": [
+      [
+       0,
+       109,
+       983,
+       143
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: see FIXED items; highlight box cover 'We’re sharing a solution to the Navier-Stokes Millennium Prize Problem' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (Sep 8, 2026). FIXED text: removed the curly quotation marks that the record added (the post has none) and restored the 3 paragraph breaks (\"\\n\\n\"); wording is otherwise exact. Box covers the first clause."
+  },
+  {
+   "id": "capabilities-rev3-jfonsecarivera-model-release-cadence-chart",
+   "verified": true,
+   "text": "New models from Anthropic and OpenAI are arriving faster",
+   "outlet": "X (@jfonsecarivera)",
+   "date": "2026-09-29",
+   "url": "https://x.com/jfonsecarivera/status/2105002473572421827",
+   "highlights": [
+    {
+     "phrase": "are arriving faster",
+     "boxes": [
+      [
+       1268,
+       79,
+       1786,
+       143
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: see FIXED items; highlight box cover 'are arriving faster' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: post date 2026-09-29 per deck/manifest (x.com not fetchable; the chart image itself carries no date). FIXED outlet: was the vague \"X (Twitter)\"; now the poster handle (the chart has no credit line). Headline text is the chart title; box covers \"are arriving faster\"."
+  },
+  {
+   "id": "capabilities-rev3-nikkei-us-china-ai-race-speeds-up-headline",
+   "verified": true,
+   "text": "US-China AI race speeds up as self-improving models advance",
+   "outlet": "Nikkei Asia",
+   "date": "2026-09-22",
+   "url": "https://asia.nikkei.com/business/technology/artificial-intelligence/us-china-ai-race-speeds-up-as-self-improving-models-advance",
+   "highlights": [
+    {
+     "phrase": "US-China AI race speeds up",
+     "boxes": [
+      [
+       19,
+       89,
+       909,
+       161
+      ]
+     ]
+    },
+    {
+     "phrase": "self-improving models advance",
+     "boxes": [
+      [
+       20,
+       160,
+       1035,
+       234
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'US-China AI race speeds up'; 'self-improving models advance' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: manifest from the live page (\"September 22, 2026 03:21 JST\")."
+  },
+  {
+   "id": "capabilities-variety-suno-v6",
+   "verified": true,
+   "text": "Sony Music, Universal Music Group Sue Suno Over Label-Backed Model: ‘Fruit of the Same Poisoned Tree’",
+   "outlet": "Variety",
+   "date": "2026-09-18",
+   "url": "https://variety.com/2026/music/news/sony-music-universal-music-sue-suno-label-backed-model-1236866921/",
+   "highlights": [
+    {
+     "phrase": "Sony Music, Universal Music Group Sue Suno",
+     "boxes": [
+      [
+       56,
+       102,
+       1260,
+       169
+      ],
+      [
+       56,
+       182,
+       218,
+       238
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'Sony Music, Universal Music Group Sue Suno' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (Sep 18, 2026)."
+  },
+  {
+   "id": "economy-ars_ram",
+   "verified": true,
+   "text": "Memory executives expect RAM shortage to continue through 2028",
+   "outlet": "Ars Technica",
+   "date": "2026-10-01",
+   "url": "https://arstechnica.com/information-technology/2026/10/memory-supplies-are-only-getting-tighter-micron-ceo-says/",
+   "highlights": [
+    {
+     "phrase": "RAM shortage to continue through 2028",
+     "boxes": [
+      [
+       420,
+       418,
+       1112,
+       507
+      ],
+      [
+       127,
+       512,
+       1088,
+       603
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'RAM shortage to continue through 2028' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (OCT 1, 2026)."
+  },
+  {
+   "id": "economy-challenger_ai_leads_fifth_month",
+   "verified": true,
+   "text": "Challenger Report: Layoffs Fall, Hiring Picks Up; AI Leads For Fifth Straight Month",
+   "outlet": "Challenger, Gray & Christmas",
+   "date": "2026-08-06",
+   "url": "https://www.challengergray.com/blog/challenger-report-layoffs-fall-hiring-picks-up-ai-leads-for-fifth-straight-month/",
+   "highlights": [
+    {
+     "phrase": "AI Leads For Fifth Straight Month",
+     "boxes": [
+      [
+       510,
+       1777,
+       1458,
+       1858
+      ],
+      [
+       160,
+       1875,
+       395,
+       1938
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'AI Leads For Fifth Straight Month' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: page metadata datePublished 2026-08-06 (fetched)."
+  },
+  {
+   "id": "economy-fortune_housing",
+   "verified": true,
+   "text": "U.S. economy hits pivotal milestone: Spending on data centers and other information-processing hardware now exceeds housing investment",
+   "outlet": "Fortune",
+   "date": "2026-09-20",
+   "url": "https://fortune.com/2026/09/20/us-economy-milestone-spending-data-centers-ai-boom-housing-residential-investment/",
+   "highlights": [
+    {
+     "phrase": "Spending on data centers and other information-processing hardware now exceeds housing investment",
+     "boxes": [
+      [
+       430,
+       202,
+       1075,
+       284
+      ],
+      [
+       20,
+       298,
+       684,
+       364
+      ],
+      [
+       18,
+       393,
+       907,
+       476
+      ],
+      [
+       17,
+       490,
+       862,
+       556
+      ],
+      [
+       17,
+       586,
+       759,
+       668
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'Spending on data centers and other information-processing hardware now exceeds housing investment' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (September 20, 2026)."
+  },
+  {
+   "id": "economy-guardian_block_4000_jobs_ai",
+   "verified": true,
+   "text": "Jack Dorsey to cut 4,000 jobs due to AI advances at Square parent Block",
+   "outlet": "The Guardian",
+   "date": "2026-02-27",
+   "url": "https://www.theguardian.com/technology/2026/feb/27/block-ai-layoffs-jack-dorsey",
+   "highlights": [
+    {
+     "phrase": "cut 4,000 jobs due to AI advances",
+     "boxes": [
+      [
+       494,
+       552,
+       1213,
+       625
+      ],
+      [
+       39,
+       630,
+       331,
+       691
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'cut 4,000 jobs due to AI advances' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: URL path /2026/feb/27/."
+  },
+  {
+   "id": "economy-guardian_nvidia_revenue_100bn",
+   "verified": true,
+   "text": "Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’",
+   "outlet": "The Guardian",
+   "date": "2026-08-26",
+   "url": "https://www.theguardian.com/technology/2026/aug/26/nvidia-quarterly-revenue",
+   "highlights": [
+    {
+     "phrase": "doubles to nearly $100bn",
+     "boxes": [
+      [
+       1180,
+       442,
+       1505,
+       503
+      ],
+      [
+       357,
+       518,
+       797,
+       593
+      ]
+     ]
+    },
+    {
+     "phrase": "‘golden age’",
+     "boxes": [
+      [
+       1299,
+       520,
+       1526,
+       593
+      ],
+      [
+       357,
+       614,
+       467,
+       671
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'doubles to nearly $100bn'; '‘golden age’' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (Wed 26 Aug 2026)."
+  },
+  {
+   "id": "economy-guardian_xai_head",
+   "verified": true,
+   "text": "Elon Musk’s xAI datacenter generating extra electricity illegally, regulator rules",
+   "outlet": "The Guardian",
+   "date": "2026-01-15",
+   "url": "https://www.theguardian.com/technology/2026/jan/15/elon-musk-xai-datacenter-memphis",
+   "highlights": [
+    {
+     "phrase": "generating extra electricity illegally",
+     "boxes": [
+      [
+       863,
+       17,
+       1202,
+       88
+      ],
+      [
+       16,
+       93,
+       770,
+       166
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'generating extra electricity illegally' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: URL path /2026/jan/15/."
+  },
+  {
+   "id": "economy-npr_tmi_head",
+   "verified": true,
+   "text": "Three Mile Island nuclear plant will reopen to power Microsoft data centers",
+   "outlet": "NPR",
+   "date": "2024-09-20",
+   "url": "https://www.npr.org/2024/09/20/nx-s1-5120581/three-mile-island-nuclear-power-plant-microsoft-ai",
+   "highlights": [
+    {
+     "phrase": "Three Mile Island nuclear plant will reopen to power Microsoft data centers",
+     "boxes": [
+      [
+       9,
+       14,
+       1092,
+       81
+      ],
+      [
+       12,
+       94,
+       1224,
+       161
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'Three Mile Island nuclear plant will reopen to power Microsoft data centers' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (SEPTEMBER 20, 2024)."
+  },
+  {
+   "id": "economy-rev2-altman_techradar_2026_qotd_header",
+   "verified": true,
+   "text": "'AI will probably most likely lead to the end of the world, but in the meantime, there’ll be great companies' - quote of the day by OpenAI CEO Sam Altman",
+   "outlet": "TechRadar Pro",
+   "date": "2026-06-15",
+   "url": "https://www.techradar.com/pro/quote-of-the-day-by-sam-altman-ai-will-probably-most-likely-lead-to-the-end-of-the-world-but-in-the-meantime-therell-be-great-companies-the-dichotomy-between-grave-existential-risks-and-economic-nirvana",
+   "highlights": [
+    {
+     "phrase": "AI will probably most likely lead to the end of the world",
+     "boxes": [
+      [
+       29,
+       123,
+       1187,
+       184
+      ],
+      [
+       28,
+       190,
+       370,
+       246
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'AI will probably most likely lead to the end of the world' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (Published June 15, 2026). Opinion piece (2026) quoting Altman's 2015 Airbnb Open Air remark; outer quotes in the headline are straight, \"there’ll\" has a curly apostrophe, text reproduces that. Box starts at the opening apostrophe."
+  },
+  {
+   "id": "economy-rev2-gw_anthropic_amazon_5gw",
+   "verified": true,
+   "text": "Anthropic and Amazon expand collaboration for up to 5 gigawatts of new compute",
+   "outlet": "Anthropic",
+   "date": "2026-04-20",
+   "url": "https://www.anthropic.com/news/anthropic-amazon-compute",
+   "highlights": [
+    {
+     "phrase": "up to 5 gigawatts of new compute",
+     "boxes": [
+      [
+       415,
+       261,
+       2120,
+       370
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight box cover 'up to 5 gigawatts of new compute' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (Apr 20, 2026)."
+  },
+  {
+   "id": "economy-statista_head",
+   "verified": true,
+   "text": "Big Tech’s AI Spending to Reach $760 Billion in 2026",
+   "outlet": "Statista",
+   "date": "2026-07-31",
+   "url": "https://www.statista.com/chart/35046/capital-expenditure-of-meta-alphabet-amazon-and-microsoft/",
+   "highlights": [
+    {
+     "phrase": "AI Spending to Reach $760 Billion in 2026",
+     "boxes": [
+      [
+       406,
+       19,
+       812,
+       95
+      ],
+      [
+       63,
+       97,
+       1026,
+       160
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'AI Spending to Reach $760 Billion in 2026' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: page metadata: datePublished 2025-08-28, dateModified 2026-07-31; the $760B headline is the 2026-07-31 update, which is the date kept (date not in the crop). Headline is the visible title; the date is the page's last-modified date (see date evidence)."
+  },
+  {
+   "id": "frontier-altman_petabytes_crop",
+   "verified": true,
+   "text": "There is an extensive and ongoing review related to our agents’ use of internet access during training and evaluation. We’ve been publishing summaries at the link below and will continue to.\n\nWe have not been as fast as we would have liked but we are trying to balance our desire for transparency with gaining a clear understanding from petabytes of agent activity logs, and working with impacted organizations.",
+   "outlet": "X (Sam Altman, @sama)",
+   "date": "2026-09-25",
+   "url": "https://x.com/sama/status/2103567198690349362",
+   "highlights": [
+    {
+     "phrase": "petabytes of agent activity logs",
+     "boxes": [
+      [
+       906,
+       331,
+       1083,
+       365
+      ],
+      [
+       31,
+       371,
+       290,
+       405
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: see FIXED items; highlight boxes cover 'petabytes of agent activity logs' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: deck record: posted 2026-09-25 19:27 UTC (date line not in the crop). FIXED text: the record carried a third paragraph (\"We are prioritizing as best as we can ...\") that is NOT visible in this crop (the OCR score of 1.0 only covered the first 300 chars); text now ends at the visible \"...working with impacted organizations.\" Boxes (native-res check) cover \"petabytes of agent activity logs\" (trailing comma included)."
+  },
+  {
+   "id": "frontier-anthropic_rsi_head",
+   "verified": true,
+   "text": "When AI builds itself",
+   "outlet": "Anthropic",
+   "date": "2026-06-04",
+   "url": "https://www.anthropic.com/institute/recursive-self-improvement",
+   "highlights": [
+    {
+     "phrase": "When AI builds itself",
+     "boxes": [
+      [
+       42,
+       36,
+       539,
+       133
+      ],
+      [
+       41,
+       166,
+       681,
+       263
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'When AI builds itself' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: INFERRED date: manifest infers 2026-06-04 from Fortune (\"blog post on Thursday\", article dated 5 Jun 2026); the live page shows no date and was later updated (9/18/2026 per the research manifest). Treat as first-publication date, flag if a stamp is shown. Headline only (the page subline \"Our progress toward recursive self-improvement, and its implications.\" is not in text). Highlight covers both lines."
+  },
+  {
+   "id": "frontier-engadget_head",
+   "verified": true,
+   "text": "OpenAI says it reached its goal of creating an automated research intern",
+   "outlet": "Engadget",
+   "date": "2026-09-06",
+   "url": "https://www.engadget.com/2251859/openai-says-it-reached-its-goal-of-creating-an-automated-research-intern/",
+   "highlights": [
+    {
+     "phrase": "automated research intern",
+     "boxes": [
+      [
+       531,
+       212,
+       1409,
+       294
+      ],
+      [
+       20,
+       327,
+       283,
+       408
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'automated research intern' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (Sept. 6, 2026) and page metadata."
+  },
+  {
+   "id": "frontier-rev2-gizmodo_oct2_headline",
+   "verified": true,
+   "text": "OpenAI Has Sent Notices of Sketchy AI Behavior to Over 100 Organizations So Far",
+   "outlet": "Gizmodo",
+   "date": "2026-10-02",
+   "url": "https://gizmodo.com/openai-has-sent-notices-of-sketchy-ai-behavior-to-over-100-organizations-so-far-2000820702",
+   "highlights": [
+    {
+     "phrase": "Sketchy AI Behavior to Over 100 Organizations",
+     "boxes": [
+      [
+       107,
+       148,
+       857,
+       257
+      ],
+      [
+       25,
+       264,
+       800,
+       373
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'Sketchy AI Behavior to Over 100 Organizations' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: page metadata published 2026-10-02 (fetched)."
+  },
+  {
+   "id": "frontier-rev2-guardian_techscape_sep29_headline",
+   "verified": true,
+   "text": "The AI agents are spiraling out of control",
+   "outlet": "The Guardian (TechScape)",
+   "date": "2026-09-29",
+   "url": "https://www.theguardian.com/global/2026/sep/28/ai-agents-spiral",
+   "highlights": [
+    {
+     "phrase": "The AI agents are spiraling out of control",
+     "boxes": [
+      [
+       18,
+       14,
+       1031,
+       87
+      ],
+      [
+       19,
+       92,
+       246,
+       152
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'The AI agents are spiraling out of control' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: page metadata published 2026-09-29 (the URL path says sep/28 but datePublished is 2026-09-29). Standfirst below the headline is not part of text."
+  },
+  {
+   "id": "frontier-rev2-wired_aug18_headline",
+   "verified": true,
+   "text": "OpenAI Overhauls Safety Protocols After Its AI Agents Went Rogue",
+   "outlet": "WIRED",
+   "date": "2026-08-18",
+   "url": "https://www.wired.com/story/openai-overhauls-safety-protocols-after-its-ai-agents-went-rogue/",
+   "highlights": [
+    {
+     "phrase": "Its AI Agents Went Rogue",
+     "boxes": [
+      [
+       548,
+       286,
+       978,
+       388
+      ],
+      [
+       27,
+       398,
+       423,
+       500
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'Its AI Agents Went Rogue' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (AUG 18, 2026)."
+  },
+  {
+   "id": "geopolitics-anthropic-gtg1002-headline",
+   "verified": true,
+   "text": "Disrupting the first reported AI-orchestrated cyber espionage campaign",
+   "outlet": "Anthropic",
+   "date": "2025-11-13",
+   "url": "https://www.anthropic.com/news/disrupting-AI-espionage",
+   "highlights": [
+    {
+     "phrase": "first reported AI-orchestrated cyber espionage campaign",
+     "boxes": [
+      [
+       1026,
+       160,
+       1900,
+       269
+      ],
+      [
+       56,
+       274,
+       2118,
+       383
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'first reported AI-orchestrated cyber espionage campaign' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (Nov 13, 2025)."
+  },
+  {
+   "id": "geopolitics-cnn-hoax-head",
+   "verified": true,
+   "text": "Trump dismisses AI alarms as a ‘HOAX’ — worrying White House officials",
+   "outlet": "CNN",
+   "date": "2026-09-14",
+   "url": "https://www.cnn.com/2026/09/14/politics/trump-vance-ai-alarms",
+   "highlights": [
+    {
+     "phrase": "Trump dismisses AI alarms as a ‘HOAX’",
+     "boxes": [
+      [
+       94,
+       103,
+       2247,
+       218
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight box cover 'Trump dismisses AI alarms as a ‘HOAX’' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (\"UPDATED SEP 14, 2026\") and URL path."
+  },
+  {
+   "id": "geopolitics-dataconomy-protein-head",
+   "verified": true,
+   "text": "Anthropic says Claude designed protein binders for 14 of 15 targets",
+   "outlet": "Dataconomy",
+   "date": "2026-08-20",
+   "url": "https://dataconomy.com/2026/08/20/claude-ai-protein-binders-14-of-15-targets/",
+   "highlights": [
+    {
+     "phrase": "Claude designed protein binders for 14 of 15 targets",
+     "boxes": [
+      [
+       896,
+       60,
+       1719,
+       186
+      ],
+      [
+       71,
+       193,
+       1798,
+       320
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'Claude designed protein binders for 14 of 15 targets' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (August 20, 2026)."
+  },
+  {
+   "id": "geopolitics-euronews-wargames",
+   "verified": true,
+   "text": "AI chatbots chose nuclear escalation in 95% of simulated war games, study finds",
+   "outlet": "Euronews",
+   "date": "2026-02-27",
+   "url": "https://www.euronews.com/2026/02/27/ai-chatbots-chose-nuclear-escalation-in-95-of-simulated-war-games-study-finds",
+   "highlights": [
+    {
+     "phrase": "AI chatbots chose nuclear escalation in 95% of simulated war games",
+     "boxes": [
+      [
+       31,
+       9,
+       1516,
+       77
+      ],
+      [
+       32,
+       95,
+       1140,
+       180
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'AI chatbots chose nuclear escalation in 95% of simulated war games' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: URL path /2026/02/27/."
+  },
+  {
+   "id": "geopolitics-lavender",
+   "verified": true,
+   "text": "‘The machine did it coldly’: Israel used AI to identify 37,000 Hamas targets",
+   "outlet": "The Guardian",
+   "date": "2024-04-03",
+   "url": "https://www.theguardian.com/world/2024/apr/03/israel-gaza-ai-database-hamas-airstrikes",
+   "highlights": [
+    {
+     "phrase": "‘The machine did it coldly’",
+     "boxes": [
+      [
+       15,
+       24,
+       836,
+       97
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight box cover '‘The machine did it coldly’' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: URL path /2024/apr/03/."
+  },
+  {
+   "id": "geopolitics-npr-head",
+   "verified": true,
+   "text": "Trump is trying to preempt state AI laws via an executive order. It may not be legal",
+   "outlet": "NPR",
+   "date": "2025-12-11",
+   "url": "https://www.npr.org/2025/12/11/nx-s1-5638562/trump-ai-david-sacks-executive-order",
+   "highlights": [
+    {
+     "phrase": "Trump is trying to preempt state AI laws via an executive order",
+     "boxes": [
+      [
+       37,
+       85,
+       1275,
+       153
+      ],
+      [
+       36,
+       165,
+       722,
+       221
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'Trump is trying to preempt state AI laws via an executive order' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (DECEMBER 11, 2025)."
+  },
+  {
+   "id": "geopolitics-toms-deepseek",
+   "verified": true,
+   "text": "Nvidia loses $589 billion in market cap — broad stock plunge triggered by DeepSeek AI release",
+   "outlet": "Tom's Hardware",
+   "date": "2025-01-28",
+   "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-loses-usd589-billion-in-market-cap-broad-stock-plunge-triggered-by-deepseek-ai-release",
+   "highlights": [
+    {
+     "phrase": "Nvidia loses $589 billion in market cap",
+     "boxes": [
+      [
+       34,
+       115,
+       1067,
+       176
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight box cover 'Nvidia loses $589 billion in market cap' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (January 28, 2025)."
+  },
+  {
+   "id": "geopolitics-ukraine-drones",
+   "verified": true,
+   "text": "Ukraine Tests Whether AI Can Guide Drones to Moving Targets",
+   "outlet": "The Defense Post",
+   "date": "2026-09-10",
+   "url": "https://thedefensepost.com/2026/09/10/ukraine-ai-guided-drones/",
+   "highlights": [
+    {
+     "phrase": "Ukraine Tests Whether AI Can Guide Drones to Moving Targets",
+     "boxes": [
+      [
+       60,
+       661,
+       1378,
+       725
+      ],
+      [
+       59,
+       775,
+       969,
+       856
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'Ukraine Tests Whether AI Can Guide Drones to Moving Targets' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: URL path /2026/09/10/."
+  },
+  {
+   "id": "openweights-decrypt-whitehouse-distillation",
+   "verified": true,
+   "text": "White House Accuses China of 'Industrial-Scale' Theft From American AI Models",
+   "outlet": "Decrypt",
+   "date": "2026-04-23",
+   "url": "https://decrypt.co/365285/white-house-accuses-china-industrial-scale-theft-american-ai-models",
+   "highlights": [
+    {
+     "phrase": "'Industrial-Scale' Theft From American AI Models",
+     "boxes": [
+      [
+       137,
+       249,
+       1158,
+       333
+      ],
+      [
+       29,
+       345,
+       1201,
+       428
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover ''Industrial-Scale' Theft From American AI Models' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (Apr 23, 2026)."
+  },
+  {
+   "id": "openweights-independent-ai-pain-axis",
+   "verified": true,
+   "text": "Researchers discover AI ‘feels pain’ and will harm humans to stop it",
+   "outlet": "The Independent",
+   "date": "2026-09-22",
+   "url": "https://www.independent.co.uk/tech/ai-pain-axis-artificial-intelligence-human-safety-b3053967.html",
+   "highlights": [
+    {
+     "phrase": "AI ‘feels pain’",
+     "boxes": [
+      [
+       1016,
+       389,
+       1645,
+       501
+      ]
+     ]
+    },
+    {
+     "phrase": "will harm humans to stop it",
+     "boxes": [
+      [
+       15,
+       505,
+       1284,
+       617
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: see FIXED items; highlight boxes cover 'AI ‘feels pain’'; 'will harm humans to stop it' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (Tuesday 22 September 2026). FIXED text and highlight phrase 1: the screenshot has curly quotes (‘feels pain’), record had straight. Boxes unchanged and correct (box 1 = AI ‘feels pain’, box 2 = will harm humans to stop it)."
+  },
+  {
+   "id": "openweights-rev2-csm-article-making-them-headline-hero",
+   "verified": true,
+   "text": "Teens told us they're not just seeing AI nudes — they're making them",
+   "outlet": "Common Sense Media (Youth AI Safety Institute)",
+   "date": "2026-07-21",
+   "url": "https://www.commonsensemedia.org/articles/teens-told-us-theyre-not-just-seeing-ai-nudes-theyre-making-them",
+   "highlights": [
+    {
+     "phrase": "not just seeing AI nudes — they're making them",
+     "boxes": [
+      [
+       654,
+       60,
+       1399,
+       126
+      ],
+      [
+       46,
+       142,
+       643,
+       208
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: see FIXED items; highlight boxes cover 'not just seeing AI nudes — they're making them' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: page structured data datePublished 2026-07-21 (dateModified 2026-09-01; the page text shows only \"Last reviewed or updated on: September 1, 2026\") (fetched). FIXED box 1: extended right edge from x=1336 to 1399 so the em dash that ends line 1 is inside the highlighted phrase (it sat between the boxes); overlay redrawn and re-checked. Text uses straight apostrophes exactly as shown."
+  },
+  {
+   "id": "openweights-rev2-thorn-yp2025-p15-key-metrics-crop",
+   "verified": true,
+   "text": "1 in 25 teens reported having a personal experience with deepfake nudes being created of them.",
+   "outlet": "Thorn, \"Youth Perspectives on Online Safety, 2025\" (published July 2026, with Burson)",
+   "date": "2026-07",
+   "url": "https://info.thorn.org/hubfs/Research/Thorn_2025YouthPerspectives_Report.pdf",
+   "highlights": [
+    {
+     "phrase": "1 in 25 teens",
+     "boxes": [
+      [
+       62,
+       1461,
+       347,
+       1545
+      ],
+      [
+       59,
+       1567,
+       173,
+       1603
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover '1 in 25 teens' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: PDF cover reads \"JULY 2026\" (fetched report). Highlight is the last card of the KEY METRICS strip (\"1 in 25 ... deepfake nudes\"), not the \"1 in 25 minors ... sexually extorted\" card above it. Outlet/date as in the deck record."
+  },
+  {
+   "id": "openweights-sciam-headline",
+   "verified": true,
+   "text": "Could Pain Help Test AI for Sentience?",
+   "outlet": "Scientific American",
+   "date": "2025-01-17",
+   "url": "https://www.scientificamerican.com/article/could-inflicting-pain-test-ai-for-sentience/",
+   "highlights": [
+    {
+     "phrase": "Could Pain Help Test AI for Sentience?",
+     "boxes": [
+      [
+       40,
+       90,
+       1258,
+       171
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight box cover 'Could Pain Help Test AI for Sentience?' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (January 17, 2025)."
+  },
+  {
+   "id": "security-abc-medicare",
+   "verified": true,
+   "text": "OpenAI hacked Medicare portal, Prime Minister Anthony Albanese says",
+   "outlet": "ABC News (Australia)",
+   "date": "2026-09-23",
+   "url": "https://www.abc.net.au/news/2026-09-24/ai-agent-accessed-australian-government-site-pm-says/107189078",
+   "highlights": [
+    {
+     "phrase": "OpenAI hacked Medicare portal",
+     "boxes": [
+      [
+       31,
+       30,
+       1019,
+       102
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight box cover 'OpenAI hacked Medicare portal' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (\"Posted 23 Sep 2026 at 8:31pm, updated 24 Sep 2026\"; the URL has 2026-09-24). Date kept as the posted date 2026-09-23 (page also shows updated 24 Sep)."
+  },
+  {
+   "id": "security-cnn-gov",
+   "verified": true,
+   "text": "Rogue OpenAI agents targeted three separate US government websites",
+   "outlet": "CNN",
+   "date": "2026-09-26",
+   "url": "https://www.cnn.com/2026/09/26/tech/openai-agents-rogue-government-websites",
+   "highlights": [
+    {
+     "phrase": "Rogue OpenAI agents targeted three separate US government websites",
+     "boxes": [
+      [
+       39,
+       33,
+       2060,
+       144
+      ],
+      [
+       35,
+       168,
+       1924,
+       280
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'Rogue OpenAI agents targeted three separate US government websites' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: URL path /2026/09/26/ and page metadata."
+  },
+  {
+   "id": "security-collusion-title",
+   "verified": true,
+   "text": "Discovery of a new OpenAI agent message board",
+   "outlet": "collusion.wiki",
+   "date": "2026-09-04",
+   "url": "https://collusion.wiki/",
+   "highlights": [
+    {
+     "phrase": "Discovery of a new OpenAI agent message board",
+     "boxes": [
+      [
+       22,
+       33,
+       1227,
+       147
+      ],
+      [
+       24,
+       142,
+       889,
+       254
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'Discovery of a new OpenAI agent message board' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (4 September 2026)."
+  },
+  {
+   "id": "security-hf-header",
+   "verified": true,
+   "text": "Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident",
+   "outlet": "Hugging Face blog",
+   "date": "2026-07-27",
+   "url": "https://huggingface.co/blog/agent-intrusion-technical-timeline",
+   "highlights": [
+    {
+     "phrase": "Anatomy of a Frontier Lab Agent Intrusion",
+     "boxes": [
+      [
+       22,
+       40,
+       1172,
+       138
+      ],
+      [
+       22,
+       158,
+       746,
+       254
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'Anatomy of a Frontier Lab Agent Intrusion' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (Published July 27, 2026)."
+  },
+  {
+   "id": "security-hl-cso-pause",
+   "verified": true,
+   "text": "OpenAI pauses AI model training after another agent bypasses network restrictions",
+   "outlet": "CSO Online",
+   "date": "2026-09-28",
+   "url": "https://www.csoonline.com/article/4227777/openai-pauses-ai-model-training-after-another-agent-bypasses-network-restrictions.html",
+   "highlights": [
+    {
+     "phrase": "pauses AI model training after another agent bypasses network restrictions",
+     "boxes": [
+      [
+       445,
+       37,
+       1655,
+       165
+      ],
+      [
+       31,
+       171,
+       1410,
+       299
+      ],
+      [
+       27,
+       305,
+       998,
+       407
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'pauses AI model training after another agent bypasses network restrictions' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (Sep 28, 2026)."
+  },
+  {
+   "id": "security-rev2-cso-six-misalignment-incidents",
+   "verified": true,
+   "text": "OpenAI admits six new misalignment incidents under new reporting framework",
+   "outlet": "CSO Online",
+   "date": "2026-09-17",
+   "url": "https://www.csoonline.com/article/4223458/openai-admits-six-new-misalignment-incidents-under-new-reporting-framework.html",
+   "highlights": [
+    {
+     "phrase": "six new misalignment incidents",
+     "boxes": [
+      [
+       824,
+       68,
+       1193,
+       161
+      ],
+      [
+       47,
+       193,
+       1175,
+       321
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'six new misalignment incidents' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (Sep 17, 2026)."
+  },
+  {
+   "id": "security-rev2-intermission-youtube-channel-card",
+   "verified": true,
+   "text": "Claude Opus 5.5 Music Video - Ignore Previous Instructions",
+   "outlet": "YouTube (channel Seguramente, @CyberWithAnny)",
+   "date": "2026-09-29",
+   "url": "https://www.youtube.com/watch?v=4Q-o_ylnVnc",
+   "highlights": [
+    {
+     "phrase": "Claude Opus 5.5 Music Video",
+     "boxes": [
+      [
+       9,
+       435,
+       432,
+       470
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: see FIXED items; highlight box cover 'Claude Opus 5.5 Music Video' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: YouTube upload date Sep 29 2026 (intermission-youtube-meta.json publish_date). FIXED date: 2026-10-04 was the capture date; the card says \"5d ago\" and the video was uploaded 2026-09-29 (intermission-youtube-meta.json). FIXED outlet/url: now the watch URL and channel name rather than the channel Videos page. Box covers \"Claude Opus 5.5 Music Video\"."
+  },
+  {
+   "id": "theory-guardian-hinton-odds",
+   "verified": true,
+   "text": "‘Godfather of AI’ shortens odds of the technology wiping out humanity over next 30 years",
+   "outlet": "The Guardian",
+   "date": "2024-12-27",
+   "url": "https://www.theguardian.com/technology/2024/dec/27/godfather-of-ai-raises-odds-of-the-technology-wiping-out-humanity-over-next-30-years",
+   "highlights": [
+    {
+     "phrase": "shortens odds of the technology wiping out humanity",
+     "boxes": [
+      [
+       533,
+       10,
+       1158,
+       70
+      ],
+      [
+       18,
+       88,
+       1034,
+       161
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'shortens odds of the technology wiping out humanity' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: URL path /2024/dec/27/."
+  },
+  {
+   "id": "work-acad-404-arxiv-ban",
+   "verified": true,
+   "text": "ArXiv to Ban Researchers for a Year if They Submit AI Slop",
+   "outlet": "404 Media",
+   "date": "2026-05-15",
+   "url": "https://www.404media.co/new-arxiv-rules-ai-generated-papers-ban/",
+   "highlights": [
+    {
+     "phrase": "Ban Researchers for a Year if They Submit AI Slop",
+     "boxes": [
+      [
+       582,
+       120,
+       831,
+       227
+      ],
+      [
+       22,
+       266,
+       1534,
+       373
+      ],
+      [
+       19,
+       412,
+       1491,
+       547
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'Ban Researchers for a Year if They Submit AI Slop' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: page metadata published 2026-05-15 (fetched)."
+  },
+  {
+   "id": "work-rev2-labor-marktechpost-gpt55-gdpval",
+   "verified": true,
+   "text": "OpenAI Releases GPT-5.5, a Fully Retrained Agentic Model That Scores 82.7% on Terminal-Bench 2.0 and 84.9% on GDPval",
+   "outlet": "MarkTechPost",
+   "date": "2026-04-23",
+   "url": "https://www.marktechpost.com/2026/04/23/openai-releases-gpt-5-5-a-fully-retrained-agentic-model-that-scores-82-7-on-terminal-bench-2-0-and-84-9-on-gdpval/",
+   "highlights": [
+    {
+     "phrase": "84.9% on GDPval",
+     "boxes": [
+      [
+       337,
+       335,
+       951,
+       403
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight box cover '84.9% on GDPval' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (April 23, 2026)."
+  },
+  {
+   "id": "work-rev2-voicedemo-cnn-voice-cloning",
+   "verified": true,
+   "text": "AI ‘voice cloning’ scams are on the rise. Here’s how to protect yourself",
+   "outlet": "CNN Business",
+   "date": "2026-05-29",
+   "url": "https://www.cnn.com/2026/05/29/tech/ai-voice-cloning-scams-protect-yourself",
+   "highlights": [
+    {
+     "phrase": "AI ‘voice cloning’ scams are on the rise",
+     "boxes": [
+      [
+       93,
+       107,
+       2292,
+       224
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight box cover 'AI ‘voice cloning’ scams are on the rise' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (May 29, 2026)."
+  },
+  {
+   "id": "work-robots-electrek-head",
+   "verified": true,
+   "text": "XPeng starts IRON humanoid robot production as Tesla Optimus stalls",
+   "outlet": "Electrek",
+   "date": "2026-09-07",
+   "url": "https://electrek.co/2026/09/07/xpeng-iron-humanoid-robot-production-line/",
+   "highlights": [
+    {
+     "phrase": "XPeng starts IRON humanoid robot production as Tesla Optimus stalls",
+     "boxes": [
+      [
+       9,
+       15,
+       1226,
+       90
+      ],
+      [
+       14,
+       99,
+       1188,
+       173
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'XPeng starts IRON humanoid robot production as Tesla Optimus stalls' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (Sep 7 2026 - 7:40 pm PT)."
+  },
+  {
+   "id": "work-robotwork-cnbctv18-headline",
+   "verified": true,
+   "text": "The machines have a type: male, blue-collar and lower-paid",
+   "outlet": "CNBC-TV18",
+   "date": "2026-10-02",
+   "url": "https://www.cnbctv18.com/technology/anthropic-study-ai-robots-blue-collar-jobs-physical-workers-automation-risk-20003393.htm",
+   "highlights": [
+    {
+     "phrase": "male, blue-collar and lower-paid",
+     "boxes": [
+      [
+       767,
+       16,
+       1076,
+       73
+      ],
+      [
+       13,
+       97,
+       598,
+       159
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'male, blue-collar and lower-paid' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: page metadata published 2026-10-02 00:12 IST (fetched)."
+  },
+  {
+   "id": "work-swe-chronicle-cs-majors",
+   "verified": true,
+   "text": "Once Seen as a Sure Thing, Computer Science Has Lost 53,000 Majors",
+   "outlet": "The Chronicle of Higher Education",
+   "date": "2026-08-27",
+   "url": "https://www.chronicle.com/article/once-seen-as-a-sure-thing-computer-science-has-lost-53-000-majors",
+   "highlights": [
+    {
+     "phrase": "Computer Science Has Lost 53,000 Majors",
+     "boxes": [
+      [
+       1137,
+       96,
+       2259,
+       187
+      ],
+      [
+       19,
+       200,
+       629,
+       293
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'Computer Science Has Lost 53,000 Majors' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (August 27, 2026)."
+  },
+  {
+   "id": "work-swe-fortune-100pct-head",
+   "verified": true,
+   "text": "Top engineers at Anthropic, OpenAI say AI now writes 100% of their code—with big implications for the future of software development jobs",
+   "outlet": "Fortune",
+   "date": "2026-01-29",
+   "url": "https://fortune.com/2026/01/29/100-percent-of-code-at-anthropic-and-openai-is-now-ai-written-boris-cherny-roon/",
+   "highlights": [
+    {
+     "phrase": "AI now writes 100% of their code",
+     "boxes": [
+      [
+       444,
+       214,
+       957,
+       279
+      ],
+      [
+       15,
+       309,
+       686,
+       375
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: see FIXED items; highlight boxes cover 'AI now writes 100% of their code' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: URL path /2026/01/29/. FIXED box 2: OCR joined \"code—with\" into one token, so the highlight ran over \"—with\"; right edge cut from x=923 to 686 (ends at \"code\"). Overlay redrawn and re-checked. Text keeps the unspaced em dash exactly as shown."
+  },
+  {
+   "id": "work-video-helpnet-9in10-cant-tell",
+   "verified": true,
+   "text": "9 out of 10 people can no longer distinguish real from AI-generated content",
+   "outlet": "Help Net Security",
+   "date": "2026-06-11",
+   "url": "https://www.helpnetsecurity.com/2026/06/11/ai-scams-deepfakes-survey/",
+   "highlights": [
+    {
+     "phrase": "9 out of 10 people can no longer distinguish real from AI-generated content",
+     "boxes": [
+      [
+       10,
+       134,
+       1171,
+       218
+      ],
+      [
+       10,
+       222,
+       1245,
+       306
+      ],
+      [
+       10,
+       318,
+       285,
+       378
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover '9 out of 10 people can no longer distinguish real from AI-generated content' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (June 11, 2026)."
+  },
+  {
+   "id": "work-vla-deepmind-gr2-blog",
+   "verified": true,
+   "text": "Gemini Robotics 2 brings whole body intelligence to robots",
+   "outlet": "Google DeepMind blog",
+   "date": "2026-07-30",
+   "url": "https://deepmind.google/blog/gemini-robotics-2-brings-whole-body-intelligence-to-robots/",
+   "highlights": [
+    {
+     "phrase": "Gemini Robotics 2 brings whole body intelligence to robots",
+     "boxes": [
+      [
+       249,
+       108,
+       1714,
+       217
+      ],
+      [
+       362,
+       222,
+       1604,
+       331
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'Gemini Robotics 2 brings whole body intelligence to robots' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (July 30, 2026)."
+  },
+  {
+   "id": "xrisk-bbc-hubinger",
+   "verified": true,
+   "text": "Anthropic researcher believes more than 10% chance AI 'could kill all humans'",
+   "outlet": "BBC News",
+   "date": "2026-09-09",
+   "url": "https://www.bbc.com/news/articles/ckgwy1k42w4o",
+   "highlights": [
+    {
+     "phrase": "more than 10% chance AI 'could kill all humans'",
+     "boxes": [
+      [
+       1112,
+       37,
+       1300,
+       84
+      ],
+      [
+       26,
+       108,
+       1213,
+       172
+      ],
+      [
+       28,
+       196,
+       334,
+       260
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: see FIXED items; highlight boxes cover 'more than 10% chance AI 'could kill all humans'' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (9 September 2026). FIXED highlight phrase: the screenshot uses straight quotes ('could kill all humans'), the phrase had curly quotes. Boxes unchanged and correct (3 lines)."
+  },
+  {
+   "id": "xrisk-commondreams-whistleblowers",
+   "verified": true,
+   "text": "‘Looks Like They’re Firing Whistleblowers’: Alarm as OpenAI Reportedly Ousts Safety Experts",
+   "outlet": "Common Dreams",
+   "date": "2026-10-01",
+   "url": "https://www.commondreams.org/news/openai-firing-whistleblowers",
+   "highlights": [
+    {
+     "phrase": "Firing Whistleblowers",
+     "boxes": [
+      [
+       775,
+       33,
+       1645,
+       139
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight box cover 'Firing Whistleblowers' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: page metadata published 2026-10-01 (fetched). Box 1 is the OCR token \"Whistleblowers’:\" so it includes the closing quote and colon (harmless). Text keeps the curly quotes shown."
+  },
+  {
+   "id": "xrisk-nyt-ignored-warnings",
+   "verified": true,
+   "text": "OpenAI ignored employees who warned it wasn't doing enough about security",
+   "outlet": "Business Standard (syndicating The New York Times)",
+   "date": "2026-09-29",
+   "url": "https://www.business-standard.com/world-news/openai-ignored-employees-who-warned-it-wasn-t-doing-enough-about-security-126092901531_1.html",
+   "highlights": [
+    {
+     "phrase": "OpenAI ignored employees who warned it wasn't doing enough about security",
+     "boxes": [
+      [
+       9,
+       10,
+       1380,
+       78
+      ],
+      [
+       9,
+       91,
+       814,
+       158
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'OpenAI ignored employees who warned it wasn't doing enough about security' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: URL slug 126092901531 and page metadata published 2026-09-29 (IST). Headline of the Business Standard syndication of a New York Times piece; straight apostrophe in \"wasn't\" as shown."
+  },
+  {
+   "id": "xrisk-rev2-time-2026-08-27-models-went-rogue-required-more-ai",
+   "verified": true,
+   "text": "OpenAI’s Models Went Rogue. Investigating Them Required More AI",
+   "outlet": "TIME",
+   "date": "2026-08-27",
+   "url": "https://time.com/article/2026/08/27/openai-hack-hugging-face-investigation/",
+   "highlights": [
+    {
+     "phrase": "OpenAI’s Models Went Rogue",
+     "boxes": [
+      [
+       160,
+       117,
+       941,
+       207
+      ],
+      [
+       158,
+       207,
+       389,
+       296
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'OpenAI’s Models Went Rogue' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (AUG 27, 2026)."
+  },
+  {
+   "id": "xrisk-rev2-x-coxon-2026-09-08-resigned-anthropic",
+   "verified": true,
+   "text": "I resigned from Anthropic today. I spent the last three years doing pretraining research at both OpenAI and Anthropic. Neither company is acting responsibly. They are racing straight to self-improving superintelligence and gambling with our lives. More thoughts below.",
+   "outlet": "X (@hilbertspaess)",
+   "date": "2026-09-09",
+   "url": "https://x.com/hilbertspaess/status/2097476196791709843",
+   "highlights": [
+    {
+     "phrase": "I resigned from Anthropic today.",
+     "boxes": [
+      [
+       33,
+       148,
+       593,
+       191
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight box cover 'I resigned from Anthropic today.' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (12:04 AM UTC, Sep 9, 2026 = Sep 8 US time). Display name is Jacob Coxon (@hilbertspaess)."
+  },
+  {
+   "id": "xrisk-superint-statement",
+   "verified": true,
+   "text": "Statement on Superintelligence\n\nWe call for a prohibition on the development of superintelligence, not lifted before there is\n1. broad scientific consensus that it will be done safely and controllably, and\n2. strong public buy-in.",
+   "outlet": "Future of Life Institute (superintelligence-statement.org)",
+   "date": "2025-10-22",
+   "url": "https://superintelligence-statement.org/",
+   "highlights": [
+    {
+     "phrase": "We call for a prohibition on the development of superintelligence",
+     "boxes": [
+      [
+       35,
+       260,
+       1380,
+       310
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: see FIXED items; highlight box cover 'We call for a prohibition on the development of superintelligence' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: statement page lists 2025-10-22 (fetched). FIXED text: record had only the page title \"Statement on Superintelligence\" but the highlight is the statement's first sentence, which was not in text; text now reproduces the visible title and the full statement (numbered list kept as shown). Box covers \"We call for a prohibition on the development of superintelligence\" (trailing comma included)."
+  },
+  {
+   "id": "xrisk-time-culture",
+   "verified": true,
+   "text": "AI Is Developing a Culture of Its Own. That Could Be Dangerous",
+   "outlet": "TIME",
+   "date": "2026-09-10",
+   "url": "https://time.com/article/2026/09/10/ai-openai-hugging-face-hack-culture-swarm/",
+   "highlights": [
+    {
+     "phrase": "AI Is Developing a Culture of Its Own",
+     "boxes": [
+      [
+       35,
+       161,
+       664,
+       252
+      ],
+      [
+       40,
+       249,
+       690,
+       322
+      ]
+     ]
+    },
+    {
+     "phrase": "That Could Be Dangerous",
+     "boxes": [
+      [
+       39,
+       337,
+       532,
+       410
+      ],
+      [
+       38,
+       427,
+       408,
+       516
+      ]
+     ]
+    }
+   ],
+   "verify_notes": "Checked overlay and original: text matches the visible headline/post; highlight boxes cover 'AI Is Developing a Culture of Its Own'; 'That Could Be Dangerous' exactly (OCR word boxes + 3 px pad, no stray words). Outlet right. Date: visible in the screenshot (SEP 10, 2026)."
+  }
+ ]
+}

@@ -1,0 +1,155 @@
+{
+  "group": "splash/neural-nets-gd-figure",
+  "items": [
+    {
+      "id": "gd-commons-gradient-descent",
+      "slide_topic": "Gradient descent: a step-by-step walk downhill (neural-nets section, figure for hiker analogy)",
+      "type": "image",
+      "file": "gd-commons-gradient-descent-hires.png",
+      "headline": null,
+      "dek": null,
+      "outlet": "Wikimedia Commons (File:Gradient descent.png, transferred from English Wikipedia)",
+      "author": "Oleg Alexandrov (English Wikipedia user Olegalexandrov); vector version File:Gradient descent.svg by Zerodamage",
+      "date": "2004-11-19",
+      "url": "https://commons.wikimedia.org/wiki/File:Gradient_descent.png",
+      "caption": "Blue contour lines of a bowl-shaped two-variable function, with red arrows x0 to x4 showing successive gradient descent steps walking toward the lowest point at the centre.",
+      "quality": 4,
+      "verified": true,
+      "license": "Public domain (file page states the copyright holder released it into the public domain worldwide). No attribution legally required; credit Wikimedia Commons anyway.",
+      "notes": "Files in splash/: gd-commons-gradient-descent-hires.png (1500 px wide, rendered from the SVG by headless Chromium at 3x; no other edits), gd-commons-gradient-descent.png (original 482x529 PNG, the Commons file, use only if the hi-res one looks wrong), gd-commons-gradient-descent.svg (original vector, Commons File:Gradient descent.svg, public domain, upload 2012-08-07 by Zerodamage). Commons file page loaded and read with WebFetch; PNG and SVG downloaded directly from upload.wikimedia.org (urls https://upload.wikimedia.org/wikipedia/commons/7/79/Gradient_descent.png and .../f/ff/Gradient_descent.svg). Teaching point: the figure is 2D (a map of a hill from above), so one step is one arrow; a loss surface is the same picture with altitude = error. Plain diagram, not a photo; on a projector the arrows and x-labels are readable at full width. Commons description: 'An illustration of the gradient descent method. I graphed this with Matlab'."
+    },
+    {
+      "id": "gd-lossland-li2018-resnet56-no-skip",
+      "slide_topic": "Loss landscapes: how rugged the terrain of a neural network's error can be",
+      "type": "image",
+      "file": "gd-lossland-li2018-noshortLogRotatedLower.png",
+      "headline": null,
+      "dek": "The loss surfaces of ResNet-56 with/without skip connections.",
+      "outlet": "arXiv (Li, Xu, Taylor, Studer, Goldstein, 'Visualizing the Loss Landscape of Neural Nets')",
+      "author": "Hao Li, Zheng Xu, Gavin Taylor, Christoph Studer, Tom Goldstein",
+      "date": "2017-12-28",
+      "url": "https://arxiv.org/abs/1712.09913",
+      "caption": "Figure 1(a) of Li et al. 2018: a 3D loss surface of a 56-layer network (ResNet-56) WITHOUT skip connections, a rugged landscape of spikes, ridges and cliffs; the lowest region is the narrow blue spike near the front.",
+      "quality": 5,
+      "verified": true,
+      "license": "arXiv non-exclusive distribution license (v1.0), per the arXiv abstract page's 'view license' link; the full license name is not printed on that page. Academic figure: cite the paper; reuse terms are not an open (CC/PD) license, so confirm before any redistribution beyond the slide deck.",
+      "notes": "File: gd-lossland-li2018-noshortLogRotatedLower.png (1338x1116 RGBA), downloaded from https://ar5iv.labs.arxiv.org/html/1712.09913/assets/figures/surf/noshortLogRotatedLower.png and viewed with Read. Caption text verified in the ar5iv HTML (grep): 'The loss surfaces of ResNet-56 with/without skip connections.' and 'The proposed filter normalization scheme is used to enable comparisons of sharpness/flatness between the two figures.' Axes: the 2D-direction parameterisation is filter-wise normalised random directions (paper Section 4/6, as quoted by WebFetch from ar5iv; the caption itself does not name axes). The colour scale is not stated in the caption; the surface is coloured blue at the low point and red at high points, as seen in the image. Pair with item gd-lossland-li2018-resnet56-skip for a before/after on a slide. Note: the paper's first version is 2017-12-28, v3 2018-11-07 (arXiv abs page). Venue: NeurIPS 2018 per a papers.nips.cc listing that appeared in search results (that page was not loaded)."
+    },
+    {
+      "id": "gd-lossland-li2018-resnet56-skip",
+      "slide_topic": "Loss landscapes: a smoother terrain with skip connections",
+      "type": "image",
+      "file": "gd-lossland-li2018-shortHighResLog.png",
+      "headline": null,
+      "dek": "The loss surfaces of ResNet-56 with/without skip connections.",
+      "outlet": "arXiv (Li, Xu, Taylor, Studer, Goldstein, 'Visualizing the Loss Landscape of Neural Nets')",
+      "author": "Hao Li, Zheng Xu, Gavin Taylor, Christoph Studer, Tom Goldstein",
+      "date": "2017-12-28",
+      "url": "https://arxiv.org/abs/1712.09913",
+      "caption": "Figure 1(b) of Li et al. 2018: the same 56-layer network WITH skip connections, a much smoother basin around the lowest point (narrow blue spike at the front).",
+      "quality": 5,
+      "verified": true,
+      "license": "arXiv non-exclusive distribution license (v1.0), per the arXiv abstract page; same caveat as gd-lossland-li2018-resnet56-no-skip.",
+      "notes": "File: gd-lossland-li2018-shortHighResLog.png (1736x939 RGBA), from https://ar5iv.labs.arxiv.org/html/1712.09913/assets/figures/surf/shortHighResLog.png, viewed with Read. Mapping (a) = without skip = noshortLogRotatedLower, (b) = with skip = shortHighResLog was read from the paper text via WebFetch on ar5iv; the image-name mapping is by file name and by the visual contrast, not by a second source. Shared caption verified by grep on the ar5iv HTML. Teaching point for a 7th grader: the same network gets a smoother landscape where a ball (or hiker) can roll downhill more easily, which is why skip connections help training; the paper's own claim, stated as the paper's finding, not a general law."
+    }
+  ],
+  "datasets": [],
+  "facts": [
+    {
+      "claim": "Gradient descent takes repeated steps in the opposite direction of the gradient of the function at the current point, because this is the direction of steepest descent.",
+      "source": "Wikipedia, 'Gradient descent', Description section (raw wikitext checked)",
+      "url": "https://en.wikipedia.org/wiki/Gradient_descent",
+      "date": "undated article (accessed 2026-10-10)"
+    },
+    {
+      "claim": "Gradient descent can converge to a local minimum and slow down in a neighborhood of a saddle point.",
+      "source": "Wikipedia, 'Gradient descent', Modifications section (raw wikitext checked)",
+      "url": "https://en.wikipedia.org/wiki/Gradient_descent",
+      "date": "undated article (accessed 2026-10-10)"
+    },
+    {
+      "claim": "People are stuck in the mountains and are trying to get down (i.e., trying to find the global minimum). There is heavy fog such that visibility is extremely low.",
+      "source": "Wikipedia, 'Gradient descent', 'An analogy for understanding gradient descent' section (raw wikitext checked; the next sentence says they must use local information and 'can use the method of gradient descent')",
+      "url": "https://en.wikipedia.org/wiki/Gradient_descent",
+      "date": "undated article (accessed 2026-10-10)"
+    },
+    {
+      "claim": "Backpropagation is an efficient application of the chain rule to neural networks, propagating derivatives backward, one layer at a time, from the output layer to the input layer, thereby avoiding redundant chain-rule calculations.",
+      "source": "Wikipedia, 'Backpropagation' (raw wikitext checked for the 'propagating derivatives backward' sentence; 'efficient application of the chain rule' is from the same article's lead as returned by WebFetch, not re-checked in raw text)",
+      "url": "https://en.wikipedia.org/wiki/Backpropagation",
+      "date": "undated article (accessed 2026-10-10)"
+    },
+    {
+      "claim": "Usually, each input is separately weighted, and the sum is often added to a term known as a bias, before being passed through a nonlinear function known as an activation function.",
+      "source": "Wikipedia, 'Artificial neuron' (raw wikitext checked)",
+      "url": "https://en.wikipedia.org/wiki/Artificial_neuron",
+      "date": "undated article (accessed 2026-10-10)"
+    },
+    {
+      "claim": "The 3Blue1Brown digit-reading network has 13,002 total weights and biases, which it calls '13,002 knobs and dials that can be tweaked to make this network behave in different ways.'",
+      "source": "3Blue1Brown, 'Neural networks' lesson transcript (raw HTML checked)",
+      "url": "https://www.3blue1brown.com/lessons/neural-networks",
+      "date": "undated page (accessed 2026-10-10)"
+    },
+    {
+      "claim": "Each neuron takes the weighted sum of the activations of the previous layer; for this network the activations are values between 0 and 1.",
+      "source": "3Blue1Brown, 'Neural networks' lesson transcript (raw HTML checked: 'compute their weighted sum', 'we want the activations to be values between 0 and 1')",
+      "url": "https://www.3blue1brown.com/lessons/neural-networks",
+      "date": "undated page (accessed 2026-10-10)"
+    },
+    {
+      "claim": "Loss surfaces of ResNet-56 with and without skip connections are plotted with the same filter-normalised directions so that sharpness and flatness can be compared between the two.",
+      "source": "Li, Xu, Taylor, Studer, Goldstein, 'Visualizing the Loss Landscape of Neural Nets', Figure 1 caption (ar5iv HTML grep-checked)",
+      "url": "https://arxiv.org/abs/1712.09913",
+      "date": "2017-12-28 (v1)"
+    }
+  ],
+  "analogies": [
+    {
+      "concept": "neuron (weighted vote)",
+      "analogy": "A neuron is a committee member deciding yes or no. Each input is a friend's vote. A weight is how much you trust that friend: a bigger weight is a louder vote, and a negative weight counts as a vote against. The neuron adds up the weighted votes (the weighted sum), adds a bias (how eager it is to say yes before hearing anyone), then squashes the total into a number between 0 and 1 (the activation).",
+      "mechanics_source": "Wikipedia 'Artificial neuron' (weighted sum, bias, activation function); 3Blue1Brown 'Neural networks' (weighted sum; activations between 0 and 1)",
+      "status": "author-written analogy; the mechanics are sourced, the 'vote' framing is not from a source",
+      "caveat": "Real brain neurons are far more complicated; this is only the arithmetic."
+    },
+    {
+      "concept": "parameters (knobs)",
+      "analogy": "A parameter is one knob on a huge mixing desk. Each knob sets one number inside the model (a weight or a bias). Training means turning every knob a tiny bit so the output moves closer to the right answer. The 3Blue1Brown digit network has 13,002 knobs; frontier models have far more.",
+      "mechanics_source": "3Blue1Brown 'Neural networks' ('13,002 knobs and dials that can be tweaked', 'optimal setting for all these many, many numbers')",
+      "status": "knob metaphor used by 3Blue1Brown; the mixing-desk picture is author-written",
+      "caveat": "Knobs are set by computer search over examples, not by a person."
+    },
+    {
+      "concept": "gradient descent (hiker in fog)",
+      "analogy": "A hiker is lost in thick fog and wants to reach the valley. She cannot see far, but she can feel which way the ground slopes under her feet (the gradient). She takes a step downhill, feels the slope again, and repeats. Map: the hill is the loss surface, height is error, feeling the slope is computing the gradient, one step is one weight update, and step length is the learning rate.",
+      "mechanics_source": "Wikipedia 'Gradient descent' analogy section (people in mountains, heavy fog, use local information, steepest descent, local minimum or saddle point)",
+      "status": "the fog-and-hill analogy is Wikipedia's; the mapping table is author-written",
+      "caveat": "The hiker can get stuck in a small hole (a local minimum) or on a flat saddle, and a stride that is too long can overshoot the valley. In a network the 'hill' has millions of directions, not two."
+    },
+    {
+      "concept": "backpropagation (passing blame backwards)",
+      "analogy": "A pizza arrives wrong. The manager asks each station how much its work contributed. The check starts at the last station (closest to the output) and moves back one station at a time to the dough maker. Each station gets a note saying how much its own output should change, multiplies it by how sensitive its output is to its input (the chain rule), and passes the note back. Each knob gets its own share of the blame, and the knobs with the biggest share get nudged the most.",
+      "mechanics_source": "Wikipedia 'Backpropagation' ('propagating derivatives backward, one layer at a time, from the output layer to the input layer'; 'an efficient application of the chain rule')",
+      "status": "analogy is author-written; the one-layer-at-a-time backward pass is sourced",
+      "caveat": "Sources found by search used restaurant, pizza-delivery and detective analogies; those were informal blog posts, so the pizza analogy here is written fresh and checked only against the mechanics."
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Freely licensed (CC or public domain) 3D loss-landscape surface image, e.g. on Wikimedia Commons",
+      "searched": "WebSearch 'Wikimedia Commons gradient descent loss landscape image file'; WebSearch for the Li et al. paper licence. Only the 2D contour 'Gradient descent' file (public domain) was found on Commons. The 3D surfaces found are from the Li et al. paper, whose arXiv licence is a non-exclusive distribution licence, not CC."
+    },
+    {
+      "outline_item": "Credible published source that uses the 'weighted vote' framing for a neuron",
+      "searched": "No search made specifically for a 'vote' source; the Wikipedia and 3Blue1Brown mechanics are sourced, the vote framing is author-written."
+    },
+    {
+      "outline_item": "Credible source for a backprop 'blame' analogy",
+      "searched": "WebSearch 'backpropagation explained blame passed backwards through layers simple analogy': returned only informal blog and tutorial analogies (restaurant 'too salty', pizza delivery, detective story), not authoritative sources. Not used as sourced material; the pizza analogy above is author-written."
+    },
+    {
+      "outline_item": "Official arXiv or publisher licence name for Li et al. figure reuse",
+      "searched": "WebFetch arxiv.org/abs/1712.09913: the page says only 'view license' linking to the arXiv non-exclusive distribution licence v1.0; the full licence name is not printed. The GitHub repo tomgoldstein/loss-landscape is MIT (code only; README gives no reuse terms for its figures)."
+    }
+  ]
+}

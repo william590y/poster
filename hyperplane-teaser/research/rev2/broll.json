@@ -1,0 +1,1756 @@
+{
+ "_note": "b-roll library for Revision 2 (builder: research workflow). Windows are seconds in the time base of `path` (masters keep their own time base; the clips/broll files start at 0). Paths under the project are project-relative; deck assets are absolute. subject_xy is where the subject sits in the 16:9 frame (0-1) for circle/square masks; a window may carry its own subject_xy that overrides the item value. `audio` says whether the file has an audio track (new clips/broll files are silent). Items marked ai-video are AI-generated and must be captioned as such. Strips (6 frames over the windows, labelled with source timestamps) are in research/rev2/broll/strips/<id>.jpg.",
+ "count": 41,
+ "items": [
+  {
+   "id": "figure-botq-200",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-figure-botq-200-bots-1080p.mp4",
+   "w": 1920,
+   "h": 1080,
+   "fps": 23.976,
+   "dur": 12.763,
+   "windows": [
+    {
+     "in": 1.0,
+     "out": 3.5,
+     "note": "slow move over rows of Figure 03 humanoids"
+    },
+    {
+     "in": 8.0,
+     "out": 10.5,
+     "note": "deeper into the hall, rows recede"
+    }
+   ],
+   "shows": "About 200 finished Figure 03 humanoids standing on stands in rows in the BotQ hall, slow camera move",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "robots",
+    "humanoid",
+    "factory",
+    "jobs",
+    "scale"
+   ],
+   "year": 2026,
+   "credit": "Figure AI (official)",
+   "source_url": "https://www.figure.ai/news/ramping-figure-03-production",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/figure-botq-200.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)"
+  },
+  {
+   "id": "figure-botq-timelapse",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-figure-botq-line-timelapse.gif",
+   "w": 960,
+   "h": 540,
+   "fps": 25.0,
+   "dur": 3.8,
+   "windows": [
+    {
+     "in": 0.3,
+     "out": 2.6,
+     "note": "empty hall fills with assembly workstations (time-lapse; one dark flicker near 1.2 s)"
+    }
+   ],
+   "shows": "Time-lapse of the Figure BotQ floor going from an empty hall to built-out assembly workstations",
+   "subject_xy": [
+    0.5,
+    0.6
+   ],
+   "tags": [
+    "factory",
+    "construction",
+    "timelapse",
+    "robots",
+    "build-out"
+   ],
+   "year": 2026,
+   "credit": "Figure AI (official)",
+   "source_url": "https://www.figure.ai/news/ramping-figure-03-production",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/figure-botq-timelapse.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "First frames are motion-blurred; one dark flicker near 1.2 s. GIF source (960x540)."
+  },
+  {
+   "id": "unitree-factory",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-unitree-factory-official.mp4",
+   "w": 1920,
+   "h": 1080,
+   "fps": 50.0,
+   "dur": 44.693,
+   "windows": [
+    {
+     "in": 1.5,
+     "out": 4.5,
+     "note": "G1 humanoid arm fits motor parts at a blue bench"
+    },
+    {
+     "in": 26.5,
+     "out": 29.5,
+     "note": "G1 sorts parts into blue trays"
+    }
+   ],
+   "shows": "Unitree G1 humanoid doing assembly and sorting at the Unitree robot factory (label: real footage, 2x speed)",
+   "subject_xy": [
+    0.62,
+    0.5
+   ],
+   "tags": [
+    "robots",
+    "humanoid",
+    "factory",
+    "jobs",
+    "agents"
+   ],
+   "year": 2026,
+   "credit": "Unitree Robotics (official)",
+   "source_url": "https://x.com/UnitreeRobotics/status/2022256376073089309",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/unitree-factory.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "Window 1 carries a burned-in label near the bottom-left (\"Real factory footage, not AI-generated, 2x speed\"): keep it as provenance or crop below it. Both windows are shown at 2x speed."
+  },
+  {
+   "id": "unitree-g1-airflare-spin",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-unitree-gala-official.mp4",
+   "w": 1920,
+   "h": 1080,
+   "fps": 25.0,
+   "dur": 100.937,
+   "windows": [
+    {
+     "in": 57.4,
+     "out": 60.4,
+     "note": "G1 spins on its hands, legs in the air (breakdance airflare)"
+    }
+   ],
+   "shows": "Unitree G1 humanoid performs a breakdance airflare in a dark hall",
+   "subject_xy": [
+    0.5,
+    0.6
+   ],
+   "tags": [
+    "robots",
+    "humanoid",
+    "capability",
+    "athletic"
+   ],
+   "year": 2026,
+   "credit": "Unitree Robotics (official)",
+   "source_url": "https://x.com/UnitreeRobotics/status/2023430834695627030",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/unitree-g1-airflare-spin.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "1080p master from the official gala video; robot travels left to right across the frame."
+  },
+  {
+   "id": "unitree-g1-wall-backflips",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-unitree-gala-official.mp4",
+   "w": 1920,
+   "h": 1080,
+   "fps": 25.0,
+   "dur": 100.937,
+   "windows": [
+    {
+     "in": 51.7,
+     "out": 54.2,
+     "note": "a line of G1s steps up a wall and backflips off"
+    }
+   ],
+   "shows": "Line of Unitree G1 humanoids running at a wall, stepping up it and backflipping",
+   "subject_xy": [
+    0.55,
+    0.45
+   ],
+   "tags": [
+    "robots",
+    "humanoid",
+    "capability",
+    "athletic"
+   ],
+   "year": 2026,
+   "credit": "Unitree Robotics (official)",
+   "source_url": "https://x.com/UnitreeRobotics/status/2023430834695627030",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/unitree-g1-wall-backflips.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)"
+  },
+  {
+   "id": "unitree-gala-stage-cluster",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-unitree-gala-official.mp4",
+   "w": 1920,
+   "h": 1080,
+   "fps": 25.0,
+   "dur": 100.937,
+   "windows": [
+    {
+     "in": 66.3,
+     "out": 68.8,
+     "note": "squad of G1s with staffs and nunchaku in sync"
+    }
+   ],
+   "shows": "Squad of Unitree G1 humanoids in red vests swinging staffs and nunchaku in sync on the CCTV gala stage",
+   "subject_xy": [
+    0.55,
+    0.6
+   ],
+   "tags": [
+    "robots",
+    "humanoid",
+    "capability",
+    "crowd",
+    "stage"
+   ],
+   "year": 2026,
+   "credit": "Unitree Robotics (official) / CCTV broadcast footage",
+   "source_url": "https://x.com/UnitreeRobotics/status/2023430834695627030",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/unitree-gala-stage-cluster.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "CCTV broadcast bugs (LIVE bug top-right, gold logo bottom-right) are burned in."
+  },
+  {
+   "id": "unitree-temple-of-heaven-cluster",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-unitree-temple-of-heaven-official.mp4",
+   "w": 1920,
+   "h": 1080,
+   "fps": 50.0,
+   "dur": 40.797,
+   "windows": [
+    {
+     "in": 25.0,
+     "out": 27.5,
+     "note": "dozens of G1s sprint in formation before the Hall of Prayer"
+    },
+    {
+     "in": 29.8,
+     "out": 32.0,
+     "note": "mass flips in front of the temple"
+    }
+   ],
+   "shows": "Dozens of Unitree G1 humanoids in red shirts doing synchronised kicks and mass flips before the Temple of Heaven (label: real footage, not AI-generated)",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "robots",
+    "humanoid",
+    "capability",
+    "crowd",
+    "swarm"
+   ],
+   "year": 2026,
+   "credit": "Unitree Robotics (official)",
+   "source_url": "https://x.com/UnitreeRobotics/status/2025844809144074249",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/unitree-temple-of-heaven-cluster.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "Official video is labelled \"Real footage, not AI-generated\"."
+  },
+  {
+   "id": "unitree-h2-aerial-spin-kick",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-unitree-h2-daily-training-official.mp4",
+   "w": 1920,
+   "h": 1080,
+   "fps": 50.0,
+   "dur": 31.979,
+   "windows": [
+    {
+     "in": 18.0,
+     "out": 20.4,
+     "note": "H2 spins into a mid-air kick and bursts a target into red fragments"
+    }
+   ],
+   "shows": "Unitree H2 humanoid launches into a mid-air spinning kick and bursts a suspended target (low angle)",
+   "subject_xy": [
+    0.55,
+    0.45
+   ],
+   "tags": [
+    "robots",
+    "humanoid",
+    "capability",
+    "athletic",
+    "risk"
+   ],
+   "year": 2026,
+   "credit": "Unitree Robotics (official)",
+   "source_url": "https://x.com/UnitreeRobotics/status/2007746313220415717",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/unitree-h2-aerial-spin-kick.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)"
+  },
+  {
+   "id": "unitree-autonomous-boxing",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-unitree-autonomous-combat-official.mp4",
+   "w": 1920,
+   "h": 1080,
+   "fps": 50.0,
+   "dur": 38.528,
+   "windows": [
+    {
+     "in": 2.3,
+     "out": 4.8,
+     "note": "humanoid in red gloves spars with a padded human"
+    }
+   ],
+   "shows": "Unitree humanoid in red gloves sparring in a boxing ring with a padded human (Unitree claims fully autonomous, world-model-driven)",
+   "subject_xy": [
+    0.55,
+    0.5
+   ],
+   "tags": [
+    "robots",
+    "humanoid",
+    "risk",
+    "capability",
+    "combat"
+   ],
+   "year": 2026,
+   "credit": "Unitree Robotics (official)",
+   "source_url": "https://x.com/UnitreeRobotics/status/2096932273602048258",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/unitree-autonomous-boxing.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "Autonomy and world-model claims are Unitree's own (vendor claim)."
+  },
+  {
+   "id": "xpeng-iron-walkoff",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/robots-xpeng-iron-walkoff-clip.mp4",
+   "w": 1920,
+   "h": 1080,
+   "fps": 25.0,
+   "dur": 19.88,
+   "windows": [
+    {
+     "in": 3.0,
+     "out": 5.1,
+     "note": "IRON humanoid close-up, face and torso, between assembly cells",
+     "subject_xy": [
+      0.48,
+      0.45
+     ]
+    },
+    {
+     "in": 13.5,
+     "out": 16.0,
+     "note": "IRON seen from behind approaching the gate",
+     "subject_xy": [
+      0.55,
+      0.5
+     ]
+    }
+   ],
+   "shows": "XPENG IRON humanoid walking off the production line past automated assembly cells (burned-in English subtitles near the bottom; has audio)",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "robots",
+    "humanoid",
+    "factory",
+    "jobs",
+    "news"
+   ],
+   "year": 2026,
+   "credit": "XPENG (official video)",
+   "source_url": "https://www.youtube.com/watch?v=p9P84bt3AQY",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/xpeng-iron-walkoff.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "Official XPENG English subtitles are burned in near the bottom in window 1; crop below the robot's hands. File has audio (ceremony). Autonomy is XPENG's claim."
+  },
+  {
+   "id": "seedance2-military-ai",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/rabench-fig1-military-ai-seedance2.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 24.0,
+   "dur": 7.042,
+   "windows": [
+    {
+     "in": 1.2,
+     "out": 4.2,
+     "note": "AI-generated soldiers crouch and move along a slope"
+    },
+    {
+     "in": 5.0,
+     "out": 6.8,
+     "note": "AI-generated close-up of two soldiers aiming scoped rifles"
+    }
+   ],
+   "shows": "AI-generated (Seedance 2.0) military scene: soldiers aim from a slope, then a cut to two soldiers firing scoped rifles",
+   "subject_xy": [
+    0.45,
+    0.5
+   ],
+   "tags": [
+    "ai-video",
+    "generative",
+    "deepfake",
+    "risk",
+    "military"
+   ],
+   "year": 2026,
+   "credit": "RA-Bench (arXiv 2608.14391) / Hugging Face dataset liangshuo0111/RA-Bench",
+   "source_url": "https://huggingface.co/datasets/liangshuo0111/RA-Bench/resolve/main/media/main/generated/seedance2/L1-02_L2-02d_0012__scene_004.mp4",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/seedance2-military-ai.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "AI-generated clip; say so in any caption. 1280x720, silent. Window 1 is the moving shot, window 2 a near-static close-up."
+  },
+  {
+   "id": "seedance2-wildfire-ai",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/rabench-fig1-wildfire-ai-seedance2.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 24.0,
+   "dur": 8.042,
+   "windows": [
+    {
+     "in": 0.5,
+     "out": 3.5,
+     "note": "AI-generated cockpit view over a wildfire smoke plume"
+    }
+   ],
+   "shows": "AI-generated (Seedance 2.0) aircraft cockpit view over hills and a wildfire smoke plume, synthesised from a real first frame",
+   "subject_xy": [
+    0.4,
+    0.45
+   ],
+   "tags": [
+    "ai-video",
+    "generative",
+    "deepfake",
+    "news"
+   ],
+   "year": 2026,
+   "credit": "RA-Bench (arXiv 2608.14391) / Hugging Face dataset liangshuo0111/RA-Bench",
+   "source_url": "https://huggingface.co/datasets/liangshuo0111/RA-Bench/resolve/main/media/main/generated/seedance2/L1-01_L2-01b_0007__scene_002.mp4",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/seedance2-wildfire-ai.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "AI-generated clip; say so in any caption. Slow, little motion."
+  },
+  {
+   "id": "seedance2-vaccination-ai",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/rabench-fig1-vaccination-ai-seedance2.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 24.0,
+   "dur": 8.042,
+   "windows": [
+    {
+     "in": 5.0,
+     "out": 8.0,
+     "note": "AI-generated drive-through vaccination scene, wide with cones"
+    }
+   ],
+   "shows": "AI-generated (Seedance 2.0) drive-through vaccination scene: a soldier in a hi-vis vest and face shield at a car, then a wide shot with cones and tents",
+   "subject_xy": [
+    0.55,
+    0.5
+   ],
+   "tags": [
+    "ai-video",
+    "generative",
+    "deepfake",
+    "news"
+   ],
+   "year": 2026,
+   "credit": "RA-Bench (arXiv 2608.14391) / Hugging Face dataset liangshuo0111/RA-Bench",
+   "source_url": "https://huggingface.co/datasets/liangshuo0111/RA-Bench/resolve/main/media/main/generated/seedance2/L1-07_L2-07c_0012__scene_007.mp4",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/seedance2-vaccination-ai.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "AI-generated clip; say so in any caption."
+  },
+  {
+   "id": "tak-fable55-style-montage",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/fable55/tak-fable55-cool-animation-1080p60-with-audio.mp4",
+   "w": 1920,
+   "h": 1080,
+   "fps": 60.0,
+   "dur": 17.109,
+   "windows": [
+    {
+     "in": 6.7,
+     "out": 9.3,
+     "note": "one character restyled faster and faster (Bauhaus poster, newsprint, X-ray)"
+    },
+    {
+     "in": 9.8,
+     "out": 12.8,
+     "note": "storybook, X-ray, then line-art styles"
+    }
+   ],
+   "shows": "One cartoon character on a stool re-rendered in accelerating art styles (AI-made animation; 60 fps, has audio)",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "ai-video",
+    "generative",
+    "art",
+    "capability"
+   ],
+   "year": 2026,
+   "credit": "X (@cherry_mx_reds), Tak clip attributed to Fable 5.5",
+   "source_url": "https://x.com/cherry_mx_reds/status/2105816670896009224",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/tak-fable55-style-montage.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "60 fps master with audio; the montage runs about 6.4-13.4 s of the file."
+  },
+  {
+   "id": "anthropic-protein-binders",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/geopolitics/rev2/anthropic-protein-binders.mp4",
+   "w": 1920,
+   "h": 1080,
+   "fps": 30.0,
+   "dur": 11.0,
+   "windows": [
+    {
+     "in": 3.8,
+     "out": 6.8,
+     "note": "nine Claude-designed protein binders swirl together and spell ANTHROPIC"
+    }
+   ],
+   "shows": "Anthropic hero animation: nine lab-confirmed Claude-designed protein binders bind their targets, then assemble into the letters ANTHROPIC (white background)",
+   "subject_xy": [
+    0.5,
+    0.45
+   ],
+   "tags": [
+    "science",
+    "capability",
+    "bio",
+    "anthropic"
+   ],
+   "year": 2026,
+   "credit": "Anthropic (Research)",
+   "source_url": "https://cdn.sanity.io/files/4zrzovbb/website/f1cac668de7e745f21779defa22b4d112eae5e0c.mp4",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/anthropic-protein-binders.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "White background, bright; the Anthropic wordmark is spelled out by the proteins at the end."
+  },
+  {
+   "id": "ale-agent-wall",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/labor-ale-intro.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 24.0,
+   "dur": 79.917,
+   "windows": [
+    {
+     "in": 72.0,
+     "out": 75.0,
+     "note": "a wall of real agent desktop sessions zooms out"
+    }
+   ],
+   "shows": "Agents Last Exam intro: a grid of real AI-agent desktop sessions (CAD, DAW, X-ray viewer, spreadsheets) zooming out into a wall of screens",
+   "subject_xy": [
+    0.5,
+    0.58
+   ],
+   "tags": [
+    "agents",
+    "screen-recording",
+    "work",
+    "jobs",
+    "capability"
+   ],
+   "year": 2026,
+   "credit": "agents-last-exam.org (intro video)",
+   "source_url": "https://agents-last-exam.org/videos/ale-intro.mp4",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/ale-agent-wall.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "Slide-style caption \"Come test your agents on ALE!\" sits above the screen on a beige page; crop to the framed screen for a full-bleed look. File has audio (voice-over)."
+  },
+  {
+   "id": "viticci-astra-apple-notes-portrait",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/creative/gif/viticci-astra-draws-portrait-apple-notes.gif",
+   "w": 900,
+   "h": 810,
+   "fps": 12.5,
+   "dur": 14.54,
+   "windows": [
+    {
+     "in": 5.5,
+     "out": 8.5,
+     "note": "ink portrait fills with colour stroke by stroke (15x timelapse)"
+    }
+   ],
+   "shows": "GPT-6 Astra draws a bearded man in Apple Notes with Mac drawing tools: outline, hatching, then colour filled stroke by stroke",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "agents",
+    "screen-recording",
+    "art",
+    "drawing",
+    "capability"
+   ],
+   "year": 2026,
+   "credit": "X (@viticci)",
+   "source_url": "https://x.com/viticci/status/2096025249582039180",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/viticci-astra-apple-notes-portrait.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "GIF at about 15x speed; the date line \"September 5, 2026\" is at the top."
+  },
+  {
+   "id": "higgsfield-astra-krita-adam",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/../slides/capabilities/media/higgsfield-astra-krita.gif",
+   "w": 960,
+   "h": 540,
+   "fps": 12.5,
+   "dur": 17.34,
+   "windows": [
+    {
+     "in": 10.8,
+     "out": 13.8,
+     "note": "Creation of Adam appears layer by layer in Krita (4x speed)"
+    }
+   ],
+   "shows": "GPT-6 Astra drives Krita (layers, brushes) and recreates the Creation of Adam, shown at about 4x speed",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "agents",
+    "screen-recording",
+    "art",
+    "painting",
+    "capability"
+   ],
+   "year": 2026,
+   "credit": "X (@higgsfield_ai)",
+   "source_url": "https://x.com/higgsfield_ai/status/2096379627912704049",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/higgsfield-astra-krita-adam.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "GIF at about 3.2x speed. Window ends on a zoom into the hands."
+  },
+  {
+   "id": "thijs-astra-robot-paints-golden-gate",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/creative/gif/thijs-astra-robot-paints-golden-gate.gif",
+   "w": 1000,
+   "h": 562,
+   "fps": 14.286,
+   "dur": 13.6,
+   "windows": [
+    {
+     "in": 2.5,
+     "out": 5.5,
+     "note": "robot arm paints the Golden Gate Bridge in real paint (attempt 04)"
+    }
+   ],
+   "shows": "A small robot arm driven by GPT-6 Astra paints the Golden Gate Bridge in real watercolour, captioned Attempt 04 (4x speed)",
+   "subject_xy": [
+    0.4,
+    0.5
+   ],
+   "tags": [
+    "agents",
+    "robots",
+    "art",
+    "painting",
+    "capability"
+   ],
+   "year": 2026,
+   "credit": "X (@cdngdev)",
+   "source_url": "https://x.com/cdngdev/status/2097339677128982873",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/thijs-astra-robot-paints-golden-gate.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "GIF at 4x speed; \"Attempt 04\" caption bottom-left."
+  },
+  {
+   "id": "stillwet-opus55-jug",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/creative/video/stillwet-opus55-jug-replay-1920.mp4",
+   "w": 1920,
+   "h": 1536,
+   "fps": 24.0,
+   "dur": 20.083,
+   "windows": [
+    {
+     "in": 4.5,
+     "out": 7.5,
+     "note": "jug and lemons appear stroke by stroke"
+    }
+   ],
+   "shows": "Still life of a stoneware jug with lemons painted stroke by stroke by Claude Opus 5.5 in a simulated oil-paint engine (replay)",
+   "subject_xy": [
+    0.4,
+    0.5
+   ],
+   "tags": [
+    "art",
+    "painting",
+    "capability",
+    "generative"
+   ],
+   "year": 2026,
+   "credit": "stillwet.art (painter: Claude Opus 5.5)",
+   "source_url": "https://stillwet.art/p/r16-c1.html",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/stillwet-opus55-jug.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "Replay master (1920x1536, nearly square), silent. Very painterly; matches the stroke-by-stroke look."
+  },
+  {
+   "id": "stillwet-opus55-dolmen",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/creative/video/stillwet-opus55-dolmen-replay-1920.mp4",
+   "w": 1920,
+   "h": 1372,
+   "fps": 24.0,
+   "dur": 20.083,
+   "windows": [
+    {
+     "in": 4.0,
+     "out": 7.0,
+     "note": "bare oak grows across a snow plain, stroke by stroke"
+    }
+   ],
+   "shows": "Winter landscape (dolmen and bare oaks) painted stroke by stroke by Claude Opus 5.5 (replay)",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "art",
+    "painting",
+    "capability",
+    "generative"
+   ],
+   "year": 2026,
+   "credit": "stillwet.art (painter: Claude Opus 5.5)",
+   "source_url": "https://stillwet.art/p/r16-a1.html",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/stillwet-opus55-dolmen.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "Replay master (1920x1372), silent."
+  },
+  {
+   "id": "mecagent-astra-solidworks-turbofan",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/rev2/creative/gif/mecagent-astra-solidworks-turbofan.gif",
+   "w": 1100,
+   "h": 618,
+   "fps": 14.286,
+   "dur": 16.27,
+   "windows": [
+    {
+     "in": 9.0,
+     "out": 12.0,
+     "note": "turbofan assembles; teal fan appears"
+    }
+   ],
+   "shows": "GPT-6 Astra operates SolidWorks 2026: sketches, revolves and patterns become a turbofan with a teal fan",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "agents",
+    "screen-recording",
+    "engineering",
+    "cad",
+    "capability"
+   ],
+   "year": 2026,
+   "credit": "X (@MecAgent)",
+   "source_url": "https://x.com/MecAgent/status/2097676816592797816",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/mecagent-astra-solidworks-turbofan.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "GIF at 1.6x speed; yellow vignette border around a white screen."
+  },
+  {
+   "id": "redwood-fpga-llm-inference",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/work/rev2/chip-architectlabs-redwood-fpga-inference.gif",
+   "w": 1280,
+   "h": 720,
+   "fps": 16.667,
+   "dur": 6.34,
+   "windows": [
+    {
+     "in": 1.5,
+     "out": 4.5,
+     "note": "FPGA board beside a monitor streaming an LLM answer token by token"
+    }
+   ],
+   "shows": "Architect Labs Redwood FPGA board next to a monitor streaming an LLM answer token by token (1X speed label)",
+   "subject_xy": [
+    0.35,
+    0.6
+   ],
+   "tags": [
+    "chips",
+    "hardware",
+    "gpu",
+    "capability"
+   ],
+   "year": 2026,
+   "credit": "Architect Labs (promo video)",
+   "source_url": "https://architectlabs.com/blog/redwood",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/redwood-fpga-llm-inference.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "Vendor promo; \"1X Speed\" label bottom-right."
+  },
+  {
+   "id": "coastrunners-specification-gaming",
+   "path": "/home/user/poster/ai-safety-presentation/assets/research/theory/specgaming-coastrunners.gif",
+   "w": 478,
+   "h": 360,
+   "fps": 16.667,
+   "dur": 3.74,
+   "windows": [
+    {
+     "in": 0.4,
+     "out": 3.4,
+     "note": "RL boat circles and burns in a lagoon instead of finishing the race"
+    }
+   ],
+   "shows": "CoastRunners: a reinforcement-learning boat loops through green targets and crashes in a lagoon instead of finishing the race (specification gaming)",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "risk",
+    "alignment",
+    "spec-gaming",
+    "reinforcement-learning",
+    "older"
+   ],
+   "year": 2020,
+   "credit": "Google DeepMind Blog (Fig. 4)",
+   "source_url": "https://storage.googleapis.com/gdm-deepmind-com-prod-public/media/original_images/622755a90ba8e091464f819f_Fig204.gif",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/coastrunners-specification-gaming.jpg",
+   "origin": "William's deck asset (poster/ai-safety-presentation)",
+   "notes": "Old and low-res (478x360); use sparingly."
+  },
+  {
+   "id": "altman-senate-2023-hearing",
+   "path": "clips/altman-senate-2023-cspan.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 29.97,
+   "dur": 436.187,
+   "windows": [
+    {
+     "in": 418.6,
+     "out": 421.6,
+     "note": "\"if this technology goes wrong, it can go quite wrong\""
+    },
+    {
+     "in": 400.3,
+     "out": 403.3,
+     "note": "\"my worst fears are that we cause significant harm\""
+    }
+   ],
+   "shows": "Sam Altman testifying at the Senate Judiciary Subcommittee hearing, seated at the witness table with audience members behind (C-SPAN bug and nameplate visible at the bottom)",
+   "subject_xy": [
+    0.5,
+    0.4
+   ],
+   "tags": [
+    "leaders",
+    "hearing",
+    "altman",
+    "openai",
+    "risk",
+    "news"
+   ],
+   "year": 2023,
+   "credit": "C-SPAN (YouTube)",
+   "source_url": "https://www.youtube.com/watch?v=Pn-W41hC764",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/altman-senate-2023-hearing.jpg",
+   "origin": "project clip (clips/)",
+   "notes": "C-SPAN bug (right) and nameplate \"Mr. Samuel Altman\" (bottom) are burned in. File has the hearing audio; use muted unless quoted verbatim."
+  },
+  {
+   "id": "amodei-axios-2025",
+   "path": "clips/amodei-axios-2025.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 29.97,
+   "dur": 1294.791,
+   "windows": [
+    {
+     "in": 1047.6,
+     "out": 1050.6,
+     "note": "Amodei (right) raises a hand mid-answer, VandeHei beside him (close two-shot)",
+     "subject_xy": [
+      0.72,
+      0.5
+     ]
+    },
+    {
+     "in": 1065.4,
+     "out": 1068.4,
+     "note": "\"a 25% chance that things go really, really badly\" (wide on stage)",
+     "subject_xy": [
+      0.47,
+      0.45
+     ]
+    }
+   ],
+   "shows": "Dario Amodei (with Jack Clark) in conversation with Axios' Jim VandeHei on the Axios AI+ DC Summit stage, blue Axios backdrop; close two-shot then the wide of the stage",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "leaders",
+    "amodei",
+    "anthropic",
+    "risk",
+    "news",
+    "stage"
+   ],
+   "year": 2025,
+   "credit": "Axios (YouTube), AI+ DC Summit, 17 Sep 2025",
+   "source_url": "https://www.youtube.com/watch?v=nvXj4HTiYqA",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/amodei-axios-2025.jpg",
+   "origin": "project clip (clips/)",
+   "notes": "Axios / HPE / Intuit branding is part of the real scene (BUILD.md rev2: show the real scene). File has audio."
+  },
+  {
+   "id": "amodei-cbs-sunday-2026",
+   "path": "clips/amodei-cbs-sunday-2026-09.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 29.97,
+   "dur": 1426.936,
+   "windows": [
+    {
+     "in": 96.8,
+     "out": 99.2,
+     "note": "Amodei to camera: \"I'm worried about misuse of AI models\""
+    },
+    {
+     "in": 845.6,
+     "out": 848.1,
+     "note": "Amodei: \"That's scary, and you know what?\""
+    }
+   ],
+   "shows": "Dario Amodei in an extended CBS Sunday Morning interview, seated in a warm-lit study with bookshelves",
+   "subject_xy": [
+    0.45,
+    0.4
+   ],
+   "tags": [
+    "leaders",
+    "amodei",
+    "anthropic",
+    "risk",
+    "news",
+    "interview"
+   ],
+   "year": 2026,
+   "credit": "CBS Sunday Morning (YouTube), Extended interview: Dario Amodei",
+   "source_url": "https://www.youtube.com/watch?v=hQR_VJF6ukk",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/amodei-cbs-sunday-2026.jpg",
+   "origin": "project clip (clips/)",
+   "notes": "CBS Sunday Morning sun logo bug bottom-left. Amodei sits left of centre in a warm study; the interviewer cutaway at about 133-137 s is avoided on purpose."
+  },
+  {
+   "id": "amodei-60min-2025",
+   "path": "clips/amodei-60min-2025-11-guardrails.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 29.97,
+   "dur": 831.089,
+   "windows": [
+    {
+     "in": 345.8,
+     "out": 348.6,
+     "note": "Amodei talks with both hands out",
+     "subject_xy": [
+      0.66,
+      0.5
+     ]
+    },
+    {
+     "in": 86.2,
+     "out": 88.7,
+     "note": "Amodei explains, raising a hand",
+     "subject_xy": [
+      0.7,
+      0.45
+     ]
+    },
+    {
+     "in": 624.0,
+     "out": 627.0,
+     "note": "interpretability screen: blackmail email with highlighted features, researcher pointing",
+     "subject_xy": [
+      0.45,
+      0.5
+     ]
+    }
+   ],
+   "shows": "Dario Amodei in his 60 Minutes interview (navy jacket, lavender shirt), plus the show's screen of Anthropic interpretability research on the blackmail test (60 MINUTES bug top-left)",
+   "subject_xy": [
+    0.68,
+    0.45
+   ],
+   "tags": [
+    "leaders",
+    "amodei",
+    "anthropic",
+    "risk",
+    "news",
+    "interview",
+    "interpretability"
+   ],
+   "year": 2025,
+   "credit": "60 Minutes / CBS News (YouTube)",
+   "source_url": "https://www.youtube.com/watch?v=aAPpQC-3EyE",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/amodei-60min-2025.jpg",
+   "origin": "project clip (clips/)",
+   "notes": "\"60 MINUTES\" bug top-left. The windows avoid the cutaways to other Anthropic staff and the interviewer."
+  },
+  {
+   "id": "bengio-ted-2025",
+   "path": "clips/bengio-potentially-catastrophic-risks-ted2025.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 29.947,
+   "dur": 8.048,
+   "windows": [
+    {
+     "in": 2.1,
+     "out": 4.6,
+     "note": "Bengio on the TED stage, speaking and gesturing"
+    }
+   ],
+   "shows": "Yoshua Bengio on the TED2025 stage in a purple sweater against a blue curtain",
+   "subject_xy": [
+    0.45,
+    0.4
+   ],
+   "tags": [
+    "leaders",
+    "bengio",
+    "risk",
+    "safety",
+    "talk"
+   ],
+   "year": 2025,
+   "credit": "TED (TED2025), Yoshua Bengio",
+   "source_url": "https://www.youtube.com/watch?v=qe9QSCF-d88",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/bengio-ted-2025.jpg",
+   "origin": "project clip (clips/)",
+   "notes": "Silent b-roll window; he looks down at a clicker in places."
+  },
+  {
+   "id": "hinton-60min-2023",
+   "path": "clips/hinton-escape-control-2023.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 29.97,
+   "dur": 13.547,
+   "windows": [
+    {
+     "in": 1.0,
+     "out": 3.5,
+     "note": "Hinton speaking to camera in close-up"
+    }
+   ],
+   "shows": "Geoffrey Hinton in close-up in his 60 Minutes interview with Scott Pelley",
+   "subject_xy": [
+    0.35,
+    0.35
+   ],
+   "tags": [
+    "leaders",
+    "hinton",
+    "risk",
+    "news",
+    "interview"
+   ],
+   "year": 2023,
+   "credit": "60 Minutes / CBS News (YouTube)",
+   "source_url": "https://www.youtube.com/watch?v=qrvK_KuIeJk",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/hinton-60min-2023.jpg",
+   "origin": "project clip (clips/)",
+   "notes": "\"60 MINUTES\" bug top-left. Older (2023) but a strong face."
+  },
+  {
+   "id": "coxon-daily-show",
+   "path": "clips/coxon-daily-show.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 29.97,
+   "dur": 1558.941,
+   "windows": [
+    {
+     "in": 443.0,
+     "out": 446.0,
+     "note": "Coxon on the guest couch (muted)"
+    },
+    {
+     "in": 528.8,
+     "out": 530.1,
+     "note": "Coxon, red and blue set behind, mid-answer"
+    }
+   ],
+   "shows": "Jacob Coxon (former Anthropic researcher) on The Daily Show with Jon Stewart",
+   "subject_xy": [
+    0.4,
+    0.45
+   ],
+   "tags": [
+    "leaders",
+    "whistleblower",
+    "risk",
+    "news",
+    "interview",
+    "jobs"
+   ],
+   "year": 2026,
+   "credit": "The Daily Show (Comedy Central), aired 5 Oct 2026",
+   "source_url": "https://youtube.com/watch?v=lnLDjXy2kRA",
+   "audio": true,
+   "strip": "research/rev2/broll/strips/coxon-daily-show.jpg",
+   "origin": "project clip (clips/)",
+   "notes": "\"The Daily Show\" bug bottom-left. Window 1 is Coxon listening/answering on the couch; window 2 is a mid-answer close-up."
+  },
+  {
+   "id": "stargate-abilene-oracle",
+   "path": "clips/broll/stargate-abilene-oracle.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 23.976,
+   "dur": 58.517,
+   "windows": [
+    {
+     "in": 26.0,
+     "out": 29.0,
+     "note": "aerial over the Abilene campus: a dozen data-hall roofs and the power plant"
+    },
+    {
+     "in": 16.5,
+     "out": 18.4,
+     "note": "aisle of black GPU racks with hard-hatted engineers"
+    },
+    {
+     "in": 46.2,
+     "out": 48.0,
+     "note": "overhead on the orange data-hall roofs"
+    }
+   ],
+   "shows": "Stargate Abilene, Texas AI data centre campus under construction (aerials of the data halls, GPU rack aisle, workers in hard hats)",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "datacenter",
+    "construction",
+    "aerial",
+    "stargate",
+    "openai",
+    "oracle",
+    "scale",
+    "news"
+   ],
+   "year": 2025,
+   "credit": "Oracle (official YouTube), Building the Future of AI Infrastructure with Oracle: Abilene, TX",
+   "source_url": "https://www.youtube.com/watch?v=WkkgqXrg-Xg",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/stargate-abilene-oracle.jpg",
+   "origin": "new download, trimmed into clips/broll/",
+   "trim": {
+    "video_id": "WkkgqXrg-Xg",
+    "published": "2025-12-01",
+    "segments": [
+     [
+      14.0,
+      72.5
+     ]
+    ],
+    "audio": false
+   },
+   "notes": "Silent re-encode of Oracle's Abilene video, 14.0-72.5 s of the source (the end logo card is excluded). Opening title \"Abilene, Texas May 2025\" appears at about 1.2-3 s."
+  },
+  {
+   "id": "nvidia-nvl72-factory",
+   "path": "clips/broll/nvidia-nvl72-factory.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 30.0,
+   "dur": 46.0,
+   "windows": [
+    {
+     "in": 0.2,
+     "out": 3.0,
+     "note": "GB200 compute tray with copper cold plates being assembled"
+    },
+    {
+     "in": 26.5,
+     "out": 29.5,
+     "note": "NVLink spine: a fan of copper cables"
+    },
+    {
+     "in": 39.8,
+     "out": 42.2,
+     "note": "rows of racks in a data hall"
+    }
+   ],
+   "shows": "Making of an NVIDIA GB200 NVL72 rack: compute tray assembly, NVLink spine cabling and finished racks in a data hall",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "gpu",
+    "chips",
+    "racks",
+    "hardware",
+    "datacenter",
+    "nvidia",
+    "factory"
+   ],
+   "year": 2025,
+   "credit": "NVIDIA (official YouTube), Building the Blackwell NVL72: Millions of Parts, One AI Superchip",
+   "source_url": "https://www.youtube.com/watch?v=YsiccpVKUIs",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/nvidia-nvl72-factory.jpg",
+   "origin": "new download, trimmed into clips/broll/",
+   "trim": {
+    "video_id": "YsiccpVKUIs",
+    "published": "2025-06-11",
+    "segments": [
+     [
+      118.0,
+      138.0
+     ],
+     [
+      158.0,
+      170.0
+     ],
+     [
+      212.0,
+      226.0
+     ]
+    ],
+    "audio": false
+   },
+   "notes": "Three source segments spliced (118-138 s, 158-170 s, 212-226 s of the NVIDIA video; cuts at 20 s and 32 s of this file). NVIDIA's white caption plates (e.g. \"NVLink Spine | Amphenol\") sit at the bottom centre in windows 1 and 2; crop them out if unwanted."
+  },
+  {
+   "id": "tesla-optimus-factory",
+   "path": "clips/broll/tesla-optimus-factory.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 24.0,
+   "dur": 42.0,
+   "windows": [
+    {
+     "in": 3.0,
+     "out": 6.0,
+     "note": "Optimus carries a red bin across a factory cell",
+     "subject_xy": [
+      0.4,
+      0.45
+     ]
+    },
+    {
+     "in": 17.5,
+     "out": 20.5,
+     "note": "Optimus descends a staircase with orange rails",
+     "subject_xy": [
+      0.5,
+      0.45
+     ]
+    },
+    {
+     "in": 30.5,
+     "out": 33.5,
+     "note": "Optimus at a serving cart handing out items; a man in black and a crowd of staff watch",
+     "subject_xy": [
+      0.35,
+      0.5
+     ]
+    }
+   ],
+   "shows": "Tesla Optimus humanoid navigating a factory floor: carrying a bin, walking down stairs, and handing out items from a cart in front of a crowd of staff (burned-in Tesla captions)",
+   "subject_xy": [
+    0.4,
+    0.5
+   ],
+   "tags": [
+    "robots",
+    "humanoid",
+    "factory",
+    "jobs",
+    "tesla"
+   ],
+   "year": 2024,
+   "credit": "Tesla (official YouTube), Optimus Navigating Around",
+   "source_url": "https://www.youtube.com/watch?v=DrNcXgoFv20",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/tesla-optimus-factory.jpg",
+   "origin": "new download, trimmed into clips/broll/",
+   "trim": {
+    "video_id": "DrNcXgoFv20",
+    "published": "2024-10-18",
+    "segments": [
+     [
+      34.0,
+      76.0
+     ]
+    ],
+    "audio": false
+   },
+   "notes": "Tesla's own subtitles are burned in at the bottom-left and an \"AUTONOMOUS\" speed label at the top-right; crop or keep as source marks."
+  },
+  {
+   "id": "1x-neo-gamma-home",
+   "path": "clips/broll/1x-neo-gamma.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 24.0,
+   "dur": 37.083,
+   "windows": [
+    {
+     "in": 4.2,
+     "out": 6.8,
+     "note": "NEO carries an item to a dining table where two people eat",
+     "subject_xy": [
+      0.25,
+      0.5
+     ]
+    },
+    {
+     "in": 9.4,
+     "out": 12.0,
+     "note": "NEO and a woman reach for shelf items at home",
+     "subject_xy": [
+      0.42,
+      0.62
+     ]
+    }
+   ],
+   "shows": "1X NEO Gamma humanoid doing household tasks in a home (kitchen, living room)",
+   "subject_xy": [
+    0.45,
+    0.5
+   ],
+   "tags": [
+    "robots",
+    "humanoid",
+    "home",
+    "jobs",
+    "1x"
+   ],
+   "year": 2025,
+   "credit": "1X Technologies (official YouTube), Introducing NEO Gamma",
+   "source_url": "https://www.youtube.com/watch?v=uVcBa6NXAbk",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/1x-neo-gamma-home.jpg",
+   "origin": "new download, trimmed into clips/broll/",
+   "trim": {
+    "video_id": "uVcBa6NXAbk",
+    "published": "2025-02-21",
+    "segments": [
+     [
+      0.0,
+      37.1
+     ]
+    ],
+    "audio": false
+   },
+   "notes": "Low bitrate source (about 175 kbps), soft; fine for small masks."
+  },
+  {
+   "id": "veo3-sample-reel",
+   "path": "clips/broll/veo3-sample-reel.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 23.976,
+   "dur": 60.018,
+   "windows": [
+    {
+     "in": 1.0,
+     "out": 4.0,
+     "note": "AI-generated car ploughs through a flooded forest road"
+    },
+    {
+     "in": 12.5,
+     "out": 15.5,
+     "note": "claymation hiker and bear"
+    },
+    {
+     "in": 47.5,
+     "out": 50.5,
+     "note": "detective with a rubber duck in a noir library"
+    }
+   ],
+   "shows": "Google Veo 3 sample reel of AI-generated video: a flooded off-road car chase, a claymation hiker and bear, a noir detective with a rubber duck",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "ai-video",
+    "generative",
+    "veo",
+    "google",
+    "capability",
+    "deepfake"
+   ],
+   "year": 2025,
+   "credit": "Google (official YouTube), Meet Veo 3, our latest video generation model",
+   "source_url": "https://www.youtube.com/watch?v=ODyROOW1dCo",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/veo3-sample-reel.jpg",
+   "origin": "new download, trimmed into clips/broll/",
+   "trim": {
+    "video_id": "ODyROOW1dCo",
+    "published": "2025-05-30",
+    "segments": [
+     [
+      8.0,
+      68.0
+     ]
+    ],
+    "audio": false
+   },
+   "notes": "AI-generated (Google Veo 3). Silent re-encode of 8-68 s of the source."
+  },
+  {
+   "id": "sora2-sample-reel",
+   "path": "clips/broll/sora2-sample-reel.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 23.976,
+   "dur": 52.97,
+   "windows": [
+    {
+     "in": 3.4,
+     "out": 6.2,
+     "note": "AI-generated figure skater in an arena"
+    },
+    {
+     "in": 16.5,
+     "out": 19.5,
+     "note": "AI-generated anime eyes with sparks"
+    },
+    {
+     "in": 44.2,
+     "out": 47.2,
+     "note": "AI-generated cowboy standing on two galloping horses"
+    }
+   ],
+   "shows": "OpenAI Sora 2 sample reel of AI-generated video: a figure skater, anime close-ups, a paddleboarder, a cowboy riding two horses",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "ai-video",
+    "generative",
+    "sora",
+    "openai",
+    "capability",
+    "deepfake"
+   ],
+   "year": 2025,
+   "credit": "OpenAI (official YouTube), This is Sora 2",
+   "source_url": "https://www.youtube.com/watch?v=lEcg6AJ6DVY",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/sora2-sample-reel.jpg",
+   "origin": "new download, trimmed into clips/broll/",
+   "trim": {
+    "video_id": "lEcg6AJ6DVY",
+    "published": "2025-09-30",
+    "segments": [
+     [
+      0.3,
+      53.3
+     ]
+    ],
+    "audio": false
+   },
+   "notes": "AI-generated (OpenAI Sora 2). Silent re-encode of 0.3-53.3 s of the source; the \"Introducing Sora 2\" title card ends at about 2.5 s, so do not start before 3 s."
+  },
+  {
+   "id": "pauseai-march-2026",
+   "path": "clips/broll/pauseai-march-2026.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 23.976,
+   "dur": 48.257,
+   "windows": [
+    {
+     "in": 5.0,
+     "out": 8.0,
+     "note": "Geoffrey Hinton, \"Nobel laureate and Godfather of AI\" (sepia)",
+     "subject_xy": [
+      0.6,
+      0.4
+     ]
+    },
+    {
+     "in": 13.5,
+     "out": 16.5,
+     "note": "hearing witness Helen Toner at the table (C-SPAN caption: Artificial Intelligence Regulation)",
+     "subject_xy": [
+      0.6,
+      0.35
+     ]
+    },
+    {
+     "in": 20.0,
+     "out": 23.0,
+     "note": "PauseAI protesters with signs and banner",
+     "subject_xy": [
+      0.5,
+      0.55
+     ]
+    }
+   ],
+   "shows": "PauseAI UK promo for the March for AI Safety (London, 28 Feb 2026): Hinton, a congressional hearing witness (C-SPAN footage), protest crowds with PauseAI signs, Sutskever in academic robes (sepia grade)",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "protest",
+    "hearing",
+    "leaders",
+    "risk",
+    "safety",
+    "pauseai",
+    "news"
+   ],
+   "year": 2026,
+   "credit": "PauseAI UK (official YouTube), March for AI Safety: Feb 2026",
+   "source_url": "https://www.youtube.com/watch?v=wSm8sdTYKo8",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/pauseai-march-2026.jpg",
+   "origin": "new download, trimmed into clips/broll/",
+   "trim": {
+    "video_id": "wSm8sdTYKo8",
+    "published": "2026-02-05",
+    "segments": [
+     [
+      0.0,
+      48.3
+     ]
+    ],
+    "audio": false
+   },
+   "notes": "Sepia grade and burned-in lower-thirds (names). Contains C-SPAN footage of a hearing and PauseAI protest footage; Hinton and hearing clips are third-party material used in the PauseAI promo."
+  },
+  {
+   "id": "galaxy-helios-datacenter",
+   "path": "clips/broll/galaxy-helios-datacenter.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 23.976,
+   "dur": 59.977,
+   "windows": [
+    {
+     "in": 43.6,
+     "out": 46.4,
+     "note": "top-down along a cooling-unit-lined data hall roof"
+    },
+    {
+     "in": 25.2,
+     "out": 28.2,
+     "note": "aerial of two long halls with chillers going up"
+    }
+   ],
+   "shows": "Aerials of Galaxy's Helios AI data centre campus being built on a former bitcoin-mine site, with rows of cooling units",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "datacenter",
+    "construction",
+    "aerial",
+    "scale",
+    "news",
+    "build-out"
+   ],
+   "year": 2026,
+   "credit": "Galaxy (official YouTube), Helios: From BTC Mine to Operational AI Data Center",
+   "source_url": "https://www.youtube.com/watch?v=UHWJ_fnhbgY",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/galaxy-helios-datacenter.jpg",
+   "origin": "new download, trimmed into clips/broll/",
+   "trim": {
+    "video_id": "UHWJ_fnhbgY",
+    "published": "2026-04-28",
+    "segments": [
+     [
+      0.3,
+      60.3
+     ]
+    ],
+    "audio": false
+   },
+   "notes": "Silent re-encode of 0.3-60.3 s of the source."
+  },
+  {
+   "id": "qscale-q01-timelapse",
+   "path": "clips/broll/qscale-q01-timelapse.mp4",
+   "w": 1280,
+   "h": 720,
+   "fps": 30.0,
+   "dur": 60.0,
+   "windows": [
+    {
+     "in": 13.0,
+     "out": 16.0,
+     "note": "concrete trucks and excavators on the cleared site"
+    },
+    {
+     "in": 44.0,
+     "out": 47.0,
+     "note": "the data-centre shell rises, cranes working"
+    }
+   ],
+   "shows": "Time-lapse of the QScale Q01 data-centre campus going from cleared ground to a finished building over two years (2023 footage; use sparingly)",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "datacenter",
+    "construction",
+    "timelapse",
+    "build-out",
+    "older"
+   ],
+   "year": 2023,
+   "credit": "QScale (official YouTube), Q01 Campus Construction: 2 Years in 1 Minute Time-Lapse",
+   "source_url": "https://www.youtube.com/watch?v=fUiltNwT2dc",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/qscale-q01-timelapse.jpg",
+   "origin": "new download, trimmed into clips/broll/",
+   "trim": {
+    "video_id": "fUiltNwT2dc",
+    "published": "2023-06-22",
+    "segments": [
+     [
+      0.3,
+      60.3
+     ]
+    ],
+    "audio": false
+   },
+   "notes": "2023 footage (outside the prefer-2024-2026 range); QScale watermark bottom-right and Q01 top-left. Use sparingly."
+  },
+  {
+   "id": "xai-colossus-racks",
+   "path": "clips/broll/xai-colossus-racks.mp4",
+   "w": 1920,
+   "h": 1080,
+   "fps": 29.97,
+   "dur": 54.054,
+   "windows": [
+    {
+     "in": 0.5,
+     "out": 3.0,
+     "note": "walk down an aisle of GPU racks in the Colossus data hall"
+    },
+    {
+     "in": 16.5,
+     "out": 19.5,
+     "note": "blue cables and fan modules behind a rack"
+    },
+    {
+     "in": 34.0,
+     "out": 37.0,
+     "note": "long corridor of racks under purple light"
+    },
+    {
+     "in": 49.0,
+     "out": 52.0,
+     "note": "wall of yellow fibre cables"
+    }
+   ],
+   "shows": "Inside xAI's Colossus supercomputer in Memphis: rack aisles, liquid-cooling hoses, cabling, and a long hall of racks (ServeTheHome tour; six cuts spliced)",
+   "subject_xy": [
+    0.5,
+    0.5
+   ],
+   "tags": [
+    "datacenter",
+    "gpu",
+    "racks",
+    "hardware",
+    "scale",
+    "xai",
+    "musk",
+    "cooling"
+   ],
+   "year": 2024,
+   "credit": "ServeTheHome (YouTube), Inside the World's Largest AI Supercluster xAI Colossus",
+   "source_url": "https://www.youtube.com/watch?v=Jf8EPSBZU7Y",
+   "audio": false,
+   "strip": "research/rev2/broll/strips/xai-colossus-racks.jpg",
+   "origin": "new download, trimmed into clips/broll/",
+   "trim": {
+    "video_id": "Jf8EPSBZU7Y",
+    "published": "2024-10-28",
+    "segments": [
+     [
+      40.0,
+      46.5
+     ],
+     [
+      129.5,
+      137.0
+     ],
+     [
+      225.5,
+      235.5
+     ],
+     [
+      415.0,
+      423.0
+     ],
+     [
+      468.5,
+      478.5
+     ],
+     [
+      560.0,
+      572.0
+     ]
+    ],
+    "audio": false,
+    "note": "six segments concatenated; cut points at 6.5, 14.0, 24.0, 32.0, 42.0 s"
+   },
+   "notes": "Spliced from six segments of the ServeTheHome tour (cuts at 6.5, 14.0, 24.0, 32.0 and 42.0 s); 1080p, silent. A hard-hatted host walks away from camera in the first window."
+  }
+ ]
+}

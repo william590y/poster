@@ -1,0 +1,83 @@
+{
+ "generated": "2026-10-10",
+ "skipped": [
+  {
+   "id": "cnbc-2026-09-30-openai-sued",
+   "url": "https://www.cnbc.com/2026/09/30/openai-sued-cyberattack.html",
+   "outlet": "CNBC",
+   "date": "2026-09-30",
+   "lyric": [
+    "insecure",
+    "exploited"
+   ],
+   "tried": true,
+   "reason": "HTTP 403, page title \"Access Denied\" (bot wall); skipped after one try"
+  },
+  {
+   "id": "reuters-2026-07-24-agent-spent-days-hacking",
+   "url": "https://www.reuters.com/business/its-ai-agent-spent-days-hacking-company-sources-say-openai-did-not-notice-week-2026-07-24/",
+   "outlet": "Reuters",
+   "date": "2026-07-24",
+   "lyric": [
+    "insecure",
+    "disappear"
+   ],
+   "tried": true,
+   "reason": "HTTP 401 (reuters.com blocks automated browsers; the verify notes also record it as unfetchable); skipped after one try"
+  },
+  {
+   "id": "nyt-2026-09-23-australia-investigates",
+   "url": "https://www.nytimes.com/2026/09/23/world/asia/australia-investigates-openai-hack-on-public-health-care-site.html",
+   "outlet": "The New York Times",
+   "date": "2026-09-23",
+   "lyric": [
+    "insecure"
+   ],
+   "tried": true,
+   "reason": "HTTP 403 (nytimes.com bot wall); skipped after one try"
+  },
+  {
+   "id": "nyt-2026-09-25-us-government-websites",
+   "url": "https://www.nytimes.com/2026/09/25/technology/openais-ai-us-government-websites.html",
+   "outlet": "The New York Times",
+   "date": "2026-09-25",
+   "lyric": [
+    "insecure",
+    "dont-stick-up"
+   ],
+   "tried": true,
+   "reason": "HTTP 403 (nytimes.com bot wall); skipped after one try"
+  },
+  {
+   "id": "time-2023-01-18-kenyan-workers",
+   "url": "https://time.com/6247678/openai-chatgpt-kenya-workers/",
+   "outlet": "TIME",
+   "date": "2023-01-18",
+   "lyric": [
+    "exploited"
+   ],
+   "tried": true,
+   "reason": "first try hung until my 100 s harness timeout (the PNG was written but the run was recorded as failed); re-run once and it captured cleanly, so it is included in captures.json",
+   "recovered": true
+  },
+  {
+   "id": "metropolisjapan-2026-07-03-marries-chatgpt",
+   "url": "https://metropolisjapan.com/woman-marries-chatgpt/",
+   "outlet": "Metropolis Japan",
+   "date": "2026-07-03",
+   "lyric": [
+    "two-real-friends"
+   ],
+   "tried": true,
+   "reason": "captured, then dropped: the hero-image overlap layout gave a poor crop (headline card over a photo, with sidebar) and the source is a low-value tabloid item; file not kept"
+  },
+  {
+   "id": "(not attempted)",
+   "reason": "Lyric candidates whose URL is a data page, dashboard, PDF or press page rather than a headline/article/post, or whose screenshot already exists in the deck: epoch.ai/trends, metr.org/time-horizons, digitaleconomy.stanford.edu Canaries PDF, labs.scale.com leaderboard, vals.ai/benchmarks/rsi_index, swarmtraces.org, openai.com/index/sycophancy-in-gpt-4o (quote), the Hugging Face blog, Anthropic Mythos page, janleike and hilbertspaess X posts (already in screens.json), the Asymmetric Security report (no headline recorded)"
+  },
+  {
+   "id": "(tool retries, not page failures)",
+   "reason": "euronews and openai-alignment were first flagged as a block by my own title check (\"chatbot\" matched a bot-wall pattern) and re-run with a fixed check; metr failed once on a clip error (wrong h1 picked, 11 h1s on the page) and techcrunch-sycophantic once on a font-load screenshot timeout; both re-run once. A few pages were re-captured after fixing crops or after my overlay-hiding removed a masthead."
+  }
+ ]
+}

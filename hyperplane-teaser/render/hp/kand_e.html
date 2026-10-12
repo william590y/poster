@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Hyperplane composition (panel)</title>
+<style>
+@font-face { font-family: 'IBM Plex Mono'; font-weight: 500; src: url('/node_modules/@fontsource/ibm-plex-mono/files/ibm-plex-mono-latin-500-normal.woff2') format('woff2'); }
+html, body { margin: 0; background: #000; }
+#cover { position: relative; width: 1500px; height: 1500px; overflow: hidden; background: #F2EBDD; }
+#art { position: absolute; left: 0; top: 0; width: 1500px; height: 1500px; }
+#wordmark { position: absolute; left: 142.3px; top: 1059.2px; width: 1215.3px; height: 214.5px; }
+#kicker { position: absolute; left: 0; right: 0; top: 1330px; display: flex; justify-content: center; align-items: center; gap: 16px; color: #15131F; font-family: 'IBM Plex Mono', monospace; font-weight: 500; font-size: 34px; letter-spacing: 0.18em; text-transform: uppercase; }
+#kicker span { margin-right: -0.18em; }
+</style>
+</head>
+<body>
+<div id="cover">
+<svg id="art" viewBox="0 0 1500 1500" aria-hidden="true">
+  <g id="layer"></g>
+</svg>
+<img id="wordmark" src="wordmark_u.svg" alt="Hyperplane">
+<div id="kicker"><svg viewBox="0 0 64 56" width="38" height="33" aria-hidden="true"><path d="M0 0H64L32 56Z M15 5H57L36 41.75Z" fill="#B31B1B" fill-rule="evenodd"/></svg><span>A Cornell Gradient podcast</span></div>
+</div>
+<script>
+const C = { ink: '#15131F', cream: '#F2EBDD', pink: '#FF2E88', orange: '#FF4A1C', red: '#B31B1B',
+            blue: '#2346FF', teal: '#00B8A9', violet: '#7B3FF2', yellow: '#F2C300' };
+const HEAVY = 12, LIGHT = 5;
+// the plane: exactly 22°, perpendicular thickness 120, bleeding off both edges
+const ANG = 22, RAD = ANG * Math.PI / 180, K = Math.tan(RAD), TV = 120 / Math.cos(RAD), BOT = 1000;
+const topY = (x) => BOT - TV - K * x, botY = (x) => BOT - K * x;
+const nrm = [Math.sin(RAD), Math.cos(RAD)];   // unit normal, pointing down-right
+const NS = 'http://www.w3.org/2000/svg', layer = document.getElementById('layer');
+function mk(tag, attrs, parent = layer) { const e = document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); parent.appendChild(e); return e; }
+const P = (a) => a.map(p => p.map(v => v.toFixed(1)).join(',')).join(' ');
+const dot = (x, y, r, fill) => mk('circle', { cx: x, cy: y, r, fill });
+
+// ---------- warm class, above the plane ----------
+// eclipse: black clearly breaks out of the pink; the orange core straddles the black edge, leaning toward the plane
+dot(430, 390, 240, C.pink);
+dot(340, 300, 188, C.ink);
+dot(465, 425, 74, C.orange);
+// small orange disc, floated clear of the pink
+dot(700, 230, 30, C.orange);
+// heavy open arc
+mk('path', { d: 'M 760 340 A 90 90 0 0 1 940 340', fill: 'none', stroke: C.ink, 'stroke-width': HEAVY });
+// checkerboard: 4×4, no frame, parallel to the plane, lowered so the tops step down
+const chk = mk('g', { transform: `translate(1100,270) rotate(${-ANG}) translate(-72,-72)` });
+for (let r = 0; r < 4; r++) for (let c = 0; c < 4; c++)
+  mk('rect', { x: c * 36, y: r * 36, width: 36, height: 36, fill: (r + c) % 2 ? C.cream : (r === 2 && c === 1 ? C.orange : C.ink) }, chk);
+// the Gradient's ∇: upright, solid masthead red; tip ~67 px above the plane
+const NX = 1320, NTIP = topY(NX) - 67, NWD = 125, NHT = 108;
+mk('polygon', { points: P([[NX - NWD / 2, NTIP - NHT], [NX + NWD / 2, NTIP - NHT], [NX, NTIP]]), fill: C.red });
+// warm data: a small group near the plane, lower left
+dot(190, 643, 13, C.orange); dot(245, 685, 18, C.orange); dot(292, 631, 10, C.orange);
+
+// ---------- cool class, below the plane ----------
+dot(1080, 815, 170, C.blue);
+dot(928, 775, 60, C.teal);                      // straddles the blue edge, leaning toward the plane
+mk('rect', { x: -54, y: -54, width: 108, height: 108, fill: C.teal, transform: 'translate(690,890) rotate(15)' });
+dot(1350, 680, 56, C.violet); dot(1350, 680, 37, C.cream); dot(1350, 680, 19, C.violet);
+// cool data: a small group, clear of the plane and the teal core
+dot(760, 777, 10, C.blue); dot(800, 806, 18, C.blue); dot(835, 880, 10, C.blue);
+
+// ---------- line work: exactly parallel / perpendicular to the plane ----------
+const mOff = 75, mY = (x) => botY(x) + mOff;
+mk('line', { x1: 1180, y1: mY(1180), x2: 1400, y2: mY(1400), stroke: C.ink, 'stroke-width': LIGHT });
+// the normal, detached from the plane
+const x0 = 470, GAP = 40, L = 150, s0 = [x0 + nrm[0] * GAP, botY(x0) + nrm[1] * GAP];
+mk('line', { x1: s0[0], y1: s0[1], x2: s0[0] + nrm[0] * L, y2: s0[1] + nrm[1] * L, stroke: C.ink, 'stroke-width': HEAVY });
+
+// ---------- the hyperplane ----------
+const XL = -60, XR = 1560;
+mk('polygon', { points: P([[XL, topY(XL)], [XR, topY(XR)], [XR, botY(XR)], [XL, botY(XL)]]), fill: C.yellow });
+mk('line', { x1: XL, y1: topY(XL), x2: XR, y2: topY(XR), stroke: C.ink, 'stroke-width': HEAVY });
+
+const img = document.getElementById('wordmark');
+Promise.all([document.fonts.ready, img.decode()]).then(() => { window.__done = true; });
+</script>
+</body>
+</html>

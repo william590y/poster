@@ -1,0 +1,2671 @@
+{
+ "key": "prelude-riff",
+ "span": [
+  6.1,
+  26.97
+ ],
+ "edit_time": "intro cut: edit = song - 6.10 (both cuts open here, BUILD.md REVISION 2); the SHORT splices at song 26.477 (edit 20.377) into 65.188, so hb:15 and everything after 26.477 exist in the long (intro) cut only",
+ "beats": [
+  {
+   "i": -27,
+   "song": 6.167,
+   "bar": -7,
+   "beat": 2,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": false,
+   "events": [
+    "the pencil frame starts drawing round the footage box (0.5 s, graphite boiling on twos); Altman's clip settles from its snap-in; stamp '2015 · SAM ALTMAN · Then president, Y Combinator' types on; karaoke lights '…I' (6.12) and 'THINK' (6.25)",
+    "beatfx prelude: tick + zoom pulse (top strip)"
+   ]
+  },
+  {
+   "i": -26,
+   "song": 6.651,
+   "bar": -7,
+   "beat": 3,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": false,
+   "events": [
+    "sketch: orange data point stamped at (110, 1700) with the 2-frame squash (above the pencil plane)",
+    "prelude pulse bloom (6.551, the intro's strongest swell) just before; 'AI' (6.46) and 'WILL' (6.78) light; pencil underline stub drawn under the footage box",
+    "beatfx: scribble/tick + punch"
+   ]
+  },
+  {
+   "i": -25,
+   "song": 7.135,
+   "bar": -7,
+   "beat": 4,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": false,
+   "events": [
+    "sketch: blue data point stamped at (760, 1790) with the 2-frame squash (below the pencil plane)",
+    "'PROBABLY' lit (7.04); slow push-in continues (zoom 1.0 -> 1.1, ease out)",
+    "beatfx: tick + zoom; pulse bloom at 7.376"
+   ]
+  },
+  {
+   "i": -24,
+   "song": 7.619,
+   "bar": -6,
+   "beat": 1,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": true,
+   "events": [
+    "BAR -6: the hyperplane's top edge is pencilled across the bottom strip at 22 deg (0.35 s); camera punch; 'LIKE' (7.70)",
+    "beatfx bar: flash or scribble + punch",
+    "8th hb:-23.5 (7.861): the plane's bottom edge pencilled (0.3 s)"
+   ]
+  },
+  {
+   "i": -23,
+   "song": 8.103,
+   "bar": -6,
+   "beat": 2,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": false,
+   "events": [
+    "sketch: orange data point stamped at (200, 1650) with the 2-frame squash (above the pencil plane)",
+    "'MOST' (8.16) lit",
+    "beatfx: tick/scribble + zoom"
+   ]
+  },
+  {
+   "i": -22,
+   "song": 8.587,
+   "bar": -6,
+   "beat": 3,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": false,
+   "events": [
+    "sketch: blue data point stamped at (880, 1720) with the 2-frame squash (below the pencil plane)",
+    "yellow pencil circle round MOST LIKELY completes into the beat (8.42-8.70); 'SORT' (8.74)",
+    "beatfx: punch"
+   ]
+  },
+  {
+   "i": -21,
+   "song": 9.071,
+   "bar": -6,
+   "beat": 4,
+   "section": "prelude",
+   "flags": {
+    "accent": 0.36
+   },
+   "downbeat": false,
+   "events": [
+    "sketch: orange data point stamped at (320, 1700) with the 2-frame squash (above the pencil plane)",
+    "'OF' (8.92) lit; accent 0.36 + pulse 9.123",
+    "beatfx: scribble + zoom"
+   ]
+  },
+  {
+   "i": -20,
+   "song": 9.555,
+   "bar": -5,
+   "beat": 1,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": true,
+   "events": [
+    "BAR -5: the normal vector arrow is pencilled out of the plane (0.3 s); white bloom flash 0.12; 'LEAD' (9.36) just lit",
+    "beatfx bar: flash + punch; pulse 9.646"
+   ]
+  },
+  {
+   "i": -19,
+   "song": 10.038,
+   "bar": -5,
+   "beat": 2,
+   "section": "prelude",
+   "flags": {
+    "hat": 0.16,
+    "accent": 0.34
+   },
+   "downbeat": false,
+   "events": [
+    "sketch: blue data point stamped at (970, 1660) with the 2-frame squash (below the pencil plane)",
+    "'END' lands ON the beat (10.06): punch-in 1.08 + 11 px shake; the red chip starts sweeping over THE END OF THE WORLD",
+    "beatfx: tick + zoom"
+   ]
+  },
+  {
+   "i": -18,
+   "song": 10.522,
+   "bar": -5,
+   "beat": 3,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": false,
+   "events": [
+    "sketch: orange data point stamped at (150, 1780) with the 2-frame squash (above the pencil plane)",
+    "the chip completes on 'WORLD…' (10.38-10.55); Altman's voice ends 10.60",
+    "beatfx: punch",
+    "between beats, song 10.833 (hb:-17.36): TRANSITION tr-wipe: pink/violet bristle bands paint across the frame, the cut to Amodei hides under them, the bands tear away"
+   ]
+  },
+  {
+   "i": -17,
+   "song": 11.006,
+   "bar": -5,
+   "beat": 4,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": false,
+   "events": [
+    "sketch: blue data point stamped at (660, 1820) with the 2-frame squash (below the pencil plane)",
+    "Amodei revealed as the bands tear away; stamp '2025 · DARIO AMODEI · CEO, Anthropic' types on; '…THERE'S' (10.88), 'A' (11.10)",
+    "beatfx: tick + zoom"
+   ]
+  },
+  {
+   "i": -16,
+   "song": 11.49,
+   "bar": -4,
+   "beat": 1,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": true,
+   "events": [
+    "sketch: nabla ink stamp lands (the cover's red nabla, on the plane's upper end)",
+    "BAR -4: '25%' (11.20) red chip + punch-in 1.06 + 7 px shake on the word; the yellow pencil circle round 25% completes ON the beat",
+    "beatfx bar: flash/scribble + punch; pulse 11.364"
+   ]
+  },
+  {
+   "i": -15,
+   "song": 11.974,
+   "bar": -4,
+   "beat": 2,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": false,
+   "events": [
+    "sketch: orange data point stamped at (440, 1650) with the 2-frame squash (above the pencil plane)",
+    "slow push on Amodei; pulse swell 11.88 (0.6)",
+    "beatfx: tick/scribble + zoom"
+   ]
+  },
+  {
+   "i": -14,
+   "song": 12.458,
+   "bar": -4,
+   "beat": 3,
+   "section": "prelude",
+   "flags": {
+    "accent": 0.6
+   },
+   "downbeat": false,
+   "events": [
+    "sketch: blue data point stamped at (840, 1820) with the 2-frame squash (below the pencil plane)",
+    "'CHANCE' (12.26) lit just before; accent 0.6 + pulse 12.484",
+    "beatfx: scribble + punch"
+   ]
+  },
+  {
+   "i": -13,
+   "song": 12.942,
+   "bar": -4,
+   "beat": 4,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": false,
+   "events": [
+    "sketch: orange data point stamped at (560, 1630) with the 2-frame squash (above the pencil plane)",
+    "'GO' lands ON the beat (12.92)",
+    "beatfx: tick + zoom"
+   ]
+  },
+  {
+   "i": -12,
+   "song": 13.426,
+   "bar": -3,
+   "beat": 1,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": true,
+   "events": [
+    "sketch: checker ink stamp lands (the cover's checker, rotated -22 deg)",
+    "BAR -3: 5 px shake + the 'REALLY,' chip swept (13.20, punch 1.035 just before); pulse 13.628 (0.9) after",
+    "beatfx bar: flash + punch"
+   ]
+  },
+  {
+   "i": -11,
+   "song": 13.909,
+   "bar": -3,
+   "beat": 2,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": false,
+   "events": [
+    "sketch: blue data point stamped at (960, 1780) with the 2-frame squash (below the pencil plane)",
+    "'REALLY' (13.78) lit",
+    "beatfx: tick + zoom"
+   ]
+  },
+  {
+   "i": -10,
+   "song": 14.393,
+   "bar": -3,
+   "beat": 3,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": false,
+   "events": [
+    "sketch: orange data point stamped at (300, 1632) with the 2-frame squash (above the pencil plane)",
+    "'BADLY…' (14.06) + punch 1.05 + 6 px shake just before; the yellow pencil underline under 'really, really badly…' completes ON the beat (14.08-14.38); the sub line '“…and a 75% chance that things go really, really well…”' rolls out on 32nds (14.07-14.73); pulse 14.214",
+    "beatfx: scribble + punch"
+   ]
+  },
+  {
+   "i": -9,
+   "song": 14.877,
+   "bar": -3,
+   "beat": 4,
+   "section": "prelude",
+   "flags": {
+    "accent": 0.41
+   },
+   "downbeat": false,
+   "events": [
+    "sketch: blue data point stamped at (720, 1832) with the 2-frame squash (below the pencil plane)",
+    "the yellow paint stroke hits '75%' in the sub line ON the beat (the baseline, read until the fold); accent 0.41 + pulse 14.858",
+    "beatfx: tick + zoom"
+   ]
+  },
+  {
+   "i": -8,
+   "song": 15.361,
+   "bar": -2,
+   "beat": 1,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": true,
+   "events": [
+    "sketch: ring ink stamp lands (the cover's violet target ring, sitting on the plane)",
+    "BAR -2: Amodei punch-in 1.03 + white bloom; the picture plays on (muted; he is saying the sub line)",
+    "beatfx bar: flash + punch"
+   ]
+  },
+  {
+   "i": -7,
+   "song": 15.845,
+   "bar": -2,
+   "beat": 2,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": false,
+   "events": [
+    "sketch: blue data point stamped at (1000, 1830) with the 2-frame squash (below the pencil plane)",
+    "TRANSITION tr-fold: the Amodei sheet (with the pencil frame) folds in half along a lit crease and flies off; the Fortune capture (Jul 21) unfolds out of its back and slams; 6 px shake",
+    "8th hb:-6.5: yellow marker over 'hacked into AI company Hugging Face'"
+   ]
+  },
+  {
+   "i": -6,
+   "song": 16.329,
+   "bar": -2,
+   "beat": 3,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": false,
+   "events": [
+    "TIME (Jul 24) drops in with a jolt; Fortune blurs and dims under it; chip 'TIME · JUL 24, 2026' types on",
+    "8th hb:-5.5: marker over 'How OpenAI Lost Control of an AI Model'"
+   ]
+  },
+  {
+   "i": -5,
+   "song": 16.813,
+   "bar": -2,
+   "beat": 4,
+   "section": "prelude",
+   "flags": {
+    "hat": 0.38,
+    "accent": 0.5
+   },
+   "downbeat": false,
+   "events": [
+    "Hugging Face's own blog header (Jul 27) is painted in through three bristle passes (lands with the HF tick 16.823); pile pulse kicks at 16.646 / 16.823",
+    "8th hb:-4.5 (17.055): BBC (Jul 29) slams on (punch + shake): 'rogue AI tried to hack other companies'"
+   ]
+  },
+  {
+   "i": -4,
+   "song": 17.297,
+   "bar": -1,
+   "beat": 1,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": true,
+   "events": [
+    "sketch: square ink stamp lands (the cover's teal square, rotated 15 deg)",
+    "BAR -1: WIRED (Aug 18) flips in: 'Its AI Agents Went Rogue'; the sketch gets its margin tick",
+    "8th hb:-3.5 (17.539): Gizmodo (Oct 2) slams on top: '…Sketchy AI Behavior to Over 100 Organizations So Far'"
+   ]
+  },
+  {
+   "i": -3,
+   "song": 17.78,
+   "bar": -1,
+   "beat": 2,
+   "section": "prelude",
+   "flags": {
+    "hat": 0.89,
+    "accent": 0.79
+   },
+   "downbeat": false,
+   "events": [
+    "PUSH-IN to the Gizmodo phrase (0.42 s; the older shots bury, blur and dim); the strongest prelude accent (hat 0.89) and the HF tick 17.784; Olivia's spoken line plays under (never captioned)",
+    "8th hb:-2.5 (18.022): the phrase 'Sketchy AI Behavior to Over 100 Organizations' lifts off the page on a paper slip with a shadow"
+   ]
+  },
+  {
+   "i": -2,
+   "song": 18.264,
+   "bar": -1,
+   "beat": 3,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": false,
+   "events": [
+    "THE BREATH (18.25-19.05, visual only): a pencil circle is drawn round the lifted phrase and keeps boiling on twos; pile pulse at 18.138"
+   ]
+  },
+  {
+   "i": -1,
+   "song": 18.748,
+   "bar": -1,
+   "beat": 4,
+   "section": "prelude",
+   "flags": {},
+   "downbeat": false,
+   "events": [
+    "breath: a pink marker sweeps the phrase a second time; the camera creeps in (beatfx anticipation zoom); the pencil sketch and the circle boil",
+    "from 19.063 (just before the riff pickup 19.116): tr-shatter's cracks race out from the circled phrase"
+   ]
+  },
+  {
+   "i": 0,
+   "song": 19.232,
+   "bar": 0,
+   "beat": 1,
+   "section": "riff",
+   "flags": {
+    "kick": 0.9,
+    "hat": 0.32,
+    "accent": 1.0
+   },
+   "downbeat": true,
+   "events": [
+    "THE DROP (crash, kick, accent 1.0): TRANSITION tr-shatter: the whole prelude frame (pile, sketch, dark ground) breaks into 18 shards that fly, tumble and fall; white crack flash 0.6 + 16 px shake; under them the cream world, the yellow band painted across in one sweep, the six data points burst out big (dotScale 3); the hero pink splat bursts bottom right",
+    "fx-riff crash: splat or invert + shake",
+    "8th hb:0.5: the pink disc painted in a swirl"
+   ]
+  },
+  {
+   "i": 1,
+   "song": 19.716,
+   "bar": 0,
+   "beat": 2,
+   "section": "riff",
+   "flags": {
+    "snare": 0.82,
+    "hat": 0.54,
+    "accent": 0.46
+   },
+   "downbeat": false,
+   "events": [
+    "black disc painted (snare); shards still falling; the agents wall fades into the pink disc (hb:1.25) as the last shards leave (19.91)",
+    "fx-riff backbeat: splatS / stamp / jump + snap",
+    "8th hb:1.5: orange core painted; droplets"
+   ]
+  },
+  {
+   "i": 2,
+   "song": 20.2,
+   "bar": 0,
+   "beat": 3,
+   "section": "riff",
+   "flags": {
+    "kick": 0.93,
+    "hat": 0.67,
+    "accent": 0.5
+   },
+   "downbeat": false,
+   "events": [
+    "blue disc painted; the plane SORTS the data points (orange above, blue below: the prelude's sketch made real)",
+    "fx-riff beat: scribble/droplets + punch",
+    "8th hb:2.5: teal painted, smallO pops"
+   ]
+  },
+  {
+   "i": 3,
+   "song": 20.684,
+   "bar": 0,
+   "beat": 4,
+   "section": "riff",
+   "flags": {
+    "snare": 1.0,
+    "hat": 0.55,
+    "accent": 0.59
+   },
+   "downbeat": false,
+   "events": [
+    "the teal square spins in (snare); the Colossus racks fade into the blue disc",
+    "fx-riff backbeat",
+    "8th hb:3.5: violet target pops, the arc draws; hb:3.75: the agents footage in the pink disc gives way to Coxon's face; then the riff's stop (20.95-21.16)"
+   ]
+  },
+  {
+   "i": 4,
+   "song": 21.167,
+   "bar": 1,
+   "beat": 1,
+   "section": "riff",
+   "flags": {
+    "kick": 1.0,
+    "hat": 0.97,
+    "accent": 1.0
+   },
+   "downbeat": true,
+   "events": [
+    "BAR 1: checker flips in square by square; pink+black start orbiting (45 deg/beat, pink upright) and the core orbits black; Coxon's face is in the pink disc (from hb:3.75); stamp '2026 · JACOB COXON · on OpenAI's escaped agent' and the karaoke rule type on; credit line rolls out at the bottom",
+    "fx-riff bar: splat + shake",
+    "8th hb:4.5: the red nabla drops in; teal orbits blue; Coxon's voice starts at 21.20 ('…restarted' 21.26), the music ducks 9 dB"
+   ]
+  },
+  {
+   "i": 5,
+   "song": 21.651,
+   "bar": 1,
+   "beat": 2,
+   "section": "riff",
+   "flags": {
+    "snare": 0.92,
+    "hat": 0.55,
+    "accent": 0.52
+   },
+   "downbeat": false,
+   "events": [
+    "REFRAME: close on Coxon's disc (zoom 1.6) as he says 'the thing' (21.76-22.02); the normal vector draws; orbit step",
+    "fx-riff backbeat: splatS/stamp + snap",
+    "8th hb:5.5: margin draws; 'thing,' lit"
+   ]
+  },
+  {
+   "i": 6,
+   "song": 22.135,
+   "bar": 1,
+   "beat": 3,
+   "section": "riff",
+   "flags": {
+    "kick": 0.96,
+    "hat": 0.91,
+    "accent": 0.52
+   },
+   "downbeat": false,
+   "events": [
+    "REFRAME: close on the blue disc (racks, zoom 1.45); data points jump; the square spins 90; 'and' (22.34) lit",
+    "fx-riff beat + punch",
+    "8th hb:6.5: teal orbit step; bumps"
+   ]
+  },
+  {
+   "i": 7,
+   "song": 22.619,
+   "bar": 1,
+   "beat": 4,
+   "section": "riff",
+   "flags": {
+    "snare": 0.86,
+    "hat": 0.76,
+    "accent": 0.45
+   },
+   "downbeat": false,
+   "events": [
+    "REFRAME: back to Coxon's disc (zoom 1.3, -3 deg) for 'it did it' (22.56-22.76); data points jump; checker spins 90",
+    "fx-riff backbeat",
+    "8th hb:7.5 (22.861): WIDE; 'again.' lands in the riff's stop (22.88-23.10) and gets a pink pencil underline; Coxon's picture fades to flat pink, the agents wall fades back in"
+   ]
+  },
+  {
+   "i": 8,
+   "song": 23.103,
+   "bar": 2,
+   "beat": 1,
+   "section": "riff",
+   "flags": {
+    "kick": 0.94,
+    "hat": 0.73,
+    "accent": 0.97
+   },
+   "downbeat": true,
+   "events": [
+    "BAR 2 = THE TITLE: the wordmark 'Hyperplane' is painted on stroke by stroke (0.32 s); the band becomes a river (16 vectors swimming, ripples, surges on every beat); every shape's colour floods into fluid marbling; nabla spins 120; artpulse accent; Coxon's caption starts to blow away (hb:8.75)",
+    "fx-riff bar: splat + shake (barflash)",
+    "8th hb:8.5: a river vector leaps; dots bump"
+   ]
+  },
+  {
+   "i": 9,
+   "song": 23.587,
+   "bar": 2,
+   "beat": 2,
+   "section": "riff",
+   "flags": {
+    "snare": 0.7,
+    "hat": 0.97,
+    "accent": 0.36
+   },
+   "downbeat": false,
+   "events": [
+    "the H crossbar tilts to 22 deg; smallO + target jump; arc/normal/margin bump 1.25; the credit line 'IN THE DISCS: …' starts rolling (hb:9.5)",
+    "fx-riff backbeat",
+    "8th hb:9.5: bumps; droplets"
+   ]
+  },
+  {
+   "i": 10,
+   "song": 24.071,
+   "bar": 2,
+   "beat": 3,
+   "section": "riff",
+   "flags": {
+    "kick": 1.0,
+    "hat": 1.0,
+    "accent": 0.64
+   },
+   "downbeat": false,
+   "events": [
+    "the kicker 'A CORNELL GRADIENT PODCAST' rises in; square spins 90; a vector leaps out of the river",
+    "fx-riff beat (burst)",
+    "8th hb:10.5: bumps"
+   ]
+  },
+  {
+   "i": 11,
+   "song": 24.555,
+   "bar": 2,
+   "beat": 4,
+   "section": "riff",
+   "flags": {
+    "snare": 1.0,
+    "accent": 0.56
+   },
+   "downbeat": false,
+   "events": [
+    "WHIP: the whole composition spins 360 deg over one beat (through the riff stop 24.82-25.03); checker spins; smallO + target jump",
+    "fx-riff backbeat",
+    "8th hb:11.5: mid-spin, droplets"
+   ]
+  },
+  {
+   "i": 12,
+   "song": 25.038,
+   "bar": 3,
+   "beat": 1,
+   "section": "riff",
+   "flags": {
+    "kick": 1.0,
+    "hat": 0.94,
+    "accent": 1.0
+   },
+   "downbeat": true,
+   "events": [
+    "BAR 3: the art lands upright ON the beat and the SUPERPOSITION bursts (feature vectors packed round a boiling pencil circle, lit in turn on 16ths); the equation x' = ReLU(W^TWx + b) drops in glyph by glyph at the top with a yellow flash; nabla spins; pink+black whirl on 8ths",
+    "fx-riff bar: splat + shake",
+    "8th hb:12.5: the blue disc jumps; orbit 8th steps"
+   ]
+  },
+  {
+   "i": 13,
+   "song": 25.522,
+   "bar": 3,
+   "beat": 2,
+   "section": "riff",
+   "flags": {
+    "snare": 0.7,
+    "hat": 0.96,
+    "accent": 0.36
+   },
+   "downbeat": false,
+   "events": [
+    "REFRAME close on the title (1.15, -2.5 deg); pink pencil circle round W^TW; the equation jumps; dots jump; the cite rolls out from hb:13.5",
+    "fx-riff backbeat",
+    "8th hb:13.5: bumps; orbit steps"
+   ]
+  },
+  {
+   "i": 14,
+   "song": 26.006,
+   "bar": 3,
+   "beat": 3,
+   "section": "riff",
+   "flags": {
+    "kick": 0.96,
+    "hat": 1.0,
+    "accent": 0.55
+   },
+   "downbeat": false,
+   "events": [
+    "REFRAME (1.12, +2.5 deg); yellow marker under ReLU; the equation jumps; dots jump; square spins",
+    "fx-riff beat",
+    "8th hb:14.5: orbit steps; droplets"
+   ]
+  },
+  {
+   "i": 15,
+   "song": 26.49,
+   "bar": 3,
+   "beat": 4,
+   "section": "riff",
+   "flags": {
+    "snare": 0.65,
+    "hat": 0.86,
+    "accent": 0.33
+   },
+   "downbeat": false,
+   "events": [
+    "WIDE; checker spins; smallO + target jump; the equation's last jump (LONG CUT ONLY: the short splices at song 26.477, 13 ms before this beat)",
+    "fx-riff backbeat",
+    "8th hb:15.5 (26.732): the riff's final stop (26.74-26.90): the beat track ends; the verse-1 planner's break lands on hb:16 (26.974, just after this span)"
+   ]
+  }
+ ],
+ "items": [
+  {
+   "id": "g-dark-prelude",
+   "type": "color",
+   "t0": "song:6.1",
+   "t1": "hb:0",
+   "content": {
+    "color": "#0E0D12"
+   },
+   "reveal": "none",
+   "highlight": null,
+   "transition_in": "none (first frame of the intro cut; the Altman clip snaps in over it)",
+   "transition_out": "tr-shatter at hb:0 (listed in its out)",
+   "audio": {
+    "audible": false
+   },
+   "source": "BUILD.md Look: montage near-black #0E0D12",
+   "lyric_link": "none (ground)"
+  },
+  {
+   "id": "g-cream-riff",
+   "type": "color",
+   "t0": "hb:0",
+   "t1": "hb:16",
+   "content": {
+    "color": "#F2EBDD"
+   },
+   "reveal": "none",
+   "highlight": null,
+   "transition_in": "under the shards of tr-shatter (in)",
+   "transition_out": "hand-off: the verse-1 planner owns hb:16 (dark verse ground / the logo break)",
+   "audio": {
+    "audible": false
+   },
+   "source": "BUILD.md Look: the drop into the cream #F2EBDD Kandinsky world",
+   "lyric_link": "none (ground)"
+  },
+  {
+   "id": "paint",
+   "type": "layer",
+   "t0": "song:6.1",
+   "t1": "hb:16",
+   "content": {
+    "kind": "canvas",
+    "_": "the shared paint layer (beatfx splats/stamps/ticks): above the grounds, under footage and facts"
+   },
+   "reveal": "none",
+   "highlight": null,
+   "transition_in": "none",
+   "transition_out": "none",
+   "audio": {
+    "audible": false
+   },
+   "source": "edl/README.md Layers and stacking; make_showcase.py item 'paint'",
+   "lyric_link": "none"
+  },
+  {
+   "id": "sketch",
+   "type": "layer",
+   "t0": "song:6.1",
+   "t1": "hb:0",
+   "content": {
+    "kind": "canvas",
+    "_": "a second shared canvas for the prelude's pencil-and-stamp classifier sketch (sketch-* items draw into it with \"layer\": \"sketch\"), so the whole sketch can be listed in tr-shatter's out as one layer (see engine_requests[3])"
+   },
+   "reveal": "none",
+   "highlight": null,
+   "transition_in": "none",
+   "transition_out": "tr-shatter at hb:0",
+   "audio": {
+    "audible": false
+   },
+   "source": "edl/README.md paint items: 'unless \"layer\": \"own\" ... or another shared name'",
+   "lyric_link": "none"
+  },
+  {
+   "id": "altman",
+   "type": "clip",
+   "t0": "song:6.1",
+   "t1": "song:10.833",
+   "content": {
+    "src": "clips/altman-2015-short.mp4",
+    "in": 1.84,
+    "frames": "plan-altman (own cache folder; the short/showcase keep theirs)",
+    "crop": {
+     "x": 320,
+     "y": 80,
+     "w": 600
+    },
+    "focus": [
+     0.72,
+     0.3
+    ],
+    "zoom": [
+     1.0,
+     1.1
+    ],
+    "zoomEase": "out",
+    "snap": {
+     "z": 1.08,
+     "dur": 0.25
+    },
+    "grade": {
+     "sat": 0,
+     "contrast": 1.25,
+     "brightness": 0.0,
+     "gamma": 0.97,
+     "sharpen": 0.5,
+     "grain": 4
+    },
+    "stamp": {
+     "y": 300,
+     "yrPx": 52,
+     "year": "2015",
+     "name": "Sam Altman",
+     "role": "Then president, Y Combinator"
+    },
+    "caption": {
+     "text": "…I think AI will probably like most likely sort of lead to the end of the world…",
+     "hl": "the end of the world",
+     "reveal": "sweep",
+     "dimOp": 0.14,
+     "dimHl": 0.3,
+     "words": [
+      {
+       "w": "…I",
+       "s": 1.86
+      },
+      {
+       "w": "THINK",
+       "s": 1.99
+      },
+      {
+       "w": "AI",
+       "s": 2.2
+      },
+      {
+       "w": "WILL",
+       "s": 2.52
+      },
+      {
+       "w": "PROBABLY",
+       "s": 2.78
+      },
+      {
+       "w": "LIKE",
+       "s": 3.44
+      },
+      {
+       "w": "MOST",
+       "s": 3.9
+      },
+      {
+       "w": "LIKELY",
+       "s": 4.14
+      },
+      {
+       "w": "SORT",
+       "s": 4.48
+      },
+      {
+       "w": "OF",
+       "s": 4.66
+      },
+      {
+       "w": "LEAD",
+       "s": 5.1
+      },
+      {
+       "w": "TO",
+       "s": 5.58
+      },
+      {
+       "w": "THE",
+       "s": 5.72
+      },
+      {
+       "w": "END",
+       "s": 5.8
+      },
+      {
+       "w": "OF",
+       "s": 5.92
+      },
+      {
+       "w": "THE",
+       "s": 6.02
+      },
+      {
+       "w": "WORLD…",
+       "s": 6.12
+      }
+     ],
+     "marks": [
+      {
+       "phrase": "most likely",
+       "style": "circle",
+       "at": "song:8.42",
+       "dur": 0.28,
+       "color": "#F2C300",
+       "width": 7
+      }
+     ]
+    },
+    "source": "Airbnb fireside chat · 2015",
+    "punch": [
+     {
+      "at": "song:10.04",
+      "z": 1.08,
+      "dur": 0.12
+     }
+    ],
+    "shakes": [
+     {
+      "at": "song:10.04",
+      "amp": 11,
+      "decay": 0.1
+     }
+    ],
+    "meta": 32,
+    "name_px": 36,
+    "verbatim_heard": "…I think AI will probably like most likely sort of lead to the end of the world…",
+    "word_times_song": "source s + 4.26 (in 1.84 at song 6.10): I 6.12, think 6.25, AI 6.46, will 6.78, probably 7.04, like 7.70, most 8.16, likely 8.40, sort 8.74, of 8.92, lead 9.36, to 9.84, the 9.98, END 10.06 (= hb:-19), of 10.18, the 10.28, world 10.38-10.55"
+   },
+   "reveal": "karaoke 'sweep' on his spoken times (unspoken words at 0.14; the hook phrase at 0.3 with no chip until said)",
+   "highlight": "the red chip sweeps over THE END OF THE WORLD as he says it (song 9.98-10.55); a yellow pencil circle round MOST LIKELY drawn 8.42-8.70 (lands into hb:-22); punch-in 1.08 + 11 px shake on END = hb:-19",
+   "transition_in": "first item: footage on from frame 0 with the clip's snap-in (1.08 -> 1 over 0.25 s) and the pencil frame drawing round it on hb:-27",
+   "transition_out": "tr-wipe (paintwipe, impact song 10.833)",
+   "audio": {
+    "audible": true,
+    "in": 1.86,
+    "out": 6.34,
+    "peak_rel_db": 14,
+    "duck_db": 5,
+    "plays_song": [
+     6.12,
+     10.6
+    ]
+   },
+   "source": "render/video/edl/short.json + showcase.json item 'altman' (verified words/timing/audio; research/verify/SUMMARY.md Altman 2015: clips/altman-2015-short.mp4, Airbnb fireside chat, June 2015)",
+   "lyric_link": "no sung line yet (gentle intro); sets up the refrain 'God, it's brutal out here' (research/long/lyrics/brutal-out-here.json candidate altman-2015-end-of-the-world) and verse 1's 'I think that I'll die before I drink' (p(doom), die-before-drink.json)"
+  },
+  {
+   "id": "amodei",
+   "type": "clip",
+   "t0": "song:10.833",
+   "t1": "hb:-7",
+   "content": {
+    "src": "clips/amodei-axios-2025.mp4",
+    "in": 1065.64,
+    "frames": "plan-amodei",
+    "crop": {
+     "x": 210,
+     "y": 100,
+     "w": 600
+    },
+    "focus": [
+     0.5,
+     0.42
+    ],
+    "zoom": [
+     1.0,
+     1.1
+    ],
+    "grade": {
+     "sat": 0,
+     "contrast": 1.25,
+     "brightness": -0.02,
+     "gamma": 0.93,
+     "sharpen": 0.6,
+     "grain": 4
+    },
+    "stamp": {
+     "y": 300,
+     "yrPx": 52,
+     "year": "2025",
+     "name": "Dario Amodei",
+     "role": "CEO, Anthropic"
+    },
+    "caption": {
+     "text": "…there’s a 25% chance that things go really, really badly…",
+     "hl": [
+      "25%",
+      "really, really badly"
+     ],
+     "reveal": "sweep",
+     "dimOp": 0.14,
+     "dimHl": 0.3,
+     "words": [
+      {
+       "w": "…THERE’S",
+       "s": 1065.69
+      },
+      {
+       "w": "A",
+       "s": 1065.91
+      },
+      {
+       "w": "25%",
+       "s": 1066.01
+      },
+      {
+       "w": "CHANCE",
+       "s": 1067.07
+      },
+      {
+       "w": "THAT",
+       "s": 1067.33
+      },
+      {
+       "w": "THINGS",
+       "s": 1067.55
+      },
+      {
+       "w": "GO",
+       "s": 1067.73
+      },
+      {
+       "w": "REALLY,",
+       "s": 1068.01
+      },
+      {
+       "w": "REALLY",
+       "s": 1068.59
+      },
+      {
+       "w": "BADLY…",
+       "s": 1068.87
+      }
+     ],
+     "marks": [
+      {
+       "phrase": "25%",
+       "style": "circle",
+       "at": "song:11.21",
+       "dur": 0.28,
+       "color": "#F2C300",
+       "width": 7
+      },
+      {
+       "phrase": "really, really badly…",
+       "style": "underline",
+       "at": "song:14.08",
+       "dur": 0.3,
+       "color": "#F2C300",
+       "width": 7
+      }
+     ]
+    },
+    "sub": {
+     "text": "“…and a 75% chance that things go really, really well…”",
+     "size": 44,
+     "gap": 20,
+     "color": "#C2BDCE",
+     "roll": {
+      "rate": 8
+     },
+     "marks": [
+      {
+       "phrase": "75%",
+       "style": "paint",
+       "color": "#F2C300",
+       "at": "hb:-9",
+       "dur": 0.22
+      }
+     ]
+    },
+    "source": "Axios AI+ DC Summit · Sep 17, 2025",
+    "punch": [
+     {
+      "at": "song:11.203",
+      "z": 1.06,
+      "dur": 0.12
+     },
+     {
+      "at": "song:13.203",
+      "z": 1.035,
+      "dur": 0.12
+     },
+     {
+      "at": "song:14.063",
+      "z": 1.05,
+      "dur": 0.12
+     },
+     {
+      "at": "hb:-8",
+      "z": 1.03,
+      "dur": 0.12
+     }
+    ],
+    "shakes": [
+     {
+      "at": "song:11.203",
+      "amp": 7,
+      "decay": 0.07
+     },
+     {
+      "at": "song:14.063",
+      "amp": 6,
+      "decay": 0.08
+     },
+     {
+      "at": "hb:-12",
+      "amp": 5,
+      "decay": 0.08
+     }
+    ],
+    "meta": 32,
+    "name_px": 36,
+    "verbatim_heard": "…there’s a 25% chance that things go really, really badly…",
+    "word_times_song": "source s - 1054.807 (in 1065.64 at song 10.833): there's 10.88, a 11.10, 25% 11.20, chance 12.26, that 12.52, things 12.74, go 12.92 (= hb:-13), really 13.20, really 13.78, badly 14.06; audio out 14.53"
+   },
+   "reveal": "karaoke 'sweep' on his spoken times; the sub line (words NOT heard: the baseline) rolls out on 32nds from BADLY (14.07-14.73)",
+   "highlight": "red chips swept on 25% and REALLY, REALLY BADLY as spoken; yellow pencil circle round 25% lands ON hb:-16 (11.21-11.49); yellow pencil underline under 'really, really badly…' lands ON hb:-10 (14.08-14.38); yellow paint stroke on '75%' of the sub line ON hb:-9 (complete 15.10, read until the fold)",
+   "transition_in": "tr-wipe (paintwipe: pink/violet bristle bands cover Altman, tear away onto Amodei)",
+   "transition_out": "tr-fold (origami fold at hb:-7)",
+   "audio": {
+    "audible": true,
+    "in": 1065.67,
+    "out": 1069.34,
+    "lcut": 0.15,
+    "duck_db": 5,
+    "plays_song": [
+     10.863,
+     14.533
+    ]
+   },
+   "source": "render/video/edl/short.json + showcase.json item 'amodei' (verified; research/verify/amodei-line.json, amodei-video.json: Axios AI+ DC Summit, Sep 17, 2025, YouTube nvXj4HTiYqA); footage as filmed (Axios wall kept, no keying)",
+   "lyric_link": "verse 1 'I think that I'll die before I drink' (research/long/lyrics/die-before-drink.json: p(doom); its notes name the Amodei 25% line); the 75% baseline is kept on screen (hard rule: keep baselines)"
+  },
+  {
+   "id": "frame-pencil",
+   "type": "pencil",
+   "t0": "song:6.1",
+   "t1": "hb:-7",
+   "content": {
+    "layer": "own",
+    "color": "#E9E2D2",
+    "width": 4,
+    "alpha": 0.6,
+    "boil": 2,
+    "shapes": [
+     {
+      "kind": "rect",
+      "x": 12,
+      "y": 372,
+      "w": 1056,
+      "h": 756,
+      "at": "hb:-27",
+      "dur": 0.5
+     },
+     {
+      "kind": "line",
+      "x0": 12,
+      "y0": 1140,
+      "x1": 150,
+      "y1": 1140,
+      "at": "hb:-26",
+      "dur": 0.2
+     }
+    ]
+   },
+   "reveal": "drawn on (graphite, boils on twos)",
+   "highlight": null,
+   "transition_in": "drawn on from hb:-27",
+   "transition_out": "folds away with the Amodei clip in tr-fold (listed in its out)",
+   "audio": {
+    "audible": false
+   },
+   "source": "BUILD.md REVISION 2 handmade texture (pencil, line boil on twos); paint.js pencil",
+   "lyric_link": "none"
+  },
+  {
+   "id": "sketch-plane",
+   "type": "pencil",
+   "t0": "song:6.1",
+   "t1": "hb:0",
+   "content": {
+    "layer": "sketch",
+    "color": "#E9E2D2",
+    "width": 4,
+    "alpha": 0.78,
+    "boil": 2,
+    "shapes": [
+     {
+      "kind": "line",
+      "x0": 300,
+      "y0": 1840,
+      "x1": 880,
+      "y1": 1606,
+      "at": "hb:-24",
+      "dur": 0.35,
+      "_": "the plane's top edge, 22 deg"
+     },
+     {
+      "kind": "line",
+      "x0": 409,
+      "y0": 1840,
+      "x1": 930,
+      "y1": 1630,
+      "at": "hb:-23.5",
+      "dur": 0.3,
+      "_": "its bottom edge"
+     },
+     {
+      "kind": "arrow",
+      "x0": 600,
+      "y0": 1765,
+      "x1": 626,
+      "y1": 1830,
+      "head": 18,
+      "at": "hb:-20",
+      "dur": 0.3,
+      "_": "the normal vector (the cover's 'normal' piece)"
+     },
+     {
+      "kind": "line",
+      "x0": 720,
+      "y0": 1735,
+      "x1": 820,
+      "y1": 1695,
+      "at": "hb:-4",
+      "dur": 0.2,
+      "_": "the margin tick (the cover's 'margin' piece), as the pile's WIRED shot lands"
+     }
+    ]
+   },
+   "reveal": "drawn on stroke by stroke on the bar downbeats (graphite, boil on twos)",
+   "highlight": null,
+   "transition_in": "drawn on (hb:-24, -23.5, -20, -4)",
+   "transition_out": "shattered with the prelude in tr-shatter (layer 'sketch')",
+   "audio": {
+    "audible": false
+   },
+   "source": "brand cover geometry (render/video/fx/kandinsky.js: band at 22 deg, normal, margin); paint.js pencil",
+   "lyric_link": "none (visual rhyme: the prelude sketches the hyperplane in pencil, the drop paints it for real)"
+  },
+  {
+   "id": "sketch-dots",
+   "type": "inkstamp",
+   "t0": "hb:-26",
+   "t1": "hb:0",
+   "content": {
+    "layer": "sketch",
+    "expand": "generator writes one inkstamp item per entry (id sketch-dot-<beat>; fields at, x, y, size, glyph, color, rot, t1 hb:0, layer 'sketch')",
+    "entries": [
+     {
+      "at": "hb:-26",
+      "x": 110,
+      "y": 1700,
+      "size": 36,
+      "glyph": "disc",
+      "color": "orange"
+     },
+     {
+      "at": "hb:-25",
+      "x": 760,
+      "y": 1790,
+      "size": 36,
+      "glyph": "disc",
+      "color": "blue"
+     },
+     {
+      "at": "hb:-23",
+      "x": 200,
+      "y": 1650,
+      "size": 36,
+      "glyph": "disc",
+      "color": "orange"
+     },
+     {
+      "at": "hb:-22",
+      "x": 880,
+      "y": 1720,
+      "size": 36,
+      "glyph": "disc",
+      "color": "blue"
+     },
+     {
+      "at": "hb:-21",
+      "x": 320,
+      "y": 1700,
+      "size": 36,
+      "glyph": "disc",
+      "color": "orange"
+     },
+     {
+      "at": "hb:-19",
+      "x": 970,
+      "y": 1660,
+      "size": 36,
+      "glyph": "disc",
+      "color": "blue"
+     },
+     {
+      "at": "hb:-18",
+      "x": 150,
+      "y": 1780,
+      "size": 36,
+      "glyph": "disc",
+      "color": "orange"
+     },
+     {
+      "at": "hb:-17",
+      "x": 660,
+      "y": 1820,
+      "size": 36,
+      "glyph": "disc",
+      "color": "blue"
+     },
+     {
+      "at": "hb:-15",
+      "x": 440,
+      "y": 1650,
+      "size": 36,
+      "glyph": "disc",
+      "color": "orange"
+     },
+     {
+      "at": "hb:-14",
+      "x": 840,
+      "y": 1820,
+      "size": 36,
+      "glyph": "disc",
+      "color": "blue"
+     },
+     {
+      "at": "hb:-13",
+      "x": 560,
+      "y": 1630,
+      "size": 36,
+      "glyph": "disc",
+      "color": "orange"
+     },
+     {
+      "at": "hb:-11",
+      "x": 960,
+      "y": 1780,
+      "size": 36,
+      "glyph": "disc",
+      "color": "blue"
+     },
+     {
+      "at": "hb:-10",
+      "x": 300,
+      "y": 1632,
+      "size": 36,
+      "glyph": "disc",
+      "color": "orange"
+     },
+     {
+      "at": "hb:-9",
+      "x": 720,
+      "y": 1832,
+      "size": 36,
+      "glyph": "disc",
+      "color": "blue"
+     },
+     {
+      "at": "hb:-7",
+      "x": 1000,
+      "y": 1830,
+      "size": 36,
+      "glyph": "disc",
+      "color": "blue"
+     },
+     {
+      "at": "hb:-16",
+      "x": 900,
+      "y": 1585,
+      "size": 56,
+      "glyph": "nabla",
+      "color": "red",
+      "rot": 0,
+      "_": "the cover's red nabla, on the plane's upper end"
+     },
+     {
+      "at": "hb:-12",
+      "x": 105,
+      "y": 1640,
+      "size": 64,
+      "glyph": "checker",
+      "color": "cream",
+      "rot": -22,
+      "_": "the cover's checker, rotated -22 deg"
+     },
+     {
+      "at": "hb:-8",
+      "x": 640,
+      "y": 1725,
+      "size": 58,
+      "glyph": "ring",
+      "color": "violet",
+      "rot": 0,
+      "_": "the cover's violet target ring, sitting on the plane"
+     },
+     {
+      "at": "hb:-4",
+      "x": 780,
+      "y": 1745,
+      "size": 44,
+      "glyph": "square",
+      "color": "teal",
+      "rot": 15,
+      "_": "the cover's teal square, rotated 15 deg"
+     }
+    ]
+   },
+   "reveal": "each stamp lands on its beat with the 2-frame squash",
+   "highlight": null,
+   "transition_in": "stamped one per beat",
+   "transition_out": "shattered with the prelude in tr-shatter (layer 'sketch')",
+   "audio": {
+    "audible": false
+   },
+   "source": "the cover's data points d0-d5 (orange above the plane, blue below) and its nabla / checker / target / square (render/video/fx/kandinsky.js PIECES); paint.js inkstamp",
+   "lyric_link": "none (a data point on every prelude beat: the beat track the intro lacks, gentle)"
+  },
+  {
+   "id": "pile-hf",
+   "type": "screens",
+   "t0": "hb:-7",
+   "t1": "hb:0",
+   "content": {
+    "layout": "scatter",
+    "w": 860,
+    "shots": [
+     {
+      "id": "fortune-2026-07-21-openai-hf-escape",
+      "at": "hb:-7",
+      "entry": "slam",
+      "hl": 1,
+      "x": 470,
+      "y": 640,
+      "w0": 820,
+      "rot": -3,
+      "_verbatim": "OpenAI says its AI models secretly broke out of a secure test environment and hacked into AI company Hugging Face in order to cheat on an evaluation",
+      "_highlight": "hacked into AI company Hugging Face",
+      "_outlet_date": "Fortune · 2026-07-21"
+     },
+     {
+      "id": "time-2026-07-24-lost-control",
+      "at": "hb:-6",
+      "entry": "drop",
+      "hl": 0,
+      "x": 650,
+      "y": 930,
+      "w0": 700,
+      "rot": 3.5,
+      "_verbatim": "How OpenAI Lost Control of an AI Model—and What Needs to Change",
+      "_highlight": "How OpenAI Lost Control of an AI Model",
+      "_outlet_date": "TIME · 2026-07-24"
+     },
+     {
+      "id": "security-hf-header",
+      "at": "hb:-5",
+      "entry": "paint",
+      "hl": 0,
+      "x": 520,
+      "y": 560,
+      "w0": 860,
+      "rot": -2,
+      "_verbatim": "Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident",
+      "_highlight": "Anatomy of a Frontier Lab Agent Intrusion",
+      "_outlet_date": "Hugging Face blog · 2026-07-27"
+     },
+     {
+      "id": "bbc-2026-07-29-rogue-ai-hack-other-companies",
+      "at": "hb:-4.5",
+      "entry": "slam",
+      "hl": 0,
+      "x": 560,
+      "y": 1230,
+      "w0": 900,
+      "rot": 2,
+      "_verbatim": "OpenAI says its rogue AI tried to hack other companies",
+      "_highlight": "rogue AI tried to hack other companies",
+      "_outlet_date": "BBC News · 2026-07-29"
+     },
+     {
+      "id": "frontier-rev2-wired_aug18_headline",
+      "at": "hb:-4",
+      "entry": "flip",
+      "hl": 0,
+      "x": 500,
+      "y": 800,
+      "w0": 820,
+      "rot": -3.5,
+      "_verbatim": "OpenAI Overhauls Safety Protocols After Its AI Agents Went Rogue",
+      "_highlight": "Its AI Agents Went Rogue",
+      "_outlet_date": "WIRED · 2026-08-18"
+     },
+     {
+      "id": "frontier-rev2-gizmodo_oct2_headline",
+      "at": "hb:-3.5",
+      "entry": "slam",
+      "hl": 0,
+      "x": 540,
+      "y": 1010,
+      "w0": 880,
+      "rot": 1.5,
+      "_verbatim": "OpenAI Has Sent Notices of Sketchy AI Behavior to Over 100 Organizations So Far",
+      "_highlight": "Sketchy AI Behavior to Over 100 Organizations",
+      "_outlet_date": "Gizmodo · 2026-10-02",
+      "crop": [
+       0,
+       10,
+       928,
+       485
+      ]
+     }
+    ],
+    "push": {
+     "at": "hb:-3",
+     "z": 1.42,
+     "dur": 0.42,
+     "shot": 5,
+     "to": [
+      540,
+      880
+     ],
+     "_": "screens.js caps z so the phrase fits 940 px (~1.19 here)"
+    },
+    "emph": [
+     {
+      "style": "lift",
+      "at": "hb:-2.5",
+      "shot": 5
+     },
+     {
+      "style": "circle",
+      "at": "hb:-2",
+      "shot": 5
+     },
+     {
+      "style": "marker",
+      "at": "hb:-1",
+      "shot": 5,
+      "color": "#FF2E88"
+     }
+    ],
+    "pulse": [
+     "song:16.646",
+     "song:16.823",
+     "song:17.233",
+     "song:17.784",
+     "song:18.138"
+    ],
+    "drift": 0.05,
+    "out": "cut",
+    "label": true
+   },
+   "reveal": "real screenshots slammed/dropped/painted/flipped in on beats then 8ths (each OCR phrase gets the yellow marker half a beat after landing); outlet · date chips typed on",
+   "highlight": "per shot the OCR phrase (yellow marker); the final Gizmodo phrase 'Sketchy AI Behavior to Over 100 Organizations' is pushed into (hb:-3), lifted off the page (hb:-2.5), pencil-circled (hb:-2, breath) and swept pink (hb:-1)",
+   "transition_in": "tr-fold (the Amodei sheet folds away; the Fortune capture unfolds out of its own back)",
+   "transition_out": "tr-shatter at hb:0 (the pile cracks from the circled phrase on the riff pickup 19.116 and flies apart on the drop)",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/captures.json (fortune-2026-07-21-openai-hf-escape, time-2026-07-24-lost-control, bbc-2026-07-29-rogue-ai-hack-other-companies: focus_crop) + screens.json (security-hf-header, frontier-rev2-wired_aug18_headline, frontier-rev2-gizmodo_oct2_headline: crop to the headline)",
+   "lyric_link": "Olivia's spoken 'I want it to be, like, messy' (17.66-19.0, never captioned) plays under the pile: Jul 21 -> Oct 2 in 2.4 s, one company -> over 100 organizations, AI overwhelming in its speed; leads into verse 1 'I'm so insecure' (research/long/lyrics/insecure.json: its first candidate is this Fortune headline)"
+  },
+  {
+   "id": "kand-riff",
+   "type": "kand",
+   "t0": "hb:0",
+   "t1": "hb:17",
+   "content": {
+    "layout": {
+     "y": 400,
+     "scale": 0.72
+    },
+    "preset": {
+     "name": "riff",
+     "from": "hb:0",
+     "river": {
+      "from": 8,
+      "to": 16,
+      "vectors": 16,
+      "size": 2.3,
+      "trail": 1.6,
+      "stagger": 0.5,
+      "lanes": 110,
+      "flowK": 1.6,
+      "ripple": 6,
+      "colors": [
+       "ink",
+       "pink",
+       "blue",
+       "violet",
+       "orange",
+       "teal",
+       "red",
+       "ink"
+      ]
+     },
+     "superpose": {
+      "at": 12,
+      "to": 15.75,
+      "r": 380
+     },
+     "reframe": [
+      {
+       "at": 5,
+       "zoom": 1.6,
+       "focus": "pink",
+       "to": [
+        560,
+        820
+       ]
+      },
+      {
+       "at": 6,
+       "zoom": 1.45,
+       "focus": "blue",
+       "to": [
+        560,
+        960
+       ]
+      },
+      {
+       "at": 7,
+       "zoom": 1.3,
+       "focus": "pink",
+       "to": [
+        560,
+        820
+       ],
+       "rot": -3
+      },
+      {
+       "at": 7.5,
+       "zoom": 1
+      },
+      {
+       "at": 13,
+       "zoom": 1.15,
+       "focus": [
+        722,
+        500
+       ],
+       "to": [
+        528,
+        760
+       ],
+       "rot": -2.5
+      },
+      {
+       "at": 14,
+       "zoom": 1.12,
+       "focus": [
+        764,
+        583
+       ],
+       "to": [
+        550,
+        820
+       ],
+       "rot": 2.5
+      },
+      {
+       "at": 15,
+       "zoom": 1
+      }
+     ]
+    },
+    "drop": [
+     "orbit"
+    ],
+    "moves": [
+     {
+      "move": "orbit",
+      "pieces": [
+       "pink",
+       "black"
+      ],
+      "on": "hb:4..7",
+      "stepDeg": 45,
+      "turn": false,
+      "_": "upright: Coxon's face is in the pink disc while he speaks"
+     },
+     {
+      "move": "orbit",
+      "pieces": [
+       "pink",
+       "black"
+      ],
+      "on": "hb:8..11",
+      "stepDeg": 45
+     },
+     {
+      "move": "orbit",
+      "pieces": [
+       "pink",
+       "black"
+      ],
+      "on": {
+       "from": "hb:12",
+       "to": "hb:15.5",
+       "every": 0.5
+      },
+      "stepDeg": 30,
+      "_": "bar 3 whirls on 8ths"
+     },
+     {
+      "move": "orbit",
+      "pieces": [
+       "core"
+      ],
+      "around": "black",
+      "on": "hb:4..11",
+      "stepDeg": 45,
+      "k": -2
+     },
+     {
+      "move": "orbit",
+      "pieces": [
+       "core"
+      ],
+      "around": "black",
+      "on": {
+       "from": "hb:12",
+       "to": "hb:15.5",
+       "every": 0.5
+      },
+      "stepDeg": 45,
+      "k": -2
+     },
+     {
+      "move": "orbit",
+      "pieces": [
+       "teal"
+      ],
+      "around": "blue",
+      "on": {
+       "from": "hb:4.5",
+       "to": "hb:11.5",
+       "every": 1
+      },
+      "stepDeg": 45
+     },
+     {
+      "move": "orbit",
+      "pieces": [
+       "teal"
+      ],
+      "around": "blue",
+      "on": {
+       "from": "hb:12",
+       "to": "hb:15.5",
+       "every": 0.5
+      },
+      "stepDeg": 45
+     },
+     {
+      "move": "whip",
+      "at": "hb:11",
+      "deg": 360,
+      "dur": 1,
+      "_": "the whole composition spins once through the bar-2 stop (24.82-25.03) and lands upright ON hb:12 with the superposition burst"
+     }
+    ],
+    "dotScale": 3.0,
+    "_preset_cues_kept": "band painted in one sweep ON hb:0 (lead 2 frames); dots burst hb:0 and are sorted by the plane on hb:2; pink 0.5, black 1, core 1.5, blue 2, teal+smallO 2.5, square spins in 3, target+arc 3.5, chk flips 4, nabla drops 4.5, normal 5, margin 5.5, wordmark painted hb:8, crossbar tilts hb:9, kicker rises hb:10; preset jumps/spins/bumps/swing/artpulse/breathe as in kandinsky.js PRESETS.riff",
+    "_fields_note": "'drop' (remove preset moves by name) and orbit 'turn': false are real kandinsky.js fields (build(): pre.moves.filter(m => !(d.drop || []).includes(m.move)); MOVES.orbit: if (m.turn !== false)), not yet in README",
+    "handoff": "t1 hb:17 so the verse-1 planner can add its break at hb:16 (moves: break, hide pieces that become frames); in the SHORT the song splices at 26.477 (just before hb:15): the short planner ends/morphs this item there"
+   },
+   "reveal": "pieces painted on stroke by stroke on beats and 8ths; the wordmark painted on (hb:8); the kicker rises (hb:10)",
+   "highlight": "beat-cut reframes: Coxon's disc close (hb:5, hb:7), the agents disc (hb:6), the title (hb:13, 14); whip spin into hb:12",
+   "transition_in": "tr-shatter (in): the cream world and the first band stroke are under the flying shards",
+   "transition_out": "hand-off to verse 1 at hb:16 (break)",
+   "audio": {
+    "audible": false
+   },
+   "source": "render/video/fx/kandinsky.js (builder A) riff preset; polisher's river/superposition/reframe values (edl/make_showcase.py RIFF_PRESET)",
+   "lyric_link": "none sung (instrumental riff); the title answers Coxon's 'and it did it again' and opens verse 1"
+  },
+  {
+   "id": "kc-pink-agents-a",
+   "type": "kandclip",
+   "t0": "hb:1.25",
+   "t1": "hb:3.75",
+   "content": {
+    "item": "kand-riff",
+    "piece": "pink",
+    "prep": "clip",
+    "broll": "ale-agent-wall",
+    "in": 72.0,
+    "speed": 1.0,
+    "srcFocus": [
+     0.5,
+     0.58
+    ],
+    "srcZoom": 1.35,
+    "frame": {
+     "cx": 540,
+     "cy": 960,
+     "r": 173
+    },
+    "oversample": 1.25,
+    "zoom": [
+     1.0,
+     1.1
+    ],
+    "grade": {
+     "sat": 0.7,
+     "contrast": 1.06,
+     "grain": 0
+    },
+    "tintK": 0.35,
+    "fadeIn": 0.12,
+    "fadeOut": 0.15
+   },
+   "reveal": "fades in once the pink disc has been painted (hb:0.5 + 0.3 s), as the last shards fall (tr-shatter ends 19.91)",
+   "highlight": null,
+   "transition_in": "fade from the painted pink (0.12 s)",
+   "transition_out": "fades to flat pink, then Coxon's face fades in (hb:3.75)",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/broll.json ale-agent-wall window 72.0-75.0 (agents-last-exam.org intro, 2026); srcZoom crops off the beige 'Come test your agents' page caption",
+   "lyric_link": "the agents the Hugging Face pile was about, before Coxon names what they did"
+  },
+  {
+   "id": "kc-pink-coxon",
+   "type": "kandclip",
+   "t0": "hb:3.75",
+   "t1": "song:22.98",
+   "content": {
+    "item": "kand-riff",
+    "piece": "pink",
+    "prep": "clip",
+    "src": "clips/coxon-daily-show.mp4",
+    "in": 452.267,
+    "crop": {
+     "x": 250,
+     "y": 20,
+     "w": 540,
+     "h": 540
+    },
+    "frame": {
+     "cx": 540,
+     "cy": 960,
+     "r": 173
+    },
+    "oversample": 1.6,
+    "zoom": [
+     1.0,
+     1.06
+    ],
+    "grade": {
+     "sat": 0.85,
+     "contrast": 1.08,
+     "sharpen": 0.5,
+     "grain": 0
+    },
+    "tintK": 0.22,
+    "fadeIn": 0.12,
+    "fadeOut": 0.1,
+    "_sync": "picture in sync with voice-coxon (song = source - 431.22); one continuous shot from before 450 s to the camera cut at 454.22 (= song 23.00, ffmpeg scene detection in long.json ch-coxon note), so the picture ends at 22.98 (source 454.20)"
+   },
+   "reveal": "fades in from the flat pink on hb:3.75 (after kc-pink-agents-a fades out)",
+   "highlight": "reframed close at hb:5 (zoom 1.6) and hb:7 (1.3, -3 deg)",
+   "transition_in": "fade from the painted pink (0.12 s)",
+   "transition_out": "fades to flat pink 22.88-22.98 ('again.'), then kc-pink-agents-b fades in for the title downbeat",
+   "audio": {
+    "audible": false,
+    "_": "the sound is voice-coxon"
+   },
+   "source": "research/rev2/broll.json coxon-daily-show (The Daily Show, aired 5 Oct 2026); crop from render/video/edl/long.json ch-coxon",
+   "lyric_link": "as voice-coxon"
+  },
+  {
+   "id": "kc-pink-agents-b",
+   "type": "kandclip",
+   "t0": "song:22.98",
+   "t1": "hb:16.05",
+   "content": {
+    "item": "kand-riff",
+    "piece": "pink",
+    "prep": "clip",
+    "broll": "ale-agent-wall",
+    "in": 73.2,
+    "speed": 0.5,
+    "srcFocus": [
+     0.5,
+     0.58
+    ],
+    "srcZoom": 1.35,
+    "frame": {
+     "cx": 540,
+     "cy": 960,
+     "r": 173
+    },
+    "oversample": 1.25,
+    "zoom": [
+     1.0,
+     1.15
+    ],
+    "grade": {
+     "sat": 0.7,
+     "contrast": 1.06,
+     "grain": 0
+    },
+    "tintK": 0.35,
+    "fadeIn": 0.12
+   },
+   "reveal": "fades in (0.12 s) to land with the wordmark on hb:8",
+   "highlight": null,
+   "transition_in": "crossfade via the flat pink after Coxon",
+   "transition_out": "hand-off at hb:16 (verse planner: morph/break)",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/broll.json ale-agent-wall 73.2-75.2 (the wall of real agent desktop sessions zooming out; the file runs to 79.9 s), half speed",
+   "lyric_link": "the agents that 'did it again', orbiting under the title"
+  },
+  {
+   "id": "kc-blue-racks",
+   "type": "kandclip",
+   "t0": "hb:3",
+   "t1": "hb:16.35",
+   "content": {
+    "item": "kand-riff",
+    "piece": "blue",
+    "prep": "clip",
+    "broll": "xai-colossus-racks",
+    "in": 34.0,
+    "speed": 0.5,
+    "frame": {
+     "cx": 540,
+     "cy": 960,
+     "r": 122
+    },
+    "oversample": 1.5,
+    "zoom": [
+     1.0,
+     1.15
+    ],
+    "grade": {
+     "sat": 0.8,
+     "contrast": 1.08,
+     "grain": 0
+    },
+    "tintK": 0.35,
+    "fadeIn": 0.12
+   },
+   "reveal": "fades in after the blue disc is painted (hb:2 + 0.3 s)",
+   "highlight": "reframed close at hb:6 (zoom 1.45)",
+   "transition_in": "fade from the painted blue",
+   "transition_out": "hand-off at hb:16",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/broll.json xai-colossus-racks window 34.0-37.0 'long corridor of racks under purple light' (ServeTheHome, 2024), half speed (6.5 s on screen = 3.2 s of source)",
+   "lyric_link": "none (the compute behind the agents, inside the disc the teal moon orbits)"
+  },
+  {
+   "id": "fluid-riff",
+   "type": "fluid",
+   "t0": "hb:8",
+   "t1": "hb:16.4",
+   "content": {
+    "item": "kand-riff",
+    "flow": 1.2,
+    "swirl": 1.2,
+    "wobble": 7,
+    "ripple": 1,
+    "_": "every fillable piece marbles in its own hue family from the title downbeat; the pink and blue discs keep their footage (the kandclips are listed before this item, so their fill hooks win); no settle here (the cover settles in the instrumental)"
+   },
+   "reveal": "colour floods into the shapes ON hb:8 (a beat event; see engine_requests[2] for a crossfade)",
+   "highlight": "a ripple round every edge on each beat",
+   "transition_in": "on hb:8 (with the wordmark paint)",
+   "transition_out": "hand-off at hb:16",
+   "audio": {
+    "audible": false
+   },
+   "source": "render/video/fx/fluid.js (builder D); BUILD.md REVISION 2 'fluid logo colour'",
+   "lyric_link": "none"
+  },
+  {
+   "id": "splat-drop",
+   "type": "splat",
+   "t0": "hb:0",
+   "t1": "hb:16",
+   "content": {
+    "at": "hb:0",
+    "x": 880,
+    "y": 1580,
+    "r": 200,
+    "color": "pink",
+    "dir": -125,
+    "layer": "paint",
+    "_": "the hero splat of the drop, bottom right under the art (beatfx adds its own on the other downbeats)"
+   },
+   "reveal": "bursts on the downbeat (satellites fly 4 frames, drips run ~1 s)",
+   "highlight": null,
+   "transition_in": "on hb:0",
+   "transition_out": "culls droplet by droplet at t1 (hand-off)",
+   "audio": {
+    "audible": false
+   },
+   "source": "render/video/fx/paint.js splat; style.md 4.3 bar-size splat",
+   "lyric_link": "Olivia's 'I want it to be, like, messy' answered in paint"
+  },
+  {
+   "id": "voice-coxon",
+   "type": "voice",
+   "t0": "song:21.2",
+   "t1": "song:23.08",
+   "content": {
+    "src": "clips/coxon-daily-show.mp4",
+    "at": "song:21.2",
+    "audio": {
+     "in": 452.42,
+     "out": 454.3,
+     "fade_ms": 40
+    },
+    "verbatim_heard": "…restarted the thing, and it did it again.",
+    "word_times_song": "restarted 21.26, the 21.76, thing 21.84 (~hb:5.5), and 22.34 (~hb:6.5), it 22.56, did 22.66, it 22.76, again 22.86-23.04 (= hb:7.5, inside the riff's bar-1 stop 22.88-23.10)",
+    "verify_by_ear": "the in-point 452.42 must not carry the tail of 'Like,' (whisper put it at 452.24 with zero length): re-run transcribe.py clips/coxon-daily-show.mp4 /tmp/cx.json small.en 450 6 and listen to 452.3-452.5 before the mix"
+   },
+   "reveal": "n/a (sound); words on screen as kar-coxon",
+   "highlight": null,
+   "transition_in": "40 ms fade",
+   "transition_out": "40 ms fade before the title downbeat hb:8",
+   "audio": {
+    "audible": true,
+    "duck_db": 9,
+    "_": "the riff is ~-14 dB per bar (hits-extra level_db_per_bar): duck 9 dB (mix.py raises it if needed for its 10 LU speech margin, max 15)",
+    "plays_song": [
+     21.2,
+     23.08
+    ]
+   },
+   "source": "clips/transcripts/coxon.json 452.24-454.26 'Like, restarted the thing, and it did it again.' = research/long/coxon-lines.json lines[5]; speaker/air date research/verify/SUMMARY.md + coxon-daily-show-date.json",
+   "lyric_link": "bridges the Hugging Face pile into verse 1's 'I'm so insecure' (insecure.json: AI agents breaking out of systems); 'again' lands in the riff's stop, then the title paints on"
+  },
+  {
+   "id": "coxon-stamp",
+   "type": "stamp",
+   "t0": "song:21.1",
+   "t1": "hb:9.25",
+   "content": {
+    "stamp": {
+     "x": 64,
+     "y": 250,
+     "yrPx": 36,
+     "year": "2026",
+     "name": "Jacob Coxon",
+     "role": "on OpenAI's escaped agent",
+     "w": 900
+    },
+    "meta": 24,
+    "name_px": 26,
+    "_role_basis": "an editorial context label, not a quote: Coxon's own account on the show, 421.5-426.5 'it figured out it was in a sandbox, hacked its way out of the sandbox' and 445.38-449.0 'they saw the thing poking its head out of the sandbox' (clips/transcripts/coxon.json); the long cut's critics accepted the same context ('OpenAI restarted the escaped agent', long.json ch-coxon-q)"
+   },
+   "reveal": "typed on (rev2 legacy roll-out of stamps)",
+   "highlight": "red year chip",
+   "transition_in": "typed on from 21.10",
+   "transition_out": "words blow out with the karaoke from hb:8.75",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/verify/SUMMARY.md (name, year); clips/transcripts/coxon.json (context)",
+   "lyric_link": "as voice-coxon"
+  },
+  {
+   "id": "kar-coxon",
+   "type": "karaoke",
+   "t0": "song:21.1",
+   "t1": "hb:9.25",
+   "content": {
+    "x": 64,
+    "y": 300,
+    "w": 950,
+    "size": 48,
+    "font": {
+     "weight": 700
+    },
+    "theme": "light",
+    "speech": {
+     "in": 452.42,
+     "at": "song:21.2",
+     "words": [
+      {
+       "w": "…RESTARTED",
+       "s": 452.48
+      },
+      {
+       "w": "THE",
+       "s": 452.98
+      },
+      {
+       "w": "THING,",
+       "s": 453.06
+      },
+      {
+       "w": "AND",
+       "s": 453.56
+      },
+      {
+       "w": "IT",
+       "s": 453.78
+      },
+      {
+       "w": "DID",
+       "s": 453.88
+      },
+      {
+       "w": "IT",
+       "s": 453.98
+      },
+      {
+       "w": "AGAIN.",
+       "s": 454.08
+      }
+     ]
+    },
+    "roll": {
+     "dim": 0.35,
+     "out": {
+      "at": "hb:8.75",
+      "per": 0.03,
+      "style": "blow"
+     }
+    },
+    "marks": [
+     {
+      "phrase": "it did it again.",
+      "style": "underline",
+      "at": "song:22.96",
+      "dur": 0.18,
+      "color": "#FF2E88",
+      "width": 7
+     }
+    ],
+    "verbatim": "…restarted the thing, and it did it again.",
+    "lines": "…RESTARTED THE THING, AND IT / DID IT AGAIN. (mono 48 px, y 330-442, clear of the art: the black disc's top never rises above ~y 450)"
+   },
+   "reveal": "karaoke: every word faint (0.35), lit red as he says it",
+   "highlight": "pink pencil underline under 'it did it again.' drawn in the riff stop (22.96-23.14)",
+   "transition_in": "red rule draws on (0.2 s)",
+   "transition_out": "words blow out one by one from hb:8.75",
+   "audio": {
+    "audible": false,
+    "_": "the caption of voice-coxon"
+   },
+   "source": "clips/transcripts/coxon.json word times (whisper base.en; small.en re-check above)",
+   "lyric_link": "as voice-coxon"
+  },
+  {
+   "id": "credit-coxon",
+   "type": "words",
+   "t0": "hb:4",
+   "t1": "hb:9.25",
+   "content": {
+    "text": "FORMER ANTHROPIC & OPENAI RESEARCHER · THE DAILY SHOW, OCT 5, 2026",
+    "x": 64,
+    "y": 1500,
+    "w": 900,
+    "font": {
+     "family": "'IBM Plex Mono', monospace",
+     "weight": 600,
+     "size": 24
+    },
+    "color": "#15131F",
+    "roll": {
+     "mode": "words",
+     "rate": 4,
+     "from": "hb:4"
+    },
+    "theme": "light",
+    "exit": {
+     "style": "fade",
+     "dur": 0.15
+    }
+   },
+   "reveal": "rolled out word by word on 16ths",
+   "highlight": null,
+   "transition_in": "roll-out",
+   "transition_out": "fade 0.15 s",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/verify/SUMMARY.md: 'JACOB COXON · FORMER ANTHROPIC & OPENAI RESEARCHER · THE DAILY SHOW, 2026'; air date Oct 5, 2026 (coxon-daily-show-date.json, ~92%)",
+   "lyric_link": "none (attribution)"
+  },
+  {
+   "id": "eq-superpose",
+   "type": "equation",
+   "t0": "hb:12",
+   "t1": "hb:16",
+   "content": {
+    "ref": "superposition",
+    "form": "latex",
+    "tex_verbatim": "x' = \\text{ReLU}(W^TWx + b)",
+    "cx": 540,
+    "cy": 330,
+    "px": 66,
+    "maxW": 900,
+    "theme": "light",
+    "drop": "hb:12",
+    "mode": "drop",
+    "per": 0.02,
+    "hl": [
+     {
+      "from": "highlight",
+      "at": "hb:13",
+      "style": "circle",
+      "color": "#FF2E88"
+     },
+     {
+      "from": "extra:0",
+      "at": "hb:14",
+      "style": "marker",
+      "color": "#F2C300"
+     }
+    ],
+    "pulse": [
+     "hb:13",
+     "hb:14",
+     "hb:15"
+    ],
+    "drift": 1.04,
+    "cite": {
+     "at": "hb:13.5",
+     "px": 24
+    },
+    "flash": {
+     "opacity": 0.25,
+     "decay": 0.1,
+     "color": "#F2C300"
+    },
+    "exit": {
+     "style": "fade",
+     "dur": 0.12
+    }
+   },
+   "reveal": "glyphs fall into place one by one from the downbeat (0.02 s each), the cite rolls out word by word from hb:13.5",
+   "highlight": "pink pencil circle round W^TW (the feature-interference matrix) on hb:13; yellow marker under ReLU on hb:14; the equation jumps on hb:13-15",
+   "transition_in": "drops in on hb:12 as the whole art lands from its whip spin",
+   "transition_out": "fade at hb:16 (verse planner's break)",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/equations.json superposition (Elhage et al. 2022, Toy Models of Superposition, arXiv:2209.10652; latex from the article's d-math, verified)",
+   "lyric_link": "none sung; William's 'flashy superposition of vectors', paired with its exact equation"
+  },
+  {
+   "id": "riff-credit",
+   "type": "words",
+   "t0": "hb:9.5",
+   "t1": "hb:15.75",
+   "content": {
+    "text": "IN THE DISCS: AGENTS' LAST EXAM, 2026 · XAI COLOSSUS (SERVETHEHOME), 2024",
+    "x": 64,
+    "y": 1500,
+    "w": 900,
+    "font": {
+     "family": "'IBM Plex Mono', monospace",
+     "weight": 600,
+     "size": 24
+    },
+    "color": "#15131F",
+    "roll": {
+     "mode": "words",
+     "rate": 4,
+     "from": "hb:9.5"
+    },
+    "theme": "light",
+    "exit": {
+     "style": "fade",
+     "dur": 0.15
+    }
+   },
+   "reveal": "rolled out on 16ths",
+   "highlight": null,
+   "transition_in": "roll-out",
+   "transition_out": "fade",
+   "audio": {
+    "audible": false
+   },
+   "source": "research/rev2/broll.json credits: ale-agent-wall 'agents-last-exam.org (intro video)', 2026; xai-colossus-racks 'ServeTheHome (YouTube)', 2024",
+   "lyric_link": "none (attribution)"
+  },
+  {
+   "id": "grain-prelude",
+   "type": "grain",
+   "t0": "song:6.1",
+   "t1": "hb:0",
+   "content": {
+    "opacity": 0.035,
+    "size": 2,
+    "hold": 3
+   },
+   "reveal": "none",
+   "highlight": null,
+   "transition_in": "none",
+   "transition_out": "ends on hb:0 (under the shatter flash)",
+   "audio": {
+    "audible": false
+   },
+   "source": "make_showcase.py 'grain'",
+   "lyric_link": "none"
+  },
+  {
+   "id": "paper",
+   "type": "paper",
+   "t0": "song:6.1",
+   "t1": "hb:16",
+   "content": {
+    "mode": "auto"
+   },
+   "reveal": "none",
+   "highlight": null,
+   "transition_in": "none",
+   "transition_out": "continues (hand-off)",
+   "audio": {
+    "audible": false
+   },
+   "source": "paint.js paper (tooth, boils on twos)",
+   "lyric_link": "none"
+  }
+ ],
+ "transitions": [
+  {
+   "id": "tr-wipe",
+   "at": "song:10.833",
+   "type": "paintwipe",
+   "out": [
+    "altman"
+   ],
+   "in": [
+    "amodei"
+   ],
+   "dur": 1.0,
+   "colors": [
+    "pink",
+    "violet"
+   ],
+   "ground": "#0E0D12",
+   "_": "impact between Altman's last word (10.55) and Amodei's first (10.88), not on a grid beat (the prelude has no tempo-locked pulse; hb:-17.36)"
+  },
+  {
+   "id": "tr-fold",
+   "at": "hb:-7",
+   "type": "fold",
+   "out": [
+    "amodei",
+    "frame-pencil"
+   ],
+   "in": [
+    "pile-hf"
+   ],
+   "dur": 1.25,
+   "mode": "both",
+   "shake": 6,
+   "ground": "#0E0D12"
+  },
+  {
+   "id": "tr-shatter",
+   "at": "hb:0",
+   "type": "shatter",
+   "out": [
+    "g-dark-prelude",
+    "pile-hf",
+    "sketch"
+   ],
+   "in": [
+    "g-cream-riff",
+    "kand-riff"
+   ],
+   "dur": 1.75,
+   "lead": 0.2,
+   "n": 18,
+   "impact": [
+    540,
+    880
+   ],
+   "flash": {
+    "opacity": 0.6,
+    "decay": 0.08,
+    "color": "#FBF7EE"
+   },
+   "shake": 16,
+   "ground": false,
+   "_": "window 19.063-19.909 (dur 1.75 beats, lead 0.2): cracks race out from the circled Gizmodo phrase from 19.063 (the riff pickup is at 19.116); shards fly and fall from the drop 19.232 to 19.91, by when the pink disc's footage has faded in (kc-pink-agents-a from hb:1.25)"
+  }
+ ],
+ "beatfx": [
+  {
+   "id": "fx-prelude",
+   "from": "song:6.1",
+   "to": "song:18.9",
+   "pattern": "prelude",
+   "grid": "pulse",
+   "intensity": 0.8,
+   "zones": [
+    [
+     60,
+     150,
+     960,
+     120
+    ]
+   ],
+   "_": "soft blooms/grain/ticks on hits.json prelude_pulse (21 swells 6.551-18.138), in the strip above the speaker stamp only (the bottom strip belongs to the sketch)"
+  },
+  {
+   "id": "fx-prelude-grid",
+   "from": "hb:-27",
+   "to": "hb:-1",
+   "pattern": "prelude",
+   "intensity": 0.75,
+   "zones": [
+    [
+     60,
+     150,
+     960,
+     120
+    ]
+   ],
+   "_": "pencil scribbles, stamps, ticks + camera punch/zoom on every prelude grid beat (top strip)"
+  },
+  {
+   "id": "fx-riff",
+   "from": "hb:0",
+   "to": "hb:15.5",
+   "pattern": "riff",
+   "intensity": 1,
+   "eighths": true,
+   "layer": "paint",
+   "avoid": [
+    [
+     40,
+     236,
+     1000,
+     230
+    ],
+    [
+     40,
+     1490,
+     1000,
+     100
+    ]
+   ],
+   "_": "splats on downbeats, stamps/jumps on the backbeat, droplets on 8ths; away from the top text strip (Coxon, the equation) and the credit line; beatfx already keeps off the kand pieces"
+  }
+ ],
+ "audible_snippets": [
+  {
+   "who": "Sam Altman, 2015",
+   "src": "clips/altman-2015-short.mp4",
+   "in": 1.86,
+   "out": 6.34,
+   "song": [
+    6.12,
+    10.6
+   ],
+   "words": "…I think AI will probably like most likely sort of lead to the end of the world…",
+   "duck_db": 5
+  },
+  {
+   "who": "Dario Amodei, 2025",
+   "src": "clips/amodei-axios-2025.mp4",
+   "in": 1065.67,
+   "out": 1069.34,
+   "song": [
+    10.863,
+    14.533
+   ],
+   "words": "…there’s a 25% chance that things go really, really badly…",
+   "duck_db": 5
+  },
+  {
+   "who": "Jacob Coxon, 2026 (THE riff snippet)",
+   "src": "clips/coxon-daily-show.mp4",
+   "in": 452.42,
+   "out": 454.3,
+   "song": [
+    21.2,
+    23.08
+   ],
+   "words": "…restarted the thing, and it did it again.",
+   "duck_db": 9
+  }
+ ],
+ "engine_requests": [
+  {
+   "module": "fx/transitions.js (builder D)",
+   "what": "shatter: declare its shard clones / overlay as imagery (HP.markImagery), as particles already does",
+   "why": "coverage.py would otherwise count 19.06-19.91 (the shards ARE the prelude's own screenshots, but the original layers are hidden and the clones are not declared) as frames without imagery; the first kandclip (kc-pink-agents-a) can only start once the pink disc has finished painting (hb:1.25)",
+   "spec": "in register('shatter').apply, after X.clone(e) for each out layer that carried imagery: HP.markImagery(c, tr.id) (or mark the overlay canvas once per frame while u >= lead)"
+  },
+  {
+   "module": "fx/kandclip.js (integrator)",
+   "what": "an optional \"freeze\": <time ref> field like a legacy clip's freeze",
+   "why": "Coxon's shot cuts to another camera at source 454.22 (song 23.00) while his 'again.' runs to 23.04; with freeze at song 22.98 the pink disc would hold his face through the stop to the title downbeat hb:8 instead of fading to flat pink 0.1 s early",
+   "spec": "fill(): lt = min(t, T(d.freeze)) - it.t0 when d.freeze is set; prepare() the same frame"
+  },
+  {
+   "module": "fx/fluid.js (builder D)",
+   "what": "an optional \"fadeIn\": seconds (crossfade from the kand item's painted fill to the marbling at the fluid item's t0)",
+   "why": "fluid-riff starts on the title downbeat hb:8; without it every shape switches from bristle paint to marbling in one frame (usable as a beat event, but a 0.15-0.2 s flood reads better)",
+   "spec": "in the fill hook: ctx.globalAlpha *= smooth(pr(t, it.t0, d.fadeIn)), after first drawing the piece's painted/flat body underneath (or return false while u < 1 and let kandinsky.js draw the painted body, then the marbling over it at u)"
+  },
+  {
+   "module": "fx/transitions.js / fx/core.js",
+   "what": "confirm (or support) a shared paint layer item ({\"type\": \"layer\", \"id\": \"sketch\"}) as an entry in a transition's out list",
+   "why": "tr-shatter breaks the prelude's classifier sketch (15 data stamps, 4 glyph stamps, pencil plane) together with the pile; fallback if layers cannot be listed: give each sketch item \"layer\": \"own\" and list every id (sketch-plane, sketch-dot-*) in out"
+  }
+ ],
+ "notes": [
+  "SHAPE OF THE SECTION. Prelude (13.1 s, gentle but alive): Altman's footage + word-lit caption (2015), a paint-wipe into Amodei (2025) with his 25% and the 75% baseline, an origami fold into a pile of six real Hugging Face-incident screenshots that land on beats then 8ths (Jul 21 -> Oct 2, 'over 100 organizations'), pushed, lifted and circled through the breath. All the while a pencil classifier is sketched in the bottom strip: the plane on bar downbeats, an orange or blue data point stamped on every other beat, the cover's nabla/checker/target/square on later downbeats; a pencil frame boils round the footage. Riff (7.7 s, explosive): the whole prelude frame SHATTERS on the drop and the cover paints itself on the cream underneath; bar 1 = Coxon's audible 'restarted the thing, and it did it again' with his face inside the orbiting pink disc and beat-cut close-ups; bar 2 = the title painted on, the band turns into a river of vectors, every shape's colour turns fluid; a whole-art whip spin through the stop into bar 3 = the superposition burst with its exact equation.",
+  "VERSUS THE SHOWCASE (reviewed): the showcase's weak prelude beats were hb:-16, -14, -13, -12 and -8 (out/rev2/showcase-beatcheck.json); each now has a stamp or pencil stroke in the sketch strip plus a beat-locked mark or punch on the speaker (25% circle completing ON hb:-16, 'GO' on hb:-13, a shake on hb:-12, the underline completing ON hb:-10, '75%' painted ON hb:-9, punch + bloom on hb:-8). The pile grows from 3 to 6 shots and lands on 8ths in bar -1. The drop is a shatter (the illuminate is used nowhere else in this section). The riff carries one audible snippet.",
+  "TIMING CHECKS. Altman's pencil circle is on 'most likely' (8.42) rather than an underline under 'the end of the world' at 10.38, so the payoff lands > 0.5 s before his t1 (10.833) (coverage.py payoff rule; a mark cannot land before its phrase's last word). Amodei's '75%' paint moved from 15.05 to hb:-9 (14.877): complete 15.10, 0.75 s before the fold (hb:-7, 15.845); his underline completes ON hb:-10 (was 13.2-14.15). Coxon's karaoke holds to hb:9.25 (23.708) so its underline (complete 23.14) has 0.5 s. Olivia's spoken line (17.66-19.0) is never captioned and no clip speech plays after 14.53 until the riff (21.20).",
+  "AUDIO. Three audible voices: Altman 6.12-10.60 and Amodei 10.863-14.533 over the gentle intro (duck 5 dB), Coxon 21.20-23.08 over the riff (vocal-free 19.0-26.9; the riff is loud, so duck 9 dB, mix.py may raise it to 15). Coxon's 'again.' lands on hb:7.5 inside the riff's own stop (22.88-23.10), so the last word is in the clear. Before the mix, listen to 452.3-452.5 (the trimmed 'Like,') and re-run small.en on 450-456 s. The no-song version carries all three.",
+  "COXON CLAIM. This plan uses Coxon's 452.42-454.30 take ('…restarted the thing, and it did it again.'), audible, with his own picture in the pink disc. The old long cut used the same moment muted in the chorus (long.json ch-coxon); the chorus planner should not reuse it, so the cut does not show the same line twice.",
+  "SCREENSHOTS USED HERE (other planners: avoid): fortune-2026-07-21-openai-hf-escape, time-2026-07-24-lost-control, security-hf-header, bbc-2026-07-29-rogue-ai-hack-other-companies, frontier-rev2-wired_aug18_headline, frontier-rev2-gizmodo_oct2_headline. B-roll: coxon-daily-show 452.27-454.20, ale-agent-wall 72.0-75.2, xai-colossus-racks 34.0-37.2. Equation: superposition.",
+  "ORDER (= stacking, later on top): grounds, the shared paint and sketch canvases, Altman, Amodei, the pencil frame (above both clips), the sketch items, the pile; then kand-riff, the four kandclips (before fluid-riff: the first fill hook on a piece wins; the pink ones in time order, never overlapping), fluid-riff, the hero splat (drawn into the paint canvas under the art), Coxon voice/stamp/karaoke/credit, the equation, the riff credit, grain and paper last (as in the showcase).",
+  "LAYOUT. Prelude: footage box 1080x740 from y 380 (showcase layout.clipBox), stamp at y 300, caption from y 1160, Amodei's sub/source end ~y 1570; the sketch lives in the strip x 60-1020, y 1585-1850 (below the safe zone's text area; it is not text); beatfx prelude marks only in the strip above the stamp (y 150-270). Riff: the cover at layout {y 400, scale 0.72}; the top strip y 250-450 carries Coxon (hb:4-9.25) and later the equation (hb:12-16); the bottom line y 1500 carries the credits; the kicker sits at y 1373.",
+  "PIECES IN FOOTAGE. Pink: the agents wall hb:1.25-3.75, Coxon in sync hb:3.75-22.98, the agents wall again to hb:16; blue: the Colossus racks hb:3-16. The pink disc orbits with turn: false during Coxon's line, so his face stays upright (kandclip draws in the piece's transform); from hb:8 it turns. A beatfx 'jump' may squash it on a backbeat (accepted).",
+  "HAND-OFF at hb:16 (song 26.974, verse 1's downbeat, 4 ms after this span): kand-riff, kc-pink-agents-b, kc-blue-racks, fluid-riff, g-cream-riff, paper and splat-drop run to hb:16-17 so the verse planner can break the logo there (move break; morph frames out of pink/band/square). The SHORT's splice at song 26.477 cuts this section just before hb:15; its planner decides how kand-riff ends there.",
+  "COST. The heaviest frames are hb:0-1.5 (18-shard shatter of three full-frame layers + kand painting + beatfx) and bar 3 (superposition + fluid atlas + 2 kandclips + equation): expect ~0.5-0.7 s/frame on this box (showcase: 0.27-0.34 s in the prelude and riff, the 16-shard shatter frames ~0.7-1.0).",
+  "PREP. prep_clips.py needs: plan-altman, plan-amodei (own cache folders), kc-pink-agents-a, kc-pink-coxon (coxon-daily-show 452.27-454.20, crop 250,20,540x540 at 2r*1.6), kc-pink-agents-b, kc-blue-racks, and the six pile screenshots (cache/screens)."
+ ],
+ "checks": [
+  {
+   "text": "…I think AI will probably like most likely sort of lead to the end of the world…",
+   "ok": true,
+   "source": "render/video/edl/short.json altman.caption.text (r6 verified, small.en + base.en)"
+  },
+  {
+   "text": "…there’s a 25% chance that things go really, really badly…",
+   "ok": true,
+   "source": "render/video/edl/short.json amodei.caption.text"
+  },
+  {
+   "text": "“…and a 75% chance that things go really, really well…”",
+   "ok": true,
+   "source": "render/video/edl/short.json amodei.sub.text; research/verify/amodei-line.json line_continues_verbatim \"and a 75% chance that things go really, really well\""
+  },
+  {
+   "text": "and a 75% chance that things go really, really well",
+   "ok": true,
+   "source": "research/verify/amodei-line.json"
+  },
+  {
+   "text": "Airbnb fireside chat · 2015",
+   "ok": true,
+   "source": "short.json altman.source"
+  },
+  {
+   "text": "Axios AI+ DC Summit · Sep 17, 2025",
+   "ok": true,
+   "source": "short.json amodei.source"
+  },
+  {
+   "text": "Like, restarted the thing, and it did it again.",
+   "ok": true,
+   "source": "clips/transcripts/coxon.json words 452.24-454.26 (= research/long/coxon-lines.json line 6 tail)"
+  },
+  {
+   "text": "that's not happening. Like, restarted the thing, and it did it again.",
+   "ok": true,
+   "source": "research/long/coxon-lines.json lines[5]"
+  },
+  {
+   "text": "Former Anthropic & OpenAI researcher",
+   "ok": true,
+   "source": "research/verify/SUMMARY.md (Coxon on-screen line)"
+  },
+  {
+   "text": "The Daily Show · Oct 5, 2026",
+   "ok": true,
+   "source": "research/verify/SUMMARY.md (air date, ~92% confidence)"
+  },
+  {
+   "text": "OpenAI says its AI models secretly broke out of a secure test environment and hacked into AI company Hugging Face in order to cheat on an evaluation",
+   "ok": true,
+   "source": "research/rev2/captures.json fortune-2026-07-21-openai-hf-escape (Fortune, 2026-07-21; verified: 1.0)"
+  },
+  {
+   "text": "hacked into AI company Hugging Face",
+   "ok": true,
+   "source": "fortune-2026-07-21-openai-hf-escape highlights[1] (OCR boxes)"
+  },
+  {
+   "text": "How OpenAI Lost Control of an AI Model—and What Needs to Change",
+   "ok": true,
+   "source": "research/rev2/captures.json time-2026-07-24-lost-control (TIME, 2026-07-24; verified: 1.0)"
+  },
+  {
+   "text": "How OpenAI Lost Control of an AI Model",
+   "ok": true,
+   "source": "time-2026-07-24-lost-control highlights[0] (OCR boxes)"
+  },
+  {
+   "text": "Anatomy of a Frontier Lab Agent Intrusion: A Technical Timeline of the July 2026 Incident",
+   "ok": true,
+   "source": "research/rev2/screens.json security-hf-header (Hugging Face blog, 2026-07-27; verified: True)"
+  },
+  {
+   "text": "Anatomy of a Frontier Lab Agent Intrusion",
+   "ok": true,
+   "source": "security-hf-header highlights[0] (OCR boxes)"
+  },
+  {
+   "text": "OpenAI says its rogue AI tried to hack other companies",
+   "ok": true,
+   "source": "research/rev2/captures.json bbc-2026-07-29-rogue-ai-hack-other-companies (BBC News, 2026-07-29; verified: 1.0)"
+  },
+  {
+   "text": "rogue AI tried to hack other companies",
+   "ok": true,
+   "source": "bbc-2026-07-29-rogue-ai-hack-other-companies highlights[0] (OCR boxes)"
+  },
+  {
+   "text": "OpenAI Overhauls Safety Protocols After Its AI Agents Went Rogue",
+   "ok": true,
+   "source": "research/rev2/screens.json frontier-rev2-wired_aug18_headline (WIRED, 2026-08-18; verified: True)"
+  },
+  {
+   "text": "Its AI Agents Went Rogue",
+   "ok": true,
+   "source": "frontier-rev2-wired_aug18_headline highlights[0] (OCR boxes)"
+  },
+  {
+   "text": "OpenAI Has Sent Notices of Sketchy AI Behavior to Over 100 Organizations So Far",
+   "ok": true,
+   "source": "research/rev2/screens.json frontier-rev2-gizmodo_oct2_headline (Gizmodo, 2026-10-02; verified: True)"
+  },
+  {
+   "text": "Sketchy AI Behavior to Over 100 Organizations",
+   "ok": true,
+   "source": "frontier-rev2-gizmodo_oct2_headline highlights[0] (OCR boxes)"
+  },
+  {
+   "text": "x' = \\text{ReLU}(W^TWx + b)",
+   "ok": true,
+   "source": "research/rev2/equations.json superposition.latex"
+  },
+  {
+   "text": "Elhage et al. 2022, Toy Models of Superposition (arXiv:2209.10652)",
+   "ok": true,
+   "source": "research/rev2/equations.json superposition.cite"
+  },
+  {
+   "text": "W^TW",
+   "ok": true,
+   "source": "superposition.highlight_latex (W^TW)"
+  },
+  {
+   "text": "\\text{ReLU}",
+   "ok": true,
+   "source": "superposition.extra_highlights[0] (\\text{ReLU})"
+  },
+  {
+   "text": "b-roll ale-agent-wall",
+   "ok": true,
+   "source": "research/rev2/broll.json ale-agent-wall"
+  },
+  {
+   "text": "b-roll xai-colossus-racks",
+   "ok": true,
+   "source": "research/rev2/broll.json xai-colossus-racks"
+  },
+  {
+   "text": "b-roll coxon-daily-show",
+   "ok": true,
+   "source": "research/rev2/broll.json coxon-daily-show"
+  },
+  {
+   "text": "Agents' Last Exam",
+   "ok": true,
+   "source": "broll.json ale-agent-wall.credit \"agents-last-exam.org (intro video)\""
+  },
+  {
+   "text": "ServeTheHome",
+   "ok": true,
+   "source": "broll.json xai-colossus-racks.credit"
+  },
+  {
+   "text": "no on-screen text shares a 3-word sequence with the lyrics (song/full-map.json)",
+   "ok": true,
+   "source": "[]"
+  }
+ ]
+}

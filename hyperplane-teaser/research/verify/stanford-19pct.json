@@ -1,0 +1,78 @@
+{
+  "key": "stanford-19pct",
+  "checked_on": "2026-10-10",
+  "confirmed": true,
+  "claim": "Employment of young workers (ages 22-25) in AI-exposed occupations stands 19% below where it would be had it kept pace with that of their less-exposed peers (Stanford Digital Economy Lab, Brynjolfsson, Chandar, Chen, 'Canaries in the Coal Mine?').",
+  "exact_text": "employment of young workers (ages 22–25) in AI-exposed occupations now stands 19% below where it would be had it kept pace with that of their less-exposed peers; experienced workers show no comparable gap.",
+  "exact_text_source": "Abstract, item (2), PDF p. 1, August 2026 version. The en dash in '22–25' is verified in the PDF text.",
+  "wording_variants_in_paper": [
+    {
+      "location": "Abstract, PDF p. 1",
+      "text": "employment of young workers (ages 22–25) in AI-exposed occupations now stands 19% below where it would be had it kept pace with that of their less-exposed peers; experienced workers show no comparable gap."
+    },
+    {
+      "location": "Introduction, PDF p. 2",
+      "text": "employment of young workers (ages 22–25) in AI-exposed jobs now stands 19% below where it would be had it kept pace with that of their less-exposed peers. Experienced workers show no comparable gap between more- and less-exposed occupations: ..."
+    },
+    {
+      "location": "Introduction summary list, PDF p. 3",
+      "text": "(2) employment of young workers in AI-exposed occupations stands 19% below where it would be had it kept pace with that of their less-exposed peers, with no comparable gap for experienced workers"
+    },
+    {
+      "location": "Section 2.2 'Fact 2', PDF p. 8",
+      "text": "Employment of young workers in AI-exposed jobs now stands 19% below where it would be had it kept pace with that of their less-exposed peers; experienced workers show no comparable gap."
+    }
+  ],
+  "paper": {
+    "title": "Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence",
+    "authors": ["Erik Brynjolfsson", "Bharat Chandar", "Ruyu Chen"],
+    "affiliation": "Stanford Digital Economy Lab",
+    "version": "August 2026 (cover date 'August 2026'; publication page reads 'Revised August 12 2026')",
+    "pdf_creation_date": "2026-08-12 07:06:02 UTC",
+    "data_window": "ADP administrative payroll data through June 2026",
+    "pdf_pages": 140,
+    "pdf_producer": "pdfTeX-1.40.22 (LaTeX with hyperref)",
+    "pdf_md5": "ab211e9c03a5eb865b23e4947fcda486"
+  },
+  "urls": {
+    "pdf_verified": "https://digitaleconomy.stanford.edu/app/uploads/2026/08/Canaries_August2026.pdf",
+    "landing_page": "https://digitaleconomy.stanford.edu/publication/canaries-in-the-coal-mine-six-facts-about-the-recent-employment-effects-of-artificial-intelligence/",
+    "nov_2025_pdf_url_checked": "https://digitaleconomy.stanford.edu/app/uploads/2025/11/CanariesintheCoalMine_Nov25.pdf"
+  },
+  "local_copies": {
+    "pdf": "/tmp/claude-0/-home-user/a99e0376-0534-5e3e-8b47-ccbc03821dfd/scratchpad/stanford-19pct/aug2026.pdf",
+    "text": "/tmp/claude-0/-home-user/a99e0376-0534-5e3e-8b47-ccbc03821dfd/scratchpad/stanford-19pct/aug2026.txt"
+  },
+  "verification_steps": [
+    "Downloaded the August 2026 PDF and extracted text with pdftotext -layout. The WebFetch tool could not read the binary PDF, so it was not used for the quote.",
+    "grep on the extracted text matched the sentence verbatim in the abstract (PDF p. 1), the introduction (PDF p. 2), the summary list (PDF p. 3) and Section 2.2 (PDF p. 8).",
+    "The publication landing page (fetched with WebFetch) gives the same abstract sentence, dated 'Revised August 12 2026'.",
+    "The Nov 2025 PDF URL returned a file byte-identical to the Aug 2026 PDF (same MD5), so the November 2025 version could not be checked separately."
+  ],
+  "version_history_per_paper": "The paper says: 'Earlier versions of this study headlined regression estimates adjusting for firm-level shocks (a 13% relative decline as of July 2025 data; 16% as of September 2025 data). We now emphasize the simpler descriptive divergence ... the kept-pace shortfall was 15% at the July 2025 data vintage and has since widened to 19% as of June 2026.' The comparable descriptive series is 15% (July 2025) to 19% (June 2026). The 13% and 16% figures are regression estimates from earlier versions, a different measure.",
+  "discrepancies": [
+    {
+      "item": "Secondary web-search summary",
+      "issue": "A WebSearch summary presented 13% (Aug 2025), then 16% (Nov 2025), then 19% as one trend. The paper says the 13% and 16% figures were regression estimates from earlier versions, and that the comparable series is 15% (July 2025) to 19% (June 2026). Do not chart 13 -> 16 -> 19 as one series."
+    },
+    {
+      "item": "'occupations' vs 'jobs'",
+      "issue": "The abstract and the summary list say 'AI-exposed occupations'. The introduction and Section 2.2 say 'AI-exposed jobs'. Both are in the paper and the 19% figure is the same. The project's enjoy-your-youth.json cites Section 2.2 ('jobs') while long.json's note quotes the abstract ('occupations'). Use the abstract wording for an exact quote, or say 'jobs' only when citing Section 2.2."
+    },
+    {
+      "item": "long.json on-screen card ch-19 (pullquote)",
+      "issue": "The card shows big '19% below', label 'Employment of young workers (22–25) in AI-exposed jobs', and text 'the trend of / less-exposed peers'. This is a condensed paraphrase, not a quotation (the card's own _note says 'unquoted'). The words 'now stands', 'where it would be had it kept pace with that of their' are not on screen. The label 'AI-exposed jobs' differs from the abstract's 'occupations'. The card is not a quote, so this is acceptable only if no verbatim-quote claim is made on screen."
+    },
+    {
+      "item": "Chart asset swe-stanford-canaries-swe-by-age.png",
+      "issue": "This is referenced by poster-project plan ch-a.json and deck-images.json, not by long.json. It shows 'Headcount Over Time by Age Group, Software Developers (Normalized)', indexed to late 2022 = 1.0. The 'Early Career 1 (22-25)' line ends near 0.81. It has no 19% label and measures headcount, not the kept-pace gap vs less-exposed peers. Do not use it as the source for the 19% figure. Also, deck-images.json labels it 'Fig. B.3', but the PDF text's nearest caption is 'Figure B.3: Employment changes for software and customer service agents by age, normalized to 1', so that label should be checked."
+    }
+  ],
+  "long_json_asset_check": {
+    "file": "/home/user/hyperplane-teaser/render/video/edl/long.json",
+    "entry": "ch-19 (pullquote, bars 15-17); stamp ch-19-stamp (name 'Stanford Digital Economy Lab', role 'Brynjolfsson, Chandar, Chen', year '2026')",
+    "image_asset": "None. The entry has no image or asset path. The _note cites the abstract sentence verbatim, and that quote matches the verified text.",
+    "stamp_check": "The stamp's authors match the paper. The year '2026' is consistent with the August 2026 version."
+  },
+  "finding": "The sentence is confirmed verbatim in the abstract of the August 2026 version (PDF p. 1). The paper is 'Canaries in the Coal Mine? Six Facts about the Recent Employment Effects of Artificial Intelligence' by Erik Brynjolfsson, Bharat Chandar and Ruyu Chen (Stanford Digital Economy Lab), dated August 2026 (publication page: 'Revised August 12 2026'). The 19% is measured through June 2026 and is described by the authors as early, descriptive (not causal). The exact sentence is 'employment of young workers (ages 22–25) in AI-exposed occupations now stands 19% below where it would be had it kept pace with that of their less-exposed peers; experienced workers show no comparable gap.' The Section 2.2 variant uses 'AI-exposed jobs'. The Nov 2025 PDF URL returns the same August 2026 file, so no separate November version could be checked."
+}

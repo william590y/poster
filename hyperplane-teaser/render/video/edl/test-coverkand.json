@@ -1,0 +1,4 @@
+{"name": "test-coverkand", "_note": "builder A: the kand item settled (flat cover) for check/coverdiff.py", "fps": 30, "duration": 1.0,
+ "audio": {"song": "song/brutal.mp3", "songStart": 75.0}, "look": {"ground": "#F2EBDD"},
+ "items": [{"id": "ground", "type": "color", "t0": 0, "t1": 1.0, "color": "#F2EBDD"},
+  {"id": "kand", "type": "kand", "t0": 0, "t1": 1.0, "layout": {"y": 400, "scale": 0.72}, "settle": {"at": 0, "dur": 0.1}}]}

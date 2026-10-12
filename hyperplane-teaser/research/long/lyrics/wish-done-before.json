@@ -1,0 +1,43 @@
+{
+  "key": "wish-done-before",
+  "lyric_idea": "Chorus: \"And I wish I'd done this before / And I wish people liked me more.\" Left half: warnings that came early (the 2023 CAIS statement, the March 2023 Pause letter, Turing's 1951 lecture). Right half: AI's public favorability turning negative (Gallup, July 2026). Rejected: the Politico Sept 2026 poll (63% 'threat to humanity') is only a Wikipedia citation, Politico is blocked and the figure is not verified; Feynman 1985 has no verbatim line tied to a named event that I could confirm. Backups, both verified: UN Secretary-General Guterres, 18 Jul 2023 (deck, quote only, no image): \"Its creators themselves have warned that much bigger, potentially catastrophic and existential risks lie ahead.\" And NBC News poll, Feb 27-Mar 3 2026 (1,000 registered voters): 26% positive and 46% negative view of AI (net -20 is arithmetic, not stated in the source).",
+  "candidates": [
+    {
+      "type": "quote",
+      "text": "“Mitigating the risk of extinction from AI should be a global priority…” (full sentence: “… alongside other societal-scale risks such as pandemics and nuclear war.”)",
+      "speaker_or_outlet": "Statement on AI Extinction Risk, Center for AI Safety (signed by Hinton, Bengio, Altman, Hassabis, Amodei)",
+      "date": "2023-05-30",
+      "url": "https://aistatement.com/",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/theory/cais-statement.png",
+      "verified_how": "Deck source: assets/research/theory/manifest.json item cais-extinction-statement (verified: true), and tools/slides_xrisk.js caisSlide already uses the sentence verbatim. The screenshot cais-statement.png exists on disk. I did not reopen the page.",
+      "why_it_fits": "Deck-first pick and the most concrete early warning: the lab CEOs signed it in May 2023. The sentence is long for a 1.5-3 s read, so use the trimmed first clause with an ellipsis and keep the attribution line. Signatory line also appears in the deck's caisSlide."
+    },
+    {
+      "type": "headline",
+      "text": "Pause Giant AI Experiments: An Open Letter",
+      "speaker_or_outlet": "Future of Life Institute",
+      "date": "2023-03-22",
+      "url": "https://futureoflife.org/open-letter/pause-giant-ai-experiments/",
+      "verified_how": "Page opened via WebFetch. Title is 'Pause Giant AI Experiments: An Open Letter - Future of Life Institute'. The page shows 'Published 22 March, 2023' and a signature count of 31810 at fetch time. Verbatim call: \"We call on all AI labs to immediately pause for at least 6 months the training of AI systems more powerful than GPT-4.\" Search summaries give other dates (Mar 28, Mar 31), so the page's own date is used. Not in the deck; no local file.",
+      "why_it_fits": "The March 2023 letter is the clearest 'warning that came early' in the chorus. Use the title alone, or the 'pause for at least 6 months' clause, on a single card. A screenshot of the FLI page is needed because nothing local exists."
+    },
+    {
+      "type": "quote",
+      "text": "“At some stage therefore we should have to expect the machines to take control…”",
+      "speaker_or_outlet": "Alan M. Turing, 'Intelligent Machinery, A Heretical Theory' (1951)",
+      "date": "1951",
+      "url": "https://quoteinvestigator.com/2022/01/06/outstrip/",
+      "verified_how": "Quote Investigator page opened via WebFetch. It gives the sentence verbatim and cites Sara Turing, Alan M. Turing (1959; 2012 Centenary ed.), ch. 14, p. 132. I did not open the primary book. The venue is disputed: QI says a Manchester lecture, while a Springer article in Philosophy & Technology (search result, not opened) says a May 1951 BBC broadcast. Do not name a venue on screen.",
+      "why_it_fits": "The earliest warning in the set and literally 'before' in time. Use the clause up to 'take control' with an ellipsis. The Erewhon clause is not needed on screen."
+    },
+    {
+      "type": "headline",
+      "text": "Americans Cool Toward AI",
+      "speaker_or_outlet": "Gallup (2026 Bentley-Gallup Business in Society survey)",
+      "date": "2026-07-28",
+      "url": "https://news.gallup.com/poll/712751/americans-cool-toward.aspx",
+      "verified_how": "Page opened via WebFetch: headline 'Americans Cool Toward AI', subtitle 'After two years of improving attitudes toward AI, Americans turn skeptical.', published July 28, 2026. Survey: 3,270 US adults, fieldwork May 4-11, 2026, margin of error +/-2.4 near 50%. The stat '39% say AI does more harm than good, up from 31% in 2025' comes from the fetch's extraction, so check the exact wording on the page before using it on screen.",
+      "why_it_fits": "The favorability half of the chorus ('people liked me more'). The headline is short enough for a phone read. Pair it with the 39% harm stat on a second card, using the source line above."
+    }
+  ]
+}

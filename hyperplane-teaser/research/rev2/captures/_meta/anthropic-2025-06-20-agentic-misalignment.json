@@ -1,0 +1,43 @@
+{
+ "id": "anthropic-2025-06-20-agentic-misalignment",
+ "url": "https://www.anthropic.com/research/agentic-misalignment",
+ "expected": "Agentic Misalignment: How LLMs could be insider threats",
+ "notes": [],
+ "status": 200,
+ "final_url": "https://www.anthropic.com/research/agentic-misalignment",
+ "title0": "Agentic misalignment: How LLMs could be insider threats \\ Anthropic",
+ "hidden_detail": [],
+ "title": "Agentic misalignment: How LLMs could be insider threats \\ Anthropic",
+ "og_title": "Agentic misalignment: How LLMs could be insider threats",
+ "twitter_title": "Agentic misalignment: How LLMs could be insider threats",
+ "og_site": null,
+ "published": "2025-06-20T22:30:00.000Z",
+ "author_meta": null,
+ "canonical": "https://www.anthropic.com/research/agentic-misalignment",
+ "h1_count": 1,
+ "h1": "Agentic misalignment: How LLMs could be insider threats",
+ "h1_box": [
+  64,
+  169,
+  1136,
+  283.40625
+ ],
+ "h1_font": "52px",
+ "below_bottom": 335.40625,
+ "below_text": [
+  "Jun 20, 2025"
+ ],
+ "hero_top": 368.40625,
+ "header_bottom": 68,
+ "doc_w": 3548,
+ "masthead_included": true,
+ "crop_css": [
+  0,
+  0,
+  1200,
+  353.40625
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/anthropic-2025-06-20-agentic-misalignment.png",
+ "trimmed": 0
+}

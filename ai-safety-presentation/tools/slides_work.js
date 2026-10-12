@@ -1572,4 +1572,29 @@ async function build(d) {
   await robotWorkSlide(d);
 }
 
-module.exports = { build };
+// Slide functions by name (for other decks, e.g. tools/build_splash.js); build() above is unchanged.
+module.exports = {
+  build,
+  slides: {
+    cadSlide,
+    hwDesignSlide,
+    hwJobsSlide,
+    aleSlide,
+    paidWorkSlide,
+    gdpvalSlide,
+    juniorSlide,
+    codeSlide,
+    arxivSlide,
+    reviewSlide,
+    tavusSlide,
+    voiceSlide,
+    realQuestionSlide,
+    realRevealSlide,
+    vlaWallSlide,
+    vlaArchSlide,
+    vlaDemoSlide,
+    factorySlide,
+    unitreeSlide,
+    robotWorkSlide,
+  },
+};

@@ -1,0 +1,45 @@
+<section id="s3-07" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Results</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">SUM: the model switches strategies in context</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:48px;align-items:start">
+<div style="width:994px;display:flex;flex-direction:column;gap:12px">
+<div style="background:#ffffff;border:1px solid #dde1da;border-radius:12px;padding:16px">
+<img src="/_blob/835419cf3396a0ede91c32653b1223f8" alt="Paper's Fig. 5 on the SUM task. Left, behavioral composition (argmax categories over 1,024 trials) against demonstrations m from 0 to 512: preferred bytes {0, 255, 1, 16} dominate at m = 0, a match-context-byte band and an Other band swell around m = 4 to 16, then low-4-bits-correct and fully correct answers take over toward m = 512. Right, predictive entropy in bits (mean and interquartile range): near 7.6 at m = 0, close to the 8-bit uniform line around m = 4 to 8, then falling to about 5 bits at m = 512." style="width:960px;height:513px;object-fit:contain">
+</div>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">Paper's Fig. 5, p.11 · SUM task [0, x1, x2, (x1 + x2) mod 256], x1, x2 ≠ 0 (App. D) · 1,024 trials</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:16px">
+<div style="display:flex;flex-direction:column;gap:4px;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px">
+<p style="font-size:28px;line-height:1.35"><b>m = 0:</b> “the marginally most common bytes” <span style="color:#5f6b72">(p.11)</span></p>
+<p style="font-size:24px;line-height:1.35;color:#a14d19"><b>Plot read:</b> ~92% of argmax, ~7.6 bits</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px">
+<p style="font-size:28px;line-height:1.35"><b>After a few:</b> copies context bytes, then “loses confidence” <span style="color:#5f6b72">(p.11)</span></p>
+<p style="font-size:24px;line-height:1.35;color:#a14d19"><b>Plot read:</b> ~7.8 bits near m = 4–8</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px">
+<p style="font-size:28px;line-height:1.35"><b>Then:</b> “After around 4 examples” it sums the low 4 bits; “by 8 examples” the high 4 too <span style="color:#5f6b72">(p.11)</span></p>
+</div>
+<div style="display:flex;flex-direction:column;gap:4px;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px">
+<p style="font-size:28px;line-height:1.35"><b>m = 512</b></p>
+<p style="font-size:24px;line-height:1.35;color:#a14d19"><b>Plot read:</b> ~87% fully correct, but mean entropy still ~5 bits</p>
+</div>
+<div style="display:flex;flex-direction:column;gap:8px">
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">One learner; scale not stated</p>
+<p style="font-size:24px;line-height:1.35;color:#a14d19"><b>Our reading:</b> entropy at the answer position (caption: “predictive entropy”)</p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · Fig. 5, p.11; App. D</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">19</p>
+<aside>About 1.25 minutes.
+Task: [0, x1, x2, (x1 + x2) mod 256], x1, x2 != 0 (App. D); 1,024 trials; one learner, scale not stated. Entropy: of the next-byte distribution at the answer position, mean and IQR over trials (the position is my inference; the caption says "predictive entropy").
+Stages (percentages, m ranges and entropy values are plot reads):
+m = 0: "preferred bytes" {0, 255, 1, 16}, "the marginally most common bytes" (p.11), ~92% of argmax; entropy ~7.6 bits. The set {0, 255, 1, 16} is printed on the figure's dark-grey band.
+After a few examples: copies context bytes, then "loses confidence"; entropy ~7.8 bits near m = 4-8 (uniform = 8; the dashed line in the right panel).
+"After around 4 examples" it sums the low 4 bits; "by 8 examples" the high 4 bits too (p.11).
+m = 512: ~87% fully correct, but mean entropy still ~5 bits.
+Fig. 5, p.11. Paper's narrative (p.11): the prior, then copying previous bytes, then it 'loses confidence after several overconfident but incorrect predictions, reverting to a very broad distribution', then low bits after ~4 examples, high bits by 8, then it 'locks in on the correct approach'. Plot reads (left panel): m = 0 preferred ~92%, copy-context ~8%; m = 64 ~56% fully correct, with ~88% having the low 4 bits right; m = 512 ~87%. Right panel: ~6.9 bits at m = 64, ~5.05 at m = 512. [mine] Argmax is right by m = 512, but the distribution is still diffuse on a deterministic task; the paper does not discuss this. Speculative: 16 is a preferred byte, and macro X sets a cell to 16, so the prior may reflect the language, not natural data. The copy phase may depend on the prompt's byte format, which is untested.</aside>
+</section>

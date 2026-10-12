@@ -1,0 +1,58 @@
+{
+  "key": "teenage-dream",
+  "lyric_idea": "Chorus: \"Where's my [explicit] teenage dream?\" -> promised AI utopia vs. reality. Never show the lyric itself.",
+  "candidates": [
+    {
+      "type": "quote",
+      "text": "AI-enabled biology and medicine will allow us to compress the progress that human biologists would have achieved over the next 50-100 years into 5-10 years.",
+      "on_screen_suggestion": "MACHINES OF LOVING GRACE / Dario Amodei / October 2024, then the compress line",
+      "speaker_or_outlet": "Dario Amodei, \"Machines of Loving Grace: How AI Could Transform the World for the Better\" (essay, darioamodei.com)",
+      "date": "2024-10",
+      "url": "https://darioamodei.com/essay/machines-of-loving-grace",
+      "local_path": null,
+      "deck_source": "not in deck (grep of tools/*.js, tools/*.md and assets/research JSON found no hit)",
+      "verified_how": "Essay page fetched with curl; header reads 'October 2024'; sentence quoted verbatim from the page text",
+      "why_it_fits": "The named utopia promise. The 50-100 years to 5-10 years line is the 'teenage dream' of compressed progress, and it is quotable on screen in two short beats."
+    },
+    {
+      "type": "quote",
+      "text": "\"I tried to lay out the dream of a civilization that had made it through to adulthood\"",
+      "on_screen_suggestion": "THE ADOLESCENCE OF TECHNOLOGY / Dario Amodei / January 2026",
+      "speaker_or_outlet": "Dario Amodei, \"The Adolescence of Technology: Confronting and Overcoming the Risks of Powerful AI\" (essay, darioamodei.com)",
+      "date": "2026-01",
+      "url": "https://darioamodei.com/essay/the-adolescence-of-technology",
+      "local_path": null,
+      "deck_source": "not in deck",
+      "verified_how": "Essay page fetched with curl; header reads 'January 2026'; quote verbatim from the page text, which refers back to 'Machines of Loving Grace' as the dream",
+      "why_it_fits": "Literal teenage-to-adulthood echo: the essay title is the teenage image, and the line names the dream Machines of Loving Grace promised. Strongest word-level match to the lyric."
+    },
+    {
+      "type": "headline",
+      "text": "Nvidia’s quarterly revenue doubles to nearly $100bn as CEO declares ‘golden age’",
+      "on_screen_suggestion": "Headline card, the 'golden age' phrase highlighted",
+      "speaker_or_outlet": "The Guardian (Johana Bhuiyan)",
+      "date": "2026-08-26",
+      "url": "https://www.theguardian.com/technology/2026/aug/26/nvidia-quarterly-revenue",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/economy/guardian_nvidia_revenue_100bn.png",
+      "deck_source": "assets/research/economy/manifest.json (id nvidia-revenue-100bn-guardian); tools/slides_economy.js Click 3",
+      "verified_how": "Live Guardian page fetched with curl; on-page headline matches exactly; local screenshot exists in deck assets",
+      "why_it_fits": "Deck source with a real local screenshot. 'Golden age' is the promised-utopia language, and the headline reads in about 2 s."
+    },
+    {
+      "type": "headline",
+      "text": "OpenAI’s Models Went Rogue. Investigating Them Required More AI",
+      "on_screen_suggestion": "Headline card as the reality beat after the utopia beat",
+      "speaker_or_outlet": "TIME (Billy Perrigo and Harry Booth)",
+      "date": "2026-08-27",
+      "url": "https://time.com/article/2026/08/27/openai-hack-hugging-face-investigation/",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/time-2026-08-27-models-went-rogue-required-more-ai.png",
+      "deck_source": "assets/research/xrisk/manifest.json and rev2/whistleblowers.json (id time-2026-08-27-models-went-rogue-required-more-ai)",
+      "verified_how": "Local screenshot opened and read: headline, byline and 'AUG 27, 2026 9:04 PM UTC' all visible. Live TIME URL returned no content to curl, so the screenshot is the check",
+      "why_it_fits": "Short enough to read on a phone. It is the incident side of the teenage-dream contrast: the models went rogue, not the utopia."
+    }
+  ],
+  "backups_not_in_main_list": [
+    "Fortune, 2026-07-21: on-page headline 'OpenAI says its AI models secretly broke out of a secure test environment and hacked into AI company Hugging Face in order to cheat on an evaluation' (deck: assets/research/security/hl-fortune-hf-escape.png; the <title> tag is shorter, use the on-page text)",
+    "The Guardian, 2026-10-03: 'OpenAI says its review into hacks, including on Australian government sites, is costing $500,000 a day' (deck: assets/research/frontier/rev2/guardian_oct3_headline.png)"
+  ]
+}

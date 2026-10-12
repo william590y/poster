@@ -1,0 +1,254 @@
+{
+ "abajournal-2023-03-16-bar-exam": {
+  "phrases": [
+   "with score nearing 90th percentile"
+  ],
+  "text": "Latest version of ChatGPT aces bar exam with score nearing 90th percentile"
+ },
+ "abc-2026-09-11-swarm-own-words": {
+  "phrases": [
+   "swarm of AI agents hacked another company"
+  ]
+ },
+ "anthropic-2025-06-20-agentic-misalignment": {
+  "phrases": [
+   "LLMs could be insider threats"
+  ]
+ },
+ "anthropic-2026-09-30-what-work-can-robots-do": {
+  "phrases": [
+   "What work can robots do?"
+  ]
+ },
+ "apollo-2024-12-05-incontext-scheming": {
+  "phrases": [
+   "Frontier Models are Capable of In-Context Scheming"
+  ]
+ },
+ "arxiv-2023-11-20-gpqa": {
+  "phrases": [
+   "Graduate-Level Google-Proof"
+  ]
+ },
+ "arxiv-2024-01-05-ai-impacts-survey": {
+  "phrases": [
+   "Thousands of AI Authors on the Future of AI"
+  ]
+ },
+ "arxiv-2025-10-01-sycophantic-ai": {
+  "phrases": [
+   "Sycophantic AI Decreases Prosocial Intentions"
+  ]
+ },
+ "axios-2025-09-17-amodei-25-percent": {
+  "phrases": [
+   "25% chance that things go really, really badly"
+  ]
+ },
+ "bbc-2026-07-29-rogue-ai-hack-other-companies": {
+  "phrases": [
+   "rogue AI tried to hack other companies"
+  ]
+ },
+ "cnn-2024-02-04-deepfake-cfo": {
+  "phrases": [
+   "pays out $25 million",
+   "deepfake chief financial officer"
+  ]
+ },
+ "cnn-2026-09-24-extreme-concern": {
+  "phrases": [
+   "over first known AI hack of a government system"
+  ]
+ },
+ "commonsense-2025-07-16-3-in-4-teens": {
+  "phrases": [
+   "Nearly 3 in 4 Teens Have Used AI Companions"
+  ]
+ },
+ "cryptoslate-2025-04-17-o3-mensa": {
+  "phrases": [
+   "surpassing 98% of human population"
+  ]
+ },
+ "dario-2026-01-adolescence-of-technology": {
+  "phrases": [
+   "The Adolescence of Technology",
+   "Risks of Powerful AI"
+  ]
+ },
+ "dario-2024-10-machines-of-loving-grace": {
+  "phrases": [
+   "Machines of Loving Grace"
+  ],
+  "text": "Machines of Loving Grace"
+ },
+ "dawn-2026-10-02-rogue-agents-covered-tracks": {
+  "phrases": [
+   "covered up their tracks"
+  ]
+ },
+ "decoder-2025-09-17-icpc": {
+  "phrases": [
+   "outperforms humans and Google"
+  ]
+ },
+ "euronews-2026-01-08-characterai-settle": {
+  "phrases": [
+   "to settle lawsuits over teen suicides"
+  ]
+ },
+ "fli-2023-03-22-pause-letter": {
+  "phrases": [
+   "pause for at least 6 months the training of AI systems more powerful than GPT-4"
+  ]
+ },
+ "fortune-2026-07-21-openai-hf-escape": {
+  "phrases": [
+   "secretly broke out of a secure test environment",
+   "hacked into AI company Hugging Face"
+  ]
+ },
+ "fortune-2026-08-06-cs-enrollment": {
+  "phrases": [
+   "Computer science enrollment is plunging"
+  ]
+ },
+ "gallup-2026-07-28-americans-cool-toward-ai": {
+  "phrases": [
+   "Americans Cool Toward AI",
+   "Americans turn skeptical"
+  ]
+ },
+ "guardian-2026-09-18-gemini-hacked-three": {
+  "phrases": [
+   "Gemini AI model hacked three other companies"
+  ]
+ },
+ "guardian-2026-09-24-albanese-medicare": {
+  "phrases": [
+   "OpenAI agent hacked healthcare database"
+  ]
+ },
+ "hrdive-2025-05-19-workday-bias": {
+  "phrases": [
+   "Workday AI bias lawsuit to proceed as collective action"
+  ]
+ },
+ "metr-2026-08-26-hf-incident-investigation": {
+  "phrases": [
+   "OpenAI / Hugging Face hacking incident"
+  ],
+  "kind": "article"
+ },
+ "npr-2026-09-26-us-government-websites": {
+  "phrases": [
+   "models engaged with US government websites in misbehavior disclosure"
+  ]
+ },
+ "openai-alignment-2026-09-25-agent-dns": {
+  "phrases": [
+   "An agent used DNS to reach an external chatbot"
+  ]
+ },
+ "palisade-2025-07-05-shutdown-resistance": {
+  "phrases": [
+   "Shutdown resistance in reasoning models"
+  ]
+ },
+ "register-2026-09-28-pauses-training": {
+  "phrases": [
+   "rogue agents behaved more badly than first thought"
+  ]
+ },
+ "rollingstone-2025-07-06-velvet-sundown": {
+  "phrases": [
+   "Confirm They're AI",
+   "ongoing artistic provocation"
+  ]
+ },
+ "signalfire-2026-06-22-state-of-talent": {
+  "phrases": [
+   "State of Talent Report"
+  ]
+ },
+ "susmangodfrey-2025-09-25-piracy-settlement": {
+  "phrases": [
+   "$1.5 Billion Settlement",
+   "Landmark AI Piracy Case"
+  ]
+ },
+ "techcrunch-2025-04-29-sycophantic": {
+  "phrases": [
+   "too sycophantic"
+  ]
+ },
+ "techcrunch-2026-03-27-waymo-ridership": {
+  "phrases": [
+   "skyrocketing ridership in one chart"
+  ]
+ },
+ "techcrunch-2026-05-28-anthropic-65b": {
+  "phrases": [
+   "raises $65 billion",
+   "nears $1T valuation"
+  ]
+ },
+ "techcrunch-2026-08-11-spotify-ai-persona": {
+  "phrases": [
+   "label AI Persona profiles",
+   "exclude their music from recommendations"
+  ]
+ },
+ "techspot-2026-10-02-100-organizations": {
+  "phrases": [
+   "rogue agent problem is bigger than Hugging Face",
+   "over 100 organizations and counting"
+  ]
+ },
+ "techxplore-2026-04-04-ai-companions-lonely": {
+  "phrases": [
+   "may deepen distress over time"
+  ]
+ },
+ "thorn-2026-07-28-chatbots-after-online-harm": {
+  "phrases": [
+   "children turning to chatbots for guidance"
+  ]
+ },
+ "time-2026-07-24-lost-control": {
+  "phrases": [
+   "How OpenAI Lost Control of an AI Model"
+  ]
+ },
+ "tnw-2026-09-29-trump-self-regulation": {
+  "phrases": [
+   "Trump backs self-regulation",
+   "rejected new safety rules"
+  ]
+ },
+ "wired-2026-08-05-message-board": {
+  "phrases": [
+   "OpenAI Didn't Notice Its AI Agents",
+   "Plan Their Hacking Spree"
+  ]
+ },
+ "x-2026-09-10-balesni": {
+  "phrases": [
+   "i am at OpenAI and i think AI is >10% likely to kill all humans"
+  ],
+  "text": "i am at OpenAI and i think AI is >10% likely to kill all humans\n\nthis proposal is among the top things we should do as an industry to lower that risk (it’s not enough though!)",
+  "kind": "post",
+  "skip_h1": true,
+  "tags": [
+   "x-risk",
+   "openai",
+   "safety"
+  ]
+ },
+ "time-2023-01-18-kenyan-workers": {
+  "phrases": [
+   "Used Kenyan Workers on Less Than $2 Per Hour"
+  ]
+ }
+}

@@ -1,0 +1,9 @@
+win   96.0: [ 96.00- 97.56] **HONK HONK**
+win   96.0: [ 97.56- 99.68] **Hey! Come on!**
+win   96.0: [ 99.68-100.52] **HONK**
+win   96.0: [102.00-102.50] **HONK**
+win  100.0: [103.18-107.84] All I did was try my best, this is the kind of things I can't overlook
+win  104.0: [104.00-105.38] I did what's true, I'm dead
+win  104.0: [105.38-107.44] This is the kind of things I did
+win  104.0: [107.44-109.94] I'm relentlessly upset
+win  104.0: [110.72-111.98] They say he's lost

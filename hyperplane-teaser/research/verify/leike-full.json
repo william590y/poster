@@ -1,0 +1,49 @@
+{
+  "key": "leike-full",
+  "claim": "Jan Leike's 17 May 2024 X post contains the sentence 'However, I have been disagreeing with OpenAI leadership about the company's core priorities for quite some time, until we finally reached a breaking point.'",
+  "confirmed": true,
+  "exact_text": "However, I have been disagreeing with OpenAI leadership about the company's core priorities for quite some time, until we finally reached a breaking point.",
+  "post": {
+    "author": "Jan Leike (@janleike)",
+    "status_url": "https://x.com/janleike/status/1791498178346549382",
+    "status_id": "1791498178346549382",
+    "published_utc": "2024-05-17T15:57:04Z",
+    "displayed_time": "3:57 PM · May 17, 2024",
+    "position_in_thread": "Second post in the reply chain: it replies to 1791498177327341609 ('Stepping away from this job has been one of the hardest things I have ever done...'), which replies to 1791498176446492784.",
+    "full_text": "I joined because I thought OpenAI would be the best place in the world to do this research.\n\nHowever, I have been disagreeing with OpenAI leadership about the company's core priorities for quite some time, until we finally reached a breaking point."
+  },
+  "evidence": {
+    "screenshot": {
+      "path": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/x-leike-2024-05-17-breaking-point.png",
+      "size": "1096x960 PNG",
+      "reading": "Parent post 'Stepping away from this job...' ('Replying to @janleike') above a child post 'I joined because I thought OpenAI would be the best place in the world to do this research.' followed by the 'However...' sentence on a new paragraph. Timestamp 3:57 PM · May 17, 2024. The sentence matches word for word; 'company's' uses a straight apostrophe."
+    },
+    "live_fetch": {
+      "fetched_on": "2026-10-10",
+      "x_status_page": "https://x.com/janleike/status/1791498178346549382 returned page text containing the sentence verbatim; published_date 2024-05-17T15:57:04.000Z.",
+      "syndication_tweet_result": "cdn.syndication.twimg.com tweet-result for id 1791498178346549382 returns text 'I joined because I thought OpenAI would be the best place in the world to do this research.\\n\\nHowever, I have been disagreeing with OpenAI leadership about the company's core priorities for quite some time, until we finally reached a breaking point.', created_at 2024-05-17T15:57:04.000Z, in_reply_to 1791498177327341609."
+    },
+    "secondary_snippets": "Search snippets (not opened) from ft.com (dated May 17, 2024), computing.co.uk, getviralloop.com, lesswrong.com (May 20, 2024) and blog.linkingyourthinking.com quote the same sentence. Search snippets only; no page was fetched for these."
+  },
+  "discrepancies": [
+    {
+      "where": "/home/user/hyperplane-teaser/research/long/lyrics/quit-my-job.json, candidate rank 4, field 'url'",
+      "issue": "Cites https://x.com/janleike/status/1791498184671605209 for the breaking-point line. That ID is Leike's 'But over the past years, safety culture and processes have taken a backseat to shiny products.' post (the deck's leike-shiny-products.png, slide 70). The 'However' post is 1791498178346549382.",
+      "correct": "https://x.com/janleike/status/1791498178346549382"
+    },
+    {
+      "where": "/home/user/hyperplane-teaser/research/long/plan/v1b.verify.json, idx 0 (text_exact check)",
+      "issue": "Says the source_url could not be opened (x.com HTTP 402), so the status ID was unconfirmed, and asks for the status ID to be checked. Today the x.com status page, the TinyFish fetch and the syndication endpoint all returned the post. The status ID check is resolved by the corrected URL above.",
+      "correct": "Status ID to be replaced with 1791498178346549382 for the breaking-point line."
+    },
+    {
+      "where": "/home/user/hyperplane-teaser/research/long/lyrics/quit-my-job.json, candidate rank 4, field 'verified_how'",
+      "issue": "Says the scraped page order differs from the deck's note on which tweet opens the thread, and asks for the screenshot to be checked. The screenshot settles it: the 'I joined... However...' post is the second post in the chain, under 'Stepping away from this job...'."
+    }
+  ],
+  "long_json_check": {
+    "file": "/home/user/hyperplane-teaser/render/video/edl/long.json, item 'v1-leike' (pullquote)",
+    "text": "“…until we finally reached a breaking point.”",
+    "result": "Verbatim tail of the exact sentence. The ellipsis stands for 'However, I have been disagreeing with OpenAI leadership about the company's core priorities for quite some time,'. Correct as written. Its _note's 'x-leike-2024-05-17-breaking-point.png, second post of the thread, 3:57 PM · May 17, 2024' also checks out against the screenshot and the live post."
+  }
+}

@@ -1,0 +1,39 @@
+<section id="s3-10" data-transition="fade" style="background:#17242c;color:#eef1ec;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#6cc3b8">Results</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#eef1ec">Pause: which result would you trust least?</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:48px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#b9c7c4">Show of hands</p>
+<div style="display:flex;flex-direction:row;flex-wrap:wrap;gap:16px">
+<p style="font-size:28px;line-height:1.35;color:#eef1ec;white-space:nowrap;border:2px solid #6cc3b8;border-radius:40px;padding:10px 28px">Table 2 exponents</p>
+<p style="font-size:28px;line-height:1.35;color:#eef1ec;white-space:nowrap;border:2px solid #6cc3b8;border-radius:40px;padding:10px 28px">ICL (Fig. 4)</p>
+<p style="font-size:28px;line-height:1.35;color:#eef1ec;white-space:nowrap;border:2px solid #6cc3b8;border-radius:40px;padding:10px 28px">Reward ablations (Table 5)</p>
+<p style="font-size:28px;line-height:1.35;color:#eef1ec;white-space:nowrap;border:2px solid #6cc3b8;border-radius:40px;padding:10px 28px">Warm start (Fig. 6)</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:column;gap:20px">
+<p style="font-size:36px;line-height:1.3;color:#eef1ec">What single control would change your mind?</p>
+<div style="display:flex;flex-direction:row;gap:24px;align-items:stretch">
+<div style="flex:1;border:1px solid #b9c7c4;border-radius:12px;padding:24px">
+<p style="font-size:28px;line-height:1.35;color:#eef1ec">Unigram or copy-last-byte baseline on the same records</p>
+</div>
+<div style="flex:1;border:1px solid #b9c7c4;border-radius:12px;padding:24px">
+<p style="font-size:28px;line-height:1.35;color:#eef1ec">Byte-permuted eval data</p>
+</div>
+<div style="flex:1;border:1px solid #b9c7c4;border-radius:12px;padding:24px">
+<p style="font-size:28px;line-height:1.35;color:#eef1ec">Shuffled-reward run at scale</p>
+</div>
+</div>
+</div>
+</div>
+<div data-build-in="fade" style="position:absolute;left:128px;top:696px;width:1664px;display:flex;flex-direction:column;gap:8px;border-left:4px solid #6cc3b8;padding:0px 0px 0px 24px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#6cc3b8">In the paper</p>
+<p style="font-size:28px;line-height:1.35;color:#eef1ec">The paper reports none of these three controls. Its trivial references are the 8.02 random-bytes row (Table 5) and the 3-bit DNA alphabet floor (App. B.5)</p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#b9c7c4">Cowsik et al. 2026 · Table 2, p.21; Fig. 4, p.10; Table 5, p.31; Fig. 6, p.22; App. B.5</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#b9c7c4">22</p>
+<aside>About 1.5 minutes.
+Discussion pause, about 1.5 minutes; no critique yet, it follows. Collect a show of hands on the first question (Table 2 exponents, ICL in Fig. 4, reward ablations in Table 5, warm start in Fig. 6), then one or two answers on the second (candidate controls: a unigram or copy-last-byte baseline on the same records, byte-permuted eval data, a shuffled-reward run at scale). Then reveal the second-click line: the boxed "In the paper" line at the bottom fades in on the next click. It says the paper reports none of these three controls; its trivial references are the 8.02 random-bytes row (Table 5) and the 3-bit DNA alphabet floor (App. B.5). Talking points from the paper's own setup: Table 2 compares exponents across tokenizers and models (p.21). Table 5 has no variance and no no-preconditioner row (p.31). ICL gives no model scale or instance counts (App. D). Fig. 6 excludes self-play compute (p.22). [mine] My own pick is the trivial baselines, which the critique section takes up first.</aside>
+</section>

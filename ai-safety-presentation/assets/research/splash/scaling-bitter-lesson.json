@@ -1,0 +1,87 @@
+{
+  "group": "splash",
+  "items": [
+    {
+      "id": "bitter-lesson-quote-general-methods",
+      "slide_topic": "scaling: why more computation keeps winning (bitter lesson)",
+      "type": "quote",
+      "file": null,
+      "dek": "general methods that leverage computation are ultimately the most effective, and by a large margin.",
+      "outlet": "incompleteideas.net (Rich Sutton's personal site)",
+      "author": "Rich Sutton",
+      "date": "2019-03-13",
+      "url": "http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
+      "caption": "Opening sentence of Rich Sutton's essay 'The Bitter Lesson' (March 13, 2019), quoted verbatim.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Verified against the full essay text in a Chrome print of the page (copy at https://www.cs.utexas.edu/~eunsol/courses/data/bitter_lesson.pdf; footer reads www.incompleteideas.net/IncIdeas/BitterLesson.html, printed 2/3/22). The original site returned HTTP 503 to WebFetch on both http and https during this run, so the original page itself was not loaded today. Full extracted text saved in scaling-bitter-lesson-source.txt (sentence is line 7). The line break after 'leverage' is a PDF layout wrap, not a hyphen."
+    },
+    {
+      "id": "bitter-lesson-quote-search-and-learning",
+      "slide_topic": "scaling: the two methods that keep scaling (search and learning)",
+      "type": "quote",
+      "file": null,
+      "dek": "Search and learning are the two most important classes of techniques for utilizing massive amounts of computation in AI research.",
+      "outlet": "incompleteideas.net (Rich Sutton's personal site)",
+      "author": "Rich Sutton",
+      "date": "2019-03-13",
+      "url": "http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
+      "caption": "Sutton's summary of which methods keep scaling with computation, quoted verbatim from 'The Bitter Lesson'.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Same verification as bitter-lesson-quote-general-methods (loaded copy of the essay, not the original site). Sentence is in the Go/chess section (line 41 of scaling-bitter-lesson-source.txt). The essay's later line 'The two methods that seem to scale arbitrarily in this way are search and learning.' is also verified in the same copy."
+    }
+  ],
+  "datasets": [],
+  "facts": [
+    {
+      "claim": "Plain meaning (paraphrase of Sutton's essay): AI methods that just use more computing power and learn from data have repeatedly beaten methods where people programmed in their own knowledge of the problem.",
+      "source": "Rich Sutton, 'The Bitter Lesson' (essay, 2019)",
+      "url": "http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
+      "date": "2019-03-13",
+      "notes": "Paraphrase, not a quote. Loaded from the UT Austin print copy (see item notes). Original site returned HTTP 503 during this run."
+    },
+    {
+      "claim": "In computer chess, the methods that defeated the world champion, Kasparov, in 1997, were based on massive, deep search.",
+      "source": "Rich Sutton, 'The Bitter Lesson' (essay, 2019)",
+      "url": "http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
+      "date": "2019-03-13",
+      "notes": "Claim as stated in the essay; not checked against a separate source."
+    },
+    {
+      "claim": "Sutton attributes the pattern to Moore's law, or rather its generalization of continued exponentially falling cost per unit of computation.",
+      "source": "Rich Sutton, 'The Bitter Lesson' (essay, 2019)",
+      "url": "http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
+      "date": "2019-03-13",
+      "notes": "Direct quote from the essay's opening section."
+    },
+    {
+      "claim": "In speech recognition, a DARPA competition in the 1970s was won by statistical methods based on hidden Markov models (HMMs), beating methods that used human knowledge of words, phonemes and the vocal tract.",
+      "source": "Rich Sutton, 'The Bitter Lesson' (essay, 2019)",
+      "url": "http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
+      "date": "2019-03-13",
+      "notes": "Claim as stated in the essay; not checked against a separate source."
+    },
+    {
+      "claim": "Sutton's four-point summary of the pattern: researchers build in human knowledge, which helps in the short term; in the long run it plateaus and can inhibit progress; breakthroughs then come from an opposing approach that scales computation by search and learning.",
+      "source": "Rich Sutton, 'The Bitter Lesson' (essay, 2019)",
+      "url": "http://www.incompleteideas.net/IncIdeas/BitterLesson.html",
+      "date": "2019-03-13",
+      "notes": "Paraphrase of the essay's four numbered points, not a quote."
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "scaling/bitter-lesson: original essay page loaded directly from incompleteideas.net",
+      "searched": "WebFetch on http:// and https:// both returned HTTP 503 (about 05:11 to 05:13 UTC, 2026-10-10). tools/shot.js on the http URL captured only a proxy error page (deleted, not used). web.archive.org was refused by WebFetch. Full text was taken from a Chrome print of the essay instead."
+    },
+    {
+      "outline_item": "scaling/bitter-lesson: a real screenshot of the essay page",
+      "searched": "shot.js on http://www.incompleteideas.net/IncIdeas/BitterLesson.html returned a proxy error page, not the essay; deleted. No usable screenshot was captured."
+    },
+    {
+      "outline_item": "scaling/bitter-lesson: numeric dataset (chart)",
+      "searched": "The essay contains no numeric series. datasets left empty."
+    }
+  ]
+}

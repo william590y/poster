@@ -1,0 +1,26 @@
+<section id="s2-01" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Method</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">Generator writes programs, learner predicts bytes</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:48px;align-items:start">
+<div style="display:flex;flex-direction:column;gap:12px">
+<div style="background:#ffffff;border:1px solid #dde1da;border-radius:12px;padding:16px">
+<img src="/_blob/9a224ddde4d3dcc567eaa9fb5bd78083" alt="Paper's Fig. 1 top: a randomly initialized generator writes programs, a universal Turing machine runs them into byte sequences, and a randomly initialized learner trains on the bytes; a plot of the learner's gradient g_i against its parameter movement Δθ_i gives the generator reward r_i = |⟨g_i, Δθ_i⟩|, which feeds an RL update; external natural data is not used for training" style="width:930px;height:557px;object-fit:contain">
+</div>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">Paper's Fig. 1 (top), p.3</p>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">1</span> · Generator</b>, a random-init Llama, writes program x_i, ending in F</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">2</span> · Machine U</b> runs it on random tape ω_i → bytes y_i = U(x_i, ω_i)</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">3</span> · Learner</b> (same architecture, independent weights) trains on the bytes, not the programs (Eq. 1)</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b><span style="color:#1d6f68">4</span> · Reward</b>: the learner's gradients score each program (Eq. 2) → policy gradient + reward-weighted SFT</p>
+<div style="background:#ebefe9;border-radius:12px;padding:24px">
+<p style="font-size:28px;line-height:1.35;color:#17242c"><b><span style="color:#1d6f68">No natural data</span></b> in any gradient step; only val-loss selection (p.8) and zero-shot eval</p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · Fig. 1 (top), p.3; Sec. 2 and 2.1, p.4; Sec. 2.3, p.7; p.8</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">6</p>
+<aside>About 1.5 minutes. Walk the loop once (Sec. 2 items 1-3, p.4). Both networks start random: "tabula rasa" (p.2). Two random-init Llama decoders, same architecture, independent weights (pp.4, 7). Generator g_φ samples programs; machine U runs them into bytes; learner π_θ predicts the bytes (Sec. 2, p.4). The learner trains on the output bytes, not on the programs (Sec. 2.1, p.4): "These output bytes, rather than the programs themselves, constitute the learner's training data" (p.4). The learner's own gradients score each program; that score is the generator's reward. Generator update: policy gradient on the reward, plus reward-weighted SFT over a pool of fresh, replayed and mutated programs (p.4; Eq. 5). Sec. 2 item 3 also gives the generator "a supervised fine-tuning objective on existing programs to mitigate catastrophic forgetting and on mutated programs to promote exploration" (p.4). In the loop, no natural data in any gradient step; natural data enters only through validation-based selection (p.8) and zero-shot evaluation. Natural data touches the self-play pipeline only through selection: DCLM + DNA validation loss picks hyperparameters, and each dataset's validation loss picks checkpoints, ensemble sizes and frontier points (p.8). Plus zero-shot evaluation. Downstream, the final self-play checkpoint also initializes natural-data pretraining (App. A.1). App. A.1 is separate: there, self-play checkpoints are warm starts that do train on natural data. Labels from my own sketch of the loop (adapted from Fig. 1 top, p.3; arrows and labels are mine), to say while pointing at the paper's unmodified figure: the generator draws on a pool of fresh + mutated + replay programs; program x_i has variable length ≤ L and ends in F (sampled over 19 logits); the machine U is Brainf*ck + 10 macros and reads a random tape ω_i; bytes y_i = U(x_i, ω_i); the learner's loss is next-byte cross-entropy (Eq. 1); the return path is reward r_i (Eq. 2) → policy gradient + reward-weighted SFT (Eqs. 3-5); natural data gets no gradient steps, only zero-shot eval and val loss for hyperparameters, checkpoints and frontier (p.8). 19 is the logit set (8 + 10 + F, p.7), not program length; programs are in A^{≤L} (p.4), and L is not reported. The figure on the slide is the paper's own diagram, Fig. 1 top, p.3 (figs/fig1a-method-diagram.png).</aside>
+</section>

@@ -1,0 +1,156 @@
+{
+ "key": "prelude-riff",
+ "items": [
+  {
+   "id": "g-dark-prelude",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "g-cream-riff",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "paint",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "sketch",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "altman",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Text, hl ('the end of the world', exact substring), mark ('most likely'), stamp (Sam Altman, Then president, Y Combinator, 2015) and source (Airbnb fireside chat, 2015) all match research/verify/altman-2015.json + SUMMARY.md. Heard window 1.86-6.34 re-run on small.en: 'I think AI will probably like most likely sort of lead to the end of the world.' Energy check: 'world' ends 6.29, the next word 'but' begins ~6.375, so out 6.34 is clean; the in-point sits in the gap after 'You know,' (declick 15 ms covers the last 20 ms of its tail). Crop x320-920,y80-491 excludes the burned-in subtitles (y>=556), shows Altman (not Curtis). One timing slip: 'LEAD' is lit at source 5.10 (song 9.36) but is spoken at ~5.40 (song 9.66), after a 0.5 s pause (4.84-5.30); the beat-20 flash/'LEAD just lit' therefore leads the voice by 0.3 s (the other words are within ~0.12 s: PROBABLY 2.66 not 2.78, WILL 2.40 not 2.52).",
+   "fix": "Optional: set LEAD s to 5.40 (and, if wanted, WILL 2.42, PROBABLY 2.68, SORT 4.40); update beat -20's 'LEAD (9.36)' to 9.66."
+  },
+  {
+   "id": "amodei",
+   "ok": false,
+   "problem": "AUDIO WINDOW CUTS 'badly'. audio.out 1069.34 (song 14.533) ends before the final syllable of the last captioned word: energy/formants show 'bad' 1069.04-1069.22, /l/ 1069.30-1069.34 and the /i/ of '-ly' 1069.36-1069.46 (F1~350, F2~2400-2650 Hz), then silence until 'and' at 1069.73. So the heard word is 'bad-l' (the whole /i/ lost; the 15 ms declick also fades the /l/); small.en only decodes 'badly' from context. (In-point 1065.67 is clean: it sits in the 1065.66-1065.70 gap between 'think' and 'there's'.) SECONDARY, karaoke/hit timing: the word times are whisper's, which attribute pauses to the next word, so several are early against the real onsets: 25% s 1066.01 vs real 'twenty' ~1066.26 (song ~11.45, i.e. ON hb:-16 11.49; the 0.25 s pause 1066.0-1066.22 precedes it), CHANCE 1067.07 vs 1067.20, THAT 1067.33 vs 1067.44, GO 1067.73 vs 1067.84, REALLY, 1068.01 vs 1068.32 (song 13.51; a 0.26 s pause 1068.06-1068.30 precedes it), REALLY 1068.59 vs 1068.66, BADLY 1068.87 vs 1069.04. So the punch/shake/chip at song:11.203, the 'REALLY,' chip/punch at 13.203 and the 'BADLY' punch/shake at 14.063 all fire in silence 0.17-0.3 s before the word. Texts, hl ('25%', 'really, really badly' are exact substrings), the 75% sub line (verbatim, amodei-line.json), stamp (Dario Amodei, CEO, Anthropic, 2025), source (Axios AI+ DC Summit, Sep 17, 2025) and crop (centre speaker = Amodei, Axios wall kept, lower-third excluded) are all correct.",
+   "fix": "Set content.audio.out to 1069.50 (song window 10.863-14.693; next sound 'and' is at 1069.73, so cut in 1069.49-1069.70), drop 'lcut' (unneeded), and update audible_snippets[1].out to 1069.50 / song [10.863, 14.693]. Re-time caption.words s: 25% 1066.26, CHANCE 1067.20, THAT 1067.44, GO 1067.84, REALLY, 1068.32, REALLY 1068.66, BADLY 1069.04; move the 25% punch/shake to hb:-16 (11.49), the 'REALLY,' punch to ~13.51 and the 'BADLY' punch/shake to ~14.23 (the 'bad' onset); re-time the 25% circle so it still lands after the phrase's last word ('percent' ends ~1067.10, song 12.30), e.g. at hb:-14 (12.458); update the beat -16/-14/-13/-12/-10 event text and word_times_song accordingly."
+  },
+  {
+   "id": "frame-pencil",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "sketch-plane",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "sketch-dots",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Geometry re-checked: every orange stamp lies above the plane's top-edge line and every blue stamp below its bottom-edge line; all 19 stamps sit inside x 60-1020, y 1585-1850; entry beats match the beats[] event text (coordinates identical).",
+   "fix": ""
+  },
+  {
+   "id": "pile-hf",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): All six shots verified against the images: texts match captures.json/screens.json exactly (Fortune 2026-07-21, TIME 2026-07-24, Hugging Face blog 2026-07-27 'Published July 27, 2026' visible, BBC News 2026-07-29 '29 July 2026' visible, WIRED 2026-08-18 'AUG 18, 2026' visible, Gizmodo 2026-10-02), outlet/dates right, chronological order correct, each hl index is the recorded phrase (Fortune hl 1 = 'hacked into AI company Hugging Face'; the others hl 0), every phrase is an exact substring of the visible headline with OCR boxes; Gizmodo crop [0,10,928,485] keeps the whole headline incl. 'So Far' and drops the sub-head. Attributions ('OpenAI says its...') stay in the visible headlines. One cosmetic overreach in the record used here: TIME highlights[0].boxes[2] [158,487,602,561] is the OCR token 'Model-and', so the marker also covers '-and' (x 377-598) although the phrase ends at 'Model' (letters end at x=374).",
+   "fix": "In research/rev2/captures.json time-2026-07-24-lost-control highlights[0].boxes[2], set x1 to 378 -> [158,487,378,561] (keeps 'Model', excludes the em dash and 'and')."
+  },
+  {
+   "id": "kand-riff",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "kc-pink-agents-a",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Source window 72.0-75.0 matches broll.json ale-agent-wall; used 72.0-73.21. srcFocus/srcZoom crop (x 166-1114, y 151-685) excludes the beige 'Come test your agents on ALE!' caption (y<105). Credit 'Agents' Last Exam, 2026' is correct (labor.json outlet name).",
+   "fix": ""
+  },
+  {
+   "id": "kc-pink-coxon",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Window 452.27-454.20 is not one of the two windows listed in broll.json for coxon-daily-show (443-446, 528.8-530.1) but it is the same clip as the voice, and I verified it: Coxon's face sits inside crop (250,20,540x540), no subtitles in the crop, one continuous shot with a hard camera cut at 454.20 (frame diff 50 vs <3 elsewhere), and the 0.1 s fade to flat pink hides it. Picture/voice sync offset (431.22) is consistent.",
+   "fix": ""
+  },
+  {
+   "id": "kc-pink-agents-b",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Half-speed run reaches source 75.21, 0.21 s past the recorded window end (75.0) but it is the same continuous wall shot (frames at 75.0, 75.2, 75.6 checked), so fine.",
+   "fix": ""
+  },
+  {
+   "id": "kc-blue-racks",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Run reaches source ~37.15-37.23 vs recorded window 34.0-37.0; same continuous aisle shot (the file's splice cuts are at 32.0 and 42.0; no cut detected), so fine. Credit 'xAI Colossus (ServeTheHome), 2024' matches broll.json.",
+   "fix": ""
+  },
+  {
+   "id": "fluid-riff",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "splat-drop",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "voice-coxon",
+   "ok": false,
+   "problem": "(low severity) The window shaves the end of 'again'. audio.out 454.30 with fade_ms 40 means the fade starts at 454.26; spectrally 'a-GAIN' is a(454.12-454.17) + 'gain' 454.22-454.36 (vowel 454.23-454.35, F1 rising to ~780 Hz), so only ~40 ms of the final syllable is at full level and the rest of its vowel and the nasal are faded/lost ('a-ga'). The head is correct: 'Like,' ends 452.27, the gap 452.28-452.53 is silent, 'restarted' starts ~452.54, so in 452.42 carries none of it. Words heard = 'Restarted the thing and it did it again' (small.en on the exact window), matching the caption.",
+   "fix": "Set audio.out to 454.37 (song 23.15) with fade_ms 20-25 (or the 15 ms declick); the 45 ms of overlap with the title downbeat (23.103) is masked by the riff's crash, or keep the duck through ~23.2. Update audible_snippets[2].out and song end accordingly."
+  },
+  {
+   "id": "coxon-stamp",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): 'on OpenAI's escaped agent' is an editorial context label and is accurate to Coxon's own account on the show ('OpenAI specifically, they saw the thing poking its head out of the sandbox... restarted the thing, and it did it again', clips/transcripts/coxon.json 445.38-454.26).",
+   "fix": ""
+  },
+  {
+   "id": "kar-coxon",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): Caption '...RESTARTED THE THING, AND IT DID IT AGAIN.' is verbatim of what is heard. Word times (base.en) lead the real onsets slightly: AND is lit at 453.56 but spoken at ~453.72 (after a 0.3 s pause), THING 453.06 vs 453.14, RESTARTED 452.48 vs 452.54, DID/IT/AGAIN 0.04-0.06 s early; harmless under the sweep except 'AND' (0.16 s early; also the beat-6 'and (22.34) lit' text).",
+   "fix": "Optional: AND s 453.72 (song 22.50), THING 453.12, RESTARTED 452.52."
+  },
+  {
+   "id": "credit-coxon",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "eq-superpose",
+   "ok": true,
+   "problem": "ADVISORY (non-blocking): LaTeX verbatim equals equations.json superposition.latex (x' = \\text{ReLU}(W^TWx + b)); cite 'Elhage et al. 2022, Toy Models of Superposition (arXiv:2209.10652)' equals .cite; hl 'highlight' = W^TW and extra:0 = \\text{ReLU}.",
+   "fix": ""
+  },
+  {
+   "id": "riff-credit",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "grain-prelude",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  },
+  {
+   "id": "paper",
+   "ok": true,
+   "problem": "",
+   "fix": ""
+  }
+ ],
+ "beats_missing": []
+}

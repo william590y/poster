@@ -1,0 +1,967 @@
+{
+  "group": "splash/learning-types",
+  "items": [
+    {
+      "id": "cifar10-labelled-grid",
+      "slide_topic": "Supervised learning: labelled examples",
+      "type": "screenshot",
+      "file": "cifar10-labelled-grid.png",
+      "headline": "The CIFAR-10 dataset",
+      "dek": "Here are the classes in the dataset, as well as 10 random images from each",
+      "outlet": "University of Toronto (Alex Krizhevsky's CIFAR page)",
+      "author": null,
+      "date": null,
+      "url": "https://www.cs.toronto.edu/~kriz/cifar.html",
+      "caption": "Real screenshot of the official CIFAR-10 sample table: 10 class names (airplane, automobile, bird, cat, deer, dog, frog, horse, ship, truck) x 10 random images each.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Unedited screenshot of the page's table (final URL redirected to cave.cs.toronto.edu/kriz/cifar.html). Page text: 'The CIFAR-10 dataset consists of 60000 32x32 colour images in 10 classes, with 6000 images per class. There are 50000 training images and 10000 test images.' and 'CIFAR-10 and CIFAR-100 were created by Alex Krizhevsky, Vinod Nair, and Geoffrey Hinton.' Teaching point: each picture is only 32x32 pixels, so it looks blurry on a projector - that blur is authentic. Best slide for 'a label (the word) is attached to every picture'. Image copyright: cite Krizhevsky 2009 tech report; academic fair use."
+    },
+    {
+      "id": "imagenet-ilsvrc-fig1-labelled-categories",
+      "slide_topic": "Supervised learning: ImageNet labelled photos",
+      "type": "image",
+      "file": "imagenet-ilsvrc-fig1-labelled-categories.png",
+      "headline": "ImageNet Large Scale Visual Recognition Challenge",
+      "dek": null,
+      "outlet": "arXiv / IJCV (Russakovsky et al., ImageNet Large Scale Visual Recognition Challenge)",
+      "author": "Olga Russakovsky, Jia Deng, Hao Su, ... Li Fei-Fei",
+      "date": "2014-09-01",
+      "url": "https://arxiv.org/abs/1409.0575",
+      "caption": "Fig. 1 of the ILSVRC paper: 8 rows x 4 real ImageNet photos with their text labels (Candle, Oyster, Cannon, Spider Web, Lizard, Stocking, Mushroom, Strawberry, Compass, Racket, Minivan, Steel Drum, Canoe, Pill Bottle, Horse-cart, Monkey, Skewdriver, Hatchet, Pool Table, Leopard, Mug, Tank, Ant, Red Wine, Jigsaw Puzzle, Foreland, Lion, Bell, Orange, Laptop, Four-poster, Airliner).",
+      "quality": 5,
+      "verified": true,
+      "notes": "Cropped (no other edits) from the paper PDF page 6 (https://arxiv.org/pdf/1409.0575), rendered at 300 dpi; portrait 1836x2584. Verbatim caption: 'The diversity of data in the ILSVRC image classification and single-object localization tasks. For each of the eight dimensions, we show example object categories along the range of that property.' Tall figure: on a 16:9 slide crop to 2-3 rows (rows 1-3 are Object Scale / Number of Instances / Image Clutter). Rows contain a 'Cannon' and a 'Tank' (museum/field photos, nothing graphic) - crop them out if you want zero military content. arXiv v1 submitted 1 Sep 2014; journal version IJCV 2015."
+    },
+    {
+      "id": "ilsvrc-turning-point-quote",
+      "slide_topic": "Supervised learning: ImageNet 2012 deep-learning turning point",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "ILSVRC2012. This was a turning point for large-scale object recognition, when large-scale deep neural networks entered the scene.",
+      "outlet": "arXiv / IJCV (Russakovsky et al.)",
+      "author": null,
+      "date": "2014-09-01",
+      "url": "https://arxiv.org/pdf/1409.0575",
+      "caption": "Paper's own description of 2012.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Section 5.1, 'ILSVRC2012' paragraph (text extracted from the PDF I downloaded). Same paragraph: the SuperVision team 'trained a large, deep convolutional neural network on RGB values, with 60 million parameters using an efficient GPU implementation and a novel hidden-unit dropout trick (Krizhevsky et al., 2012; Hinton et al., 2012)'. The ILSVRC2013 paragraph: 'Following the success of the deep learning-based method in 2012, the vast majority of entries in 2013 used deep convolutional neural networks'."
+    },
+    {
+      "id": "lecun-cake-isscc2019-slide",
+      "slide_topic": "Three kinds of learning: LeCun's cake (modern version)",
+      "type": "image",
+      "file": "lecun-cake-isscc2019-slide.png",
+      "headline": "Yann LeCun Cake Analogy 2.0",
+      "dek": null,
+      "outlet": "Synced Review (reproducing Yann LeCun's ISSCC 2019 slide 59)",
+      "author": "Synced",
+      "date": "2019-02-22",
+      "url": "https://syncedreview.com/2019/02/22/yann-lecun-cake-analogy-2-0/",
+      "caption": "LeCun's slide 'How Much Information is the Machine Given during Learning?': cherry = 'Pure' Reinforcement Learning ('A few bits for some samples'), icing = Supervised Learning ('10->10,000 bits per sample'), cake genoise = Self-Supervised Learning ('Millions of bits per sample'), with a photo of a chocolate cake and arrows.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Image downloaded from the Synced article (2208x1244). Slide footer: '(c) 2019 IEEE International Solid-State Circuits Conference ... 1.1: Deep Learning Hardware: Past, Present, & Future ... 59'. Slide credit 'Y. LeCun'. This is the single best kid-friendly picture for 'three kinds of learning'. Credit LeCun/ISSCC 2019 on the slide; cake photo is a stock image he used."
+    },
+    {
+      "id": "lecun-cake-nips2016-slide",
+      "slide_topic": "Three kinds of learning: LeCun's cake (original 2016 wording)",
+      "type": "image",
+      "file": "lecun-cake-nips2016-slide.png",
+      "headline": "Yann LeCun Cake Analogy 2.0",
+      "dek": null,
+      "outlet": "Synced Review (reproducing LeCun's NIPS 2016 slide)",
+      "author": "Synced",
+      "date": "2019-02-22",
+      "url": "https://syncedreview.com/2019/02/22/yann-lecun-cake-analogy-2-0/",
+      "caption": "Original slide: cherry = 'Pure' Reinforcement Learning, icing = Supervised Learning, cake = 'Unsupervised/Predictive Learning'; footnote '(Yes, I know, this picture is slightly offensive to RL folks. But I'll make it up)'.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Only 784x502 (low resolution). Use as a small inset next to the 2019 version to show LeCun renamed the cake 'unsupervised' -> 'self-supervised'."
+    },
+    {
+      "id": "lecun-cake-quote",
+      "slide_topic": "Three kinds of learning: LeCun's cake quote",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "If intelligence is a cake, the bulk of the cake is unsupervised learning, the icing on the cake is supervised learning, and the cherry on the cake is reinforcement learning (RL).",
+      "outlet": "Synced Review",
+      "author": "Yann LeCun (quoted by Synced Review)",
+      "date": "2019-02-22",
+      "url": "https://syncedreview.com/2019/02/22/yann-lecun-cake-analogy-2-0/",
+      "caption": "Quote of LeCun's NIPS 2016 analogy, as printed by Synced.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Synced text: 'Facebook AI Chief Yann LeCun introduced his now-famous “cake analogy” at NIPS 2016'. 'LeCun updated his cake recipe last week at the 2019 International Solid-State Circuits Conference (ISSCC) in San Francisco, replacing “unsupervised learning” with “self-supervised learning,” a variant of unsupervised learning where the data provides the supervision.' Also: 'Like supervised learning, self-supervised learning learns a function from pairs of inputs and outputs. But instead of having annotators manually label the data, self-supervised learning automatically generates labels by extracting weak annotation information from the input data and predicting the rest.' Article published 2019-02-22. Nuance for the teacher: this is one researcher's (famous) opinion, and LeCun is a vocal advocate of self-supervised learning."
+    },
+    {
+      "id": "clustering-kmeans-convergence",
+      "slide_topic": "Unsupervised learning: clustering finds groups with no labels",
+      "type": "image",
+      "file": "clustering-kmeans-convergence.gif",
+      "headline": "K-means convergence",
+      "dek": null,
+      "outlet": "Wikimedia Commons (user Chire)",
+      "author": "Chire",
+      "date": "2017-05-30",
+      "url": "https://commons.wikimedia.org/wiki/File:K-means_convergence.gif",
+      "caption": "Animated GIF (15 frames, 637x619): points of three hidden groups get coloured red / yellow / blue as the k-means algorithm moves its cluster centres ('Iteration #0 ... #9'); nobody supplied labels.",
+      "quality": 4,
+      "verified": true,
+      "notes": "License: CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0), artist 'Chire', dated 2017-05-30 per Commons metadata; description: 'Convergence of k-means clustering from an unfavorable starting position (two initial cluster centers are fairly close). Generated with ELKI.' MUST credit on the slide: 'Chire, CC BY-SA 4.0, via Wikimedia Commons'. Math-y but works as 'the computer groups similar dots by itself'; show a still (frame Iteration #9) if the GIF is awkward in PPT."
+    },
+    {
+      "id": "unsup-google-cat-neuron-image",
+      "slide_topic": "Unsupervised learning: the Google 'cat neuron'",
+      "type": "image",
+      "file": "unsup-google-cat-neuron-image.png",
+      "headline": "Using large-scale brain simulations for machine learning and A.I.",
+      "dek": null,
+      "outlet": "Google blog (official Google Blog, 2012)",
+      "author": "Jeff Dean and Andrew Ng",
+      "date": "2012-06-26",
+      "url": "https://blog.google/innovation-and-ai/products/using-large-scale-brain-simulations-for/",
+      "caption": "The cat-face image used in Google's 2012 post about the cat-detecting neuron (file name 'cat_detection'; 1000x869; a soft, blurry grey-brown cat face).",
+      "quality": 4,
+      "verified": true,
+      "notes": "The blog page gives this image no caption, and I did not confirm it is the same picture as the paper's Figure 6 (captioned 'Visualization of the cat face neuron (left) and human body neuron (right)', a much smaller, blurrier panel). Safest slide caption: 'Google's 2012 cat-detector experiment'. Blog text: 'one of our artificial neurons learned to respond strongly to pictures of... cats. Remember that this network had never been told what a cat was, nor was it given even a single image labeled as a cat.' "
+    },
+    {
+      "id": "unsup-google-cat-blog-screenshot",
+      "slide_topic": "Unsupervised learning: Google cat blog headline",
+      "type": "screenshot",
+      "file": "unsup-google-cat-blog-screenshot.png",
+      "headline": "Using large-scale brain simulations for machine learning and A.I.",
+      "dek": null,
+      "outlet": "Google (blog.google)",
+      "author": "Jeff Dean, Andrew Ng",
+      "date": "2012-06-26",
+      "url": "https://blog.google/innovation-and-ai/products/using-large-scale-brain-simulations-for/",
+      "caption": "Real screenshot (cropped): headline 'Using large-scale brain simulations for machine learning and A.I.', Jun 26, 2012, authors Jeff Dean (Google Senior Fellow and SVP, Google AI) and Andrew Ng (Visiting Faculty).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Cropped from a 1280x1000 viewport screenshot; no edits. Body text (verbatim): 'In the standard machine learning approach, we first have to collect tens of thousands of pictures that have already been labeled as “car” or “motorcycle”—what we call labeled data—to train the system. But labeling takes a lot of work, and there’s comparatively little labeled data out there.' and 'we took an artificial neural network and spread the computation across 16,000 of our CPU cores (in our data centers)'. 'show it YouTube video for a week, what will it learn?' (blog says a week; the paper says three days of training)."
+    },
+    {
+      "id": "selfsup-mae-masked-reconstruction",
+      "slide_topic": "Self-supervised learning: hide part of the data and predict it",
+      "type": "image",
+      "file": "selfsup-mae-masked-reconstruction-fig2.png",
+      "headline": "Masked Autoencoders Are Scalable Vision Learners",
+      "dek": null,
+      "outlet": "arXiv (He et al., Meta/FAIR: Masked Autoencoders Are Scalable Vision Learners)",
+      "author": "Kaiming He, Xinlei Chen, Saining Xie, Yanghao Li, Piotr Dollar, Ross Girshick",
+      "date": "2021-11-11",
+      "url": "https://arxiv.org/abs/2111.06377",
+      "caption": "Fig. 2: 16 triplets - (left) a photo with ~80% of its patches blanked out, (middle) the model's reconstruction, (right) the real photo (clock, cheetah, junco bird, butterfly, bus, cabinet, french horn, coffee, dog, waterfall, bear cubs, harbour, lamp, dog, escalator, church).",
+      "quality": 5,
+      "verified": true,
+      "notes": "Cropped from PDF page 2 at 300 dpi (2068x726). Verbatim caption: 'Example results on ImageNet validation images. For each triplet, we show the masked image (left), our MAE reconstruction (middle), and the ground-truth (right). The masking ratio is 80%, leaving only 39 out of 196 patches.' No human labels used: the picture itself is the answer key. Perfect 'fill-in-the-blank' demo that mirrors predict-the-next-word. arXiv submitted 11 Nov 2021."
+    },
+    {
+      "id": "selfsup-definition-quote-mae",
+      "slide_topic": "Self-supervised learning: one-sentence definition",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "This appetite for data has been successfully addressed in natural language processing (NLP) by self-supervised pre-training. The solutions, based on autoregressive language modeling in GPT [47, 48, 4] and masked autoencoding in BERT [14], are conceptually simple: they remove a portion of the data and learn to predict the removed content.",
+      "outlet": "arXiv (He et al., MAE paper, Introduction)",
+      "author": null,
+      "date": "2021-11-11",
+      "url": "https://arxiv.org/pdf/2111.06377",
+      "caption": "Plain statement that GPT-style and BERT-style language models are self-supervised.",
+      "quality": 5,
+      "verified": true,
+      "notes": "From the Introduction of the MAE paper (PDF loaded). Cites GPT [47, 48, 4] and BERT [14]. Same paragraph begins: 'Aided by the rapid gains in hardware, models today can easily overfit one million images and begin to demand hundreds of millions of—often publicly inaccessible—labeled images.'"
+    },
+    {
+      "id": "gpt1-pretraining-quote",
+      "slide_topic": "LLM pretraining = learn from unlabeled text, then fine-tune",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "We demonstrate that large gains on these tasks can be realized by generative pre-training of a language model on a diverse corpus of unlabeled text, followed by discriminative fine-tuning on each specific task.",
+      "outlet": "OpenAI (Radford et al., 'Improving Language Understanding by Generative Pre-Training')",
+      "author": null,
+      "date": null,
+      "url": "https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf",
+      "caption": "Abstract of the original GPT paper.",
+      "quality": 4,
+      "verified": true,
+      "notes": "PDF loaded (12 pages, 'Preprint. Work in progress.'). The PDF carries no date; GPT-1 is from mid-2018 but I did NOT verify an exact date from a loaded page - leave the date off or say '2018'. Same abstract: 'Although large unlabeled text corpora are abundant, labeled data for learning these specific tasks is scarce'. Introduction: 'we explore a semi-supervised approach for language understanding tasks using a combination of unsupervised pre-training and supervised fine-tuning.'"
+    },
+    {
+      "id": "anthropic-next-word-quote",
+      "slide_topic": "LLM pretraining: predict the next word",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "How does a system trained to predict the next word in a sequence learn to calculate, say, 36+59, without writing out each step?",
+      "outlet": "Anthropic (Interpretability research)",
+      "author": null,
+      "date": "2025-03-27",
+      "url": "https://www.anthropic.com/research/tracing-thoughts-language-model",
+      "caption": "Frontier-lab statement that language models are trained to predict the next word and are not hand-programmed.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Page loaded with curl; strings verified in the raw HTML. Title 'Tracing the thoughts of a large language model', dated 'Mar 27, 2025'. Verbatim: 'Language models like Claude aren't programmed directly by humans—instead, they‘re trained on large amounts of data.' and 'Claude writes text one word at a time. Is it only focusing on predicting the next word or does it ever plan ahead?' and 'Claude wasn't designed as a calculator—it was trained on text, not equipped with mathematical algorithms.' (the page uses a curly left quote in 'they‘re')."
+    },
+    {
+      "id": "gpt3-scale-facts",
+      "slide_topic": "LLM pretraining: scale of next-word training",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "we train GPT-3, an autoregressive language model with 175 billion parameters",
+      "outlet": "arXiv (Brown et al., Language Models are Few-Shot Learners)",
+      "author": null,
+      "date": "2020-05-28",
+      "url": "https://arxiv.org/abs/2005.14165",
+      "caption": "GPT-3 paper facts.",
+      "quality": 5,
+      "verified": true,
+      "notes": "PDF loaded (arXiv v4, 22 Jul 2020; first submitted 28 May 2020). Verbatim: 'we train GPT-3, an autoregressive language model with 175 billion parameters' and 'All models were trained for a total of 300 billion tokens.'"
+    },
+    {
+      "id": "instructgpt-fig2-three-steps",
+      "slide_topic": "LLM post-training: supervised examples then RL from human feedback",
+      "type": "image",
+      "file": "instructgpt-fig2-three-steps.png",
+      "headline": "Training language models to follow instructions with human feedback",
+      "dek": null,
+      "outlet": "arXiv (Ouyang et al., OpenAI: Training language models to follow instructions with human feedback)",
+      "author": "Long Ouyang, Jeff Wu, Xu Jiang, ... Ryan Lowe",
+      "date": "2022-03-04",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "caption": "Figure 2: Step 1 'Collect demonstration data, and train a supervised policy.' (a labeler writes the ideal answer to 'Explain the moon landing to a 6 year old'); Step 2 'Collect comparison data, and train a reward model.' (a labeler ranks outputs A-D); Step 3 'Optimize a policy against the reward model using reinforcement learning.' (PPO, reward r_k).",
+      "quality": 5,
+      "verified": true,
+      "notes": "Cropped from PDF page 3 at 300 dpi (1710x1010). Verbatim caption: 'A diagram illustrating the three steps of our method: (1) supervised fine-tuning (SFT), (2) reward model (RM) training, and (3) reinforcement learning via proximal policy optimization (PPO) on this reward model.' arXiv submitted 4 Mar 2022. Abstract: 'we collect a dataset of labeler demonstrations of the desired model behavior, which we use to fine-tune GPT-3 using supervised learning. We then collect a dataset of rankings of model outputs, which we use to further fine-tune this supervised model using reinforcement learning from human feedback.' and 'outputs from the 1.3B parameter InstructGPT model are preferred to outputs from the 175B GPT-3, despite having 100x fewer parameters.' This figure is the cleanest map of SL -> RL inside one chatbot recipe (2022-era; modern post-training adds more RL on verifiable tasks, which this paper does not cover)."
+    },
+    {
+      "id": "alphago-lee-sedol-thinking",
+      "slide_topic": "Reinforcement learning: AlphaGo vs Lee Sedol",
+      "type": "image",
+      "file": "alphago-lee-sedol-thinking.png",
+      "headline": "AlphaGo - Mastering the game of Go",
+      "dek": null,
+      "outlet": "Google DeepMind (AlphaGo page)",
+      "author": null,
+      "date": null,
+      "url": "https://deepmind.google/research/alphago/",
+      "caption": "Official photo from the AlphaGo page: Lee Sedol, head in hand, studying the board during the March 2016 match, DeepMind logo and game clocks behind him (1440x810).",
+      "quality": 5,
+      "verified": true,
+      "notes": "Downloaded from the page's lh3.googleusercontent.com image (w1440). Page is undated; match dates per Wikipedia: 9-15 March 2016, Seoul. A person's tense face - fine for a school audience (no violence); caption it respectfully."
+    },
+    {
+      "id": "alphago-go-board-on-chip",
+      "slide_topic": "Reinforcement learning: AlphaGo",
+      "type": "image",
+      "file": "alphago-go-board-on-chip.png",
+      "headline": "AlphaGo",
+      "dek": null,
+      "outlet": "Google DeepMind (AlphaGo page)",
+      "author": null,
+      "date": null,
+      "url": "https://deepmind.google/research/alphago/",
+      "caption": "Official DeepMind illustration: a Go board laid out like a computer chip (1440x810).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Illustration (not a photo of the real match). Good background image for the AlphaGo slide."
+    },
+    {
+      "id": "alphago-team-watching",
+      "slide_topic": "Reinforcement learning: AlphaGo team",
+      "type": "image",
+      "file": "alphago-team-watching.png",
+      "headline": "AlphaGo",
+      "dek": null,
+      "outlet": "Google DeepMind (AlphaGo page)",
+      "author": null,
+      "date": null,
+      "url": "https://deepmind.google/research/alphago/",
+      "caption": "Official photo: five DeepMind researchers crowd around a monitor watching the AlphaGo game (1440x810).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Humanises the project (people building it). Page does not name them; do not name them on the slide."
+    },
+    {
+      "id": "alphago-wired-two-moves-headline",
+      "slide_topic": "Reinforcement learning: AlphaGo Move 37 headline",
+      "type": "screenshot",
+      "file": "alphago-wired-two-moves-header.png",
+      "headline": "In Two Moves, AlphaGo and Lee Sedol Redefined the Future",
+      "dek": "Although machines are now capable of moments of genius, humans have hardly lost the ability to generate their own.",
+      "outlet": "WIRED",
+      "author": "Cade Metz",
+      "date": "2016-03-16",
+      "url": "https://www.wired.com/2016/03/two-moves-alphago-lee-sedol-redefined-future/",
+      "caption": "Real screenshot (cropped to the headline strip): 'In Two Moves, AlphaGo and Lee Sedol Redefined the Future', Cade Metz, Business, Mar 16, 2016 7:00 AM.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Dek: 'Although machines are now capable of moments of genius, humans have hardly lost the ability to generate their own.' Article tells both Move 37 (AlphaGo, game 2) and Move 78 (Lee Sedol, game 4). Verbatim lines: 'With the 37th move in the match’s second game, AlphaGo landed a surprise on the right-hand side of the 19-by-19 board that flummoxed even the world’s best Go players, including Lee Sedol. “That’s a very strange move,” said one commentator, himself a nine dan Go player, the highest rank there is. “I thought it was a mistake,” said the other. Lee Sedol, after leaving the match room, took nearly fifteen minutes to formulate a response.' and 'As Silver told me, AlphaGo had calculated that there was a one-in-ten-thousand chance that a human would make that move. But when it drew on all the knowledge it had accumulated by playing itself so many times—and looked ahead in the future of the game—it decided to make the move anyway. And the move was genius.' (the page text renders dashes as '---'; originals are em dashes). Move 78: 'Among Go players, the move was dubbed “God’s Touch.”'"
+    },
+    {
+      "id": "alphago-wired-sadness-beauty-headline",
+      "slide_topic": "Reinforcement learning: AlphaGo Move 37 headline (Fan Hui)",
+      "type": "screenshot",
+      "file": "alphago-wired-sadness-beauty-header.png",
+      "headline": "The Sadness and Beauty of Watching Google's AI Play Go",
+      "dek": "At first, the Go champion thought the move was rather odd. Then he saw it was wonderful.",
+      "outlet": "WIRED",
+      "author": "Cade Metz",
+      "date": "2016-03-11",
+      "url": "https://www.wired.com/2016/03/sadness-beauty-watching-googles-ai-play-go/",
+      "caption": "Real screenshot (cropped to the headline strip): 'The Sadness and Beauty of Watching Google's AI Play Go', Cade Metz, Business, Mar 11, 2016 7:00 AM.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Dek: 'At first, the Go champion thought the move was rather odd. Then he saw it was wonderful.' Opening: 'SEOUL, SOUTH KOREA --- At first, Fan Hui thought the move was rather odd. But then he saw its beauty. “It’s not a human move. I’ve never seen a human play this move,” he says. “So beautiful.” It’s a word he keeps repeating. Beautiful. Beautiful. Beautiful. The move was the 37th in the second game of the historic Go match between Lee Sedol, one of the world’s top players, and AlphaGo...' Fan Hui = three-time European Go champion who lost 5-0 to AlphaGo in Oct 2015."
+    },
+    {
+      "id": "alphago-nature-paper",
+      "slide_topic": "Reinforcement learning: AlphaGo = supervised learning THEN reinforcement learning",
+      "type": "headline",
+      "file": null,
+      "headline": "Mastering the game of Go with deep neural networks and tree search",
+      "dek": null,
+      "outlet": "Nature",
+      "author": "David Silver, Aja Huang, ... Demis Hassabis",
+      "date": "2016-01-27",
+      "url": "https://www.nature.com/articles/nature16961",
+      "caption": "AlphaGo's training recipe in the Nature abstract (published online 27 Jan 2016; Nature 529, 484-489).",
+      "quality": 5,
+      "verified": true,
+      "notes": "Page loaded. Abstract: 'These deep neural networks are trained by a novel combination of supervised learning from human expert games, and reinforcement learning from games of self-play.' and 'AlphaGo achieved a 99.8% winning rate against other Go programs, and defeated the human European Go champion by 5 games to 0. This is the first time that a computer program has defeated a human professional player in the full-sized game of Go, a feat previously thought to be at least a decade away.' Slide point: AlphaGo used BOTH supervised (copy human experts) and RL (play yourself) - exactly the same two-step shape as a chatbot's post-training."
+    },
+    {
+      "id": "alphago-deepmind-page-text",
+      "slide_topic": "Reinforcement learning: AlphaGo facts + Lee Sedol quote",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "I thought AlphaGo was based on probability calculation and that it was merely a machine. But when I saw this move, I changed my mind. Surely, AlphaGo is creative.",
+      "outlet": "Google DeepMind",
+      "author": "Lee Sedol",
+      "date": null,
+      "url": "https://deepmind.google/research/alphago/",
+      "caption": "Facts and a Lee Sedol quote from DeepMind's AlphaGo page.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Verbatim: 'AlphaGo’s 4-1 victory in Seoul, South Korea, in March 2016 was watched by over 200 million people worldwide. This landmark achievement was a decade ahead of its time.' 'Go ... is a googol times more complex than chess — with an astonishing 10 to the power of 170 possible board configurations. That’s more than the number of atoms in the known universe.' 'Initially, we introduced AlphaGo to thousands of expert games of Go so the system could learn how humans play the game. Then we instructed AlphaGo to play against different versions of itself thousands of times, each time learning from its mistakes — a method known as reinforcement learning.' 'In game two, it played Move 37 — a move that had a 1 in 10,000 chance of being used.' 'Then in game four, Lee Sedol played a Move 78, which had a 1 in 10,000 chance of being played. Known as “God’s Touch”'. 'reinforcement learning showed how machines can learn to solve incredibly hard problems for themselves, simply through trial-and-error.' Lee Sedol (credited 'Winner of 18 world Go titles'): the quote below (page does not say which move he is reacting to)."
+    },
+    {
+      "id": "alphago-wikipedia-commentary",
+      "slide_topic": "Reinforcement learning: Move 37 commentators (and game dates)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "creative",
+      "outlet": "Wikipedia (AlphaGo versus Lee Sedol)",
+      "author": null,
+      "date": "2016-03-10",
+      "url": "https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol",
+      "caption": "Commentator reactions and the game-by-game table.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Secondary source (Wikipedia, page loaded). 'Michael Redmond (9p) noted that AlphaGo's 19th stone (move 37) was \"creative\" and \"unique\". It was a move that most professional players would not have considered. Lee took an unusually long time to respond. An Younggil (8p) called AlphaGo's move 37 \"a rare and intriguing shoulder hit\" but said Lee's counter was \"exquisite\".' Game table: G1 9 Mar 2016 (Lee resigned, 186 moves); G2 10 Mar (AlphaGo Black; Lee resigned; 211); G3 12 Mar (Lee resigned; 176); G4 13 Mar (AlphaGo resigned; 180); G5 15 Mar (Lee resigned; 280). Result AlphaGo 4 - 1 Lee Sedol. Fan Hui match: 5-0 in October 2015."
+    },
+    {
+      "id": "alphago-movie-video",
+      "slide_topic": "Reinforcement learning: AlphaGo documentary (YouTube)",
+      "type": "video",
+      "file": "alphago-movie-thumb.jpg",
+      "headline": "AlphaGo - The Movie | Full award-winning documentary",
+      "dek": null,
+      "outlet": "Google DeepMind (YouTube)",
+      "author": null,
+      "date": "2020-03-13",
+      "url": "https://www.youtube.com/watch?v=WXuK6gekU1Y",
+      "caption": "'AlphaGo - The Movie | Full award-winning documentary | Google DeepMind' - title card with Go board and the two players (thumbnail 640x480 only; YouTube serves no maxres).",
+      "quality": 3,
+      "verified": true,
+      "notes": "Embed id WXuK6gekU1Y; embed URL https://www.youtube.com/embed/WXuK6gekU1Y (it is the same video embedded on DeepMind's AlphaGo page). YouTube upload date Mar 13, 2020 (from the watch page); oEmbed title verified. Full film (about 90 min) - to show Move 37 you would need a start-time link; I did NOT verify the timestamp of Move 37 in the film, so no timestamp is given. YouTube downloads are blocked, so embed with thumbnail cover."
+    },
+    {
+      "id": "alphazero-deepmind-blog",
+      "slide_topic": "Reinforcement learning: AlphaZero (no human data)",
+      "type": "headline",
+      "file": null,
+      "headline": "AlphaZero: Shedding new light on chess, shogi, and Go",
+      "dek": null,
+      "outlet": "Google DeepMind",
+      "author": "David Silver, Thomas Hubert, Julian Schrittwieser, Demis Hassabis",
+      "date": "2018-12-06",
+      "url": "https://deepmind.google/blog/alphazero-shedding-new-light-on-chess-shogi-and-go/",
+      "caption": "'AlphaZero: Shedding new light on chess, shogi, and Go' (David Silver, Thomas Hubert, Julian Schrittwieser, Demis Hassabis), page date 2018-12-06; reports the full evaluation in Science.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Page loaded. Verbatim: 'In late 2017 we introduced AlphaZero, a single system that taught itself from scratch how to master the games of chess, shogi (Japanese chess), and Go, beating a world-champion program in each case.' 'despite starting its training from random play, with no in-built domain knowledge but the basic rules of the game.' 'To learn each game, an untrained neural network plays millions of games against itself via a process of trial and error called reinforcement learning. At first, it plays completely randomly, but over time the system learns from wins, losses, and draws to adjust the parameters of the neural network, making it more likely to choose advantageous moves in the future.' 'In chess, AlphaZero first outperformed Stockfish after just 4 hours; in shogi, AlphaZero first outperformed Elmo after 2 hours; and in Go, AlphaZero first outperformed the version of AlphaGo that beat the legendary player Lee Sedol in 2016 after 30 hours.' 'taking approximately 9 hours for chess, 12 hours for shogi, and 13 days for Go.' 'In chess, AlphaZero defeated the 2016 TCEC (Season 9) world champion Stockfish, winning 155 games and losing just six games out of 1,000.' 'In shogi, AlphaZero defeated the 2017 CSA world champion version of Elmo, winning 91.2% of games.' 'In Go, AlphaZero defeated AlphaGo Zero, winning 61% of games.' Preprint: arXiv 1712.01815 submitted 5 Dec 2017 ('Mastering Chess and Shogi by Self-Play with a General Reinforcement Learning Algorithm'). Caveat for honesty: games with perfect information and fixed rules; critics (e.g. The Register, Dec 2017) argued the 2017 Stockfish match hardware was not comparable - the 2018 Science evaluation reran with stronger setup."
+    },
+    {
+      "id": "alphazero-results-chart",
+      "slide_topic": "Reinforcement learning: AlphaZero results",
+      "type": "chart",
+      "file": "alphazero-results-chess-shogi-go.jpg",
+      "headline": "AlphaZero vs Stockfish / Elmo / AG0",
+      "dek": null,
+      "outlet": "Google DeepMind (AlphaZero blog)",
+      "author": null,
+      "date": "2018-12-06",
+      "url": "https://deepmind.google/blog/alphazero-shedding-new-light-on-chess-shogi-and-go/",
+      "caption": "Official results graphic: Chess (AlphaZero vs Stockfish: W 29.0%/D 70.6%/L 0.4% as white; W 2.0%/D 97.2%/L 0.8% as black), Shogi (vs Elmo: W 84.2/D 2.2/L 13.6 white; W 98.2/D 0.0/L 1.8 black), Go (vs AG0: W 68.9/L 31.1 white; W 53.7/L 46.3 black) (1200x743).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Percentages read off the graphic (per colour; 500 games each). They reconcile with the blog text: chess wins 29.0% x 500 + 2.0% x 500 = 155 wins and losses 0.4% x 500 + 0.8% x 500 = 6, out of 1,000; shogi (84.2 + 98.2)/2 = 91.2%; Go (68.9 + 53.7)/2 = about 61%."
+    },
+    {
+      "id": "alphazero-search-chart",
+      "slide_topic": "Reinforcement learning: AlphaZero searches less than chess engines",
+      "type": "chart",
+      "file": "alphazero-search-per-decision.jpg",
+      "headline": "Amount of Search per Decision",
+      "dek": null,
+      "outlet": "Google DeepMind (AlphaZero blog)",
+      "author": null,
+      "date": "2018-12-06",
+      "url": "https://deepmind.google/blog/alphazero-shedding-new-light-on-chess-shogi-and-go/",
+      "caption": "Official diagram 'Amount of Search per Decision': human grandmaster 100s of moves, AlphaZero 10,000s, state-of-the-art chess engines 10,000,000s (1440x811).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Nice 'it plays more like intuition' graphic. Matches the blog text: 'it searches only 60 thousand positions per second in chess, compared to roughly 60 million for Stockfish.'"
+    },
+    {
+      "id": "alphazero-video",
+      "slide_topic": "Reinforcement learning: AlphaZero video (YouTube)",
+      "type": "video",
+      "file": "alphazero-video-thumb.jpg",
+      "headline": "AlphaZero: Shedding new light on the grand games of chess, shogi and Go",
+      "dek": null,
+      "outlet": "Google DeepMind (YouTube)",
+      "author": null,
+      "date": "2018-12-06",
+      "url": "https://www.youtube.com/watch?v=7L2sUGcOgh0",
+      "caption": "'AlphaZero: Shedding new light on the grand games of chess, shogi and Go | Google DeepMind' (thumbnail shows three DeepMind researchers at a monitor; 1280x720).",
+      "quality": 3,
+      "verified": true,
+      "notes": "Embed URL https://www.youtube.com/embed/7L2sUGcOgh0 (embedded on the DeepMind blog). YouTube date Dec 6, 2018. The thumbnail is a generic photo of researchers, not a board - better to use the results chart for visuals."
+    },
+    {
+      "id": "hide-seek-fig1-six-stages",
+      "slide_topic": "Reinforcement learning: OpenAI hide-and-seek (six emergent strategies)",
+      "type": "image",
+      "file": "hide-seek-fig1-six-stages.png",
+      "headline": "Emergent Tool Use From Multi-Agent Autocurricula",
+      "dek": null,
+      "outlet": "arXiv / ICLR 2020 (Baker et al., OpenAI: Emergent Tool Use From Multi-Agent Autocurricula)",
+      "author": "Bowen Baker, Ingmar Kanitscheider, Todor Markov, Yi Wu, Glenn Powell, Bob McGrew, Igor Mordatch",
+      "date": "2019-09-17",
+      "url": "https://arxiv.org/abs/1909.07528",
+      "caption": "Paper Figure 1 (1680x1580): six rendered panels - (a) Running and Chasing, (b) Fort Building, (c) Ramp Use, (d) Ramp Defense, (e) Box Surfing, (f) Surf Defense - joined by a reward-vs-episodes plot (Hiders blue, Seekers red; x-axis 0-500 episodes x10^6, colour-coded phases).",
+      "quality": 5,
+      "verified": true,
+      "notes": "Cropped from PDF page 2 at 300 dpi. Verbatim caption: 'Figure 1: Emergent Skill Progression From Multi-Agent Autocurricula. Through the reward signal of hide-and-seek (shown on the y-axis), agents go through 6 distinct stages of emergence. (a) Seekers (red) learn to chase hiders, and hiders learn to crudely run away. (b) Hiders (blue) learn basic tool use, using boxes and sometimes existing walls to construct forts. (c) Seekers learn to use ramps to jump into the hiders’ shelter. (d) Hiders quickly learn to move ramps to the edge of the play area, far from where they will build their fort, and lock them in place. (e) Seekers learn that they can jump from locked ramps to unlocked boxes and then surf the box to the hiders’ shelter, which is possible because the environment allows agents to move together with the box regardless of whether they are on the ground or not. (f) Hiders learn to lock all the unused boxes before constructing their fort. We plot the mean over 3 independent training runs with each individual seed shown with a dotted line.' arXiv v1 submitted 17 Sep 2019 (ICLR 2020 version v2 11 Feb 2020). Cartoon characters - kid-friendly."
+    },
+    {
+      "id": "hide-seek-video",
+      "slide_topic": "Reinforcement learning: OpenAI hide-and-seek video (YouTube)",
+      "type": "video",
+      "file": "hide-seek-thumb.jpg",
+      "headline": "Multi-Agent Hide and Seek",
+      "dek": null,
+      "outlet": "OpenAI (YouTube)",
+      "author": null,
+      "date": "2019-09-17",
+      "url": "https://www.youtube.com/watch?v=kopoLzvh5jY",
+      "caption": "'Multi-Agent Hide and Seek' by OpenAI - thumbnail (1280x720): smiling blue hider and red seeker peeking around a wall, a ramp behind them.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Embed URL https://www.youtube.com/embed/kopoLzvh5jY. oEmbed verified title 'Multi-Agent Hide and Seek', author OpenAI; YouTube watch page shows upload date Sep 17, 2019 (same day as the arXiv paper). Not downloadable (YouTube blocked): use d.video with this thumbnail as cover. Also the paper's Figure 1 caption points to openai.com/blog/emergent-tool-use for example videos (that OpenAI page returns 403/Cloudflare to our tools, so not loaded)."
+    },
+    {
+      "id": "hide-seek-paper-quotes",
+      "slide_topic": "Reinforcement learning: hide-and-seek reward + specification gaming",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "agents were very skilled at exploiting small inaccuracies in the design of the environment",
+      "outlet": "arXiv / ICLR 2020 (Baker et al., OpenAI)",
+      "author": null,
+      "date": "2019-09-17",
+      "url": "https://arxiv.org/pdf/1909.07528",
+      "caption": "Reward design and surprise/exploit passages from the paper (PDF loaded).",
+      "quality": 5,
+      "verified": true,
+      "notes": "Verbatim: 'There are no explicit incentives for agents to interact with objects in the environment; the only supervision given is through the hide-and-seek objective. Agents are given a team based reward; hiders are given a reward of 1 if all hiders are hidden and -1 if any hider is seen by a seeker. Seekers are given the opposite reward, -1 if all hiders are hidden and +1 otherwise.' 'We originally believed defending against ramp use would be the last stage of emergence in this environment; however, we were surprised to find that yet two more qualitatively new strategies emerged. After 380 million total episodes of training, the seekers learn to bring a box to the edge of the play area where the hiders have locked the ramps. The seekers then use the ramp to move on top of the box and surf it to the hiders’ shelter.' 'We also found that agents were very skilled at exploiting small inaccuracies in the design of the environment, such as seekers surfing on boxes without touching the ground, hiders running away from the environment while shielding themselves with boxes, or agents exploiting inaccuracies of the physics simulations to their advantage.' Abstract: 'Through multi-agent competition, the simple objective of hide-and-seek, and standard reinforcement learning algorithms at scale, we find that agents create a self-supervised autocurriculum inducing multiple distinct rounds of emergent strategy, many of which require sophisticated tool use and coordination.' Safety bridge: the exploit paragraph is a real example of agents finding unintended loopholes in the reward/environment (specification gaming)."
+    },
+    {
+      "id": "rl-deepmind-humanoid-terrain",
+      "slide_topic": "Reinforcement learning: learning to walk by trial and error (simulation)",
+      "type": "image",
+      "file": "rl-deepmind-humanoid-terrain.gif",
+      "headline": "Producing flexible behaviours in simulated environments",
+      "dek": null,
+      "outlet": "Google DeepMind (blog: Producing flexible behaviours in simulated environments)",
+      "author": "Nicolas Heess, Josh Merel, Ziyu Wang",
+      "date": "2017-07-10",
+      "url": "https://deepmind.google/blog/producing-flexible-behaviours-in-simulated-environments/",
+      "caption": "Animated GIF (400x350, 52 frames): a simulated 'humanoid' mannequin learns to run and leap across gaps and platforms in an unfamiliar terrain.",
+      "quality": 5,
+      "verified": true,
+      "notes": "DeepMind caption: 'A simulated 'humanoid' walker learns to move forward in an unfamiliar terrain'. Downloaded from storage.googleapis.com/gdm-deepmind-com-prod-public (the blog's own GIFs). Blog date 2017-07-10 (page metadata), authors Nicolas Heess, Josh Merel, Ziyu Wang. Paper: 'Emergence of Locomotion Behaviours in Rich Environments' arXiv 1707.02286, submitted 7 Jul 2017; the training signal is only forward progress. Animated GIFs work in PowerPoint; the GIF frames are delta-compressed so extract frames with ImageMagick -coalesce if you need a still."
+    },
+    {
+      "id": "rl-deepmind-planar-walker-wall",
+      "slide_topic": "Reinforcement learning: learning to walk by trial and error (simulation)",
+      "type": "image",
+      "file": "rl-deepmind-planar-walker-wall.gif",
+      "headline": "Producing flexible behaviours in simulated environments",
+      "dek": null,
+      "outlet": "Google DeepMind (blog: Producing flexible behaviours in simulated environments)",
+      "author": "Nicolas Heess, Josh Merel, Ziyu Wang",
+      "date": "2017-07-10",
+      "url": "https://deepmind.google/blog/producing-flexible-behaviours-in-simulated-environments/",
+      "caption": "Animated GIF (450x350, 71 frames): a stick-figure 'planar' walker makes repeated attempts to climb over a wall.",
+      "quality": 5,
+      "verified": true,
+      "notes": "DeepMind caption: 'A simulated 'planar' walker makes repeated attempts to climb over a wall.' (nice picture of trial and error: it fails, retries, and gets over). Downloaded from storage.googleapis.com/gdm-deepmind-com-prod-public (the blog's own GIFs). Blog date 2017-07-10 (page metadata), authors Nicolas Heess, Josh Merel, Ziyu Wang. Paper: 'Emergence of Locomotion Behaviours in Rich Environments' arXiv 1707.02286, submitted 7 Jul 2017; the training signal is only forward progress. Animated GIFs work in PowerPoint; the GIF frames are delta-compressed so extract frames with ImageMagick -coalesce if you need a still."
+    },
+    {
+      "id": "rl-deepmind-ant-planks",
+      "slide_topic": "Reinforcement learning: learning to walk by trial and error (simulation)",
+      "type": "image",
+      "file": "rl-deepmind-ant-planks.gif",
+      "headline": "Producing flexible behaviours in simulated environments",
+      "dek": null,
+      "outlet": "Google DeepMind (blog: Producing flexible behaviours in simulated environments)",
+      "author": "Nicolas Heess, Josh Merel, Ziyu Wang",
+      "date": "2017-07-10",
+      "url": "https://deepmind.google/blog/producing-flexible-behaviours-in-simulated-environments/",
+      "caption": "Animated GIF (450x350, 51 frames): a four-legged simulated 'ant' balances on planks and jumps between them.",
+      "quality": 5,
+      "verified": true,
+      "notes": "DeepMind caption: 'A simulated 'ant' walker learns the precise movements required to jump between planks'. Downloaded from storage.googleapis.com/gdm-deepmind-com-prod-public (the blog's own GIFs). Blog date 2017-07-10 (page metadata), authors Nicolas Heess, Josh Merel, Ziyu Wang. Paper: 'Emergence of Locomotion Behaviours in Rich Environments' arXiv 1707.02286, submitted 7 Jul 2017; the training signal is only forward progress. Animated GIFs work in PowerPoint; the GIF frames are delta-compressed so extract frames with ImageMagick -coalesce if you need a still."
+    },
+    {
+      "id": "rl-deepmind-locomotion-video",
+      "slide_topic": "Reinforcement learning: DeepMind locomotion video (YouTube)",
+      "type": "video",
+      "file": "rl-deepmind-locomotion-thumb.jpg",
+      "headline": "Emergence of Locomotion Behaviours in Rich Environments",
+      "dek": null,
+      "outlet": "Google DeepMind (YouTube)",
+      "author": null,
+      "date": null,
+      "url": "https://www.youtube.com/watch?v=hx_bgoTF7bs",
+      "caption": "'Emergence of Locomotion Behaviours in Rich Environments' - the paper's demo video (thumbnail 1280x720: mannequin humanoid leaping over orange steps).",
+      "quality": 4,
+      "verified": true,
+      "notes": "Embed URL https://www.youtube.com/embed/hx_bgoTF7bs (link given on the arXiv abstract page as youtu.be/hx_bgoTF7bs; oEmbed title verified, uploader Google DeepMind). Upload date not read from the watch page (paper submitted to arXiv 7 Jul 2017; DeepMind blog 10 Jul 2017)."
+    },
+    {
+      "id": "rl-minitaur-real-robot-walking",
+      "slide_topic": "Reinforcement learning: a real robot learns to walk",
+      "type": "video",
+      "file": "rl-minitaur-real-robot-walking.mp4",
+      "headline": "Soft Actor Critic - Deep Reinforcement Learning with Real-World Robots",
+      "dek": null,
+      "outlet": "Berkeley AI Research (BAIR) blog / Google",
+      "author": "Tuomas Haarnoja, Vitchyr Pong, Kristian Hartikainen, Aurick Zhou, Murtaza Dalal, Sergey Levine",
+      "date": "2018-12-14",
+      "url": "https://bair.berkeley.edu/blog/2018/12/14/sac/",
+      "caption": "29.6 s clip (640x360 MP4) of the real 'Minitaur' four-legged robot walking with a policy learned by soft actor-critic: on a white sheet, in dim light, up a step onto foam tiles, and over wooden blocks (poster frame: rl-minitaur-poster-frame.png).",
+      "quality": 3,
+      "verified": true,
+      "notes": "Source: 'Minitaur-evaluation-all.gif' on the BAIR blog (320x180, 986 frames, 31 MB); converted to H.264 MP4 with ffmpeg and upscaled to 640x360 so it is small enough for a deck (pure format conversion, no edits; resolution is soft). Blog (Dec 14, 2018; Tuomas Haarnoja, Vitchyr Pong, Kristian Hartikainen, Aurick Zhou, Murtaza Dalal, Sergey Levine): 'The Minitaur robot (Google, Tuomas Haarnoja, Sehoon Ha, Jie Tan, and Sergey Levine).' 'An untrained policy can lose balance and fall, and too many falls will eventually damage the robot'. 'Although we trained our policy only on flat terrain, we then tested it on varied terrains and obstacles.' 'the Minitaur locomotion and the block-stacking tasks both take 2 hours'. NOTE this clip shows the LEARNED robot being tested; for the training itself use the YouTube 'SAC on Minitaur - Training' video below. Paper: 'Learning to Walk via Deep Reinforcement Learning' (arXiv 1812.11103, submitted 26 Dec 2018): 'Our method can acquire a stable gait from scratch directly in the real world in about two hours, without relying on any model or simulation'."
+    },
+    {
+      "id": "rl-minitaur-training-video",
+      "slide_topic": "Reinforcement learning: real robot learning to walk - training footage (YouTube)",
+      "type": "video",
+      "file": "rl-minitaur-training-thumb.jpg",
+      "headline": "SAC on Minitaur - Training",
+      "dek": null,
+      "outlet": "Tuomas Haarnoja (YouTube; linked from the Minitaur project site)",
+      "author": "Tuomas Haarnoja",
+      "date": "2018-12-12",
+      "url": "https://www.youtube.com/watch?v=FmMPHL3TcrE",
+      "caption": "'SAC on Minitaur - Training' - thumbnail (1280x720) shows the real robot mid-stumble with an on-screen timer '54 min' and '5x' speed label.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Embed URL https://www.youtube.com/embed/FmMPHL3TcrE; YouTube date Dec 12, 2018; embedded on https://sites.google.com/view/minitaur-locomotion/ together with 'SAC on Minitaur - Testing' (https://www.youtube.com/watch?v=KOObeIjzXTY, Dec 12, 2018). The timer overlay in the thumbnail is the real elapsed training time. Best 'it really learns from falling' clip; cannot be downloaded here, so embed with this thumbnail as cover."
+    },
+    {
+      "id": "rl-legged-gym-video",
+      "slide_topic": "Reinforcement learning: thousands of simulated robot dogs learn in parallel (YouTube)",
+      "type": "video",
+      "file": "rl-legged-gym-thumb.jpg",
+      "headline": "Learning to Walk in Minutes Using Massively Parallel Deep RL",
+      "dek": null,
+      "outlet": "ETH Zurich Robotic Systems Lab (YouTube)",
+      "author": null,
+      "date": "2021-10-05",
+      "url": "https://www.youtube.com/watch?v=8sO7VS3q8d0",
+      "caption": "'Learning to Walk in Minutes Using Massively Parallel Deep RL' - thumbnail (1280x720): dozens of simulated quadruped robots on stairs and slopes.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Embed URL https://www.youtube.com/embed/8sO7VS3q8d0; uploader 'Robotic Systems Lab: Legged Robotics at ETH Zürich'; YouTube date Oct 5, 2021; embedded on https://leggedrobotics.github.io/legged_gym/ (page loaded). I did not read the paper, so the 'minutes' claim rests only on the video title."
+    },
+    {
+      "id": "rl-dqn-breakout-video",
+      "slide_topic": "Reinforcement learning: DQN learns Atari Breakout (YouTube)",
+      "type": "video",
+      "file": "rl-dqn-breakout-thumb.jpg",
+      "headline": "From Pixels to Actions: Human-level control through Deep Reinforcement Learning",
+      "dek": null,
+      "outlet": "Google DeepMind (YouTube)",
+      "author": "Dharshan Kumaran and Demis Hassabis",
+      "date": "2015-02-25",
+      "url": "https://www.youtube.com/watch?v=TmPfTpjtdgg",
+      "caption": "'DQN Breakout' - official DeepMind video; thumbnail (1280x720) is the rainbow brick wall of Atari Breakout with the paddle at the bottom.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Embed URL https://www.youtube.com/embed/TmPfTpjtdgg (embedded on the Google Research blog post below). YouTube upload date Jun 13, 2016. Alternate popular explainer: 'Google DeepMind's Deep Q-learning playing Atari Breakout!' by Two Minute Papers, https://www.youtube.com/watch?v=V1eYniJ0Rnk (Mar 7, 2015), oEmbed verified. Blog (Dharshan Kumaran and Demis Hassabis, Feb 25, 2015; paper 'Human-level control through deep reinforcement learning', Nature, 26 Feb 2015): 'in Breakout, it learned to first dig a tunnel at one end of the brick wall so the ball could bounce around the back and knock out bricks from behind.' 'DQN outperformed previous machine learning methods in 43 of the 49 games. In fact, in more than half the games, it performed at more than 75% of the level of a professional human player.' 'only had the pixels on the screen, the control paddle in your hand, and the score to go on'."
+    },
+    {
+      "id": "rl-dqn-atari-performance-chart",
+      "slide_topic": "Reinforcement learning: DQN vs human across 49 Atari games",
+      "type": "chart",
+      "file": "rl-dqn-breakout-blog-figure.png",
+      "headline": "From Pixels to Actions: Human-level control through Deep Reinforcement Learning",
+      "dek": null,
+      "outlet": "Google Research blog / Nature (DQN paper figure)",
+      "author": null,
+      "date": "2015-02-25",
+      "url": "https://research.google/blog/from-pixels-to-actions-human-level-control-through-deep-reinforcement-learning/",
+      "caption": "Bar chart (899x1057) of DQN performance on 49 Atari games vs a 'Best linear learner', with a divider 'At human-level or above' / 'Below human-level'; Breakout 1327%, Video Pinball 2539%, Boxing 1707%, ... Montezuma's Revenge 0%.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Image from the blog post (Screen Shot 2015-02-24). Bar labels read off the figure. It shows both the wins and honest failures (Montezuma's Revenge 0%) - use to show RL is powerful but not magic."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "ilsvrc-top5-error-winners",
+      "title": "ImageNet challenge: winning top-5 classification error by year (lower is better)",
+      "unit": "% top-5 error",
+      "labels": [
+        "2010 (NEC-UIUC)",
+        "2011 (XRCE)",
+        "2012 (SuperVision / AlexNet)",
+        "2013 (Clarifai)",
+        "2014 (GoogLeNet)"
+      ],
+      "series": [
+        {
+          "name": "Winning team, flat top-5 classification error (%)",
+          "values": [
+            28.2,
+            25.8,
+            16.4,
+            11.7,
+            6.7
+          ]
+        }
+      ],
+      "source": "Russakovsky et al., ImageNet Large Scale Visual Recognition Challenge (Tables 5-7 of the arXiv PDF; text: 'a 4.2x reduction in image classification error (from 28.2% to 6.7%)'). Human error estimated at 5.1% (annotator A1 on 1,500 test images; GoogLeNet scored 6.8% on that same sample). In 2012 SuperVision also submitted an entry using extra ImageNet data: 15.3%. Object categories changed between 2010-2012, dataset fixed since 2012; teams here used the provided training data.",
+      "url": "https://arxiv.org/pdf/1409.0575"
+    },
+    {
+      "id": "hide-seek-stage-timeline",
+      "title": "Hide-and-seek: when each new strategy appeared (cumulative training episodes, millions; approximate)",
+      "unit": "million episodes",
+      "labels": [
+        "Run and chase (start)",
+        "Fort building (~25M)",
+        "Ramp use (+75M)",
+        "Ramp defense (+10M)",
+        "Box surfing (380M total)",
+        "End of plot (axis max)"
+      ],
+      "series": [
+        {
+          "name": "Cumulative episodes (millions), approximate",
+          "values": [
+            0,
+            25,
+            100,
+            110,
+            380,
+            500
+          ]
+        }
+      ],
+      "source": "Baker et al. 2019: 'After approximately 25 million episodes of hide-and-seek, the hiders learn to use the tools at their disposal ... After another 75 million episodes, the seekers also learn rudimentary tool use ... 10 million episodes later, the hiders learn to defend against this strategy ... After 380 million total episodes of training, the seekers learn to bring a box to the edge'. 100 = 25+75 and 110 = 100+10 are my sums; 500 = the x-axis maximum in Fig. 1; the stage-6 (surf defense) onset is not stated in text.",
+      "url": "https://arxiv.org/pdf/1909.07528"
+    },
+    {
+      "id": "alphazero-training-hours",
+      "title": "AlphaZero: hours of self-play to beat the champion program, and total training time",
+      "unit": "hours",
+      "labels": [
+        "Chess (vs Stockfish)",
+        "Shogi (vs Elmo)",
+        "Go (vs the AlphaGo that beat Lee Sedol)"
+      ],
+      "series": [
+        {
+          "name": "Hours until AlphaZero first outperformed that opponent",
+          "values": [
+            4,
+            2,
+            30
+          ]
+        },
+        {
+          "name": "Approx. total training time (hours); Go = 13 days x 24",
+          "values": [
+            9,
+            12,
+            312
+          ]
+        }
+      ],
+      "source": "DeepMind blog 'AlphaZero: Shedding new light on chess, shogi, and Go' (2018-12-06): 'In chess, AlphaZero first outperformed Stockfish after just 4 hours; in shogi, AlphaZero first outperformed Elmo after 2 hours; and in Go ... after 30 hours' and 'approximately 9 hours for chess, 12 hours for shogi, and 13 days for Go' (312 h is my conversion).",
+      "url": "https://deepmind.google/blog/alphazero-shedding-new-light-on-chess-shogi-and-go/"
+    },
+    {
+      "id": "alphago-lee-sedol-games",
+      "title": "AlphaGo vs Lee Sedol, March 2016: moves per game",
+      "unit": "moves",
+      "labels": [
+        "G1 (9 Mar, AlphaGo won)",
+        "G2 (10 Mar, AlphaGo won - Move 37)",
+        "G3 (12 Mar, AlphaGo won)",
+        "G4 (13 Mar, Lee Sedol won - Move 78)",
+        "G5 (15 Mar, AlphaGo won)"
+      ],
+      "series": [
+        {
+          "name": "Total moves in the game",
+          "values": [
+            186,
+            211,
+            176,
+            180,
+            280
+          ]
+        }
+      ],
+      "source": "Wikipedia 'AlphaGo versus Lee Sedol' summary table; final score AlphaGo 4 - Lee Sedol 1. DeepMind page: '4-1 victory in Seoul, South Korea, in March 2016 was watched by over 200 million people worldwide'.",
+      "url": "https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol"
+    },
+    {
+      "id": "dqn-atari-selected-scores",
+      "title": "DQN on Atari: selected scores (percent, bar labels printed in the Nature figure; the figure draws 'human-level' at 100%)",
+      "unit": "% (as printed in figure)",
+      "labels": [
+        "Video Pinball",
+        "Boxing",
+        "Breakout",
+        "Star Gunner",
+        "Pong",
+        "Space Invaders",
+        "Ms. Pac-Man",
+        "Montezuma's Revenge"
+      ],
+      "series": [
+        {
+          "name": "DQN score (%) as labelled on the figure",
+          "values": [
+            2539,
+            1707,
+            1327,
+            598,
+            132,
+            121,
+            13,
+            0
+          ]
+        }
+      ],
+      "source": "Figure in the Google Research blog 'From Pixels to Actions' (Feb 25, 2015) reproducing the Nature 2015 DQN results; values transcribed from the printed bar labels, not from the paper's tables.",
+      "url": "https://research.google/blog/from-pixels-to-actions-human-level-control-through-deep-reinforcement-learning/"
+    }
+  ],
+  "facts": [
+    {
+      "claim": "CIFAR-10 has 60,000 colour pictures, each only 32x32 pixels, in 10 labelled classes (6,000 per class): 50,000 for training and 10,000 for testing.",
+      "source": "Krizhevsky/Nair/Hinton, CIFAR page",
+      "url": "https://www.cs.toronto.edu/~kriz/cifar.html",
+      "date": null
+    },
+    {
+      "claim": "ImageNet contained 14,197,122 annotated images organized into 21,841 WordNet categories (as of August 2014); the competition version uses 1,000 classes and about 1.2 million training images.",
+      "source": "Russakovsky et al., ILSVRC paper",
+      "url": "https://arxiv.org/pdf/1409.0575",
+      "date": "2014-09-01"
+    },
+    {
+      "claim": "ImageNet's labels were checked by people: 'we rely on humans to verify each candidate image' using Amazon Mechanical Turk, 'an online platform on which one can put up tasks for users for a monetary reward'.",
+      "source": "Russakovsky et al., ILSVRC paper, Sec. 3.1.3",
+      "url": "https://arxiv.org/pdf/1409.0575",
+      "date": "2014-09-01"
+    },
+    {
+      "claim": "Best ImageNet classification error fell from 28.2% (2010) to 6.7% (2014); the paper estimates a trained human at 5.1%.",
+      "source": "Russakovsky et al., ILSVRC paper",
+      "url": "https://arxiv.org/pdf/1409.0575",
+      "date": "2014-09-01"
+    },
+    {
+      "claim": "The 2012 ImageNet winner (SuperVision, a.k.a. AlexNet) was 'a large, deep convolutional neural network ... with 60 million parameters' trained on GPUs; its 16.4% error beat the 2011 winner's 25.8%.",
+      "source": "Russakovsky et al., ILSVRC paper",
+      "url": "https://arxiv.org/pdf/1409.0575",
+      "date": "2014-09-01"
+    },
+    {
+      "claim": "Google's 2012 'cat' experiment used 10 million unlabeled 200x200 images, a network with 1 billion connections, and 16,000 CPU cores (1,000 machines) for three days; no image was ever labelled 'cat'.",
+      "source": "Le et al., 'Building high-level features using large-scale unsupervised learning' (arXiv abstract) and Google blog",
+      "url": "https://arxiv.org/abs/1112.6209",
+      "date": "2011-12-29"
+    },
+    {
+      "claim": "Self-supervised learning in one sentence: 'they remove a portion of the data and learn to predict the removed content.'",
+      "source": "He et al., Masked Autoencoders Are Scalable Vision Learners",
+      "url": "https://arxiv.org/pdf/2111.06377",
+      "date": "2021-11-11"
+    },
+    {
+      "claim": "GPT-3 was 'an autoregressive language model with 175 billion parameters', trained for 'a total of 300 billion tokens'.",
+      "source": "Brown et al., Language Models are Few-Shot Learners",
+      "url": "https://arxiv.org/abs/2005.14165",
+      "date": "2020-05-28"
+    },
+    {
+      "claim": "InstructGPT recipe: (1) supervised fine-tuning on labeler-written demonstrations, (2) train a reward model from labeler rankings, (3) reinforcement learning against that reward model; the 1.3B-parameter InstructGPT's outputs were preferred over the 175B GPT-3's despite 100x fewer parameters.",
+      "source": "Ouyang et al., Training language models to follow instructions with human feedback",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "date": "2022-03-04"
+    },
+    {
+      "claim": "'Language models like Claude aren't programmed directly by humans—instead, they‘re trained on large amounts of data.'",
+      "source": "Anthropic, Tracing the thoughts of a large language model",
+      "url": "https://www.anthropic.com/research/tracing-thoughts-language-model",
+      "date": "2025-03-27"
+    },
+    {
+      "claim": "AlphaGo beat Fan Hui 5-0 in October 2015, then Lee Sedol 4-1 in Seoul in March 2016, a match 'watched by over 200 million people worldwide'.",
+      "source": "Google DeepMind, AlphaGo",
+      "url": "https://deepmind.google/research/alphago/",
+      "date": null
+    },
+    {
+      "claim": "Go has 'an astonishing 10 to the power of 170 possible board configurations' - 'more than the number of atoms in the known universe'.",
+      "source": "Google DeepMind, AlphaGo",
+      "url": "https://deepmind.google/research/alphago/",
+      "date": null
+    },
+    {
+      "claim": "Move 37 (game 2, 10 March 2016): AlphaGo's own estimate was a 'one-in-ten-thousand chance that a human would make that move' - but it played it anyway, 'And the move was genius.'",
+      "source": "WIRED (Cade Metz), quoting David Silver",
+      "url": "https://www.wired.com/2016/03/two-moves-alphago-lee-sedol-redefined-future/",
+      "date": "2016-03-16"
+    },
+    {
+      "claim": "Fan Hui on Move 37: \"It's not a human move. I've never seen a human play this move... So beautiful.\"",
+      "source": "WIRED (Cade Metz)",
+      "url": "https://www.wired.com/2016/03/sadness-beauty-watching-googles-ai-play-go/",
+      "date": "2016-03-11"
+    },
+    {
+      "claim": "Lee Sedol won game 4 with his own 1-in-10,000 'Move 78', nicknamed 'God's Touch' - humans can still surprise the machine.",
+      "source": "Google DeepMind, AlphaGo; WIRED",
+      "url": "https://deepmind.google/research/alphago/",
+      "date": null
+    },
+    {
+      "claim": "AlphaGo learned from BOTH supervised learning on human expert games AND reinforcement learning from games of self-play.",
+      "source": "Silver et al., Nature 529, 484-489",
+      "url": "https://www.nature.com/articles/nature16961",
+      "date": "2016-01-27"
+    },
+    {
+      "claim": "AlphaZero 'taught itself from scratch' chess, shogi and Go by self-play (reinforcement learning from random play, no human games): it first beat Stockfish after 4 hours, Elmo after 2 hours, and the Lee-Sedol-beating AlphaGo after 30 hours.",
+      "source": "Google DeepMind, AlphaZero blog",
+      "url": "https://deepmind.google/blog/alphazero-shedding-new-light-on-chess-shogi-and-go/",
+      "date": "2018-12-06"
+    },
+    {
+      "claim": "In chess AlphaZero beat Stockfish winning 155 games and losing 6 out of 1,000; in shogi it won 91.2% against Elmo; in Go it won 61% against AlphaGo Zero.",
+      "source": "Google DeepMind, AlphaZero blog",
+      "url": "https://deepmind.google/blog/alphazero-shedding-new-light-on-chess-shogi-and-go/",
+      "date": "2018-12-06"
+    },
+    {
+      "claim": "OpenAI hide-and-seek (17 Sep 2019): the only reward was +1 for hiders if all are hidden (-1 if seen) and the reverse for seekers; from that alone, agents discovered six strategies - forts, ramps, locking ramps, box surfing - with no instructions about tools.",
+      "source": "Baker et al., Emergent Tool Use From Multi-Agent Autocurricula",
+      "url": "https://arxiv.org/abs/1909.07528",
+      "date": "2019-09-17"
+    },
+    {
+      "claim": "The hide-and-seek researchers 'originally believed defending against ramp use would be the last stage of emergence ... however, we were surprised' - box surfing appeared after 380 million episodes.",
+      "source": "Baker et al.",
+      "url": "https://arxiv.org/pdf/1909.07528",
+      "date": "2019-09-17"
+    },
+    {
+      "claim": "The hide-and-seek agents also exploited the simulator: 'seekers surfing on boxes without touching the ground ... agents exploiting inaccuracies of the physics simulations to their advantage' - an example of specification gaming.",
+      "source": "Baker et al., Discussion",
+      "url": "https://arxiv.org/pdf/1909.07528",
+      "date": "2019-09-17"
+    },
+    {
+      "claim": "DeepMind's agents learned to run, jump, turn and crouch in simulated obstacle courses from 'simple high-level objectives, such as moving forward without falling', receiving no specific instructions (July 2017).",
+      "source": "Google DeepMind blog",
+      "url": "https://deepmind.google/blog/producing-flexible-behaviours-in-simulated-environments/",
+      "date": "2017-07-10"
+    },
+    {
+      "claim": "A real four-legged Minitaur robot learned a stable walking gait 'from scratch directly in the real world in about two hours, without relying on any model or simulation' (Dec 2018).",
+      "source": "Haarnoja et al., Learning to Walk via Deep Reinforcement Learning (arXiv abstract)",
+      "url": "https://arxiv.org/abs/1812.11103",
+      "date": "2018-12-26"
+    },
+    {
+      "claim": "DeepMind's DQN learned 49 Atari games from pixels and score alone, beat earlier methods in 43 of them, and in Breakout discovered the tunnel-and-bounce-behind-the-wall strategy (Nature, Feb 2015).",
+      "source": "Google DeepMind / Google Research blog",
+      "url": "https://research.google/blog/from-pixels-to-actions-human-level-control-through-deep-reinforcement-learning/",
+      "date": "2015-02-25"
+    },
+    {
+      "claim": "LeCun's cake: 'the bulk of the cake is unsupervised learning, the icing on the cake is supervised learning, and the cherry on the cake is reinforcement learning'; in 2019 he renamed the cake 'self-supervised learning'.",
+      "source": "Synced Review",
+      "url": "https://syncedreview.com/2019/02/22/yann-lecun-cake-analogy-2-0/",
+      "date": "2019-02-22"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "OpenAI's own hide-and-seek blog page and downloadable GIF/MP4 clips",
+      "searched": "openai.com/index/emergent-tool-use (and /blog/emergent-tool-use) via curl, WebFetch and shot.js: 403 / Cloudflare 'Just a moment'; web.archive.org blocked for WebFetch. YouTube downloads are blocked. Substitute: paper Figure 1 (six stages) + YouTube embed kopoLzvh5jY with its thumbnail."
+    },
+    {
+      "outline_item": "NYT 'How Many Computers to Identify a Cat? 16,000' (John Markoff, 2012-06-25)",
+      "searched": "Only a secondary snippet (historyofinformation.com via search) names it; the NYT page was not loaded, so the headline is NOT verified verbatim. Substitute: Google's own blog post (Jun 26, 2012) + Le et al. paper (arXiv 1112.6209). Discrepancy to avoid: the arXiv v1 abstract says 'recognizing 20,000 object categories' while the later PDF and Google blog say 22,000 categories / 15.8% accuracy."
+    },
+    {
+      "outline_item": "A clip of Move 37 itself / a Go board diagram of Move 37",
+      "searched": "DeepMind AlphaGo page, Wikipedia (text only), Wired. No downloadable game clip (YouTube blocked); no verified timestamp of Move 37 inside 'AlphaGo - The Movie' (WXuK6gekU1Y). Substitute: official DeepMind photos, the two Wired headline screenshots and verbatim quotes."
+    },
+    {
+      "outline_item": "Downloadable real-robot clip of the TRAINING process (falling then walking)",
+      "searched": "BAIR blog GIF (shows the learned robot, tested on varied terrain; converted to MP4), project pages for Minitaur (YouTube 'SAC on Minitaur - Training' FmMPHL3TcrE), ETH legged_gym and DeepMimic (all embed YouTube, no direct mp4/gif). Substitutes: three real DeepMind simulation GIFs (planar walker failing and retrying, humanoid, ant) + YouTube embeds with thumbnails (the Minitaur training thumbnail shows an on-screen '54 min' timer)."
+    },
+    {
+      "outline_item": "OpenAI InstructGPT blog post (27 Jan 2022) / official 'predict the next word' sentence from an OpenAI page",
+      "searched": "openai.com pages return 403 to our tools. Substitutes: InstructGPT paper Fig. 2 (arXiv), GPT-1 abstract (OpenAI PDF), GPT-3 paper, MAE paper definition sentence, Anthropic's 'trained to predict the next word' sentence."
+    },
+    {
+      "outline_item": "Exact date for the GPT-1 paper (2018) and the GPT-2 paper (Feb 2019)",
+      "searched": "The PDFs I downloaded carry no date; not recorded to avoid guessing."
+    }
+  ]
+}

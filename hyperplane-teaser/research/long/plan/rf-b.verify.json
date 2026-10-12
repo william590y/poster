@@ -1,0 +1,30 @@
+{
+  "key": "rf-b-refrain-65.736-73.445",
+  "checks": [
+    {
+      "idx": 0,
+      "ok": false,
+      "problem": "text_exact 'STARGATE ABILENE · JUL 2026' is a typeset label; it is not printed on the image. The name (Epoch's live page calls it 'OpenAI Stargate Abilene') and the July 2026 date (timeline entry Jul 28, 2026; latest imagery Jul 27, 2026) are supported. The attribution 'IMAGERY: EPOCH AI (AIRBUS DS) · JUL 2026' is not confirmed: no Airbus credit appears on the image or on the live Epoch page; the Airbus credit rests only on the deck manifest ('Epoch AI (imagery © Airbus DS)'). The plan also cites an annotation 'all 8 buildings complete', which is not on the image or the live page; the live page says buildings 5-8 are 'structurally complete and roofed but not yet confirmed operational'. The on-screen treatment does not use that wording, but verified_how should not rely on it. correct_text replaces the attribution line until the Airbus credit is confirmed.",
+      "correct_text": "IMAGERY: EPOCH AI · JUL 2026"
+    },
+    {
+      "idx": 1,
+      "ok": true
+    },
+    {
+      "idx": 2,
+      "ok": true
+    },
+    {
+      "idx": 3,
+      "ok": false,
+      "problem": "The image shows Lee Sedol at the board with a partly legible scoreboard name and no date and no credit. The live DeepMind AlphaGo page has no photo credit line and gives no date for any photo; its only date is 'in March 2016' for the match in Seoul. 'PHOTO: DEEPMIND' rests only on the deck manifest (outlet 'Google DeepMind (AlphaGo page)'). 'MARCH 2016' for the photo rests on the manifest caption ('during the March 2016 match'), which neither the image nor the page confirms for this photo. Confirm the credit and the date before use, or caption as the match month only. No single correct_text is obvious."
+    },
+    {
+      "idx": 4,
+      "ok": false,
+      "problem": "text_exact matches verbatim: the live TNW page (after its 301 redirect) gives 'Even if I become the number one, there is an entity that cannot be defeated.' The date (Nov 27, 2019) and the attribution (Lee Sedol, speaking to Yonhap News Agency) are confirmed, as is the stamp 'LEE SEDOL · 2019' and the role 'GO PLAYER, RETIRING' (headline: 'World champion Go player retires: AI \"cannot be defeated\"'). The qualifier '(TRANSLATED FROM KOREAN)' in source_line is not stated on the TNW page; remove it unless Irish News or Yonhap is cited for it. The 'AI' label is the planned caveat, not source text, and is supported by the TNW headline.",
+      "correct_text": "AS REPORTED BY YONHAP · NOV 27, 2019"
+    }
+  ]
+}

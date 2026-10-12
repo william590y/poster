@@ -1,0 +1,340 @@
+{
+ "name": "test-charts",
+ "title": "Builder B: three hand-drawn charts and two equations on the chorus beats (song 42.4-58.0)",
+ "_note": "Builder B's test EDL (fx/charts.js, fx/equations.js). Song 42.4 -> 58.0 (the chorus, hb:48 = 42.49 .. hb:79), every element on a hits.json beat or 8th. Equations from research/rev2/equations.json (verified; GRPO in its portrait-stacked form, sub-terms by name: {\"from\": \"highlight\"}). Chart data from research/rev2/graphs.json (integrator: switched from the stand-in ids to dc-total-gw, training-compute, hle-quarterly). Prep the satellite image first: python3 render/video/prep_clips.py test-charts. Render: python3 render/video/render.py beats test-charts --from 0 --to 15.6",
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "duration": 15.6,
+ "audio": {
+  "song": "song/brutal.mp3",
+  "songStart": 42.4
+ },
+ "look": {
+  "ground": "#F2EBDD"
+ },
+ "themes": [
+  {
+   "t0": 0,
+   "t1": 100,
+   "theme": "light"
+  }
+ ],
+ "items": [
+  {
+   "id": "ground",
+   "type": "color",
+   "t0": 0,
+   "t1": 15.6,
+   "color": "#F2EBDD"
+  },
+  {
+   "id": "dc",
+   "type": "chart",
+   "graph": "dc-total-gw",
+   "t0": 0,
+   "t1": "hb:56",
+   "prep": "image",
+   "src": "/home/user/poster/ai-safety-presentation/assets/research/economy/epoch_sat_stargate_abilene_2026-07.png",
+   "frame": {
+    "x": 70,
+    "y": 150,
+    "w": 940,
+    "h": 560,
+    "rot": -1.2
+   },
+   "fit": "cover",
+   "srcFocus": [
+    0.5,
+    0.5
+   ],
+   "zoom": [
+    1.0,
+    1.12
+   ],
+   "imgCaption": {
+    "text": "Stargate, Abilene TX · Epoch AI satellite view · Jul 2026",
+    "at": "hb:48.5",
+    "x": 90
+   },
+   "x": 220,
+   "y": 1010,
+   "w": 660,
+   "h": 400,
+   "titleGap": 200,
+   "titlePx": 58,
+   "axesAt": "hb:48",
+   "titleAt": "hb:48",
+   "grow": {
+    "from": "hb:49",
+    "to": "hb:54.5",
+    "every": 0.5
+   },
+   "labels": "last",
+   "valuePx": 34,
+   "color": "#FF2E88",
+   "area": true,
+   "annotate": [
+    {
+     "at": "hb:54.5",
+     "i": 11,
+     "text": "13.8 GW across 93 sites",
+     "dx": -380,
+     "dy": 60,
+     "w": 340,
+     "px": 40,
+     "lines": 2,
+     "hl": "13.8 GW"
+    }
+   ],
+   "sourceAt": "hb:55",
+   "splatColor": "#F2C300",
+   "valueFmt": {
+    "dec": 1
+   }
+  },
+  {
+   "id": "grpo",
+   "type": "equation",
+   "ref": "grpo",
+   "t0": "hb:56",
+   "t1": "hb:64",
+   "drop": "hb:56",
+   "mode": "pencil",
+   "cx": 540,
+   "cy": 960,
+   "px": 44,
+   "maxW": 940,
+   "label": {
+    "text": "GRPO: the reinforcement learning behind DeepSeek-R1",
+    "at": "hb:56",
+    "gap": 70
+   },
+   "cite": {
+    "at": "hb:60"
+   },
+   "hl": [
+    {
+     "from": "highlight",
+     "at": "hb:61",
+     "style": "circle",
+     "ink": "#B31B1B"
+    },
+    {
+     "from": "extra:0",
+     "at": "hb:62",
+     "style": "marker"
+    }
+   ],
+   "card": {
+    "pad": 46,
+    "rot": -1.0,
+    "color": "#FBF6EC"
+   },
+   "pulse": {
+    "from": "hb:57",
+    "to": "hb:63"
+   },
+   "splat": {
+    "color": "#F2C300",
+    "r": 70,
+    "x": 960,
+    "y": 1260,
+    "dir": 0.6
+   },
+   "rows": [
+    "hb:56",
+    "hb:57",
+    "hb:58.5"
+   ]
+  },
+  {
+   "id": "compute",
+   "type": "chart",
+   "graph": "training-compute",
+   "t0": "hb:64",
+   "t1": "hb:68",
+   "ground": "dark",
+   "x": 210,
+   "y": 900,
+   "w": 690,
+   "h": 560,
+   "titleGap": 230,
+   "titlePx": 56,
+   "axesAt": "hb:64",
+   "titleAt": "hb:64",
+   "grow": {
+    "from": "hb:64.5",
+    "to": "hb:67.25",
+    "every": 0.25
+   },
+   "labels": "all",
+   "labelText": true,
+   "valuePx": 30,
+   "color": "#00B8A9",
+   "splats": false,
+   "card": {
+    "x": 70,
+    "y": 600,
+    "w": 940,
+    "h": 1040,
+    "color": "#15131F",
+    "rot": 0.8
+   },
+   "sourceAt": "hb:67.5",
+   "subAt": "hb:65.5",
+   "prep": "image",
+   "src": "/home/user/poster/ai-safety-presentation/assets/slides/economy/colossus2_crop.png",
+   "frame": {
+    "x": 560,
+    "y": 260,
+    "w": 420,
+    "h": 330,
+    "rot": 2.0
+   },
+   "fit": "cover",
+   "zoom": [
+    1.0,
+    1.1
+   ],
+   "imgCaption": {
+    "text": "xAI Colossus 2, Memphis · Epoch AI satellite view",
+    "at": "hb:64.5",
+    "x": 90,
+    "y": 300,
+    "w": 440
+   }
+  },
+  {
+   "id": "attn",
+   "type": "equation",
+   "ref": "attention",
+   "t0": "hb:68",
+   "t1": "hb:72",
+   "drop": "hb:68",
+   "mode": "slam",
+   "cx": 540,
+   "cy": 940,
+   "px": 62,
+   "maxW": 860,
+   "label": {
+    "text": "Attention: every word looks at every other",
+    "at": "hb:68.5"
+   },
+   "cite": {
+    "at": "hb:69.5"
+   },
+   "hl": [
+    {
+     "from": "highlight",
+     "at": "hb:70",
+     "style": "box",
+     "color": "#2346FF"
+    }
+   ],
+   "splat": {
+    "color": "#2346FF",
+    "r": 80,
+    "x": 880,
+    "y": 1330,
+    "dir": 1.2
+   },
+   "pulse": {
+    "from": "hb:69",
+    "to": "hb:71",
+    "every": 0.5
+   }
+  },
+  {
+   "id": "capex",
+   "type": "chart",
+   "graph": "hle-quarterly",
+   "t0": "hb:72",
+   "t1": 15.6,
+   "x": 210,
+   "y": 840,
+   "w": 700,
+   "h": 420,
+   "titleGap": 230,
+   "axesAt": "hb:72",
+   "titleAt": "hb:72",
+   "grow": {
+    "from": "hb:73",
+    "to": "hb:76.5",
+    "every": 0.5
+   },
+   "hi": 7,
+   "counter": {
+    "x": 220,
+    "y": 1395,
+    "size": 84,
+    "label": "best score so far",
+    "fmt": {
+     "suffix": "%",
+     "dec": 1
+    }
+   },
+   "annotate": [
+    {
+     "at": "hb:77",
+     "i": 7,
+     "text": "Claude Opus 5.5: 61.4%",
+     "dx": -330,
+     "dy": 10,
+     "w": 300,
+     "px": 36,
+     "lines": 2
+    }
+   ],
+   "sourceAt": "hb:77.5",
+   "color": "#2346FF",
+   "card": {
+    "x": 70,
+    "y": 570,
+    "w": 940,
+    "h": 800,
+    "rot": -0.6
+   },
+   "prep": "image",
+   "src": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/scale-hle-leaderboard.png",
+   "frame": {
+    "x": 70,
+    "y": 190,
+    "w": 940,
+    "h": 300,
+    "rot": -1.0
+   },
+   "fit": "cover",
+   "zoom": [
+    1.0,
+    1.12
+   ],
+   "imgCaption": {
+    "text": "Scale AI HLE leaderboard (real screenshot)",
+    "at": "hb:72.5",
+    "x": 90,
+    "y": 500
+   },
+   "sourceY": 1325,
+   "sourcePx": 24,
+   "sourceW": 700,
+   "metaPx": 22
+  },
+  {
+   "id": "paper",
+   "type": "paper",
+   "t0": 0,
+   "t1": 15.6,
+   "_note": "builder A's paper grain (boils on twos): the handmade surface over everything"
+  }
+ ],
+ "fx": [
+  {
+   "id": "punch-bars",
+   "fx": "punch",
+   "on": "hb:48..79",
+   "amount": 0.012,
+   "bar": 0.035
+  }
+ ]
+}

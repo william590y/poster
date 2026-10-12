@@ -1,0 +1,46 @@
+{
+  "key": "die-before-drink",
+  "lyric_idea": "Verse 1: \"I think that I'll die before I drink\" (die before 21) -> short AGI timelines and p(doom). On-screen text echoes the idea and never shows the lyric. Alternates, also verified live but not among the four: (a) The Guardian, Dec 27, 2024, headline \"‘Godfather of AI’ shortens odds of the technology wiping out humanity over next 30 years\" (Dan Milmo; standfirst: \"Geoffrey Hinton says there is 10% to 20% chance AI will lead to human extinction in three decades, as change moves fast\"); local: /home/user/poster/ai-safety-presentation/assets/research/theory/guardian-hinton-odds.png. (b) Statement on AI Extinction Risk (Center for AI Safety, May 30, 2023), one sentence: \"Mitigating the risk of extinction from AI should be a global priority alongside other societal-scale risks such as pandemics and nuclear war.\" (aistatement.com, text read live Oct 10, 2026); local: /home/user/poster/ai-safety-presentation/assets/research/theory/cais-statement.png. (c) AI 2027 (AI Futures Project, Apr 2025, ai-2027.com, read live): \"The CEOs of OpenAI, Google DeepMind, and Anthropic have all predicted that AGI will arrive within the next 5 years.\" Deck-only check: the Amodei 25% line is not in the deck; the other three are.",
+  "candidates": [
+    {
+      "type": "headline",
+      "text": "Anthropic researcher believes more than 10% chance AI 'could kill all humans'",
+      "speaker_or_outlet": "BBC News (Tom Gerken). The claim is from Evan Hubinger, a top safety researcher at Anthropic, in a post on X",
+      "date": "2026-09-09",
+      "url": "https://www.bbc.com/news/articles/ckgwy1k42w4o",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/theory/bbc-hubinger-10pct.png (full capture); /home/user/poster/ai-safety-presentation/assets/slides/xrisk/bbc-hubinger.png (deck crop of the headline and byline)",
+      "verified_how": "Page opened live Oct 10, 2026 (HTTP 200). The on-page headline and og:title match exactly; byline Tom Gerken; dateline 9 September 2026. Body sentence, verbatim: 'A top safety researcher at Anthropic has warned AI is advancing so quickly he believes there is a greater than 10% chance it \"could kill all humans\" within the next decade.' Deck source: assets/research/theory/manifest.json item bbc-hubinger-10pct; tools/slides_xrisk.js slide 1 source line.",
+      "why_it_fits": "Same clock as the lyric: 'within the next decade' plus a p(doom)-style number, in one headline. The trimmed form '…10% chance AI \"could kill all humans\"' reads in about 3 s on a phone. Caveat for the cut: the BBC also reports Hubinger called the risk from models that exist now 'low'. The 10% concerns a near-future self-improving system."
+    },
+    {
+      "type": "headline",
+      "text": "The AI Researcher Who Just Quit Anthropic Says It’s ‘Crunch Time for Humanity’",
+      "speaker_or_outlet": "WIRED (Maxwell Zeff). Jacob Coxon, former pretraining researcher at Anthropic and OpenAI",
+      "date": "2026-09-09",
+      "url": "https://www.wired.com/story/anthropic-researcher-quits-jacob-coxon-ai-fears-humanity/",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/theory/wired-coxon-crunch-time.png",
+      "verified_how": "Page opened live Oct 10, 2026 (HTTP 200). The og:title matches the on-page headline exactly; byline Maxwell Zeff, 'Sep 9, 2026 6:11 PM'. Interview quote, verbatim: 'The consensus is that the next year or two is crunch time for humanity,' Coxon said. The interviewer quotes his X post, verbatim: 'the people building AI earnestly believe that it could kill us all by the end of the decade.' Deck source: assets/research/theory/manifest.json item wired-coxon-crunch-time; tools/slides_xrisk.js slide 1 notes.",
+      "why_it_fits": "The nearest match to 'die before 21': 'the next year or two' and 'by the end of the decade' are both short clocks, and the headline is a single line. Caveat: 'crunch time' is Coxon's framing, and 'kill us all' is his post's wording as WIRED quotes it. Quote it with his name and the date."
+    },
+    {
+      "type": "quote",
+      "text": "Anthropic is on track for frontier-level AI researchers by July 2027.",
+      "speaker_or_outlet": "Vals AI, RSI Index (Key Takeaways, on the live leaderboard page)",
+      "date": "2026-10-01",
+      "url": "https://www.vals.ai/benchmarks/rsi_index",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/slides/frontier/vals_rsi_chart_2x.png (older capture of the extrapolation chart; the deck says the live chart has since changed, so use the sentence, not the chart)",
+      "verified_how": "Page opened live Oct 10, 2026 (HTTP 200). Title 'Vals RSI Index Leaderboard and Methodology'; 'Updated 10/1/2026'; Key Takeaways sentence verbatim as above, followed by 'Its index has risen about 0.30 points per year; on that trend it reaches 0.6 in July 2027'. Deck source: tools/slides_frontier.js slide 9, checked live Oct 4, 2026.",
+      "why_it_fits": "The only candidate with a date in the lyric's sense: a short, named target year from a benchmark maker. It is a straight-line extrapolation by Vals, not a measurement, so the card must say 'on track' and carry the forecast label. Its text is 69 characters and reads in about 3 s."
+    },
+    {
+      "type": "quote",
+      "text": "There's a 25% chance that things go really, really badly",
+      "speaker_or_outlet": "Dario Amodei, CEO of Anthropic, Axios interview (headline by Axios)",
+      "date": "2025-09-17",
+      "url": "https://www.axios.com/2025/09/17/anthropic-dario-amodei-p-doom-25-percent",
+      "local_path": "",
+      "verified_how": "The Axios page returns HTTP 403 to our fetch. The headline 'Amodei on AI: \"There's a 25% chance that things go really, really badly\"' comes from a search result for that URL. The officechai.com article was opened live Oct 10, 2026: headline '25% Chance That Things Could Go Really Badly With AI: Anthropic CEO Dario Amodei', dated Sep 18, 2025; it quotes '25% chance that things go really, really badly and a 75% chance that things go really, really well', ties it to an Axios interview, and names no event. Not in the deck: searched tools/*.js and assets/research JSON; the deck has no Amodei 25% line.",
+      "why_it_fits": "The leader's own p(doom)-style number. It is the cleanest version of the 'AI leaders' odds' beat. Caveat, important: the words do not say 'extinction' or give a timeframe. Axios reads the metric as humanity-destroying outcomes; a Virev blog review says the remark gave no time frame and did not say extinction. Keep the card to these exact words and do not add 'die' or 'extinction'."
+    }
+  ]
+}

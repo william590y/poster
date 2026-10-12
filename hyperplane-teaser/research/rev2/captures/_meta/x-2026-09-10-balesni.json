@@ -1,0 +1,68 @@
+{
+ "id": "x-2026-09-10-balesni",
+ "url": "https://x.com/balesni/status/2098109503518683491",
+ "expected": "(post by @balesni)",
+ "notes": [
+  "hid 2 overlay element(s)",
+  "cropped to the post column (css x 108..726, y 0..412): the first post with its quoted post and metrics; the login panel in the right sidebar is outside the crop"
+ ],
+ "status": 200,
+ "final_url": "https://x.com/balesni/status/2098109503518683491",
+ "title0": "Mikita Balesni on X: \"i am at OpenAI and i think AI is >10% likely to kill all humans this proposal is among the top things we should do as an industry to lower that risk (it’s not enough though!)\" / X",
+ "hidden_detail": [
+  [
+   "DIV",
+   "",
+   "bg-background/80 sticky top-0 backdrop-blur-md z-20",
+   "sticky",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "fixed inset-x-0 z-30 *:static bottom-0",
+   "fixed",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "Mikita Balesni on X: \"i am at OpenAI and i think AI is >10% likely to kill all humans this proposal is among the top things we should do as an industry to lower that risk (it’s not enough though!)\" / X",
+ "og_title": "Mikita Balesni (@balesni) on X",
+ "twitter_title": "Mikita Balesni (@balesni) on X",
+ "og_site": "X (formerly Twitter)",
+ "published": "2026-09-10T18:01:01.000Z",
+ "author_meta": "https://x.com/balesni",
+ "canonical": "https://x.com/balesni/status/2098109503518683491",
+ "h1_count": 3,
+ "h1": "Trending now",
+ "h1_box": [
+  760.5,
+  549,
+  1098.5,
+  573
+ ],
+ "h1_font": "20px",
+ "below_bottom": 701,
+ "below_text": [
+  "Personal statement on joining the OpenAI board",
+  "I am excited to be joining the OpenAI nonprofit board, serving on the Safety and"
+ ],
+ "hero_top": null,
+ "header_bottom": null,
+ "doc_w": 1185,
+ "masthead_included": true,
+ "crop_css": [
+  108,
+  0,
+  618,
+  412
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/x-2026-09-10-balesni.png",
+ "trimmed": 0
+}

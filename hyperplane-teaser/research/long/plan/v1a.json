@@ -1,0 +1,356 @@
+{
+  "key": "long-v1a",
+  "cut": "long (drop cut): song 19.232 to 80.4; this plan covers one section only",
+  "section": {
+    "song_t0": 26.982,
+    "song_t1": 34.714,
+    "long_edit_t0": 7.75,
+    "long_edit_t1": 15.482,
+    "duration_s": 7.732,
+    "time_base": "all t0/t1 are SONG seconds; long-cut edit seconds = song - 19.232 (see e0_long/e1_long)"
+  },
+  "bars_song": [
+    26.982,
+    28.932,
+    30.906,
+    32.833,
+    34.714
+  ],
+  "bars_long_edit": [
+    7.75,
+    9.7,
+    11.674,
+    13.601,
+    15.482
+  ],
+  "mood": "verse 1: darker, tense. The logo has just broken apart; its shapes (circle, square, strip, yellow plane band) now frame the news. Colour is held back until the chorus.",
+  "lines": [
+    {
+      "key": "insecure",
+      "lyric": "I'm so insecure",
+      "sung_pickup_s": 26.8,
+      "bar": 26.982,
+      "items": [
+        "s1-fortune-ticker",
+        "s1-loot-square"
+      ],
+      "echo": "AI models breaking into systems (a sandbox escape and a hack), and stolen credentials"
+    },
+    {
+      "key": "die-before-drink",
+      "lyric": "I think that I'll die before I drink",
+      "sung_pickup_s": 28.4,
+      "bar": 28.932,
+      "items": [
+        "s2-yudkowsky-clip",
+        "s2-yudkowsky-quote",
+        "s2-bbc-ticker"
+      ],
+      "echo": "a near-term death: 'we are all going to die', and a 10% chance AI 'could kill all humans'"
+    },
+    {
+      "key": "caught-up-in-news",
+      "lyric": "And I'm so caught up in the news",
+      "sung_pickup_s": 30.0,
+      "bar": 30.906,
+      "items": [
+        "s3-vox-ticker",
+        "s3-time-square",
+        "s3-cnn-strip"
+      ],
+      "echo": "a flurry of AI news headlines"
+    },
+    {
+      "key": "who-likes-me",
+      "lyric": "Of who likes me and who hates you",
+      "sung_pickup_s": 32.5,
+      "bar": 32.833,
+      "items": [
+        "s4-openai-quote",
+        "s4-techcrunch-ticker"
+      ],
+      "echo": "the thumbs-up / thumbs-down signal that trains a model to flatter"
+    }
+  ],
+  "items": [
+    {
+      "id": "s1-fortune-ticker",
+      "type": "headline",
+      "stack": "ticker",
+      "line": "insecure",
+      "t0": 26.982,
+      "t1": 28.932,
+      "text": "OpenAI says its AI models … hacked into AI company Hugging Face",
+      "trim": "ellipsis replaces 'secretly broke out of a secure test environment and' (and the tail 'in order to cheat on an evaluation' is not used)",
+      "outlet": "FORTUNE",
+      "date": "JUL 21, 2026",
+      "source_url": "https://fortune.com/2026/07/21/openai-says-ai-models-escaped-control-hacked-hugging-face/",
+      "local_asset": "/home/user/poster/ai-safety-presentation/assets/research/security/hl-fortune-hf-escape.png",
+      "verified": true,
+      "verified_how": "Fortune page read live (headline, Jeremy Kahn and Emily Forlini byline, 21 Jul 2026); deck manifest hl-fortune-hf-escape verified:true",
+      "treatment": "yellow plane band at 22 degrees as the ticker; Newsreader headline with mono attribution; slams in on the bar line",
+      "audio": "none (sung section)",
+      "e0_long": 7.75,
+      "e1_long": 9.7,
+      "dur_s": 1.95
+    },
+    {
+      "id": "s1-loot-square",
+      "type": "image",
+      "line": "insecure",
+      "t0": 26.982,
+      "t1": 28.932,
+      "text_on_screen": "none added (the image shows a recovered agent script whose dictionary is named LOOT)",
+      "stamp": "SWARM TRACES · 2026",
+      "source_url": "https://swarmtraces.org/",
+      "local_asset": "/home/user/poster/ai-safety-presentation/assets/research/security/swarmtraces-loot.png",
+      "verified": true,
+      "verified_how": "swarmtraces.org read live (headline and code comment confirmed, 25 Sep 2026); deck manifest swarmtraces-loot verified:true",
+      "treatment": "square frame (the broken logo's square as the mask); crop to the LOOT line; desaturated, dark grade; sits under the ticker",
+      "audio": "none",
+      "e0_long": 7.75,
+      "e1_long": 9.7,
+      "dur_s": 1.95
+    },
+    {
+      "id": "s2-yudkowsky-clip",
+      "type": "clip",
+      "line": "die-before-drink",
+      "t0": 28.932,
+      "t1": 30.906,
+      "src": "/home/user/hyperplane-teaser/clips/yudkowsky-ted-2023-all-going-to-die.mp4",
+      "src_duration_s": 5.42,
+      "in": 3.4,
+      "out": 5.42,
+      "speed": 1,
+      "in_note": "clip-local seconds. 'we are all going to die.' sits at clip 3.78 to 4.68 s (word timings from a small.en re-run), so the words land 0.38 to 1.28 s into the item; 1.974 s needed, 2.02 s available",
+      "audio": "MUTED (sung section): no audio window, no caption; pull-quote below carries the words",
+      "stamp": "ELIEZER YUDKOWSKY · 2023",
+      "source_url": "https://www.youtube.com/watch?v=Yd0yQ9yxSYY",
+      "full_talk_file": "/home/user/hyperplane-teaser/clips/yudkowsky-ted-2023-full.mp4",
+      "verified": true,
+      "verified_how": "wording from base.en and small.en passes (276.64-280.32 s of the TED2023 talk); year 2023 from the TED page (April 2023; exact day not checked)",
+      "treatment": "circle mask (the broken logo's circle), desaturated and darker, light grain",
+      "e0_long": 9.7,
+      "e1_long": 11.674,
+      "dur_s": 1.974
+    },
+    {
+      "id": "s2-yudkowsky-quote",
+      "type": "quote",
+      "line": "die-before-drink",
+      "t0": 28.932,
+      "t1": 30.906,
+      "text": "“…we are all going to die.”",
+      "trim": "opens mid-sentence (ellipsis); the full line is 'If we actually try to do this in real life, we are all going to die.'",
+      "stamp": "ELIEZER YUDKOWSKY · 2023",
+      "source_line": "TED2023 talk",
+      "verified": true,
+      "verified_how": "transcript agreement on wording (base.en, small.en)",
+      "treatment": "pull-quote card beside the circle: Newsreader italic in cream on the ground, short red #B31B1B rule, name and year in IBM Plex Mono; a quote card, not a subtitle, and not timed to the words",
+      "audio": "none",
+      "e0_long": 9.7,
+      "e1_long": 11.674,
+      "dur_s": 1.974
+    },
+    {
+      "id": "s2-bbc-ticker",
+      "type": "headline",
+      "stack": "ticker",
+      "line": "die-before-drink",
+      "t0": 28.932,
+      "t1": 30.906,
+      "text": "…more than 10% chance AI 'could kill all humans'",
+      "trim": "ellipsis replaces 'Anthropic researcher believes'; 'more than' is kept so the figure is not understated",
+      "outlet": "BBC NEWS",
+      "date": "SEP 9, 2026",
+      "source_url": "https://www.bbc.com/news/articles/ckgwy1k42w4o",
+      "local_asset": "/home/user/poster/ai-safety-presentation/assets/research/theory/bbc-hubinger-10pct.png",
+      "verified": true,
+      "verified_how": "BBC page read live 10 Oct 2026 (headline and og:title match; byline Tom Gerken; dateline 9 Sep 2026)",
+      "caveat": "the BBC also reports Hubinger calls the risk from models that exist now 'low'; the 10% refers to a near-future self-improving system, so the card must not imply current-model risk",
+      "treatment": "ticker band at 22 degrees; the next ticker line lands on the next bar",
+      "audio": "none",
+      "e0_long": 9.7,
+      "e1_long": 11.674,
+      "dur_s": 1.974
+    },
+    {
+      "id": "s3-vox-ticker",
+      "type": "headline",
+      "stack": "ticker",
+      "line": "caught-up-in-news",
+      "t0": 30.906,
+      "t1": 32.833,
+      "text": "The week the AI freakout went mainstream",
+      "outlet": "VOX",
+      "date": "SEP 12, 2026",
+      "date_note": "published 12 Sep 2026; updated 14 Sep 2026 (the deck shows Sep 14). Stamp uses the published date",
+      "source_url": "https://www.vox.com/politics/502717/ai-freakout-mainstream-openai-anthropic-humans",
+      "local_asset": "/home/user/poster/ai-safety-presentation/assets/research/theory/vox-ai-freakout.png",
+      "verified": true,
+      "verified_how": "Vox page read live (title, byline and dates); deck manifest vox-ai-freakout-mainstream verified:true",
+      "treatment": "ticker band at 22 degrees; the news beat's anchor line for the whole bar",
+      "audio": "none",
+      "e0_long": 11.674,
+      "e1_long": 13.601,
+      "dur_s": 1.927
+    },
+    {
+      "id": "s3-time-square",
+      "type": "image",
+      "line": "caught-up-in-news",
+      "t0": 30.906,
+      "t1": 31.811,
+      "text_on_screen": "from the image: \"AI Is Developing a Culture of Its Own. That Could Be Dangerous\"",
+      "stamp": "TIME · SEP 10, 2026",
+      "source_url": "https://time.com/article/2026/09/10/ai-openai-hugging-face-hack-culture-swarm/",
+      "local_asset": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/time-culture.png",
+      "verified": true,
+      "verified_how": "deck manifest time-ai-culture-hugging-face-swarm verified:true (1800x885 screenshot)",
+      "treatment": "square frame, hard cut in (news flurry); 0.905 s, above the 0.8 s image minimum",
+      "audio": "none",
+      "e0_long": 11.674,
+      "e1_long": 12.579,
+      "dur_s": 0.905
+    },
+    {
+      "id": "s3-cnn-strip",
+      "type": "image",
+      "line": "caught-up-in-news",
+      "t0": 31.811,
+      "t1": 32.833,
+      "text_on_screen": "from the image: \"Employees from the world’s biggest AI companies want the US to be ready to slow AI development\"",
+      "stamp": "CNN · JUL 28, 2026",
+      "source_url": "https://www.cnn.com/2026/07/28/tech/ai-development-tech-employees-open-letter",
+      "local_asset": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/cnn-pacing.png",
+      "verified": true,
+      "verified_how": "deck manifest cnn-pacing-the-frontier-letter verified:true (2440x600 screenshot)",
+      "treatment": "wide headline strip cropped to the headline row, across the lower frame; 1.02 s",
+      "audio": "none",
+      "e0_long": 12.579,
+      "e1_long": 13.601,
+      "dur_s": 1.022
+    },
+    {
+      "id": "s4-openai-quote",
+      "type": "quote",
+      "line": "who-likes-me",
+      "t0": 32.833,
+      "t1": 34.714,
+      "text": "“…thumbs-up / thumbs-down feedback on ChatGPT responses.”",
+      "highlight": "thumbs-up / thumbs-down",
+      "trim": "ellipsis replaces 'We also teach our models how to apply these principles by incorporating user signals like'; full sentence: 'We also teach our models how to apply these principles by incorporating user signals like thumbs-up / thumbs-down feedback on ChatGPT responses.'",
+      "stamp": "OPENAI · APR 29, 2025",
+      "source_line": "OpenAI blog, 'Sycophancy in GPT-4o: What happened and what we’re doing about it'",
+      "source_url": "https://openai.com/index/sycophancy-in-gpt-4o/",
+      "verified": true,
+      "verified_how": "page text read via TinyFish; sentence copied verbatim (the page uses a non-breaking hyphen in GPT-4o, normalised here)",
+      "treatment": "pull-quote card in a square frame; cream on dark; the two thumb phrases in red #B31B1B",
+      "audio": "none",
+      "e0_long": 13.601,
+      "e1_long": 15.482,
+      "dur_s": 1.881
+    },
+    {
+      "id": "s4-techcrunch-ticker",
+      "type": "headline",
+      "stack": "ticker",
+      "line": "who-likes-me",
+      "t0": 32.833,
+      "t1": 34.714,
+      "text": "OpenAI explains why ChatGPT became too sycophantic",
+      "outlet": "TECHCRUNCH",
+      "date": "APR 29, 2025",
+      "source_url": "https://techcrunch.com/2025/04/29/openai-explains-why-chatgpt-became-too-sycophantic/",
+      "local_asset": null,
+      "local_asset_note": "no deck screenshot exists (the path in the notes, research/theory/tc-sycophancy.png, is missing); the text is set by the engine from the live page",
+      "verified": true,
+      "verified_how": "WebFetch and TinyFish read: title and byline (Kyle Wiggers) match; body quotes users noticing ChatGPT 'applauding all sorts of problematic, dangerous decisions and ideas'",
+      "treatment": "ticker band at 22 degrees; last headline of the section, dissolves into the next section's line",
+      "audio": "none",
+      "e0_long": 13.601,
+      "e1_long": 15.482,
+      "dur_s": 1.881
+    }
+  ],
+  "lyric_check": "no lyric text appears on screen; checked against the four lines (insecure, die before I drink, caught up in the news, who likes me and who hates you)",
+  "audio": {
+    "clip_speech": "none in this section: every clip is MUTED (sung verse vocals 26.82 to 34.71). Its words are shown as pull-quotes (quote items), not captions",
+    "song": "plays under the whole section; no speech window in these items"
+  },
+  "treatments": {
+    "ticker": "yellow plane band at 22 degrees; one headline at a time (stack 'ticker'); Newsreader headline with mono 'OUTLET · MON D, YYYY' line; slams in on the bar line",
+    "square_frame": "still images (LOOT, TIME) in a square from the broken logo, as the mask; hard cut in on the bar",
+    "circle_mask": "the muted talking-head clip sits in the broken logo's circle",
+    "strip": "wide headline screenshot (CNN) cropped to the headline row, across the lower frame",
+    "pull_quote": "quote card, not a subtitle: Newsreader italic cream on the ground, red #B31B1B rule or highlight on the quoted phrase, name and year in IBM Plex Mono",
+    "colour_vs_dark": "verse 1 is dark: ground #0E0D12, clip grade desaturated (sat ~0.3), high contrast, light grain (~0.035), vignette; the only bright elements are the yellow band and the red accents; full colour waits for the chorus"
+  },
+  "items_per_bar": {
+    "bar_26.982": 2,
+    "bar_28.932": 3,
+    "bar_30.906": 3,
+    "bar_32.833": 2
+  },
+  "checks": {
+    "headline_min_s": 1.881,
+    "image_min_s": 0.905,
+    "headline_rule": ">= 1.2 s: passed",
+    "image_rule": ">= 0.8 s: passed",
+    "clip_in_out_fits": "in 3.40 + 1.974 s item = 5.374 s, source ends at 5.42 s: passed",
+    "ticker_overlap": "none: the four headlines are contiguous (26.982-28.932, 28.932-30.906, 30.906-32.833, 32.833-34.714)",
+    "section_end": "last item ends at 34.714, the next bar, so the next section picks up on 'so tired that I might' (34.46 pickup, 34.714 bar)"
+  },
+  "engine_notes": [
+    "teaser.html has no 'image' type (types are clip, headline, quote, text, logo). The three still items (s1-loot-square, s3-time-square, s3-cnn-strip) need either a clip with a single still frame (in 0, duration = item length), or a small Image subclass (square/strip mask, slam in).",
+    "The muted clip s2-yudkowsky-clip has no 'audio' window and no 'caption' (captions are subtitle-style, which sung sections must avoid). The words are carried by the separate quote item s2-yudkowsky-quote.",
+    "Starts are on the measured bar lines (26.982, 28.932, 30.906, 32.833), not on the whisper pickups (26.8, 28.4, 30.0, 32.5). The whisper times run early, and 30.0 is about 0.9 s before its bar, so verify the pickups by ear. If a pickup is preferred, move the line's items to it and extend or re-cut the clip in-point.",
+    "No logo item is planned in this section. The broken-apart shapes are assumed to come from the preceding section's logo state; the frames above use the same circle, square and strip geometry.",
+    "Section first item starts on the bar at 26.982; the pickup at 26.8 (the verse vocal starts at 26.82) belongs to the previous section."
+  ],
+  "caveats": [
+    "BBC headline: Hubinger also said the risk from current models is 'low'. The card's 10% refers to a near-future system.",
+    "Vox date: the stamp uses the published date (12 Sep 2026); the deck shows 14 Sep (updated).",
+    "Yudkowsky year is 2023 (TED2023, April 2023 per the TED page; the exact day was not checked). The clip is a talking head at the TED stage, shown muted.",
+    "OpenAI blog quote: the trimmed text keeps the verbatim words; the ellipsis marks the cut. At 1.9 s the card is fast to read; if it needs more time, shorten to '…thumbs-up / thumbs-down feedback…'."
+  ],
+  "alternates": [
+    {
+      "for": "insecure",
+      "item": "Aschenbrenner, Transformer (4 Jun 2024): “…egregiously insufficient to protect against the theft of model weights…”",
+      "local": "/home/user/poster/ai-safety-presentation/assets/research/xrisk/rev2/transformer-2024-06-04-aschenbrenner-fired-security-memo.png",
+      "verified": "live page read; quote verbatim"
+    },
+    {
+      "for": "die-before-drink",
+      "item": "Guardian headline: “…how AI could kill us all” (review of If Anyone Builds it, Everyone Dies, 22 Sep 2025)",
+      "local": "/home/user/poster/ai-safety-presentation/assets/slides/xrisk/guardian-iabied.png",
+      "verified": "deck manifest; not re-read live"
+    },
+    {
+      "for": "die-before-drink",
+      "item": "Vals AI RSI Index: “Anthropic is on track for frontier-level AI researchers by July 2027.” (1 Oct 2026). A benchmark extrapolation: keep the 'on track' wording",
+      "verified": "live page read 10 Oct 2026"
+    },
+    {
+      "for": "die-before-drink",
+      "item": "Altman, Airbnb 2015 (clips/altman-2015-short.mp4, 0.00-10.90 s): 'I think AI will probably like most likely sort of lead to the end of the world' (about 4.3 s, so it needs two bars)",
+      "verified": "transcript-checked; clip ok"
+    },
+    {
+      "for": "die-before-drink",
+      "item": "Amodei, Axios Sep 2025: “There's a 25% chance that things go really, really badly”. Not used: no local asset, Axios returns 403, the wording was checked only through a secondary article",
+      "verified": "partial"
+    },
+    {
+      "for": "who-likes-me",
+      "item": "NPR (23 Apr 2026): “AI's a suck up. Research shows how it flatters and suggests we're not to blame” (about 80 chars; trim with an ellipsis)",
+      "verified": "live read per candidate file"
+    }
+  ],
+  "not_used": [
+    "Mythos Preview 72.4% chart: the number is verified from the chart image only; the live page text lacks it, and the deck caption ('~0% for Sonnet 4.6') conflicts with the chart (4.4%). Not used on screen.",
+    "deck-videos.json: no news or hacking footage fits this section (the catalog is product or demo footage)."
+  ]
+}

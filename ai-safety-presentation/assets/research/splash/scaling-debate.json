@@ -1,0 +1,307 @@
+{
+  "group": "splash-scaling-debate",
+  "items": [
+    {
+      "id": "scaling-o1-train-test-compute-chart",
+      "slide_topic": "Scaling debate: new axes (train-time RL and test-time thinking) - o1 chart",
+      "type": "chart",
+      "file": "scaling-debate-o1-train-test-compute-chart.png",
+      "headline": null,
+      "dek": "o1 performance smoothly improves with both train-time and test-time compute",
+      "outlet": "OpenAI",
+      "author": null,
+      "date": "2024-09-12",
+      "url": "https://openai.com/index/learning-to-reason-with-llms/",
+      "caption": "OpenAI's two-panel figure: o1 AIME accuracy (pass@1, y-axis 0-100) against train-time compute (left) and test-time compute (right), both on a log-scale x-axis. The figure has no numeric x-axis tick labels, so read no values from it.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Downloaded from the img src on the loaded OpenAI page (ctfassets compute.png, alt text 'The image shows two scatter plots...'); converted from webp to PNG and composited on white. Use for the 'two new scaling axes' slide only."
+    },
+    {
+      "id": "scaling-o1-quote",
+      "slide_topic": "Scaling debate: new axes (train-time RL and test-time thinking)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "We have found that the performance of o1 consistently improves with more reinforcement learning (train-time compute) and with more time spent thinking (test-time compute). The constraints on scaling this approach differ substantially from those of LLM pretraining, and we are continuing to investigate them.",
+      "outlet": "OpenAI",
+      "author": null,
+      "date": "2024-09-12",
+      "url": "https://openai.com/index/learning-to-reason-with-llms/",
+      "caption": "OpenAI, 'Learning to reason with LLMs' (release post for o1), 12 Sep 2024.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Verbatim from the loaded page (headless browser text dump). OpenAI's own statement that the limits differ from pretraining is the honest hook for the debate."
+    },
+    {
+      "id": "scaling-sutskever-plateau-reuters",
+      "slide_topic": "Scaling debate: 2024 claim that pretraining gains have plateaued",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Ilya Sutskever, co-founder of AI labs Safe Superintelligence (SSI) and OpenAI, told Reuters recently that results from scaling up pre-training – the phase of training an AI model that uses a vast amount of unlabeled data to understand language patterns and structures – have plateaued.",
+      "outlet": "Reuters (text via blog repost)",
+      "author": "Reuters",
+      "date": "2024-11",
+      "url": "https://blog.quintarelli.it/2024/12/openai-and-others-seek-new-path-to-smarter-ai-as-current-methods-hit-limitations-reuters/",
+      "caption": "Reuters story (Nov 2024) as reposted on blog.quintarelli.it (repost dated 2 Dec 2024, labelled 'Source: Reuters (nov.2024)').",
+      "quality": 3,
+      "verified": true,
+      "notes": "Only a secondary copy was loaded: the reuters.com URL returned HTTP 401 to the headless browser. Cite as Reuters via the repost, or confirm against the original before a slide goes out. The repost has a stray space in 'use s'; it is corrected to 'uses' in the dek. The repost also quotes the Reuters line 'Behind the scenes, researchers at major AI labs have been running into delays and disappointing outcomes' (not used here)."
+    },
+    {
+      "id": "scaling-deepseek-r1-zero-rl-aime-quote",
+      "slide_topic": "Scaling debate: RL scaling as a new axis (DeepSeek-R1-Zero, Jan 2025)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "For instance, the pass@1 score on AIME 2024 increases from 15.6% to 71.0%, and with majority voting, the score further improves to 86.7%, matching the performance of OpenAI-o1-0912.",
+      "outlet": "arXiv",
+      "author": "DeepSeek-AI",
+      "date": "2025-01-22",
+      "url": "https://arxiv.org/abs/2501.12948v1",
+      "caption": "DeepSeek-R1 technical report, arXiv:2501.12948 (version 1, submitted 22 Jan 2025), on RL training of DeepSeek-R1-Zero.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Verbatim from the loaded v1 HTML (arxiv.org/html/2501.12948v1). Cite v1: the search snippets say later versions report 77.9% for R1-Zero (not loaded by me), so do not mix versions."
+    },
+    {
+      "id": "scaling-gpt45-quote",
+      "slide_topic": "Scaling debate: OpenAI's framing of pretraining vs reasoning (GPT-4.5, Feb 2025)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "GPT‑4.5 is a step forward in scaling up pre-training and post-training. We believe reasoning will be a core capability of future models, and that the two approaches to scaling—pre-training and reasoning—will complement each other.",
+      "outlet": "OpenAI",
+      "author": null,
+      "date": "2025-02-27",
+      "url": "https://openai.com/index/introducing-gpt-4-5/",
+      "caption": "OpenAI, 'Introducing GPT-4.5' research preview, 27 Feb 2025.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Verbatim from the loaded page (two sentences joined; the first is the lead sentence of the scaling section, the second is from the reasoning comparison). This is OpenAI's own position that pretraining scaling continues, so it balances the 'plateau' quotes."
+    },
+    {
+      "id": "scaling-redwood-pretraining-returns-quote",
+      "slide_topic": "Scaling debate: analysts' 2025 view that pretraining returns are falling and RL looks better",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "There are some reasons to think that the current returns to putting more compute into pretraining are much lower than they were historically which is motivating a shift to scaling up RL. ... Regardless of exactly what is going on with pretraining, it minimally seems like returns to scaling up RL currently look better than returns to scaling up pretraining.",
+      "outlet": "Redwood Research blog",
+      "author": "Ryan Greenblatt",
+      "date": "2025-05-03",
+      "url": "https://blog.redwoodresearch.org/p/whats-going-on-with-ai-progress-and",
+      "caption": "Ryan Greenblatt, 'What's going on with AI progress and trends? (As of 5/2025)', Redwood Research blog.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Verbatim from the loaded page, with an ellipsis joining two sentences. This is an analyst's forecast, not a measurement, and the post hedges it ('I'd guess'). The same post says the public evidence 'is also consistent with this being due to the returns to further pretraining on reasonable quality data being low', i.e. data limits versus diminishing returns are not settled. It also says OpenAI reported using 10x more RL compute for o3 than for o1 (secondhand, not checked against OpenAI)."
+    },
+    {
+      "id": "scaling-epoch-lead-times-quote",
+      "slide_topic": "Scaling debate: compute growth may slow because of lead times (Epoch, Sep 2025)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "our current best guess is that every additional 10× increase in compute scale lengthens lead times by around a year. ... frontier AI labs may still scale training compute at 5× per year for another 1-2 years",
+      "outlet": "Epoch AI",
+      "author": "Yafah Edelman and Anson Ho",
+      "date": "2025-09-05",
+      "url": "https://epoch.ai/gradient-updates/compute-scaling-will-slow-down-due-to-increasing-lead-times",
+      "caption": "Epoch AI, 'Compute scaling will slow down due to increasing lead times', Gradient Updates, 5 Sep 2025.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Verbatim from the loaded page. The page says these posts 'solely represent the views of the authors, and do not necessarily reflect the views of Epoch AI as a whole', so attribute to the authors. The 4.5x-per-year compute trend that Redwood's May 2025 post attributes to Epoch was not checked against Epoch's own data page."
+    },
+    {
+      "id": "scaling-scalerl-predictability-quote",
+      "slide_topic": "Scaling debate: RL scaling is becoming predictable, as pretraining was (Oct 2025)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "Stable, scalable recipes follow predictable scaling trajectories, enabling extrapolation from smaller-scale runs. ... bring RL training closer to the predictability long achieved in pre-training.",
+      "outlet": "arXiv",
+      "author": null,
+      "date": "2025-10-15",
+      "url": "https://arxiv.org/abs/2510.13786",
+      "caption": "'The Art of Scaling Reinforcement Learning Compute for LLMs', arXiv:2510.13786 (submitted 15 Oct 2025), abstract.",
+      "quality": 3,
+      "verified": true,
+      "notes": "Verbatim from the loaded arXiv abstract page (joined by an ellipsis). The paper reports more than 400,000 GPU-hours of experiments and a single RL run scaled to 100,000 GPU-hours. Author list not extracted; add it before citing by author."
+    },
+    {
+      "id": "scaling-epoch-2026-compute-quote",
+      "slide_topic": "Scaling debate: 2026 status - compute still growing fast, slowdown risk at top labs",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "OpenAI tripled its data center power capacity in both 2024 and 2025; after accounting for improved hardware efficiency, their computing power grew around 4× annually. ... But the top labs may capture a much larger share of global compute within a few years. At that point, compute growth at top labs would be more directly tied to the pace of total compute production, which could slow down the rapid growth we've seen in both model capabilities and AI deployment/revenue.",
+      "outlet": "Epoch AI",
+      "author": "Epoch AI (gradient update)",
+      "date": "2026-05-20",
+      "url": "https://epoch.ai/gradient-updates/frontier-labs-dont-use-most-ai-compute",
+      "caption": "Epoch AI, 'How much AI compute do frontier labs use?', Gradient Updates, dated 20 May 2026.",
+      "quality": 4,
+      "verified": true,
+      "notes": "Verbatim from the loaded page (the second quote's 'we've' is typed with a straight apostrophe here; the page uses a curly one). The page itself says 'To be sure, this isn't enough evidence to draw stable trendlines for frontier compute growth and overall AI compute growth.' This is about compute, not pretraining specifically. It is the only 2026 source loaded that bears on the debate."
+    },
+    {
+      "id": "scaling-schaeffer-mirage-quote",
+      "slide_topic": "Emergent abilities: are they a mirage? (Schaeffer, Miranda, Koyejo 2023)",
+      "type": "quote",
+      "file": null,
+      "headline": null,
+      "dek": "emergent abilities appear due to the researcher's choice of metric rather than due to fundamental changes in model behavior with scale. ... alleged emergent abilities evaporate with different metrics or with better statistics, and may not be a fundamental property of scaling AI models.",
+      "outlet": "arXiv",
+      "author": "Rylan Schaeffer, Brando Miranda, Sanmi Koyejo",
+      "date": "2023-04-28",
+      "url": "https://arxiv.org/abs/2304.15004",
+      "caption": "'Are Emergent Abilities of Large Language Models a Mirage?', arXiv:2304.15004 (submitted 28 Apr 2023), abstract.",
+      "quality": 5,
+      "verified": true,
+      "notes": "Verbatim from the loaded arXiv abstract (joined by an ellipsis). The abstract says nonlinear or discontinuous metrics produce apparent emergent abilities, whereas linear or continuous metrics produce smooth, predictable changes. Schaeffer et al. is a critique, so keep the slide framing 'a contested claim' rather than 'debunked'."
+    }
+  ],
+  "datasets": [
+    {
+      "id": "o1-aime-2024-by-inference-setting",
+      "title": "OpenAI o1 vs GPT-4o on the 2024 AIME exam, by inference setting (as stated in the release post)",
+      "unit": "% of AIME 2024 problems solved",
+      "labels": [
+        "GPT-4o (average, as stated)",
+        "o1 (1 sample)",
+        "o1 (64-sample consensus)",
+        "o1 (re-rank 1000 samples)"
+      ],
+      "series": [
+        {
+          "name": "AIME 2024 accuracy",
+          "values": [
+            12,
+            74,
+            83,
+            93
+          ]
+        }
+      ],
+      "source": "OpenAI, 'Learning to reason with LLMs', 12 Sep 2024 (text of the 'Evals' section)",
+      "url": "https://openai.com/index/learning-to-reason-with-llms/",
+      "notes": "Values are the percentages stated in the text: GPT-4o 12% (1.8/15); o1 74% (11.1/15), 83% (12.5/15) with 64-sample consensus, 93% (13.9/15) re-ranking 1000 samples. These are four different settings of the same systems, not one scaling curve; do not draw a line through them."
+    },
+    {
+      "id": "deepseek-r1-zero-aime-2024-rl",
+      "title": "DeepSeek-R1-Zero: AIME 2024 score before and after reinforcement learning (arXiv v1 text)",
+      "unit": "% (AIME 2024)",
+      "labels": [
+        "Before RL (reported as 'initial')",
+        "After RL, pass@1",
+        "After RL, majority voting"
+      ],
+      "series": [
+        {
+          "name": "AIME 2024 score",
+          "values": [
+            15.6,
+            71.0,
+            86.7
+          ]
+        }
+      ],
+      "source": "DeepSeek-AI, 'DeepSeek-R1: Incentivizing Reasoning Capability in LLMs via Reinforcement Learning', arXiv:2501.12948 v1 (22 Jan 2025)",
+      "url": "https://arxiv.org/abs/2501.12948v1",
+      "notes": "The 15.6 starting point is the paper's wording 'an initial 15.6%'. The third value is majority voting, not pass@1, so it needs its own label. Cite v1 only (see the quote item)."
+    }
+  ],
+  "facts": [
+    {
+      "claim": "OpenAI reported that o1's performance 'consistently improves with more reinforcement learning (train-time compute) and with more time spent thinking (test-time compute).'",
+      "source": "OpenAI, 'Learning to reason with LLMs' (12 Sep 2024)",
+      "url": "https://openai.com/index/learning-to-reason-with-llms/",
+      "date": "2024-09-12"
+    },
+    {
+      "claim": "OpenAI added in the same post that 'the constraints on scaling this approach differ substantially from those of LLM pretraining, and we are continuing to investigate them.'",
+      "source": "OpenAI, 'Learning to reason with LLMs' (12 Sep 2024)",
+      "url": "https://openai.com/index/learning-to-reason-with-llms/",
+      "date": "2024-09-12"
+    },
+    {
+      "claim": "Ilya Sutskever told Reuters that results from scaling up pre-training have plateaued (Reuters, Nov 2024; read via a repost of the story, the reuters.com original returned 401).",
+      "source": "Reuters, Nov 2024 (via blog.quintarelli.it repost, 2 Dec 2024)",
+      "url": "https://blog.quintarelli.it/2024/12/openai-and-others-seek-new-path-to-smarter-ai-as-current-methods-hit-limitations-reuters/",
+      "date": "2024-11"
+    },
+    {
+      "claim": "DeepSeek-R1-Zero's AIME 2024 pass@1 rose from 15.6% to 71.0% through reinforcement learning, and to 86.7% with majority voting (arXiv v1).",
+      "source": "DeepSeek-AI, arXiv:2501.12948 v1",
+      "url": "https://arxiv.org/abs/2501.12948v1",
+      "date": "2025-01-22"
+    },
+    {
+      "claim": "OpenAI's GPT-4.5 release called it 'a step forward in scaling up pre-training and post-training' and said pre-training and reasoning 'will complement each other'.",
+      "source": "OpenAI, 'Introducing GPT-4.5' (27 Feb 2025)",
+      "url": "https://openai.com/index/introducing-gpt-4-5/",
+      "date": "2025-02-27"
+    },
+    {
+      "claim": "Redwood Research's Ryan Greenblatt wrote in May 2025 that 'the current returns to putting more compute into pretraining are much lower than they were historically', and that 'returns to scaling up RL currently look better than returns to scaling up pretraining' (his view, hedged; not a measurement).",
+      "source": "Ryan Greenblatt, Redwood Research blog, 'What's going on with AI progress and trends? (As of 5/2025)' (3 May 2025)",
+      "url": "https://blog.redwoodresearch.org/p/whats-going-on-with-ai-progress-and",
+      "date": "2025-05-03"
+    },
+    {
+      "claim": "Epoch AI Gradient Updates (5 Sep 2025, by the authors' own view): 'every additional 10× increase in compute scale lengthens lead times by around a year', so compute scaling may slow even as frontier labs keep growing training compute about 5× per year for another 1-2 years.",
+      "source": "Yafah Edelman and Anson Ho, Epoch AI, 'Compute scaling will slow down due to increasing lead times' (5 Sep 2025)",
+      "url": "https://epoch.ai/gradient-updates/compute-scaling-will-slow-down-due-to-increasing-lead-times",
+      "date": "2025-09-05"
+    },
+    {
+      "claim": "The Art of Scaling Reinforcement Learning Compute for LLMs (15 Oct 2025): RL training follows fitted sigmoidal compute-performance curves, and the authors aim to 'bring RL training closer to the predictability long achieved in pre-training.'",
+      "source": "arXiv:2510.13786 (submitted 15 Oct 2025), abstract",
+      "url": "https://arxiv.org/abs/2510.13786",
+      "date": "2025-10-15"
+    },
+    {
+      "claim": "Epoch AI (20 May 2026) estimates OpenAI's computing power grew around 4× a year after adjusting for hardware efficiency, having tripled its data-centre power capacity in both 2024 and 2025; Epoch also warns that the top labs' growth could slow once they capture a much larger share of global compute.",
+      "source": "Epoch AI, 'How much AI compute do frontier labs use?' (20 May 2026)",
+      "url": "https://epoch.ai/gradient-updates/frontier-labs-dont-use-most-ai-compute",
+      "date": "2026-05-20"
+    },
+    {
+      "claim": "Schaeffer, Miranda and Koyejo (2023) argued that apparent 'emergent abilities' come from the researcher's choice of metric: alleged emergent abilities 'evaporate with different metrics or with better statistics, and may not be a fundamental property of scaling AI models.'",
+      "source": "Rylan Schaeffer, Brando Miranda, Sanmi Koyejo, 'Are Emergent Abilities of Large Language Models a Mirage?', arXiv:2304.15004 (28 Apr 2023)",
+      "url": "https://arxiv.org/abs/2304.15004",
+      "date": "2023-04-28"
+    }
+  ],
+  "not_found": [
+    {
+      "outline_item": "Sutskever's NeurIPS 2024 keynote quotes ('pre-training as we know it will unquestionably end', 'we have but one internet', 'peak data')",
+      "searched": "WebSearch for the talk title and the quoted phrases plus 'transcript'. Found only quote aggregators, an unofficial video outline and a LessWrong note; no transcript or official NeurIPS recording was loaded. Not used. The Reuters 'plateaued' quote is used instead."
+    },
+    {
+      "outline_item": "Original reuters.com article (Nov 2024) on labs hitting scaling limits",
+      "searched": "WebSearch and a direct fetch of a reuters.com URL (HTTP 401 to the headless browser). Only the blog.quintarelli.it repost was loaded."
+    },
+    {
+      "outline_item": "Lab-confirmed 2026 results on pretraining scaling (a new base model or run showing gains or a stall)",
+      "searched": "Two WebSearch queries for 2026 pretraining news. Found only company self-claims (a Magic 'more than 10x more efficient pretraining' post, not loaded) and an unverified rumour about an OpenAI pretraining run (one X account via 36Kr). No official 2026 lab statement was loaded, so no 2026 pretraining claim is in facts."
+    },
+    {
+      "outline_item": "Gemini 3 gains from pretraining (Oriol Vinyals, Nov 2025)",
+      "searched": "WebSearch for Vinyals' statement. Only a Bluesky thread and Chinese/German press paraphrases were found; the original post was not loaded. Not used."
+    },
+    {
+      "outline_item": "Orion (OpenAI) gains smaller than GPT-3 to GPT-4 (The Information, Nov 2024)",
+      "searched": "Only secondhand summaries found in the Reuters-repost search. Not loaded, not used."
+    },
+    {
+      "outline_item": "Epoch AI's own statement that frontier training runs hit a nine-month limit around 2027 (July 2025)",
+      "searched": "Only search snippets found; the Epoch article was not loaded. Not used."
+    },
+    {
+      "outline_item": "Test-time compute scaling as a 2024-2026 research result (for example Snell et al. 2024)",
+      "searched": "Not searched in this pass; the o1 post and the 2025 Redwood post cover the test-time and RL axes. Add if the deck needs a research citation."
+    }
+  ]
+}

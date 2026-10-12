@@ -562,4 +562,18 @@ async function build(d) {
   await accessSlide(d);
 }
 
-module.exports = { build };
+// Slide functions by name (for other decks, e.g. tools/build_splash.js); build() above is unchanged.
+module.exports = {
+  build,
+  slides: {
+    shipSlide,
+    memoSlide,
+    warRoomSlide,
+    guardrailsSlide,
+    raceSlide,
+    yemenSlide,
+    bioSlide,
+    proteinSlide,
+    accessSlide,
+  },
+};

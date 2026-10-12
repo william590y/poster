@@ -1,0 +1,62 @@
+{
+  "key": "not-cool-not-smart",
+  "lyric": "And I'm not cool and I'm not smart",
+  "lyric_idea": "AI outscoring people: a PhD-level science benchmark (deck-first), a test built as the last exam for AI (deck-first), an AI IQ headline, and the 2023 bar-exam headline, with a counter-headline noted for the bar exam.",
+  "candidates": [
+    {
+      "type": "stat",
+      "text": "experts who have or are pursuing PhDs … reach 65% accuracy",
+      "pair_text": "GPQA Diamond is 96% (GPT-6 Astra)",
+      "speaker_or_outlet": "Rein et al., GPQA paper (arXiv:2311.12022); pairing figure from ITWire (Alex Zaharov-Reutt)",
+      "date": "2023-11-20 (paper submitted); 2026-09-04 (ITWire article)",
+      "url": "https://arxiv.org/abs/2311.12022 ; https://itwire.com/business-it-news/data/openai-declares-the-agi-era-with-gpt-6-astra-and-the-agi-benchmark-itself-says-not-so-fast",
+      "local_path": "",
+      "deck_source": "/home/user/poster/ai-safety-presentation/tools/slides_splash_extra.js (GPQA 36% to 96%, PhD experts 65-70%); /home/user/poster/ai-safety-presentation/tools/slides_capabilities.js (35.7% to 95.8%). No GPQA image in assets/research.",
+      "verified_how": "Opened the arXiv abstract: 'experts who have or are pursuing PhDs in the corresponding domains reach 65% accuracy'; 'highly skilled non-expert validators only reach 34% accuracy'; 448 questions. Opened the ITWire article (page loaded): 'GPQA Diamond is 96%', published 4 Sept 2026, with the next sentence attributing the scorecard to OpenAI. The OpenAI scorecard itself was not opened.",
+      "why_it_fits": "The only candidate that sets an AI score directly against a PhD baseline, which turns 'not smart' into 'AI outscores PhDs' on screen.",
+      "caveat": "The 65% is the paper's full 448-question figure, while 96% is a Diamond score. These are different question sets, so label both. The deck's splash slide attributes 65-70% to GPQA Diamond experts, which the abstract does not support. The deck also gives 96% in one slide and 95.8% in another for GPT-6 Astra; the source opened says 96%. The 2023 expert figure is a human baseline; the 2026 score is a vendor-linked secondary report."
+    },
+    {
+      "type": "stat",
+      "text": "designed to be the last academic exam of its kind for AI",
+      "pair_text": "GPT 6 Astra 54.80±1.94 (top of leaderboard)",
+      "speaker_or_outlet": "Scale AI and Center for AI Safety, Scale Labs Humanity's Last Exam leaderboard",
+      "date": "Leaderboard page with the 17 Sept 2026 HLE-Rolling update; deck capture 2026-10-04",
+      "url": "https://labs.scale.com/leaderboard/humanitys_last_exam",
+      "local_path": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/scale-hle-leaderboard.png (also aa-hle-leaderboard-oct2026.png and scale-hle-rolling-noise-ceiling.png in the same folder)",
+      "deck_source": "/home/user/poster/ai-safety-presentation/assets/research/capabilities/manifest.json entries scale-hle-leaderboard, scale-hle-rolling-noise-ceiling, aa-hle-leaderboard-oct2026; tools/slides_capabilities.js hleSlide.",
+      "verified_how": "Opened the labs.scale.com page (static text): '2,500 of the toughest, subject-diverse, multi-modal questions designed to be the last academic exam of its kind for AI'; 'developed in partnership with the Center for AI Safety'; top scores GPT 6 Astra 54.80±1.94 and Fable 5.1 (xhigh) 46.50±2.00 match the deck manifest. Opened the Artificial Analysis HLE page: Claude Opus 5.5 (Max, Default Fallback) 61.4% on 2,158 text-only questions.",
+      "why_it_fits": "Puts the 'last exam' framing on screen with a live top score, so the lyric's 'not smart' reads as an exam AI is now passing.",
+      "caveat": "Weakest fit to 'outscoring people': the page shows no human baseline. Scale (2,500 questions, full set) and Artificial Analysis (2,158 text-only) are not comparable, so never put both in one frame. The 64.4% no-tools Opus 5.5 figure is vendor-run (system card)."
+    },
+    {
+      "type": "headline",
+      "text": "OpenAI's o3 scores 136 on Mensa Norway test, surpassing 98% of human population",
+      "trim_option": "OpenAI's o3 scores 136 on Mensa Norway test…",
+      "speaker_or_outlet": "CryptoSlate",
+      "date": "2025-04-17 (updated 2025-04-24)",
+      "url": "https://cryptoslate.com/openais-o3-scores-136-on-mensa-norway-test-surpassing-98-of-human-population/",
+      "local_path": "",
+      "verified_how": "Opened the page (loaded): headline verbatim; 'OpenAI's new o3 language model achieved an IQ score of 136 on a public Mensa Norway intelligence test'; 'While o3 posted a 116 on the Offline evaluation, it saw a 20-point boost on the Mensa test'; figures attributed to TrackingAI.org. Opened trackingai.org/home (loaded): no scores listed, so the 136 and 116 figures are not confirmed on TrackingAI's own page.",
+      "why_it_fits": "The most literal 'not smart' echo: an IQ number for an AI, in one headline.",
+      "caveat": "Unofficial: independent tester data, and no official Mensa position was found. The Mensa Norway test is public, so contamination is possible; the offline score was 116. Alternate headline: TechRadar, 'AI took a huge leap in IQ, and now a quarter of Gen Z thinks AI is conscious' (page title read; body truncated; date not verified)."
+    },
+    {
+      "type": "headline",
+      "text": "Latest version of ChatGPT aces bar exam with score nearing 90th percentile",
+      "trim_option": "Latest version of ChatGPT aces bar exam… with score nearing 90th percentile",
+      "speaker_or_outlet": "ABA Journal (Debra Cassens Weiss)",
+      "date": "2023-03-16",
+      "url": "https://www.abajournal.com/web/article/latest-version-of-chatgpt-aces-the-bar-exam-with-score-in-90th-percentile",
+      "local_path": "",
+      "verified_how": "Opened the ABA Journal page (loaded): headline, byline 'By Debra Cassens Weiss', and date 'March 16, 2023, 1:59 pm CDT' read verbatim; body truncated, so the model name is not confirmed from this page. Opened the arXiv abstract for the GPT-4 Technical Report (submitted 15 Mar 2023): 'passing a simulated bar exam with a score around the top 10% of test takers'.",
+      "why_it_fits": "Matches the brief's event directly: GPT-4 passing the bar exam in 2023.",
+      "caveat": "Contested. A 2024 paper by Eric Martinez (AI and Law) argues the 90th-percentile estimate is overstated (from a search summary; not opened). Counter-headline, opened: Live Science, 'GPT-4 didn't ace the bar exam after all, MIT research suggests — it didn't even break the 70th percentile | Live Science' (headline read; byline and date not verified). The 298/400 score in the search summary was not checked against the report body. The ABA headline does not name GPT-4."
+    }
+  ],
+  "deck_flags": [
+    "slides_splash_extra.js labels 'PhD experts score about 65-70%' as GPQA Diamond. The GPQA abstract's 65% is the full 448-question set; no Diamond expert figure was verified.",
+    "GPT-6 Astra GPQA: slides_capabilities.js says 95.8%, slides_splash_extra.js says 96%; the ITWire article says 96%.",
+    "HLE: Scale (full 2,500 set) and Artificial Analysis (2,158 text-only) figures are not comparable; keep them in separate frames."
+  ]
+}

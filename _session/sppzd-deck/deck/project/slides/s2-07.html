@@ -1,0 +1,35 @@
+<section id="s2-07" data-transition="fade" style="background:#17242c;color:#eef1ec;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#6cc3b8">Method</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#eef1ec">Questions on the method?</h2>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;justify-content:center;gap:32px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#b9c7c4">If the room is quiet</p>
+<div style="display:flex;flex-direction:row;align-items:start;gap:32px">
+<p style="width:48px;font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-weight:600;line-height:1.3;color:#6cc3b8">1</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:36px;line-height:1.3;color:#eef1ec">Does the reward matter beyond the pool machinery (mutation, replay, expert iteration)?</p>
+<p style="font-size:24px;line-height:1.35;color:#b9c7c4">Table 5 answers part of this in Results</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:32px">
+<p style="width:48px;font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-weight:600;line-height:1.3;color:#6cc3b8">2</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:36px;line-height:1.3;color:#eef1ec">Is the 19-token language a hand-built prior?</p>
+<p style="font-size:24px;line-height:1.35;color:#b9c7c4">Same alphabet for every method (App. E, p.30); macros kept after preliminary runs; X = 16 and mod-256 are unablated</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:32px">
+<p style="width:48px;font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-weight:600;line-height:1.3;color:#6cc3b8">3</p>
+<div style="flex:1;display:flex;flex-direction:column;gap:8px">
+<p style="font-size:36px;line-height:1.3;color:#eef1ec">What should count as compute?</p>
+<p style="font-size:24px;line-height:1.35;color:#b9c7c4"><span style="color:#f2b07c"><b>Our reading:</b></span> C has no generator, JVP or execution term</p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#b9c7c4">Cowsik et al. 2026 · Table 5, p.31; App. E, p.30; Fig. 1, p.3; p.15</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#b9c7c4">12</p>
+<aside>About 1.5 minutes.
+Pause for about 1.5 minutes. On Q1: the paper ablates only the reward (Table 5). Policy gradient, expert iteration, mutation, replay and the MAP-Elites archive are never ablated, and curriculum ablations are listed as future work (p.15). On Q2: App. E says the added primitives 'cannot account for any difference between self-play and its controls' because all methods share them (p.30). That is fair for relative claims, but not for absolute transfer. [mine] X = 16 and the mod-256 tape have no stated justification. On Q3: C = K x params x tokens counts the learner only, by my reading (Fig. 1 axis). Still unreported: |A| (9 vs 19), T, L, step budget, beta, N, the mutation and replay fractions, and the model-size list.
+Slide layout: the title carries 'Questions on the method?'; the three fallback prompts sit under 'If the room is quiet', each with its outline detail line. Q3's detail is labelled 'Our reading' on the slide, matching the note above. Nothing was cut.</aside>
+</section>

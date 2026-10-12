@@ -1,0 +1,99 @@
+{
+ "id": "cryptoslate-2025-04-17-o3-mensa",
+ "url": "https://cryptoslate.com/openais-o3-scores-136-on-mensa-norway-test-surpassing-98-of-human-population/",
+ "expected": "OpenAI's o3 scores 136 on Mensa Norway test, surpassing 98% of human population",
+ "notes": [
+  "hid 4 overlay element(s)",
+  "crop starts at css y=407 (the area above it, masthead, hero image, empty ad slot or video player, is not included)",
+  "captured beyond the first viewport (CDP captureBeyondViewport)"
+ ],
+ "status": 200,
+ "final_url": "https://cryptoslate.com/openais-o3-scores-136-on-mensa-norway-test-surpassing-98-of-human-population/",
+ "title0": "OpenAI’s o3 scores 136 on Mensa Norway test, surpassing 98% of human population",
+ "hidden_detail": [
+  [
+   "ASIDE",
+   "",
+   "cs-ad-slot cs-ad-slot--rotation cs-ad-slot--article-lead cs-",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "cs-ad-slot__creative cs-ad-slot__creative--desktop",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "ASIDE",
+   "",
+   "cs-ad-slot cs-ad-slot--rotation cs-ad-slot--article-end cs-a",
+   "static",
+   0,
+   0,
+   0,
+   0
+  ],
+  [
+   "DIV",
+   "",
+   "cs-ad-slot__creative cs-ad-slot__creative--desktop",
+   "relative",
+   0,
+   0,
+   0,
+   0
+  ]
+ ],
+ "title": "OpenAI’s o3 scores 136 on Mensa Norway test, surpassing 98% of human population",
+ "og_title": "OpenAI’s o3 scores 136 on Mensa Norway test, surpassing 98% of human population",
+ "twitter_title": null,
+ "og_site": "CryptoSlate",
+ "published": "2025-04-17T15:08:59+00:00",
+ "author_meta": "Liam 'Akiba' Wright",
+ "canonical": "https://cryptoslate.com/openais-o3-scores-136-on-mensa-norway-test-surpassing-98-of-human-population/",
+ "h1_count": 1,
+ "h1": "OpenAI’s o3 scores 136 on Mensa Norway test, surpassing 98% of human population",
+ "h1_box": [
+  146,
+  557.125,
+  1046.390625,
+  844.375
+ ],
+ "h1_font": "70.4px",
+ "below_bottom": 1234.59375,
+ "below_text": [
+  "OpenAI’s o3 model reaches Mensa-Level IQ in independent testing.",
+  "Liam 'Akiba' Wright",
+  "By",
+  "Published",
+  "Apr. 17, 2025",
+  "Updated",
+  "Apr. 24, 2025",
+  "4 min read",
+  "Editor-in-Chief",
+  "CryptoSlate",
+  "Share",
+  "Make"
+ ],
+ "hero_top": 1421.359375,
+ "header_bottom": 50,
+ "doc_w": 1200,
+ "masthead_included": false,
+ "crop_css": [
+  0,
+  407,
+  1200,
+  712
+ ],
+ "ok": true,
+ "png": "/home/user/hyperplane-teaser/research/rev2/captures/cryptoslate-2025-04-17-o3-mensa.png",
+ "trimmed": 0
+}

@@ -1,0 +1,6 @@
+{
+  "name": "hyperplane-paint-lab",
+  "private": true,
+  "description": "Reference implementation + test bench for the rev2 handmade look. Run: npm install && python3 run.py spec_final.json out",
+  "dependencies": { "perfect-freehand": "1.2.3", "roughjs": "4.6.6" }
+}

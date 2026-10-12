@@ -1,0 +1,34 @@
+<section id="s2-03" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Method</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">Same architecture, two objectives</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<div style="display:flex;flex-direction:row;gap:48px">
+<div style="flex:1;background:#ebefe9;border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:12px">
+<h3 style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-weight:600;line-height:1.2;color:#17242c">Generator <span style="color:#1d6f68">g_φ</span></h3>
+<p style="font-size:28px;line-height:1.35">Random-init Llama decoder; samples over 19 logits until F (Sec. 2.3, p.7)</p>
+<div style="background:#ffffff;border:1px solid #dde1da;border-radius:8px;padding:16px 20px;display:flex;flex-direction:column">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:28px;line-height:1.35;color:#17242c;white-space:nowrap">J_RL(φ) = E_{x∼g_φ}[r(x)] − β KL(g_φ‖g_0)</p>
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:28px;line-height:1.35;color:#17242c;white-space:nowrap">g_0(x) = |A|^−ℓ(x)</p>
+</div>
+<p style="font-size:28px;line-height:1.35">Eq. 3: reward minus β·KL to g_0, the “fixed uniform program prior” <span style="color:#5f6b72">(p.6)</span></p>
+<p style="font-size:24px;line-height:1.35;color:#a14d19">Our reading: |A| = 19 (App. E's base alphabet: 9)</p>
+<p style="font-size:28px;line-height:1.35">GRPO-style advantage over the round pool, plus expert iteration (Eqs. 4–5, p.6)</p>
+</div>
+<div style="flex:1;background:#ebefe9;border-radius:12px;padding:28px;display:flex;flex-direction:column;gap:12px">
+<h3 style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-weight:600;line-height:1.2;color:#17242c">Learner <span style="color:#1d6f68">π_θ</span></h3>
+<p style="font-size:28px;line-height:1.35">Same Llama architecture, independent init; byte vocabulary of 256 (Sec. 2.3)</p>
+<p style="font-size:28px;line-height:1.35">Next-byte cross-entropy on outputs y_i; per-program loss = mean over “content tokens”</p>
+<div style="background:#ffffff;border:1px solid #dde1da;border-radius:8px;padding:16px 20px;display:flex;flex-direction:column">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:28px;line-height:1.35;color:#17242c;white-space:nowrap">L_learner = (1/M_e) Σ_{i∈B_e} L(y_i; θ)</p>
+</div>
+<p style="font-size:28px;line-height:1.35">Eq. 1: equal weight per program; fresh, mutated and replay programs all train it (p.5)</p>
+</div>
+</div>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72;border-top:1px solid #d5d9d2;padding:16px 0px 0px 0px">Tuned per scale by coordinate descent: learner LR, generator-to-learner LR ratio, batch size, β (p.8). <span style="color:#a14d19">Values: Not reported.</span></p>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · Eq. 1, p.5; Eqs. 3–5, p.6; Sec. 2.3, p.7; p.8; App. E</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">8</p>
+<aside>About 1.5 minutes. Slide content with sources. Generator g_φ: Llama decoder, random init; samples over 19 logits until F (Sec. 2.3, p.7). Prior g_0(x) = |A|^(-ℓ(x)), the "fixed uniform program prior" (p.6); |A| = 19 is my reading (App. E's base alphabet has 9). Objective (Eq. 3): J(φ) = E_{x~g_φ}[r(x)] - β * KL(g_φ || g_0); GRPO-style advantage over the round pool, plus expert iteration (Eqs. 4-5, p.6). Learner π_θ: same Llama architecture, independent init; byte vocabulary of 256 (Sec. 2.3). Next-byte cross-entropy on outputs y_i; per-program loss = mean over "content tokens". Pool loss (Eq. 1): (1/M_e) sum_{i in B_e} L(y_i; θ), equal weight per program; fresh, mutated and replay programs all train it (p.5). Tuned per scale by coordinate descent: learner LR, generator-to-learner LR ratio, batch size, β (p.8); values not reported. Detail: Advantage (p.6): A_i = (r_i - mean_e r)/(std_e r + eps) - β*(log g_φ(x_i) - log g_0(x_i)), normalized over the full round pool. Eq. 4: policy gradient with a sequence-level importance ratio clipped to [e^-20, e^20]. It is 1 for fresh samples; for replay, the denominator is the probability stored at bank entry. Mutants are excluded from L_PG because they "were not sampled from a proposal distribution with a well-defined log probability". They still enter L_EI. Expert iteration: weights w_i = [r_i]+ / sum [r_j]+ over the whole pool, λ_EI = 1.0 (Eq. 5). [mine] [.]+ is a no-op since r ≥ 0. Generator "initialized near g_0 and regularized toward it throughout" (p.6). "Content tokens" is undefined: prefixes and zero padding may or may not count. Sizes: 1M (Table 5, Fig. 3), 24.4M (App. A.1), "below 25M" (p.15). The equations on the slide are typed from Eqs. 1 and 3; paper crops: figs/eq3-rl-objective.png, figs/eq-advantage.png.</aside>
+</section>

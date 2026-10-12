@@ -1,0 +1,38 @@
+<section id="s2-02" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Method</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">Programs: Brainf*ck plus 10 hand-picked macros</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:32px">
+<div style="background:#ffffff;border:1px solid #dde1da;border-radius:12px;padding:20px;display:flex;flex-direction:row;gap:40px;align-items:center">
+<img src="/_blob/b98176f74998bfe9f6ca5780985f155d" alt="App. E for-loop example +++[&gt;+.&lt;-]F annotated piece by piece: +++ sets cell0 to 3; [ loops while cell0 is not 0; &gt;+. adds 1 to cell1 and emits it; &lt;- decrements cell0; ] ends the loop; F halts" style="width:1100px;height:95px;object-fit:contain">
+<div style="flex:1;display:flex;flex-direction:column;gap:4px">
+<p style="font-size:28px;line-height:1.35;font-weight:600;color:#17242c">→ y = (1, 2, 3, 0, …, 0)</p>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">y = first T bytes emitted, zero-padded if it halts early</p>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">Deterministic: no ','. App. E, p.30</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;gap:48px;align-items:start">
+<div style="flex:1;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b>8 instructions</b> (&lt; &gt; + - [ ] . ,) plus end token F; Turing complete with the 8 alone</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b>Every string runs</b>: byte cells mod 256 on a circular tape; unmatched brackets are no-ops</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px"><b>',' reads a random tape ω</b> of i.i.d. uniform bytes, so one program is a distribution over outputs</p>
+</div>
+<div style="width:940px;display:flex;flex-direction:column;gap:12px">
+<p style="font-size:28px;line-height:1.35;color:#17242c"><b>10 macros</b>, shared by all methods and baselines</p>
+<table style="width:940px">
+<tr style="background:#d5d9d2"><th style="width:11%;font-size:24px;font-weight:600;color:#17242c;text-align:left;padding:8px 16px">Token</th><th style="width:27%;font-size:24px;font-weight:600;color:#17242c;text-align:left;padding:8px 16px">Expansion</th><th style="width:62%;font-size:24px;font-weight:600;color:#17242c;text-align:left;padding:8px 16px">Effect</th></tr>
+<tr style="background:#ffffff"><td style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:600;color:#1d6f68;padding:8px 16px">C</td><td style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;padding:8px 16px">[-&gt;+&gt;+&lt;&lt;]</td><td style="font-size:24px;padding:8px 16px">clear; add x into the two right cells</td></tr>
+<tr style="background:#ebefe9"><td style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:600;color:#1d6f68;padding:8px 16px">L</td><td style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;padding:8px 16px">[-&gt;+++&lt;]</td><td style="font-size:24px;padding:8px 16px">clear; add 3x into right neighbor</td></tr>
+<tr style="background:#ffffff"><td style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:600;color:#1d6f68;padding:8px 16px">V</td><td style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;padding:8px 16px">[.&gt;]</td><td style="font-size:24px;padding:8px 16px">print stored string until a zero cell</td></tr>
+<tr style="background:#ebefe9"><td style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;font-weight:600;color:#1d6f68;padding:8px 16px">X</td><td style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:24px;padding:8px 16px">[-] then 16 × +</td><td style="font-size:24px;padding:8px 16px">set cell to 16</td></tr>
+</table>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">Four that appear in Table 1 programs (Table 4, p.30)</p>
+<p style="font-size:24px;line-height:1.35">Generator logits: 8 + 10 + F (Sec. 2.3, p.7) <span style="color:#a14d19">= 19 (our calc)</span></p>
+</div>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · App. E, pp.29–30; Table 4, p.30; Sec. 2.1, p.4; Sec. 2.3, p.7</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">7</p>
+<aside>About 1.5 minutes. App. E and Table 4 (pp.29-30). Slide claims with sources: 8 Brainf*ck instructions &lt; &gt; + - [ ] . , plus end token F; Turing complete with the 8 alone (App. E, pp.29-30). Byte cells mod 256 on a circular tape; unmatched brackets are no-ops, so every string runs (App. E, p.30). ',' reads i.i.d. uniform bytes from a random tape ω (App. E, p.30), so one program is a distribution over outputs (Sec. 2.1, p.4). Output y = first T bytes emitted, zero-padded if the program halts early. Example (deterministic, no ','): +++[&gt;+.&lt;-]F emits y = (1, 2, 3, 0, ..., 0) (App. E, p.30). 10 macros, shared by all methods and baselines (Table 4, p.30); the slide table shows four that appear in Table 1 programs (C, L, V, X). Generator logits: 8 + 10 + F (Sec. 2.3, p.7); 19 total is my sum. Macros are expansions into pure Brainf*ck, idioms "frequently used in human written Brainf*ck programs" that "appear to increase the efficiency of self-play in preliminary experiments" (p.30). The paper notes that all methods use the same augmented alphabet. Do not show the printed Table 4 crop: row C prints '[-&gt;+&gt;+«]', a typo for '&lt;&lt;'. Other macros: Z [-], R [-&gt;+&lt;], N [-&lt;-&gt;], G [&gt;], H [&lt;], W [[-]&gt;+&lt;]. R also appears in the quadratic program. For randomness, Table 1's Fibonacci program S,[[.C&gt;.C&gt;] starts with ','. My re-implementation gives 1,1,2,3,5 only when the random byte is 1; otherwise r*(1,1,2,3,5,...) mod 256. So Table 1 outputs are one tape draw. Not reported: T, L, step budget, tape length. [mine] T is probably 4,095, since PCFG rows are 4,095 bytes (App. H) and the context is 4,096 with an O prefix. The crop shows the p.30 for-loop example.</aside>
+</section>

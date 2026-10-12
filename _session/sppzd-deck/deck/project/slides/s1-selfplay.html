@@ -1,0 +1,32 @@
+<section id="s1-selfplay" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Background</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">Self-play: search where the learner can still learn</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:32px">
+<div style="display:flex;flex-direction:column;gap:16px">
+<p style="font-size:28px;line-height:1.35;color:#3d4a52">The program space is enormous, and “whether a sequence is useful changes as the learner improves” <span style="color:#5f6b72">(p.2)</span></p>
+<p style="font-size:28px;line-height:1.35;color:#3d4a52"><b>So the generator adapts:</b> RL toward programs “near the frontier of the learner's current capabilities” <span style="color:#5f6b72">(p.2)</span></p>
+</div>
+<div style="display:flex;flex-direction:row;gap:40px;align-items:stretch">
+<div style="flex:1;background:#ebefe9;border-radius:12px;padding:28px 32px;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#5f6b72">Rejected reward: difficulty</p>
+<p style="font-size:28px;line-height:1.35;color:#3d4a52">“a program can be made arbitrarily difficult without containing useful structure”, e.g. by injecting random bytes <span style="color:#5f6b72">(p.5)</span></p>
+</div>
+<div style="flex:1;background:#ffffff;border:1px solid #dde1da;border-left:6px solid #1d6f68;border-radius:12px;padding:28px 32px;display:flex;flex-direction:column;gap:16px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Used instead</p>
+<p style="font-size:28px;line-height:1.35;color:#3d4a52">Reward programs whose learner gradients align with the learner's own parameter movement <span style="color:#5f6b72">(Eq. 2, in Method)</span></p>
+<p style="font-size:24px;line-height:1.35;color:#5f6b72">Reward chosen by search at small scale (p.5); ablated at 1M params (Table 5, p.31)</p>
+</div>
+</div>
+<div style="display:flex;flex-direction:row;align-items:center;gap:24px">
+<p style="font-family:'Source Serif 4', Georgia, serif;font-size:36px;font-style:italic;line-height:1.3;color:#17242c">“By teaching, we learn.”</p>
+<p style="font-size:24px;line-height:1.3;color:#5f6b72">Seneca; epigraph, p.1</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · p.1, p.2, p.5; Table 5, p.31</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">5</p>
+<aside>About 1.5 minutes.
+No equations here; the loop diagram and Eq. 2 come next in Method. The difficulty reward was 'motivated by prior work on self-play [Bailey et al., 2026a, Dong and Ma, 2025b]' (p.5). Bailey et al. report a conjecturer that collapses to 'artificially complex problems' (arXiv 2604.20209), the same failure mode. [interp] Lineage: Schmidhuber's compression progress (2008) and PowerPlay (2012) are cited (p.13). Graves et al. 2017 (learning-progress bandits) and PAIRED (regret instead of difficulty) are close but uncited. Exact p.5 wording: 'we selected this reward after searching through several possibilities at small scale.' The matched control is in the body text (p.8): both methods use 'exactly the same program space' and 'differ only in whether the sampling distribution adapts to the learner.' Hedge: the paper calls discovered structure 'one mechanism driving the faster scaling' (p.9), and the self-play arm also has replay and mutation pools that Fig. 2 does not ablate.
+Slide layout: the five outline bullets are kept on the slide as a two-line motivation (p.2), then the rejected reward (difficulty, p.5) set against the reward used instead (Eq. 2), with "Reward chosen by search at small scale (p.5); ablated at 1M params (Table 5, p.31)" as a small line under the used reward, and the Seneca epigraph closing. Nothing was cut.</aside>
+</section>

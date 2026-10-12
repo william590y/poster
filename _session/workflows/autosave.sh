@@ -19,6 +19,13 @@ tar -C /home/user/hyperplane-teaser -c --exclude-from="$EXC" -f - . | tar -C "$R
 cp /home/user/wf/*.js /home/user/wf/*.sh /home/user/wf/*.txt "$REPO/_session/workflows/" 2>/dev/null
 cp -r /home/user/minds-and-machines "$REPO/_session/" 2>/dev/null
 cp "$SP"/hyperplane/*.py "$REPO/_session/hyperplane-helpers/" 2>/dev/null
+# the Self-Play Pretraining lab-meeting deck: slide sources and the animated-cover work (no paper page renders, videos or node_modules)
+SZ="$SP/sppzd"
+if [ -d "$SZ" ]; then
+  mkdir -p "$REPO/_session/sppzd-deck"
+  tar -C "$SZ" -c --exclude='node_modules' --exclude='*.mp4' --exclude='*.webm' --exclude='./src' --exclude='./work' --exclude='./cover/tmp' \
+      -f - deck deck_spec.md outline.json merge scripts cover lint_slide.py 2>/dev/null | tar -C "$REPO/_session/sppzd-deck" -x
+fi
 cat > "$REPO/_session/README.md" <<'MD'
 # Session working files (autosaved)
 - `../hyperplane-teaser/`: the Hyperplane x "brutal" video project (engine, EDLs, research, brief). The song, clips, b-roll,
@@ -26,6 +33,7 @@ cat > "$REPO/_session/README.md" <<'MD'
 - `workflows/`: the multi-agent workflow scripts used in this session, and this autosave script.
 - `hyperplane-helpers/`: transcription and download helpers (transcribe.py, y2dl.py, ...).
 - `minds-and-machines/`: the H1239 lecture notes (LaTeX + PDF).
+- `sppzd-deck/`: the Self-Play Pretraining lab-meeting deck sources (slides, outline, spec) and the animated-cover build.
 MD
 git add -A hyperplane-teaser _session
 git diff --cached --name-only --diff-filter=AM | while read -r f; do [ -f "$f" ] && [ "$(stat -c %s "$f")" -gt 45000000 ] && git rm -q --cached "$f" && echo "skipped large $f"; done

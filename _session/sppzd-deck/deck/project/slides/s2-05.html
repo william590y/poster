@@ -1,0 +1,45 @@
+<section id="s2-05" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Method</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">One self-play round, reconstructed</h2>
+</div>
+<div style="display:flex;flex-direction:column;gap:24px">
+<p style="font-size:28px;line-height:1.35;color:#3d4a52"><span style="color:#a14d19"><b>Our reconstruction</b></span> from Sec. 2 (p.4), Eqs. 1–5 and App. G; the paper has no algorithm box</p>
+<div style="background:#ffffff;border:1px solid #dde1da;border-radius:12px;padding:24px 32px;display:flex;flex-direction:column;gap:10px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:28px;font-weight:600;line-height:1.35;color:#17242c">for round e = 0, 1, …:</p>
+<div style="display:flex;flex-direction:row;align-items:start;gap:24px;padding:0px 0px 0px 40px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:28px;font-weight:600;line-height:1.35;color:#1d6f68;width:200px;white-space:nowrap"><span style="color:#5f6b72">1</span> sample</p>
+<p style="flex:1;font-size:28px;line-height:1.35;color:#3d4a52">N programs from g_φ over 19 logits until F (≤ L); store sampling probabilities</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:24px;padding:0px 0px 0px 40px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:28px;font-weight:600;line-height:1.35;color:#1d6f68;width:200px;white-space:nowrap"><span style="color:#5f6b72">2</span> pool</p>
+<p style="flex:1;font-size:28px;line-height:1.35;color:#3d4a52">B_e = fresh (a fraction replaced by mutants) + mutated archive elites + replayed old programs on new tapes</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:24px;padding:0px 0px 0px 40px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:28px;font-weight:600;line-height:1.35;color:#1d6f68;width:200px;white-space:nowrap"><span style="color:#5f6b72">3</span> execute</p>
+<p style="flex:1;font-size:28px;line-height:1.35;color:#3d4a52">y_i = U(x_i, ω_i) <span style="color:#5f6b72">· first T bytes; machine U, random tape ω_i</span></p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:24px;padding:0px 0px 0px 40px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:28px;font-weight:600;line-height:1.35;color:#1d6f68;width:200px;white-space:nowrap"><span style="color:#5f6b72">4</span> learner</p>
+<p style="flex:1;font-size:28px;line-height:1.35;color:#3d4a52">one AdamW step on Eq. 1 over the whole pool</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:24px;padding:0px 0px 0px 40px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:28px;font-weight:600;line-height:1.35;color:#1d6f68;width:200px;white-space:nowrap"><span style="color:#5f6b72">5</span> generator</p>
+<p style="flex:1;font-size:28px;line-height:1.35;color:#3d4a52">reward r_i (Eq. 2), then one step on L_PG + 1.0 · L_EI</p>
+</div>
+<div style="display:flex;flex-direction:row;align-items:start;gap:24px;padding:0px 0px 0px 40px">
+<p style="font-family:'IBM Plex Mono', 'Courier New', monospace;font-size:28px;font-weight:600;line-height:1.35;color:#1d6f68;width:200px;white-space:nowrap"><span style="color:#5f6b72">6</span> archive</p>
+<p style="flex:1;font-size:28px;line-height:1.35;color:#3d4a52">r_i &gt; 0 → MAP-Elites: ≤ 36 niches, top 8 each; stored rewards × 0.97 per round</p>
+</div>
+</div>
+<div style="background:#ebefe9;border-left:6px solid #a14d19;border-radius:12px;padding:20px 28px;display:flex;flex-direction:row;align-items:start;gap:32px">
+<p style="width:320px;font-size:24px;font-weight:600;letter-spacing:3px;line-height:1.35;text-transform:uppercase;color:#a14d19">Not reported in the paper</p>
+<p style="flex:1;font-size:28px;line-height:1.35;color:#3d4a52">N · mutation and replay fractions · bank size · T · L · step budget · learner LR · generator/learner LR ratio · β · batch size · K</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · Sec. 2, p.4; Eqs. 1–5; App. C; App. G, pp.31–32; p.8</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">10</p>
+<aside>About 1.25 minutes.
+Round order follows the paper's list (p.4): one learner gradient step, then one generator step. Whether Eq. 2 reads theta_e and v_hat_e before or after that learner step is not stated. App. G (pp.31-32): mutation is a single-token substitution, insertion or deletion of an archived elite. Niches: max dynamic loop depth 0-8 (clamped) by body length bucketed at 8, 16 and 32 tokens, so at most 36. Only programs with positive reward enter, top 8 per niche, and stored rewards decay 0.97 per round. Parents are chosen uniformly over occupied niches. Replay draws uniformly without replacement from the bank of non-replay programs and re-runs them with fresh tapes. App. C counts '1,024 newly generated programs per round', 'the same rate' as the scaling experiments, but batch size was tuned (p.8). Programs were saved every 256 rounds. Whether mutants enter the replay bank is unstated; their importance-ratio denominator would be undefined.
+Moved off the slide, in the outline's words. Lead line: 'My reconstruction from Sec. 2 (p.4), Eqs. 1-5 and App. G; the paper has no algorithm box' (on the slide as 'Our reconstruction', in the orange presenter colour). Step 1 in full: 'sample programs from g_phi over 19 logits until F (length varies, ≤ L); store sampling probabilities' (the slide drops 'length varies'). Step 6 in full: 'archive positive-reward programs into MAP-Elites (≤ 36 niches, top 8 each; stored rewards × 0.97 per round)' (the slide writes positive reward as r_i above 0). Step 3 on the slide adds the gloss 'first T bytes; machine U, random tape ω_i' from the loop and language slides (App. E, p.30: y is the first T bytes the program emits). Step 1 writes 'N programs' after Sec. 2 (p.4), 'Sample N programs from the generator', so N and T in the not-reported list are defined on this slide: N is programs per round (not the parameter count N on the compute slide), and T is output length (not the generator endpoint T on the Fig. 3 slide). The not-reported list (N; mutation and replay fractions; bank size; T; L; step budget; learner LR; generator/learner LR ratio; beta; batch size; K) is on the slide in full.</aside>
+</section>

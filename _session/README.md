@@ -4,3 +4,4 @@
 - `workflows/`: the multi-agent workflow scripts used in this session, and this autosave script.
 - `hyperplane-helpers/`: transcription and download helpers (transcribe.py, y2dl.py, ...).
 - `minds-and-machines/`: the H1239 lecture notes (LaTeX + PDF).
+- `sppzd-deck/`: the Self-Play Pretraining lab-meeting deck sources (slides, outline, spec) and the animated-cover build.

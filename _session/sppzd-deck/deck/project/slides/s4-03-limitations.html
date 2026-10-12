@@ -1,0 +1,25 @@
+<section id="s4-03-limitations" data-transition="fade" style="background:#f6f5f0;color:#3d4a52;font-family:'IBM Plex Sans', Arial, sans-serif;padding:128px 128px 160px;display:flex;flex-direction:column;gap:40px">
+<div style="display:flex;flex-direction:column;gap:12px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Critique</p>
+<h2 style="font-family:'Source Serif 4', Georgia, serif;font-size:56px;font-weight:600;line-height:1.1;color:#17242c">Limitations: the authors' and ours</h2>
+</div>
+<div style="display:flex;flex-direction:row;gap:48px;align-items:stretch">
+<div style="width:700px;flex-shrink:0;background:#ebefe9;border-radius:12px;padding:32px;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#1d6f68">Authors state</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px">“Initial proof-of-concept”; “models below 25M parameters at a 4K context” <span style="color:#5f6b72">(pp.1, 15)</span></p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px">Whether discovered math “causally contribute[s] to transfer” is untested <span style="color:#5f6b72">(p.15)</span></p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #1d6f68;padding:0px 0px 0px 20px">“Limited leakage through hyperparameter selection” on DCLM + DNA <span style="color:#5f6b72">(p.8)</span></p>
+</div>
+<div style="flex:1;background:#ebefe9;border-left:6px solid #a14d19;border-radius:12px;padding:32px;display:flex;flex-direction:column;gap:20px">
+<p style="font-size:24px;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:#a14d19">Our reading · calculations marked</p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #a14d19;padding:0px 0px 0px 20px"><b><span style="color:#17242c">No trivial baselines</span></b>: no unigram, n-gram, PPM or copy-last-byte; only random bytes (8.02) and i.i.d. uniform programs <span style="color:#5f6b72">(Table 5)</span></p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #a14d19;padding:0px 0px 0px 20px"><b><span style="color:#17242c">Fit reporting</span></b>: frontier picked by validation loss on the reported datasets; Table 2 gives b only, no E, A, CIs or held-out extrapolation <span style="color:#5f6b72">(pp.8, 21)</span></p>
+<p style="font-size:28px;line-height:1.35;border-left:4px solid #a14d19;padding:0px 0px 0px 20px"><b><span style="color:#17242c">Reward vs pool</span></b>: breaking the reward–program link keeps 74% of the DCLM gap (<b><span style="color:#a14d19">our calc</span></b>; 27–93% over 9 datasets, Table 5); mutation, replay, expert iteration, archive never ablated</p>
+</div>
+</div>
+<p style="position:absolute;left:128px;bottom:64px;width:1440px;font-size:24px;color:#5f6b72">Cowsik et al. 2026 · pp.1, 8, 14–15; Table 2, p.21; Table 5, p.31</p>
+<p style="position:absolute;right:128px;bottom:64px;width:120px;text-align:right;font-size:24px;color:#5f6b72">25</p>
+<aside>About 2 minutes.
+Authors' wording: 'initial proof-of-concept' (Abstract); 'confined to models below 25M parameters at a 4K context' (p.15); 'we do not view universal pretraining as a replacement for natural data' (p.14); future work could test 'through circuit analysis or curriculum ablations' (p.15). More of ours, if time allows. DNA b = 0.435 vs 0.01-0.06; the paper already calls DNA 'the exceptional case' (p.8), and DNA is also a selection set. Metamath 0.129 and C 0.116 sit below 0.17 (the C value is derived, dagger). Self-play compute is excluded from the warm-start gains (p.22). Table 5 is a 1M model with 4 seeds and no error bars; loss_delta has 3 seeds; last_step and loss_delta are bimodal. [calc] Shuffle share: (7.75-5.96)/(7.75-5.34) = 74% on DCLM. Uniform removes the generator, so this is not a clean reward test. Grep of the paper: no n-gram, PPM, copy-last-byte or LPC baseline.
+Moved off the slide or reworded, in the outline's words. Right column heading: 'Our reading (calculations marked)'. The bold leads 'No trivial baselines', 'Fit reporting' and 'Reward vs pool' are slide labels added for scanning. Item 1 in full: 'No unigram, n-gram, PPM (prediction by partial matching) or copy-last-byte baseline; the only trivial rows are random bytes (8.02) and i.i.d. uniform programs (Table 5)'. PPM = prediction by partial matching. Item 2 in full: 'Frontier points are picked by validation loss on the reported datasets; Table 2 gives b only, with no E, A, CIs or held-out extrapolation (pp.8, 21)'. Item 3 in full: 'Breaking the reward-program link keeps 74% of the DCLM gap (calc; 27-93% over 9 datasets, Table 5); mutation, replay, expert iteration and the archive are never ablated'. The 'Authors state' items are on the slide in full.</aside>
+</section>

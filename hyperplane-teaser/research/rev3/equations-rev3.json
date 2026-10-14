@@ -63,7 +63,7 @@
   "page": 30,
   "url": "https://arxiv.org/abs/2402.03300",
   "arxiv_version_checked": "v3",
-  "version_note": "v3 is the latest (27 Apr 2024). The gradient block in main.tex is byte-identical in v1 (5 Feb 2024), v2 (6 Feb 2024) and v3 (sha1 of the block d8e954ca...), and the printed number is (20) in all three PDFs, on p. 30.",
+  "version_note": "v3 is the latest (27 Apr 2024). The lead-in sentence \"The gradient of $\\mathcal{J}_{GRPO}(\\theta)$ is:\" plus the equation block in main.tex is byte-identical in v1 (5 Feb 2024), v2 (6 Feb 2024) and v3 (the three blocks hash to the same sha1, d8e954ca86199a9f7ebc4d693ed152956ebccbcb); `sha1_source_block` below is the hash of the equation block alone (v3). The printed number is (20), on p. 30, in all three PDFs.",
   "cite": "Shao et al. 2024, DeepSeekMath (arXiv:2402.03300), appendix A.1.6, eq. 20",
   "source_tex_ref": "arXiv e-print 2402.03300v3, main.tex, the \\begin{equation}\\footnotesize\\begin{split} block that follows \"The gradient of $\\mathcal{J}_{GRPO}(\\theta)$ is:\" in \\subsubsection{Group Relative Policy Optimization (GRPO)} of the Appendix (no \\label; eq. 21 is \\label{eq:GC-GRPO})",
   "latex_changes": [

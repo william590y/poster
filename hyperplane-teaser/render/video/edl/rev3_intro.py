@@ -16,6 +16,8 @@ CHANGE 1, the prelude (song 6.10 -> the drop; the same patch in both cuts):
     and Altman his snap (a 1.08 -> 1 zoom-out on frame 0, then the push: in-and-out). Each clip gets ONE slow, steady, one-way linear
     push-in instead (Altman 1.00 -> 1.04, Amodei 1.00 -> 1.04). The headline pile loses its scale/rotation pulse list (pile-hf.pulse);
     its cards still land on the pulse and its single push-in to the Gizmodo phrase at hb:-3 stays.
+  - the HF-header card of the pile (hb:-5) drops in instead of being painted in: the paint entry left a magenta bristle rim round
+    it for the rest of the prelude, a decorative mark over the cards beneath (its highlight still lights at hb:-4).
   - kept: every text graphic (word-lit captions, pencil underlines, the circle round "25%", the red chips, name/year stamps, role and
     source lines, the Amodei sub-line and its painted "75%"), the footage, frame-pencil (a still graphite outline, not a flash), the
     pile and its emphases, the transitions (tr-wipe, tr-fold, tr-shatter), the steady film grain and the paper.
@@ -24,12 +26,16 @@ CHANGE 2, the riff (hb:0 -> hb:16 long; -> the splice at song 26.477 = hb:14.97 
   - out: the superposition burst (preset move superpose) and its equation eq-superpose; the 360 degree whip into it (hb:11.5), the
     2.5x band thicken (hb:12), the close-up reframes (hb:5-7.5, hb:13-14), the per-bar breathe; the paint dabs and extra plane strokes
     that hid the build (splat-drop, r2-spray-1/2, r2-burst-3, r2-plane-0/1/2); the beat track fx-riff (splats, stamps, jumps and
-    inverts on every 8th of hb:0-7.5) and the 5 % punch fx-riff-punch3.
+    inverts on every 8th of hb:0-7.5) and the 5 % punch fx-riff-punch3. The rev2 track fx-riff-b now starts at hb:11 and draws only
+    paint droplets in the top strip (no splats, stamps, scribbles, ticks, invert, tint, grain or bar flash), plus its camera moves.
+  - tr-shatter (the pile breaking into the cream world on the drop) is kept; its shards fly faster (2100 -> 2800 px/s) so they are off
+    the cover by the core's slam (hb:1). No flash at hb:0 or hb:8 (r7 had 0.8 and 0.22; change 1's no-flashing reading).
   - the build (r7's choreography, short.json logo-form, on the painted kand pieces): kand-riff on preset "hold" with an explicit cue
     map, every piece arriving FULLY FORMED at its largest on its beat frame and settling in 0.1 s: hb:0 the plane, the pink and the
     black disc slam (the six data points burst out big), hb:0.5 the small orange disc slams, 1 the core, 2 the blue disc (the dots fly
     home), 3 teal, 4 the square spins in, 4.5 the target pops, 5 / 5.5 / 5.75 the arc, the normal and the margin draw on, 6 the
-    checkerboard flips in, 7 the nabla drops, 8 the wordmark slams (bar 3), 9 the H crossbar tilts, 10 the kicker lands. A camera
+    checkerboard flips in, 7 the nabla drops, 8 the wordmark slams (bar 3), 9 the H crossbar tilts, 10 the kicker lands. The spin-in,
+    the pop and the drop start a few frames early so their impact (full size / home) is the beat frame. A camera
     hit per landing scaled to its weight (r7's). Nothing that has landed moves until the kicker, except Coxon's disc, which grows
     1.3x while he talks (hb:4-7.75). The whole cover stays in frame (no reframes, no whip).
   - clean cream under the build: the Galaxy aerial (ghost-riff) lives only in the bottom 22 % of the frame, under the kicker,
@@ -38,7 +44,8 @@ CHANGE 2, the riff (hb:0 -> hb:16 long; -> the splice at song 26.477 = hb:14.97 
     kicker (hb:10.5).
   - Coxon unchanged: voice-coxon, kar-coxon (word-lit on his spoken words), coxon-stamp (2026, Jacob Coxon), credit-coxon.
   - the hold, hb:11 -> 16 (long) / -> hb:14.97 (short), no equation: something lands on every beat and 8th: r7's rehits (a group
-    bumps on each beat and 8th), the pink/black pair orbiting a quarter turn per beat (upright, home again on the last beat), the
+    bumps on each beat and 8th), the pink/black pair orbiting a quarter turn per beat (a third in the short; upright, home again on
+    the last beat), the
     core swinging round the black disc and the teal round the blue on every beat, the square / checkerboard / nabla spinning, the
     data points and the small pieces jumping onto beats, the whole cover kicking out and springing back on the bar-4 downbeat, a
     camera hit per beat, the river water surging on every beat, the fluid colour, footage in the pink and blue discs.
@@ -50,6 +57,8 @@ stamps and pencil arrows (stamp / scribble) are excluded from the riff's remaini
 river arrows (kand-a, kand-b, kand-re) are not touched.
 
 The short: the same patch, with every ref before song 26.477 (no hb:15 or later: the generator's check() asserts it).
+Caches: ghost-riff and kc-pink-agents change t0 / speed, so they extract into their own folders (frames: r3l-* / r3s-*); rev2's
+cache/ghost-riff and cache/kc-pink-agents stay as long2 / short2 render them (prep_clips.py long3 / short3 fills the new ones).
 """
 
 NOTE = 'REV3 intro: '
@@ -171,7 +180,7 @@ def riff(edl, cut):
     note(k, 'the r1-r7 build back (BUILD.md REV3-2): preset "hold" + r7 cue map, every piece slams / pops / drops in fully formed ON its '
             'beat (hb:0 plane + pink + black, .5 smallO, 1 core, 2 blue, 3 teal, 4 square, 4.5 target, 5-5.75 arc / normal / margin, 6 '
             'checker, 7 nabla, 8 wordmark, 9 crossbar tilt, 10 kicker), still until the kicker, whole cover in frame; then the hold: '
-            'rehits, quarter-turn orbits, spins, jumps on every beat and 8th. Superposition, whip, thicken, reframes, breathe gone; the '
+            'rehits, orbits (a quarter turn per beat; a third in the short), spins, jumps on every beat and 8th. Superposition, whip, thicken, reframes, breathe gone; the '
             'river (REV3-3) has no swimming vectors, only its water.')
 
     # decorations that hid the build, the superposition's equation

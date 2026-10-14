@@ -33,7 +33,10 @@ William's six changes, verbatim first, then how each is read. Built as `edl/make
      discs, the fluid colour, orbits after the build, the break into verse 1).
 3. "the arrows at the end that are small are beautiful but i dislike the large arrows at the beginning, let's get rid of those".
    Clarified: "By 3 I specifically mean the arrows that 'swim' through the hyperplane".
-   - Remove the large swimming vectors in the riff's river (the yellow band, hb:8-16). Keep the refrain's small river vectors (`kand-a`).
+   - Remove the large swimming vectors in the riff's river (the yellow band, hb:8-16), and (rev3 fixer) the refrain's loop river
+     vectors too (`kand-a`, `kand-b`, the short's `kand-a-s`: 14 arrows at size 2.0, ~115-190 px, nearly the riff's size; they were
+     wrongly called small here). Keep the finale's small river vectors (`kand-re`, the instrumental, size 1): "the arrows at the end
+     that are small". Every river keeps its water (streaks, ripples, the surge on each beat).
 4. "let's change the closing quote to the bostrom one and substitute one of the Dario quotes in the middle for Elon's we are
    summoning the demon".
    - Closer (both cuts): Amodei's "…positive feedback loop…" (voice-amodei-b, kar-amodei-b, kc-blue-amodei) is replaced by Nick
@@ -41,7 +44,9 @@ William's six changes, verbatim first, then how each is read. Built as `edl/make
      (clips/bostrom-ted-2015-full.mp4, ≈466.03-469.90), rolled out word by word as he says it (William liked the r1 Bostrom roll-out),
      his original TED footage in the disc.
    - Middle (long cut; the short has no middle Amodei quote): Elon Musk, MIT AeroAstro Centennial Symposium, Oct 24, 2014, audible:
-     "With artificial intelligence, we are summoning the demon." (clips/musk-mit-2014-demon.mp4, ≈57.32-59.38) replaces verse 1's
+     "With artificial intelligence, we are summoning the demon." (clips/musk-mit-2014-demon.mp4, ≈57.32-59.38; as built: src
+     57.43-59.80, captioned "…with artificial intelligence, we are summoning the demon." because "I mean," before it is cut, and the
+     chip shortened to "MIT AEROASTRO CENTENNIAL · OCT 24, 2014" to fit the frame) replaces verse 1's
      Amodei "It's a warning sign that we need to slow down." (CBS Sunday Morning 2026; the other middle Amodei quotes are tied to
      the picture: the count on the chorus's numbers, "No one" with Cooper, "close the loop" on the loop).
 5. "lets only keep the equations for attention and the policy gradient for GRPO (and for GRPO just show the gradient itself), and

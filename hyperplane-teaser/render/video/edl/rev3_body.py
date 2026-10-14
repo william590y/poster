@@ -1,8 +1,10 @@
 """rev3 pass, BODY (BUILD.md REVISION 3, changes 4-5): Bostrom closes both cuts; Musk "summoning the demon" replaces verse 1's
 Amodei in the long cut; only the attention and the GRPO-gradient equations remain, the freed slots filled with other real content.
 
-apply(edl, cut) edits the rev2 EDL dict in place (cut = 'long' | 'short') and returns it. Owned by the body editor. Every item,
-track and transition it adds or touches carries a "REV3 body:" line in its _note. No engine module changes (EDL edits only).
+apply(edl, cut) edits the rev2 EDL dict in place (cut = 'long' | 'short') and returns it. Written by the body editor, revised by
+the rev3 fixer (lines marked "fixer"). Every item, track and transition it adds or touches carries a "REV3 body:" line in its _note.
+Engine: opt-in fields only (rev2 never sets them): chart `valueSnap`, `ptR` / `ptRHi`, annotate `from: 'left'` (fx/charts.js);
+karaoke `roll.popScale` / `roll.popFrom` (fx/text.js).
 Research: research/rev3/quotes.md + quotes.json (change 4: word times, audio edges, crops, credits) and
 research/rev3/equations-audit.md + equations-rev3.json (change 5: the gradient record 'grpo-grad', the inventory, the free slots).
 
@@ -16,6 +18,8 @@ CHANGE 4a, the closer (both cuts, the same song times; short edit = song - 44.81
   song 78.75 (hb:122.3) and the disc freezes on his closed mouth (song 77.75 = src 469.95), so the finished cover holds clean.
   The caption ROLLS OUT word by word as he says each word (karaoke with dim 0: a word appears, lit, on its own acoustic onset,
   the r1-r7 roll-out William liked), Newsreader on the cream plate, with "NICK BOSTROM, OXFORD PHILOSOPHER · TED2015" typed on.
+  Fixer: each word's pop grows from its left edge at 1.12 (roll.popFrom 'left', popScale 1.12), so it never closes the gap to the
+  word before it (at 1.16 from the centre: 'the lastinvention', 'need tomake.').
   His original TED stage footage (one continuous shot 463.83-475.50, no slide, no cutaway) is in the blue disc.
 
 CHANGE 4b, verse 1 (long only): p-amodei / voice-amodei / kar-amodei -> p-musk / voice-musk / kar-musk, same slots and list
@@ -33,16 +37,22 @@ CHANGE 4b, verse 1 (long only): p-amodei / voice-amodei / kar-amodei -> p-musk /
   for slot 3 below, where it carries the lyric, so it is not shown twice.
 
 CHANGE 5, the equations (long; the short's only formula is eq-superpose, the intro editor's):
-  - kept: eq-attn (unchanged).
+  - kept: eq-attn (the formula unchanged). Fixer: its source line 'VASWANI ET AL. 2017, ATTENTION IS ALL YOU NEED' sits on a black
+    plate and types on from hb:32.75 at 0.04 s a word (it was white mono on the yellow river and only reached 'NEED' as the card
+    faded); the label gets the same plate.
   - eq-grpo (chorus hb:72-80 over the xAI racks; the id is kept, so tr-ch-zoom72 / tr-refrain-in still name it): the GRPO policy
     gradient alone, ref 'grpo-grad' (Shao et al. 2024, DeepSeekMath, arXiv:2402.03300, appendix A.1.6, eq. 20; the record's
     default 3-row form, exact). Rows pencilled on the beats hb:72 / 73 / 74, the cite rolled out from hb:75, the advantage
-    circled on hb:76, the KL coefficient marker-swept on hb:77, the score function circled on hb:78, a pulse on every 16th of the
+    underlined in red on hb:76 (fixer: a circle round A-hat_{i,t} cut its subscript or the '[' beside it, whatever its padding), the KL coefficient marker-swept on hb:77, the score function circled on hb:78, a pulse on every 16th of the
     last bar. maxW 880, drift / pulseAmt 1.02 (the defaults push it past the frame at the peak), pink beat flash.
   - eq-dpo (hb:28.5-32, "of who likes me and who hates you") -> chart-gallup: Bentley-Gallup 2026 (graphs.json gallup-harm),
     the share of Americans who say AI does more harm than good, all adults 40/31/31/39 % and ages 18-29 30/27/36/47 %, 2023-2026,
     drawn a year per 8th, the 2026 points landing on "hates"; it unfolds out of the news pile (tr-v1-fold) and dissolves into the
-    tower (tr-v1-particles). Pairs with the TechCrunch sycophancy card (likes / hates).
+    tower (tr-v1-particles). Pairs with the TechCrunch sycophancy card (likes / hates). Fixer: the y axis starts at 0 (it started
+    at 20); value labels print their own value from the first frame (valueSnap; they counted through 14, 33, 35, 32 %); plot
+    520 x 210 on a card 960 x 442 (y 810-1252), title / subtitle / source 40 / 20 / 22 px (subtitle and source were 18); smaller
+    points (ptR 11, ptRHi 14) so the two 2026 points no longer merge; each 2026 callout sits beside its point with a short level
+    arrow from its left edge (annotate from 'left') and a circle in its series colour.
   - eq-ntp + eq-upd (hb:40-44, "and they'd all be so disappointed") -> pile-leike: Jan Leike's resignation post (X, 17 May 2024,
     "... until we finally reached a breaking point."), over the top of the tower as the cards were, whipped in (tr-v1-whip),
     painted out (tr-v1-wipe); with pile-disappoint below it (TechCrunch, Common Dreams, Oct 2026) the resignations stack up.
@@ -137,7 +147,7 @@ def closer(edl, cut):
         'style': {'serif': True}, 'font': {'weight': 600},
         'speech': {'in': BOSTROM_IN, 'at': f'song:{BOSTROM_AT:g}', 'words': [{'w': w, 's': s} for w, s in BOSTROM_WORDS]},
         'name': 'Nick Bostrom, Oxford philosopher', 'year': 'TED2015', 'metaAt': 'song:74.1', 'metaPx': 28, 'metaGap': 12,
-        'roll': {'dim': 0},
+        'roll': {'dim': 0, 'popFrom': 'left', 'popScale': 1.12},
         'marks': [{'phrase': 'the last invention', 'style': 'underline', 'at': 'song:75.45', 'dur': 0.22, 'color': '#FF2E88'},
                   {'phrase': 'ever need to make.', 'style': 'underline', 'at': 'song:77.35', 'dur': 0.22, 'color': '#15131F'}],
         'exit': {'style': 'fade', 'dur': 0.25}, 'theme': 'light', 'plate': {'color': 'rgba(242,235,221,0.9)', 'pad': 14},
@@ -146,7 +156,9 @@ def closer(edl, cut):
                         "Name line 'NICK BOSTROM, OXFORD PHILOSOPHER · TED2015' (TED lists him as philosopher; Oxford, FHI). "
                         "t1 song 78.5 + 0.25 s fade: gone by hb:122.3, the cover hold (hb:124) is clean. Underlines land after "
                         "'invention' (75.37) and 'make.' (77.28). size 48 / w 920 (Amodei's 52 / 940): at 52 'invention' ends "
-                        "the first line past x 1014 (coverage.py safe zone); two lines either way.",
+                        "the first line past x 1014 (coverage.py safe zone); two lines either way. Fixer: roll.popFrom 'left' + "
+                        "popScale 1.12 (fx/text.js, opt-in): a word's pop grows from its left edge, so it no longer closes the "
+                        "space to the word before it ('the lastinvention', 'need tomake.' at 1.16 from the centre).",
     }
     clip = copy.deepcopy(old_c)
     for k in ('_note', 'crop'):
@@ -230,7 +242,7 @@ def grpo_gradient():
         'label': {'text': "GRPO's gradient: each answer graded against its group", 'at': 'hb:72.25', 'per': 0.06,
                   'font': {'size': 38}, 'gap': 50, 'color': '#FBF6EC', 'bg': {'color': '#0E0D12', 'pad': 12}},
         'cite': {'at': 'hb:75', 'px': 24, 'color': '#FBF6EC', 'bg': {'color': '#0E0D12', 'pad': 10}},
-        'hl': [{'from': 'adv_term', 'at': 'hb:76', 'style': 'circle', 'color': '#B31B1B', 'width': 8, 'padX': 11, 'padY': 24},
+        'hl': [{'from': 'adv_term', 'at': 'hb:76', 'style': 'underline', 'color': '#B31B1B', 'width': 7},
                {'from': 'highlight', 'at': 'hb:77', 'style': 'marker', 'color': '#F2C300', 'ink': '#15131F'},
                {'from': 'score_term', 'at': 'hb:78', 'style': 'circle', 'color': '#FF2E88', 'width': 9, 'padX': 30, 'padY': 26}],
         'pulse': {'from': 'hb:78.5', 'to': 'hb:79.75', 'every': 0.25}, 'theme': 'dark', 'exit': 'cut',
@@ -239,7 +251,7 @@ def grpo_gradient():
                         "'grpo-grad' = Shao et al. 2024, DeepSeekMath (arXiv:2402.03300), appendix A.1.6, eq. 20, the record's 3-row "
                         "`tex` (expectation / sums and the bracketed coefficient / score function; the only cuts are between the "
                         "paper's own terms, no symbol changed). Rows pencilled on the beats hb:72, 73, 74; cite from hb:75; the "
-                        "advantage A-hat circled hb:76, the KL coefficient beta(pi_ref/pi_theta - 1) swept hb:77, the score function "
+                        "advantage A-hat underlined hb:76 (fixer: was a circle, which cut the '[' and touched the '+'), the KL coefficient beta(pi_ref/pi_theta - 1) swept hb:77, the score function "
                         "circled hb:78; 16th pulses in the last bar. maxW 880 + drift/pulseAmt 1.02: the defaults (1.05/1.035) push a "
                         "900-wide equation out of the frame at the peak; pink flash (the default yellow is unreadable on the cream "
                         "card). The label glosses the advantage term (group-relative reward), as the rev2 label did; it adds no claim.",
@@ -249,24 +261,31 @@ def grpo_gradient():
 def chart_gallup():
     return {
         'id': 'chart-gallup', 'type': 'chart', 'graph': 'gallup-harm', 't0': 'hb:28.5', 't1': 'hb:32',
-        'x': 130, 'y': 1000, 'w': 520, 'h': 165,
-        'card': {'x': 60, 'y': 868, 'w': 960, 'h': 384, 'color': '#FBF6EC', 'rot': -0.6},
-        'axesAt': 'hb:28.5', 'titleAt': 'hb:28.5', 'titlePx': 38, 'titleGap': 112, 'subAt': 'hb:28.75', 'subPx': 18, 'subPer': 0.03,
-        'subW': 860, 'grow': ['hb:28.75', 'hb:29.25', 'hb:29.75', 'hb:30.25'], 'labels': [0, 1], 'valuePx': 30,
-        'valueFmt': {'dec': 0, 'suffix': '%'}, 'yAxis': {'min': 20, 'max': 50, 'ticks': [20, 30, 40, 50]}, 'lineW': 6,
-        'annotate': [{'at': 'hb:30.25', 's': 1, 'i': 3, 'text': 'ages 18-29: 47%', 'dx': 150, 'dy': -24, 'w': 230, 'px': 28, 'lines': 1,
-                      'lead': 0, 'per': 0.03},
-                     {'at': 'hb:30.5', 's': 0, 'i': 3, 'text': 'all adults: 39%', 'dx': 150, 'dy': -6, 'w': 230, 'px': 28, 'lines': 1,
-                      'lead': 0, 'per': 0.03}],
-        'sourceAt': 'hb:29.25', 'sourcePer': 0.02, 'sourcePx': 18, 'sourceW': 860, 'sourceY': 1218, 'sourceX': 96,
+        'x': 140, 'y': 945, 'w': 520, 'h': 210,
+        'card': {'x': 60, 'y': 810, 'w': 960, 'h': 442, 'color': '#FBF6EC', 'rot': -0.6},
+        'axesAt': 'hb:28.5', 'titleAt': 'hb:28.5', 'titlePx': 40, 'titleGap': 117, 'titleW': 880, 'subAt': 'hb:28.75', 'subPx': 20, 'subPer': 0.03,
+        'subW': 900, 'grow': ['hb:28.75', 'hb:29.25', 'hb:29.75', 'hb:30.25'], 'labels': [0, 1], 'valuePx': 30, 'valueSnap': True,
+        'valueFmt': {'dec': 0, 'suffix': '%'}, 'yAxis': {'min': 0, 'max': 50, 'ticks': [0, 10, 20, 30, 40, 50]}, 'lineW': 6,
+        'ptR': 11, 'ptRHi': 14,
+        'annotate': [{'at': 'hb:30.25', 's': 1, 'i': 3, 'text': 'ages 18-29: 47%', 'dx': 165, 'dy': 9, 'w': 200, 'px': 26, 'from': 'left', 'lines': 1,
+                      'lead': 0, 'per': 0.03, 'r': 16, 'circle': '#2346FF'},
+                     {'at': 'hb:30.5', 's': 0, 'i': 3, 'text': 'all adults: 39%', 'dx': 165, 'dy': 21, 'w': 200, 'px': 26, 'from': 'left', 'lines': 1,
+                      'lead': 0, 'per': 0.03, 'r': 16, 'circle': '#FF2E88'}],
+        'sourceAt': 'hb:29.25', 'sourcePer': 0.02, 'sourcePx': 22, 'sourceW': 900, 'sourceY': 1213, 'sourceX': 120,
         'splatColor': '#F2C300', 'theme': 'light',
         '_note': NOTE + "slot of eq-dpo ('of who likes me and who hates you'): Bentley-Gallup 2026 (research/rev2/graphs.json gallup-harm, "
                         "verified against the Gallup release of 28 Jul 2026; survey 4-11 May 2026, n 3,270): the share who say AI does "
-                        "more harm than good, all adults (pink; the 2023 and 2024 values on the points: 2025's label would sit on the blue 36 % point) 40/31/31/39 %, ages 18-29 (blue) "
-                        "30/27/36/47 %; the 2026 points called out by series (annotate s 1 / s 0, so each arrow points at its own "
-                        "line; plot narrowed to x 130-650 so the callouts end before the right rail, x 930). A year per 8th from hb:28.75, 2026 lands on 'hates' (hb:30.2). The card (y 868-1252) sits between the "
-                        "PauseAI disc and pile-syco's chip (y ~1265), so kar-musk now leaves at hb:28.25; tr-v1-fold's rect starts at "
-                        "y 858. The chorus's scr-gallup (hb:76) is the headline of the same release: a callback in a different form.",
+                        "more harm than good, all adults (pink; value labels on 2023 and 2024) 40/31/31/39 %, ages 18-29 (blue) "
+                        "30/27/36/47 %; the 2026 points called out by series (annotate s 1 / s 0, each arrow and circle on its own "
+                        "line, the circle in the series colour). A year per 8th from hb:28.75, 2026 lands on 'hates' (hb:30.2). "
+                        "Fixer: y axis from 0 (it started at 20, doubling the look of the rise); valueSnap, so a label shows its own "
+                        "value from its first frame (it counted through 14, 33, 35, 32 %, values not in the data); plot 520 x 210 "
+                        "(was 520 x 165; the callouts sit beside their points at x 725-925, left of the right rail, with "
+                        "short level arrows from their left edge: annotate from 'left', opt-in), subtitle / source 20 / 22 px (were 18), smaller points (ptR 11 / ptRHi 14) so the two 2026 "
+                        "points (47, 39) no longer merge, callouts clear of the subtitle. The card (y 810-1252) sits between the "
+                        "PauseAI disc (bottom ~795) and pile-syco's chip (y ~1265), so kar-musk (y 790) leaves at hb:28.25; "
+                        "tr-v1-fold's rect starts at y 800. The chorus's scr-gallup (hb:76) is the headline of the same release: a "
+                        "callback in a different form.",
     }
 
 
@@ -302,14 +321,21 @@ def pile_astra():
 def equations(edl):
     _replace(edl, 'eq-dpo', chart_gallup())
     f = _tr(edl, 'tr-v1-fold')
-    f['rect'] = [40, 858, 1000, 722]          # the chart card (y 868-1252) and the news pile (to y ~1500) inside
+    f['rect'] = [40, 800, 1000, 780]          # the chart card (y 810-1252) and the news pile (to y ~1500) inside
     f['_note'] = (f.get('_note') or '').replace('the DPO card unfolds', 'the Gallup chart unfolds').replace("Amodei's circle", "Musk's circle")
-    note(f, "in: chart-gallup (was eq-dpo); rect [40,960,1000,620] -> [40,858,1000,722] (the chart card starts at y 868; kar-musk, above it, has left by hb:28.25 + 0.18 s).")
+    note(f, "in: chart-gallup (was eq-dpo); rect [40,960,1000,620] -> [40,800,1000,780] (the chart card starts at y 810; kar-musk, above it, has left by hb:28.25).")
     note(_tr(edl, 'tr-v1-particles'), "out: chart-gallup (was eq-dpo).")
     _replace(edl, 'eq-ntp', pile_leike())
     _drop(edl, 'eq-upd')
     note(_tr(edl, 'tr-v1-whip'), "in: pile-leike (was eq-ntp).")
     note(_tr(edl, 'tr-v1-wipe'), "out: pile-leike (was eq-ntp, eq-upd).")
+    a = _get(edl, 'eq-attn')
+    a['cite'] = {**a.get('cite', {}), 'at': 'hb:32.75', 'per': 0.04, 'px': 24, 'color': '#FBF6EC', 'bg': {'color': '#0E0D12', 'pad': 10}}
+    a['label'] = {**a['label'], 'color': '#FBF6EC', 'bg': {'color': '#0E0D12', 'pad': 10}}
+    note(a, "fixer: the formula is unchanged; its source line 'VASWANI ET AL. 2017, ATTENTION IS ALL YOU NEED' now sits on a black "
+            "plate (it was white mono straight on the yellow river and the racks footage) and types on from hb:32.75 at 0.04 s a word, "
+            "so it is complete from ~hb:33.4 for 1.1 s (it finished 'NEED' only as the card faded, hb:35.6); the label gets the same "
+            "plate. As eq-grpo's cite and label.")
     g = _get(edl, 'eq-grpo')
     assert g['ref'] == 'grpo', g['ref']
     _replace(edl, 'eq-grpo', grpo_gradient())

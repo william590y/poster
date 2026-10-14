@@ -197,7 +197,9 @@ class Run {
           whiteSpace: 'pre', letterSpacing: this.tr ? this.tr + 'px' : 'normal', transformOrigin: '50% 60%' });
         s.textContent = w.w;
         const first = w === ln.words[0], last = w === ln.words[ln.words.length - 1];
-        const ox = align === 'left' && first ? 0 : align === 'right' && last ? w.width : w.width / 2;
+        // rev3 fixer: roll.popFrom 'left' (opt-in) anchors each word's karaoke pop at its left edge, so a word growing in never
+        // crowds the word before it (a roll-out with dim 0 has nothing visible to its right yet)
+        const ox = (d.roll && d.roll.popFrom === 'left') || (align === 'left' && first) ? 0 : align === 'right' && last ? w.width : w.width / 2;
         s.style.transformOrigin = `${ox.toFixed(1)}px 50%`;
         this.words.push({ el: s, w: w.w, x: dx + w.x, y: ln.y, width: w.width, line: li, i: this.words.length, ox });
       }
@@ -314,7 +316,7 @@ class Run {
       if (this.mode === 'karaoke') {
         const lit = t >= w.at - EPS, u = pr(t, w.at, 0.14);
         const [cx, cy] = xf(w.x + w.ox + shift[w.i], w.y + this.lh / 2);
-        const sc = (lit ? lerp(1.16, 1, E.oCub(u)) : 1) * S;
+        const sc = (lit ? lerp(this.R.popScale ?? 1.16, 1, E.oCub(u)) : 1) * S;   // rev3 fixer: roll.popScale (opt-in, default 1.16)
         e.style.opacity = lit ? 1 : this.dim;
         e.style.transform = `translate(${(cx - w.x - w.ox).toFixed(2)}px,${(cy - w.y - this.lh / 2).toFixed(2)}px) scale(${sc.toFixed(4)})`;
         e.style.color = lit && t < w.next - EPS ? this.lit : colorAt(w);

@@ -453,7 +453,10 @@ function draw(it, t) {
     const pa2 = pr(t, A.at, 0.32);
     if (pa2 > 0) {
       const o = { ...K.pencil(A.a.color || ink, 5) };
-      K.arrow(rc, A.tx, A.ty, A.px + (A.tx < A.px ? -22 : 22), A.py + (A.ty < A.py ? -22 : 22), pa2, o, A.a.bow ?? 0.2);
+      // rev3 fixer: from 'left' (opt-in) starts the arrow at the callout's left edge, level with the text's middle, and ends it just
+      // right of the point (a callout set beside its point; from under the text the arrow cut through the words)
+      if (A.a.from === 'left') K.arrow(rc, A.tx - A.R.width / 2 - 12, A.ty - 14 - A.R.height / 2, A.px + 24, A.py, pa2, o, A.a.bow ?? 0);
+      else K.arrow(rc, A.tx, A.ty, A.px + (A.tx < A.px ? -22 : 22), A.py + (A.ty < A.py ? -22 : 22), pa2, o, A.a.bow ?? 0.2);
       const pc = pr(t, A.at + 0.1, 0.36);
       if (pc > 0) { const r = A.a.r ?? 40; rc.ellipse(A.px, A.py, r * 2.3, r * 2, K.drawOn({ ...K.pencil(A.a.circle || HP.COL.red, 5.5), roughness: 1.4 }, K.ellipseLen(r * 1.15, r) * 1.25, pc)); }
     }
@@ -496,7 +499,7 @@ function drawLine(it, t, rc, ctx, s, si) {
     const hi = s.pts[k].hi || (d.hi !== undefined && d.hi === k);
     if (si === 0 && it.splatAt.some(q => q.k === k)) K.splat(ctx, { x: x + 6, y: y + (d.splatDy ?? 46), r: d.splatR ?? 32, dir: Math.PI / 2, sats: 26, drips: 2, color: d.splatColor || col, seed: it.id + ':sp' + k }, lt);
     if (lt < 0.34 && d.rings !== false) { const q = pr(lt, 0, 0.34), rr = lerp(18, 74, E.oCub(q)); ctx.save(); ctx.globalAlpha = (1 - q) * 0.9; ctx.strokeStyle = col; ctx.lineWidth = lerp(7, 1.5, q); ctx.beginPath(); ctx.arc(x, y, rr, 0, 7); ctx.stroke(); ctx.restore(); }
-    const r = (hi ? 22 : 15) * u;
+    const r = (hi ? (d.ptRHi ?? 22) : (d.ptR ?? 15)) * u;   // rev3 fixer: ptR / ptRHi (opt-in; defaults 15 / 22)
     if (r > 0.5) rc.circle(x, y, 2 * r, { fill: hi ? HP.COL.yellow : col, fillStyle: 'solid', stroke: ink, strokeWidth: 3, roughness: 0.8, seed: K.seed(it.id, 'pt', si, k, HP.boil(t) % 3) });
     const L = it.vlab[k];
     if (si === 0 && L) {
@@ -505,7 +508,8 @@ function drawLine(it, t, rc, ctx, s, si) {
       const hw = String(K.fmt(s.pts[k].y, d.valueFmt || it.ya.fmt || {})).length * (d.valuePx ?? 38) * 0.31;
       L.style.left = (d.labelText ? x : Math.max(x, it.P.x + 10 + hw)) + 'px'; L.style.top = (y - 26) + 'px'; L.style.opacity = clamp(lt / 0.06);
       const v0 = k > 0 ? s.pts[k - 1].y : 0;
-      K.setNum(L, d.labelText ? String(s.pts[k].label ?? '') : K.fmt(lerp(v0, s.pts[k].y, E.oCub(pr(lt, 0, 0.2))), d.valueFmt || it.ya.fmt || {}));
+      // rev3 fixer: valueSnap (opt-in) prints the point's own value from its first frame (no count through values not in the data)
+      K.setNum(L, d.labelText ? String(s.pts[k].label ?? '') : K.fmt(d.valueSnap ? s.pts[k].y : lerp(v0, s.pts[k].y, E.oCub(pr(lt, 0, 0.2))), d.valueFmt || it.ya.fmt || {}));
       if (d.labelText) {
         const q = it.lblPos[k];
         L.style.left = q.x.toFixed(1) + 'px'; L.style.top = q.y.toFixed(1) + 'px'; L.style.transformOrigin = '50% 50%';
@@ -531,7 +535,7 @@ function drawBars(it, t, rc, ctx, s, si) {
     if (h > 1) rc.rectangle(x, y0 - h, bw, h, { fill: col, fillStyle: hi ? 'solid' : 'hachure', hachureAngle: -41, hachureGap: 8, fillWeight: 3.4, stroke: ink, strokeWidth: 3.6, roughness: 1.35, bowing: 1.5, seed: K.seed(it.id, 'bar', k, HP.boil(t) % 3) });
     if (L) {
       L.style.left = (x + bw / 2) + 'px'; L.style.top = (y0 - h - 12) + 'px'; L.style.opacity = clamp(lt / 0.06);
-      K.setNum(L, K.fmt(p.y * E.oCub(clamp(lt / 0.2)), d.valueFmt || it.ya.fmt || {}));
+      K.setNum(L, K.fmt(d.valueSnap ? p.y : p.y * E.oCub(clamp(lt / 0.2)), d.valueFmt || it.ya.fmt || {}));
     }
   });
 }

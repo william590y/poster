@@ -3860,7 +3860,9 @@
    "metaPx": 28,
    "metaGap": 12,
    "roll": {
-    "dim": 0
+    "dim": 0,
+    "popFrom": "left",
+    "popScale": 1.12
    },
    "marks": [
     {
@@ -3887,7 +3889,7 @@
     "color": "rgba(242,235,221,0.9)",
     "pad": 14
    },
-   "_note": "REV3 body: rolled out word by word as he says it (roll.dim 0: each word appears, lit, on its acoustic onset; the r1-r7 Bostrom caption William liked), verbatim, no ellipsis (the sentence starts after 'Think about it.'). Name line 'NICK BOSTROM, OXFORD PHILOSOPHER · TED2015' (TED lists him as philosopher; Oxford, FHI). t1 song 78.5 + 0.25 s fade: gone by hb:122.3, the cover hold (hb:124) is clean. Underlines land after 'invention' (75.37) and 'make.' (77.28). size 48 / w 920 (Amodei's 52 / 940): at 52 'invention' ends the first line past x 1014 (coverage.py safe zone); two lines either way."
+   "_note": "REV3 body: rolled out word by word as he says it (roll.dim 0: each word appears, lit, on its acoustic onset; the r1-r7 Bostrom caption William liked), verbatim, no ellipsis (the sentence starts after 'Think about it.'). Name line 'NICK BOSTROM, OXFORD PHILOSOPHER · TED2015' (TED lists him as philosopher; Oxford, FHI). t1 song 78.5 + 0.25 s fade: gone by hb:122.3, the cover hold (hb:124) is clean. Underlines land after 'invention' (75.37) and 'make.' (77.28). size 48 / w 920 (Amodei's 52 / 940): at 52 'invention' ends the first line past x 1014 (coverage.py safe zone); two lines either way. Fixer: roll.popFrom 'left' + popScale 1.12 (fx/text.js, opt-in): a word's pop grows from its left edge, so it no longer closes the space to the word before it ('the lastinvention', 'need tomake.' at 1.16 from the centre)."
   },
   {
    "id": "paper-rf",

@@ -548,7 +548,14 @@ HP.assets = {
     const u = HP.url(src); let p = IMGS.get(u);
     if (!p) {
       const im = new Image(); im.src = u;
-      p = im.decode().then(() => im, () => { WARN.push(`image ${src}: could not load/decode`); return null; });
+      // rev3 fixer: Chromium's decode() sometimes rejects (EncodingError) on a large screenshot that has in fact loaded
+      // (complete, naturalWidth > 0) when many decodes are in flight; the card was then silently dropped. Retry decode() twice,
+      // then use the loaded image as is (drawImage decodes it synchronously). Only a file that never loads is a WARN. A load that
+      // succeeds the first time (every rev2 frame) takes the same path as before.
+      const tryDecode = k => im.decode().then(() => im, e => k > 0 ? new Promise(r => setTimeout(r, 80)).then(() => tryDecode(k - 1))
+        : im.complete && im.naturalWidth ? (INFO.push(`image ${src}: decode() rejected (${e && e.name}), loaded ${im.naturalWidth}x${im.naturalHeight}: used`), im)
+        : (WARN.push(`image ${src}: could not load/decode`), null));
+      p = tryDecode(2);
       p.im = im; IMGS.set(u, p); PENDING.push(p);
     }
     return p;

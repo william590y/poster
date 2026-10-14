@@ -113,12 +113,12 @@
   {
    "id": "ghost-riff",
    "type": "panel",
-   "t0": "hb:1.4",
+   "t0": "hb:0.4",
    "t1": 20.923,
    "prep": "clip",
    "broll": "galaxy-helios-datacenter",
-   "in": 43.6,
-   "speed": 0.4,
+   "in": 41.2,
+   "speed": 0.36,
    "shape": "rect",
    "frame": {
     "x": 0,
@@ -128,7 +128,7 @@
    },
    "entry": {
     "style": "fade",
-    "at": "hb:1.4",
+    "at": "hb:0.4",
     "dur": 0.25
    },
    "out": {
@@ -153,7 +153,7 @@
    },
    "mask": "linear-gradient(to bottom, transparent 0%, transparent 74%, #000 79%, #000 100%)",
    "theme": "light",
-   "_note": "REV3 intro: the build stays on clean cream: the aerial only in the bottom 22 % (under the kicker), from hb:1.4 (the shards are gone), alpha 0.55. | rev2: FIXER r3: MUTED ghost b-roll under the riff (Galaxy's Helios AI data centre, 2026), multiply 50 % (lighter behind the title band)",
+   "_note": "REV3 intro: the build stays on clean cream: the aerial only in the bottom 22 % (under the kicker), from hb:0.4 (the bottom shards are gone), alpha 0.55; fixer: in 41.2 at speed 0.36 (the construction-site drone shot 41.08-44.00, not the roof shot after it). | rev2: FIXER r3: MUTED ghost b-roll under the riff (Galaxy's Helios AI data centre, 2026), multiply 50 % (lighter behind the title band)",
    "frames": "r3s-ghost-riff"
   },
   {
@@ -180,7 +180,7 @@
    ],
    "zoom": [
     1.0,
-    1.04
+    1.06
    ],
    "zoomEase": "lin",
    "grade": {
@@ -304,7 +304,7 @@
     "duck_db": 5
    },
    "verified": true,
-   "_note": "REV3 intro: no beat-locked zoom (William: the clips \"pulse zooming in and out\"): pulses, punch, shakes and the frame-0 snap removed; one slow linear push-in 1.00 -> 1.04 over the shot. Caption, marks, stamp and source unchanged. | rev2: Altman 2015 (Airbnb fireside chat), footage as filmed; caption verbatim of the heard window 1.86-6.34 (small.en), word times re-measured by the prelude verifier (LEAD after its pause)",
+   "_note": "REV3 intro: no beat-locked zoom (William: the clips \"pulse zooming in and out\"): pulses, punch, shakes and the frame-0 snap removed; one slow linear push-in 1.00 -> 1.06 over the shot. Caption, marks, stamp and source unchanged. | rev2: Altman 2015 (Airbnb fireside chat), footage as filmed; caption verbatim of the heard window 1.86-6.34 (small.en), word times re-measured by the prelude verifier (LEAD after its pause)",
    "box": {
     "x": 0,
     "y": 376,
@@ -331,7 +331,7 @@
    ],
    "zoom": [
     1.0,
-    1.04
+    1.06
    ],
    "grade": {
     "sat": 0,
@@ -404,7 +404,7 @@
      {
       "phrase": "25%",
       "style": "circle",
-      "at": "song:12.258",
+      "at": "hb:-14",
       "dur": 0.2,
       "color": "#F2C300",
       "width": 7
@@ -446,7 +446,7 @@
     "duck_db": 5
    },
    "verified": true,
-   "_note": "REV3 intro: no beat-locked zoom (William: the clips \"pulse zooming in and out\"): pulses, punch, shakes removed; one slow linear push-in 1.00 -> 1.04 over the shot. Caption, marks, stamp and source unchanged. | rev2: Amodei 2025 (Axios AI+ DC Summit, Sep 17 2025), footage as filmed (Axios wall kept). Heard: '…there's a 25% chance that things go really, really badly…' (audio 1065.67-1069.50, the whole of 'badly'); the sub line is the baseline he says next ('…and a 75% chance…'), set as unheard words, never word-lit",
+   "_note": "REV3 intro: no beat-locked zoom (William: the clips \"pulse zooming in and out\"): pulses, punch, shakes removed; one slow linear push-in 1.00 -> 1.06 over the shot. Caption, marks, stamp and source unchanged. | rev2: Amodei 2025 (Axios AI+ DC Summit, Sep 17 2025), footage as filmed (Axios wall kept). Heard: '…there's a 25% chance that things go really, really badly…' (audio 1065.67-1069.50, the whole of 'badly'); the sub line is the baseline he says next ('…and a 75% chance…'), set as unheard words, never word-lit",
    "box": {
     "x": 0,
     "y": 376,
@@ -454,37 +454,6 @@
     "h": 824
    },
    "zoomEase": "lin"
-  },
-  {
-   "id": "frame-pencil",
-   "type": "pencil",
-   "t0": "song:6.1",
-   "t1": "hb:-7",
-   "layer": "own",
-   "color": "#E9E2D2",
-   "width": 4,
-   "alpha": 0.6,
-   "boil": 2,
-   "shapes": [
-    {
-     "kind": "rect",
-     "x": 12,
-     "y": 368,
-     "w": 1056,
-     "h": 900,
-     "at": "hb:-27",
-     "dur": 0.5
-    },
-    {
-     "kind": "line",
-     "x0": 12,
-     "y0": 1282,
-     "x1": 150,
-     "y1": 1282,
-     "at": "hb:-26",
-     "dur": 0.2
-    }
-   ]
   },
   {
    "id": "pile-hf",
@@ -646,7 +615,8 @@
    "out": "cut",
    "label": true,
    "chips": "all",
-   "_note": "REV3 intro: the scale/rotation pulse list removed (BUILD.md REV3-1 follow-up: no beat-locked zoom in the prelude); the HF-header card (hb:-5) drops in instead of being painted in, so no magenta bristle rim stays round it (a decorative mark over the cards beneath); the cards still land on the pulse, the single push-in to the Gizmodo phrase (hb:-3) and the emphases stay."
+   "driftEase": "lin",
+   "_note": "REV3 intro: the scale/rotation pulse list removed (BUILD.md REV3-1 follow-up: no beat-locked zoom in the prelude); the HF-header card (hb:-5) drops in instead of being painted in, so no magenta bristle rim stays round it (a decorative mark over the cards beneath); the cards still land on the pulse, the single push-in to the Gizmodo phrase (hb:-3) and the emphases stay. Fixer: the drift is linear (driftEase lin), so the pile keeps creeping in through the breath instead of freezing."
   },
   {
    "id": "kand-riff",
@@ -1147,7 +1117,7 @@
    "t0": "song:21.1",
    "t1": "hb:9.25",
    "x": 64,
-   "y": 300,
+   "y": 312,
    "w": 950,
    "size": 48,
    "font": {
@@ -1213,7 +1183,8 @@
    "plate": {
     "color": "rgba(242,235,221,0.9)",
     "pad": 14
-   }
+   },
+   "_note": "REV3 intro: y 300 -> 312: a gap under the stamp's role line (the two touched)."
   },
   {
    "id": "coxon-stamp",
@@ -1239,7 +1210,7 @@
    "t1": "hb:9.25",
    "text": "FORMER ANTHROPIC & OPENAI RESEARCHER · THE DAILY SHOW, OCT 5, 2026",
    "x": 64,
-   "y": 1468,
+   "y": 1494,
    "w": 900,
    "font": {
     "family": "'IBM Plex Mono', monospace",
@@ -1256,7 +1227,8 @@
    "exit": {
     "style": "fade",
     "dur": 0.15
-   }
+   },
+   "_note": "REV3 intro: y 1468 -> 1494: clear of the kicker above it."
   },
   {
    "id": "riff-credit",
@@ -1265,7 +1237,7 @@
    "t1": 20.923,
    "text": "AGENTS' LAST EXAM 2026 · NVIDIA 2025 · GALAXY 2026",
    "x": 64,
-   "y": 1468,
+   "y": 1494,
    "w": 940,
    "font": {
     "family": "'IBM Plex Mono', monospace",
@@ -1279,7 +1251,8 @@
     "from": "hb:9.5"
    },
    "theme": "light",
-   "exit": "cut"
+   "exit": "cut",
+   "_note": "REV3 intro: y 1468 -> 1494: clear of the kicker above it."
   },
   {
    "id": "grain-prelude",
@@ -1521,7 +1494,7 @@
    "moves": [
     {
      "move": "river",
-     "vectors": 14,
+     "vectors": 0,
      "size": 2.0,
      "trail": 1.5,
      "stagger": 0.5,
@@ -1559,7 +1532,7 @@
      }
     }
    ],
-   "_note": "the cover's yellow plane band alone (plus its normal vector and margin line) as a river: it surges on every beat, vectors swim along it and one leaps out per beat (William: 'the hyperplane becomes a river with vectors swimming through it'); kick cue 999 = README gotcha (a pieces subset still shows the kicker)"
+   "_note": "REV3 intro: the river keeps its water but swims no arrows (REV3-3: the large arrows swimming through the hyperplane; was 14 arrows at size 2.0). The small finale arrows (kand-re) are kept. | rev2: the cover's yellow plane band alone (plus its normal vector and margin line) as a river: it surges on every beat, vectors swim along it and one leaps out per beat (William: 'the hyperplane becomes a river with vectors swimming through it'); kick cue 999 = README gotcha (a pieces subset still shows the kicker)"
   },
   {
    "id": "cp-golden",
@@ -1967,7 +1940,7 @@
     },
     {
      "move": "river",
-     "vectors": 14,
+     "vectors": 0,
      "size": 2.0,
      "trail": 1.5,
      "stagger": 0.5,
@@ -1995,7 +1968,8 @@
       "104": 2.6
      }
     }
-   ]
+   ],
+   "_note": "REV3 intro: the river keeps its water but swims no arrows (REV3-3: the large arrows swimming through the hyperplane; was 14 arrows at size 2.0). The small finale arrows (kand-re) are kept."
   },
   {
    "id": "kc-pink-b1",
@@ -3179,8 +3153,7 @@
    "at": "hb:-7",
    "type": "fold",
    "out": [
-    "amodei",
-    "frame-pencil"
+    "amodei"
    ],
    "in": [
     "pile-hf"

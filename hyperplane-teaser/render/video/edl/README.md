@@ -1043,3 +1043,31 @@ That is the only difference between the r3 EDLs and the rendered ones (a JSON di
   Deliverables, measurements and ear checks: `out/rev2/NOTES.md`.
 - **Checks of the final pass** live in `render/video/check/final/` (`verify_final.py`, `captions_final.py`, `words_final.py`,
   `sheet_final.py`, `contents_final.py`; usage in `out/rev2/NOTES.md`, "Rebuild").
+
+## rev3 (14 Oct 2026): William's six changes (BUILD.md REVISION 3)
+**Files.** `edl/make_long_rev3.py` -> `long3.json` and `edl/make_short_rev3.py` -> `short3.json`. Each runs the rev2 builder
+(`make_long_rev2.build` / `make_short_rev2.build`, from `rev2_parts.py`, untouched, so `long2` / `short2` stay reproducible), the rev2
+post-build steps (`hold_past`, `early_emph`, `fit_emph`), then two passes that edit the EDL dict in place, `apply(edl, cut)` with cut
+`'long'` | `'short'`: **`edl/rev3_intro.py`** (changes 1-3: the prelude without its flashes, pulses and decorative marks; the riff's
+r1-r7 build falling into place on the beat; no large arrows swimming through the hyperplane, in the riff or the refrain, the finale's
+small ones kept) and **`edl/rev3_body.py`** (changes 4-5: Bostrom closes both cuts, Musk replaces verse 1's Amodei in the long cut;
+equations: attention and the GRPO policy gradient only, the freed slots filled with the Gallup chart, Leike's post and the Astra
+card). Each item a pass touches carries a `REV3 intro:` / `REV3 body:` line in its `_note`; each module's docstring lists every change.
+One-pass previews: `REV3_PASSES=intro REV3_SUFFIX=i python3 render/video/edl/make_long_rev3.py` -> `long3i.json` (`body` / `b` likewise;
+the same for the short). Then `prep_clips.py long3` / `short3`: the riff's re-timed footage has its own caches (`r3l-*` / `r3s-*`),
+plus `p-musk` and `kc-blue-bostrom`; rev2's caches are untouched. Deliverables go to `out/rev3/` (each EDL's `outputs`).
+**Change 6** is the one engine change that is not opt-in: `fx/singularity.js` icon `redo` (the loop's "Even better AI" node) drew its
+barbs along the outward radius, so the head pointed against the arc; they now trail the tip either side of the reverse tangent. Every
+EDL with that loop (long2 / short2 included) draws the corrected icon; the regression snapshot postdates it.
+**New engine options (opt-in, off by default; long2 / short2 render identically, `regress.py compare` 0.0000):**
+- `screens` pile `driftEase: "lin"`: the slow drift runs linearly to the pile's last frame (the default ioSine stops it there).
+- `karaoke` `roll.popScale` (1.16) and `roll.popFrom: "left"`: the lit word's pop size, and a pop that grows from the word's left edge
+  (for a roll-out with `dim: 0`, where nothing is visible to its right yet), so it never closes the gap to the word before it.
+- `chart` `valueSnap: true` (a value label shows its own value from its first frame, no count through values not in the data), `ptR` /
+  `ptRHi` (point radii, 15 / 22), and annotate `from: "left"` (the arrow starts at the callout's left edge, level with its middle, and
+  ends just right of the point: for a callout set beside its point).
+**Robustness (any EDL; only failure paths change):** `fx/core.js` `HP.assets.image` retries a rejected `decode()` twice and then uses an
+image that has loaded (`complete`, `naturalWidth` > 0): Chromium's `decode()` intermittently rejects large screenshots that did load
+(EncodingError), which used to drop a card silently with a WARN; only an image that never loads still WARNs. `render.py video
+--workers N` now applies the parent's warning guard in every worker page (a worker whose page reports a WARN aborts the render unless
+`--allow-missing`), so a card missing in one worker can no longer vanish from every N-th frame.

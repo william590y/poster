@@ -1,8 +1,9 @@
 """rev3 pass, INTRO (BUILD.md REVISION 3, changes 1-3): the prelude without its flashing and decorative marks, the riff without the
 superposition fan and the large swimming arrows, and the logo falling into place on the beat (as in the r1-r7 riff).
 
-apply(edl, cut) edits the rev2 EDL dict in place (cut = 'long' | 'short') and returns it. Owned by the intro editor. Every item,
-track and transition it touches carries a "REV3 intro:" line in its _note. No engine module changes (EDL edits only).
+apply(edl, cut) edits the rev2 EDL dict in place (cut = 'long' | 'short') and returns it. Written by the intro editor, revised by
+the rev3 fixer (lines marked "fixer"). Every item, track and transition it touches carries a "REV3 intro:" line in its _note. Engine:
+one opt-in field, screens `driftEase: 'lin'` (fx/screens.js; rev2 never sets it).
 Research: research/rev3/intro-audit.md (inventory, measurements, the r7 landing table); this file follows its section 5 patch, plus
 William's follow-up on the prelude zoom pulses, which the audit predates.
 
@@ -14,13 +15,19 @@ CHANGE 1, the prelude (song 6.10 -> the drop; the same patch in both cuts):
   - William's follow-up ("the video clips like 'pulse' zooming in and out I dislike this"): no beat-locked zoom anywhere in the
     prelude: altman / amodei lose their pulses (8-12 % bounce on every beat), punch lists and the camera shakes that went with them,
     and Altman his snap (a 1.08 -> 1 zoom-out on frame 0, then the push: in-and-out). Each clip gets ONE slow, steady, one-way linear
-    push-in instead (Altman 1.00 -> 1.04, Amodei 1.00 -> 1.04). The headline pile loses its scale/rotation pulse list (pile-hf.pulse);
-    its cards still land on the pulse and its single push-in to the Gizmodo phrase at hb:-3 stays.
+    push-in instead (Altman 1.00 -> 1.06, Amodei 1.00 -> 1.06; fixer: 1.04 moved ~0.3 px a frame, too little to read). The headline
+    pile loses its scale/rotation pulse list (pile-hf.pulse); its cards still land on the pulse and its single push-in to the Gizmodo
+    phrase at hb:-3 stays; fixer: its drift is linear (driftEase 'lin'), so it keeps creeping in through the breath (it froze for
+    12 frames there).
   - the HF-header card of the pile (hb:-5) drops in instead of being painted in: the paint entry left a magenta bristle rim round
     it for the rest of the prelude, a decorative mark over the cards beneath (its highlight still lights at hb:-4).
+  - fixer: frame-pencil out too (a graphite rectangle round the clip box and a stub line under it, NOT still: boil 2 re-drew it every
+    2 frames for the whole Altman / Amodei stretch, a decorative non-text mark); the "25%" circle lands on the beat hb:-14 (song
+    12.458, on the music's own pulse 12.484, while "chance" is spoken; it was song 12.258).
   - kept: every text graphic (word-lit captions, pencil underlines, the circle round "25%", the red chips, name/year stamps, role and
-    source lines, the Amodei sub-line and its painted "75%"), the footage, frame-pencil (a still graphite outline, not a flash), the
-    pile and its emphases, the transitions (tr-wipe, tr-fold, tr-shatter), the steady film grain and the paper.
+    source lines, the Amodei sub-line and its painted "75%"), the footage, the pile and its emphases, the transitions (tr-wipe,
+    tr-fold, tr-shatter; the Altman -> Amodei paint wipe is ~5 frames of pink and violet, a transition the brief keeps), the steady
+    film grain and the paper.
 
 CHANGE 2, the riff (hb:0 -> hb:16 long; -> the splice at song 26.477 = hb:14.97 short):
   - out: the superposition burst (preset move superpose) and its equation eq-superpose; the 360 degree whip into it (hb:11.5), the
@@ -39,10 +46,16 @@ CHANGE 2, the riff (hb:0 -> hb:16 long; -> the splice at song 26.477 = hb:14.97 
     hit per landing scaled to its weight (r7's). Nothing that has landed moves until the kicker, except Coxon's disc, which grows
     1.3x while he talks (hb:4-7.75). The whole cover stays in frame (no reframes, no whip).
   - clean cream under the build: the Galaxy aerial (ghost-riff) lives only in the bottom 22 % of the frame, under the kicker,
-    from hb:1.4 (when the shards are gone); the discs show their flat colour first, then footage: pink lands hb:0 -> the agents'
+    from hb:0.4 (fixer: was hb:1.4, which left f402-f415 with no footage at all; the bottom shards are gone by hb:0.4), on the
+    construction-site drone shot (src 41.2 at speed 0.36, inside the shot 41.08-44.00; it was 43.6, whose next shot, a ribbed roof,
+    read as a grey ruled strip); the discs show their flat colour first, then footage: pink lands hb:0 -> the agents'
     wall from hb:2; blue lands hb:2 -> Coxon from hb:3 (unchanged), then the data hall from hb:8; the fluid colour starts after the
     kicker (hb:10.5).
-  - Coxon unchanged: voice-coxon, kar-coxon (word-lit on his spoken words), coxon-stamp (2026, Jacob Coxon), credit-coxon.
+  - Coxon unchanged: voice-coxon, kar-coxon (word-lit on his spoken words), coxon-stamp (2026, Jacob Coxon), credit-coxon
+    (fixer: kar-coxon 12 px lower, clear of the stamp's role line; credit-coxon and riff-credit 26 px lower, clear of the kicker).
+  - kept as r7 (checked frame by frame against out/hyperplane-brutal-short-9x16.mp4 f464-f548): the wordmark's 1.32 slam (one
+    frame cropped at both edges, f511, exactly as r7), the arc / checkerboard / kicker starting on their beat and completing over
+    5-11 frames (r7 identical); only slams, pops, spin-ins and drops are led so their impact is the beat frame.
   - the hold, hb:11 -> 16 (long) / -> hb:14.97 (short), no equation: something lands on every beat and 8th: r7's rehits (a group
     bumps on each beat and 8th), the pink/black pair orbiting a quarter turn per beat (a third in the short; upright, home again on
     the last beat), the
@@ -51,10 +64,13 @@ CHANGE 2, the riff (hb:0 -> hb:16 long; -> the splice at song 26.477 = hb:14.97 
     camera hit per beat, the river water surging on every beat, the fluid colour, footage in the pink and blue discs.
   - the break into verse 1 (tr-riff-break, the kand break at hb:16) and the short's splice iris (tr-entrance-short) are unchanged.
 
-CHANGE 3, the arrows: "the arrows that 'swim' through the hyperplane" (William) = the riff river's swimming vectors (kand-riff
-river, 26 arrows at size 2.3, 132-215 px). The river keeps its water (streaks and ripples) with no vectors. The beat track's ink-arrow
-stamps and pencil arrows (stamp / scribble) are excluded from the riff's remaining track. The refrain's and the finale's small
-river arrows (kand-a, kand-b, kand-re) are not touched.
+CHANGE 3, the arrows: "the arrows that 'swim' through the hyperplane" (William) = every LARGE vector swimming in the yellow band:
+  - the riff river (kand-riff, 26 arrows at size 2.3, 132-215 px): the river keeps its water (streaks and ripples) with no vectors.
+    The beat track's ink-arrow stamps and pencil arrows (stamp / scribble) are excluded from the riff's remaining track.
+  - fixer, rivers(): the refrain's loop river too (kand-a, kand-b, and kand-a-s in the short: 14 arrows at size 2.0, ~115-190 px on
+    screen, nearly the riff's size and twice the finale's; BUILD.md had called kand-a "small", which it is not). Water kept.
+  - kept: the finale's small arrows (kand-re, instrumental hb:116-123, 7 arrows at size 1, ~58-94 px): William's "the arrows at the
+    end that are small are beautiful". rivers() asserts no other kand river swims a vector.
 
 The short: the same patch, with every ref before song 26.477 (no hb:15 or later: the generator's check() asserts it).
 Caches: ghost-riff and kc-pink-agents change t0 / speed, so they extract into their own folders (frames: r3l-* / r3s-*); rev2's
@@ -62,6 +78,7 @@ cache/ghost-riff and cache/kc-pink-agents stay as long2 / short2 render them (pr
 """
 
 NOTE = 'REV3 intro: '
+PUSH = [1.0, 1.06]   # the prelude clips' one slow, linear push-in (fixer: 1.04 moved 0.3 px a frame, too little to read as motion)
 
 # r7 logo hits (short.json logo-form.hits; beat, px, decay); hb:0 is tr-shatter's own 16 px shake
 BUILD_HITS = [(.5, 5, .05), (1, 9, .06), (2, 12, .06), (3, 6, .06), (4, 12, .07), (7, 6, .11), (8, 22, .11), (9, 7, .11)]
@@ -94,9 +111,11 @@ def items(edl):
 def prelude(edl, cut):
     edl['beatfx'] = [b for b in edl['beatfx'] if b['id'] not in ('fx-prelude', 'fx-prelude-grid')]
     edl['fx'] = [f for f in edl['fx'] if f['id'] != 'fx-drop-white']
-    _drop_ids(edl, ids=('sketch', 'sketch-plane', 'splat-open', 'r2-stamp-breath'), prefix=('sketch-dot-',))
+    # fixer: frame-pencil too (a graphite outline round the clip box and a stub line under it, re-drawn every 2 frames by its boil:
+    # a decorative, non-text mark that jitters through the whole Altman / Amodei stretch)
+    _drop_ids(edl, ids=('sketch', 'sketch-plane', 'splat-open', 'r2-stamp-breath', 'frame-pencil'), prefix=('sketch-dot-',))
     I = items(edl)
-    for k, z in (('altman', [1.0, 1.04]), ('amodei', [1.0, 1.04])):
+    for k, z in (('altman', PUSH), ('amodei', PUSH)):
         it = I[k]
         for f in ('pulses', 'punch', 'shakes', 'snap'):
             it.pop(f, None)
@@ -104,15 +123,24 @@ def prelude(edl, cut):
         it['zoomEase'] = 'lin'
         note(it, f'no beat-locked zoom (William: the clips "pulse zooming in and out"): pulses, punch, shakes{" and the frame-0 snap" if k == "altman" else ""} '
                  f'removed; one slow linear push-in {z[0]:.2f} -> {z[1]:.2f} over the shot. Caption, marks, stamp and source unchanged.')
+    # fixer: the "25%" circle lands on the prelude beat hb:-14 (song 12.458, 26 ms from the music's own pulse at 12.484), while
+    # "chance" is spoken, instead of 0.2 s before it (song 12.258); still after "25%" is heard (song 11.45)
+    for m in I['amodei']['caption']['marks']:
+        if m['phrase'] == '25%' and m['at'] == 'song:12.258':
+            m['at'] = 'hb:-14'
     p = I['pile-hf']
     p.pop('pulse', None)
+    # fixer: the pile's drift runs linearly to its last frame (fx/screens.js driftEase 'lin', opt-in): with the default ioSine ease it
+    # stopped dead in the breath (song 18.7-19.07, hb:-1.1 to -0.35, 12 still frames); same end scale (drift 0.05)
+    p['driftEase'] = 'lin'
     for s in p['shots']:
         if s['id'] == 'security-hf-header' and s.get('entry') == 'paint':
             s['entry'] = 'drop'
             s['hlAt'] = s.get('hlAt', 'hb:-4')   # the paint entry lit its highlight 1 beat after landing (hb:-5 + 1): kept
     note(p, 'the scale/rotation pulse list removed (BUILD.md REV3-1 follow-up: no beat-locked zoom in the prelude); the HF-header card '
             '(hb:-5) drops in instead of being painted in, so no magenta bristle rim stays round it (a decorative mark over the cards '
-            'beneath); the cards still land on the pulse, the single push-in to the Gizmodo phrase (hb:-3) and the emphases stay.')
+            'beneath); the cards still land on the pulse, the single push-in to the Gizmodo phrase (hb:-3) and the emphases stay. '
+            'Fixer: the drift is linear (driftEase lin), so the pile keeps creeping in through the breath instead of freezing.')
     for t in edl['transitions']:
         if t['id'] == 'tr-shatter':
             note(t, 'out no longer lists sketch / r2-stamp-breath (deleted); in no longer lists ghost-riff (it starts at hb:1.4, under the '
@@ -209,12 +237,25 @@ def riff(edl, cut):
 
     # footage: the Galaxy aerial only in the bottom 22 % (the build stays on clean cream), from the end of the shatter
     g = I['ghost-riff']
-    g['t0'] = 'hb:1.4'
-    g['entry'] = {'style': 'fade', 'at': 'hb:1.4', 'dur': .25}
+    # fixer: from hb:0.4 (was hb:1.4: f402-f415 had no footage at all, cream + flat shapes); the bottom shards of tr-shatter are
+    # gone by then. Source: the Galaxy drone shot 41.08-44.00 (the construction site between two halls, recognisable in the 22 %
+    # strip; 43.6 was its last 0.4 s, then the ribbed roof of the next shot read as a grey ruled strip), at 0.36 so it ends by 43.94
+    g['t0'] = 'hb:0.4'
+    g['in'] = 41.2
+    g['speed'] = 0.36
+    g['entry'] = {'style': 'fade', 'at': 'hb:0.4', 'dur': .25}
     g['alpha'] = 0.55
     g['mask'] = 'linear-gradient(to bottom, transparent 0%, transparent 74%, #000 79%, #000 100%)'
     g['frames'] = f'r3{cut[0]}-ghost-riff'   # its own cache folder: rev2's cache/ghost-riff (t0 hb:-0.3) stays as rev2 renders it
-    note(g, 'the build stays on clean cream: the aerial only in the bottom 22 % (under the kicker), from hb:1.4 (the shards are gone), alpha 0.55.')
+    note(g, 'the build stays on clean cream: the aerial only in the bottom 22 % (under the kicker), from hb:0.4 (the bottom shards are '
+            'gone), alpha 0.55; fixer: in 41.2 at speed 0.36 (the construction-site drone shot 41.08-44.00, not the roof shot after it).')
+    # fixer: Coxon's caption sits 12 px lower (his role line touched its first line); the two credit lines sit 26 px lower (they were
+    # 40 px under the kicker; still inside the safe zone: credit-coxon's 2 lines end at y ~1566)
+    I['kar-coxon']['y'] = 312
+    note(I['kar-coxon'], 'y 300 -> 312: a gap under the stamp\'s role line (the two touched).')
+    for cid in ('credit-coxon', 'riff-credit'):
+        I[cid]['y'] = 1494
+        note(I[cid], 'y 1468 -> 1494: clear of the kicker above it.')
     for t in edl['transitions']:
         if t['id'] == 'tr-shatter':
             t['in'] = [i for i in t['in'] if i != 'ghost-riff']
@@ -234,8 +275,32 @@ def riff(edl, cut):
             note(t, 'no longer lists eq-superpose / splat-drop (deleted); otherwise unchanged.')
 
 
+# ============================================================ change 3, the refrain: its large swimming arrows go too
+def rivers(edl, cut):
+    """William: "By 3 I specifically mean the arrows that 'swim' through the hyperplane" (and "the arrows at the end that are small
+    are beautiful"). The refrain's loop river (kand-a, kand-b; the short's kand-a-s) swims 14 arrows at size 2.0 (160-260 cover
+    units, ~115-190 px on screen), nearly the riff's (2.3) and twice the finale's: they are large arrows swimming through the
+    hyperplane, not the small ones at the end, so they go as well. Each river keeps its water (streaks, ripples, the surge on every
+    beat). kand-re (the instrumental, hb:116-123, 7 arrows at size 1) is the "small at the end" and stays exactly as in rev2."""
+    ids = ('kand-a', 'kand-b', 'kand-a-s')
+    for x in edl['items']:
+        if x['id'] in ids:
+            for m in x.get('moves', []):
+                if m.get('move') == 'river' and m.get('vectors', 7):
+                    m['vectors'] = 0
+            note(x, 'the river keeps its water but swims no arrows (REV3-3: the large arrows swimming through the hyperplane; was 14 '
+                    'arrows at size 2.0). The small finale arrows (kand-re) are kept.')
+    for x in edl['items']:   # the only arrows left in the band are the finale's small ones
+        if x['type'] == 'kand' and x['id'] != 'kand-re':
+            for m in x.get('moves', []):
+                assert m.get('move') != 'river' or m.get('vectors', 7) == 0, (x['id'], m)
+            pre = x.get('preset') or {}
+            assert not (isinstance(pre, dict) and pre.get('river', {}).get('vectors')), x['id']
+
+
 def apply(edl, cut):
     assert cut in ('long', 'short'), cut
     prelude(edl, cut)
     riff(edl, cut)
+    rivers(edl, cut)
     return edl

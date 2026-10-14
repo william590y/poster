@@ -97,11 +97,16 @@ class Capturer:
         return base64.b64decode(self.cdp.send("Page.captureScreenshot", opts)["data"])
 
 
-def _worker(k, n, edl, frames, port, q, png, fps):
+def _worker(k, n, edl, frames, port, q, png, fps, allow_missing=False):
     """--workers: one Chromium per worker renders frames f0+k, f0+k+n, ... and hands them to the parent in order."""
     try:
         with sync_playwright() as p:
             b, pg, errs = open_page(p, port, edl, quiet=True)
+            # rev3 fixer: each worker's page loads its own assets, so it gets the parent's warning guard too (a card that failed to
+            # load in one worker only used to vanish from every n-th frame without a word)
+            warn = pg.evaluate("window.__warn || []")
+            if warn and not allow_missing:
+                b.close(); q.put(("err", f"worker {k}: page warnings: " + " | ".join(warn))); return
             cap = Capturer(pg, png)
             for i in frames[k::n]:
                 draw(pg, i / fps)
@@ -155,7 +160,7 @@ def cmd_video(a):
                 import multiprocessing as mp
                 ctx = mp.get_context("spawn")
                 qs = [ctx.Queue(maxsize=6) for _ in range(a.workers)]
-                ws = [ctx.Process(target=_worker, args=(k, a.workers, a.edl, frames, srv.server_address[1], qs[k], a.png, fps), daemon=True)
+                ws = [ctx.Process(target=_worker, args=(k, a.workers, a.edl, frames, srv.server_address[1], qs[k], a.png, fps, a.allow_missing), daemon=True)
                       for k in range(a.workers)]
                 for w in ws: w.start()
                 try:

@@ -457,7 +457,8 @@ function layoutPile(it) {
 function pileMatrix(it, t) {
   const d = it.d, life = it.life(t), C = [540, 900];
   let m = new DOMMatrix();
-  const dz = d.drift ?? 0.035, z = 1 + dz * E.ioSine(life);
+  // rev3 fixer: driftEase 'lin' (opt-in) keeps the drift moving to the pile's last frame (ioSine, the default, stops it there)
+  const dz = d.drift ?? 0.035, z = 1 + dz * (d.driftEase === 'lin' ? life : E.ioSine(life));
   let k = z;
   let rot = 0;
   if (it.pulse) it.pulse.forEach((b, i) => { if (t < b - EPS) return; const a = Math.exp(-(t - b) / 0.09); if (a > 0.01) { k *= 1 + (d.pulseAmt ?? 0.02) * a; rot += (i % 2 ? 1 : -1) * (d.pulseRot ?? 1.4) * a; } });

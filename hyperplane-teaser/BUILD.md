@@ -12,6 +12,13 @@ William's six changes, verbatim first, then how each is read. Built as `edl/make
      (`splat-open`), the red nabla stamp on the breath (`r2-stamp-breath`), and any other blinking/flashing accent found by diffing
      the frames.
    - Also remove the one-frame white flash before the drop (`fx-drop-white`, f393).
+   - **William, follow-up (14 Oct): "You also do this thing in the prelude where the video clips like 'pulse' zooming in and out I
+     dislike this".** No beat-locked zoom pulses in the prelude: remove the clips' `punch` lists and the camera `shakes` that go
+     with them on `altman` and `amodei` (rev2 fixer r1/r2 prelude accents), the beat tracks' tiny zoom pulses / camera punches
+     (beatfx 'prelude' pattern, already going with `fx-prelude`/`fx-prelude-grid`), and the headline pile's scale `pulse` list on
+     `pile-hf` (the cards may still land on the pulse; its single push-in to the Gizmodo phrase at hb:-3 is a push, not a pulse,
+     and stays). At most a slow, steady, one-way push-in on a clip (e.g. Amodei's zoom 1.00 -> 1.04 over the shot), nothing that
+     goes in and out.
    - KEEP everything attached to text: the word-lit captions, the pencil underlines, the circle around "25%", marker sweeps, the
      name/year chips, the source lines. Keep the footage (original backgrounds), the headline pile and the transitions.
 2. "I don't like the vector at the beginning in the intro kill it. One of the best things about the old original intro was all of

@@ -1,0 +1,439 @@
+{
+ "name": "test-grpo-grad",
+ "title": "Research/equations: the GRPO policy gradient (DeepSeekMath app. A.1.6, eq. 20) in 3, 4 and 5 rows over the xAI racks, hb:72-96",
+ "_note": "Test EDL for research/rev3/equations-rev3.json ('grpo-grad'). Same edit mapping as long3 (edit = song - 6.10), item eq-grad-3row sits exactly where long2's eq-grpo sat (hb:72-80 over v-racks); the 4-row (hb:80-88) and 5-row (hb:88-96) variants are for comparison, each over the same racks window. Frames: v-racks is the long cut's own cache; t-racks-b / t-racks-c need `python3 render/video/prep_clips.py test-grpo-grad` (small). Render: python3 render/video/render.py still test-grpo-grad 51.6 out.png (hb:79.5, the 3-row whole), 55.5 (4-row whole), 59.4 (5-row whole). Stills at hb:+0.25 per row land the rows one by one.",
+ "rev": 3,
+ "fps": 30,
+ "width": 1080,
+ "height": 1920,
+ "duration": 59.6,
+ "audio": {
+  "song": "song/brutal.mp3",
+  "songStart": 6.1,
+  "note": "edit time = song time - 6.10 (as long3)"
+ },
+ "look": {
+  "ground": "#0E0D12"
+ },
+ "themes": [
+  {
+   "t0": 0,
+   "t1": 999,
+   "theme": "dark"
+  }
+ ],
+ "items": [
+  {
+   "id": "ground",
+   "type": "color",
+   "t0": 0,
+   "t1": "hb:96",
+   "color": "#0E0D12"
+  },
+  {
+   "id": "v-racks",
+   "type": "clip",
+   "t0": "hb:71.07",
+   "t1": "hb:80",
+   "prep": "clip",
+   "src": "clips/broll/xai-colossus-racks.mp4",
+   "in": 34.0,
+   "speed": 0.62,
+   "box": {
+    "x": 0,
+    "y": 0,
+    "w": 1080,
+    "h": 1920
+   },
+   "srcFocus": [
+    0.5,
+    0.5
+   ],
+   "zoom": [
+    1.0,
+    1.15
+   ],
+   "zoomEase": "lin",
+   "punch": [
+    {
+     "at": "hb:76",
+     "z": 1.04,
+     "dur": 0.12
+    },
+    {
+     "at": "hb:78",
+     "z": 1.03,
+     "dur": 0.1
+    }
+   ],
+   "grade": {
+    "sat": 1.05,
+    "contrast": 1.08,
+    "brightness": -0.06,
+    "gamma": 0.95,
+    "grain": 3
+   },
+   "enter": "cut",
+   "theme": "dark",
+   "_note": "test: the long cut's v-racks window (clips/broll/xai-colossus-racks.mp4, in 34.0, 0.62x), muted"
+  },
+  {
+   "id": "t-racks-b",
+   "type": "clip",
+   "t0": "hb:80",
+   "t1": "hb:88",
+   "prep": "clip",
+   "src": "clips/broll/xai-colossus-racks.mp4",
+   "in": 34.0,
+   "speed": 0.62,
+   "box": {
+    "x": 0,
+    "y": 0,
+    "w": 1080,
+    "h": 1920
+   },
+   "srcFocus": [
+    0.5,
+    0.5
+   ],
+   "zoom": [
+    1.0,
+    1.15
+   ],
+   "zoomEase": "lin",
+   "grade": {
+    "sat": 1.05,
+    "contrast": 1.08,
+    "brightness": -0.06,
+    "gamma": 0.95,
+    "grain": 3
+   },
+   "enter": "cut",
+   "theme": "dark",
+   "_note": "test: the long cut's v-racks window (clips/broll/xai-colossus-racks.mp4, in 34.0, 0.62x), muted"
+  },
+  {
+   "id": "t-racks-c",
+   "type": "clip",
+   "t0": "hb:88",
+   "t1": "hb:96",
+   "prep": "clip",
+   "src": "clips/broll/xai-colossus-racks.mp4",
+   "in": 34.0,
+   "speed": 0.62,
+   "box": {
+    "x": 0,
+    "y": 0,
+    "w": 1080,
+    "h": 1920
+   },
+   "srcFocus": [
+    0.5,
+    0.5
+   ],
+   "zoom": [
+    1.0,
+    1.15
+   ],
+   "zoomEase": "lin",
+   "grade": {
+    "sat": 1.05,
+    "contrast": 1.08,
+    "brightness": -0.06,
+    "gamma": 0.95,
+    "grain": 3
+   },
+   "enter": "cut",
+   "theme": "dark",
+   "_note": "test: the long cut's v-racks window (clips/broll/xai-colossus-racks.mp4, in 34.0, 0.62x), muted"
+  },
+  {
+   "id": "credit-racks",
+   "type": "words",
+   "t0": "hb:72.5",
+   "t1": "hb:80",
+   "x": 64,
+   "y": 1490,
+   "w": 900,
+   "text": "XAI COLOSSUS (2024 SITE), MEMPHIS \u00b7 SERVETHEHOME TOUR \u00b7 2024",
+   "font": {
+    "family": "'IBM Plex Mono', monospace",
+    "weight": 600,
+    "size": 26
+   },
+   "color": "#C9C4D6",
+   "roll": {
+    "mode": "words",
+    "rate": 4,
+    "from": "hb:72.5"
+   },
+   "theme": "dark"
+  },
+  {
+   "id": "eq-grad-3row",
+   "type": "equation",
+   "t0": "hb:72",
+   "t1": "hb:80",
+   "ref": "grpo-grad",
+   "drop": "hb:72",
+   "mode": "pencil",
+   "rows": [
+    "hb:72",
+    "hb:72.75",
+    "hb:73.5"
+   ],
+   "cx": 540,
+   "cy": 600,
+   "px": 48,
+   "maxW": 880,
+   "card": {
+    "color": "#FBF6EC",
+    "pad": 18,
+    "rot": -1.2,
+    "lead": 0.12
+   },
+   "label": {
+    "text": "GRPO: the policy gradient itself",
+    "at": "hb:72",
+    "per": 0.06,
+    "font": {
+     "size": 40
+    },
+    "gap": 50,
+    "color": "#FBF6EC",
+    "bg": {
+     "color": "#0E0D12",
+     "pad": 12
+    }
+   },
+   "cite": {
+    "at": "hb:74.25",
+    "px": 24,
+    "color": "#FBF6EC",
+    "bg": {
+     "color": "#0E0D12",
+     "pad": 10
+    }
+   },
+   "hl": [
+    {
+     "from": "adv_term",
+     "at": "hb:75",
+     "style": "circle",
+     "color": "#B31B1B",
+     "width": 9,
+     "padX": 24,
+     "padY": 28
+    },
+    {
+     "from": "highlight",
+     "at": "hb:76.5",
+     "style": "marker",
+     "color": "#F2C300",
+     "ink": "#15131F"
+    },
+    {
+     "from": "score_term",
+     "at": "hb:77.5",
+     "style": "circle",
+     "color": "#FF2E88",
+     "width": 9,
+     "padX": 30,
+     "padY": 26
+    }
+   ],
+   "pulse": {
+    "from": "hb:78.5",
+    "to": "hb:79.75",
+    "every": 0.25
+   },
+   "theme": "dark",
+   "exit": "cut",
+   "color": "#15131F",
+   "penColor": "#2A2832",
+   "drift": 1.02,
+   "pulseAmt": 1.02,
+   "flashColor": "#FF2E88",
+   "_note": "research/equations: GRPO policy gradient (DeepSeekMath app. A.1.6 eq. 20); maxW 880 + card pad 24 + drift 1.02 + pulseAmt 1.02 keeps the glyphs and the card inside x 60-1014 at the peak of the push-in and pulse (drift 1.05 / pulseAmt 1.035, the defaults, push a 900-wide equation to ~975)"
+  },
+  {
+   "id": "eq-grad-4row",
+   "type": "equation",
+   "t0": "hb:80",
+   "t1": "hb:88",
+   "ref": "grpo-grad",
+   "drop": "hb:80",
+   "mode": "pencil",
+   "rows": [
+    "hb:80",
+    "hb:80.75",
+    "hb:81.5",
+    "hb:82.25"
+   ],
+   "cx": 540,
+   "cy": 640,
+   "px": 48,
+   "maxW": 880,
+   "card": {
+    "color": "#FBF6EC",
+    "pad": 18,
+    "rot": -1.2,
+    "lead": 0.12
+   },
+   "label": {
+    "text": "GRPO: the policy gradient itself",
+    "at": "hb:80",
+    "per": 0.06,
+    "font": {
+     "size": 40
+    },
+    "gap": 50,
+    "color": "#FBF6EC",
+    "bg": {
+     "color": "#0E0D12",
+     "pad": 12
+    }
+   },
+   "cite": {
+    "at": "hb:83",
+    "px": 24,
+    "color": "#FBF6EC",
+    "bg": {
+     "color": "#0E0D12",
+     "pad": 10
+    }
+   },
+   "hl": [
+    {
+     "from": "adv_term",
+     "at": "hb:83.5",
+     "style": "circle",
+     "color": "#B31B1B",
+     "width": 9,
+     "padX": 24,
+     "padY": 28
+    },
+    {
+     "from": "highlight",
+     "at": "hb:85",
+     "style": "marker",
+     "color": "#F2C300",
+     "ink": "#15131F"
+    },
+    {
+     "from": "score_term",
+     "at": "hb:86",
+     "style": "circle",
+     "color": "#FF2E88",
+     "width": 9,
+     "padX": 30,
+     "padY": 26
+    }
+   ],
+   "pulse": {
+    "from": "hb:86.5",
+    "to": "hb:87.75",
+    "every": 0.25
+   },
+   "theme": "dark",
+   "exit": "cut",
+   "color": "#15131F",
+   "penColor": "#2A2832",
+   "form": "stacked4",
+   "drift": 1.02,
+   "pulseAmt": 1.02,
+   "flashColor": "#FF2E88",
+   "_note": "research/equations: GRPO policy gradient (DeepSeekMath app. A.1.6 eq. 20); maxW 880 + card pad 24 + drift 1.02 + pulseAmt 1.02 keeps the glyphs and the card inside x 60-1014 at the peak of the push-in and pulse (drift 1.05 / pulseAmt 1.035, the defaults, push a 900-wide equation to ~975)"
+  },
+  {
+   "id": "eq-grad-5row",
+   "type": "equation",
+   "t0": "hb:88",
+   "t1": "hb:96",
+   "ref": "grpo-grad",
+   "drop": "hb:88",
+   "mode": "pencil",
+   "rows": [
+    "hb:88",
+    "hb:88.6",
+    "hb:89.2",
+    "hb:89.8",
+    "hb:90.4"
+   ],
+   "cx": 540,
+   "cy": 700,
+   "px": 72,
+   "maxW": 880,
+   "card": {
+    "color": "#FBF6EC",
+    "pad": 24,
+    "rot": -1.2,
+    "lead": 0.12
+   },
+   "label": {
+    "text": "GRPO: the policy gradient itself",
+    "at": "hb:88",
+    "per": 0.06,
+    "font": {
+     "size": 40
+    },
+    "gap": 50,
+    "color": "#FBF6EC",
+    "bg": {
+     "color": "#0E0D12",
+     "pad": 12
+    }
+   },
+   "cite": {
+    "at": "hb:92",
+    "px": 24,
+    "color": "#FBF6EC",
+    "bg": {
+     "color": "#0E0D12",
+     "pad": 10
+    }
+   },
+   "hl": [
+    {
+     "from": "adv_term",
+     "at": "hb:92.5",
+     "style": "circle",
+     "color": "#B31B1B",
+     "width": 9,
+     "padX": 24,
+     "padY": 28
+    },
+    {
+     "from": "highlight",
+     "at": "hb:93.5",
+     "style": "marker",
+     "color": "#F2C300",
+     "ink": "#15131F"
+    },
+    {
+     "from": "score_term",
+     "at": "hb:94.5",
+     "style": "circle",
+     "color": "#FF2E88",
+     "width": 9,
+     "padX": 30,
+     "padY": 26
+    }
+   ],
+   "pulse": {
+    "from": "hb:95",
+    "to": "hb:95.75",
+    "every": 0.25
+   },
+   "theme": "dark",
+   "exit": "cut",
+   "color": "#15131F",
+   "penColor": "#2A2832",
+   "form": "stacked5",
+   "drift": 1.02,
+   "pulseAmt": 1.02,
+   "flashColor": "#FF2E88",
+   "_note": "research/equations: GRPO policy gradient (DeepSeekMath app. A.1.6 eq. 20); maxW 880 + card pad 24 + drift 1.02 + pulseAmt 1.02 keeps the glyphs and the card inside x 60-1014 at the peak of the push-in and pulse (drift 1.05 / pulseAmt 1.035, the defaults, push a 900-wide equation to ~975)"
+  }
+ ]
+}

@@ -1,0 +1,91 @@
+[
+ {
+  "id": "grpo-grad",
+  "label": "GRPO policy gradient (appendix A.1.6)",
+  "latex": "\\begin{aligned} \\nabla_{\\theta}\\mathcal{J}_{GRPO}(\\theta) &= \\mathbb{E}{[q \\sim P_{sft}(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]} \\\\ & \\frac{1}{G}\\sum_{i=1}^G\\frac{1}{|o_i|} \\sum_{t=1}^{|o_i|} \\left[\\hat{A}_{i,t} + \\beta \\left(\\frac{\\pi_{ref}(o_{i,t}|o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|o_{i,<t})} - 1\\right)\\right] \\nabla_{\\theta}\\log \\pi_\\theta(o_{i,t} | q, o_{i,<t}) \\end{aligned}",
+  "latex_stacked": "\\begin{gathered} \\nabla_{\\theta}\\mathcal{J}_{GRPO}(\\theta) = \\mathbb{E}{[q \\sim P_{sft}(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]} \\\\[4pt] \\frac{1}{G}\\sum_{i=1}^G\\frac{1}{|o_i|} \\sum_{t=1}^{|o_i|} \\left[\\hat{A}_{i,t} + \\beta \\left(\\frac{\\pi_{ref}(o_{i,t}|o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|o_{i,<t})} - 1\\right)\\right] \\\\[4pt] \\nabla_{\\theta}\\log \\pi_\\theta(o_{i,t} | q, o_{i,<t}) \\end{gathered}",
+  "tex": "\\begin{gathered} \\nabla_{\\theta}\\mathcal{J}_{GRPO}(\\theta) = \\mathbb{E}{[q \\sim P_{sft}(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]} \\\\[4pt] \\frac{1}{G}\\sum_{i=1}^G\\frac{1}{|o_i|} \\sum_{t=1}^{|o_i|} \\left[\\hat{A}_{i,t} + \\beta \\left(\\frac{\\pi_{ref}(o_{i,t}|o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|o_{i,<t})} - 1\\right)\\right] \\\\[4pt] \\nabla_{\\theta}\\log \\pi_\\theta(o_{i,t} | q, o_{i,<t}) \\end{gathered}",
+  "latex_stacked_what": "same symbols and order as `latex` (the paper's own 2-row layout, which only fits a 1080-px-wide portrait frame at ~27 px em); 3 rows (default `tex`): the expectation line, the bracketed gradient coefficient with its two sums, then the score function; the only cuts are between the \"=\" line and the sums, and between the closing \"\\right]\" of the coefficient and \"\\nabla_\\theta\"; no \\left...\\right pair is split. Measured with MathJax 3.2.1 at 48 px em: 1048 x 325 px, so em 44 px at 960 px wide, 41 px at 900 px wide.",
+  "stacked4_latex": "\\begin{gathered} \\nabla_{\\theta}\\mathcal{J}_{GRPO}(\\theta) = \\\\[4pt] \\mathbb{E}{[q \\sim P_{sft}(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]} \\\\[4pt] \\frac{1}{G}\\sum_{i=1}^G\\frac{1}{|o_i|} \\sum_{t=1}^{|o_i|} \\left[\\hat{A}_{i,t} + \\beta \\left(\\frac{\\pi_{ref}(o_{i,t}|o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|o_{i,<t})} - 1\\right)\\right] \\\\[4pt] \\nabla_{\\theta}\\log \\pi_\\theta(o_{i,t} | q, o_{i,<t}) \\end{gathered}",
+  "stacked4_what": "4 rows: \"grad J(theta) =\" / the expectation / sums + coefficient / score function. Widest row is the sums+coefficient line (988 px at 48 px em), so em 46.6 px at 960 wide, 43.8 px at 900 wide, height 407 px at 48 px.",
+  "stacked5_latex": "\\begin{gathered} \\nabla_{\\theta}\\mathcal{J}_{GRPO}(\\theta) = \\\\[4pt] \\mathbb{E}{[q \\sim P_{sft}(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]} \\\\[4pt] \\frac{1}{G}\\sum_{i=1}^G\\frac{1}{|o_i|} \\sum_{t=1}^{|o_i|} \\\\[4pt] \\left[\\hat{A}_{i,t} + \\beta \\left(\\frac{\\pi_{ref}(o_{i,t}|o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|o_{i,<t})} - 1\\right)\\right] \\\\[4pt] \\nabla_{\\theta}\\log \\pi_\\theta(o_{i,t} | q, o_{i,<t}) \\end{gathered}",
+  "stacked5_what": "5 rows (outside the 2-4 row brief; kept for a bigger-glyph option): widest row 724 px at 48 px em, so em 60 px fits 900 px wide, height ~700 px.",
+  "short_latex_what": "none on purpose: William wants the gradient itself, nothing else (no objective, no advantage definition). Sub-terms to mark are the *_latex fields below, all exact substrings of `latex`.",
+  "highlight_latex": "\\beta \\left(\\frac{\\pi_{ref}(o_{i,t}|o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|o_{i,<t})} - 1\\right)",
+  "highlight_what": "the KL-penalty part of the gradient coefficient: beta * (pi_ref / pi_theta - 1), written exactly as in A.1.6 (derivative of the sec. 4.1 KL estimator under pi_theta_old = pi_theta; note it has no \"q\" in the conditioning, unlike eq. 4)",
+  "extra_highlights": [
+   {
+    "latex": "\\hat{A}_{i,t}",
+    "what": "the group-relative advantage A-hat_{i,t}, the first term of the gradient coefficient"
+   },
+   {
+    "latex": "\\nabla_{\\theta}\\log \\pi_\\theta(o_{i,t} | q, o_{i,<t})",
+    "what": "the score function nabla_theta log pi_theta(o_{i,t} | q, o_{i,<t}): the direction each token's probability is pushed"
+   },
+   {
+    "latex": "\\frac{1}{G}\\sum_{i=1}^G",
+    "what": "the average over the G outputs sampled for the same question"
+   },
+   {
+    "latex": "\\mathbb{E}{[q \\sim P_{sft}(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]}",
+    "what": "the expectation over questions and sampled groups"
+   },
+   {
+    "latex": "\\left[\\hat{A}_{i,t} + \\beta \\left(\\frac{\\pi_{ref}(o_{i,t}|o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|o_{i,<t})} - 1\\right)\\right]",
+    "what": "the whole bracketed gradient coefficient GC_GRPO (eq. 21); overlaps extra:0 and highlight, so never in the same item as those"
+   }
+  ],
+  "adv_term_latex": "\\hat{A}_{i,t}",
+  "kl_term_latex": "\\beta \\left(\\frac{\\pi_{ref}(o_{i,t}|o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|o_{i,<t})} - 1\\right)",
+  "score_term_latex": "\\nabla_{\\theta}\\log \\pi_\\theta(o_{i,t} | q, o_{i,<t})",
+  "group_avg_latex": "\\frac{1}{G}\\sum_{i=1}^G",
+  "expect_latex": "\\mathbb{E}{[q \\sim P_{sft}(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]}",
+  "coefficient_latex": "\\hat{A}_{i,t} + \\beta \\left(\\frac{\\pi_{ref}(o_{i,t}|o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|o_{i,<t})} - 1\\right)",
+  "coefficient_what": "the right-hand side of eq. 21 (GC_GRPO = A-hat + beta (pi_ref/pi_theta - 1)), i.e. the bracket content of eq. 20; a labelled sub-expression, not for display on its own",
+  "symbols": {
+   "\\nabla_{\\theta}\\mathcal{J}_{GRPO}(\\theta)": "gradient of the GRPO objective with respect to the policy parameters",
+   "\\pi_\\theta": "policy being trained",
+   "\\pi_{\\theta_{old}}": "old policy that sampled the outputs",
+   "\\pi_{ref}": "reference model (usually the initial SFT model)",
+   "q \\sim P_{sft}(Q)": "question sampled from the SFT dataset's question distribution",
+   "\\{o_i\\}_{i=1}^G": "group of G outputs sampled for the same question",
+   "|o_i|": "length of output i in tokens",
+   "\\hat{A}_{i,t}": "advantage of token t of output i, computed from the group's reward scores only (sec. 4.1.2: r_i normalised by the group mean and std)",
+   "\\beta": "KL-penalty coefficient (0.04 in the paper's RL run)",
+   "\\nabla_{\\theta}\\log \\pi_\\theta(o_{i,t} | q, o_{i,<t})": "score function of token t of output i"
+  },
+  "paper": "DeepSeekMath: Pushing the Limits of Mathematical Reasoning in Open Language Models",
+  "authors": "Zhihong Shao, Peiyi Wang, Qihao Zhu, Runxin Xu, Junxiao Song, Xiao Bi, Haowei Zhang, Mingchuan Zhang, Y. K. Li, Y. Wu, Daya Guo",
+  "year": 2024,
+  "arxiv": "2402.03300",
+  "eq_no": "20",
+  "section": "Appendix A.1.6 \"Group Relative Policy Optimization (GRPO)\" (A.1 Analysis of Reinforcement Learning); heading on p. 29, the gradient (eq. 20) and the gradient coefficient (eq. 21) on p. 30 of the arXiv PDF",
+  "page": 30,
+  "url": "https://arxiv.org/abs/2402.03300",
+  "arxiv_version_checked": "v3",
+  "version_note": "v3 is the latest (27 Apr 2024). The gradient block in main.tex is byte-identical in v1 (5 Feb 2024), v2 (6 Feb 2024) and v3 (sha1 of the block d8e954ca...), and the printed number is (20) in all three PDFs, on p. 30.",
+  "cite": "Shao et al. 2024, DeepSeekMath (arXiv:2402.03300), appendix A.1.6, eq. 20",
+  "source_tex_ref": "arXiv e-print 2402.03300v3, main.tex, the \\begin{equation}\\footnotesize\\begin{split} block that follows \"The gradient of $\\mathcal{J}_{GRPO}(\\theta)$ is:\" in \\subsubsection{Group Relative Policy Optimization (GRPO)} of the Appendix (no \\label; eq. 21 is \\label{eq:GC-GRPO})",
+  "latex_changes": [
+   "\\begin{split}...\\end{split} -> \\begin{aligned}...\\end{aligned} (`latex`) or \\begin{gathered} rows (`latex_stacked`, `stacked4_latex`, `stacked5_latex`); \\footnotesize removed; the sentence-final period after the last symbol dropped; newlines collapsed. No symbol, index or sub/superscript changed.",
+   "Stacked forms cut the paper's two lines further, only at: after \"=\", before \"\\left[\", after \"\\right]\" (before \"\\nabla_{\\theta}\\log\")."
+  ],
+  "objective_notation_differences": [
+   "KL term: sec. 4.1 eq. 3 writes beta * D_KL[pi_theta || pi_ref] with the eq. 4 estimator pi_ref(o_{i,t}|q,o_{i,<t})/pi_theta(o_{i,t}|q,o_{i,<t}) - log(...) - 1; the gradient (eq. 20/21) carries its derivative, beta * (pi_ref(o_{i,t}|o_{i,<t})/pi_theta(o_{i,t}|o_{i,<t}) - 1), WITHOUT q in the conditioning. Kept exactly as the paper writes it.",
+   "The appendix writes the question distribution P_{sft}(Q) (eq. 3 writes P(Q)); kept as in eq. 20.",
+   "The gradient has no min / clip (the appendix assumes pi_theta_old = pi_theta \"for simplified analysis\" before eq. 19)."
+  ],
+  "verified_how": "Downloaded the arXiv LaTeX source (e-print 2402.03300v3, 14 Oct 2026; v1 and v2 too) into an empty scratch folder and read it only. build_record.py (scratch) cut the equation block out of main.tex, split it at the three cut points above and asserted, per form, that the layout-stripped TeX equals the paper's block with the final period removed (all four forms pass). Printed number (20), page 30 and the A.1.6 heading (p. 29) read from the arXiv v1/v2/v3 PDFs (pdftotext) and rasterised page 30 viewed. MathJax 3.2.1 (the vendored build) compiles every form with no error.",
+  "drop_hint": "Rows land on separate beats (the `rows` item option): the expectation line first, then the sums and the bracket, then the score function; circle the advantage, marker-sweep the KL coefficient, circle nabla log pi last. Do not mark `coefficient` and the two terms inside it in the same item.",
+  "latex_source_verbatim": "\\footnotesize \\begin{split} \\nabla_{\\theta}\\mathcal{J}_{GRPO}(\\theta) & = \\mathbb{E}{[q \\sim P_{sft}(Q), \\{o_i\\}_{i=1}^G \\sim \\pi_{\\theta_{old}}(O|q)]} \\\\ & \\frac{1}{G}\\sum_{i=1}^G\\frac{1}{|o_i|} \\sum_{t=1}^{|o_i|} \\left[\\hat{A}_{i,t} + \\beta \\left(\\frac{\\pi_{ref}(o_{i,t}|o_{i,<t})}{\\pi_{\\theta}(o_{i,t}|o_{i,<t})} - 1\\right)\\right] \\nabla_{\\theta}\\log \\pi_\\theta(o_{i,t} | q, o_{i,<t}). \\end{split}",
+  "name": "GRPO policy gradient",
+  "verified_date": "2026-10-14",
+  "source_check": "latex == source (layout-insensitive, mechanical); stacked, stacked4 and stacked5 forms equal it too",
+  "pdf": "https://arxiv.org/pdf/2402.03300v3",
+  "related": {
+   "grpo": "objective, eq. 3 (sec. 4.1.1); not shown in rev3",
+   "grpo-kl": "KL estimator, eq. 4"
+  },
+  "sha1_source_block": "eb9bfefd3c1d123209999a5b29f1ad8ff4f930e5"
+ }
+]

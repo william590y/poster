@@ -27,7 +27,7 @@ const BEAT = 0.4839, EIGHTH = BEAT / 2;
 const K = () => HP.lib.charts.kit;
 
 // ---- equation files: the research file wins over extras and the stand-in
-const EFILES = ['research/rev2/equations.json', 'research/rev2/equations-extra.json'];
+const EFILES = ['research/rev2/equations.json', 'research/rev2/equations-extra.json', 'research/rev3/equations-rev3.json'];   // rev3: grpo-grad (appendix A.1.6); K.exists skips a missing file
 async function find(ref) {
   for (const f of EFILES) {
     let j = null;

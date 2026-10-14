@@ -133,7 +133,7 @@ def closer(edl, cut):
     }
     kar = {
         'id': 'kar-bostrom', 'type': 'karaoke', 't0': 'song:73.7', 't1': 'song:78.5',
-        'x': old_k.get('x', 72), 'y': old_k.get('y', 252), 'w': old_k.get('w', 940), 'size': 52,
+        'x': old_k.get('x', 72), 'y': old_k.get('y', 252), 'w': 920, 'size': 48,
         'style': {'serif': True}, 'font': {'weight': 600},
         'speech': {'in': BOSTROM_IN, 'at': f'song:{BOSTROM_AT:g}', 'words': [{'w': w, 's': s} for w, s in BOSTROM_WORDS]},
         'name': 'Nick Bostrom, Oxford philosopher', 'year': 'TED2015', 'metaAt': 'song:74.1', 'metaPx': 28, 'metaGap': 12,
@@ -145,7 +145,8 @@ def closer(edl, cut):
                         "r1-r7 Bostrom caption William liked), verbatim, no ellipsis (the sentence starts after 'Think about it.'). "
                         "Name line 'NICK BOSTROM, OXFORD PHILOSOPHER · TED2015' (TED lists him as philosopher; Oxford, FHI). "
                         "t1 song 78.5 + 0.25 s fade: gone by hb:122.3, the cover hold (hb:124) is clean. Underlines land after "
-                        "'invention' (75.37) and 'make.' (77.28).",
+                        "'invention' (75.37) and 'make.' (77.28). size 48 / w 920 (Amodei's 52 / 940): at 52 'invention' ends "
+                        "the first line past x 1014 (coverage.py safe zone); two lines either way.",
     }
     clip = copy.deepcopy(old_c)
     for k in ('_note', 'crop'):
@@ -193,14 +194,16 @@ def musk(edl):
               "role are on kar-musk's line.")
     kar = copy.deepcopy(old_k)
     kar.pop('_note', None)
-    kar.update({'id': 'kar-musk', 'size': 46,
+    kar.update({'id': 'kar-musk', 'size': 46, 't1': 'hb:28.25',
                 'speech': {'in': MUSK_IN, 'at': f'song:{MUSK_AT:g}', 'words': [{'w': w, 's': s} for w, s in MUSK_WORDS]},
                 'name': 'Elon Musk, SpaceX & Tesla CEO', 'year': '2014',
-                'marks': [{'phrase': 'summoning the demon.', 'style': 'underline', 'at': 'song:31.85', 'color': '#F2C300', 'dur': 0.3, 'width': 7}]})
+                'marks': [{'phrase': 'summoning the demon.', 'style': 'underline', 'at': 'song:32.36', 'color': '#F2C300', 'dur': 0.3, 'width': 7}]})
     note(kar, "caption '…with artificial intelligence, we are summoning the demon.' (verbatim; the leading ellipsis because 'I mean,' "
               "is cut, the repo's rule as for Altman and Coxon; BUILD.md writes 'With ...'), word-lit on the acoustic onsets "
               "(research/rev3/quotes.md B.4: whisper puts 'intelligence' inside 'artificial'; it sounds at 58.15). size 46 keeps it "
-              "on two lines (52 wraps to three and the pile covers the name line). Underline as 'summoning' is said (hb:26).")
+              "on two lines (52 wraps to three and the pile covers the name line). Underline on 'demon.' (song 32.34; a mark never lands before its phrase's last word). t1 hb:29.2 -> "
+              "hb:28.25 (0.8 beat after the speech ends, 1.4 after 'demon.' is lit): the Gallup chart that unfolds on hb:28.5 sits "
+              "where the name line was.")
     _replace(edl, 'p-amodei', pan)
     _replace(edl, 'voice-amodei', voice)
     _replace(edl, 'kar-amodei', kar)
@@ -224,10 +227,10 @@ def grpo_gradient():
         'id': 'eq-grpo', 'type': 'equation', 't0': 'hb:72', 't1': 'hb:80', 'ref': 'grpo-grad', 'drop': 'hb:72', 'mode': 'pencil',
         'rows': ['hb:72', 'hb:73', 'hb:74'], 'cx': 540, 'cy': 600, 'px': 48, 'maxW': 880,
         'card': {'color': '#FBF6EC', 'pad': 20, 'rot': -1.2, 'lead': 0.12},
-        'label': {'text': "GRPO's policy gradient: each answer graded against its group", 'at': 'hb:72.25', 'per': 0.06,
-                  'font': {'size': 38}, 'gap': 46, 'color': '#FBF6EC', 'bg': {'color': '#0E0D12', 'pad': 12}},
+        'label': {'text': "GRPO's gradient: each answer graded against its group", 'at': 'hb:72.25', 'per': 0.06,
+                  'font': {'size': 38}, 'gap': 50, 'color': '#FBF6EC', 'bg': {'color': '#0E0D12', 'pad': 12}},
         'cite': {'at': 'hb:75', 'px': 24, 'color': '#FBF6EC', 'bg': {'color': '#0E0D12', 'pad': 10}},
-        'hl': [{'from': 'adv_term', 'at': 'hb:76', 'style': 'circle', 'color': '#B31B1B', 'width': 9, 'padX': 24, 'padY': 28},
+        'hl': [{'from': 'adv_term', 'at': 'hb:76', 'style': 'circle', 'color': '#B31B1B', 'width': 8, 'padX': 11, 'padY': 24},
                {'from': 'highlight', 'at': 'hb:77', 'style': 'marker', 'color': '#F2C300', 'ink': '#15131F'},
                {'from': 'score_term', 'at': 'hb:78', 'style': 'circle', 'color': '#FF2E88', 'width': 9, 'padX': 30, 'padY': 26}],
         'pulse': {'from': 'hb:78.5', 'to': 'hb:79.75', 'every': 0.25}, 'theme': 'dark', 'exit': 'cut',
@@ -246,21 +249,24 @@ def grpo_gradient():
 def chart_gallup():
     return {
         'id': 'chart-gallup', 'type': 'chart', 'graph': 'gallup-harm', 't0': 'hb:28.5', 't1': 'hb:32',
-        'x': 150, 'y': 1118, 'w': 640, 'h': 150,
-        'card': {'x': 60, 'y': 992, 'w': 960, 'h': 348, 'color': '#FBF6EC', 'rot': -0.6},
-        'axesAt': 'hb:28.75', 'titleAt': 'hb:28.5', 'titlePx': 38, 'titleGap': 112, 'subAt': 'hb:28.75', 'subPx': 20, 'subPer': 0.03,
-        'subW': 860, 'grow': ['hb:29', 'hb:29.5', 'hb:30', 'hb:30.5'], 'labels': 'all', 'valuePx': 30,
+        'x': 130, 'y': 1000, 'w': 520, 'h': 165,
+        'card': {'x': 60, 'y': 868, 'w': 960, 'h': 384, 'color': '#FBF6EC', 'rot': -0.6},
+        'axesAt': 'hb:28.5', 'titleAt': 'hb:28.5', 'titlePx': 38, 'titleGap': 112, 'subAt': 'hb:28.75', 'subPx': 18, 'subPer': 0.03,
+        'subW': 860, 'grow': ['hb:28.75', 'hb:29.25', 'hb:29.75', 'hb:30.25'], 'labels': [0, 1], 'valuePx': 30,
         'valueFmt': {'dec': 0, 'suffix': '%'}, 'yAxis': {'min': 20, 'max': 50, 'ticks': [20, 30, 40, 50]}, 'lineW': 6,
-        'annotate': [{'at': 'hb:30.75', 's': 1, 'i': 3, 'text': 'ages 18-29: 47%', 'dx': 120, 'dy': -6, 'w': 190, 'px': 30, 'lines': 2,
-                      'hl': '47%', 'lead': 0, 'per': 0.03}],
-        'sourceAt': 'hb:29.5', 'sourcePer': 0.02, 'sourcePx': 18, 'sourceW': 860, 'sourceY': 1306, 'sourceX': 96,
+        'annotate': [{'at': 'hb:30.25', 's': 1, 'i': 3, 'text': 'ages 18-29: 47%', 'dx': 150, 'dy': -24, 'w': 230, 'px': 28, 'lines': 1,
+                      'lead': 0, 'per': 0.03},
+                     {'at': 'hb:30.5', 's': 0, 'i': 3, 'text': 'all adults: 39%', 'dx': 150, 'dy': -6, 'w': 230, 'px': 28, 'lines': 1,
+                      'lead': 0, 'per': 0.03}],
+        'sourceAt': 'hb:29.25', 'sourcePer': 0.02, 'sourcePx': 18, 'sourceW': 860, 'sourceY': 1218, 'sourceX': 96,
         'splatColor': '#F2C300', 'theme': 'light',
         '_note': NOTE + "slot of eq-dpo ('of who likes me and who hates you'): Bentley-Gallup 2026 (research/rev2/graphs.json gallup-harm, "
                         "verified against the Gallup release of 28 Jul 2026; survey 4-11 May 2026, n 3,270): the share who say AI does "
-                        "more harm than good, all adults (pink, values on the points) 40/31/31/39 %, ages 18-29 (blue, called out) "
-                        "30/27/36/47 %. A year per 8th from hb:29, 2026 lands on 'hates' (hb:30.5). Card below kar-musk's name line "
-                        "(y >= 992) and above pile-syco (y 1350, the 'likes' half). The chorus's scr-gallup (hb:76) is the headline "
-                        "of the same release: a callback, a different form.",
+                        "more harm than good, all adults (pink; the 2023 and 2024 values on the points: 2025's label would sit on the blue 36 % point) 40/31/31/39 %, ages 18-29 (blue) "
+                        "30/27/36/47 %; the 2026 points called out by series (annotate s 1 / s 0, so each arrow points at its own "
+                        "line; plot narrowed to x 130-650 so the callouts end before the right rail, x 930). A year per 8th from hb:28.75, 2026 lands on 'hates' (hb:30.2). The card (y 868-1252) sits between the "
+                        "PauseAI disc and pile-syco's chip (y ~1265), so kar-musk now leaves at hb:28.25; tr-v1-fold's rect starts at "
+                        "y 858. The chorus's scr-gallup (hb:76) is the headline of the same release: a callback in a different form.",
     }
 
 
@@ -269,7 +275,7 @@ def pile_leike():
         'id': 'pile-leike', 'type': 'screens', 't0': 'hb:40', 't1': 'hb:44', 'region': {'x0': 60, 'y0': 330, 'x1': 1020, 'y1': 700},
         'w': 860, 'shots': [{'id': 'xrisk-rev2-x-leike-2024-05-17-breaking-point', 'at': 'hb:40', 'entry': 'slam', 'hlAt': 'hb:41',
                              'crop': [0, 290, 1096, 720]}],
-        'push': {'at': 'hb:41.5', 'z': 1.12, 'dur': 0.3, 'to': [540, 520]}, 'emph': [{'style': 'lift', 'at': 'hb:41.5'}],
+        'push': {'at': 'hb:41.5', 'z': 1.1, 'dur': 0.3, 'to': [540, 600]}, 'emph': [{'style': 'lift', 'at': 'hb:41.5'}],
         'pulse': ['hb:42', 'hb:43'], 'out': 'cut', 'chips': 'all',
         '_note': NOTE + "slot of eq-ntp / eq-upd ('And they'd all be so disappointed'): Jan Leike's resignation post (X @janleike, 17 May "
                         "2024, verified; the main post, cropped: '... until we finally reached a breaking point.' marked hb:41 and "
@@ -296,9 +302,9 @@ def pile_astra():
 def equations(edl):
     _replace(edl, 'eq-dpo', chart_gallup())
     f = _tr(edl, 'tr-v1-fold')
-    f['rect'] = [40, 975, 1000, 605]          # top at 975: the chart card (y 992) inside, kar-musk's name line (to ~y 970) outside
+    f['rect'] = [40, 858, 1000, 722]          # the chart card (y 868-1252) and the news pile (to y ~1500) inside
     f['_note'] = (f.get('_note') or '').replace('the DPO card unfolds', 'the Gallup chart unfolds').replace("Amodei's circle", "Musk's circle")
-    note(f, "in: chart-gallup (was eq-dpo); rect top 960 -> 975 (still clear of the karaoke above, the chart card inside).")
+    note(f, "in: chart-gallup (was eq-dpo); rect [40,960,1000,620] -> [40,858,1000,722] (the chart card starts at y 868; kar-musk, above it, has left by hb:28.25 + 0.18 s).")
     note(_tr(edl, 'tr-v1-particles'), "out: chart-gallup (was eq-dpo).")
     _replace(edl, 'eq-ntp', pile_leike())
     _drop(edl, 'eq-upd')

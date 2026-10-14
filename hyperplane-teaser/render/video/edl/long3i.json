@@ -177,7 +177,8 @@
    },
    "mask": "linear-gradient(to bottom, transparent 0%, transparent 74%, #000 79%, #000 100%)",
    "theme": "light",
-   "_note": "REV3 intro: the build stays on clean cream: the aerial only in the bottom 22 % (under the kicker), from hb:1.4 (the shards are gone), alpha 0.55. | rev2: FIXER r3: MUTED ghost b-roll under the riff (Galaxy's Helios AI data centre, 2026), multiply 50 % (lighter behind the title band)"
+   "_note": "REV3 intro: the build stays on clean cream: the aerial only in the bottom 22 % (under the kicker), from hb:1.4 (the shards are gone), alpha 0.55. | rev2: FIXER r3: MUTED ghost b-roll under the riff (Galaxy's Helios AI data centre, 2026), multiply 50 % (lighter behind the title band)",
+   "frames": "r3l-ghost-riff"
   },
   {
    "id": "g-dark-v1",
@@ -599,12 +600,13 @@
     {
      "id": "security-hf-header",
      "at": "hb:-5",
-     "entry": "paint",
+     "entry": "drop",
      "hl": 0,
      "x": 520,
      "y": 660,
      "w0": 860,
-     "rot": -2
+     "rot": -2,
+     "hlAt": "hb:-4"
     },
     {
      "id": "bbc-2026-07-29-rogue-ai-hack-other-companies",
@@ -676,7 +678,7 @@
    "out": "cut",
    "label": true,
    "chips": "all",
-   "_note": "REV3 intro: the scale/rotation pulse list removed (BUILD.md REV3-1 follow-up: no beat-locked zoom in the prelude); the cards still land on the pulse, the single push-in to the Gizmodo phrase (hb:-3) and the emphases stay."
+   "_note": "REV3 intro: the scale/rotation pulse list removed (BUILD.md REV3-1 follow-up: no beat-locked zoom in the prelude); the HF-header card (hb:-5) drops in instead of being painted in, so no magenta bristle rim stays round it (a decorative mark over the cards beneath); the cards still land on the pulse, the single push-in to the Gizmodo phrase (hb:-3) and the emphases stay."
   },
   {
    "id": "kand-riff",
@@ -1019,12 +1021,14 @@
     "square": {
      "at": "hb:4",
      "style": "spinin",
-     "dur": 0.36
+     "dur": 0.36,
+     "lead": 0.124
     },
     "target": {
      "at": "hb:4.5",
      "style": "pop",
-     "dur": 0.24
+     "dur": 0.24,
+     "lead": 0.13
     },
     "arc": {
      "at": "hb:5",
@@ -1049,7 +1053,8 @@
     "nabla": {
      "at": "hb:7",
      "style": "drop",
-     "dur": 0.3
+     "dur": 0.3,
+     "lead": 0.115
     },
     "wm": {
      "at": "hb:8",
@@ -1098,7 +1103,8 @@
    },
    "tintK": 0.35,
    "fadeIn": 0.12,
-   "_note": "REV3 intro: from hb:2: the pink disc lands flat on the downbeat and shows its colour for two beats; speed re-fitted so it still ends on source 75.21. | rev2: agents' wall (ale-agent-wall 72.0 -> 75.21, Agents' Last Exam 2026) in the orbiting pink disc for the whole riff"
+   "_note": "REV3 intro: from hb:2: the pink disc lands flat on the downbeat and shows its colour for two beats; speed re-fitted so it still ends on source 75.21. | rev2: agents' wall (ale-agent-wall 72.0 -> 75.21, Agents' Last Exam 2026) in the orbiting pink disc for the whole riff",
+   "frames": "r3l-kc-pink-agents"
   },
   {
    "id": "kc-blue-coxon",
@@ -6738,9 +6744,9 @@
    ],
    "shake": 16,
    "ground": false,
-   "_note": "REV3 intro: out no longer lists sketch / r2-stamp-breath (deleted); in no longer lists ghost-riff (it starts at hb:1.4, under the kicker only). The shatter itself is unchanged. | rev2: window 19.063-19.909 (dur 1.75 beats, lead 0.2): cracks race out from the circled Gizmodo phrase from 19.063 (the riff pickup is at 19.116); shards fly and fall from the drop 19.232 to 19.91, by when the pink disc's footage has faded in (kc-pink-agents-a from hb:1.25)",
+   "_note": "REV3 intro: out no longer lists sketch / r2-stamp-breath (deleted); in no longer lists ghost-riff (it starts at hb:1.4, under the kicker only). The shards fly faster (speed 2100 -> 2800) so they clear the cover sooner after the plane slams. | rev2: window 19.063-19.909 (dur 1.75 beats, lead 0.2): cracks race out from the circled Gizmodo phrase from 19.063 (the riff pickup is at 19.116); shards fly and fall from the drop 19.232 to 19.91, by when the pink disc's footage has faded in (kc-pink-agents-a from hb:1.25)",
    "head": 0.2,
-   "speed": 2100,
+   "speed": 2800,
    "back": "#E9E1CF"
   },
   {
@@ -7289,54 +7295,84 @@
    "layer": "paint",
    "avoid": [
     [
-     40,
-     236,
-     1000,
-     230
-    ],
-    [
-     40,
-     1490,
-     1000,
-     100
-    ],
-    [
      0,
-     1100,
+     300,
      1080,
-     500
+     1620
     ]
    ],
-   "_note": "REV3 intro: only after the build (from hb:11), margin paint and camera moves only: no stamps / pencil scribbles (they can draw an arrow glyph), no invert / tint / grain over the cover, no kand jump / burst impulses (the hold has its own). | rev2: FIXER r2: the riff track after the title lands: above the wordmark band only",
+   "_note": "REV3 intro: only after the build (from hb:11): paint droplets in the top strip (off the cover) and the camera moves; no splats (they dripped onto the orbiting discs), stamps, pencil scribbles or ticks (stray symbols; a stamp or scribble can be an arrow glyph), no invert / tint / grain / bar flash over the cover, no kand jump / burst impulses (the hold has its own). | rev2: FIXER r2: the riff track after the title lands: above the wordmark band only",
    "zones": [
     [
      40,
-     150,
+     140,
      1000,
-     100
-    ],
-    [
-     10,
-     440,
-     150,
-     600
-    ],
-    [
-     920,
-     440,
-     150,
-     600
+     150
     ]
    ],
    "no": [
+    "splat",
+    "splatS",
     "stamp",
     "scribble",
+    "tick",
     "invert",
     "jump",
     "burst",
     "tint",
     "grain"
-   ]
+   ],
+   "map": {
+    "crash": {
+     "vis": [
+      [
+       "droplets",
+       1
+      ]
+     ]
+    },
+    "bar": {
+     "vis": [
+      [
+       "droplets",
+       1
+      ]
+     ]
+    },
+    "backbeat": {
+     "vis": [
+      [
+       "droplets",
+       1
+      ]
+     ]
+    },
+    "beat": {
+     "vis": [
+      [
+       "droplets",
+       1
+      ]
+     ]
+    },
+    "fill": {
+     "vis": [
+      [
+       "droplets",
+       1
+      ]
+     ]
+    },
+    "off": {
+     "vis": [
+      [
+       "droplets",
+       1
+      ]
+     ]
+    }
+   },
+   "barFlash": false
   },
   {
    "id": "fx-verse1",

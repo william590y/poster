@@ -97,12 +97,18 @@ def prelude(edl, cut):
                  f'removed; one slow linear push-in {z[0]:.2f} -> {z[1]:.2f} over the shot. Caption, marks, stamp and source unchanged.')
     p = I['pile-hf']
     p.pop('pulse', None)
-    note(p, 'the scale/rotation pulse list removed (BUILD.md REV3-1 follow-up: no beat-locked zoom in the prelude); the cards still land '
-            'on the pulse, the single push-in to the Gizmodo phrase (hb:-3) and the emphases stay.')
+    for s in p['shots']:
+        if s['id'] == 'security-hf-header' and s.get('entry') == 'paint':
+            s['entry'] = 'drop'
+            s['hlAt'] = s.get('hlAt', 'hb:-4')   # the paint entry lit its highlight 1 beat after landing (hb:-5 + 1): kept
+    note(p, 'the scale/rotation pulse list removed (BUILD.md REV3-1 follow-up: no beat-locked zoom in the prelude); the HF-header card '
+            '(hb:-5) drops in instead of being painted in, so no magenta bristle rim stays round it (a decorative mark over the cards '
+            'beneath); the cards still land on the pulse, the single push-in to the Gizmodo phrase (hb:-3) and the emphases stay.')
     for t in edl['transitions']:
         if t['id'] == 'tr-shatter':
             note(t, 'out no longer lists sketch / r2-stamp-breath (deleted); in no longer lists ghost-riff (it starts at hb:1.4, under the '
-                    'kicker only). The shatter itself is unchanged.')
+                    'kicker only). The shards fly faster (speed 2100 -> 2800) so they clear the cover sooner after the plane slams.')
+            t['speed'] = 2800
 
 
 # ============================================================ changes 2 and 3: the riff
@@ -119,11 +125,14 @@ def riff(edl, cut):
         'smallO': slam(.5, 3.2), 'core': slam(1, 2.3),
         'blue': slam(2, 1.9), 'sort': B(2),
         'teal': slam(3, 2.2),
-        'square': {'at': B(4), 'style': 'spinin', 'dur': .36}, 'target': {'at': B(4.5), 'style': 'pop', 'dur': .24},
+        # spin-in / pop / drop: the motion starts a few frames early so the IMPACT (the piece reaching its full size or its
+        # place) is the beat frame; lead = the time oBack takes to first reach 1 (spinin .36 s: .124; pop: the outer ring, .13;
+        # drop .3 s with overshoot 1.6: .115)
+        'square': {'at': B(4), 'style': 'spinin', 'dur': .36, 'lead': .124}, 'target': {'at': B(4.5), 'style': 'pop', 'dur': .24, 'lead': .13},
         'arc': {'at': B(5), 'style': 'draw', 'dur': .34}, 'normal': {'at': B(5.5), 'style': 'draw', 'dur': .24},
         'margin': {'at': B(5.75), 'style': 'draw', 'dur': .24},
         'chk': {'at': B(6), 'style': 'flip', 'dur': .18},
-        'nabla': {'at': B(7), 'style': 'drop', 'dur': .30},
+        'nabla': {'at': B(7), 'style': 'drop', 'dur': .30, 'lead': .115},
         'wm': slam(8, 1.32, .24), 'tilt': B(9),
         'kick': {'at': B(10), 'style': 'rise', 'dur': .30},
     }
@@ -171,9 +180,16 @@ def riff(edl, cut):
     for b in edl['beatfx']:
         if b['id'] == 'fx-riff-b':
             b['from'] = 'hb:11'
-            b['no'] = ['stamp', 'scribble', 'invert', 'jump', 'burst', 'tint', 'grain']
-            note(b, 'only after the build (from hb:11), margin paint and camera moves only: no stamps / pencil scribbles (they can draw an '
-                    'arrow glyph), no invert / tint / grain over the cover, no kand jump / burst impulses (the hold has its own).')
+            b['no'] = ['splat', 'splatS', 'stamp', 'scribble', 'tick', 'invert', 'jump', 'burst', 'tint', 'grain']
+            # "no" alone is not enough: a role whose every effect is excluded falls back to its full list (beatfx.plan), so every
+            # role's visible effect is mapped to droplets; no bloom flash on the bar downbeats either
+            b['map'] = {r: {'vis': [['droplets', 1]]} for r in ('crash', 'bar', 'backbeat', 'beat', 'fill', 'off')}
+            b['barFlash'] = False
+            b['zones'] = [[40, 140, 1000, 150]]   # the top strip only: never on the cover, never over the credits / the aerial strip
+            b['avoid'] = [[0, 300, 1080, 1620]]
+            note(b, 'only after the build (from hb:11): paint droplets in the top strip (off the cover) and the camera moves; '
+                    'no splats (they dripped onto the orbiting discs), stamps, pencil scribbles or ticks (stray symbols; a stamp or scribble can be an arrow glyph), no invert / '
+                    'tint / grain / bar flash over the cover, no kand jump / burst impulses (the hold has its own).')
     edl['fx'] = [f for f in edl['fx'] if f['id'] != 'fx-riff-punch3']
     hold_hits = [(11, 5, .06), (12, 10, .11), (13, 6, .06), (14, 8, .08)] + ([(15, 6, .06)] if long else [(14.5, 5, .05)])
     for beat, amp, dec in BUILD_HITS + hold_hits:
@@ -188,6 +204,7 @@ def riff(edl, cut):
     g['entry'] = {'style': 'fade', 'at': 'hb:1.4', 'dur': .25}
     g['alpha'] = 0.55
     g['mask'] = 'linear-gradient(to bottom, transparent 0%, transparent 74%, #000 79%, #000 100%)'
+    g['frames'] = f'r3{cut[0]}-ghost-riff'   # its own cache folder: rev2's cache/ghost-riff (t0 hb:-0.3) stays as rev2 renders it
     note(g, 'the build stays on clean cream: the aerial only in the bottom 22 % (under the kicker), from hb:1.4 (the shards are gone), alpha 0.55.')
     for t in edl['transitions']:
         if t['id'] == 'tr-shatter':
@@ -199,6 +216,7 @@ def riff(edl, cut):
     p['t0'] = 'hb:2'
     t_end = 20.8979 if long else 20.923   # edit time at which the footage must reach source 75.21 (long: hb:16.05; short: the riff's end)
     p['speed'] = round(3.21 / (t_end - (13.132 + 2 * 0.483871)), 4)
+    p['frames'] = f'r3{cut[0]}-kc-pink-agents'   # its own cache folder (rev2's cache/kc-pink-agents is untouched)
     note(p, 'from hb:2: the pink disc lands flat on the downbeat and shows its colour for two beats; speed re-fitted so it still ends on source 75.21.')
     # unchanged: kc-blue-coxon, voice-coxon, kar-coxon, coxon-stamp, credit-coxon (Coxon heard and word-lit on his own words, his name
     # and year on screen), kc-blue-dc (the data hall from the title downbeat), riff-credit

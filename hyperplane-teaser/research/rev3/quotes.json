@@ -1,0 +1,1837 @@
+{
+ "stage": "research/quotes",
+ "date": "2026-10-14",
+ "user_change": "BUILD.md REVISION 3 change 4: Bostrom closes both cuts; Musk replaces verse 1's Amodei 'warning sign' (long cut)",
+ "time_math": {
+  "hb(i)": "song = 19.232 + i*0.483871",
+  "long_edit": "song - 6.10",
+  "short_edit": "song - 44.811 (after the splice at edit 20.377)",
+  "hb_landmarks": {
+   "23.5": 30.603,
+   "25": 31.329,
+   "26": 31.813,
+   "27": 32.297,
+   "28.5": 33.022,
+   "29.5": 33.506,
+   "112": 73.426,
+   "113": 73.909,
+   "114": 74.393,
+   "115": 74.877,
+   "116": 75.361,
+   "117": 75.845,
+   "118": 76.329,
+   "119": 76.813,
+   "120": 77.297,
+   "121": 77.78,
+   "122": 78.264,
+   "123": 78.748,
+   "124": 79.232
+  }
+ },
+ "bostrom": {
+  "speaker": "Nick Bostrom",
+  "role_2015": "Philosopher; professor at Oxford University, head of the Future of Humanity Institute (TED speaker page: 'Philosopher'; whyListen: 'professor at the Oxford University, where he heads the Future of Humanity Institute')",
+  "talk_title": "What happens when our computers get smarter than we are?",
+  "event": "TED2015 (theme 'Truth and Dare'), Vancouver Convention Centre, Vancouver, B.C., March 16-20, 2015",
+  "recorded_on": "2015-03-18 (TED page recordedOn)",
+  "published_on_ted": "2015-04-27",
+  "venue_note": "TED's talk page says only 'TED2015' / March 2015; Vancouver and the 16-20 March dates come from the event listing (Wikipedia TED table, CBC, HuffPost Canada, BC Gov news). The room inside the Convention Centre is not stated.",
+  "credit_options": [
+   "NICK BOSTROM · TED2015",
+   "NICK BOSTROM · TED2015 · VANCOUVER · MARCH 2015"
+  ],
+  "karaoke_name_year": [
+   "Nick Bostrom, Oxford philosopher",
+   "2015"
+  ],
+  "sources": [
+   "https://www.ted.com/talks/nick_bostrom_what_happens_when_our_computers_get_smarter_than_we_are",
+   "https://futureoflife.org/ai/what-happens-when-our-computers-get-smarter-than-we-are/",
+   "https://en.wikipedia.org/wiki/TED_(conference)"
+  ],
+  "transcript_check": "TED transcript: '... the fate of humanity may depend on what the superintelligence does. Think about it: Machine intelligence is the last invention that humanity will ever need to make. Machines will then be better at inventing than we are ...'. Our window starts after 'Think about it:' (ends 465.08), so the sentence needs no ellipsis.",
+  "line": "Machine intelligence is the last invention that humanity will ever need to make.",
+  "clip": {
+   "file": "clips/bostrom-ted-2015-full.mp4",
+   "codec": "H.264 + AAC 44.1 kHz stereo",
+   "resolution": "1280x720",
+   "fps": "24 (r_frame_rate 24/1)",
+   "duration_s": 991.25,
+   "note": "prep_clips resamples to 30 fps; the other Bostrom files (last-invention 12.8 s, humanville-train) are cuts of the same video"
+  },
+  "audio_edges": {
+   "recommended": {
+    "in": 466.03,
+    "out": 469.9,
+    "fade_ms": 25
+   },
+   "silence_floor_db": -56,
+   "speech_first_energy_rise": "466.075 (-52 dB at 466.06 -> -24 dB at 466.12)",
+   "speech_last_energy": "469.68 (-47 dB; the 'k' tail ends ~469.75)",
+   "clean_in_range": "465.80-466.06 (small.en hears 'Machine' for any in <= 466.10)",
+   "clean_out_range": "469.76-470.36 (room tone only; 'The' of the next sentence starts 470.38)",
+   "no_audience_noise": true,
+   "checks": "edge_test: windows in 466.03 / out 469.76, 469.90, 470.30 all transcribe exactly the 13 words"
+  },
+  "word_times_src_s": [
+   {
+    "word": "MACHINE",
+    "whisper_small_en": 466.14,
+    "wav2vec2_ctc": 466.124,
+    "energy_onset": 466.075,
+    "recommended_src_s": 466.08,
+    "song_s": 73.88,
+    "r1_r7_src_s": 466.12
+   },
+   {
+    "word": "INTELLIGENCE",
+    "whisper_small_en": 466.32,
+    "wav2vec2_ctc": 466.405,
+    "energy_onset": 466.28,
+    "recommended_src_s": 466.28,
+    "song_s": 74.08,
+    "r1_r7_src_s": 466.32
+   },
+   {
+    "word": "IS",
+    "whisper_small_en": 466.68,
+    "wav2vec2_ctc": 467.008,
+    "energy_onset": 466.94,
+    "recommended_src_s": 466.93,
+    "song_s": 74.73,
+    "r1_r7_src_s": 466.7
+   },
+   {
+    "word": "THE",
+    "whisper_small_en": 467.06,
+    "wav2vec2_ctc": 467.108,
+    "energy_onset": 467.03,
+    "recommended_src_s": 467.04,
+    "song_s": 74.84,
+    "r1_r7_src_s": 467.06
+   },
+   {
+    "word": "LAST",
+    "whisper_small_en": 467.22,
+    "wav2vec2_ctc": 467.248,
+    "energy_onset": 467.1,
+    "recommended_src_s": 467.1,
+    "song_s": 74.9,
+    "r1_r7_src_s": 467.2
+   },
+   {
+    "word": "INVENTION",
+    "whisper_small_en": 467.5,
+    "wav2vec2_ctc": 467.63,
+    "energy_onset": 467.575,
+    "recommended_src_s": 467.57,
+    "song_s": 75.37,
+    "r1_r7_src_s": 467.48
+   },
+   {
+    "word": "THAT",
+    "whisper_small_en": 467.94,
+    "wav2vec2_ctc": 468.212,
+    "energy_onset": 468.15,
+    "recommended_src_s": 468.17,
+    "song_s": 75.97,
+    "r1_r7_src_s": 468.0
+   },
+   {
+    "word": "HUMANITY",
+    "whisper_small_en": 468.4,
+    "wav2vec2_ctc": 468.634,
+    "energy_onset": 468.59,
+    "recommended_src_s": 468.59,
+    "song_s": 76.39,
+    "r1_r7_src_s": 468.36
+   },
+   {
+    "word": "WILL",
+    "whisper_small_en": 468.84,
+    "wav2vec2_ctc": 469.015,
+    "energy_onset": 468.925,
+    "recommended_src_s": 468.92,
+    "song_s": 76.72,
+    "r1_r7_src_s": 468.84
+   },
+   {
+    "word": "EVER",
+    "whisper_small_en": 469.1,
+    "wav2vec2_ctc": 469.156,
+    "energy_onset": 469.04,
+    "recommended_src_s": 469.05,
+    "song_s": 76.85,
+    "r1_r7_src_s": 469.1
+   },
+   {
+    "word": "NEED",
+    "whisper_small_en": 469.2,
+    "wav2vec2_ctc": 469.296,
+    "energy_onset": 469.2,
+    "recommended_src_s": 469.21,
+    "song_s": 77.01,
+    "r1_r7_src_s": 469.22
+   },
+   {
+    "word": "TO",
+    "whisper_small_en": 469.36,
+    "wav2vec2_ctc": 469.437,
+    "energy_onset": 469.42,
+    "recommended_src_s": 469.4,
+    "song_s": 77.2,
+    "r1_r7_src_s": 469.38
+   },
+   {
+    "word": "MAKE.",
+    "whisper_small_en": 469.48,
+    "wav2vec2_ctc": 469.537,
+    "energy_onset": 469.48,
+    "recommended_src_s": 469.48,
+    "song_s": 77.28,
+    "r1_r7_src_s": 469.48
+   }
+  ],
+  "word_time_notes": "small.en (VAD on/off, 462/465 windows, base.en) agree to +-0.02-0.06 s with each other, but Whisper places most word starts late (CTC peaks lag the acoustic onset a further 0.05-0.1 s). The energy/spectrogram onsets are the sound the viewer hears. Biggest changes from the r1-r7 table: IS (old 466.70, now ~466.93: 'intelligence' ends 466.77, then a hiss and the short 'is' vowel at 466.95-467.03), THAT (468.00 -> 468.17), HUMANITY (468.36 -> 468.59: there is a 0.27 s near-silent pause, -50 dB, between 'that' 468.22-468.32 and 'hu-' at 468.59), INVENTION (467.48 -> 467.57). Uncertainty +-0.06 s on IS/THE/LAST/THAT/EVER/NEED.",
+  "frames": {
+   "what": "Bostrom on the TED stage, medium shot at the lectern in front of the red TED letters and blue curtain; no slide, no cutaway, no burned-in text or logo. One continuous shot 463.83 (cut from a close-up) to 475.50 (cut to a wide slide shot: the AI intelligence-scale graphic). The line is 466.03-469.90, inside the shot.",
+   "framing_drift": "the camera drifts: face centre x 657 (466.0) -> 718 (469.8) px, y 168-193, face box ~120x175 px (YuNet); mouth closed 469.5-470.1, moves again from ~470.2",
+   "head_px": "hair top y~40, chin ~265, face centre ~(688,180) of 1280x720"
+  },
+  "crops": {
+   "disc_r124": {
+    "crop_src_px": {
+     "x": 491,
+     "y": 2,
+     "w": 400,
+     "h": 400
+    },
+    "srcFocus": [
+     0.54,
+     0.28
+    ],
+    "srcZoom": 1.8,
+    "why": "face ~50% of the disc width, eyes at ~45% height, tolerates the 60 px drift; the disc grows to ~2.07x in kand-re, 400 px -> 514 px is a 1.28x upscale of a 720p source (soft but fine); tighter 360 {x:508,y:0,w:360,h:360} also works",
+    "preview": "scratchpad/hp3/quotes/crops_bostrom_disc.png (row 2)"
+   },
+   "panel_circle_r220": {
+    "crop_src_px": {
+     "x": 441,
+     "y": 0,
+     "w": 500,
+     "h": 500
+    },
+    "srcFocus": [
+     0.54,
+     0.35
+    ],
+    "srcZoom": 1.44,
+    "preview": "scratchpad/hp3/quotes/crops_bostrom_panel.png (row 2)"
+   },
+   "panel_4x5": {
+    "crop_src_px": {
+     "x": 451,
+     "y": 0,
+     "w": 460,
+     "h": 575
+    },
+    "preview": "crops_bostrom_panel.png (row 3)"
+   },
+   "keep_stage": "no keying: the red TED set stays; the blue-disc multiply tint (tintK 0.2 in kc-blue-amodei) turns red to maroon, use tintK ~0.12 or tint:false"
+  }
+ },
+ "musk": {
+  "speaker": "Elon Musk",
+  "role_2014": "CEO of SpaceX and Tesla (MIT News photo caption: 'CEO and co-founder of SpaceX and Tesla'; TechCrunch: 'Tesla's CEO and SpaceX's founder'); the interview was by AeroAstro department head Jaime Peraire",
+  "event": "MIT AeroAstro Centennial Symposium (three days, Oct 22-24, 2014, celebrating 100 years of MIT's Department of Aeronautics and Astronautics); Musk closed the symposium on Friday Oct 24, 2014 (noon slot, interview then audience Q&A)",
+  "date": "2014-10-24",
+  "venue_note": "MIT, Cambridge, Mass. A named room (Kresge Auditorium is where the Friday astronaut panel was) is NOT confirmed for Musk's session; do not put a room on screen.",
+  "credit_options": [
+   "ELON MUSK · MIT AEROASTRO CENTENNIAL SYMPOSIUM · OCT 24, 2014 (62 chars)",
+   "MIT AEROASTRO CENTENNIAL SYMPOSIUM · OCT 24, 2014 (49)"
+  ],
+  "karaoke_name_year": [
+   "Elon Musk, SpaceX & Tesla CEO",
+   "2014"
+  ],
+  "sources": [
+   "https://news.mit.edu/2014/aeroastro-centennial-symposium-1025",
+   "https://techcrunch.com/2014/10/26/elon-musk-compares-building-artificial-intelligence-to-summoning-the-demon/",
+   "https://www.bostonmagazine.com/?p=1934751",
+   "https://spacepolicyonline.com/meeting-summaries/elon-musk-interviewed-at-mit-centennial-celebration-october-2014/",
+   "https://www.washingtonpost.com/news/innovations/wp/2014/10/24/elon-musk-with-artificial-intelligence-we-are-summoning-the-demon/ (headline and URL date only; page returned 403)",
+   "https://www.youtube.com/watch?v=Fc0wQ95oqDU (the upload, channel Paridae Vision, 165 s excerpt)"
+  ],
+  "line_heard": "I mean, with artificial intelligence, we are summoning the demon.",
+  "line_used": "with artificial intelligence, we are summoning the demon.",
+  "wording_note": "The audio says 'we are' (TechCrunch/Salon print 'we're'); WaPo's headline reads 'With artificial intelligence we are summoning the demon' (no comma). The lead-in 'I mean,' is audible: a stray 'I' at 56.22-56.52, then a 0.75 s pause, then 'mean' 57.28-57.39. Dropping 'I mean,' does not change the meaning. Caption options: (a) '…with artificial intelligence, we are summoning the demon.' (follows the repo's ellipsis rule and the r2 precedent '…we are summoning the demon.'); (b) 'With artificial intelligence, we are summoning the demon.' (BUILD.md, press form).",
+  "clip": {
+   "file": "clips/musk-mit-2014-demon.mp4",
+   "codec": "H.264 + AAC 44.1 kHz stereo",
+   "resolution": "1280x720",
+   "fps": "23.976 (24000/1001)",
+   "duration_s": 165.19,
+   "cut_file": "clips/musk-mit-2014-demon-cut.mp4 = source - 50.000 s exactly (16.02 s; verified by the energy onset 57.28 <-> 7.28)",
+   "raw_loudness": "-28.6 LUFS, peak -15 dBFS on the used window (quiet; mix.py gains/compresses it like the other quiet clips)"
+  },
+  "audio_edges": {
+   "recommended": {
+    "in": 57.43,
+    "out": 59.8,
+    "fade_ms": 20
+   },
+   "clean_in_range": "57.40-57.54 (in 57.40+ -> 'With artificial intelligence, we are summoning the demon.'; in 57.39 or earlier leaks the 'n' of 'mean': 'And with'; in 57.56 loses the 'w': 'The artificial')",
+   "clean_out_range": "59.60-60.62 (speech ends 59.47; floor -54 dB; no laughter; next speech 60.66, 'You know all those stories ...')",
+   "also_clean_cuts": {
+    "intelligence": "in 58.16 (clean 'Intelligence,'); 58.18 loses 'in'",
+    "we": "in 58.44-58.48 (clean 'We are summoning the demon.'; r2 used 58.46)"
+   },
+   "checks": "edge_test: in 57.43 with out 59.50, 59.60, 59.75, 60.10, 60.60 all transcribe the 8 words"
+  },
+  "word_times_src_s": [
+   {
+    "word": "with",
+    "whisper_small_en": 57.48,
+    "wav2vec2_ctc": 57.448,
+    "energy_onset": 57.4,
+    "recommended_src_s": 57.41,
+    "song_s": 30.583
+   },
+   {
+    "word": "artificial",
+    "whisper_small_en": 57.58,
+    "wav2vec2_ctc": 57.669,
+    "energy_onset": 57.57,
+    "recommended_src_s": 57.58,
+    "song_s": 30.753
+   },
+   {
+    "word": "intelligence,",
+    "whisper_small_en": 57.9,
+    "wav2vec2_ctc": 58.03,
+    "energy_onset": 58.15,
+    "recommended_src_s": 58.15,
+    "song_s": 31.323
+   },
+   {
+    "word": "we",
+    "whisper_small_en": 58.38,
+    "wav2vec2_ctc": 58.492,
+    "energy_onset": 58.48,
+    "recommended_src_s": 58.49,
+    "song_s": 31.663
+   },
+   {
+    "word": "are",
+    "whisper_small_en": 58.58,
+    "wav2vec2_ctc": 58.612,
+    "energy_onset": 58.58,
+    "recommended_src_s": 58.6,
+    "song_s": 31.773
+   },
+   {
+    "word": "summoning",
+    "whisper_small_en": 58.66,
+    "wav2vec2_ctc": 58.713,
+    "energy_onset": 58.68,
+    "recommended_src_s": 58.67,
+    "song_s": 31.843
+   },
+   {
+    "word": "the",
+    "whisper_small_en": 58.94,
+    "wav2vec2_ctc": 59.094,
+    "energy_onset": 59.03,
+    "recommended_src_s": 59.03,
+    "song_s": 32.203
+   },
+   {
+    "word": "demon.",
+    "whisper_small_en": 59.14,
+    "wav2vec2_ctc": 59.175,
+    "energy_onset": 59.17,
+    "recommended_src_s": 59.17,
+    "song_s": 32.343
+   }
+  ],
+  "word_time_notes": "Whisper puts 'intelligence' at 57.90 (inside 'artificial', which is 4 syllables, 57.57-58.10) but it sounds at 58.15 (edge test: a cut at 58.16 starts cleanly on 'Intelligence'). 'with' ~57.41 (continuous voicing from 'mean' 57.29, no pause).",
+  "frames": {
+   "what": "Musk in a medium close-up against a red curtain, one continuous camera shot 50.0-69.7 s (first cut at 69.74); no cutaway, no slide, no burned-in text; mouth closed 59.5-60.5.",
+   "face": "centre (590-607, ~295) of 1280x720, face box ~215x310 px, drift < 20 px; hair top y~40, chin ~460"
+  },
+  "crops": {
+   "disc_r124": {
+    "crop_src_px": {
+     "x": 290,
+     "y": 0,
+     "w": 600,
+     "h": 600
+    },
+    "srcFocus": [
+     0.461,
+     0.417
+    ],
+    "srcZoom": 1.2,
+    "preview": "scratchpad/hp3/quotes/crops_musk_disc.png (row 1); tighter 560 {x:310,y:10} and 520 {x:330,y:30} also frame well"
+   },
+   "panel_circle_r220": {
+    "crop_src_px": {
+     "x": 290,
+     "y": 0,
+     "w": 600,
+     "h": 600
+    },
+    "srcFocus": [
+     0.461,
+     0.417
+    ],
+    "srcZoom": 1.2
+   },
+   "panel_4x5": {
+    "crop_src_px": {
+     "x": 302,
+     "y": 0,
+     "w": 576,
+     "h": 720
+    },
+    "srcFocus": [
+     0.461,
+     0.5
+    ],
+    "srcZoom": 1.0
+   },
+   "r2_precedent": "rf-musk (long.json r2) used crop {x:230,y:10,w:540,h:540} in a circle r=280: that crop puts the face right of centre"
+  }
+ },
+ "placement": {
+  "musk_verse1": {
+   "song_vocals": {
+    "vocal_intervals": [
+     [
+      17.66,
+      19.04
+     ],
+     [
+      26.92,
+      28.72
+     ],
+     [
+      28.87,
+      50.48
+     ],
+     [
+      50.71,
+      50.97
+     ],
+     [
+      51.18,
+      63.14
+     ],
+     [
+      63.34,
+      64.39
+     ],
+     [
+      64.52,
+      64.82
+     ],
+     [
+      64.95,
+      73.51
+     ],
+     [
+      76.98,
+      77.3
+     ],
+     [
+      80.44,
+      80.68
+     ]
+    ],
+    "sung_lyric_under_the_line": "'... I think that I'll die before I drink' ends ~30.56; then 'And I'm so caught up in the news' (30.6-32.46) and 'Of who likes me and who hates you' starts ~32.5 (small.en word times; they run early at line starts). The band's stereo content drops out at 30.56-30.82 and 32.50-32.75 (side channel -80 dB, only the vocal remains), so 'With' sounds in the first stab-free gap and 'demon' ends in the second.",
+    "no_words_in_instrumental": "small.en on song 73.0-80.4 hears nothing after 'here.'; the [76.98,77.30] vocal interval is not a word"
+   },
+   "start": "hb:23.5 = song 30.603 (first word 'with' on the panel's zoom-through impact)",
+   "why": "stressed words land on the grid: intelligence 31.323 (hb:25 31.329, camera spin kick fx-v1-spin), summoning 31.843 (hb:26 31.813), demon 32.343 (hb:27 32.296, the pile-news lift/circle at hb:27); fx-v1-shake on hb:24 hits 'artificial'",
+   "end": "speech ends song 32.643, fade end 32.973",
+   "fits_before_tr_v1_fold": "YES: tr-v1-fold impact hb:28.5 = 33.022 (its lead 0.5 starts the crease at 32.54, during 'demon', but the fold only acts on pile-news / eq-dpo in rect [40,960,1000,620]; p-musk / kar-musk are not in its lists). 0.38 s of air after the last sound.",
+   "duck_db": 9,
+   "edit_times": {
+    "long_edit_start": 24.503,
+    "long_edit_end": 26.873
+   },
+   "alternatives": "hb:23 (30.361) would put 'with' under the panel's zoom-through (the panel is not on screen until 30.603); hb:24 (30.845) pushes 'demon' to 32.58-32.88 into the fold's lead and the band-out gap."
+  },
+  "bostrom_closer": {
+   "instrumental": "hb:112 = 73.426 (crash) to the music's end 80.40; fade_out_s 0.35 -> fade 80.05-80.40; cover hold hb:124 = 79.233; verse 2's first vocal 80.68",
+   "start": "first word at hb:113 = song 73.910; voice at song:73.83 with audio.in 466.03 (acoustic 'm' at 73.875, stressed vowel on hb:113)",
+   "speech_ends": "song 77.52 (fade end 77.70)",
+   "gap_to_fade": "2.53 s from speech end to the fade start 80.05 (rule: >= 0.6 s)",
+   "edit_times": {
+    "long_start": 67.73,
+    "long_end": 71.6,
+    "short_start": 29.019,
+    "short_end": 32.889
+   },
+   "sync_with_kand_re": {
+    "INVENTION": "75.375 = hb:116 (75.362): the kicker lands, square spins",
+    "HUMANITY": "76.39 = hb:118 (76.329): fx-re-zoom punch, blue grow #2, chk spin",
+    "MAKE": "77.28 = hb:120 (77.297): square spins; last: ~hb:115 (74.879) 'last', so 'the last invention' fills hb:115-116"
+   },
+   "kar_t1": "song:78.5 (0.5 s after 'make' is lit; fade 0.25 -> gone by hb:123, so the cover hold at hb:124 is clean); kc-blue-bostrom fades out at hb:123.4 as before",
+   "alternatives": [
+    {
+     "start": "hb:114 = 74.394 (wordmark slam on 'Machine')",
+     "at": "song:74.31",
+     "speech_end": 78.0,
+     "note": "INVENTION on hb:117, HUMANITY on hb:119, MAKE on hb:121: loses the fx-re-zoom / kicker sync"
+    },
+    {
+     "start": "hb:112.75 = 73.790 (where kc-blue-amodei started)",
+     "at": "song:73.71",
+     "speech_end": 77.4,
+     "note": "speaks 0.28 s after the crash; fine, but 'Machine' misses the 73.90 stab"
+    }
+   ],
+   "hits_json": "[76.98, 77.30] in vocal_intervals is under 'will ever need to' (duck 12.5 dB as the other instrumental voices get)"
+  }
+ },
+ "dependencies": {
+  "long3": {
+   "musk_replaces": [
+    {
+     "item": "p-amodei",
+     "type": "panel",
+     "t": "hb:23.5-29.5",
+     "refs": "referenced by tr-v1-zoom.in",
+     "note": "only the _note mentions voice-amodei"
+    },
+    {
+     "item": "voice-amodei",
+     "type": "voice",
+     "t": "song:30.283-32.983 (edit 24.183-26.883)",
+     "refs": "none (mix.py cues)"
+    },
+    {
+     "item": "kar-amodei",
+     "type": "karaoke",
+     "t": "hb:23.5-29.2",
+     "refs": "tr-v1-zoom.in; rev2_parts.py renames the chorus copy to kar-amodei-60 (make_long_rev2.py lines 54-55 rewrite its transition refs) so verse 1 keeps the id 'kar-amodei'"
+    },
+    {
+     "item": "tr-v1-zoom",
+     "type": "zoomthrough",
+     "at": "hb:23.5",
+     "change": "in: ['p-amodei','kar-amodei'] -> ['p-musk','kar-musk']; its _note says 'Amodei is inside it behind a blue painted portal ring'"
+    },
+    {
+     "item": "tr-v1-fold",
+     "type": "fold",
+     "at": "hb:28.5",
+     "change": "out: ['pile-news'] stays; its in: ['eq-dpo'] is a change-5 item (eq-dpo is being removed); tr-v1-particles.out also lists eq-dpo"
+    },
+    {
+     "item": "pile-news",
+     "type": "screens",
+     "t": "hb:23.75-28.5",
+     "change": "shot 4 'xrisk-cbs-amodei' (hl 0 'warning sign that we need to slow down', hlAt hb:26.75, push + lift + circle at hb:27, i.e. while Musk says 'summoning the demon') -> 'xrisk-time-culture' hl 1; or keep it unemphasised"
+    },
+    {
+     "item": "cp-thanks / p-cbs / voice-count / kar-count",
+     "note": "NOT affected: they use the same CBS Sunday clip for 'the count' at hb:55.5+; no other item uses the 'warning sign' audio (192.42-195.12)"
+    },
+    {
+     "item": "fx-v1-spin (hb:25), fx-v1-shake (hb:24, 28), fx-v1-flash",
+     "note": "generic beat fx; no change"
+    }
+   ],
+   "bostrom_replaces": [
+    {
+     "item": "voice-amodei-b",
+     "t": "song:73.768-79.338 (edit 67.668-73.238)"
+    },
+    {
+     "item": "kar-amodei-b",
+     "t": "song:73.7-hb:124"
+    },
+    {
+     "item": "kc-blue-amodei",
+     "t": "hb:112.75-end, kandclip on kand-re piece 'blue'",
+     "relies_on": "kand-re (listed before fluid-re: keep kc-blue-bostrom at the same list position, before fluid-re) and its moves: blue 'grow' hb:113.5-122.6 (x1.5, dx -30, dy -40, dur 0.3) and hb:118-121.5 (x1.38, dx -60, dy -30, dur 0.35); teal orbits blue hb:114..121; jump d0-d5 at hb:117/119/121; spin square hb:116/120; spin chk hb:118/122; river hb:116-123"
+    },
+    {
+     "item": "fx-re-zoom",
+     "at": "hb:118",
+     "note": "punch 0.05; _note says 'Dario's disc zooms up' -> 'Bostrom's disc'; lands on 'humanity' with the new timing"
+    },
+    {
+     "item": "ghost-out + ghost-out-credit",
+     "note": "muted Stargate Abilene b-roll under the reassembly (hb:112-124, credit 'BEHIND: STARGATE ABILENE · ORACLE · 2025' at y 1448); independent of the voice, keep"
+    },
+    {
+     "item": "stamps",
+     "note": "the closer has no stamp item; the name/year come from kar-amodei-b's name+year (meta line) and the plate"
+    },
+    {
+     "item": "top-level _note / title",
+     "note": "long3 and short3 _note end 'Amodei's closer -> the cover' / 'the reassembly with Amodei's closer'"
+    }
+   ],
+   "other_amodei_uses_unchanged": "prelude clip 'amodei' (Axios 2025, song 10.86), chorus count (CBS), 60 Minutes, two essay screens, 'We can't yet fully close the loop.' (voice-amodei-a / kar-amodei-a / cp-amodei, song 63.0-65.04, same Axios clip)"
+  },
+  "short3": {
+   "musk": "none (the short has no verse 1 Amodei)",
+   "bostrom_replaces": [
+    "voice-amodei-b",
+    "kar-amodei-b",
+    "kc-blue-amodei"
+   ],
+   "identical_to_long": "voice-amodei-b, kar-amodei-b, ghost-out, ghost-out-credit are identical to the long's; kc-blue-amodei / kand-re / fluid-re differ only in t1 (36.589); fx-re-zoom is present at hb:118; same song times, short edit = song - 44.811"
+  },
+  "prep": "new clip items need prep_clips.py long3 / short3 (cache folders per id: p-musk, kc-blue-bostrom)",
+  "mix": "voice items use src + audio.in/out + at; mix.py ducks the song (voice-amodei had duck_db 9; without it mix.py auto-ducks to keep the speech 10 LU above the song, e.g. 12.5 dB for voice-amodei-b)"
+ },
+ "current_json": {
+  "long3": {
+   "p-amodei": {
+    "id": "p-amodei",
+    "type": "panel",
+    "t0": "hb:23.5",
+    "t1": "hb:29.5",
+    "prep": "clip",
+    "src": "clips/amodei-cbs-sunday-2026-09.mp4",
+    "in": 192.74,
+    "speed": 1,
+    "oversample": 1.2,
+    "shape": "circle",
+    "frame": {
+     "cx": 540,
+     "cy": 540,
+     "r": 220
+    },
+    "srcFocus": [
+     0.45,
+     0.4
+    ],
+    "entry": "cut",
+    "out": {
+     "style": "iris",
+     "dur": 0.24
+    },
+    "border": "paint",
+    "color": "#2346FF",
+    "borderDelay": 0.1,
+    "kb": {
+     "z": [
+      1.0,
+      1.12
+     ],
+     "pan": [
+      10,
+      0
+     ]
+    },
+    "grade": {
+     "sat": 0.75,
+     "contrast": 1.06,
+     "brightness": -0.02,
+     "grain": 0
+    },
+    "pulse": [
+     "hb:24",
+     "hb:25",
+     "hb:26",
+     "hb:27"
+    ],
+    "pulseAmt": 0.025,
+    "credit": "DARIO AMODEI · CBS SUNDAY MORNING · 2026",
+    "creditAt": [
+     74,
+     274
+    ],
+    "_note": "picture in-point 192.74 at hb:23.5 keeps lip sync with voice-amodei (audio.in 192.42 at song 30.283); one continuous shot of Amodei 188-197 s (ffmpeg scene check, no cutaway)",
+    "creditCps": 120
+   },
+   "voice-amodei": {
+    "id": "voice-amodei",
+    "type": "voice",
+    "t0": "song:30.283",
+    "t1": "song:32.983",
+    "src": "clips/amodei-cbs-sunday-2026-09.mp4",
+    "at": "song:30.283",
+    "audio": {
+     "in": 192.42,
+     "out": 195.12,
+     "fade_ms": 40,
+     "duck_db": 9
+    },
+    "verified": true,
+    "_note": "AUDIBLE over the sung line (verse 1 is sung continuously 28.87-50.48): 'It's a' falls in the gap after 'drink' (30.3-30.64), 'warning' on hb:23.5, 'that' on hb:25, 'slow' on hb:27, 'down.' 32.52-32.92 mostly in the 32.5-32.71 gap before 'Of who'. Song ducked a fixed 9 dB (mix.py duck_db)."
+   },
+   "kar-amodei": {
+    "id": "kar-amodei",
+    "type": "karaoke",
+    "t0": "hb:23.5",
+    "t1": "hb:29.2",
+    "x": 72,
+    "y": 790,
+    "w": 940,
+    "size": 52,
+    "speech": {
+     "in": 192.42,
+     "at": "song:30.283",
+     "words": [
+      {
+       "w": "It's",
+       "s": 192.48
+      },
+      {
+       "w": "a",
+       "s": 192.62
+      },
+      {
+       "w": "warning",
+       "s": 192.74
+      },
+      {
+       "w": "sign",
+       "s": 193.06
+      },
+      {
+       "w": "that",
+       "s": 193.48
+      },
+      {
+       "w": "we",
+       "s": 193.7
+      },
+      {
+       "w": "need",
+       "s": 193.84
+      },
+      {
+       "w": "to",
+       "s": 194.12
+      },
+      {
+       "w": "slow",
+       "s": 194.36
+      },
+      {
+       "w": "down.",
+       "s": 194.8
+      }
+     ]
+    },
+    "name": "Dario Amodei, Anthropic CEO",
+    "year": "2026",
+    "metaAt": "hb:24.5",
+    "metaPx": 28,
+    "metaGap": 14,
+    "roll": {
+     "dim": 0.55
+    },
+    "marks": [
+     {
+      "phrase": "slow down.",
+      "style": "underline",
+      "at": "song:32.67",
+      "color": "#F2C300",
+      "dur": 0.3,
+      "width": 7
+     }
+    ],
+    "exit": {
+     "style": "fade",
+     "dur": 0.18
+    },
+    "theme": "dark"
+   },
+   "pile-news": {
+    "id": "pile-news",
+    "type": "screens",
+    "t0": "hb:23.75",
+    "t1": "hb:28.5",
+    "layout": "scatter",
+    "center": [
+     540,
+     1330
+    ],
+    "w": 860,
+    "jitter": {
+     "x": 50,
+     "y": 20,
+     "rot": 6
+    },
+    "shots": [
+     {
+      "id": "xrisk-vox-freakout",
+      "at": "hb:24",
+      "entry": "slam"
+     },
+     {
+      "id": "geopolitics-cnn-hoax-head",
+      "at": "hb:24.5",
+      "entry": "drop"
+     },
+     {
+      "id": "capabilities-rev3-cnbc-model-fatigue-headline",
+      "at": "hb:25",
+      "entry": "slam"
+     },
+     {
+      "id": "frontier-rev2-guardian_techscape_sep29_headline",
+      "at": "hb:25.5",
+      "entry": "slide"
+     },
+     {
+      "id": "xrisk-cbs-amodei",
+      "at": "hb:26",
+      "entry": "slam",
+      "hl": 0,
+      "hlAt": "hb:26.75"
+     }
+    ],
+    "push": {
+     "at": "hb:27",
+     "z": 1.32,
+     "dur": 0.42,
+     "shot": 4,
+     "to": [
+      540,
+      1300
+     ]
+    },
+    "emph": [
+     {
+      "style": "lift",
+      "at": "hb:27",
+      "shot": 4
+     },
+     {
+      "style": "circle",
+      "at": "hb:27",
+      "shot": 4,
+      "dur": 0.225
+     }
+    ],
+    "pulse": [
+     "hb:25",
+     "hb:26"
+    ],
+    "out": "cut",
+    "chips": "all"
+   },
+   "kc-blue-amodei": {
+    "id": "kc-blue-amodei",
+    "type": "kandclip",
+    "item": "kand-re",
+    "piece": "blue",
+    "t0": "hb:112.75",
+    "t1": 75.3,
+    "prep": "clip",
+    "src": "clips/amodei-axios-2025.mp4",
+    "in": 686.05,
+    "frame": {
+     "cx": 540,
+     "cy": 960,
+     "r": 124
+    },
+    "oversample": 2.0,
+    "srcFocus": [
+     0.45,
+     0.33
+    ],
+    "zoom": [
+     1.0,
+     1.08
+    ],
+    "grade": {
+     "sat": 0.85,
+     "contrast": 1.08,
+     "grain": 0
+    },
+    "tintK": 0.2,
+    "out": "hb:123.4",
+    "fadeOut": 0.3
+   },
+   "voice-amodei-b": {
+    "id": "voice-amodei-b",
+    "type": "voice",
+    "t0": "song:73.768",
+    "t1": "song:79.338",
+    "src": "clips/amodei-axios-2025.mp4",
+    "at": "song:73.768",
+    "audio": {
+     "in": 686.03,
+     "out": 691.6,
+     "fade_ms": 25
+    },
+    "verified": true
+   },
+   "kar-amodei-b": {
+    "id": "kar-amodei-b",
+    "type": "karaoke",
+    "t0": "song:73.7",
+    "t1": "hb:124",
+    "x": 72,
+    "y": 252,
+    "w": 940,
+    "size": 52,
+    "style": {
+     "serif": true
+    },
+    "font": {
+     "weight": 600
+    },
+    "speech": {
+     "in": 686.03,
+     "at": "song:73.768",
+     "words": [
+      {
+       "w": "…positive",
+       "s": 686.1
+      },
+      {
+       "w": "feedback",
+       "s": 686.52
+      },
+      {
+       "w": "loop,",
+       "s": 686.9
+      },
+      {
+       "w": "that",
+       "s": 687.52
+      },
+      {
+       "w": "cycle,",
+       "s": 688.06
+      },
+      {
+       "w": "it's",
+       "s": 688.68
+      },
+      {
+       "w": "not",
+       "s": 688.92
+      },
+      {
+       "w": "yet",
+       "s": 689.14
+      },
+      {
+       "w": "going",
+       "s": 689.26
+      },
+      {
+       "w": "super",
+       "s": 689.56
+      },
+      {
+       "w": "fast,",
+       "s": 689.9
+      },
+      {
+       "w": "but",
+       "s": 690.3
+      },
+      {
+       "w": "it's",
+       "s": 690.37
+      },
+      {
+       "w": "definitely",
+       "s": 690.66
+      },
+      {
+       "w": "started.",
+       "s": 691.15
+      }
+     ]
+    },
+    "name": "Dario Amodei",
+    "year": "2025",
+    "metaAt": "song:74.1",
+    "metaPx": 28,
+    "metaGap": 12,
+    "roll": {
+     "dim": 0.62
+    },
+    "marks": [
+     {
+      "phrase": "positive feedback loop",
+      "style": "underline",
+      "at": "song:74.74",
+      "dur": 0.22,
+      "color": "#FF2E88"
+     },
+     {
+      "phrase": "not yet going super fast",
+      "style": "underline",
+      "at": "song:77.6",
+      "dur": 0.22,
+      "color": "#15131F"
+     }
+    ],
+    "exit": {
+     "style": "fade",
+     "dur": 0.25
+    },
+    "theme": "light",
+    "plate": {
+     "color": "rgba(242,235,221,0.9)",
+     "pad": 14
+    }
+   },
+   "ghost-out": {
+    "id": "ghost-out",
+    "type": "panel",
+    "t0": "hb:112",
+    "t1": "hb:124",
+    "prep": "clip",
+    "broll": "stargate-abilene-oracle",
+    "in": 26.0,
+    "speed": 0.5,
+    "shape": "rect",
+    "frame": {
+     "x": 0,
+     "y": 0,
+     "w": 1080,
+     "h": 1920
+    },
+    "entry": {
+     "style": "fade",
+     "at": "hb:112",
+     "dur": 0.1
+    },
+    "out": {
+     "style": "fade",
+     "at": "hb:122.9",
+     "dur": 0.5
+    },
+    "border": "none",
+    "kb": {
+     "z": [
+      1.0,
+      1.1
+     ]
+    },
+    "alpha": 0.5,
+    "blend": "multiply",
+    "grade": {
+     "sat": 0.3,
+     "contrast": 0.88,
+     "brightness": 0.06,
+     "gamma": 1.5,
+     "grain": 0
+    },
+    "mask": "linear-gradient(to bottom, transparent 0%, transparent 28%, #000 37%, #000 55%, rgba(0,0,0,0.22) 60%, rgba(0,0,0,0.22) 75%, #000 81%, #000 100%)",
+    "theme": "light",
+    "_note": "FIXER r2: MUTED ghost b-roll under the reassembly (Oracle's Stargate Abilene campus aerial, 2025), multiply 34 %, clear of the karaoke strip"
+   },
+   "ghost-out-credit": {
+    "id": "ghost-out-credit",
+    "type": "words",
+    "t0": "hb:113",
+    "t1": "hb:122.9",
+    "x": 64,
+    "y": 1448,
+    "w": 900,
+    "text": "BEHIND: STARGATE ABILENE · ORACLE · 2025",
+    "font": {
+     "family": "'IBM Plex Mono', monospace",
+     "weight": 600,
+     "size": 28
+    },
+    "color": "#15131F",
+    "roll": {
+     "mode": "words",
+     "rate": 4,
+     "from": "hb:113"
+    },
+    "exit": {
+     "style": "fade",
+     "dur": 0.2
+    },
+    "theme": "light"
+   },
+   "kand-re": {
+    "id": "kand-re",
+    "type": "kand",
+    "t0": "hb:111.6",
+    "t1": 75.3,
+    "layout": {
+     "y": 400,
+     "scale": 0.72
+    },
+    "preset": {
+     "name": "assemble",
+     "from": "hb:112",
+     "point": "center",
+     "hold": 12
+    },
+    "moves": [
+     {
+      "move": "jump",
+      "pieces": [
+       "d0",
+       "d1",
+       "d2",
+       "d3",
+       "d4",
+       "d5"
+      ],
+      "on": [
+       "hb:117",
+       "hb:119",
+       "hb:121"
+      ],
+      "h": 60,
+      "stagger": 0.03
+     },
+     {
+      "move": "orbit",
+      "pieces": [
+       "teal"
+      ],
+      "around": "blue",
+      "on": "hb:114..121",
+      "stepDeg": 45
+     },
+     {
+      "move": "spin",
+      "pieces": [
+       "square"
+      ],
+      "on": [
+       "hb:116",
+       "hb:120"
+      ],
+      "deg": 90
+     },
+     {
+      "move": "spin",
+      "pieces": [
+       "chk"
+      ],
+      "on": [
+       "hb:118",
+       "hb:122"
+      ],
+      "deg": 90
+     },
+     {
+      "move": "river",
+      "from": "hb:116",
+      "to": "hb:123"
+     },
+     {
+      "move": "grow",
+      "pieces": [
+       "blue"
+      ],
+      "from": "hb:113.5",
+      "to": "hb:122.6",
+      "scale": 1.5,
+      "dx": -30,
+      "dy": -40,
+      "dur": 0.3
+     },
+     {
+      "move": "grow",
+      "pieces": [
+       "teal"
+      ],
+      "from": "hb:113.5",
+      "to": "hb:122.6",
+      "scale": 0.5,
+      "op": 0,
+      "dur": 0.3
+     },
+     {
+      "move": "orbit",
+      "pieces": [
+       "pink",
+       "black"
+      ],
+      "on": {
+       "from": 113,
+       "to": 117.5,
+       "every": 0.5
+      },
+      "stepDeg": 36
+     },
+     {
+      "move": "grow",
+      "pieces": [
+       "blue"
+      ],
+      "from": "hb:118",
+      "to": "hb:121.5",
+      "scale": 1.38,
+      "dx": -60,
+      "dy": -30,
+      "dur": 0.35
+     }
+    ]
+   },
+   "fluid-re": {
+    "id": "fluid-re",
+    "type": "fluid",
+    "t0": "hb:112",
+    "t1": 75.3,
+    "item": "kand-re"
+   },
+   "tr-v1-zoom": {
+    "id": "tr-v1-zoom",
+    "at": "hb:23.5",
+    "type": "zoomthrough",
+    "dur": 1.5,
+    "lead": 0.62,
+    "focus": [
+     540,
+     1000
+    ],
+    "r": 120,
+    "rim": "#2346FF",
+    "ground": "#0E0D12",
+    "out": [
+     "p-hinton",
+     "pile-die",
+     "v1-arrow-hinton"
+    ],
+    "in": [
+     "p-amodei",
+     "kar-amodei"
+    ],
+    "_note": "the camera dives into the lifted 'wiping out humanity' phrase; Amodei is inside it behind a blue painted portal ring; impact on the 8th where line 3 starts (30.64)"
+   },
+   "tr-v1-fold": {
+    "id": "tr-v1-fold",
+    "at": "hb:28.5",
+    "type": "fold",
+    "dur": 1.25,
+    "lead": 0.5,
+    "axis": "h",
+    "mode": "both",
+    "rect": [
+     40,
+     960,
+     1000,
+     620
+    ],
+    "ground": false,
+    "back": "#7B3FF2",
+    "out": [
+     "pile-news"
+    ],
+    "in": [
+     "eq-dpo"
+    ],
+    "_note": "origami (horizontal crease, unlike the prelude's fold): the news pile folds in half on the sung 'likes' and the DPO card unfolds out of its back; rect 'item' and no ground so Amodei's circle and karaoke above stay untouched"
+   },
+   "tr-v1-particles": {
+    "id": "tr-v1-particles",
+    "at": "hb:32",
+    "type": "particles",
+    "dur": 1.5,
+    "lead": 0.33,
+    "grid": 44,
+    "swirl": 0.6,
+    "ground": "#0E0D12",
+    "out": [
+     "eq-dpo",
+     "p-pause",
+     "pile-syco"
+    ],
+    "in": [
+     "v1-tower"
+    ],
+    "_note": "bar 7 breaks into halftone paint dots that swirl and land on the tower, which fills in as its embedding lights (line 5 'And I'm so tired' starts 34.51)"
+   },
+   "fx-re-zoom": {
+    "id": "fx-re-zoom",
+    "fx": "punch",
+    "on": [
+     "hb:118"
+    ],
+    "amount": 0.05,
+    "decay": 0.14,
+    "_note": "FIXER r3: Dario's disc zooms up"
+   }
+  },
+  "short3": {
+   "kc-blue-amodei": {
+    "id": "kc-blue-amodei",
+    "type": "kandclip",
+    "item": "kand-re",
+    "piece": "blue",
+    "t0": "hb:112.75",
+    "t1": 36.589,
+    "prep": "clip",
+    "src": "clips/amodei-axios-2025.mp4",
+    "in": 686.05,
+    "frame": {
+     "cx": 540,
+     "cy": 960,
+     "r": 124
+    },
+    "oversample": 2.0,
+    "srcFocus": [
+     0.45,
+     0.33
+    ],
+    "zoom": [
+     1.0,
+     1.08
+    ],
+    "grade": {
+     "sat": 0.85,
+     "contrast": 1.08,
+     "grain": 0
+    },
+    "tintK": 0.2,
+    "out": "hb:123.4",
+    "fadeOut": 0.3
+   },
+   "voice-amodei-b": {
+    "id": "voice-amodei-b",
+    "type": "voice",
+    "t0": "song:73.768",
+    "t1": "song:79.338",
+    "src": "clips/amodei-axios-2025.mp4",
+    "at": "song:73.768",
+    "audio": {
+     "in": 686.03,
+     "out": 691.6,
+     "fade_ms": 25
+    },
+    "verified": true
+   },
+   "kar-amodei-b": {
+    "id": "kar-amodei-b",
+    "type": "karaoke",
+    "t0": "song:73.7",
+    "t1": "hb:124",
+    "x": 72,
+    "y": 252,
+    "w": 940,
+    "size": 52,
+    "style": {
+     "serif": true
+    },
+    "font": {
+     "weight": 600
+    },
+    "speech": {
+     "in": 686.03,
+     "at": "song:73.768",
+     "words": [
+      {
+       "w": "…positive",
+       "s": 686.1
+      },
+      {
+       "w": "feedback",
+       "s": 686.52
+      },
+      {
+       "w": "loop,",
+       "s": 686.9
+      },
+      {
+       "w": "that",
+       "s": 687.52
+      },
+      {
+       "w": "cycle,",
+       "s": 688.06
+      },
+      {
+       "w": "it's",
+       "s": 688.68
+      },
+      {
+       "w": "not",
+       "s": 688.92
+      },
+      {
+       "w": "yet",
+       "s": 689.14
+      },
+      {
+       "w": "going",
+       "s": 689.26
+      },
+      {
+       "w": "super",
+       "s": 689.56
+      },
+      {
+       "w": "fast,",
+       "s": 689.9
+      },
+      {
+       "w": "but",
+       "s": 690.3
+      },
+      {
+       "w": "it's",
+       "s": 690.37
+      },
+      {
+       "w": "definitely",
+       "s": 690.66
+      },
+      {
+       "w": "started.",
+       "s": 691.15
+      }
+     ]
+    },
+    "name": "Dario Amodei",
+    "year": "2025",
+    "metaAt": "song:74.1",
+    "metaPx": 28,
+    "metaGap": 12,
+    "roll": {
+     "dim": 0.62
+    },
+    "marks": [
+     {
+      "phrase": "positive feedback loop",
+      "style": "underline",
+      "at": "song:74.74",
+      "dur": 0.22,
+      "color": "#FF2E88"
+     },
+     {
+      "phrase": "not yet going super fast",
+      "style": "underline",
+      "at": "song:77.6",
+      "dur": 0.22,
+      "color": "#15131F"
+     }
+    ],
+    "exit": {
+     "style": "fade",
+     "dur": 0.25
+    },
+    "theme": "light",
+    "plate": {
+     "color": "rgba(242,235,221,0.9)",
+     "pad": 14
+    }
+   }
+  }
+ },
+ "proposed_items": {
+  "voice-bostrom": {
+   "id": "voice-bostrom",
+   "type": "voice",
+   "t0": "song:73.83",
+   "t1": "song:77.70",
+   "src": "clips/bostrom-ted-2015-full.mp4",
+   "at": "song:73.83",
+   "audio": {
+    "in": 466.03,
+    "out": 469.9,
+    "fade_ms": 25
+   },
+   "verified": true,
+   "_note": "Bostrom, TED2015: 'Machine intelligence is the last invention that humanity will ever need to make.' src 466.03-469.90 (room tone only before 466.06 and from 469.76 to 470.36; the next word 'The' starts 470.38). First word 'Machine' (acoustic onset 466.075) sounds at song 73.875, its stressed vowel on hb:113 (73.910)."
+  },
+  "kar-bostrom": {
+   "id": "kar-bostrom",
+   "type": "karaoke",
+   "t0": "song:73.7",
+   "t1": "song:78.5",
+   "x": 72,
+   "y": 252,
+   "w": 940,
+   "size": 52,
+   "style": {
+    "serif": true
+   },
+   "font": {
+    "weight": 600
+   },
+   "speech": {
+    "in": 466.03,
+    "at": "song:73.83",
+    "words": [
+     {
+      "w": "Machine",
+      "s": 466.08
+     },
+     {
+      "w": "intelligence",
+      "s": 466.28
+     },
+     {
+      "w": "is",
+      "s": 466.93
+     },
+     {
+      "w": "the",
+      "s": 467.04
+     },
+     {
+      "w": "last",
+      "s": 467.1
+     },
+     {
+      "w": "invention",
+      "s": 467.57
+     },
+     {
+      "w": "that",
+      "s": 468.17
+     },
+     {
+      "w": "humanity",
+      "s": 468.59
+     },
+     {
+      "w": "will",
+      "s": 468.92
+     },
+     {
+      "w": "ever",
+      "s": 469.05
+     },
+     {
+      "w": "need",
+      "s": 469.21
+     },
+     {
+      "w": "to",
+      "s": 469.4
+     },
+     {
+      "w": "make.",
+      "s": 469.48
+     }
+    ]
+   },
+   "name": "Nick Bostrom, Oxford philosopher",
+   "year": "2015",
+   "metaAt": "song:74.1",
+   "metaPx": 28,
+   "metaGap": 12,
+   "roll": {
+    "dim": 0.62
+   },
+   "marks": [
+    {
+     "phrase": "the last invention",
+     "style": "underline",
+     "at": "song:75.45",
+     "dur": 0.22,
+     "color": "#FF2E88"
+    },
+    {
+     "phrase": "ever need to make.",
+     "style": "underline",
+     "at": "song:77.35",
+     "dur": 0.22,
+     "color": "#15131F"
+    }
+   ],
+   "exit": {
+    "style": "fade",
+    "dur": 0.25
+   },
+   "theme": "light",
+   "plate": {
+    "color": "rgba(242,235,221,0.9)",
+    "pad": 14
+   }
+  },
+  "kc-blue-bostrom": {
+   "id": "kc-blue-bostrom",
+   "type": "kandclip",
+   "item": "kand-re",
+   "piece": "blue",
+   "t0": "hb:112.75",
+   "t1": 75.3,
+   "prep": "clip",
+   "src": "clips/bostrom-ted-2015-full.mp4",
+   "in": 465.988,
+   "frame": {
+    "cx": 540,
+    "cy": 960,
+    "r": 124
+   },
+   "oversample": 2.0,
+   "srcFocus": [
+    0.54,
+    0.28
+   ],
+   "zoom": [
+    1.0,
+    1.08
+   ],
+   "grade": {
+    "sat": 0.85,
+    "contrast": 1.08,
+    "grain": 0
+   },
+   "tintK": 0.12,
+   "out": "hb:123.4",
+   "fadeOut": 0.3,
+   "srcZoom": 1.8,
+   "freeze": "song:77.75",
+   "_note": "crop = {x:491,y:2,w:400,h:400} of the 1280x720 frame (srcFocus [0.54,0.28] + srcZoom 1.8); face centred, shoulders and the red TED stage in the disc; picture time = audio time (in 465.99 at hb:112.75 = song 73.790); freeze holds the closed-mouth frame (src 469.95) so the disc does not mime his next sentence (his mouth moves from 470.38); tintK 0.12 (was 0.2) because the stage is red, judge by eye."
+  },
+  "voice-musk": {
+   "id": "voice-musk",
+   "type": "voice",
+   "t0": "song:30.603",
+   "t1": "song:32.973",
+   "src": "clips/musk-mit-2014-demon.mp4",
+   "at": "song:30.603",
+   "audio": {
+    "in": 57.43,
+    "out": 59.8,
+    "fade_ms": 20,
+    "duck_db": 9
+   },
+   "verified": true,
+   "_note": "Musk, MIT AeroAstro Centennial Symposium, 24 Oct 2014: 'with artificial intelligence, we are summoning the demon.' src 57.43-59.80. 'I mean,' before it ends at 57.39 (a cut at <=57.39 leaks an 'n': small.en hears 'And with'); a cut at 57.40-57.54 hears 'With'. Speech ends 59.47, room tone to 60.62, next speech 60.66."
+  },
+  "p-musk": {
+   "id": "p-musk",
+   "type": "panel",
+   "t0": "hb:23.5",
+   "t1": "hb:29.5",
+   "prep": "clip",
+   "src": "clips/musk-mit-2014-demon.mp4",
+   "in": 57.43,
+   "speed": 1,
+   "oversample": 1.2,
+   "shape": "circle",
+   "frame": {
+    "cx": 540,
+    "cy": 540,
+    "r": 220
+   },
+   "srcFocus": [
+    0.461,
+    0.417
+   ],
+   "entry": "cut",
+   "out": {
+    "style": "iris",
+    "dur": 0.24
+   },
+   "border": "paint",
+   "color": "#2346FF",
+   "borderDelay": 0.1,
+   "kb": {
+    "z": [
+     1.0,
+     1.12
+    ],
+    "pan": [
+     10,
+     0
+    ]
+   },
+   "grade": {
+    "sat": 0.75,
+    "contrast": 1.06,
+    "brightness": -0.02,
+    "grain": 0
+   },
+   "pulse": [
+    "hb:24",
+    "hb:25",
+    "hb:26",
+    "hb:27"
+   ],
+   "pulseAmt": 0.025,
+   "credit": "MIT AEROASTRO CENTENNIAL · OCT 24, 2014",
+   "creditAt": [
+    74,
+    274
+   ],
+   "_note": "crop = {x:290,y:0,w:600,h:600} (srcFocus [0.461,0.417] + srcZoom 1.2); picture in 57.43 at hb:23.5 = lip sync with voice-musk (same offset, song = src - 26.827); one continuous shot 50-69.7 s. credit: 'ELON MUSK · MIT AEROASTRO CENTENNIAL SYMPOSIUM · OCT 24, 2014' (62 chars) overflows the left edge of the frame (rendered in a scratch EDL: it starts at 'IT AEROASTRO'), and even the 49-char 'MIT AEROASTRO CENTENNIAL SYMPOSIUM · OCT 24, 2014' runs 30-1035 px, past the 60 px safe margin (about 22 px per mono char, so keep the chip <= 44 chars): the chip is the 39-char 'MIT AEROASTRO CENTENNIAL · OCT 24, 2014' and kar-musk's name line carries 'Elon Musk, SpaceX & Tesla CEO · 2014'.",
+   "creditCps": 120,
+   "srcZoom": 1.2
+  },
+  "kar-musk": {
+   "id": "kar-musk",
+   "type": "karaoke",
+   "t0": "hb:23.5",
+   "t1": "hb:29.2",
+   "x": 72,
+   "y": 790,
+   "w": 940,
+   "size": 46,
+   "speech": {
+    "in": 57.43,
+    "at": "song:30.603",
+    "words": [
+     {
+      "w": "…with",
+      "s": 57.43
+     },
+     {
+      "w": "artificial",
+      "s": 57.58
+     },
+     {
+      "w": "intelligence,",
+      "s": 58.15
+     },
+     {
+      "w": "we",
+      "s": 58.49
+     },
+     {
+      "w": "are",
+      "s": 58.6
+     },
+     {
+      "w": "summoning",
+      "s": 58.67
+     },
+     {
+      "w": "the",
+      "s": 59.03
+     },
+     {
+      "w": "demon.",
+      "s": 59.17
+     }
+    ]
+   },
+   "name": "Elon Musk, SpaceX & Tesla CEO",
+   "year": "2014",
+   "metaAt": "hb:24.5",
+   "metaPx": 28,
+   "metaGap": 14,
+   "roll": {
+    "dim": 0.55
+   },
+   "marks": [
+    {
+     "phrase": "summoning the demon.",
+     "style": "underline",
+     "at": "song:31.85",
+     "color": "#F2C300",
+     "dur": 0.3,
+     "width": 7
+    }
+   ],
+   "exit": {
+    "style": "fade",
+    "dur": 0.18
+   },
+   "theme": "dark",
+   "_note": "Caption '…with artificial intelligence, we are summoning the demon.' (leading ellipsis because 'I mean,' is cut; BUILD.md writes 'With ...' without it: either is honest, the audible start is 'with'). Underline lands as 'summoning' is said (hb:26 = 31.813)."
+  },
+  "pile-news (patched)": {
+   "id": "pile-news",
+   "type": "screens",
+   "t0": "hb:23.75",
+   "t1": "hb:28.5",
+   "layout": "scatter",
+   "center": [
+    540,
+    1330
+   ],
+   "w": 860,
+   "jitter": {
+    "x": 50,
+    "y": 20,
+    "rot": 6
+   },
+   "shots": [
+    {
+     "id": "xrisk-vox-freakout",
+     "at": "hb:24",
+     "entry": "slam"
+    },
+    {
+     "id": "geopolitics-cnn-hoax-head",
+     "at": "hb:24.5",
+     "entry": "drop"
+    },
+    {
+     "id": "capabilities-rev3-cnbc-model-fatigue-headline",
+     "at": "hb:25",
+     "entry": "slam"
+    },
+    {
+     "id": "frontier-rev2-guardian_techscape_sep29_headline",
+     "at": "hb:25.5",
+     "entry": "slide"
+    },
+    {
+     "id": "security-astra-9to5",
+     "at": "hb:26",
+     "entry": "slam",
+     "hl": 0,
+     "hlAt": "hb:26.75"
+    }
+   ],
+   "push": {
+    "at": "hb:27",
+    "z": 1.32,
+    "dur": 0.42,
+    "shot": 4,
+    "to": [
+     540,
+     1300
+    ]
+   },
+   "emph": [
+    {
+     "style": "lift",
+     "at": "hb:27",
+     "shot": 4
+    },
+    {
+     "style": "circle",
+     "at": "hb:27",
+     "shot": 4,
+     "dur": 0.225
+    }
+   ],
+   "pulse": [
+    "hb:25",
+    "hb:26"
+   ],
+   "out": "cut",
+   "chips": "all",
+   "_note": "rev3 suggestion (rendered and checked in a scratch EDL): shot 4 (the pushed-in, lifted, circled one) is 9to5Google 2026-09-28 'OpenAI cancels GPT-6.1 Astra release over misbehavior & safety concerns' (security-astra-9to5, highlight 0, unused elsewhere, same wide short footprint as the CBS card) instead of the CBS Amodei headline, so the emphasis no longer lands on Amodei's sentence while Musk speaks. Alternative: xrisk-time-culture (TIME, 2026-09-10, hl 1 'That Could Be Dangerous'), but its card is twice as tall (1800x885) and covers the karaoke's name line."
+  },
+  "tr-v1-zoom (patched)": {
+   "id": "tr-v1-zoom",
+   "at": "hb:23.5",
+   "type": "zoomthrough",
+   "dur": 1.5,
+   "lead": 0.62,
+   "focus": [
+    540,
+    1000
+   ],
+   "r": 120,
+   "rim": "#2346FF",
+   "ground": "#0E0D12",
+   "out": [
+    "p-hinton",
+    "pile-die",
+    "v1-arrow-hinton"
+   ],
+   "in": [
+    "p-musk",
+    "kar-musk"
+   ],
+   "_note": "the camera dives into the lifted 'wiping out humanity' phrase; Amodei is inside it behind a blue painted portal ring; impact on the 8th where line 3 starts (30.64)"
+  }
+ }
+}

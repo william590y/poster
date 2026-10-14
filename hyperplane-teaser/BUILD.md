@@ -2,6 +2,53 @@
 
 Read `README.md` (the handover) first; this file records what was measured and decided since, and overrides it where they differ.
 
+## REVISION 3 (William, 14 Oct 2026, after watching the rev2 cuts; overrides REVISION 2 where they differ)
+William's six changes, verbatim first, then how each is read. Built as `edl/make_{long,short}_rev3.py` -> `long3.json` /
+`short3.json` (rev2 builders + the rev3 passes in `edl/rev3_intro.py` and `edl/rev3_body.py`), deliverables in `out/rev3/`.
+1. "remove the flashing animation and extraneous symbols at the beginning (the circling and other text related graphics are fine)".
+   - Remove from the prelude (song 6.10 -> the drop) every decorative, non-text mark: the pencil doodles that blink in the top-right
+     strip on each pulse (ticks, crosses, scribbles, stars: beat tracks `fx-prelude`, `fx-prelude-grid`), the "classifier sketch" of
+     red/blue dots and pencil lines beside the captions (`sketch-plane`, `sketch-dot-*`), the paint dab behind the 2015 chip
+     (`splat-open`), the red nabla stamp on the breath (`r2-stamp-breath`), and any other blinking/flashing accent found by diffing
+     the frames.
+   - Also remove the one-frame white flash before the drop (`fx-drop-white`, f393).
+   - KEEP everything attached to text: the word-lit captions, the pencil underlines, the circle around "25%", marker sweeps, the
+     name/year chips, the source lines. Keep the footage (original backgrounds), the headline pile and the transitions.
+2. "I don't like the vector at the beginning in the intro kill it. One of the best things about the old original intro was all of
+   the elements being shown falling into place on beat, we can preserve the other stuff but I want that". Clarified: "I
+   specifically refer to the weird polar coordinates like thing with the vectors all pointing out toward the end of the intro".
+   - Kill the superposition burst (the fan of vectors radiating from a circle, riff hb:12-15.75, the `superpose` move) and its
+     equation (`eq-superpose`).
+   - Bring back the r1-r7 riff (see `out/hyperplane-brutal-short-9x16.mp4`, edit 13.13-18.6): on clean cream, the whole logo in
+     frame, every element visibly FALLS INTO PLACE ON A BEAT: the plane slams on the downbeat, the discs drop/pop in, then one
+     small shape per beat/8th, the wordmark slams on a bar downbeat, the kicker lands. Each landing frame is on its beat.
+   - Preserve the rest of the rev2 riff where it does not hide the build (Coxon heard with his footage in a disc, footage in the
+     discs, the fluid colour, orbits after the build, the break into verse 1).
+3. "the arrows at the end that are small are beautiful but i dislike the large arrows at the beginning, let's get rid of those".
+   Clarified: "By 3 I specifically mean the arrows that 'swim' through the hyperplane".
+   - Remove the large swimming vectors in the riff's river (the yellow band, hb:8-16). Keep the refrain's small river vectors (`kand-a`).
+4. "let's change the closing quote to the bostrom one and substitute one of the Dario quotes in the middle for Elon's we are
+   summoning the demon".
+   - Closer (both cuts): Amodei's "…positive feedback loop…" (voice-amodei-b, kar-amodei-b, kc-blue-amodei) is replaced by Nick
+     Bostrom, TED2015, audible: "Machine intelligence is the last invention that humanity will ever need to make."
+     (clips/bostrom-ted-2015-full.mp4, ≈466.03-469.90), rolled out word by word as he says it (William liked the r1 Bostrom roll-out),
+     his original TED footage in the disc.
+   - Middle (long cut; the short has no middle Amodei quote): Elon Musk, MIT AeroAstro Centennial Symposium, Oct 24, 2014, audible:
+     "With artificial intelligence, we are summoning the demon." (clips/musk-mit-2014-demon.mp4, ≈57.32-59.38) replaces verse 1's
+     Amodei "It's a warning sign that we need to slow down." (CBS Sunday Morning 2026; the other middle Amodei quotes are tied to
+     the picture: the count on the chorus's numbers, "No one" with Cooper, "close the loop" on the loop).
+5. "lets only keep the equations for attention and the policy gradient for GRPO (and for GRPO just show the gradient itself), and
+   use the remaining space for something else".
+   - Keep `eq-attn` (Vaswani et al. 2017, with the 3D tower). Replace the GRPO objective (`eq-grpo`) with the GRPO policy gradient
+     alone, exact from Shao et al. 2024 (DeepSeekMath, arXiv:2402.03300, appendix A.1.6), cited.
+   - Remove every other equation: `eq-superpose`, `eq-dpo`, `eq-ntp`, `eq-upd`, `eq-adv` (and any formula elsewhere). Fill each freed
+     slot with something else that is real and lyric-correlated: footage, headline screenshots, a chart, logo choreography.
+6. "on the loop to black hole animation, … the arrow icon, the arrowhead is on backwards". DONE (14 Oct): the "Even better AI"
+   node's ↻ icon (`fx/singularity.js` icon 'redo') drew its barbs along the outward radius, so the head pointed against the arc;
+   the barbs now trail the tip either side of the reverse tangent.
+All REVISION 2 rules still hold (something striking on every beat, imagery in every frame, verbatim captions with name and year,
+real screenshots, exact cited equations, music out before 80.68, ≈ −12 LUFS / ≤ −1 dBTP).
+
 ## REVISION 2 (William, 10 Oct 2026, after watching both cuts; overrides everything below where they differ)
 William: "This is quite good but I think it can be improved." His points, as direction:
 - **Brand:** Hyperplane is the podcast of **The Cornell Gradient**, a newspaper. The kicker "A CORNELL GRADIENT PODCAST" is correct (`brand/cornell-gradient-masthead.png` exists if useful).
@@ -65,6 +112,7 @@ William: "This is quite good but I think it can be improved." His points, as dir
 
 ## WILLIAM FEEDBACK LOG (newest last; every planner, assembler and fixer re-reads this before each round)
 - (11 Oct) Showcase style test sent: out/rev2/showcase-preview.mp4 (edl/make_showcase.py is the reference implementation of the new vocabulary). No feedback on it yet.
+- (14 Oct) After watching the rev2 cuts: six changes, see REVISION 3 at the top (prelude flashing/symbols out; kill the superposition fan and bring back the r1 'falling into place on beat' logo build; no large swimming arrows in the riff, keep the small ones at the end; Bostrom closes, Musk 'summoning the demon' replaces a middle Amodei; equations: attention + the GRPO gradient only; the loop's arrow icon head was backwards).
 
 ## UPDATE (William, latest; overrides the "short/long" notes below)
 Both versions END in the instrumental after the first refrain (song 73.64 → 80.68; verse 2's first vocal is at 80.68, so the music must be out by ≈80.4), and they differ only by where they START:

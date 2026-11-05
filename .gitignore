@@ -6,3 +6,6 @@
 *.out
 *.toc
 *.gz
+
+# built decks (about 0.1-1 GB; downloaded from the release or rebuilt with build.sh / build_splash.sh)
+ai-safety-presentation/*.pptx

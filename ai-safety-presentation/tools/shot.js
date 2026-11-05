@@ -18,7 +18,7 @@ const url = argv[0], out = argv[1];
 const opt = (k, d) => { const i = argv.indexOf('--' + k); return i < 0 ? d : (argv[i + 1] && !argv[i + 1].startsWith('--') ? argv[i + 1] : true); };
 (async () => {
   const b = await chromium.launch({
-    executablePath: '/opt/pw-browsers/chromium-1194/chrome-linux/chrome',
+    executablePath: process.env.SHOT_CHROME || ['/opt/pw-browsers/chromium', '/opt/pw-browsers/chromium-1243/chrome-linux64/chrome', '/opt/pw-browsers/chromium-1243/chrome-linux/chrome', '/opt/pw-browsers/chromium-1194/chrome-linux/chrome'].find(p => { try { return fs.statSync(p).isFile(); } catch (e) { return false; } }),
     proxy: { server: PROXY },
     args: ['--ignore-certificate-errors-spki-list=' + SPKI, '--disable-blink-features=AutomationControlled'],
   });

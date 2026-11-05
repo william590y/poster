@@ -1,0 +1,851 @@
+{
+ "title": "S&P 500, Nasdaq Composite and VIX, daily closes, Jul 1 - Nov 4, 2026",
+ "source": {
+  "sp500": "S&P Dow Jones Indices LLC via FRED, series SP500",
+  "nasdaq": "NASDAQ OMX Group via FRED, series NASDAQCOM",
+  "vix": "Cboe via FRED, series VIXCLS"
+ },
+ "urls": {
+  "SP500": "https://fred.stlouisfed.org/series/SP500",
+  "NASDAQCOM": "https://fred.stlouisfed.org/series/NASDAQCOM",
+  "VIXCLS": "https://fred.stlouisfed.org/series/VIXCLS"
+ },
+ "csv_urls": {
+  "SP500": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=SP500",
+  "NASDAQCOM": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=NASDAQCOM",
+  "VIXCLS": "https://fred.stlouisfed.org/graph/fredgraph.csv?id=VIXCLS"
+ },
+ "retrieved": "2026-11-05",
+ "last_fred_observation": "2026-11-04",
+ "licence_note": "FRED displays \"Source: S&P Dow Jones Indices LLC via FRED\". The SP500 series is restricted: S&P DJI permits non-commercial use with attribution (FRED holds about 10 years). Credit S&P Dow Jones Indices LLC and FRED on the slide; do not redistribute the CSV. Exact FRED copyright notice text was NOT retrievable from this box (series page notes did not render), so confirm wording on the series page before publishing the deck online.",
+ "rows": [
+  {
+   "date": "2026-07-01",
+   "sp500": 7483.23,
+   "nasdaq": 26040.03,
+   "vix": 16.59
+  },
+  {
+   "date": "2026-07-02",
+   "sp500": 7483.24,
+   "nasdaq": 25832.67,
+   "vix": 16.15,
+   "sp500_pct": 0.0,
+   "nasdaq_pct": -0.8
+  },
+  {
+   "date": "2026-07-06",
+   "sp500": 7537.43,
+   "nasdaq": 26121.16,
+   "vix": 15.57,
+   "sp500_pct": 0.72,
+   "nasdaq_pct": 1.12
+  },
+  {
+   "date": "2026-07-07",
+   "sp500": 7503.85,
+   "nasdaq": 25818.69,
+   "vix": 16.13,
+   "sp500_pct": -0.45,
+   "nasdaq_pct": -1.16
+  },
+  {
+   "date": "2026-07-08",
+   "sp500": 7482.71,
+   "nasdaq": 25870.65,
+   "vix": 16.9,
+   "sp500_pct": -0.28,
+   "nasdaq_pct": 0.2
+  },
+  {
+   "date": "2026-07-09",
+   "sp500": 7543.64,
+   "nasdaq": 26206.89,
+   "vix": 15.84,
+   "sp500_pct": 0.81,
+   "nasdaq_pct": 1.3
+  },
+  {
+   "date": "2026-07-10",
+   "sp500": 7575.39,
+   "nasdaq": 26281.61,
+   "vix": 15.03,
+   "sp500_pct": 0.42,
+   "nasdaq_pct": 0.29
+  },
+  {
+   "date": "2026-07-13",
+   "sp500": 7515.34,
+   "nasdaq": 25873.18,
+   "vix": 17.16,
+   "sp500_pct": -0.79,
+   "nasdaq_pct": -1.55
+  },
+  {
+   "date": "2026-07-14",
+   "sp500": 7543.59,
+   "nasdaq": 26107.01,
+   "vix": 16.5,
+   "sp500_pct": 0.38,
+   "nasdaq_pct": 0.9
+  },
+  {
+   "date": "2026-07-15",
+   "sp500": 7572.4,
+   "nasdaq": 26269.23,
+   "vix": 15.67,
+   "sp500_pct": 0.38,
+   "nasdaq_pct": 0.62
+  },
+  {
+   "date": "2026-07-16",
+   "sp500": 7533.77,
+   "nasdaq": 25881.95,
+   "vix": 16.73,
+   "sp500_pct": -0.51,
+   "nasdaq_pct": -1.47
+  },
+  {
+   "date": "2026-07-17",
+   "sp500": 7457.69,
+   "nasdaq": 25520.24,
+   "vix": 18.77,
+   "sp500_pct": -1.01,
+   "nasdaq_pct": -1.4
+  },
+  {
+   "date": "2026-07-20",
+   "sp500": 7443.28,
+   "nasdaq": 25508.07,
+   "vix": 18.65,
+   "sp500_pct": -0.19,
+   "nasdaq_pct": -0.05
+  },
+  {
+   "date": "2026-07-21",
+   "sp500": 7509.2,
+   "nasdaq": 25837.21,
+   "vix": 17.05,
+   "sp500_pct": 0.89,
+   "nasdaq_pct": 1.29
+  },
+  {
+   "date": "2026-07-22",
+   "sp500": 7498.96,
+   "nasdaq": 25690.9,
+   "vix": 16.64,
+   "sp500_pct": -0.14,
+   "nasdaq_pct": -0.57
+  },
+  {
+   "date": "2026-07-23",
+   "sp500": 7408.3,
+   "nasdaq": 25137.69,
+   "vix": 18.7,
+   "sp500_pct": -1.21,
+   "nasdaq_pct": -2.15
+  },
+  {
+   "date": "2026-07-24",
+   "sp500": 7411.98,
+   "nasdaq": 24975.82,
+   "vix": 18.58,
+   "sp500_pct": 0.05,
+   "nasdaq_pct": -0.64
+  },
+  {
+   "date": "2026-07-27",
+   "sp500": 7413.18,
+   "nasdaq": 24932.08,
+   "vix": 18.67,
+   "sp500_pct": 0.02,
+   "nasdaq_pct": -0.18
+  },
+  {
+   "date": "2026-07-28",
+   "sp500": 7428.78,
+   "nasdaq": 24876.91,
+   "vix": 18.21,
+   "sp500_pct": 0.21,
+   "nasdaq_pct": -0.22
+  },
+  {
+   "date": "2026-07-29",
+   "sp500": 7316.15,
+   "nasdaq": 24442.94,
+   "vix": 20.66,
+   "sp500_pct": -1.52,
+   "nasdaq_pct": -1.74
+  },
+  {
+   "date": "2026-07-30",
+   "sp500": 7437.63,
+   "nasdaq": 25122.18,
+   "vix": 17.09,
+   "sp500_pct": 1.66,
+   "nasdaq_pct": 2.78
+  },
+  {
+   "date": "2026-07-31",
+   "sp500": 7489.72,
+   "nasdaq": 25373.85,
+   "vix": 15.99,
+   "sp500_pct": 0.7,
+   "nasdaq_pct": 1.0
+  },
+  {
+   "date": "2026-08-03",
+   "sp500": 7600.5,
+   "nasdaq": 25913.9,
+   "vix": 15.86,
+   "sp500_pct": 1.48,
+   "nasdaq_pct": 2.13
+  },
+  {
+   "date": "2026-08-04",
+   "sp500": 7736.52,
+   "nasdaq": 26584.99,
+   "vix": 16.5,
+   "sp500_pct": 1.79,
+   "nasdaq_pct": 2.59
+  },
+  {
+   "date": "2026-08-05",
+   "sp500": 7723.55,
+   "nasdaq": 26363.44,
+   "vix": 15.81,
+   "sp500_pct": -0.17,
+   "nasdaq_pct": -0.83
+  },
+  {
+   "date": "2026-08-06",
+   "sp500": 7709.96,
+   "nasdaq": 26348.35,
+   "vix": 15.15,
+   "sp500_pct": -0.18,
+   "nasdaq_pct": -0.06
+  },
+  {
+   "date": "2026-08-07",
+   "sp500": 7757.64,
+   "nasdaq": 26690.62,
+   "vix": 14.9,
+   "sp500_pct": 0.62,
+   "nasdaq_pct": 1.3
+  },
+  {
+   "date": "2026-08-10",
+   "sp500": 7753.11,
+   "nasdaq": 26605.36,
+   "vix": 15.46,
+   "sp500_pct": -0.06,
+   "nasdaq_pct": -0.32
+  },
+  {
+   "date": "2026-08-11",
+   "sp500": 7728.2,
+   "nasdaq": 26445.45,
+   "vix": 15.28,
+   "sp500_pct": -0.32,
+   "nasdaq_pct": -0.6
+  },
+  {
+   "date": "2026-08-12",
+   "sp500": 7748.5,
+   "nasdaq": 26588.49,
+   "vix": 14.55,
+   "sp500_pct": 0.26,
+   "nasdaq_pct": 0.54
+  },
+  {
+   "date": "2026-08-13",
+   "sp500": 7798.99,
+   "nasdaq": 26803.03,
+   "vix": 14.63,
+   "sp500_pct": 0.65,
+   "nasdaq_pct": 0.81
+  },
+  {
+   "date": "2026-08-14",
+   "sp500": 7785.76,
+   "nasdaq": 26729.16,
+   "vix": 14.25,
+   "sp500_pct": -0.17,
+   "nasdaq_pct": -0.28
+  },
+  {
+   "date": "2026-08-17",
+   "sp500": 7745.06,
+   "nasdaq": 26644.91,
+   "vix": 15.19,
+   "sp500_pct": -0.52,
+   "nasdaq_pct": -0.32
+  },
+  {
+   "date": "2026-08-18",
+   "sp500": 7691.76,
+   "nasdaq": 26289.71,
+   "vix": 15.84,
+   "sp500_pct": -0.69,
+   "nasdaq_pct": -1.33
+  },
+  {
+   "date": "2026-08-19",
+   "sp500": 7707.98,
+   "nasdaq": 26331.09,
+   "vix": 14.89,
+   "sp500_pct": 0.21,
+   "nasdaq_pct": 0.16
+  },
+  {
+   "date": "2026-08-20",
+   "sp500": 7641.16,
+   "nasdaq": 26067.17,
+   "vix": 16.01,
+   "sp500_pct": -0.87,
+   "nasdaq_pct": -1.0
+  },
+  {
+   "date": "2026-08-21",
+   "sp500": 7674.37,
+   "nasdaq": 26180.45,
+   "vix": 15.13,
+   "sp500_pct": 0.43,
+   "nasdaq_pct": 0.43
+  },
+  {
+   "date": "2026-08-24",
+   "sp500": 7652.86,
+   "nasdaq": 25980.19,
+   "vix": 15.85,
+   "sp500_pct": -0.28,
+   "nasdaq_pct": -0.76
+  },
+  {
+   "date": "2026-08-25",
+   "sp500": 7677.28,
+   "nasdaq": 26151.3,
+   "vix": 15.45,
+   "sp500_pct": 0.32,
+   "nasdaq_pct": 0.66
+  },
+  {
+   "date": "2026-08-26",
+   "sp500": 7675.7,
+   "nasdaq": 26130.2,
+   "vix": 15.21,
+   "sp500_pct": -0.02,
+   "nasdaq_pct": -0.08
+  },
+  {
+   "date": "2026-08-27",
+   "sp500": 7730.99,
+   "nasdaq": 26541.35,
+   "vix": 14.51,
+   "sp500_pct": 0.72,
+   "nasdaq_pct": 1.57
+  },
+  {
+   "date": "2026-08-28",
+   "sp500": 7711.76,
+   "nasdaq": 26402.42,
+   "vix": 14.43,
+   "sp500_pct": -0.25,
+   "nasdaq_pct": -0.52
+  },
+  {
+   "date": "2026-08-31",
+   "sp500": 7686.14,
+   "nasdaq": 26370.89,
+   "vix": 14.92,
+   "sp500_pct": -0.33,
+   "nasdaq_pct": -0.12
+  },
+  {
+   "date": "2026-09-01",
+   "sp500": 7631.47,
+   "nasdaq": 26099.77,
+   "vix": 16.34,
+   "sp500_pct": -0.71,
+   "nasdaq_pct": -1.03
+  },
+  {
+   "date": "2026-09-02",
+   "sp500": 7666.6,
+   "nasdaq": 26217.83,
+   "vix": 15.2,
+   "sp500_pct": 0.46,
+   "nasdaq_pct": 0.45
+  },
+  {
+   "date": "2026-09-03",
+   "sp500": 7747.71,
+   "nasdaq": 26584.06,
+   "vix": 14.32,
+   "sp500_pct": 1.06,
+   "nasdaq_pct": 1.4
+  },
+  {
+   "date": "2026-09-04",
+   "sp500": 7718.6,
+   "nasdaq": 26506.99,
+   "vix": 14.53,
+   "sp500_pct": -0.38,
+   "nasdaq_pct": -0.29
+  },
+  {
+   "date": "2026-09-08",
+   "sp500": 7673.52,
+   "nasdaq": 26421.41,
+   "vix": 15.72,
+   "sp500_pct": -0.58,
+   "nasdaq_pct": -0.32
+  },
+  {
+   "date": "2026-09-09",
+   "sp500": 7636.36,
+   "nasdaq": 26253.34,
+   "vix": 16.46,
+   "sp500_pct": -0.48,
+   "nasdaq_pct": -0.64
+  },
+  {
+   "date": "2026-09-10",
+   "sp500": 7591.7,
+   "nasdaq": 26081.72,
+   "vix": 17.84,
+   "sp500_pct": -0.58,
+   "nasdaq_pct": -0.65
+  },
+  {
+   "date": "2026-09-11",
+   "sp500": 7656.98,
+   "nasdaq": 26333.04,
+   "vix": 15.84,
+   "sp500_pct": 0.86,
+   "nasdaq_pct": 0.96
+  },
+  {
+   "date": "2026-09-14",
+   "sp500": 7619.98,
+   "nasdaq": 26186.41,
+   "vix": 17.1,
+   "sp500_pct": -0.48,
+   "nasdaq_pct": -0.56
+  },
+  {
+   "date": "2026-09-15",
+   "sp500": 7585.73,
+   "nasdaq": 25981.57,
+   "vix": 17.2,
+   "sp500_pct": -0.45,
+   "nasdaq_pct": -0.78
+  },
+  {
+   "date": "2026-09-16",
+   "sp500": 7551.81,
+   "nasdaq": 25978.42,
+   "vix": 17.71,
+   "sp500_pct": -0.45,
+   "nasdaq_pct": -0.01
+  },
+  {
+   "date": "2026-09-17",
+   "sp500": 7637.76,
+   "nasdaq": 26418.3,
+   "vix": 15.44,
+   "sp500_pct": 1.14,
+   "nasdaq_pct": 1.69
+  },
+  {
+   "date": "2026-09-18",
+   "sp500": 7650.5,
+   "nasdaq": 26522.55,
+   "vix": 14.81,
+   "sp500_pct": 0.17,
+   "nasdaq_pct": 0.39
+  },
+  {
+   "date": "2026-09-21",
+   "sp500": 7764.7,
+   "nasdaq": 27122.09,
+   "vix": 14.87,
+   "sp500_pct": 1.49,
+   "nasdaq_pct": 2.26
+  },
+  {
+   "date": "2026-09-22",
+   "sp500": 7764.64,
+   "nasdaq": 27244.28,
+   "vix": 14.21,
+   "sp500_pct": -0.0,
+   "nasdaq_pct": 0.45
+  },
+  {
+   "date": "2026-09-23",
+   "sp500": 7706.03,
+   "nasdaq": 26936.04,
+   "vix": 15.18,
+   "sp500_pct": -0.75,
+   "nasdaq_pct": -1.13
+  },
+  {
+   "date": "2026-09-24",
+   "sp500": 7704.13,
+   "nasdaq": 26939.37,
+   "vix": 15.67,
+   "sp500_pct": -0.02,
+   "nasdaq_pct": 0.01
+  },
+  {
+   "date": "2026-09-25",
+   "sp500": 7743.41,
+   "nasdaq": 27068.72,
+   "vix": 14.87,
+   "sp500_pct": 0.51,
+   "nasdaq_pct": 0.48
+  },
+  {
+   "date": "2026-09-28",
+   "sp500": 7683.69,
+   "nasdaq": 26820.38,
+   "vix": 16.07,
+   "sp500_pct": -0.77,
+   "nasdaq_pct": -0.92
+  },
+  {
+   "date": "2026-09-29",
+   "sp500": 7670.84,
+   "nasdaq": 26797.54,
+   "vix": 16.04,
+   "sp500_pct": -0.17,
+   "nasdaq_pct": -0.09
+  },
+  {
+   "date": "2026-09-30",
+   "sp500": 7651.54,
+   "nasdaq": 26861.06,
+   "vix": 16.34,
+   "sp500_pct": -0.25,
+   "nasdaq_pct": 0.24
+  },
+  {
+   "date": "2026-10-01",
+   "sp500": 7666.45,
+   "nasdaq": 26871.6,
+   "vix": 16.39,
+   "sp500_pct": 0.19,
+   "nasdaq_pct": 0.04
+  },
+  {
+   "date": "2026-10-02",
+   "sp500": 7722.72,
+   "nasdaq": 27190.86,
+   "vix": 15.31,
+   "sp500_pct": 0.73,
+   "nasdaq_pct": 1.19
+  },
+  {
+   "date": "2026-10-05",
+   "sp500": 7773.95,
+   "nasdaq": 27477.31,
+   "vix": 15.52,
+   "sp500_pct": 0.66,
+   "nasdaq_pct": 1.05
+  },
+  {
+   "date": "2026-10-06",
+   "sp500": 7818.93,
+   "nasdaq": 27599.89,
+   "vix": 15.01,
+   "sp500_pct": 0.58,
+   "nasdaq_pct": 0.45
+  },
+  {
+   "date": "2026-10-07",
+   "sp500": 7801.77,
+   "nasdaq": 27538.69,
+   "vix": 15.08,
+   "sp500_pct": -0.22,
+   "nasdaq_pct": -0.22
+  },
+  {
+   "date": "2026-10-08",
+   "sp500": 7765.36,
+   "nasdaq": 27193.34,
+   "vix": 15.41,
+   "sp500_pct": -0.47,
+   "nasdaq_pct": -1.25
+  },
+  {
+   "date": "2026-10-09",
+   "sp500": 7811.54,
+   "nasdaq": 27366.17,
+   "vix": 14.84,
+   "sp500_pct": 0.59,
+   "nasdaq_pct": 0.64
+  },
+  {
+   "date": "2026-10-12",
+   "sp500": 7807.24,
+   "nasdaq": 27245.9,
+   "vix": 15.21,
+   "sp500_pct": -0.06,
+   "nasdaq_pct": -0.44
+  },
+  {
+   "date": "2026-10-13",
+   "sp500": 7805.45,
+   "nasdaq": 27204.38,
+   "vix": 15.27,
+   "sp500_pct": -0.02,
+   "nasdaq_pct": -0.15
+  },
+  {
+   "date": "2026-10-14",
+   "sp500": 7718.94,
+   "nasdaq": 26692.87,
+   "vix": 16.87,
+   "sp500_pct": -1.11,
+   "nasdaq_pct": -1.88
+  },
+  {
+   "date": "2026-10-15",
+   "sp500": 7744.06,
+   "nasdaq": 26713.03,
+   "vix": 16.46,
+   "sp500_pct": 0.33,
+   "nasdaq_pct": 0.08
+  },
+  {
+   "date": "2026-10-16",
+   "sp500": 7659.44,
+   "nasdaq": 26140.03,
+   "vix": 19.99,
+   "sp500_pct": -1.09,
+   "nasdaq_pct": -2.15
+  },
+  {
+   "date": "2026-10-19",
+   "sp500": 7690.73,
+   "nasdaq": 26430.89,
+   "vix": 18.44,
+   "sp500_pct": 0.41,
+   "nasdaq_pct": 1.11
+  },
+  {
+   "date": "2026-10-20",
+   "sp500": 7712.57,
+   "nasdaq": 26424.82,
+   "vix": 17.31,
+   "sp500_pct": 0.28,
+   "nasdaq_pct": -0.02
+  },
+  {
+   "date": "2026-10-21",
+   "sp500": 7757.17,
+   "nasdaq": 26702.86,
+   "vix": 16.68,
+   "sp500_pct": 0.58,
+   "nasdaq_pct": 1.05
+  },
+  {
+   "date": "2026-10-22",
+   "sp500": 7663.43,
+   "nasdaq": 26008.86,
+   "vix": 19.03,
+   "sp500_pct": -1.21,
+   "nasdaq_pct": -2.6
+  },
+  {
+   "date": "2026-10-23",
+   "sp500": 7623.68,
+   "nasdaq": 25955.34,
+   "vix": 19.45,
+   "sp500_pct": -0.52,
+   "nasdaq_pct": -0.21
+  },
+  {
+   "date": "2026-10-26",
+   "sp500": 7676.77,
+   "nasdaq": 26169.38,
+   "vix": 18.39,
+   "sp500_pct": 0.7,
+   "nasdaq_pct": 0.82
+  },
+  {
+   "date": "2026-10-27",
+   "sp500": 7722.6,
+   "nasdaq": 26477.81,
+   "vix": 17.52,
+   "sp500_pct": 0.6,
+   "nasdaq_pct": 1.18
+  },
+  {
+   "date": "2026-10-28",
+   "sp500": 7743.98,
+   "nasdaq": 26549.85,
+   "vix": 16.91,
+   "sp500_pct": 0.28,
+   "nasdaq_pct": 0.27
+  },
+  {
+   "date": "2026-10-29",
+   "sp500": 7720.39,
+   "nasdaq": 26184.72,
+   "vix": 17.2,
+   "sp500_pct": -0.3,
+   "nasdaq_pct": -1.38
+  },
+  {
+   "date": "2026-10-30",
+   "sp500": 7580.07,
+   "nasdaq": 25437.0,
+   "vix": 19.42,
+   "sp500_pct": -1.82,
+   "nasdaq_pct": -2.86
+  },
+  {
+   "date": "2026-11-02",
+   "sp500": 7541.4,
+   "nasdaq": 25164.36,
+   "vix": 21.15,
+   "sp500_pct": -0.51,
+   "nasdaq_pct": -1.07
+  },
+  {
+   "date": "2026-11-03",
+   "sp500": 7568.92,
+   "nasdaq": 25372.01,
+   "vix": 20.83,
+   "sp500_pct": 0.36,
+   "nasdaq_pct": 0.83
+  },
+  {
+   "date": "2026-11-04",
+   "sp500": 7688.62,
+   "nasdaq": 25736.51,
+   "vix": 16.61,
+   "sp500_pct": 1.58,
+   "nasdaq_pct": 1.44
+  }
+ ],
+ "annotations": [
+  {
+   "date": "2026-07-29",
+   "sp500_pct": -1.52,
+   "nasdaq_pct": -1.74,
+   "vix": 20.66,
+   "label": "Chip sell-off + oil jump + hawkish Fed hold",
+   "reported_reason": "Fortune/AP, Jul 29: S&P 500 -1.5%, Dow -1,153 pts; tech sinks while Brent oil leaps 7.3% as fighting resumes in the Iran war",
+   "url": "https://fortune.com/2026/07/29/dow-drops-over-1100-points-as-sinking-tech-stocks-combine-with-jumping-oil-prices-to-drag-markets-down/"
+  },
+  {
+   "date": "2026-08-04",
+   "sp500_pct": 1.79,
+   "nasdaq_pct": 2.59,
+   "vix": 16.5,
+   "label": "Rebound: Hormuz-deal hopes, chip rally, earnings",
+   "reported_reason": "Yahoo Finance live blog Aug 4 headline: Dow and S&P 500 soar to record highs, Nasdaq rallies on hopes for a Hormuz deal",
+   "url": "https://finance.yahoo.com/markets/live/stock-market-today-tuesday-august-4-dow-sp-500-nasdaq-100140227.html"
+  },
+  {
+   "date": "2026-08-27",
+   "sp500_pct": 0.72,
+   "nasdaq_pct": 1.57,
+   "vix": 14.51,
+   "label": "Nvidia earnings lift AI confidence",
+   "reported_reason": "Guardian Aug 26: Nvidia quarterly revenue doubles to nearly $100bn (reported after close Aug 26); S&P +0.7%, Nasdaq +1.6% on Aug 27 per FRED",
+   "url": "https://www.theguardian.com/technology/2026/aug/26/nvidia-quarterly-revenue"
+  },
+  {
+   "date": "2026-10-22",
+   "sp500_pct": -1.21,
+   "nasdaq_pct": -2.6,
+   "vix": 19.03,
+   "label": "Meta spending plan revives AI-debt fears",
+   "reported_reason": "Reported by Investing.com / Bloomberg summaries: chipmakers ~-7% after Meta raised capex; Nasdaq worst day since June (secondary sources only)",
+   "url": "https://www.investing.com/news/stock-market-news/us-stock-futures-fall-as-investors-weigh-tesla-meta-earnings-4964498"
+  },
+  {
+   "date": "2026-10-30",
+   "sp500_pct": -1.82,
+   "nasdaq_pct": -2.86,
+   "vix": 19.42,
+   "label": "AI-spending doubts: Amazon and Intel earnings, Alphabet's record drop a day earlier",
+   "reported_reason": "NBC News Oct 30: S&P 500 -1.8%, Nasdaq 100 worst day since June, tech wiped out >$1 trillion; Intel -29%",
+   "url": "https://www.nbcnews.com/business/markets/tech-stocks-nasdaq-ai-boom-fears-deepen-rcna606512"
+  },
+  {
+   "date": "2026-11-04",
+   "sp500_pct": 1.58,
+   "nasdaq_pct": 1.44,
+   "vix": 16.61,
+   "label": "Post-midterm relief rally",
+   "reported_reason": "AP/Yahoo Nov 4: Dow +3%, S&P 500 +1.6% after Democrats' midterm wins; Nvidia -3.2%",
+   "url": "https://finance.yahoo.com/markets/live/stock-market-today-dow-rallies-1500-points-sp-500-nasdaq-midterm-elections-democrats-sweep-201207340.html"
+  }
+ ],
+ "biggest_sp500_moves": [
+  {
+   "date": "2026-10-30",
+   "sp500_pct": -1.82,
+   "nasdaq_pct": -2.86
+  },
+  {
+   "date": "2026-08-04",
+   "sp500_pct": 1.79,
+   "nasdaq_pct": 2.59
+  },
+  {
+   "date": "2026-07-30",
+   "sp500_pct": 1.66,
+   "nasdaq_pct": 2.78
+  },
+  {
+   "date": "2026-11-04",
+   "sp500_pct": 1.58,
+   "nasdaq_pct": 1.44
+  },
+  {
+   "date": "2026-07-29",
+   "sp500_pct": -1.52,
+   "nasdaq_pct": -1.74
+  },
+  {
+   "date": "2026-09-21",
+   "sp500_pct": 1.49,
+   "nasdaq_pct": 2.26
+  },
+  {
+   "date": "2026-08-03",
+   "sp500_pct": 1.48,
+   "nasdaq_pct": 2.13
+  },
+  {
+   "date": "2026-07-23",
+   "sp500_pct": -1.21,
+   "nasdaq_pct": -2.15
+  }
+ ],
+ "summary": {
+  "sp500_low": 7316.15,
+  "sp500_high": 7818.93,
+  "vix_high_in_window": 21.15,
+  "note": "Through Nov 4 the S&P 500 stayed in a ~6% band; the volatility was concentrated in AI/chip stocks and the Nasdaq. Nov 5 is not in FRED yet."
+ },
+ "nov5_provisional": {
+  "date": "2026-11-05",
+  "status": "PROVISIONAL, not from FRED; Yahoo Finance page ticker after the close (page showed markets closed)",
+  "sp500": 7353.81,
+  "sp500_pct": -4.35,
+  "nasdaq": 24315.0,
+  "nasdaq_pct": -5.52,
+  "dow": 51522.58,
+  "dow_pct": -3.44,
+  "vix": 26.76,
+  "headline": "Stock market today: Dow plunges 1,800 points, Nasdaq enters correction in AI trade meltdown",
+  "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-oil-rises-chip-stocks-141439950.html",
+  "recheck": "Replace with FRED SP500/NASDAQCOM/VIXCLS values after the Nov 6 release"
+ }
+}

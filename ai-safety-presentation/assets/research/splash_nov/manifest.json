@@ -1,0 +1,1140 @@
+{
+ "items": [
+  {
+   "id": "hack-hl-fortune",
+   "slide_topic": "PHP2Shell",
+   "type": "headline",
+   "file": "hack/hl-fortune-php.png",
+   "headline": "AI tools discovered the PHP vulnerability that could take down 70% of the internet. Now, the race is on to patch it before AI-powered hackers attack",
+   "outlet": "Fortune",
+   "author": "Emily Forlini",
+   "date": "2026-10-21",
+   "url": "https://fortune.com/2026/10/21/ai-tools-discovered-the-php-vulnerability-that-could-take-down-70-of-the-internet-now-the-race-is-on-to-patch-it-before-ai-powered-hackers-attack/",
+   "caption": "Real screenshot (cropped). Page title is a shorter variant: \"AI helped discover the PHP vulnerability that could take down 70% of the internet\"",
+   "verified": true
+  },
+  {
+   "id": "hack-hl-time",
+   "slide_topic": "PHP2Shell",
+   "type": "headline",
+   "file": "hack/hl-time-php.png",
+   "headline": "The AI-Discovered Bug That Could Have Become a Cybersecurity Disaster",
+   "outlet": "TIME",
+   "author": "Harry Booth",
+   "date": "2026-10-23",
+   "url": "https://time.com/article/2026/10/23/ai-cybersecurity-php-hack/",
+   "caption": "Real screenshot incl. NCSC phone photo (Getty/PA, credit on page)",
+   "verified": true,
+   "slide_use": "Splash p3Php2Shell: crop assets/slides/splash_extra/hack-time-headline.png (left 140, top 110, 2280 x 880: headline, byline, date, photo and credit)"
+  },
+  {
+   "id": "hack-hl-techcrunch",
+   "slide_topic": "PHP2Shell",
+   "type": "headline",
+   "file": "hack/hl-techcrunch-php.png",
+   "headline": "US government says hackers are now exploiting critical PHP web bugs",
+   "outlet": "TechCrunch",
+   "author": "Zack Whittaker",
+   "date": "2026-10-27",
+   "url": "https://techcrunch.com/2026/10/27/us-government-says-hackers-are-now-exploiting-critical-php-web-bugs/",
+   "caption": "Real screenshot (cropped below ads); BBC error-page photo",
+   "verified": true,
+   "slide_use": "Splash p3Php2Shell: crop assets/slides/splash_extra/hack-techcrunch-headline.png (green panel headline only: left 1290, top 560, 1180 x 300)"
+  },
+  {
+   "id": "hack-hl-thn-roots25",
+   "slide_topic": "PHP2Shell",
+   "type": "headline",
+   "file": "hack/hl-thn-roots25.png",
+   "headline": "PHP2Shell Attack Roots 25 Servers, Breaches U.S. Government-Affiliated Network",
+   "outlet": "The Hacker News",
+   "author": "Ravie Lakshmanan",
+   "date": "2026-10-28",
+   "url": "https://thehackernews.com/2026/10/php2shell-attack-roots-25-servers.html",
+   "caption": "Real screenshot; contains ad banners (crop at slide time). Attribution is suspected China-nexus, low-to-moderate confidence (Dream)",
+   "verified": true
+  },
+  {
+   "id": "hack-hl-thn-unit42",
+   "slide_topic": "PHP2Shell",
+   "type": "headline",
+   "file": "hack/hl-thn-unit42.png",
+   "headline": "PHP2Shell Exploitation Attempts Continue Amid Suspected N. Korea Global Scanning Activity",
+   "outlet": "The Hacker News",
+   "author": "Ravie Lakshmanan",
+   "date": "2026-10-25",
+   "url": "https://thehackernews.com/2026/10/php2shell-exploitation-hits-government.html",
+   "caption": "Real screenshot; carries the Unit 42 retraction update",
+   "verified": true
+  },
+  {
+   "id": "hack-phpnet-advisory",
+   "slide_topic": "PHP2Shell",
+   "type": "primary-source",
+   "file": "hack/php-net-advisory-top.png",
+   "headline": "Security advisory: Critical remote code execution vulnerabilities, update now",
+   "outlet": "php.net (PHP project)",
+   "author": null,
+   "date": "2026-10-21",
+   "url": "https://www.php.net/archive/2026.php#2026-10-21-5",
+   "caption": "Real screenshot of the php.net advisory (full: php-net-advisory.png)",
+   "verified": true
+  },
+  {
+   "id": "hack-wiz-blog",
+   "slide_topic": "PHP2Shell",
+   "type": "primary-source",
+   "file": null,
+   "headline": "PHP2Shell: AI uncovers critical RCE vulnerabilities affecting 70% of the Internet",
+   "outlet": "Wiz Research (vendor blog)",
+   "date": "2026-10-21",
+   "url": "https://www.wiz.io/blog/php2shell-php-rce",
+   "caption": "Vendor claims: \"It marks an AI inflection point.\" Not screenshotted.",
+   "verified": true
+  },
+  {
+   "id": "hack-calif-blog",
+   "slide_topic": "PHP2Shell",
+   "type": "primary-source",
+   "file": null,
+   "headline": "PHP2Shell: A tale of two PHP remote vulnerabilities",
+   "outlet": "Calif (vendor blog)",
+   "date": "2026-10-21",
+   "url": "https://calif.io/php2shell",
+   "caption": "Not screenshotted",
+   "verified": true
+  },
+  {
+   "id": "hack-aws-madpot",
+   "slide_topic": "PHP2Shell",
+   "type": "primary-source",
+   "file": null,
+   "headline": "Amazon Threat Intelligence identifies PHP2Shell exploitation prior to public disclosure in MadPot",
+   "outlet": "AWS Security Blog (CJ Moses)",
+   "date": "2026-10-21",
+   "url": "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/",
+   "caption": "Not screenshotted",
+   "verified": true
+  },
+  {
+   "id": "hack-wikipedia",
+   "slide_topic": "PHP2Shell",
+   "type": "secondary-summary",
+   "file": null,
+   "headline": "PHP2Shell",
+   "outlet": "Wikipedia",
+   "date": "2026-10-30",
+   "url": "https://en.wikipedia.org/wiki/PHP2Shell",
+   "caption": "Used for cross-checking only; do not cite on a slide",
+   "verified": false
+  },
+  {
+   "id": "dc-hl-siliconangle-ny",
+   "slide_topic": "DC moratoriums",
+   "type": "headline",
+   "file": "dc/hl-siliconangle-ny.png",
+   "headline": "New York becomes first US state to impose a data center moratorium",
+   "outlet": "SiliconANGLE",
+   "author": "Duncan Riley",
+   "date": "2026-07-14",
+   "url": "https://siliconangle.com/2026/07/14/new-york-becomes-first-us-state-impose-data-center-moratorium/",
+   "caption": "Real screenshot (cropped to headline, byline, lede). Page is dated \"Updated 18:27 EDT / July 14 2026\". The order is a permit pause, not a ban on all construction.",
+   "verified": true
+  },
+  {
+   "id": "dc-hl-routefifty-texas",
+   "slide_topic": "DC moratoriums",
+   "type": "headline",
+   "file": "dc/hl-routefifty-texas.png",
+   "headline": "Data center approvals in Texas halted until audits completed, Gov. Greg Abbott says",
+   "outlet": "Route Fifty (Texas Tribune, Paul Cobler)",
+   "author": "Paul Cobler",
+   "date": "2026-08-04",
+   "url": "https://www.route-fifty.com/artificial-intelligence/2026/08/data-center-approvals-texas-halted-until-audits-completed-gov-greg-abbott-says/415194/",
+   "caption": "Real screenshot (cropped to headline). Texas Tribune original dated Aug 3, 2026 (Tribune blocks capture; Route Fifty republished Aug 4). ERCOT grid connections only; critics say not a true moratorium.",
+   "verified": true
+  },
+  {
+   "id": "dc-hl-opb-oregon",
+   "slide_topic": "DC moratoriums",
+   "type": "headline",
+   "file": "dc/hl-opb-oregon.png",
+   "headline": "Gov. Kotek expands Oregon data center moratorium",
+   "outlet": "OPB",
+   "author": "April Ehrlich",
+   "date": "2026-10-13",
+   "url": "https://www.opb.org/article/2026/10/13/oregon-data-centers-technology-amazon-tina-kotek/",
+   "caption": "Real screenshot (cropped; includes byline, dateline Oct 13, 2026 and dek).",
+   "verified": true
+  },
+  {
+   "id": "dc-hl-stateline-cities",
+   "slide_topic": "DC moratoriums",
+   "type": "headline",
+   "file": "dc/hl-stateline-cities.png",
+   "headline": "More cities are pressing pause on data centers as local backlash grows",
+   "outlet": "Stateline",
+   "author": "Robbie Sequeira",
+   "date": "2026-05-28",
+   "url": "https://stateline.org/2026/05/28/more-cities-are-pressing-pause-on-data-centers-as-local-backlash-grows/",
+   "caption": "Real screenshot (cropped). Older (May) but the clearest national piece on LOCAL pauses.",
+   "verified": true
+  },
+  {
+   "id": "dc-cite-txtribune-hinojosa",
+   "slide_topic": "DC moratoriums",
+   "type": "citation_card",
+   "file": null,
+   "headline": "Gina Hinojosa won the governor's race. What happens to Texas data centers now?",
+   "outlet": "The Texas Tribune",
+   "author": "Emily Foxhall",
+   "date": "2026-11-04",
+   "url": "https://www.texastribune.org/2026/11/04/data-center-texas-pause-gina-hinojosa-governor-policies/",
+   "caption": "Citation card only: the Tribune blocks automated screenshots. Verbatim headline from page title/fetch.",
+   "verified": true
+  },
+  {
+   "id": "dc-cite-sp-ballots",
+   "slide_topic": "DC moratoriums",
+   "type": "citation_card",
+   "file": null,
+   "headline": "Data center backlash shapes midterm ballots, campaigns across US",
+   "outlet": "S&P Global Market Intelligence",
+   "author": null,
+   "date": "2026-10-01",
+   "url": "https://www.spglobal.com/market-intelligence/en/news-insights/articles/2026/10/data-center-backlash-shapes-midterm-ballots-campaigns-across-us-106324121",
+   "caption": "Citation card only (site returns Access Denied; headline taken from search-result title, page text NOT read directly - claims below via search summary, treat as secondary).",
+   "verified": false
+  },
+  {
+   "id": "econ-hl-nbc-1tn",
+   "slide_topic": "Economy volatility",
+   "type": "headline",
+   "file": "econ/hl-nbc-tech-1tn.png",
+   "headline": "Tech stocks wipe out $1 trillion in value as concerns deepen about the AI boom",
+   "outlet": "NBC News",
+   "date": "2026-10-30",
+   "url": "https://www.nbcnews.com/business/markets/tech-stocks-nasdaq-ai-boom-fears-deepen-rcna606512",
+   "caption": "Real screenshot (headline + subhead crop). Body: S&P 500 -1.8%, Nasdaq 100 worst day since June, Intel -29%, Philadelphia semiconductor index -7.2%.",
+   "verified": true,
+   "slide_use": "Splash p2Economy: shown whole, with an outlet/date tab"
+  },
+  {
+   "id": "econ-hl-fortune-alphabet",
+   "slide_topic": "Economy volatility",
+   "type": "headline",
+   "file": "econ/hl-fortune-alphabet.png",
+   "headline": "Alphabet just had its worst day as a public company. BofA now values Google search at a lower multiple than fossil fuel stocks",
+   "outlet": "Fortune",
+   "date": "2026-10-29",
+   "url": "https://fortune.com/2026/10/29/alphabet-worst-day-google-search-valuation-energy-sector-bofa/",
+   "caption": "Real screenshot (crop). Body: Class A shares -12.6% to $283.82 on Oct 29, about $482 billion of value; prior worst day Mar 2020 (-11.6%).",
+   "verified": true,
+   "author": "Nick Lichtenberg",
+   "slide_use": "Splash p2Economy: crop assets/slides/splash_extra/econ-fortune-alphabet-headline.png (headline only: top 515 px; byline and date left out, date on the slide's tab)"
+  },
+  {
+   "id": "econ-hl-fortune-dow-jul29",
+   "slide_topic": "Economy volatility",
+   "type": "headline",
+   "file": "econ/hl-fortune-dow-jul29.png",
+   "headline": "Dow drops over 1,100 points as sinking tech stocks combine with jumping oil prices to drag markets down",
+   "outlet": "Fortune (AP)",
+   "date": "2026-07-29",
+   "url": "https://fortune.com/2026/07/29/dow-drops-over-1100-points-as-sinking-tech-stocks-combine-with-jumping-oil-prices-to-drag-markets-down/",
+   "caption": "Real screenshot (crop). Body: S&P 500 -1.5%, Dow -1,153 (2.2%), Nasdaq -1.7%; Brent +7.3% to $88.09.",
+   "verified": true,
+   "author": "Stan Choe / AP"
+  },
+  {
+   "id": "econ-hl-nbc-nasdaq100-jul28",
+   "slide_topic": "Economy volatility",
+   "type": "headline",
+   "file": "econ/hl-nbc-nasdaq100-correction-jul28.png",
+   "headline": "Nasdaq-100 slides into correction as global chip and memory stocks sell off",
+   "outlet": "NBC News",
+   "date": "2026-07-28",
+   "url": "https://www.nbcnews.com/business/markets/nasdaq-100-correction-tech-stocks-rcna589630",
+   "caption": "Real screenshot (headline crop). Correction was intraday; Nasdaq-100 ended -1%. Philadelphia Semiconductor Index in bear-market territory.",
+   "verified": true,
+   "author": "Steve Kopack"
+  },
+  {
+   "id": "econ-hl-rte-imf",
+   "slide_topic": "Economy volatility",
+   "type": "headline",
+   "file": "econ/hl-rte-imf.png",
+   "headline": "IMF warns 'elevated risk' of AI market correction, cyber threats to financial system",
+   "outlet": "RTE",
+   "date": "2026-10-13",
+   "url": "https://www.rte.ie/news/2026/1013/1595137-imf-finance-ai/",
+   "caption": "Real screenshot. Quotes IMF GFSR: \"Weaker or less durable AI investments and profitability could be a shock that triggers a market correction.\" Primary record: IMF eLibrary GFSR Oct 2026 (pub. 12 Oct 2026), https://www.elibrary.imf.org/display/book/9798229055673/9798229055673.xml",
+   "verified": true
+  },
+  {
+   "id": "econ-hl-yahoo-griffin",
+   "slide_topic": "Economy volatility",
+   "type": "headline",
+   "file": "econ/hl-yahoo-griffin.png",
+   "headline": "Ken Griffin: There Are \"Almost Certainly Bubbles\" in AI Right Now",
+   "outlet": "Yahoo Finance (Omor Ibne Ehsan)",
+   "date": "2026-10-21",
+   "url": "https://finance.yahoo.com/news/ken-griffin-almost-certainly-bubbles-122850413.html",
+   "caption": "Real screenshot (headline crop). Remarks made Oct 20 at Citadel conference (Bloomberg 2026-10-20). Griffin is the Citadel founder; he did not say sell AI stocks.",
+   "verified": true
+  },
+  {
+   "id": "econ-hl-cnn-fed",
+   "slide_topic": "Economy volatility",
+   "type": "headline",
+   "file": "econ/hl-cnn-fed-oct28.png",
+   "headline": "Fed keeps interest rates unchanged, but two officials dissented in favor of a rate hike",
+   "outlet": "CNN Business",
+   "date": "2026-10-28",
+   "url": "https://www.cnn.com/2026/10/28/business/live-news/federal-reserve-interest-rate-october",
+   "caption": "Real screenshot. Rates held at 3.75%-4.00%; Cook and Hammack dissented for a hike (per Schwab/CNBC).",
+   "verified": true
+  },
+  {
+   "id": "econ-hl-schwab-fed",
+   "slide_topic": "Economy volatility",
+   "type": "headline",
+   "file": "econ/hl-schwab-fed.png",
+   "headline": "Divided Fed Chooses Patience, Leaves Rates Unchanged",
+   "outlet": "Charles Schwab",
+   "date": "2026-10-28",
+   "url": "https://www.schwab.com/learn/story/fomc-meeting",
+   "caption": "Real screenshot. Brokerage commentary, not a news outlet; page date taken from the FOMC decision day.",
+   "verified": true
+  },
+  {
+   "id": "econ-hl-challenger-oct",
+   "slide_topic": "Economy volatility",
+   "type": "headline",
+   "file": "econ/hl-challenger-oct.png",
+   "headline": "October Layoffs At Three-Year Low; Seasonal Hiring Plans Up 26%",
+   "outlet": "Challenger, Gray & Christmas",
+   "date": "2026-11-05",
+   "url": "https://www.challengergray.com/blog/october-layoffs-at-three-year-low-seasonal-hiring-plans-up-26/",
+   "caption": "Real screenshot (title). Body: 43,994 cuts in Oct; AI cited for 1,265 (lowest month of 2026); 121,401 AI-cited YTD (~20%); Market/Economic Conditions is now the top reason. Counts are announcements.",
+   "verified": true
+  },
+  {
+   "id": "ml-diffusion-ddim-steps",
+   "slide_topic": "Splash M1237 Part 1 (How AI learns): autoregressive vs diffusion: real denoising steps",
+   "type": "image",
+   "file": "ml/diffusion-ddim-steps-castle.png",
+   "headline": null,
+   "dek": null,
+   "outlet": "Wikimedia Commons",
+   "author": "Benlisquare (User:Benlisquare)",
+   "date": "2022-11-01",
+   "url": "https://commons.wikimedia.org/wiki/File:X-Y_plot_of_algorithmically-generated_AI_art_of_European-style_castle_in_Japan_demonstrating_DDIM_diffusion_steps.png",
+   "caption": "Ten images of one Stable Diffusion v1-5 generation (prompt: a European castle in Japan) at 1, 2, 3, 5, 8, 10, 15, 20, 30 and 40 denoising steps (DDIM sampler): noise turns into a picture.",
+   "quality": 5,
+   "verified": true,
+   "license": "CC BY-SA 4.0 (also GFDL 1.2+); credit 'Benlisquare, CC BY-SA 4.0, via Wikimedia Commons'",
+   "notes": "Commons file page read via WebFetch: 2,560x1,734 PNG, own work, uploaded 2022-10-31; description says it 'illustrates the U-Net denoising process using the DDIM sampler', subset of a 40-step generation, steps 1,2,3,5,8,10,15,20,30,40; prompt 'a (european castle:1.3) in japan. by Albert Bierstadt, ray traced, octane render, 8k'; Stable Diffusion V1-5 on an RTX 4090. Original file URL https://upload.wikimedia.org/wikipedia/commons/9/99/X-Y_plot_of_algorithmically-generated_AI_art_of_European-style_castle_in_Japan_demonstrating_DDIM_diffusion_steps.png. Crop panels for a 5-click slide; share-alike applies to adaptations (cropping with a credit is fine). DOWNLOADED Nov 5, 2026 (E1 stage) as the Commons 1920px thumbnail (1,920x1,300 PNG; the full-size original still returned HTTP 429), viewed by eye: 5 columns x 2 rows of portrait panels labelled \"Steps: 1, 2, 3, 5, 8\" (top) and \"Steps: 10, 15, 20, 30, 40\" (bottom); 1 step is coloured static, 3-5 steps a hazy outline, 8-10 steps a blurry castle, 15-40 steps a detailed castle on a wooded hill. Slides 7, 14 and 25 use 3:4 crops of the 1/3/8/20/40-step panels (assets/slides/splash/ddim_NN.jpg; crop only, printed labels cut off). Each panel is a separate generation with that step count (an X-Y plot), not frames of one run."
+  },
+  {
+   "id": "ml-diffusion-forward-noise",
+   "slide_topic": "Splash M1237 Part 1 (How AI learns): autoregressive vs diffusion: adding noise (training direction)",
+   "type": "image",
+   "file": null,
+   "headline": null,
+   "dek": null,
+   "outlet": "Wikimedia Commons",
+   "author": "MrAlanKoh",
+   "date": "2022-11-29",
+   "url": "https://commons.wikimedia.org/wiki/File:Example_of_Forward_Diffusion_Models.png",
+   "caption": "A photo of a rhino by a riverbed gradually has noise added until it is unrecognisable (the direction a diffusion model learns to reverse).",
+   "quality": 3,
+   "verified": false,
+   "license": "CC BY-SA 4.0; credit 'MrAlanKoh, CC BY-SA 4.0, via Wikimedia Commons'",
+   "notes": "Commons file page read via WebFetch: 1,624x861 PNG, own work, derived from 'Black Rhinoceros During Sunset 2019-07-23.jpg'; caption 'An images of rhino by rocky river bed is gradually added noises until it is unrecognisable.' Original URL https://upload.wikimedia.org/wikipedia/commons/5/57/Example_of_Forward_Diffusion_Models.png NOT DOWNLOADED (Wikimedia returned HTTP 429 to the download loop). Fetch later from the Commons page; the license and credit were read from the Commons file page and are accurate. verified=false until the file is on disk and viewed."
+  },
+  {
+   "id": "ml-dog-treat",
+   "slide_topic": "Splash M1237 Part 1 (How AI learns): RL analogy: a dog and a treat",
+   "type": "image",
+   "file": "ml/dog-with-treat.jpg",
+   "headline": null,
+   "dek": null,
+   "outlet": "Wikimedia Commons",
+   "author": "pbump (Flickr user)",
+   "date": "2010-10-11",
+   "url": "https://commons.wikimedia.org/wiki/File:Dog_with_treat.jpg",
+   "caption": "Dog waiting for a treat (Commons description).",
+   "quality": 4,
+   "verified": true,
+   "license": "CC BY-SA 2.0; credit 'pbump, CC BY-SA 2.0, via Wikimedia Commons (Flickr)'",
+   "notes": "Commons file page read via WebFetch: 1,280x800 JPEG, source https://www.flickr.com/photos/pbump/5637773582 ; upload said CC BY-SA 2.5 but FlickreviewR review found CC BY-SA 2.0 (use 2.0). Original URL https://upload.wikimedia.org/wikipedia/commons/b/b7/Dog_with_treat.jpg DOWNLOADED Nov 5, 2026 (E1 stage) via Special:FilePath (1,280x800 JPEG, EXIF dated 2010-10-12), viewed by eye: a white dog looking at the camera with a bone-shaped dog biscuit balanced on its nose, wooden floor behind. Used uncropped on slide 8."
+  },
+  {
+   "id": "ml-mixing-console",
+   "slide_topic": "Splash M1237 Part 1 (How AI learns): neural network as dials/knobs",
+   "type": "image",
+   "file": "ml/mixing-console-faders.jpg",
+   "headline": null,
+   "dek": null,
+   "outlet": "Wikimedia Commons",
+   "author": "Dejan Krsmanovic (Flickr)",
+   "date": "2019-01-22",
+   "url": "https://commons.wikimedia.org/wiki/File:Modern_Mixing_Console_(32961446438).jpg",
+   "caption": "Faders of a modern mixing console in a music studio (Commons description).",
+   "quality": 3,
+   "verified": true,
+   "license": "CC BY 2.0; credit 'Dejan Krsmanovic, CC BY 2.0, via Wikimedia Commons (Flickr)'",
+   "notes": "Commons file page read via WebFetch: 5,616x3,744 JPEG, source https://www.flickr.com/photos/dejankrsmanovic/32961446438/ . Original URL https://upload.wikimedia.org/wikipedia/commons/b/b9/Modern_Mixing_Console_%2832961446438%29.jpg . Runner-up (CC0, no credit needed): File:Fader tweaked on Mackie D8B Digital Mixer (2011-07-04 by hanmaili) pixabay - 225498.jpg . DOWNLOADED Nov 5, 2026 (E1 stage) via Special:FilePath at width 2400 (served 3,840x2,560), viewed by eye: faders and lit knobs of a mixing console; same photo as the Flickr original (Flickr oEmbed confirms CC BY 2.0, title \"Modern Mixing Console\", by dejankrsmanovic). Slide 10 uses a crop (assets/slides/splash/console_crop.jpg) without the LED display strip."
+  },
+  {
+   "id": "ml-cpu-ryzen-9950x",
+   "slide_topic": "Splash M1237 Part 1 (How AI learns): GPU vs CPU: a CPU chip",
+   "type": "image",
+   "file": "ml/cpu-ryzen-9-9950x.jpg",
+   "headline": null,
+   "dek": null,
+   "outlet": "Wikimedia Commons",
+   "author": "4300streetcar",
+   "date": "2024-11-27",
+   "url": "https://commons.wikimedia.org/wiki/File:AMD_Ryzen_9_9950X.jpg",
+   "caption": "Photograph of an AMD Ryzen 9 9950X processor (top view).",
+   "quality": 5,
+   "verified": true,
+   "license": "CC BY 4.0; credit '4300streetcar, CC BY 4.0, via Wikimedia Commons'",
+   "notes": "Commons file page read via WebFetch: own work, original 3,305x3,305 JPEG. The file here is the 1,920x1,920 rendition from Commons (Special:FilePath?width=1600 capped at 1920), viewed by eye: clean top view, 'AMD Ryzen 9 9950X' printed on the heat spreader. Original URL https://upload.wikimedia.org/wikipedia/commons/2/25/AMD_Ryzen_9_9950X.jpg"
+  },
+  {
+   "id": "ml-gpu-h100-geekerwan",
+   "slide_topic": "Splash M1237 Part 1 (How AI learns): GPU vs CPU: a GPU board",
+   "type": "image",
+   "file": "ml/nvidia-h100-geekerwan-011.png",
+   "headline": null,
+   "dek": null,
+   "outlet": "Wikimedia Commons",
+   "author": "Geekerwan (极客湾)",
+   "date": "2023-06-14",
+   "url": "https://commons.wikimedia.org/wiki/File:NVIDIA_H100_(%E6%9E%81%E5%AE%A2%E6%B9%BEGeekerwan)_011.png",
+   "caption": "View of the NVIDIA H100 graphics card (Hopper architecture), still frame from a Geekerwan review video.",
+   "quality": 3,
+   "verified": true,
+   "license": "CC BY 3.0; credit 'Geekerwan (极客湾), CC BY 3.0, via Wikimedia Commons'",
+   "notes": "Commons file page read via WebFetch: 3,840x2,160 PNG, source video https://www.youtube.com/watch?v=-nb_DZAH-TM ; page lists H100 PCIe, 80 GiB, 14,592 CUDA cores. Original URL https://upload.wikimedia.org/wikipedia/commons/d/d4/NVIDIA_H100_%28%E6%9E%81%E5%AE%A2%E6%B9%BEGeekerwan%29_011.png . Other frames exist: 002, 003, 004, 007, 014, 019, 021, 022, 024. DOWNLOADED Nov 5, 2026 (E1 stage) as the Commons 1920px thumbnail (1,920x1,080 PNG; the full-size original returned HTTP 429), viewed by eye: four NVIDIA H100 PCIe cards (gold shrouds, black brackets) standing in a row on white marble, Geekerwan logo at top left. Slide 20 uses a crop of the leftmost card only (assets/slides/splash/h100_card.jpg; the logo is cropped out). The card is the PCIe version (14,592 CUDA cores per the Commons page and NVIDIA); the slide's 16,896 is NVIDIA's figure for the SXM5 version, and the slide says so. Fixer stage, Nov 5, 2026: slide crop h100_card.jpg re-cut to {left 60, top 360, width 610, height 500} of the 1,920-px copy (less black studio background); crop only."
+  },
+  {
+   "id": "ml-hl-entrepreneur-nvidia-5t",
+   "slide_topic": "Splash M1237 Part 1 (How AI learns): why Nvidia dominates: market value",
+   "type": "headline",
+   "file": "ml/hl-entrepreneur-nvidia-5t.png",
+   "headline": "Nvidia Becomes the First Company to Reach a $5 Trillion Market Value, Leaving Apple and Microsoft in the Dust",
+   "dek": "Nvidia's market capitalization surpasses the combined value of competitors like AMD and Intel.",
+   "outlet": "Entrepreneur",
+   "author": "Sherin Shibu (edited by Dan Bova)",
+   "date": "2025-10-29",
+   "url": "https://www.entrepreneur.com/business-news/nvidia-becomes-the-first-to-pass-5-trillion-in-market-value/498929",
+   "caption": "Real screenshot (cropped to headline, dek and byline) of the Entrepreneur article.",
+   "quality": 4,
+   "verified": true,
+   "notes": "tools/shot.js capture on 2026-11-05, clip 30,360,820,330 at 1280x900 (2x), no other edits; viewed. Browser tab title is a shorter variant 'Nvidia Becomes the First to Pass $5 Trillion in Market Value'. CNBC and the Washington Times (AP) blocked the screenshot browser ('Access Denied', 'Just a moment'). Alternative: Global News, Reuters byline, 'Nvidia is now worth $5 trillion, a new record amid global AI boom', posted Oct 29, 2025 5:43 pm, https://globalnews.ca/news/11501362/nvidia-ai-5-trillion-worth (screenshot viewed, not saved: the page's hero image is unrelated)."
+  },
+  {
+   "id": "ml-lecun-reuse",
+   "slide_topic": "Splash M1237 Part 1 (How AI learns): LeCun cake",
+   "type": "image",
+   "file": "../splash/lecun-cake-isscc2019-slide.png",
+   "headline": "How Much Information is the Machine Given during Learning?",
+   "dek": null,
+   "outlet": "Synced Review (reproducing Y. LeCun, ISSCC 2019, slide 59)",
+   "author": "Yann LeCun",
+   "date": "2019-02-22",
+   "url": "https://syncedreview.com/2019/02/22/yann-lecun-cake-analogy-2-0/",
+   "caption": "Cherry = 'Pure' Reinforcement Learning, 'A few bits for some samples'; icing = Supervised Learning, '10->10,000 bits per sample'; cake genoise = Self-Supervised Learning, 'Millions of bits per sample'.",
+   "quality": 5,
+   "verified": true,
+   "license": "(c) 2019 IEEE ISSCC / Y. LeCun: credited quotation of a slide, not openly licensed",
+   "notes": "Existing repo file (assets/research/splash/lecun-cake-isscc2019-slide.png, manifest id lecun-cake-isscc2019-slide), re-read by eye 2026-11-05: title and bullets as in caption. The 2016 version is lecun-cake-nips2016-slide.png (784x502 crop without the title bar): cherry 'A few bits for some samples', icing '10->10,000 bits per sample', cake 'Unsupervised/Predictive Learning', 'Millions of bits per sample', footnote '(Yes, I know, this picture is slightly offensive to RL folks. But I'll make it up)'."
+  },
+  {
+   "id": "econ-hl-yahoo-nov5",
+   "slide_topic": "Economy volatility",
+   "type": "headline",
+   "file": "econ/hl-yahoo-nov5-close.png",
+   "headline": "Stock market today: Dow plunges 1,800 points, Nasdaq enters correction in AI trade meltdown",
+   "outlet": "Yahoo Finance (O'Donnell, Ferre, Hollerith)",
+   "date": "2026-11-05",
+   "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-oil-rises-chip-stocks-141439950.html",
+   "caption": "Real screenshot (headline). Live blog headline changed through the day (earlier: \"Nasdaq plunges 5% amid chip stock wipeout...\"). Page ticker after close: S&P 500 7,353.81 (-4.35%), Dow 51,522.58 (-3.44%), Nasdaq 24,315.00 (-5.52%), VIX 26.76. Provisional until FRED Nov 6.",
+   "verified": true,
+   "slide_use": "Splash p2Economy: shown whole, with an outlet/date tab"
+  }
+ ],
+ "facts": [
+  {
+   "claim": "Two critical PHP flaws, CVE-2026-109618 and CVE-2026-109619 (\"PHP2Shell\"), allow unauthenticated remote code execution; fixed in PHP 8.5.12, 8.4.27, 8.3.36 and 8.2.35.",
+   "source": "php.net",
+   "url": "https://www.php.net/archive/2026.php#2026-10-21-5",
+   "date": "2026-10-21",
+   "verified": true
+  },
+  {
+   "claim": "Wiz timeline: first PHP bug found Aug 19, 2026; reported to PHP Aug 24; PHP acknowledged Sep 21; patched and disclosed Oct 21. Wiz used Wiz Atlas, Gemini 4 Argon and GPT-5.6 Sol.",
+   "source": "Wiz (vendor)",
+   "url": "https://www.wiz.io/blog/php2shell-php-rce",
+   "date": "2026-10-21",
+   "verified": true
+  },
+  {
+   "claim": "Calif found multiple RCE paths Aug 1, 2026, reported first bug to PHP Aug 11. Calif credits OpenAI Patch the Planet for the invitation.",
+   "source": "Calif (vendor)",
+   "url": "https://calif.io/php2shell",
+   "date": "2026-10-21",
+   "verified": true,
+   "note": "Calif page itself says \"No special harness, or access to models that weren't generally available\"; Fortune/Wikipedia say GPT-5.6 Sol. Say \"AI-assisted\" and attribute the model to Fortune."
+  },
+  {
+   "claim": "TIME: Wiz researcher Sagi Tzadik asked an AI agent to adapt a WordPress flaw to Drupal; after ~8 hours it reported failure, then said it had found a flaw in PHP. The weakness had gone undetected for more than a decade.",
+   "source": "TIME",
+   "url": "https://time.com/article/2026/10/23/ai-cybersecurity-php-hack/",
+   "date": "2026-10-23",
+   "verified": true
+  },
+  {
+   "claim": "PHP is used by about 70% of websites (as reported by TIME, TechCrunch, Wiz; W3Techs ~69.2% of sites with a known server-side language per Wikipedia).",
+   "source": "TIME / TechCrunch / Wiz",
+   "url": "https://techcrunch.com/2026/10/27/us-government-says-hackers-are-now-exploiting-critical-php-web-bugs/",
+   "date": "2026-10-27",
+   "verified": true
+  },
+  {
+   "claim": "Amazon saw a PHP2Shell exploitation attempt in its MadPot honeypot on Oct 17, four days before disclosure; amazon says it is unclear how the actor got exploit information. The post does not attribute the activity to AI.",
+   "source": "AWS Security Blog",
+   "url": "https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/",
+   "date": "2026-10-21",
+   "verified": true
+  },
+  {
+   "claim": "Leaks before the Oct 21 patch date pushed maintainers to release a day early; Calif mistakenly posted an exploit demo video.",
+   "source": "TIME",
+   "url": "https://time.com/article/2026/10/23/ai-cybersecurity-php-hack/",
+   "date": "2026-10-23",
+   "verified": true
+  },
+  {
+   "claim": "Cloudflare: \"tens of thousands\" of exploit attempts within 45 minutes of the word getting out (reports broke late on Oct 20, ahead of the patch's official release), \"hundreds of thousands\" within two hours, and millions by the evening of Oct 21 (as reported by Fortune); Palo Alto Networks counted 22.6 million potentially vulnerable instances (Fortune).",
+   "source": "Fortune",
+   "url": "https://fortune.com/2026/10/21/ai-tools-discovered-the-php-vulnerability-that-could-take-down-70-of-the-internet-now-the-race-is-on-to-patch-it-before-ai-powered-hackers-attack/",
+   "date": "2026-10-21",
+   "verified": true,
+   "rechecked": "2026-11-05 (E2 re-read the Fortune page text)"
+  },
+  {
+   "claim": "Government sites in several countries (Czech Republic, Finland, Germany, Netherlands, per Reuters syndication) were taken offline as a precaution; NSA advised offline if unable to patch. Australia ACSC said it was not aware of active exploitation that day.",
+   "source": "Reuters via The Star (syndicated)",
+   "url": "https://www.thestar.com.my/tech/tech-news/2026/10/21/eu-agency-warns-websites-may-need-to-be-taken-offline-as-php-prepares-patches-for-vulnerabilities",
+   "date": "2026-10-21",
+   "verified": true,
+   "note": "Reuters original URL not retrieved: https://www.reuters.com/world/asia-pacific/eu-agency-warns-websites-may-need-be-taken-offline-php-prepares-patches-2026-10-21/"
+  },
+  {
+   "claim": "CISA said hackers are actively exploiting the two PHP bugs and ordered civilian federal agencies to patch within three days; it did not say who is exploiting them.",
+   "source": "TechCrunch",
+   "url": "https://techcrunch.com/2026/10/27/us-government-says-hackers-are-now-exploiting-critical-php-web-bugs/",
+   "date": "2026-10-27",
+   "verified": true
+  },
+  {
+   "claim": "Dream (via The Hacker News): suspected China-nexus actor, low-to-moderate confidence, rooted 25 servers in US, Japan, Taiwan, South Korea, chained PHP2Shell with a Linux kernel flaw (CVE-2026-46300); Claude Code was found installed in the attack infrastructure and DeepSeek/Kimi API keys were configured.",
+   "source": "The Hacker News (reporting Dream)",
+   "url": "https://thehackernews.com/2026/10/php2shell-attack-roots-25-servers.html",
+   "date": "2026-10-28",
+   "verified": true,
+   "note": "Evidence of AI tooling, not proof of how it was used; single-vendor report."
+  },
+  {
+   "claim": "Palo Alto Unit 42 saw agentic-AI-style post-exploitation after PHP2Shell abuse, then retracted its link between a European government agency intrusion and PHP2Shell (\"We are unable to confirm that initial access is associated with the specific PHP2Shell CVEs\").",
+   "source": "The Hacker News",
+   "url": "https://thehackernews.com/2026/10/php2shell-exploitation-hits-government.html",
+   "date": "2026-10-25",
+   "verified": true
+  },
+  {
+   "claim": "CrowdStrike (Oct 29): VAPOR PANDA ran ARTEX AI agents against 200+ organisations in 14+ countries over 11 days from Oct 17; confirmed post-exploitation at 9. NO source tied it to PHP2Shell.",
+   "source": "secondary only (Forkast, FourWeekMBA, search summaries)",
+   "url": "https://fourweekmba.com/ai-china-linked-group-ran-ai-agents-against-200-targets/",
+   "date": "2026-10-29",
+   "verified": false,
+   "note": "Primary CrowdStrike page not retrieved (403). Do not put on a slide until verified."
+  },
+  {
+   "claim": "The \"46\" is a tracker count of states with ANY tracked item (moratorium, ban, zoning limit, executive order, pending/stalled/failed bill, tax-incentive pause): Electric Choice says \"575 active restrictions across 46 states\" (updated Oct 15, 2026). Four states have none: Alaska, Hawaii, West Virginia, Wyoming. It is NOT 46 states with statewide moratoriums.",
+   "source": "Electric Choice (Eisenbach Consulting) data-center moratorium tracker",
+   "url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "date": "2026-10-15",
+   "verified": true,
+   "caveat": "Tracker is internally inconsistent (46 state counts sum to 679, not 575; NC/GA counts differ between table and summary)."
+  },
+  {
+   "claim": "SAVRN (Sep 28, 2026): \"46 states with state-level action\" (192 state-level measures) - 29 restriction in force, 1 administrative pause, 11 pending, 5 failed/vetoed; 958 local jurisdictions; 49 states with local action. Includes non-moratoriums (e.g. Maryland and Nevada executive orders).",
+   "source": "SAVRN data center moratorium tracker update",
+   "url": "https://savrn.com/blog/data-center-moratorium-tracker-update-2026-09-28",
+   "date": "2026-09-28",
+   "verified": true,
+   "caveat": "Read via a summarising fetch tool; per-state list not on the page."
+  },
+  {
+   "claim": "New York Executive Order 62 (signed Jul 14, 2026) holds DEC environmental permits for data centers of 50 MW or more in abeyance for up to a year; exempts local approvals and manufacturing/research/education/medical uses. First statewide pause; a permit pause, not a ban on all construction.",
+   "source": "Beveridge & Diamond; SiliconANGLE; Davis Wright Tremaine",
+   "url": "https://www.bdlaw.com/publications/new-york-enacts-first-statewide-moratorium-on-data-centers/",
+   "date": "2026-07-14",
+   "verified": true
+  },
+  {
+   "claim": "Texas: Gov. Abbott (Aug 3, 2026) halted approval of new data-center grid connections in ERCOT pending an audit; on Sep 21 he directed TCEQ to issue no data-center permits until the audit is done. Critics (incl. Ag Commissioner Sid Miller) say it falls short of a true moratorium; on-site-power projects and non-ERCOT areas not covered. As of Nov 4 the pause remains in place; audit expected to end in December.",
+   "source": "Route Fifty / Texas Tribune; gov.texas.gov; Texas Tribune Nov 4",
+   "url": "https://www.route-fifty.com/artificial-intelligence/2026/08/data-center-approvals-texas-halted-until-audits-completed-gov-greg-abbott-says/415194/",
+   "date": "2026-08-04",
+   "verified": true,
+   "extra_urls": [
+    "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits",
+    "https://www.texastribune.org/2026/11/04/data-center-texas-pause-gina-hinojosa-governor-policies/"
+   ]
+  },
+  {
+   "claim": "Oregon: Gov. Kotek paused state-land requests for data centers (Sep 8, 2026, through Jul 1, 2027), then (Oct 13) directed DEQ to stop issuing air and water pollution permits for new or expanding data centers until July 2027, which OPB says would \"effectively pause most data center development in Oregon\". Her office says she cannot order a moratorium on private development without the Legislature.",
+   "source": "OPB; Willamette Week",
+   "url": "https://www.opb.org/article/2026/10/13/oregon-data-centers-technology-amazon-tina-kotek/",
+   "date": "2026-10-13",
+   "verified": true,
+   "extra_urls": [
+    "https://www.wweek.com/news/state/2026/09/08/kotek-pauses-all-consideration-of-state-land-for-data-centers/"
+   ]
+  },
+  {
+   "claim": "Maine: legislature passed the first statewide data-center moratorium (Apr 14, 2026); Gov. Mills vetoed it Apr 24 and the override failed. So no state legislature has enacted a statewide moratorium.",
+   "source": "Reuters factbox via The Star; Electric Choice tracker",
+   "url": "https://www.thestar.com.my/tech/tech-news/2026/04/25/factbox-a-dozen-us-states-weigh-data-center-curbs-maine-governor-vetoes-bill",
+   "date": "2026-04-25",
+   "verified": true,
+   "caveat": "Override failure from tracker; Tom's Hardware reported the bill as passed without noting the veto."
+  },
+  {
+   "claim": "Virginia EO 22 (Sep 18, 2026) bans state NDAs on data centers and creates an AI task force; ending by-right approval for 25 MW+ is a PROPOSAL for the 2027 session. The Electric Choice tracker overstates it as an order that \"ends by-right approval\".",
+   "source": "Virginia Mercury",
+   "url": "https://virginiamercury.com/2026/09/18/spanberger-presents-slate-of-data-center-regulation-proposals-puts-first-directives-in-motion/",
+   "date": "2026-09-18",
+   "verified": true
+  },
+  {
+   "claim": "New Jersey local bans: counts vary by source - 6sqft says Jersey City is the 34th NJ municipality to ban data centers (Aug 2026); the Electric Choice tracker cites 93; Pinelands Alliance says 109 introduced or passed. Do not quote a precise NJ number.",
+   "source": "6sqft; Electric Choice; Pinelands Alliance",
+   "url": "https://www.6sqft.com/jersey-city-bans-data-centers-on-industrial-land/",
+   "date": "2026-08",
+   "verified": true
+  },
+  {
+   "claim": "S&P Global (Oct 1, 2026), via search summary: New York is the only state with a statewide moratorium (note: Texas and Oregon pauses are described as directives/audits); local governments in 40 states have an active ban or moratorium; voters face 34 data-center ballot measures in November (Ballotpedia).",
+   "source": "S&P Global Market Intelligence",
+   "url": "https://www.spglobal.com/market-intelligence/en/news-insights/articles/2026/10/data-center-backlash-shapes-midterm-ballots-campaigns-across-us-106324121",
+   "date": "2026-10-01",
+   "verified": false,
+   "caveat": "Page returns 403; numbers only via search summary. Do not put on a slide unless re-verified."
+  },
+  {
+   "claim": "Local scale: GatherGov (Sep 2026) counts 632 jurisdictions with formal moratorium-related action since Jan 2026, 270 adopted a moratorium; durations mostly 6-12 months.",
+   "source": "GatherGov tracker",
+   "url": "https://gathergov.com/articles/data-center-moratorium-2026-tracker",
+   "date": "2026-09",
+   "verified": false,
+   "caveat": "From search summary only; definitions differ from other trackers."
+  },
+  {
+   "claim": "Oct 30, 2026: S&P 500 -1.8%, Nasdaq Composite -2.8%, Nasdaq 100 worst day since June; Intel -29% (worst day on record); Philadelphia semiconductor index -7.2%; tech stocks lost over $1 trillion.",
+   "source": "NBC News",
+   "url": "https://www.nbcnews.com/business/markets/tech-stocks-nasdaq-ai-boom-fears-deepen-rcna606512",
+   "date": "2026-10-30",
+   "verified": true
+  },
+  {
+   "claim": "Amazon (Oct 29) said it still expects ~$220 billion of 2026 capital spending and \"meaningfully more\" in 2027; investors questioned returns on AI spending.",
+   "source": "NBC News (quoting Andy Jassy)",
+   "url": "https://www.nbcnews.com/business/markets/tech-stocks-nasdaq-ai-boom-fears-deepen-rcna606512",
+   "date": "2026-10-30",
+   "verified": true
+  },
+  {
+   "claim": "Oct 29, 2026: Alphabet Class A fell 12.6% to $283.82, its worst day since trading began in 2004, about $482 billion of market value (other outlets say ~$500B). Search growth 12% vs 15% expected; quarterly capex $51.4 billion.",
+   "source": "Fortune",
+   "url": "https://fortune.com/2026/10/29/alphabet-worst-day-google-search-valuation-energy-sector-bofa/",
+   "date": "2026-10-29",
+   "verified": true
+  },
+  {
+   "claim": "Jul 29, 2026: S&P 500 -1.5% (close 7,316.15), Dow -1,153, Nasdaq -1.7%; Brent oil +7.3% to $88.09 as the Iran war fighting resumed; Fed held rates.",
+   "source": "Fortune/AP",
+   "url": "https://fortune.com/2026/07/29/dow-drops-over-1100-points-as-sinking-tech-stocks-combine-with-jumping-oil-prices-to-drag-markets-down/",
+   "date": "2026-07-29",
+   "verified": true
+  },
+  {
+   "claim": "Jul 28, 2026: Nasdaq-100 briefly in correction (-10% from record) and Philadelphia Semiconductor Index in bear market; SanDisk -14%; Nasdaq-100 closed -1%.",
+   "source": "NBC News",
+   "url": "https://www.nbcnews.com/business/markets/nasdaq-100-correction-tech-stocks-rcna589630",
+   "date": "2026-07-28",
+   "verified": true
+  },
+  {
+   "claim": "IMF Global Financial Stability Report (pub. Oct 12-13, 2026, Bangkok): an AI-related market correction, with cyberattacks, is a plausible near-term catalyst for \"market turmoil\"; \"Weaker or less durable AI investments and profitability could be a shock that triggers a market correction.\" Risks \"elevated\".",
+   "source": "RTE (quoting IMF GFSR); IMF eLibrary record",
+   "url": "https://www.rte.ie/news/2026/1013/1595137-imf-finance-ai/",
+   "date": "2026-10-13",
+   "verified": true
+  },
+  {
+   "claim": "Ken Griffin (Citadel) said at a Citadel conference on Oct 20, 2026 there are \"almost certainly bubbles\" in AI; and that Corporate America has been very uneven in extracting value from AI models. He is not recommending selling.",
+   "source": "Yahoo Finance / Bloomberg (2026-10-20)",
+   "url": "https://finance.yahoo.com/news/ken-griffin-almost-certainly-bubbles-122850413.html",
+   "date": "2026-10-21",
+   "verified": true
+  },
+  {
+   "claim": "Oct 28, 2026: Fed held its rate at 3.75%-4.00%; Governor Lisa Cook and Cleveland Fed President Beth Hammack dissented in favor of a quarter-point HIKE. Inflation described as elevated. (A hike, not a cut: inflation, not AI, is the stated issue.)",
+   "source": "Schwab; CNN; CNBC",
+   "url": "https://www.schwab.com/learn/story/fomc-meeting",
+   "date": "2026-10-28",
+   "verified": true
+  },
+  {
+   "claim": "Challenger, Oct 2026: 43,994 announced US job cuts (lowest October since 2023); AI cited for 1,265 (lowest month of 2026); AI cited for 121,401 cuts YTD (~20% of all); market/economic conditions is now the top reason; Microsoft offered voluntary exit to 60,000 employees (not counted).",
+   "source": "Challenger, Gray & Christmas",
+   "url": "https://www.challengergray.com/blog/october-layoffs-at-three-year-low-seasonal-hiring-plans-up-26/",
+   "date": "2026-11-05",
+   "verified": true
+  },
+  {
+   "claim": "Nov 4, 2026: after Democrats won the midterms, Dow +1,569 (+3.03%) to 53,356; S&P 500 +1.58% to 7,688.62 (FRED); Nasdaq +1.44%; Nvidia -3.2%.",
+   "source": "FRED SP500/NASDAQCOM; AP/Yahoo",
+   "url": "https://fred.stlouisfed.org/series/SP500",
+   "date": "2026-11-04",
+   "verified": true
+  },
+  {
+   "claim": "Nov 5, 2026 INTRADAY (1:46 pm ET, AP): S&P 500 -3.9%, Dow -3.1%, Nasdaq -5.2% (more than 10% below its October record, a \"correction\"), Nvidia -8.7%, AMD -15.5%, CoreWeave -12.5%; every S&P sector down; on track for the worst drop since April 2025 tariffs. AP: stocks tied to AI data centers \"swinging for months on worries\" about borrowing costs; Democrats' wins \"raised the possibility that governments could force pauses in construction of more data centres\". Brent ~$98 (Iran war).",
+   "source": "AP via BNN Bloomberg",
+   "url": "https://bnnbloomberg.ca/markets/2026/11/05/world-shares-mostly-gain-after-us-midterm-elections-as-ai-related-stocks-sink",
+   "date": "2026-11-05",
+   "verified": true,
+   "note": "Intraday, not a close. See econ-research.md for the closing figures if recorded."
+  },
+  {
+   "claim": "S&P 500 stayed within 7,316-7,819 (about 6%) from Jul 1 to Nov 4 closes; largest daily S&P move was -1.82% (Oct 30). VIX peaked at 21.15 (Nov 2) in that window.",
+   "source": "FRED SP500, VIXCLS (S&P Dow Jones Indices; Cboe)",
+   "url": "https://fred.stlouisfed.org/series/SP500",
+   "date": "2026-11-04",
+   "verified": true
+  },
+  {
+   "claim": "LeCun's NIPS 2016 invited talk was titled 'Predictive Learning' (Posner Lecture); abstract: 'allowing machine to learn predictive models of the world is key to significant progress in artificial intelligence, and a necessary component of model-based planning and reinforcement learning'.",
+   "source": "nips.cc invited talk page",
+   "url": "https://nips.cc/virtual/2016/invited-talk/6197",
+   "date": "2016-12-05",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "Synced: 'If intelligence is a cake, the bulk of the cake is unsupervised learning, the icing on the cake is supervised learning, and the cherry on the cake is reinforcement learning (RL).' LeCun's ISSCC 2019 update replaced 'unsupervised' with 'self-supervised'.",
+   "source": "Synced Review, 'Yann LeCun Cake Analogy 2.0'",
+   "url": "https://syncedreview.com/2019/02/22/yann-lecun-cake-analogy-2-0/",
+   "date": "2019-02-22",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "Nathan Lambert's RLHF Book lecture 5 maps the cake to LLMs: self-supervised learning on internet data = the bulk of the cake; supervised fine-tuning = the icing; reinforcement learning (RLHF, then RLVR) = the cherry; 'With agents, RL may be more than just the cherry in compute'. (Page shows no date.)",
+   "source": "rlhfbook.com, Lecture 5 slides (N. Lambert)",
+   "url": "https://rlhfbook.com/teach/course/lec5-chap7/",
+   "date": "2026-11-05 (retrieved)",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "xAI on Grok 4: 'For Grok 4, we utilized Colossus, our 200,000 GPU cluster, to run reinforcement learning training that refines Grok's reasoning abilities at pretraining scale.' Also 'xAI will continue scaling reinforcement learning to unprecedented levels'. (Company claim.)",
+   "source": "xAI, 'Grok 4'",
+   "url": "https://x.ai/news/grok-4",
+   "date": "2025-07-09",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "Epoch AI: 'OpenAI has said that o3 is a 10x scale-up in training compute from o1, almost certainly referring to reasoning training compute.' and Llama-Nemotron Ultra's RL stage 'took 140,000 H100-hours, or around 1e23 FLOP, <1% of the pre-training cost of the original base model.'",
+   "source": "Epoch AI Gradient Updates (Josh You), 'How far can reasoning models scale?'",
+   "url": "https://epoch.ai/gradient-updates/how-far-can-reasoning-models-scale",
+   "date": "2025-05-09",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "Khatri et al.: 'DeepSeek-R1-Zero used 100,000 H800 GPU hours for RL training - 3.75% of its pre-training compute ... more than 10x increase from o1 to o3 ... and a similar leap from Grok-3 to Grok-4.'",
+   "source": "arXiv 2510.13786, 'The Art of Scaling Reinforcement Learning Compute for LLMs'",
+   "url": "https://arxiv.org/abs/2510.13786",
+   "date": "2025-10-15",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "Karpathy: 'Running RLVR turned out to offer high capability/$, which gobbled up the compute that was originally intended for pretraining ... we saw ~similar sized LLMs but a lot longer RL runs.'",
+   "source": "Andrej Karpathy, '2025 LLM Year in Review'",
+   "url": "https://karpathy.bearblog.dev/year-in-review-2025/",
+   "date": "2025-12-19",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "DeepSeek-V3 technical report: pre-training costs 2664K H800 GPU hours, context extension 119K, post-training 5K; total 2.788M GPU hours (post-training about 0.2% of the total: our division).",
+   "source": "DeepSeek-AI, DeepSeek-V3 Technical Report",
+   "url": "https://arxiv.org/abs/2412.19437",
+   "date": "2024-12-27",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "Google DeepMind: 'Gemini Diffusion, is a state-of-the-art text diffusion model that learns to generate outputs by converting random noise into coherent text or code' (experimental research model).",
+   "source": "Google DeepMind blog, Gemini Diffusion",
+   "url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/gemini-diffusion/",
+   "date": "2025-05-20",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "Inception Labs: 'We are announcing the Mercury family of diffusion large language models (dLLMs)... Mercury is up to 10x faster than frontier speed-optimized LLMs' (vendor claim); 'coarse-to-fine' generation 'refined from pure noise over a few denoising steps'.",
+   "source": "Inception Labs, Introducing Mercury",
+   "url": "https://www.inceptionlabs.ai/blog/introducing-mercury",
+   "date": "2025-02",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "OpenAI: 'Unlike DALL-E, which operates as a diffusion model, 4o image generation is an autoregressive model natively embedded within ChatGPT.'",
+   "source": "OpenAI, Native Image Generation System Card (GPT-4o image generation addendum), PDF",
+   "url": "https://cdn.openai.com/11998be9-5319-4302-bfbf-1167e093f1fb/Native_Image_Generation_System_Card.pdf",
+   "date": "2025-03-25",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "Transfusion (Zhou et al.): 'combines the language modeling loss function (next token prediction) with diffusion to train a single transformer over mixed-modality sequences'.",
+   "source": "arXiv 2408.11039",
+   "url": "https://arxiv.org/abs/2408.11039",
+   "date": "2024-08-20",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "AMD Ryzen 9 9950X: 16 CPU cores, 32 threads, Zen 5, max boost up to 5.7 GHz, launch 08/15/2024.",
+   "source": "AMD product page",
+   "url": "https://www.amd.com/en/products/processors/desktops/ryzen/9000-series/amd-ryzen-9-9950x.html",
+   "date": "2024-08-15",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "Intel Core Ultra 9 285K: 24 total cores (8 performance + 16 efficient).",
+   "source": "Intel ARK specifications",
+   "url": "https://www.intel.com/content/www/us/en/products/sku/241060/intel-core-ultra-9-processor-285k-36m-cache-up-to-5-70-ghz/specifications.html",
+   "date": "2026-11-05 (retrieved)",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "NVIDIA H100 SXM5: 132 SMs, 128 FP32 CUDA cores per SM = 16,896 FP32 CUDA cores per GPU, 4 fourth-generation Tensor Cores per SM = 528 per GPU; H100 PCIe: 14,592 CUDA cores, 456 Tensor Cores; 18 NVLink links, 900 GB/s, 7x PCIe Gen 5.",
+   "source": "NVIDIA Technical Blog, NVIDIA Hopper Architecture In-Depth",
+   "url": "https://developer.nvidia.com/blog/nvidia-hopper-architecture-in-depth/",
+   "date": "2022-03-22",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "Blackwell Ultra: 160 SMs, 640 fifth-generation Tensor Cores, 128 CUDA cores per SM (NVIDIA prints no CUDA-core total; 160 x 128 = 20,480 would be our arithmetic).",
+   "source": "NVIDIA Technical Blog, Inside NVIDIA Blackwell Ultra",
+   "url": "https://developer.nvidia.com/blog/inside-nvidia-blackwell-ultra-the-chip-powering-the-ai-factory-era/",
+   "date": "2025",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "MythBusters at NVISION 08: a small robot fired paintballs to draw a smiley (the 'CPU'); a machine with '1,100 specifically compressed paintballs in 1,100 barrels' painted the Mona Lisa. NVIDIA's NVISION page: 'painted the Mona Lisa in 80ms - with paint balls!'",
+   "source": "bit-tech, 'Mythbusters finish Nvision in style'; NVIDIA NVISION 2008 page",
+   "url": "https://www.bit-tech.net/news/mythbusters-finish-nvision-in-style/1",
+   "date": "2008-08-28",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "NVIDIA Q1 FY2027 (reported May 20, 2026): record revenue $81.6 billion, up 85% from a year ago; record Data Center revenue $75.2 billion, up 92%.",
+   "source": "NVIDIA 8-K exhibit 99.1 (SEC)",
+   "url": "https://www.sec.gov/Archives/edgar/data/0001045810/000104581026000051/q1fy27pr.htm",
+   "date": "2026-05-20",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "NVIDIA: 'In 2006, NVIDIA made a bold bet on a parallel computing platform... 20 years later, CUDA serves as the foundation for 6 million developers worldwide.'",
+   "source": "NVIDIA Developer Forums post by TomNVIDIA",
+   "url": "https://forums.developer.nvidia.com/t/cuda-is-nvidia-s-platform-for-accelerated-computing-and-the-foundation-for-gpu-computing/363954",
+   "date": "2026-03-18",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "NVIDIA completed its acquisition of Mellanox Technologies on April 27, 2020 ('a transaction value of $7 billion'; announced March 11, 2019).",
+   "source": "NVIDIA press release",
+   "url": "https://nvidianews.nvidia.com/news/nvidia-completes-acquisition-of-mellanox-creating-major-force-driving-next-gen-data-centers",
+   "date": "2020-04-27",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "Anthropic plans to expand use of Google Cloud technologies 'including up to one million TPUs... well over a gigawatt of capacity online in 2026'.",
+   "source": "Anthropic news",
+   "url": "https://www.anthropic.com/news/expanding-our-use-of-google-cloud-tpus-and-services",
+   "date": "2025-10-23",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "AMD and OpenAI: 'OpenAI to deploy 6 gigawatts of AMD GPUs'; initial 1 gigawatt of AMD Instinct MI450 Series starting 2H 2026.",
+   "source": "AMD press release",
+   "url": "https://www.amd.com/en/newsroom/press-releases/2025-10-6-amd-and-openai-announce-strategic-partnership-to-d.html",
+   "date": "2025-10-06",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "AWS Trainium3 UltraServers 'scale up to 144 Trainium chips'.",
+   "source": "AWS Trainium page",
+   "url": "https://aws.amazon.com/ai/machine-learning/trainium/",
+   "date": "2026-11-05 (retrieved)",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "Huawei (Sept 2025 keynote): 'Over the next three years, we'll be working on three new series of Ascend chips: the Ascend 950 series..., the Ascend 960 series, and the Ascend 970 series.' (roadmap)",
+   "source": "Huawei Connect 2025 keynote text",
+   "url": "https://www.huawei.com/en/news/2025/9/hc-xu-keynote-speech",
+   "date": "2025-09",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "Entrepreneur (Oct 29, 2025): Nvidia became the first company to reach a $5 trillion market value; Microsoft and Apple each about $4 trillion.",
+   "source": "Entrepreneur, Sherin Shibu",
+   "url": "https://www.entrepreneur.com/business-news/nvidia-becomes-the-first-to-pass-5-trillion-in-market-value/498929",
+   "date": "2025-10-29",
+   "verified": true,
+   "_ml": true
+  },
+  {
+   "claim": "Nov 5, 2026 close (provisional, Yahoo Finance ticker): S&P 500 7,353.81 (-4.35%), Dow 51,522.58 (-3.44%), Nasdaq Composite 24,315.00 (-5.52%, in correction), VIX 26.76.",
+   "source": "Yahoo Finance",
+   "url": "https://finance.yahoo.com/markets/live/stock-market-today-thursday-november-5-dow-sp-500-nasdaq-oil-rises-chip-stocks-141439950.html",
+   "date": "2026-11-05",
+   "verified": true,
+   "note": "Provisional; re-check against FRED SP500/NASDAQCOM/VIXCLS on Nov 6 and update."
+  },
+  {
+   "claim": "OpenAI \"decided to bring all the parties together\", leading a \"coalition of maintainers, researchers, and security providers to address [the] critical vulnerabilities\" (including Wiz, Calif, PHP, Cloudflare and multiple U.S. government agencies); Fortune also says OpenAI's GPT-5.6 Sol model \"played a key role\" in finding the vulnerabilities.",
+   "source": "Fortune",
+   "url": "https://fortune.com/2026/10/21/ai-tools-discovered-the-php-vulnerability-that-could-take-down-70-of-the-internet-now-the-race-is-on-to-patch-it-before-ai-powered-hackers-attack/",
+   "date": "2026-10-21",
+   "verified": true,
+   "note": "Read by E2 on Nov 5, 2026 (page text)."
+  },
+  {
+   "claim": "TechCrunch: \"The PHP software is reportedly used by some 70% of web-facing servers\"; \"The severity of the bugs prompted some governments and big companies to take their sites offline to fix them.\" CISA ordered civilian federal agencies to fix within three days and \"did not provide details about who was exploiting the bugs\".",
+   "source": "TechCrunch",
+   "url": "https://techcrunch.com/2026/10/27/us-government-says-hackers-are-now-exploiting-critical-php-web-bugs/",
+   "date": "2026-10-27",
+   "verified": true,
+   "note": "Read by E2 on Nov 5, 2026 (page text)."
+  },
+  {
+   "claim": "InstructGPT: 'The SFT dataset contains about 13k training prompts (from the API and labeler-written)', with labeler demonstrations used to train the SFT models; the RM dataset has 33k training prompts and the PPO dataset 31k.",
+   "source": "Ouyang et al. (2022), Training language models to follow instructions with human feedback, Sec. 3.2 (arXiv v1 PDF, read by E1 on Nov 5, 2026)",
+   "url": "https://arxiv.org/abs/2203.02155",
+   "date": "2022-03-04",
+   "verified": true,
+   "_ml": true,
+   "used_on": "slide 18 notes ('people write thousands of model answers')"
+  },
+  {
+   "claim": "Fortune: \"Three parties discovered different elements of the bug\" — \"Multiple security organizations independently found the issue around the same time, in August. All of them used AI to help find the vulnerabilities.\" Calif found the first issue on Aug 1 using GPT-5.6 Sol and informed OpenAI, which \"found additional elements of the bug\"; Wiz \"had independently found the vulnerabilities in August\" (first issue Aug 19). AWS (via Fortune) dates the disclosure Oct 20.",
+   "source": "Fortune",
+   "url": "https://fortune.com/2026/10/21/ai-tools-discovered-the-php-vulnerability-that-could-take-down-70-of-the-internet-now-the-race-is-on-to-patch-it-before-ai-powered-hackers-attack/",
+   "date": "2026-10-21",
+   "verified": true,
+   "note": "hack-: re-read by the fixer stage on Nov 5, 2026 from E2's saved copy of the article (updated Oct 22). Used on slide 48: 'AI helps three teams (Calif, OpenAI, Wiz)'."
+  },
+  {
+   "claim": "SAVRN tracker (Sep 28, 2026): \"192 state-level measures across 46 states and 958 local jurisdictions\"; \"Of the 46 states with a state-level measure on the tracker, 29 have a restriction in force, 1 are under an active administrative pause, 11 have a measure pending, and 5 saw their most advanced measure fail or be vetoed.\" Its state measures include tax-credit bars (Delaware HB 310), reporting rules (California AB 1577) and Nevada's Executive Order 2026-005 on tax abatements, which SAVRN says \"is not a moratorium\".",
+   "source": "SAVRN",
+   "url": "https://savrn.com/blog/data-center-moratorium-tracker-update-2026-09-28",
+   "date": "2026-09-28",
+   "verified": true,
+   "note": "dc-: read by the fixer stage on Nov 5, 2026 (critic C2's saved copy). Notes only (slide 36): SAVRN's 46 counts measures of any kind, so it is a different count from the map's 46; not cited as support."
+  },
+  {
+   "claim": "ai-2027.com Timelines Forecast page (Eli Lifland, Nikola Jurkovic, FutureSearch, April 2025) carries the note: \"2025 Dec 31 update: We've published a revamped timelines and takeoff model at aifuturesmodel.com\". The aifuturesmodel.com page is an interactive app; its current medians could not be read as text.",
+   "source": "AI Futures Project (ai-2027.com)",
+   "url": "https://ai-2027.com/research/timelines-forecast",
+   "date": "2025-12-31",
+   "verified": true,
+   "note": "_stale: fetched by the fixer stage on Nov 5, 2026. Why slide 45 no longer shows the April 2025 'JUL 2027' median."
+  }
+ ],
+ "datasets": [
+  {
+   "id": "dc-moratoria-states",
+   "file": "dc_moratoria_states.json",
+   "description": "All 50 states + DC with status category, one-line description and source URL. Built from the Electric Choice tracker (Oct 15, 2026) with 9 entries cross-checked.",
+   "url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "date": "2026-11-05",
+   "verified": true,
+   "counts": {
+    "statewide_pause": 3,
+    "local_and_state_bill": 13,
+    "local_only": 27,
+    "state_bill_only": 3,
+    "none_found": 5
+   }
+  },
+  {
+   "id": "econ-series",
+   "file": "econ_series.json",
+   "description": "Daily closes S&P 500, Nasdaq Composite, VIX Jul 1-Nov 4 2026 with annotated big days.",
+   "url": "https://fred.stlouisfed.org/series/SP500",
+   "date": "2026-11-05",
+   "verified": true,
+   "attribution": "S&P Dow Jones Indices LLC via FRED; NASDAQ OMX via FRED; Cboe via FRED"
+  }
+ ],
+ "not_found": [
+  {
+   "outline_item": "A \"hacking spree with php\" where AI agents compromised php.net or PHP project infrastructure",
+   "searched": "php.net compromised AI agent; PHP infrastructure breach Oct 2026",
+   "result": "No such event found. php.net was not reported compromised. Closest: PHP2Shell (bugs found with AI, then mass exploitation of PHP sites, Oct 17-29, 2026)."
+  },
+  {
+   "outline_item": "\"data centers getting moratoriums in 46 states\"",
+   "searched": "electricchoice, savrn, gathergov, ncsl, news (Hochul, Abbott, Kotek, Maine)",
+   "result": "46 states is the tracker count of states with any tracked data-center restriction or bill (Electric Choice, Oct 15; SAVRN Sep 28 uses \"state-level action\"), not 46 statewide moratoriums. Statewide pauses exist in only 3 states (NY, TX, OR), all by governor directive and limited in scope; no legislature has enacted one (Maine vetoed). Local moratoriums/bans exist in about 40+ states."
+  },
+  {
+   "outline_item": "AI-driven layoffs surging (Aug-Nov 2026)",
+   "searched": "Challenger Oct 2026",
+   "result": "Not supported as a surge: AI-cited cuts hit a 2026 low in Oct (1,265); 121,401 YTD. Use as \"AI cited ~1 in 5 cuts, but falling\"."
+  },
+  {
+   "outline_item": "Powell / Fed remarks on an AI bubble",
+   "searched": "FOMC Oct 28 2026, chair remarks",
+   "result": "No Fed remarks on AI valuations found; chair is Kevin Warsh and the decision was a hold with two hike dissents."
+  },
+  {
+   "outline_item": "Bank of England AI valuation warning",
+   "searched": "BoE 2026",
+   "result": "Only secondary mention; not verified from a primary source. Not used."
+  },
+  {
+   "outline_item": "CNBC headlines (chip selloff $1T Jul 29; Alphabet; Nvidia earnings)",
+   "searched": "cnbc.com",
+   "result": "CNBC blocks automated capture (Access Denied); not screenshotted. Use NBC/Fortune equivalents."
+  },
+  {
+   "outline_item": "Official NVIDIA-channel YouTube upload of the MythBusters CPU vs GPU demo, with running time and start/end seconds",
+   "searched": "web searches; NVIDIA developer forum and NVIDIA NVISION page; YouTube oEmbed; yt-dlp",
+   "result": "Not found. Only third-party re-uploads verified to exist via oEmbed: ZrJeYFxpUyQ ('NVIDIA: Adam and Jamie explain parallel processing on GPU's', uploader artmaze1974), fKK933KK6Gg ('NVIDIA: Adam & Jamie draw a MONA LISA in 80 milliseconds!', artmaze1974), WmW6SD-EHVY ('Adam and Jamie Paint the Mona Lisa in 80 Milliseconds! (HD)', Joe Schmoe). YouTube blocks page, metadata and yt-dlp reads from this network, so no length or start/end seconds were obtained.",
+   "_ml": true
+  },
+  {
+   "outline_item": "A primary or top-tier source for Nvidia's share of AI accelerators",
+   "searched": "WebSearch (standard and extended) for Reuters/Bloomberg/CNBC/IDC/TrendForce/Counterpoint figures",
+   "result": "Only secondary sites. Range 75-92% of AI accelerator revenue depending on definition (Bloomberg 86% for 2025 via Motley Fool and IDC 92% via a crypto-news site were not seen at the original); NVIDIA's own revenue (SEC 8-K) is solid. Present as a range.",
+   "_ml": true
+  },
+  {
+   "outline_item": "Nvidia market capitalization as of November 2026",
+   "searched": "WebSearch 'Nvidia market capitalization November 2026'",
+   "result": "Search summaries conflicted ($5.39T Aug 27, 2026; about $5.8T early Oct 2026; $5.41T undated). Check a live quote on Nov 21; the verified milestone is $5T on Oct 29, 2025.",
+   "_ml": true
+  },
+  {
+   "outline_item": "Openly licensed grid of GAN-generated faces or digits (for 'generating new cards')",
+   "searched": "Commons searches 'GAN generated faces', 'generative adversarial network samples', 'MNIST generated'",
+   "result": "No usable result. Use the Commons DDIM Stable Diffusion plot instead.",
+   "_ml": true
+  },
+  {
+   "outline_item": "Openly licensed photo of flash cards",
+   "searched": "Commons searches 'flash cards', 'flashcards', 'index cards flashcards study'",
+   "result": "Only scanned books and unrelated files. Draw the cards natively.",
+   "_ml": true
+  },
+  {
+   "outline_item": "Openly licensed photo of a lone hiker in fog",
+   "searched": "Commons 'hiker mountain fog'",
+   "result": "Only fog landscapes without people (e.g. File:Fog on a mountain 2.jpg, CC BY-SA 4.0). Use the native hiker on slide 9.",
+   "_ml": true
+  },
+  {
+   "outline_item": "A lab statement in plain words that RL compute now equals or exceeds pretraining",
+   "searched": "xAI, OpenAI, Epoch, Karpathy, SemiAnalysis",
+   "result": "Not found. xAI says RL 'at pretraining scale' (July 2025); Epoch (May 2025) says RL was small but 10x per few months; Karpathy (Dec 2025) says RLVR 'gobbled up' compute meant for pretraining; the 'about half' figure is a SemiAnalysis estimate seen through OfficeChai (Oct 18, 2026). A Startup Fortune article attributing the 42%/23% split to Epoch is not usable.",
+   "_ml": true
+  },
+  {
+   "outline_item": "LeCun NIPS 2016 slide title and the original recording of the spoken 'cake' sentence",
+   "searched": "nips.cc, Synced, Scribd transcript summary",
+   "result": "Slide bullets and footnote read from the repo image; title only via a search summary of a Scribd transcript ('How Much Information Does the Machine Need to Predict?'); the one-sentence cake quote is Synced's. The talk date Dec 5, 2016 comes from the deck-transcript filename and the brief; the nips.cc text gave none.",
+   "_ml": true
+  },
+  {
+   "outline_item": "Karpathy 'State of GPT' slides (karpathy.ai/stateofgpt.pdf) as a pipeline diagram",
+   "searched": "direct fetch",
+   "result": "The URL returned his homepage HTML to my tool, so the slides were not read. Video bZQun8Y4L2A confirmed by oEmbed (title 'State of GPT | BRK216HFS', Microsoft Developer). The four-stage pipeline description is from a search summary of a Scribd copy.",
+   "_ml": true
+  }
+ ],
+ "analogies": [
+  {
+   "concept": "pretraining / SFT / RL as school",
+   "analogy": "Pretraining is the lecture (the model reads everything and keeps guessing the next word). SFT is the worked examples in class (it copies good answers people wrote). RL is homework (it tries, gets graded by a reward model or by a checker, and tries again). Exams are the evaluations: they grade the model but do not teach it.",
+   "mechanics_source": "InstructGPT (arXiv 2203.02155), DeepSeek-R1 (arXiv 2501.12948)",
+   "status": "author-written analogy (William Liaw); mechanics sourced",
+   "caveat": "RL teaches with graded practice, but a benchmark exam does not change the model's dials unless someone trains on it. Label it as an analogy.",
+   "_ml": true
+  },
+  {
+   "concept": "CPU vs GPU",
+   "analogy": "A CPU is a few professors who can solve any problem, one hard step at a time. A GPU is a stadium of thousands of students who each do a simple sum, all at the same moment. Training a network is millions of simple multiply-and-add sums, so the stadium wins.",
+   "mechanics_source": "NVIDIA Hopper blog (16,896 CUDA cores), AMD product page (16 cores), bit-tech (MythBusters, 1,100 barrels)",
+   "status": "author-written analogy; core counts sourced",
+   "caveat": "A GPU core is simpler and slower than a CPU core; the claim is 'many simple workers', not '1,000 times faster'.",
+   "_ml": true
+  },
+  {
+   "concept": "supervised / unsupervised / reinforcement",
+   "analogy": "Supervised = flash cards with the answer on the back. Unsupervised = sorting a pile of one-sided cards into piles (or, with picture cards, drawing new cards that look like the pile). Reinforcement = training a dog with treats.",
+   "mechanics_source": "CIFAR-10 page, k-means (Commons, Chire), OpenAI hide-and-seek (arXiv 1909.07528)",
+   "status": "author-written analogy (William Liaw)",
+   "caveat": "Generating new cards is generative modeling, usually trained with a denoising or next-piece target (self-supervised), a cousin of sorting rather than the same thing.",
+   "_ml": true
+  },
+  {
+   "concept": "LeCun's cake applied to LLMs",
+   "analogy": "Cake = pretraining (self-supervised), icing = SFT, cherry = RL.",
+   "mechanics_source": "LeCun slides 2016 and 2019 (via Synced); Nathan Lambert, RLHF Book lecture 5",
+   "status": "community adaptation, not in LeCun's slides",
+   "caveat": "LeCun's slides are about bits of feedback per example, not training stages; and by 2026 RL is no longer a small cherry by compute (estimates).",
+   "_ml": true
+  }
+ ],
+ "group": "splash_nov"
+}

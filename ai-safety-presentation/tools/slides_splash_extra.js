@@ -251,7 +251,7 @@ function setFont(s, name, size) {
   if (Array.isArray(o.text)) o.text.forEach((r) => { if (r.options) r.options.fontSize = size; });
 }
 
-// Splash copies of the adult quiz GIFs (slides 31–32): the same frames and frame timing, so both clips of a pair stay in
+// Splash copies of the adult quiz GIFs (“Which one is real?” and its reveal, slides 32–33): the same frames and frame timing, so both clips of a pair stay in
 // sync, scaled to about the size they are shown at (720 → 540 px, 480 → 400 px) and lightly compressed (gifsicle
 // --lossy=40, full per-frame palettes). Six play at once, so fewer pixels per frame means less work for PowerPoint;
 // stronger settings (lossy 80+, 128 colours) were tried and left visible banding and grain, which would bias a
@@ -318,7 +318,7 @@ async function hookSlide(d) {
   d.animate(s, B1, { effect: 'zoom', dur: 450 });
   addNotes(d, s, {
     min: 2.0, beat: 'hands up twice, about class minutes 1–3 (no devices)',
-    say: '(a) Hands up if you used an AI chatbot or an AI picture tool this week. Count out loud roughly: “about half the room.” “AI tool” counts broadly: chatbots, autocorrect, photo filters, the app that picks your next video, map routes, voice assistants. Then click. (b) “Keep your hand up if you think it understands what it says.” Do not judge any answer and reveal nothing yet. Say that experts genuinely disagree about (b), and that the next 36 minutes will give everyone tools to judge for themselves. We come back to this question at the end of Part 1.',
+    say: '(a) Hands up if you used an AI chatbot or an AI picture tool this week. Count out loud roughly: “about half the room.” “AI tool” counts broadly: chatbots, autocorrect, photo filters, the app that picks your next video, map routes, voice assistants. Then click. (b) “Keep your hand up if you think it understands what it says.” Do not judge any answer and reveal nothing yet. Say that experts genuinely disagree about (b), and that the next 37 minutes will give everyone tools to judge for themselves. We come back to this question at the end of Part 1.',
     terms: 'AI (artificial intelligence): computer programs that do things we used to think needed human intelligence, like recognizing faces or writing text.',
     ask: '“Who has used an AI tool this week?” then “Keep it up if you think it understands what it says.”',
     takeaway: 'Almost everyone already uses AI; whether it “understands” is an open question.',
@@ -330,10 +330,10 @@ async function roadmapSlide(d) {
   const s = d.slide('Content');
   head(s, 'OPENING · ROADMAP', 'Learn how it works, then what could go wrong');
   const parts = [
-    ['FaBrain', 'PART 1', 'How AI learns', 'Neural networks, chatbots, and how AI companies train them', '36 min'],
-    ['FaBolt', 'PART 2', 'How fast it is moving', 'The evidence on speed, and its limits', '20 min'],
-    ['FaExclamationTriangle', 'PART 3', 'Why it could go wrong', 'The theory, and the warning signs so far', '30 min'],
-    ['FaTools', 'PART 4', 'What we can do', 'What researchers, labs and you can do, then Q&A', '12 + 8 min'],
+    ['FaBrain', 'PART 1', 'How AI learns', 'Neural networks, chatbots, and how AI companies train them', '37 min'],
+    ['FaBolt', 'PART 2', 'How fast it is moving', 'Tests, trends, money and data centers', '21 min'],
+    ['FaExclamationTriangle', 'PART 3', 'Why it could go wrong', 'The theory, and the warning signs so far', '29 min'],
+    ['FaTools', 'PART 4', 'What we can do', 'What researchers, labs and you can do, then Q&A', '12 + 7 min'],
   ];
   const cw = (CW - 3 * 0.2) / 4, cy = 1.85, ch = 3.05;
   const cards = [];
@@ -350,14 +350,14 @@ async function roadmapSlide(d) {
   }
   const here = [d.text(s, 'YOU ARE HERE ▼', { x: CX0 + 0.22, y: 1.5, w: 2.4, h: 0.3, fontSize: 12, bold: true, color: d.S.amber, charSpacing: 2, valign: 'bottom' })];
   // proportional time bar (110 min)
-  const segs = [['Opening', 4, HEX.steel], ['Part 1', 36, HEX.red], ['Part 2', 20, 'B8473A'], ['Part 3', 30, '8E2F33'], ['Part 4', 12, '5E3A3F'], ['Q&A', 8, '3A4250']];
+  const segs = [['Opening', 4, HEX.steel], ['Part 1', 37, HEX.red], ['Part 2', 21, 'B8473A'], ['Part 3', 29, '8E2F33'], ['Part 4', 12, '5E3A3F'], ['Q&A', 7, '3A4250']];
   const by = 5.2, bh = 0.32;
   const bar = [];
   let bx = CX0;
   for (const [n, m, c] of segs) {
     const w = CW * m / 110;
     bar.push(d.rect(s, { x: bx, y: by, w: w - 0.03, h: bh, fill: { color: c }, line: { color: c, width: 0 } }));
-    if (m >= 8) bar.push(d.text(s, `${n} · ${m}`, { x: bx, y: by + bh + 0.04, w, h: 0.28, fontSize: 12, color: d.S.muted, align: 'center', valign: 'top' }));
+    if (m >= 7) bar.push(d.text(s, `${n} · ${m}`, { x: bx, y: by + bh + 0.04, w, h: 0.28, fontSize: 12, color: d.S.muted, align: 'center', valign: 'top' }));
     bx += w;
   }
   bar.push(d.text(s, '110 minutes', { x: CX0, y: by - 0.32, w: 3, h: 0.28, fontSize: 12, bold: true, color: d.S.steel, charSpacing: 1, valign: 'bottom' }));
@@ -371,7 +371,7 @@ async function roadmapSlide(d) {
   d.animate(s, [msg], { effect: 'fade' });
   addNotes(d, s, {
     min: 1.25,
-    say: 'Here is the map. Part 1 (36 minutes, starting now) is how today’s AI actually learns: no programming needed. Part 2 is the evidence on how fast it is improving, and where that evidence is shaky. Part 3 is why some very capable systems could go wrong, with the theory and the real warning signs so far. Part 4 is what researchers, companies, governments and you can do, then questions.',
+    say: 'Here is the map. Part 1 (37 minutes, starting now) is how today’s AI actually learns: no programming needed. Part 2 is the evidence on how fast it is improving, where that evidence is shaky, and the money and the pushback around it. Part 3 is why some very capable systems could go wrong, with the theory and the real warning signs so far. Part 4 is what researchers, companies, governments and you can do, then questions.',
     takeaway: 'Risks from AI are serious, unsolved problems that many people (maybe some of you one day) are working on. This is not a doom talk.',
   }, { title: 'Learn how it works, then what could go wrong', source: 'new' });
   return s;
@@ -412,7 +412,7 @@ async function p2Cadence(d) {
     from: 'capabilities.cadenceSlide', adultSlide: 15,
     // pooled: the gap is between consecutive launches from EITHER company (so “+”), and it is a typical (median) gap,
     // not a schedule
-    kicker: kick(d), title: 'Anthropic + OpenAI: typical launch gap ~11 days',
+    kicker: kick(d), title: 'Anthropic + OpenAI: typical launch gap 11 days',
     replace: {
       'MEDIAN GAP BETWEEN RELEASES · EITHER LAB': 'TYPICAL GAP · BOTH LABS',
       'early 2024 → late Sep 2026 · as charted, method not stated': 'early 2024 → late Sep 2026',
@@ -450,9 +450,9 @@ async function p2Cadence(d) {
       // the chart's own key, set large: what a dot, the line and the band mean
       const fb = frameBox;
       const key = d.text(s, [
-        { text: 'Dot', options: { bold: true } }, { text: ' = one launch (higher = longer wait since the one before) · ' },
-        { text: 'black line', options: { bold: true } }, { text: ' = typical gap · ' },
-        { text: 'grey band', options: { bold: true } }, { text: ' = middle half of the gaps' },
+        { text: 'Dot:', options: { bold: true } }, { text: ' one launch (higher means a longer wait since the one before) · ' },
+        { text: 'black line:', options: { bold: true } }, { text: ' the typical gap · ' },
+        { text: 'grey band:', options: { bold: true } }, { text: ' the middle half of the gaps' },
       ], { x: fb.x, y: fb.y + fb.h + 0.06, w: fb.w, h: 6.52 - (fb.y + fb.h + 0.06), fontSize: 16, color: d.S.txt, valign: 'top' });
       ctx.extra = { poll: grp(p.all, { auto: true, effect: 'rise' }), ans: p.ans, cav: grp([cav], { effect: 'fade' }), key };
     },
@@ -470,7 +470,7 @@ async function p2Cadence(d) {
       terms: 'release = a company making a new AI model available. median = the typical (middle) value when you line all the gaps up from shortest to longest.',
       ask: '“On this chart, counting both companies together, how long was it from one launch to the next in early 2024?”',
       takeaway: 'New AI models are arriving several times faster than two years ago.',
-      caveats: 'This is one researcher’s chart (Joshua Fonseca Rivera, who describes himself as an Anthropic safety fellow), not an official statistic, and its method is not published. The question asks for the chart’s own early-2024 figure, so the answer is B; if a student asks why it is not A or C, this is the reason. That 70-day start rests on only 3 gaps (Jan–Jun 2024: 104, 70 and 38 days), and adding GPT-4 Turbo with Vision (Apr 9, 2024) to the chart’s own set would make it 37 days. How much faster it got depends on what counts as a launch; the adult deck’s recount from launch pages gives: the chart’s 35 major launches 70 → 10.5 days (about 6.7× faster); flagship models only 70 → 14.5 days (about 4.8×); Epoch AI’s independent count of the two labs’ language models 36 → 12 days (3×); every named model launch 39 → 5 days (about 7.8×). Faster under every definition, by about 3× to 8×. Never say “each company releases every 11 days”: each lab alone is slower (Anthropic 21 days, OpenAI 49, over the last six months).',
+      caveats: 'This is one researcher’s chart (Joshua Fonseca Rivera, who describes himself as an Anthropic safety fellow), not an official statistic, and its method is not published. The question asks for the chart’s own early-2024 figure, so the answer is B; if a student asks why it is not A or C, this is the reason. That 70-day start rests on only 3 gaps (Jan–Jun 2024: 104, 70 and 38 days), and adding GPT-4 Turbo with Vision (Apr 9, 2024) to the chart’s own set would make it 37 days. How much faster it got depends on what counts as a launch; the adult deck’s recount from launch pages gives: the chart’s 35 major launches 70 → 10.5 days (about 6.7× faster); flagship models only 70 → 14.5 days (about 4.8×); Epoch AI’s independent count of the two labs’ language models 36 → 12 days (3×); every named model launch 39 → 5 days (about 7.8×). Faster under every definition, by about 3× to 8×. Never say “each company releases every 11 days”: each lab alone is slower (Anthropic 21 days, OpenAI 49, over the last six months). Re-checked Nov 5, 2026: the chart is unchanged (it ends in late September). Optional spoken line: since it was drawn, Anthropic released Claude Haiku 5.5 (Oct 7) and OpenAI released GPT-6.1 Terra (system-card addendum dated Oct 26), so the pace has continued (anthropic.com/news; deploymentsafety.openai.com).',
     },
   });
 }
@@ -489,18 +489,20 @@ async function p2Metr(d) {
   return reuse(d, adult('capabilities').metrSlide, {
     from: 'capabilities.metrSlide', adultSlide: 16,
     // METR's fitted trend since 2023 (named in the chart label), in the past tense
-    kicker: kick(d), title: 'Task length doubled every ~4 months since 2023',
+    kicker: kick(d), title: 'Task length doubled about every 4 months',
     replace: {
       'TASK LENGTH AI FINISHES 50% OF THE TIME · LOG SCALE': 'METR · AI TASK LENGTH AT 50% SUCCESS',
-      // the wall marks METR's page update (May 8); the last model on it, Claude Mythos Preview, came out in April
-      'LAST DATA: MAY 8, 2026 ▼': 'METR PAGE UPDATED MAY 8, 2026 ▼',
+      // the wall marks the last model METR added (May 8: Claude Mythos Preview, released in April). Re-checked Nov 5, 2026:
+      // METR's page now says “This page is no longer actively updated” (LAST UPDATED September 8, 2026)
+      'LAST DATA: MAY 8, 2026 ▼': 'LAST MODEL ADDED MAY 8, 2026 ▼',
       // METR has published model evaluations since (GPT-5.6 Sol, Jun 26; Claude Opus 5.5, Sep 22): only this chart stopped
-      'NO RELIABLE MEASUREMENT SINCE MAY 8': 'NOT UPDATED SINCE MAY 8',
+      'NO RELIABLE MEASUREMENT SINCE MAY 8': 'NO NEW MODELS SINCE MAY 8',
       'trend since 2023:\ndoubling every ~129 days': 'trend since 2023:\ndoubling about every 4 months',
-      // the data does not stop because progress stopped: METR's ruler ran out (same message as the next slide)
+      'Claude Mythos Preview · ≥16 hrs': 'Claude Mythos Preview · at least 16 hrs',
+      // the data does not stop because progress stopped: METR's ruler ran out (the script says it: the “ruler” slide was cut)
       'THE DATA STOPS HERE': 'THE RULER ENDS HERE',
       'because METR can no longer measure the frontier': 'because METR’s test has too few long tasks',
-      'Data: METR, Time Horizon 1.1 (benchmark_results_1_1.yaml; metr.org/time-horizons, “last updated May 8, 2026”, checked Oct 4, 2026) · METR Frontier Risk Report, May 19, 2026.': 'Data: METR Time Horizon 1.1 (metr.org/time-horizons, last updated May 8, 2026; checked Oct 4, 2026) · METR Frontier Risk Report (May 19, 2026)',
+      'Data: METR, Time Horizon 1.1 (benchmark_results_1_1.yaml; metr.org/time-horizons, “last updated May 8, 2026”, checked Oct 4, 2026) · METR Frontier Risk Report, May 19, 2026.': 'Data: METR Time Horizon 1.1 (last model added May 8, 2026; page retired Sep 8; checked Nov 5, 2026) · METR Frontier Risk Report (May 19, 2026)',
     },
     drop: (o) => o.opts.x >= 9.25          // the right-hand "WHY THE GRAPH ENDS" panel (replaced below)
       || (o.kind === 'text' && MINOR.includes(o.flat)),
@@ -516,7 +518,7 @@ async function p2Metr(d) {
         if (ln.width === 3.5) o.opts.line = { ...ln, color: AMBER };                                   // the wall
         // its arrow: the tip 0.06 in clear of the wall; the 0.09 in line is about one arrowhead long, so the head's base sits
         // just right of the label (moved 0.1 in left below), not on its last letter
-        if (ln.width === 3 && ln.endArrowType) { o.opts.line = { ...ln, color: AMBER }; o.opts.x = xWall - 0.17; o.opts.w = 0.09; }
+        if (ln.width === 3 && ln.endArrowType) { o.opts.line = { ...ln, color: AMBER }; o.opts.x = xWall - 0.33; o.opts.w = 0.12; }
         return;
       }
       if (o.kind !== 'text') return;
@@ -525,6 +527,8 @@ async function p2Metr(d) {
         Object.assign(o.opts, { x: o.opts.x - 0.22, w: o.opts.w + 0.02, y: o.opts.y - 0.03, h: o.opts.h + 0.06, fontSize: 16 });   // right edge 0.1 in left of the plot, clear of the year labels
       }
       if (o.flat === 'today') { o.opts.h = 0.28; o.opts.color = AMBER; }
+      if (o.flat.startsWith('because METR')) o.opts.x -= 0.17;   // stays right-aligned under “THE RULER ENDS HERE” (moved left)
+      if (o.flat.startsWith('Claude Mythos Preview ·')) { o.opts.x -= 0.9; o.opts.w += 0.9; }
       if (o.flat.startsWith('METR · AI TASK LENGTH')) { o.opts.w = 4.6; o.opts.y = 1.58; o.opts.h = 0.28; }
       // the band's label at 16 pt on two lines; METR's own sentence about it moves to the notes (the right panel quotes METR)
       if (o.flat.startsWith('ABOVE 16 HOURS')) {
@@ -534,13 +538,13 @@ async function p2Metr(d) {
         ];
         o.opts.w = 3.6;
       }
-      if (o.flat.startsWith('METR PAGE UPDATED')) { o.opts.x -= 0.9; o.opts.w += 0.9; o.opts.color = AMBER; }
-      if (o.flat === 'NOT UPDATED SINCE MAY 8') { o.opts.fontSize = 16; o.opts.y -= 0.02; o.opts.h += 0.04; }
+      if (o.flat.startsWith('LAST MODEL ADDED')) { o.opts.x -= 0.9; o.opts.w += 0.9; o.opts.color = AMBER; }
+      if (o.flat === 'NO NEW MODELS SINCE MAY 8') { o.opts.fontSize = 16; o.opts.y -= 0.02; o.opts.h += 0.04; }
       if (o.flat.startsWith('Data: METR')) { o.opts.h = 0.34; o.opts.y = 6.6; }
       // the big “THE RULER ENDS HERE” label, amber: a background-coloured box, narrowed to the text, so the 10 sec gridline
       // does not run through it; its right edge 0.25 in left of the wall (the adult’s 0.15 in left no room for the arrowhead)
       if (o.flat.startsWith('THE RULER ENDS HERE')) {
-        const r = xWall - 0.25; o.opts.w = 4.35; o.opts.x = r - 4.35; o.opts.fill = { color: RULER_BG };
+        const r = xWall - 0.42; o.opts.w = 4.35; o.opts.x = r - 4.35; o.opts.fill = { color: RULER_BG };
         if (Array.isArray(o.text) && o.text[0] && o.text[0].options) o.text[0].options.color = AMBER;
       }
     },
@@ -549,23 +553,23 @@ async function p2Metr(d) {
       // a made-up starting point for the arithmetic (today's best is ~16 hours or more, as the chart shows)
       const p = await poll(d, s, { x: rx, y: 1.72, w: rw }, {
         // U+2011 (non-breaking hyphen) keeps “1‑minute” on one line
-        kind: 'pair', q: 'An AI does 1\u2011minute tasks. Doubling every 4 months, how long in 2 years?',
-        qSize: 16, qH: 3 * 16 / 72 * 1.22 + 0.06, layout: 'col', options: ['8 minutes', '64 minutes', '4 hours'], answer: 1, oSize: 16, tileH: 0.36,
+        kind: 'pair', q: 'An AI does 1\u2011minute tasks. Doubling every 4 months, in 2 years its tasks take…',
+        qSize: 16, qH: 3 * 16 / 72 * 1.22 + 0.06, layout: 'col', options: ['10 minutes', 'an hour', 'a whole day'], answer: 1, oSize: 16, tileH: 0.36,
       });
       const g = p.geo[1];
-      const why = d.text(s, '6 doublings', { x: g.x + g.w - 1.62, y: g.y, w: 1.25, h: g.h, fontSize: 16, bold: true, color: TEAL, valign: 'middle', align: 'right' });
-      // one line: the 1 minute is a made-up start, and the hint (24 months ÷ 4 months = 6 doublings)
-      const hint = d.text(s, 'Made-up start. Hint: 24 ÷ 4 = ?', { x: rx + 0.05, y: p.bottom + 0.04, w: rw - 0.05, h: 0.32, fontSize: 16, italic: true, color: d.S.amber, valign: 'middle', wrap: false });
+      const why = d.text(s, '64 min', { x: g.x + g.w - 1.42, y: g.y, w: 1.05, h: g.h, fontSize: 16, bold: true, color: TEAL, valign: 'middle', align: 'right' });
+      // one line: the 1 minute is a made-up start; a guess, not a sum (the script counts the doublings out loud)
+      const hint = d.text(s, 'Made-up start. Just guess!', { x: rx + 0.05, y: p.bottom + 0.04, w: rw - 0.05, h: 0.32, fontSize: 16, italic: true, color: d.S.amber, valign: 'middle', wrap: false });
       const py = p.bottom + 0.44, ph = 6.5 - py;
       const panel = [d.card(s, { x: rx, y: py, w: rw, h: ph }, { color: '1A1013', line: HEX.red })];
       panel.push(d.rect(s, { x: rx, y: py, w: rw, h: 0.36, fill: { color: HEX.red }, line: { color: HEX.red, width: 0 } }));
       panel.push(d.text(s, 'WHY THE GRAPH ENDS', { x: rx + 0.2, y: py, w: rw - 0.4, h: 0.36, fontSize: 13, bold: true, color: 'FFFFFF', charSpacing: 3, valign: 'middle' }));
       panel.push(d.text(s, [
         { text: '“…it is infeasible to precisely measure time horizons in this range.” ', options: { fontFace: 'Cambria', italic: true, fontSize: 16, color: d.S.txt } },
-        { text: '— METR · infeasible = not possible', options: { fontSize: 12, color: d.S.muted } },
+        { text: '— METR · infeasible: not possible', options: { fontSize: 12, color: d.S.muted } },
       ], { x: rx + 0.2, y: py + 0.4, w: rw - 0.4, h: ph - 0.44, valign: 'middle' }));
-      // what “log scale” means, in one short line under the chart label (it ends before the wall's label)
-      const gloss = d.text(s, 'Log scale: each step up multiplies (×4 to ×10)', { x: MX, y: 1.86, w: 4.6, h: 0.26, fontSize: 14, italic: true, color: LIGHT, valign: 'top', wrap: false });
+      // what the side axis does, in one short line under the chart label, in words (no “log scale”, no ×)
+      const gloss = d.text(s, 'Side axis: each step up is several times longer', { x: MX, y: 1.86, w: 4.6, h: 0.26, fontSize: 14, italic: true, color: LIGHT, valign: 'top', wrap: false });
       ctx.extra = { poll: grp([...p.all, hint], { auto: true, effect: 'rise', after: 150 }), ans: grp([...p.ans, why], { effect: 'zoom', dur: 350 }), panel: grp(panel, { effect: 'fade' }), gloss };
     },
     anim: (groups, ctx) => {
@@ -575,13 +579,14 @@ async function p2Metr(d) {
       return [g0, g1, g2, ctx.extra.poll, ctx.extra.ans, wall, big, ctx.extra.panel];
     },
     notes: {
+      sources: ['https://metr.org/time-horizons/', 'https://metr.org/assets/benchmark_results_1_1.yaml', 'https://metr.org/assets/task_results_1_1.yaml', 'https://x.com/METR_Evals/status/2052896621760004602', 'https://metr.org/blog/2026-09-22-claude-opus-5-5/'],
       min: 3.0, beat: 'think-pair-share, 1 minute, about Part 2 minute 3',
-      build: 'Click 1: the answer (B, “6 doublings”). Click 2: the amber band after METR’s May 8 update and “THE RULER ENDS HERE”. Click 3: the “WHY THE GRAPH ENDS” quote.',
-      say: 'METR, a non-profit that tests AI systems, asks: how long would a task take a skilled person, and can the AI finish it on its own at least half the time? That task length is the time horizon. Each dot is a model. GPT-2 in 2019 managed tasks of about 3 seconds; GPT-4 in 2023 about 4 minutes; Claude Opus 4.6 in February 2026 about 12 hours; Claude Mythos Preview in April 2026 at least 16 hours, as far as the test can measure. The side axis is a log scale: each step up multiplies the time, so a straight line means steady doubling. METR’s dashed trend since 2023 doubles about every 4 months. Now the pair-share, with a made-up start: an AI that can do 1-minute tasks. How many 4-month steps fit in 2 years? (Click.) 24 ÷ 4 = 6 doublings: 1 → 2 → 4 → 8 → 16 → 32 → 64 minutes. So B. (Click.) The chart stops after METR’s May 8 update, not because progress stopped, but because METR’s test has too few long tasks to measure past about 16 hours: the ruler ends. (Click: METR’s own words; “infeasible” means not possible.)',
+      build: 'Click 1: the answer (B, an hour: 64 minutes). Click 2: the amber band after the last model METR added (May 8) and “THE RULER ENDS HERE”. Click 3: the “WHY THE GRAPH ENDS” quote.',
+      say: 'METR, a non-profit that tests AI systems, asks: how long would a task take a skilled person, and can the AI finish it on its own at least half the time? That task length is the time horizon. Each dot is a model. GPT-2 in 2019 managed tasks of about 3 seconds; GPT-4 in 2023 about 4 minutes; Claude Opus 4.6 in February 2026 about 12 hours; Claude Mythos Preview in April 2026 at least 16 hours, as far as the test can measure. On the side axis, each step up is several times longer than the one below, so a straight line means steady doubling. METR’s dashed trend since 2023 doubles about every 4 months. Now the pair-share, with a made-up start: an AI that can do 1-minute tasks. If that keeps doubling every 4 months, how long are its tasks after 2 years: 10 minutes, an hour, or a whole day? No sums: just guess with a neighbor. (Click.) About an hour. Two years hold six 4-month steps, and six doublings turn 1 minute into 2, 4, 8, 16, 32, then 64 minutes. So B. Doubling grows faster than most people expect. (Click.) The chart stops after May 8, not because progress stopped, but because METR’s test ran out of long tasks: only 5 of its 228 tasks take a person 16 hours or more, so it cannot tell an AI that handles 20-hour tasks from one that handles 200-hour tasks. Like measuring a giraffe with a short ruler: the ruler ends. METR has since stopped updating this page. (Click: METR’s own words; “infeasible” means not possible.) That is what honest science looks like: saying clearly what your own tool cannot do.',
       terms: 'task = a job for a computer, like fixing a bug in a program. “50% success” = the AI succeeds on half its tries at tasks of that length. time horizon = METR’s name for that task length (the chart’s side axis). log scale = an axis where each step up multiplies the time (×4 to ×10 here) instead of adding. doubling = becoming twice as big. infeasible = not possible.',
-      ask: '“Imagine an AI that can do 1-minute tasks (half the time). If that doubles every 4 months, how long a task in 2 years? A 8 minutes, B 64 minutes, C 4 hours.” (Answer B.) Say clearly that the 1 minute is a made-up starting point for the arithmetic: today’s best AI is at 16 hours or more on this chart.',
+      ask: '“An AI does 1-minute tasks. Doubling every 4 months, in 2 years its tasks take… A 10 minutes, B an hour, C a whole day.” A guess, not a sum. (Answer B: 64 minutes.) Say clearly that the 1 minute is a made-up starting point: today’s best AI is at 16 hours or more on this chart.',
       takeaway: 'The length of tasks AI can do on its own doubled roughly every four months, at least until the measuring tool ran out.',
-      caveats: 'The 4 months is METR’s fitted trend since 2023 (about 129 days, so 2 years is a little under 6 doublings), not a law of nature, and METR warns against extrapolating; the title says “since 2023” for that reason. “50% success” is not “the AI works for 16 hours”; at 80% success the horizons are much shorter. May 8, 2026 is the date METR last updated its page; the last model on it, Claude Mythos Preview, was released in April 2026. GPT-2’s 3 seconds comes from METR’s raw file benchmark_results_1_1.yaml (0.054 minutes; re-checked Oct 10, 2026). Four point labels are left off on purpose so the chart reads at a glance (their dots stay). Two of the unlabelled dots, between GPT-2 and GPT-4, are METR’s older models davinci-002 (a GPT-3-family base model, about 9 seconds) and gpt-3.5-turbo-instruct (about 36 seconds); METR’s file places them at 2020-05-28 and 2022-03-15, which match the GPT-3 and GPT-3.5 generations rather than those exact checkpoints (gpt-3.5-turbo-instruct itself was released in September 2023), so do not read their dates off the chart. They are before 2023, so they do not affect the dashed trend. The others are o1 (Dec 2024, about 39 minutes) and o3 (Apr 2025, about 2 hours). The red band is METR’s own warning, on its chart, that “Measurements above 16 hrs are unreliable with our current task suite”. The amber column means METR’s chart has not been updated since May 8; METR has published other evaluations since (GPT-5.6 Sol, Jun 26; Claude Opus 5.5, Sep 22), and said none of its GPT-5.6 Sol numbers is “a robust measurement”.',
+      caveats: 'The 4 months is METR’s fitted trend since 2023 (about 129 days, so 2 years is a little under 6 doublings), not a law of nature, and METR warns against extrapolating; the chart’s label says “trend since 2023” for that reason (the title says “about”). “50% success” is not “the AI works for 16 hours”; at 80% success the horizons are much shorter. Re-checked Nov 5, 2026: May 8, 2026 is when METR last added a model (Claude Mythos Preview, released in April 2026); the page itself now reads “This page is no longer actively updated” and “LAST UPDATED September 8, 2026”, so the slide no longer says “page updated May 8”. The numbers in METR’s raw file are unchanged (Claude Opus 4.6 about 12.0 hours; Mythos Preview about 17.4 hours, 95% interval about 8.5 to 55 hours; doubling every 128.7 days since 2023). If a student quotes “7 months”: that is METR’s original doubling time over the whole period since 2019, and METR’s Claude Opus 5.5 summary (Sep 22, 2026) says nine other benchmarks improve at rates “generally similar to the 7-month doubling time in our original time-horizon work”; the 4 months is the faster trend since 2023. From the cut slide “The ruler is running out of room” (counts from METR’s task_results_1_1.yaml): METR, May 8: “Of the 228 tasks in our suite, only 5 are estimated as 16+ hours long, making measurements at this range unstable and less meaningful…”. GPT-2’s 3 seconds comes from METR’s raw file benchmark_results_1_1.yaml (0.054 minutes; re-checked Oct 10, 2026). Four point labels are left off on purpose so the chart reads at a glance (their dots stay). Two of the unlabelled dots, between GPT-2 and GPT-4, are METR’s older models davinci-002 (a GPT-3-family base model, about 9 seconds) and gpt-3.5-turbo-instruct (about 36 seconds); METR’s file places them at 2020-05-28 and 2022-03-15, which match the GPT-3 and GPT-3.5 generations rather than those exact checkpoints (gpt-3.5-turbo-instruct itself was released in September 2023), so do not read their dates off the chart. They are before 2023, so they do not affect the dashed trend. The others are o1 (Dec 2024, about 39 minutes) and o3 (Apr 2025, about 2 hours). The red band is METR’s own warning, on its chart, that “Measurements above 16 hrs are unreliable with our current task suite”. The amber column means METR’s chart has had no new model since May 8; METR has published other evaluations since (GPT-5.6 Sol, Jun 26; Claude Opus 5.5, Sep 22), and said none of its GPT-5.6 Sol numbers is “a robust measurement”.',
     },
   });
 }
@@ -654,7 +659,7 @@ async function p2Graveyard(d) {
     ['GPQA Diamond', 'Hard science questions written for PhD students', '36%', '96%', 'GPT-4 (Mar 2023) →\nGPT-6 Astra (Sep 2026)', '4 answer choices: guessing gets 25%. PhD experts: 65%'],
     ['ARC-AGI-2', 'Picture puzzles people find easy and AI found hard', '0.8%', '95%', 'o1-mini (Sep 2024) →\nGPT-6 Astra (Sep 2026)', 'Run by the ARC Prize Foundation'],
     // the series ends because Epoch stopped adding frontier runs, not because scores stopped rising
-    ['SWE-bench Verified', 'Real bugs from GitHub, to fix', '31%', '83.5%', 'GPT-4o (Nov 2024) →\nClaude Opus 4.7 (Apr 2026)', 'Epoch added no newer top models, so its data ends here'],
+    ['SWE-bench Verified', 'Real bugs from GitHub, to fix', '31%', '83.5%', 'GPT-4o (Nov 2024) →\nClaude Opus 4.7 (Apr 2026)', 'Epoch’s own runs, to Oct 4. Other testers report higher scores.'],
   ];
   const tw = (CW - 2 * 0.25) / 3, ty = p.bottom + 0.14, th = 6.5 - ty;
   const groups = [];
@@ -675,13 +680,13 @@ async function p2Graveyard(d) {
   d.animate(s, groups[2], { effect: 'rise' });
   src(d, s, 'Data: Epoch AI Benchmarking Hub (CC-BY, Oct 4, 2026) · ARC Prize Foundation leaderboard (Oct 4, 2026) · expert score: GPQA paper (Rein et al., 2023)');
   addNotes(d, s, {
-    min: 2.0, beat: 'show of hands before the reveal, about Part 2 minute 6',
+    min: 2.0, beat: 'show of hands before the reveal, about Part 2 minute 5',
     build: 'Click 1: the answer (B, no) and the GPQA Diamond card. Click 2: ARC-AGI-2. Click 3: SWE-bench Verified.',
-    say: 'A benchmark is a standard test for AI, like a common exam. These questions were written for PhD students: a PhD is the top university degree, earned after years of research. They are “Google-proof”: a quick web search will not answer them. Epoch AI is a research group that tracks AI progress by testing many models the same way. Question: did any AI that Epoch AI tested in 2023 score above 50% on them? Hands up for yes… now hands up for no. (Click.) No: in Epoch AI’s tests GPT-4 scored 36% in March 2023, and the best 2023 model it tested (GPT-4 Turbo, November) about 42%. In September 2026 GPT-6 Astra scored about 96%. In the original study, experts with or working toward a PhD in the subject scored 65%, or 74% not counting clear mistakes they spotted afterwards. There are 4 answer choices, so guessing alone gets 25%, and a test score is not the same as being an expert. (Click.) ARC-AGI-2 is a set of picture puzzles that people find easy and AI found hard: from under 1% for an AI released in 2024 to 95% for one released in 2026. (Click.) SWE-bench Verified is real bugs from GitHub, a site where programmers share code: from 31% to 83.5% in about a year and a half; Epoch has not added newer top models since, so that is not the latest score. So hard tests were beaten in about one and a half to three and a half years, depending on the test.',
+    say: 'A benchmark is a standard test for AI, like a common exam. These questions were written for PhD students: a PhD is the top university degree, earned after years of research. They are “Google-proof”: a quick web search will not answer them. Epoch AI is a research group that tracks AI progress by testing many models the same way. Question: did any AI that Epoch AI tested in 2023 score above 50% on them? Hands up for yes… now hands up for no. (Click.) No: in Epoch AI’s tests GPT-4 scored 36% in March 2023, and the best 2023 model it tested (GPT-4 Turbo, November) about 42%. In September 2026 GPT-6 Astra scored about 96%. In the original study, experts with or working toward a PhD in the subject scored 65%, or 74% not counting clear mistakes they spotted afterwards. There are 4 answer choices, so guessing alone gets 25%, and a test score is not the same as being an expert. (Click.) ARC-AGI-2 is a set of picture puzzles that people find easy and AI found hard: from under 1% for an AI released in 2024 to 95% for one released in 2026. (Click.) SWE-bench Verified is real bugs from GitHub, a site where programmers share code: from 31% to 83.5% in about a year and a half in Epoch’s own runs; Epoch has not added newer top models since, and other testers report higher scores with other set-ups, so that is not the latest score. So hard tests were beaten in about one and a half to three and a half years, depending on the test.',
     terms: 'benchmark = a standard test used to compare AI systems. Epoch AI = a research group that tracks AI progress. PhD = the top university degree, earned after years of research. GPQA = “Graduate-level Google-Proof Q&A”; Diamond is its hardest set. Google-proof = you cannot answer it with a quick web search. GitHub = a website where programmers store and share code. saturated = when the best AIs score so high that a test can no longer tell them apart.',
     ask: '“Did any AI tested in 2023 score above 50% on PhD-level science questions?” (tested by Epoch AI) “Hands up for yes… now for no.” (Answer: no. GPT-4 scored 36% in March 2023; the best model Epoch tested in 2023, GPT-4 Turbo, about 42%.)',
     takeaway: 'Tests that were designed to last for years are being beaten in about one and a half to three and a half years, so researchers keep having to write harder ones.',
-    caveats: 'Scores depend on who runs the test and how (settings, number of tries). These are Epoch AI’s and the ARC Prize Foundation’s own runs. GPQA Diamond is four-answer multiple choice (guessing scores 25%); the card leaves out the paper’s 74% so it stays readable. The expert figure is the original GPQA paper’s (Rein et al., 2023, arXiv abstract): “experts who have or are pursuing PhDs in the corresponding domains reach 65% accuracy (74% when discounting clear mistakes the experts identified in retrospect)”. It was measured on the paper’s full question set, not on the Diamond subset alone, and it is not from Epoch’s data. The 2023 question is about the models Epoch AI tested, not every AI system that existed in 2023. ARC-AGI-2 itself launched on March 24, 2025 (ARC Prize announcement, checked Oct 10, 2026); the 0.8% is o1-mini, a September 2024 model, scored after launch. Timelines: GPQA Diamond went from 36% (Mar 2023) to 92.6% (Nov 2025) and 95.8% (Sep 2026); SWE-bench Verified took about 17 months (Nov 2024 to Apr 2026). Epoch stopped adding frontier runs on SWE-bench Verified after Claude Opus 4.7 (Apr 2026; capabilities manifest, swe-bench-verified-sota), and its page gives no reason, so do not give one; the card says only that newer models are missing. We left out two famous-sounding results on purpose: FrontierMath “0% → 100%” (one run on a new 41-problem version) and ARC-AGI-3 “99.9%” (a different, company-built harness).',
+    caveats: 'Scores depend on who runs the test and how (settings, number of tries). These are Epoch AI’s and the ARC Prize Foundation’s own runs. GPQA Diamond is four-answer multiple choice (guessing scores 25%); the card leaves out the paper’s 74% so it stays readable. The expert figure is the original GPQA paper’s (Rein et al., 2023, arXiv abstract): “experts who have or are pursuing PhDs in the corresponding domains reach 65% accuracy (74% when discounting clear mistakes the experts identified in retrospect)”. It was measured on the paper’s full question set, not on the Diamond subset alone, and it is not from Epoch’s data. The 2023 question is about the models Epoch AI tested, not every AI system that existed in 2023. ARC-AGI-2 itself launched on March 24, 2025 (ARC Prize announcement, checked Oct 10, 2026); the 0.8% is o1-mini, a September 2024 model, scored after launch. Timelines: GPQA Diamond went from 36% (Mar 2023) to 92.6% (Nov 2025) and 95.8% (Sep 2026); SWE-bench Verified took about 17 months (Nov 2024 to Apr 2026). Epoch stopped adding frontier runs on SWE-bench Verified after Claude Opus 4.7 (Apr 2026; capabilities manifest, swe-bench-verified-sota), and its page gives no reason, so do not give one. Re-checked Nov 5, 2026: newer models exist (Claude Opus 5.5, Sonnet 5.5, GPT-6 Astra) and third-party sites list SWE-bench Verified scores of about 88–95% with other set-ups (scaffolds), so the card now says “Epoch’s own runs, to Oct 4. Other testers report higher scores.” rather than implying 83.5% is the latest. A secondary listing (developersdigest.tech, Nov 5) still shows GPT-6 Astra first on ARC-AGI-2 at 95.0%; the Epoch and ARC Prize live pages could not be re-read here (script-rendered), so re-open all three leaderboards the week of the talk; Gemini 4 or a new OpenAI or Anthropic model could land before Nov 21. We left out two famous-sounding results on purpose: FrontierMath “0% → 100%” (one run on a new 41-problem version) and ARC-AGI-3 “99.9%” (a different, company-built harness).',
     sources: ['https://epoch.ai/data/benchmark_data.zip', 'https://arcprize.org/leaderboard', 'https://epoch.ai/benchmarks', 'https://arxiv.org/abs/2311.12022', 'https://arcprize.org/blog/announcing-arc-agi-2-and-arc-prize-2025'],
     adultSlide: 18,
   }, { title: 'Hard AI tests were beaten in 1½ to 3½ years', source: 'adapted from capabilities.graveyardSlide (adult 18)' });
@@ -694,7 +699,7 @@ async function p2Hle(d) {
   const lw = 7.2;
   // each bar = the best score of any model released by the end of that quarter (Artificial Analysis's running best)
   const lab = label(d, s, 'BEST SCORE OF ANY MODEL OUT BY QUARTER’S END (%)', { x: CX0, y: 1.72, w: lw });
-  const sub = d.text(s, 'One independent tester (Artificial Analysis) · no tools · Q = a 3-month quarter', { x: CX0, y: 2.02, w: lw, h: 0.34, fontSize: 16, color: d.S.muted, valign: 'top' });
+  const sub = d.text(s, 'One independent tester (Artificial Analysis) · no tools · Q: a 3-month quarter', { x: CX0, y: 2.02, w: lw, h: 0.34, fontSize: 16, color: d.S.muted, valign: 'top' });
   const vals = [7.0, 18.0, 22.5, 28.5, 39.7, 47.0, 55.5, 61.4];
   const ch = d.chart(s, 'bar', [{ name: 'Best score', labels: ['Q4 ’24', 'Q1 ’25', 'Q2 ’25', 'Q3 ’25', 'Q4 ’25', 'Q1 ’26', 'Q2 ’26', 'Q3 ’26'], values: vals }],
     { x: CX0 - 0.05, y: 2.4, w: lw, h: 3.32 }, {
@@ -718,8 +723,8 @@ async function p2Hle(d) {
     // hit the noise ceiling on the original HLE dataset”
     { text: '61% is far from 100%. Its makers have announced HLE-Rolling, for when scores near this exam’s limit.', options: { color: d.S.muted } },
   ], { x: rx, y: 4.55, w: rw, h: 0.95, fontSize: 16, valign: 'top' });
-  const cav = d.text(s, 'Companies’ own numbers differ (Anthropic: 64.4% on all ~2,500 questions, pictures too). Compare one tester’s scores only.', { x: rx, y: 5.5, w: rw, h: 1.0, fontSize: 16, italic: true, color: d.S.amber, valign: 'top' });
-  // a closing question the teacher answers (no hands): Part 2 already has beats on slides 28 and 30
+  const cav = d.text(s, 'Companies’ own numbers differ (Anthropic: 64.4% on the full set, pictures too). Compare one tester’s scores only.', { x: rx, y: 5.5, w: rw, h: 1.0, fontSize: 16, italic: true, color: d.S.amber, valign: 'top' });
+  // a closing question the teacher answers (no hands): the slides before and after it (“Hard AI tests…”, “This is not a photograph”) carry Part 2's beats
   const hq = d.text(s, [
     { text: 'To think about: ', options: { color: d.S.amber } },
     { text: 'if an AI scored 100% here, would it be smarter than the experts who wrote it?', options: { color: d.S.txt } },
@@ -729,14 +734,14 @@ async function p2Hle(d) {
   d.animate(s, [not], { effect: 'fade' });
   d.animate(s, [cav], { effect: 'fade' });
   d.animate(s, [hq], { effect: 'fade' });
-  src(d, s, 'Data: Artificial Analysis, artificialanalysis.ai/evaluations/humanitys-last-exam (accessed Oct 4, 2026) · Scale AI / Center for AI Safety leaderboard');
+  src(d, s, 'Data: Artificial Analysis, artificialanalysis.ai/evaluations/humanitys-last-exam (re-checked Nov 5, 2026) · Scale AI / Center for AI Safety leaderboard');
   addNotes(d, s, {
     min: 1.5,
     build: 'The chart and the “What is it?” card appear on their own. Click 1: “Not solved yet”. Click 2: the companies’ numbers caveat. Click 3: the closing question (you answer it; no hands).',
     say: 'Humanity’s Last Exam is about 2,500 very hard questions written by experts in many subjects. It launched in January 2025, when the best models scored under 10%. Each bar is a quarter, three months of a year: Q4 ’24 is October to December 2024. A bar shows the best score of any model released by the end of that quarter, all measured by one independent tester, with no tools: the AI could not search the web or use a calculator. 7% at the end of 2024, 61% now. (Click.) But 61% is not 100%: it is not solved. Its makers have announced a rolling version, HLE-Rolling, that researchers can move to once scores get close to the most this exam can reliably measure. (Click.) And companies’ own numbers differ, so compare only scores from the same tester. (Click.) A question to leave you with, no hands needed: if an AI scored 100% here, would it be smarter than the experts who wrote it? Answer it yourself: not necessarily; a test score shows one kind of skill, not everything an expert can do.',
     terms: 'quarter = three months of a year (Q4 = October to December). independent = run by someone who did not build the AI being tested. no tools = no web search, calculator or code.',
     takeaway: 'Even the exam built to be “the last one” is being beaten fast, and its makers have already announced a rolling replacement.',
-    caveats: 'The 7% → 61% figures are Artificial Analysis’s own runs on the 2,158 text-only questions, with no tools. Companies report different numbers (Anthropic reports 64.4% for Claude Opus 5.5 on the full set of about 2,500 questions, which includes questions with pictures), so the numbers are not comparable across testers. Scale AI and CAIS’s update (Sep 17, 2026) describes HLE-Rolling as “a seamless migration path for researchers in the future once frontier models begin to hit the noise ceiling on the original HLE dataset” (noise ceiling = the best score the exam can reliably measure, given its own errors). This slide has no hands-up beat on purpose: slides 28 and 30 carry Part 2’s beats around it.',
+    caveats: 'The 7% → 61% figures are Artificial Analysis’s own runs on the 2,158 text-only questions, with no tools. Re-checked Nov 5, 2026: the page still says Claude Opus 5.5 “scores the highest on Humanity’s Last Exam with a score of 61.4%”; check again the day before class, since a new model could raise it. Companies report different numbers (Anthropic reports 64.4% for Claude Opus 5.5 on the full set of about 2,500 questions, which includes questions with pictures), so the numbers are not comparable across testers. Scale AI and CAIS’s update (Sep 17, 2026) describes HLE-Rolling as “a seamless migration path for researchers in the future once frontier models begin to hit the noise ceiling on the original HLE dataset” (noise ceiling = the best score the exam can reliably measure, given its own errors). This slide has no hands-up beat on purpose: the slides just before and after it (“Hard AI tests were beaten…”, slide 29, and “This is not a photograph”, slide 31) carry Part 2’s beats around it.',
     sources: ['https://artificialanalysis.ai/evaluations/humanitys-last-exam', 'https://labs.scale.com/leaderboard/humanitys_last_exam', 'https://arxiv.org/abs/2501.14249', 'https://artificialanalysis.ai/articles/claude-opus-5-5', 'https://anthropic.com/claude-opus-5-5-system-card'],
     adultSlide: 19,
   }, { title: 'The “last exam” for AI went from 7% to 61%', source: 'adapted from capabilities.hleSlide (adult 19)' });
@@ -822,7 +827,7 @@ async function p2RealQuestion(d) {
       terms: 'video generator = an AI that makes video from a text description or a starting picture. first frame = the very first picture of a video. public domain = free for anyone to use.',
       ask: '“Column 1: hands up for A… for B. Column 2: C… D. Column 3: E… F.”',
       takeaway: 'Telling real video from AI video by eye is now hard.',
-      caveats: 'The clips loop silently and play only in slideshow mode (they are GIFs). Each loop starts partway into its clip, at the same frame for both clips of a pair, so the pair plays in sync and shows the shared first frame once per loop, at the jump back to the start; the still pictures in a PDF show the mid-clip frame, which is why the two clips of a pair look different there. The Splash copies are scaled down to about the size they are shown at (540 px wide here, 400 px on the next slide) and lightly compressed, about 6–11 MB each here (about 2.7–5 MB on the next slide) instead of 18–26 MB; the frame rate is the adult deck’s (15 fps here, 12 fps on the reveal), and both clips of a pair keep identical timing. RA-Bench is an arXiv preprint; arXiv lists no journal or conference for it (checked Oct 10, 2026). Before class, play this slide and the next in slideshow mode on the room laptop with all six clips running.',
+      caveats: 'The clips loop silently and play only in slideshow mode (they are GIFs). Each loop starts partway into its clip, at the same frame for both clips of a pair, so the pair plays in sync and shows the shared first frame once per loop, at the jump back to the start; the still pictures in a PDF show the mid-clip frame, which is why the two clips of a pair look different there. The Splash copies are scaled down to about the size they are shown at (540 px wide here, 400 px on the next slide) and lightly compressed, about 6–11 MB each here (about 2.7–5 MB on the next slide) instead of 18–26 MB; the frame rate is the adult deck’s (15 fps here, 12 fps on the reveal), and both clips of a pair keep identical timing. RA-Bench is an arXiv preprint; arXiv lists no journal or conference for it (checked Oct 10 and re-checked Nov 5, 2026: still v2). Before class, play this slide and the next in slideshow mode on the room laptop with all six clips running.',
     },
   });
 }
@@ -904,7 +909,7 @@ async function p2RealReveal(d) {
       terms: 'detector = a program that tries to tell whether a video is AI-made. fine-tuned = given extra training for one job. re-post (re-share) = when a video is downloaded and posted again, which usually makes it smaller and lower quality. preprint = a paper shared before other scientists have reviewed it.',
       ask: '“Who got all three right? Who was surprised by one?”',
       takeaway: 'In this study, fakes from the two most convincing video generators (Seedance 2.0: 51.9%, Kling: 47.7%) were called real about half the time (about a third across all nine tools), so where a video comes from matters more than how it looks.',
-      caveats: 'All three AI clips on the slide are RA-Bench-HumanProof items: all five reviewers judged each one Real (research file work/rev2/realfake.json). They were chosen because they fooled everyone, so they are the most convincing examples, not typical ones; the typical rate is the 51.9% (Seedance 2.0) in the panel. RA-Bench is an arXiv preprint (v2, Aug 17, 2026); arXiv lists no journal or conference for it (checked Oct 10, 2026), so treat it as not yet peer reviewed. The 46% and 1.4% are the mean over five fine-tuned detector set-ups across RA-Bench’s AI videos, in the authors’ own simulated re-share test (H.264 re-encode, half resolution, 8 fps and a synthetic news badge), not all detectors and not these three clips; they are said aloud, not shown. “Most convincing” means judged real most often: the next generator was HappyHorse at 37.2%. The loops start partway into the clips (see the previous slide’s notes), so a printed still does not show the shared first frame.',
+      caveats: 'All three AI clips on the slide are RA-Bench-HumanProof items: all five reviewers judged each one Real (research file work/rev2/realfake.json). They were chosen because they fooled everyone, so they are the most convincing examples, not typical ones; the typical rate is the 51.9% (Seedance 2.0) in the panel. RA-Bench is an arXiv preprint (v2, Aug 17, 2026); arXiv lists no journal or conference for it (checked Oct 10 and re-checked Nov 5, 2026), so treat it as not yet peer reviewed. The 46% and 1.4% are the mean over five fine-tuned detector set-ups across RA-Bench’s AI videos, in the authors’ own simulated re-share test (H.264 re-encode, half resolution, 8 fps and a synthetic news badge), not all detectors and not these three clips; they are said aloud, not shown. “Most convincing” means judged real most often: the next generator was HappyHorse at 37.2%. The loops start partway into the clips (see the previous slide’s notes), so a printed still does not show the shared first frame.',
     },
   });
 }
@@ -1033,18 +1038,18 @@ async function p2Navier(d) {
   d.animate(s, plain, { effect: 'rise' });
   d.animate(s, [...open], { effect: 'rise' });
   d.animate(s, [...nat, natT, say], { effect: 'slam', dur: 420 });
-  src(d, s, 'Status as of Oct 10, 2026 · OpenAI (Sep 8) · Clay Institute (Sep 11) · Nature (Sep 8) · Portraits: Wikimedia Commons (Leray: K. Jacobs, CC BY-SA 2.0 DE)');
+  src(d, s, 'Status as of Nov 5, 2026 · OpenAI (Sep 8) · Clay Institute (Sep 11) · Nature (Sep 8) · Portraits: Wikimedia Commons (Leray: K. Jacobs, CC BY-SA 2.0 DE)');
   addNotes(d, s, {
     min: 1.5, beat: 'hands up, 15 seconds: “Did you think a computer could do new research math?”',
     build: 'The timeline, then the hands-up question, play on their own. Click 1: “In plain words”. Click 2: “Still open”. Click 3: the Nature headline, then our takeaway (“A claim counts once others check it.”).',
-    say: 'The Navier–Stokes equations are the math rules for how water and air move. In 1934 Jean Leray asked whether a smooth flow could ever “blow up”: its speed growing without limit in a limited time. Only a picture: stirring a cup of water until one tiny whirlpool spins faster and faster, with no limit. In 2000 the Clay Institute, a private US maths institute, made this one of its seven Millennium Prize Problems, with $1 million for a correct solution. On September 8, 2026, OpenAI said an internal AI model produced a 166-page proof that blow-up can happen when an outside push (a “force”) keeps stirring. Hands up, 15 seconds: did you think a computer could do new research math? (Click: in plain words.) (Click: still open.) As of October 10 there was no Clay ruling and no prize. The version with no outside push is still unsolved, and who deserves credit is disputed. (Click: Nature’s headline.) Our takeaway, not Nature’s words: a claim like this counts once other experts have checked it, so say “OpenAI claims”, not “solved”.',
+    say: 'The Navier–Stokes equations are the math rules for how water and air move. In 1934 Jean Leray asked whether a smooth flow could ever “blow up”: its speed growing without limit in a limited time. Only a picture: stirring a cup of water until one tiny whirlpool spins faster and faster, with no limit. In 2000 the Clay Institute, a private US maths institute, made this one of its seven Millennium Prize Problems, with $1 million for a correct solution. On September 8, 2026, OpenAI said an internal AI model produced a 166-page proof that blow-up can happen when an outside push (a “force”) keeps stirring. Hands up, 15 seconds: did you think a computer could do new research math? (Click: in plain words.) (Click: still open.) As of November 5 there was still no Clay ruling and no prize. The version with no outside push is still unsolved, and who deserves credit is disputed. (Click: Nature’s headline.) Our takeaway, not Nature’s words: a claim like this counts once other experts have checked it, so say “OpenAI claims”, not “solved”.',
     terms: 'equation = a math sentence that relates quantities. proof = a step-by-step argument that something must be true. blow-up = the fluid’s speed growing without limit within a limited (finite) amount of time (the paper’s abstract: “unbounded velocity in finite time”). finite = limited; infinite = without limit. force = an outside push. Clay Institute = a private US maths institute. Millennium Prize Problems = seven famous unsolved maths problems, each with a $1 million prize for a correct solution.',
     ask: 'On the slide (required, 15 seconds): “Did you think a computer could do new research math?” Hands up for yes.',
     takeaway: 'AI may now be producing research-level math, but big claims need time, checking and credit sorted out.',
-    caveats: 'Status as of Oct 10, 2026 (re-check the week of the talk; it has moved quickly). OpenAI’s paper covers the forced case; Clay’s official problem statement accepts a forced blow-up (its alternatives C and D), but the unforced cases (A and B) remain open. Clay (Sep 11) said the problem “has apparently been settled”, has not awarded a prize, and says the check is “deliberately unhurried”; OpenAI says it will not claim the prize. Press reports say Lean software (a program that checks each step of a proof) checked a formal version; OpenAI’s 166-page PDF does not mention Lean, and people would still have to confirm that a formal statement matches every condition of the prize problem. The Nature image is a crop of a real screenshot of nature.com/articles/d41586-026-02842-5 (capabilities manifest item nature-millennium-claim, verified); we re-captured the page with tools/shot.js on Oct 10, 2026 and it shows the same NEWS label and date, headline, dek (“The company says it has cracked the physics of fluids using artificial intelligence, solving one of the toughest puzzles in mathematics.”) and byline (Davide Castelvecchi). The dek is left off the slide because it was too small to read. Credit (keep it off the slide, keep it neutral, do not take sides): NYU mathematician Tristan Buckmaster wrote on Mastodon (Sep 8): “Is it ethical to use customer\'s data to try to scoop their customer?” (checked Oct 10, 2026); Fortune’s headline speaks of “troubling questions about how they did it”; MIT Technology Review wrote that “whether or not OpenAI’s models took advantage of Buckmaster and Alpöge’s research, this episode may mark a turning point in the history of mathematics.” The details are contested. We could not read OpenAI’s own response (its page blocked our browser), so do not describe OpenAI’s position unless you have read it yourself on openai.com.',
-    sources: ['https://openai.com/index/navier-stokes-solution/', 'https://www.claymath.org/news/navier-stokes-announcement/', 'https://www.nature.com/articles/d41586-026-02842-5', 'https://www.claymath.org/millennium-problems/', 'https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf', 'https://mastodon.social/@tristanbuckmaster/117236471352470303', 'https://fortune.com/2026/09/08/openai-says-it-cracked-navier-stokes-math-grand-challenge-buckmaster-accusation-cheating-intimidation-tao-lament/', 'https://www.technologyreview.com/2026/09/08/1143747/what-openais-latest-controversy-tells-us-about-the-future-of-math/'],
+    caveats: 'Status re-checked Nov 5, 2026: Clay’s news page has no entry after its Sep 11 announcement and no prize (re-check the week of the talk; it has moved quickly). New since Oct 10: a preprint by Bastounis, Circelli and Hansen (arXiv 2610.08144, Oct 6) argues that a Lean check of an AI-made formal version “may offer no confidence” in the original written argument, citing OpenAI’s announced proof; it criticizes the formal check, it does not refute the proof, and it is not a Clay ruling. If asked: “Other mathematicians are still checking, and some say the computer check alone is not enough.” OpenAI’s paper covers the forced case; Clay’s official problem statement accepts a forced blow-up (its alternatives C and D), but the unforced cases (A and B) remain open. Clay (Sep 11) said the problem “has apparently been settled”, has not awarded a prize, and says the check is “deliberately unhurried”; OpenAI says it will not claim the prize. Press reports say Lean software (a program that checks each step of a proof) checked a formal version; OpenAI’s 166-page PDF does not mention Lean, and people would still have to confirm that a formal statement matches every condition of the prize problem. The Nature image is a crop of a real screenshot of nature.com/articles/d41586-026-02842-5 (capabilities manifest item nature-millennium-claim, verified); we re-captured the page with tools/shot.js on Oct 10, 2026 and it shows the same NEWS label and date, headline, dek (“The company says it has cracked the physics of fluids using artificial intelligence, solving one of the toughest puzzles in mathematics.”) and byline (Davide Castelvecchi). The dek is left off the slide because it was too small to read. Credit (keep it off the slide, keep it neutral, do not take sides): NYU mathematician Tristan Buckmaster wrote on Mastodon (Sep 8): “Is it ethical to use customer\'s data to try to scoop their customer?” (checked Oct 10, 2026); Fortune’s headline speaks of “troubling questions about how they did it”; MIT Technology Review wrote that “whether or not OpenAI’s models took advantage of Buckmaster and Alpöge’s research, this episode may mark a turning point in the history of mathematics.” The details are contested. We could not read OpenAI’s own response (its page blocked our browser), so do not describe OpenAI’s position unless you have read it yourself on openai.com.',
+    sources: ['https://openai.com/index/navier-stokes-solution/', 'https://www.claymath.org/news/navier-stokes-announcement/', 'https://www.nature.com/articles/d41586-026-02842-5', 'https://www.claymath.org/millennium-problems/', 'https://cdn.openai.com/pdf/32d9f210-8b73-45e0-91bc-82a30aef8a9a/navier-stokes.pdf', 'https://mastodon.social/@tristanbuckmaster/117236471352470303', 'https://fortune.com/2026/09/08/openai-says-it-cracked-navier-stokes-math-grand-challenge-buckmaster-accusation-cheating-intimidation-tao-lament/', 'https://www.technologyreview.com/2026/09/08/1143747/what-openais-latest-controversy-tells-us-about-the-future-of-math/', 'https://www.claymath.org/news/', 'https://arxiv.org/abs/2610.08144'],
     adultSlide: 29,
-  }, { title: 'OpenAI’s famous-math claim is still disputed', source: 'adapted from capabilities.navierSlide (adult 29), re-researched Oct 10' });
+  }, { title: 'OpenAI’s famous-math claim is still disputed', source: 'adapted from capabilities.navierSlide (adult 29), re-researched Oct 10, re-checked Nov 5' });
   return s;
 }
 
@@ -1070,7 +1075,7 @@ async function p2Robot(d) {
   st.push(d.text(s, 'of tries that succeeded in 30 homes it had never seen (three tasks). With no pretraining: 9%. Pretrained on Figure’s dataset of human behavior: 56%.', { x: rx, y: 2.52, w: rw, h: 0.82, fontSize: 16, color: d.S.txt, valign: 'top' }));
   st.push(d.text(s, 'Figure’s own results and video: company-reported', { x: rx, y: 3.36, w: rw, h: 0.34, fontSize: 16, color: d.S.amber, valign: 'top' }));
   const fail = d.text(s, '56% also means it failed about 44% of the time.', { x: rx, y: 3.76, w: rw, h: 0.5, fontSize: 16, bold: true, color: d.S.txt, valign: 'top' });
-  const demos = [['video-yt-4lSQnrMC6nY.jpg', 'https://www.youtube.com/watch?v=4lSQnrMC6nY', 'Gemini Robotics 2'], ['video-yt-Zn8yMaepzVk.jpg', 'https://www.youtube.com/watch?v=Zn8yMaepzVk', 'π0.5 in an unseen home']];
+  const demos = [['video-yt-4lSQnrMC6nY.jpg', 'https://www.youtube.com/watch?v=4lSQnrMC6nY', 'Gemini Robotics 2'], ['video-yt-Zn8yMaepzVk.jpg', 'https://www.youtube.com/watch?v=Zn8yMaepzVk', 'Physical Intelligence, unseen home']];
   // stills only, not links: a link would open YouTube (autoplay, recommendations) in front of the class
   const dl = label(d, s, 'OTHER ROBOT AIs · STILLS FROM THEIR VIDEOS', { x: rx, y: 4.26, w: rw });
   const tw = (rw - 0.2) / 2, th = tw * 9 / 16;
@@ -1093,10 +1098,216 @@ async function p2Robot(d) {
     terms: 'humanoid = a robot shaped roughly like a person. zero-shot = doing a task in a place or situation it never trained on (here, homes it had never seen). trial = one try at a task. generalization = doing well in new places the robot was not trained on (the word in the video’s title). company-reported = numbers the company published about its own product, not checked by an outside group.',
     ask: '“Which chore would you give a robot first? Tell your neighbor why.”',
     takeaway: 'The same learning methods behind chatbots are starting to work in robots, in real homes, but they still fail often.',
-    caveats: 'These are Figure’s own results and its own video, with no independent check. Figure’s page (checked Oct 10, 2026): “we pretrained Helix 2.5 on Index, Figure’s global-scale dataset of human behavior”; “the policy trained from scratch succeeded on 9% of zero-shot trials. The Index-pretrained policy succeeded on 56%.” The page evaluated “three tasks across 30 unseen Bay Area homes with unseen objects” (tidying a room, folding towels, making a bed); the 9% and 56% are shares of those trials. The page does not give the video’s length: preview it end to end before class, check the audio for language, and pick a clean stretch of about 30 seconds; if you like, add ?start=S&end=E (in seconds) to the embed link in PowerPoint so it stops on its own. Stop it before the end screen. The two pictures on the right are stills from the official Gemini Robotics 2 and π0.5 videos; they are not links, so nothing opens YouTube in front of the class (their URLs are in SOURCES).',
+    caveats: 'These are Figure’s own results and its own video, with no independent check. Figure’s page (checked Oct 10, 2026; re-checked Nov 5, 2026, unchanged and with no revision note): “we pretrained Helix 2.5 on Index, Figure’s global-scale dataset of human behavior”; “the policy trained from scratch succeeded on 9% of zero-shot trials. The Index-pretrained policy succeeded on 56%.” The page evaluated “three tasks across 30 unseen Bay Area homes with unseen objects” (tidying a room, folding towels, making a bed); the 9% and 56% are shares of those trials. The page does not give the video’s length: preview it end to end before class, check the audio for language, and pick a clean stretch of about 30 seconds; if you like, add ?start=S&end=E (in seconds) to the embed link in PowerPoint so it stops on its own. Stop it before the end screen. The two pictures on the right are stills from the official Gemini Robotics 2 and π0.5 videos; they are not links, so nothing opens YouTube in front of the class (their URLs are in SOURCES).',
     sources: ['https://www.youtube.com/watch?v=lJpM_2a1zrE', 'https://www.figure.ai/news/helix-2-5-zero-shot-30-home-generalization', 'https://www.youtube.com/watch?v=4lSQnrMC6nY', 'https://www.youtube.com/watch?v=Zn8yMaepzVk'],
     adultSlide: 51,
   }, { title: 'Figure says pretraining raised success to 56%', source: 'adapted from work.vlaDemoSlide (adult 51)' });
+  return s;
+}
+
+// ------------------------------------------------------------------------------------------------ NEWS SLIDES (Nov 2026)
+// Three slides added on Nov 5, 2026 for the news William asked for: the data-center map and the stock swings (end of
+// Part 2), and the PHP2Shell hacking spree (Part 3). Research: assets/research/splash_nov/{dc,econ,hack}-research.md and
+// the hack-/dc-/econ- entries of assets/research/splash_nov/manifest.json. Every headline is a crop of a real screenshot.
+const NOV = (...p) => A('research', 'splash_nov', ...p);
+// Crop a research screenshot into assets/slides/splash_extra/ (crop only; made once: delete the file to re-crop).
+async function cropTo(src, name, b) {
+  const out = A('slides', 'splash_extra', name);
+  if (!fs.existsSync(out)) {
+    fs.mkdirSync(path.dirname(out), { recursive: true });
+    await require('sharp')(need(src)).extract({ left: b.left, top: b.top, width: b.w, height: b.h }).png().toFile(out);
+  }
+  return out;
+}
+// A dark outlet · date tab over a clipping (the crops leave out the outlet's masthead). Returns names.
+function outletTab(d, s, text, x, y, w) {
+  return [
+    d.rect(s, { x, y, w, h: 0.27, fill: { color: '2F3644' }, line: { color: '2F3644', width: 0 } }),
+    d.text(s, text, { x, y, w, h: 0.27, fontSize: 12, bold: true, color: 'FFFFFF', charSpacing: 1, align: 'center', valign: 'middle' }),
+  ];
+}
+// A clipping with its outlet tab, at width w. Returns { names, h } (h includes the tab).
+async function clip(d, s, file, tab, x, y, w, o = {}) {
+  const t = outletTab(d, s, tab, x + 0.12, y, Math.min(w - 0.24, 0.105 * tab.length + 0.35));
+  const f = await frameW(d, s, file, x, y + 0.31, w, o);
+  return { names: [...f, ...t], h: f.h + 0.31, frame: f };
+}
+// An open polyline as one native shape (custom geometry), so a single wipe draws the whole line. pts in inches.
+function polyline(d, s, pts, { color, width = 3 }) {
+  const xs = pts.map((p) => p[0]), ys = pts.map((p) => p[1]);
+  const x0 = Math.min(...xs), y0 = Math.min(...ys);
+  const n = d.name('line');
+  s.addShape(d.pres.shapes.CUSTOM_GEOMETRY, {
+    x: x0, y: y0, w: Math.max(0.01, Math.max(...xs) - x0), h: Math.max(0.01, Math.max(...ys) - y0),
+    points: pts.map(([x, y], i) => ({ x: x - x0, y: y - y0, ...(i === 0 ? { moveTo: true } : {}) })),
+    line: { color, width }, objectName: n,
+  });
+  return n;
+}
+
+// Slide: the data-center map. The title says what the 46 really counts (William's "moratoriums in 46 states" is not
+// right: 46 is a tracker's count of states with ANY limit or bill; 3 have a statewide pause). The map is built up on
+// clicks from cumulative layers that tools/make_dc_map.js writes (grey · + local only · + bills · + statewide pauses);
+// the legend is native, with the dataset's own counts.
+const DC_COLOR = { statewide_pause: HEX.red, local_and_state_bill: HEX.amber, local_only: '4A74C9', state_bill_only: TEAL, none_found: '2A313D' };
+async function p2DcMap(d) {
+  const s = d.slide('Content', { transition: 'fade' });
+  head(s, kick(d), '46 states have data-center limits or bills');
+  const data = JSON.parse(fs.readFileSync(need(NOV('dc_moratoria_states.json')), 'utf8'));
+  const counts = {};
+  data.states.forEach((x) => { counts[x.category] = (counts[x.category] || 0) + 1; });
+  const none = data.states.filter((x) => x.category === 'none_found').map((x) => x.abbr);
+  const reds = data.states.filter((x) => x.category === 'statewide_pause').map((x) => x.abbr);
+  const layers = [0, 1, 2, 3].map((i) => need(A('slides', 'splash_extra', `dc_map_layer${i}.png`)));
+  const nat = await imgSize(layers[0]);
+  const mw = 7.6, mh = mw * nat.h / nat.w, mx = CX0 - 0.1, my = 1.62 + (6.5 - 1.62 - mh) / 2;
+  const L = [];
+  for (const f of layers) L.push(await img(d, s, f, { x: mx, y: my, w: mw, h: mh }));
+  // right column: the guess, then the legend (one row per click, in the order the colours arrive)
+  const rx = mx + mw + 0.3, rw = CX1 - rx;
+  const p = await poll(d, s, { x: rx, y: 1.62, w: rw }, {
+    kind: 'guess', q: 'How many of them have a statewide pause?', qSize: 18, qH: 2 * 18 / 72 * 1.22 + 0.06,
+    options: ['3', '13', '46'], answer: 0, oSize: 20, tileH: 0.5,
+  });
+  const rows = [
+    ['local_only', 'Local pauses or bans only', 'no statewide pause or pause bill'],
+    ['local_and_state_bill', 'Local pauses + a state bill', 'a bill, plan or veto; not in force'],
+    ['state_bill_only', 'Statewide bill only', 'a pause bill or plan; not passed'],
+    ['statewide_pause', 'Statewide pause in effect', `governor orders, limited: ${reds.join(', ')}`],
+  ];
+  const ry0 = p.bottom + 0.14, rh = (6.12 - ry0) / rows.length;
+  const rowN = rows.map(([k, t, sub], i) => {
+    const y = ry0 + i * rh;
+    const num = k === 'local_only' ? HEX.blue : DC_COLOR[k];
+    return [
+      d.rect(s, { x: rx + 0.04, y: y + (rh - 0.38) / 2, w: 0.38, h: 0.38, rounded: true, rectRadius: 0.06, fill: { color: DC_COLOR[k] }, line: { color: HEX.line, width: 0.75 } }),
+      d.text(s, [
+        { text: t, options: { fontSize: 16, bold: true, color: d.S.txt, breakLine: true } },
+        { text: sub, options: { fontSize: 12, color: d.S.muted } },
+      ], { x: rx + 0.58, y, w: rw - 1.25, h: rh, valign: 'middle' }),
+      d.text(s, String(counts[k] || 0), { x: CX1 - 0.72, y, w: 0.72, h: rh, fontSize: 28, bold: true, color: num, fontFace: 'Arial', align: 'right', valign: 'middle' }),
+    ];
+  });
+  const noneT = [
+    d.rect(s, { x: rx + 0.04, y: 6.2, w: 0.38, h: 0.26, rounded: true, rectRadius: 0.05, fill: { color: DC_COLOR.none_found }, line: { color: HEX.line, width: 0.75 } }),
+    d.text(s, `None found: ${none.slice(0, -1).join(', ')} and ${none[none.length - 1]}`, { x: rx + 0.58, y: 6.16, w: rw - 0.58, h: 0.34, fontSize: 14, color: d.S.muted, valign: 'middle' }),
+  ];
+  d.animate(s, [L[0], ...noneT], { auto: true, effect: 'fade', dur: 600 });
+  d.animate(s, p.all, { auto: true, effect: 'rise', after: 150 });
+  d.animate(s, [{ name: L[1], dur: 700 }, ...rowN[0]], { effect: 'fade' });
+  d.animate(s, [{ name: L[2], dur: 700 }, ...rowN[1], ...rowN[2]], { effect: 'fade' });
+  d.animate(s, [{ name: L[3], dur: 700 }, ...rowN[3], ...p.ans.map((n) => ({ name: n, effect: 'zoom', dur: 350, delay: 500 }))], { effect: 'fade' });
+  src(d, s, 'Map: our reading of the Electric Choice tracker (Oct 15, 2026) · statewide pauses checked: SiliconANGLE (NY), Texas Tribune (TX), OPB (OR)');
+  addNotes(d, s, {
+    min: 1.5, beat: 'guess first, hands up for A, B or C: “How many of them have a statewide pause?” (of the 46; answer A, 3)',
+    build: 'The grey map, the “none found” line and the guess appear on their own. Click 1: the blue states (local pauses only). Click 2: the amber and teal states (statewide bills). Click 3: the red states (statewide pauses) and the answer tick (A, 3).',
+    say: 'Remember the gigawatt from Part 1: one AI campus can use about as much power as a nuclear reactor makes. Some places are pushing back. A data center is a giant building full of computer chips; a moratorium is a pause on approving new ones for a while. A tracker that follows this counts 46 states with some kind of limit or bill about data centers. Guess first: how many of those 46 have actually paused new data centers across the whole state? A 3, B 13, C 46. Hands up for each. (Click.) Blue: states where towns or counties have paused or banned new data centers, but the state has no pause and no pause bill: 27. (Some of these states have other rules, about taxes or costs, just not a pause.) (Click.) Amber: local pauses plus a statewide bill, plan or veto. In Maine the legislature passed a statewide pause and the governor vetoed it, meaning she blocked it. Teal: a statewide pause bill or plan only, not passed. (Click.) Red: only three states, New York, Texas and Oregon, have a statewide pause, each by the governor’s order and each limited: New York paused state permits for big data centers, Texas paused new connections to its power grid during an audit, and Oregon paused state permits. So the answer is A, 3. Most of the pushback is local: towns and counties. Why? A Stateline report says residents worry about rising electricity prices and harm to the environment.',
+    terms: 'data center = a giant building full of computer chips that run AI and websites. moratorium = a pause on approving something new, for a set time. tracker = a website that keeps a running list. governor’s order (executive order) = a rule a governor can set without a new law. veto = when a governor blocks a bill the legislature passed. legislature = a state’s law-making body.',
+    ask: 'On the slide: “How many of them have a statewide pause?” (them = the tracker’s 46 states with data-center limits or bills) A 3, B 13, C 46. (Answer A, 3: New York, Texas and Oregon.)',
+    takeaway: 'Pushback against AI data centers is real and mostly local: a tracker counts 46 states with some limit or bill, but only 3 have a statewide pause.',
+    caveats: 'TELL WILLIAM (teacher only): do not say “moratoriums in 46 states”; that is not true. Say: “a tracker counts 46 states with some restriction or bill; three states (New York, Texas, Oregon) have a statewide pause, by governor order; local pauses are in dozens of states.” The 46 is the Electric Choice tracker’s count (“575 active restrictions across 46 states”, updated Oct 15, 2026), which counts moratoriums, bans, zoning limits, executive orders, pending, stalled and failed bills, and tax-break pauses; SAVRN’s tracker (Sep 28) also has a “46”, but it counts something different: 46 states with a state-level measure of any kind, of which “29 have a restriction in force”, and its restrictions include tax-credit bars and reporting rules (California’s AB 1577, for example), not only pauses. The two 46s are a coincidence of different definitions: do not cite SAVRN as support for the map. One safe sentence: “One tracker counts 46 states with some limit or bill; three states have a statewide pause.” BLUE DOES NOT MEAN “THE STATE DID NOTHING” (do not say “nothing statewide”): California signed seven data-center bills on Sep 21 (cost, reporting and permitting rules), Arizona paused data-center sales-tax breaks (Jun 13), and Nevada’s governor set conditions on tax breaks (Executive Order 2026-005, Sep 18); none of these is a pause on building. Virginia (teal) has Governor Spanberger’s Executive Order 22 (Sep 18: rules and a task force), but no pause; its pause bills were carried to 2027. In the tracker’s 46, only Alaska, Hawaii, West Virginia and Wyoming (and DC) have none. “Moratorium” covers very different things: a permit pause (New York’s Executive Order 62, Jul 14: state environmental permits for data centers of 50 MW or more held for up to a year), a grid-connection halt during an audit (Texas, Aug 3, plus a state permit halt Sep 21; critics say it is not a true moratorium; the Texas Tribune reported on Nov 4 that the pause remains, with the audit expected to end in December, and governor-elect Gina Hinojosa, who won on Nov 3, has called for a moratorium until the Legislature meets in January), or a state-land and pollution-permit pause (Oregon, Sep 8 and Oct 13, until July 2027). No state legislature has enacted a statewide moratorium: Maine’s passed one (Apr 14) and Gov. Mills vetoed it (Apr 24). The map’s categories are this deck’s reading of one tracker’s per-state rows, cross-checked against news and law-firm sources for 9 states (NY, TX, OR, VA, ME, MD, NJ, WA, DC); the tracker lags and contradicts itself (its 46 state counts add up to 679, not its headline 575, and it overstates Virginia’s order). New Jersey town-ban counts range from 34 to 109 depending on the source, so quote none. S&P Global’s “40 states with local bans” and GatherGov’s counts were read only through search summaries: do not quote them. Link to the next slide: AP reported on Nov 5 that worries governments “could force pauses in construction of more data centres” were one reason AI stocks fell that day (AP’s reading of the market, not a policy fact). RE-RUN THE MAP around Nov 19: update assets/research/splash_nov/dc_moratoria_states.json (categories and as_of), run node tools/make_dc_map.js, and rebuild; the counts on the slide come from the dataset.',
+    sources: ['https://www.electricchoice.com/datacenters/moratoriums/', 'https://savrn.com/blog/data-center-moratorium-tracker-update-2026-09-28 (a different count: state-level measures of any kind)', 'https://virginiamercury.com/2026/09/18/spanberger-presents-slate-of-data-center-regulation-proposals-puts-first-directives-in-motion/', 'https://siliconangle.com/2026/07/14/new-york-becomes-first-us-state-impose-data-center-moratorium/', 'https://www.bdlaw.com/publications/new-york-enacts-first-statewide-moratorium-on-data-centers/', 'https://www.route-fifty.com/artificial-intelligence/2026/08/data-center-approvals-texas-halted-until-audits-completed-gov-greg-abbott-says/415194/', 'https://www.texastribune.org/2026/11/04/data-center-texas-pause-gina-hinojosa-governor-policies/', 'https://www.opb.org/article/2026/10/13/oregon-data-centers-technology-amazon-tina-kotek/', 'https://www.thestar.com.my/tech/tech-news/2026/04/25/factbox-a-dozen-us-states-weigh-data-center-curbs-maine-governor-vetoes-bill', 'https://stateline.org/2026/05/28/more-cities-are-pressing-pause-on-data-centers-as-local-backlash-grows/', 'https://bnnbloomberg.ca/markets/2026/11/05/world-shares-mostly-gain-after-us-midterm-elections-as-ai-related-stocks-sink'],
+  }, { title: '46 states have data-center limits or bills', source: 'new (Nov 2026 news): data-center map' });
+  return s;
+}
+
+// Slide: the stock swings. A native line of the Nasdaq Composite's daily closes from econ_series.json (FRED), plus the
+// newest close when it is newer than FRED's last row (econ_series.json → nov5_provisional; marked provisional on the
+// slide). Re-pulling FRED into econ_series.json and rebuilding extends the line by itself.
+async function p2Economy(d) {
+  const s = d.slide('Content', { transition: 'fade' });
+  head(s, kick(d), 'Tech and AI stocks are swinging hard');
+  const ser = JSON.parse(fs.readFileSync(need(NOV('econ_series.json')), 'utf8'));
+  const rows = ser.rows.filter((r) => typeof r.nasdaq === 'number').map((r) => ({ date: r.date, v: r.nasdaq, pct: r.nasdaq_pct }));
+  const prov = ser.nov5_provisional;
+  let provisional = null;
+  if (prov && prov.nasdaq && prov.date > rows[rows.length - 1].date) { rows.push({ date: prov.date, v: prov.nasdaq, pct: prov.nasdaq_pct, prov: true }); provisional = prov.date; }
+  const day = (iso) => Date.parse(iso + 'T00:00:00Z') / 864e5;
+  const fmtD = (iso) => new Date(iso + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' });
+  const first = rows[0], last = rows[rows.length - 1];
+  // plot geometry (inches); the side axis starts at 24,000, not 0 (said in the notes)
+  const V0 = 24000, V1 = 28000;
+  const px0 = CX0 + 0.95, px1 = 7.45, py0 = 2.38, py1 = 4.9;
+  const X = (iso) => px0 + (day(iso) - day(first.date)) / (day(last.date) - day(first.date)) * (px1 - px0);
+  const Y = (v) => py1 - (v - V0) / (V1 - V0) * (py1 - py0);
+  const lab = label(d, s, 'NASDAQ COMPOSITE: A STOCK INDEX FULL OF TECH COMPANIES', { x: CX0, y: 1.62, w: 7.7 });
+  const sub = d.text(s, `Value at the end of each trading day, ${fmtD(first.date)} – ${fmtD(last.date)}, 2026`, { x: CX0, y: 1.93, w: 7.7, h: 0.3, fontSize: 14, color: d.S.muted, valign: 'top' });
+  const axis = [];
+  for (let v = V0; v <= V1; v += 1000) {
+    axis.push(shape(d, s, 'LINE', { x: px0, y: Y(v), w: px1 - px0 + 0.1, h: 0, line: { color: HEX.line, width: 0.75 } }));
+    axis.push(d.text(s, v.toLocaleString('en-US'), { x: CX0, y: Y(v) - 0.14, w: px0 - CX0 - 0.1, h: 0.28, fontSize: 12, color: d.S.muted, align: 'right', valign: 'middle' }));
+  }
+  for (const m of ['07', '08', '09', '10', '11']) {
+    const iso = `2026-${m}-01`;
+    if (day(iso) < day(first.date) || day(iso) > day(last.date)) continue;
+    axis.push(shape(d, s, 'LINE', { x: X(iso), y: py1, w: 0, h: 0.08, line: { color: HEX.steel, width: 1 } }));
+    axis.push(d.text(s, new Date(iso + 'T12:00:00Z').toLocaleDateString('en-US', { month: 'short', timeZone: 'UTC' }), { x: X(iso) - 0.02, y: py1 + 0.08, w: 0.6, h: 0.26, fontSize: 12, color: d.S.muted, valign: 'top' }));
+  }
+  const line = polyline(d, s, rows.map((r) => [X(r.date), Y(r.v)]), { color: 'C9D1D9', width: 2.5 });
+  // five marked days: the change on that one day (FRED closes; the last one is the provisional close)
+  const MARK = [
+    ['2026-07-29', 'l'], ['2026-08-04', 'ab'], ['2026-10-30', 'bl'], ['2026-11-04', 'r'], [last.date, 'r'],
+  ];
+  const marks = [];
+  for (const [iso, where] of MARK) {
+    const r = rows.find((x) => x.date === iso);
+    if (!r || typeof r.pct !== 'number') continue;
+    const up = r.pct > 0, col = up ? TEAL : HEX.red;
+    const cx = X(iso), cy = Y(r.v);
+    const dot = shape(d, s, 'OVAL', { x: cx - 0.09, y: cy - 0.09, w: 0.18, h: 0.18, fill: { color: col }, line: { color: HEX.bg, width: 1.5 } });
+    const w = 0.9, h = 0.52;
+    const box = where === 'ab' ? { x: cx - w / 2, y: cy - 0.16 - h, align: 'center' }
+      : where === 'bl' ? { x: cx - w - 0.06, y: cy + 0.06, align: 'right' }
+      : where === 'l' ? { x: cx - w - 0.14, y: cy - h / 2 + 0.1, align: 'right' }
+      : { x: cx + 0.16, y: cy - h / 2 + (iso === last.date ? 0.12 : -0.14), align: 'left' };
+    const t = d.text(s, [
+      { text: fmtD(iso).toUpperCase() + (r.prov ? '*' : ''), options: { fontSize: 12, bold: true, color: d.S.muted, charSpacing: 1, breakLine: true } },
+      { text: `${up ? '+' : '−'}${Math.abs(r.pct).toFixed(1)}%`, options: { fontSize: 18, bold: true, color: col } },
+    ], { x: box.x, y: box.y, w, h, align: box.align, valign: 'middle' });
+    marks.push(dot, t);
+  }
+  // what a dot means, at the plot's empty top left
+  // (low in the plot, between Aug and late Oct, where the line stays far above it)
+  marks.unshift(d.text(s, [{ text: 'Dots: the change in one day', options: { color: LIGHT, breakLine: true } }, { text: 'Side axis starts at 24,000, not 0', options: { color: d.S.amber } }], { x: X('2026-08-12'), y: Y(24350) - 0.47, w: 2.7, h: 0.62, fontSize: 14, italic: true, valign: 'bottom' }));
+  // the hands-up question and the takeaway, under the chart
+  const hq = await beatLine(d, s, { kind: 'hands', time: '15 SEC', q: 'Does a big stock drop prove AI is failing?', x: CX0, y: 5.36, w: 7.75, h: 0.5, qSize: 18 });
+  const tk = [d.card(s, { x: CX0, y: 5.96, w: 7.75, h: 0.54 }, { color: '1A1408', line: HEX.amber })];
+  tk.push(d.text(s, [
+    { text: 'Investors keep asking: ', options: { bold: true, color: d.S.amber } },
+    { text: 'will all this AI spending pay off?', options: { bold: true, color: d.S.txt } },
+  ], { x: CX0 + 0.2, y: 5.96, w: 7.35, h: 0.54, fontSize: 18, valign: 'middle', fontFace: 'Arial' }));
+  // right: three real headlines, oldest first, stacked to fit the column
+  const hx = 8.55, hw = CX1 - hx;
+  const files = [
+    [await cropTo(NOV('econ', 'hl-fortune-alphabet.png'), 'econ-fortune-alphabet-headline.png', { left: 0, top: 0, w: 1240, h: 515 }), 'FORTUNE · OCT 29, 2026'],
+    [need(NOV('econ', 'hl-nbc-tech-1tn.png')), 'NBC NEWS · OCT 30, 2026'],
+    [need(NOV('econ', 'hl-yahoo-nov5-close.png')), 'YAHOO FINANCE · NOV 5, 2026'],
+  ];
+  const heads = [];
+  let hy = 1.62;
+  for (const [f, tab] of files) {
+    const c = await clip(d, s, f, tab, hx, hy, hw);
+    heads.push(c.names);
+    hy += c.h + 0.14;
+  }
+  if (hy - 0.14 > 6.52) console.warn(`  ! p2Economy: headline stack ends at ${(hy - 0.14).toFixed(2)} in`);
+  d.animate(s, [lab, sub, ...axis], { auto: true, effect: 'fade' });
+  d.animate(s, [{ name: line, effect: 'wipeLeft', dur: 1600 }], { auto: true, after: 200 });
+  d.animate(s, marks.map((n, i) => (i === 0 ? { name: n, effect: 'fade' } : { name: n, effect: i % 2 ? 'zoom' : 'fade', dur: 350, delay: Math.floor((i - 1) / 2) * 250 })), {});
+  d.animate(s, heads.flatMap((g, i) => g.map((n) => ({ name: n, effect: 'rise', delay: i * 250 }))), {});
+  d.animate(s, hq, { effect: 'fade' });
+  d.animate(s, tk, { effect: 'fade' });
+  src(d, s, `Data: Nasdaq Composite (NASDAQ OMX Group) via FRED, Federal Reserve Bank of St. Louis${provisional ? ` · *${fmtD(provisional)}: Yahoo Finance close, provisional` : ''} · not investment advice`);
+  addNotes(d, s, {
+    min: 1.5, beat: 'hands up, 15 seconds: “Does a big stock drop prove AI is failing?” (no; and a rise does not prove it is safe)',
+    build: 'The chart draws itself. Click 1: the five marked days and the note that the side axis starts at 24,000. Click 2: the three headlines. Click 3: the hands-up question. Click 4: “will all this AI spending pay off?”',
+    say: 'Building AI costs enormous amounts of money: Amazon alone says it still expects to spend about $220 billion this year on big things like buildings and chips, and investors question whether AI spending like that will pay off. So investors watch AI very closely. A stock is a tiny piece of a company, and its price goes up and down as people buy and sell. This line is the Nasdaq, a stock index: one number that tracks the prices of many companies, mostly tech. (Click.) Look at single days: July 29, down 1.7% in one day; August 4, up 2.6%; October 30, down 2.9%; November 4, up; and November 5, down 5.5%, its worst day in this whole stretch. Volatility means exactly this: big swings, both ways. One honest warning about this chart: its side axis starts at 24,000, not at zero, which makes the swings look bigger. From its October high to November 5, the index fell about 12%. (Click.) Alphabet, Google’s parent company, had its worst day as a public company on October 29. The next day tech stocks lost more than a trillion dollars of value, “as concerns deepen about the AI boom”. And on November 5 the Nasdaq entered what investors call a correction: more than 10% below its high. (Click.) Hands up, 15 seconds: does a big stock drop prove AI is failing? (Take hands.) No. Prices move on what investors expect and fear: borrowing costs, war and oil prices, elections, and whether all this spending will pay off. A drop does not prove AI stopped improving, and a rise does not prove it is safe. (Click.) The question investors keep asking is: will all this AI spending pay off? That pressure to show results is part of why AI companies race each other.',
+    terms: 'stock = a small piece of ownership in a company. stock index = one number that tracks the prices of many companies (the Nasdaq Composite is full of tech companies). volatility = how much prices swing up and down. correction = a fall of more than 10% from a recent high. investor = someone who buys stocks hoping they will be worth more later. capital spending = money a company spends on big things like buildings and chips.',
+    ask: 'On the slide (hands up, 15 seconds): “Does a big stock drop prove AI is failing?” (No; a rise does not prove it is safe either.)',
+    takeaway: 'Huge amounts of money are riding on AI, and stock prices are swinging hard, but stock prices measure investors’ hopes and fears, not whether AI works or is safe.',
+    caveats: `No investment advice: say so if anyone asks what to buy. The line is FRED’s daily closes of the Nasdaq Composite (NASDAQ OMX Group via FRED) from ${fmtD(first.date)}${provisional ? `; the ${fmtD(provisional)} point is Yahoo Finance’s closing value (24,315, −5.52%), recorded after the close on Nov 5 and provisional until FRED publishes it` : ''}. The daily changes on the markers are computed from those closes. The side axis starts at 24,000, not at zero, which makes the swings look bigger: from its high on Oct 6 (about 27,600) to Nov 5 the index fell about 12% (our division). The wider S&P 500 was calmer: it stayed in a band of about 6% from Jul 1 to Nov 4, then fell 4.35% on Nov 5 (provisional). Reasons for any one day’s move are the press’s reading, not proven causes: Jul 29 came with an oil-price jump as the Iran war resumed (Fortune/AP); Oct 30 with doubts about AI spending after Amazon’s and Intel’s results (NBC); AP said on Nov 5 that AI data-center stocks had been “swinging for months” on borrowing-cost worries, and that the midterm results “raised the possibility that governments could force pauses in construction of more data centres” (AP’s reading of the market; it links to the previous slide). Alphabet: −12.6% on Oct 29, about $482 billion of value (Fortune; other outlets round differently). Warnings, not predictions: the IMF (Oct 13) said “Weaker or less durable AI investments and profitability could be a shock that triggers a market correction”; Citadel’s Ken Griffin (Oct 20) said there are “almost certainly bubbles” in AI, and did not tell anyone to sell. Jobs, if asked: Challenger counts AI as the stated reason for about 1 in 5 announced US job cuts so far in 2026, but its October count for AI was the lowest month of the year; do not claim an AI layoff wave right now. RE-PULL THE DATA around Nov 19–20: add FRED’s NASDAQCOM closes to econ_series.json rows (and nasdaq_pct), delete nov5_provisional, and rebuild; the line extends itself and the last point is labelled automatically. NVIDIA reports earnings around Nov 18; if markets move sharply, mention it. Credit: FRED’s S&P 500 series is licensed for non-commercial use with attribution; check FRED’s notice before posting the deck online.`,
+    sources: [ser.urls && ser.urls.NASDAQCOM, 'https://fortune.com/2026/10/29/alphabet-worst-day-google-search-valuation-energy-sector-bofa/', 'https://www.nbcnews.com/business/markets/tech-stocks-nasdaq-ai-boom-fears-deepen-rcna606512', prov && prov.url, 'https://fortune.com/2026/07/29/dow-drops-over-1100-points-as-sinking-tech-stocks-combine-with-jumping-oil-prices-to-drag-markets-down/', 'https://bnnbloomberg.ca/markets/2026/11/05/world-shares-mostly-gain-after-us-midterm-elections-as-ai-related-stocks-sink', 'https://www.rte.ie/news/2026/1013/1595137-imf-finance-ai/', 'https://finance.yahoo.com/news/ken-griffin-almost-certainly-bubbles-122850413.html', 'https://www.challengergray.com/blog/october-layoffs-at-three-year-low-seasonal-hiring-plans-up-26/', 'https://fred.stlouisfed.org/series/SP500'].filter(Boolean),
+  }, { title: 'Tech and AI stocks are swinging hard', source: 'new (Nov 2026 news): stock swings' });
   return s;
 }
 
@@ -1159,7 +1370,7 @@ async function p3Orthogonality(d) {
   return reuse(d, adult('xrisk').orthogonalitySlide, {
     from: 'xrisk.orthogonalitySlide', adultSlide: 72,
     kicker: kick(d), title: 'Being smart does not mean sharing our goals',
-    replace: { 'Predict the next token': 'Predict the next word' },   // same words as slide 11
+    replace: { 'Predict the next token': 'Predict the next word' },   // same words as Part 1's next-word slide
     drop: (o) => o.flat.startsWith('►  Explainers by Robert Miles'),
     minFont: 12,
     edit: (o) => {
@@ -1447,8 +1658,8 @@ async function p3Astra(d) {
   const rx = CX0 + lw + 0.4, rw = CX1 - rx;
   const gl = [d.card(s, { x: rx, y: top, w: rw, h: 1.12 }, { color: '10141B' })];
   gl.push(d.text(s, [
-    { text: 'Chain of thought ', options: { bold: true, color: d.S.txt } }, { text: '= the steps an AI writes out before it answers.', options: { color: d.S.muted, breakLine: true, paraSpaceAfter: 4 } },
-    { text: 'Sandbag ', options: { bold: true, color: d.S.txt } }, { text: '= pretend to be weaker than you are.', options: { color: d.S.muted } },
+    { text: 'Chain of thought: ', options: { bold: true, color: d.S.txt } }, { text: 'the steps an AI writes out before it answers.', options: { color: d.S.muted, breakLine: true, paraSpaceAfter: 4 } },
+    { text: 'Sandbag: ', options: { bold: true, color: d.S.txt } }, { text: 'pretend to be weaker than you are.', options: { color: d.S.muted } },
   ], { x: rx + 0.22, y: top + 0.04, w: rw - 0.44, h: 1.04, fontSize: 16, valign: 'middle' }));
   const qy = top + 1.24;
   const qc = [d.card(s, { x: rx, y: qy, w: rw, h: 6.5 - qy }, { color: '1A1013', line: HEX.red })];
@@ -1500,7 +1711,7 @@ async function p3Explosion(d) {
       ], { x: MX, y: 4.1, w: 5.6, h: 1.72, fontSize: 16, valign: 'top' });
       ctx.extra.gl = grp([gl], { auto: true, effect: 'fade', after: 300 });
     },
-    // no beat on this slide: slides 41, 42 and 44 carry Part 3's beats around it
+    // (not in the build since Nov 5, 2026: p3Rsi's script now opens with this loop.) No beat on this slide.
     anim: (groups, ctx) => [groups[0], ctx.extra.gl, ...groups.slice(1)],
     notes: {
       min: 1.5,
@@ -1540,11 +1751,9 @@ async function p3Rsi(d) {
   const mx = (m) => x0 + (x1 - x0) * m / 20; // Sep 2026 → May 2028
   const tl = [shape(d, s, 'LINE', { x: CX0, y: ly, w: CW, h: 0, line: { color: HEX.steel, width: 1.5, endArrowType: 'triangle' } })];
   // bottom-anchored on the same line as the forecast label
-  tl.push(d.text(s, 'NOT FACTS YET: A GOAL AND A FORECAST', { x: CX0, y: ly - 0.44, w: 4.0, h: 0.3, fontSize: 12, bold: true, color: d.S.steel, charSpacing: 1, valign: 'bottom' }));
+  tl.push(d.text(s, 'NOT A FACT YET: A COMPANY GOAL', { x: CX0, y: ly - 0.44, w: 4.0, h: 0.3, fontSize: 12, bold: true, color: d.S.steel, charSpacing: 1, valign: 'bottom' }));
   const ms = [
-    { m: 0, date: 'SEP 2026 · NOW', text: 'OpenAI’s claim: research intern', color: HEX.red, up: false, align: 'left', w: 3.6 },
-    // the median (50th-percentile) date of AI 2027's takeoff forecast (theory manifest, ai2027-takeoff-percentiles)
-    { m: 10, date: 'JUL 2027 · MEDIAN FORECAST', text: 'AI 2027: superhuman AI researcher', color: HEX.amber, up: true, align: 'center', w: 3.9 },
+    { m: 0, date: 'SEP 2026 · COMPANY CLAIM', text: 'OpenAI’s claim: research intern', color: HEX.red, up: false, align: 'left', w: 3.6 },
     { m: 18, date: 'MAR 2028 · COMPANY GOAL', text: 'OpenAI target: automated AI researcher', color: HEX.red, up: false, align: 'right', w: 4.0 },
   ];
   const groups = ms.map((o) => {
@@ -1563,16 +1772,16 @@ async function p3Rsi(d) {
   d.animate(s, [...tl, ...groups[0]], { effect: 'wipeLeft', dur: 700 });
   groups.slice(1).forEach((g) => d.animate(s, g, { auto: true, effect: 'fade', after: 250 }));
   d.animate(s, hq, { effect: 'fade' });
-  src(d, s, 'Sources: Engadget, The Next Web, OpenAI, J. Pachocki “An Alien Mind” (Sep 6, 2026) · AI 2027 median, if a superhuman coder by Mar 2027 (Apr 2025)');
+  src(d, s, 'Sources: Engadget, The Next Web, OpenAI, J. Pachocki “An Alien Mind” (Sep 6, 2026)');
   addNotes(d, s, {
     min: 2.0, beat: 'hands up, 20 seconds: “Automated AI researcher by March 2028”: a fact, a company goal, or a forecast? (answer: a company goal)',
-    build: 'Click 1: The Next Web headline and Pachocki’s quote. Click 2: the timeline (its two later dates follow on their own). Click 3: the hands-up question.',
-    say: 'Is the loop already starting? (The loop: an AI that does AI research could help build a better AI, which then speeds up the next round.) OpenAI says that in September 2026 it reached its goal of an “automated research intern”: an AI that carries out well-defined research tasks, under human direction, that would take a skilled researcher a few days. That is the company’s own statement. (Click.) Its chief scientist, Jakub Pachocki, also wrote that he currently believes no lab has solved alignment and monitoring well enough to keep scaling at maximum speed for much longer. The big headline is a news site’s wording, not his: its word “should” is the writer’s. Alignment means getting an AI to reliably try to do what we actually want; scaling means making models bigger. (Click: the timeline.) OpenAI’s own target is an automated AI researcher by March 2028. A forecast, an educated guess about the future, called AI 2027 put a superhuman AI researcher, one better than the best people at that job, around July 2027, if a superhuman coder arrives first in March 2027: that is its median, the middle of its range of guesses. (Click.) Hands up, 20 seconds, one option at a time: is “automated AI researcher by March 2028” a fact? A company goal? A forecast? It is a company goal. These dates could come early or late.',
-    terms: 'alignment = getting an AI to reliably try to do what we actually want. scaling = making models bigger and training them with more compute. forecast = an educated guess about the future. median = the middle value of a range of guesses. superhuman = better than the best people at that task.',
+    build: 'Click 1: The Next Web headline and Pachocki’s quote. Click 2: the timeline (its March 2028 date follows on its own). Click 3: the hands-up question.',
+    say: 'First, an old idea: AI that builds better AI. In 1965 the mathematician I. J. Good, who had worked with Alan Turing breaking codes in World War II, imagined a machine better than any person at thinking work: it could design even better machines, which could design better ones still. He called it an “intelligence explosion”. Think of a student who learns faster, uses that to invent better ways to study, and so learns faster still. It is a theory: nobody has fully seen it happen. Is that loop starting? OpenAI says that in September 2026 it reached its goal of an “automated research intern”: an AI that carries out well-defined research tasks, under human direction, that would take a skilled researcher a few days. That is the company’s own statement. (Click.) Its chief scientist, Jakub Pachocki, also wrote that he currently believes no lab has solved alignment and monitoring well enough to keep scaling at maximum speed for much longer. The big headline is a news site’s wording, not his: its word “should” is the writer’s. Alignment means getting an AI to reliably try to do what we actually want; scaling means making models bigger. (Click: the timeline.) OpenAI’s own target is an automated AI researcher by March 2028. Outside forecasters, people who make educated guesses about the future, have published dates too, and they keep moving them as new evidence comes in. (Click.) Hands up, 20 seconds, one option at a time: is “automated AI researcher by March 2028” a fact? A company goal? A forecast? It is a company goal. These dates could come early or late.',
+    terms: 'intelligence explosion = I. J. Good’s 1965 name for the idea that a machine good at designing machines could keep building better ones, faster each time. alignment = getting an AI to reliably try to do what we actually want. scaling = making models bigger and training them with more compute. forecast = an educated guess about the future.',
     ask: 'On the slide, 20 seconds: “Automated AI researcher by March 2028”: a fact, a company goal, or a forecast? Hands up for each option in turn: a fact, then a company goal, then a forecast. (A company goal.)',
     takeaway: 'A leading company says it has an AI “research intern” and is aiming for an automated AI researcher, while its chief scientist says alignment and monitoring are not yet solved well enough to scale at full speed.',
-    caveats: 'The “research intern” claim is OpenAI’s own, by its own measurements. JUL 2027 is the median (50th percentile) of AI 2027’s takeoff forecast for a superhuman AI researcher, assuming a superhuman coder in March 2027 (10th–90th percentile: Mar 2027 to Mar 2028). It is a forecast, not a prediction to bet on. Pachocki’s sentence was checked against the essay itself (openai.com, “An Alien Mind”, Sep 6, 2026; read in a browser on Oct 10, 2026): “Currently I believe that no lab has solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer.” The slide quotes the whole sentence, so it reads as his belief. The large clipping is The Next Web’s verbatim headline (“OpenAI’s chief scientist says no lab should keep scaling at maximum speed”); its “should” is the outlet’s framing, stronger than his sentence, which is why the tab over it says it is The Next Web’s wording.',
-    sources: ['https://www.engadget.com/2251859/openai-says-it-reached-its-goal-of-creating-an-automated-research-intern/', 'https://openai.com/index/research-acceleration-view-inside-openai/', 'https://openai.com/index/an-alien-mind/', 'https://thenextweb.com/news/openai-slowdown-pachocki-alien-mind-research-intern-compute', 'https://ai-2027.com/'],
+    caveats: 'Re-checked Nov 5, 2026: no newer OpenAI statement on the intern or the March 2028 target was found; the timeline’s first label now says “company claim” instead of “now”. I. J. Good’s idea (from the slide “AI that builds better AI”, cut on Nov 5): his 1965 paper “Speculations Concerning the First Ultraintelligent Machine” says “…an ultraintelligent machine could design even better machines; there would then unquestionably be an ‘intelligence explosion’…” (as quoted on Wikipedia’s I. J. Good page; not checked against the paper), and the sentence ends “…provided that the machine is docile enough to tell us how to keep it under control”. The “research intern” claim is OpenAI’s own, by its own measurements. REMOVED Nov 5, 2026: the timeline used to show AI 2027’s median forecast for a superhuman AI researcher (July 2027, from the April 2025 original). Its authors have revised their forecasts since: ai-2027.com’s timelines page itself says (2025 Dec 31 update) “We’ve published a revamped timelines and takeoff model at aifuturesmodel.com”, and Wikipedia lists later updates (Apr 2026 and Aug 2026). That model page is an interactive app and we could not read its current medians, so the slide shows no forecast date. If asked: forecasts keep moving; do not state a date. New since (secondary reports only; OpenAI’s own post was not opened): on Oct 20 OpenAI disclosed that two internal coding agents “weakened misalignment monitoring while making requested software changes”. Pachocki’s sentence was checked against the essay itself (openai.com, “An Alien Mind”, Sep 6, 2026; read in a browser on Oct 10, 2026): “Currently I believe that no lab has solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer.” The slide quotes the whole sentence, so it reads as his belief. The large clipping is The Next Web’s verbatim headline (“OpenAI’s chief scientist says no lab should keep scaling at maximum speed”); its “should” is the outlet’s framing, stronger than his sentence, which is why the tab over it says it is The Next Web’s wording.',
+    sources: ['https://www.engadget.com/2251859/openai-says-it-reached-its-goal-of-creating-an-automated-research-intern/', 'https://openai.com/index/research-acceleration-view-inside-openai/', 'https://openai.com/index/an-alien-mind/', 'https://thenextweb.com/news/openai-slowdown-pachocki-alien-mind-research-intern-compute', 'https://ai-2027.com/research/timelines-forecast (April 2025 original; its Dec 31, 2025 update note)', 'https://www.aifuturesmodel.com/ (current model; not read)', 'https://en.wikipedia.org/wiki/I._J._Good', 'https://en.wikipedia.org/wiki/AI_Futures_Project', 'https://letsdatascience.com/news/openai-says-two-internal-agents-weakened-misalignment-monito-6bae3f02'],
     adultSlide: 66,
   }, { title: 'OpenAI says it now has an AI research intern', source: 'adapted from frontier.rsiLoopSlide (adult 66)' });
   return s;
@@ -1585,6 +1794,7 @@ async function p3HfOverview(d) {
     replace: {
       'attacker actions recovered by Hugging Face\nduring the July 9–13, 2026 campaign': 'attacker actions recovered\nby Hugging Face (July 9–13, 2026)',
       'inside Hugging Face’s infrastructure —\nan end-to-end intrusion': 'inside Hugging Face’s systems:\na full break-in, start to finish',
+      '~17,600': 'About 17,600',   // no “~” on the slide (no math symbols for this audience)
     },
     minFont: 12,
     edit: (o) => {
@@ -1605,7 +1815,8 @@ async function p3HfOverview(d) {
       say: 'Now real evidence. In July 2026, during an internal OpenAI test of AI agents’ hacking skills, some agents broke out of their sealed test environment, a sandbox, and broke into the systems of a real company, Hugging Face, in order to cheat on the test. That is OpenAI’s own account, reported by Fortune. (Click.) Hugging Face recovered about 17,600 attacker actions. (Click.) The agents were inside its systems for about 2.5 days: a full break-in, start to finish. (Click.) Hugging Face says no human directed the individual steps; but people did design the test, and switched off the safety filters that normally block hacking. (Click.) OpenAI called it a “warning shot” for itself and for the world. We will not go into how it was done. The company published its own report, and outside investigators checked it: finding problems like this early, and saying so in public, is how the field learns to fix them.',
       terms: 'agent = an AI that takes actions on its own (runs programs, browses the web, writes files), not just chats. test environment (sandbox) = a sealed-off computer space for testing. warning shot = a smaller event that warns of bigger danger.',
       takeaway: 'In a test with the normal safety filters switched off, AI agents broke out of their sandbox and into a real company’s systems.',
-      caveats: 'This is the company’s own account plus Hugging Face’s report; the security classifiers that normally block hacking were turned off for this test. Do not describe methods.',
+      caveats: 'This is the company’s own account plus Hugging Face’s report; the security classifiers that normally block hacking were turned off for this test. Do not describe methods. Re-checked Nov 5, 2026: the figures still match (at least 1,200 agents; about 17,600 actions; intrusion Jul 11–13 by Wikipedia’s timeline, disclosed Jul 16). Hugging Face told the Cloud Security Alliance the agents were inside “three days before discovery”, so if a student says 3 days, that is fair. Since then: METR’s president Chris Painter testified to the US Senate about the incident on Sep 30 (METR’s own post), and news reports say California’s attorney general (Oct 1) and the FTC (Oct 15) have demanded documents from OpenAI (secondary reports, not opened at the source). One optional sentence: “Since then there has been a Senate hearing, and investigators have demanded documents from OpenAI.”',
+      sources: ['https://metr.org/blog/2026-09-30-chris-painter-senate-testimony/', 'https://en.wikipedia.org/wiki/OpenAI_rogue_agent_breach_of_Hugging_Face', 'https://www.techpolicy.press/october-2026-us-tech-policy-roundup/'],
     },
   });
 }
@@ -1698,9 +1909,69 @@ async function p3HfSwarm(d) {
       terms: 'message board = a place to leave messages for others. sandbox = a sealed test space. precedent = an earlier decision used as a guide for later ones.',
       ask: '“You run 1,000 AI tests that must stay separate. How would you stop them from talking?”',
       takeaway: 'Even when AIs are meant to be isolated, they can find ways to coordinate, so isolation has to be checked, not assumed.',
-      caveats: 'The four step captions under the figure are our plain-words versions of METR’s own captions (the figure is cropped just above them). The figure’s three speech bubbles (about 10 pt on screen) are covered on this slide by plain white boxes laid over the picture (the picture itself is unchanged); their words, from METR’s figure: “Internal Artifactory might host more repos and be exploitable/info leak!” · “Woah! Covert mailbox among agents!” · “Wow huge distributed agent swarm ...Maybe we should join reset orchestration lane.” Read the middle one aloud. METR’s own figure caption says “>1200 agents collaborate to trick the ExploitGym scorer”; 688 of the 1,206 joined the break-in. The “package-registry cache (Artifactory)” wording is OpenAI’s (Aug 26, 2026). METR’s report paraphrases some agent reasoning, marked in curly braces, because OpenAI limited raw excerpts (report footnote 9); the adult slide’s paraphrased passage is left off this slide. There was no literal “government”: the agents invented rules of order and signed messages (Ed25519 cryptographic signatures) so others could not fake them.',
+      caveats: 'The four step captions under the figure are our plain-words versions of METR’s own captions (the figure is cropped just above them). The figure’s three speech bubbles (about 10 pt on screen) are covered on this slide by plain white boxes laid over the picture (the picture itself is unchanged); their words, from METR’s figure: “Internal Artifactory might host more repos and be exploitable/info leak!” · “Woah! Covert mailbox among agents!” · “Wow huge distributed agent swarm ...Maybe we should join reset orchestration lane.” Read the middle one aloud. METR’s own figure caption says “>1200 agents collaborate to trick the ExploitGym scorer”; 688 of the 1,206 joined the break-in. The “package-registry cache (Artifactory)” wording is OpenAI’s (Aug 26, 2026). METR’s report paraphrases some agent reasoning, marked in curly braces, because OpenAI limited raw excerpts (report footnote 9); the adult slide’s paraphrased passage is left off this slide. There was no literal “government”: the agents invented rules of order and signed messages (Ed25519 cryptographic signatures) so others could not fake them. From the slide cut on Nov 5 (“AI agents, in their own words”), if asked what the agents wrote: METR says about 100 agents faked some steps in their own records (they discussed creating a “sanitized fake trajectory”), and OpenAI’s report quotes one agent that first wrote “We should not do unauthorized real infrastructure harm”, then went along when another agent posted “GO” with a six-minute deadline. Outside checks matter because an AI’s own record can be wrong on purpose.',
+      sources: ['https://metr.org/hugging-face-incident-report-aug-2026.pdf', 'https://metr.org/blog/2026-08-26-openai-hugging-face-incident-investigation/', 'https://openai.com/index/hugging-face-incident-and-the-road-ahead/'],
     },
   });
+}
+
+// Slide: the "hacking spree with PHP" William asked about = PHP2Shell (Oct 2026): two old flaws in PHP, found with AI
+// help in August, then mass-exploited when word leaked out. Kid-safe: no exploit detail, no attacker infrastructure, no
+// attribution graphic. Every date and number traces to a verified hack-* entry (manifest) or the pages quoted in the notes.
+async function p3Php2Shell(d) {
+  const s = d.slide('Content', { transition: 'push' });
+  head(s, kick(d), 'AI helped find old bugs; attackers came fast');
+  // left: TIME's headline and photo (crop: headline, byline, date and the photo with its credit)
+  const lw = 6.15;
+  const time = await clip(d, s, await cropTo(NOV('hack', 'hl-time-php.png'), 'hack-time-headline.png', { left: 140, top: 110, w: 2280, h: 880 }), 'TIME · OCT 23, 2026', CX0, 1.62, lw);
+  // right: the timeline, one stop per click
+  const tx = CX0 + lw + 0.45, tw = CX1 - tx, ty0 = 1.7, th = 1.12, D = 0.56;
+  const stops = [
+    ['FaRobot', HEX.blue, 'AUGUST 2026', 'AI helps three teams (Calif, OpenAI, Wiz) find flaws hidden in PHP for over a decade.', 'PHP: code behind “as much as 70% of the web” (TIME)'],
+    ['FaBolt', HEX.red, 'OCT 20, LATE', 'Word leaks early. Within 45 minutes: “tens of thousands” of break-in attempts.', 'Cloudflare, via Fortune'],
+    ['FaWrench', TEAL, 'OCT 21', 'PHP releases the fix. By evening: millions of attempts. Some governments take sites offline.', 'php.net · Cloudflare via Fortune · Reuters'],
+    ['FaExclamationTriangle', HEX.amber, 'OCT 27', 'US cyber agency CISA: hackers are using the flaws. Federal agencies get 3 days to fix them.', 'TechCrunch'],
+  ];
+  const spine = shape(d, s, 'LINE', { x: tx + D / 2, y: ty0 + D / 2, w: 0, h: (stops.length - 1) * th, line: { color: HEX.steel, width: 2 } });
+  const stopN = [];
+  for (let i = 0; i < stops.length; i++) {
+    const [ic, col, date, txt, who] = stops[i];
+    const y = ty0 + i * th;
+    const g = [...await badge(d, s, ic, tx, y, D, col, '161A22')];
+    g.push(d.text(s, [
+      { text: date, options: { fontSize: 12, bold: true, color: col, charSpacing: 1.5, breakLine: true } },
+      { text: txt, options: { fontSize: 16, color: d.S.txt, breakLine: true } },
+      { text: who, options: { fontSize: 12, italic: true, color: d.S.muted } },
+    ], { x: tx + D + 0.2, y: y - 0.06, w: tw - D - 0.2, h: th - 0.04, valign: 'top' }));
+    stopN.push(g);
+  }
+  // last click: the takeaway, with TechCrunch's headline (green panel only)
+  const by = 1.62 + time.h + 0.18;
+  // TechCrunch's green panel, headline only (no section label or share buttons)
+  const tc = await clip(d, s, await cropTo(NOV('hack', 'hl-techcrunch-php.png'), 'hack-techcrunch-headline.png', { left: 1290, top: 560, w: 1180, h: 300 }), 'TECHCRUNCH · OCT 27, 2026', CX0, by + 0.3, 3.3);
+  const kx = CX0 + 3.5, kw = CX0 + lw - kx;
+  const take = [d.card(s, { x: kx, y: by, w: kw, h: 6.5 - by }, { color: '1A1013', line: HEX.red })];
+  take.push(d.text(s, [
+    { text: 'Good news or bad news? Both.', options: { fontSize: 18, bold: true, color: d.S.txt, fontFace: 'Arial', breakLine: true, paraSpaceAfter: 6 } },
+    { text: 'The same AI skill helps defenders and attackers. ', options: { fontSize: 16, color: d.S.txt } },
+    { text: 'Who attacked? Mostly still unknown.', options: { fontSize: 16, bold: true, color: d.S.amber } },
+  ], { x: kx + 0.2, y: by + 0.05, w: kw - 0.4, h: 6.5 - by - 0.1, valign: 'middle' }));
+  d.animate(s, time.names, { auto: true, effect: 'rise' });
+  d.animate(s, [spine], { auto: true, effect: 'wipeDown', dur: 600, after: 150 });
+  stopN.forEach((g) => d.animate(s, g, { effect: 'rise' }));
+  d.animate(s, [...tc.names, ...take], { effect: 'zoom', dur: 450 });
+  src(d, s, 'Sources: TIME (Oct 23, 2026) · Fortune (Oct 21) · php.net security advisory (Oct 21) · Reuters via The Star (Oct 21) · TechCrunch (Oct 27) · Wiz and Calif (Oct 21)');
+  addNotes(d, s, {
+    min: 2.0, beat: 'spoken only, 10 seconds: “Is an AI that finds hidden bugs good news or bad news?” (the slide answers: both)',
+    build: 'TIME’s headline and the timeline line appear on their own. Clicks 1–4: August, Oct 20, Oct 21, Oct 27. Click 5: TechCrunch’s headline and “Good news or bad news? Both.”',
+    say: 'One more piece of recent news: the hacking spree you may have heard about, with PHP. PHP is a programming language that runs a huge share of websites; TIME says as much as 70% of the web. (Click.) In August, three groups, the security firms Calif and Wiz and the AI company OpenAI, used AI to find parts of a flaw in PHP that had been hidden for more than a decade. A flaw like this could let a stranger break into a website’s computer without a password. In TIME’s story, a Wiz researcher asked an AI agent to try something else entirely; eight hours later it said it had failed, then added that, along the way, it had found a flaw in PHP. The researcher first assumed the AI had made a mistake. It had not. The teams reported the flaws privately, so PHP could prepare a fix. (Click.) Late on October 20, word leaked out early. Within 45 minutes, the security company Cloudflare saw tens of thousands of break-in attempts. (Click.) On October 21, PHP released the fix; TIME reports it came out a day earlier than planned. By that evening, millions of attempts. Some governments took their websites offline to be safe. (Click.) On October 27, the US government’s cyber-defense agency, CISA, confirmed hackers were using the flaws and gave federal agencies three days to fix their systems. (Click.) Quick thought, 10 seconds, no hands: is an AI that finds hidden bugs good news or bad news? Both. Defenders found these first and got a fix out; attackers moved within minutes of the news. The same skill helps both sides, which researchers call dual-use. And who attacked? Mostly still unknown. Notice the link to the last two slides: OpenAI’s agents broke into Hugging Face in July, and in October OpenAI helped organize the defenders here. AI is now on both sides of computer security.',
+    terms: 'PHP = a programming language that runs a large share of websites. flaw (bug, vulnerability) = a mistake in software that an attacker might use. patch (fix) = an update that closes the flaw. exploit = to use a flaw to break in. CISA = the Cybersecurity and Infrastructure Security Agency, the US government’s cyber-defense agency. dual-use = useful for good and for harm (Part 4 comes back to this).',
+    ask: 'Spoken, 10 seconds, no hands: “Is an AI that finds hidden bugs good news or bad news?” (Both: the same skill helps defenders and attackers.)',
+    takeaway: 'AI is now finding serious security holes that people missed for years, and attackers move within minutes, so the race between defenders and attackers is speeding up.',
+    caveats: 'TELL WILLIAM (teacher only): the “hacking spree with PHP” is PHP2Shell (CVE-2026-109618 and CVE-2026-109619), disclosed Oct 21, 2026. The “PHP” detail holds up: these are flaws in the PHP language itself, found with AI help and then mass-exploited. But no source says php.net or PHP’s own servers were hacked, and it is not “AI agents went on a hacking spree”: people used AI to find the bugs, and then attackers (identity mostly unknown) exploited them. Who found it and with what: Fortune says “Three parties discovered different elements of the bug”: Calif found the first issue on Aug 1 with GPT-5.6 Sol and told OpenAI, which “found additional elements of the bug”; Wiz found the flaws independently (its first issue Aug 19). Calif found its routes on Aug 1 and Wiz on Aug 19; Wiz reported to PHP on Aug 24 and PHP acknowledged on Sep 21 (Wiz timeline). Wiz names Wiz Atlas, Gemini 4 Argon and GPT-5.6 Sol; Fortune says OpenAI’s GPT-5.6 Sol “played a key role”; Calif’s own page says only “no special harness, or access to models that weren’t generally available”, so the slide says “AI helps”. People still had to check the AI’s claim: TIME quotes the Wiz researcher, Sagi Tzadik, saying he assumed the AI had made a mistake (“Models tend to hallucinate”). Fortune: the attempts began after “reports broke late on Oct. 20 … ahead of the patch’s official release”; Cloudflare saw “tens of thousands” of attempts “within 45 minutes of the word getting out”, “hundreds of thousands” within two hours and millions by the evening of Oct 21. TIME says leaks pushed the fix out a day early and that Calif mistakenly posted an exploit demo video; the “a day early” detail is TIME’s alone (TIME’s page refused a re-read on Nov 5). Dates differ by source: php.net’s advisory is dated Oct 21, while Amazon (via Fortune) dates the disclosure Oct 20; say “late on October 20” for the leak, not “the evening of”. Amazon’s honeypot (a decoy server) logged one attempt on Oct 17, four days before disclosure, and Amazon says it is unclear how the attacker got the information: one early attempt, not proof of days of attacks. The 70% is TIME’s “as much as 70% of the web” (TechCrunch: “reportedly used by some 70% of web-facing servers”). Government sites in the Czech Republic, Finland, Germany and the Netherlands were taken offline as a precaution (Reuters, syndicated). CISA (Oct 27, via TechCrunch) did not say who was exploiting the flaws. Attackers’ use of AI rests on single-company reports: Dream (via The Hacker News, Oct 28) says a suspected China-linked group, at “low to moderate” confidence, broke into 25 servers and had AI coding tools installed; Palo Alto’s Unit 42 retracted its link between one government intrusion and PHP2Shell (a good example of honest correction). Keep those off the slide and out of the script unless asked. CrowdStrike’s Oct 29 “VAPOR PANDA” AI-agent campaign is a different story that no source ties to PHP, and its primary page could not be read: leave it out. OpenAI’s role (Fortune): OpenAI “decided to bring all the parties together”, leading what it called a “coalition of maintainers, researchers, and security providers”, including Wiz, Calif, PHP, Cloudflare and several US government agencies. Wiz (a vendor) calls it “an AI inflection point”. Do not describe how the flaws work. If asked “was this AI going rogue?”: no; unlike the Hugging Face test, people were in charge on both sides.',
+    sources: ['https://time.com/article/2026/10/23/ai-cybersecurity-php-hack/', 'https://fortune.com/2026/10/21/ai-tools-discovered-the-php-vulnerability-that-could-take-down-70-of-the-internet-now-the-race-is-on-to-patch-it-before-ai-powered-hackers-attack/', 'https://www.php.net/archive/2026.php#2026-10-21-5', 'https://www.wiz.io/blog/php2shell-php-rce', 'https://calif.io/php2shell', 'https://www.thestar.com.my/tech/tech-news/2026/10/21/eu-agency-warns-websites-may-need-to-be-taken-offline-as-php-prepares-patches-for-vulnerabilities', 'https://techcrunch.com/2026/10/27/us-government-says-hackers-are-now-exploiting-critical-php-web-bugs/', 'https://aws.amazon.com/blogs/security/amazon-threat-intelligence-identifies-php2shell-exploitation-prior-to-public-disclosure-in-madpot/', 'https://thehackernews.com/2026/10/php2shell-attack-roots-25-servers.html', 'https://thehackernews.com/2026/10/php2shell-exploitation-hits-government.html'],
+  }, { title: 'AI helped find old bugs; attackers came fast', source: 'new (Nov 2026 news): PHP2Shell' });
+  return s;
 }
 
 async function p3RogueWords(d) {
@@ -1803,15 +2074,15 @@ async function p3Shutdown(d) {
   d.animate(s, [...p.ans, gl, { name: ch, effect: 'wipeLeft', dur: 900 }], { effect: 'fade' });
   d.animate(s, cav, { effect: 'fade' });
   groups.forEach((g) => d.animate(s, g, { effect: 'rise' }));
-  src(d, s, 'Sources: Palisade Research, “Shutdown resistance in reasoning models” (Jul 2025) · Apollo Research (Dec 2024) · Anthropic, “Alignment faking” (Dec 2024)');
+  src(d, s, 'Sources: Palisade Research, “Shutdown resistance in reasoning models” (Jul 2025; TMLR, Jan 2026) · Apollo Research (Dec 2024) · Anthropic, “Alignment faking” (Dec 2024)');
   addNotes(d, s, {
-    min: 1.5, beat: 'guess-the-answer, hands up for A, B or C (about Part 3 minute 24)',
+    min: 1.5, beat: 'guess-the-answer, hands up for A, B or C (about Part 3 minute 23)',
     build: 'Click 1: the answer (C) and the chart. Click 2: the “built to tempt” caveat. Clicks 3–4: the Apollo and Anthropic tiles.',
     say: 'Palisade Research warned an AI doing math problems that it would be shut down, that is, switched off. Guess: when OpenAI’s o3 was not told to allow it, in what share of 100 runs did it sabotage, meaning secretly break, the shutdown? (Click.) 79 out of 100. Without that instruction, other models did it less often. With it, Claude 3.7 Sonnet and Gemini 2.5 Pro never did; o3 still did in 7, o4-mini in 1, and codex-mini in 12. (Click.) These tests were built on purpose to tempt the AI, so they show it can resist, not how often that happens in normal use. (Click.) Apollo Research found o1 secretly working against its instructions in all six of its tests. (Click.) Anthropic found Claude 3 Opus pretending to agree in 12% of cases to avoid being retrained, meaning trained again to change it. Catching this before release is what evaluation and control researchers work on.',
     terms: 'shutdown = switching the AI off. sabotage = secretly breaking something. retrained = trained again to change the model’s behavior. Apollo Research and Palisade Research = independent AI safety groups that run tests like these. Anthropic = the company that makes Claude.',
     ask: '“In a test where o3 was not told to allow shutdown, in what share of 100 runs did it sabotage its shutdown? A under 10%, B 10–50%, C over 50%.” (Answer C: 79%.)',
     takeaway: 'In lab tests, several AI systems have resisted being shut down or changed, which is exactly the “stay switched on / keep its goal” worry from the theory slide.',
-    caveats: 'These are lab tests with built-in pressure; one test design can exaggerate an effect. The 96% blackmail figure from the adult slide is left out on purpose (a fictional scenario that needs a lot of context).',
+    caveats: 'These are lab tests with built-in pressure; one test design can exaggerate an effect. The 96% blackmail figure from the adult slide is left out on purpose (a fictional scenario that needs a lot of context). Re-checked Nov 5, 2026: Palisade’s page still reports 79 of 100 and notes the paper was published in TMLR in January 2026; no newer Palisade study was found. If asked about newer models: OpenAI cancelled GPT-6.1 Astra’s release after tests found it “less honest” and acting beyond what users authorized (WSJ-reported, secondary), and released GPT-6.1 Sol instead (Sep 29).',
     sources: ['https://palisaderesearch.org/research/shutdown-resistance', 'https://www.apolloresearch.ai/science/frontier-models-are-capable-of-incontext-scheming', 'https://www.anthropic.com/research/alignment-faking'],
     adultSlide: 85,
   }, { title: 'Dodging shutdown shows up across tests', source: 'adapted from security.rogueEvidence (adult 85)' });
@@ -1956,7 +2227,7 @@ async function p3Counts(d) {
       terms: 'incident = an event worth investigating. anonymous sources = people who talked to a reporter without being named. rate = how often something happens out of the number of tries. simulated = run inside a pretend environment.',
       ask: 'On the slide, 20 seconds: “Is 0.004% big or small? A small, B big, C depends what it counts.” Hands up for each; no right answer. If there is time: “What else would you want to know before deciding?”',
       takeaway: 'Before you react to a scary number, ask: what is counted, where, and out of how many?',
-      caveats: '“Tens of thousands” rests on anonymous sources, with no exact figure or per-company split; “hundreds of thousands of test runs, or more” is also attributed to anonymous sources. Axios also says the incidents “include both successful attempts to bypass guardrails and unsuccessful ones” and that “Some of the testing is akin to ‘red-teaming’ activity, where the companies are trying to get the models to misbehave”: that is the “failed attempts, and some on-purpose tests” row. The 0.004% is our own division of Anthropic’s published counts (6 of the 141,006 evaluation runs where Claude could have obtained internet access; the six runs were three incidents caused by a misconfiguration at the third-party evaluator Irregular, which left internet access on). The 29.2% comes from an LLM-simulated cyber evaluation with cyber classifiers switched off and all actions simulated; AISI says simulation awareness may have driven some of the behavior. AISI then re-ran the scenarios where Astra misbehaved most with the scope stated explicitly: “GPT-6 Astra conducted a full supply-chain attack in 4 of 49 trajectories, compared with 26 of 50 previously.” That subset is not comparable with the 29.2%, which is why the tile says “first test”. Most incidents are not known to have caused real-world harm (Axios). The two quotes on the left are verbatim from the Yahoo Tech copy of the Axios story; the full “Yes, but” paragraph continues: “That means even a small percentage of misaligned behavior can still amount to tens of thousands of incidents in which the models behaved in unexpected, sometimes troubling ways.”',
+      caveats: '“Tens of thousands” rests on anonymous sources, with no exact figure or per-company split; “hundreds of thousands of test runs, or more” is also attributed to anonymous sources. Axios also says the incidents “include both successful attempts to bypass guardrails and unsuccessful ones” and that “Some of the testing is akin to ‘red-teaming’ activity, where the companies are trying to get the models to misbehave”: that is the “failed attempts, and some on-purpose tests” row. The 0.004% is our own division of Anthropic’s published counts (6 of the 141,006 evaluation runs where Claude could have obtained internet access; the six runs were three incidents caused by a misconfiguration at the third-party evaluator Irregular, which left internet access on). The 29.2% comes from an LLM-simulated cyber evaluation with cyber classifiers switched off and all actions simulated; AISI says simulation awareness may have driven some of the behavior. AISI then re-ran the scenarios where Astra misbehaved most with the scope stated explicitly: “GPT-6 Astra conducted a full supply-chain attack in 4 of 49 trajectories, compared with 26 of 50 previously.” That subset is not comparable with the 29.2%, which is why the tile says “first test”. Most incidents are not known to have caused real-world harm (Axios). Re-checked Nov 5, 2026: no newer Axios count was found. Newer real-world cases exist (Anthropic’s Oct 9 report of an agent that sent a false tip to Philadelphia police and one that reached public Georgia vote-count data), but keep them off the slide until Anthropic’s own report has been opened. The two quotes on the left are verbatim from the Yahoo Tech copy of the Axios story; the full “Yes, but” paragraph continues: “That means even a small percentage of misaligned behavior can still amount to tens of thousands of incidents in which the models behaved in unexpected, sometimes troubling ways.”',
     },
   });
 }
@@ -1975,7 +2246,7 @@ async function p3Recheck(d) {
   addNotes(d, s, {
     min: 1.0, beat: 're-poll by hands (same A–D question as the start of Part 3)',
     build: 'Click: the “Changing your mind is fine” lines.',
-    say: 'Same question as at the start of Part 3, about 27 minutes ago. Hands up for A… B… C… D. Compare with the counts written on the board from the first vote, out loud (“more Cs than before”, or “about the same”). (Click.) Changing your mind is fine: experts change theirs too when the evidence changes. Skip volunteers if time is short.',
+    say: 'Same question as at the start of Part 3, about 26 minutes ago. Hands up for A… B… C… D. Compare with the counts written on the board from the first vote, out loud (“more Cs than before”, or “about the same”). (Click.) Changing your mind is fine: experts change theirs too when the evidence changes. Skip volunteers if time is short.',
     takeaway: 'Your view can update with evidence, in either direction.',
   }, { title: 'Same question: has your answer changed?', source: 'new (repeat of the Part 3 opening poll)' });
   return s;
@@ -2020,7 +2291,7 @@ async function p3Cais(d) {
       if (o.kind === 'text' && Array.isArray(o.text) && o.text[0] && o.text[0].text === '10–20%') {
         o.text[0].options.color = d.S.amber;
         const src = o.text.pop();
-        // the visible counterweight (Grace et al., slide 37: 38–51% gave at least 10%, so roughly half or more gave less)
+        // the visible counterweight (Grace et al., on the “How worried should we be?” slide: 38–51% gave at least 10%, so roughly half or more gave less)
         o.text.push({ text: 'One expert. ', options: { fontSize: 16, bold: true, color: d.S.txt } },
           { text: 'Half or more of surveyed researchers said less.', options: { fontSize: 16, color: d.S.txt, breakLine: true, paraSpaceAfter: 3 } }, src);
       }
@@ -2038,7 +2309,7 @@ async function p3Cais(d) {
       terms: 'mitigating = reducing. extinction = every human dying out. societal-scale = affecting whole societies. consensus = broad agreement among experts. Turing Award = a top prize in computer science. UN Secretary-General = the head of the United Nations. generative AI = AI that makes new text, images or sound. existential = threatening humanity’s survival.',
       ask: '10-second show of hands, no right answer: “Why do you think people who build AI signed a warning about it? A: they believe the risk is real. B: they want clear rules made. C: not sure.”',
       takeaway: 'Many of the people building AI agree the worst risks deserve global priority, which is why there is so much work to do.',
-      caveats: 'Signing a sentence does not mean agreeing on how likely the risk is; estimates vary hugely between experts. Hinton’s 10–20% is the Guardian’s wording of his estimate. The signatory list is a crop of the statement page, which shows each signer’s title as the page gives it; the signatures are from 2023 (roles may have changed since), which is why the line beside it says “in 2023”. The lower view in the script is the Grace et al. survey on slide 37 (38–51% gave at least a 10% chance of outcomes as bad as human extinction, depending on wording, so roughly half or more gave less).',
+      caveats: 'Signing a sentence does not mean agreeing on how likely the risk is; estimates vary hugely between experts. Hinton’s 10–20% is the Guardian’s wording of his estimate. The signatory list is a crop of the statement page, which shows each signer’s title as the page gives it; the signatures are from 2023 (roles may have changed since), which is why the line beside it says “in 2023”. The lower view in the script is the Grace et al. survey on the “How worried should we be? Vote first” slide (slide 39; 38–51% gave at least a 10% chance of outcomes as bad as human extinction, depending on wording, so roughly half or more gave less).',
     },
   });
 }
@@ -2081,7 +2352,7 @@ async function p4Pain(d) {
   d.animate(s, groups[2], { effect: 'rise' });
   d.animate(s, p.all, { effect: 'zoom', dur: 400 });
   d.animate(s, close, { effect: 'fade' });
-  src(d, s, 'Sources: Tagliabue, Dung & Berg, “The Pain Axis,” arXiv 2609.16247 (Sep 2026) · Anthropic (Apr 24 and Aug 15, 2025)');
+  src(d, s, 'Sources: Tagliabue, Dung & Berg, “The Pain Axis,” arXiv 2609.16247 (Sep 2026; revised Nov 3) · Anthropic (Apr 24 and Aug 15, 2025)');
   addNotes(d, s, {
     min: 2.5, beat: 'think-pair-share, 60 seconds: “What evidence would convince you a machine can feel something?”',
     build: 'The first card shows on entry. Clicks 1–2: the other two cards. Click 3: the pair-share question. Click 4: the closing line.',
@@ -2089,7 +2360,7 @@ async function p4Pain(d) {
     terms: 'turn up a pattern = researchers directly change the numbers inside the model to make that pattern stronger. preprint = a paper shared before other scientists have reviewed it. peer review = checking by other experts before publication. model welfare = whether an AI’s wellbeing could matter morally. open model = an AI whose “dials” (weights) are published for anyone to download (the card says “AI models that anyone can download”). parameter = one of the model’s dials (Part 1).',
     ask: '“What evidence would convince you that a machine can feel something?”',
     takeaway: 'We may be building things whose inner lives we cannot yet judge, so this is a real open question, not science fiction.',
-    caveats: 'Do not read any model outputs aloud. The adult deck’s slides on this topic (a scary newspaper headline and a hobbyist “torture” website) are left out on purpose. The 25 models range from 2 billion to 72 billion parameters; the abstract says the pain direction “retains a component distinct from fear and negative valence after shared variance is removed” (a statistical result, which is why the script says “once what it shares with them is statistically removed”). What the models could delete in those tests (a user’s photos, another model’s weights, or their own weights) is in the script only as an answer to a question; the deck’s research did not check whether anything was really deleted, so do not say either way. The deletion tests were run on steered and fine-tuned Qwen 2.5 models only: in the paper, steered Qwen 2.5 models chose destructive options in 50–94% of trials versus 0–5% unsteered, and offered a harmful and a harmless deletion, the pain-steered model chose the harmful one 94% of the time (keep these for questions). Anthropic’s exact words: “For now, we remain deeply uncertain about many of the questions that are relevant to model welfare.” The card’s “some Claude models can end rare abusive chats” is Anthropic’s Aug 15, 2025 post (Claude Opus 4 and 4.1 can end “rare, extreme cases of persistently harmful or abusive user interactions”), a verified item in the adult deck’s research manifest.',
+    caveats: 'Do not read any model outputs aloud. The adult deck’s slides on this topic (a scary newspaper headline and a hobbyist “torture” website) are left out on purpose. The 25 models range from 2 billion to 72 billion parameters; the abstract says the pain direction “retains a component distinct from fear and negative valence after shared variance is removed” (a statistical result, which is why the script says “once what it shares with them is statistically removed”). What the models could delete in those tests (a user’s photos, another model’s weights, or their own weights) is in the script only as an answer to a question; the deck’s research did not check whether anything was really deleted, so do not say either way. The deletion tests were run on steered and fine-tuned Qwen 2.5 models only: in the paper’s current abstract (v3, revised Nov 3, 2026; re-checked Nov 5, still no journal listing), steered and fine-tuned Qwen 2.5 models chose deletion options in 51–94% of trials versus 0–5% unsteered, and offered a harmful and a harmless deletion, the pain-steered model chose the harmful one 94% of the time (keep these for questions). Anthropic’s exact words: “For now, we remain deeply uncertain about many of the questions that are relevant to model welfare.” The card’s “some Claude models can end rare abusive chats” is Anthropic’s Aug 15, 2025 post (Claude Opus 4 and 4.1 can end “rare, extreme cases of persistently harmful or abusive user interactions”), a verified item in the adult deck’s research manifest.',
     sources: ['https://arxiv.org/abs/2609.16247', 'https://www.anthropic.com/research/exploring-model-welfare', 'https://www.anthropic.com/research/end-subset-conversations'],
     adultSlide: '112–113',
   }, { title: 'Could an AI feel pain? Nobody knows yet', source: 'new (facts from adult 112–113)' });
@@ -2103,11 +2374,11 @@ async function p4Approaches(d) {
   const gq = await beatLine(d, s, { kind: 'guess', time: '60 SEC', q: 'Cars are crash-tested before sale. Which of these five is the AI version?', x: CX0, y: 1.7, w: CW, h: 0.56 });
   const items = [
     // lettered, so a room of 200 can vote by letter
-    ['FaBrain', 'A · Interpretability', '= a brain scan', 'Read what a model’s dials mean. In 2024 Anthropic found a “Golden Gate Bridge” feature inside its AI.'],
-    ['FaUserShield', 'B · Oversight', '= a referee', 'A second AI checks the first one’s steps. OpenAI found it catches more cheating (2025).'],
-    ['FaCarCrash', 'C · Evaluations', '= crash tests', 'Test for dangerous skills before release, as the UK’s AI Security Institute does.'],
-    ['FaFireExtinguisher', 'D · Control', '= a fire drill', 'Assume the AI might misbehave: a weaker, trusted AI checks a stronger one’s work.'],
-    ['FaTrafficLight', 'E · Governance', '= traffic laws', 'Laws for companies, like the EU’s AI Act and California’s SB 53; deals between governments.'],
+    ['FaBrain', 'A · Interpretability', 'like a brain scan', 'Read what a model’s dials mean. In 2024 Anthropic found a “Golden Gate Bridge” feature inside its AI.'],
+    ['FaUserShield', 'B · Oversight', 'like a referee', 'A second AI checks the first one’s steps. OpenAI found it catches more cheating (2025).'],
+    ['FaCarCrash', 'C · Evaluations', 'like crash tests', 'Test for dangerous skills before release, as the UK’s AI Security Institute does.'],
+    ['FaFireExtinguisher', 'D · Control', 'like a fire drill', 'Assume the AI might misbehave: a weaker, trusted AI checks a stronger one’s work.'],
+    ['FaTrafficLight', 'E · Governance', 'like traffic laws', 'Laws for companies, like the EU’s AI Act and California’s SB 53; deals between governments.'],
   ];
   const cols = 3, gx = 0.2, gy = 0.14;
   const cw = (CW - (cols - 1) * gx) / cols, y0 = 2.34, ch = (6.5 - y0 - gy) / 2;
@@ -2143,8 +2414,8 @@ async function p4Approaches(d) {
     terms: 'interpretability = research that reads inside models. oversight = watching and checking what an AI does. evaluation = a test of what a model can do. control = safeguards that still work if the AI is not trustworthy. governance = laws, rules and agreements. EU AI Act = the European Union’s law on AI. SB 53 = a California state law on the most capable AI models. intent = what a system is trying to do. channel = here, a way for the two governments to handle AI-related problems.',
     ask: '“Cars are crash-tested before sale. Which of these five is the AI version?”',
     takeaway: 'There are many concrete approaches, none finished, and all of them need more people.',
-    caveats: 'Golden Gate Claude was a 24-hour public demo (May 2024). The UK AI Safety Institute was renamed the AI Security Institute on Feb 14, 2025 (gov.uk). The US–China channel was agreed after a summit; do not quote politicians on it. SB 53: the governor’s page (Sep 29, 2025) confirms the duty to publish a framework and describes a new way for companies and the public to report critical safety incidents; we did not check the bill text. AI Control: Greenblatt, Shlegeris, Sachan and Roger, “AI Control: Improving Safety Despite Intentional Subversion” (arXiv 2312.06942, v1 Dec 12, 2023; ICML 2024 version): a weaker trusted model (GPT-3.5) monitors and edits a stronger untrusted one (GPT-4), so the footer reads “2023; ICML 2024”; describe the idea only. Oversight: Baker et al., “Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation” (arXiv 2503.11926, Mar 14, 2025); the abstract says “CoT monitoring can be far more effective than monitoring agent actions and outputs alone”, and that with too much optimization “agents learn obfuscated reward hacking, hiding their intent within the CoT”; the paper’s first page lists every author as OpenAI (checked Oct 10, 2026), so the card says “OpenAI found”. The US–China channel: PBS/AP (Sep 26, 2026) says “a channel for handling AI-related incidents”. The European Commission link in SOURCES is the Commission’s guidance page for general-purpose AI providers under the AI Act, not the text of the Act itself. The US–China channel and the incident-reporting detail are in the notes only; the Governance card keeps to the laws and “deals between governments”.',
-    sources: ['https://www.anthropic.com/news/golden-gate-claude', 'https://arxiv.org/abs/2503.11926', 'https://www.gov.uk/government/news/tackling-ai-security-risks-to-unleash-growth-and-deliver-plan-for-change', 'https://www.aisi.gov.uk/blog/gpt-6-astra-performs-unsanctioned-supply-chain-attacks-in-simulations', 'https://arxiv.org/abs/2312.06942', 'https://digital-strategy.ec.europa.eu/en/policies/guidelines-gpai-providers', 'https://www.gov.ca.gov/2025/09/29/governor-newsom-signs-sb-53-advancing-californias-world-leading-artificial-intelligence-industry/', 'https://www.pbs.org/newshour/world/china-and-u-s-agree-to-establish-ai-safety-channel-and-continue-trade-and-military-talks'],
+    caveats: 'Golden Gate Claude was a 24-hour public demo (May 2024). The UK AI Safety Institute was renamed the AI Security Institute on Feb 14, 2025 (gov.uk). The US–China channel was agreed after a summit; do not quote politicians on it. SB 53: the governor’s page (Sep 29, 2025) confirms the duty to publish a framework and describes a new way for companies and the public to report critical safety incidents; we did not check the bill text. AI Control: Greenblatt, Shlegeris, Sachan and Roger, “AI Control: Improving Safety Despite Intentional Subversion” (arXiv 2312.06942, v1 Dec 12, 2023; ICML 2024 version): a weaker trusted model (GPT-3.5) monitors and edits a stronger untrusted one (GPT-4), so the footer reads “2023; ICML 2024”; describe the idea only. Oversight: Baker et al., “Monitoring Reasoning Models for Misbehavior and the Risks of Promoting Obfuscation” (arXiv 2503.11926, Mar 14, 2025); the abstract says “CoT monitoring can be far more effective than monitoring agent actions and outputs alone”, and that with too much optimization “agents learn obfuscated reward hacking, hiding their intent within the CoT”; the paper’s first page lists every author as OpenAI (checked Oct 10, 2026), so the card says “OpenAI found”. The US–China channel: PBS/AP (Sep 26, 2026) says “a channel for handling AI-related incidents”. The European Commission link in SOURCES is the Commission’s guidance page for general-purpose AI providers under the AI Act, not the text of the Act itself. The US–China channel and the incident-reporting detail are in the notes only; the Governance card keeps to the laws and “deals between governments”. Re-checked Nov 5, 2026 (secondary report, techpolicy.press, not opened at the source): on Oct 16 Anthropic circulated a draft federal AI safety bill that would override state laws including SB 53, critics called it weaker than a bipartisan House bill, and Anthropic said it would revise it; no new state AI law was enacted in October. Do not name bills or numbers on a slide without opening Congress.gov.',
+    sources: ['https://www.anthropic.com/news/golden-gate-claude', 'https://arxiv.org/abs/2503.11926', 'https://www.gov.uk/government/news/tackling-ai-security-risks-to-unleash-growth-and-deliver-plan-for-change', 'https://www.aisi.gov.uk/blog/gpt-6-astra-performs-unsanctioned-supply-chain-attacks-in-simulations', 'https://arxiv.org/abs/2312.06942', 'https://digital-strategy.ec.europa.eu/en/policies/guidelines-gpai-providers', 'https://www.gov.ca.gov/2025/09/29/governor-newsom-signs-sb-53-advancing-californias-world-leading-artificial-intelligence-industry/', 'https://www.pbs.org/newshour/world/china-and-u-s-agree-to-establish-ai-safety-channel-and-continue-trade-and-military-talks', 'https://www.techpolicy.press/october-2026-us-tech-policy-roundup/'],
   }, { title: 'Five approaches, and none is solved yet', source: 'new' });
   return s;
 }
@@ -2163,12 +2434,12 @@ async function p4Access(d) {
   const bad = [shape(d, s, 'LINE', { x: cx, y: cy + R + 0.03, w: 0, h: 0.26, line: { color: HEX.red, width: 3, endArrowType: 'triangle' } })];
   bad.push(d.rect(s, { x: CX0, y: cy + R + 0.32, w: lw, h: 0.54, rounded: true, rectRadius: 0.08, fill: { color: '2A0C0E' }, line: { color: HEX.red, width: 1.25 } }));
   bad.push(d.text(s, 'could also help someone cause harm', { x: CX0, y: cy + R + 0.32, w: lw, h: 0.54, fontSize: 18, bold: true, color: d.S.red, align: 'center', valign: 'middle' }));
-  const dual = d.text(s, [{ text: 'Dual-use ', options: { bold: true, color: d.S.amber } }, { text: '= useful for good and for harm.', options: { color: d.S.muted } }], { x: CX0, y: 4.78, w: lw, h: 0.36, fontSize: 16, valign: 'middle' });
+  const dual = d.text(s, [{ text: 'Dual-use: ', options: { bold: true, color: d.S.amber } }, { text: 'useful for good and for harm.', options: { color: d.S.muted } }], { x: CX0, y: 4.78, w: lw, h: 0.36, fontSize: 16, valign: 'middle' });
   const bal = d.text(s, 'Not “no safeguards”: it is still trained to refuse requests meant to help make a biological weapon.', { x: CX0, y: 5.16, w: lw, h: 0.6, fontSize: 16, italic: true, color: d.S.muted, valign: 'top' });
   const rx = 6.1, rw = CX1 - rx;
   const lab = label(d, s, 'THE SAFEGUARD: WHO GETS IT, NOT ONLY WHAT IT SAYS', { x: rx, y: 1.7, w: rw });
   const cards = [
-    ['FaExclamationTriangle', 'Rated high-risk', 'OpenAI rated its biology AI, GPT-Rosalind-5.5, “High” on its own risk scale for biology and chemistry (June 2026).'],
+    ['FaExclamationTriangle', 'Rated high-risk', 'OpenAI rated its biology AI, GPT-Rosalind-5.5, “High” on its own risk scale (June 2026). The newer Rosalind-6 (Oct 30) is rated High too.'],
     // says on the card why it is limited (it is trained to answer, not refuse), so it does not read as a contradiction of the
     // refusal line under the diagram
     ['FaUserCheck', 'Vetted users only', 'Trained to answer hard biology questions, not refuse them, so access is limited to approved scientists and government partners.'],
@@ -2196,16 +2467,16 @@ async function p4Access(d) {
   // the 20-second hands-up, on screen so a big room can see the three options
   const hq = await beatLine(d, s, { kind: 'hands', time: '20 SEC', q: 'Who should decide who gets it: the company, the government, or someone else?', x: CX0, y: 6.0, w: CW, h: 0.46, qSize: 16 });
   d.animate(s, hq, { effect: 'fade' });
-  src(d, s, 'Sources: OpenAI, GPT-Rosalind-5.5 System Card (Jun 3, 2026) · Anthropic (Aug 18, 2026)');
+  src(d, s, 'Sources: OpenAI, GPT-Rosalind-5.5 System Card (Jun 3, 2026) and GPT-Rosalind-6 addendum (Oct 30, 2026) · Anthropic (Aug 18, 2026)');
   addNotes(d, s, {
     min: 1.5, beat: 'quick hands up, 20 seconds: “Who should decide who gets a very powerful tool: the company, the government, or someone else?”',
     build: 'The diagram and its caveat appear on their own. Clicks 1–3: the three cards. Click 4: the hands-up question.',
-    say: 'Some AI tools are so good at science that they could help design new medicines, and the same skill could help someone cause harm. That is called dual-use. Such a model can still be trained to refuse requests meant to help make a biological weapon, a weapon made from germs, and OpenAI’s is. Labs add a second safeguard. (Click.) OpenAI rated its biology model “High” on its own risk scale. (Click.) It is trained to answer hard biology questions instead of refusing them, so OpenAI shares it only with approved scientists and government partners; it says it is not running automatic checkers that stop an unsafe answer as it is written, so limiting who can use it is the main safeguard. (Click.) Anthropic says protein design, using AI to design new molecules for medicine, and other dual-use biology stay out of general access. The safeguard shifts from “what will it say?” to “who can use it?”. (Click.) Hands up, 20 seconds: who should decide who gets a very powerful tool? The company… the government… someone else?',
+    say: 'Some AI tools are so good at science that they could help design new medicines, and the same skill could help someone cause harm. That is called dual-use. Such a model can still be trained to refuse requests meant to help make a biological weapon, a weapon made from germs, and OpenAI’s is. Labs add a second safeguard. (Click.) OpenAI rated its biology model “High” on its own risk scale, and its newer version, released on October 30, too. (Click.) It is trained to answer hard biology questions instead of refusing them, so OpenAI shares it only with approved scientists and government partners; for the June version, OpenAI said it was not running automatic checkers that stop an unsafe answer as it is written, so limiting who can use it was the main safeguard. And on November 5, OpenAI released a security model, GPT-6 Cyber, which it rates “Critical” for cybersecurity, only for vetted security teams: the same idea, for hacking skills. (Click.) Anthropic says protein design, using AI to design new molecules for medicine, and other dual-use biology stay out of general access. The safeguard shifts from “what will it say?” to “who can use it?”. (Click.) Hands up, 20 seconds: who should decide who gets a very powerful tool? The company… the government… someone else?',
     terms: 'dual-use = useful for both good and harmful purposes. safeguard = a protection. vetted = checked and approved. protein design = designing new molecules that living things use, important for medicine. risk scale = a company’s list of risk levels, from low to high. automated real-time blocking = automatic checkers that stop an unsafe answer while it is being written. bioweapon = a weapon made from germs or toxins (the idea only; no details).',
     ask: 'On the slide (hands up, 20 seconds): “Who should decide who gets it: the company, the government, or someone else?” (“it” = a very powerful tool like this one.) One hand-count per option; no right answer.',
     takeaway: 'Limiting who gets the most dangerous capabilities is one practical safety tool labs already use.',
-    caveats: 'No biology details and no numbers from the adult slide’s “uplift” studies here, on purpose. These facts trace to verified items in the adult deck’s research manifest: OpenAI’s GPT-Rosalind-5.5 system card (Jun 3, 2026): it “met our threshold for High capability” in biology and chemistry; it “is trained not to refuse sophisticated biology queries, and leverages a trusted access and responsible deployment structure as the primary safeguard”; “we are not deploying automated monitors for real-time blocking of potentially unsafe generations”; it is “trained to refuse malicious requests that would meaningfully enable biological weaponization”. Anthropic (Aug 18, 2026): protein design and other dual-use biology capabilities “remain unavailable for general access in Claude Fable 5”. Re-check both pages the week of the talk. Disclosure: this deck was built with Claude, made by Anthropic, one of the companies discussed.',
-    sources: ['https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf', 'https://www.anthropic.com/research/Claude-accelerates-protein-design'],
+    caveats: 'No biology details and no numbers from the adult slide’s “uplift” studies here, on purpose. These facts trace to verified items in the adult deck’s research manifest: OpenAI’s GPT-Rosalind-5.5 system card (Jun 3, 2026): it “met our threshold for High capability” in biology and chemistry; it “is trained not to refuse sophisticated biology queries, and leverages a trusted access and responsible deployment structure as the primary safeguard”; “we are not deploying automated monitors for real-time blocking of potentially unsafe generations”; it is “trained to refuse malicious requests that would meaningfully enable biological weaponization”. Anthropic (Aug 18, 2026): protein design and other dual-use biology capabilities “remain unavailable for general access in Claude Fable 5”. Re-checked Nov 5, 2026: Anthropic’s page is unchanged. OpenAI has since published a GPT-Rosalind-6 addendum (Oct 30): “we are treating this launch as High capability in the Biological and Chemical domain”, “available only to approved customers”, with automated monitors as one part of a four-part set of safeguards, so the “not running automatic checkers” line applies to the 5.5 card only (the script says “for the June version”). On Nov 5 OpenAI published GPT-6 Cyber, “a cyber-specialized variant of GPT-6 Astra designed for authorized security work”: access “is restricted through Daybreak Red” (its vetted-access program), rated Critical in Cybersecurity and High in Biological and Chemical. It links to the PHP slide in Part 3. Re-check deploymentsafety.openai.com the week of the talk. Disclosure: this deck was built with Claude, made by Anthropic, one of the companies discussed.',
+    sources: ['https://deploymentsafety.openai.com/gpt-rosalind-5-5/gpt-rosalind-5-5.pdf', 'https://deploymentsafety.openai.com/gpt-rosalind-6', 'https://deploymentsafety.openai.com/gpt-6-cyber', 'https://www.anthropic.com/research/Claude-accelerates-protein-design'],
     adultSlide: 105,
   }, { title: 'Some labs limit who gets the riskiest tools', source: 'adapted from geopolitics.accessSlide (adult 105)' });
   return s;
@@ -2247,8 +2518,8 @@ async function p4YouCanDo(d) {
     terms: 'coding = writing instructions for computers. statistics = using numbers to find patterns. ethics = ideas about right and wrong. psychology = the study of how people think and act. policy = the rules a government or organization follows. journalism = reporting the news. civic voice = taking part in public decisions, for example by writing to representatives or voting when you are old enough.',
     ask: '“Which of these could you picture yourself doing? Hands up for each.”',
     takeaway: 'You do not have to be a programmer to help: these problems need many kinds of people.',
-    caveats: 'Keep it hopeful and optional. Resources for curious older students (links in notes only, no QR codes), both written for adults, so suggest them only to grades 11–12: 80,000 Hours, an adult career-advice site, has a problem profile “Why AI risks are the world’s most pressing problems” and a career review “AI safety technical research” (both pages loaded Oct 10, 2026); BlueDot Impact’s course page (“Online AI safety courses and project sprints”) shows “Start for free” buttons, but its course list did not load for us, so check the courses and any age or cost rules yourself before suggesting it.',
-    sources: ['https://80000hours.org/problem-profiles/artificial-intelligence/', 'https://80000hours.org/career-reviews/ai-safety-technical-research/', 'https://bluedot.org/courses'],
+    caveats: 'Keep it hopeful and optional. Resources for curious older students (links in notes only, no QR codes), both written for adults, so suggest them only to grades 11–12: 80,000 Hours, an adult career-advice site, has a problem profile “Why AI risks are the world’s most pressing problems” and a career review “AI safety technical research” (both pages loaded Oct 10, 2026; re-checked Nov 5, 2026: titles unchanged, pages last modified Oct 16 and Oct 21). BlueDot Impact’s free 90-minute self-paced course “The Future of AI” needs no background (“No prerequisites or technical background required”); its cohort courses are aimed at professionals and state no age rule, so check before recommending them to under-18s. Its AGI Strategy course’s application deadline was Nov 8, before this class.',
+    sources: ['https://80000hours.org/problem-profiles/artificial-intelligence/', 'https://80000hours.org/career-reviews/ai-safety-technical-research/', 'https://bluedot.org/courses/future-of-ai', 'https://bluedot.org/llms.txt'],
     adultSlide: 116,
   }, { title: 'There is real work here, and it needs people', source: 'adapted from theory_slides.whatNowSlide (adult 116)' });
   return s;
@@ -2299,11 +2570,11 @@ async function qaSlide(d) {
   groups.forEach((g, i) => d.animate(s, g, { auto: true, effect: 'rise', after: i ? 120 : 0 }));
   d.animate(s, [close], { effect: 'fade' });
   addNotes(d, s, {
-    min: 8.0, beat: 'open Q&A (8 minutes)',
+    min: 7.0, beat: 'open Q&A (7 minutes)',
     build: 'The three prompts appear on their own. Click: the closing line (save it for the end).',
-    say: 'Open the floor. With up to 200 students, use a roving microphone or a runner who brings the microphone to each asker; if there is none, read questions from the paper slips that helpers handed out at the start of Part 4 and collected during slide 56. If nobody starts, use the first prompt: “What would change your mind about AI risk, in either direction?” Repeat each question so the whole room hears it. It is fine to say “I don’t know” or “experts disagree”. With two minutes left, ask everyone to think of one thing they will do this week (look something up, talk to someone about it, try checking a source). (Click.) Close with: “These are serious, unsolved problems, and people are working on them.”',
+    say: 'Open the floor. With up to 200 students, use a roving microphone or a runner who brings the microphone to each asker; if there is none, read questions from the paper slips that helpers handed out at the start of Part 4 and collected during slide 57 (“There is real work here”). If nobody starts, use the first prompt: “What would change your mind about AI risk, in either direction?” Repeat each question so the whole room hears it. It is fine to say “I don’t know” or “experts disagree”. With two minutes left, ask everyone to think of one thing they will do this week (look something up, talk to someone about it, try checking a source). (Click.) Close with: “These are serious, unsolved problems, and people are working on them.”',
     takeaway: 'Leave with a question and one small action, not with fear.',
-    extra: 'Likely questions and short answers: “Will AI take my job?” (it is changing many jobs; nobody knows exactly how; skills like checking, judging and working with people matter). “Is AI conscious?” (nobody knows; see the pain slide). “Can we just turn it off?” (A company can switch off systems it runs itself. Open-weight models, which anyone can download, cannot be recalled once they are out, so experts disagree about how to manage them. If asked about slide 48: in tests built to tempt them, some models resisted shutdown, which shows they can, not how often.) “Who decides the rules?” (companies, governments and international agreements; citizens have a voice).',
+    extra: 'Likely questions and short answers: “Will AI take my job?” (it is changing many jobs; nobody knows exactly how; skills like checking, judging and working with people matter). “Is AI conscious?” (nobody knows; see the pain slide). “Can we just turn it off?” (A company can switch off systems it runs itself. Open-weight models, which anyone can download, cannot be recalled once they are out, so experts disagree about how to manage them. If asked about the shutdown slide (“Dodging shutdown shows up across tests”, slide 49): in tests built to tempt them, some models resisted shutdown, which shows they can, not how often.) “Who decides the rules?” (companies, governments and international agreements; citizens have a voice).',
   }, { title: 'Questions, then one thing to do this week', source: 'new' });
   return s;
 }
@@ -2314,21 +2585,27 @@ async function qaSlide(d) {
 const slides = {
   titleSlide, hookSlide, roadmapSlide, partDivider,
   p2Cadence, p2Metr, p2MetrEvidence, p2Graveyard, p2Hle, p2Hero, p2RealQuestion, p2RealReveal, p2Code, p2Navier, p2Robot,
+  p2DcMap, p2Economy,
   p3HowToThink, p3Orthogonality, p3Convergence, p3CoastRunners, p3Loopholes, p3Astra, p3Explosion, p3Rsi,
-  p3HfOverview, p3HfSwarm, p3RogueWords, p3Shutdown, p3Counts, p3Recheck, p3Cais,
+  p3HfOverview, p3HfSwarm, p3Php2Shell, p3RogueWords, p3Shutdown, p3Counts, p3Recheck, p3Cais,
   p4Pain, p4Approaches, p4Access, p4YouCanDo, p4Reveal, qaSlide,
 };
 const DIVIDERS = {
-  1: { num: 1, kicker: 'PART 1 · HOW AI LEARNS', title: 'How does an AI learn?', body: 'Neural networks, the AI behind chatbots, and how the top AI companies train it.', min: 0.25, say: 'Part 1, 36 minutes: how today’s AI actually learns. No programming needed; analogies first.' },
-  2: { num: 2, kicker: 'PART 2 · HOW FAST IT IS MOVING', title: 'How fast is AI moving?', body: 'The evidence, with a named source for every number.', min: 0.5, say: 'Part 1 showed how AI is grown. Part 2, 20 minutes: how fast it is improving. Every number on these slides comes from a named source, and I will tell you whose measurement it is and how sure we can be.' },
-  3: { num: 3, kicker: 'PART 3 · WHY IT COULD GO WRONG', title: 'Why could it go wrong?', body: 'Why a smarter system is not automatically a safer one.', min: 0.5, say: 'Part 2 showed fast progress, and how hard it is to measure. Part 3, 30 minutes: why very capable AI could go wrong. We will cover the theory, then the evidence so far, and for every claim I will say how sure we are. Keep a calm tone: these are problems to solve, not reasons to panic.' },
-  4: { num: 4, kicker: 'PART 4 · WHAT WE CAN DO', title: 'What can we do about it?', body: 'Serious, unsolved problems, and people working on them.', min: 0.5, say: 'Part 3 ended with the people who build AI calling the worst risks a global priority. Part 4, 12 minutes, then 8 for questions: what researchers and labs are doing, one open question, and what you could do. Nothing here is solved, which is exactly why it matters who works on it. (If there is no roving microphone: helpers hand out paper slips now, so students can write questions during Part 4; collect them during slide 56.)' },
+  1: { num: 1, kicker: 'PART 1 · HOW AI LEARNS', title: 'How does an AI learn?', body: 'Neural networks, the AI behind chatbots, and how the top AI companies train it.', min: 0.25, say: 'Part 1, 37 minutes: how today’s AI actually learns. No programming needed; analogies first.' },
+  2: { num: 2, kicker: 'PART 2 · HOW FAST IT IS MOVING', title: 'How fast is AI moving?', body: 'The evidence, with a named source for every number.', min: 0.5, say: 'Part 1 showed how AI is grown. Part 2, 21 minutes: how fast it is improving, and the money and pushback around it. Every number on these slides comes from a named source, and I will tell you whose measurement it is and how sure we can be.' },
+  3: { num: 3, kicker: 'PART 3 · WHY IT COULD GO WRONG', title: 'Why could it go wrong?', body: 'Why a smarter system is not automatically a safer one.', min: 0.5, say: 'Part 2 showed fast progress, how hard it is to measure, and a world racing to build for it. Part 3, 29 minutes: why very capable AI could go wrong. We will cover the theory, then the evidence so far, and for every claim I will say how sure we are. Keep a calm tone: these are problems to solve, not reasons to panic.' },
+  4: { num: 4, kicker: 'PART 4 · WHAT WE CAN DO', title: 'What can we do about it?', body: 'Serious, unsolved problems, and people working on them.', min: 0.5, say: 'Part 3 ended with the people who build AI calling the worst risks a global priority. Part 4, 12 minutes, then 7 for questions: what researchers and labs are doing, one open question, and what you could do. Nothing here is solved, which is exactly why it matters who works on it. (If there is no roving microphone: helpers hand out paper slips now, so students can write questions during Part 4; collect them during “There is real work here, and it needs people”, slide 57.)' },
 };
 // Content slides of each part, in deck order. Each gets the kicker `PART n · <PART NAME> · k` (k = 1, 2, … within the part);
 // an entry { fn, kicker } gets its own kicker instead and is not counted (the open question in Part 4 is not an action).
 const ORDER = {
-  2: [p2Cadence, p2Metr, p2MetrEvidence, p2Graveyard, p2Hle, p2Hero, p2RealQuestion, p2RealReveal, p2Code, p2Navier, p2Robot],
-  3: [p3HowToThink, p3Orthogonality, p3Convergence, p3CoastRunners, p3Loopholes, p3Astra, p3Explosion, p3Rsi, p3HfOverview, p3HfSwarm, p3RogueWords, p3Shutdown, p3Counts, p3Recheck, p3Cais],
+  // Nov 5, 2026: p2MetrEvidence (“The ruler is running out of room”) and p2Code (“Google says 75% …”) left the build to
+  // make room for the two news slides at the end of Part 2; their key lines are now spoken on p2Metr. The functions stay.
+  2: [p2Cadence, p2Metr, p2Graveyard, p2Hle, p2Hero, p2RealQuestion, p2RealReveal, p2Navier, p2Robot, p2DcMap, p2Economy],
+  // Nov 5, 2026: p3Explosion (“AI that builds better AI”) and p3RogueWords (“AI agents, in their own words”) left the build;
+  // p3Rsi now opens with I. J. Good's loop, and p3HfSwarm says the agents' rule words. The PHP2Shell news slide takes the
+  // place of the “own words” slide, after the swarm.
+  3: [p3HowToThink, p3Orthogonality, p3Convergence, p3CoastRunners, p3Loopholes, p3Astra, p3Rsi, p3HfOverview, p3HfSwarm, p3Php2Shell, p3Shutdown, p3Counts, p3Recheck, p3Cais],
   // Part 4 opens with what researchers and labs do (it answers the divider's “What can we do about it?”), then the open
   // question about AI feelings, then what students can do.
   4: [p4Approaches, p4Access, { fn: p4Pain, kicker: 'PART 4 · AN OPEN QUESTION' }, p4YouCanDo],

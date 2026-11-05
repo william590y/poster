@@ -1,0 +1,557 @@
+{
+ "title": "US data-center moratoriums by state",
+ "as_of": "2026-11-05",
+ "tracker": {
+  "name": "Electric Choice - Data Center Moratoriums (Eisenbach Consulting)",
+  "url": "https://www.electricchoice.com/datacenters/moratoriums/",
+  "tracker_updated": "2026-10-15",
+  "note": "Categories are this deck's own reading of the tracker's per-state rows (statewide action, bills, local actions), cross-checked on a sample of 9 entries (NY, TX, OR, VA, ME, MD, NJ, WA, DC) against news and law-firm sources. Tracker has internal inconsistencies (its 46 state counts sum to 679, not its headline 575)."
+ },
+ "categories": {
+  "statewide_pause": "Statewide pause in effect (governor order; limited scope)",
+  "local_and_state_bill": "Local moratoriums and a statewide moratorium bill, plan or veto",
+  "local_only": "Local moratoriums or bans only (state action, if any, is not a pause)",
+  "state_bill_only": "Statewide bill or proposal only (no local moratorium tracked)",
+  "none_found": "None found"
+ },
+ "counts": {
+  "local_only": 27,
+  "none_found": 5,
+  "local_and_state_bill": 13,
+  "statewide_pause": 3,
+  "state_bill_only": 3
+ },
+ "states_with_any_tracked_item": 46,
+ "states": [
+  {
+   "abbr": "AL",
+   "name": "Alabama",
+   "category": "local_only",
+   "description": "Six city moratoriums (Leeds, Homewood and others, Aug 2026); Birmingham zoning limits. A state bill (SB 270) asks for utility-commission review, not a pause.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "AK",
+   "name": "Alaska",
+   "category": "none_found",
+   "description": "Nothing found on the tracker (as of Oct 15, 2026).",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "AZ",
+   "name": "Arizona",
+   "category": "local_only",
+   "description": "Local limits: Pima County 120-day pause (Sep 22, 2026); Tucson rezoning rule; Hualapai Tribe ban (Sep 14). State paused data-center sales-tax breaks (Jun 13) - a tax change, not a construction pause.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "AR",
+   "name": "Arkansas",
+   "category": "local_only",
+   "description": "Local moratoriums in Benton, Carroll, Independence, Madison, Russellville and Union counties/cities (2026).",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "CA",
+   "name": "California",
+   "category": "local_only",
+   "description": "Local pauses (LA County interim ban Sep 17, 2026; Gilroy, Morgan Hill, Richmond, Mendocino 45-day). State signed seven data-center bills Sep 21, 2026 - cost and permitting rules, not moratoriums.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "CO",
+   "name": "Colorado",
+   "category": "local_only",
+   "description": "Denver 1-year moratorium (to May 2027); Broomfield 18 months (Jul 2026); Commerce City 6 months (Sep 21, 2026).",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "CT",
+   "name": "Connecticut",
+   "category": "local_and_state_bill",
+   "description": "Local: Morris, West Haven, Trumbull (Sep 9, 2026) pauses. A statewide bill (SB 245) failed per the tracker.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "DE",
+   "name": "Delaware",
+   "category": "local_and_state_bill",
+   "description": "Local: New Castle and Kent County siting limits (2026). A statewide moratorium bill (SB 353) stalled.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "DC",
+   "name": "District of Columbia",
+   "category": "none_found",
+   "description": "No DC moratorium found. The tracker lists no DC entry; searches found only neighbouring Maryland actions (Nov 5, 2026 check).",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [
+    "https://www.bisnow.com/news/washington-dc/data-center-community-relations/montgomery-county-halts-data-center-permits-135592"
+   ],
+   "cross_checked": true,
+   "verified": true
+  },
+  {
+   "abbr": "FL",
+   "name": "Florida",
+   "category": "local_only",
+   "description": "Many local actions: Walton and Jackson permanent bans, Marion 12-month (Sep 15, 2026), Levy to Sep 2027. State laws (HB 7031, SB 484) in force are not moratoriums.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "GA",
+   "name": "Georgia",
+   "category": "local_and_state_bill",
+   "description": "Local: Savannah and Chatham 155-day pauses (Aug-Sep 2026), Americus, Atlanta-area bans. Several statewide moratorium bills failed or are pending.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "HI",
+   "name": "Hawaii",
+   "category": "none_found",
+   "description": "Nothing found on the tracker (as of Oct 15, 2026).",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "ID",
+   "name": "Idaho",
+   "category": "local_only",
+   "description": "Bannock County 180-day pause (Jul 30, 2026); Kootenai County bans in some zones.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "IL",
+   "name": "Illinois",
+   "category": "local_only",
+   "description": "Local: Lawrence 2-year (Sep 16, 2026), Champaign, Bloomington, Normal and others. State paused a data-center tax-incentive program (Jul 1) - not a construction pause.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "IN",
+   "name": "Indiana",
+   "category": "local_only",
+   "description": "About a third of counties restrict data centers; Indianapolis through Dec 2027 (Aug 19, 2026); Marshall County permanent ban.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "IA",
+   "name": "Iowa",
+   "category": "local_only",
+   "description": "Local: Dubuque (city 6-month, county 1-year), Linn, Woodbury, Johnson and other counties (2026).",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "KS",
+   "name": "Kansas",
+   "category": "local_only",
+   "description": "Eight local moratoriums in rural western counties (tracker; names not given).",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "KY",
+   "name": "Kentucky",
+   "category": "local_only",
+   "description": "Local: Louisville 6-month (Aug 14, 2026), Woodford permanent ban (Sep 8), Lexington, others. Governor Beshear order (Aug 6) steers permits - not a moratorium.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "LA",
+   "name": "Louisiana",
+   "category": "local_only",
+   "description": "New Orleans 1-year interim zoning (Jan 2026). Governor Landry order (Jun 25) conditions tax incentives - not a moratorium.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "ME",
+   "name": "Maine",
+   "category": "local_and_state_bill",
+   "description": "Legislature passed a statewide moratorium (Apr 14, 2026); Governor Mills vetoed it (Apr 24) and the override failed. Bangor 180-day freeze extended Sep 29.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [
+    "https://www.thestar.com.my/tech/tech-news/2026/04/25/factbox-a-dozen-us-states-weigh-data-center-curbs-maine-governor-vetoes-bill"
+   ],
+   "cross_checked": true,
+   "verified": true
+  },
+  {
+   "abbr": "MD",
+   "name": "Maryland",
+   "category": "local_and_state_bill",
+   "description": "Local: Montgomery County 18-month (Jul 28, 2026), Prince George's, Baltimore City and County, Harford permanent ban. A statewide bill sits in committee.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [
+    "https://www.bisnow.com/news/washington-dc/data-center-community-relations/montgomery-county-halts-data-center-permits-135592"
+   ],
+   "cross_checked": true,
+   "verified": true
+  },
+  {
+   "abbr": "MA",
+   "name": "Massachusetts",
+   "category": "local_only",
+   "description": "Local: Lowell 360-day (Mar 2026), Greenfield 1-year (Sep 17). Governor order (Sep 8) requires community approval for 25 MW+ state permits - not a pause.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "MI",
+   "name": "Michigan",
+   "category": "local_and_state_bill",
+   "description": "Local: Flint 12-month, Lansing 182-day, Ypsilanti (Jun-Aug 2026). Six statewide bills in committee.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "MN",
+   "name": "Minnesota",
+   "category": "local_and_state_bill",
+   "description": "Minneapolis moratorium approved Jun 25, 2026. A statewide bill (HF 4888) is in committee.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "MS",
+   "name": "Mississippi",
+   "category": "local_only",
+   "description": "Jackson 183-day moratorium (Jul 14, 2026).",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "MO",
+   "name": "Missouri",
+   "category": "local_only",
+   "description": "Local: St. Charles city permanent ban (May 19, 2026), Jackson County 180-day, Springfield 120-day and others.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "MT",
+   "name": "Montana",
+   "category": "local_only",
+   "description": "Missoula County 1-year moratorium (Jul 9, 2026).",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "NE",
+   "name": "Nebraska",
+   "category": "local_only",
+   "description": "About 12 county moratoriums. Governor Pillen ended one tax incentive for new applicants (Jul 15, 2026) - not a pause.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "NV",
+   "name": "Nevada",
+   "category": "local_only",
+   "description": "Reno extended into 2027; Nye County ban in Pahrump Valley (Aug 2026). Governor order (Sep 2026) sets conditions on tax abatements - not a moratorium.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "NH",
+   "name": "New Hampshire",
+   "category": "local_and_state_bill",
+   "description": "Local: Nottingham 12-month (Sep 9, 2026), Rochester bans. Governor Ayotte says she plans a statewide multi-year moratorium for 2027 (not enacted).",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "NJ",
+   "name": "New Jersey",
+   "category": "local_only",
+   "description": "Dozens of towns ban or limit data centers (counts differ: ~35 to 90+ by source). Jersey City barred them from industrial land (Aug 2026). Advocates want a statewide moratorium; none enacted.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [
+    "https://www.6sqft.com/jersey-city-bans-data-centers-on-industrial-land/"
+   ],
+   "cross_checked": true,
+   "verified": true
+  },
+  {
+   "abbr": "NM",
+   "name": "New Mexico",
+   "category": "local_and_state_bill",
+   "description": "Local: Rio Communities 18-month, Colfax County and others. A statewide moratorium is proposed for the 2027 session.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "NY",
+   "name": "New York",
+   "category": "statewide_pause",
+   "description": "Governor Hochul's Executive Order 62 (Jul 14, 2026) pauses state environmental permits for data centers of 50 MW or more for up to a year. Local approvals and some uses (manufacturing, research, education, medical) are not covered.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [
+    "https://www.bdlaw.com/publications/new-york-enacts-first-statewide-moratorium-on-data-centers/",
+    "https://siliconangle.com/2026/07/14/new-york-becomes-first-us-state-impose-data-center-moratorium/"
+   ],
+   "cross_checked": true,
+   "verified": true
+  },
+  {
+   "abbr": "NC",
+   "name": "North Carolina",
+   "category": "local_and_state_bill",
+   "description": "Local: Charlotte 150-day (Jun 2026), Durham to May 2027, Greensboro, Cary, Asheville. Statewide proposals pending; state repealed a sales-tax break (Jul 7, 2026).",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "ND",
+   "name": "North Dakota",
+   "category": "local_only",
+   "description": "Seven local moratoriums near Applied Digital campuses (2026).",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "OH",
+   "name": "Ohio",
+   "category": "local_only",
+   "description": "Local: Cincinnati through end of 2026, Cleveland 3-month (Jul 15, 2026). Governor DeWine paused new sales-tax-exemption requests (May 27) - not a construction pause.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "OK",
+   "name": "Oklahoma",
+   "category": "local_and_state_bill",
+   "description": "Oklahoma City moratorium (Apr 21, expires Dec 31, 2026). A statewide moratorium bill (SB 1488, to 2029) failed to advance.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "OR",
+   "name": "Oregon",
+   "category": "statewide_pause",
+   "description": "Governor Kotek paused state-land requests for data centers (Sep 8, 2026), then told regulators to stop issuing air and water pollution permits for new or expanding data centers until July 2027 (Oct 13). She says only the Legislature can ban private development.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [
+    "https://www.opb.org/article/2026/10/13/oregon-data-centers-technology-amazon-tina-kotek/"
+   ],
+   "cross_checked": true,
+   "verified": true
+  },
+  {
+   "abbr": "PA",
+   "name": "Pennsylvania",
+   "category": "local_and_state_bill",
+   "description": "Local: Gregg Township 180-day (Aug 2026). Governor Shapiro order (Aug 18) adds requirements for 25 MW+. A state senator plans a statewide moratorium bill; House passed local pause powers (HB 2496).",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "RI",
+   "name": "Rhode Island",
+   "category": "local_only",
+   "description": "Permanent local bans: Smithfield (May 5, 2026), Charlestown (Aug 12), Cumberland (Sep 16).",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "SC",
+   "name": "South Carolina",
+   "category": "local_and_state_bill",
+   "description": "Local: Spartanburg 1-year, Greenwood, Chesterfield, Newberry, Colleton pauses. A statewide bill (H 5286) did not advance.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "SD",
+   "name": "South Dakota",
+   "category": "state_bill_only",
+   "description": "Disclosure and cost laws enacted; a statewide moratorium bill (SB 232) was tabled. No local moratorium tracked.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "TN",
+   "name": "Tennessee",
+   "category": "local_only",
+   "description": "Local: Nashville through Dec 1, 2026, Knoxville 1-year (Jul 8), Knox County, Anderson, Coffee. State passed a cost-responsibility law.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "TX",
+   "name": "Texas",
+   "category": "statewide_pause",
+   "description": "Governor Abbott halted new grid-connection approvals in the ERCOT grid pending an audit (Aug 3, 2026) and told TCEQ to issue no data-center permits (Sep 21). Critics say it falls short of a true moratorium; on-site-power projects and areas outside ERCOT are not covered.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [
+    "https://www.route-fifty.com/artificial-intelligence/2026/08/data-center-approvals-texas-halted-until-audits-completed-gov-greg-abbott-says/415194/",
+    "https://gov.texas.gov/news/post/governor-abbott-directs-tceq-to-halt-data-center-permits"
+   ],
+   "cross_checked": true,
+   "verified": true
+  },
+  {
+   "abbr": "UT",
+   "name": "Utah",
+   "category": "local_only",
+   "description": "Box Elder and Cache County 180-day pauses (Jun 2026). Governor Cox order (May 29) creates a review framework - not a pause.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "VT",
+   "name": "Vermont",
+   "category": "state_bill_only",
+   "description": "Bill S.205 would pause data centers until 2030; in committee. No local moratorium tracked.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "VA",
+   "name": "Virginia",
+   "category": "state_bill_only",
+   "description": "Governor Spanberger signed Executive Order 22 (Sep 18, 2026): NDA ban, task force; ending by-right approval for 25 MW+ is a proposal for 2027. Statewide moratorium bills carried to 2027; state law limits local blanket moratoriums.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [
+    "https://virginiamercury.com/2026/09/18/spanberger-presents-slate-of-data-center-regulation-proposals-puts-first-directives-in-motion/"
+   ],
+   "cross_checked": true,
+   "verified": true
+  },
+  {
+   "abbr": "WA",
+   "name": "Washington",
+   "category": "local_only",
+   "description": "Seattle 1-year moratorium (Jun 9, 2026), Spokane 1-year, Spokane County, Snohomish and others.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [
+    "https://www.knkx.org/2026-06-05/seattle-city-council-votes-to-move-forward-with-data-center-moratorium"
+   ],
+   "cross_checked": true,
+   "verified": true
+  },
+  {
+   "abbr": "WV",
+   "name": "West Virginia",
+   "category": "none_found",
+   "description": "Nothing found on the tracker (as of Oct 15, 2026).",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "WI",
+   "name": "Wisconsin",
+   "category": "local_only",
+   "description": "Local: Madison 12-month (Jan 2026), Superior, Manitowoc County, Oshkosh (Sep 17) and others.",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  },
+  {
+   "abbr": "WY",
+   "name": "Wyoming",
+   "category": "none_found",
+   "description": "Nothing found on the tracker (as of Oct 15, 2026).",
+   "source_url": "https://www.electricchoice.com/datacenters/moratoriums/",
+   "cross_check_urls": [],
+   "cross_checked": false,
+   "verified": true
+  }
+ ]
+}

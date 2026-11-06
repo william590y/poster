@@ -178,6 +178,8 @@ def main(deck):
     zin = zipfile.ZipFile(deck)
     zout = zipfile.ZipFile(tmp, 'w', zipfile.ZIP_DEFLATED)
     for info in zin.infolist():
+        if info.filename.endswith('/'):
+            continue   # folder entries: valid ZIP, but some cloud drives fail to open a .pptx that has them
         data = zin.read(info.filename)
         if info.filename.startswith('ppt/media/'):
             data = optimize_image(info.filename, data)

@@ -1,7 +1,7 @@
 // Assemble the Cornell Splash deck: M1237 "AI Alignment and Safety" (William Liaw · Sat Nov 21, 2026 · 110 min).
 //   node tools/build_splash.js build/splash/AI_Alignment_and_Safety_Splash.pptx      (./build_splash.sh does the rest)
 //
-// Order (110 minutes): Opening + Part 1 (tools/slides_splash_ml.js, 41 min) · Part 2 How fast (21) · Part 3 Why it could
+// Order (110 minutes): Opening + Part 1 (tools/slides_splash_ml.js, 3 + 36 min) · Part 2 How fast (21) · Part 3 Why it could
 // go wrong (29) · Part 4 What we can do (12) · Q&A (7). Parts 2–4, the dividers and Q&A come from tools/slides_splash_extra.js,
 // which re-uses adult-deck slide functions (each adult module exports `slides`) with Splash kickers, titles and notes.
 // Also writes <out dir>/run_of_show.md (slide, class clock, minutes, beats) and prepends "SLIDE n · CLOCK" to every note.
@@ -64,9 +64,9 @@ async function openingAndPart1(d) {
   if (firstP1) {
     ml.slides[firstP1] = async (dd, ...a) => {
       dd.sectionStart('Part 1 · How AI learns');
-      // 0 minutes: the roadmap has just introduced Part 1, so this is a one-line, few-second transition. (The LLM and
-      // frontier-model definitions it used to carry are said where the words first come up, on slides 13 and 16.)
-      X.slides.partDivider(dd, { ...X.DIVIDERS[1], min: 0, say: 'Let’s start. Part 1, 37 minutes: how today’s AI actually learns. (A few seconds, with no minutes of its own in the plan: click straight on. The terms LLM and frontier model are defined where they first come up, on slides 13 and 16.)' });
+      // 0.25 minutes (Nov 6 pacing pass): the roadmap has just introduced Part 1, so this is a one-line transition. (The LLM
+      // and frontier-model definitions are said where the words first come up.)
+      X.slides.partDivider(dd, { ...X.DIVIDERS[1], min: 0.25, say: 'Part 1, 36 minutes: how today’s AI actually learns, one idea per slide. (About 15 seconds: click straight on. The terms LLM and frontier model are defined where they first come up, on “Text AI writes left to right, a word at a time” and “Making a chatbot: lecture, examples, homework”.)' });
       return fn(dd, ...a);
     };
   } else {

@@ -9,10 +9,12 @@ clips, embedded YouTube videos and speaker notes on every slide), plus an intera
 > here. **Download the full deck from the [`ai-safety-deck` release](https://github.com/william590y/poster/releases/tag/ai-safety-deck).**
 > The web version re-encodes every clip as H.264/VP9 video (~2 MB each).
 
-> **Cornell Splash version.** A 110-minute, 59-slide, grades 7–12 deck built from this one (class M1237 “AI Alignment and
-> Safety”, Nov 21, 2026), with its own no-math Part 1 on how AI learns and Nov 2026 news slides (updated Nov 5, 2026):
-> `./build_splash.sh` → `AI_Alignment_and_Safety_Splash.pptx` (about 102 MB, so share it by link). Presenter guide, run of
-> show, what changed and what to cut: [`SPLASH.md`](SPLASH.md).
+> **Cornell Splash version.** A 110-minute, 160-slide, grades 7–12 deck built from this one (class M1237 “AI Alignment
+> and Safety”, Nov 21, 2026), paced at about 1.5 slides a minute (updated Nov 6, 2026), with its own no-math Part 1 on
+> how AI learns, Nov 2026 news slides and more adult-deck material adapted for ages 12–17: `./build_splash.sh` →
+> `AI_Alignment_and_Safety_Splash.pptx` (about 137 MB, so share it by link; `python3 tools/make_review_copy.py` makes a
+> 20 MB review copy that can be emailed). Presenter guide, run of show, what changed and what to cut:
+> [`SPLASH.md`](SPLASH.md).
 
 Built from William Liaw's one-page outline (`assets/original/outline.pptx`), expanded into five acts:
 

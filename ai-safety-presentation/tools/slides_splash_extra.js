@@ -2610,11 +2610,16 @@ const ORDER = {
   // question about AI feelings, then what students can do.
   4: [p4Approaches, p4Access, { fn: p4Pain, kicker: 'PART 4 · AN OPEN QUESTION' }, p4YouCanDo],
 };
+// Nov 6, 2026 (the 1.5-slides-a-minute pass): Part 4 and the Q&A can live in tools/slides_splash_p4.js, so Part 4 can be
+// edited apart from Parts 2-3. When that file exports ORDER4 / DIVIDER4 / reveal / qaSlide they replace the ones here
+// (required lazily, inside part(), because it requires this file for its helpers).
+function p4ext() { try { return require('./slides_splash_p4'); } catch (e) { if (e.code === 'MODULE_NOT_FOUND' && /slides_splash_p4/.test(e.message)) return null; throw e; } }
 async function part(d, n) {
   if (n === 0) { titleSlide(d); await hookSlide(d); await roadmapSlide(d); return; }
-  if (n === 5) { await qaSlide(d); return; }
-  partDivider(d, DIVIDERS[n]);
-  const fns = ORDER[n] || [];
+  const ext = n >= 4 ? p4ext() : null;
+  if (n === 5) { await ((ext && ext.qaSlide) || qaSlide)(d); return; }
+  partDivider(d, (n === 4 && ext && ext.DIVIDER4) || DIVIDERS[n]);
+  const fns = (n === 4 && ext && ext.ORDER4) || ORDER[n] || [];
   try {
     let k = 0;
     for (const e of fns) {
@@ -2622,7 +2627,7 @@ async function part(d, n) {
       await (e.fn || e)(d);
     }
   } finally { d._splashKicker = null; }
-  if (n === 4) p4Reveal(d);
+  if (n === 4) ((ext && ext.reveal) || p4Reveal)(d);
 }
 async function build(d) { for (const n of [0, 2, 3, 4, 5]) await part(d, n); }
 
